@@ -1,0 +1,2676 @@
+{
+ "paper": "PAPER-BHATT-MORROW-SCHOLZE-18",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Integral p-adic Hodge theory",
+  "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+  "venue": "Publications Mathématiques de l'IHÉS 128 (2018), 219–397",
+  "doi": "10.1007/s10240-019-00102-z",
+  "arxiv": "1602.03148",
+  "url": "https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00102-z/",
+  "version": "arXiv v3 (15 January 2019, 124 pages, 'minor updates, final version'), read in full from its TeX source, and the published article (Publ. Math. IHÉS 128, pp. 219–397, open access on Centre Mersenne), compared with it: the 237 numbered statements agree in number and kind, and every recorded misprint was checked in both. Locators give the published page numbers.",
+  "readSections": [
+   "§1 Introduction",
+   "§2 Some examples",
+   "§3 Algebraic preliminaries on perfectoid rings",
+   "§4 Breuil–Kisin–Fargues modules",
+   "§5 Rational p-adic Hodge theory",
+   "§6 The Lη-operator",
+   "§7 Koszul complexes",
+   "§8 The complex Ω̃_𝔛",
+   "§9 The complex AΩ_𝔛",
+   "§10 The relative de Rham–Witt complex",
+   "§11 The comparison with de Rham–Witt complexes",
+   "§12 The comparison with crystalline cohomology over A_crys",
+   "§13 Rational p-adic Hodge theory, revisited",
+   "§14 Proof of main theorems",
+   "References"
+  ],
+  "accessed": "2026-09-22",
+  "artifacts": [
+   {
+    "url": "https://arxiv.org/pdf/1602.03148v3",
+    "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+    "read": "all 124 pages (text) for numbering and comparison"
+   },
+   {
+    "url": "https://arxiv.org/e-print/1602.03148v3",
+    "sha256": "ff989b40b0864ed79933382c3cc018c0fa1c119bbe50188ece1ea6fc262b5aa4",
+    "read": "complete TeX source integralpadicHodge.tex (5932 lines) and integralpadicHodge.bbl"
+   },
+   {
+    "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf",
+    "sha256": "a924d36c8ef92888d9739011f8cc6675f846544c88edb9f670c7ecf2052702bb",
+    "read": "pp. 219–397: page numbers of all statements, and the text at every recorded misprint"
+   }
+  ]
+ },
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "atlasChecked": "adc5940 (tauceti-explorer main, 22 September 2026)",
+  "note": "Library citations read at the pinned commit: Mathlib/RingTheory/Perfectoid/FontaineTheta.lean:165 (WittVector.fontaineTheta : 𝕎 R♭ →+* R, defined for any ring R; fontaineTheta_teichmuller at line 182; surjective_fontaineTheta at line 195, assuming p is not a unit, R p-adically complete and Frobenius surjective on R/p), Mathlib/RingTheory/Perfection.lean (PreTilt), Mathlib/RingTheory/WittVector/Defs.lean (WittVector). Neither library defines perfectoid rings, θ_r, A_crys, Lη, Koszul complexes of commuting endomorphisms, Breuil–Kisin(–Fargues) modules, the pro-étale site, de Rham–Witt complexes or coherent rings (declaration index searched for Perfectoid, Tilt, Witt, Koszul, Decalage, Kisin, Fargues, Crystal, DeRham, Coherent, PDEnvelope). Mathlib's groupCohomology uses standard cochains, not Koszul complexes."
+ },
+ "summary": "Bhatt, Morrow and Scholze construct, for a proper smooth formal scheme 𝔛 over O_C, a perfect A_inf-complex RΓ_{A_inf}(𝔛) = RΓ(𝔛, AΩ_𝔛) with AΩ_𝔛 = Lη_μRν_*A_inf,X, whose cohomology groups are Breuil–Kisin–Fargues modules and which specializes to crystalline cohomology of the special fibre, de Rham cohomology, crystalline cohomology over A_crys and étale cohomology of the generic fibre (Theorems 1.8, 1.10). The décalage Lη turns Faltings' almost purity into honest quasi-isomorphisms; locally AΩ is a q-de Rham complex (Theorem 1.17), and its Witt-vector specializations are the relative de Rham–Witt complexes of Langer–Zink (§11). Consequences: for proper smooth formal O_K-schemes the torsion in H^i_crys bounds that in H^i_et, and if H^i_crys and H^{i+1}_crys are torsion-free, H^i_crys is recovered from the Galois lattice via Kisin's modules (Theorem 1.1); over C one recovers it via Fargues' classification and a new B_dR^+-cohomology of proper smooth rigid spaces, which also gives degeneration of the Hodge–Tate spectral sequence (Theorem 1.7). §2 gives two surfaces showing the torsion inequality is sharp and not a subquotient relation. The atlas already plans this material: AInfCohomology AI.0–AI.5 and AI.7 are built on BMS1 (§§3–4, 6–12, 14), CohomologyComparisons CP.2, CP.3 and CP.5 on Theorems 1.1, 1.7 and §§13–14, and CrystallineCohomology CR.4 on its use of Langer–Zink. So BMS1 becomes a source of those layers: its main results are planned, and its supporting lemmas are routed to the layers that use them, with small inputs to PerfectoidQuotients Q0, FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4, CrystallineCohomology CR.3 and PadicHodgeTheory P8. No Part II or new roadmap is needed. Eighteen misprints are recorded, all present in the published version; no error or gap was found.",
+ "items": [
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/001",
+   "kind": "theorem",
+   "name": "Theorem 1.1(i): crystalline comparison for proper smooth formal O_K-schemes",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k and ring of integers O_K, let 𝔛 be a proper smooth formal scheme over O_K, let C be a completed algebraic closure of K and 𝔛_C the geometric rigid-analytic generic fibre, and fix i ≥ 0. There is a comparison isomorphism H^i_et(𝔛_C, Z_p) ⊗_{Z_p} B_crys ≅ H^i_crys(𝔛_k/W(k)) ⊗_{W(k)} B_crys, compatible with the G_K-actions, the Frobenius and the filtrations (after extending scalars to B_dR). In particular H^i_et(𝔛_C, Q_p) is a crystalline G_K-representation.",
+   "locator": "Theorem 1.1(i), p. 221; Theorem 14.6(i), p. 394",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.2"
+   ],
+   "note": "CP.2 names BMS1 Theorem 1.1(i) and §§12–14 as its source. The proof combines Theorem 14.5(i) (item 006), the Berthelot–Ogus-type Proposition 13.21 (item 189) and the compatibility of Theorem 13.1 with Scholze's de Rham comparison (item 018)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/002",
+   "kind": "theorem",
+   "name": "Theorem 1.1(ii): crystalline torsion bounds étale torsion",
+   "statement": "In the situation of Theorem 1.1, for all n ≥ 0, length_{W(k)}(H^i_crys(𝔛_k/W(k))_tor/p^n) ≥ length_{Z_p}(H^i_et(𝔛_C, Z_p)_tor/p^n). In particular, if H^i_crys(𝔛_k/W(k)) is p-torsion-free then so is H^i_et(𝔛_C, Z_p).",
+   "locator": "Theorem 1.1(ii), p. 221; Theorem 14.6(ii), p. 394",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "note": "CP.5 states this inequality from AI.5's BKF linear algebra (Corollary 4.15, item 070). The converse implication is false (Theorem 2.1, item 023)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/003",
+   "kind": "theorem",
+   "name": "The mod p de Rham bound for étale cohomology",
+   "statement": "In the situation of Theorem 1.1, dim_k H^i_dR(𝔛_k) ≥ dim_{F_p} H^i_et(𝔛_C, F_p) for every i.",
+   "locator": "§1.2, inequality (1), p. 221",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "note": "Follows from Theorem 1.1(ii) in degrees i and i+1 and the universal coefficient sequences for H^*_crys ⊗^L k = H^*_dR(𝔛_k) and H^*_et(−, Z_p) ⊗^L F_p. CP.5: 'Prove the mod-p de Rham dimension bound'. Theorem 2.10 and Remark 2.11 show it can be strict."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/004",
+   "kind": "theorem",
+   "name": "Theorem 1.1(iii): recovering crystalline cohomology from étale cohomology",
+   "statement": "In the situation of Theorem 1.1 assume that H^i_crys(𝔛_k/W(k)) and H^{i+1}_crys(𝔛_k/W(k)) are p-torsion-free. Then H^i_et(𝔛_C, Z_p) is a lattice in a crystalline G_K-representation, and Kisin's finite free Breuil–Kisin module BK(H^i_et(𝔛_C, Z_p)) over 𝔖 = W(k)[[T]] (Theorem 4.4) satisfies BK(H^i_et(𝔛_C, Z_p)) ⊗_𝔖 W(k) = H^i_crys(𝔛_k/W(k)) as φ-stable submodules of their common base extension to W(k)[1/p], where 𝔖 → W(k) sends T to 0 and is the Frobenius on W(k). The identification of base extensions comes from BK ⊗_𝔖 B_crys^+ ≅ H^i_crys(𝔛_k/W(k)) ⊗_{W(k)} B_crys^+ (Proposition 4.34 and part (i)).",
+   "locator": "Theorem 1.1(iii) and the paragraph after Remark 1.3, pp. 221–223; Theorem 14.6(iii), p. 394",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "note": "CP.5 keeps the torsion-freeness hypotheses in degrees i and i+1 and uses 'the actual Kisin/BKF comparison' (Proposition 4.34, item 061). The proof is Theorem 14.5(iii) (item 008) plus Proposition 4.34."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/005",
+   "kind": "theorem",
+   "name": "Enriques surfaces in characteristic 2 have nonzero H^1_dR",
+   "statement": "Let S_k be an Enriques surface over a perfect field k of characteristic 2 which lifts to a proper smooth scheme over the ring of integers of a complete discretely valued extension of W(k)[1/p] (every Enriques surface does, by Ekedahl and Liedtke). Then H^1_dR(S_k/k) ≠ 0.",
+   "locator": "Remark 1.2, p. 222",
+   "status": "missing",
+   "note": "Proof: the geometric generic fibre S_C is an Enriques surface with π_1 = Z/2, so H^1_et(S_C, F_2) ≅ F_2, and inequality (1) (item 003) forces H^1_dR(S_k) ≠ 0. Illusie had observed this by classification ([Illusie 1979, Corollaire 7.3.4(a)]). The lifting theorem is a cited input (Liedtke 2015)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/006",
+   "kind": "theorem",
+   "name": "Theorem 14.5(i): crystalline comparison over O_C and the B_dR^+-lattice",
+   "statement": "Let C be a complete algebraically closed extension of Q_p with ring of integers O and residue field k, 𝔛 a proper smooth formal scheme over O with generic fibre X, and i ≥ 0. There is a canonical isomorphism H^i_crys(𝔛_{O/p}/A_crys) ⊗_{A_crys} B_crys ≅ H^i_et(X, Z_p) ⊗_{Z_p} B_crys, compatible with the isomorphism H^i_crys(X/B_dR^+) ⊗_{B_dR^+} B_dR ≅ H^i_et(X, Z_p) ⊗_{Z_p} B_dR of Theorem 13.1 via the identification H^i_crys(𝔛_{O/p}/A_crys) ⊗_{A_crys} B_dR^+ ≅ H^i_crys(X/B_dR^+).",
+   "locator": "Theorem 14.5(i), p. 392",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.2",
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "Proof: Theorem 14.1(iii) and (iv) (items 016, 017); the compatibility is checked on the explicit complexes of §§12–13. CP.2 builds the chain of maps to B_cris, and CP.3 the compatibility with the B_dR^+ deformation."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/007",
+   "kind": "theorem",
+   "name": "Theorem 14.5(ii): the torsion inequality over O_C",
+   "statement": "In the situation of Theorem 14.5, for all n ≥ 0, length_{W(k)}(H^i_crys(𝔛_k/W(k))_tor/p^n) ≥ length_{Z_p}(H^i_et(X, Z_p)_tor/p^n); in particular H^i_et(X, Z_p) is p-torsion-free if H^i_crys(𝔛_k/W(k)) is.",
+   "locator": "Theorem 14.5(ii), p. 392",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.5"
+   ],
+   "note": "Proof: Theorem 14.1, Lemma 4.16 and Corollary 4.15 applied to H^i_{A_inf}(𝔛), with the elementary fact that for an injection M ↪ N of finitely generated W(k)-modules with torsion cokernel Q, length(N/p^n) ≥ length(M/p^n), since length Tor_1(Q, W(k)/p^n) = length(Q/p^n)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/008",
+   "kind": "theorem",
+   "name": "Theorem 1.4 / 14.5(iii): recovering crystalline cohomology over O_C via Breuil–Kisin–Fargues modules",
+   "statement": "In the situation of Theorem 14.5 assume that H^i_crys(𝔛_k/W(k)) is p-torsion-free. Then T = H^i_et(X, Z_p) is finite free, Ξ = H^i_crys(X/B_dR^+) ⊂ T ⊗_{Z_p} B_dR is a B_dR^+-lattice, and for the finite free Breuil–Kisin–Fargues module BKF(T) attached to (T, Ξ) by Fargues' theorem there is a canonical φ-equivariant isomorphism H^i_{A_inf}(𝔛) ≅ BKF(T) and an inclusion H^i_crys(𝔛_k/W(k)) ⊇ BKF(T) ⊗_{A_inf} W(k), compatible with φ. If H^{i+1}_crys(𝔛_k/W(k)) is also p-torsion-free the inclusion is an equality; so H^i_crys(𝔛_k/W(k)) with its φ is recovered functorially from X.",
+   "locator": "Theorem 1.4, p. 223; Theorem 14.5(iii), p. 392",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5",
+    "AInfCohomology:AI.5"
+   ],
+   "note": "Proof: Theorem 4.28 (item 081) with Corollary 4.20 (item 075) and part (i). CP.5 owns the lattice-recovery application and AI.5 the BKF properties of H^i_{A_inf}."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/009",
+   "kind": "theorem",
+   "name": "Theorem 1.8 / 14.3: A_inf-cohomology is a perfect complex with Breuil–Kisin–Fargues cohomology",
+   "statement": "Let C be a complete algebraically closed nonarchimedean extension of Q_p with ring of integers O and residue field k, let 𝔛 be a proper smooth formal scheme over O with generic fibre X, and put RΓ_{A_inf}(𝔛) := RΓ(𝔛_Zar, AΩ_𝔛). Then RΓ_{A_inf}(𝔛) is a perfect complex of A_inf-modules, equipped with a φ-linear map φ : RΓ_{A_inf}(𝔛) → RΓ_{A_inf}(𝔛) inducing a quasi-isomorphism RΓ_{A_inf}(𝔛)[1/ξ] ≃ RΓ_{A_inf}(𝔛)[1/φ(ξ)], and every H^i_{A_inf}(𝔛) is a Breuil–Kisin–Fargues module.",
+   "locator": "Theorem 1.8, p. 225; Theorem 14.3, p. 391",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5"
+   ],
+   "note": "AI.5: 'construct RΓ_Ainf = RΓ(𝔛, AΩ). Prove perfectness and finite presentation of its cohomology, and that the latter satisfy the BKF conditions.' Proof: AΩ_R is derived ξ-complete (Lemma 6.19), so perfectness reduces to the de Rham specialization; the Frobenius is Proposition 9.17; finite freeness after inverting p is Corollary 4.20 with the A_crys and étale comparisons and Proposition 13.21."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/010",
+   "kind": "theorem",
+   "name": "Theorem 1.8(i) / 14.3(i): the crystalline specialization of A_inf-cohomology",
+   "statement": "Let C be a complete algebraically closed nonarchimedean extension of Q_p with ring of integers O and residue field k, let 𝔛 be a proper smooth formal scheme over O with generic fibre X, and put RΓ_{A_inf}(𝔛) := RΓ(𝔛_Zar, AΩ_𝔛). Then RΓ_{A_inf}(𝔛) ⊗^L_{A_inf} W(k) ≃ RΓ_crys(𝔛_k/W(k)).",
+   "locator": "Theorem 1.8(i), p. 225; Theorem 14.3(i), p. 391",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.1"
+   ],
+   "note": "Global form of Theorem 14.1(i) (item 014). CP.1 lists it as the 'derived Witt reduction' row."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/011",
+   "kind": "theorem",
+   "name": "Theorem 1.8(ii) / 14.3(ii): the de Rham specialization of A_inf-cohomology",
+   "statement": "Let C be a complete algebraically closed nonarchimedean extension of Q_p with ring of integers O and residue field k, let 𝔛 be a proper smooth formal scheme over O with generic fibre X, and put RΓ_{A_inf}(𝔛) := RΓ(𝔛_Zar, AΩ_𝔛). Then RΓ_{A_inf}(𝔛) ⊗^L_{A_inf,θ} O ≃ RΓ_dR(𝔛/O), the de Rham cohomology of the p-adic formal scheme 𝔛.",
+   "locator": "Theorem 1.8(ii), p. 225; Theorem 14.3(ii), p. 391",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.1"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/012",
+   "kind": "theorem",
+   "name": "Theorem 1.8(iii) / 14.3(iii): the A_crys specialization of A_inf-cohomology",
+   "statement": "Let C be a complete algebraically closed nonarchimedean extension of Q_p with ring of integers O and residue field k, let 𝔛 be a proper smooth formal scheme over O with generic fibre X, and put RΓ_{A_inf}(𝔛) := RΓ(𝔛_Zar, AΩ_𝔛). Then RΓ_{A_inf}(𝔛) ⊗^L_{A_inf} A_crys ≃ RΓ_crys(𝔛_{O/p}/A_crys), where A_crys is the universal p-adically complete PD thickening of O/p compatible with the divided powers of p.",
+   "locator": "Theorem 1.8(iii), p. 225; Theorem 14.3(iii), p. 391",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.1"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/013",
+   "kind": "theorem",
+   "name": "Theorem 1.8(iv) / 14.3(iv): the étale specialization of A_inf-cohomology",
+   "statement": "Let C be a complete algebraically closed nonarchimedean extension of Q_p with ring of integers O and residue field k, let 𝔛 be a proper smooth formal scheme over O with generic fibre X, and put RΓ_{A_inf}(𝔛) := RΓ(𝔛_Zar, AΩ_𝔛). Then RΓ_{A_inf}(𝔛) ⊗_{A_inf} A_inf[1/μ] ≃ RΓ_et(X, Z_p) ⊗_{Z_p} A_inf[1/μ], where μ = [ε] − 1 for a compatible system ε of primitive p-power roots of unity.",
+   "locator": "Theorem 1.8(iv), p. 225; Theorem 14.3(iv), p. 391",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.1"
+   ],
+   "note": "Uses Theorem 5.7 (item 092): RΓ_et(X, Z_p) ⊗ A_inf → RΓ(X_proet, A_inf,X) has cone killed by W(𝔪^♭), hence is an isomorphism after inverting μ."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/014",
+   "kind": "theorem",
+   "name": "Theorem 1.10(i) / 14.1(i): AΩ recovers the de Rham–Witt complex of the special fibre",
+   "statement": "Let C be a complete algebraically closed extension of Q_p (a perfectoid field containing all p-power roots of unity suffices, Remark 14.2) with ring of integers O and residue field k, and let 𝔛 be a smooth formal scheme over O with generic fibre X. There is a canonical quasi-isomorphism of complexes of sheaves on 𝔛_Zar, compatible with multiplicative structures, AΩ_𝔛 ⊗̂^L_{A_inf} W(k) ≃ WΩ^•_{𝔛_k/W(k)} (p-adically completed tensor product; the right side computes crystalline cohomology of 𝔛_k).",
+   "locator": "Theorem 1.10(i), p. 227; Theorem 14.1(i), p. 388",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4",
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "Proved either from part (iii) or via θ_r-specializations: AΩ ⊗^L_{A_inf,θ_r} W_r(O) ≃ (Lη_{ξ̃_r}AΩ) ⊗^L_{θ̃_r} W_r(O) ≃ H^•(AΩ/ξ̃_r) ≅ W_rΩ^{•,cont}_{𝔛/O} (Proposition 6.12 and Theorem 11.1), then base change to W_r(k) and a limit over r. The proof also sketches that the two resulting identifications with W_rΩ^{•,cont} agree."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/015",
+   "kind": "theorem",
+   "name": "Theorem 1.10(ii) / 14.1(ii): AΩ recovers the de Rham complex",
+   "statement": "Let C be a complete algebraically closed extension of Q_p (a perfectoid field containing all p-power roots of unity suffices, Remark 14.2) with ring of integers O and residue field k, and let 𝔛 be a smooth formal scheme over O with generic fibre X. There is a canonical quasi-isomorphism AΩ_𝔛 ⊗^L_{A_inf,θ} O ≃ Ω^{•,cont}_{𝔛/O}, where Ω^{i,cont}_{𝔛/O} = lim_n Ω^i_{(𝔛/p^n)/(O/p^n)}, compatible with multiplicative structures.",
+   "locator": "Theorem 1.10(ii), p. 227; Theorem 14.1(ii), p. 388",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "AI.4: 'the theta specialization, which yields the actual de Rham complex'. Second proof: AΩ ⊗^L_θ O ≅ (Lη_{ξ̃}AΩ) ⊗^L_{θ̃} O ≅ H^•(AΩ/ξ̃) ≅ Ω^{•,cont} by Proposition 6.12 and Theorem 8.3."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/016",
+   "kind": "theorem",
+   "name": "Theorem 1.10(iii) / 12.1 / 14.1(iii): the A_crys comparison",
+   "statement": "Let C be a complete algebraically closed extension of Q_p (a perfectoid field containing all p-power roots of unity suffices, Remark 14.2) with ring of integers O and residue field k, and let 𝔛 be a smooth formal scheme over O with generic fibre X. Let Y = 𝔛 ×_{Spf O} Spec O/p and u : (Y/A_crys)_crys → 𝔛_Zar the projection. There is a canonical isomorphism AΩ_𝔛 ⊗̂^L_{A_inf} A_crys ≃ Ru_* O^crys_{Y/A_crys} in D(𝔛_Zar); if 𝔛 is qcqs this gives RΓ(𝔛, AΩ_𝔛) ⊗̂^L_{A_inf} A_crys ≃ RΓ_crys(Y/A_crys). The isomorphism can be made one of E_∞-A_crys-algebras.",
+   "locator": "Theorem 1.10(iii), p. 227; Theorem 12.1, p. 357; §12.3, p. 367; Theorem 14.1(iii), p. 388",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "AI.4: 'Build the absolute A_cris comparison by compatible PD envelopes and the all-coordinates construction'. The proof is §12 (items 167–175); the E_∞ upgrade of §12.3 assumes an ∞-categorical lift of Lη."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/017",
+   "kind": "theorem",
+   "name": "Theorem 1.10(iv) / 14.1(iv): AΩ recovers nearby cycles of A_inf,X after inverting μ",
+   "statement": "Let C be a complete algebraically closed extension of Q_p (a perfectoid field containing all p-power roots of unity suffices, Remark 14.2) with ring of integers O and residue field k, and let 𝔛 be a smooth formal scheme over O with generic fibre X. If ν : X_proet → 𝔛_Zar is the projection, then AΩ_𝔛 ⊗_{A_inf} A_inf[1/μ] ≃ (Rν_* A_inf,X) ⊗_{A_inf} A_inf[1/μ].",
+   "locator": "Theorem 1.10(iv), p. 227; Theorem 14.1(iv), p. 388",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "Immediate from the definition AΩ_𝔛 = Lη_μ Rν_* A_inf,X, since Lη_μ becomes the identity after inverting μ."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/018",
+   "kind": "theorem",
+   "name": "Theorem 1.7 / 13.1: the B_dR^+-cohomology of proper smooth rigid spaces and its étale comparison",
+   "statement": "Let C be an algebraically closed complete extension of Q_p and X a proper smooth adic space over C. Then there are cohomology groups H^i_crys(X/B_dR^+), with RΓ_crys(X/B_dR^+) ⊗^L_{B_dR^+} C ≃ RΓ_dR(X), which come with a canonical isomorphism H^i_crys(X/B_dR^+) ⊗_{B_dR^+} B_dR ≅ H^i_et(X, Z_p) ⊗_{Z_p} B_dR. If X = X_0 ⊗̂_K C for a proper smooth rigid space X_0 over a complete discretely valued extension K of Q_p with perfect residue field, this isomorphism agrees with Scholze's comparison H^i_dR(X_0) ⊗_K B_dR ≅ H^i_et(X, Z_p) ⊗_{Z_p} B_dR under the identification H^i_crys(X/B_dR^+) = H^i_dR(X_0) ⊗_K B_dR^+ (Remark 13.20).",
+   "locator": "Theorem 1.7, p. 224; Theorem 13.1, p. 368; proof, pp. 385–386",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "CP.3 constructs this deformation 'by the infinitesimal/PD-style embedding system of BMS1 §13' and proves the comparison after B_dR-inversion; the local comparison is Ω^•_{D_Σ(R)/B_dR^+} ≃ η_ξ K_{B_dR^+(R_∞,Σ)}((γ_u − 1)_u), proved like Proposition 12.9."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/019",
+   "kind": "theorem",
+   "name": "Theorem 13.19: B_dR^+-cohomology is finite free",
+   "statement": "Let X be a proper smooth adic space over an algebraically closed complete extension C of Q_p. Then H^i_crys(X/B_dR^+) is a finite free B_dR^+-module for every i ∈ Z.",
+   "locator": "Theorem 1.7 ('Moreover'), p. 224; Theorem 13.19, p. 384",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "Proof: realize X as the fibre at η ∈ S(C) of a proper smooth family f : 𝒳 → S = Spa(A, A°) over K = W(k)[1/p] (Corollary 13.16, item 187), lift A → C to A → B_dR^+ by smoothness, and compare Rf_{dR*}O_𝒳 ⊗^L_A B_dR^+ with RΓ_crys(X/B_dR^+) modulo ξ; the R^i f_{dR*} are locally free, having integrable connections. CP.3: 'Prove finite freeness in the source scope'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/020",
+   "kind": "theorem",
+   "name": "Theorem 1.7(i) / 13.3(i): degeneration of the Hodge–de Rham spectral sequence (Conrad–Gabber)",
+   "statement": "Let X be a proper smooth adic space over an algebraically closed complete extension C of Q_p. The Hodge–de Rham spectral sequence E_1^{ij} = H^j(X, Ω^i_{X/C}) ⇒ H^{i+j}_dR(X) degenerates at E_1.",
+   "locator": "Theorem 1.7(i), p. 224; Theorem 13.3(i), p. 369; proof, p. 386",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "Proof: spread X out over a smooth base S over a discretely valued field (Corollary 13.16) so that all R^i f_*Ω^j and R^i f_{dR*} are locally free and commute with base change, and check the rank equality at classical points, where it is Scholze's [Corollary 1.8]. CP.3: 'Prove filtration strictness and the Hodge–Tate/de Rham spectral-sequence comparisons in characteristic zero'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/021",
+   "kind": "theorem",
+   "name": "Theorem 1.7(ii) / 13.3(ii): degeneration of the Hodge–Tate spectral sequence",
+   "statement": "Let X be a proper smooth adic space over an algebraically closed complete extension C of Q_p. The Hodge–Tate spectral sequence E_2^{ij} = H^i(X, Ω^j_{X/C})(−j) ⇒ H^{i+j}_et(X, Z_p) ⊗_{Z_p} C degenerates at E_2.",
+   "locator": "Theorem 1.7(ii), p. 224; Theorem 13.3(ii), p. 369; proof, p. 386",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "Proof: dim H^i_dR(X) = Σ_j dim H^{i−j}(X, Ω^j) by part (i); dim H^i_dR(X) = rank H^i_crys(X/B_dR^+) (Theorem 13.19) = rank H^i_et(X, Z_p) ⊗ B_dR^+ (Theorem 13.1); so the E_2 page already has the dimension of the abutment."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/022",
+   "kind": "theorem",
+   "name": "Torsion-freeness of H^i_crys is equivalent to torsion-freeness of H^i_dR",
+   "statement": "Let 𝔛 be a proper smooth formal scheme over O_C (or over O_K as in Theorem 1.1) and fix i. Then H^i_crys(𝔛_k/W(k)) is torsion-free if and only if H^i_dR(𝔛) is torsion-free. Consequently every torsion-freeness hypothesis on H^i_crys(𝔛_k/W(k)) in Theorems 1.1(ii),(iii) and 14.5(ii),(iii) may be replaced by the same hypothesis on the O-module H^i_dR(𝔛).",
+   "locator": "Footnote to Theorem 1.1(ii), p. 221; Remark 4.21, p. 276; Remark 14.4, p. 392; Remark 14.7, p. 395",
+   "status": "missing",
+   "note": "Proof: Theorem 14.3(i),(ii) and Lemma 4.18 (item 073) applied to C = RΓ_{A_inf}(𝔛). The authors know no direct crystalline proof for a single index i; the weaker statement for i and i+1 together follows from universal coefficients."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/023",
+   "kind": "theorem",
+   "name": "Theorem 2.1: a smooth projective surface over Z_2 with torsion-free étale but torsion crystalline cohomology",
+   "statement": "There is a smooth projective geometrically connected relative surface X over Z_2 such that H^i_et(X_{Q̄_2}, Z_2) is free over Z_2 for all i ∈ Z, while H^2_crys(X_{F_2}/Z_2)_tor = F_2. So the implication in Theorem 1.1(ii) cannot be reversed. Moreover the cospecialization map H^2_et(X_{F̄_2}, Z_2) → H^2_et(X_{Q̄_2}, Z_2) is not injective (Remark 2.3).",
+   "locator": "Theorem 2.1, p. 236; proof and Remark 2.3, pp. 237–238",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.5",
+    "CrystallineCohomology:CR.3"
+   ],
+   "note": "AI.5 and CP.5 use 'the examples of BMS1 §2', and CR.3's acceptance includes 'a torsion cohomology example from BMS1 §2'. Proof: X is a smooth sufficiently ample hypersurface in the 3-fold D of Proposition 2.2 (item 024), chosen over Z_2 by the Bertini theorems of Gabber and Poonen; H^2_et(X_C) is free by the Lefschetz sequence with Artin vanishing for the affine complement, and H^i_crys(D_k) → H^i_crys(X_k) is an isomorphism for i ≤ 1 and injective with torsion-free cokernel for i = 2 by Lemma 2.12 (item 030)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/024",
+   "kind": "theorem",
+   "name": "Proposition 2.2: the 3-fold D over Z_2",
+   "statement": "Let S be a singular Enriques surface over Z_2 (Pic^τ(S) ≅ μ_2; one exists: S̃_{F_2} ⊂ P^5_{F_2} cut out by x_1^2 + x_2x_3 + y_1^2 + x_1y_1 = x_2^2 + x_1x_3 + y_2^2 + x_2y_2 = x_3^2 + x_1x_2 + y_3^2 + x_3y_3 = 0 is a K3 surface with the free involution (x_i : y_i) ↦ (x_i : x_i + y_i), S_{F_2} = S̃_{F_2}/(Z/2) lifts to Z_2 by Lang's theorem, with its K3 double cover S̃ → S). Let E be an ordinary elliptic curve over Z_2, η : Z/2 → μ_2 ⊂ E the map through the canonical subgroup (nonzero over Q_2, zero over F_2), and D → S the E-torsor obtained by pushing out S̃ → S along η. Then D is a smooth projective geometrically connected 3-fold over Z_2, H^i_et(D_{Q̄_2}, Z_2) is free for i = 0, 1, 2, and H^2_crys(D_{F_2}/Z_2)_tor = F_2.",
+   "locator": "§2.1 and Proposition 2.2, pp. 236–237",
+   "status": "missing",
+   "note": "Proof: D_{F_2} = S_{F_2} × E_{F_2}, so (ii) follows from Künneth and Illusie's computation of H^*_crys of Enriques surfaces [Illusie 1979, Proposition 7.3.5]; for (i), π_1(D_C) ≅ π_1(E'_C) ≅ Ẑ² with E' = E/η, so H_1(D_C, Z_2) is free and H^2 is torsion-free by the universal coefficient sequence. The smoothness of S̃_{F_2} is checked by the Jacobian criterion (footnote 2)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/025",
+   "kind": "theorem",
+   "name": "A_inf-cohomology is not a functor of the special fibre",
+   "statement": "The torsion in the étale cohomology of the generic fibre of a smooth proper Z_2-scheme is not a functor of its special fibre: D (Proposition 2.2) and D' = S × E are two lifts of S_{F_2} × E_{F_2} to Z_2 with H^2_et(D_{Q̄_2}, Z_2) torsion-free and H^2_et(D'_{Q̄_2}, Z_2) containing 2-torsion. Hence RΓ_{A_inf}(𝔛) (and even RΓ_{A_inf}(𝔛)/p) is not a functor of 𝔛_{O/p}.",
+   "locator": "Remark 2.4, p. 238",
+   "status": "missing",
+   "note": "Used in Remark 1.9 to explain why the Frobenius on RΓ_{A_inf} does not come from a Frobenius on the special fibre."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/026",
+   "kind": "theorem",
+   "name": "Lemma 2.5: a finite flat group scheme degenerating Z/p^2 to E_k[p]",
+   "statement": "Let O be the ring of integers of a complete algebraically closed extension C of Q_p with residue field k, E/O an elliptic curve with supersingular reduction, x ∈ E(C) a point of exact order p^2, and G ⊂ E the flat closure of the subgroup generated by x. Then G_C ≅ Z/p^2 and G_k = E_k[p].",
+   "locator": "Lemma 2.5, p. 239",
+   "status": "missing",
+   "note": "Proof: E_k has a unique subgroup scheme of order p^r, the kernel of the r-fold Frobenius. Remark 2.6 explains the heuristic that BG would be a stacky example."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/027",
+   "kind": "theorem",
+   "name": "Lemma 2.7: a projective space with a G-action free outside high codimension",
+   "statement": "Let G be a finite flat group scheme over O (e.g. that of Lemma 2.5). For every integer c there is a projective space P/O with an action of G such that the locus Z_P ⊂ P of points with non-trivial stabilizers — the support of b_*O_F/O_P for b : F → P the base change of the action map G × P → P × P, (g, x) ↦ (gx, x), along the diagonal — has codimension ≥ c on the special fibre. Formation of Z_P commutes with passage to fibres over Spec O and Z_P is G-stable.",
+   "locator": "Lemma 2.7, Remark 2.8 and the following paragraph, pp. 239–240",
+   "status": "missing",
+   "note": "Proof: take P = P(V^c) for a faithful representation V with G acting faithfully on each fibre of P(V); Z_P lies in the image of ∏_{i=1}^c Ỹ, which has codimension ≥ c."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/028",
+   "kind": "theorem",
+   "name": "Lemma 2.9: the quotient P/G approximates BG",
+   "statement": "Let h : P → X = P/G be the scheme-theoretic quotient for P and G as in Lemma 2.7 (with c > 2), U_X = U_P/G and Z_X = X ∖ U_X. Then X is projective and flat over O, Z_X has codimension > 2 on the special fibre, and X → Spec O is smooth over U_X.",
+   "locator": "Lemma 2.9, p. 240",
+   "status": "missing",
+   "note": "Proof: h(Z_P) = Z_X; U_P → U_X is a G-torsor, hence faithfully flat, and U_{X,k} is regular because it receives a faithfully flat map from the regular scheme U_{P,k}."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/029",
+   "kind": "theorem",
+   "name": "Theorem 2.10: torsion Z/p^2 in étale cohomology degenerating to k ⊕ k in crystalline cohomology",
+   "statement": "For O, E and G as in Lemma 2.5, with P and X = P/G as in Lemmas 2.7 and 2.9, let H ⊂ U_X be a smooth complete intersection of dim(P) − 2 hypersurfaces of sufficiently large degree (which exists by Bertini, since Z_X has codimension > 2 on the special fibre). Then H is a smooth projective relative surface over O with H^2_et(H_C, Z_p)_tor ≅ Z/p^2 and H^2_crys(H_k/W(k))_tor ≅ k ⊕ k, and H^1_crys(H_k/W(k)) = 0. So the inequality of Theorem 1.1(ii) cannot be upgraded to a subquotient relation.",
+   "locator": "§2.2 and Theorem 2.10, pp. 241–242",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5",
+    "CohomologyComparisons:CP.5"
+   ],
+   "note": "CP.5: 'Do not infer a subquotient relation from the length inequality: BMS1 §2 explicitly supplies counterexamples.' Proof: Leray for the Z/p^2-cover H̃_C → H_C; for crystalline cohomology, the E-torsor H_E → H inside X_E = (P × E)/G, weak Lefschetz (Lemma 2.12) with i_L = 1, and the map E_k → E_k/E_k[p] ≅ E_k inducing multiplication by p on H^1_crys. Remark 2.11 states without proof that H^1_et(H_C, Z/p) ≅ Z/p while H^1_dR(H_k) ≅ k ⊕ k, so inequality (1) can be strict."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/030",
+   "kind": "theorem",
+   "name": "Lemma 2.12: weak Lefschetz for crystalline cohomology with a weakly ample line bundle",
+   "statement": "Let k be a perfect field of characteristic p, X a smooth projective variety of dimension d over k and L a line bundle on X, and let i_L ≥ 0 be such that for every coherent sheaf F on X, H^i(X, F ⊗ L^{⊗n}) = 0 for n sufficiently large and i > i_L. Then there is n_0 such that for all n ≥ n_0 and every smooth hypersurface H ⊂ X with divisor L^{⊗n}, the map H^j_crys(X/W(k)) → H^j_crys(H/W(k)) is an isomorphism for j < d − i_L − 1 and injective with torsion-free cokernel for j = d − i_L − 1.",
+   "locator": "Lemma 2.12, p. 242",
+   "status": "missing",
+   "note": "Berthelot proved the ample case i_L = 0 (C. R. Acad. Sci. 277, 1973); BMS1 give the full argument: reduce the cone modulo p to de Rham cohomology and bound RΓ(X, I^{⊗r} ⊗ Ω^{j−1}_H) by Serre duality and induction on j."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/031",
+   "kind": "definition",
+   "name": "Fontaine's ring A_inf(S) of a p-adically complete ring",
+   "statement": "Let S be a ring which is π-adically complete and separated for some π ∈ S dividing p, and S^♭ = lim_φ S/pS its tilt. Fontaine's ring is A_inf(S) = W(S^♭), with the Frobenius automorphism φ induced by that of the perfect ring S^♭.",
+   "locator": "§3.1, Definition 3.1, p. 244",
+   "status": "library",
+   "library": [
+    "mathlib:PreTilt",
+    "mathlib:WittVector"
+   ],
+   "note": "Mathlib/RingTheory/Perfection.lean defines PreTilt O p = Perfection (ModP O p) p, the inverse limit of O/p along Frobenius, and Mathlib/RingTheory/WittVector/Defs.lean the p-typical Witt vectors; A_inf(S) is WittVector p (PreTilt S p). There is no named declaration for A_inf itself."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/032",
+   "kind": "construction",
+   "name": "Fontaine's map θ : A_inf(S) → S",
+   "statement": "Let S be a ring which is π-adically complete and separated for some π ∈ S dividing p, and S^♭ = lim_φ S/pS its tilt. There is a ring homomorphism θ : A_inf(S) → S with θ([x]) = x^♯ = x^{(0)} for x = (x^{(0)}, x^{(1)}, …) ∈ S^♭ ≅ lim_{x ↦ x^p} S; if the Frobenius of S/p is surjective, θ is surjective.",
+   "locator": "Lemma 3.3 (r = 1) and the paragraph after it, p. 246; Lemma 3.9(v), p. 248",
+   "status": "library",
+   "library": [
+    "mathlib:WittVector.fontaineTheta",
+    "mathlib:WittVector.fontaineTheta_teichmuller",
+    "mathlib:surjective_fontaineTheta"
+   ],
+   "note": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean:165 defines fontaineTheta : 𝕎 R♭ →+* R for any ring, as the limit of maps to R/p^{n+1}; fontaineTheta_teichmuller gives θ([x]) = x.untilt, and surjective_fontaineTheta assumes p is not a unit, R is p-adically complete and Frobenius is surjective on R/p. BMS1's θ is θ_1 of the next items."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/033",
+   "kind": "theorem",
+   "name": "Lemma 3.2: A_inf(S) as an inverse limit of Witt vectors along F",
+   "statement": "Let S be a ring which is π-adically complete and separated for some π ∈ S dividing p, and S^♭ = lim_φ S/pS its tilt. (i) The canonical maps lim_{x ↦ x^p} S → S^♭ → lim_φ S/πS are isomorphisms of monoids/rings. (ii) For f ∈ S, W_r(f^{p^{r−1}}S) ⊂ [f]W_r(S) ⊂ W_r(fS); [p]^2 ∈ pW_r(S) and p^r W_r(S) ⊂ W_r(pS); hence W_r(S) and W(S) are complete for the [π]-, [p]- and p-adic topologies. (iii) φ^∞ : lim_F W_r(S^♭) → lim_R W_r(S^♭) is an isomorphism. (iv) lim_F W_r(S^♭) → lim_F W_r(S/πS) is an isomorphism. (v) lim_F W_r(S) → lim_F W_r(S/πS) is an isomorphism. In particular A_inf(S) ≅ lim_F W_r(S), and under this identification the restriction R corresponds to φ^{−1}, so R is an automorphism of lim_F W_r(S).",
+   "locator": "Lemma 3.2 and proof, pp. 244–245",
+   "status": "missing",
+   "note": "Part (v) uses a pro-isomorphism {W_r(S/π^sS)}_F → {W_r(S/πS)}_F. Part (i) for Mathlib's PreTilt is the multiplicative map PreTilt.untilt; parts (ii)–(v) are not in the libraries."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/034",
+   "kind": "construction",
+   "name": "The maps θ_r, θ̃_r : A_inf(S) → W_r(S) and θ_∞",
+   "statement": "Let S be a ring which is π-adically complete and separated for some π ∈ S dividing p, and S^♭ = lim_φ S/pS its tilt. Through A_inf(S) = lim_R W_r(S^♭) ← lim_F W_r(S^♭) → lim_F W_r(S/πS) ← lim_F W_r(S) (Lemma 3.2), the projections define θ̃_r : A_inf(S) → W_r(S), and θ_r := θ̃_r ∘ φ^r. For x ∈ S^♭, θ_r([x]) = [x^{(0)}] and θ̃_r([x]) = [x^{(r)}] (Lemma 3.3); θ = θ_1 is Fontaine's map, and θ_r composed with W_r(S) → W_r(S/pS) equals the restriction of A_inf(S) → W_r(S^♭) followed by W_r of S^♭ → S/pS. Letting r → ∞ gives θ_∞ : A_inf(S) → W(S) with θ_∞([x]) = [x^{(0)}].",
+   "locator": "§3.1, construction before Lemma 3.3, Lemma 3.3 and the paragraphs after it, pp. 246–247",
+   "status": "missing",
+   "note": "AI.0 plans θ and θ̃ = θ ∘ φ^{−1}; the Witt-level maps θ_r, θ̃_r for all r, which drive §§9–11, are not named."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/035",
+   "kind": "theorem",
+   "name": "Lemma 3.4: θ_r and θ̃_r intertwine R, F and V",
+   "statement": "Let S be a ring which is π-adically complete and separated for some π ∈ S dividing p, and S^♭ = lim_φ S/pS its tilt. Then θ_r = R ∘ θ_{r+1}, F ∘ θ_{r+1} = θ_r ∘ φ, and V ∘ θ_r = θ_{r+1}(λ_{r+1}·φ^{−1}(−)) for any λ_{r+1} ∈ A_inf(S) with θ_{r+1}(λ_{r+1}) = V(1). Equivalently R ∘ θ̃_{r+1} = θ̃_r ∘ φ^{−1}, F ∘ θ̃_{r+1} = θ̃_r, and V ∘ θ̃_r = θ̃_{r+1}(λ̃_{r+1}·(−)) with λ̃_{r+1} = φ^{r+1}(λ_{r+1}), θ̃_{r+1}(λ̃_{r+1}) = V(1).",
+   "locator": "Lemma 3.4, p. 247",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/036",
+   "kind": "definition",
+   "name": "Perfectoid rings",
+   "statement": "A ring S is perfectoid if it is π-adically complete for some π ∈ S such that π^p divides p, the Frobenius φ : S/pS → S/pS is surjective, and ker(θ : A_inf(S) → S) is principal. Examples: perfect F_p-algebras (π = 0), the p-adic completion Z_p^cycl of Z_p[ζ_{p^∞}] and of the integers of any algebraic extension of Q_p containing it, and Z_p^cycl⟨T^{1/p^∞}⟩.",
+   "locator": "Definition 3.5 and Example 3.6, pp. 247–248; Remarks 3.7–3.8, p. 248",
+   "status": "planned",
+   "planned": [
+    "PerfectoidQuotients:Q0:integral-algebra"
+   ],
+   "note": "Q0:integral-algebra constructs integral perfectoid rings in the scope of BS22, whose definition is equivalent. Remark 3.8 shows the definition agrees with Gabber–Ramero's (independently of the topology)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/037",
+   "kind": "theorem",
+   "name": "Lemma 3.9: surjectivity of Frobenius on perfectoid-type rings",
+   "statement": "Let S be π-adically complete for some π with π^p | p. The following are equivalent: (i) every element of S/πpS is a p-th power; (ii) every element of S/pS is a p-th power; (iii) every element of S/π^pS is a p-th power; (iv) F : W_{r+1}(S) → W_r(S) is surjective for all r ≥ 1; (v) θ_r : A_inf(S) → W_r(S) is surjective for all r ≥ 1. If they hold, there are units u, v ∈ S^× such that uπ and vp admit compatible systems of p-power roots in S.",
+   "locator": "Lemma 3.9, p. 248",
+   "status": "missing",
+   "note": "(ii) ⇒ (iv) uses Davis–Kedlaya, On the Witt vector Frobenius, implication (xiv)' ⇒ (ii)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/038",
+   "kind": "theorem",
+   "name": "Lemma 3.10: kernel of θ principal iff Frobenius is an isomorphism",
+   "statement": "Let S be π-adically complete with π^p | p and φ : S/πS → S/π^pS surjective. (i) If ker θ is principal, then φ : S/πS → S/π^pS is an isomorphism and every generator of ker θ is a non-zero-divisor. (ii) Conversely, if φ : S/πS → S/π^pS is an isomorphism and π is a non-zero-divisor, then ker θ is principal, so S is perfectoid. In the proof, after scaling π by a unit, ξ = p + [π^♭]^p x ∈ ker θ is shown to generate ker θ.",
+   "locator": "Lemma 3.10, p. 249",
+   "status": "planned",
+   "planned": [
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "P1 plans the Tate version ('Frobenius R°/ϖ → R°/ϖ^p is an isomorphism', principal non-zero-divisor kernel of θ); Q0 the integral version."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/039",
+   "kind": "theorem",
+   "name": "Distinguished elements generate ker θ",
+   "statement": "Let S be perfectoid and ξ = (ξ_0, ξ_1, …) ∈ ker θ. Then ξ generates ker θ if and only if ξ is distinguished, i.e. ξ_1 ∈ (S^♭)^×. Any ξ ∈ A_inf(S) with θ_r(ξ) = V(1) for some r > 1 (which exists by Lemma 3.9(v)) is distinguished; the image of a distinguished element under a map of perfectoid rings is distinguished.",
+   "locator": "Remark 3.11, p. 250; proof of Lemma 3.13, p. 251",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.0",
+    "PerfectoidQuotients:Q0:integral-algebra"
+   ],
+   "note": "PR.0 constructs distinguished elements and the perfect-prism correspondence that Q0 imports."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/040",
+   "kind": "theorem",
+   "name": "Lemma 3.12: kernels of θ_r and θ̃_r",
+   "statement": "Let S be perfectoid and ξ a generator of ker θ. For every r ≥ 1, ker θ_r is generated by the non-zero-divisor ξ_r = ξφ^{−1}(ξ)⋯φ^{−(r−1)}(ξ), and ker θ̃_r by ξ̃_r = φ^r(ξ_r) = φ(ξ)φ^2(ξ)⋯φ^r(ξ). Hence A_inf(S)/ξ̃_r ≅ W_r(S) via θ̃_r.",
+   "locator": "Lemma 3.12, p. 251",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/041",
+   "kind": "theorem",
+   "name": "Lemma 3.13: Tor-independence of Witt vectors of perfectoid rings",
+   "statement": "Let S → S' be a map of perfectoid rings and 1 ≤ j ≤ r. Then W_j(S) ⊗^L_{A_inf(S)} A_inf(S') → W_j(S') and W_j(S) ⊗^L_{W_r(S)} W_r(S') → W_j(S') are quasi-isomorphisms, with W_j(S) a W_r(S)-module via either F or R.",
+   "locator": "Lemma 3.13, p. 251",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/042",
+   "kind": "theorem",
+   "name": "Lemma 3.14: the cotangent complex of a map of perfectoid rings vanishes mod p",
+   "statement": "For a map S → S' of perfectoid rings, L_{S'/S} ⊗^L_Z F_p ≃ 0; in particular the derived p-adic completion L̂_{S'/S} vanishes.",
+   "locator": "Lemma 3.14, p. 252",
+   "status": "missing",
+   "note": "Proof: S' = S ⊗^L_{A_inf(S)} A_inf(S'), and L_{A_inf(S')/A_inf(S)} ⊗^L F_p ≃ L_{S'^♭/S^♭} ≃ 0 since the cotangent complex of a perfect F_p-algebra vanishes."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/043",
+   "kind": "theorem",
+   "name": "Perfectoid rings of characteristic p are the perfect rings",
+   "statement": "A ring S of characteristic p is perfectoid if and only if it is perfect; then S^♭ = S, θ_∞ : A_inf(S) → W(S) is an isomorphism and the θ_r are the Witt vector restriction maps.",
+   "locator": "Example 3.15, p. 252",
+   "status": "planned",
+   "planned": [
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "P1: 'the characteristic-p characterization as perfect complete Tate rings'; Q0 the integral version."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/044",
+   "kind": "theorem",
+   "name": "The element ξ attached to p-power roots of unity",
+   "statement": "Let S be perfectoid with a compatible system ζ_{p^r} of p-power roots of unity with 1 + ζ_p + ⋯ + ζ_p^{p−1} = 0 (this includes the characteristic-p case with all ζ_{p^r} = 1), and ε = (1, ζ_p, ζ_{p^2}, …) ∈ S^♭. Then ξ := 1 + [ε^{1/p}] + ⋯ + [ε^{1/p}]^{p−1} generates ker θ and θ_r(ξ) = V(1) for all r > 1, so ker θ̃_r is generated by ξ̃_r = Σ_{i=0}^{p^r−1} [ε]^i.",
+   "locator": "Example 3.16, p. 252",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.0"
+   ],
+   "note": "AI.0: 'define mu = [epsilon] − 1, xi = mu/phi^(−1)(mu) … Prove the displayed quotient exists and generates the stated ideal'. BMS1 prove it for every perfectoid S with such roots of unity, by reduction to Z_p^cycl and ghost components."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/045",
+   "kind": "theorem",
+   "name": "Proposition 3.17: the element μ",
+   "statement": "Let S be a perfectoid ring, flat over Z_p, containing a compatible system of primitive p-power roots of unity, with ε, ξ, ξ̃_r as above and μ = [ε] − 1 ∈ A_inf(S). For every r ≥ 0: (i) θ̃_r(μ) = [ζ_{p^r}] − 1 is a non-zero-divisor of W_r(S); (ii) μ is a non-zero-divisor of A_inf(S); (iii) μ divides φ^r(μ) = [ε^{p^r}] − 1 and ξ̃_r = φ^r(μ)/μ; (iv) μ divides ξ̃_r − p^r.",
+   "locator": "Proposition 3.17, p. 253",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.0"
+   ],
+   "note": "AI.0: 'Prove nonzerodivisor, completeness and torsion properties used later.'"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/046",
+   "kind": "theorem",
+   "name": "Corollary 3.18 and Remark 3.19: ideals of W_r(S) cut out by V^j(1) and F^j",
+   "statement": "Let S be a perfectoid ring, flat over Z_p, with a compatible system of primitive p-power roots of unity, and 0 ≤ j ≤ r. (i) Ann_{W_r(S)} V^j(1) = ker(F^j : W_r(S) → W_{r−j}(S)) = (([ζ_{p^j}] − 1)/([ζ_{p^r}] − 1)) W_r(S). (ii) The annihilator of ([ζ_{p^j}] − 1)/([ζ_{p^r}] − 1) equals V^j(1)W_r(S) = V^jW_{r−j}(S). (iii) F^j and multiplication by V^j(1) induce isomorphisms F^j_*W_{r−j}(S) ≅ W_r(S)/(([ζ_{p^j}] − 1)/([ζ_{p^r}] − 1)) ≅ Ann_{W_r(S)}(([ζ_{p^j}] − 1)/([ζ_{p^r}] − 1)). For an arbitrary perfectoid S still Ann V^j(1) = ker F^j, V^j(1)W_r(S) = V^jW_{r−j}(S) and W_{r−j}(S) ≅ W_r(S)/Ann V^j(1) ≅ V^jW_{r−j}(S).",
+   "locator": "Corollary 3.18 and Remark 3.19, p. 254",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/047",
+   "kind": "theorem",
+   "name": "Lemma 3.20: perfectoid Tate rings and their rings of integral elements",
+   "statement": "Let R be a complete Tate ring with a ring of integral elements R^+ ⊂ R. If R is perfectoid in Fontaine's sense (uniform, with a topologically nilpotent unit π such that π^p | p in R° and Frobenius surjective on R°/π^pR°), then R^+ is a perfectoid ring. Conversely, if R^+ is perfectoid and bounded in R, then R is perfectoid in Fontaine's sense. Perfectoid K-algebras (Scholze) and perfectoid Q_p-algebras (Kedlaya–Liu) are exactly the perfectoid Tate K- (resp. Q_p-) algebras in Fontaine's sense.",
+   "locator": "Lemma 3.20 and the remark after it, p. 255",
+   "status": "planned",
+   "planned": [
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Q0: 'their relation to Tate perfectoid rings and integral subrings'. The converse uses Kedlaya, Nonarchimedean geometry of Witt vectors, Lemma 5.5."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/048",
+   "kind": "theorem",
+   "name": "Lemma 3.21: inverting π in a perfectoid ring",
+   "statement": "Let R_0 be a perfectoid ring which is π-adically complete for a non-zero-divisor π with π^p | p. Then R = R_0[1/π] with the π-adic topology on R_0 is a complete Tate ring, perfectoid in Fontaine's sense, and R_0 ⊂ R° with πR° ⊂ R_0 (the cokernel of R_0 → R° is killed by every fractional power of π).",
+   "locator": "Lemma 3.21, p. 256",
+   "status": "planned",
+   "planned": [
+    "PerfectoidQuotients:Q0:integral-algebra"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/049",
+   "kind": "definition",
+   "name": "The period rings A_crys, B_crys^+, B_crys, B_dR^+ and B_dR of a perfectoid field",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, A_inf = A_inf(O), ξ = μ/φ^{−1}(μ). A_crys is the p-adic completion of the A_inf-subalgebra of A_inf[1/p] generated by the ξ^m/m!, m ≥ 0 — the universal p-adically complete PD thickening of O (equivalently of O/p) compatible with the PD structure on Z_p; B_crys^+ = A_crys[1/p]; B_crys = A_crys[1/μ] = B_crys^+[1/μ] (μ^{p−1} ∈ pA_crys since μ^{p−1} ≡ ξ^p mod p); B_dR^+ is the ξ-adic completion of B_crys^+, a complete discrete valuation ring with residue field K, and B_dR = B_dR^+[1/ξ].",
+   "locator": "§3.3, Definition 3.22, p. 256",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.0",
+    "PadicHodgeTheory:R06.1",
+    "AInfCohomology:AI.0"
+   ],
+   "note": "CR.0 exports the p-completed PD envelope of ker θ as A_cris; R06.1 constructs B_dR^+, B_cris^+ and B_cris from the same objects."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/050",
+   "kind": "theorem",
+   "name": "Lemma 3.23: the kernel of θ_∞ is generated by μ",
+   "statement": "Let O be the ring of integers of a perfectoid field K of characteristic 0 containing all p-power roots of unity. The kernel of θ_∞ = lim_r θ_r : A_inf → W(O) = lim_R W_r(O) is μA_inf; equivalently ∩_r (μ/φ^{−r}(μ)) A_inf = μA_inf. In particular the ideal (μ) does not depend on the choice of roots of unity. The cokernel of θ_∞ is killed by W(𝔪^♭), and if K is spherically complete, θ_∞ induces A_inf/μ ≅ W(O).",
+   "locator": "Lemma 3.23 and proof, pp. 257–258",
+   "status": "missing",
+   "note": "AI.0: 'Prove change-of-epsilon comparison.' The cokernel is lim^1_r ξ_r A_inf; spherical completeness of K passes to K^♭."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/051",
+   "kind": "theorem",
+   "name": "Proposition 3.24: W_r(O) is coherent",
+   "statement": "Let O be the ring of integers of a perfectoid field K. For every r ≥ 1 the ring W_r(O) is coherent (every finitely generated ideal is finitely presented). By contrast A_inf is in general not coherent (Kedlaya).",
+   "locator": "Proposition 3.24 and proof, pp. 258–261",
+   "status": "missing",
+   "note": "Proof: in characteristic p, W_r(O) is a successive square-zero extension of the perfect valuation ring O; in characteristic 0, ghost components and Lemmas 3.27–3.28 reduce to W_r(O/p^N), which is built by square-zero extensions from W_{r−1}(O/p^N) (Lemma 3.26)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/052",
+   "kind": "theorem",
+   "name": "Lemma 3.25: coherence passes to quotients by finitely generated ideals",
+   "statement": "Let R be a ring and I ⊂ R a finitely generated ideal. (i) An R/I-module is finitely presented over R/I iff it is finitely presented over R. (ii) If R is coherent, so is R/I.",
+   "locator": "Lemma 3.25, p. 258",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/053",
+   "kind": "theorem",
+   "name": "Lemma 3.26: coherence lifts along square-zero extensions",
+   "statement": "Let S → R be a surjection of rings with square-zero kernel I. If R is coherent and I is a finitely presented R-module, then S is coherent.",
+   "locator": "Lemma 3.26, p. 259",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/054",
+   "kind": "theorem",
+   "name": "Lemma 3.27: coherence from R[1/f] and R/f under Artin–Rees",
+   "statement": "Let R be a ring and f ∈ R a non-zero-divisor such that (R, f) has the Artin–Rees property (for finitely generated M ⊂ N the f-adic topology of N restricts to that of M). If R[1/f] and R/f are coherent, then R is coherent.",
+   "locator": "Lemma 3.27, p. 259",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/055",
+   "kind": "theorem",
+   "name": "Lemma 3.28: the Artin–Rees property is invariant under f-isogeny",
+   "statement": "Let g : R → S be an injective ring map and f ∈ R with R and S f-torsion-free, and with cokernel of g killed by a power of f. Then (R, f) has the Artin–Rees property iff (S, f) does.",
+   "locator": "Lemma 3.28, p. 260",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/056",
+   "kind": "theorem",
+   "name": "Corollary 3.29: finitely presented W_r(O)-modules have no almost zero elements",
+   "statement": "Let O be the ring of integers of a perfectoid field and M a finitely presented W_r(O)-module. Then no non-zero element of M is killed by W_r(𝔪). (W_r(𝔪) is an increasing union of principal ideals generated by non-zero-divisors, Corollary 10.2.)",
+   "locator": "Corollary 3.29, p. 261",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/057",
+   "kind": "definition",
+   "name": "Breuil–Kisin modules",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. A Breuil–Kisin module is a finitely generated 𝔖-module M with an isomorphism φ_M : M ⊗_{𝔖,φ} 𝔖[1/E] ≅ M[1/E]. With this definition they form an abelian tensor category.",
+   "locator": "§4.1, Definition 4.1, p. 262",
+   "status": "planned",
+   "planned": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+    "AInfCohomology:AI.7"
+   ],
+   "note": "Same classification as the BMS2 extraction (PAPER-BHATT-MORROW-SCHOLZE-19/001)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/058",
+   "kind": "construction",
+   "name": "The Breuil–Kisin twist 𝔖{1}",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. For E_r = Eφ(E)⋯φ^{r−1}(E) put (𝔖/E_r){1} := L_{(𝔖/E_r)/𝔖}[−1] ≅ E_r𝔖/E_r^2𝔖, free of rank 1 over 𝔖/E_r. For r > s the obvious map has image p^{r−s}(𝔖/E_s){1}; dividing by p^{r−s} gives (𝔖/E_r){1} ⊗ 𝔖/E_s ≅ (𝔖/E_s){1}, and 𝔖{1} := lim_r (𝔖/E_r){1} is free of rank 1 with a Frobenius φ_{𝔖{1}}(x) = (u/E)φ(x) for an explicit unit u; it is ⊗-invertible, and M{n} := M ⊗ 𝔖{1}^{⊗n}.",
+   "locator": "Example 4.2, p. 262",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.0",
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "AI.0 constructs Breuil–Kisin twists 'with source orientation' and PR.3 constructs BK twists of a prism (here (𝔖, (E)))."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/059",
+   "kind": "theorem",
+   "name": "Proposition 4.3: structure of Breuil–Kisin modules",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. Every Breuil–Kisin module (M, φ_M) sits in a canonical exact sequence of Breuil–Kisin modules 0 → M_tor → M → M_free → M̄ → 0, where M_tor is the torsion submodule and is killed by a power of p, M_free is finite free over 𝔖, and M̄ is killed by a power of (p, T). In particular M[1/p] ≅ M_free[1/p] is finite free over 𝔖[1/p].",
+   "locator": "Proposition 4.3, p. 263",
+   "status": "missing",
+   "note": "M_free = H^0 of the vector bundle on the punctured spectrum of the 2-dimensional regular local ring 𝔖; the p-power torsion bound comes from the Frobenius-stability of Fitting ideals and a Newton-polygon argument on their zeros in the open unit disc."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/060",
+   "kind": "theorem",
+   "name": "Theorem 4.4 (Kisin): Breuil–Kisin modules of crystalline lattices",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. Fix π^{1/p^n} ∈ K̄, K_∞ = K(π^{1/p^∞}), C = K̄^, π^♭ ∈ O_C^♭, and 𝔖 → A_inf by T ↦ [π^♭]^p and Frobenius on W(k) (compatible with θ̃). There is a natural fully faithful tensor functor T ↦ M(T) from Z_p-lattices T in crystalline G_K-representations V to finite free Breuil–Kisin modules; M(T) is characterized by a φ- and G_{K_∞}-equivariant identification M(T) ⊗_𝔖 W(C^♭) ≅ T ⊗_{Z_p} W(C^♭). The functor is not exact.",
+   "locator": "Theorem 4.4 and proof, pp. 265–266",
+   "status": "planned",
+   "planned": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+    "PrismaticCohomology:PR.7"
+   ],
+   "note": "Cited from Kisin (2006) and Kisin (2010, Theorem 1.2.1); uniqueness uses Kisin's Proposition 2.1.12 and the equivalence between étale φ-modules over the p-adic completion of 𝔖[1/T] and Z_p[G_{K_∞}]-modules. PR.7 compares the prismatic F-crystal classification with 'R07's Kisin functor'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/061",
+   "kind": "theorem",
+   "name": "Proposition 4.34: Kisin modules and Fargues' classification",
+   "statement": "Let T be a Z_p-lattice in a crystalline G_K-representation V and M(T) its Breuil–Kisin module. Then M(T) ⊗_𝔖 A_inf[1/μ] = T ⊗ A_inf[1/μ] (G_{K_∞}-equivariantly), and M(T) ⊗_𝔖 B_crys^+ = D_crys(V) ⊗_{W(k)[1/p]} B_crys^+ as submodules of M(T) ⊗_𝔖 B_crys = T ⊗ B_crys = D_crys(V) ⊗ B_crys. Consequently the finite free BKF module M(T) ⊗_𝔖 A_inf corresponds under Fargues' classification to (T, Ξ) with Ξ = D_crys(V) ⊗ B_dR^+ = D_dR(V) ⊗_K B_dR^+, and M(T) ⊗_𝔖 W(k)[1/p] = D_crys(V), so M(T) ⊗_𝔖 W(k) is a lattice in D_crys(V).",
+   "locator": "Remark 4.5, p. 265; Proposition 4.34, p. 282",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5",
+    "PrismaticCohomology:PR.7"
+   ],
+   "note": "Proof: Kisin's construction starts from D_crys(V) ⊗ 𝔖[1/p] on a rigid-analytic open of the generic fibre of Spf 𝔖 [Kisin 2006, §1.2, Lemma 1.2.6]. CP.5 uses 'the actual Kisin/BKF comparison'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/062",
+   "kind": "theorem",
+   "name": "Lemma 4.6 (Kedlaya): vector bundles on the punctured spectrum of A_inf",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let s be the closed point of Spec A_inf and U = Spec A_inf ∖ {s}. Restriction is an equivalence between vector bundles on Spec A_inf and on U; in particular every vector bundle on U is free.",
+   "locator": "Lemma 4.6 and proof, pp. 266–268",
+   "status": "missing",
+   "note": "U = Spec A_inf[1/p] ∪ Spec A_inf[1/x]; the proof bounds j_*ℰ inside a finitely generated module and uses Lemmas 4.7–4.8 over the valuation ring O^♭ (first explained in Scholze–Weinstein's Berkeley lectures)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/063",
+   "kind": "theorem",
+   "name": "Lemma 4.7: submodules of (K^♭)^d have at most d generators modulo 𝔪",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Every O^♭-submodule E of (K^♭)^d satisfies dim_k(E ⊗ k) ≤ d.",
+   "locator": "Lemma 4.7, p. 268",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/064",
+   "kind": "theorem",
+   "name": "Lemma 4.8: a freeness criterion over O^♭",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. If D ⊂ (K^♭)^d is an O^♭-submodule with dim_k(D ⊗ k) = d, then D is finite free of rank d.",
+   "locator": "Lemma 4.8, p. 268",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/065",
+   "kind": "theorem",
+   "name": "Lemma 4.9: finitely presented A_inf-modules free after inverting p are perfect",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let M be a finitely presented A_inf-module with M[1/p] finite free over A_inf[1/p]. (i) M is perfect as an A_inf-complex. (ii) Its torsion submodule M_tor is killed by p^n for n ≫ 0 and is finitely presented and perfect. (iii) M has Tor-dimension ≤ 2 and Tor_2^{A_inf}(M, W(k)) = 0; if M has no x-torsion then Tor_i^{A_inf}(M, W(k)) = 0 for i > 0.",
+   "locator": "Lemma 4.9, p. 269",
+   "status": "missing",
+   "note": "Uses coherence of W_n(O^♭) and the sequence 0 → Q → W̃ → W(k) → 0 with W̃ = colim_n A_inf/(x^{1/p^n})."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/066",
+   "kind": "theorem",
+   "name": "Lemma 4.10: p-torsion-free A_inf-modules give vector bundles on the punctured spectrum",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let M be a finitely generated p-torsion-free A_inf-module with M[1/p] finite projective over A_inf[1/p]. Then the associated quasi-coherent sheaf restricts to a vector bundle on U = Spec A_inf ∖ {s}. (M itself need not be projective, e.g. M = (x, p).)",
+   "locator": "Lemma 4.10 and Remark 4.11, p. 270",
+   "status": "missing",
+   "note": "A_inf localized at (p) is a discrete valuation ring (valuation: the first nonzero Teichmüller coefficient)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/067",
+   "kind": "theorem",
+   "name": "Corollary 4.12: finite projective A_inf[1/p]-modules are free",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Every finite projective A_inf[1/p]-module is free.",
+   "locator": "Corollary 4.12, p. 270",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/068",
+   "kind": "theorem",
+   "name": "Proposition 4.13: structure of finitely presented A_inf-modules",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let M be a finitely presented A_inf-module with M[1/p] finite projective (equivalently free) over A_inf[1/p]. There is a functorial exact sequence 0 → M_tor → M → M_free → M̄ → 0 with M_tor finitely presented, perfect and killed by p^n for n ≫ 0; M_free finite free; and M̄ finitely presented, perfect and killed by a power of (x, p). Moreover M is finite free if M ⊗_{A_inf} W(k) is p-torsion-free, or if K has characteristic 0 and M ⊗_{A_inf} O is p-torsion-free.",
+   "locator": "Proposition 4.13, p. 271",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ],
+   "note": "AI.2: 'torsion decompositions and the étale/Witt specializations'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/069",
+   "kind": "theorem",
+   "name": "Lemma 4.14: lengths go up under specialization",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let M be a finitely presented W_n(O^♭)-module, M_η = M ⊗ W_n(K^♭) and M_s = M ⊗ W_n(k). Then M_η and M_s have finite length and ℓ(M_η) = ℓ(M_s) − ℓ(Tor_1^{W_n(O^♭)}(M, W_n(k))) ≤ ℓ(M_s).",
+   "locator": "Lemma 4.14, p. 272",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/070",
+   "kind": "theorem",
+   "name": "Corollary 4.15: elementary divisors under specialization",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let M be a finitely presented A_inf-module with M[1/p] free over A_inf[1/p], M_1 = M ⊗ W(K^♭) and M_2 = M ⊗ W(k). Then M_1 and M_2 have the same rank, and ℓ(M_2/p^n) ≥ ℓ(M_1/p^n) for all n ≥ 1.",
+   "locator": "Corollary 4.15, p. 272",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5"
+   ],
+   "note": "AI.5: 'Prove the linear algebra controlling integral torsion under these specializations'; the length estimate is the input to Theorems 1.1(ii) and 14.5(ii)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/071",
+   "kind": "theorem",
+   "name": "Lemma 4.16: the crystalline specialization map on cohomology is injective",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let C ∈ D(A_inf) be such that H^j(C)[1/p] is free for every j, and fix i. Then H^i(C) ⊗_{A_inf} W(k) → H^i(C ⊗^L_{A_inf} W(k)) is injective and an isomorphism after inverting p; it is an isomorphism if H^{i+1}(C) has no x-torsion.",
+   "locator": "Lemma 4.16, p. 273",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/072",
+   "kind": "theorem",
+   "name": "Corollary 4.17: cohomology of perfect A_inf-complexes and its crystalline specialization",
+   "statement": "Let K be a perfectoid field with ring of integers O, O^♭ its tilt, k the residue field, A_inf = W(O^♭), and x ∈ A_inf the Teichmüller lift of a non-zero non-unit of O^♭. Let C ∈ D(A_inf) be perfect with H^j(C)[1/p] free for all j. Then every H^j(C) is finitely presented. If H^i(C ⊗^L W(k)) is p-torsion-free, then H^i(C) is finite free, so H^i(C ⊗^L W(K^♭)) = H^i(C) ⊗ W(K^♭) is p-torsion-free; if moreover H^{i+1}(C) ⊗ W(k) is p-torsion-free (e.g. H^{i+1}(C ⊗^L W(k)) is), then H^i(C) ⊗ W(k) = H^i(C ⊗^L W(k)).",
+   "locator": "Corollary 4.17 and the remark after it, p. 274",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/073",
+   "kind": "theorem",
+   "name": "Lemma 4.18: torsion-freeness of the crystalline and de Rham specializations agree",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, and C ∈ D(A_inf) perfect with H^j(C)[1/p] free for all j. For fixed i, H^i(C ⊗^L_{A_inf} W(k)) is p-torsion-free iff H^i(C ⊗^L_{A_inf} O) is p-torsion-free.",
+   "locator": "Lemma 4.18, p. 274",
+   "status": "missing",
+   "note": "A finitely presented O-module M is free iff Tor_1^O(M, k) = 0."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/074",
+   "kind": "theorem",
+   "name": "Lemma 4.19: a criterion for M[1/p] to be finite free",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, μ = [ε] − 1, and M a finitely presented A_inf-module with M[1/pμ] finite projective over A_inf[1/pμ] and M ⊗_{A_inf} B_crys^+ finite projective over B_crys^+. Then M[1/p] is finite free over A_inf[1/p].",
+   "locator": "Lemma 4.19, p. 275",
+   "status": "missing",
+   "note": "The μ-adic completion of A_inf[1/p] receives a map from B_crys^+; conclude by Beauville–Laszlo and Corollary 4.12."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/075",
+   "kind": "theorem",
+   "name": "Corollary 4.20: the crystalline-specialization criterion with B_crys^+ hypotheses",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity and C ∈ D(A_inf) perfect with H^j(C)[1/pμ] free over A_inf[1/pμ] and H^j(C ⊗^L B_crys^+) free over B_crys^+ for all j. Then every H^j(C) is finitely presented with H^j(C)[1/p] free, and the conclusions of Corollary 4.17 hold; by Lemma 4.18 the hypotheses on H^i(C ⊗^L W(k)) may be replaced by those on H^i(C ⊗^L O).",
+   "locator": "Corollary 4.20 and Remark 4.21, p. 275",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.5"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/076",
+   "kind": "definition",
+   "name": "Breuil–Kisin–Fargues modules",
+   "statement": "Let K be a perfectoid field, A_inf = W(O^♭) with Frobenius φ, ξ a generator of ker θ and ξ̃ = φ(ξ). A Breuil–Kisin–Fargues module is a finitely presented A_inf-module M with an isomorphism φ_M : M ⊗_{A_inf,φ} A_inf[1/ξ̃] ≅ M[1/ξ̃] such that M[1/p] is finite projective (equivalently free) over A_inf[1/p].",
+   "locator": "Definition 1.5, p. 224; Definition 4.22, p. 276",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ],
+   "note": "AI.2 names BMS1 Definition 4.22 as its source."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/077",
+   "kind": "theorem",
+   "name": "BKF modules are not closed under cokernels",
+   "statement": "Let K = C be a completed algebraic closure of Q_p and μ = [ε] − 1. Then M = A_inf/μ with the Frobenius induced from φ^*(μ) ⊂ (μ) is finitely presented and φ_M becomes an isomorphism after inverting ξ̃, but M[1/p] is not finite projective. There is a nonzero map A_inf ≅ A_inf ⊗ Z_p(1) → A_inf{1} whose cokernel is this module, so the category of Breuil–Kisin–Fargues modules is not stable under cokernels; it is an exact tensor category in which the Tate twist is invertible.",
+   "locator": "Example 4.23 and Remark 4.25, p. 276",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ],
+   "note": "AI.2 acceptance: 'a torsion/cokernel failure'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/078",
+   "kind": "construction",
+   "name": "The Breuil–Kisin–Fargues twist A_inf{1}",
+   "statement": "Let K be a perfectoid field. For r ≥ 1 put W_r(O){1} := L̂_{W_r(O)/Z_p}[−1] = L_{W_r(O)/A_inf}[−1] = ξ̃_rA_inf/ξ̃_r^2A_inf, free of rank 1 over W_r(O). For r > s the natural map W_r(O){1} → W_s(O){1} has image p^{r−s}W_s(O){1}; dividing by p^{r−s}, A_inf{1} := lim_r W_r(O){1} is a free A_inf-module of rank 1 with a natural Frobenius, a BKF module. If K has characteristic 0 and contains all p-power roots of unity, with ξ = μ/φ^{−1}(μ), the ξ̃_r give a basis e with φ(e) = ξ̃^{−1}e, and dlog : Z_p(1) → T_p(Ω^1_{W_r(O)/Z_p}) induces A_inf ⊗ Z_p(1) → A_inf{1} with image μA_inf{1}, so A_inf{1} = μ^{−1}(A_inf ⊗_{Z_p} Z_p(1)). M{n} := M ⊗ A_inf{1}^{⊗n}.",
+   "locator": "Example 4.24, pp. 276–277",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.0"
+   ],
+   "note": "AI.0: 'Construct Breuil–Kisin twists and their tensor powers with source orientation, distinguishing A_inf{1}, its étale Z_p(1) realization and the reduction twist (I/I²).' The BMS2 extraction compares BMS2's twist with this one."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/079",
+   "kind": "theorem",
+   "name": "Lemma 4.26: the étale realization of a BKF module",
+   "statement": "Let (M, φ_M) be a BKF module over an algebraically closed field C of characteristic 0. Then T = (M ⊗_{A_inf} W(C^♭))^{φ_M = 1} is a finitely generated Z_p-module with M ⊗ W(C^♭) = T ⊗_{Z_p} W(C^♭), and M ⊗_{A_inf} A_inf[1/μ] = T ⊗_{Z_p} A_inf[1/μ] inside the common base extension to W(C^♭).",
+   "locator": "Lemma 4.26, p. 278",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/080",
+   "kind": "theorem",
+   "name": "Lemma 4.27: the crystalline specialization of a BKF module",
+   "statement": "Let K be a perfectoid field of characteristic 0 and M a BKF module. Then M' = M ⊗_{A_inf} W(k) is a finitely generated W(k)-module with a Frobenius automorphism after inverting p, and for a section k → O_K/p (inducing W(k) → A_inf) there is a noncanonical φ-equivariant isomorphism M ⊗_{A_inf} B_crys^+ ≅ M' ⊗_{W(k)} B_crys^+ reducing to the identity over W(k)[1/p].",
+   "locator": "Lemma 4.27, p. 279",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ],
+   "note": "Cited from Fargues–Fontaine, Corollaire 11.1.14. In geometric situations the isomorphism is canonical (Proposition 13.21)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/081",
+   "kind": "theorem",
+   "name": "Theorem 1.6 / 4.28 (Fargues): classification of finite free BKF modules",
+   "statement": "Let K = C be algebraically closed of characteristic 0. The functor (M, φ_M) ↦ (T, Ξ), T = (M ⊗ W(C^♭))^{φ_M = 1}, Ξ = M ⊗_{A_inf} B_dR^+ ⊂ M ⊗ B_dR ≅ T ⊗_{Z_p} B_dR, is an equivalence between finite free Breuil–Kisin–Fargues modules and pairs (T, Ξ) of a finite free Z_p-module T and a B_dR^+-lattice Ξ ⊂ T ⊗_{Z_p} B_dR. The functor is exact but its inverse is not. A_inf{1} corresponds to (Z_p(1), ξ^{−1}(Z_p(1) ⊗ B_dR^+)).",
+   "locator": "Theorem 1.6, p. 224; Theorem 4.28 and the paragraphs after Remark 4.29, pp. 279–280",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.2"
+   ],
+   "note": "BMS1 refer to Scholze–Weinstein's Berkeley lectures for the proof and only need full faithfulness, which Remark 4.29 proves directly: faithfulness from Lemma 4.26, fullness by showing M ⊂ φ^{−r}(μ)^{−1}N for all r and ∩_r φ^{−r}(μ)^{−1}N = N (Lemma 3.23). AI.2 cites Definition 4.22, Lemmas 4.26–4.27 and Theorem 4.28."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/082",
+   "kind": "theorem",
+   "name": "Lemma 4.30: 𝔖 → A_inf is flat",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. Let C be a completed algebraic closure of K with π^♭ ∈ O_C^♭. The map 𝔖 → A_inf sending T to [π^♭]^p and restricting to the Frobenius on W(k) is flat. More generally, a map A → B of p-adically complete p-torsion-free rings with A noetherian and A/p → B/p flat is flat.",
+   "locator": "Lemma 4.30 and Remark 4.31, p. 281",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/083",
+   "kind": "theorem",
+   "name": "Proposition 4.32: base change of Breuil–Kisin modules to A_inf",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. The functor M ↦ M ⊗_𝔖 A_inf, with φ_M ⊗ id, is an exact tensor functor from Breuil–Kisin modules over 𝔖 to Breuil–Kisin–Fargues modules over A_inf; the image of E generates ker(θ̃ : A_inf → O_C).",
+   "locator": "Proposition 4.32, p. 281",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/084",
+   "kind": "theorem",
+   "name": "Corollary 4.33: Kisin's functor sends Z_p(1) to 𝔖{1}",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field k, uniformizer π, 𝔖 = W(k)[[T]] with θ̃ : 𝔖 → O_K, T ↦ π, whose kernel is generated by an Eisenstein polynomial E, and φ the Frobenius of W(k) with T ↦ T^p. Under the functor of Theorem 4.4, Z_p(1) is sent to 𝔖{1}; indeed 𝔖{1} ⊗_𝔖 A_inf ≅ A_inf{1} as BKF modules, compatibly with the G_{K_∞}-action.",
+   "locator": "Corollary 4.33, p. 281",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/085",
+   "kind": "theorem",
+   "name": "Theorem 5.1 (Scholze): finiteness of p-adic étale cohomology of proper smooth rigid spaces",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field, C a completed algebraic closure, and X a proper smooth rigid-analytic variety over K. Then H^i_et(X_C, Z_p) is a finitely generated Z_p-module for every i.",
+   "locator": "Theorem 5.1, p. 283",
+   "status": "missing",
+   "note": "Cited from Scholze, p-adic Hodge theory for rigid-analytic varieties (Forum Math. Pi 2013), Theorem 1.1, whose proof is the primitive comparison theorem; for proper smooth formal models it also follows from Theorem 14.3 here. The atlas has no layer for it; Scholze (2013) is listed as a prerequisite."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/086",
+   "kind": "theorem",
+   "name": "Theorem 5.1 (Scholze): the de Rham comparison for proper smooth rigid spaces over discretely valued fields",
+   "statement": "Let K be a complete discretely valued extension of Q_p with perfect residue field, C a completed algebraic closure with Galois group G_K, and X a proper smooth rigid-analytic variety over K. There is a comparison isomorphism H^i_et(X_C, Z_p) ⊗_{Z_p} B_dR ≅ H^i_dR(X) ⊗_K B_dR, compatible with the G_K-actions and the filtrations; in particular H^i_et(X_C, Q_p) is de Rham, and H^i_dR(X) ⊗_K B_dR^+ ⊂ H^i_et(X_C, Z_p) ⊗ B_dR is a natural B_dR^+-lattice.",
+   "locator": "Theorem 5.1 and the paragraph after it, p. 283",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeTheory:P8",
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "P8 applies CP.3–CP.4 'to the proper-smooth comparison with connection and tensor compatibility'; CP.3 proves agreement with the pro-étale period-sheaf construction. BMS1 recall the proof: the Poincaré lemma for OB_dR^+ and Brinon's Galois cohomology computation."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/087",
+   "kind": "construction",
+   "name": "The Breuil–Kisin–Fargues module of the étale cohomology of a proper smooth rigid space",
+   "statement": "For X proper smooth over C (or over a discretely valued K, base changed to C), the torsion-free quotient of H^i_et(X, Z_p) together with the B_dR^+-lattice given by de Rham cohomology (H^i_dR(X_0) ⊗_K B_dR^+ in the discretely valued case, H^i_crys(X/B_dR^+) in general, Theorem 13.1) defines, by Fargues' theorem, a finite free BKF module BKF(H^i_et(X, Z_p)). If the torsion-free quotient is crystalline, BKF(H^i_et) = BK(H^i_et) ⊗_𝔖 A_inf (Proposition 4.34).",
+   "locator": "§5, paragraphs after Theorem 5.1 and Remark 5.2, pp. 283–284",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.5",
+    "AInfCohomology:AI.2"
+   ],
+   "note": "The object in which Theorems 1.4 and 14.5(iii) recover crystalline cohomology."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/088",
+   "kind": "definition",
+   "name": "The pro-étale site of a locally noetherian adic space",
+   "statement": "For a locally noetherian adic space X, X_proet is the full subcategory of pro-X_et of objects lim_i U_i with finite étale surjective transition maps, with coverings the families {f_i : U_i → U} that are pointwise surjective on |U| and such that each f_i is a transfinite composite U_i = lim_{μ<λ} U_μ with U_0 → U étale and each U_μ → lim_{μ'<μ} U_{μ'} finite étale surjective (the corrected convention of Scholze's corrigendum). The projection ν : X_proet → X_et satisfies H^j(U, ν^*F) = colim_i H^j(U_i, F) for U = lim U_i with |U| qcqs.",
+   "locator": "§5.1, pp. 284–285",
+   "status": "planned",
+   "planned": [
+    "AdicEtaleGeometry:A1",
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'Use the corrected transfinite pro-étale covers … from Scholze's corrigendum'; AdicEtaleGeometry A1 constructs the elementary site with this covering convention."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/089",
+   "kind": "theorem",
+   "name": "Affinoid perfectoids and the toric tower (Scholze, Lemma 4.5)",
+   "statement": "For X locally noetherian over Spa(Q_p, Z_p), an object lim_i Spa(R_i, R_i^+) of X_proet with finite étale surjective transitions is affinoid perfectoid if the completed direct limit R = (colim R_i^+)^∧_p[1/p] is perfectoid (then R^+ = (colim R_i^+)^∧ is a perfectoid ring, Lemma 3.20); affinoid perfectoids form a basis of X_proet. If X → T^d = Spa(C⟨T_i^{±1}⟩, O⟨T_i^{±1}⟩) is étale and a composite of rational embeddings and finite étale maps, then lim_r X ×_{T^d} T^d_r, with T^d_r obtained by adjoining T_i^{±1/p^r}, is affinoid perfectoid.",
+   "locator": "§5.1 and Lemma 5.3, p. 285",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'Build a toric perfectoid cover of a small framed affine'. Cited from Scholze (2013), Proposition 4.8 and Lemma 4.5."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/090",
+   "kind": "definition",
+   "name": "The integral period sheaves on X_proet and the maps θ_r",
+   "statement": "On X_proet define O_X^+ = ν^*O^+_{X_et}, O_X = ν^*O_{X_et}, Ô_X^+ = lim_r O_X^+/p^r, Ô_X = Ô_X^+[1/p], Ô^+_{X^♭} = lim_φ O_X^+/p, and A_inf,X the derived p-adic completion of W(Ô^+_{X^♭}) (it is unclear whether W(Ô^+_{X^♭}) itself is derived p-complete; the defect is [𝔪^♭]-torsion). Sheafifying Lemma 3.2 gives isomorphisms W(Ô^+_{X^♭}) = lim_R W_r(Ô^+_{X^♭}) ← lim_F W_r(Ô^+_{X^♭}) → lim_F W_r(O^+_X/p) ← lim_F W_r(Ô^+_X), hence θ̃_r, θ_r = θ̃_r φ^r : A_inf,X → W_r(Ô_X^+) and θ : A_inf,X → Ô_X^+.",
+   "locator": "Definition 5.4, Remark 5.5 and the paragraph after Lemma 5.6, pp. 285–286",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'construct the completed integral structure sheaf, its tilt and the Witt A_inf,X sheaf'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/091",
+   "kind": "theorem",
+   "name": "Lemma 5.6: period sheaves on affinoid perfectoids",
+   "statement": "Let U = lim_i Spa(R_i, R_i^+) ∈ X_proet be affinoid perfectoid with completed limit (R, R^+). Then O_X^+(U) = colim R_i^+, O_X(U) = colim R_i, Ô_X^+(U) = R^+, Ô_X(U) = R, Ô^+_{X^♭}(U) = R^{+♭} and H^0(U, A_inf,X) = A_inf(R^+). For i > 0, H^i(U, O_X) = H^i(U, Ô_X) = 0, H^i(U, O_X^+) and H^i(U, Ô_X^+) are killed by 𝔪, H^i(U, Ô^+_{X^♭}) by 𝔪^♭, and H^i(U, A_inf,X) by [𝔪^♭] (indeed by W(𝔪^♭)). The sheaves Ô_X^+ and W_r(Ô_X^+) are derived p-adically complete.",
+   "locator": "Lemma 5.6, Remark 5.5 and the remark after Lemma 5.6, p. 286",
+   "status": "missing",
+   "note": "Cited from Scholze (2013), Lemmas 4.10, 5.10 and Theorem 6.5, which rest on almost purity (PerfectoidSpaces P3) and almost acyclicity (P2)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/092",
+   "kind": "theorem",
+   "name": "Theorem 5.7: the primitive comparison with A_inf-coefficients",
+   "statement": "Let C be algebraically closed and X a proper smooth adic space over C. The inclusion A_inf ↪ A_inf,X induces an almost quasi-isomorphism RΓ_et(X, Z_p) ⊗_{Z_p} A_inf → RΓ(X_proet, A_inf,X); more precisely the cohomology of its cone is killed by W(𝔪^♭).",
+   "locator": "Theorem 5.7 and proof, p. 287",
+   "status": "missing",
+   "note": "Cited from the proof of Scholze (2013), Theorem 8.4 (primitive comparison), which gives [𝔪^♭]-torsion; BMS1 upgrade it to W(𝔪^♭) because the cone is derived p-complete and so a module over W(k) = A_inf/W(𝔪^♭). It feeds the étale specializations (Theorems 1.8(iv), 14.1(iv)), which AI.4 plans."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/093",
+   "kind": "theorem",
+   "name": "The de Rham period sheaf and its Poincaré lemma",
+   "statement": "For a smooth rigid space X over a discretely valued K, the structural sheaf OB^+_{dR,X} (a completion of O_X ⊗_{W(k)} B^+_{dR,X}, formed as in Scholze's corrigendum) carries a connection ∇ from the O_X-factor, and 0 → B^+_{dR,X} → OB^+_{dR,X} → OB^+_{dR,X} ⊗ Ω^1_X → ⋯ is exact; the cohomology of OB^+_{dR,X}[1/ξ] is that of O_X ⊗̂_K B_dR (Brinon). Together with RΓ_et(X_C, Z_p) ⊗ B_dR^+ ≅ RΓ_proet(X_C, B^+_{dR,X}) this proves Theorem 5.1.",
+   "locator": "§5.1, closing sketch of the proof of Theorem 5.1, p. 287",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeTheory:P8:local-rational"
+   ],
+   "note": "P8:local-rational: 'Prove rational local acyclicity, filtration strictness and the relative Poincaré lemma'. Used in §13 to compare Theorem 13.1 with Scholze's isomorphism."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/094",
+   "kind": "theorem",
+   "name": "Lemma 6.1: strongly K-flat resolutions",
+   "statement": "For every complex D^• of O_T-modules on a ringed topos there is a strongly K-flat complex C^• (K-flat with flat terms) and a quasi-isomorphism C^• → D^•; hence D(O_T) is the localization of the strongly K-flat complexes at quasi-isomorphisms.",
+   "locator": "Lemma 6.1, p. 288",
+   "status": "missing",
+   "note": "From Stacks Tag 077J and its proof. AI.1 needs it to 'prove independence of a torsionfree representative'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/095",
+   "kind": "definition",
+   "name": "The décalage η_𝓘 of an 𝓘-torsion-free complex",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. For a complex C^• with 𝓘 ⊗ C^i → C^i injective for all i, η_𝓘C^• has terms (η_𝓘C)^i = {x ∈ C^i : dx ∈ 𝓘·C^{i+1}} ⊗_{O_T} 𝓘^{⊗i} and differential induced by d. If 𝓘 = (f) with f a non-zero-divisor, (η_fC)^i = {x ∈ f^iC^i : dx ∈ f^{i+1}C^{i+1}} ⊂ C^i[1/f], and η_𝓘(C[1]) ≅ (η_𝓘C)[1] by multiplication by f.",
+   "locator": "§1.3, p. 229; Definition 6.2 and Remark 6.3, p. 288",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/096",
+   "kind": "theorem",
+   "name": "Lemma 6.4: the cohomology of η_𝓘C kills 𝓘-torsion",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. For an 𝓘-torsion-free complex C^• there is a canonical isomorphism H^i(η_𝓘C^•) ≅ (H^i(C^•)/H^i(C^•)[𝓘]) ⊗_{O_T} 𝓘^{⊗i}, where H^i(C^•)[𝓘] is the 𝓘-torsion. In particular η_𝓘 preserves quasi-isomorphisms of 𝓘-torsion-free complexes.",
+   "locator": "Lemma 6.4, p. 289",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/097",
+   "kind": "theorem",
+   "name": "Corollary 6.5: the derived functor Lη_𝓘",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. The functor η_𝓘 on strongly K-flat complexes factors canonically through a functor Lη_𝓘 : D(O_T) → D(O_T), which commutes with filtered colimits and with canonical truncations: Lη_𝓘(τ^{[a,b]}C) ≅ τ^{[a,b]}Lη_𝓘(C) for all a ≤ b in Z ∪ {±∞}. Lη_𝓘 is not exact: for 𝓘 = (p) ⊂ Z, Lη_p(Z/p) = 0 but Lη_p(Z/p^2) = Z/p.",
+   "locator": "Corollary 6.5 and Remark 6.6, pp. 289–290",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1 acceptance includes 'a case where an unjustified exactness assertion fails'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/098",
+   "kind": "theorem",
+   "name": "Proposition 6.7: Lη_𝓘 is lax symmetric monoidal",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. There are natural maps Lη_𝓘C ⊗^L_{O_T} Lη_𝓘D → Lη_𝓘(C ⊗^L_{O_T} D), functorial and symmetric in C, D ∈ D(O_T), making Lη_𝓘 lax symmetric monoidal.",
+   "locator": "Proposition 6.7, p. 290",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "The same classification as the BMS2 extraction (PAPER-BHATT-MORROW-SCHOLZE-19/042)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/099",
+   "kind": "theorem",
+   "name": "Proposition 6.8: Lη_f is symmetric monoidal over a valuation ring",
+   "statement": "If T is the punctual topos, R = O_T is a valuation ring and f ∈ R generates 𝓘, then Lη_f : D(R) → D(R) is symmetric monoidal.",
+   "locator": "Proposition 6.8, p. 290",
+   "status": "missing",
+   "note": "Reduce to perfect complexes, which split as sums of R/g[i]; then compare R/(g/f) ⊗^L R/(h/f) using Lemma 7.9."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/100",
+   "kind": "theorem",
+   "name": "Lemma 6.9: comparison maps between Lη_𝓘 and the identity",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. For every integer m there is a natural transformation 𝓘^{⊗m} ⊗ τ^{≤m} → τ^{≤m}Lη_𝓘 of functors on D(O_T). For every integer n there is a natural transformation τ^{≥n}Lη_𝓘 → 𝓘^{⊗n} ⊗ τ^{≥n} on the full subcategory of C with H^n(C) 𝓘-torsion-free. On that subcategory, for n ≤ m, the composites 𝓘^{⊗(m−n)} ⊗ τ^{[n,m]}Lη_𝓘 → 𝓘^{⊗m} ⊗ τ^{[n,m]} → τ^{[n,m]}Lη_𝓘 and 𝓘^{⊗m} ⊗ τ^{[n,m]} → τ^{[n,m]}Lη_𝓘 → 𝓘^{⊗n} ⊗ τ^{[n,m]} are the identity tensored with the inclusions 𝓘^{⊗(m−n)} ⊂ O_T resp. 𝓘^{⊗m} → 𝓘^{⊗n}.",
+   "locator": "Lemma 6.9, p. 291",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/101",
+   "kind": "theorem",
+   "name": "Lemma 6.10: the natural map Lη_𝓘C → C for coconnective C",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. If C ∈ D^{≥0}(O_T) and H^0(C)[𝓘] = 0, there is a canonical map Lη_𝓘C → C (the case n = 0 of Lemma 6.9).",
+   "locator": "Lemma 6.10, p. 292",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/102",
+   "kind": "theorem",
+   "name": "Lemma 6.11: composition of décalages",
+   "statement": "Let 𝓘, 𝓙 ⊂ O_T be invertible ideal sheaves with product 𝓘 ⊗ 𝓙 ≅ 𝓘·𝓙 ⊂ O_T. Then Lη_{𝓘·𝓙} ≅ Lη_𝓘 ∘ Lη_𝓙 as functors D(O_T) → D(O_T).",
+   "locator": "Lemma 6.11, p. 292",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1: 'compatibility with composition in eligible elements'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/103",
+   "kind": "theorem",
+   "name": "Proposition 6.12: Lη_𝓘C modulo 𝓘 is the Bockstein complex",
+   "statement": "Let (T, O_T) be a ringed topos and 𝓘 ⊂ O_T an invertible ideal sheaf. For C ∈ D(O_T) let H^•(C/𝓘) be the complex with terms H^i(C ⊗^L O_T/𝓘) ⊗ 𝓘^{⊗i} and differential the Bockstein of 0 → 𝓘/𝓘^2 → O_T/𝓘^2 → O_T/𝓘 → 0. There is a natural quasi-isomorphism Lη_𝓘C ⊗^L_{O_T} O_T/𝓘 ≃ H^•(C/𝓘); for an 𝓘-torsion-free representative C^• it is a map of complexes η_𝓘C^• ⊗ O_T/𝓘 → H^•(C/𝓘). If R^• is a differential graded algebra with 𝓘-torsion-free terms, η_𝓘R^• is a dga, H^•(R^•/𝓘) is a dga under cup product, and the quasi-isomorphism is multiplicative (Lemma 6.13).",
+   "locator": "Proposition 6.12 and Lemma 6.13, pp. 292–294",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1: 'the Bockstein description modulo f; carry the Bockstein differential, not just the graded cohomology modules'. This is the property that led the authors to Lη."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/104",
+   "kind": "theorem",
+   "name": "Lemma 6.14: Lη commutes with flat pullback",
+   "statement": "Let f : (T', O_{T'}) → (T, O_T) be a flat map of ringed topoi (e.g. a point, or a flat change of rings) and 𝓘' = f^*𝓘. Then Lη_{𝓘'} f^*C ≅ f^*Lη_𝓘C naturally for C ∈ D(O_T).",
+   "locator": "Lemma 6.14, p. 295",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1: 'Prove the precise base-change criterion used for AΩ'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/105",
+   "kind": "theorem",
+   "name": "Lemma 6.15 (Bhatt–Scholze): derived completeness is detected on cohomology",
+   "statement": "Let T be a replete topos and 𝓙 ⊂ O_T a locally finitely generated ideal. A complex K ∈ D(O_T) is derived 𝓙-complete iff every H^i(K) is derived 𝓙-complete; derived 𝓙-complete O_T-modules form an abelian Serre subcategory. For example a complex of p-adically complete p-torsion-free groups is derived p-complete although its cohomology need not be p-adically separated.",
+   "locator": "§6.2, Lemma 6.15 and Remark 6.16, p. 295",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1",
+    "EnhancedDerivedSheaves:E2"
+   ],
+   "note": "Cited from Bhatt–Scholze, The pro-étale topology for schemes, Proposition 3.4.4 and Lemma 3.4.14. DD.1 owns derived completion and E2 the replete-topos results."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/106",
+   "kind": "theorem",
+   "name": "Lemma 6.17 (Bhatt–Scholze): classical versus derived completeness",
+   "statement": "Let T be a replete topos and 𝓙 ⊂ O_T locally finitely generated. An O_T-module M is classically 𝓙-complete (M ≅ lim_k M/𝓙^k) iff it is derived 𝓙-complete and 𝓙-adically separated.",
+   "locator": "Lemma 6.17, p. 296",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1",
+    "EnhancedDerivedSheaves:E2"
+   ],
+   "note": "Cited from Bhatt–Scholze (2015), Proposition 3.4.2."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/107",
+   "kind": "theorem",
+   "name": "Lemma 6.18: cohomology of a completed direct sum",
+   "statement": "Let 𝓙 be locally generated by one element and C_i (i ∈ I) derived 𝓙-complete complexes with H^0(C_i) classically 𝓙-complete and H^0(C_i)[𝓙^∞] = H^0(C_i)[𝓙^n] for some n independent of i. If C is the derived 𝓙-completion of ⊕_i C_i, then H^0(C) = lim_k ⊕_i H^0(C_i)/𝓙^k, the classical completion.",
+   "locator": "Lemma 6.18, p. 296",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/108",
+   "kind": "theorem",
+   "name": "Lemma 6.19: Lη preserves derived completeness",
+   "statement": "Let T be a replete topos, 𝓙 ⊂ O_T locally finitely generated and 𝓘 invertible. If C ∈ D(O_T) is derived 𝓙-complete, so is Lη_𝓘C.",
+   "locator": "Lemma 6.19, p. 297",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1 names Lemma 6.19 explicitly."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/109",
+   "kind": "theorem",
+   "name": "Lemma 6.20: Lη_𝓘 commutes with 𝓘-adic completion",
+   "statement": "Let T be a replete topos and 𝓘 ⊂ O_T an invertible ideal sheaf, and C ∈ D(O_T) with derived 𝓘-completion Ĉ. Then the natural maps (Lη_𝓘C)^∧ → Lη_𝓘Ĉ → R lim_n Lη_𝓘(C ⊗^L O_T/𝓘^n) are quasi-isomorphisms. (For a different ideal 𝓙, Lη_𝓘 need not commute with 𝓙-adic completion.)",
+   "locator": "Lemma 6.20, p. 297",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1 names Lemma 6.20 explicitly and asks for a regression example of the unrestricted claim."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/110",
+   "kind": "definition",
+   "name": "Koszul complexes of commuting endomorphisms",
+   "statement": "For an abelian group M with commuting endomorphisms f_1, …, f_d, the Koszul complex K_M(f_1, …, f_d) is M → ⊕_i M → ⊕_{i<j} M → ⋯, whose component from the spot i_1 < ⋯ < i_k to j_1 < ⋯ < j_{k+1} ⊃ {i_1, …, i_k} is (−1)^{m−1}f_{j_m} for the unique j_m not among the i's; equivalently M ⊗_{Z[f]} ⊗_i (Z[f] →^{f_i} Z[f]), in cohomological degrees [0, d], independent of the order of the f_i. It computes M ⊗^L_{Z[f_1,…,f_d]} Z up to a shift by d. For R = A[x_1, …, x_d] and f_i = ∂/∂x_i it is the de Rham complex Ω^•_{R/A}.",
+   "locator": "Definition 7.1, the paragraph after it and Example 7.2, p. 298",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1: 'Prove the Koszul calculation for commuting endomorphisms'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/111",
+   "kind": "theorem",
+   "name": "Lemma 7.3: Koszul complexes compute group cohomology of Z^d and Z_p^d",
+   "statement": "Let Γ_disc = Z^d with generators γ_1, …, γ_d and Γ = Z_p^d. (i) For a Γ_disc-module M, RΓ(Γ_disc, M) is computed by K_M(γ_1 − 1, …, γ_d − 1). (ii) If N = lim_k N_k with N_k continuous discrete Γ-modules killed by p^k, then RΓ_cont(Γ, N) → RΓ(Γ_disc, N) is a quasi-isomorphism, so RΓ_cont(Γ, N) is computed by K_N(γ_1 − 1, …, γ_d − 1). Replacing γ_i by c(i)γ_i with c(i) ∈ Z_p^× gives canonically isomorphic Koszul complexes.",
+   "locator": "Lemma 7.3 and Remark 7.4, pp. 298–299",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1: 'Prove the Koszul calculation for commuting endomorphisms and integral continuous cochains.'"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/112",
+   "kind": "theorem",
+   "name": "Lemma 7.5: the multiplicative structure on Koszul complexes of group cohomology",
+   "statement": "Let A be a commutative ring, R an A-algebra (not necessarily commutative) and Γ_disc = Z^d acting on R by A-algebra automorphisms. Then K_R(γ_1 − 1, …, γ_d − 1) is naturally a differential graded A-algebra — generated by R and degree-one x_i with x_ix_j = −x_jx_i, x_i^2 = 0, x_ir = γ_i(r)x_i, dx_i = 0, dr = Σ(γ_i(r) − r)x_i — and the quasi-isomorphism with RΓ(Γ_disc, R) is one of algebra objects of D(A); it induces the cup product. The dga is not commutative even if R is, but K_R/f is commutative if Γ acts trivially on R/f.",
+   "locator": "Lemma 7.5 and Remark 7.6, pp. 299–300",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/113",
+   "kind": "definition",
+   "name": "The q-de Rham complex of a Laurent polynomial ring",
+   "statement": "Let A be a commutative ring with a unit q and R = A[T^{±1}] with γ : T ↦ qT. Then η_{q−1}(R →^{γ−1} R) is the q-de Rham complex q-Ω^•_{A[T^{±1}]/A} : A[T^{±1}] → A[T^{±1}] dlog_q T, T^n ↦ [n]_q T^n dlog_q T, with [n]_q = (q^n − 1)/(q − 1); in closed form f(T) ↦ (f(qT) − f(T))/(qT − T) d_qT. It is a differential graded algebra with dlog_q T · f(T) = f(qT) · dlog_q T. In d variables q-Ω^•_{A[T_1^{±1},…,T_d^{±1}]/A} = ⊗_i q-Ω^•_{A[T_i^{±1}]/A} = η_{q−1}K(γ_1 − 1, …, γ_d − 1) computes Lη_{q−1}RΓ(Z^d, A[T^{±1}]). It depends on the coordinates.",
+   "locator": "Example 7.7, pp. 301–302",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.6",
+    "AInfCohomology:AI.3"
+   ],
+   "note": "PR.6 constructs framed q-de Rham complexes (BS22 §16); AI.3 identifies AΩ locally with them."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/114",
+   "kind": "theorem",
+   "name": "Remark 7.8: the q-de Rham complex is not a commutative dga",
+   "statement": "Take A = F_2[q^{±1}] and R = A[T^{±1}] with γ : T ↦ qT; let E_2 = RΓ(Z, R) and E_1 = Lη_{q−1}E_2 as E_∞-A-algebras (using that RΓ(Z, −) and Lη_{q−1} are lax symmetric monoidal and E_1 → E_2 is a map of E_∞-algebras). Then the E_∞-F_2-algebra E_1 cannot be modelled by a commutative differential graded F_2-algebra: the Steenrod operation Sq^0, φ-linear on E_∞-A-algebras and vanishing on H^{>0} of cdgas, satisfies Sq^0(dlog_q T) ↦ (q − 1)^2 x ≠ 0 in H^1(E_2). Hence AΩ_R, and even AΩ_R/p, is not a cdga for R = O⟨T^{±1}⟩.",
+   "locator": "Remark 7.8, p. 302; Remark 1.18, p. 232",
+   "status": "missing",
+   "note": "The printed remark defines E_1 = Lη_{q−1}E_1; the intended E_1 = Lη_{q−1}E_2 (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/115",
+   "kind": "theorem",
+   "name": "Lemma 7.9: Lη on Koszul complexes",
+   "statement": "Let f be a non-zero-divisor of a ring R, M^• a complex of f-torsion-free R-modules, and g_1, …, g_m ∈ R non-zero-divisors each divisible by f or dividing f. If some g_i divides f, then η_f(M^• ⊗_R K_R(g_1, …, g_m)) is acyclic. If f divides every g_i, then η_fK_R(g_1, …, g_m) ≅ K_R(g_1/f, …, g_m/f) and η_f(M^• ⊗_R K_R(g_1, …, g_m)) ≅ η_fM^• ⊗_R K_R(g_1/f, …, g_m/f) as complexes.",
+   "locator": "Lemma 7.9, pp. 302–303",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1's 'Koszul calculation'. The proof's explicit model has a misprint (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/116",
+   "kind": "theorem",
+   "name": "Lemma 7.10: cohomology of Koszul complexes when g is null-homotopic",
+   "statement": "Let g ∈ R. (i) If multiplication by g on a complex M^• is null-homotopic, the long exact sequence for M^• ⊗_R K_R(g) splits into split short exact sequences 0 → H^{n−1}(M^•) → H^n(M^• ⊗ K_R(g)) → H^n(M^•) → 0. (ii) If g_1, …, g_m ∈ R are all divisible by g and some g_i is g times a unit, then for every R-module M, H^n(K_M(g_1, …, g_m)) ≅ Ann_M(g)^{⊕C(m−1,n)} ⊕ (M/gM)^{⊕C(m−1,n−1)}.",
+   "locator": "Lemma 7.10, p. 303",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/117",
+   "kind": "definition",
+   "name": "The complex Ω̃_𝔛 and the twist O{1}",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. Ω̃_𝔛 := Lη_{ζ_p−1}(Rν_*Ô_X^+) ∈ D(𝔛_Zar), independent of the choice of ζ_p and a commutative O_𝔛-algebra in D(𝔛_Zar). O{1} := T_p(Ω^1_{O/Z_p}) = L̂_{O/Z_p}[−1] = L_{O/A_inf}[−1] = ξ̃A_inf/ξ̃^2A_inf is free of rank one over O = A_inf/ξ̃ and contains O(1) with cokernel killed exactly by (ζ_p − 1); a choice of roots of unity trivializes it by ((ζ_p − 1)^{−1} dζ_{p^r}/ζ_{p^r})_r; M{n} := M ⊗_O O{n}.",
+   "locator": "Definitions 8.1–8.2, pp. 304–305",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4",
+    "AInfCohomology:AI.0"
+   ],
+   "note": "Ω̃_𝔛 is the Hodge–Tate specialization AΩ_𝔛 ⊗^L_{A_inf,θ̃} O (Theorem 9.2(i)), which AI.4 plans; O{1} is the reduction of A_inf{1} (AI.0)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/118",
+   "kind": "theorem",
+   "name": "Theorem 8.3: the Hodge–Tate (integral Cartier) isomorphism",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. There is a natural isomorphism H^i(Ω̃_𝔛) ≅ Ω^{i,cont}_{𝔛/O}{−i} of sheaves on 𝔛_Zar, where Ω^{i,cont}_{𝔛/O} = lim_n Ω^i_{(𝔛/p^n)/(O/p^n)}. In particular Ω̃_𝔛 is a perfect complex of O_𝔛-modules.",
+   "locator": "Theorem 8.3, p. 305; proof completed after Proposition 8.15, p. 313",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "AI.4: 'Prove the Hodge–Tate reduction of AΩ along tilde-theta, identifying its cohomology sheaves with differential forms and BK twists.' A mixed-characteristic Cartier isomorphism; Lη_{ζ_p−1} turns the almost description of Rν_*Ô_X^+ into an exact one."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/119",
+   "kind": "theorem",
+   "name": "Ω̃_𝔛 and liftings to A_inf/ξ̃^2",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. τ^{≤1}Ω̃_𝔛 is canonically the p-adic completion of L_{𝔛/Z_p}[−1]{−1}, an extension of Ω^{1,cont}_{𝔛/O}{−1}[−1] by O_𝔛 whose Ext^2-class is the obstruction to lifting 𝔛 to A_inf/ξ̃^2. So if 𝔛 does not lift to A_inf/ξ̃^2, Ω̃_𝔛 is not a direct sum of its cohomology sheaves (an integral analogue of Deligne–Illusie).",
+   "locator": "Remark 8.4, p. 305",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/120",
+   "kind": "definition",
+   "name": "Small algebras, framings and the perfectoid cover R_∞",
+   "statement": "A formally smooth O-algebra R is small (Faltings) if there is an étale map □ : Spf R → Ĝ_m^d = Spf O⟨T_1^{±1}, …, T_d^{±1}⟩ (a framing). Then R_∞ = R ⊗̂_{O⟨T^{±1}⟩} O⟨T_1^{±1/p^∞}, …, T_d^{±1/p^∞}⟩ is perfectoid, integrally closed in R_∞[1/p], the corresponding tower is affinoid perfectoid in X_proet, and Γ = Z_p(1)^d acts, γ_i sending T_i^{1/p^m} ↦ ζ_{p^m}T_i^{1/p^m} and fixing the other T_j. Every sufficiently small Zariski open of 𝔛 is of this form.",
+   "locator": "Definition 8.5 and the paragraphs after it, pp. 306–307",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'Build a toric perfectoid cover of a small framed affine, compute its continuous group cochains'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/121",
+   "kind": "definition",
+   "name": "Local variants Ω̃_R^□, Ω̃_R^profet, Ω̃_R^proet",
+   "statement": "For R small with framing □ and X its generic fibre: Ω̃_R^□ = Lη_{ζ_p−1}RΓ_cont(Γ, R_∞), Ω̃_R^profet = Lη_{ζ_p−1}RΓ(X_profet, Ô_X^+) and Ω̃_R^proet = Lη_{ζ_p−1}RΓ(X_proet, Ô_X^+), with natural maps Ω̃_R^□ → Ω̃_R^profet → Ω̃_R^proet → RΓ(𝔛, Ω̃_𝔛); the first two are almost quasi-isomorphisms by almost purity. If Spf R is connected, RΓ(X_profet, Ô_X^+) = RΓ_cont(Δ, R̂̄) for Δ the Galois group of the maximal pro-finite étale extension of R[1/p].",
+   "locator": "Definition 8.6 and the paragraphs around it, p. 307",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3",
+    "AInfCohomology:AI.4"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/122",
+   "kind": "theorem",
+   "name": "Theorem 8.7 and Corollary 8.13: the local Hodge–Tate comparison",
+   "statement": "Let R be a small formally smooth O-algebra with framing □. (i) The maps Ω̃_R^□ → Ω̃_R^profet → Ω̃_R^proet → RΓ(𝔛, Ω̃_𝔛) are quasi-isomorphisms; write Ω̃_R for the common value. (ii) There are natural isomorphisms H^i(Ω̃_R) ≅ Ω^{i,cont}_{R/O}{−i}; for the framing, R^d ≅ H^1(Ω̃_R) and its exterior powers give ∧^iR^d ≅ H^i(Ω̃_R). (iii) For a formally étale map R → R' of small algebras, Ω̃_R ⊗^L_R R' ≃ Ω̃_{R'}. Without smallness the maps are only known to be almost quasi-isomorphisms.",
+   "locator": "Theorem 8.7, Remark 8.8 and Corollary 8.13, pp. 307–311",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4",
+    "AInfCohomology:AI.3"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/123",
+   "kind": "theorem",
+   "name": "Proposition 8.9: continuous cohomology of R_∞ and its lack of almost zero elements",
+   "statement": "For R small with framing and all i ≥ 0, ∧^iR^d = H^i_cont(Γ, R) → H^i_cont(Γ, R_∞) is split injective with cokernel killed by ζ_p − 1; the cokernel is R ⊗_O ⊕_{0≠a∈(Z[1/p]∩[0,1))^d} H^i_cont(Γ, O·T^a). Moreover H^i_cont(Γ, R_∞) and H^i_cont(Γ, R_∞)/(ζ_p − 1) have no almost zero elements (none killed by 𝔪).",
+   "locator": "Proposition 8.9, p. 308",
+   "status": "missing",
+   "note": "AI.3: 'Separate the integral component of the toric cochains from nonintegral monomials and prove the annihilation estimates'. Uses Scholze (2013) Lemma 5.5 and Corollary 3.29."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/124",
+   "kind": "theorem",
+   "name": "Lemma 8.10: formally smooth O-algebras are topologically free",
+   "statement": "Every formally smooth O-algebra R is the p-adic completion of a free O-module.",
+   "locator": "Lemma 8.10, p. 309",
+   "status": "missing",
+   "note": "For r large, R/(ζ_{p^r} − 1) ≅ R_k ⊗_k O/(ζ_{p^r} − 1) after fixing a section k → O/p; lift a basis."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/125",
+   "kind": "theorem",
+   "name": "Lemma 8.11: Lη turns suitable almost isomorphisms into isomorphisms",
+   "statement": "Let A be a ring, I ⊂ A an ideal and f ∈ I a non-zero-divisor. (i) If M is an A-module such that M and M/f have no non-zero elements killed by I, and α : M → N has kernel and cokernel killed by I, then M/M[f] → N/N[f] is an isomorphism. (ii) If g : C → D in D(A) has all H^i(g) with kernel and cokernel killed by I, and every H^i(C) and H^i(C)/f has no non-zero element killed by I, then Lη_fg is a quasi-isomorphism. (No hypothesis on D is needed; without hypotheses on C it fails, e.g. 𝔪 → O for A = O, I = 𝔪, f = ζ_p − 1.)",
+   "locator": "Lemma 8.11 and Remark 8.12, pp. 309–310",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'Show exactly how Lη upgrades the needed almost comparison; an almost isomorphism is not itself an integral isomorphism.'"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/126",
+   "kind": "theorem",
+   "name": "Proposition 8.14: Künneth formula for Ω̃",
+   "statement": "For small formally smooth O-algebras R_1, R_2 and R = R_1 ⊗̂_O R_2, the natural map Ω̃_{R_1} ⊗̂^L_O Ω̃_{R_2} → Ω̃_R is a quasi-isomorphism.",
+   "locator": "Proposition 8.14, p. 312",
+   "status": "missing",
+   "note": "Reduce to tori; RΓ_cont(Γ_1 × Γ_2, −) is a tensor product of Koszul complexes and Lη_{ζ_p−1} is symmetric monoidal over O (Proposition 6.8) and commutes with completion (Lemma 6.20)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/127",
+   "kind": "theorem",
+   "name": "Proposition 8.15: τ^{≤1}Ω̃_R is the shifted cotangent complex",
+   "statement": "Let R be small formally smooth over O with generic fibre X. The map L̂_{R/Z_p}[−1]{−1} → RΓ(X_proet, Ô_X^+), obtained from the transitivity triangle for Z_p → O → Ô_X^+ and L̂_{Ô_X^+/O} ≃ 0 (Lemma 3.14), factors uniquely through Ω̃_R = Lη_{ζ_p−1}RΓ(X_proet, Ô_X^+) and induces an equivalence L̂_{R/Z_p}[−1]{−1} ≃ τ^{≤1}Ω̃_R. In particular Ω^{1,cont}_{R/O}{−1} ≅ H^1(Ω̃_R) canonically.",
+   "locator": "Proposition 8.15 and the paragraph after it, p. 313",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/128",
+   "kind": "theorem",
+   "name": "Lemma 8.16: uniqueness of factorizations through Lη",
+   "statement": "Let f be a non-zero-divisor of a ring A and α : C → D in D(A) with H^i(C) = 0 for i > 1, H^i(D) = 0 for i < 0 and H^0(D) f-torsion-free. Then α factors through the natural map Lη_fD → D (Lemma 6.10) in at most one way, and a factorization exists iff H^1(C ⊗^L A/f) → H^1(D ⊗^L A/f) vanishes, iff H^1(C) → H^1(D) factors through fH^1(D).",
+   "locator": "Lemma 8.16, p. 313",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/129",
+   "kind": "theorem",
+   "name": "Proposition 8.17: the image of dlog T in the cohomology of the torus",
+   "statement": "Let R = O⟨T^{±1}⟩, R_∞ = O⟨T^{±1/p^∞}⟩ and Γ = Z_p(1). Under RΓ_cont(Γ, L̂_{R_∞/Z_p}) = RΓ_cont(Γ, R_∞)[1]{1}, the image of dlog(T) ∈ H^0(L̂_{R/Z_p}) in H^1_cont(Γ, R_∞){1} is the image of dlog ⊗ 1 ∈ H^1_cont(Γ, O{1}) ⊗_O R, where dlog ∈ Hom_cont(Γ, T_p(Ω^1_{O/Z_p})) is induced by dlog : μ_{p^∞}(O) → Ω^1_{O/Z_p}; it generates (ζ_p − 1)H^1_cont(Γ, O{1}) ⊗ R.",
+   "locator": "Proposition 8.17 and the paragraph after it, p. 316",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/130",
+   "kind": "definition",
+   "name": "The complex AΩ_𝔛",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. With μ = [ε] − 1 (the ideal (μ) is independent of ε by Lemma 3.23), AΩ_𝔛 := Lη_μ(Rν_*A_inf,X) ∈ D(𝔛_Zar), a commutative algebra over the constant sheaf A_inf in D(𝔛_Zar) (Proposition 6.7).",
+   "locator": "Definition 1.12, p. 229; Definition 9.1, p. 317",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "Same classification as BS22's extraction (PAPER-BHATT-SCHOLZE-22/94, planned AI.3 and AI.7)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/131",
+   "kind": "theorem",
+   "name": "Theorem 9.2(i),(ii): specializations of AΩ along θ̃_r",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. (i) AΩ_𝔛 ⊗^L_{A_inf,θ̃} O → Lη_{ζ_p−1}(Rν_*Ô_X^+) = Ω̃_𝔛 is a quasi-isomorphism. (ii) For every r ≥ 1, AΩ_𝔛 ⊗^L_{A_inf,θ̃_r} W_r(O) → Lη_{[ζ_{p^r}]−1}(Rν_*W_r(Ô_X^+)) =: W̃_rΩ_𝔛 is a quasi-isomorphism. Moreover AΩ_R = R lim_r W̃_rΩ_R.",
+   "locator": "Theorem 9.2(i),(ii), p. 317; Remark 1.20, p. 233",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/132",
+   "kind": "theorem",
+   "name": "Theorem 9.2(iii) / 11.1: the cohomology of W̃_rΩ is the de Rham–Witt complex",
+   "statement": "Let K be a perfectoid field of characteristic 0 containing all p-power roots of unity, O = O_K, and 𝔛 a smooth p-adic formal scheme over O (locally Spf R with R p-adically complete, flat over O and R/p smooth over O/p; by Elkik, R is the p-adic completion of a smooth O-algebra) with generic fibre X and ν : X_proet → 𝔛_Zar. For r ≥ 1 and i ∈ Z there is a natural isomorphism H^i(W̃_rΩ_𝔛) ≅ W_rΩ^{i,cont}_{𝔛/O}{−i} of sheaves on 𝔛_Zar, where W_rΩ^{i,cont}_{𝔛/O} = lim_n W_rΩ^i_{(𝔛/p^n)/(O/p^n)} is the continuous relative de Rham–Witt sheaf of Langer–Zink and {−i} a Breuil–Kisin–Fargues twist. Locally, for R small, H^i(W̃_rΩ_R) ≅ W_rΩ^{i,cont}_{R/O}{−i}, compatibly with d, F, R, V and products; for r = 1 this is Theorem 8.3.",
+   "locator": "Lemma 1.19, p. 232; Theorem 9.2(iii), Theorem 9.4(iv), pp. 317–318; Theorem 11.1, p. 342",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "AI.4: 'Construct the relative de Rham–Witt comparison using CR.4's Langer–Zink objects and the universal Witt-complex maps.' The proof is §11 (items 158–166)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/133",
+   "kind": "definition",
+   "name": "Local variants of W̃_rΩ and AΩ",
+   "statement": "For R small with framing □ and Γ = Z_p(1)^d acting on R_∞: W̃_rΩ_R^□ = Lη_{[ζ_{p^r}]−1}RΓ_cont(Γ, W_r(R_∞)), W̃_rΩ_R^profet and W̃_rΩ_R^proet with RΓ(X_profet, W_r(Ô_X^+)) and RΓ(X_proet, W_r(Ô_X^+)); AΩ_R^□ = Lη_μRΓ_cont(Γ, A_inf(R_∞)), AΩ_R^profet = Lη_μRΓ(X_profet, A_inf,X) and AΩ_R^proet = Lη_μRΓ(X_proet, A_inf,X).",
+   "locator": "Definition 9.3, p. 318",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/134",
+   "kind": "theorem",
+   "name": "Theorem 9.4(i)–(iii), Corollary 9.11 and Proposition 9.14: the local computation of AΩ and W̃_rΩ",
+   "statement": "Let R be small with framing □ and 𝔛 = Spf R. (i) AΩ_R^□ ⊗^L_{A_inf,θ̃_r} W_r(O) → W̃_rΩ_R^□ is a quasi-isomorphism. (ii) W̃_rΩ_R^□ → W̃_rΩ_R^profet → W̃_rΩ_R^proet → RΓ(𝔛, W̃_rΩ_𝔛) are quasi-isomorphisms (common value W̃_rΩ_R). (iii) AΩ_R^□ → AΩ_R^profet → AΩ_R^proet → RΓ(𝔛, AΩ_𝔛) are quasi-isomorphisms (common value AΩ_R).",
+   "locator": "Lemma 1.16 and Lemma 1.19, pp. 230–232; Theorem 9.4(i)–(iii), p. 318; Corollary 9.11, p. 327; Proposition 9.14, p. 330",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'Prove framing independence, restriction/sheaf descent and functoriality'. The 'key lemma' of the introduction; its proof uses Lemmas 8.11 and 9.12 to turn Faltings' almost purity into honest quasi-isomorphisms."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/135",
+   "kind": "definition",
+   "name": "The framed lift A(R)^□ and its q-de Rham complex",
+   "statement": "For R small with framing □, A(R)^□ is the unique (p, μ)-adically complete A_inf-algebra formally étale over A_inf⟨U_1^{±1}, …, U_d^{±1}⟩ lifting R along θ : A_inf → O (U_i ↦ T_i). The action γ_i(U_i) = [ε]U_i (fixing U_j, j ≠ i) lifts uniquely to A(R)^□, trivially modulo [ε] − 1, giving q-derivations ∂_q/∂_q log(U_i) = (γ_i − 1)/([ε] − 1). The q-de Rham complex is q-Ω^•_{A(R)^□/A_inf} = K_{A(R)^□}(∂_q/∂_q log(U_1), …, ∂_q/∂_q log(U_d)); for R = O⟨T^{±1}⟩ it is the (p, μ)-adic completion of q-Ω^•_{A_inf[U^{±1}]/A_inf}.",
+   "locator": "§9.2 and Definition 9.5, pp. 320–321",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3",
+    "PrismaticCohomology:PR.6"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/136",
+   "kind": "theorem",
+   "name": "Theorem 1.17 / Lemma 9.6: AΩ_R is computed by the q-de Rham complex",
+   "statement": "Let R be small with framing □. There are injective quasi-isomorphisms q-Ω^•_{A(R)^□/A_inf} = η_{q−1}K_{A(R)^□}(γ_1 − 1, …, γ_d − 1) → AΩ_R^□ = η_{q−1}K_{A_inf(R_∞)}(γ_1 − 1, …, γ_d − 1) and q-Ω^•_{A(R)^□/A_inf}/ξ̃_r → W̃_rΩ_R^□, where q = [ε], using A(R)^□ ⊗̂_{A_inf⟨U^{±1}⟩} A_inf⟨U^{±1/p^∞}⟩ ≅ A_inf(R_∞), U_i^{1/p^r} ↦ [(T_i^{1/p^r}, T_i^{1/p^{r+1}}, …)]. The q-de Rham complex has ξ̃_r-torsion-free terms, so AΩ_R^□ ⊗^L_{θ̃_r} W_r(O) ≃ W̃_rΩ_R^□. For R = O⟨T^{±1}⟩ the differential is ∂_q/∂_qT : T^i ↦ [i]_qT^{i−1}.",
+   "locator": "Theorem 1.17, p. 231; Lemma 9.6, p. 321",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3",
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "Same classification as BS22's extraction (PAPER-BHATT-SCHOLZE-22/83: 'Comparison with the A_inf-cohomology of BMS1', planned PR.6 and AI.3). The nonintegral part is killed because multiplication by φ^{−1}(μ) is null-homotopic on it."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/137",
+   "kind": "theorem",
+   "name": "Lemma 9.7: the Koszul complex computing RΓ_cont(Γ, W_r(R_∞))",
+   "statement": "Let R be small with framing and C^• = K_{W_r(R_∞)}(γ_1 − 1, …, γ_d − 1). (i) C^• is a completed direct sum of Koszul complexes K_{W_r(O)}([ζ^{a_1}] − 1, …, [ζ^{a_d}] − 1) (ζ^{b/p^a} := ζ_{p^a}^b) for a_1, …, a_d ∈ Z[1/p], tensored with the topologically free W_r(O)-module A(R)^□/ξ_r. (ii) The groups H^i(W̃_rΩ_R^□) = H^i(η_{[ζ_{p^r}]−1}C^•) are p-torsion-free. (iii) For every perfect E ∈ D(W_r(O)), H^i(C^• ⊗^L E) and H^i(C^• ⊗^L E)/([ζ_{p^r}] − 1) have no elements killed by W_r(𝔪).",
+   "locator": "Lemma 9.7, pp. 323–325",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/138",
+   "kind": "theorem",
+   "name": "Lemma 9.8: Witt vectors of (Laurent) polynomial rings",
+   "statement": "For any ring S there are natural inclusions W_r(S[T_1^{p^r}, …, T_d^{p^r}]) ⊂ W_r(S)[U_1, …, U_d] ⊂ W_r(S[T_1, …, T_d]) with U_i = [T_i], and likewise for Laurent polynomials; hence W_r(S[T_i^{1/p^∞}]) = W_r(S)[U_i^{1/p^∞}] and W_r(S[T_i^{±1/p^∞}]) = W_r(S)[U_i^{±1/p^∞}].",
+   "locator": "Lemma 9.8, p. 325",
+   "status": "missing",
+   "note": "From Langer–Zink, Corollary 2.4, by localization."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/139",
+   "kind": "theorem",
+   "name": "Lemma 9.9: étale base change for W̃_rΩ",
+   "statement": "Let R be small with framing □ and R → R' formally étale (R/p^n → R'/p^n étale for all n, R' p-adically complete), with the induced framing □'. Then W̃_rΩ_R^□ ⊗̂^L_{W_r(R)} W_r(R') → W̃_rΩ_{R'}^{□'} is a quasi-isomorphism; modulo p^n the tensor product is underived (Remark 9.10, via Elkik and Theorem 10.4).",
+   "locator": "Lemma 9.9 and Remark 9.10, pp. 326–327",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/140",
+   "kind": "theorem",
+   "name": "Lemma 9.12: when Lη_μ of an almost quasi-isomorphism over A_inf is a quasi-isomorphism",
+   "statement": "Let f : C → D be a map of derived p-complete complexes in D(A_inf) such that (i) f ⊗^L_{Z_p} F_p is an almost quasi-isomorphism in D(O^♭); (ii) H^i(Lη_μf) is injective for all i; (iii) ∩_{m∈W(𝔪^♭), m|μ} (μ/m)H^i(C) = μH^i(C) for all i. Then Lη_μf is a quasi-isomorphism.",
+   "locator": "Lemma 9.12, p. 327",
+   "status": "missing",
+   "note": "W(𝔪^♭)^2 ≠ W(𝔪^♭) in general, so 'almost' has to be handled with care; the only known m ∈ W(𝔪^♭) dividing μ are the φ^{−r}(μ)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/141",
+   "kind": "theorem",
+   "name": "Lemma 9.13: the intersection property for RΓ_cont(Γ, A_inf(R_∞))",
+   "statement": "For R small with framing and C = RΓ_cont(Γ, A_inf(R_∞)) ∈ D(A_inf), ∩_{m∈W(𝔪^♭), m|μ} (μ/m)H^i(C) = μH^i(C) for all i.",
+   "locator": "Lemma 9.13, pp. 328–330",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/142",
+   "kind": "theorem",
+   "name": "An inverse limit of sheaves is a sheaf",
+   "statement": "Let 𝔛^psh_Zar be the presheaf topos on affine opens of 𝔛 and j : 𝔛_Zar → 𝔛^psh_Zar. If C_r ∈ D(𝔛^psh_Zar), r ≥ 1, is a projective system with each C_r → Rj_*j^*C_r a quasi-isomorphism, then so is C = R lim C_r → Rj_*j^*C.",
+   "locator": "Lemma 9.15, p. 331",
+   "status": "missing",
+   "note": "Used to deduce Proposition 9.14 from the W̃_rΩ case, since AΩ_R is not a module over R or W_r(R)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/143",
+   "kind": "theorem",
+   "name": "Lemma 9.16: Künneth formula for AΩ",
+   "statement": "For small formally smooth O-algebras R_1, R_2 and R = R_1 ⊗̂_O R_2, the natural map AΩ_{R_1} ⊗̂^L_{A_inf} AΩ_{R_2} → AΩ_R is a quasi-isomorphism.",
+   "locator": "Lemma 9.16, p. 332",
+   "status": "missing",
+   "note": "Both sides are derived ξ̃-complete; modulo ξ̃ it is Proposition 8.14."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/144",
+   "kind": "theorem",
+   "name": "Proposition 9.17: the Frobenius on AΩ",
+   "statement": "For R small formally smooth over O there is a natural φ-linear map φ : AΩ_R → AΩ_R factoring as a φ-linear quasi-isomorphism AΩ_R ≃ Lη_ξ̃AΩ_R followed by the natural map Lη_ξ̃AΩ_R → AΩ_R; for a smooth formal scheme 𝔛 over O there is likewise φ : AΩ_𝔛 → AΩ_𝔛 factoring through a φ-linear quasi-isomorphism AΩ_𝔛 ≃ Lη_ξ̃AΩ_𝔛.",
+   "locator": "Proposition 9.17, p. 332",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3"
+   ],
+   "note": "AI.3: 'construct Frobenius and multiplication'. Proof: φ_X is an automorphism of RΓ_proet(X, A_inf,X) and φ^*Lη_μ = Lη_{φ(μ)}φ^* = Lη_ξ̃Lη_μφ^*."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/145",
+   "kind": "theorem",
+   "name": "Lemma 9.18: Lη_{[ζ_{p^r}]−1} is symmetric monoidal on W̃_rΩ",
+   "statement": "Let R be small, D = RΓ_proet(X, W_r(Ô_X^+)) (or any complex receiving an almost quasi-isomorphism from RΓ_cont(Γ, W_r(R_∞))) and E ∈ D(W_r(O)). Then Lη_{[ζ_{p^r}]−1}D ⊗^L_{W_r(O)} Lη_{[ζ_{p^r}]−1}E → Lη_{[ζ_{p^r}]−1}(D ⊗^L_{W_r(O)} E) is a quasi-isomorphism.",
+   "locator": "Lemma 9.18, p. 332",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/146",
+   "kind": "theorem",
+   "name": "Lemma 10.1: powers of Witt ideals are intertwined",
+   "statement": "Let I be an ideal of a ring A generated by a finite set Σ, W_r(I) = ker(W_r(A) → W_r(A/I)) and [I] the ideal generated by Teichmüller lifts of I. Then W_r(I^{|Σ|p^rs}) ⊂ ⟨[a^s] : a ∈ Σ⟩ ⊂ [I]^s ⊂ [I^s] ⊂ W_r(I^s) and [I]^s ⊂ W_r(I)^s ⊂ W_r(I^s) for all s ≥ 1, so the five chains ⟨[a^s]⟩, [I]^s, [I^s], W_r(I)^s, W_r(I^s) are intertwined.",
+   "locator": "§10.1, Lemma 10.1, p. 333",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/147",
+   "kind": "theorem",
+   "name": "Corollary 10.2: Witt vectors of an almost-setting ideal",
+   "statement": "If I ⊂ A satisfies I = I^2 and is an increasing union of principal ideals generated by non-zero-divisors, then W_r(I) = [I], and W_r(I) ⊂ W_r(A) again satisfies W_r(I)^2 = W_r(I) and is an increasing union of principal ideals generated by non-zero-divisors (e.g. W_r(𝔪) ⊂ W_r(O) for a perfectoid field).",
+   "locator": "Corollary 10.2, p. 334",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/148",
+   "kind": "theorem",
+   "name": "Lemma 10.3: [p]-adic and p-adic topologies on W_r(A) agree",
+   "statement": "For any ring A, [p]^{2s}W_r(A) ⊂ p^sW_r(A), p^{rs}W_r(A) ⊂ W_r(pA)^s and W_r(pA)^{p^rs} ⊂ [p]^sW_r(A); so the chains [p]^sW_r(A), W_r(pA)^s and p^sW_r(A) are intertwined.",
+   "locator": "Lemma 10.3, p. 334",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/149",
+   "kind": "theorem",
+   "name": "Theorem 10.4 (van der Kallen, Langer–Zink, Borger): Witt vectors preserve étale maps",
+   "statement": "If A → B is étale then W_r(A) → W_r(B) is étale, and for any A → A' with B' = B ⊗_A A' the map W_r(A') ⊗_{W_r(A)} W_r(B) → W_r(B') is an isomorphism.",
+   "locator": "Theorem 10.4, p. 335",
+   "status": "missing",
+   "note": "The input to CR.4's 'localization and étale descent' for de Rham–Witt forms. BMS1 deduce the general case from Langer–Zink's F-finite case (Corollary A.18) by noetherian approximation; also van der Kallen (1986) and Borger (2011, Theorem 9.2, Corollary 9.4)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/150",
+   "kind": "definition",
+   "name": "F-V-procomplexes",
+   "statement": "Let A be a Z_(p)-algebra and B an A-algebra. An F-V-procomplex for B/A is a system (𝒲_r^•, R, F, V, λ_r)_{r≥1}: commutative dg W_r(A)-algebras 𝒲_r^•; maps R : 𝒲_{r+1}^• → R_*𝒲_r^• of dg W_{r+1}(A)-algebras; F : 𝒲_{r+1}^• → F_*𝒲_r^• of graded W_{r+1}(A)-algebras; V : F_*𝒲_r^• → 𝒲_{r+1}^• of graded W_{r+1}(A)-modules; λ_r : W_r(B) → 𝒲_r^0 commuting with F, R, V; such that R commutes with F and V, FV = p, FdV = d, V(F(x)y) = xV(y), and Fdλ_{r+1}([b]) = λ_r([b])^{p−1}dλ_r([b]) for b ∈ B (automatic if 𝒲_r^1 is p-torsion-free). Here R is regarded as the subtle operator, as in topological cyclic homology.",
+   "locator": "§10.2, Definition 10.5 and Remark 10.6, pp. 335–336",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/151",
+   "kind": "theorem",
+   "name": "Theorem 10.7 (Langer–Zink): the relative de Rham–Witt complex",
+   "statement": "For a Z_(p)-algebra A and an A-algebra B there is an initial object {W_rΩ^•_{B/A}}_r in the category of F-V-procomplexes for B/A: for any F-V-procomplex (𝒲_r^•, R, F, V, λ_r) there are unique maps of dg W_r(A)-algebras W_rΩ^•_{B/A} → 𝒲_r^• compatible with R, F, V and equal to λ_r in degree 0.",
+   "locator": "Theorem 10.7, p. 336",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "CR.4: 'Construct the relative Langer–Zink theory … This relative version … supplies BMS1 §§10–12.'"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/152",
+   "kind": "theorem",
+   "name": "Lemma 10.8: étale base change for relative de Rham–Witt forms",
+   "statement": "Let A → R be a map of Z_(p)-algebras and R' an étale R-algebra. Then W_rΩ^n_{R/A} ⊗_{W_r(R)} W_r(R') → W_rΩ^n_{R'/A} is an isomorphism.",
+   "locator": "Lemma 10.8, p. 336",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "Langer–Zink, Proposition 1.7, under their F-finiteness or p-nilpotence hypothesis, which BMS1 remove using Theorem 10.4; the printed proof names the hypothesis on 'S' (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/153",
+   "kind": "theorem",
+   "name": "Lemma 10.9 and Corollary 10.10: de Rham–Witt forms of quotients",
+   "statement": "Let A → R be a map of Z_(p)-algebras, I ⊂ R an ideal and W_rΩ^n_{(R,I)/A} = ker(W_rΩ^n_{R/A} → W_rΩ^n_{(R/I)/A}). (i) ⊕_n W_rΩ^n_{(R,I)/A} is the dg ideal generated by W_r(I). (ii) If I is generated by a finite set Σ, the chains ⟨[a^s] : a ∈ Σ⟩W_rΩ^•_{R/A} and W_rΩ^•_{(R,I^s)/A} are intertwined. Hence for a finitely generated ideal I ⊂ A, {W_rΩ^•_{R/A} ⊗_{W_r(A)} W_r(A)/[I^s]}_s → {W_rΩ^•_{(R/I^sR)/(A/I^s)}}_s is an isomorphism of pro-dg algebras.",
+   "locator": "Lemma 10.9 and Corollary 10.10, pp. 337–338",
+   "status": "missing",
+   "note": "Part (i) follows Geisser–Hesselholt's argument for the absolute de Rham–Witt complex."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/154",
+   "kind": "definition",
+   "name": "The continuous relative de Rham–Witt complex",
+   "statement": "For a map A → R of Z_(p)-algebras, W_rΩ^{i,cont}_{R/A} := lim_s W_rΩ^i_{(R/p^s)/(A/p^s)} = lim_s W_rΩ^i_{R/A}/p^s (by Corollary 10.10 and Lemma 10.3); it is again an F-V-procomplex for R/A.",
+   "locator": "Definition 10.11, p. 338",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "CR.4: 'Prove finite-level and inverse-limit comparisons'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/155",
+   "kind": "theorem",
+   "name": "Theorem 10.12 (Langer–Zink): the basis of W_rΩ^n of a Laurent polynomial algebra",
+   "statement": "For weights a : {1, …, d} → p^{−r}Z with u(a) = max(−v(a), 0) and the admissible partitions (I_0, …, I_n) ∈ P_a (ordered by the p-adic valuations of a, with a fixed tie-breaking order), the elements e(x, a, I_0, …, I_n) — products of V^{−v(a|I_0)}(x∏[T_i]^{…}), dV^{−v(a|I_j)}∏[T_i]^{…}, F^{v(a|I_j)}d∏[T_i]^{…} and dlog ∏[T_i] according to the sign of v(a|I_j) — define an isomorphism of W_r(A)-modules ⊕_a ⊕_{P_a} V^{u(a)}W_{r−u(a)}(A) ≅ W_rΩ^n_{A[T_1^{±1},…,T_d^{±1}]/A}.",
+   "locator": "§10.4 and Theorem 10.12, pp. 338–340",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "CR.4: 'Compute polynomial basic Witt differentials, localization'. Langer–Zink, Proposition 2.17, for polynomials; the Laurent case follows by localization at [T_1], …, [T_d]."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/156",
+   "kind": "theorem",
+   "name": "Theorem 10.13 (Langer–Zink): the integral part of W_rΩ of a torus",
+   "statement": "The map τ : Ω^•_{W_r(A)[U_1^{±1},…,U_d^{±1}]/W_r(A)} → W_rΩ^•_{A[T_1^{±1},…,T_d^{±1}]/A}, U_i ↦ [T_i], is an injective quasi-isomorphism onto the integral part (the dg subalgebra generated by the [T_i]^{±1}, i.e. the weights with values in Z); the part of weight a with v(a) < 0 is acyclic. The integral part depends on the coordinates.",
+   "locator": "Theorem 10.13, p. 340",
+   "status": "missing",
+   "note": "From the proof of Langer–Zink, Theorem 3.5."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/157",
+   "kind": "theorem",
+   "name": "Proposition 10.14: de Rham–Witt complexes over perfectoid bases",
+   "statement": "Let A → A' be a map of perfectoid rings, R a smooth A-algebra and R' = R ⊗_A A'. (i) W_rΩ^n_{R/A} and W_r(A') are Tor-independent over W_r(A). (ii) W_rΩ^•_{R/A} ⊗_{W_r(A)} W_r(A') → W_rΩ^•_{R'/A'} is an isomorphism of dg W_r(A')-algebras. (Applied to O → k.)",
+   "locator": "Proposition 10.14, p. 341",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/158",
+   "kind": "construction",
+   "name": "The F-V-structure on H^•(D/ξ̃_r)",
+   "statement": "Let S be a perfectoid ring, ξ a generator of ker θ with θ_r(ξ) = V(1) for all r (so θ_r(ξ̃) = p), and D ∈ D(A_inf(S)) a commutative algebra with H^i(D) = H^i(D/ξ) = 0 for i < 0 and a φ-linear automorphism φ_D. Put 𝒲_r^n(D)_pre = H^n(D ⊗^L_{A_inf(S)} A_inf(S)/ξ̃_r), a graded W_r(S)-algebra with Bockstein differential for 0 → D/ξ̃_r →^{ξ̃_r} D/ξ̃_r^2 → D/ξ̃_r → 0; let R' be induced by φ_D^{−1}, F by the projection A_inf/ξ̃_{r+1} → A_inf/ξ̃_r, V by multiplication by φ^{r+1}(ξ), and R := θ̃_r(ξ)^nR' on 𝒲^n. Then 𝒲_r^•(D)_pre is a dg W_r(S)-algebra with xy = (−1)^{|x||y|}yx; R' is a map of graded algebras and R one of dg algebras; V is additive, commutes with R and R', and V(F(x)y) = xV(y); F is a ring map commuting with R, R'; FdV = d; FV = p. Given compatible λ_r : W_r(B) → 𝒲_r^0(D)_pre for an S-algebra B satisfying the Teichmüller rule, and if x^2 = 0 for odd |x|, this is an F-V-procomplex for B/S and receives W_rΩ^•_{B/S}; but then im λ_r^n ⊂ ∩_s θ̃_r(ξ_s)^n𝒲_r^n(D)_pre, which is too small.",
+   "locator": "§11.1.1, Proposition 11.2 and Remark 11.3, pp. 343–345",
+   "status": "missing",
+   "note": "AI.4: 'using … the universal Witt-complex maps'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/159",
+   "kind": "theorem",
+   "name": "Proposition 11.5: the improved F-V-procomplex from Lη_μD",
+   "statement": "Let S be a perfectoid ring, ξ a generator of ker θ with θ_r(ξ) = V(1) for all r (so θ_r(ξ̃) = p), and D ∈ D(A_inf(S)) a commutative algebra with H^i(D) = H^i(D/ξ) = 0 for i < 0 and a φ-linear automorphism φ_D. Assume S is p-torsion-free with compatible primitive p-power roots of unity, ξ = μ/φ^{−1}(μ), H^0(D) μ-torsion-free, and put 𝒲_r^n(D) = H^n(Lη_μD ⊗^L A_inf(S)/ξ̃_r) (with φ_D : Lη_μD ≃ Lη_ξ̃Lη_μD → Lη_μD). Assume (Assumption 11.4) every 𝒲_r^n(D) is p-torsion-free. Then (i) 𝒲_r^•(D) is a commutative dg algebra (x^2 = 0 for odd |x|); (ii) 𝒲_r^n(D) → 𝒲_r^n(D)_pre is injective, with image in θ̃_r(μ)^n𝒲_r^n(D)_pre (an isomorphism for n = 0); (iii) F, R, V, d of 𝒲(D)_pre restrict to 𝒲(D); (iv) these satisfy RF = FR, RV = VR, V(F(x)y) = xV(y), FV = p and FdV = d, R being a map of dg W_{r+1}(S)-algebras; (v) for an S-algebra B with compatible λ_r : W_r(B) → 𝒲_r^0(D), the Teichmüller identity holds, so 𝒲_r^•(D) is an F-V-procomplex for B/S and receives λ_r^• : W_rΩ^•_{B/S} → 𝒲_r^•(D).",
+   "locator": "§11.1.2, Assumption 11.4, Proposition 11.5 and Remark 11.6, pp. 346–348",
+   "status": "missing",
+   "note": "R is defined on an explicit flat model of D with a φ-linear automorphism; Remark 11.6 describes it intrinsically when (Lη_μD)/ξ̃_r ≃ Lη_μ(D/ξ̃_r)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/160",
+   "kind": "theorem",
+   "name": "Proposition 11.8: Lη_μ of the perfectoid torus cochains is the q-de Rham complex",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). There is a natural injective quasi-isomorphism [ε]-Ω^•_{A_inf[U^{±1}]/A_inf} = η_{q−1}K_{A_inf[U^{±1}]}(γ_i − 1) → η_μD^• = η_{q−1}K_{A_inf[U^{±1/p^∞}]}(γ_i − 1), and (Lη_μD)/ξ̃_r → Lη_{[ζ_{p^r}]−1}(D/ξ̃_r) is a quasi-isomorphism.",
+   "locator": "Proposition 11.8, p. 349",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.3",
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "The polynomial version of Lemma 9.6: for non-integral weights [ε]^k − 1 divides μ and the summand is killed by η_μ (Lemma 7.9)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/161",
+   "kind": "theorem",
+   "name": "Lemma 11.9: the groups 𝒲_r^n(D) for the perfectoid torus",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). For each n ≥ 0, 𝒲_r^n(D) ≅ ⊕_{a:{1,…,d}→p^{−r}Z} W_{r−u(a)}(O)^{⊕C(d,n)} as W_r(O)-modules (u(a) as in Theorem 10.12); in particular 𝒲_r^n(D) is p-torsion-free, so Assumption 11.4 holds, whereas 𝒲_r^n(D)_pre = H^n(D/ξ̃_r) has much torsion from non-integral weights.",
+   "locator": "Lemma 11.9 and Remark 11.10, pp. 350–351",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/162",
+   "kind": "theorem",
+   "name": "Lemma 11.11 and Corollary 11.12: the structure maps for the torus",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). There is a unique family of W_r(O)-algebra maps λ_r : W_r(O[T_1^{±1}, …, T_d^{±1}]) → 𝒲_r^0(D) with λ_r([T_i]) = U_i commuting with F, R, V, and each λ_r is an isomorphism; hence there are unique maps λ_r^• : W_rΩ^•_{O[T^{±1}]/O} → 𝒲_r^•(D) compatible with d, F, R, V and products.",
+   "locator": "Lemma 11.11 and Corollary 11.12, pp. 351–352",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/163",
+   "kind": "theorem",
+   "name": "Theorem 11.7 / 11.13: the de Rham–Witt complex of the torus realized by Lη_μ",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). For all r ≥ 1 and n ≥ 0, λ_r^n : W_rΩ^n_{O[T_1^{±1},…,T_d^{±1}]/O} → 𝒲_r^n(D) = H^n(Lη_μD ⊗^L_{A_inf} A_inf/ξ̃_r) is an isomorphism, compatible with d, F, R, V and products.",
+   "locator": "Theorem 11.7, p. 349; Theorem 11.13 and proof, pp. 352–355",
+   "status": "missing",
+   "note": "Proof: both sides decompose by weights a : {1, …, d} → p^{−r}Z into sums of W_{r−u(a)}(O) (Lemma 11.14), so it suffices to check after ⊗ W_r(k); there 𝒲_r^•(D)_k ≅ W_rΩ^•_{k[T^{±1}]/k} by the Cartier isomorphism (Lemma 11.16), and a dg endomorphism of W_rΩ^•_{k[T^{±1}]/k} that is the identity in degree 0 is the identity."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/164",
+   "kind": "theorem",
+   "name": "Lemma 11.14: isotypic decompositions and reduction to the residue field",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). For n ≥ 0, 𝒲_r^n(D) and W_rΩ^n_{O[T^{±1}]/O} admit unique decompositions ⊕_{a:{1,…,d}→p^{−r}Z} M_a on which (1/p^s)γ_i ∈ Z[1/p]^d acts on M_a by [ζ_{p^s}^{a(i)}], with each M_a a finite sum of copies of W_{r−u(a)}(O), compatibly with λ_r^n. Consequently λ_r^n is an isomorphism iff λ_r^n ⊗_{W_r(O)} W_r(k) is.",
+   "locator": "Lemma 11.14 and Remark 11.15, p. 353",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/165",
+   "kind": "theorem",
+   "name": "Lemma 11.16: the residue-field reduction of 𝒲_r^•(D)",
+   "statement": "Let O be the ring of integers of a perfectoid field of characteristic 0 containing all p-power roots of unity, and D = RΓ(Z^d, A_inf[U_1^{±1/p^∞}, …, U_d^{±1/p^∞}]) with γ_i : U_i^{1/p^r} ↦ [ε]^{1/p^r}U_i^{1/p^r}, a commutative algebra in D(A_inf) with Frobenius φ_D (Frobenius on A_inf, U_i ↦ U_i^p). There is an isomorphism of dg algebras 𝒲_r^•(D) ⊗_{W_r(O)} W_r(k) ≅ W_rΩ^•_{k[T_1^{±1},…,T_d^{±1}]/k}, compatible in degree 0 with λ_r^0 ⊗ W_r(k). (It is obtained from Lη_μD ⊗^L W(k) ≃ Ω^•_{W(k)[T^{±1}]/W(k)} — the q-de Rham complex at q = 1 — and the Cartier isomorphism H^n(Ω^•_{W_r(k)[T^{±1}]/W_r(k)}) ≅ W_rΩ^n_{k[T^{±1}]/k}.)",
+   "locator": "Lemma 11.16, p. 354",
+   "status": "missing",
+   "note": "Uses Illusie–Raynaud's Cartier isomorphism (§III.1.5). The printed proof reverses 'Tor-independent from W_r(O) over W_r(k)' (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/166",
+   "kind": "theorem",
+   "name": "Proposition 11.17: junk torsion as a de Rham–Witt quotient",
+   "statement": "Let R be small formally smooth over O with generic fibre X. For integers r ≥ 1, s ≥ 0 there are natural isomorphisms H^i(Lη_{[ζ_{p^{r+s}}]−1}RΓ_proet(X, W_r(Ô_X^+))) ≅^{φ^s} H^i(W̃_{r+s}Ω_R ⊗^L_{W_{r+s}(O)} W_r(O)) ≅ (W_{r+s}Ω^{i,cont}_{R/O}/V^rW_sΩ^{i,cont}_{R/O}){−i}, where W_{r+s}(O) → W_r(O) is the restriction. As s → ∞ the left side becomes almost isomorphic to H^i_proet(X, W_r(Ô_X^+)), which interprets the 'junk torsion' through non-integral de Rham–Witt terms.",
+   "locator": "Proposition 11.17 and the remark after it, pp. 356–357",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/167",
+   "kind": "theorem",
+   "name": "Lemma 12.2: elements of A_crys",
+   "statement": "Let q = [ε] ∈ A_crys. (i) (q − 1)^{p−1}/p ∈ A_crys and is topologically nilpotent for the p-adic topology. (ii) For every n ≥ 0, (q − 1)^n/(n+1)! ∈ A_crys, tending p-adically to 0. (iii) log(q) = (q − 1)u for a unit u ∈ A_crys. Hence log(q)^n/(n!(q − 1)) = u^n(q − 1)^{n−1}/n! ∈ A_crys, tending to 0.",
+   "locator": "§12.1, Lemma 12.2, p. 358",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/168",
+   "kind": "theorem",
+   "name": "Lemma 12.3: A_crys(R)^□ is μ-torsion-free",
+   "statement": "For R small with framing □, A_crys(R)^□ := A(R)^□ ⊗̂_{A_inf} A_crys is the derived p-completion of a free A_crys-module and is μ-torsion-free.",
+   "locator": "Lemma 12.3, p. 359",
+   "status": "missing",
+   "note": "Any smooth O/p-algebra is free over O/p, being a base change from an artinian subring; T_p(⊕_I A_crys/μ) embeds in ∏_I T_p(A_crys/μ) = 0."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/169",
+   "kind": "theorem",
+   "name": "Lemma 12.4: the q-derivative as a Taylor series",
+   "statement": "On A_crys(R)^□, ∂_q/∂_q log(U_i) = Σ_{n≥1} (log(q)^n/(n!(q − 1)))(∂/∂log(U_i))^n; equivalently γ_i = exp(log(q)∂/∂log(U_i)).",
+   "locator": "Lemma 12.4, p. 359",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/170",
+   "kind": "theorem",
+   "name": "Corollary 12.5: the q-de Rham complex over A_crys is the de Rham complex",
+   "statement": "For R small with framing □ there is an isomorphism of complexes q-Ω^•_{A(R)^□/A_inf} ⊗̂_{A_inf} A_crys ≅ Ω^•_{A_crys(R)^□/A_crys}, the identity in degree 0 (not an isomorphism of dg algebras); the right side computes RΓ_crys((Spec R/p)/A_crys), so AΩ_R ⊗̂^L A_crys ≃ RΓ_crys((Spec R/p)/A_crys) noncanonically.",
+   "locator": "Corollary 12.5 and the remarks after it, pp. 360–361",
+   "status": "missing",
+   "note": "∂_q/∂_q log(U_i) = (∂/∂log(U_i))h_i with h_i an automorphism, and K_M(g_ih_i) ≅ K_M(g_i)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/171",
+   "kind": "construction",
+   "name": "The all-units construction D_Σ and R_∞,Σ for very small R",
+   "statement": "Call a small formally smooth O-algebra R very small if Spf R also admits a closed immersion into some Ĝ_m^n. For a finite set Σ ⊂ R^× with Spf R → Ĝ_m^{|Σ|} a closed immersion and containing d units giving an étale framing, let S_Σ = A_crys[x_u^{±1} : u ∈ Σ], D_Σ the p-adically completed PD envelope of S_Σ → R/p (flat over Z_p), S_∞,Σ ⊃ S_Σ adjoining all x_u^{1/p^∞}, R_∞,Σ the p-adic completion of the normalization of R in (R ⊗_{S_Σ} S_∞,Σ)[1/p] (perfectoid), and Γ = ∏_{u∈Σ} Z_p(1) acting by x_u^{1/p^r} ↦ [ε]^{1/p^r}x_u^{1/p^r}. Then x_u ↦ [u^♭] gives D_Σ → A_crys(R_∞,Σ/p) = A_inf(R_∞,Σ) ⊗̂_{A_inf} A_crys, Γ-equivariantly.",
+   "locator": "§12.2, pp. 361–362",
+   "status": "planned",
+   "planned": [
+    "AInfCohomology:AI.4"
+   ],
+   "note": "AI.4: 'the all-coordinates construction'. Filtered colimits over Σ make everything strictly functorial."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/172",
+   "kind": "theorem",
+   "name": "Lemma 12.6: the Lie algebra action on D_Σ",
+   "statement": "Lie Γ ≅ ∏_{u∈Σ} Z_p(1) acts on D_Σ by g = log(γ) = Σ_{n≥1} (−1)^{n−1}(γ − 1)^n/n (convergent, with values in ([ε] − 1)D_Σ), and γ = exp(g); the basis vector g_u acts by log([ε])∂/∂log(x_u), the derivation ∂/∂log(x_u) extending uniquely to D_Σ.",
+   "locator": "Lemma 12.6, p. 362",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/173",
+   "kind": "theorem",
+   "name": "Corollary 12.7: from crystalline cochains to η_μ of group cochains",
+   "statement": "(i) K_{D_Σ}((∂/∂log(x_u))_{u∈Σ}) ≅ η_μK_{D_Σ}((g_u)_{u∈Σ}), the left side computing RΓ_crys(Spec(R/p)/A_crys). (ii) K_{D_Σ}((g_u)_u) ≅ K_{D_Σ}((γ_u − 1)_u), which computes RΓ_cont(Γ, D_Σ). Hence a natural map α_R^0 : K_{D_Σ}((∂/∂log(x_u))_u) → η_μK_{D_Σ}((γ_u − 1)_u) → η_μK_{A_crys(R_∞,Σ/p)}((γ_u − 1)_u). The commutative dga K_{D_Σ}((g_u)_u) models the E_∞-algebra RΓ_cont(Γ, D_Σ).",
+   "locator": "Corollary 12.7 and the remarks after it, pp. 363–364",
+   "status": "missing",
+   "note": "The printed proof writes g_u = log(μ)∂/∂log(x_u) and log(μ) = μv for log([ε]) (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/174",
+   "kind": "theorem",
+   "name": "Lemma 12.8: the subrings A_crys^(m) and η_μ",
+   "statement": "Let A_crys^(m) ⊂ A_crys be the p-adic completion of the A_inf-subalgebra generated by ξ^j/j!, j ≤ m. (i) For m ≥ p^2, ξ̃_r = p^rv for a unit v ∈ A_crys^(m) and Lemma 12.2 holds in A_crys^(m). (ii) The ideals {x : μx ∈ p^rA_crys^(m)} and p^rA_crys^(m) are intertwined. (iii) ∩_r (μ/φ^{−r}(μ))A_crys^(m) = μA_crys^(m). (iv) For m ≥ p^2, (η_μK_{A_inf(R_∞,Σ)}((γ_u − 1)_u)) ⊗̂^L A_crys^(m) → η_μK_{A_inf(R_∞,Σ) ⊗̂ A_crys^(m)}((γ_u − 1)_u) is a quasi-isomorphism, the left side computing AΩ_R ⊗̂^L A_crys^(m). (v) α_R^0 factors canonically through α_R : K_{D_Σ}((∂/∂log(x_u))_u) → (colim_m η_μK_{A_inf(R_∞,Σ) ⊗̂ A_crys^(m)}((γ_u − 1)_u))^∧_p, whose target computes AΩ_R ⊗̂^L A_crys.",
+   "locator": "Lemma 12.8, pp. 364–367",
+   "status": "missing",
+   "note": "A_crys/μ is not p-adically separated, which is why A_crys^(m) is used; (ii)–(iii) are proved over the noetherian Z_p[[T]] (T ↦ [ε]^{1/p}) and base changed."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/175",
+   "kind": "theorem",
+   "name": "Proposition 12.9: α_R is a quasi-isomorphism",
+   "statement": "For R very small and Σ as above, α_R : K_{D_Σ}((∂/∂log(x_u))_{u∈Σ}) → (colim_m η_μK_{A_inf(R_∞,Σ) ⊗̂_{A_inf} A_crys^(m)}((γ_u − 1)_u))^∧_p is a quasi-isomorphism. Passing to the filtered colimit over Σ, these maps are strictly functorial in R and globalize to Theorem 12.1.",
+   "locator": "Proposition 12.9, p. 367",
+   "status": "missing",
+   "note": "Proof: a unique lift Spf D_Σ → Spf A_crys(R)^□ reduces to the framed case, where Corollary 12.5 applies."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/176",
+   "kind": "theorem",
+   "name": "Lemma 13.4: rigid geometry over B_dR^+/ξ^n",
+   "statement": "Let C be algebraically closed complete over Q_p and R a complete Tate B_dR^+/ξ^n-algebra. (i) There is a surjection B_dR^+/ξ^n⟨X_1, …, X_m⟩ → R iff R/ξ is topologically of finite type over C ('R is topologically of finite type'). (ii) Such R is noetherian and every ideal of R is closed. (iii) A p-adically complete p-torsion-free A_inf/ξ^n-algebra R_0 that is a quotient of A_inf/ξ^n⟨X_1, …, X_m⟩ is coherent, every ideal I with R_0/I p-torsion-free is finitely generated, and R_0[1/p] is topologically of finite type. (iv) Every R topologically of finite type over B_dR^+/ξ^n has a ring of definition topologically of finite type over A_inf/ξ^n.",
+   "locator": "§13.1, Lemma 13.4, pp. 370–371",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/177",
+   "kind": "construction",
+   "name": "Very small smooth affinoids and the thickenings D_Σ(R)",
+   "statement": "A smooth Tate C-algebra R of dimension d is very small if there are finite sets {T_1, …, T_d} ⊂ Σ ⊂ (R°)^× such that C⟨(X_u^{±1})_{u∈Σ}⟩ → R, X_u ↦ u, is surjective and Spa(R, R°) → T^d given by the T_i is étale and a composite of rational embeddings and finite étale maps (Σ may be enlarged). With B_dR^+⟨(X_u^{±1})_{u∈Σ}⟩ := lim_r B_dR^+/ξ^r⟨(X_u^{±1})⟩, D_Σ(R) is its completion along I(R) = ker(→ R); all powers I(R)^n are closed, so D_Σ(R) is a complete separated B_dR^+-algebra, and the derivations ∂/∂log(X_v) = X_v∂/∂X_v extend continuously to D_Σ(R). Ω^•_{D_Σ(R)/B_dR^+} := K_{D_Σ(R)}((∂/∂log(X_u))_{u∈Σ}).",
+   "locator": "Definition 13.5 and Construction 13.6, pp. 371–372; the paragraph before Lemma 13.13, p. 379",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "CP.3: 'construct the canonical B_dR^+-valued deformation of de Rham cohomology by the infinitesimal/PD-style embedding system of BMS1 §13, with the completed tensor and coordinate-independence proof'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/178",
+   "kind": "theorem",
+   "name": "Lemma 13.7: noetherian approximation of very small affinoids",
+   "statement": "Let R be a very small smooth Tate C-algebra with {T_1, …, T_d} ⊂ Σ. After enlarging Σ there are: a smooth affinoid S = Spa(A, A°) of finite type over W(k')[1/p] for a perfect field k' ⊂ k (one may take k' = F_p) with a W(k')-algebra map A → C; a smooth Spa(R_A, R_A°) → Spa(A, A°) with R ≅ R_A ⊗̂_A C; and {T_1, …, T_d} ⊂ Σ_A ⊂ (R_A°)^× mapping into Σ (fixing the T_i) such that A⟨(X_u^{±1})_{u∈Σ_A}⟩ → R_A is surjective and Spa(R_A, R_A°) → T^d_S is étale and a composite of rational embeddings and finite étale maps.",
+   "locator": "Lemma 13.7 and proof, pp. 372–374",
+   "status": "missing",
+   "note": "Uses de Jong's alterations to write O as a filtered colimit of regular finite type Z_p-algebras, and Lemmas 13.8–13.10."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/179",
+   "kind": "theorem",
+   "name": "Lemma 13.8: small perturbations preserve surjectivity",
+   "statement": "Let f : M → N be a map of p-torsion-free p-adically complete abelian groups with f[1/p] surjective. There is m ≥ 0 such that every g : M → N with g ≡ f mod p^m has g[1/p] surjective.",
+   "locator": "Lemma 13.8, p. 374",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/180",
+   "kind": "theorem",
+   "name": "Lemma 13.9: surjectivity spreads out from a rank-one point",
+   "statement": "Let A → B →^α C be maps of affinoid algebras topologically of finite type over a nonarchimedean field K, and x ∈ Spa(A, A°) a rank-one point with B ⊗̂_A k(x) → C ⊗̂_A k(x) surjective. Then there is a rational subset U ∋ x with B ⊗̂_A A_U → C ⊗̂_A A_U surjective. (For x of rank > 1 this fails: take C = A_V for a rational V containing the rank-one generalization of x but not x.)",
+   "locator": "Lemma 13.9 and the remark after it, pp. 374–376",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/181",
+   "kind": "theorem",
+   "name": "Lemma 13.10: an integrality criterion for rings of definition",
+   "statement": "Let B_0 ⊂ C_0 be p-adically complete p-torsion-free rings with C_0 topologically generated over B_0 by f_1, …, f_r such that each f_i ∈ B_0[1/p] and there are monic P_i ∈ B_0[x] with P_i(f_i) ∈ pC_0. Then p^kC_0 ⊂ B_0 for some k.",
+   "locator": "Lemma 13.10, p. 376",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/182",
+   "kind": "theorem",
+   "name": "Lemma 13.11: the B_dR^+-lift R_A ⊗̂_A B_dR^+",
+   "statement": "In the setting of Lemma 13.7, fix a continuous lift A → B_dR^+ of A → C (it exists as A is smooth over a discretely valued field). Then R_A ⊗̂_A B_dR^+ := lim_n R_A ⊗̂_A B_dR^+/ξ^n is a ξ-adically complete flat B_dR^+-algebra with (R_A ⊗̂_A B_dR^+)/ξ^n = R_A ⊗̂_A B_dR^+/ξ^n topologically free over B_dR^+/ξ^n and (R_A ⊗̂_A B_dR^+)/ξ = R.",
+   "locator": "Lemma 13.11, pp. 376–378",
+   "status": "missing",
+   "note": "Uses Huber's Corollary 1.7.3(iii) and Raynaud–Gruson's freeness criterion (Théorème 3.3.5) for the p-torsion-free quotient."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/183",
+   "kind": "theorem",
+   "name": "Lemma 13.12: explicit description of D_Σ(R)",
+   "statement": "(i) There is a unique topological isomorphism D_{Σ_A}(R_A) ≅ R_A[[(X_u − u)_{u∈Σ_A, u≠T_1,…,T_d}]] compatible with the projections to R_A and the A⟨(X_u^{±1})⟩-algebra structures (X_{T_i} ↦ T_i). (ii) If Σ is sufficiently large, D_Σ(R) ≅ (R_A ⊗̂_A B_dR^+)[[(X_u − ũ)_{u∈Σ, u≠T_1,…,T_d}]] compatibly with the projection to R and the B_dR^+⟨(X_u^{±1})⟩-algebra structures, for lifts ũ of u. In particular D_Σ(R) is ξ-adically complete and ξ-torsion-free.",
+   "locator": "Lemma 13.12, pp. 378–380",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/184",
+   "kind": "theorem",
+   "name": "Lemma 13.13: crystalline and de Rham complexes of D_Σ(R) agree",
+   "statement": "Let D̃_Σ(R) be the completion of (D_Σ(R)/ξ) ⊗̂_C R → R and D̃_Σ(R_A) that of D_Σ(R) ⊗̂_{B_dR^+} (R_A ⊗̂_A B_dR^+) → R. The maps Ω^•_{D_Σ(R)/B_dR^+}/ξ → Ω^•_{D̃_Σ(R)/C} ← Ω^•_{R/C} and Ω^•_{D_Σ(R)/B_dR^+} → Ω^•_{D̃_Σ(R_A)/B_dR^+} ← Ω^•_{R_A/A} ⊗̂_A B_dR^+ are quasi-isomorphisms. In particular Ω^•_{D_Σ(R)/B_dR^+} → Ω^•_{D_{Σ'}(R)/B_dR^+} is a quasi-isomorphism for Σ ⊂ Σ' sufficiently large.",
+   "locator": "Lemma 13.13, p. 380",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/185",
+   "kind": "definition",
+   "name": "B_dR^+-cohomology of very small affinoids and of proper smooth rigid spaces",
+   "statement": "For a very small smooth Tate C-algebra R and X = Spa(R, R°), C^•_crys(X/B_dR^+) := colim_Σ Ω^•_{D_Σ(R)/B_dR^+} over sufficiently large finite Σ ⊂ (R°)^×, a presheaf of B_dR^+-complexes on very small smooth affinoids with RΓ_crys(X/B_dR^+) ⊗^L_{B_dR^+} C ≃ Ω^•_{R/C}. For a proper smooth adic space X/C, RΓ_crys(X/B_dR^+) ∈ D(B_dR^+) is the hypercohomology of U ↦ C^•_crys(U/B_dR^+) on very small open affinoids; RΓ_crys(X/B_dR^+) ⊗^L C ≅ RΓ_dR(X), so it is a perfect B_dR^+-complex (derived ξ-complete with finite-dimensional reduction).",
+   "locator": "Definition 13.14 and the paragraph after it, p. 381; §13.3, Definition 13.18 and the paragraph after it, p. 384",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/186",
+   "kind": "theorem",
+   "name": "Proposition 13.15: formal schemes over O are pulled back from complete noetherian local W-algebras",
+   "statement": "Let (W, 𝔪) be a complete noetherian local ring with residue field k and O an 𝔪-adically complete local W-algebra with O/𝔪O 0-dimensional with residue field k. For every proper flat adic formal scheme 𝔛_O over O (with the 𝔪-adic topology) there are a complete noetherian local W-algebra R with residue field k, a proper flat adic formal scheme 𝔛_R over R, a W-algebra map η : R → O and an isomorphism η^*𝔛_R ≅ 𝔛_O.",
+   "locator": "Proposition 13.15 and proof, pp. 381–383",
+   "status": "missing",
+   "note": "𝔛_R is a versal deformation of the special fibre (Schlessinger); formal smoothness of h_R → Def extends to ind-artinian rings such as O/𝔪^nO. The printed proof refers to parts '(i) and (ii)' and a part '(iii)' of a two-part statement (recorded under sourceIssues)."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/187",
+   "kind": "theorem",
+   "name": "Corollary 13.16 (Conrad–Gabber): spreading out proper rigid spaces",
+   "statement": "Let C/K be an extension of complete nonarchimedean fields with the same residue field. Every proper rigid space X/C is the fibre over a point η ∈ S(C) of a proper flat morphism f : 𝒳 → S of rigid spaces over K; if X is smooth, S, 𝒳 and f can be taken smooth. In particular every proper smooth rigid space over C is a fibre of a proper smooth morphism of smooth rigid spaces over a discretely valued subfield of C.",
+   "locator": "§13.2, Corollary 13.16 and Remark 13.17, pp. 383–384",
+   "status": "missing",
+   "note": "BMS1 prove this special case themselves from Proposition 13.15 (formal models, with Lütkebohmert's properness), since Conrad–Gabber's stronger result, allowing arbitrary residue fields, was in preparation. It is the input to Theorems 13.3 and 13.19."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/188",
+   "kind": "theorem",
+   "name": "Remark 13.20: B_dR^+-cohomology in the discretely valued case",
+   "statement": "If X = X_0 ⊗̂_K C for a proper smooth adic space X_0 over a discretely valued subfield K ⊂ C, there is a canonical identification H^i_dR(X_0/K) ⊗_K B_dR^+ ≅ H^i_crys(X/B_dR^+), using the unique continuous lift K → B_dR^+ of K → C.",
+   "locator": "Remark 13.20, p. 384",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "note": "CP.3: 'When X descends to a proper smooth X_0/K, compare that deformation with H_dR(X_0/K) ⊗_K B_dR^+'."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/189",
+   "kind": "theorem",
+   "name": "Proposition 13.21: crystalline cohomology over A_crys after inverting p (Berthelot–Ogus)",
+   "statement": "Let 𝔛 be a proper smooth formal scheme over O_C, Y = 𝔛 ×_{Spf O} Spec O/p and Ȳ its special fibre. For a section k → O/p there is a canonical φ-equivariant isomorphism H^i_crys(Y/A_crys)[1/p] ≅ H^i_crys(Ȳ/W(k)) ⊗_{W(k)} A_crys[1/p]; in particular H^i_crys(Y/A_crys)[1/p] is finite free over A_crys[1/p]. If k = F̄_p the section is unique.",
+   "locator": "§13.4, Proposition 13.21 and Remark 13.22, p. 387",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.2"
+   ],
+   "note": "CP.2: 'Prove the relevant crystalline change-of-base/invariance statement after p-inversion'. A variant of Berthelot–Ogus (Invent. Math. 72, 1983); proof by Frobenius being an isomorphism after inverting p and Y ≅ Ȳ ×_k O/p^{1/p^n} for n ≫ 0."
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/190",
+   "kind": "theorem",
+   "name": "Proposition 13.23: B_dR^+-cohomology in the good reduction case",
+   "statement": "For 𝔛 proper smooth over O_C with generic fibre X and Y = 𝔛_{O/p}, there is a natural quasi-isomorphism RΓ_crys(Y/A_crys) ⊗_{A_crys} B_dR^+ ≅ RΓ_crys(X/B_dR^+); hence H^i_crys(X/B_dR^+) ≅ H^i_crys(Y/A_crys) ⊗_{A_crys} B_dR^+ is free.",
+   "locator": "Proposition 13.23, p. 388",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.3",
+    "CohomologyComparisons:CP.2"
+   ],
+   "note": "Both sides are computed by the explicit embedding complexes of §§12.2 and 13.1."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, Forum Math. Pi 1 (2013), e1",
+   "link": "https://doi.org/10.1017/fmp.2013.1",
+   "why": "The pro-étale site, affinoid perfectoids and period sheaves (Lemmas 5.3, 5.6), the primitive comparison behind Theorem 5.7, finiteness of H^i_et(X_C, Z_p) and the de Rham comparison (Theorem 5.1). Also listed by the Liu–Zhu, AMMN and Lawrence–Sawin extractions."
+  },
+  {
+   "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties — Corrigendum, Forum Math. Pi 4 (2016), e6",
+   "link": "https://doi.org/10.1017/fmp.2016.4",
+   "why": "The corrected pro-étale coverings (§5.1) and the corrected definition of OB_dR^+ recalled at the end of §5.1."
+  },
+  {
+   "citation": "Mark Kisin, Crystalline representations and F-crystals, in Algebraic geometry and number theory, Progr. Math. 253 (2006), 459–496",
+   "link": "https://doi.org/10.1007/978-0-8176-4532-8_7",
+   "why": "Kisin's functor from crystalline lattices to Breuil–Kisin modules (Theorem 4.4) and its relation to D_crys (Proposition 4.34), on which Theorem 1.1(iii) rests."
+  },
+  {
+   "citation": "Laurent Fargues, Quelques résultats et conjectures concernant la courbe, Astérisque 369 (2015), 325–374",
+   "link": "https://doi.org/10.24033/ast.965",
+   "why": "Breuil–Kisin–Fargues modules and Fargues' classification of finite free ones (Theorem 4.28)."
+  },
+  {
+   "citation": "Peter Scholze and Jared Weinstein, Berkeley Lectures on p-adic Geometry, Annals of Mathematics Studies 207, Princeton University Press (2020)",
+   "link": "https://doi.org/10.23943/princeton/9780691202082.001.0001",
+   "why": "BMS1 cite these lecture notes for the proof of Fargues' Theorem 4.28 and for Kedlaya's Lemma 4.6 (vector bundles on the punctured spectrum of A_inf)."
+  },
+  {
+   "citation": "Christopher Davis and Kiran S. Kedlaya, On the Witt vector Frobenius, Proc. Amer. Math. Soc. 142 (2014), 2211–2226",
+   "link": "https://doi.org/10.1090/S0002-9939-2014-11953-8",
+   "why": "Surjectivity of the Witt vector Frobenius (Lemma 3.9, implication (ii) ⇒ (iv))."
+  },
+  {
+   "citation": "Kiran S. Kedlaya, Nonarchimedean geometry of Witt vectors, Nagoya Math. J. 209 (2013), 111–165",
+   "link": "https://doi.org/10.1017/s0027763000010692",
+   "why": "Lemma 5.5 there gives the topologically nilpotent unit in the converse of Lemma 3.20."
+  },
+  {
+   "citation": "James Borger, The basic geometry of Witt vectors, I: The affine case, Algebra Number Theory 5 (2011), 231–285",
+   "link": "https://doi.org/10.2140/ant.2011.5.231",
+   "why": "Étale base change for Witt vectors in general (Theorem 10.4; Theorem 9.2 and Corollary 9.4 there)."
+  },
+  {
+   "citation": "Wilberd van der Kallen, Descent for the K-theory of polynomial rings, Math. Z. 191 (1986), 405–415",
+   "link": "https://doi.org/10.1007/BF01162716",
+   "why": "The first proof that W_r of an étale map is étale (Theorem 10.4; Theorem 2.4 there)."
+  },
+  {
+   "citation": "Renée Elkik, Solutions d'équations à coefficients dans un anneau hensélien, Ann. Sci. École Norm. Sup. (4) 6 (1973), 553–603",
+   "link": "https://doi.org/10.24033/asens.1258",
+   "why": "Every formally smooth O-algebra is the p-adic completion of a smooth one, and étale maps lift (§8, Remark 9.10, §11.3)."
+  },
+  {
+   "citation": "Luc Illusie, Complexe de de Rham–Witt et cohomologie cristalline, Ann. Sci. École Norm. Sup. (4) 12 (1979), 501–661",
+   "link": "https://doi.org/10.24033/asens.1374",
+   "why": "The crystalline cohomology of Enriques surfaces in characteristic 2 (Proposition 7.3.5 and Corollaire 7.3.4(a)), used in Proposition 2.2 and Remark 1.2."
+  },
+  {
+   "citation": "William E. Lang, On Enriques surfaces in characteristic p. I, Math. Ann. 265 (1983), 45–65",
+   "link": "https://doi.org/10.1007/BF01456935",
+   "why": "Singular Enriques surfaces over F_2 lift to Z_2 (Theorems 1.3–1.4 there), giving the surface S of Proposition 2.2."
+  },
+  {
+   "citation": "Christian Liedtke, Arithmetic moduli and lifting of Enriques surfaces, J. Reine Angew. Math. 706 (2015), 35–65",
+   "link": "https://doi.org/10.1515/crelle-2013-0068",
+   "why": "Every Enriques surface lifts to characteristic 0, the input to Remark 1.2."
+  },
+  {
+   "citation": "Bjorn Poonen, Bertini theorems over finite fields, Ann. of Math. (2) 160 (2004), 1099–1127",
+   "link": "https://doi.org/10.4007/annals.2004.160.1099",
+   "why": "Smooth ample hypersurfaces over F_2, used to choose X ⊂ D over Z_2 in Theorem 2.1."
+  },
+  {
+   "citation": "Ofer Gabber, On space filling curves and Albanese varieties, Geom. Funct. Anal. 11 (2001), 1192–1200",
+   "link": "https://doi.org/10.1007/s00039-001-8228-2",
+   "why": "Gabber's Bertini theorem over finite fields, the alternative cited in Theorem 2.1."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.0"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/033",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/034",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/035",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/040",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/041",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/046",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/050"
+   ],
+   "reason": "AI.0 names BMS1 §3 as its source for A_inf, θ, θ̃, μ, ξ, ξ̃ and the Breuil–Kisin–Fargues twist, and those items are planned there. The missing items are BMS1's Witt-vector level of the same theory: A_inf(S) = lim_F W_r(S), the maps θ_r and θ̃_r with their R/F/V compatibilities and kernels ξ_r and ξ̃_r, Tor-independence of W_j(S) under maps of perfectoid rings, the ideals of W_r(S) cut out by V^j(1), and ker θ_∞ = (μ). §§9–11 use all of them to pass between A_inf and W_r(O)."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.1"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/094",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/099",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/100",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/101",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/107",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/112",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/116",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/095",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/096",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/097",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/098",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/102",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/103",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/104",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/108",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/109",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/111",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/115"
+   ],
+   "reason": "AI.1 names BMS1 §§6–7 as its source and cites Lemmas 6.19–6.20 by number; the definition of Lη, its cohomology formula, monoidality, Bockstein description, base change and the Koszul calculation are planned there. The missing items are the supporting lemmas of that construction: strongly K-flat resolutions, Lη over a valuation ring, the comparison maps between Lη and the identity (Lemmas 6.9–6.10), cohomology of completed direct sums, and the multiplicative structure and cohomology of Koszul complexes (Lemmas 7.5, 7.10)."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.2"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/062",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/063",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/064",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/065",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/066",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/067",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/068",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/076",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/079",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/080",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/081"
+   ],
+   "reason": "AI.2's stated source is BMS1 Definition 4.22, Lemmas 4.26–4.27 and Theorem 4.28, which are planned there. The missing items are the commutative algebra over A_inf of BMS1 §4.2 behind the BKF torsion decomposition (Proposition 4.13): Kedlaya's triviality of vector bundles on the punctured spectrum, two valuation-ring lemmas, perfectness and Tor-dimension of finitely presented modules, the vector-bundle criterion and the freeness of finite projective A_inf[1/p]-modules."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.3"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/051",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/052",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/053",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/054",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/055",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/056",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/091",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/114",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/123",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/124",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/137",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/139",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/140",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/141",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/142",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/125",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/130",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/134",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/136",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/144"
+   ],
+   "reason": "AI.3 names BMS1 §§7–9 as its source; AΩ, the toric cover, Lemma 8.11's almost-to-honest mechanism, the q-de Rham identification, framing independence and the Frobenius are planned there. The missing items are the proofs' ingredients: coherence of W_r(O) and the absence of almost-zero elements (Proposition 3.24, Lemmas 3.25–3.28, Corollary 3.29), the period sheaves on affinoid perfectoids (Lemma 5.6), the toric cohomology computations (Proposition 8.9, Lemmas 8.10, 9.7, 9.13), the Lη criterion over A_inf (Lemma 9.12), étale base change for W̃_rΩ (Lemma 9.9), the sheaf-limit lemma used for Proposition 9.14, and Remark 7.8 that AΩ is not a commutative dga."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.4"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/092",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/119",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/126",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/127",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/128",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/129",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/143",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/145",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/158",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/159",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/161",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/162",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/163",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/164",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/165",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/166",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/167",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/168",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/169",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/170",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/172",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/173",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/174",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/175",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/014",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/015",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/016",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/118",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/122",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/131",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/132"
+   ],
+   "reason": "AI.4 names BMS1 §§8, 10–12 and Theorem 1.10 as its source; the Hodge–Tate, de Rham–Witt, de Rham, A_crys and μ-inverted specializations are planned there. The missing items are the steps of those proofs: the primitive comparison with A_inf-coefficients (Theorem 5.7), the cotangent-complex description of τ^{≤1}Ω̃ and the lifting obstruction (Remark 8.4, Propositions 8.15 and 8.17, Lemma 8.16), Künneth and monoidality (Proposition 8.14, Lemmas 9.16 and 9.18), the F-V-procomplex machinery of §11 (Propositions 11.2, 11.5, 11.17, Lemmas 11.9–11.16, Theorem 11.13) and the A_crys lemmas of §12 (Lemmas 12.2–12.8, Corollaries 12.5 and 12.7, Proposition 12.9)."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.5"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/024",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/025",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/026",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/027",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/028",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/069",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/071",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/073",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/074",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/009",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/070",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/072",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/075"
+   ],
+   "reason": "AI.5 plans 'the linear algebra controlling integral torsion' (BMS1 §4) and tests it with 'the examples of BMS1 §2'; Corollaries 4.15, 4.17, 4.20 and Theorems 2.1 and 2.10 are planned there. The missing items are the specialization lemmas behind those corollaries (Lemmas 4.14, 4.16, 4.18, 4.19) and the constructions behind the two examples: the 3-fold D (Proposition 2.2), the degenerating group scheme and the approximation of BG (Lemmas 2.5, 2.7, 2.9), and Remark 2.4."
+  },
+  {
+   "route": "source",
+   "roadmap": "AInfCohomology",
+   "stages": [
+    "AInfCohomology:AI.7"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/082",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/083",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/084"
+   ],
+   "reason": "AI.7 plans the A_inf base change of Breuil–Kisin cohomology. The missing items are BMS1 §4.4: flatness of 𝔖 → A_inf (Lemma 4.30), base change of Breuil–Kisin modules to BKF modules (Proposition 4.32) and the compatibility of the Tate twists (Corollary 4.33)."
+  },
+  {
+   "route": "source",
+   "roadmap": "CohomologyComparisons",
+   "stages": [
+    "CohomologyComparisons:CP.3"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/176",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/178",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/179",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/180",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/181",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/182",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/183",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/184",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/186",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/187",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/018",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/019",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/021",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/177",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/185",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/188"
+   ],
+   "reason": "CP.3 names BMS1 Theorem 1.7 and §13 as its source; the B_dR^+-cohomology, its comparison, finite freeness and the Hodge–Tate degeneration are planned there. The missing items are the supporting lemmas of §13: rigid geometry over B_dR^+/ξ^n (Lemma 13.4), noetherian approximation of very small affinoids (Lemmas 13.7–13.10), the B_dR^+-lift and the structure of D_Σ(R) (Lemmas 13.11–13.12), independence of Σ (Lemma 13.13), and the spreading-out results (Proposition 13.15, Corollary 13.16) used for finite freeness and degeneration."
+  },
+  {
+   "route": "source",
+   "roadmap": "CohomologyComparisons",
+   "stages": [
+    "CohomologyComparisons:CP.5"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/005",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/022",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/002",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/003",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/004",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/007",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/008"
+   ],
+   "reason": "CP.5 names BMS1 Theorem 1.1(ii),(iii) and §2 as its source; the torsion inequality, the mod p de Rham bound and lattice recovery are planned there. The missing items are the equivalence of torsion-freeness of H^i_crys and H^i_dR (Remarks 4.21, 14.4 and 14.7; announced in the footnote to Theorem 1.1) and the Enriques-surface application of Remark 1.2."
+  },
+  {
+   "route": "source",
+   "roadmap": "CrystallineCohomology",
+   "stages": [
+    "CrystallineCohomology:CR.3"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/030"
+   ],
+   "reason": "CR.3 owns finiteness and base change of crystalline cohomology of proper smooth varieties, and its acceptance includes a torsion example from BMS1 §2. BMS1's crystalline weak Lefschetz theorem for a line bundle with bounded higher cohomology (Lemma 2.12, Berthelot's theorem when L is ample) is the crystalline input to both §2 examples."
+  },
+  {
+   "route": "source",
+   "roadmap": "CrystallineCohomology",
+   "stages": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/138",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/146",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/147",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/148",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/149",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/153",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/156",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/157",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/150",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/151"
+   ],
+   "reason": "CR.4 owns the relative Langer–Zink de Rham–Witt complex and names BMS1 §§10–11; the F-V-procomplexes, Langer–Zink's theorem, étale base change, the continuous complex and the torus basis are planned there. The missing items are the Witt-ideal lemmas (Lemma 10.1, Corollary 10.2, Lemma 10.3), étale base change for Witt vectors (Theorem 10.4), quotients (Lemma 10.9 and Corollary 10.10), the integral part of the torus (Theorem 10.13), Witt vectors of polynomial rings (Lemma 9.8) and base change along maps of perfectoid rings (Proposition 10.14)."
+  },
+  {
+   "route": "source",
+   "roadmap": "PerfectoidQuotients",
+   "stages": [
+    "PerfectoidQuotients:Q0:integral-algebra"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/037",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/042",
+    "PAPER-BHATT-MORROW-SCHOLZE-18/036"
+   ],
+   "reason": "Q0:integral-algebra constructs integral perfectoid rings in BS22's scope and their relation to Tate perfectoid rings; BMS1's definition and the Tate comparison lemmas are planned there. The missing items are the Frobenius-surjectivity equivalences (Lemma 3.9, which uses Davis–Kedlaya) and the vanishing of the p-completed cotangent complex of a map of perfectoid rings (Lemma 3.14)."
+  },
+  {
+   "route": "source",
+   "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "stages": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/059"
+   ],
+   "reason": "R07.4 constructs Breuil–Kisin modules. The missing item is the structure theorem for Breuil–Kisin modules with torsion (Proposition 4.3), which explains why the BKF definition requires M[1/p] to be free."
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicHodgeTheory",
+   "stages": [
+    "PadicHodgeTheory:P8"
+   ],
+   "items": [
+    "PAPER-BHATT-MORROW-SCHOLZE-18/085"
+   ],
+   "reason": "P8 owns the proper-smooth rational comparison for rigid spaces, applying CP.3–CP.4. Theorem 5.1 also cites Scholze's finiteness of H^i_et(X_C, Z_p) for proper smooth rigid X (Forum Math. Pi 2013, Theorem 1.1), which no atlas layer plans; it is routed here with Scholze (2013) listed as a prerequisite. For proper smooth formal models it also follows from Theorem 14.3."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E1",
+   "kind": "misprint",
+   "locator": "§4.1, paragraph after Theorem 4.4, p. 265 (arXiv v3 p. 33)",
+   "printed": "One critical part of the construction is the extension of a vector bundle on the punctured spectrum Spec 𝔖 ∖ {s}, where s ∈ Spec R is the closed point, to a vector bundle on Spec 𝔖",
+   "correction": "where s ∈ Spec 𝔖 is the closed point",
+   "reason": "The punctured spectrum is that of 𝔖 = W(k)[[T]]; no ring R occurs in §4.1 (the proof of Proposition 4.3 writes s ∈ Spec 𝔖).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.8, p. 268 (arXiv v3 p. 35)",
+   "printed": "D is one of three possible modules: a principal fractional ideal, a fractional ideal of the form 𝔪^♭ ⊗ J = 𝔪^♭·J for a principal fraction field J, or K^♭ itself",
+   "correction": "for a principal fractional ideal J",
+   "reason": "The three cases classify rank-one O^♭-submodules of K^♭; J is a principal fractional ideal (the next sentence computes (𝔪^♭ ⊗ J) ⊗ k = 0 using 𝔪^♭ ⊗ 𝔪^♭ ≅ 𝔪^♭), and a 'fraction field' makes no sense here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E3",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.32, p. 281 (arXiv v3 p. 44)",
+   "printed": "N := M ⊗_𝔖 A_inf equipped with the identification (φ_M ⊗ id) : (φ^*N)[1/f(E)] ≃ N[1/f(E)] is a Breuil–Kisin–Fargues modules. For this, first note that ξ̃ := f(E) is a generator of the kernel of θ̃ : A_inf → O_C.",
+   "correction": "Write f for the map 𝔖 → A_inf fixed before Lemma 4.30 (T ↦ [π^♭]^p, Frobenius on W(k)); then f(E) is its image of E.",
+   "reason": "No map f is introduced in §4.4 or in the proposition; the only map in play is the unnamed 𝔖 → A_inf of the paragraph before Lemma 4.30, which carries ker(θ̃ : 𝔖 → O_K) = (E) into ker(θ̃ : A_inf → O_C).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E4",
+   "kind": "misprint",
+   "locator": "§7, paragraph after Definition 7.1, p. 298 (arXiv v3 p. 56)",
+   "printed": "Also, K_M(f_1, …, f_d) computes M ⊗^L_{Z[f_1,…,f_d]} Z up to a shift by |I|.",
+   "correction": "up to a shift by d",
+   "reason": "No set I is defined; K_M(f_1, …, f_d) lives in cohomological degrees [0, d] and is M ⊗_{Z[f]} of the Koszul resolution of Z, so it computes M ⊗^L Z shifted by d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E5",
+   "kind": "misprint",
+   "locator": "Remark 7.4, p. 299 (arXiv v3 p. 57)",
+   "printed": "mapping this into M gives a resolution by acyclic Γ-modules, leading to a complex computing RΓ_cont(Γ, N)",
+   "correction": "mapping this into N",
+   "reason": "The remark concerns part (ii) of Lemma 7.3, whose module is N; the complex obtained computes RΓ_cont(Γ, N).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E6",
+   "kind": "misprint",
+   "locator": "Remark 7.8, p. 302 (arXiv v3 p. 58)",
+   "printed": "Set E_2 := RΓ(Γ_disc, R) and E_1 = Lη_{q−1}E_1, viewed as objects in the derived ∞-category of A-modules.",
+   "correction": "E_1 = Lη_{q−1}E_2",
+   "reason": "The definition is circular as printed. The remark uses the map E_1 → E_2 and the class dlog_q T ∈ H^1(E_1) of the q-de Rham complex, which is Lη_{q−1}RΓ(Γ_disc, A[T^{±1}]) by Example 7.7.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E7",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.9, p. 303 (arXiv v3 p. 59)",
+   "printed": "those elements (x, y) ∈ f^nM^n ⊕ f^nM^{n−1} with (dx, dy + (−1)^n gy) ∈ f^{n+1}M^{n+1} ⊕ f^{n+1}M^n (and again in the converse: 'then (dx, dy + (−1)^n gy) ∈ f^{n+1}M^{n+1} ⊕ f^{n+1}M^n')",
+   "correction": "(dx, dy + (−1)^n gx)",
+   "reason": "The differential of M^• ⊗_R K(g) displayed just before is (x, y) ↦ (dx, dy + (−1)^n gx), and the argument then uses gx ∈ gf^nM^n ⊂ f^{n+1}M^n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 9.14, p. 331 (arXiv v3 p. 78)",
+   "printed": "By Theorem 9.4 (iii), we know that W̃_rΩ^psh_𝔛 is a sheaf, i.e. W̃_rΩ^psh_𝔛 → Rj_*j^*W̃_rΩ^psh_𝔛 is a quasi-isomorphism.",
+   "correction": "By Theorem 9.4 (ii) (proved as Corollary 9.11)",
+   "reason": "Part (iii) of Theorem 9.4 is the statement about AΩ that this proof establishes. The sheaf property of W̃_rΩ^psh is W̃_rΩ_{R'} ≃ RΓ(Spf R', W̃_rΩ_𝔛) for affine opens, which is part (ii).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E9",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 10.8, p. 337 (arXiv v3 p. 82)",
+   "printed": "If p is nilpotent in S or S is F-finite, this is [LZ, Proposition 1.7]; this assumption is used in [LZ] only to guarantee that W_r(R) → W_r(R') is étale",
+   "correction": "If p is nilpotent in R or R is F-finite",
+   "reason": "The lemma concerns A → R → R' with R' étale over R; no S occurs. The next clause shows the hypothesis serves to make W_r(R) → W_r(R') étale, so it is a hypothesis on R.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E10",
+   "kind": "misprint",
+   "locator": "§10.4, construction before Theorem 10.12, p. 339 (arXiv v3 pp. 83–84)",
+   "printed": "Fix such a partition (I_0, …, I_d) ∈ P_a … [Case 2:] F^{v(a|I_j)} d ∏_{i∈I_j}[T_i]^{a(i)/p^{v(a|I_j)}}, j = ρ + 1, …, ρ_2",
+   "correction": "(I_0, …, I_n) ∈ P_a; and in Case 2, j = ρ_1 + 1, …, ρ_2",
+   "reason": "P_a consists of partitions I_0, …, I_n (n is the form degree, not the number d of variables), and only ρ_1 and ρ_2 are defined; Case 1 has the same factor with j = ρ_1 + 1, …, ρ_2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E11",
+   "kind": "misprint",
+   "locator": "§11.1: remark after Proposition 11.2, p. 343 (arXiv v3 p. 87); paragraph before Remark 11.3, p. 345 (arXiv v3 p. 88); Proposition 11.5(iv), p. 346 (arXiv v3 p. 89)",
+   "printed": "'as the equation x^2 = 0 for |x| odd may fail (if A is 2-adic)'; 'form an F-V-procomplex for B over S, and so there exist unique maps of differential graded W_r(S)-algebras λ_r^• : W_rΩ^•_{B/A} → 𝒲_r^•(D)_pre'; 'the map R : 𝒲_{r+1}^•(D) → R_*𝒲_r^•(D) is a map of differential graded W_{r+1}(A)-algebras, the map F … of graded W_{r+1}(A)-algebras, the map V … of graded W_{r+1}(A)-modules'",
+   "correction": "(if S is 2-adic); λ_r^• : W_rΩ^•_{B/S} → 𝒲_r^•(D)_pre; W_{r+1}(S)-algebras and W_{r+1}(S)-modules",
+   "reason": "In §11.1 the base is the perfectoid ring S, and the same sentences speak of an F-V-procomplex for B over S and of W_r(S)-algebras (Remark 11.3 writes W_rΩ^•_{B/S}); A is the base ring in §10's notation and does not occur in §11.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E12",
+   "kind": "misprint",
+   "locator": "Proposition 11.5(v), p. 347 (arXiv v3 p. 89)",
+   "printed": "Then the Teichmüller identity Fdλ_{r+1}([b]) = λ_r([b])^{p−1}dλ_r([b]) holds true for all x ∈ B, r ≥ 1.",
+   "correction": "for all b ∈ B",
+   "reason": "The identity is stated for b; x does not occur.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E13",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 11.5(iii), p. 348 (arXiv v3 p. 90)",
+   "printed": "so that in fact d(R(α)) = 0 ∈ (η_{φ(μ)}D)^{n+1}/ξ̃_r. This shows that R(α) mod ξ̃_r induces an element of H^n((η_μD^•)/ξ̃_r).",
+   "correction": "d(R(α)) = 0 ∈ (η_μD)^{n+1}/ξ̃_r",
+   "reason": "R(α) = φ_{D^n}^{−1}(α') lies in (η_μD)^n and the displayed computation gives d(R(α)) ∈ ξ̃_rμ^{n+1}D^{n+1}, which is zero in (η_μD)^{n+1}/ξ̃_r; the next sentence takes the class in H^n((η_μD^•)/ξ̃_r).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E14",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 11.16, p. 354 (arXiv v3 p. 93)",
+   "printed": "First, we note that 𝒲_r^n(D) is Tor-independent from W_r(O) over W_r(k) by part (ii) of the previous lemma and Lemma 3.13",
+   "correction": "𝒲_r^n(D) is Tor-independent from W_r(k) over W_r(O)",
+   "reason": "𝒲_r^n(D) is a W_r(O)-module and the conclusion 𝒲_r^n(D)_k = H^n(Lη_μD ⊗^L_{A_inf} W_r(k)) needs Tor_{>0}^{W_r(O)}(𝒲_r^n(D), W_r(k)) = 0, which is what Lemma 11.14(ii) and Lemma 3.13 give.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E15",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 12.7, p. 364 (arXiv v3 p. 100)",
+   "printed": "By the formula g_u = log(μ) ∂/∂log(x_u) and the observation that log(μ) = μv for some unit v ∈ A_crys, cf. Lemma 12.2, part (i) follows from Lemma 7.9.",
+   "correction": "g_u = log([ε]) ∂/∂log(x_u) and log([ε]) = μv",
+   "reason": "Lemma 12.6 gives g_u = log([ε])∂/∂log(x_u), and Lemma 12.2(iii) gives log(q) = (q − 1)u with q = [ε], q − 1 = μ; log(μ) = log([ε] − 1) is not defined in A_crys.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E16",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 12.8, p. 365 (arXiv v3 p. 101)",
+   "printed": "One can then define analogues A_{0,crys}, A_{0,crys}^{(m)} of A_crys and A_crys^{(m)}; for example, A_crys is the p-adic completion of the PD envelope of A_0 → A_0/ξ_0. Then A_crys = A_{0,crys} ⊗̂_{A_0} A_inf",
+   "correction": "for example, A_{0,crys} is the p-adic completion of the PD envelope of A_0 → A_0/ξ_0",
+   "reason": "The sentence defines the analogue over A_0 = Z_p[[T]]; the next sentence expresses A_crys through A_{0,crys}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E17",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 13.15, p. 382 (arXiv v3 p. 113)",
+   "printed": "'Note that (i) and (ii) are clear from the construction.' … 'Let us now give the proof of (iii). We have a canonical map η_0 : R → k …'",
+   "correction": "'Note that (i) is clear from the construction.' … 'Let us now give the proof of (ii).'",
+   "reason": "The proposition has two parts: (i) the ring R and 𝔛_R, which the versal deformation provides, and (ii) the map η and the isomorphism ψ, which the last paragraph constructs by lifting through O/𝔪^nO.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-MORROW-SCHOLZE-18/E18",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 14.1, p. 390 (arXiv v3 p. 119)",
+   "printed": "H^•((η_{φ^{−r}(μ)}K_{A_inf(R_∞,Σ) ⊗̂ A_crys^{(m)}}((γ_u − 1)_{u∈Σ}))/ξ_r) ≅^{φ^r} H^•(AΩ_r ⊗̂_{A_inf} φ^r(A_crys^{(m)})/ξ̃_r) … there is a map φ^r(A_crys{(m)})/ξ̃_r^2[1/p] → A_inf/ξ̃_r^2[1/p]",
+   "correction": "H^•(AΩ_R ⊗̂_{A_inf} φ^r(A_crys^{(m)})/ξ̃_r); φ^r(A_crys^{(m)})",
+   "reason": "The complex is AΩ_R for the very small affine Spf R ⊂ 𝔛 of the paragraph (as in the preceding display H^•(AΩ_R/ξ̃_r)); there is no object AΩ_r, and A_crys^{(m)} is the subring of Lemma 12.8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1602.03148 listing (v1 9 February 2016, v2 7 September 2018, v3 15 January 2019 'minor updates, final version') and the v3 TeX source integralpadicHodge.tex and PDF",
+    "the published article, Publ. Math. IHÉS 128 (2018) 219–397, from Centre Mersenne (https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf), compared at the locator",
+    "the Centre Mersenne listing of Publ. Math. IHÉS volume 128 (no erratum)",
+    "Crossref metadata for DOI 10.1007/s10240-019-00102-z (no update-to or correction relation) and a Crossref search for an erratum or corrigendum (none found)"
+   ]
+  }
+ ]
+}
