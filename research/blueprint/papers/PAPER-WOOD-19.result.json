@@ -10,8 +10,8 @@
     "arxiv": "1702.04644v2",
     "url": "https://arxiv.org/pdf/1702.04644v2",
     "sha256": "2eacf07f9c79a08a65bbfa332b964f0f9bd4ab5abb93e5db8be72e43669be1bd",
-    "readDate": "2026-09-21",
-    "version": "Author-linked older preprint, arXiv v2 dated 13 July 2018, 40 pages. The current worker reread the full PDF including both tables and the figure. Prior checkpoint inspected Duke_Final_Revision.tex; that archive was not re-downloaded in this continuation. Title/authorship/journal/DOI match the published record, but the publisher PDF was not acquired and sentence-level agreement with the final typeset article is not certified.",
+    "readDate": "2026-09-22",
+    "version": "Author-linked older preprint, arXiv v2 dated 13 July 2018, 40 pages. The current worker reread the full PDF including both tables and the figure. Prior checkpoint inspected Duke_Final_Revision.tex; that archive was not re-downloaded in this continuation. Title/authorship/journal/DOI match the published record, but the publisher PDF was not acquired and sentence-level agreement with the final typeset article is not certified. Continuation on 22 September reread the §4 fixed-point and counting proofs, and checked the selected EVW construction passages; it does not claim a second full-paper rereading. The NSF full-text request timed out again and the Euclid endpoint returned unavailable.",
     "readSections": [
       "All 40 pages of Wood arXiv:1702.04644v2: §§1–8, complete proofs, Appendix A, references, tables pp.33–34 and Figure 1 p.37; reread by codex-a71f92 on 2026-09-21",
       "All 13 pages of Wood (2021), An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland, author lifting.pdf, including every proof and references",
@@ -21,10 +21,12 @@
       "Milne CFT v4.03: VIII §§1–2 pp.229–234, including the exact Grunwald–Wang character statement; its original Artin–Tate proof remains unread",
       "Delange (1954): standing hypotheses p.213 and §5.2.1 Theorem III statement/proof pp.235–238, not the whole paper",
       "Bhargava arXiv:1402.0031: Theorem 1.4 with context pp.3–4 and full proof §4.4 pp.23–25",
-      "Alberts JTNB32(3)(2020): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657; original Lemmermeyer/Goldfeld–Hoffstein inputs remain prerequisites"
+      "Alberts JTNB32(3)(2020): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657; original Lemmermeyer/Goldfeld–Hoffstein inputs remain prerequisites",
+      "22 September continuation: Wood19 §§4.1–4.4 including complete Propositions4.1,4.4 and Theorems4.7,4.8 proofs; Theorem1.2 and Conjecture5.1; EVW12 §§8.6.2–8.7.3; Wood21 Theorem2.5 proof. Full previous reading is retained above.",
+      "Seguin Fields of Definition of Components of Hurwitz Spaces, author PDF SHA256 bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c: §§1–2, §§3.1–3.2, §6, with all displayed proofs there. Supplementary selected reading only, not a full-paper read; §4, §5 and original Cau/Seg24 proofs remain unread."
     ]
   },
-  "summary": "Continuation of the full primary-preprint extraction: 297 items, preserving all 249 prior IDs and all 72 source table rows. Closes five of seven unrouted gaps by identifying the trace supplier, separating introductory known cases, deriving the prime-2/fixed-infinity Euler factors and A4 rigid weights, and sourcing a higher-pole Delange theorem. Adds precise later Wood2021, EVW16 and global-duality interfaces; distinguishes number-field and function-field ownership. Two foundational Part II briefs extend reduced Schur covers and higher-pole Tauberian methods. The arbitrary-root refined conjecture and bad-type ordinary-limit proof remain unresolved, as do source/algorithm certification debts; no exhaustive proof-closure or formalisation claim.",
+  "summary": "Continuation preserving all 299 inherited items and all source table rows. Adds a finite-étale bound for all components, the exact fixed-fiber obstruction for every stable parity multidegree, its 2-primary threshold, stable composition counts, and a complete finite-profile criterion for the disputed ordinary q-limit. All missing items are now routed, but bad-type profile constancy remains unproved: the corrected lower-bound theorem uses liminf. Published-version comparison, original-source closure and computation certificates remain open. No formalization or completion claim. A supplementary Seguin bounded-core reduction is extracted only for characteristic-zero product-one components, with its original-source and finite-field comparison debts explicit.",
   "items": [
     {
       "id": "PAPER-WOOD-19/1",
@@ -1630,13 +1632,17 @@
     {
       "id": "PAPER-WOOD-19/143",
       "kind": "definition",
-      "name": "Bad-type limit-existence gap",
-      "statement": "Theorems 1.2 and 4.8 write an ordinary q-limit for bad types. The displayed proof obtains a lower bound by selecting parity-compatible large-multiplicity components; this immediately yields a liminf bound, but additional control is needed to prove the ordinary limit exists across all allowed q.",
+      "name": "Printed bad-type ordinary-limit assertion (unproved proposition)",
+      "statement": "For fixed finite G, centerless admissible bad G′≤G≀S₂ and sufficiently large fixed n, define the printed assertion to mean existence of lim_(q→∞,(q,|G′|)=1) Ẽ^±_{F_q(t),=q^{2n}}(G,G′)/|H₂(G′,c)[q−1]|, with lower bound w_{G,G′}n^{N_G′−1} for some w_{G,G′}>0 independent of n and q. This is a proposition being audited, not an established theorem. Its proved replacement is /97 and /141, using liminf.",
       "locator": "Theorem 1.2; Theorem 4.8 bad cases",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Not a claim the limit is false. Resolve the q-dependence of all remaining fixed-component fibers, or explicitly distinguish the printed statement from the established lower-bound interface. Unrouted pending exact proof/source resolution."
+      "note": "Routed to ST.5 as a precise unproved assertion. The new /308 reduces its existence clause to eventual constancy of the whole component profile /306; /313 resolves all stable multidegrees but not the boundary /310. No counterexample for an admissible bad type has been established. Source issue E1 records the distinction.",
+      "prerequisites": [
+        "PAPER-WOOD-19/306",
+        "PAPER-WOOD-19/308"
+      ]
     },
     {
       "id": "PAPER-WOOD-19/144",
@@ -3364,6 +3370,355 @@
         "For λ prime to |μ_L|, h↦h^λ is a bijection of H₂(F,c)[|μ_K|], a finite group whose exponent divides |μ_K| and hence is prime to λ."
       ],
       "note": "Supplies the justification for the generator form /298 asked for by the previous handoff (item 1). Elementary from Lemma 3.11; no further source needed."
+    },
+    {
+      "id": "PAPER-WOOD-19/300",
+      "kind": "definition",
+      "name": "Square-class obstruction of a component fiber",
+      "statement": "Let F=G′, c a generating union of involution classes c_i, A=H₂(F,c), and F̃_c→F a chosen reduced Schur cover with class-compatible lifts ĝ_i. Fix g∈c∪{1}, lift ĝ (ĝ=1 for g=1), and a nonnegative multidegree n with Σ n_i[c_i]=[g] in F_ab. Set b(g,n)=ĝ²∏_i(ĝ_i²)^{−n_i}∈A and β(g,n)=b(g,n) mod A². All factors are central. This class is independent of lift choices and depends only on the parity vector of n. Abelianization compatibility is imposed separately; an incompatible fiber is empty before the obstruction is tested.",
+      "locator": "Wood19 §4.1 equation(6) and Remark4.2; explicit derived construction",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/25",
+        "PAPER-WOOD-19/26",
+        "PAPER-WOOD-19/27",
+        "PAPER-WOOD-19/64"
+      ],
+      "proofSteps": [
+        "Changing ĝ by a∈A multiplies b by a²; changing ĝ_i by a_i multiplies b by a_i^{−2n_i}.",
+        "Changing n_i by two changes b by a square."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/301",
+      "kind": "theorem",
+      "name": "All discrete-action fixed fibers",
+      "statement": "Let F=G′, c a generating union of involution classes c_i, A=H₂(F,c), and F̃_c→F a chosen reduced Schur cover with class-compatible lifts ĝ_i. Fix g∈c∪{1}, lift ĝ (ĝ=1 for g=1), and a nonnegative multidegree n with Σ n_i[c_i]=[g] in F_ab. For odd q coprime to |F|, put m=(q−1)/2. The number of q-fixed points in the universal marked-extension fiber over (g,n) is |A[q−1]| if b(g,n)^m∈A^{q−1}, and zero otherwise. If the abelianization condition fails, it is zero. The same is true for q^{-1}-fixed points.",
+      "locator": "Wood19 §4.1 equations(5)–(6), derived full-fiber form",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/300",
+        "PAPER-WOOD-19/64",
+        "PAPER-WOOD-19/67",
+        "PAPER-WOOD-19/70"
+      ],
+      "proofSteps": [
+        "Write each lift over g as ĝh with h∈A.",
+        "The discrete fixed-point equation is h^{q−1}=b^{−m}.",
+        "The power map on finite abelian A has kernel A[q−1]; every nonempty fiber has this cardinality."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/302",
+      "kind": "theorem",
+      "name": "Square-times-torsion solvability test",
+      "statement": "For a finite abelian group A, b∈A and integer m≥1, b^m∈A^{2m} iff b∈A²·A[m]. Consequently the nonempty-fiber condition in /301 is β(g,n) in the image of A[(q−1)/2] in A/A².",
+      "locator": "Elementary consequence of Wood19 equation(6), made explicit for the parity analysis",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/301"
+      ],
+      "proofSteps": [
+        "In additive notation, mb=2ma iff b−2a∈ker[m].",
+        "Apply the equivalence with 2m=q−1; inversion of b does not alter membership."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/303",
+      "kind": "definition",
+      "name": "Two-primary obstruction threshold",
+      "statement": "For finite abelian A of 2-primary exponent 2^e (e=0 if its 2-primary part is trivial), define t_A(b)=min{t≥0 : b∈A²·A[2^t]}. This lies in [0,e] and depends only on b mod A². The odd-primary part is a square and contributes no obstruction.",
+      "locator": "Derived finite-group interface for Wood19 Remark4.2",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/300",
+        "PAPER-WOOD-19/302"
+      ],
+      "proofSteps": [
+        "On the odd-primary subgroup, the square map is an automorphism.",
+        "At t=e, the full 2-primary subgroup is contained in A[2^t]."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/304",
+      "kind": "theorem",
+      "name": "Two-adic criterion for stable fiber survival",
+      "statement": "Let F=G′, c a generating union of involution classes c_i, A=H₂(F,c), and F̃_c→F a chosen reduced Schur cover with class-compatible lifts ĝ_i. Fix g∈c∪{1}, lift ĝ (ĝ=1 for g=1), and a nonnegative multidegree n with Σ n_i[c_i]=[g] in F_ab. For odd q coprime to |F|, the fiber in /301 is nonempty iff v₂(q−1)≥t_A(b(g,n))+1. In a cyclic 2-primary decomposition, t_A(b) is the largest exponent e_j among factors C_{2^{e_j}} where b has odd coordinate, with empty maximum zero. The parities in Proposition4.1 have β=1, hence threshold zero and survive for every allowed q.",
+      "locator": "Wood19 Proposition4.1/Remark4.2; derived threshold refinement",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/302",
+        "PAPER-WOOD-19/303"
+      ],
+      "proofSteps": [
+        "The odd factor of (q−1)/2 acts invertibly on A_(2), so its torsion kernel has the same 2-primary part as A[2^{v₂(q−1)−1}].",
+        "In C_{2^e}, the image of A[2^t] in A/2A is zero for t<e and all of A/2A for t≥e.",
+        "Selected real parities are all even; selected imaginary parities match the boundary class, making b a square."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/305",
+      "kind": "theorem",
+      "name": "Exact count of stable parity multidegrees",
+      "statement": "Let N≥1, N0≥0, d≥0 and ε∈{0,1}^N. Let a_i be the least integer ≥N0 of parity ε_i. The number of n with n_i≥N0, n_i≡ε_i mod2 and Σn_i=d is binomial(L+N−1,N−1) if L=(d−Σa_i)/2 is a nonnegative integer, and zero otherwise.",
+      "locator": "Wood19 Theorem4.8 parity-vector argument; exact stars-and-bars form",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/96"
+      ],
+      "proofSteps": [
+        "Use the bijection n_i=a_i+2z_i with z_i≥0 and Σz_i=L.",
+        "The count follows from weak compositions; retain N=1 and L=0."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/306",
+      "kind": "definition",
+      "name": "Whole fixed-degree component profile",
+      "statement": "Fix a centerless admissible F=G′, signature ± and n≥2. Put d=2n−1 and g=swap in the imaginary case, d=2n and g=1 in the real case. For q coprime to |F|, let C_n^±(q) be the total number of Frobenius-fixed geometric components in the disjoint union of CHur^{c,g}_{F,m} over all nonnegative m with Σm_i=d. Set M(q)=|H₂(F,c)[q−1]| and P_n^±(q)=C_n^±(q)/M(q)∈Q≥0. This includes every multidegree, not only the stable orthant.",
+      "locator": "Wood19 Theorems4.5–4.8; explicit complete-profile adapter",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/77",
+        "PAPER-WOOD-19/78",
+        "PAPER-WOOD-19/79",
+        "PAPER-WOOD-19/86",
+        "PAPER-WOOD-19/88",
+        "PAPER-WOOD-19/90",
+        "PAPER-WOOD-19/91"
+      ],
+      "proofSteps": [
+        "The set of multidegrees at fixed total degree is finite.",
+        "Geometric components are open and closed since the schemes are smooth; Frobenius permutes them."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/307",
+      "kind": "theorem",
+      "name": "Moment differs from whole component profile by a vanishing error",
+      "statement": "In /306, let B_n uniformly bound the total number of geometric components and K_d be the component error constant of Theorem4.7. Then |Ẽ_n^±(q)/M(q)−P_n^±(q)|≤B_n(K_d q^{−1/2}+q^{−1})/(1−q^{−1}). In particular the difference is O_n(q^{−1/2}). One can take B_n=D_d from the finite-étale degree bound /314.",
+      "locator": "Derived by summing Wood19 Theorem4.7 over all components and using exact §4.8 denominators",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/87",
+        "PAPER-WOOD-19/88",
+        "PAPER-WOOD-19/89",
+        "PAPER-WOOD-19/90",
+        "PAPER-WOOD-19/91",
+        "PAPER-WOOD-19/306",
+        "PAPER-WOOD-19/314"
+      ],
+      "proofSteps": [
+        "A rational point lies on a Frobenius-fixed component; nonfixed open-and-closed components contribute none.",
+        "Sum the uniform component errors, divide by q^d(1−q^{-1})M(q), and use M(q)≥1 and C_n(q)≤B_n.",
+        "Use /314 for a q-independent component bound; this does not require extending the source's displayed positive-degree Betti maximum to H^0."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/308",
+      "kind": "theorem",
+      "name": "Ordinary-limit existence is eventual profile constancy",
+      "statement": "Under /306–/307, the ordinary limit of Ẽ_n^±(q)/M(q), as allowed prime powers q→∞, exists iff P_n^±(q) is eventually equal to one rational value. If so that value is the limit. This is a criterion, not a proof that every bad type satisfies it.",
+      "locator": "Derived finite-profile criterion for the gap in Wood19 Theorems1.2/4.8",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/306",
+        "PAPER-WOOD-19/307",
+        "PAPER-WOOD-19/311",
+        "PAPER-WOOD-19/312"
+      ],
+      "proofSteps": [
+        "The profile lies in the finite set {a/b:0≤a≤B_n,1≤b≤|A|}; distinct values have distance at least |A|^{-2}.",
+        "By /307 the moment has a limit iff the profile has the same limit.",
+        "A convergent map with values in a finite subset of R is eventually constant, using the finite-discrete topology imports."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/309",
+      "kind": "theorem",
+      "name": "Liminf and limsup from recurrent profile values",
+      "statement": "Under /306–/307, let R_n^± consist of rational profile values attained for arbitrarily large allowed q. This is a nonempty finite set. The liminf of Ẽ_n^±(q)/M(q) is min R_n^± and its limsup is max R_n^±. Therefore the existing bad-type bound /97 is a lower bound for every recurrent profile value, not proof that there is only one.",
+      "locator": "Derived strengthening of the explicit liminf interface in Wood19 §4.4",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/97",
+        "PAPER-WOOD-19/306",
+        "PAPER-WOOD-19/307"
+      ],
+      "proofSteps": [
+        "Discard the finitely many profile values whose occurrences are bounded.",
+        "Each remaining value has an unbounded sequence of occurrences; the /307 error tends to zero along it."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/310",
+      "kind": "definition",
+      "name": "Boundary component remainder",
+      "statement": "In /306 fix the stable threshold N0 of Theorem4.5(3). Split C_n(q)=C_stable,n(q)+C_boundary,n(q), where stable means every m_i≥N0 and boundary means at least one m_i<N0. Define the normalized remainder R_boundary,n(q)=C_boundary,n(q)/M(q)≥0. No cyclotomic-only formula for this remainder is assumed.",
+      "locator": "Wood19 Theorem4.8 discarded strata, made explicit",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/80",
+        "PAPER-WOOD-19/306"
+      ],
+      "proofSteps": [
+        "The two finite sets of multidegrees partition the whole index set.",
+        "The stable lifting formula does not describe braid components in the boundary."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/311",
+      "kind": "theorem",
+      "name": "Finite subsets of T1 spaces are discrete",
+      "statement": "For a T1 topological space X and finite s⊂X, the subtype s has discrete topology. Apply this to the finite rational profile image in R; do not build a second generic convergence theory.",
+      "locator": "Mathlib/Topology/Separation/Basic.lean:824–828, statement read at pinned commit",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [],
+      "library": [
+        "mathlib:Finite.instDiscreteTopology",
+        "mathlib:Set.Finite.isDiscrete"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/312",
+      "kind": "theorem",
+      "name": "Convergence to a pure filter is eventual equality",
+      "statement": "For a function f:α→β, a filter l on α and b∈β, Tendsto f l (pure b) iff ∀ᶠx in l, f x=b. After /311, this is the discrete-limit interface used for the finite profile.",
+      "locator": "Mathlib/Order/Filter/Tendsto.lean:240–242, statement and proof read at pinned commit",
+      "status": "library",
+      "prerequisites": [],
+      "proofSteps": [],
+      "library": [
+        "mathlib:Filter.tendsto_pure"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/313",
+      "kind": "construction",
+      "name": "Complete stable-range component sum",
+      "statement": "Let F=G′, c a generating union of involution classes c_i, A=H₂(F,c), and F̃_c→F a chosen reduced Schur cover with class-compatible lifts ĝ_i. Fix g∈c∪{1}, lift ĝ (ĝ=1 for g=1), and a nonnegative multidegree n with Σ n_i[c_i]=[g] in F_ab. Assume F is centerless and take the stable threshold N0 of Theorem4.5(3). At total degree d, sum the exact composition count /305 over parity vectors ε compatible with [g] in F_ab and satisfying v₂(q−1)≥t_A(b(g,ε))+1. The sum is exactly C_stable,d^g(q)/|A[q−1]|. It does not include C_boundary.",
+      "locator": "Wood19 Theorem4.5(3), Proposition4.1/Remark4.2 and Theorem4.8; derived full stable-range algorithm",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/301",
+        "PAPER-WOOD-19/304",
+        "PAPER-WOOD-19/305",
+        "PAPER-WOOD-19/80",
+        "PAPER-WOOD-19/310"
+      ],
+      "proofSteps": [
+        "For each parity vector, /301 and /304 count every fixed lifting fiber.",
+        "Stable component classification identifies those fibers with components.",
+        "The obstruction is unchanged by adding even multiplicities, so multiply by the exact number of such multidegrees."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/314",
+      "kind": "theorem",
+      "name": "Uniform component bound from the finite-étale Hurwitz degree",
+      "statement": "For fixed centerless F and total branch degree d, let D_d be the rank of the finite-étale map CHur_{F,d}→Conf_d over Z[1/|F|] in Theorem4.5(1). The rank is constant because Conf_d over that base is connected. Over every algebraically closed residue field of allowed characteristic, CHur_{F,d} has at most D_d connected components. The disjoint union of the fixed-infinity, fixed-c multidegree subschemes with total degree d therefore has at most D_d geometric components, independently of q.",
+      "locator": "Wood19 Theorem4.5(1) and (2); EVW12 §8.6.2; explicit degree bound derived here",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/77",
+        "PAPER-WOOD-19/78"
+      ],
+      "proofSteps": [
+        "Each geometric configuration space is connected: it is the nonzero-discriminant open in affine coefficient space.",
+        "Every nonempty connected component of a finite-étale cover maps onto the connected base, since its image is both open and closed, and contributes positive fiber degree.",
+        "The multidegree subschemes are pairwise disjoint open-and-closed pieces of the same parent cover, so their combined number of components cannot exceed the parent rank."
+      ],
+      "note": "This avoids requiring an extra H^0 comparison just to bound the number of components. The per-component error estimate still uses the source's cohomological comparison."
+    },
+    {
+      "id": "PAPER-WOOD-19/315",
+      "kind": "definition",
+      "name": "Product-one component monoid adapter",
+      "statement": "For a finite group F, let Comp(F) be the graded monoid of braid orbits of product-one tuples in F, including the empty tuple. Multiplication is concatenation; it is commutative for product-one tuples. Via marked Hurwitz schemes over Q unramified at infinity, it carries a continuous Galois action preserving degree and the exact monodromy subgroup. This is the product-one submonoid of the general braid monoid /255, not a second braid theory.",
+      "locator": "Seguin, Fields of Definition of Components of Hurwitz Spaces, §§2.2.3–2.3.3",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/77",
+        "PAPER-WOOD-19/255"
+      ],
+      "proofSteps": [
+        "Restrict the braid-invariant product map to its fiber at 1.",
+        "Use braid-invariance of concatenation and the product-one block interchange.",
+        "Identify geometric components through the marked moduli scheme; do not assume Galois acts by monoid automorphisms."
+      ],
+      "note": "This source uses an unramified marked point at infinity, unlike Wood's imaginary ramified-infinity locus."
+    },
+    {
+      "id": "PAPER-WOOD-19/316",
+      "kind": "theorem",
+      "name": "Galois equivariance for nested-monodromy gluing",
+      "statement": "Let K be a number field and x,y∈Comp(F) have monodromy subgroups Hx,Hy with Hx⊆Hy. Then for every σ∈Gal(Qbar/K), σ(xy)=(σx)(σy). In particular if x,y are defined over K, so is xy.",
+      "locator": "Seguin Theorem3.3(ii),(iii), binary nested-subgroup specialization",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/315"
+      ],
+      "proofSteps": [
+        "Nested monodromy groups satisfy HxHy=Hy, so form a permuting pair.",
+        "Theorem3.3(i) identifies the monodromy-preserving conjugate-gluing set with the singleton {xy}.",
+        "Cau's Galois-equivariance theorem for that set gives (ii); take fixed points for (iii)."
+      ],
+      "note": "Seguin's complete proof was read; the original Cau2012 Theorem3.2 proof remains an explicit prerequisite, not a closed source dependency."
+    },
+    {
+      "id": "PAPER-WOOD-19/317",
+      "kind": "theorem",
+      "name": "Bounded-core Galois reduction for product-one components",
+      "statement": "Let F be finite, ψ(F)=Σ_(g∈F)ord(g), K a number field and x∈Comp(F) of monodromy H. There are g1,…,gr∈H and y∈Comp(F), with monodromy H and deg(y)≤ψ(F), such that x=∏i(gi repeated ord(gi) times)·y. For every σ∈Gal(Qbar/K), σx=∏i(gi^{χ(σ^{-1})} repeated ord(gi) times)·σy.",
+      "locator": "Seguin Proposition6.1 and its full preceding proof",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/315",
+        "PAPER-WOOD-19/316"
+      ],
+      "proofSteps": [
+        "If degree exceeds ψ(F), some g occurs at least ord(g)+1 times.",
+        "Braid ord(g) copies into a product-one block while retaining one copy in the remainder, preserving its generated subgroup.",
+        "Apply /316 and the abelian branch-cycle computation to the block, and iterate until the remainder has bounded degree."
+      ],
+      "note": "Characteristic-zero result; no comparison with all finite-field Frobenius actions is asserted."
+    },
+    {
+      "id": "PAPER-WOOD-19/318",
+      "kind": "construction",
+      "name": "Finite Galois quotient controlling product-one components",
+      "statement": "For fixed finite F, take the joint finite action of Gal(Qbar/Q) on all components of degrees ≤ψ(F), together with its cyclotomic character modulo exp(F). The kernel of this action acts trivially on every component in Comp(F). Thus the action on all product-one components factors through one finite quotient, independent of degree.",
+      "locator": "Derived corollary of Seguin Proposition6.1",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/315",
+        "PAPER-WOOD-19/317"
+      ],
+      "proofSteps": [
+        "There are finitely many tuples in bounded degree, hence finitely many components and a continuous finite permutation action.",
+        "An element in the joint kernel fixes the bounded core and all power blocks in /317.",
+        "Intersect the kernels to obtain a finite quotient; this does not show the quotient or its action is trivial."
+      ],
+      "note": "Turning this quotient into a finite-field Frobenius computation requires the integral moduli/specialization comparison and actual small-component Galois action. No claim that the action depends only on q modulo exp(F)."
+    },
+    {
+      "id": "PAPER-WOOD-19/319",
+      "kind": "theorem",
+      "name": "Involution-only bounded-core specialization",
+      "statement": "Let c be a union of involution conjugacy classes of a finite F. Every x∈Comp(F) represented by a product-one c-tuple admits the /317 factorization with each gi∈c and y again a product-one c-tuple with the same monodromy and degree ≤ψ(F). Its power blocks (gi,gi) are defined over Q. Consequently the action on all such components factors through the finite permutation action on c-components of degree ≤ψ(F).",
+      "locator": "Derived restriction of Seguin Proposition6.1 and Corollary2.13(iii)",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-WOOD-19/317",
+        "PAPER-WOOD-19/318"
+      ],
+      "proofSteps": [
+        "The braid moves preserve membership in c; removed blocks consist of involutions and have product 1.",
+        "Cyclotomic powers fix every involution, so only the bounded core contributes Galois variation.",
+        "Retaining one occurrence of each removed generator ensures full monodromy is preserved."
+      ],
+      "note": "This addresses a characteristic-zero real/product-one candidate only. Appending Wood's imaginary boundary involution introduces a distinguished branch point, so applying the unrestricted product-one braid quotient would lose data."
     }
   ],
   "prerequisites": [
@@ -3426,6 +3781,16 @@
       "citation": "SGA1 XIII and SGA4/SGA7 comparison inputs to the marked Hurwitz family",
       "link": "https://arxiv.org/abs/1212.0923v1",
       "why": "Exact consumer interfaces identified in EVW12/16 and Wood2021: tame/prime-to-p specialization with tangential basepoints, Abhyankar splitting, local acyclicity and vanishing cycles, proper base change and duality. Originals not fully re-extracted; import canonical IG/moduli/SF/étale-duality suppliers, not a parallel six-operations theory."
+    },
+    {
+      "citation": "Béranger Seguin, Fields of Definition of Components of Hurwitz Spaces, author-hosted 26-page version (arXiv:2303.05903)",
+      "link": "https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf",
+      "why": "Supplementary route to the unresolved boundary action: §§1–2, §§3.1–3.2 and §6 read, including the proofs of Corollary2.13, Theorem3.3 and Proposition6.1. Extract /315–319 only in the product-one, characteristic-zero scope. Proposition6.2 was read but its §4/Seg24 proof dependencies are not imported as closed results. SHA256 bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c. No complete-paper reading claimed."
+    },
+    {
+      "citation": "Cau, 2012, Théorème3.2 (Galois action on degeneration-component sets), as cited in Seguin §3.1",
+      "link": "https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf",
+      "why": "Seguin Theorem3.3 imports this equivariance theorem; its source statement was read in Seguin, but the original proof was not obtained or read. Preserve this closure debt under IG.5 before treating /316–319 as source-closed."
     }
   ],
   "routes": [
@@ -3630,7 +3995,15 @@
         "PAPER-WOOD-19/96",
         "PAPER-WOOD-19/97",
         "PAPER-WOOD-19/140",
-        "PAPER-WOOD-19/141"
+        "PAPER-WOOD-19/141",
+        "PAPER-WOOD-19/143",
+        "PAPER-WOOD-19/305",
+        "PAPER-WOOD-19/306",
+        "PAPER-WOOD-19/307",
+        "PAPER-WOOD-19/308",
+        "PAPER-WOOD-19/309",
+        "PAPER-WOOD-19/310",
+        "PAPER-WOOD-19/313"
       ],
       "reason": "ST.5 explicitly includes function-field analogues, higher moments, error bounds and convergence modes. The fixed-n q→∞ nonabelian moment theorem fits that scope; it needs no new statistics roadmap. Import the marked Hurwitz family and q-uniform component estimate from IG.5."
     },
@@ -3715,7 +4088,13 @@
         "PAPER-WOOD-19/88",
         "PAPER-WOOD-19/135",
         "PAPER-WOOD-19/258",
-        "PAPER-WOOD-19/259"
+        "PAPER-WOOD-19/259",
+        "PAPER-WOOD-19/314",
+        "PAPER-WOOD-19/315",
+        "PAPER-WOOD-19/316",
+        "PAPER-WOOD-19/317",
+        "PAPER-WOOD-19/318",
+        "PAPER-WOOD-19/319"
       ],
       "reason": "IG.5 explicitly owns Hurwitz moduli, Nielsen/braid components and tame reduction. Add the centerless marked scheme, component classification and the fixed-degree uniform point estimate. Reuse AlgebraicModuliForArithmeticGeometry for representability and the canonical étale/weight suppliers. The exact EVW16 nonproper comparison has been read; coefficient-tower and invariant-descent adapters remain explicit inputs."
     },
@@ -3781,7 +4160,12 @@
         "PAPER-WOOD-19/253",
         "PAPER-WOOD-19/254",
         "PAPER-WOOD-19/256",
-        "PAPER-WOOD-19/297"
+        "PAPER-WOOD-19/297",
+        "PAPER-WOOD-19/300",
+        "PAPER-WOOD-19/301",
+        "PAPER-WOOD-19/302",
+        "PAPER-WOOD-19/303",
+        "PAPER-WOOD-19/304"
       ],
       "brief": "Extend the existing upstream roadmap “Induction, restriction, and Mackey theory for finite groups” after its Layer 7 central extensions/representation groups. The parent is the first prerequisite. Import its Schur-cover existence and factor-set classification, Mathlib groupHomology.H2 on the trivial integral representation, and TauCeti’s existing normalized factor sets and splitting criterion. Do not reconstruct induction, projective representations or ordinary Schur covers. TauCeti.schurMultiplier is H²(F,kˣ), whereas this extension uses H₂(F,ℤ); build and name the universal-coefficient comparison with all natural maps instead of treating these as definitionally equal.\n\nLayer A: commuting-pair classes in integral H₂, their realization as commutators of lifts, independence of lifts, naturality and orientation. Construct Q_c generated by the classes with x∈c,y∈C_F(x), the quotient H₂(F,c), and the quotient of a chosen Schur cover. Prove exactness/centrality, canonical independence of the quotient homology group from the cover, and the bijective lift of each c-conjugacy class. Do not claim a canonical reduced extension. Check cyclic groups, empty c and the two Schur covers D8/Q8 of C2². Audit and construct the necessary universal-coefficient and homological five-term statements once, on the existing group homology/cohomology carriers.\n\nLayer B: c-marked central extensions and the universal presentation on symbols [g], with [x][y][x]⁻¹=[xyx⁻¹]. Prove its universal property, the chosen-marking isomorphism with F̃_c×_(F^ab)ℤ^(c/F), the abelianization lemma and the reduced-cover H₂ image theorem. Use EVW12 v1 §§7.2–7.5 and the later complete reproof in Wood (2021), Lemmas 2.1–2.4 and Theorem 2.5. Prove [P,P]=[F̃_c,F̃_c]×0 and P^ab=ℤ^(c/F) explicitly; correct the marking by the inverse of its discrepancy. The rational/power-stable c requirement is added only for the next layer; generation is required for the central surjection throughout.\n\nLayer C: prime-to-p power actions, the marking correction z_i(α), the discrete action on the set underlying the universal extension, projection/multidegree equivariance and the two parity fixed-point counts in Wood Proposition 4.1. Use integer multidegrees here; only Hurwitz consumers impose nonnegativity. A nonempty power fiber is a torsor under H₂(F,c)[q−1]; prove nonemptiness in the stated parity cases, and keep the general parity obstruction separate. Include a nonabelian test proving why the power/discrete action cannot be declared an action by group automorphisms.\n\nLayer D: certified finite reduced-multiplier examples from Wood §8.2, with explicit embedded groups and full SmallGroup(order,index) identifiers, not only the bracketed index. Start with the order-96 A4 type: its concrete embedding is the kernel of the sum A4²→C3, extended by factor swap. The separate statistics consumer owns its extension counts. Prove the C2 reduced multiplier by an explicit cover and relation certificate before treating the source GAP output as checked. Other table rows remain source-reported until similarly certified. Center computations and type enumeration are consumed from the arithmetic-statistics finite examples, not built twice.\n\nEvery definition needs constructor/eliminator, transport/naturality API, equality and representative-independence lemmas, and executable small-group unit tests. Suggested future home: TauCeti/GroupTheory/SchurCover/Reduced. ArithmeticStatistics ST.3/ST.5 consumes only the finite multiplier/torsion cardinalities; InverseGalois IG.3/IG.5 consumes the universal marked extension and discrete fixed-point fibers; IG.4 supplies the arithmetic lifting product using global duality and reciprocity. These consumers must not feed back into the foundational supplier. Read the exact EVW inputs despite the 2013 withdrawal notice: Wood states that the affected §§6,12 are not used, but this is not a certificate for a stronger stability theorem. The generic Tauberian theorem now has its own Dirichlet-series Part II, and the trace formula is imported through SF.2's canonical upstream supplier. This design must not absorb them or silently repair the unresolved refined conjecture.",
       "reason": "Upstream Layer 7 owns ordinary Schur covers and factor sets, but not reduced multipliers, commuting-pair quotients, universal marked central extensions or the discrete component action. This is its natural continuation; the arithmetic and geometric consumers import it. The integral homology carrier is already in Mathlib and is not rebuilt."
@@ -3818,6 +4202,442 @@
       "session": "cc-fb70e5",
       "date": "2026-09-22",
       "work": "Resolved /99: added the generator-form conjecture /298 and its justification /299, and routed /99, /298 and /299 to ST.3. /143 remains unrouted."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "date": "2026-09-22",
+      "claimComment": 5774728858,
+      "botConfirmation": 5774731090,
+      "added": "/300–/319",
+      "changed": "/143 is a routed unproved proposition; stable and whole-profile interfaces now specify the remaining proof problem.",
+      "checks": "6588 finite regression assertions; no genuine admissible-type counterexample or ordinary-limit proof claimed.",
+      "work": "Derived the exact obstruction for every stable parity fiber, a 2-primary threshold, exact stable summation, a finite-étale bound for all components, and a necessary-and-sufficient ordinary-limit criterion. /143 is now a routed unproved proposition; its constancy problem is not declared solved. Added the product-one characteristic-zero bounded-core Galois reduction /315–319 with the imaginary/integral comparison limitations explicit."
     }
-  ]
+  ],
+  "continuationApi": [
+    {
+      "id": "PAPER-WOOD-19/API-143-1",
+      "definition": "PAPER-WOOD-19/143",
+      "contract": "Expose the ordinary-limit assertion as a proposition with type, signature and fixed degree explicit; never install it as a theorem."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-143-2",
+      "definition": "PAPER-WOOD-19/143",
+      "contract": "Export /97 as the proven lower-bound interface and /308 as the exact additional constancy task."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-300-1",
+      "definition": "PAPER-WOOD-19/300",
+      "contract": "Return the obstruction in A/A² with an explicit abelianization-compatibility predicate."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-300-2",
+      "definition": "PAPER-WOOD-19/300",
+      "contract": "Prove lift-change invariance and parity invariance; retain a representative b for power tests."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-303-1",
+      "definition": "PAPER-WOOD-19/303",
+      "contract": "Expose the minimum threshold, its bound by the 2-primary exponent and dependence only on A/A²."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-303-2",
+      "definition": "PAPER-WOOD-19/303",
+      "contract": "Export the cyclic-factor computation and the q-congruence criterion /304."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-306-1",
+      "definition": "PAPER-WOOD-19/306",
+      "contract": "Expose the finite index set, Frobenius permutation, fixed cardinal and positive torsion denominator."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-306-2",
+      "definition": "PAPER-WOOD-19/306",
+      "contract": "Relate the profile to rigid moments only through /307 with the signature-dependent degree."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-310-1",
+      "definition": "PAPER-WOOD-19/310",
+      "contract": "Export the disjoint partition and additive cardinal decomposition."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-310-2",
+      "definition": "PAPER-WOOD-19/310",
+      "contract": "Bound the boundary by the whole component count without asserting that its normalized value vanishes for fixed n."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-313-1",
+      "definition": "PAPER-WOOD-19/313",
+      "contract": "Return an exact finite sum indexed by all compatible parity vectors, not only those selected for the lower bound."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-313-2",
+      "definition": "PAPER-WOOD-19/313",
+      "contract": "Expose its equality with the normalized stable count, using the reduced-cover obstruction and stable classification."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-315-1",
+      "definition": "PAPER-WOOD-19/315",
+      "contract": "Reuse /255 and restrict to product-one; export degree, generated subgroup, empty unit and concatenation."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-315-2",
+      "definition": "PAPER-WOOD-19/315",
+      "contract": "Expose the geometric Galois action separately from the monoid operations; require /316 before using equivariance."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-318-1",
+      "definition": "PAPER-WOOD-19/318",
+      "contract": "Export the finite bounded-core component set and joint permutation/cyclotomic representation."
+    },
+    {
+      "id": "PAPER-WOOD-19/API-318-2",
+      "definition": "PAPER-WOOD-19/318",
+      "contract": "Export the kernel-triviality theorem for all degrees, retaining the moduli comparison as a separate consumer obligation."
+    }
+  ],
+  "continuationTests": [
+    {
+      "id": "PAPER-WOOD-19/TEST-143-1",
+      "definition": "PAPER-WOOD-19/143",
+      "statement": "A profile equal to 1 for all allowed q satisfies the existence clause.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-143-2",
+      "definition": "PAPER-WOOD-19/143",
+      "statement": "A profile alternating between 1 and 2 on two unbounded subsequences has liminf 1 but no ordinary limit.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-143-3",
+      "definition": "PAPER-WOOD-19/143",
+      "statement": "The value of n is fixed before q grows; no fixed-q, n→∞ claim follows.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-300-1",
+      "definition": "PAPER-WOOD-19/300",
+      "statement": "For g=1 and all n_i even, β=1.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-300-2",
+      "definition": "PAPER-WOOD-19/300",
+      "statement": "For g in c_k, n_k odd and other n_i even, β=1.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-300-3",
+      "definition": "PAPER-WOOD-19/300",
+      "statement": "If b is multiplied by a square, every solvability test and threshold is unchanged.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-303-1",
+      "definition": "PAPER-WOOD-19/303",
+      "statement": "For A of odd order, every threshold is zero.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-303-2",
+      "definition": "PAPER-WOOD-19/303",
+      "statement": "For A=C8 and b a generator, the threshold is 3 and survival requires q≡1 mod16.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-303-3",
+      "definition": "PAPER-WOOD-19/303",
+      "statement": "For A=C2×C8 and b=(1,0), the threshold is 1, not the full exponent bound 3.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-306-1",
+      "definition": "PAPER-WOOD-19/306",
+      "statement": "In the good stable case the fixed component count is M(q), so the profile is 1.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-306-2",
+      "definition": "PAPER-WOOD-19/306",
+      "statement": "A nonfixed geometric component contributes no rational point because distinct smooth components are disjoint.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-306-3",
+      "definition": "PAPER-WOOD-19/306",
+      "statement": "Use degree 2n−1 for the imaginary profile and 2n for the real profile.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-310-1",
+      "definition": "PAPER-WOOD-19/310",
+      "statement": "When N=1 and d≥N0, the boundary is empty.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-310-2",
+      "definition": "PAPER-WOOD-19/310",
+      "statement": "A multidegree with one coordinate N0−1 belongs only to the boundary.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-310-3",
+      "definition": "PAPER-WOOD-19/310",
+      "statement": "A multidegree with every coordinate exactly N0 belongs only to the stable part.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-313-1",
+      "definition": "PAPER-WOOD-19/313",
+      "statement": "For N=1 and the boundary-compatible parity, recover one stable lifting fiber of normalized size 1.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-313-2",
+      "definition": "PAPER-WOOD-19/313",
+      "statement": "For N=2, N0=0, ε=(0,0), d=4 there are three multidegrees.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-313-3",
+      "definition": "PAPER-WOOD-19/313",
+      "statement": "For an abstract obstruction A=C2, b≠1, q=3 fails and q=5 passes; this is an algebraic test, not a certified Wood-type counterexample.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-315-1",
+      "definition": "PAPER-WOOD-19/315",
+      "statement": "The empty tuple is a degree-zero unit.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-315-2",
+      "definition": "PAPER-WOOD-19/315",
+      "statement": "A pair (g,g) for an involution is product-one.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-315-3",
+      "definition": "PAPER-WOOD-19/315",
+      "statement": "An individual nontrivial involution is not a product-one tuple.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-318-1",
+      "definition": "PAPER-WOOD-19/318",
+      "statement": "For F=1 the finite quotient is trivial.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-318-2",
+      "definition": "PAPER-WOOD-19/318",
+      "statement": "A kernel element fixes both the bounded core and every cyclotomic power block.",
+      "status": "planned, not Lean-executed"
+    },
+    {
+      "id": "PAPER-WOOD-19/TEST-318-3",
+      "definition": "PAPER-WOOD-19/318",
+      "statement": "Fixing only the cyclotomic character does not by itself satisfy the joint-kernel hypothesis.",
+      "status": "planned, not Lean-executed"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-WOOD-19/E1",
+      "kind": "gap",
+      "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "lim_{q→∞} Ẽ^±/|H₂(G′,c)[q−1]|",
+      "correction": "For G′ not good, replace lim by liminf: liminf_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[q−1]| ≥ w_G n^{N_{G′}−1}, and likewise with E^± and a smaller constant in Theorem 1.2.",
+      "reason": "The proof bounds the ratio from below for each large q. It keeps only the multidegrees n in a set 𝒞 (all n_i large, with prescribed parities) on which the number of Frobenius-fixed components is |H_2(G′,c)[q−1]|, and discards the other components as nonnegative. That gives a lower bound for the liminf. It does not show the limit exists: the discarded components with small n_i and their Frobenius-fixed counts may depend on q, and nothing in the argument controls them. The good cases, where the limits are computed exactly, are unaffected. In Theorem 1.2 the passage from Ẽ to E divides by the positive constants of §2.1, |Aut_{G′}(G)| and A(G,G′), so the lower bound transfers with a smaller constant. The proof's remark that \"the second statements of both theorems are the same\" should be read that way. Noted by the extraction (items 97, 141 and 143). The continuation makes the remaining obligation precise: by /307–/309 the ordinary limit exists iff the total normalized fixed-component profile is eventually constant. Stable parity fibers themselves require the obstruction test /300–/304; do not assume all stable fibers are independent of q without that test. No admissible-type counterexample is asserted.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E2",
+      "kind": "error",
+      "locator": "Definition 3.12 (from [EVW12, §8.4]), p.13; used again in the proof of Theorem 3.13, p.14, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "tame quotient",
+      "correction": "Let Γ be the maximal prime-to-p quotient of that tame quotient. This Γ is free pro-prime-to-p on δ_1, …, δ_k with δ_1⋯δ_kδ_∞ = 1. Since |F| is prime to p, φ factors through it.",
+      "reason": "In characteristic p the tame fundamental group of P¹ minus a finite set S is not pro-prime-to-p. Grothendieck's comparison (SGA 1, XIII, 2.12, which the paper cites) describes only its maximal prime-to-p quotient as the prime-to-p completion of the topological fundamental group. For example, for p ≥ 5 the tame fundamental group of P¹ ∖ {0, 1728, ∞} has as quotients the groups PSL₂(F_ℓ), ℓ ≠ p, of modular covers X(ℓ) → X(1), ramified with indices 2, 3, ℓ, and these orders are divisible by p for suitable ℓ. The definition and the proof of Theorem 3.13 only use homomorphisms to F and its lift F̃_c, whose orders are prime to p. These factor through the prime-to-p quotient, so nothing changes. Noted by the extraction (item 56).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E3",
+      "kind": "error",
+      "locator": "Proposition 4.4, pp.19–20, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "a subgroup",
+      "correction": "Assume that G′ is admissible, or at least that ker(G′ → S_2) projects onto the first factor G. Only then does the projection give a surjection ρ, and both bijections hold. The paper applies the proposition only to admissible G′ (Theorem 4.8 and §7).",
+      "reason": "Without this hypothesis the first bijection fails. Take G = C_3, G′ = ⟨(1,σ)⟩ ≅ C_2 and c = {(1,σ)}, and let Q = ℚ with ∞ the real place. A marked (G′,c)-extension with the ramified infinity type φ is an imaginary quadratic field such as ℚ(√−3) with its marking, so the right side is nonempty. The left side is empty: type G′ requires Gal(L̃/ℚ) ≅ G′, of order 2, while L/K is a C_3-extension. The projection onto the first factor of G′ ∩ (G × G) = 1 is not onto G. Noted by the extraction (items 73 and 142).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E4",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 1.2 from Theorem 4.8, p.23, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "q^n",
+      "correction": "Ẽ^±_{F_q(t),q^{2n}}(G,G′).",
+      "reason": "Theorems 1.2 and 4.8 concern the discriminant slice q^{2n}, and the sum over component invariants in Theorem 4.8 is taken over IQ_{=q^{2n}} and RQ_{=q^{2n}}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E5",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.8, the imaginary case with G′ not good, p.24, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "q^n+O_n(q^{n−1/2})",
+      "correction": "CHur^{c,(1,1,σ)}_{G′,n}, H_2(G′,c)[q−1], and q^{2n−1} + O_n(q^{2n−3/2}) in place of q^n + O_n(q^{n−1/2}).",
+      "reason": "The Hurwitz schemes parametrize G′-covers, and H_2(·, c) is defined for the group G′ that contains c. By Theorem 4.7 each Frobenius-fixed component of dimension Σ n_i = 2n − 1 has q^{2n−1} + O(q^{2n−3/2}) points. The next display of the proof indeed uses q^{2n−1} and O_n(q^{2n−3/2}).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E6",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.8, the real quadratic case, p.25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "q^{(Σ_i n_i+1)|G′|/2}",
+      "correction": "Nm Disc(M) = q^{(Σ_i n_i)|G′|/2}, and the associated quadratic extension has discriminant norm q^{Σ_i n_i}.",
+      "reason": "With trivial infinity type, the place at infinity is unramified and contributes nothing to the discriminant. The paper's own convention before Theorem 4.8 is Σ n_i = 2n − ε, with ε = 0 when K is unramified at infinity. The count that follows is q^{2n} + O_n(q^{2n−1/2}) over RQ_{=q^{2n}}, consistent with Σ n_i = 2n. The sentence was copied from the imaginary case, where the \"+1\" is correct. Noted by the extraction (item 91).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E7",
+      "kind": "error",
+      "locator": "Conjecture 5.1, p.26, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "u∈μ_{Q(μ_{4|G̃′_c|})}",
+      "correction": "Let u be a generator of μ_{Q(μ_{4|G̃′_c|})} (and h ∈ H_2(G′,c)[|μ_Q|]). Equivalently, stratify by the Hom-valued invariant u ↦ I(ρ,u). This matches Theorem 4.8, which takes u_q ∈ Ẑ(1)^×.",
+      "reason": "By Lemma 3.11, u ↦ I_{F,π,K}(φ,u) is a homomorphism from μ_L to H_2(F,c)[|μ_K|], so I(ρ,1) = 1 for every ρ. With u = 1 and h ≠ 1 the count in the numerator is zero for every X, so the limit is 0, not 1, whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper has such cases. For Q = ℚ, where |μ_Q| = 2, its table in §8.2 lists the good pair G = A_4, G′ = ((C_2⁴) ⋊ C_3) ⋊ C_2 [227] with H_2(G′,c) = C_2, and G = A_5, G′ = A_5 ≀ C_2 with H_2(G′,c) = C_2. More generally, for u of order d the invariant only sees h in the image of μ_d. For a generator u, evaluation at u identifies the homomorphisms μ_L → H_2(G′,c)[|μ_Q|] with H_2(G′,c)[|μ_Q|], since |μ_Q| divides |μ_L|, which is the intended stratification. The braces in \"H_2(G′,c){|μ_Q|}\" are a misprint for the torsion subgroup H_2(G′,c)[|μ_Q|]. Noted by the extraction (items 99 and 144).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E8",
+      "kind": "misprint",
+      "locator": "Appendix A, \"Description of the computation: theoretical\", p.36, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "C₃×C₃×C₂",
+      "correction": "C_2 × C_2 × C_3, in both places.",
+      "reason": "The group is (C_2 × C_2) ⋊ C_3 with trivial action, of order 12. The printed C_3 × C_3 × C_2 has order 18. The argument, that an abelian unramified Gal(L/K) forces L/ℚ to be Galois, is unaffected. Noted by the extraction (items 125 and 145).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none",
+        "22 September continuation: reread the relevant Wood v2 §4/§5 passages, checked the author publication page and latest arXiv record; no correction located. Euclid unavailable; NSF published-PDF fetch timed out, so no published collation claimed."
+      ],
+      "inheritedFrom": "research/blueprint/errata/PAPER-WOOD-19.json; abbreviated quotation, same finding"
+    },
+    {
+      "id": "PAPER-WOOD-19/E9",
+      "kind": "misprint",
+      "locator": "Wood, An algebraic lifting invariant…, author lifting.pdf (hash in report), Theorem2.5 proof, p4; not a claim of published-version collation",
+      "printed": "φ·ψ",
+      "correction": "With φ(x̂,e_x)=[x]k_x and ψ(x̂,e_x)=k_x as written, use φ·ψ^{-1} throughout the marking correction.",
+      "reason": "The printed product has image [x]k_x², while multiplying by the inverse removes the discrepancy. The existing extraction /254 already uses the corrected sign.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "22 September 2026: author publication page and linked lifting.pdf; no separate lifting-invariant erratum located.",
+        "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read."
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E10",
+      "kind": "misprint",
+      "locator": "Wood, An algebraic lifting invariant…, author lifting.pdf, Lemma2.1 proof, p2, displayed conjugation word; rendered page visually checked",
+      "printed": "[g_k]^{a_k}; g_1^{a_1}",
+      "correction": "At the ends of the inverse word use [g_1]^{−a_1} and g_1^{−a_1}, respectively, so the conjugator [g_1]^{a_1}⋯[g_k]^{a_k} is followed by its reversed inverse.",
+      "reason": "The final factors printed in the two sides of the display do not form the inverse of the stated conjugator. The lemma and the defining conjugation relation require the reversed negatively powered word.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "22 September 2026: author publication page and linked lifting.pdf; no separate lifting-invariant erratum located.",
+        "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read."
+      ]
+    }
+  ],
+  "continuationAudit": {
+    "snapshot": "ceda11730ddb903b696ad2d41e4e5ce17bf4d537",
+    "coverageBlob": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+    "readCurrent": [
+      "Full ArithmeticStatistics README and ST.0–5 stage descriptions",
+      "Full InverseGaloisAndArithmeticFundamentalGroups README; IG.5 continues to own the geometric input",
+      "Reviewed AUDIT-07 ST.5 and AUDIT-09 IG.5 entries",
+      "Mathlib pinned Finite.instDiscreteTopology/Set.Finite.isDiscrete and Filter.tendsto_pure exact statements"
+    ],
+    "boundary": "No new roadmap is proposed in this continuation. The two inherited Part II IDs are still absent from the current roadmap filenames; new parity-group lemmas extend the existing reduced-Schur candidate and function-field profile adapters extend ST.5. General topology is reused from Mathlib. No claim that the source-level constancy criterion is already implemented.",
+    "searches": "Pinned Mathlib and TauCeti searched for ReducedSchur, discreteAction, Hurwitz component, and Cohen–Lenstra names; no exact specialized implementation identified. Existing library matches and their qualifications are retained."
+  },
+  "validationContinuation": {
+    "date": "2026-09-22",
+    "finiteRegression": {
+      "assertions": 6588,
+      "obstructionFibers": 2233,
+      "parityCompositionCases": 1530,
+      "sha256": "2a3c135675e915a7849d14ecb61cfe517bfd53a5f07a8b71b5c478234fec1b8a",
+      "scope": "Abstract finite abelian groups, stars-and-bars and profile separation. Not a certified reduced cover, Hurwitz component computation or number-field table reproduction."
+    },
+    "lean": "No Lean file required, authored or compiled."
+  }
 }
