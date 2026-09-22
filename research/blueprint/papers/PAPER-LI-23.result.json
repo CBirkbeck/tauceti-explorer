@@ -1,0 +1,699 @@
+{
+  "paper": "PAPER-LI-23",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Algebraicity of higher Green functions at a CM point",
+    "authors": "Yingkun Li",
+    "venue": "Inventiones mathematicae 234 (2023), 375–418",
+    "doi": "10.1007/s00222-023-01205-5",
+    "arxiv": "2106.13653v2",
+    "url": "https://doi.org/10.1007/s00222-023-01205-5",
+    "readSections": [
+      "Published version (open access, CC BY 4.0), read in full on 2026-09-22 (PDF SHA-256 1381077a24dee11d613c5b5f437f281080e89d26bb900fc6e1134360b883e163). Statement numbers and pages are the published ones.",
+      "arXiv v2 TeX source (SHA-256 7d35388932a5da5f92bf7782c7c79048d3aac1a384beddd9ba96f904bd198271) was used as a reading aid; it matches the published text up to layout.",
+      "Checked in detail: Example 2.1, Lemma 2.2, the proof of Proposition 2.6, Lemmas 2.8–2.9 (with the counterexample of E2 verified numerically), Lemmas 3.2–3.3, Proposition 3.4, Theorem 4.1 and Proposition 4.2 (whence E6), Lemma 4.6, Proposition 4.8, the proof of Theorem 4.10, the reduction and weight bookkeeping in §5.1, and the linear algebra at the end of §5.2. Results of Bruinier (2012), Bruinier–Yang (2011), Bruinier–Ehlen–Yang (2021) and Bruinier–Kudla–Yang (2012) were used as quoted."
+    ]
+  },
+  "summary": "Li studies the values of higher Green functions Φ^r_L on orthogonal Shimura varieties at CM points, motivated by the Gross–Zagier conjecture that (d_1d_2)^{r/2}G_{r+1,f}(z_1, z_2) on X_0(1)² is κ^{−1}log|α| for an algebraic α. Theorem 1.1 proves this at an individual pair of CM points, with Galois equivariance, answering Zagier's 1986 ICM problem. The general Theorem 1.3 shows that for a big CM cycle Z(W_Q) attached to a CM extension E/F of a totally real field of degree d, differences Φ^r_L(z_0, h_1, f) − Φ^r_L(z_0, h_2, f) are F-linear combinations of logarithms of ratios of Galois conjugates of algebraic numbers; this is the first result with n ≥ 3 and d ≥ 2. Conjecture 1.6 predicts the individual values. Theorem 1.7 proves it for real quadratic F, r even, n = 2 and Z(W_Q) defined over Q, by combining Theorem 1.3 with Bruinier–Ehlen–Yang's averaged formula. The method builds, for a Hilbert cusp form g = θ_{P_1} − θ_{P_2} and ℓ large, real-analytic Hilbert modular preimages δ̂ of g^ℓ(θ_N − θ_N(·, h)) under the lowering operator in τ_1 (Theorems 4.1 and 4.3). Existence comes from ampleness of a twisted Hodge bundle on a toroidal compactification. Pairing their holomorphic parts with weakly holomorphic Whittaker forms is expressed through Bruinier's regularized theta lifts and Borcherds products over totally real fields, which yields algebraicity (Theorem 4.10). The embedding trick is replaced by a partition of unity by diagonal restrictions of Eisenstein and theta series (Proposition 3.4, from non-vanishing Lemmas 2.8–3.3), and a generalized Rankin–Cohen operator 𝒟. The atlas plans harmonic Maass forms (QM.3), Weil representations and theta kernels (MP.4–MP.5), Baily–Borel and toroidal compactifications (V2, C2, C6), canonical models and CM reciprocity (V4, V6, HE.1), and analytic vanishing (ComplexComparisonPartII C1–C2). It has nothing on higher Green functions, CM values of Borcherds lifts over totally real fields, or real-analytic Hilbert preimages. Routes: the paper's own theory and the cited results of Bruinier, Bruinier–Yang and Bruinier–Ehlen–Yang become a new Part II of Gross–Zagier formulas and arithmetic heights. Unimodular lattices go to GN.2, Siegel's formula for definite lattices to GN.3, the indefinite Siegel–Weil formula to MP.6, and blow-up ampleness to SF.0. Nine source issues are recorded, all in the published text: two false auxiliary lemmas (Lemma 2.8 needs 1, θ_1, …, θ_N independent; Lemma 2.9 needs the |c_i| to tend to 0, with a counterexample) whose applications survive; a gap in Theorem 4.1's ampleness argument; a gap in the proof of Theorem 1.1 when d_1d_2 is a square; and five misprints, including n = 4 for n = 2 in Theorem 1.7 and (θ_{P_2} − θ_{P_2})^ℓ in Theorem 4.3.",
+  "items": [
+    {
+      "id": "PAPER-LI-23/1",
+      "kind": "definition",
+      "name": "Elliptic modular forms, the Gamma function and the Gauss hypergeometric function",
+      "statement": "Holomorphic modular and cusp forms for SL_2(Z) on the upper half-plane, the Eisenstein series, the fundamental domain, the Gamma function and the Gauss hypergeometric function F(a, b, c; z).",
+      "locator": "§1.1 and §3.3, pp. 376, 401–402",
+      "status": "library",
+      "library": [
+        "mathlib:UpperHalfPlane",
+        "mathlib:ModularForm",
+        "mathlib:CuspForm",
+        "mathlib:ModularForm.eisensteinSeriesMF",
+        "mathlib:Complex.Gamma",
+        "mathlib:ordinaryHypergeometric"
+      ],
+      "note": "Mathlib: UpperHalfPlane, ModularForm, CuspForm, ModularForm.eisensteinSeriesMF, ModularGroup.fd, Complex.Gamma, ordinaryHypergeometric. Weakly holomorphic and vector-valued forms, the j-function and the incomplete Gamma function are not in Mathlib; they are part of the Part II carrier or its imports."
+    },
+    {
+      "id": "PAPER-LI-23/2",
+      "kind": "definition",
+      "name": "Harmonic Maass forms, the lowering operator and the ξ-operator",
+      "statement": "Real-analytic modular forms annihilated by the weight-k Laplacian with at most linear exponential growth at the cusps, the raising and lowering operators R_k = 2i∂_τ + k/v and L_k = −2iv²∂_τ̄, Δ_k = −R_{k−2}L_k, their holomorphic and non-holomorphic parts, and the ξ-operator to cusp forms of dual weight (Bruinier–Funke).",
+      "locator": "§1.2, §2.2 and §3.3, pp. 379–380, 385, 402",
+      "status": "planned",
+      "planned": [
+        "QSeriesPartitionsAndMockModularForms:QM.3"
+      ],
+      "note": "QSeriesPartitionsAndMockModularForms QM.3 plans harmonic Maass forms, the ξ-operator and Poincaré series from Bruinier–Funke."
+    },
+    {
+      "id": "PAPER-LI-23/3",
+      "kind": "definition",
+      "name": "The Weil representation ρ_L and vector-valued modular forms",
+      "statement": "For an even O-lattice L ⊂ V, the Weil representation ω of SL_2(A_F) on Schwartz functions and its restriction ρ_L to Γ = SL_2(O_F) on S_L = ⊕_{μ∈L′/L} Cφ_μ, unitary for ⟨φ, ψ⟩ = Σ φ(μ)ψ̄(μ), with the partial pairings ⟨·,·⟩_L.",
+      "locator": "§3.1, pp. 396–397",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.4"
+      ],
+      "note": "MetaplecticAutomorphicForms MP.4 plans the adelic cover and global Weil representation."
+    },
+    {
+      "id": "PAPER-LI-23/4",
+      "kind": "construction",
+      "name": "Siegel theta functions Θ_L(τ, z, h) and the singular theta function Θ*_L",
+      "statement": "For V over F of signature ((p_1, q_1), (n+2, 0), …) and z ∈ D, the Gaussian φ_∞(τ, z, λ) = v_1^{q/2} e(Q(λ_{z⊥})τ_1 + Q(λ_z)τ̄_1) ⊗ ⊗_{j≥2} e(Q(λ)_j τ_j) and Θ_L(τ, z, h) = Σ_μ Σ_{λ∈V(F)} φ_μ(h^{−1}λ) φ_∞(τ, z, λ) φ_μ, a Hilbert modular form of weight ((p_1 − q_1)/2, n/2 + 1, …); with Θ_L(τ, z) = Θ_{L_h}(τ, z, h) and the singular version Θ*_L built from the incomplete-Gamma Schwartz function φ*, satisfying L_{τ_1}Θ*_L = Θ_L. For P ∈ U_F^+, θ_P is a holomorphic Hilbert modular form of parallel weight rank/2.",
+      "locator": "§3.1, (3.2)–(3.6), pp. 396–398",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.5"
+      ],
+      "note": "MetaplecticAutomorphicForms MP.5 plans theta kernels and their convergence; the singular function φ* and L_{τ_1}Θ* = Θ are part of the Part II item on Theorem 4.3."
+    },
+    {
+      "id": "PAPER-LI-23/5",
+      "kind": "theorem",
+      "name": "Baily–Borel compactification of Hilbert modular varieties and ampleness of the Hodge line",
+      "statement": "X^BB = Proj of the ring of Hilbert modular forms is a normal projective scheme obtained by adding finitely many cusps, and the determinant of the Hodge bundle (weight (1, …, 1)) is ample on it.",
+      "locator": "§4.1, p. 403",
+      "status": "planned",
+      "planned": [
+        "ShimuraVarieties:V2"
+      ],
+      "note": "ShimuraVarieties V2 plans the Baily–Borel theorem and minimal compactification."
+    },
+    {
+      "id": "PAPER-LI-23/6",
+      "kind": "theorem",
+      "name": "Smooth toroidal compactifications as normalized blow-ups (AMRT IV Thm. 2.2) and Koecher's principle",
+      "statement": "For neat Γ and a projective Γ-admissible decomposition, the smooth toroidal compactification X̃ of Γ\\H^d is the normalization of the blow-up of X^BB along a coherent ideal supported on the cusps, with boundary divisor E; the sheaves of Hilbert modular forms extend to X^BB and X̃ by Koecher's principle.",
+      "locator": "§4.1, pp. 403–404",
+      "status": "planned",
+      "planned": [
+        "ShimuraCompactifications:C2",
+        "ShimuraCompactifications:C6"
+      ],
+      "note": "ShimuraCompactifications C2 plans projective toroidal compactifications (RS-32 narrows but keeps this), and C6 keeps the Hilbert specializations and 'the coefficient-appropriate Koecher' statements."
+    },
+    {
+      "id": "PAPER-LI-23/7",
+      "kind": "theorem",
+      "name": "Dolbeault resolution and vanishing after ample twists on projective complex manifolds",
+      "statement": "On a compact complex manifold 0 → O → E^{0,0} → E′ → 0 (E′ = ker ∂̄ on (0,1)-forms) is exact, and for an ample line bundle A and coherent F on a projective variety, H¹(F ⊗ A^n) = 0 for n ≫ 0.",
+      "locator": "Proof of Theorem 4.1, pp. 403–404",
+      "status": "planned",
+      "planned": [
+        "ComplexComparisonPartII:C1",
+        "ComplexComparisonPartII:C2"
+      ],
+      "note": "ComplexComparisonPartII C1 plans analytic coherent cohomology with ∂̄-problems and 'the analytic vanishing and generation theorem'; C2 plans projective GAGA."
+    },
+    {
+      "id": "PAPER-LI-23/8",
+      "kind": "theorem",
+      "name": "Canonical models of GSpin Shimura varieties and Shimura reciprocity at CM points",
+      "statement": "X_K = H(Q)\\D × H(Q̂)/K for H = Res_{F/Q} GSpin_V has a canonical model over σ_1(F) (Shih), and Gal(E_W^ab/E_W) acts on the CM points of Z(W, h) through class field theory (Shimura reciprocity; AGHMP18 §§3.1, 5.3).",
+      "locator": "§2.3, p. 389; proof of Theorem 4.10, p. 413",
+      "status": "planned",
+      "planned": [
+        "ShimuraVarieties:V4",
+        "ShimuraVarieties:V6"
+      ],
+      "note": "ShimuraVarieties V4 plans canonical models and the special-point reciprocity condition, and V6 plans Hodge and abelian type (Res GSpin is of abelian type)."
+    },
+    {
+      "id": "PAPER-LI-23/9",
+      "kind": "theorem",
+      "name": "CM points on X_0(N) and their fields of definition",
+      "statement": "CM points z of discriminant d on X_0(1) are defined over the ring class field H_z of Q(√d), and Gal(H_z/Q(√d)) acts on them through the class group of the order.",
+      "locator": "§1.1 and Example 2.7, pp. 377, 392",
+      "status": "planned",
+      "planned": [
+        "HeegnerPointEulerSystems:HE.1"
+      ],
+      "note": "HeegnerPointEulerSystems HE.1 plans CM points, compatible parametrizations and descent to ring class fields."
+    },
+    {
+      "id": "PAPER-LI-23/10",
+      "kind": "theorem",
+      "name": "Unimodular O-lattices exist, and the class of the different is a square",
+      "statement": "(Chang, Arch. Math. 21 (1970), Satz 1) a definite F-quadratic space of dimension divisible by 8 with suitable signature contains a unimodular O-lattice, for each of the 2^d definite signature patterns; (Hecke) the class of the different 𝔡 in Cl(F) is a square, 𝔡^{−1} = 𝔞²(δ).",
+      "locator": "Proof of Proposition 2.6, p. 391",
+      "status": "missing",
+      "note": "GN.2 integrates integral lattices, genera and discriminants over number fields."
+    },
+    {
+      "id": "PAPER-LI-23/11",
+      "kind": "theorem",
+      "name": "Proposition 2.6: totally positive Z-unimodular O-lattices exist",
+      "statement": "For any totally real field F, the semigroup U_F^+ of non-trivial, totally positive definite, even Z-unimodular O-lattices (L′ = L for Q_Z = tr_{F/Q} Q) is non-empty.",
+      "locator": "Proposition 2.6, p. 391; §2.4",
+      "status": "missing",
+      "note": "Checked: (𝔞L, δQ) is even with (𝔞L)′ = 𝔞L^# = 𝔞L."
+    },
+    {
+      "id": "PAPER-LI-23/12",
+      "kind": "theorem",
+      "name": "Siegel's formula for totally positive lattices and the Hecke Eisenstein series",
+      "statement": "For P ∈ U_F^+ of rank 2𝔯, E_P(τ) := c_K^{−1} Σ_{h∈H(Q)\\H(Q̂)/K} θ_P(τ, h) is the Hecke Eisenstein series of parallel weight 𝔯, E_P(τ) = Σ_{β∈P¹(F)} c(β, τ)^{−𝔯} with c(β, τ) = A_β Nm(τ + β) for β ∈ F (A_β non-zero integers depending only on β) and c(∞, τ) = 1; E_P ∈ M_F^θ, and E_{P^ℓ} ≠ E_P^ℓ in general.",
+      "locator": "§3.2, (3.10)–(3.11), pp. 399–400",
+      "status": "missing",
+      "note": "The classical Siegel–Weil formula for definite lattices; GN.3 plans mass formulas and theta-series interfaces. The expansion (3.11) is from Bogo–Li (PAMQ 2023), §2."
+    },
+    {
+      "id": "PAPER-LI-23/13",
+      "kind": "theorem",
+      "name": "Eisenstein series of I(s, χ) and the Siegel–Weil formula in signature (n, 2)",
+      "statement": "For V of signature ((n, 2), (n+2, 0), …), the map λ(φ)(g) = (ω(g)φ)(0) gives standard sections of I(s_0, χ_V), s_0 = n/2, and E_L(τ, κ̃) = Σ_μ E(τ, φ_μ, κ̃) φ_μ with E(τ, φ_f, κ̃) = v^{−κ̃/2} E(g_τ, s_0, λ(φ_f) ⊗ Φ^κ̃_∞). For K fixing L̂ and acting trivially on L̂′/L̂: E_L(τ, κ̃) = vol(X_K)^{−1} ∫_{X_K} Θ_L(τ, z, h) Ω^n for n ≥ 1 (Bruinier–Yang 2011, Lemma 4.3), and E_L = 2 vol(X_K)^{−1} Σ_{[z,h]∈X_K} Θ_L(τ, z, h) for n = 0.",
+      "locator": "§3.2, (3.7)–(3.9), pp. 398–399",
+      "status": "missing",
+      "note": "MetaplecticAutomorphicForms MP.6 plans the local–global comparison and reusable theta integrals."
+    },
+    {
+      "id": "PAPER-LI-23/14",
+      "kind": "theorem",
+      "name": "Relative ampleness on blow-ups and ampleness of O(−D) ⊗ π*L^k",
+      "statement": "For the blow-up π: X̃ → X of a noetherian scheme along a coherent ideal I, O_{X̃}(1) = I·O_{X̃} = O(−D), D the exceptional Cartier divisor, is π-ample; finite normalization preserves ampleness; and for L ample on X, O(−D) ⊗ π*L^k is ample for k ≫ 0 (Stacks 01OF, 01VL, 01VG, 0BXQ).",
+      "locator": "Proof of Theorem 4.1, p. 404",
+      "status": "missing",
+      "note": "General scheme theory (relative Proj and ampleness); SF.0 owns relative Spec/Proj."
+    },
+    {
+      "id": "PAPER-LI-23/15",
+      "kind": "definition",
+      "name": "Automorphic and higher Green functions on orthogonal Shimura varieties",
+      "statement": "For V/Q of signature (n, 2), σ_0 = n/4 − 1/2, μ ∈ L′/L and m ∈ Z + Q(μ): Φ_{m,μ}(z, h, s) = 2 Γ(s+σ_0)/Γ(2s) Σ_{λ∈h(L_{m,μ})} (m/Q(λ_{z⊥}))^{s+σ_0} F(s+σ_0, s−σ_0, 2s; m/Q(λ_{z⊥})), convergent for s > σ_0 + 1 off Z(m, μ), a Laplace eigenfunction with meromorphic continuation. At s = σ_0 + 1 + r it is a higher Green function. For f = Σ c(m, μ)q^{−m}φ_μ + O(1) ∈ H_{k−2r, ρ̄_L}, k = −2σ_0: Φ^r_L(z, h, f) = r! Σ c(m, μ) m^r Φ_{m,μ}(z, h, σ_0+1+r), with the integral representation Φ^r_L = lim_T ∫_{F_T} ⟨R̃^r f, Θ̄_L⟩ dμ = (−1)^r lim_T ∫_{F_T} ⟨f, conj(R̃^r Θ_L)⟩ dμ. For L = M_2(Z), Φ_m(z, 1, r+1) = 2(−1)^r/Γ(2r+2) · G^m_{r+1}(z_1, z_2).",
+      "locator": "§1.1 (1.1)–(1.2) and §3.3, (3.12)–(3.14), pp. 376, 401–402",
+      "status": "missing",
+      "note": "From Borcherds (1998), Bruinier (LNM 1780) and Bruinier–Ehlen–Yang (2021). The s = σ_0 + 1 Green functions Φ_{β,m} are also constructed in the candidate GSpinSpecialDivisorHeights (PAPER-SHANKAR-SHANKAR-TANG-ETAL-22); import them."
+    },
+    {
+      "id": "PAPER-LI-23/16",
+      "kind": "definition",
+      "name": "Quadratic spaces over totally real F, GSpin Shimura varieties X_K and neighbouring spaces V(j)",
+      "statement": "V over F of signature ((n, 2), (n+2, 0), …, (n+2, 0)), n even; H = Res_{F/Q} GSpin_V with 1 → Z → H → Res SO(V) → 1 and spinor norm ν; D = Grassmannian of oriented negative 2-planes in V_{σ_1}, identified with the quadric 𝓗 and the tube domain with automorphy factor j(γ, z); X_K = H(Q)\\D × H(Q̂)/K of dimension n, projective when V is anisotropic; π_0(X_K) ≅ F_+^×\\F̂^×/ν(K) ≅ Gal(E_K/F); meromorphic modular forms and ‖Ψ‖_Pet; the neighbouring spaces V(j) and the variety 𝕏_K over F (Bruinier–Yang 2011, Lemma 7.1).",
+      "locator": "§2.3, (2.4)–(2.17), pp. 387–390; Examples 2.4–2.5, pp. 388–389",
+      "status": "missing",
+      "note": "Uses the Clifford algebra and GSpin (Example 2.4 is the hyperbolic-plane case), and Kudla's (1.8) for π_0."
+    },
+    {
+      "id": "PAPER-LI-23/17",
+      "kind": "definition",
+      "name": "Special cycles and CM 0-cycles Z(W_{F_0}, h), big and small CM points",
+      "statement": "For V = W ⊕ U with U totally positive of dimension r, H_W × H_U ↪ H_V and the codimension-r cycle Z(W, h); for W of signature ((0, 2), (2, 0), …) and V_0 = W_{F_0} ⊕ U_0, the torus T = T_W gives the CM 0-cycle Z(W_{F_0}, h)(C) = T(Q)\\{z_W^±} × T(Q̂)/K_T^h, defined over F, each point over an abelian extension of E_W; Z(𝕎) = Σ_j τ_j(Z(W_Q)); weighted special divisors Z(m, φ) and Z(m, μ). Remark 1.4: for (M_2(Q), N det) these give big CM points (F real quadratic) and small CM points (F = Q) on X_0(N)².",
+      "locator": "§2.5, (2.19)–(2.23), pp. 391–392; Remark 1.4, p. 378",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-LI-23/18",
+      "kind": "theorem",
+      "name": "Example 2.7: Z(W_Q) is defined over Q for pairs of CM points on X_0(1)²",
+      "statement": "For negative discriminants d_1, d_2 with F = Q(√(d_1d_2)) real quadratic, E = E_1E_2 is a CM extension of F and, as W with Q(μ) = −Nμμ̄/√D, the CM 0-cycle is Z(W) = Σ_{(σ_1,σ_2)∈G_1×G_2, σ_1|H_0 = σ_2|H_0} (z_1^{σ_1}, z_2^{σ_2}) + (−z̄_1^{σ_1}, −z̄_2^{σ_2}) with H_0 = H_1 ∩ H_2. Since every element of Gal(H_0/Q) has order dividing 2 (Li, Compositio 2021, Lemma 3.2), Z(W_Q) = Z(W(2)_Q) is defined over Q.",
+      "locator": "Example 2.7, p. 392; Remark 1.8, p. 379",
+      "status": "missing",
+      "note": "Only covers d_1d_2 not a perfect square (F must be a field); see E8."
+    },
+    {
+      "id": "PAPER-LI-23/19",
+      "kind": "theorem",
+      "name": "Theorem 1.1: algebraicity of higher Green functions at an individual CM point on X_0(1)²",
+      "statement": "Let r ∈ N and f ∈ M^!_{−2r} with integral Fourier coefficients, d_1, d_2 negative discriminants with one of them fundamental when r is odd, and z_i CM points of discriminant d_i. Then there are κ ∈ N (depending on d_1, d_2, r, f) and α = α(z_1, z_2) ∈ H = H_1H_2 (H_i the ring class field of E_i = Q(√d_i) for z_i) with (d_1d_2)^{r/2} G_{r+1,f}(z_1, z_2) = κ^{−1} log|α| and α(z_1^σ, z_2^σ) = σ(α(z_1, z_2)) for σ ∈ Gal(H/E_1E_2) (Remark 1.2: Gal(H/E) ⊂ Gal(H_1/E_1) × Gal(H_2/E_2)). This answers Zagier's ICM 1986 problem (ii) and the Gross–Zagier conjecture (4.4).",
+      "locator": "Theorem 1.1, p. 377; Remark 1.2; proof in §5.3, p. 416, as completed by E8",
+      "status": "missing",
+      "note": "Even r: Example 2.7 and Theorem 1.7. Odd r: Bruinier–Ehlen–Yang Thm. 7.13 (partial averages) plus Theorem 1.3."
+    },
+    {
+      "id": "PAPER-LI-23/20",
+      "kind": "theorem",
+      "name": "Theorem 1.3: differences of higher Green functions at big CM points",
+      "statement": "Let V/Q have signature (n, 2), L ⊂ V even, f ∈ M^!_{1−n/2−2r, ρ̄_L} with integral Fourier coefficients, F totally real of degree d, and W an F-quadratic space from a CM extension E/F of signature ((0, 2), (2, 0), …) with W_Q ↪ V (so n + 2 ≥ 2d). Then there are λ_j ∈ F and α_j ∈ E^ab (1 ≤ j ≤ d) with Φ^r_L(z_0, h_1, f) − Φ^r_L(z_0, h_2, f) = Σ_j λ_j log|σ_{h_1}(α_j)/σ_{h_2}(α_j)| for all (z_0, h_i) ∈ Z(W_Q), σ_h ∈ Gal(E^ab/E) the class-field-theory image of h. If F = Q(√D) and n + 2 = 2d = 4, one may take λ_1 = D^{r/2}/κ (κ ∈ N) and λ_2 = 0. Remark 1.5: this holds even when Z(W_Q) meets the singularity of Φ^r_L, using the real-analytic continuation of Φ^r(z, 1, f) − Φ^r(z, h, f).",
+      "locator": "Theorem 1.3, p. 378; Remark 1.5; proof in §5.1, pp. 414–415",
+      "status": "missing",
+      "note": "The first result with n ≥ 3 and d ≥ 2. The proof reduces to L = N_0 via Lemma 2.2, uses Proposition 3.4, Theorem 4.3 and the operator 𝒟, then Theorem 4.10."
+    },
+    {
+      "id": "PAPER-LI-23/21",
+      "kind": "theorem",
+      "name": "Conjecture 1.6 and Theorem 1.7: individual CM values for real quadratic F",
+      "statement": "Conjecture 1.6: in the setting of Theorem 1.3, if the singularity of Φ^r_L(z, h, f) misses Z(W_Q), there are λ_j ∈ F and α_j ∈ E^ab with Φ^r_L(z_0, h, f) = Σ_{j=1}^d λ_j log|σ_h(α_j)| for all (z_0, h) ∈ Z(W_Q). Theorem 1.7: the conjecture holds when F is real quadratic, r is even, n = 2 (i.e. n + 2 = 2d = 4) and Z(W_Q) is defined over Q, with λ_1 ∈ Q and λ_2 = 0. Remark 1.9: Bruinier–Li–Yang (2022) prove the conjecture when E/Q is biquadratic.",
+      "locator": "Theorem 1.7, p. 379; Conjecture 1.6 and Remarks 1.8–1.9, p. 379; proof in §5.2, pp. 415–416; statement as corrected by E7",
+      "status": "missing",
+      "note": "The proof combines Bruinier–Ehlen–Yang Thm. 5.10 (the full Z(W_Q)-average), Bruinier–Kudla–Yang Prop. 4.6 and Theorem 1.3; checked the solution Φ(z_0, h) = (2Nc′c)^{−1} log|σ_h(α̃)|, α̃ = α^{2N}a^c/β²."
+    },
+    {
+      "id": "PAPER-LI-23/22",
+      "kind": "theorem",
+      "name": "Cited inputs from Bruinier–Ehlen–Yang (2021) and Bruinier–Kudla–Yang (2012)",
+      "statement": "BEY21 Thm. 5.5: Conjecture 1.6 holds for F = Q. BEY21 Thm. 5.10: if Z(W_Q) = Z(W(2)_Q), then (2/deg Z(W_Q)) Φ^r_L(Z(W_Q), f) = CT⟨f, 𝒞_{(1,1),r}(𝓔_L^+)⟩ with 𝓔_L^+ the holomorphic part of the derivative of the incoherent Eisenstein series of weight (1, 1). BEY21 Thm. 7.13: for r odd and d_1 fundamental, the analogous algebraicity of a partial average over Galois orbits of one CM point. BKY12 Prop. 4.6: the non-zero Fourier coefficients of 𝓔_L^+ are rational multiples of logarithms of integers.",
+      "locator": "Proofs of Theorems 1.7 and 1.1, pp. 415–416",
+      "status": "missing",
+      "note": "Coalesce with PAPER-BRUINIER-EHLEN-YANG-21 (issue #1288) when it is extracted."
+    },
+    {
+      "id": "PAPER-LI-23/23",
+      "kind": "definition",
+      "name": "Hilbert modular forms, weights κ̃ and κ̂, Petersson norms, and the graded rings M_F and M_F^θ",
+      "statement": "For Γ ⊂ SL_2(O_F), a unitary ρ and κ ∈ Z^d: A_{κ,ρ}(Γ) (real-analytic, bounded at cusps) ⊃ M_{κ,ρ} ⊃ S_{κ,ρ}; ‖f‖²_Pet = ⟨f, f⟩Nm(v^κ) and (f, g)_Pet = D^{−1/2}∫⟨f, g⟩Nm(v^κ)dμ; κ̃ = (−k_1, k_2, …), κ̂ = (2 − k_1, k_2, …); M_κ(Γ_F) = M_κ(Γ_F, Q) ⊗ C, also for Weil representations (McGraw 2003; Bruinier 2012 §7); M_F = ⊕_{κ∈N^d} M_κ(Γ_F, Q) and M_F^θ = span{θ_P : P ∈ U_F^+}.",
+      "locator": "§2.1 and (3.6), pp. 384, 398",
+      "status": "missing",
+      "note": "The atlas has Hilbert–Blumenthal moduli (HilbertModularVarietiesAndShimuraCurves H0–H5) and Hilbert Eisenstein series for p-adic L-functions (AutomorphicPadicLFunctions L3), but no general Hilbert modular form carrier with these rational structures."
+    },
+    {
+      "id": "PAPER-LI-23/24",
+      "kind": "theorem",
+      "name": "Rankin–Cohen operators and Lemma 2.2",
+      "statement": "For κ = (k_1, k_2) and r ∈ N_0, 𝒞_{κ,r}(f)(τ) = (2πi)^{−r} Σ_s (−1)^s C(k_1+r−1, s) C(k_2+r−1, r−s) (∂^{r−s}_{τ_1}∂^s_{τ_2} f)(τ, τ) = Σ_s (−1)^{r−s} C(k_1+r−1, s) C(k_2+r−1, r−s)(R̃^{r−s}_{τ_1,k_1} R̃^s_{τ_2,k_2} f)(τ, τ) (BGZ08 Props. 18–19), preserving holomorphy and modularity; [f_1, f_2]_r = 𝒞_{κ,r}(f_1 ⊗ f_2) with L_τ[f_1, f_2]_r = C(k_1+r−1, r) L_τ f_1 · R̃^r f_2 for f_1 harmonic, f_2 holomorphic. Lemma 2.2: if k + ℓ ∉ {−2r+2, …, 0}, then R̃^a_k f · R̃^{r−a}_ℓ g = Σ_{j=0}^r c_{r,a,j} R̃^{r−j}_{k+ℓ+2j}[f, g]_j with c_{r,a,j} ∈ Q.",
+      "locator": "Lemma 2.2, p. 386; §2.2, (2.1)–(2.3), pp. 385–386",
+      "status": "missing",
+      "note": "Checked the induction: the extra row has Σ c_a(−1)^a = C(k+ℓ+2r, r+1) ≠ 0."
+    },
+    {
+      "id": "PAPER-LI-23/25",
+      "kind": "theorem",
+      "name": "Example 2.1: Rankin–Cohen brackets of exponentials and Legendre polynomials",
+      "statement": "For κ = (1, 1), f = e(α_1τ_1 + α_2τ_2), α ∈ Q(√D) with tr α ≠ 0: e(−tr(α)τ)𝒞_{κ,r}(f)(τ) = Σ_s C(r, s)² α_1^{r−s}(−α_2)^s = tr(α)^r P_r(x), x = √D tr(α/√D)/tr(α), with P_r the r-th Legendre polynomial (parity (−1)^r; Rodrigues' formula).",
+      "locator": "Example 2.1, p. 385",
+      "status": "missing",
+      "note": "Checked the algebra. Mathlib has no Legendre polynomials."
+    },
+    {
+      "id": "PAPER-LI-23/26",
+      "kind": "theorem",
+      "name": "The operators 𝒞^1_{κ,r} and 𝒟_{κ,r} on H^d, and Lemma 2.3",
+      "statement": "For f on H^d and κ ∈ Z^d, 𝒞^1_{κ,r}(f) = 𝒞_{κ(1),r}(f^{Δ,1}) with f^{Δ,1}(τ′, τ_1) = f(τ_1, τ′, …, τ′), κ(1) = (tr κ − k_1, k_1), modular of weight tr κ + 2r on the diagonal; 𝒟_{κ,r}(f, g) := (g^{r+1})^Δ 𝒞^1_{κ,r}(f/g), with 𝒟(f|_{κ+λ}γ, g|_λγ) = 𝒟(f, g)|_{tr(κ+(r+1)λ)+2r}γ. Lemma 2.3: if f is harmonic of weight k_1 in τ_1 and holomorphic in τ_2, …, τ_d and g is holomorphic, then L_τ𝒟_{κ,r}(f, g) = C(k_1+r−1, r)(g^Δ)^{r+1} R̃^r_{tr κ − 2}((L_{τ_1}f)/g)^Δ.",
+      "locator": "Lemma 2.3, p. 387; (2.4)–(2.9), pp. 386–387",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-LI-23/27",
+      "kind": "theorem",
+      "name": "Kronecker's approximation theorem and Lemma 2.8",
+      "statement": "(Kronecker) if 1, θ_1, …, θ_N are Q-linearly independent, the points (nθ_j mod 1)_j, n ∈ N, are dense in (R/Z)^N. Lemma 2.8: for such θ_j, M ∈ N and 0 ≤ b < M, and any α_j ∈ R, there is an infinite sequence n_i with e((Mn_i + b)θ_j) → e(α_j) for all j.",
+      "locator": "Lemma 2.8, p. 394; statement as corrected by E1",
+      "status": "missing",
+      "note": "Kronecker's theorem (Apostol, Thm. 7.10) is not in Mathlib or the atlas."
+    },
+    {
+      "id": "PAPER-LI-23/28",
+      "kind": "theorem",
+      "name": "Lemma 2.9, Remark 2.10 and Corollary 2.11: vanishing of exponential sums",
+      "statement": "Let α_i, c_i ∈ C with Σ α_i c_i^{s_0} absolutely convergent and, for every ε > 0, only finitely many i with |c_i| ≥ ε. If φ(s) = Σ α_i c_i^s vanishes for all but finitely many s ∈ Z_{>s_0}, then Σ_{c_i = c} α_i = 0 for every c ∈ C^×, so φ ≡ 0 (Lemma 2.9); if moreover all α_i > 0 then all c_i = 0 (Remark 2.10, strengthening Freitag's Lemma 5.6_1). Corollary 2.11: if Σ c_i^s and Σ b_j^s converge absolutely at s_0 > 0 and agree for all but finitely many s ∈ Z_{>s_0}, the non-zero c_i and b_j correspond bijectively.",
+      "locator": "Lemma 2.9, p. 394; Remark 2.10, p. 394; Corollary 2.11, p. 396; statement as corrected by E2",
+      "status": "missing",
+      "note": "As printed Lemma 2.9 has no condition on the moduli |c_i| and is false (E2). The added condition holds automatically in Corollary 2.11 (s_0 > 0) and in Lemmas 3.2–3.3."
+    },
+    {
+      "id": "PAPER-LI-23/29",
+      "kind": "theorem",
+      "name": "Lemma 3.2 and Lemma 3.3: non-vanishing of Eisenstein and theta series",
+      "statement": "Lemma 3.2: for P ∈ U_F^+ and a finite S ⊂ H^d there is ℓ ≥ 1 with E_{P^ℓ} non-vanishing on S. Lemma 3.3: for every τ_0 ∈ H^d there are P_1, P_2 ∈ U_F^+ in the same genus with θ_{P_1}(τ_0) ≠ θ_{P_2}(τ_0).",
+      "locator": "Lemma 3.2; Lemma 3.3, p. 400; proofs as corrected by E3–E4",
+      "status": "missing",
+      "note": "Via (3.11) and Remark 2.10 or Corollary 2.11, with c_i = ∏c(β_i, g_iτ_0)^{−𝔯}; the Eisenstein sums have terms tending to 0."
+    },
+    {
+      "id": "PAPER-LI-23/30",
+      "kind": "theorem",
+      "name": "Proposition 3.4: partition of unity on the diagonal",
+      "statement": "There are m ∈ N and P̃_i, P_{1,i}, P_{2,i} ∈ U_F^+ (ranks 2𝔯̃_i, 2𝔯_i, P_{1,i} and P_{2,i} in the same genus) such that the (E_{P̃_i}(θ_{P_{1,i}} − θ_{P_{2,i}}))^Δ have no common zero on H; hence for any d_i, e_i ∈ N there are g_i ∈ M^!_{−(𝔯̃_i d_i + 𝔯_i e_i)d} with rational Fourier coefficients and Σ_i g_i (E^{d_i}_{P̃_i}(θ_{P_{1,i}} − θ_{P_{2,i}})^{e_i})^Δ = 1.",
+      "locator": "Proposition 3.4; p. 401",
+      "status": "missing",
+      "note": "Checked: Δ^{−(…)d}(E^{12d_i}(θ−θ)^{12e_i})^Δ = A_i(j) ∈ Q[j] with gcd(A_i) = 1, and g_i := B_i(j)Δ^{−(…)d}(E^{11d_i}(θ−θ)^{11e_i})^Δ."
+    },
+    {
+      "id": "PAPER-LI-23/31",
+      "kind": "theorem",
+      "name": "Theorem 4.1: surjectivity of ∂̄ after twisting by an ample boundary bundle",
+      "statement": "Let X = Γ\\H^d (Γ neat), X̃ a smooth toroidal compactification from a projective admissible decomposition, L̃_{κ,ρ} the extended sheaves of modular forms. For every N there are n_0, k > N such that H⁰(X̃, E^{0,0} ⊗ L̃_{κ,ρ} ⊗ L̃_{k⃗}(−D)^{⊗n}) → H⁰(X̃, E′ ⊗ L̃_{κ,ρ} ⊗ L̃_{k⃗}(−D)^{⊗n}) (∂̄ ⊗ 1 ⊗ 1) is surjective for all n ≥ n_0, where D is the exceptional Cartier divisor of the blow-up (supported on the boundary E).",
+      "locator": "Theorem 4.1; proof pp. 403–404, as corrected by E6",
+      "status": "missing",
+      "note": "Printed with the reduced boundary E in place of D; see E6. Ampleness of L̃_k(−D) plus Serre vanishing gives H¹ = 0."
+    },
+    {
+      "id": "PAPER-LI-23/32",
+      "kind": "theorem",
+      "name": "Proposition 4.2: L_{τ_1}-preimages of g^ℓ f",
+      "statement": "For f ∈ A_{κ̃,ρ}(Γ) holomorphic in τ_2, …, τ_d and g ∈ S_{κ′}(Γ) of parallel weight, there are ℓ_0 and Ĝ_ℓ ∈ A_{κ̂+ℓκ′,ρ}(Γ) for ℓ ≥ ℓ_0, holomorphic in τ_2, …, τ_d, with L_{τ_1}Ĝ_ℓ = g^ℓ f and Ĝ_{ℓ′} = g^{ℓ′−ℓ}Ĝ_ℓ.",
+      "locator": "Proposition 4.2; pp. 404–405",
+      "status": "missing",
+      "note": "Theorem 4.1 applied to v_1^{−2}g^{ℓ_0} f dτ̄_1, then averaging from a neat normal subgroup. With E6's correction take ℓ_0 ≥ n_0 k · max multiplicity of D."
+    },
+    {
+      "id": "PAPER-LI-23/33",
+      "kind": "theorem",
+      "name": "Theorem 4.3 and Remark 4.4: the real-analytic Hilbert modular forms δ̂",
+      "statement": "Let W be an F-quadratic space of dimension 2 and signature ((0, 2), (2, 0), …), P_1, P_2 ∈ U_F^+ of rank 2𝔯 in the same genus, N ⊂ W an O-lattice. There is ℓ_0 such that for all ℓ ≥ ℓ_0 and h ∈ H_W(Q̂) there is δ̂ = δ̂(τ; N, h, P_1, P_2, ℓ) ∈ A_{1+ℓ𝔯, ρ_N} (parallel weight) that (1) is holomorphic in τ_2, …, τ_d with exponential decay at the cusps; (2) satisfies L_{τ_1}δ̂ = (θ_{P_1} − θ_{P_2})^ℓ(θ_N(τ) − θ_N(τ, h)); (3) equals δ̂^+ + (θ_{P_1} − θ_{P_2})^ℓ(θ*_N(τ) − θ*_N(τ, h)) with δ̂^+ holomorphic and Γ_∞-invariant; (4) has â^+_{m,μ} = 0 unless m ≫ 0 and lim_{v_1→∞} â_{m,μ}(v_1) = â^+_{m,μ}; (5) satisfies lim_{|v|→∞} ∂^{r_1}_{τ_1}⋯∂^{r_d}_{τ_d}(δ̂ − δ̂^+) = 0. Remark 4.4: δ̂^+ is unique up to cusp forms of parallel weight 𝔯ℓ + 1.",
+      "locator": "Theorem 4.3; Remark 4.4, p. 405; statement as corrected by E5",
+      "status": "missing",
+      "note": "From Proposition 4.2 with g = θ_{P_1} − θ_{P_2} (a cusp form by Siegel–Weil) and f = θ_N − θ_N(·, h), maximizing ℓ_0 over the finitely many relevant h."
+    },
+    {
+      "id": "PAPER-LI-23/34",
+      "kind": "construction",
+      "name": "Harmonic Whittaker forms, principal parts, ξ and the pairing {·,·} (Bruinier 2012)",
+      "statement": "For d ≥ 2, n > 2, s_0 = n/2, κ = (1 − s_0, s_0 + 1, …): the harmonic Whittaker forms f_{m,μ} (m ≫ 0), the space H_{κ,ρ̄_L} and its principal parts 𝒫(f) = Σ c(m, μ)q^{−m}φ_μ (each 𝒫 comes from a unique f_𝒫); ξ: H_{κ,ρ̄_L} → S_{κ̂,ρ_L}; the pairing {g, f} = (g, ξ(f))_Pet = CT⟨𝒫(f), g⟩ extended to formal Fourier series; weakly holomorphic forms M^!_{κ,ρ̄_L} = ker ξ with M^!(𝔽) = M^!(Q) ⊗ 𝔽.",
+      "locator": "§4.2, (4.8)–(4.13), pp. 406–407",
+      "status": "missing",
+      "note": "The totally real analogue of harmonic Maass forms (QM.3 plans only the elliptic case)."
+    },
+    {
+      "id": "PAPER-LI-23/35",
+      "kind": "theorem",
+      "name": "Regularized theta lifts over totally real fields and Borcherds products",
+      "statement": "For f ∈ H_{κ,ρ̄_L} with s_0 > 1: Φ_L(z, h, f) = D^{−1/2}∫^reg_{Γ_∞\\H^d}⟨f, conj(Θ_L − E_L(·, κ̃))⟩(v_2⋯v_d)^{s_0+1}dμ + B(f)(Γ′(1) + s_0^{−1}) (Bruinier–Yang 2011, Cor. 5.3), convergent (BY11 Prop. 5.2), a Green function for Z(f) with Φ_L(z, h h′^{−1}, f) = Φ_{L_{h′}}(z, h, ι_{h′}∘f) and logarithmic singularities as in Bruinier 2012 Thm. 5.14. If all c(m, μ) ∈ Z there is a meromorphic modular form Ψ_L(z, h, f) of weight −B(f) with finite-order multiplier and divisor Z(f) with −log‖Ψ_L‖²_Pet = Φ_L (Bruinier 2012 Thm. 6.8); hence Φ_L = 2 log|C_L| − (2/M) log‖R_L‖_Pet with R_L defined over σ_1(F) and C_L locally constant.",
+      "locator": "§4.3 and §4.4, (4.14)–(4.18), (4.26)–(4.28), pp. 407–411",
+      "status": "missing",
+      "note": "The Borcherds lift over totally real fields; the locally constant C_L is the obstruction the paper cancels by taking differences."
+    },
+    {
+      "id": "PAPER-LI-23/36",
+      "kind": "theorem",
+      "name": "Lemma 4.5: differences of theta lifts are real-analytic across the singularity",
+      "statement": "Suppose n > 2 and h_0, h_0′ ∈ H(Q̂) agree on V ∩ z_0^⊥. Then Φ_L(z, h_0, f) − Φ_L(z, h_0′, f) is real-analytic near z_0 and equals D^{−1/2}∫^reg⟨f, conj(Θ_L(τ, z, h_0) − Θ_L(τ, z, h_0′))⟩(v_2⋯v_d)^{s_0+1}dμ there; the integral converges at z = z_0.",
+      "locator": "Lemma 4.5, p. 407; pp. 407–408",
+      "status": "missing",
+      "note": "By the unfolding in the proof of Bruinier 2012 Thm. 5.3."
+    },
+    {
+      "id": "PAPER-LI-23/37",
+      "kind": "theorem",
+      "name": "Lemma 4.6 and Remark 4.7: Stokes for the regularized theta integral",
+      "statement": "Let n = 2s_0 > 2, f = Σ c(m, μ)f_{m,μ} ∈ H_{κ,ρ̄_L}, η ∈ A_{κ̃,ρ_L} with convergent regularized pairing, and η̂ = Σ b̂_{m,μ}(v_1)e(tr(mτ))φ_μ ∈ A_{κ̂,ρ_L} with L_{τ_1}η̂ = η and ‖η̂‖_Pet bounded. Then ∫^reg⟨f, η̄⟩(v_2⋯v_d)^{s_0+1}dμ = −(η̂, ξ(f))_Pet + lim_{T→∞}Σ c(m, μ) b̂_{m,μ}(T); the limit exists (Remark 4.7).",
+      "locator": "Lemma 4.6; Remark 4.7, p. 409",
+      "status": "missing",
+      "note": "Checked the integration by parts; the boundary term at 0 is O(t^{(s_0−1)/2})."
+    },
+    {
+      "id": "PAPER-LI-23/38",
+      "kind": "theorem",
+      "name": "Proposition 4.8 and Remark 4.9: the pairing identity",
+      "statement": "With L_i = N ⊕ P̃ ⊕ P_1^i ⊕ P_2^{ℓ−i}, V = Ũ ⊕ U ⊕ W, η̂_P̃ = θ_P̃ δ̂ and η̂^+_P̃ = θ_P̃ δ̂^+: Σ_{0≤i≤ℓ}(−1)^{ℓ−i}C(ℓ, i)(Φ_{L_i}(z_0, 1, f) − Φ_{L_i}(z_0, h_W, f)) = −(η̂_P̃, ξ(f))_Pet + {η̂^+_P̃, f} for every f ∈ H_{κ,ρ̄_N}; the same holds with P̃ replaced by P̃_h̃, h̃ ∈ H_Ũ(Q̂) (Remark 4.9).",
+      "locator": "Proposition 4.8, p. 410; (4.19)–(4.25), pp. 409–411; Remark 4.9, p. 411",
+      "status": "missing",
+      "note": "Θ_{L_i}(τ, z_0, h_W) = θ_N(τ, h_W)θ_P̃θ_{P_1}^iθ_{P_2}^{ℓ−i}; the binomial sum gives (θ_{P_1} − θ_{P_2})^ℓ."
+    },
+    {
+      "id": "PAPER-LI-23/39",
+      "kind": "theorem",
+      "name": "Theorem 4.10 and Remark 4.11: algebraicity of the pairing with E_P̃ δ̂^+",
+      "statement": "For weakly holomorphic f = f_𝒫 ∈ M^!_{κ,ρ̄_N} with coefficients in a number field 𝔽 ⊂ C, there are λ_1, …, λ_m ∈ 𝔽 and α_1, …, α_m ∈ E_W^ab, independent of h_W, with {E_P̃ δ̂^+, 𝒫} = Σ_i λ_i log|α_i/σ(α_i)|, where σ ∈ Gal(E_W^ab/E_W) corresponds to h_W ∈ H_W(Q̂) ≅ Ê_W^×. One can take m ≤ [𝔽 : Q]; the denominators of the λ_i depend on f through the multiplier order (Remark 4.11).",
+      "locator": "Theorem 4.10, p. 412; Remark 4.11, p. 412; proof pp. 412–413",
+      "status": "missing",
+      "note": "Siegel's formula for E_P̃, Proposition 4.8, Borcherds products and Shimura reciprocity; the modular function Q(z, h) is regular and non-zero at the CM points because the divisors cancel (Lemma 4.5). See E9 for a sign slip."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "J. H. Bruinier, S. Ehlen, T. Yang, CM values of higher automorphic Green functions for orthogonal groups, Invent. Math. 225 (2021), 693–785",
+      "link": "https://doi.org/10.1007/s00222-021-01038-0",
+      "why": "The framework, the F = Q case (Thm. 5.5), the averaged formula (Thm. 5.10) and the odd-r partial averages (Thm. 7.13) used in Theorems 1.1 and 1.7. It is issue #1288, not yet extracted."
+    },
+    {
+      "citation": "J. H. Bruinier, Regularized theta lifts for orthogonal groups over totally real fields, J. reine angew. Math. 672 (2012), 177–222",
+      "link": "https://doi.org/10.1515/crelle.2011.163",
+      "why": "Harmonic Whittaker forms, their regularized theta lifts (Thm. 5.14) and Borcherds products over totally real fields (Thm. 6.8)."
+    },
+    {
+      "citation": "J. H. Bruinier, T. Yang, CM values of automorphic Green functions on orthogonal groups over totally real fields, in Arithmetic geometry and automorphic forms, ALM 19 (2011), 1–54",
+      "link": "no DOI (International Press)",
+      "why": "The Siegel–Weil formula in signature (n, 2) (Lemma 4.3), the lift formula (Cor. 5.3, Prop. 5.2) and the incoherent spaces V(j)."
+    },
+    {
+      "citation": "J. H. Bruinier, S. S. Kudla, T. Yang, Special values of Green functions at big CM points, IMRN 2012, no. 9, 1917–1967",
+      "link": "https://doi.org/10.1093/imrn/rnr095",
+      "why": "Big CM cycles and Prop. 4.6 (Fourier coefficients of the incoherent Eisenstein series are logarithms of rationals)."
+    },
+    {
+      "citation": "J. H. Bruinier, J. Funke, On two geometric theta lifts, Duke Math. J. 125 (2004), 45–90",
+      "link": "https://doi.org/10.1215/s0012-7094-04-12513-8",
+      "why": "Harmonic Maass forms and the ξ-operator; the model for the existence proof of Proposition 4.2."
+    },
+    {
+      "citation": "R. E. Borcherds, Automorphic forms with singularities on Grassmannians, Invent. Math. 132 (1998), 491–562",
+      "link": "https://doi.org/10.1007/s002220050232",
+      "why": "Regularized theta lifts, the integral representation of Green functions and the embedding trick."
+    },
+    {
+      "citation": "J. H. Bruinier, Borcherds Products on O(2, l) and Chern Classes of Heegner Divisors, Lecture Notes in Math. 1780, Springer (2002)",
+      "link": "https://doi.org/10.1007/b83278",
+      "why": "Automorphic Green functions Φ_{m,μ}(z, h, s) and their continuation."
+    },
+    {
+      "citation": "B. H. Gross, D. B. Zagier, Heegner points and derivatives of L-series, Invent. Math. 84 (1986), 225–320",
+      "link": "https://doi.org/10.1007/bf01388809",
+      "why": "Conjecture (4.4) on CM values of higher Green functions, which Theorem 1.1 proves."
+    },
+    {
+      "citation": "A. Ash, D. Mumford, M. Rapoport, Y.-S. Tai, Smooth Compactifications of Locally Symmetric Varieties, 2nd ed., Cambridge (2010)",
+      "link": "https://doi.org/10.1017/cbo9780511674693",
+      "why": "Chapter IV Thm. 2.2: projective toroidal compactifications as normalized blow-ups of the Baily–Borel compactification (Theorem 4.1)."
+    },
+    {
+      "citation": "K.-S. Chang, Diskriminanten und Signaturen gerader quadratischer Formen, Arch. Math. 21 (1970), 59–65",
+      "link": "https://doi.org/10.1007/bf01220879",
+      "why": "Satz 1: existence of definite unimodular O-lattices (Proposition 2.6)."
+    },
+    {
+      "citation": "S. S. Kudla, Algebraic cycles on Shimura varieties of orthogonal type, Duke Math. J. 86 (1997), 39–78",
+      "link": "https://doi.org/10.1215/s0012-7094-97-08602-6",
+      "why": "Special cycles Z(W, h) and the components of X_K (his (1.8))."
+    },
+    {
+      "citation": "F. Andreatta, E. Z. Goren, B. Howard, K. Madapusi Pera, Faltings heights of abelian varieties with complex multiplication, Ann. of Math. 187 (2018), 391–531",
+      "link": "https://doi.org/10.4007/annals.2018.187.2.3",
+      "why": "§§3.1, 5.3: Shimura reciprocity on big CM points of GSpin Shimura varieties (proof of Theorem 4.10)."
+    },
+    {
+      "citation": "W. J. McGraw, The rationality of vector valued modular forms associated with the Weil representation, Math. Ann. 326 (2003), 105–122",
+      "link": "https://doi.org/10.1007/s00208-003-0413-1",
+      "why": "Rational structure of vector-valued modular forms for Weil representations."
+    },
+    {
+      "citation": "J. H. Bruinier, T. Yang, CM-values of Hilbert modular functions, Invent. Math. 163 (2006), 229–288",
+      "link": "https://doi.org/10.1007/s00222-005-0459-7",
+      "why": "The weight-(1, 1) incoherent Eisenstein series and CM cycles defined over Q (Remark 1.8)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "items": [
+        "PAPER-LI-23/10",
+        "PAPER-LI-23/11"
+      ],
+      "reason": "GN.2 owns integral lattices, genera and discriminants over number fields. Proposition 2.6 (existence of totally positive Z-unimodular O-lattices) and its inputs (Chang's criterion; Hecke's theorem that the different is a square) are integral quadratic-form theory over F."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-LI-23/12"
+      ],
+      "reason": "GN.3 plans mass formulas and theta-series interfaces. The classical Siegel–Weil formula for definite lattices, averaging θ_P over the genus to the Hecke Eisenstein series with its expansion (3.11), is a mass/theta statement of that kind."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.6"
+      ],
+      "items": [
+        "PAPER-LI-23/13"
+      ],
+      "reason": "MP.6 plans local–global comparison and reusable theta integrals. The Siegel–Weil formula in signature (n, 2) (Bruinier–Yang, Lemma 4.3) and the Eisenstein sections λ(φ) ∈ I(s_0, χ_V) are the reusable theta integral used here."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "items": [
+        "PAPER-LI-23/14"
+      ],
+      "reason": "SF.0 owns relative Proj. π-ampleness of O(1) on a blow-up, ampleness under finite normalization, and ampleness of O(−D) ⊗ π*L^k are general scheme theory used in Theorem 4.1."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "HigherGreenFunctionCMValues",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: CM values of higher Green functions on orthogonal Shimura varieties",
+      "area": "automorphic",
+      "items": [
+        "PAPER-LI-23/15",
+        "PAPER-LI-23/16",
+        "PAPER-LI-23/17",
+        "PAPER-LI-23/18",
+        "PAPER-LI-23/19",
+        "PAPER-LI-23/20",
+        "PAPER-LI-23/21",
+        "PAPER-LI-23/22",
+        "PAPER-LI-23/23",
+        "PAPER-LI-23/24",
+        "PAPER-LI-23/25",
+        "PAPER-LI-23/26",
+        "PAPER-LI-23/27",
+        "PAPER-LI-23/28",
+        "PAPER-LI-23/29",
+        "PAPER-LI-23/30",
+        "PAPER-LI-23/31",
+        "PAPER-LI-23/32",
+        "PAPER-LI-23/33",
+        "PAPER-LI-23/34",
+        "PAPER-LI-23/35",
+        "PAPER-LI-23/36",
+        "PAPER-LI-23/37",
+        "PAPER-LI-23/38",
+        "PAPER-LI-23/39"
+      ],
+      "brief": "First prerequisite: Gross–Zagier formulas and arithmetic heights (GrossZagierAndArithmeticHeights). Do not re-plan GZ.0–GZ.9; this Part II treats CM values of (higher) automorphic Green functions on orthogonal Shimura varieties. Start from Li, Invent. Math. 234 (2023), 375–418 (published numbering), and the Bruinier–Ehlen–Yang, Bruinier (Crelle 2012) and Bruinier–Yang (ALM 2011) results it quotes. Coalesce with PAPER-BRUINIER-EHLEN-YANG-21 (issue #1288) when that is extracted, and import the s = σ_0+1 Borcherds–Bruinier Green functions from the candidate GSpinSpecialDivisorHeights rather than building them twice.\n\nFinal theorems:\n- Theorem 1.1: individual CM values on X_0(1)². Include the case d_1d_2 a square via the F = Q result (E8).\n- Theorem 1.3: differences at big CM points.\n- Conjecture 1.6, recorded as a statement.\n- Theorem 1.7: read n = 2, i.e. n + 2 = 2d = 4 (E7).\n\nCarriers and intermediate results, in order:\n- quadratic spaces over totally real F, Res GSpin Shimura varieties and their components, special and CM cycles, and Example 2.7;\n- Hilbert modular forms with the rational structures M_κ = M_κ(Q) ⊗ C, M_F and M_F^θ;\n- the Rankin–Cohen operators and 𝒟 (Lemmas 2.2–2.3, Example 2.1, including Legendre polynomials);\n- Kronecker's theorem and Lemmas 2.8–2.9 and Corollary 2.11, stated with the corrected hypotheses (E1–E2);\n- Lemmas 3.2–3.3 and Proposition 3.4;\n- Theorem 4.1 twisted by the exceptional divisor D (E6), Proposition 4.2 and Theorem 4.3 (read θ_{P_1} − θ_{P_2}, E5);\n- harmonic Whittaker forms, ξ and {·,·};\n- the regularized theta lift and Borcherds products over totally real fields;\n- Lemmas 4.5–4.6, Proposition 4.8 and Theorem 4.10;\n- the higher Green functions Φ^r_L with the integral representation (3.14);\n- BEY21 Theorems 5.5, 5.10, 7.13 and BKY12 Proposition 4.6, as imported statements until their own extractions land.\n\nImports, never re-planned:\n- harmonic Maass forms and ξ: QSeriesPartitionsAndMockModularForms QM.3;\n- the Weil representation: MetaplecticAutomorphicForms MP.4;\n- theta kernels: MP.5;\n- the indefinite Siegel–Weil formula: MP.6;\n- Siegel's formula and Hecke Eisenstein series for definite lattices: GeometryOfNumbersAndQuadraticArithmetic GN.3;\n- unimodular O-lattices: GN.2;\n- Baily–Borel: ShimuraVarieties V2;\n- toroidal compactifications and Koecher: ShimuraCompactifications C2, C6;\n- canonical models and CM reciprocity: ShimuraVarieties V4, V6;\n- CM points on X_0(N): HeegnerPointEulerSystems HE.1;\n- Dolbeault and analytic vanishing: ComplexComparisonPartII C1–C2;\n- blow-up ampleness: SchemeAndStackFoundations SF.0;\n- Mathlib's modular forms, Gamma and hypergeometric functions.\n\nTests:\n- X_0(1)² with (d_1, d_2) = (−3, −4), r = 2 (Gross–Kohnen–Zagier's even case) and r = 1 with d_1 fundamental;\n- Lemma 2.9's counterexample F(x) = ∏_{k≥1}(1 − x/2^k), c_i = 2^i, which the hypotheses must exclude;\n- F = Q(√5) with a rank-8 Z-unimodular lattice from U_F^+.",
+      "reason": "GZ.0–GZ.9 plan heights, admissible pairings, Waldspurger and incoherent kernels for Shimura curves. The existing Part II candidates (GSpinSpecialDivisorHeights, UnitaryKudlaRapoportCycles and the arithmetic inner product formulas) are about heights of special cycles. Nothing plans CM values of higher Green functions, Borcherds lifts over totally real fields or the real-analytic Hilbert preimages that prove them. These are new layers in the direction of Gross–Zagier's singular-moduli programme."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LI-23/E1",
+      "kind": "error",
+      "locator": "Lemma 2.8, p. 394",
+      "printed": "\"Let θ1, …, θN ∈ R be Q-linearly independent irrational numbers, M ∈ N and b an integer with 0 ≤ b ≤ M − 1. For any α1, …, αN ∈ R, there exists an infinite subsequence {ni} ⊂ N such that lim e((Mni + b)θj) = e(αj) for all 1 ≤ j ≤ N.\"",
+      "correction": "Assume that 1, θ1, …, θN are Q-linearly independent.",
+      "reason": "As printed the lemma is false. θ1 = √2 and θ2 = 1 − √2 are irrational and Q-linearly independent, but e(nθ1)e(nθ2) = 1 for every n, so (e(1/2), e(0)) is never approached. The proof cites Kronecker's theorem (Apostol, Thm. 7.10), which needs the stronger hypothesis. The only application, in the proof of Lemma 2.9, chooses θj with 1, θ1, …, θN linearly independent, so nothing downstream is affected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E2",
+      "kind": "error",
+      "locator": "Lemma 2.9, p. 394",
+      "printed": "\"Suppose αi, ci ∈ C for i ∈ N satisfy the condition that the series defining φ(s) := Σ αi ci^s converges absolutely for s = s0 ∈ R and equals to 0 for all but finitely many s ∈ Z_{>s0}. Then we have Σ_{ci = c} αi = 0 for any c ∈ C^×.\"",
+      "correction": "Add the hypothesis that for every ε > 0 only finitely many i have |ci| ≥ ε (equivalently, the moduli |ci| can be listed in decreasing order with finite multiplicities). The proof, which starts by arranging |c1| = |cm| > |c_{m+1}| ≥ …, then works.",
+      "reason": "Without the hypothesis the lemma is false. Let F(x) = ∏_{k≥1}(1 − x/2^k), an entire function with Taylor coefficients αi, and let ci = 2^i and s0 = 0. Then Σ|αi| < ∞ and φ(s) = F(2^s) = 0 for every s ≥ 1, yet α0 = 1 with c0 = 1 unique (checked numerically). The applications are unaffected: in Corollary 2.11 with s0 > 0 the hypothesis follows from absolute convergence, and in Lemmas 3.2–3.3 the ci are values c(β, τ0)^{−𝔯}, which tend to 0 because the Eisenstein series converge.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E3",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.2, p. 400",
+      "printed": "\"By Remark 2.10, we have ∏_{i=0}^{N} c(βi, giτ0) = 0 for all β1, …, βN ∈ P¹(F), which is clearly a contradiction since ∏_{i=0}^{N} c(∞, giτ0) = 1.\"",
+      "correction": "Remark 2.10, applied with αi = 1 and the numbers (∏_{i=0}^N c(βi, giτ0))^{−𝔯}, would force (∏_i c(βi, giτ0))^{−𝔯} = 0 for all β0, …, βN ∈ P¹(F). That is absurd, for example for βi = ∞.",
+      "reason": "The quantities to which Remark 2.10 is applied are the reciprocal powers (∏ c)^{−𝔯}, which appear as ci^ℓ in f_ℓ(τ0), not the products ∏ c themselves. β0 is also omitted from the quantifier.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.3, p. 400",
+      "printed": "\"EP(τ0) = cK Σ_{h∈H(Q)\\H(Q̂)/K} θP(τ0, h) = θP(τ0) cK Σ_{h} 1 = θP(τ0).\"",
+      "correction": "EP(τ0) = cK^{−1} Σ_h θP(τ0, h) = θP(τ0) cK^{−1} Σ_h 1 = θP(τ0).",
+      "reason": "By (3.10), EP = cK^{−1} Σ_h θP(·, h) with cK = Σ_h 1, so the last equality holds only with cK^{−1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E5",
+      "kind": "misprint",
+      "locator": "Theorem 4.3(2), equation (4.5), p. 405",
+      "printed": "\"Lτ1 δ̂(τ) = (θP2(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))\"",
+      "correction": "Lτ1 δ̂(τ) = (θP1(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))",
+      "reason": "As printed the right-hand side is identically 0. Part (3) of the same theorem, the proof, and its use in (4.19) and Proposition 4.8 all have (θP1 − θP2)^ℓ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E6",
+      "kind": "gap",
+      "locator": "Proof of Theorem 4.1, p. 404",
+      "printed": "\"By the discussion and Lemma 31.32.4(3) in [Stacks, Tag 01OF] and Lemma 29.38.2 in [Tag 01VL], we know that O_X̃(−E) = O_X̃(1) is π-relatively ample.\"",
+      "correction": "Replace the boundary divisor E by the exceptional Cartier divisor D = V(I·O_X̃) of the (normalized) blow-up. D is supported on E but in general has multiplicities aσ ≥ 1, given by the polarization function of the admissible decomposition. Then O(−D) ⊗ π*L^k is ample, and Theorem 4.1 holds with L̃_k(−D). In Proposition 4.2 take ℓ0 ≥ n0·k·max aσ, so that g^{ℓ0}, which vanishes to order ≥ ℓ0 along every boundary component, gives a section twisted by −n0k′D.",
+      "reason": "The Stacks lemma gives O(1) = I·O_X̃ = O(−D) for the exceptional divisor of the ideal I of AMRT IV Thm. 2.2, not for the reduced boundary E. On a Hirzebruch cusp resolution (d = 2), −E is not π-ample whenever some boundary curve has self-intersection −2, since (−E)·Eσ = bσ − 2 = 0. The conclusion survives with D in place of E.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E7",
+      "kind": "misprint",
+      "locator": "Theorem 1.7, p. 379; also the proof of Theorem 1.3, last paragraph, p. 415",
+      "printed": "\"Conjecture 1.6 holds when F is a real quadratic field, r is even, n = 4, and Z(WQ) is defined over Q …\"; and \"When d = 2 = n/2, we already have L = N0 …\"",
+      "correction": "n = 2, i.e. n + 2 = 2d = 4, in both places.",
+      "reason": "L = N0 = Res_{F/Q} N has Q-rank 2d = 4, so L = N0 forces n + 2 = 4. The proof of Theorem 1.7 uses Theorem 1.3's special case 'n + 2 = 2d = 4' (λ2 = 0) and the weight-(1, 1) incoherent Eisenstein series. Remark 1.8 deduces the even-r case of Theorem 1.1 on X_0(1)², a Shimura variety for M_2(Q) of signature (2, 2), i.e. n = 2. With n = 4 the proof does not apply and Remark 1.8 would not follow.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E8",
+      "kind": "gap",
+      "locator": "Proof of Theorem 1.1 (§5.3), p. 416, and Example 2.7, p. 392",
+      "printed": "\"When r is even, this follows from the discussion in Example 2.7 and Theorem 1.7. When r is odd and d1 is fundamental, Theorem 7.13 of [BEY21] gives the algebraicity … Using this and proceeding with the rest of the argument in the proof of Theorem 1.7 gives Theorem 1.1.\"",
+      "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and Conjecture 1.6 for F = Q is Bruinier–Ehlen–Yang, Theorem 5.5 (see §1.2). This gives (1.3)–(1.4) with α in the ring class field. The case E1 = E2 is also Viazovska's theorem (arXiv:1110.4654), as the introduction says (p. 377).",
+      "reason": "Example 2.7 and Theorems 1.3 and 1.7 require F = Q(√(d1d2)) to be a real quadratic field, while Theorem 1.1 is stated for all negative discriminants. A comment in the arXiv TeX ('it is enough to treat the case that d1d2 is not a perfect square') shows the case was known to be covered by the literature, but the published proof does not say so.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    },
+    {
+      "id": "PAPER-LI-23/E9",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.10, definition of Q(z, h), p. 413",
+      "printed": "\"Q(z, h) := ∏_{0≤i≤ℓ} ∏_{h0∈SW} (R_{Li}(z, h, f)/R_{Li}(z, h(h0, 1), f))^{(−1)^i C(ℓ, i)}\"",
+      "correction": "exponent (−1)^{ℓ−i} C(ℓ, i), matching the alternating sum Σ (−1)^{ℓ−i} C(ℓ, i)(…) two lines above.",
+      "reason": "With (−1)^i the displayed identity holds only up to the global sign (−1)^ℓ. Theorem 4.10 is unaffected, since the sign can be absorbed into λ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+        "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+        "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+      ]
+    }
+  ]
+}
