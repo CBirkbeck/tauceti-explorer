@@ -801,7 +801,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1069"
   },
   {
    "id": "REV-PAPER-KISIN-ZHOU-25",
@@ -1337,8 +1338,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WITASZEK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1101"
+   "state": "pending",
+   "note": "released on GitHub issue #1101"
   },
   {
    "id": "REV-PAPER-WITASZEK-22",
@@ -5631,7 +5632,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1369"
   },
   {
    "id": "REV-PAPER-HACON-WITASZEK-23",
