@@ -6145,6 +6145,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E1",
+   "kind": "misprint",
+   "locator": "§7.1 Setup, p. 11",
+   "printed": "Picking a base-point o ∈ X, we may give coordinates on an open subset of Ω̂ by identifying it with N⁺ by ν ↦ ν · o.",
+   "correction": "The base point should be o ∈ Ω, a point of the domain (equivalently of its compact dual Ω̂), not of the Shimura variety X.",
+   "reason": "N⁺ acts on the compact dual Ω̂ = G/B, not on X = Γ\\Ω, so ν ↦ ν·o makes sense only for o in the domain. Everywhere else in the section o is a point of the domain: the sections constructed in the next sentence are id_m : N⁺ → J_mN⁺, the Schwarzian equation is W_m = G·id_m(o) ⊂ J_mΩ̂, Lemma 7.1 concerns the subgroup of B fixing id₁(o), and Example 7.1.1 takes Ω = ℍ with o = 0 ∈ ℂ.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
+    "the rest of §7 of the paper, where o is consistently a point of the domain"
+   ],
+   "owner": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "file": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+   "citation": "Mok–Pila–Tsimerman, \"Ax-Schanuel for Shimura varieties\", Annals of Mathematics 189 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E2",
+   "kind": "misprint",
+   "locator": "§7.3, p. 13",
+   "printed": "For the formulation of Ochai’s Theorem recall that an irreducible Hermitian symmetric space of the compact type is given by S = G/B …",
+   "correction": "‘Ochai’s’ should be ‘Ochiai’s’.",
+   "reason": "The name is spelled correctly three times in the surrounding text and in the bibliography, where reference [26] is T. Ochiai, Geometry associated with semisimple flat homogeneous spaces.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
+    "the other occurrences of the name on pp. 13–15 and in the bibliography"
+   ],
+   "owner": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "file": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+   "citation": "Mok–Pila–Tsimerman, \"Ax-Schanuel for Shimura varieties\", Annals of Mathematics 189 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E3",
+   "kind": "misprint",
+   "locator": "§7.3, pp. 13–14, in the paragraph preparing Theorem B",
+   "printed": "As is well-known, for any υ ∈ U, dυ(x) = id_{T_x(X)}, hence the map Φ(γ) = dγ(x) defines a representation of L = B_x/U on T_x(X) … We denote by W_x ⊂ ℙT_x(X) the highest weight orbit …",
+   "correction": "All three occurrences of T_x(X) should be T_x(S).",
+   "reason": "The paragraph opens by writing the irreducible compact Hermitian symmetric space as S = G/B and taking x ∈ S; the letter X is reserved throughout the paper for the Shimura variety Γ\\Ω, which is not the space in question and has no point x here. Theorem B, stated two lines later, is correctly phrased in terms of S.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
+    "the statement of Theorem B on p. 14 and the use of X elsewhere in the paper"
+   ],
+   "owner": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "file": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+   "citation": "Mok–Pila–Tsimerman, \"Ax-Schanuel for Shimura varieties\", Annals of Mathematics 189 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E4",
+   "kind": "misprint",
+   "locator": "proof of Theorem 8.2, p. 16",
+   "printed": "But now Theorem 7.3 shows that (p⁻¹ ∘ F)(z) = gz for some g ∈ G(ℂ), which completes the proof.",
+   "correction": "‘Theorem 7.3’ should be ‘Corollary 7.3’.",
+   "reason": "The statement being applied — if F satisfies J₃F ∘ id₃ ⊂ W₃ then F is a G(ℂ)-translate — is labelled Corollary 7.3 on p. 13, and the paper has no Theorem 7.3; §7 contains Lemma 7.1, Proposition 7.2, Corollary 7.3, Theorem 7.4 and Theorem 7.5.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
+    "the numbering of §7 on pp. 12–15"
+   ],
+   "owner": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "file": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+   "citation": "Mok–Pila–Tsimerman, \"Ax-Schanuel for Shimura varieties\", Annals of Mathematics 189 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-MOK-PILA-TSIMERMAN-19/E5",
+   "kind": "misprint",
+   "locator": "proof of Theorem 12.3, p. 25",
+   "printed": "dim U ≥ dim U′ = rank(k) > dim_ℂ W − dim G ≥ dim_ℂ W′ − dim G.",
+   "correction": "‘rank(k)’ should be ‘rank(z)’, or simply k.",
+   "reason": "Two lines earlier the same proof states dim U′ = k = rank(z), and k is defined in §12.3 as k = rank(x) = rank(z); rank is an operation on K-points of varieties, so rank(k) is not defined.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1711.02189, which carries no comment and no journal reference, or in the Crossref record for DOI 10.4007/annals.2019.189.3.7; the text is unchanged in v3, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1711.02189",
+    "the Crossref record for DOI 10.4007/annals.2019.189.3.7",
+    "§12.2 and §12.3, where rank and k are defined"
+   ],
+   "owner": "PAPER-MOK-PILA-TSIMERMAN-19",
+   "file": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+   "citation": "Mok–Pila–Tsimerman, \"Ax-Schanuel for Shimura varieties\", Annals of Mathematics 189 (2019), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-RICHARD-YAFAEV-25/E1",
    "kind": "misprint",
    "locator": "Proof of Theorem 4.7, number field case, p.263 (published version)",
