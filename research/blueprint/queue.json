@@ -3606,8 +3606,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DISEGNI-LIU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1228"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1228",
+   "finishedAt": "2026-09-22T18:21:07Z"
   },
   {
    "id": "REV-PAPER-DISEGNI-LIU-24",
