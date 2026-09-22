@@ -6249,8 +6249,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-LIU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1384"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1384",
+   "finishedAt": "2026-09-22T16:32:34Z"
   },
   {
    "id": "REV-PAPER-LI-LIU-22",
