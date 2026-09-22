@@ -1,0 +1,1470 @@
+{
+ "paper": "PAPER-BHATT-SCHOLZE-22",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Prisms and prismatic cohomology",
+  "authors": "Bhargav Bhatt and Peter Scholze",
+  "venue": "Annals of Mathematics 196 (2022), no. 3, 1135–1275",
+  "doi": "10.4007/annals.2022.196.3.5",
+  "arxiv": "1905.08229",
+  "url": "https://arxiv.org/pdf/1905.08229v4",
+  "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+  "readDate": "2026-09-22",
+  "version": "arXiv:1905.08229v4, posted 12 January 2022, 125 pages, whose arXiv comment reads 'v4: further updates'; v1 is from 20 May 2019. The published article is behind the journal's paywall and was not consulted, so every locator gives the section, theorem, lemma or equation number together with the page of the arXiv v4 PDF, and the findings below are recorded against that version. No erratum or corrigendum is listed on the arXiv abstract page or in the Crossref record for DOI 10.4007/annals.2022.196.3.5.",
+  "readSections": [
+   "§1 Introduction, pp. 2–12: Definitions 1.1, 1.4, 1.6, Theorems 1.8, 1.12, 1.14, 1.16, 1.17, 1.18, Examples 1.3 and 1.9, §1.1 Leitfaden and §1.2 Notation",
+   "§2 δ-rings, pp. 13–27: Definitions 2.1, 2.19, 2.26, 2.42, Lemmas 2.9–2.18, 2.23–2.25, 2.28, 2.32–2.38, 2.43, Corollaries 2.12, 2.31, 2.39, 2.44, Remarks 2.2–2.7, 2.13, 2.14, 2.22, 2.27, 2.29, 2.30, 2.37, 2.40, Warning 2.41",
+   "§3 Prisms, pp. 28–35: Lemmas 3.1, 3.5–3.9, Definition 3.2, Examples 3.3, 3.4, 3.14, Theorem 3.10, Remark 3.11, Corollary 3.12, Proposition 3.13",
+   "§4 The prismatic site and the Hodge–Tate comparison, pp. 36–44: Definition 4.1, Remarks 4.2–4.7, 4.13, 4.14, 4.19, Constructions 4.4, 4.9, 4.17, 4.18, Lemmas 4.8, 4.10, 4.20–4.22, Theorem 4.11, Corollary 4.12, Proposition 4.15",
+   "§5 The characteristic p case, pp. 45–50: Notation 5.1, Theorem 5.2, Remark 5.3, Lemma 5.4, Corollary 5.5",
+   "§6 The mixed characteristic Hodge–Tate comparison, pp. 51–54: Construction 6.1, Propositions 6.2, Theorems 6.3 and 6.4",
+   "§7 Semiperfectoid rings and perfection, pp. 55–62: Notation 7.1, Propositions 7.2, 7.10, 7.11, Corollary 7.3, Theorems 7.4 and 7.14, Remarks 7.5 and 7.15, Construction 7.6, Lemmas 7.7, 7.8, Examples 7.9, 7.12, 7.13",
+   "§8 Perfections in mixed characteristic, pp. 63–70: Notation 8.1, Definitions 8.2 and 8.7, Example 8.3, Lemmas 8.4, 8.6, 8.8, Propositions 8.5, 8.10, 8.13, Corollaries 8.11, 8.12, 8.14, Remark 8.9",
+   "§9 The étale comparison theorem, pp. 71–77: Theorems 9.1 and 9.4, Lemmas 9.2 and 9.6, Remarks 9.3 and 9.5, Corollary 9.7",
+   "§10 The almost purity theorem, pp. 78–84: Definitions 10.1 and 10.6, Propositions 10.2, 10.4, 10.8, Lemmas 10.3, 10.5, 10.12, Theorems 10.9 and 10.11, Remarks 10.7, 10.10, 10.13",
+   "§11 The étale cohomological dimension of perfectoid rings, p. 85: Theorem 11.1",
+   "§12 The Nygaard filtration for quasiregular semiperfectoid rings, pp. 86–93: Definitions 12.1 and 12.9, Theorem 12.2, Example 12.3, Lemmas 12.4–12.7, Propositions 12.8, 12.10, 12.11",
+   "§13 Comparison with BMS2, pp. 94–96: Theorem 13.1 and Lemma 13.2",
+   "§14 p-adic Tate twists and the odd vanishing conjecture, pp. 97–101: Theorem 14.1, Corollaries 14.2 and 14.3, Lemmas 14.4 and 14.5",
+   "§15 The Nygaard filtration in the relative case, pp. 102–105: Definition 15.1, Theorems 15.2 and 15.3, Corollaries 15.4 and 15.5, Remark 15.6, Proposition 15.7",
+   "§16 q-crystalline and q-de Rham cohomology, pp. 106–116: Notation 16.1, Definitions 16.2 and 16.12, Remarks 16.3, 16.4, 16.6, 16.15, 16.16, Lemmas 16.5, 16.7, 16.10, 16.11, 16.21, Corollary 16.8, Example 16.9, Constructions 16.13, 16.19, 16.20, Theorems 16.14, 16.17, 16.18, 16.22",
+   "§17 Comparison with AΩ, pp. 117–121: Notation 17.1, Theorem 17.2, Remark 17.3, Lemma 17.4",
+   "§18 A uniqueness criterion for comparison isomorphisms, pp. 122–123: Notation 18.1, Theorem 18.2, Lemma 18.3",
+   "References, pp. 124–125, read in full to identify the inputs listed under prerequisites"
+  ]
+ },
+ "summary": "Complete extraction of the 125-page paper that introduces prisms and prismatic cohomology. A prism is a pair (A, I) with A a δ-ring — a ring with a p-derivation, equivalently a lift of Frobenius when p-torsionfree — and I a Cartier divisor with A derived (p, I)-complete and p ∈ I + φ(I)A; perfect prisms are the same thing as perfectoid rings, so a prism is a deperfection of a perfectoid ring. For a bounded prism and a smooth p-adic formal scheme X over A/I the prismatic site (X/A)_∆ has cohomology RΓ_∆(X/A) with a Frobenius, and the paper proves that it specialises to crystalline cohomology when I = (p), to differential forms after reduction modulo I (the Hodge–Tate comparison), to de Rham cohomology after Frobenius-twisted reduction, and to étale cohomology of the generic fibre after inverting I and taking φ-fixed points, with base change along maps of prisms and with Frobenius an isogeny in a precise sense. It then develops the theory for semiperfectoid rings — universal prisms, perfectoidization and its surjectivity, the Nygaard filtration and its identification with the conjugate filtration, and the comparison with π₀TP — and gives three applications: a new proof of the almost purity theorem, in a strengthened form for integral algebras and arbitrary closed subsets; the bound of 1 on the F_p-étale cohomological dimension of Spec(R[1/p]) for R perfectoid; and the resolution of the vanishing conjecture for the syntomic complexes ℤ_p(n), hence that mod-p K-theory is locally concentrated in even degrees. The last three sections construct q-crystalline cohomology, prove that it is computed by the q-de Rham complexes of Scholze and so settles his independence conjecture, identify it with the A_inf-cohomology of Bhatt–Morrow–Scholze, and prove that prismatic cohomology has no nontrivial endomorphisms, so that all these comparison isomorphisms are compatible. Of the 96 items, 1 is in the pinned libraries, 83 are planned by existing layers, and 12 are missing. The atlas covers this paper unusually well: the PrismaticCohomology roadmap names BS22 section by section in PR.0 (§§2–3), PR.1 (§§4–6), PR.2 (§§7–8), PR.3 (§§12–15), PR.4 (§§9, 11, 14) and PR.6 (§§16–18), and PerfectoidQuotients Q0–Q4 reexport and extend the semiperfectoid half. The extraction is therefore a source proposal for existing layers and not a new roadmap, and the twelve missing items are the two places the coverage stops short: the arc-topology of p-adic formal schemes with its descent results for perfectoidization, and §10's almost purity theorem for integral algebras together with the almost setting attached to an arbitrary finitely generated ideal of a perfectoid ring. Four misprints were found and are recorded under sourceIssues; none affects a proof. This is a paper inventory and routing, not a proof blueprint: the results quoted from Joyal, Borger, André, Gabber–Ramero, Mathew, Clausen–Mathew–Morrow, Bhatt–Mathew and the authors' own earlier work with Morrow are recorded as items or prerequisites and are not decomposed here.",
+ "items": [
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/1",
+   "kind": "definition",
+   "name": "δ-ring",
+   "statement": "A δ-ring is a pair (R, δ) with R a commutative ring and δ : R → R a map of sets with δ(0) = δ(1) = 0 satisfying δ(xy) = x^p δ(y) + y^p δ(x) + p δ(x)δ(y) and δ(x+y) = δ(x) + δ(y) + (x^p + y^p − (x+y)^p)/p. Equivalently (Remark 2.4), a δ-structure on R is a ring map w : R → W₂(R) splitting the projection ε : W₂(R) → R, where W₂(R) = R × R with the p-typical length-two Witt vector operations.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 2.1 and Remark 2.4, p. 13",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The basic object of the paper; δ-structures are Joyal's p-typical λ-structures and Buium's p-derivations. Planned by PR.0, whose first sentence is 'Construct p-derivations/delta-rings, free delta-algebras and Frobenius lifts'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/2",
+   "kind": "theorem",
+   "name": "δ-structures and Frobenius lifts",
+   "statement": "For a δ-ring (R, δ) the map φ(x) := x^p + p δ(x) is a ring homomorphism lifting the Frobenius of R/p. If R is p-torsionfree, then conversely every lift φ : R → R of the Frobenius on R/p comes from a unique δ-structure, given by δ(x) = (φ(x) − x^p)/p. A δ-ring over ℚ is just a ℚ-algebra with an endomorphism. Moreover (Remark 2.5), for a ℤ_(p)-algebra R a δ-structure is the same as a map φ : R → R together with a path in End_{SCR_{F_p}}(R ⊗^L_ℤ F_p) between φ and the Frobenius, i.e. a lift of Frobenius in the derived sense.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remarks 2.2 and 2.5, pp. 13–14",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0 is explicit that this equivalence holds 'only in p-torsionfree rings; a congruence modulo p alone does not determine a delta-structure with p-torsion', so both the statement and its failure are planned there."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/3",
+   "kind": "theorem",
+   "name": "Limits, colimits and free δ-rings; Witt vectors as the right adjoint",
+   "statement": "The category of δ-rings has all limits and colimits, computed on underlying rings; the forgetful functor to rings therefore has both adjoints. The right adjoint is the p-typical Witt vector functor W(−) (Joyal), giving a natural map w_R : R → W(R) whose first two Witt coordinates are x ↦ (x, δ(x)). The left adjoint gives free δ-rings: ℤ_(p){x} is a polynomial ring on {x, δ(x), δ²(x), …} with faithfully flat Frobenius, and ℚ{x} = ℤ_(p){x}[1/p] is a polynomial ring on {x, φ(x), φ²(x), …}.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remark 2.7 and Lemma 2.11, pp. 14–15",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0",
+    "PerfectoidQuotients:Q0"
+   ],
+   "note": "PR.0 plans free δ-algebras, and Q0 asks to 'use existing Witt-vector constructions and compare every Frobenius lift with them'. Witt vectors themselves are in the pinned libraries."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/4",
+   "kind": "theorem",
+   "name": "Quotients, localizations, completions and étale maps of δ-rings",
+   "statement": "Let A be a δ-ring. (i) An ideal I ⊂ A is stable under δ if and only if A/I carries a (then unique) compatible δ-structure; the universal δ-A-algebra killing I is A/J with J the δ-stabilization of I (Lemma 2.9, Example 2.10). (ii) If S ⊂ A is multiplicative with φ(S) ⊂ S, then S^{-1}A has a unique compatible δ-structure and is initial among δ-A-algebras inverting S (Lemma 2.15). (iii) If I ⊂ A is finitely generated and contains p, then δ is I-adically continuous and the classical I-adic completion carries a unique compatible δ-structure (Lemma 2.17). (iv) If B is derived I-complete and I-completely étale over A, then B carries a unique compatible δ-structure (Lemma 2.18).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 2.9, 2.15, 2.17, 2.18 and Example 2.10, pp. 15–17",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The basic stability toolkit. Lemma 2.18 is used again and again — it is what makes the functor from the prismatic site to the étale site cocontinuous (Construction 4.4). Planned by PR.0."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/5",
+   "kind": "theorem",
+   "name": "The Frobenius is fpqc-locally surjective, and Joyal's δ_n operations",
+   "statement": "For a δ-ring A and x ∈ A there is a faithfully flat map A → B of δ-rings with x = φ(y) for some y ∈ B (Corollary 2.12). The map w : R → W(R) gives functorial operations δ_n : R → R with w(x) = (δ₀(x), δ₁(x), …), characterised by φⁿ(x) = δ₀(x)^{pⁿ} + p δ₁(x)^{p^{n−1}} + … + pⁿ δ_n(x); δ_n is a monic degree-n polynomial in δ, so ℤ_(p){x} is the polynomial ring on {δ_n(x)}_{n≥0}.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 2.12 and Remarks 2.13, 2.14, p. 16",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "Corollary 2.12 is the source of the flat covers that make the prismatic site work; the δ_n-description of the free δ-ring is used in §18."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/6",
+   "kind": "definition",
+   "name": "Distinguished elements",
+   "statement": "An element d of a δ-ring A is distinguished if δ(d) is a unit. Any morphism of δ-rings preserves distinguished elements. The initial δ-ring with a distinguished element is the localization ℤ_(p){d, δ(d)^{-1}} := S^{-1}ℤ_(p){d} with S = {δ(d), φ(δ(d)), …}, in which the universal distinguished element is a nonzerodivisor modulo p.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 2.19 and Example 2.21, p. 18",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0: 'Construct distinguished elements, maps of prisms, orientations, boundedness'. Distinguishedness is what replaces the prime p in the definition of a prism."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/7",
+   "kind": "construction",
+   "name": "The four basic distinguished elements",
+   "statement": "(1) Crystalline: A = ℤ_p, d = p, δ(p) = 1 − p^{p−1} a unit. (2) q-de Rham: A = ℤ_p⟦q−1⟧ with φ(q) = q^p and d = [p]_q = (q^p − 1)/(q − 1). (3) A_inf: for a perfectoid field C/ℚ_p, A = A_inf(O_C) and d = ξ a generator of ker(θ). (4) Breuil–Kisin: A = W⟦u⟧ with φ(u) = u^p and d a generator of the kernel of W⟦u⟧ → O_K, u ↦ π.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Example 2.20, p. 18",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "These four examples organise the whole paper, and PR.0 names exactly these as its acceptance examples: '(W(k),(p)), (A_inf,ker theta), the Breuil–Kisin prism (W(k)[[u]],(E(u))), and (Z_p[[q−1]],([p]_q)) with phi(q)=q^p'. PR.0 also warns that 'the q-prism ideal is [p]_q, not q−1'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/8",
+   "kind": "theorem",
+   "name": "Elementary properties of distinguished elements",
+   "statement": "Let A be a δ-ring. (i) If d is distinguished, u a unit and d, p ∈ rad(A), then ud is distinguished (Lemma 2.23). (ii) If d is distinguished and d = fh with f, p ∈ rad(A), then f is distinguished and h is a unit (Lemma 2.24). (iii) If d, p ∈ rad(A), then d is distinguished if and only if p ∈ (d, φ(d)); in particular distinguishedness depends only on the ideal (d) (Lemma 2.25).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 2.23, 2.24, 2.25, p. 19",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "Lemma 2.25 is the reason the condition 'p ∈ I + φ(I)A' in the definition of a prism is intrinsic to the ideal, and Lemma 2.24 is used in the proof of Theorem 3.10."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/9",
+   "kind": "theorem",
+   "name": "Perfect δ-rings and the Witt vector equivalence",
+   "statement": "A δ-ring is perfect if φ is an isomorphism; the inclusion of perfect δ-rings has both adjoints A ↦ A_perf = colim_φ A and A ↦ A^perf = lim_φ A (Definition 2.26, Remark 2.27). A δ-ring A is p-torsionfree if φ is injective or if A is reduced (Lemma 2.28). The categories of perfect p-complete δ-rings, of p-adically complete p-torsionfree rings A with A/p perfect, and of perfect F_p-algebras are equivalent, via the forgetful functor, A ↦ A/p and R ↦ W(R); in particular every ring homomorphism between perfect p-complete δ-rings is a δ-map, and W(R) carries a unique δ-structure (Corollary 2.31).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 2.26, Remark 2.27, Lemma 2.28 and Corollary 2.31, pp. 20–21",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0 plans 'completed perfection' and the perfect case; the Witt-vector equivalence is the input to Theorem 3.10. Remark 2.29 shows the two hypotheses of Lemma 2.28 are incomparable: ℤ_p[x]/(x^p − 1) is reduced with non-injective φ, and ℤ_p[x]/(x²) is non-reduced with injective φ."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/10",
+   "kind": "theorem",
+   "name": "Rank-one elements and distinguished elements in perfect δ-rings",
+   "statement": "For a δ-ring A and x ∈ A one has δ(x^{pⁿ}) ∈ pⁿA for all n; hence if A is p-adically separated and y admits p^n-th roots for all n, then δ(y) = 0, i.e. y has rank one (Lemma 2.32). If A is perfect and p-complete, then d ∈ A is distinguished if and only if the coefficient of p in its Teichmüller expansion is a unit (Lemma 2.33). If A is p-torsionfree and p-adically separated with A/p reduced and d distinguished, then d is a nonzerodivisor and R = A/d satisfies R[p] = R[p^∞] (Lemma 2.34).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 2.32, 2.33, 2.34, pp. 21–22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "Lemma 2.34 is what makes perfect prisms bounded, and Lemma 2.33 is the concrete description used in the proof of Theorem 3.10."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/11",
+   "kind": "theorem",
+   "name": "Divided power envelopes and δ-structures",
+   "statement": "Let B be p-torsionfree and f₁, …, f_r ∈ B a sequence that is Koszul-regular on B/p. Then the pushout of B along D_{(x)}(ℤ_(p)[x₁,…,x_r]) in simplicial commutative rings is discrete, p-torsionfree and equal to the PD-envelope D_{(f₁,…,f_r)}(B); in particular that envelope is p-torsionfree and its formation commutes with base change along maps preserving Koszul-regularity mod p (Lemma 2.38). If A is a p-torsionfree δ-ring and f₁, …, f_r is regular in A/p, then the simplicial commutative δ-ring A{φ(f₁)/p, …, φ(f_r)/p} obtained by freely adjoining the φ(f_i)/p is discrete, p-torsionfree, and equals the PD-envelope D_I(A) of I = (f₁,…,f_r); so D_I(A) is a δ-ring, finitely presented as such (Corollary 2.39). The model case is C := ℤ_(p){x, φ(x)/p} ≅ D_{(x)}(ℤ_(p){x}) (Lemma 2.36).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 2.36, 2.38 and Corollary 2.39, pp. 23–25",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0",
+    "CrystallineCohomology:CR.0"
+   ],
+   "note": "The bridge to crystalline cohomology. Remark 2.40 adds that D_I(A) is the φ-pullback of A{f₁/p,…,f_r/p}, which depends only on the ideal and gives PD-envelopes a canonical φ-descent; Warning 2.41 shows that without the Frobenius twist the subring of A[1/p] does depend on the δ-structure. PR.0 says 'Compare with the PD envelopes already built in CR.0'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/12",
+   "kind": "definition",
+   "name": "Completely regular sequences and complete flatness of divided-power adjunctions",
+   "statement": "For a simplicial commutative ring A with finitely generated I ⊂ π₀(A) and B derived I-complete over A, a sequence x₁, …, x_r ∈ π₀(B) is I-completely regular relative to A if Kos(A; f₁,…,f_n) → Kos(B; f₁,…,f_n, x₁,…,x_r) is a flat map of simplicial commutative rings (Definition 2.42). If x₁^p, …, x_r^p is p-completely regular relative to A, the p-complete pushout of B along the PD-envelope of (y₁,…,y_r) in ℤ_p[y]^∧ is p-completely flat over A (Lemma 2.43); and if A → B are p-complete simplicial commutative δ-rings and x₁, …, x_r is p-completely regular relative to A, then B{x_i/p}^∧ is p-completely flat over A (Corollary 2.44).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 2.42, Lemma 2.43 and Corollary 2.44, pp. 26–27",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0",
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "The relative flatness statements that make the prismatic envelopes of Proposition 3.13 flat. PR.0 asks for 'complete flatness and regularity under the source hypotheses' and explicitly warns against 'treating every ideal as Cartier'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/13",
+   "kind": "theorem",
+   "name": "Equivalent formulations of the prism condition",
+   "statement": "Let A be a δ-ring and I ⊂ A a locally principal ideal with p, I ⊂ rad(A). The following are equivalent: p ∈ I^p + φ(I)A; p ∈ I + φ(I)A; there is a faithfully flat ind-(Zariski localization) A → A' of δ-rings with IA' = (d) for a distinguished d with d, p ∈ rad(A').",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 3.1, p. 28",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "This is what lets the definition of a prism be checked after a flat cover and reduced to the oriented case. Planned by PR.0."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/14",
+   "kind": "definition",
+   "name": "Prisms: bounded, perfect, orientable, crystalline",
+   "statement": "A prism is a pair (A, I) with A a δ-ring and I ⊂ A defining a Cartier divisor on Spec(A), such that A is derived (p, I)-complete and p ∈ I + φ(I)A. A prism is perfect if φ is an isomorphism, bounded if A/I has bounded p^∞-torsion, orientable if I is principal (a generator being an orientation), and crystalline if I = (p). A map (A, I) → (B, J) of prisms is (faithfully) flat if A → B is (p, I)-completely (faithfully) flat. Crystalline prisms are exactly the pairs (A, (p)) with A p-torsionfree and p-complete.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definitions 1.1, 1.4 and 3.2, Example 3.3, pp. 2–3 and 28–29",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The central definition of the paper. Boundedness is a technical restriction adopted to control completions in non-noetherian situations and to avoid derived prisms. PR.0 plans exactly these notions and asks for 'a delta-ring that is not a prism' as an acceptance test — the paper's example is W(F_p[x]/(x²)), in which every nonzerodivisor is a unit."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/15",
+   "kind": "construction",
+   "name": "The universal oriented prism",
+   "statement": "Let A₀ = ℤ_(p){d, δ(d)^{-1}} and let A be its (p, d)-completion, I = (d). Then (A, I) is a bounded prism, d is a distinguished generator, and (A, I) is the universal oriented prism (though not the universal orientable one). In this prism the sequence p, d is regular and φ : A/p → A/p is d-completely flat.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Example 3.4, p. 29",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The base over which the Hodge–Tate comparison is first proved in §6; the flatness of φ on A/p is what makes Construction 6.1 work. Planned by PR.0."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/16",
+   "kind": "theorem",
+   "name": "Rigidity of maps of prisms",
+   "statement": "If (A, I) → (B, J) is a map of prisms, then I ⊗_A B → J is an isomorphism; in particular J = IB. Conversely, if A → B is a map of δ-rings with B derived (p, I)-complete, then (B, IB) is a prism exactly when B[I] = 0.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 3.5 and Proposition 1.5, pp. 3 and 29",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "Rigidity is what makes the prismatic site over a fixed base well behaved: the ideal does not vary, so O_∆ ⊗_A A/I = Ō_∆. PR.0 names 'the rigidity I B=J for a prism map'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/17",
+   "kind": "theorem",
+   "name": "Structure of bounded and perfect prisms",
+   "statement": "Let (A, I) be a prism. (i) φ(I)A is principal with distinguished generators, and φ^*(I) and I^p are trivial invertible modules (Lemma 3.6). (ii) If (A, I) is bounded then A is classically (p, I)-complete; every (p, I)-completely flat complex is discrete, classically complete, I-torsionfree with M/IⁿM of bounded p^∞-torsion; flat maps of prisms out of (A, I) are the same as (p, I)-completely flat δ-A-algebras; and (A, I) admits a (p, I)-completely faithfully flat map to an oriented bounded prism, obtained as the completion of an ind-Zariski localization (Lemma 3.7). (iii) A perfect prism has principal I with distinguished generators and is bounded (Lemma 3.8).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 3.6, 3.7, 3.8, pp. 29–31",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "Local orientability, Lemma 3.7 (4), is the standard reduction step: every statement about bounded prisms may be checked after a faithfully flat base change to an oriented one. Planned by PR.0."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/18",
+   "kind": "theorem",
+   "name": "Perfection of a prism",
+   "statement": "Let (A, I) be a prism and A_perf = colim_φ A. Then IA_perf = (d) for a distinguished d, d and p are nonzerodivisors in A_perf, and A_perf/d[p^∞] = A_perf/d[p]. Consequently the derived (p, I)-completion A_∞ agrees with the classical one, and (A, I)_perf := (A_∞, IA_∞) is the universal perfect prism under (A, I).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 3.9, p. 31",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0 names 'the perfection theorem BS22 3.9' among the results Q0 imports from it."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/19",
+   "kind": "theorem",
+   "name": "Perfectoid rings are the same as perfect prisms",
+   "statement": "The category of perfectoid rings R and the category of perfect prisms (A, I) are equivalent, via R ↦ (A_inf(R), ker θ) and (A, I) ↦ A/I.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 3.10, p. 32",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0",
+    "PerfectoidQuotients:Q0"
+   ],
+   "note": "The theorem that justifies calling a prism a deperfection of a perfectoid ring. PR.0 is emphatic that this 'is a new theorem, not a definition declaring the categories equivalent', and asks that it be proved 'using the existing integral perfectoid/tilt/A_inf construction'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/20",
+   "kind": "construction",
+   "name": "Perfectoid covers of complete regular local rings",
+   "statement": "Let R be a complete noetherian regular local ring of mixed characteristic with residue field k of characteristic p. Writing R = A/(f) with A = W⟦x₁,…,x_d⟧ for a Cohen ring W, one can choose a δ-structure on A making f distinguished, so that (A, (f)) is a prism; the Frobenius on A is p-completely faithfully flat, so the perfection (A_∞, (f)) gives a perfectoid ring R_∞ = A_∞/(f) with R → R_∞ faithfully flat.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remark 3.11, pp. 32–33",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "A prismatic account of the perfectoid covers of André and Bhatt. The case distinction turns on whether the coefficient of p in f modulo the square of the maximal ideal vanishes."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/21",
+   "kind": "theorem",
+   "name": "The site of all bounded prisms",
+   "statement": "The opposite of the category of bounded prisms, with covers the faithfully flat maps of prisms, is a site; the functors (A, I) ↦ A and (A, I) ↦ A/I are sheaves with vanishing higher cohomology on every object.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 3.12, p. 33",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "This is what makes the prismatic site of Definition 4.1 a site and O_∆, Ō_∆ sheaves. Planned by PR.1, which asks for 'the sheaf property' of the relative site."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/22",
+   "kind": "theorem",
+   "name": "Existence of prismatic envelopes for regular ideals",
+   "statement": "Let (A, I) be a bounded prism, B a (p, I)-completely flat δ-A-algebra and J ⊂ B an ideal containing IB such that Zariski-locally on Spf(B) one can write J = (I, x₁,…,x_r) with x₁,…,x_r being (p, I)-completely regular relative to A. Then there is a universal map (B, J) → (C, IC) of δ-pairs to a prism over (A, I), written C = B{J/I}^∧; it is (p, I)-completely flat over (A, I), its formation commutes with base change along maps of bounded prisms, and it is compatible with flat localization on B.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 3.13 and Example 3.14, pp. 33–35",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The technical engine of §4: prismatic envelopes give the weakly initial objects that compute prismatic cohomology by Čech–Alexander complexes. PR.0: 'Construct prismatic envelopes by delta adjunction and derived completion, prove their universal properties, complete flatness and regularity under the source hypotheses.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/23",
+   "kind": "definition",
+   "name": "The prismatic site and its two structure sheaves",
+   "statement": "Fix a bounded prism (A, I) and a p-adic formal scheme X over A/I. The prismatic site (X/A)_∆ is the opposite of the category of maps (A, I) → (B, IB) of bounded prisms together with a map Spf(B/IB) → X over A/I, with covers the faithfully flat maps of prisms. The structure sheaf O_∆ sends such an object to B, and the reduced structure sheaf Ō_∆ sends it to B/IB; by rigidity O_∆ ⊗_A A/I ≅ Ō_∆. The main theorems require X to be smooth over A/I.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definitions 1.6 and 4.1, pp. 3 and 36",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "PR.1: 'For bounded (A,I) and p-completely smooth R over A/I, construct the relative prismatic site with its complete faithfully-flat covers, structure sheaf, reduced structure sheaf, and map to the scheme's étale site.' Remark 4.5 notes that the Zariski, Nisnevich and étale topologies compute the same cohomology, and explains that the flat topology is chosen to leave room for quasisyntomic descent from perfectoid situations."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/24",
+   "kind": "construction",
+   "name": "The prismatic topos as a slice topos, and the map to the étale site",
+   "statement": "The prismatic topos Shv((X/A)_∆) is the slice of Shv((*/A)_∆) over the sheaf h_X(B, IB) = Hom_{A/I}(Spf(B/IB), X), which makes its functoriality in X transparent (Remark 4.3). There is a cocontinuous functor µ : (X/A)_∆ → fSch_{/X} sending (B, IB) to Spf(B/IB) → X — cocontinuity is Lemma 2.18 — hence morphisms of topoi µ_X : Shv((X/A)_∆) → Shv(fSch_{/X}) and ν_X : Shv((X/A)_∆) → Shv(X_ét), with (ν_*F)(U → X) = H⁰((U/A)_∆, F).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remark 4.3 and Construction 4.4, p. 37",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The functor ν is what localises prismatic cohomology on X_ét and is needed even to state the non-affine Hodge–Tate comparison. PR.1 plans the 'map to the scheme's étale site'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/25",
+   "kind": "definition",
+   "name": "Variants: the perfect and the absolute prismatic site",
+   "statement": "The perfect prismatic site (Y/A)_∆^perf is the full subcategory of objects whose prism is perfect; equivalently, the category of perfectoid rings over A/I with a map Spf(R) → Y, a description not mentioning prisms (Remark 4.6). The absolute prismatic site (X)_∆ has as objects bounded prisms (B, J) with a map Spf(B/J) → X, with no base prism (Remark 4.7). If (A, I) is a perfect prism with A/I = R, then any map A/I → B/J of rings lifts uniquely to a map of prisms, so A is initial in (R)_∆ and (R)_∆ = (R/A)_∆ (Lemma 4.8).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remarks 4.6, 4.7 and Lemma 4.8, p. 38",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2",
+    "PrismaticCohomology:PR.5"
+   ],
+   "note": "The perfect site is analysed in §8 and the absolute site is the subject of Bhatt–Lurie. PR.2 plans perfect-prismatic cohomology; PR.5 plans the absolute site and its comparison with the relative ones."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/26",
+   "kind": "construction",
+   "name": "The Hodge–Tate comparison map and the Bockstein differential",
+   "statement": "Set ∆_{X/A} := Rν_*O_∆ ∈ D(X_ét, A) and ∆̄_{X/A} := Rν_*Ō_∆ ∈ D(X_ét, O_X), so that ∆̄_{X/A} ≅ ∆_{X/A} ⊗^L_A A/I. Writing M{i} := M ⊗_{A/I} I^i/I^{i+1}, the triangle ∆̄{i+1} → ∆_{X/A} ⊗^L_A I^i/I^{i+2} → ∆̄{i} gives a Bockstein differential β_I : H^i(∆̄_{X/A}){i} → H^{i+1}(∆̄_{X/A}){i+1}, making H^*(∆̄_{X/A}){*} a differential graded A/I-algebra. The universal properties of Kähler differentials and of the de Rham complex then produce a map of commutative differential graded algebras η_X^* : Ω^*_{X/(A/I)} → H^*(∆̄_{X/A}){*}, once one knows that β_I(f) squares to zero (Lemma 4.10).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Construction 4.9 and Lemma 4.10, p. 39",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "Lemma 4.10 is non-obvious only when p = 2 and is deduced later from Proposition 6.2. PR.1 asks to 'Construct its multiplicative map and the Bockstein differential'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/27",
+   "kind": "theorem",
+   "name": "The Hodge–Tate comparison",
+   "statement": "The map η_X^* : Ω^*_{X/(A/I)} → H^*(∆̄_{X/A}){*} is an isomorphism of differential graded A/I-algebras; in particular ∆̄_{X/A} is a perfect complex with H^i(∆̄_{X/A}) ≅ Ω^i_{X/(A/I)}{−i}. In the affine case X = Spf(R) this reads Ω^i_{R/(A/I)}{−i} ≅ H^i(RΓ_∆(X/A) ⊗^L_A A/I).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorems 1.8 (2), 4.11 and 6.3, pp. 4, 40 and 52",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The fundamental structural result: prismatic cohomology has a Hodge–Tate filtration with differential forms as graded pieces, so it is a perfect complex for X proper. PR.1: 'Prove the Hodge–Tate comparison on affines: H^i(Δ tensor^L_A A/I) is Ω^i with twist (I/I²)^(-i).'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/28",
+   "kind": "theorem",
+   "name": "Base change for prismatic cohomology",
+   "statement": "For a map (A, I) → (B, IB) of bounded prisms with g : X_B = X ×_{Spf(A/I)} Spf(B/IB) → X, the derived (p, I)-completion of g^*∆_{X/A} is ∆_{X_B/B}; equivalently RΓ_∆(X/A) ⊗̂^L_A B ≅ RΓ_∆(Y/B).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 4.12 and Theorem 1.8 (5), pp. 4 and 40",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "Deduced from the Hodge–Tate comparison. PR.1: 'Prove completed base change along bounded prism maps'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/29",
+   "kind": "theorem",
+   "name": "The cotangent complex as a truncation of Hodge–Tate cohomology",
+   "statement": "There is a natural isomorphism L_{X/A} ≅ τ^{≤1}∆̄_{X/A}{1}[1] of p-complete cotangent complexes. Consequently the map O_X → τ^{≤1}∆̄_{X/A} splits as a map of O_X-modules if and only if X lifts to A/I².",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 4.15 and Remark 4.14, pp. 40–41",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "Remark 4.13 adds the Higgs specialization: if X lifts to a (p, I)-completely flat formal scheme over A with a compatible Frobenius lift, one obtains a φ-equivariant splitting ∆_{X/A} → O_X, and hence a dictionary between prismatic crystals and topologically nilpotent Higgs fields. Remark 15.6 upgrades Proposition 4.15 to L_{X/A} ≅ gr¹_N ∆_{X/A}^{(1)}."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/30",
+   "kind": "construction",
+   "name": "Weakly initial objects and Čech–Alexander complexes",
+   "statement": "For R a p-completely smooth A/I-algebra, choose a surjection B₀ → R with B₀ (p, I)-completely smooth over A, pass to the free δ-A-algebra on B₀ and form the prismatic envelope of Proposition 3.13; the result is a weakly initial object of (R/A)_∆, and the limit of its Čech nerve computes RΓ_∆(R/A). A base-change-compatible variant for the affine line is recorded in Remark 4.19.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Constructions 4.17 and 4.18 and Remark 4.19, pp. 41–43",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The acknowledgements record that Teruhisa Koshikawa pointed out an error, and a fix, in the construction of these Čech–Alexander complexes, now incorporated in Construction 4.18. PR.1: 'Construct Cech–Alexander envelope models, hyperdescent and the Frobenius on derived global sections; prove coordinate independence.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/31",
+   "kind": "theorem",
+   "name": "Base change and étale localization for affine prismatic cohomology",
+   "statement": "For R a p-completely smooth A/I-algebra and (A, I) → (A′, I′) a map of bounded prisms with finite (p, I)-complete Tor amplitude, the completed base change of ∆_{R/A} is ∆_{R′/A′} (Lemma 4.20). If R → S is a p-completely étale map of p-completely smooth A/I-algebras, then ∆_{S/A} is the completed base change of ∆_{R/A} along R → S (Lemma 4.21). Finally, completed base change along a map of finite J-complete Tor amplitude commutes with totalizations in D^{≥0} (Lemma 4.22).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 4.20, 4.21, 4.22, pp. 43–44",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "Lemma 4.21 is what makes prismatic cohomology an étale sheaf and lets ν_* localise it; Lemma 4.22 is the technical device for passing base change through Čech–Alexander totalizations."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/32",
+   "kind": "theorem",
+   "name": "The crystalline comparison in characteristic p",
+   "statement": "Let (A, (p)) be a crystalline prism, I ⊂ A a pd-ideal containing p, so that Frobenius factors as ψ : A/I → A/p; let R be a smooth A/I-algebra and R^{(1)} = R ⊗_{A/I, ψ} A/p. Then there is a canonical isomorphism ∆_{R^{(1)}/A} ≅ RΓ_crys(R/A) of E_∞-A-algebras, compatible with Frobenius. Equivalently (Theorem 1.8 (1)), for I = (p) one has RΓ_crys(X/A) ≅ RΓ_∆(X/A) ⊗̂^L_{A, φ} A.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 5.2 and Theorem 1.8 (1), pp. 4 and 45",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "CrystallineCohomology:CR.2"
+   ],
+   "note": "Note the Frobenius twist: prismatic cohomology is a canonical Frobenius descent of crystalline cohomology, which for A a smooth lift with a Frobenius lift is genuinely extra information and constrains the torsion in crystalline cohomology. PR.1: 'Prove the crystalline comparison for I=(p) using CR.2's PD Poincare lemma, with its phi_A-twisted scalar extension.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/33",
+   "kind": "theorem",
+   "name": "A cosimplicial descent lemma along the relative Frobenius",
+   "statement": "Let k be a ring of characteristic p, B a polynomial k-algebra, B^• the Čech nerve of k → B and B^{•,(1)} its Frobenius twist. For any cosimplicial B^{•,(1)}-module N the map N → N ⊗_{B^{•,(1)}} B^• is a quasi-isomorphism on associated unnormalized chain complexes of k-modules.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 5.4, p. 48",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The technical heart of the characteristic-p comparison; the proof uses that degeneracy maps may be ignored in the derived category, and the authors note that a better proof would be desirable. A similar statement is in work of Nizioł."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/34",
+   "kind": "theorem",
+   "name": "The Hodge–Tate comparison in characteristic p",
+   "statement": "For any smooth A/p-algebra S the Hodge–Tate comparison map is an isomorphism, and the formation of ∆_{S/A} commutes with base change.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 5.5, p. 49",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The characteristic-p case of Theorem 4.11, deduced from the crystalline comparison, and the base case of the mixed-characteristic argument of §6."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/35",
+   "kind": "construction",
+   "name": "Mapping the universal oriented prism to a crystalline one",
+   "statement": "For (A, (d)) an oriented prism there is a map α : A → D₀ to a crystalline prism, of finite (p, d)-complete Tor amplitude and with conservative completed base change, under which (d) becomes (p). Composing with the universal oriented prism gives, for any bounded oriented prism, a reduction of the Hodge–Tate comparison to the characteristic-p case.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Construction 6.1 and the proof of Proposition 6.2, pp. 51–52",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "A homologically better-behaved refinement of the crude map A → W(A/d) of Remark 2.22. This is the device that transports the characteristic-p Hodge–Tate comparison to mixed characteristic."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/36",
+   "kind": "theorem",
+   "name": "The Hodge–Tate comparison for the affine line",
+   "statement": "If R is the p-adic completion of the polynomial ring A/I⟨X⟩, then η⁰_R : R → H⁰(∆̄_{R/A}) and η¹_R{−1} : Ω¹_{R/(A/I)}{−1} → H¹(∆̄_{R/A}) are isomorphisms and H^i(∆̄_{R/A}) = 0 for i > 1. In particular Lemma 4.10 holds in general.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 6.2, pp. 51–52",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1"
+   ],
+   "note": "The base case, from which Theorem 6.3 follows by flat descent and base change. PR.1's acceptance list names 'smooth polynomial algebra, an étale chart, a crystalline base'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/37",
+   "kind": "theorem",
+   "name": "The de Rham comparison",
+   "statement": "Let X be a smooth formal A/I-scheme and assume W(A/I) is p-torsionfree. Then there is a natural isomorphism ∆_{X/A} ⊗̂^L_{A, φ} A/I ≅ Ω^*_{X/(A/I)} of commutative algebras in D(X_ét, A/I), with p-adic completion; it upgrades to an isomorphism of commutative differential graded algebras and, by Corollary 15.4, holds without the technical hypothesis.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 6.4, Theorem 1.8 (3) and Corollary 15.4, pp. 4, 53 and 104",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "The Frobenius twist is essential and the statement is not the untwisted Hodge–Tate direct sum, a point PR.1 makes explicitly: 'Prove the de Rham comparison after phi_A-twisted reduction, with its completed tensor and differential; it is not the same as an untwisted Hodge–Tate direct sum.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/38",
+   "kind": "definition",
+   "name": "Semiperfectoid and quasiregular semiperfectoid rings",
+   "statement": "A ring S is semiperfectoid if it is derived p-complete and a quotient of a perfectoid ring. It is quasiregular if in addition it has bounded p^∞-torsion and L_{S/ℤ_p}[−1] is p-completely flat over S; such S are classically p-adically complete.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Notation 7.1 and Theorem 1.12, pp. 6 and 55, following [BMS19, §4.4]",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2",
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "Quasiregular semiperfectoid rings form a basis for the quasisyntomic topology, which is why they carry the whole descent strategy of §§12–15. DD.0 plans quasisyntomic maps and the cotangent criteria; PR.2 plans the discrete δ/prism calculation for quasiregular semiperfectoid inputs."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/39",
+   "kind": "theorem",
+   "name": "Universal prisms and universal perfectoidizations of semiperfectoid rings",
+   "statement": "For S semiperfectoid, the category of prisms (A, I) with a map S → A/I has an initial object (∆^init_S, I) with I = (d) principal (Proposition 7.2). Letting (∆^init_S)_perf be the completed perfection and S_perfd = (∆^init_S)_perf/I, the ring S_perfd is perfectoid and S → S_perfd is the universal map from S to a perfectoid ring (Corollary 7.3). Moreover S → S_perfd is surjective (Theorem 7.4).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Propositions 7.2, Corollary 7.3 and Theorem 7.4, and Theorem 1.12, pp. 6 and 55–56",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidQuotients:Q2",
+    "PerfectoidQuotients:Q4"
+   ],
+   "note": "Surjectivity is the striking point: it implies that Zariski closed and strongly Zariski closed subsets of an affinoid perfectoid space agree, contrary to a claim in [Sch15, Remark II.2.4] (Remark 7.5), and it gives a good notion of almost mathematics with respect to any ideal of a perfectoid ring (Remark 1.13). Q2 plans the universal prism and the universal perfectoidization; Q4 plans Theorem 7.4 and Remark 7.5 explicitly."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/40",
+   "kind": "construction",
+   "name": "Derived prismatic cohomology",
+   "statement": "Fix a bounded prism (A, I). Left Kan extend R ↦ ∆_{R/A} from p-completely smooth A/I-algebras to all derived p-complete simplicial commutative A/I-algebras. The Hodge–Tate comparison then gives ∆̄_{R/A} = ∆_{R/A} ⊗^L_A A/I an exhaustive increasing filtration with gr_i the derived p-completion of ∧^i L_{R/(A/I)}{−i}[−i]. Consequences: the functor is unchanged on p-completely smooth algebras; it is a sheaf for the p-completely étale topology, hence defined for p-adic formal schemes; for (A, I) perfect it is a sheaf for the quasisyntomic topology; and its formation commutes with base change along maps of bounded prisms.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Construction 7.6, pp. 56–57",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "PR.2: 'Extend the smooth-algebra functor by the coherent left Kan extension of BS22 Construction 7.6 and derived completion. Prove independence and the filtered derived Hodge–Tate comparison with exterior powers of the completed cotangent complex.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/41",
+   "kind": "theorem",
+   "name": "Derived prismatic cohomology when it is discrete",
+   "statement": "If (A, I) is a bounded prism and R a derived p-complete simplicial A/I-algebra with ∆_{R/A} concentrated in degree 0, then the φ_A-linear Frobenius lifts to a δ-A-structure on ∆_{R/A}; the pair (∆_{R/A}, I∆_{R/A}) is a prism over (A, I) with a map R → ∆̄_{R/A}; and the category of prisms over (A, I) with a map from R has an initial object, of which (∆_{R/A}, I∆_{R/A}) is a retract by an idempotent endomorphism. The authors conjecture that it is itself initial.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 7.7 and Lemma 7.8, pp. 57–58",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "Lemma 7.8 is the abstract idempotent-retract statement in an idempotent complete category. PR.2 names 'the discrete delta/prism calculation for quasiregular semiperfectoid inputs and the initial-prism comparison, including regular quotient and idempotent-retract arguments in BS22 §§7.7–7.10'. The conjecture in part (3) is recorded here as an open point."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/42",
+   "kind": "theorem",
+   "name": "Prismatic cohomology of an lci quotient",
+   "statement": "Let (A, I) be a bounded prism and R = A/J with J = (I, f₁,…,f_r) and f₁,…,f_r Koszul-regular on A/I, with R of bounded p-torsion. Then ∆_{R/A} is concentrated in degree 0 and I-torsionfree, and (∆_{R/A}, I∆_{R/A}) is the initial object of (R/A)_∆; concretely it is the prismatic envelope A{f₁/d, …, f_r/d}^∧.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Example 7.9, p. 59",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "The computation that identifies the derived and the site-theoretic constructions in the regular case, and PR.2's acceptance example 'regular semiperfectoid quotient'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/43",
+   "kind": "theorem",
+   "name": "The prism of a quasiregular semiperfectoid ring",
+   "statement": "Let S be quasiregular semiperfectoid, R any perfectoid ring mapping to S and (A, I) = (A_inf(R), ker θ). Then ∆_{S/A} is discrete and equals the initial prism ∆^init_S, independently of R, and S → ∆̄_{S/A} is p-completely faithfully flat. One writes ∆_S for this ring.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 7.10, p. 59",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2",
+    "PerfectoidQuotients:Q2"
+   ],
+   "note": "This is the object whose Nygaard filtration is computed in §12 and compared with π₀TP in §13. Planned by PR.2 and reexported by Q2."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/44",
+   "kind": "theorem",
+   "name": "Lifting quasisyntomic covers to the prismatic site",
+   "statement": "Let (A, I) be a bounded prism and R a quasisyntomic A/I-algebra. Then there is an object (B → B/IB ← R) of (R/A)_∆ with R → B/IB p-completely faithfully flat; hence (A, I) → (B, IB) is a flat map of prisms, faithfully flat if A/I → R is, and if A is perfect the same holds for the perfection (B, IB)_perf.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 7.11, p. 60",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidQuotients:Q3",
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "Together with Examples 7.12 and 7.13 this produces the perfectoid covers of the final object of the prismatic site, relative for R smooth and absolute for A/I regular, which are the covers used throughout §§12–15 and in the theory of F-crystals. Q3 plans 'the additional lifting theorem for quasisyntomic covers to bounded prisms, BS22 7.11'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/45",
+   "kind": "theorem",
+   "name": "André's flatness lemma",
+   "statement": "Let R be a perfectoid ring. Then there is a p-completely faithfully flat map R → S of perfectoid rings with S absolutely integrally closed; in particular every element of S admits a compatible system of p-power roots. The map can moreover be chosen to be an ind-syntomic cover modulo p.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 7.14 and Remark 7.15, pp. 61–62",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidQuotients:Q3"
+   ],
+   "note": "The prismatic proof: adjoin p-power roots of a root of a monic polynomial, lift to a prism by Proposition 7.11, perfect, and iterate transfinitely. It is the key input to Theorem 7.4, to §10 and to Theorem 14.1. Q3 plans exactly this: 'Prove Theorem 7.14 … Construct the extension by adjoining roots of monic polynomials, lifting to a prism, perfecting, and transfinite iteration.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/46",
+   "kind": "definition",
+   "name": "The perfection of prismatic cohomology and the perfectoidization of an algebra",
+   "statement": "Fix a perfectoid ring R with perfect prism (A, I) and a distinguished generator d. For a derived p-complete simplicial R-algebra S, set ∆_{S/A, perf} := (colim_{φ_S} (∆_{S/A} → φ^*∆_{S/A} → …))^∧, a derived (p, I)-complete E_∞-A-algebra with a φ_A-semilinear automorphism, and S_perfd := ∆_{S/A, perf} ⊗^L_A A/I, a p-complete E_∞-S-algebra. Both are independent of A and depend only on π₀S.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Notation 8.1 and Definition 8.2, p. 63",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "For S of characteristic p this recovers the naive perfection S_perf (Example 8.3); in general ∆_{S/A,perf} and S_perfd lie in D^{≥0} (Lemma 8.4). PR.2: 'Construct perfect-prismatic/perfected cohomology separately and establish the comparison with the nonperfect theory rather than replacing one by the other.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/47",
+   "kind": "theorem",
+   "name": "The perfect prismatic site computes the perfection",
+   "statement": "For any topology on (S/A)_∆^perf between the flat and the chaotic one, the map ∆_{S/A, perf} → RΓ((S/A)_∆^perf, O_∆) is an equivalence; consequently S_perfd ≅ RΓ((S/A)_∆^perf, Ō_∆) ≅ lim_{S → R′} R′ is the derived limit over all maps from S to perfectoid rings, and is independent of A. For S semiperfectoid it agrees with the perfectoidization of Corollary 7.3.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 8.5, p. 64",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "This is the comparison PR.2 asks for between the perfected theory and the non-perfect one, and the reason perfectoidization can be studied by descent."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/48",
+   "kind": "theorem",
+   "name": "Descendability of the passage to the perfection",
+   "statement": "Let T = R[X₁,…,X_n]^∧ and T_∞ = R[X₁^{1/p^∞},…,X_n^{1/p^∞}]^∧. Then ∆_{T/A} → ∆_{T_∞/A} and ∆_{T/A, perf} → ∆_{T_∞/A, perf} are descendable as maps of commutative algebras in D_comp(A), in the sense of Mathew.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 8.6, p. 66",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Descendability — the property that the unit is a retract of a finite-stage totalization, giving uniform bounds on descent — is a general notion of Mathew's used here to control limits of perfectoidizations. It appears nowhere in the atlas: a text search of every stage description for 'descendability' returns nothing, and neither PR.2 nor PerfectoidSpaces mentions it, although PR.2 names BS22 §8 among its sources."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/49",
+   "kind": "definition",
+   "name": "The arc-topology on p-adic formal schemes and the site of perfectoids",
+   "statement": "On the category fSch of p-adic formal schemes, declare a map Y → X of qcqs objects to be an arc-cover if for every p-adically complete rank-one valuation ring V with a map Spf V → X there is a faithfully flat extension V ⊂ W of such rings and a lift Spf W → Y; the arc-site is generated by arc-covers and open covers. Let Perfd ⊂ fSch be the full subcategory of formal schemes locally of the form Spf R with R perfectoid, with the induced topology.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 8.7, p. 67",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A text search of every stage description in the atlas for 'arc-topology', 'arc-descent' and 'arc cover' returns nothing; the only related material is the pro-étale and v-topologies of DiamondsAndVStacks D2, which are topologies on diamonds and v-stacks, not on p-adic formal schemes, and are not a substitute. PR.2 names BS22 §8 as a source but plans only the perfected-cohomology comparison."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/50",
+   "kind": "theorem",
+   "name": "Perfectoids form a basis for the arc-topology and the structure sheaf is an arc-sheaf on them",
+   "statement": "Every p-adic formal scheme admits an arc-cover by an object of Perfd (Lemma 8.8); indeed any p-complete ring admits a p-complete arc-cover by a product of p-complete rank-one valuation rings with algebraically closed fraction field (Remark 8.9). The presheaf O on Perfd is an arc-sheaf with H^i_arc(Spf R, O) = 0 for i > 0 when R is perfectoid, and X ↦ Hom(X, T) is an arc-sheaf on Perfd for every p-adic formal scheme T (Proposition 8.10).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 8.8, Remark 8.9 and Proposition 8.10, p. 67",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The structure sheaf is emphatically not an arc-sheaf on all of fSch — nilpotents are invisible to valuation rings — so the restriction to Perfd is essential. The proof of Proposition 8.10 uses arc-descent for perfect schemes and, for the representability statement, an argument of Gabber together with approximation by finite-type F_p-schemes. Not planned anywhere in the atlas."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/51",
+   "kind": "theorem",
+   "name": "Perfectoidization is arc-descent",
+   "statement": "For any p-complete ring S one has S_perfd = RΓ_arc(Spf S, O); in particular S ↦ S_perfd satisfies descent for the arc-topology.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 8.11, p. 68",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The formula that turns perfectoidization into a cohomological invariant and makes §10 possible. It is not planned by any layer: the atlas's perfectoidization statements are Q2's universal property and Q4's surjectivity, neither of which mentions the arc-topology."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/52",
+   "kind": "theorem",
+   "name": "The excision pullback square and monoidality of perfectoidization",
+   "statement": "Let S → S′ be a map of derived p-complete rings which, for some derived p-complete ideal I ⊂ S, is an isomorphism of arc-sheaves outside I. Then the square with corners S_perfd, S′_perfd, (S/I)_perfd, (S′/I)_perfd is a pullback square of E_∞-S-algebras (Corollary 8.12). The functor S ↦ S_perfd, on derived p-complete simplicial rings admitting a map from a perfectoid ring, is symmetric monoidal (Proposition 8.13). If S_perfd is connective then it is a perfectoid ring and S → S_perfd is the universal map to a perfectoid ring (Corollary 8.14).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollaries 8.12, 8.14 and Proposition 8.13, pp. 69–70",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Corollary 8.12 is the excision property that drives the proof of Theorem 10.11, and it is the only tool that controls the kernel and cokernel of a map of perfectoid rings that is an isomorphism away from a closed subset. None of these is planned: PR.2 and Q2 plan the construction and universal property of perfectoidization, not its arc-descent, excision or monoidality."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/53",
+   "kind": "theorem",
+   "name": "The étale comparison theorem",
+   "statement": "Fix a perfectoid ring R with perfect prism (A, (d)) and a p-adic formal scheme X over R, with adic generic fibre X_η = X ×_{Spf R} Spa(R[1/p], R) and nearby-cycles map µ : X_{η,ét} → X_ét. Then Rµ_*ℤ/pⁿ ≅ (∆_{X/A}[1/d]/pⁿ)^{φ=1}; in particular for X = Spf(S) affine, RΓ(Spec(S[1/p]), ℤ/pⁿ) ≅ (∆_{S/A}[1/d]/pⁿ)^{φ=1}. There are no restrictions on the singularities of X. Without inverting p or d one has ℤ/pⁿ ≅ (∆_{X/A}/pⁿ)^{φ=1} as étale sheaves (Remark 9.3).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 9.1, Remark 9.3 and Theorem 1.8 (4), pp. 4 and 71–73",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "The proof rests on Lemma 9.2, that on derived t-complete objects the functors M ↦ M^{φ=1} and M ↦ (M[1/t])^{φ=1} commute with colimits, plus arc-descent for the two sides. PR.4: 'For a perfect base prism and the smooth formal scheme of BS22 §9, construct the comparison from generic-fiber Z/p^n étale cohomology to (Δ/p^n[1/I])^(phi=1). Define phi=1 as a derived fixed-point/fiber construction, not fixed vectors in H^0.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/54",
+   "kind": "theorem",
+   "name": "Fixed points commute with completed colimits",
+   "statement": "Let B be an F_p-algebra with t ∈ B, and let D_comp(B[F]) be the ∞-category of pairs (M, φ : M → φ^*M) with M derived t-complete. Then M ↦ M^{φ=1} and M ↦ (M[1/t])^{φ=1} commute with colimits.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 9.2, p. 71",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "Described by the authors as slightly surprising; it is what allows the étale comparison to be checked arc-locally. Planned as part of PR.4's φ=1 construction."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/55",
+   "kind": "theorem",
+   "name": "p-adic Tate twists of a perfectoid ring",
+   "statement": "For a perfectoid ring R with perfect prism (A, (d)) one has ℤ_p(n)(R) ≅ fib(φ^{-1}(d)ⁿA →^{φ/dⁿ − 1} A). For n ≥ 1 there is a canonical identification ℤ_p(n)(R) ≅ RΓ(Spec(R[1/p]), ℤ_p(n)); for n = 0, ℤ_p(0)(R) ≅ RΓ(Spec(R), ℤ_p) ≅ RΓ(Spec((R/p)_perf), ℤ_p).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 9.4, pp. 73–75",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "The bridge between the syntomic ℤ_p(n) of [BMS19] and ordinary Tate twists on the generic fibre. Remark 9.5 explains that the construction of the comparison map for n = 1 uses the cyclotomic trace, and that a purely algebraic prismatic logarithm giving the same map is constructed in Bhatt–Lurie. PR.4 plans the syntomic Tate twists and names BS22 §9 as a source."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/56",
+   "kind": "theorem",
+   "name": "Picard groups of perfectoid rings are uniquely p-divisible",
+   "statement": "For a quasisyntomic ring R one has Pic(R)^∧[−2] ≅ ℤ_p(1)(R), where Pic(R) = τ^{≤1}RΓ(Spec R, G_m)[1] and the completion is p-adic (Lemma 9.6). Consequently, for a perfectoid ring R, both Pic(R) and Pic(R[1/p]) are uniquely p-divisible (Corollary 9.7).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 9.6 and Corollary 9.7, p. 76",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "Used in §14 to identify H¹(ℤ_p(1)(R)) with H⁰ of the derived p-completion of R^*. Part of §9, which PR.4 names as a source."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/57",
+   "kind": "definition",
+   "name": "Almost mathematics with respect to an arbitrary finitely generated ideal of a perfectoid ring",
+   "statement": "Let R be a perfectoid ring and J ⊂ R a finitely generated ideal, and set J_perfd := ker(R → (R/J)_perfd). A derived p-complete R-module M is J-almost zero if J_perfd M = 0. The J-almost zero derived p-complete modules are stable under kernels, cokernels and extensions and form a ⊗-ideal equivalent to the category of derived p-complete (R/J)_perfd-modules (Proposition 10.2); the multiplication maps J_perfd ⊗̂^L_R J_perfd → J_perfd and (R/J)_perfd ⊗̂^L_R (R/J)_perfd → (R/J)_perfd are quasi-isomorphisms and J_perfd ⊗̂^L_R (R/J)_perfd = 0 (Lemma 10.3). A derived p-complete complex M is J-almost zero if and only if J_perfd ⊗̂^L_R M = 0, and such complexes form a thick tensor ideal (Proposition 10.4).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 10.1 and Propositions 10.2, 10.4, Lemma 10.3, pp. 78–79",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "For J = (p) one recovers the usual almost mathematics of a perfectoid ring, since J_perfd is then the ideal of p-power roots of p. Remark 1.13 advertises this as one of the paper's contributions: the surjectivity of S → S_perfd gives a good almost setting for any closed subset, not only for the ideal of p-power roots of p. PerfectoidSpaces P0 plans almost mathematics 'with a reusable base ideal' but instantiates it in P1–P2 only with fractional powers of a pseudouniformizer; the identification of the J-almost category with derived p-complete (R/J)_perfd-modules is specific to this paper and is planned nowhere."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/58",
+   "kind": "theorem",
+   "name": "A connectivity criterion for almost-connective complexes",
+   "statement": "A p-complete complex M ∈ D(R) is connective if and only if M ⊗̂^L_R R/J_perfd is connective and M is J-almost connective, i.e. H^i(M) is J-almost zero for i > 0.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 10.5, p. 79",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The device that upgrades an almost statement to an honest one, and hence upgrades the almost version of Theorem 10.9 to Theorem 10.11 and then back to Theorem 10.9 in general. Not planned by any layer."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/59",
+   "kind": "definition",
+   "name": "J-almost Galois extensions and their almost finiteness",
+   "statement": "A p-complete R-algebra S with an action of a finite group G is a J-almost G-Galois extension if R → RΓ(G, S) and S ⊗̂^L_R S → ∏_G S are J-almost isomorphisms (Definition 10.6). In that case R/pⁿ → S/pⁿ is almost finite projective and almost unramified with respect to the almost setting (R/pⁿ, J_{perfd,n}), and the same holds for the fixed ring of a subgroup (Proposition 10.8, after André).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 10.6, Remark 10.7 and Proposition 10.8, pp. 79–80",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The almost setting (R/pⁿ, J_{perfd,n}) is a basic setup in the sense of Gabber–Ramero, and the paper notes that André's standing flatness assumption on m ⊗ m is not needed for his Proposition 1.9.1. None of this is planned: PerfectoidSpaces P0 builds almost algebra for an abstract idempotent base ideal but does not treat almost Galois covers."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/60",
+   "kind": "theorem",
+   "name": "The almost purity theorem for integral algebras over a perfectoid ring",
+   "statement": "Let R be a perfectoid ring, J ⊂ R a finitely generated ideal and S a finitely presented finite R-algebra such that Spec(S) → Spec(R) is finite étale outside V(J). Then S_perfd is discrete and perfectoid, S → S_perfd is an isomorphism away from V(J), and for n > 0 the map R/pⁿ → S_perfd/pⁿ is almost finite projective and almost unramified for the almost setting (R/pⁿ, J_{perfd,n}). If S carries a G-action which is G-Galois outside V(J), then R → S_perfd is a J-almost G-Galois cover.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 10.9 and Theorem 1.17 (2), pp. 9 and 80–81",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This reduces to the classical almost purity theorem when J = (p) and improves the perfectoid Abhyankar lemma of André when J = (g); the proof avoids adic spaces and perfectoid spaces entirely, so it is a new proof of both (Remark 10.10). The key inputs are the arc-descent properties of perfectoidization, in particular Corollary 8.12, and André's flatness lemma. PerfectoidSpaces P3 plans almost purity only for perfectoid Tate rings in the form of ECD Theorem 6.1, by the Scholze/Kedlaya–Liu route, and explicitly for the ideal of fractional powers of a pseudouniformizer; the statement here is stronger and its proof is different."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/61",
+   "kind": "theorem",
+   "name": "Perfectoidization of an integral algebra over a perfectoid ring is discrete",
+   "statement": "Let R be a perfectoid ring with perfect prism (A, I) and let R → S be the p-completion of an integral map. Then ∆_{S/A, perf} is discrete and a perfect p-complete δ-A-algebra; consequently S_perfd is discrete and perfectoid, and S → S_perfd is the universal map from S to a perfectoid ring.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 10.11 and Theorem 1.17 (1), pp. 9 and 82",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The general form of the perfectoidization theorem: Corollary 7.3 covers semiperfectoid quotients, while this covers arbitrary integral algebras. The proof is an induction along the constructible stratification of Lemma 10.12, using Corollary 8.12 for excision and the almost form of Theorem 10.9. PerfectoidQuotients Q2 and Q4 plan the semiperfectoid case and its surjectivity but not the integral case."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/62",
+   "kind": "theorem",
+   "name": "Finite maps are finite étale over a constructible stratification, up to universal homeomorphisms",
+   "statement": "Let R → S be a finitely presented finite map of ℤ_(p)-algebras. Then there are g₁,…,g_n ∈ R generating the unit ideal such that, setting R_i = R/(g₁,…,g_{i−1})_red[1/g_i] and S_i likewise, each R_i → S_i factors as R_i → T_i → S_i with R_i → T_i finite étale, T_i → S_i a universal homeomorphism which is an isomorphism after inverting p, and with p either zero or invertible in each R_i.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 10.12, p. 83",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A commutative-algebra input, stated for its own sake, which stratifies the base so that the inductive proof of Theorem 10.11 can run. Not planned by any layer of the atlas."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/63",
+   "kind": "theorem",
+   "name": "An almost-vanishing consequence for absolute integral closures",
+   "statement": "For R a complete regular local ring of mixed characteristic and R → S a finite extension inside an absolute integral closure R⁺, and any n > 0, there is c ∈ pR — any c with R[1/c] → S[1/c] finite étale will do — such that Tor_i^{R/pⁿ}(S/pⁿ, −) → Tor_i^{R/pⁿ}(R⁺/pⁿ, −) is c-almost zero for all i > 0.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remark 10.13, pp. 83–84",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A quick reproof of the main theorem of Hochster–Ma from Theorem 10.9, using the perfectoid cover of Remark 3.11. It is recorded here because it shows the intended downstream use of the almost purity theorem in commutative algebra. Not planned by any layer."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/64",
+   "kind": "theorem",
+   "name": "The étale cohomological dimension of a perfectoid ring",
+   "statement": "For a perfectoid ring R the F_p-étale cohomological dimension of X = Spec(R[1/p]) is at most 1: for every étale F_p-sheaf F on X one has H^i(X, F) = 0 for i > 1. Here X is the scheme, not the adic spectrum; the statement fails for general sheaves on the adic spectrum.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 11.1, p. 85",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "A consequence of the étale comparison theorem: the right-hand side of Theorem 9.1 is a two-term complex. PR.4 names BS22 §11 as one of its sources."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/65",
+   "kind": "definition",
+   "name": "The Nygaard filtration on the prism of a quasiregular semiperfectoid ring",
+   "statement": "For S quasiregular semiperfectoid with prism (∆_S, (d)), set Fil^i_N ∆_S = {x ∈ ∆_S : φ(x) ∈ d^i ∆_S}. This is an N-indexed decreasing multiplicative filtration, in general not separated.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 12.1 and Theorem 1.14 (2), pp. 7 and 86",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "PR.3: 'On the discrete quasiregular semiperfectoid calculation construct Nygaard pieces by the actual Frobenius-divisibility condition', and it warns that 'Nygaard completion of Δ is not silently identified with Δ in all contexts'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/66",
+   "kind": "theorem",
+   "name": "The Nygaard and conjugate filtrations correspond",
+   "statement": "Let S be quasiregular semiperfectoid, R a perfectoid ring mapping to S with perfect prism (A, (d)), so that ∆̄_S carries the conjugate filtration with gr_i ∆̄_S = (∧^i L_{S/R}[−i])^∧. Then the image of Fil^i_N ∆_S under φ/d^i : ∆_S → ∆̄_S is Fil_i ∆̄_S, giving a natural isomorphism gr^i_N ∆_S ≅ Fil_i ∆̄_S{i}.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 12.2 and Theorem 1.14, pp. 7 and 86",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "The conjugate filtration genuinely depends on the choice of R: Example 12.3 exhibits S = O_{C_p} ⊗̂_{ℤ_p} O_{C_p} with two different conjugate filtrations, distinguished by a Galois-equivariance argument using Tate's computation of RΓ(Γ, R{1}). PR.3 plans 'the associated-graded description, comparison with Hodge–Tate and de Rham filtrations'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/67",
+   "kind": "construction",
+   "name": "The explicit q-divided-power computation in the model case",
+   "statement": "For S = R⟨X^{1/p^∞}⟩/X the ring ∆_S is the (p, [p]_q)-adic completion of ⊕_{i ∈ ℕ[1/p]} A · Y^i/[⌊i⌋]_q!, and Fil^n_N ∆_S is the completion of ⊕_i [p]_q^{(n−⌊i⌋)/p} A · Y^i/[⌊i⌋]_q!; the images of φ/[p]_q^n and the conjugate filtration are both given by the summands with i < p(n+1), so Theorem 12.2 holds in this case. The supporting identities are x^n ∈ [n]_q!D under a Frobenius hypothesis (Lemma 12.5) and [mp]_q! = u · φ([m]_q!) · [p]_q^m (Lemma 12.6).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 12.4, 12.5, 12.6, 12.7, pp. 88–90",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "The explicit base case from which the general theorem is bootstrapped, via the p-completely regular quotient case (Proposition 12.8) and then quasisyntomic descent and left Kan extension (Definition 12.9, Propositions 12.10 and 12.11)."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/68",
+   "kind": "theorem",
+   "name": "The Nygaard filtration by descent and by left Kan extension agree",
+   "statement": "Defining Fil^i_N ∆_{B/A} as the totalization of the Nygaard filtrations on a Čech–Alexander resolution gives a natural map φ/d^i : Fil^i_N ∆_{B/A} → ∆̄_{B/A} projecting to an isomorphism gr^i_N ∆_{B/A} ≅ τ^{≤i}∆̄_{B/A} (Definition 12.9, Proposition 12.10); the derived Nygaard filtration obtained by left Kan extension sits in degree 0 for quasiregular semiperfectoid S, agrees with Fil^i_N ∆_S, and completes the proof of Theorem 12.2 (Proposition 12.11).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 12.9, Propositions 12.10 and 12.11, pp. 92–93",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "PR.3: 'Extend them by the proved quasisyntomic descent and use the appropriate Frobenius-twisted relative complex for the relative filtration.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/69",
+   "kind": "theorem",
+   "name": "The δ-ring structure on π₀TP and the Nygaard completion",
+   "statement": "There is a functorial δ-ring structure on ∆̂_S = π₀TP(S; ℤ_p) for S quasiregular semiperfectoid, and the induced map ∆_S = ∆^init_S → ∆̂_S identifies ∆̂_S with the Nygaard completion of ∆_S, compatibly with Nygaard filtrations. In particular the cyclotomic Frobenius of topological Hochschild theory is the Frobenius lift attached to a δ-structure.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 13.1, Lemma 13.2 and Theorem 1.14 (3), Remark 1.15, pp. 7–8 and 94–95",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3",
+    "RefinedTraceMethods:RT.3"
+   ],
+   "note": "The authors call their proof very indirect and say they know no conceptual reason for it in terms of topological Hochschild homology. Lemma 13.2 is the technical statement δ(Fil^i_N) ⊂ Fil^{pi}_N + (d,p)^{i−1}. PR.3 assigns the trace-theoretic half to RefinedTraceMethods, which 'proves that BMS2's TC/THH filtration has these graded pieces in its source range, including comparison with the Nygaard-completed prismatic object'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/70",
+   "kind": "theorem",
+   "name": "The p-adic Tate twists are discrete and torsionfree",
+   "statement": "For each n ≥ 0 the quasisyntomic sheaf ℤ_p(n) of [BMS19] is discrete and p-torsionfree, resolving [BMS19, Conjecture 7.18]. Consequently, locally on the quasisyntomic site, K(−; ℤ_p) is concentrated in even degrees (Corollary 14.2), and if R is a perfectoid ℤ_p[ζ_{p^∞}]^∧-algebra and S = R/(f₁,…,f_r) for a regular sequence of elements admitting compatible p-power roots, then π_*K(R; ℤ_p) → π_*K(S; ℤ_p) is surjective in odd degrees, so evenness is inherited (Corollary 14.3).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 14.1, Corollaries 14.2, 14.3 and Theorem 1.18, pp. 9 and 97",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4",
+    "RefinedTraceMethods:RT.3"
+   ],
+   "note": "The proof uses André's flatness lemma to reduce to a nice class of quasisyntomic rings, the explicit §12.2 computation, and the surjectivity statements of Lemmas 14.4 and 14.5; the K-theoretic consequence goes through the [BMS19] motivic filtration on TC and the identification of K-theory with TC of [CMM18]. It gives, for instance, that π_*K(O_C/pⁿ; ℤ_p) is concentrated in even degrees. PR.4 names BS22 §14 among its sources and owns the syntomic realization shared with RefinedTraceMethods."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/71",
+   "kind": "theorem",
+   "name": "Surjectivity statements for Tate twists and prisms of quotients",
+   "statement": "For R a perfectoid ℤ_p[ζ_{p^∞}]^∧-algebra, R′ = R⟨X_1^{1/p^∞},…,X_r^{1/p^∞}⟩ and S = R′/(X₁,…,X_r), the map ℤ_p(n)(R′) → ℤ_p(n)(S) is surjective on H¹ (Lemma 14.4). If S′ → S is a surjection of quasiregular semiperfectoid R-algebras whose p-completed cotangent map is surjective on H^{−1}, then ∆_{S′} → ∆_S is surjective (Lemma 14.5).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemmas 14.4 and 14.5, pp. 97 and 100",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.4"
+   ],
+   "note": "The two inductive inputs to Theorem 14.1; the n = 0 case is settled by Artin–Schreier theory and the n = 1 case by Kummer theory together with the unique p-divisibility of Pic(R)."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/72",
+   "kind": "definition",
+   "name": "Large quasisyntomic algebras",
+   "statement": "A quasisyntomic A/I-algebra S is large if it admits a surjection from A/I⟨X_i^{1/p^∞} : i ∈ I⟩ for some set I. For such S, L_{S/(A/I)}[−1] is p-completely flat, and large algebras form a basis for the quasisyntomic site of A/I.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 15.1, p. 102",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3",
+    "DerivedDeRhamCohomology:DD.5"
+   ],
+   "note": "The relative analogue of quasiregular semiperfectoid rings, which is what makes the relative Nygaard filtration descend. Planned by PR.3 and DD.5."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/73",
+   "kind": "theorem",
+   "name": "Prismatic cohomology and the Nygaard filtration for large quasisyntomic algebras",
+   "statement": "For S a large quasisyntomic A/I-algebra, ∆_{S/A} is concentrated in degree 0 and (p, I)-completely flat over A, and is the initial object of (S/A)_∆. With φ_{S/A} : ∆^{(1)}_{S/A} := ∆_{S/A} ⊗̂^L_{A, φ} A → ∆_{S/A} the relative Frobenius and Fil^i_N ∆^{(1)}_{S/A} = {x : φ_{S/A}(x) ∈ I^i ∆_{S/A}}, the image of gr^i_N under φ_{S/A} is Fil_i ∆̄_{S/A}{i}, and the formation of Fil^i_N commutes with base change in A.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 15.2, p. 102",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "The relative Nygaard filtration is on the Frobenius twist, a point PR.3 makes explicitly: 'use the appropriate Frobenius-twisted relative complex for the relative filtration'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/74",
+   "kind": "theorem",
+   "name": "The Nygaard filtration in the smooth case and the Frobenius isogeny",
+   "statement": "Let (A, I) be a bounded prism and X = Spf(R) affine smooth over A/I. Then RΓ_∆(X/A) ≅ RΓ(X_qsyn, ∆_{−/A}); endowing it with Fil^i_N RΓ_∆(X/A)^{(1)} := RΓ(X_qsyn, Fil^i_N ∆^{(1)}_{−/A}) gives gr^i_N RΓ_∆(X/A)^{(1)} ≅ τ^{≤i}∆̄_{R/A}{i} for all i ≥ 0; and the Frobenius factors as φ^*_A RΓ_∆(X/A) →^{φ̃} Lη_I RΓ_∆(X/A) → RΓ_∆(X/A) with φ̃ an isomorphism.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 15.3 and Theorem 1.16, pp. 8 and 103",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3",
+    "AInfCohomology:AI.1"
+   ],
+   "note": "The décalage factorization is the prismatic form of the statement that Frobenius is an isogeny. PR.3: 'Prove the associated-graded description, comparison with Hodge–Tate and de Rham filtrations, and the Lη_I Frobenius factorization in BS22 §15. Use AI.1's generic Lη, independent of the AΩ construction.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/75",
+   "kind": "theorem",
+   "name": "The image of the Frobenius and the divided Frobenius maps V_i",
+   "statement": "For a bounded prism (A, I) and X smooth over A/I, the linearization φ^*_A RΓ_∆(X/A) → RΓ_∆(X/A) becomes an isomorphism after inverting I; more precisely, there are natural maps V_i : τ^{≤i}∆̄^{(1)}_{X/A} ⊗_A I^{⊗i} → τ^{≤i}∆̄_{X/A} with φV_i and V_iφ the natural maps, so on cohomology V_i inverts φ up to I^{⊗i}. When I = (d) is principal this reads V_iφ = φV_i = d^i.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Corollary 15.5 and Theorem 1.8 (6), pp. 5 and 104",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3"
+   ],
+   "note": "PR.3: 'Construct divided Frobenius, inclusion/canonical maps, and BK twists by descent when I is not oriented.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/76",
+   "kind": "theorem",
+   "name": "Breuil–Kisin cohomology as prismatic cohomology",
+   "statement": "For a quasiregular semiperfectoid quasisyntomic O_K-algebra S, the cyclotomic Frobenius on π₀TP(S/𝔖[u]; ℤ_p) refines to a functorial δ-ring structure and identifies with the Nygaard completion of ∆^{(1)}_{S/𝔖}, compatibly with Nygaard filtrations; consequently RΓ_𝔖(X) ≅ RΓ_∆(X/𝔖) for the Breuil–Kisin prism.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Proposition 15.7 and Example 1.9 (3), pp. 6 and 105",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.3",
+    "RefinedTraceMethods:RT.3",
+    "AInfCohomology:AI.7"
+   ],
+   "note": "This is the comparison with [BMS19] which recovers all of its results on Breuil–Kisin cohomology. PR.3 assigns the trace-theoretic half to RefinedTraceMethods; AI.7 owns the cohomological Breuil–Kisin descent interface."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/77",
+   "kind": "definition",
+   "name": "q-divided powers and q-PD pairs",
+   "statement": "Let A = ℤ_p⟦q−1⟧ with δ(q) = 0 and [p]_q = (q^p − 1)/(q − 1). For x in a [p]_q-torsionfree δ-A-algebra D with φ(x) ∈ [p]_q D, set γ(x) := φ(x)/[p]_q − δ(x), the divided [p]_q-th power. A q-PD pair is a derived (p, [p]_q)-complete δ-pair (D, I) over (A, (q−1)) such that φ(I) ⊂ [p]_q D and γ(I) ⊂ I, such that (D, ([p]_q)) is a bounded prism over (A, ([p]_q)), and such that D/(q−1) is p-torsionfree of finite (p, [p]_q)-complete Tor amplitude over D. If q − 1 = 0 in D one calls (D, I) a δ-PD pair; these are exactly the pairs with D p-torsionfree and p-complete and I admitting divided powers.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Notation 16.1, Definition 16.2 and Remarks 16.3, 16.4, pp. 106–107",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "Being a q-PD pair is a property of a δ-pair, not extra structure, unlike the classical crystalline theory. PR.6: 'Construct q-PD pairs, q-crystalline envelopes and the q-crystalline site of BS22 §16.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/78",
+   "kind": "theorem",
+   "name": "Homological and formal properties of q-PD pairs",
+   "statement": "For a q-PD pair (D, I): D is derived f-complete for every f ∈ I; completed base change along D → D/(q−1) is conservative on (p, [p]_q)-complete complexes and commutes with totalizations of cosimplicial objects in D^{≥0}; the derived completion of I and the extension along a (p, [p]_q)-completely flat map of δ-A-algebras again give q-PD pairs (Lemma 16.5). The operation γ satisfies γ(x+y) = γ(x) + γ(y) + ((x+y)^p − x^p − y^p)/p and γ(fx) = φ(f)γ(x) − x^p δ(f), so the set of x in an ideal I with φ(x) ∈ [p]_qD and γ(x) ∈ I is an ideal (Remark 16.6); and φ^{-1}([p]_qD) is stable under γ (Lemma 16.7). Hence (q−1) is the smallest and φ^{-1}([p]_qD) the largest q-PD ideal (Corollary 16.8).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 16.5, Remark 16.6, Lemma 16.7 and Corollary 16.8, pp. 107–109",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "The additivity and multiplicativity formulas for γ are the q-analogues of the classical divided-power identities and are what make the q-PD condition checkable on generators. Planned by PR.6."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/79",
+   "kind": "construction",
+   "name": "Examples and envelopes of q-PD pairs",
+   "statement": "The key examples are (A, (q−1)), which is initial, and more generally (D, (q−1)) for D a (p,[p]_q)-completely flat A-algebra; the perfect object (A_inf, (ξ)) with ξ = φ^{-1}([p]_q); and the classical case of a p-torsionfree p-complete δ-ring with an ideal admitting divided powers (Example 16.9). Given a q-PD pair (D, I), a (p,[p]_q)-completely flat δ-D-algebra P and a (p,[p]_q)-completely regular sequence x₁,…,x_r ∈ P, the algebra E := P{φ(x₁)/[p]_q, …, φ(x_r)/[p]_q}^∧ is (p,[p]_q)-completely flat, hence discrete and [p]_q-torsionfree; with K the minimal complete γ-stable ideal containing J = (I, x₁,…,x_r) one has P/J ≅ E/K, the pair (E, K) is a q-PD pair, and (P, J) → (E, K) is the universal map to a q-PD pair. It depends only on J, commutes with completed base change along maps of q-PD pairs, and its reduction mod q−1 is the classical pd-envelope (Lemma 16.10).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Example 16.9, Lemmas 16.10 and 16.11, pp. 109–111",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "Lemma 16.11 characterises the classical pd-envelope ideal as the smallest ideal containing ID and stable under f ↦ f^p/p, which is the q = 1 shadow of the γ-stability condition. Planned by PR.6."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/80",
+   "kind": "definition",
+   "name": "The q-crystalline site and its cohomology",
+   "statement": "The q-crystalline site (R/D)_{q−crys} is the opposite of the category of q-PD pairs (E, J) over (D, I) with a D/I-algebra map R → E/J, with the indiscrete topology; O_{q−crys} sends (E, J) to E, and qΩ_{R/D} := RΓ((R/D)_{q−crys}, O_{q−crys}) is a (p,[p]_q)-complete commutative algebra in D(D) with a φ_D-semilinear endomorphism. It is computed by the Čech–Alexander complex of the q-PD envelope of a free δ-D-algebra surjecting onto R (Construction 16.13), and also by smaller Čech–Alexander complexes built from a (p,[p]_q)-completely smooth lift of R (Remark 16.16). Globalisation over a smooth formal scheme is by Zariski descent (Remark 16.15).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Definition 16.12, Construction 16.13 and Remarks 16.15, 16.16, pp. 111–113",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "PR.6: 'Construct q-PD pairs, q-crystalline envelopes and the q-crystalline site of BS22 §16. Prove the q-Poincare lemma, framed polynomial computation, change of framing and cocycle descent.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/81",
+   "kind": "theorem",
+   "name": "q-crystalline cohomology specialises to crystalline cohomology and equals prismatic cohomology",
+   "statement": "There is a canonical identification qΩ_{R/D} ⊗̂^L_D D/(q−1) ≅ RΓ_crys(R/(D/(q−1))) (Theorem 16.14). q-crystalline cohomology is invariant under q-PD thickenings of the base: for (D, J) → (D, I) a morphism of q-PD pairs which is the identity on underlying δ-rings and R̃ a lift of R along D/J → D/I, one has qΩ_{R̃/D} ≅ qΩ_{R/D} (Theorem 16.17). Finally, for R p-completely smooth over D/I and R^{(1)} its base change along φ_D, there is a canonical isomorphism ∆_{R^{(1)}/D} ≅ qΩ_{R/D}, where the prism is (D, [p]_q) (Theorem 16.18).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorems 16.14, 16.17, 16.18, pp. 112–114",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "Theorem 16.18 is the statement that q-crystalline cohomology is prismatic cohomology over the q-de Rham prism. PR.6: 'For p-completely smooth Z_p-algebras, compare the p-completed framed q-de Rham complex with prismatic cohomology after the specified Z_p[zeta_p] base change over (Z_p[[q−1]],([p]_q)). This theorem does not by itself glue all primes into a Habiro theory.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/82",
+   "kind": "theorem",
+   "name": "q-de Rham complexes compute q-crystalline cohomology",
+   "statement": "A framed D-algebra is a pair (P, S) with P p-completely ind-smooth over D and D[S] → P p-completely ind-étale; the automorphisms X_s ↦ qX_s extend uniquely to P and give q-derivations ∇_{q,s}(f) = (γ_s(f) − f)/(qX_s − X_s) lifting ∂/∂X_s modulo q−1, assembled into the q-de Rham complex qΩ^{*,□}_{P/D} (Construction 16.19). For a framed q-PD datum (P, S, J) these automorphisms extend uniquely to the q-PD envelope (Lemma 16.21) and there is a canonical quasi-isomorphism qΩ_{R/D} ≅ qΩ^{*,□}_{D_{J,q}(P)/D} (Theorem 16.22). Combined with Theorem 16.18 this proves the independence, up to canonical quasi-isomorphism, of the q-de Rham complexes of [Sch17] from the choice of coordinates, i.e. [Sch17, Conjecture 1.1].",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Constructions 16.19, 16.20, Lemma 16.21 and Theorem 16.22, Example 1.9 (4), pp. 6 and 114–115",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6",
+    "HabiroCohomologyFoundations:HQ.1"
+   ],
+   "note": "PR.6 plans exactly this chart computation, and records that 'Habiro HQ.1–2 owns global arithmetic q-de Rham and q-Hodge gluing; it imports these exact local chart computations'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/83",
+   "kind": "theorem",
+   "name": "Comparison with the A_inf-cohomology of BMS1",
+   "statement": "Let C/ℚ_p be complete algebraically closed, A = A_inf(O_C), q = [ε] for a compatible system of p-power roots of unity and ξ = φ^{-1}([p]_q), so that (A, (ξ)) is a q-PD pair. Then there is a canonical isomorphism qΩ_{R/A} ≅ AΩ_R, hence AΩ_R ≅ qΩ_{R/A} ≅ ∆_{R^{(1)}/A} = φ^*_A ∆_{R/A}, as E_∞-A-algebras compatible with Frobenius.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Notation 17.1 and Theorem 17.2, and Example 1.9 (2), pp. 5 and 117",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6",
+    "AInfCohomology:AI.3"
+   ],
+   "note": "The Frobenius pullback is essential. Remark 17.3 explains that the proof gives an E₁-comparison which is upgraded to E_∞ by left Kan extension to quasiregular semiperfectoid algebras and quasisyntomic descent. PR.6: 'Construct the explicit all-coordinates comparison with AI.3's AΩ and prove BS22 Theorem 17.2 … The Frobenius pullback is essential.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/84",
+   "kind": "theorem",
+   "name": "A uniqueness criterion for comparison isomorphisms",
+   "statement": "Let A be a ring with a nonzerodivisor d, R a smooth A/d-algebra, and E, F derived d-complete commutative algebras in D(A) with E/d, F/d coconnective and H^*(E/d), H^*(F/d) strictly graded commutative, equipped with maps R → H⁰(E/d), R → H⁰(F/d) inducing isomorphisms (Ω^*_{R/(A/d)}, d_dR) ≅ (H^*(E/d), β_d) and likewise for F. Then any commutative A-algebra map E → F intertwining the two is an isomorphism (Lemma 17.4). Consequently, on the ∞-category CSm_R of symmetric monoidal functors G : Sm_R → D_{(p,I)-comp}(A) with a natural transformation id → G ⊗^L_A R, prismatic cohomology has no nontrivial endomorphisms: End(∆_{−/A}) = {1} (Theorem 18.2).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Lemma 17.4, Notation 18.1 and Theorem 18.2, pp. 120–122",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PrismaticCohomology:PR.6"
+   ],
+   "note": "Remarkably, no compatibility with the Frobenius is needed in Theorem 18.2. The consequence is that any diagram of comparison isomorphisms between the theories of this paper necessarily commutes. PR.6: 'Use BS22 §18 to prove independence and compatibility of comparison maps, not merely existence of some quasi-isomorphism.'"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/85",
+   "kind": "definition",
+   "name": "Koszul complexes and derived completion",
+   "statement": "For a module M with commuting endomorphisms (f_i), the homological Koszul complex Kos(M; (f_i)) represents M ⊗^L_{ℤ[f_i]} ℤ and the cohomological one represents RHom_{ℤ[f_i]}(ℤ, M). For a ring A with a finitely generated ideal I = (f₁,…,f_r), a complex M is derived I-complete if M → R lim_n Kos(M; f₁ⁿ,…,f_rⁿ) is an isomorphism; this is independent of the generators, is checked on cohomology, and gives an abelian category of derived I-complete modules. Classically complete modules are derived complete; conversely a derived complete and I-adically separated module is classically complete; and for principal I and bounded I^∞-torsion the two completions agree.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), §1.2, pp. 10–11, following [Sta, Tag 091N] and [BS15, §§3.4–3.5]",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1",
+    "AInfCohomology:AI.1"
+   ],
+   "note": "DD.1 plans 'Derived completion and complete filtered algebra' and is the named owner; AI.1 'owns the derived-completeness interface explicitly'. The Koszul complex is not in the pinned libraries — WORKERS.md lists it among the notions not found — and DD.1 is the layer that plans it for this programme."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/86",
+   "kind": "definition",
+   "name": "Completely flat, completely étale and completely smooth maps",
+   "statement": "A complex M over A is I-completely flat if M ⊗^L_A N is concentrated in degree 0 for every I-torsion N, and I-completely faithfully flat if moreover M ⊗^L_A A/I is faithfully flat over A/I; M has finite I-complete Tor amplitude if M ⊗^L_A A/I does. A derived I-complete A-algebra R is I-completely étale, smooth or ind-smooth if R ⊗^L_A A/I is so over A/I; by Elkik's algebraization results this is equivalent to being the derived I-completion of an étale or smooth A-algebra. D_{I-comp}(−) is a sheaf for I-completely faithfully flat maps of simplicial commutative rings.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), §1.2, pp. 11–12 and its footnotes",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1",
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "The completed flatness vocabulary in which every hypothesis of the paper is stated. The paper sketches a derived-deformation-theory proof of the Elkik algebraization statement in a footnote. Planned by DD.1 together with PR.0's flatness requirements."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/87",
+   "kind": "definition",
+   "name": "Simplicial commutative rings and derived ∞-categories",
+   "statement": "Simplicial commutative rings are used to resolve algebras by ind-smooth ones, to define the cotangent complex, and to form derived pushouts; a simplicial ring is discrete if π_i = 0 for i > 0. For a commutative or E_∞-ring A, D(A) denotes its derived ∞-category and D_{I-comp}(A) the full subcategory of I-complete objects; flatness for M ∈ D(A) means flatness of M ⊗^L_A π₀(A).",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), §1.2, pp. 11–12",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EnhancedDerivedSheaves:E5",
+    "PrismaticCohomology:PR.2"
+   ],
+   "note": "WORKERS.md lists animated (simplicial commutative) rings and stable ∞-categories among the notions not found in the pinned libraries. EnhancedDerivedSheaves E5 is the named owner of simplicial commutative algebra, which Q0 imports, and PR.2 insists on distinguishing 'the animated functor from the classical site cohomology of pi_0'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/88",
+   "kind": "definition",
+   "name": "Witt vectors and the Teichmüller expansion",
+   "statement": "The ring of p-typical Witt vectors W(R), its truncations W_n(R), the Frobenius and Verschiebung, and the Teichmüller representative, together with the identification of W(R) for R a perfect F_p-algebra as the unique p-torsionfree p-complete lift.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Remarks 2.4, 2.7, 2.13 and Corollary 2.31, pp. 13–21",
+   "status": "library",
+   "library": [
+    "mathlib:WittVector",
+    "mathlib:WittVector.frobenius",
+    "mathlib:WittVector.verschiebung",
+    "mathlib:WittVector.teichmuller"
+   ],
+   "planned": [],
+   "note": "Witt vectors are in the pinned libraries: Mathlib has the p-typical Witt vectors with the ghost components, Frobenius, Verschiebung and Teichmüller map, and WORKERS.md lists them among the notions already present. What is not there is the δ-ring structure on W(R) and the adjunction of Remark 2.7, which are planned at PR.0."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/89",
+   "kind": "definition",
+   "name": "Perfectoid rings, tilting, A_inf and θ",
+   "statement": "Integral perfectoid rings in the sense of [BMS18, §3], their tilts R^♭, Fontaine's ring A_inf(R) = W(R^♭) and the surjection θ : A_inf(R) → R with its kernel.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 3.10 and §8, pp. 32 and 63",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PerfectoidQuotients:Q0",
+    "PerfectoidSpaces:P1"
+   ],
+   "note": "Q0's integral-algebra prefix plans exactly 'integral perfectoid rings in the scope of BS22, their relation to Tate perfectoid rings and integral subrings, and the necessary A_inf/θ descriptions', keeping ordinary, derived p-adic and pseudouniformizer-adic completions separate; P1 plans perfectoid Tate rings, tilts and untilts."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/90",
+   "kind": "definition",
+   "name": "Crystalline cohomology, PD envelopes and the PD Poincaré lemma",
+   "statement": "Divided power structures, PD envelopes, the crystalline site of a scheme relative to a PD base and its cohomology, and the comparison with the de Rham complex of a smooth lift.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), §5 and Notation 5.1, p. 45",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "CrystallineCohomology:CR.0",
+    "CrystallineCohomology:CR.1",
+    "CrystallineCohomology:CR.2"
+   ],
+   "note": "CR.0 plans divided powers and universal thickenings, including PD polynomial algebras and envelopes with their universal properties and the p = 2 subtleties, and CR.1–CR.2 the crystalline site and the PD Poincaré lemma; PR.1 uses CR.2 for the crystalline comparison."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/91",
+   "kind": "definition",
+   "name": "The cotangent complex and its derived exterior powers",
+   "statement": "The cotangent complex L_{B/A} of a map of simplicial commutative rings, its p-completed variant, the transitivity triangle, and the derived exterior powers ∧^i L with the filtration on the exterior powers of a triangle.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Construction 7.6 and Notation 7.1, pp. 55–57",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "note": "DD.0 plans the cotangent complex by simplicial polynomial resolutions with resolution independence, the transitivity triangle, derived base change, and derived symmetric, divided and exterior power functors, and defines quasisyntomic maps by p-complete flatness and mod-p cotangent amplitude. The naive cotangent complex is in Mathlib but the full one is not."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/92",
+   "kind": "definition",
+   "name": "The quasisyntomic site and quasisyntomic descent",
+   "statement": "The quasisyntomic site of a p-complete ring, its quasiregular semiperfectoid basis, and descent for p-complete objects along quasisyntomic covers.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Construction 7.6 (3), Theorem 15.3 and §12.4, pp. 57, 92 and 103",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DerivedDeRhamCohomology:DD.5"
+   ],
+   "note": "DD.5 plans 'the quasisyntomic site using DD.0's actual morphism condition' and the existence and refinement of the semiperfectoid covers of BMS2 §4, and explicitly assigns the stronger absolutely integrally closed perfectoid extension theorem to PerfectoidQuotients Q3 rather than to itself."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/93",
+   "kind": "definition",
+   "name": "The décalage functor Lη",
+   "statement": "For a nonzerodivisor f and a termwise f-torsionfree complex K, η_f K is the subcomplex with i-th term the elements of f^iK^i whose differential lies in f^{i+1}K^{i+1}; it descends to Lη_f on the derived category, with its cohomology formula, its lax symmetric monoidal structure and its Bockstein description modulo f.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 15.3 and Theorem 1.16 (4), pp. 8 and 103, following [BMS18]",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AInfCohomology:AI.1"
+   ],
+   "note": "AI.1 is the named owner and PR.3 requires that its 'generic Lη' be used 'independent of the AΩ construction'. AI.1 also warns that Lη is not exact on all triangles and does not commute with all base changes."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/94",
+   "kind": "definition",
+   "name": "The AΩ-complexes and A_inf-cohomology",
+   "statement": "The complexes AΩ_X of [BMS18], built from the pro-étale sheaf on the generic fibre by applying Lη_µ, with their Frobenius and their crystalline, de Rham and étale specializations.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Example 1.9 (2), Notation 17.1 and Theorem 17.2, pp. 5 and 117",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AInfCohomology:AI.3",
+    "AInfCohomology:AI.7"
+   ],
+   "note": "AI.3 plans 'Integral pro-étale sheaves and the AΩ construction', and AI.7 the Breuil–Kisin descent and cross-theory interfaces; PR.6 states that 'AI.7/CP import the same AΩ comparison and do not reconstruct it'. Remark 1.10 records that the search for the prismatic site was motivated by the desire to explain the origin of the Frobenius on AΩ, which is now simply the Frobenius lift on O_∆."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/95",
+   "kind": "definition",
+   "name": "Topological Hochschild homology, TP and the motivic filtration on K-theory",
+   "statement": "Topological Hochschild homology and its variants TC, TC^-, TP with the cyclotomic Frobenius, the motivic filtration on TC of [BMS19] with graded pieces ℤ_p(n), and the identification of p-adic K-theory with TC in the range of [CMM18].",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), §13, §14 and §15, pp. 94, 97 and 105",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "RefinedTraceMethods:RT.3"
+   ],
+   "note": "RefinedTraceMethods RT.3 plans the trace and relative comparison and its KU-traces stage the Hochschild and cyclotomic trace constructions; PR.3 records that RT 'proves that BMS2's TC/THH filtration has these graded pieces in its source range' and that it 'does not define Δ by asserting the comparison'."
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/96",
+   "kind": "definition",
+   "name": "Adic spaces and the adic generic fibre of a p-adic formal scheme",
+   "statement": "The adic generic fibre X_η = X ×_{Spf R} Spa(R[1/p], R) of a p-adic formal scheme over a perfectoid ring, as a pre-adic space, its étale site and the nearby-cycles map to X_ét.",
+   "locator": "arXiv:1905.08229v4 (12 January 2022), Theorem 9.1, p. 71",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry",
+    "AdicEtaleGeometry:A1"
+   ],
+   "note": "The Tau Ceti roadmap on adic spaces and AdicEtaleGeometry plan Huber pairs, adic spectra and their étale sites; the paper is careful that X_η is only a pre-adic space in general and that Theorem 11.1 concerns the scheme Spec(R[1/p]), not the adic spectrum."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, Duke Math. J. 170 (2021), 1899–1988",
+   "link": "https://arxiv.org/abs/1807.04725",
+   "why": "The arc-topology of §8 and its descent results. It is listed in research/blueprint/papers/papers.json as PAPER-BHATT-MATHEW-21 (batch 2), so a paper job is already scheduled, but no layer of the atlas plans the topology today; the route proposed here should defer to that extraction if it proposes a different home."
+  },
+  {
+   "citation": "Akhil Mathew, The Galois group of a stable homotopy theory, Adv. Math. 291 (2016), 403–541",
+   "link": "https://arxiv.org/abs/1404.2156",
+   "why": "The notion of descendability used in Lemma 8.6 to control the passage to the perfection, with the uniform bounds it provides on descent. It appears nowhere in the atlas."
+  },
+  {
+   "citation": "Dustin Clausen, Akhil Mathew and Matthew Morrow, K-theory and topological cyclic homology of henselian pairs, J. Amer. Math. Soc. 34 (2021), 411–473",
+   "link": "https://arxiv.org/abs/1803.10897",
+   "why": "The identification of p-adic K-theory with topological cyclic homology which converts Theorem 14.1 into the statement that mod-p K-theory is locally concentrated in even degrees. Queued as PAPER-CLAUSEN-MATHEW-MORROW-21 (batch 2); not yet covered by any layer."
+  },
+  {
+   "citation": "Yves André, La conjecture du facteur direct, Publ. Math. IHÉS 127 (2018), 71–93, and Le lemme d'Abhyankar perfectoïde, Publ. Math. IHÉS 127 (2018), 1–70",
+   "link": "https://doi.org/10.1007/s10240-017-0097-9",
+   "why": "The flatness lemma reproved prismatically as Theorem 7.14, the perfectoid Abhyankar lemma that Theorem 10.9 improves on, and Proposition 1.9.1 of the second paper, quoted as Proposition 10.8 and used without proof. The paper notes that André's standing flatness assumption on m ⊗ m is not needed for that proposition."
+  },
+  {
+   "citation": "Ofer Gabber and Lorenzo Ramero, Almost Ring Theory, Lecture Notes in Math. 1800, Springer, 2003",
+   "link": "https://doi.org/10.1007/b10047",
+   "why": "The basic setup of almost mathematics, the flatness hypothesis of §2.5.15 which the ideal J_perfd is checked to satisfy, and the almost finiteness notions used in Proposition 10.8. PerfectoidSpaces P0 plans almost ring theory but the book itself is not covered."
+  },
+  {
+   "citation": "Mel Hochster and Linquan Ma, The homological conjectures and almost Cohen–Macaulay algebras, and related work",
+   "link": "https://arxiv.org/abs/1703.08281",
+   "why": "The commutative-algebra theorems that Remark 10.13 reproves in a few lines from Theorem 10.9; they are the intended downstream application of the almost purity theorem in this form."
+  },
+  {
+   "citation": "Jacob Lurie, Spectral Algebraic Geometry, preprint",
+   "link": "https://www.math.ias.edu/~lurie/papers/SAG-rootfile.pdf",
+   "why": "The ∞-categorical foundations used in §1.2: derived completion in §7 and §8, flat descent for simplicial commutative rings (Corollary D.6.3.3) and the identification D_{I-comp}(B) ≃ lim_n D(Kos(B; f^n)) (Theorem 8.3.4.4, Remark 8.3.4.5)."
+  },
+  {
+   "citation": "André Joyal, δ-anneaux et vecteurs de Witt, C. R. Math. Rep. Acad. Sci. Canada 7 (1985), 177–182; James Borger, Witt vectors, lambda-rings, and arithmetic jet spaces (lecture notes), and The basic geometry of Witt vectors I, Algebra Number Theory 5 (2011), 231–285",
+   "link": "https://arxiv.org/abs/0801.1691",
+   "why": "The origin of δ-rings, the identification of the right adjoint to the forgetful functor with the Witt vector functor, and the δ_n operations of Remark 2.13; Borger's work identifies δ-structures with p-typical λ-structures. PR.0 plans δ-rings but the sources are not covered."
+  },
+  {
+   "citation": "Charles Rezk, Étale extensions of λ-rings (and the W₂ description of δ-rings)",
+   "link": "https://faculty.math.illinois.edu/~rezk/",
+   "why": "The description of a δ-structure as a section of W₂(R) → R used in Remark 2.4 and, through the pullback square of Remark 2.5, the identification of δ-structures with derived Frobenius lifts."
+  },
+  {
+   "citation": "Renée Elkik, Solutions d'équations à coefficients dans un anneau hensélien, Ann. Sci. École Norm. Sup. (4) 6 (1973), 553–603",
+   "link": "http://www.numdam.org/item/ASENS_1973_4_6_4_553_0/",
+   "why": "The algebraization results that identify I-completely étale and I-completely smooth algebras with derived completions of étale and smooth algebras; the paper sketches an alternative derived-deformation-theory proof in a footnote to §1.2 because Elkik assumes noetherian hypotheses."
+  },
+  {
+   "citation": "Peter Scholze, Canonical q-deformations in arithmetic geometry, Ann. Fac. Sci. Toulouse Math. (6) 26 (2017), 1163–1192",
+   "link": "https://arxiv.org/abs/1606.01796",
+   "why": "The q-de Rham complexes and Conjecture 1.1 on their independence of coordinates, which Theorems 16.18 and 16.22 resolve; it is the motivation for the whole of §16."
+  },
+  {
+   "citation": "Bhargav Bhatt and Jacob Lurie, Absolute prismatic cohomology, and The prismatization of p-adic formal schemes",
+   "link": "https://arxiv.org/abs/2201.06120",
+   "why": "The absolute prismatic site and the Cartier–Witt stack, referred to as [BL] throughout, in particular for the purely algebraic prismatic logarithm of Remark 9.5 that replaces the cyclotomic-trace construction of the comparison map in Theorem 9.4. PR.5 plans this material and names Bhatt–Lurie as its source."
+  },
+  {
+   "citation": "Klaus Timmerscheidt and others cited for the crystalline background: Pierre Berthelot and Arthur Ogus, Notes on Crystalline Cohomology, and Jean-Marc Fontaine and William Messing, p-adic periods and p-adic étale cohomology",
+   "link": "https://doi.org/10.1515/9781400867316",
+   "why": "The crystalline site, PD envelopes and the syntomic description of crystalline cohomology in terms of divided power envelopes which §§5 and 12 adapt. CrystallineCohomology CR.0–CR.2 plan this material."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "PrismaticCohomology",
+   "stages": [
+    "PrismaticCohomology:PR.2"
+   ],
+   "items": [
+    "PAPER-BHATT-SCHOLZE-22/48",
+    "PAPER-BHATT-SCHOLZE-22/49",
+    "PAPER-BHATT-SCHOLZE-22/50",
+    "PAPER-BHATT-SCHOLZE-22/51",
+    "PAPER-BHATT-SCHOLZE-22/52"
+   ],
+   "reason": "PR.2 is the layer that extends prismatic cohomology by left Kan extension, treats semiperfectoid inputs and proves descent, and it already names BS22 §§7–8 among its sources; it is also the layer that owns perfect-prismatic and perfected cohomology and the comparison with the non-perfect theory. What it does not plan is the machinery §8 uses to get there: the arc-topology on p-adic formal schemes, the fact that perfectoids form a basis for it, the arc-sheafiness of the structure sheaf on that basis, the resulting formula S_perfd = RΓ_arc(Spf S, O), the excision pullback square and monoidality of perfectoidization, and Mathew's notion of descendability that controls the limits. A text search of every stage description in the atlas for 'arc-topology', 'arc-descent', 'arc cover' and 'descendability' returns nothing; the closest existing material, the pro-étale and v-topologies of DiamondsAndVStacks D2, is a topology on diamonds and v-stacks, not on p-adic formal schemes, and is not a substitute — arc-covers are tested against p-adically complete rank-one valuation rings, and the point of §8 is precisely that the structure sheaf fails to be an arc-sheaf on all formal schemes but succeeds on perfectoids. These results are routed as a source of PR.2 rather than as a new roadmap because they exist here only to compute perfectoidization, which PR.2 and PerfectoidQuotients already own, and because PROTOCOL.md section 15 asks that what an existing layer is already responsible for be added to it rather than duplicated. A reviewer should note that the arc-topology has its own paper, Bhatt–Mathew, which is already queued in papers.json as PAPER-BHATT-MATHEW-21; if that extraction proposes a home for the arc-topology itself, this route should defer to it and import rather than re-plan."
+  },
+  {
+   "route": "source",
+   "roadmap": "PerfectoidQuotients",
+   "stages": [
+    "PerfectoidQuotients:Q2",
+    "PerfectoidQuotients:Q4"
+   ],
+   "items": [
+    "PAPER-BHATT-SCHOLZE-22/61",
+    "PAPER-BHATT-SCHOLZE-22/62"
+   ],
+   "reason": "Q2 constructs universal prisms and the universal perfectoidization of a semiperfectoid ring, and Q4 proves BS22 Theorem 7.4, that S → S_perfd is surjective, together with its consequence for Zariski closed subsets of affinoid perfectoid spaces. Theorem 10.11 is the general form of the same statement — for an arbitrary integral algebra over a perfectoid ring, rather than a semiperfectoid quotient, ∆_{S/A,perf} is discrete and S_perfd is a perfectoid ring with the expected universal property — and Lemma 10.12, that a finitely presented finite map is finite étale over a constructible stratification up to universal homeomorphisms, is the commutative-algebra input its proof runs an induction along. Neither is planned: Q2 and Q4 stop at the semiperfectoid case, and no other layer mentions the integral case. They belong with the perfectoidization layers rather than with the almost-purity ones because they are statements about the perfectoidization functor itself."
+  },
+  {
+   "route": "source",
+   "roadmap": "PerfectoidSpaces",
+   "stages": [
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P3"
+   ],
+   "items": [
+    "PAPER-BHATT-SCHOLZE-22/57",
+    "PAPER-BHATT-SCHOLZE-22/58",
+    "PAPER-BHATT-SCHOLZE-22/59",
+    "PAPER-BHATT-SCHOLZE-22/60",
+    "PAPER-BHATT-SCHOLZE-22/63"
+   ],
+   "reason": "P0 builds almost ring theory over an abstract ring with an explicitly specified idempotent ideal, and says that P1–P2 instantiate it with the ideal generated by the fractional powers of a pseudouniformizer; P3 proves almost purity for perfectoid Tate rings in the form of ECD Theorem 6.1, by the Scholze and Kedlaya–Liu route, and insists that its proofs not depend on diamondification. The items routed here are exactly the second instantiation that BS22 makes available and the stronger purity theorem it yields: for a perfectoid ring R and any finitely generated ideal J, the ideal J_perfd = ker(R → (R/J)_perfd) is idempotent by Lemma 10.3 and defines an almost setting in which the almost-zero objects are the derived p-complete (R/J)_perfd-modules; J-almost Galois extensions are almost finite projective and almost unramified; and a finite R-algebra that is finite étale outside V(J) has perfectoid perfectoidization which is J-almost finite étale over R. Remark 1.13 advertises the first as a contribution of the paper — almost mathematics with respect to any closed subset, not only the ideal of p-power roots of p — and Remark 10.10 records that the proof gives a new proof of the classical almost purity theorem and of the perfectoid Abhyankar lemma without using adic spaces at all, which is precisely the kind of proof P3 asks for. The connectivity criterion of Lemma 10.5 and the Hochster–Ma application of Remark 10.13 travel with them. This is a source route and not a new roadmap because the almost-algebra framework already exists at P0 and the purity statement already has an owner at P3; what is added is a second base ideal and a stronger theorem."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E1",
+   "kind": "misprint",
+   "locator": "Corollary 15.4, p. 104",
+   "printed": "Corollary 15.4. For any bounded prism (A, I) and any smooth formal A/I-scheme X, there is a canonical isomorphism of E_∞-algebras in D(X_ét, A/I), ∆_{X/A} ⊗̂^L_{A,φ} A/I ≅ Ω^*_{R/(A/I)}.",
+   "correction": "The right-hand side should be Ω^*_{X/(A/I)}.",
+   "reason": "The statement quantifies over a smooth formal A/I-scheme X and produces an isomorphism of algebras in D(X_ét, A/I); no ring R is introduced anywhere in the statement or in the two-line proof. Theorem 6.4 on p. 53, of which Corollary 15.4 is the version without the technical hypothesis that W(A/I) be p-torsionfree, states the same isomorphism correctly as ∆_{X/A} ⊗̂^L_{A,φ} A/I ≅ Ω^*_{X/(A/I)}, and Theorem 1.8 (3) on p. 4 states it as RΓ_dR(X/(A/I)) ≅ RΓ_∆(X/A) ⊗̂^L_{A,φ_A} A/I. The likely origin is that the proof of Theorem 6.4 reduces to the affine case R.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229, whose only comment on v4 is 'v4: further updates', and none is listed in the Crossref record for DOI 10.4007/annals.2022.196.3.5. The text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Theorem 6.4 on p. 53 and Theorem 1.8 (3) on p. 4, which state the same comparison"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E2",
+   "kind": "misprint",
+   "locator": "Example 7.12, p. 61",
+   "printed": "In particular, the natural map A/ItoD/IC factors over the p-completely étale A/I-algebra R_∞.",
+   "correction": "The sentence should read 'the natural map A/I → D/ID factors over …'; the arrow has been typeset as the italic product of the letters t and o, so the LaTeX source is missing a backslash in \\to.",
+   "reason": "'A/ItoD/IC' is not a mathematical expression: 'to' appears in italics between the two rings, which is what an unescaped 'to' inside math mode produces. The surrounding text has just constructed a faithfully flat map of prisms (C, IC) → (D, ID) via Proposition 7.11, so the target is the reduction D/ID of that prism. The example also writes D/IC twice for that reduction; that is consistent with the rigidity of Lemma 3.5, by which ID = (IC)D, but it is inconsistent with the notation (D, ID) introduced in the same sentence and makes the passage harder to read than it needs to be.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Lemma 3.5 on p. 29 and Proposition 7.11 on p. 60, which fix the notation"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E3",
+   "kind": "misprint",
+   "locator": "Remark 2.37, p. 24",
+   "printed": "… and thus coincides with the ring ℤ_(p){x, φ(x)/p} ≃ D_{(x)}(ℤ_(p)) above.",
+   "correction": "The right-hand side should be D_{(x)}(ℤ_(p){x}), the divided power envelope of the ideal (x) in the free δ-ring ℤ_(p){x}.",
+   "reason": "Lemma 2.36, which the remark is commenting on, states that C := ℤ_(p){x, φ(x)/p} identifies with the pd-envelope D := D_{(x)}(ℤ_(p){x}). The expression D_{(x)}(ℤ_(p)) is meaningless as printed, since x is not an element of ℤ_(p); the generator x lives in the free δ-ring.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Lemma 2.36 on p. 23, whose statement the remark repeats"
+   ]
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E4",
+   "kind": "misprint",
+   "locator": "Theorem 1.8 (3), p. 4",
+   "printed": "of commutative algberas in D(A). Moreover, it can be upgraded naturally to an isomorphism of commutative differential graded algebras.",
+   "correction": "'algberas' should be 'algebras'.",
+   "reason": "A transposition typo; the same sentence spells the word correctly one line later, and parts (1) and (3) of the same theorem write 'of commutative algebras in D(A)'.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version. It is recorded here only because PROTOCOL.md section 18 asks that every mistake found be listed.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "the rest of Theorem 1.8 on pp. 4–5"
+   ]
+  }
+ ]
+}
