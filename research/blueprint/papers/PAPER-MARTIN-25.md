@@ -162,3 +162,7 @@ Selected acceptance cases are:
 - The normalization `x↦3x` is rejected at characteristic three.
 
 No Lean file belongs to this paper job. No Lean compilation was performed or claimed. The complete status records coverage and routing of this paper, with its source correction visible; the independent review remains necessary before these routes are accepted.
+
+## Correction by the independent review
+
+The independent review (REV-PAPER-MARTIN-25, `research/blueprint/reviews/REV-PAPER-MARTIN-25.md`) accepted this extraction and both routes. It changed route 2's `area` from `diophantine`, an atlas group name, to the galaxy id `arithmeticgeometry`.
