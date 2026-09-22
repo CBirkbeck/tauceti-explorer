@@ -688,7 +688,7 @@
     },
     {
       "citation": "R. W. Richardson, Conjugacy classes of n-tuples in Lie algebras and algebraic groups, Duke Math. J. 57 (1988), 1–35 [Ric88]",
-      "link": "https://doi.org/10.1215/S0012-7094-88-05902-2",
+      "link": "https://doi.org/10.1215/s0012-7094-88-05701-8",
       "why": "1.3.2 (coarse quotients and closed orbits), théorème 2.1 (Hilbert–Mumford), théorème 3.6 (semisimple tuples ↔ closed diagonal orbits) = Lemme 11.9, and théorème 5.2 (a Levi of the generated group) = the engine of Lemme 11.10. The whole reconstruction of a Langlands parameter rests on these."
     },
     {
