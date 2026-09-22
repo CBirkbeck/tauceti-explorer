@@ -1650,3 +1650,137 @@ rounding-status sentence.
 No Lean elaboration or independent review is claimed. G0 and the unresolved
 parts of G1–G10 remain explicit. Passing repository checks does not establish
 mathematical completeness.
+
+## Eighth checkpoint: the Taylor endpoint adapter
+
+> **Eighth-checkpoint notice — 22 September 2026.** Claude Code, session
+> `cc-7b31c4`. This checkpoint adds one section and edits one item note. No
+> item is added or removed, no id changes, no route changes, and no
+> `sourceIssues`, `gaps`, `verification` or `selectedProofEdges` entry is
+> touched. The 129-item result and all seven earlier checkpoints stand; the
+> obsolete guarded patch was not reapplied.
+
+Resume item 2 of the previous handoff asked for a genuinely remaining G7
+interface to be closed against the prescribed Mathlib pin
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, and named four candidates. This
+section closes the first of them, the **Taylor-within endpoint conversion**,
+and shows that the remaining adaptation recorded for `bp-taylor-supplier` in
+the seventh checkpoint's supplier table was over-stated.
+
+### What the previous note said, and what is actually needed
+
+The seventh checkpoint recorded, for `bp-taylor-supplier`:
+
+> BP2 uses n=k−1 on unequal endpoints. Convert the Taylor-within coefficients
+> to ordinary derivatives under neighbourhood smoothness; handle equal
+> endpoints separately. The generic remainder does not prove the scaled
+> inequality.
+
+Three separate things are bundled there. The first two are now closed; only
+the third remains, and its suppliers are identified below.
+
+Note first that the *remainder* side needs no conversion at all. At the pin,
+`taylor_mean_remainder_lagrange_iteratedDeriv`
+(`Mathlib/Analysis/Calculus/Taylor.lean:348`) already produces an **ordinary**
+iterated derivative:
+
+```
+lemma taylor_mean_remainder_lagrange_iteratedDeriv {f : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ}
+    (hx : x₀ ≠ x) (hf : ContDiffOn ℝ (n + 1) f (uIcc x₀ x)) :
+    ∃ x' ∈ uIoo x₀ x, f x - taylorWithinEval f n (uIcc x₀ x) x₀ x =
+      iteratedDeriv (n + 1) f x' * (x - x₀) ^ (n + 1) / (n + 1)!
+```
+
+Its own proof converts at `x'`, which is interior, using
+`Icc_mem_nhds_iff`. What is left in BP2 is therefore the *polynomial* side:
+`taylorWithinEval f n (uIcc x₀ x) x₀ x` has coefficients
+`taylorCoeffWithin f j (uIcc x₀ x) x₀ = (j!)⁻¹ • iteratedDerivWithin j f (uIcc x₀ x) x₀`
+(`Taylor.lean:62`), evaluated at the **endpoint** `x₀`, where `uIcc x₀ x` is
+not a neighbourhood.
+
+### The endpoint is not an obstruction
+
+The conversion lemma at the pin,
+`Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean:70`, is
+
+```
+theorem iteratedDerivWithin_eq_iteratedDeriv (hs : UniqueDiffOn 𝕜 s)
+    (h : ContDiffAt 𝕜 n f x) (hx : x ∈ s) :
+    iteratedDerivWithin n f s x = iteratedDeriv n f x
+```
+
+and its underlying `iteratedFDerivWithin_eq_iteratedFDeriv`
+(`ContDiff/Defs.lean:1040`) has the same three hypotheses. **Neither requires
+`s` to be a neighbourhood of `x`.** The smoothness hypothesis is on the
+*function* at the point, not on the set. Since `x₀ ∈ uIcc x₀ x` always, and
+`uniqueDiffOn_uIcc` (`TangentCone/Real.lean:102`) gives
+`UniqueDiffOn ℝ (uIcc x₀ x)` from `x₀ ≠ x` alone, the conversion applies at the
+endpoint as soon as `f` is `ContDiffAt ℝ j f x₀`.
+
+This gives the adapter BP2 needs.
+
+**T1 (endpoint form of the Taylor polynomial).** Let `x₀ ≠ x` be reals, let `U`
+be open with `uIcc x₀ x ⊆ U`, and let `f : ℝ → ℝ` be `C^{n+1}` on `U`. Then
+
+  `taylorWithinEval f n (uIcc x₀ x) x₀ x = Σ_{j=0}^{n} (j!)⁻¹ · iteratedDeriv j f x₀ · (x − x₀)^j`,
+
+and there is `x' ∈ uIoo x₀ x` with
+
+  `f x − Σ_{j=0}^{n} (j!)⁻¹ · iteratedDeriv j f x₀ · (x − x₀)^j
+      = iteratedDeriv (n+1) f x' · (x − x₀)^{n+1} / (n+1)!`.
+
+*Proof.* `UniqueDiffOn ℝ (uIcc x₀ x)` by `uniqueDiffOn_uIcc` from `x₀ ≠ x`.
+For `j ≤ n+1`, openness of `U` and `ContDiffOn ℝ (n+1) f U` give
+`ContDiffAt ℝ j f x₀` (`ContDiffOn.contDiffAt`, `ContDiff/Defs.lean:963`, with
+`U ∈ 𝓝 x₀`). Hence `iteratedDerivWithin j f (uIcc x₀ x) x₀ = iteratedDeriv j f x₀`
+for every such `j`, by the lemma just quoted. Feeding this into
+`taylorCoeffWithin` and inducting with `taylorWithinEval_succ`
+(`Taylor.lean:87`), with base case `taylor_within_zero_eval`
+(`Taylor.lean:100`), rewrites the Taylor polynomial as the displayed ordinary
+sum. The remainder is then `taylor_mean_remainder_lagrange_iteratedDeriv`
+applied with `hf : ContDiffOn ℝ (n+1) f (uIcc x₀ x)`, which follows by
+restriction from `U`. ∎
+
+**T2 (equal endpoints).** If `x = x₀` then
+`taylorWithinEval f n (uIcc x₀ x) x₀ x₀ = f x₀` by `taylorWithinEval_self`
+(`Taylor.lean:109`), so both sides of T1's first display equal `f x₀`, the
+remainder is zero, and no point `x'` is needed. The `x₀ ≠ x` hypothesis of the
+two cited Taylor lemmas is therefore not a gap in BP2; it is discharged by a
+one-line separate case, as the previous note anticipated but did not carry out.
+
+### What genuinely remains, with its suppliers
+
+Only the third clause of the old note survives: the generic remainder is an
+equality at one unknown interior point, whereas BP2 uses the inequality
+
+  `|f x − Σ_{j≤n} (j!)⁻¹ f^{(j)}(x₀)(x − x₀)^j| ≤ (sup_{uIcc x₀ x} |f^{(n+1)}|) · |x − x₀|^{n+1}/(n+1)!`.
+
+Passing from T1 to this needs a supremum over `uIcc x₀ x`, and the suppliers
+for that step are also present at the pin:
+
+| Step | Exact declaration | Remaining adaptation |
+| --- | --- | --- |
+| `iteratedDeriv (n+1) f` is continuous on `U` | `ContDiffOn.continuousOn_iteratedDerivWithin` (`IteratedDeriv/Defs.lean:147`) with `IsOpen.uniqueDiffOn` (`TangentCone/Basic.lean:291`), then the same conversion as in T1 at every point of the open `U` | none beyond instantiating `m = n+1 ≤ n+1` |
+| the supremum is attained | `IsCompact.exists_isMaxOn` (`Topology/Order/Compact.lean:246`) with `isCompact_Icc` (`Topology/Order/Compact.lean:55`) and `uIcc x₀ x` nonempty | the statement is about `IsMaxOn`; converting it to a numerical bound on `|f^{(n+1)}|` needs the max of the absolute value, i.e. apply it to `fun y => |iteratedDeriv (n+1) f y|` |
+
+With those two, BP2's scaled inequality follows from T1 by taking absolute
+values. Note the hypothesis actually used throughout is `C^{n+1}` smoothness
+on an **open set containing** `uIcc x₀ x`, which is strictly stronger than the
+`ContDiffOn ℝ (n+1) f (uIcc x₀ x)` hypothesis of the cited remainder lemma. BP2
+has it, because there `f` is a polynomial or an algebraic branch on an open
+strip; a blueprint must not silently weaken T1 back to `ContDiffOn` on the
+closed interval, since without `ContDiffAt` at `x₀` the conversion lemma does
+not apply and the coefficients genuinely stay `iteratedDerivWithin`.
+
+### Boundaries of this checkpoint
+
+No Lean was written or compiled; every citation above is a statement read in
+the source tree at the prescribed pin, with file and line. The three other
+interfaces named in resume item 2 — rectangular evaluation-rank/kernel
+equivalence, the repeated-Rolle derivative witness with its factorial bounds,
+and nonzero specialization/degree bounds — are untouched, as are G1–G6 and
+G8–G10, the Bézout and branch-continuation interfaces of BP6, and the
+acquisition of an authorized final 2019/2020 version. E1–E4 remain proposed,
+not accepted, and this worker did not review them. The regression script of
+the sixth checkpoint was not rerun in this checkpoint; its recorded results
+stand unchanged.
