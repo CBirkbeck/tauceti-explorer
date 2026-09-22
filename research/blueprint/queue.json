@@ -1731,8 +1731,9 @@
    ],
    "avoidAccountOf": "PAPER-BENNETT-SIKSEK-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1120"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1120",
+   "finishedAt": "2026-09-22T06:39:35Z"
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20",
@@ -1910,8 +1911,9 @@
    ],
    "avoidAccountOf": "PAPER-COUVEIGNES-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1130"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1130",
+   "finishedAt": "2026-09-22T06:39:38Z"
   },
   {
    "id": "PAPER-KHAYUTIN-19",
@@ -2546,8 +2548,9 @@
    ],
    "avoidAccountOf": "PAPER-BAKKER-TSIMERMAN-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1166"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1166",
+   "finishedAt": "2026-09-22T06:39:41Z"
   },
   {
    "id": "PAPER-SCHMIDT-STIX-16",
@@ -3359,8 +3362,9 @@
    ],
    "avoidAccountOf": "PAPER-MARTIN-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-MARTIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1217"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1217",
+   "finishedAt": "2026-09-22T06:39:44Z"
   },
   {
    "id": "PAPER-YANG-ZHAO-25",
