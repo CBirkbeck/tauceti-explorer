@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-0 new mistakes confirmed · 426 awaiting review · 54 already corrected in print · 0 rejected on review · 7 extractions and packets not yet checked.
+0 new mistakes confirmed · 426 awaiting review · 54 already corrected in print · 0 rejected on review · 8 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -664,4 +664,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `MordellLawrenceVenkatesh`, `PAPER-BENOIST-19`, `PAPER-CESNAVICIUS-22`, `PAPER-HARPAZ-WITTENBERG-20`, `PAPER-KISIN-PAPPAS-18`, `PAPER-KISIN-PAPPAS-ZHOU-26`, `PAPER-MERKURJEV-SCAVIA-26`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `MordellLawrenceVenkatesh`, `PAPER-BENOIST-19`, `PAPER-CESNAVICIUS-22`, `PAPER-HARPAZ-WITTENBERG-20`, `PAPER-KISIN-17`, `PAPER-KISIN-PAPPAS-18`, `PAPER-KISIN-PAPPAS-ZHOU-26`, `PAPER-MERKURJEV-SCAVIA-26`.
