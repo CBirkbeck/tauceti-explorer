@@ -5991,8 +5991,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MATHEW-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1365"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1365",
+   "finishedAt": "2026-09-22T19:46:09Z"
   },
   {
    "id": "REV-PAPER-BHATT-MATHEW-23",
@@ -6493,8 +6494,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1395"
+   "state": "external",
+   "note": "claimed on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -7140,7 +7141,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAFFORGUE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1432"
   },
   {
    "id": "REV-PAPER-LAFFORGUE-18",
