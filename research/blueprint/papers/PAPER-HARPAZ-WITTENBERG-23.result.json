@@ -81,23 +81,10 @@
       "route": "source",
       "roadmap": "SchemeAndStackFoundations",
       "stages": [
-        "SchemeAndStackFoundations:SF.1"
-      ],
-      "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/24"
-      ],
-      "reason": "Finite torsor descent and quotient prerequisites use the existing general descent owner."
-    },
-    {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
         "SchemeAndStackFoundations:SF.2"
       ],
       "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/40",
-        "PAPER-HARPAZ-WITTENBERG-23/152",
-        "PAPER-HARPAZ-WITTENBERG-23/155"
+        "PAPER-HARPAZ-WITTENBERG-23/40"
       ],
       "reason": "The scheme-theoretic Hochschild–Serre edge sequence and naturality specialize its sites/cohomology scope; group-only Hochschild–Serre is a different supplier. Include the natural comparison of splitting-variety and fundamental-group Hochschild–Serre edge maps, not just an abstract Brauer-group isomorphism. Keep the separately sourced curve-function-field H³ vanishing input visible."
     },
@@ -133,7 +120,6 @@
         "ArithmeticGaloisDuality:R02.2"
       ],
       "items": [
-        "PAPER-HARPAZ-WITTENBERG-23/58",
         "PAPER-HARPAZ-WITTENBERG-23/148",
         "PAPER-HARPAZ-WITTENBERG-23/149",
         "PAPER-HARPAZ-WITTENBERG-23/150"
@@ -176,10 +162,10 @@
       "title": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
       "area": "algebraicnt",
       "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/9",
         "PAPER-HARPAZ-WITTENBERG-23/14",
         "PAPER-HARPAZ-WITTENBERG-23/15",
         "PAPER-HARPAZ-WITTENBERG-23/16",
-        "PAPER-HARPAZ-WITTENBERG-23/17",
         "PAPER-HARPAZ-WITTENBERG-23/19",
         "PAPER-HARPAZ-WITTENBERG-23/20",
         "PAPER-HARPAZ-WITTENBERG-23/21",
@@ -215,7 +201,6 @@
         "PAPER-HARPAZ-WITTENBERG-23/90",
         "PAPER-HARPAZ-WITTENBERG-23/91",
         "PAPER-HARPAZ-WITTENBERG-23/92",
-        "PAPER-HARPAZ-WITTENBERG-23/96",
         "PAPER-HARPAZ-WITTENBERG-23/97",
         "PAPER-HARPAZ-WITTENBERG-23/98",
         "PAPER-HARPAZ-WITTENBERG-23/99",
@@ -233,8 +218,6 @@
         "PAPER-HARPAZ-WITTENBERG-23/113",
         "PAPER-HARPAZ-WITTENBERG-23/116",
         "PAPER-HARPAZ-WITTENBERG-23/117",
-        "PAPER-HARPAZ-WITTENBERG-23/118",
-        "PAPER-HARPAZ-WITTENBERG-23/119",
         "PAPER-HARPAZ-WITTENBERG-23/125",
         "PAPER-HARPAZ-WITTENBERG-23/127",
         "PAPER-HARPAZ-WITTENBERG-23/128",
@@ -252,7 +235,7 @@
         "PAPER-HARPAZ-WITTENBERG-23/146"
       ],
       "reason": "Higher Galois lifting and explicit unitriangular cohomology are additional layers beyond upstream ProfiniteCohomology. Generic DGA Massey products already belong to DGAInfinity Layer 8; this continuation imports them.",
-      "brief": "Prove, for every number field k, prime p and n≥3, that every defined n-fold product of H¹(k,F_p) classes contains zero. Prove the rank-one twisted version for N_i one-dimensional Galois F_p-modules, M_ij=Hom(N_j,N_i), and the μ_p^⊗n specialization. Finally construct existentially three H¹(Q,Z/8) classes whose triple product is defined but excludes zero. Import Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), DG and A∞ algebra/category infrastructure (tauceti:TauCetiRoadmap/DGAInfinity, Layers 1 and 8), Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 5), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.4), and Heights, rational points and obstructions, Part II: homogeneous Massey varieties (HeightsRationalPointsPartIIHomogeneousMassey). Use the existing upper-unitriangular carrier and filtration, adding exact commutator equalities, B/B_0 action calculations, outer exponent only for n≤6, fixed conjugacy generation, refined local lifting and finite-C splitting-torsor cup formula with explicit sign. Compare continuous cochains and abstract finite-group extensions through the canonical carrier. The twisted correspondence fixes adjacent cochains; derive class-level existence by conjugation. Include real-place lifting, the internal-sum corner convention for P, and the p=3 matrix correction. The Z/8 chain must construct the twisted modules, Wang class, dual Sha nonsurjectivity, γ, middle character and local/global lift obstruction, not assume the conclusion. Every definition needs entry/quotient/functorial APIs and three discriminating tests. Import the topology-aware splitting-torsor correction from ArithmeticGaloisDuality R02.1, rather than creating another non-discrete cohomology theory. Include the explicit five-dimensional Q=C2×C4×C2 action, cyclically trivial β and auxiliary γ from the Remark3.4 completion. Generic existing suppliers are not new axioms. Interpret Lemma4.7 as factorization of powering through (Z/p)×: under Definition3.2's least-divisor convention the outer exponent is1 at p=2, not2. Reuse existing transvection identities and add only UT membership/factorization."
+      "brief": "Prove Dwyer's correspondence between defining systems of n-fold Massey products of classes in H¹(Γ,F_p) and continuous lifts to U=UT_(n+1)(F_p); the refined local lifting theorem at every place of a number field (Proposition 5.3 and its archimedean extension); their rank-one twisted analogues for one-dimensional Galois F_p-modules N_i with M_ij=Hom(N_j,N_i); and Theorem 7.5, existentially three H¹(Q,Z/8) classes whose triple product is defined but excludes zero. The final arithmetic theorems (Theorems 1.3/5.1 and 7.4) belong to HeightsRationalPointsPartIIHomogeneousMassey, which imports this roadmap; this roadmap imports nothing from it. Import Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), DG and A∞ algebra/category infrastructure (tauceti:TauCetiRoadmap/DGAInfinity, Layers 1 and 8), Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 5), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.4), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory, HL.2) for equal-characteristic local duality, and ProfiniteCohomology Layer 9 for Kummer theory. Use the existing upper-unitriangular carrier and filtration, adding exact commutator equalities, B/B_0 action calculations, outer exponent only for n≤6, fixed conjugacy generation, refined local lifting and finite-C splitting-torsor cup formula with explicit sign. Compare continuous cochains and abstract finite-group extensions through the canonical carrier. The twisted correspondence fixes adjacent cochains; derive class-level existence by conjugation. Include real-place lifting, the internal-sum corner convention for P, and the p=3 matrix correction. The Z/8 chain must construct the twisted modules, Wang class, dual Sha nonsurjectivity, γ, middle character and local/global lift obstruction, not assume the conclusion. Every definition needs entry/quotient/functorial APIs and three discriminating tests. Import the topology-aware splitting-torsor correction from ArithmeticGaloisDuality R02.1, rather than creating another non-discrete cohomology theory. Include the explicit five-dimensional Q=C2×C4×C2 action, cyclically trivial β and auxiliary γ from the Remark3.4 completion. Generic existing suppliers are not new axioms. Interpret Lemma4.7 as factorization of powering through (Z/p)×: under Definition3.2's least-divisor convention the outer exponent is1 at p=2, not2. Reuse existing transvection identities and add only UT membership/factorization. Coordinate with PAPER-MERKURJEV-SCAVIA-26 route 6, a second proposed Part II of ProfiniteCohomology that shares the embedding-problem lifting criterion, the unitriangular filtration and characteristic-p cohomological dimension: each shared item needs one owner."
     },
     {
       "route": "part-ii",
@@ -297,10 +280,17 @@
         "PAPER-HARPAZ-WITTENBERG-23/46",
         "PAPER-HARPAZ-WITTENBERG-23/147",
         "PAPER-HARPAZ-WITTENBERG-23/151",
-        "PAPER-HARPAZ-WITTENBERG-23/153"
+        "PAPER-HARPAZ-WITTENBERG-23/153",
+        "PAPER-HARPAZ-WITTENBERG-23/157",
+        "PAPER-HARPAZ-WITTENBERG-23/152",
+        "PAPER-HARPAZ-WITTENBERG-23/155",
+        "PAPER-HARPAZ-WITTENBERG-23/158",
+        "PAPER-HARPAZ-WITTENBERG-23/96",
+        "PAPER-HARPAZ-WITTENBERG-23/118",
+        "PAPER-HARPAZ-WITTENBERG-23/119"
       ],
       "reason": "The explicit finite-stabilizer splitting varieties, outer-action supersolvability and unramified Brauer formula add substantial layers beyond RP.2–RP.3; generic pairing and descent remain in those owners.",
-      "brief": "Construct V=(SL_(|U|+1)×T_α)/U and the auxiliary W with stabilizer P; prove weak solutions modulo kernel conjugacy correspond to SL-orbits of rational points. For characteristic-zero homogeneous spaces under semisimple simply connected groups with finite stabilizer H, compute Br_1,nr/Br_0 by Proposition 3.3 with BOTH δβ=0 and every conjugacy-power test, using the correct character/cyclotomic actions. Import HW20 Théorème B with outer-action-stable supersolvable filtration and derive V(k) iff a Br_nr-orthogonal full family of local points exists. For the Massey stabilizer prove geometric Br_nr=0, boundary-module restriction zero for n≤6, all Brauer classes pull back to constants on W, and the local-family orthogonality argument. Compute Br_nr(V)=Br_0(V) for n=3, and Br_nr/Br_0=B_ω for n=4,5, including the 34,2,17,34 undefined-product obstruction. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3), Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1,SF.2,SF.4), Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), and the finite-matrix/cohomology portions of ProfiniteCohomologyPartIIMasseyGalois. The dependency order is finite matrix/cohomology interfaces → geometric/Brauer continuation → final arithmetic Massey theorems; avoid a stage-level cycle despite reciprocal roadmap imports. HW20, PS16, LA14 and Bogomolov require their complete proof decompositions. Keep geometric bars, quotient constants and finite splitting-field choices explicit. B_ω means locally constant Brauer classes modulo Br_0, not merely constant evaluation functions. Include the explicit p=2,n=6,σ=e_01+e_12+e_56 example and its coordinate-functional Brauer class from this extraction; include the explicit Remark3.4 completion: the order512 extension E=B×_(γ cup ζ)Q, V=(SL_513×Spec L)/E over C((x))((y))((z)), cyclically trivial β, and δβ equal to the nonzero image of (x)cup(y)cup(z). Import the extension transgression and Laurent-field residue/Witt sequences from ArithmeticGaloisDuality R02.2 and the natural étale edge comparison from SF.2. Keep the Kummer-injectivity step via 2-divisibility of Br(k); residue nonvanishing in μ_2 alone is insufficient."
+      "brief": "The final theorems are Massey vanishing over number fields (Theorems 1.3/5.1: for every number field k, prime p and n≥3, every defined n-fold Massey product of classes in H¹(k,F_p) contains zero) and its rank-one twisted form (Theorem 7.4, with the μ_p^⊗n specialization), deduced from the refined local lifting theorems of ProfiniteCohomologyPartIIMasseyGalois and the Brauer–Manin argument below. Construct V=(SL_(|U|+1)×T_α)/U and the auxiliary W with stabilizer P; prove weak solutions modulo kernel conjugacy correspond to SL-orbits of rational points. For characteristic-zero homogeneous spaces under semisimple simply connected groups with finite stabilizer H, compute Br_1,nr/Br_0 by Proposition 3.3 with BOTH δβ=0 and every conjugacy-power test, using the correct character/cyclotomic actions. Import HW20 Théorème B with outer-action-stable supersolvable filtration and derive V(k) iff a Br_nr-orthogonal full family of local points exists. For the Massey stabilizer prove geometric Br_nr=0, boundary-module restriction zero for n≤6, all Brauer classes pull back to constants on W, and the local-family orthogonality argument. Compute Br_nr(V)=Br_0(V) for n=3, and Br_nr/Br_0=B_ω for n=4,5, including the 34,2,17,34 undefined-product obstruction. Import Heights, rational points and obstructions (HeightsRationalPointsAndObstructions, RP.2–RP.3), Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1,SF.2,SF.4), Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Global Galois duality and compact coefficients (ArithmeticGaloisDuality), ProfiniteCohomologyPartIIMasseyGalois (finite-matrix, cohomology and refined local lifting results), Chebotarev density (tauceti:TauCetiRoadmap/Chebotarev, Layers 9–10), finite étale quotients and Galois sets (tauceti:TauCetiRoadmap/ModularCurves, 0C–0D), and embedding problems (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 5). The dependency order is ProfiniteCohomologyPartIIMasseyGalois (finite matrix, cohomology and local lifting) → this roadmap's geometric and Brauer layers → the final arithmetic Massey theorems; the imports go one way only. HW20, PS16, LA14 and Bogomolov require their complete proof decompositions. Keep geometric bars, quotient constants and finite splitting-field choices explicit. B_ω means locally constant Brauer classes modulo Br_0, not merely constant evaluation functions. Include the explicit p=2,n=6,σ=e_01+e_12+e_56 example and its coordinate-functional Brauer class from this extraction; include the explicit Remark3.4 completion: the order512 extension E=B×_(γ cup ζ)Q, V=(SL_513×Spec L)/E over C((x))((y))((z)), cyclically trivial β, and δβ equal to the nonzero image of (x)cup(y)cup(z). Import the extension transgression and Laurent-field residue/Witt sequences from ArithmeticGaloisDuality R02.2 and the natural étale edge comparison from SF.2. Keep the Kummer-injectivity step via 2-divisibility of Br(k); residue nonvanishing in μ_2 alone is insufficient. This roadmap id is shared with PAPER-HARPAZ-WITTENBERG-20 route 13, whose brief extends this one with the complete HW20 foundation (Théorème B and the finite-stabilizer Picard/Brauer interfaces): the design job must take both briefs and own the shared items once."
     },
     {
       "route": "source",
@@ -324,7 +314,7 @@
       "kind": "definition",
       "name": "Differential graded algebra",
       "statement": "An associative graded algebra C with degree-one differential d, d²=0 and d(xy)=d(x)y+(-1)^deg(x)x d(y) for homogeneous x. Use the existing unital internally Z-graded R-algebra carrier for the cochain applications; nonunital variants stay at DGAInfinity Layer 1.",
-      "locator": "§1 p.2",
+      "locator": "§1 p.1",
       "status": "library",
       "library": [
         "tauceti:TauCeti.IsDGAlgebra"
@@ -337,7 +327,7 @@
       "kind": "definition",
       "name": "Degree-one defining system",
       "statement": "For n≥2 and α_i∈H¹(C), choose a_ij∈C¹ for 0≤i<j≤n except (0,n), with [a_i,i+1]=α_i and d a_ij=-Σ_i<m<j a_im a_mj.",
-      "locator": "§1 pp.2–3",
+      "locator": "§1 p.1",
       "status": "planned",
       "library": [],
       "planned": [
@@ -350,7 +340,7 @@
       "kind": "theorem",
       "name": "Massey obstruction is closed",
       "statement": "For a defining system, b_0n=-Σ_0<m<n a_0m a_mn is a 2-cocycle, by Leibniz, associativity and cancellation of the two triple sums.",
-      "locator": "§1 p.2",
+      "locator": "§1 p.1",
       "status": "planned",
       "library": [],
       "planned": [
@@ -363,7 +353,7 @@
       "kind": "definition",
       "name": "Massey product as a set",
       "statement": "The n-fold product is the subset of H² consisting of all [b_0n] from defining systems. Defined means nonempty; vanishing means it contains zero.",
-      "locator": "§1 pp.2–3",
+      "locator": "§1 p.1",
       "status": "planned",
       "library": [],
       "planned": [
@@ -433,13 +423,10 @@
       "name": "Galois cochain DGA comparison",
       "statement": "For a profinite Γ and finite coefficient ring with continuous action, construct all-degree continuous inhomogeneous cochains with associative cup and Leibniz, and compare its H¹,H² and cup to the canonical continuous theory.",
       "locator": "§1 p.2; §7 pp.24–25",
-      "status": "planned",
+      "status": "missing",
       "library": [],
-      "planned": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees"
-      ],
-      "note": "API: cochain multiplication, differential, unit, canonical cohomology comparison and low-degree cup square Tests: degree-(1,1) agrees with explicitCup11; triple product uses a genuine degree-three cochain equality; finite trivial Γ recovers the discrete complex."
+      "planned": [],
+      "note": "API: cochain multiplication, differential, unit, canonical cohomology comparison and low-degree cup square Tests: degree-(1,1) agrees with explicitCup11; triple product uses a genuine degree-three cochain equality; finite trivial Γ recovers the discrete complex. Review: not planned. ProfiniteCohomology Layer 3 compares inhomogeneous and canonical cochains only in \"degrees 0, 1, 2\", Layer 10's canonical model \"has no inhomogeneous cochains\", and Layer 12 plans only an associativity homotopy (cupAssocHomotopy). A Massey product needs a strictly associative cochain algebra with Leibniz for non-cocycles; route 8 builds it, importing Layers 3, 8 and 12."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/10",
@@ -512,7 +499,7 @@
       "kind": "theorem",
       "name": "Derived and lower-central identification",
       "statement": "Over F_p, U^m is the lower central filtration with paper indexing; [U,U]=U¹ and [U¹,U¹]=U³. Prove the reverse inclusions using elementary commutators, not merely the library bound.",
-      "locator": "§2 p.4; §4 p.11",
+      "locator": "§2 p.4; §4 p.12",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -535,10 +522,12 @@
       "name": "Central extension obstruction",
       "statement": "The extension 1→Z→U→U/Z→1 defines u∈H²(U/Z,Z), Z identified with F_p. Its pullback along a continuous β:Γ→U/Z vanishes iff β has a continuous lift to U.",
       "locator": "§2 Proposition 2.2 pp.4–5",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "API: section factor set, independence of section, pullback, zero/splitting criterion and finite-continuity comparison Tests: a split extension gives zero; changing a section changes only a coboundary; a lift of one β is not a lift of every β."
+      "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+      ],
+      "note": "API: section factor set, independence of section, pullback, zero/splitting criterion and finite-continuity comparison Tests: a split extension gives zero; changing a section changes only a coboundary; a lift of one β is not a lift of every β. Review: planned by ProfiniteProPGroups Layer 5 (\"an extension has a continuous group-theoretic section if and only if its class in H²(G, M) is zero\"; embedding problems solvable exactly when the class vanishes); the finite-group class u is library through item 18."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/18",
@@ -569,7 +558,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/20",
       "kind": "theorem",
       "name": "Obstruction sign",
-      "statement": "Under Proposition 2.2 the Massey value attached to β is -β* u in H²(Γ,F_p), with d¹a(g,h)=a(h)-a(gh)+a(g).",
+      "statement": "Under Proposition 2.2 the Massey value attached to β is -β* u in H²(Γ,F_p), with d¹a(g,h)=a(h)-a(gh)+a(g). Here Z = ⟨e_{0,n}⟩ is identified with F_p by e_{0,n} ↦ 1, and u is the class of the factor set of a set-theoretic section (p.5, p.20).",
       "locator": "§2 Proposition 2.2 p.5",
       "status": "missing",
       "library": [],
@@ -607,7 +596,8 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
       ],
       "note": "API: solution type and projection equation, restriction, conjugation by the kernel, properness predicate Tests: trivial α has a trivial weak lift; a trivial weak lift is usually not proper; restricting a solution preserves its projection equation."
     },
@@ -620,9 +610,9 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "SchemeAndStackFoundations:SF.1"
+        "tauceti:TauCetiRoadmap/ModularCurves#0d-finite-étale-schemes-and-galois-actions"
       ],
-      "note": "API: finite étale descent, right action, geometric trivialization and cocycle reconstruction Tests: zero α gives the split torsor; restriction to ker α trivializes it; left/right conversion inverts the cocycle convention."
+      "note": "Review: owned by ModularCurves 0D (\"the equivalence between finite étale K-schemes and finite continuous Gal(Kˢ/K)-sets … transports group objects\"), which the accepted RS-29 names as owner; SF.1's generic descent is not the owner. API: finite étale descent, right action, geometric trivialization and cocycle reconstruction Tests: zero α gives the split torsor; restriction to ker α trivializes it; left/right conversion inverts the cocycle convention."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/25",
@@ -650,7 +640,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/27",
       "kind": "theorem",
       "name": "Embedding solutions classify rational orbits",
-      "statement": "Weak solutions Γ_k→U over α modulo U¹-conjugacy are naturally in bijection with SL_N(k)-orbits on V(k), using the splitting-variety theorem of Pál–Schlank.",
+      "statement": "For a finite embedding problem over a field k of characteristic 0 (a finite group extension E ↠ Q and a continuous Γ_k → Q), weak solutions modulo conjugacy by the kernel correspond to SL_N(k)-orbits of rational points on the associated homogeneous space of SL_N (Pál–Schlank, Theorem 9.6). In particular weak solutions Γ_k → U over α modulo U¹-conjugacy correspond to SL_N(k)-orbits on V(k); the paper applies the same theorem to W (p.22) and to T(W) (p.27).",
       "locator": "§2 p.6, [PS16 Theorem 9.6]",
       "status": "missing",
       "library": [],
@@ -799,14 +789,25 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/40",
       "kind": "theorem",
       "name": "Hochschild–Serre algebraic Brauer edge sequence",
-      "statement": "For characteristic-zero k, semisimple simply connected G and a homogeneous G-variety V with finite geometric stabilizer, the constant-geometric-unit hypothesis holds and gives the exact sequence Br(k)→Br_1(V)→H¹(k,Pic(V_kbar)) --δ→ H³(k,kbar×), with canonical edge map and functoriality in V.",
+      "statement": "For a smooth geometrically integral variety V over a field k of characteristic 0 with k̄[V]^× = k̄^×, the Hochschild–Serre spectral sequence gives the exact sequence Br(k) → Br_1(V) → H¹(k, Pic(V_k̄)) --δ→ H³(k, k̄^×), with canonical edge map and functoriality in V.",
       "locator": "§3 (3.1) p.8",
       "status": "planned",
       "library": [],
       "planned": [
         "SchemeAndStackFoundations:SF.2"
       ],
-      "note": ""
+      "note": "Review: split. SF.2 plans sheaf cohomology but never names Hochschild–Serre, so the citation is weak and SF.2 should receive a request. The constant-unit hypothesis for the homogeneous spaces of §3 is the new item 157."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-23/157",
+      "kind": "theorem",
+      "name": "Only constant geometric units on the homogeneous spaces of §3",
+      "statement": "For k of characteristic 0, G semisimple simply connected and V a homogeneous space of G with finite geometric stabilizer H, k̄[V]^× = k̄^×, so the sequence of item 40 applies to V.",
+      "locator": "§3 (3.1), p.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by review (split from item 40). Over k̄, V ≅ G/H and k̄[G/H]^× ⊆ k̄[G]^× = k̄^×·X(G) by Rosenlicht's lemma, and the character group X(G) is trivial for semisimple G. Not planned by SF.2."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/41",
@@ -828,13 +829,13 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "API: power action on conjugacy classes, divisor-factor predicate, minimality and transport under group isomorphisms. Tests: C2 has outer exponent1 under the literal definition; C4 has outer exponent4; C6 has outer exponent3. Correction: an abelian group's outer exponent need not equal its exponent (the reduction on unit groups can already be an isomorphism after removing a single factor2)."
+      "note": "API: power action on conjugacy classes, divisor-factor predicate, minimality and transport under group isomorphisms. Tests: C2 has outer exponent1 under the literal definition; C4 has outer exponent4; C6 has outer exponent3. Remark: an abelian group's outer exponent need not equal its exponent (the reduction on unit groups can already be an isomorphism after removing a single factor2)."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/43",
       "kind": "construction",
       "name": "Finite splitting data for Brauer computation",
-      "statement": "Choose finite Galois L/k containing μ_e, with V(L)≠∅ and outer action on H factoring through G=Gal(L/k); χ:G→(Z/e)× is cyclotomic. The induced H^ab and its character module are G-modules.",
+      "statement": "In §3's setting (k of characteristic 0; V a homogeneous space of a semisimple simply connected group with finite geometric stabilizer H; Pic(V_k̄) ≅ Hom(H^ab, k̄^×)): Choose finite Galois L/k containing μ_e, with V(L)≠∅ and outer action on H factoring through G=Gal(L/k); χ:G→(Z/e)× is cyclotomic. The induced H^ab and its character module are G-modules.",
       "locator": "§3 p.9",
       "status": "missing",
       "library": [],
@@ -856,29 +857,40 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/45",
       "kind": "theorem",
       "name": "Algebraic unramified Brauer formula",
-      "statement": "For the finite splitting data above, Br_1,nr(V)/Br_0(V) consists exactly of β∈H¹(G,character(H^ab)) with δβ=0 and ubar cup σ*β=1 for every σ∈G and u∈H satisfying σ[u]=[u^χ(σ)].",
-      "locator": "§3 Proposition 3.3 pp.9–11",
+      "statement": "In §3's setting (k of characteristic 0; V a homogeneous space of a semisimple simply connected group with finite geometric stabilizer H; Pic(V_k̄) ≅ Hom(H^ab, k̄^×)): For the finite splitting data above, Br_1,nr(V)/Br_0(V) consists exactly of β∈H¹(G,character(H^ab)) with δβ=0 and ubar cup σ*β=1 for every σ∈G and u∈H satisfying σ[u]=[u^χ(σ)].",
+      "locator": "§3 Proposition 3.3, statement p.10, proof pp.10–11",
       "status": "missing",
       "library": [],
       "planned": [],
       "note": ""
     },
     {
+      "id": "PAPER-HARPAZ-WITTENBERG-23/158",
+      "kind": "theorem",
+      "name": "Lucchini Arteche's formula for the algebraic unramified Brauer group",
+      "statement": "For a homogeneous space V of a semisimple simply connected group over a field k of characteristic 0 with a rational point v̄ and finite stabilizer H_v̄, Lucchini Arteche's Théorème 4.15 describes Br_1,nr(V)/Br_0(V) inside H¹(k, Ĥ^ab_v̄) by local conditions through the maps N_σ : H_v̄ → H^ab_v̄. In particular, if L/k is finite Galois, contains μ_e and kills the outer action, then Br_1,nr(V)/Br_0(V) ⊆ Ker(H¹(k, Ĥ^ab) → H¹(L, Ĥ^ab)) = H¹(Gal(L/k), Ĥ^ab).",
+      "locator": "Proof of Proposition 3.3, pp.10–11; [LA14, Théorème 4.15]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by review: the proof of Proposition 3.3 reduces to V(k) ≠ ∅ and then applies this theorem. LA14 is a prerequisite paper whose full proof decomposition is needed; only the use here is recorded."
+    },
+    {
       "id": "PAPER-HARPAZ-WITTENBERG-23/46",
       "kind": "theorem",
       "name": "Nonzero edge obstruction can survive all conjugacy tests",
-      "statement": "Over k=C((x))((y))((z)), let B=F_2^5 with basis a,b,c,d,e and Q=C2(s)×C4(t)×C2(r), acting by s=1+N_s,t=1+N_t,r=1, where N_s(b)=d+e,N_s(c)=e,N_t(a)=d,N_t(b)=d+e and other basis images are zero. Put β(q)=(q_s+q_t mod 2)b*, γ(s)=a,γ(t)=b+c,γ(r)=0, ζ(q)=q_r, f=γ cup ζ, and E=B×_f Q. For L=k(sqrt x,fourthroot y,sqrt z) and V=(SL_513×Spec L)/E, the class β∈H¹(Gal(L/k),B*) satisfies every conjugacy-power test of Proposition 3.3, but δ_V(inf β) is the nonzero image of (x) cup (y) cup (z) in H³(k,G_m). Thus ker δ cannot be omitted, even with abelian stabilizer.",
+      "statement": "Over k = C((x))((y))((z)) there exist a homogeneous space V of SL_N with finite abelian geometric stabilizers and a class β ∈ H¹(G, Ĥ^ab) such that δ(β) ≠ 0 while β satisfies the other conditions of Proposition 3.3; so the condition δβ = 0 cannot be dropped in general.",
       "locator": "§3 Remark 3.4 p.10",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Explicit independent completion of Remark 3.4, not a witness supplied by the paper. Items 144–152 and the report give the module, cocycles, quotient, mixed-cochain transgression, étale comparison and nonvanishing proof. In particular nonzero H³(μ_2) alone would not establish its image in H³(G_m): Witt decomposition makes Br(k) 2-divisible, so Kummer gives injectivity."
+      "note": "The paper states this without proof (\"Although we do not provide the details here, it is possible to exhibit …\"). Explicit completion by the extraction, not a witness from the paper: Over k=C((x))((y))((z)), let B=F_2^5 with basis a,b,c,d,e and Q=C2(s)×C4(t)×C2(r), acting by s=1+N_s,t=1+N_t,r=1, where N_s(b)=d+e,N_s(c)=e,N_t(a)=d,N_t(b)=d+e and other basis images are zero. Put β(q)=(q_s+q_t mod 2)b*, γ(s)=a,γ(t)=b+c,γ(r)=0, ζ(q)=q_r, f=γ cup ζ, and E=B×_f Q. For L=k(sqrt x,fourthroot y,sqrt z) and V=(SL_513×Spec L)/E, the class β∈H¹(Gal(L/k),B*) satisfies every conjugacy-power test of Proposition 3.3, but δ_V(inf β) is the nonzero image of (x) cup (y) cup (z) in H³(k,G_m). Thus ker δ cannot be omitted, even with abelian stabilizer. Explicit independent completion of Remark 3.4, not a witness supplied by the paper. Items 144–152 and the report give the module, cocycles, quotient, mixed-cochain transgression, étale comparison and nonvanishing proof. In particular nonzero H³(μ_2) alone would not establish its image in H³(G_m): Witt decomposition makes Br(k) 2-divisible, so Kummer gives injectivity."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/47",
       "kind": "theorem",
       "name": "Untwisted Brauer orthogonality formula",
-      "statement": "If χ is trivial, Proposition 3.3 becomes δβ=0 and, for every σ, σ*β annihilates the image of (H/conj)^σ→(H^ab)^σ under the fixed/coinvariant evaluation pairing.",
+      "statement": "In §3's setting (k of characteristic 0; V a homogeneous space of a semisimple simply connected group with finite geometric stabilizer H; Pic(V_k̄) ≅ Hom(H^ab, k̄^×)): If χ is trivial, Proposition 3.3 becomes δβ=0 and, for every σ, σ*β annihilates the image of (H/conj)^σ→(H^ab)^σ under the fixed/coinvariant evaluation pairing.",
       "locator": "§3 Corollary 3.5 p.10",
       "status": "missing",
       "library": [],
@@ -938,7 +950,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Michailov uses size m and superdiagonal parameter ℓ, different from paper U^m indexing. Its p.5 assertion γ_(m-1)=1 is an off-by-one typo: the last nontrivial center is γ_(m-1), while γ_m=1; do not import that typo."
+      "note": "Michailov uses size m and superdiagonal parameter ℓ, different from paper U^m indexing. Check Michailov's p.5 indexing (γ_(m-1) versus γ_m) against the paper's before importing; any slip there belongs to Michailov's paper, not this one (unverified here)."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/53",
@@ -956,7 +968,7 @@
       "kind": "definition",
       "name": "Abelianized stabilizer module",
       "statement": "B=U¹/U³=(U¹)^ab is an F_p-space with basis e_ij for j-i=2 or 3, dimension 2n-3, and A acts by conjugation.",
-      "locator": "§4 p.11",
+      "locator": "§4 p.12",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -967,7 +979,7 @@
       "kind": "theorem",
       "name": "Explicit action on B",
       "statement": "A generator e_ij, j=i+1, sends e_kl to e_kl+e_il if j=k, to e_kl-e_kj if i=l, and fixes it otherwise; terms of distance≥4 are zero in B.",
-      "locator": "§4 (4.2) pp.11–12",
+      "locator": "§4 (4.2) p.12",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1004,16 +1016,18 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "ArithmeticGaloisDuality:R02.2"
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
-      "note": ""
+      "note": "Review: Tau Ceti owns this. ProfiniteCohomology Layer 6 plans cor∘res = (G : U)·id and Layer 10 that a class killed by restriction to an open U is annihilated by (G : U); Layer 9 supplies the field bridge. Degrees 1 and 2, the only ones used, are in the library as explicitCor1_comp_res1 and explicitCor2_comp_res2, but the injectivity corollary itself is not a declaration."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/59",
       "kind": "definition",
       "name": "Cyclically trivial first cohomology",
       "statement": "Sha¹_cyc(G,M)=ker(H¹(G,M)→∏_C H¹(C,M)), over all cyclic subgroups C of finite G.",
-      "locator": "§4 Definition 4.3 p.12",
+      "locator": "§4 Definition 4.3 p.13",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1024,7 +1038,7 @@
       "kind": "theorem",
       "name": "Cyclically trivial classes are unramified",
       "statement": "If δ in the Brauer edge sequence vanishes, Sha¹_cyc(G,character B) is contained in Br_1,nr(V)/Br_0(V), via Proposition 3.3.",
-      "locator": "§4 Proposition 4.4 p.12",
+      "locator": "§4 Proposition 4.4 p.13",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1068,7 +1082,7 @@
       "kind": "theorem",
       "name": "Exponent bound",
       "statement": "If 2p^m>n then every M∈U¹ satisfies M^(p^m)=1, since (1+X)^(p^m)=1+X^(p^m) for this single matrix X and X^(p^m)∈N_(2p^m).",
-      "locator": "§4 Lemma 4.6 p.13",
+      "locator": "§4 Lemma 4.6 p.14",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1079,18 +1093,18 @@
       "kind": "theorem",
       "name": "Corrected small-rank outer-exponent bound",
       "statement": "For 2≤n≤6, the power action on conjugacy classes of U¹=UT_(n+1)(F_p)′ factors through (Z/p)×. Consequently its outer exponent as literally defined in Definition3.2 divides p: it is p for odd p and1 for p=2. Handle p=3,n=6 by conjugating M^4 to M; for p=2,n=4,5,6, a block involution conjugates M^-1 to M.",
-      "locator": "§4 Lemma 4.7 pp.13–14",
+      "locator": "§4 Lemma 4.7 p.14",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The printed claim 'equal to p' needs normalization at p=2: (Z/2)×=(Z/1)× is trivial, so the least divisor is1 whenever the whole power action is trivial. Already n=2,p=2 gives U¹=C2. The proof establishes the factorization needed in every downstream argument; no result relies on exact equality at2. Do not extend the bound to arbitrary n (Remark4.8). For p=3,n=6, Lemma4.6 gives exponent dividing9, not by itself divisibility by9."
+      "note": "The printed claim 'equal to p' needs normalization at p=2: (Z/2)×=(Z/1)× is trivial, so the least divisor is1 whenever the whole power action is trivial. Already n=2,p=2 gives U¹=C2. The proof establishes the factorization needed in every downstream argument; no result relies on exact equality at2. Do not extend the bound to arbitrary n (the unnumbered remark after Lemma 4.7, p.14). For p=3,n=6, Lemma4.6 gives exponent dividing9, not by itself divisibility by9."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/66",
       "kind": "definition",
       "name": "Boundary submodule B0",
       "statement": "B_0⊂B is spanned by e_02,e_03,e_(n-3),n,e_(n-2),n. It is A-stable, has dimension four for n>3 and dimension three for n=3, when B_0=B. This B_0 is not the Bogomolov multiplier.",
-      "locator": "§4 p.14",
+      "locator": "§4 p.15",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1101,7 +1115,7 @@
       "kind": "theorem",
       "name": "Unramified restriction to the boundary module vanishes",
       "statement": "For 3≤n≤6, the map Br_1,nr(V)/Br_0(V)→H¹(G,character B_0) is zero.",
-      "locator": "§4 Proposition 4.9 p.14",
+      "locator": "§4 Proposition 4.9 p.15",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1112,7 +1126,7 @@
       "kind": "theorem",
       "name": "Triangular conjugation formula",
       "statement": "For σ=Σ a_i e_i,i+1∈A, choose S with only its first superdiagonal nonzero off the diagonal. For Q∈U¹ and M=SQS^-1, M_ij=Q_ij+Σ_(m=i+2)^(j-1)(-1)^(j-m)(Q_im a_m-a_i Q_(i+1),(m+1))∏_(l=m+1)^(j-1)a_l.",
-      "locator": "§4 Remark 4.10 (4.8) pp.14–15",
+      "locator": "§4 Remark 4.10 (4.8) p.15",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1134,7 +1148,7 @@
       "kind": "theorem",
       "name": "Fixed second-diagonal elements lift",
       "statement": "Every σ-fixed element b in span{e_i,i+2}⊂B lifts to a σ-fixed conjugacy class in U¹; the sparse second-diagonal lift Q is actually fixed by the chosen S because -b_i a_(i+2)+a_i b_(i+1)=0.",
-      "locator": "§4 Lemma 4.12 p.15",
+      "locator": "§4 Lemma 4.12 p.16",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1145,7 +1159,7 @@
       "kind": "theorem",
       "name": "Fixed conjugacy classes generate the boundary fixed subgroup",
       "statement": "For n≥3 and σ∈A, the subgroup generated by the image of (U¹/conj)^σ→B^σ contains B_0^σ. This is a generation statement, not surjectivity of the image.",
-      "locator": "§4 Lemma 4.13 pp.15–17",
+      "locator": "§4 Lemma 4.13 pp.16–17",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1200,7 +1214,7 @@
       "kind": "theorem",
       "name": "Explicit length-six fixed-class generation failure",
       "statement": "Let p=2,n=6 and σ=e_01+e_12+e_56 in A. Then e_25∈B^σ, but the image of (U¹/conj)^σ→B^σ lies in the hyperplane with coordinate 25 zero; hence it cannot generate B^σ.",
-      "locator": "§4 Remark 4.17 p.18; §6 p.23",
+      "locator": "§4 Remark 4.17 p.18; §6 last paragraph p.24",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1211,7 +1225,7 @@
       "kind": "theorem",
       "name": "Explicit length-six unramified class outside the cyclic kernel",
       "statement": "Take k=Q,p=2,n=6 and any nonzero quadratic character χ (for example Q(sqrt2)/Q). Set α=(χ,χ,0,0,0,χ), so G=C2 acts by σ=e_01+e_12+e_56. Identify character B with the F_2-dual. The cocycle β with β(σ)=the coordinate functional e_25* defines a nonzero element of Br_nr(V)/Br_0(V), while Sha¹_cyc(G,character B)=0.",
-      "locator": "§4 Remark 4.17 p.18; §6 opening p.23",
+      "locator": "§4 Remark 4.17 p.18; §6 last paragraph p.24",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1222,7 +1236,7 @@
       "kind": "definition",
       "name": "Two-boundary subgroup",
       "statement": "For n≥3 and 1≤r,s≤n-2, P_(r,s) is generated by e_i,n (0≤i≤r) and e_0,j (n-s≤j≤n); the shared e_0n occurs once.",
-      "locator": "§5 Definition 5.2 p.19",
+      "locator": "§5 Definition 5.2 p.18",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1259,7 +1273,8 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
       ],
       "note": ""
     },
@@ -1283,7 +1298,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The source says cup with γ but lists C⊗Hom. Record order/sign explicitly: for a cocycle c, d(s c)(g0,…,gm)=γ(g0)(g0 c(g1,…,gm)). The sign is immaterial for the surjectivity used below. For finite C a chosen section has finite image, so its orbit cocycle is continuous. The unrestricted printed generality is isolated below."
+      "note": "Convention: the source writes the cup with γ; with the pairing Hom(C,A)⊗C→A the order and sign are recorded explicitly: for a cocycle c, d(s c)(g0,…,gm)=γ(g0)(g0 c(g1,…,gm)). The sign is immaterial for the surjectivity used below. For finite C a chosen section has finite image, so its orbit cocycle is continuous. The unrestricted printed generality is isolated below."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/84",
@@ -1334,7 +1349,7 @@
       "kind": "construction",
       "name": "Stabilizer of a boundary retraction",
       "statement": "For an equivariant retraction ρ_(u,v), let S⊂U stabilize it under conjugation. Then P⊂S, tildeα lands in S/Z, and M∈S iff u(M-1)∈W*_(n-r-1) and (M-1)v∈W^(n-s-1).",
-      "locator": "§5 pp.21–22",
+      "locator": "§5 p.21",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1345,7 +1360,7 @@
       "kind": "theorem",
       "name": "Retraction extends to the stabilizer",
       "statement": "If r+s=n-1, the support conditions imply u(M1-1)(M2-1)v=0 for M1,M2∈S. Thus M↦u(M-1)v is a homomorphic retraction S→Z, the central extension S→S/Z splits, and tildeα lifts to S⊂U.",
-      "locator": "§5 pp.21–22",
+      "locator": "§5 p.21",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1356,7 +1371,7 @@
       "kind": "theorem",
       "name": "Refined nonarchimedean local lifting",
       "statement": "For n≥3, 1≤r,s≤n-2 and r+s=n-1 over a nonarchimedean local field K, any continuous Γ_K→U/P_(r,s) that lifts to U/Z also lifts to U. The new lift need not lift the original chosen U/Z homomorphism.",
-      "locator": "§5 Proposition 5.3 pp.19–22",
+      "locator": "§5 Proposition 5.3 p.19, proof pp.19–21",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1487,7 +1502,7 @@
       "id": "PAPER-HARPAZ-WITTENBERG-23/102",
       "kind": "theorem",
       "name": "A nontrivial cyclic kernel",
-      "statement": "For n=4,p=2 and α=([ab],[a],[b],[ab]) with a,b,ab nonsquare, G=C2×C2 and Sha¹_cyc(G,character B)≅C2.",
+      "statement": "For k of characteristic 0 and a, b ∈ k^×: For n=4,p=2 and α=([ab],[a],[b],[ab]) with a,b,ab nonsquare, G=C2×C2 and Sha¹_cyc(G,character B)≅C2.",
       "locator": "§6 Example 6.3 p.24",
       "status": "missing",
       "library": [],
@@ -1668,7 +1683,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Retain the number-field scope of the section; the displayed theorem is not an all-fields assertion."
+      "note": "Theorem 7.4 as printed omits \"k a number field\"; the scope comes from the introduction (p.4: \"over number fields (Theorem 7.4)\") and the proof. Retain the number-field hypothesis."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-23/119",
