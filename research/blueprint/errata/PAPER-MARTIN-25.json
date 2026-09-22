@@ -1,0 +1,21 @@
+{
+  "paper": "PAPER-MARTIN-25",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-MARTIN-25/E1",
+      "kind": "error",
+      "locator": "Theorem 1.4, p.624, in the published version, Inventiones mathematicae 241 (2025), 623–626 (as quoted by the extraction from the publisher PDF, SHA-256 3e1f4b7f…097c); the same theorem, labelled \"Special case/corollary of Chen\", in arXiv 2502.15960v1",
+      "printed": "For the Markoff equation (1.1) x₁² + x₂² + x₃² = 3x₁x₂x₃ over F_p: \"The number of vertices in a connected component of G_p is divisible by p\", with no restriction on the prime p; the proof in §2 begins \"Fix a prime p > 3\".",
+      "correction": "Every connected component of G_p has size divisible by p for every prime p ≠ 3; the proof covers p > 3, and p = 2 holds by inspection. At p = 3 the statement is false.",
+      "reason": "Mod 3 the right side of (1.1) vanishes. A square in F₃ is 0 or 1, so a nonzero solution has all three coordinates nonzero, giving exactly the eight triples {±1}³. Each Vieta move x_i ↦ 3x_jx_k − x_i = −x_i flips one sign, so G₃ is the cube: one component of size 8, not divisible by 3. At p = 2 the nonzero solutions are (1,1,1), (0,1,1), (1,0,1), (1,1,0), forming one component of size 4. The proof divides by 2 and 3, and the comparison with the coefficient-free Markoff equation z₁² + z₂² + z₃² = z₁z₂z₃ via x = z/3 needs 3 invertible. Found by the extraction (items 31–34); the review REV-PAPER-MARTIN-25 re-derived both small cases.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Springer article page https://link.springer.com/article/10.1007/s00222-025-01346-9: no correction is indexed (the page itself could not be fetched here; a web search for a correction or erratum, 22 September 2026, found none)",
+        "arXiv 2502.15960: only v1 (21 February 2025) exists; it has the same unrestricted statement",
+        "D. E. Martin's homepage https://dem6.people.clemson.edu/ lists the paper with no correction"
+      ]
+    }
+  ]
+}
