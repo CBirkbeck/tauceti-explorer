@@ -14223,6 +14223,116 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CLOZEL-THORNE-17/E1",
+   "kind": "misprint",
+   "locator": "§2.1, accepted manuscript p. 5",
+   "printed": "set Λ = Z/Z_c ≅ Z^m, a basis being given by the elements ε_i = diag(1, …, ϖ, …, −1/ϖ̄, …, 1), 1 ≤ i ≤ k",
+   "correction": "Λ = Z/Z_c ≅ Z^k",
+   "reason": "The basis listed has k elements (n = 2k + 1); m is not defined in §2 and later denotes n − 4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ],
+   "owner": "PAPER-CLOZEL-THORNE-17",
+   "file": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E2",
+   "kind": "misprint",
+   "locator": "§1.1, accepted manuscript p. 4",
+   "printed": "If F is a number field and v is a finite place of v, then we will write G_{F_v} for a choice of decomposition group",
+   "correction": "a finite place of F",
+   "reason": "The place is a place of the number field F.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ],
+   "owner": "PAPER-CLOZEL-THORNE-17",
+   "file": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E3",
+   "kind": "misprint",
+   "locator": "Theorem 3.3(i), accepted manuscript p. 21, and the proof in §3.5, p. 27",
+   "printed": "(i) If m = 3, X, Y are semi-stable with exponents [1, 0, 1] and 4[1, 1, 0] + 2[1, 0, 1] + [1, 0, −1], respectively. … Finally, consider m = 3. … The exponent [1, 0, 1] in Theorem 3.3 again shows …",
+   "correction": "X has exponent [1, 0, −1] (and 'The exponent [1, 0, −1] in Theorem 3.3 …')",
+   "reason": "Theorems 2.3(1)(c) and 2.5(1)(b) give X^norm_{N_0} = [1, 0, −1], which is the distinguished exponent e_0 = [k − 2, …, 0, −1] for k = 3 used in the argument of §3.5; in the Kazhdan–Lusztig construction it comes from the component X_1 of B^s_u (two points, exponent [1, 0, −1]), while [1, 0, 1] is the exponent of X_2 ≅ P^1, which contributes to Y only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ],
+   "owner": "PAPER-CLOZEL-THORNE-17",
+   "file": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.2, accepted manuscript p. 45",
+   "printed": "choose a cyclic totally real extension F_2/F_1 of degree b … Let E_2 = F_2 · F_1, and let π_2 = π_{1,E_2}",
+   "correction": "E_2 = F_2 · E_1",
+   "reason": "F_2 ⊃ F_1, so F_2 · F_1 = F_2 is totally real; π_1 lives on GL_2(A_{E_1}) and the rest of the proof needs the CM field E_2 = F_2E_1 (π_2 = π_{1,E_2} RACSDC, places z_i of E_2 above y_i ramified over F_2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ],
+   "owner": "PAPER-CLOZEL-THORNE-17",
+   "file": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 7.6, accepted manuscript p. 49",
+   "printed": "We can further assume that E and π are unramified above l",
+   "correction": "E and Π are unramified above l",
+   "reason": "No π occurs in Proposition 7.6; the representation being lifted is the RACSDC Π of GL_2(A_E).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ],
+   "owner": "PAPER-CLOZEL-THORNE-17",
+   "file": "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+   "citation": "Clozel–Thorne, \"Level-raising and symmetric power functoriality, III\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E1",
    "kind": "gap",
    "locator": "§3.5, after Theorem 3.8, p. 856 (also in arXiv v1, §3.5)",
