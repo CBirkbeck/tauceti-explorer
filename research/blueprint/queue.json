@@ -5825,7 +5825,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-IM-KIM-LE-ETAL-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1358",
+   "finishedAt": "2026-09-22T16:52:56Z"
   },
   {
    "id": "REV-PAPER-IM-KIM-LE-ETAL-24",
@@ -5968,7 +5970,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANSCHUTZ-LEBRAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1367"
   },
   {
    "id": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
