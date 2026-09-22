@@ -6374,8 +6374,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1395"
+   "state": "pending",
+   "note": "released on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
