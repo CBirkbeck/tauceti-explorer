@@ -5142,8 +5142,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MATHEW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1320"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1320",
+   "finishedAt": "2026-09-22T16:09:48Z"
   },
   {
    "id": "REV-PAPER-BHATT-MATHEW-21",
@@ -5891,7 +5892,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1362"
   },
   {
    "id": "REV-PAPER-CANNING-LARSON-PAYNE-24",
@@ -6457,8 +6459,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1397"
+   "state": "pending",
+   "note": "released on GitHub issue #1397"
   },
   {
    "id": "REV-PAPER-HE-21",
