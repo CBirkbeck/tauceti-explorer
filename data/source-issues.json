@@ -7281,6 +7281,114 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-JIANG-ZHANG-20/E1",
+   "kind": "misprint",
+   "locator": "Section 3.2, p. 26 (arXiv v4; the same in v1 and v3)",
+   "printed": "'take a partition of the form: p_ℓ = [(2ℓ + 1)1^{𝔫−2ℓ+1}], where 2ℓ + 1 = dim W⊥ = 𝔫 − 𝔪'",
+   "correction": "p_ℓ = [(2ℓ + 1)1^{𝔫−2ℓ−1}].",
+   "reason": "The parts must sum to 𝔫 = dim V: (2ℓ + 1) + (𝔫 − 2ℓ − 1) = 𝔫, whereas the printed exponent gives 𝔫 + 2. (2.9) on p. 19 defines p_ℓ = [(2ℓ + 1)1^{𝔫−2ℓ−1}].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
+    "the article page on annals.math.princeton.edu (no erratum listed)",
+    "web and Crossref searches for an erratum and for the cited preprint [44]"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E2",
+   "kind": "misprint",
+   "locator": "Appendix B, proof of Theorem B.2, (B.9) and its last paragraph, pp. 86–87 (arXiv v4; the same in v1 and v3)",
+   "printed": "'(B.9) N(w″_j, τ(φ_i) ⊗ σ_0, s ± α_j)' and 'Therefore, the normalized local intertwining operator N(w″_j, τ(φ_i) ⊗ σ_0, s ± α_j) is holomorphic and nonzero for Re(s) ≥ ½.'",
+   "correction": "N(w″_j, τ_j ⊗ σ_0, s ± α_j), in both places.",
+   "reason": "The rank-one operators pair the constituents τ_j|det|^{±α_j} of τ in (B.6) with those of σ in (B.2): (B.7) pairs τ_j with τ(φ_i), (B.8) τ_j with τ_i, and the third type pairs τ_j with σ_0. The argument that follows treats exactly M(w″, τ_j ⊗ σ_0, s − α_j) and L(s − α_j, τ_j × σ_0), and the shift ±α_j belongs to τ_j.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
+    "the article page on annals.math.princeton.edu (no erratum listed)",
+    "web and Crossref searches for an erratum and for the cited preprint [44]"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E3",
+   "kind": "gap",
+   "locator": "Section 4.6, Theorem 4.8, p. 45; Section 4.4, before Proposition 4.2, p. 39; Appendix A, p. 78 (arXiv v4; v1 already cites the computation as 'in preparation')",
+   "printed": "'The full detail of the computation in this generality will appear in our joint work with D. Soudry ([44])', and '[44] Jiang, Dihua; Soudry, David; Zhang, Lei The unramified computation of Rankin-Selberg integrals for quasisplit classical groups: Bessel model case. preprint 2018'",
+   "correction": "The proof of Theorem 4.8 in the generality stated (quasi-split, non-split orthogonal and unitary groups), and of the absolute convergence of the local integrals J_s and Z_ν, is missing. Only the split orthogonal case is published (Soudry, Israel J. Math. 2017 and J. Number Theory 2018). Theorems 5.3 (⇐), 5.7 and 7.1 use Theorem 4.8 through (4.49) and (5.11), so outside the split orthogonal case they rest on this input.",
+   "reason": "The paper defers these proofs to [44]. No version of [44] was found on arXiv or at Crossref, and arXiv:2508.09066 (August 2025) still cites it as 'in preparation'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
+    "the article page on annals.math.princeton.edu (no erratum listed)",
+    "web and Crossref searches for an erratum and for the cited preprint [44]",
+    "arXiv author searches for Jiang, Soudry and Zhang",
+    "arXiv:2508.09066 (its reference [JSZ])"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E4",
+   "kind": "gap",
+   "locator": "Section 2.2, Theorem 2.1, p. 16 (arXiv v4)",
+   "printed": "'The following is a simplified version of the endoscopic classification for classical groups established in [3], [71], and [53]. Theorem 2.1 (Endoscopic Classification). For any π ∈ A_disc(G_n), there is a G_n-relevant global Arthur parameter ψ ∈ Ψ̃_2(G*_n, ξ), such that π belongs to the global Arthur packet Π̃_ψ(G_n)'",
+   "correction": "For pure inner forms of orthogonal groups that are not quasi-split, [3] gives only an outline (Chapter 9), as the introduction itself says ('with outline on general orthogonal groups in [3, Chapter 9]'). The results for such G_n or H_m (e.g. Theorem 5.7 'in full generality') are conditional on it. Ishimoto (arXiv:2301.12143) later proved the classification for non-quasi-split odd special orthogonal groups and generic parameters, the case needed here; for even special orthogonal groups no complete proof was found.",
+   "reason": "Arthur's book proves the classification for quasi-split symplectic and orthogonal groups; Chapter 9 states the extension to inner forms with an outline only. Mok and KMSW cover unitary groups and their inner forms.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
+    "the article page on annals.math.princeton.edu (no erratum listed)",
+    "web and Crossref searches for an erratum and for the cited preprint [44]",
+    "a web search for the classification of inner forms of orthogonal groups (Ishimoto 2023/24; arXiv:2506.17907 on even special orthogonal groups)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E5",
+   "kind": "gap",
+   "locator": "Section 2.3, Proposition 2.2 and the sentence before it, p. 19 (arXiv v4)",
+   "printed": "'One may extend the proof of [24, Theorem 7.3] to the current case and prove the cuspidality of the maximal Bessel module of π.'",
+   "correction": "Proposition 2.2(2) (cuspidality of the first non-zero Bessel module) needs a proof for pure inner forms that are not quasi-split: the tower property of [GRS11, Thm. 7.3] is proved there for quasi-split groups. Part (1) is immediate.",
+   "reason": "Proposition 2.2 is stated without proof, and it underlies the decomposition (2.10) and the formulation of Conjecture 2.3. Section 6.1 does write out the analogous argument for the residual representations (Proposition 6.3).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1508.03205 v1 (13 Aug 2015), v3 (28 Dec 2017) and v4 (19 Nov 2019)",
+    "the article page on annals.math.princeton.edu (no erratum listed)",
+    "web and Crossref searches for an erratum and for the cited preprint [44]"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-KOYMANS-MILOVIC-21/E1",
    "kind": "misprint",
    "locator": "§5, (5.1) and (5.2), pp.22–23 (arXiv v1)",
