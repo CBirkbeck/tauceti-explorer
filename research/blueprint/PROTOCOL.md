@@ -239,6 +239,7 @@ Field notes:
 - `part` names a part of a large roadmap, or is `null`.
 - `uses` and `tests` (every definition and construction) and `planet`
   (optional) are described in sections 4, 12 and 14.
+- `sourceIssues` lists the mistakes found in the sources (section 18).
 
 ## 7. New roadmaps
 
@@ -597,9 +598,11 @@ The extraction follows these rules:
 - The report explains each route to a human reader: what the paper proves, what
   the atlas already has, and why each route goes where it goes.
 
+Mistakes found in the paper are recorded under `sourceIssues` (section 18).
+
 An independent reviewer checks the items against the paper, the statuses
-against the libraries and the atlas, and every route, corrects the extraction
-in place where the fix is clear, and writes
+against the libraries and the atlas, every route, and every recorded mistake
+(section 18), corrects the extraction in place where the fix is clear, and writes
 `research/blueprint/papers/PAPER-<id>.review.json`:
 
 ```json
@@ -672,3 +675,48 @@ the owning packet, or a note for the maintainer when it needs a new roadmap),
 and writes `research/blueprint/redteam/RT-<x>.fixes.md`: what was changed for
 each finding, or why not. A fix to an audit is merged into the library audit by
 the orchestrator.
+
+## 18. Mistakes in published sources
+
+Workers read papers and books line by line, and they find mistakes in them.
+These are valuable and are recorded, never silently corrected. A paper
+extraction (section 16) and a blueprint packet (section 6) list every mistake
+found in their sources under `sourceIssues`:
+
+```json
+"sourceIssues": [{
+  "id": "PAPER-<id>/E<n>  (in a packet: <roadmap id>/E<n>)",
+  "source": "<a packet's source id; omitted in an extraction>",
+  "kind": "misprint | error | gap",
+  "locator": "Lemma 2.4, p. 9, in the version read (arXiv v2; and the published version where they differ)",
+  "printed": "what the source says, quoted",
+  "correction": "what it should say, or what is missing",
+  "reason": "the check or argument that shows it: a small case, a computation, the step that fails",
+  "affects": "nothing | the proof | a stated result",
+  "known": "new | <the erratum, corrigendum or later version that already corrects it>",
+  "searched": ["where an existing correction was looked for: the journal's errata listing, the arXiv versions, the authors' pages"]
+}]
+```
+
+- A **misprint** is a slip whose intended meaning is clear from the context (an
+  index, a sign, a name); an **error** is a false statement or a step that
+  fails; a **gap** is a step asserted without an adequate proof. `affects` says
+  how far it reaches: nothing (the mathematics is right as intended), the proof,
+  or a stated result.
+- Before calling a mistake new, look for an existing correction and list where
+  you looked. A correction already in print is recorded too, with it as
+  `known`, so that formalisers work from the corrected statement.
+- Items and nodes use the corrected statements. An empty list says the work
+  found none; a missing list says it has not been checked.
+- The independent reviewer checks each finding at its locator and adds
+  `"review": {"verdict": "confirmed | rejected", "reason": "...", "by": "<its job id>"}`,
+  and adds any mistake the work missed, with its own verdict. A verdict counts
+  only from a finished review job that reviews a job which wrote the file.
+- Extractions finished before mistakes were recorded get an errata job
+  (`ERRATA-<paper id>`), which records the mistakes their workers noted in
+  passing, and its review (`REV-ERRATA-<paper id>`).
+
+`scripts/errata.py` collects the findings into `research/errata/REGISTER.md`
+(new confirmed mistakes first, then those awaiting review, then those already
+corrected in print) and `data/source-issues.json`; the intake runs it after
+every merge. Nothing is sent to the authors without the maintainer.
