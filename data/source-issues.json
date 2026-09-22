@@ -4433,6 +4433,132 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
+   "kind": "gap",
+   "locator": "Proof of Lemma 2.1, p.9 (published version)",
+   "printed": "\"Let t_i := Σ_{v|w_i} x_v. Then since |x_{v_{i,j}} − x_{v_{i,j′}}| ≤ 2, we have x_{v_{i,j}} = t_i/k_i + O_k(1). We have Σ_i t_i = 0, since u, α_r, and α_s all have norm 1. Thus Σ_{i,j} max(x_{v_{i,j}}, 0) = Σ_i t_i + O_k(1) = O_k(1).\"",
+   "correction": "Normalise the α_i first. Their relative norms η_i = Nm_{L/K}(α_i) are units of K, since the ideal (α_i) has trivial relative norm. Pigeonhole the α_i by the class of η_i in O_K^*/(O_K^*)^d, which has at most d^{[K:ℚ]} = O_{[L:ℚ]}(1) classes. Within one class, η_i = η₀e_i^d with e_i ∈ O_K^*; replace α_i by α_i/e_i, which leaves the ideal unchanged. Then Nm_{L/K}(uα_r/α_s) = 1, so every t_i = log|Nm_{L/K}(uα_r/α_s)|_{w_i} vanishes, and the stated height bound follows. The loss is a factor O_{[L:ℚ]}(1) in N + 1, so (2.1) is unchanged.",
+   "reason": "The boxes control only PUL(α_i), i.e. the differences of coordinates within each block, because P drops the block sums t_i. Units u ∈ O* = ker(Nm_{L/K}) have t_i = 0, but an arbitrary generator α_i of ℘_i^{ℓa_i}℘̄_i^{−ℓb_i}℘₀^{−ℓa₀}℘̄₀^{ℓb₀} has t_i(α_i) = log|Nm_{L/K}(α_i)|_{w_i}, the logarithm of a unit of K, which need not be bounded. \"Norm 1\" in the absolute sense gives only Σ_i t_i = 0. The step Σ max(x_v, 0) = Σ_i t_i + O(1) needs each t_i = O(1) (for example t₁ = T, t₂ = −T gives Σ max ≈ T). So the claimed bound on H(uα_r/α_s) is not justified as written, though the repair costs only a constant depending on [L : ℚ].",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E2",
+   "kind": "misprint",
+   "locator": "Lemma 2.1, statement, p.7 (published version)",
+   "printed": "\"Let L/K be an extension of number fields such that d := [L : ℚ], let ℓ ≥ 1 be an integer, and let θ be a real number such that 0 < θ < 1/(4ℓ(d − 1)).\" … \"|Cl_{L/K}[ℓ]| = O(Disc(L/K)^{1/2+ε}Disc(K)^{(d−1)/2+ε}/M)\"",
+   "correction": "d := [L : K].",
+   "reason": "The proof sets \"Let d = [L : K]\" and uses 1/(2d − 2) − 2θℓ > 0 and Lemma 2.4, where d = [L : K]. The applications need this: (5.20) and Theorem 6.5 apply the lemma to quadratic L/K with ℓ = 3 and θ = 1/20 or 1/24, which satisfies θ < 1/(4ℓ(d − 1)) = 1/12 only for d = 2. With d = [L : ℚ] ≥ 4 the hypothesis would fail, and the bound would carry Disc(K)^{([L:ℚ]−1)/2} in place of the Disc(F₁)^{1/2} used there.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E3",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.1, p.9 (published version)",
+   "printed": "\"Recall that in L we have (uα_r/α_s) = ℘_r^{ℓa_i}℘̄_s^{ℓb_j}℘̄_r^{−ℓa_i}℘_s^{−ℓb_j}.\"",
+   "correction": "(uα_r/α_s) = ℘_r^{ℓa_r}℘̄_r^{−ℓb_r}℘_s^{−ℓa_s}℘̄_s^{ℓb_s}.",
+   "reason": "From the definition (α_i) = ℘_i^{ℓa_i}℘̄_i^{−ℓb_i}℘₀^{−ℓa₀}℘̄₀^{ℓb₀}, the ℘₀ factors cancel in α_r/α_s. The argument uses only that ℘_r occurs with positive valuation and that ℘_r ∩ K ≠ ℘_s ∩ K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E4",
+   "kind": "error",
+   "locator": "Proof of Lemma 3.5, p.11 (published version)",
+   "printed": "\"Therefore for each fixed m, the number of possible L/F with Disc(L/F) = m is bounded by h₂(F).\"",
+   "correction": "\"… is O_{[F:ℚ],ε}(m^εh₂(F))\": the image in Hom(∏_vO_v^×, C₂) is not determined by m. It can vary over the ideals of norm m (≪ m^ε of them), the characters at the real places (2^{r₁(F)}), and the finitely many wild characters at primes above 2. The lemma's final bound already carries n^ε and constants depending on [F : ℚ], so it is unaffected.",
+   "reason": "For F = ℚ, h₂(ℚ) = 1, but ℚ(√2) and ℚ(√−2) both have discriminant of absolute value 8, so the number of quadratic fields with |Disc| = m can exceed h₂(F). Only the fibres over a fixed local restriction are cosets of Hom(Cl_F, C₂).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E5",
+   "kind": "misprint",
+   "locator": "Lemma 3.14, statement and proof, p.17; Corollary 5.5, p.23 (published version)",
+   "printed": "\"#{𝔞 ⊆ O_L ideal : Nm(𝔞) ≤ X} ≫_{[F:ℚ],δ} κ_FX.\" … \"For each m ≥ 2, let α_m be the constant from Lemma 5.1.\"",
+   "correction": "\"𝔞 ⊆ O_F\"; \"from Theorem 5.1\".",
+   "reason": "The lemma concerns ideals of F (its proof integrates ζ_F), and it is applied to count the ideals in the ζ_F(2s) factor of Lemma 3.13. The constant α_m is introduced in Theorem 5.1; there is no Lemma 5.1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E6",
+   "kind": "misprint",
+   "locator": "Theorem 6.1, displayed constant C_G, p.30 (published version)",
+   "printed": "\"C_G = (Σ_{F∈E_k(H,∞)} h₃(F)Res_{s=1}ζ_F(s)/(ζ_F(2)Disc(F)²)·(1 + 2^{r₁(F)}/3^{r₁(F)+r₂(F)}))(Σ_{F∈E_k(H,∞)} Res_{s=1}ζ_F(s)/(ζ_F(2)Disc(F)²))^{−1}\"",
+   "correction": "Both sums need the weight 2^{−r₂(F)}: C_G = [Σ_F h₃(F)Res ζ_F/(2^{r₂(F)}ζ_F(2)Disc(F)²)·(1 + 2^{r₁(F)}/3^{r₁(F)+r₂(F)})]·[Σ_F Res ζ_F/(2^{r₂(F)}ζ_F(2)Disc(F)²)]^{−1}. This is what the proof yields (p.36) and what matches D_G in Theorem 6.2 and C_m.",
+   "reason": "Summing Theorem 6.10 over the 2^{r₁(F)} signatures of K/F gives weight Res ζ_F/(2^{r₂(F)}ζ_F(2)Disc(F)²) for each F, and r₂(F) varies with the signature of F. (C_{G,Σ} is unaffected, since r₂ is constant for fixed Σ̄.) For k = ℚ and G = D₄, the proof's formula gives 1.4230 and the displayed one 1.4167 (computed with PARI over quadratic fields with |D| ≤ 30000). Both round to the \"around 1.42\" of the introduction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+    "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+    "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+   ],
+   "owner": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+   "file": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+   "citation": "Lemke Oliver–Wang–Wood, \"The average size of 3-torsion in class groups of 2-extensions\", Forum of Mathematics, Pi (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E1",
    "kind": "error",
    "locator": "v1 p.10, §3.1.5 (13); final 2018 text not obtained",
