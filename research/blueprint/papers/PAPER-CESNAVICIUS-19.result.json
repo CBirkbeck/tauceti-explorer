@@ -1768,7 +1768,8 @@
         "PAPER-CESNAVICIUS-19/local-leff",
         "PAPER-CESNAVICIUS-19/pic-formal-comparison",
         "PAPER-CESNAVICIUS-19/parafactorial-descent",
-        "PAPER-CESNAVICIUS-19/regular-factorial"
+        "PAPER-CESNAVICIUS-19/regular-factorial",
+        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent"
       ],
       "proofSteps": [
         "Pass to the completed complete-intersection presentation using parafactorial-descent.",
@@ -3851,7 +3852,10 @@
       "ownershipGroup": "P5",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/noetherian-approx",
-        "PAPER-CESNAVICIUS-19/adic-etale-site"
+        "PAPER-CESNAVICIUS-19/adic-etale-site",
+        "PAPER-CESNAVICIUS-19/perfectoid-qcqs-limit",
+        "PAPER-CESNAVICIUS-19/adic-spectral-limit",
+        "PAPER-CESNAVICIUS-19/adic-finite-etale-limit"
       ],
       "proofSteps": [
         "Inspect finite étale descent using the completion/approximation machinery.",
@@ -6600,7 +6604,10 @@
       "status": "missing",
       "ownershipGroup": "SF4",
       "prerequisites": [
-        "PAPER-CESNAVICIUS-19/lefschetz-condition"
+        "PAPER-CESNAVICIUS-19/lefschetz-condition",
+        "PAPER-CESNAVICIUS-19/sga2-finiteness",
+        "PAPER-CESNAVICIUS-19/sga2-depth-coherence",
+        "PAPER-CESNAVICIUS-19/formal-comparison-sections"
       ],
       "proofSteps": [
         "Prove complements of neighborhoods are finite sets of points closed in X.",
@@ -6634,7 +6641,8 @@
       "ownershipGroup": "SF4",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/local-lef",
-        "PAPER-CESNAVICIUS-19/effective-lefschetz"
+        "PAPER-CESNAVICIUS-19/effective-lefschetz",
+        "PAPER-CESNAVICIUS-19/formal-algebraization"
       ],
       "proofSteps": [
         "Reduce algebraization to coherence of the formal direct image.",
@@ -6667,7 +6675,9 @@
       "ownershipGroup": "SF4",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/effective-lefschetz",
-        "PAPER-CESNAVICIUS-19/parafactorial"
+        "PAPER-CESNAVICIUS-19/parafactorial",
+        "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
+        "PAPER-CESNAVICIUS-19/pic-formal-injectivity"
       ],
       "proofSteps": [
         "Use Picard deformation obstruction sequences through nilpotent thickenings.",
@@ -6790,6 +6800,342 @@
         "match": "Main-paper statement/proof or selected supporting-source passage read; unresolved external proof inputs are named in gaps.",
         "source": "SGA2"
       }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/sga2-finiteness",
+      "kind": "theorem",
+      "name": "Finiteness theorem for local cohomology (SGA 2 VIII 2.1)",
+      "statement": "Let X be a locally Noetherian prescheme that is locally embeddable in a regular prescheme, Y a closed part of X, F a coherent O_X-module and i an integer; put U = X - Y and c(x) = codim(closure{x} ∩ Y, closure{x}). If H^{i-c(x)}(F_x) = 0 for every x ∈ U, where H^•(F_x) is local cohomology at the maximal ideal of O_{X,x}, then H^i_Y(F) is coherent.",
+      "locator": "SGA 2 VIII Théorème 2.1, with Corollaire 2.2; read with the proof on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reduce to X affine regular with F the sheaf of a module of finite projective dimension: each of the conditions is local on a cover by opens embeddable in regular preschemes (the comparison of c and c_j is the one made in the proof), and Lemme 2.4 bounds the projective-dimension function on a regular Noetherian prescheme.",
+        "Dualise pointwise: for x ∈ U the local ring O_{X,x} is regular, and local duality (SGA 2 V 2.1) gives D H^{i-c(x)}(F_x) ≅ Ext^{d(x)-i}_{O_{X,x}}(F_x, O_{X,x}), turning hypothesis a) into the dual condition d) on the Ext sheaves.",
+        "Feed d) into the biduality spectral sequence of SGA 2 VIII §1 to obtain coherence of H^i_Y(F)."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 X Example 2.1 (i), first step",
+          "item": "PAPER-CESNAVICIUS-19/local-lef",
+          "how": "Uses the finiteness theorem for local cohomology to obtain coherence of the extension u_*(E) across the finitely many closed points of X outside a neighbourhood of Y."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 VIII Théorème 2.1, with Corollaire 2.2; read with the proof on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "The proof is not self-contained inside Exposé VIII: it uses the dualizing-module and local-duality theory of SGA 2 IV–V and the Ext-coherence criteria of VII, which this extraction has not read."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/sga2-depth-coherence",
+      "kind": "theorem",
+      "name": "Depth criteria for coherence of local cohomology (SGA 2 VIII 2.3)",
+      "statement": "Let X be locally Noetherian and locally embeddable in a regular prescheme, Y a closed part of X, F a coherent O_X-module, n an integer, U = X - Y and c as above. The following are equivalent: (i) prof F_x ≥ n - c(x) for every x ∈ U; (ii) prof F_x ≥ n for every x ∈ U with c(x) = 1; (iii) H^i_Y(F) is coherent for every i ≤ n; (iv) R^i i_*(F|U) is coherent for i < n, where i is the inclusion U → X.",
+      "locator": "SGA 2 VIII Corollaire 2.3; read on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/sga2-finiteness"
+      ],
+      "proofSteps": [
+        "Apply VIII 2.1 and its Corollaire 2.2 degree by degree, translating the vanishing hypothesis a) into the depth form through the characterisation of depth by vanishing of local cohomology.",
+        "Read (iv) off (iii) through the exact sequence relating H^i_Y(F), F and R^i i_*(F|U)."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 X Example 2.1 (i), reformulation of the depth hypothesis",
+          "item": "PAPER-CESNAVICIUS-19/local-lef",
+          "how": "Uses the depth criteria to turn the printed hypothesis prof A_p ≥ 2 at the closed points of X into the form prof A_p ≥ 3 - dim A/p that VIII 2.1 consumes."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 VIII Corollaire 2.3; read on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "Clause (iv) is the one the Lefschetz applications use. The Laszlo edition's editorial note (4) records that in the original text it appeared only inside the proof, not in the statement of the corollary."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/formal-comparison-sections",
+      "kind": "theorem",
+      "name": "Formal comparison of sections on a punctured spectrum (SGA 2 IX 1.4 and 1.5)",
+      "statement": "Let A be Noetherian, separated and complete for the (tA)-adic topology for some t ∈ A, and a quotient of a regular Noetherian ring. Put X_0 = Spec A, Y_0 = V(t), let T ⊂ X_0 be closed, X = X_0 - T, Y = Y_0 ∩ X, and T' = {x ∈ X_0 : codim(closure{x} ∩ T, closure{x}) = 1}. If t is F-regular for a coherent O_X-module F and prof_{T'}(F) ≥ n+1, then the comparison morphisms of IX (1.1) are isomorphisms in degrees < n and monomorphisms in degree n. In the local case, with A local, t ∈ r(A), T = {r(A)} and n = 1: if A is Noetherian, separated and complete for the t-adic topology and a quotient of a regular ring, t is F-regular, and prof F_x ≥ 2 for every x ∈ Spec A with dim A/x = 1, then Γ(X, F) → Γ(X-hat, F-hat) is an isomorphism.",
+      "locator": "SGA 2 IX Proposition 1.4 and Exemple 1.5; read with their proofs on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/sga2-finiteness"
+      ],
+      "proofSteps": [
+        "Reduce, by IX 1.2 and IX 1.3, to coherence of R^i f_*(F) for i ≤ n, where f is the inclusion of X in X_0.",
+        "Obtain that coherence from the finiteness theorem VIII 2.1, which is exactly what hypothesis prof_{T'}(F) ≥ n+1 is for.",
+        "Specialise to T = {r(A)} and n = 1, where T' becomes {x : dim A/x = 1}, to get the section comparison used by the local Lefschetz criterion."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 X Example 2.1 (i), last step",
+          "item": "PAPER-CESNAVICIUS-19/local-lef",
+          "how": "Uses the formal comparison of sections to identify Γ(U, E) with Γ(X-hat, E-hat), A being complete for the t-adic topology."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 IX Proposition 1.4 and Exemple 1.5; read with their proofs on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "The comparison theorem IX 1.1 behind 1.2–1.4 is proved by a Mittag-Leffler argument on the graded modules of IX §1 together with EGA 0_III 13.3.1; that layer has not been read."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/formal-algebraization",
+      "kind": "theorem",
+      "name": "Algebraization of a coherent formal module on a punctured spectrum (SGA 2 IX 2.2 and 2.3)",
+      "statement": "Let A be a Noetherian local ring, t ∈ r(A), and suppose A is separated and complete for the t-adic topology and a quotient of a regular ring. Put X_0 = Spec A, T = {r(A)}, X = X_0 - T, Y = V(t) ∩ X and T' = {p : dim A/p = 1}. Let ℱ be a coherent O_{X-hat}-module, J = t·O_{X-hat} and ℱ_0 = ℱ/Jℱ. If (1) t is ℱ-regular and (2) prof_{T'} ℱ_0 ≥ 2, then there is a coherent O_X-module F with F-hat ≅ ℱ.",
+      "locator": "SGA 2 IX Théorème 2.2 and Corollaire 2.3; read with their proofs on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/sga2-finiteness"
+      ],
+      "proofSteps": [
+        "It suffices that f-hat_*(ℱ) be coherent, since A is separated and complete for the t-adic topology, so a coherent module on the formal completion of X_0 comes from an A-module, whose restriction to the open X is the wanted F.",
+        "Apply IX 2.1 (the form of EGA III 3.4.2 proved there) to the morphism of formal preschemes f-hat: hypothesis (1) gives J^kℱ/J^{k+1}ℱ ≅ ℱ/Jℱ for every k, so the graded finiteness hypothesis of 2.1 reduces to coherence of R^i f_*(ℱ_0) for i ≤ 1.",
+        "Obtain that coherence from (2) and the finiteness theorem VIII 2.1."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 X Example 2.1 (ii)",
+          "item": "PAPER-CESNAVICIUS-19/local-leff",
+          "how": "Uses the algebraization theorem to produce a coherent module on X whose completion is the given coherent module on X-hat, which is what Leff adds to Lef."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 IX Théorème 2.2 and Corollaire 2.3; read with their proofs on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "IX 2.1 is a slightly generalised form of EGA III 3.4.2 and is proved there from EGA 0_III 13.7.7; that layer has not been read."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
+      "kind": "theorem",
+      "name": "Infinitesimal Picard obstruction sequence (SGA 2 XI 1.1)",
+      "statement": "Let X be locally Noetherian, I a quasi-coherent ideal, Y = V(I), X_n = (Y, O_X/I^{n+1}) and P_n = I^{n+1}/I^{n+2}. The sequence of abelian sheaves on Y, 0 → P_n → O*_{X_{n+1}} → O*_{X_n} → 1, with P_n in its additive structure and the first map x ↦ 1 + x, is exact; its cohomology sequence gives H^1(Y, P_n) → Pic(X_{n+1}) → Pic(X_n) → H^2(Y, P_n) under Pic(X_n) = H^1(Y, O*_{X_n}). Consequently Pic(X-hat) → Pic(X_n) is injective for n ≥ p if H^1(Y, P_n) = 0 for n ≥ p, and bijective for n ≥ p if H^i(Y, P_n) = 0 for n ≥ p and i = 1, 2.",
+      "locator": "SGA 2 XI §1, the exact sequence (1.1) and Proposition 1.1; read on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [],
+      "proofSteps": [
+        "Check exactness of (1.1): surjectivity of the right map holds because O_{X_n,y} is the quotient of O_{X_{n+1},y} by a nilpotent ideal, and the kernel is 1 + P_n.",
+        "Identify Pic(X_n) with H^1(Y, O*_{X_n}) and read the injectivity and bijectivity statements off the long exact sequence."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 XI Proposition 3.12, hypothesis 2)",
+          "item": "PAPER-CESNAVICIUS-19/pic-formal-comparison",
+          "how": "Uses the infinitesimal Picard obstruction sequence to convert the vanishing of H^i(X, I^{n+1}/I^{n+2}) for i = 1, 2 into bijectivity of Pic(X-hat) → Pic(X_n)."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 XI §1, the exact sequence (1.1) and Proposition 1.1; read on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "The same sequence applied to Hom-sheaves of two invertible modules controls the functor P(X-hat) → P(Y_n); SGA 2 XI §1 states this but does not write the sequence out."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+      "kind": "theorem",
+      "name": "Picard comparison along the formal completion (SGA 2 XI 2.1 and 2.2)",
+      "statement": "If Lef(X, Y) holds then for every open neighbourhood U of Y in X the inverse-image functor P(U) → P(X-hat) is fully faithful, so Pic(U) → Pic(X-hat) is injective; if Leff(X, Y) holds then colim_U Pic(U) → Pic(X-hat) is an isomorphism. Hence, under Lef(X, Y) and H^1(Y, P_n) = 0 for n ≥ p, the maps Pic(X) → Pic(U) → Pic(Y_n) are injective for n ≥ p; and under Leff(X, Y) together with H^i(Y, P_n) = 0 for i = 1, 2 and n ≥ p, colim_U Pic(U) → Pic(Y_n) is an isomorphism.",
+      "locator": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/lefschetz-condition",
+        "PAPER-CESNAVICIUS-19/effective-lefschetz",
+        "PAPER-CESNAVICIUS-19/pic-thickening-sequence"
+      ],
+      "proofSteps": [
+        "Full faithfulness of P(U) → P(X-hat) is the Lefschetz condition applied to the coherent locally free sheaf Hom(E, F), as X §2 shows.",
+        "Essential surjectivity after passing to the colimit over U is the effective Lefschetz condition.",
+        "Compose with the thickening sequence of XI 1.1 to descend from Pic(X-hat) to Pic(Y_n)."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "SGA 2 XI Proposition 3.12, hypothesis 1)",
+          "item": "PAPER-CESNAVICIUS-19/pic-formal-comparison",
+          "how": "Uses the Picard comparison along the formal completion to pass from the effective Lefschetz condition to colim_U Pic(U) ≅ Pic(X-hat)."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 XI Proposition 2.1 and Corollaire 2.2, whose proof is the one given in SGA 2 X §2; read on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/pic-hypersurface-descent",
+      "kind": "theorem",
+      "name": "Picard descent along a regular hypersurface section (SGA 2 XI 3.16 and 3.17)",
+      "statement": "Let A be a Noetherian local ring that is a quotient of a regular ring, t ∈ r(A) an A-regular element, and suppose A is complete for the t-adic topology. Put X_0 = Spec A, Y_0 = V(t) = Spec(A/tA), x = r(A), X = X_0 - {x}, Y = Y_0 - {x}. (3.16) If (a) prof O_{X,y} ≥ 2 for every y closed in X and (b) prof A/tA ≥ 3, then Pic(X) → Pic(Y) is injective; in particular A is parafactorial as soon as A/tA is. (3.17) If moreover (c) prof O_{X,y} ≥ 3 for every y closed in Y, (d) prof A/tA ≥ 4, and (e) O_{X,y} is parafactorial for every closed point y of X that does NOT lie in Y, then Pic(X) → Pic(Y) is an isomorphism, and A is parafactorial if and only if A/tA is.",
+      "locator": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "SF4",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/local-lef",
+        "PAPER-CESNAVICIUS-19/local-leff",
+        "PAPER-CESNAVICIUS-19/parafactorial",
+        "PAPER-CESNAVICIUS-19/pic-formal-comparison",
+        "PAPER-CESNAVICIUS-19/pic-thickening-sequence"
+      ],
+      "proofSteps": [
+        "Hypothesis (a) gives Lef(X, Y) and (a) with (c) gives Leff(X, Y), by SGA 2 X Example 2.1.",
+        "Since t is A-regular, P_n = (I^{n+1}/I^{n+2})|Y ≅ O_Y for every n, so the vanishing needed from XI 1.1 reduces to H^1(Y, O_Y) = 0, resp. H^i(Y, O_Y) = 0 for i = 1, 2; the excision sequence H^i(Y_0, O) → H^i(Y, O) → H^{i+1}_x(Y_0, O) gives it from (b), resp. (d), because Y_0 is affine.",
+        "For 3.17 conclude with XI Proposition 3.12, whose third hypothesis is supplied by (e): for every open neighbourhood U of Y in X the complement X - U is a finite set of closed points of X, and those points lie outside Y.",
+        "Deduce Théorème 3.13 (ii) by induction on the length of the regular sequence presenting a local complete intersection of dimension ≥ 4, the base case being regular local rings, which are factorial by 3.13 (i) and hence parafactorial by 3.10."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-LEFSCHETZ"
+      ],
+      "uses": [
+        {
+          "where": "Corollary 2.5; SGA 2 XI Théorème 3.13 (ii)",
+          "item": "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
+          "how": "Uses the hypersurface Picard descent to run the induction on the length of the regular sequence that presents a local complete intersection of dimension at least four."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "SGA 2 XI Lemme 3.16 and Lemme 3.17, read with their proofs and with the proof of Théorème 3.13 (ii), on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "SGA2"
+      },
+      "note": "Hypothesis (e) of 3.17 is printed in the Laszlo edition as «pour tout y fermé de X, y ∈ Y»; the mathematics requires y ∉ Y, and this item uses the corrected form. (e) exists only to supply hypothesis 3) of XI Proposition 3.12, which asks for parafactoriality at the points of X - U for the open neighbourhoods U of Y; those are exactly the closed points of X outside Y, while the points of Y lie in every such U, so the printed reading would leave 3.12 unusable. The verification of (e) inside the proof of 3.13 (ii) covers every closed point of X and so does not distinguish the two readings. The 1968 North-Holland original was not consulted, so this is recorded as a reading correction to the edition read, not as a finding about Česnavičius's paper."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/adic-spectral-limit",
+      "kind": "theorem",
+      "name": "Spectral-space limit of an affinoid Tate system (Scholze, diamonds, 6.4 (o))",
+      "statement": "Let X_i = Spa(R_i, R_i^+), i ∈ I, be a cofiltered inverse system of affinoid perfectoid spaces with a compatible choice of pseudouniformizers ϖ ∈ R_i^+, and let X = Spa(R, R^+) where R^+ is the ϖ-adic completion of colim_i R_i^+ and R = R^+[1/ϖ]. Then |X| → lim_i |X_i| is a homeomorphism of spectral spaces.",
+      "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (o); read with the proof of 6.4 on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "P5",
+      "prerequisites": [],
+      "proofSteps": [
+        "Identify the points of Spa with continuous valuations bounded by 1 on the ring of integral elements, and check that a valuation is continuous exactly when the values of the powers of the pseudouniformizer are not bounded below.",
+        "Conclude that the map is a homeomorphism of spectral spaces along spectral transition maps, and that rational subsets correspond."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-ADIC-LIMIT"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 4.10 (4.10.6), footnote 3",
+          "item": "PAPER-CESNAVICIUS-19/qcqs-site-limit",
+          "how": "Uses the spectral-space limit, which the paper proves for its own Noetherian stages, as the part of the argument that transfers unchanged."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (o); read with the proof of 6.4 on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "Sch17"
+      },
+      "note": "Česnavičius proves the corresponding statement for his own Noetherian stages directly, at (4.10.6): perfectoidness of the stages is not used for this part."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/adic-finite-etale-limit",
+      "kind": "theorem",
+      "name": "Finite étale limit of an affinoid Tate system (Scholze, diamonds, 6.4 (i))",
+      "statement": "In the situation of 6.4, the base-change functors (X_i)_fét → X_fét induce an equivalence of categories 2-colim_i (X_i)_fét → X_fét; equivalently, every finite étale R-algebra descends to some R_i, uniquely up to a further stage.",
+      "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (i); read on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "P5",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reduce the statement about spaces to the statement 2-colim_i (R_i)_fét → R_fét about finite étale algebras.",
+        "Descend a finite étale algebra over the completed colimit to a finite stage by the almost-purity and approximation machinery for perfectoid Tate rings."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-ADIC-LIMIT"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 4.10 (4.10.6), footnote 3",
+          "item": "PAPER-CESNAVICIUS-19/qcqs-site-limit",
+          "how": "Uses the finite étale limit as the single remaining statement that footnote 3 must re-prove for Noetherian stages with perfectoid completed limit."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (i); read on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "Sch17"
+      },
+      "note": "This is the only step in the proof of 6.4 (ii) that uses affinoid perfectoidness of the stages rather than of the limit alone; it is therefore exactly what Česnavičius's footnote 3 has to re-prove for Noetherian, integrally closed stages whose ϖ-adically completed colimit has perfectoid generic fibre."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/perfectoid-qcqs-limit",
+      "kind": "theorem",
+      "name": "Qcqs étale-site limit for affinoid perfectoid stages (Scholze, diamonds, 6.4 (ii))",
+      "statement": "In the situation of 6.4, the base-change functors induce an equivalence 2-colim_i (X_i)_ét,qcqs → X_ét,qcqs between the full subcategories of quasi-compact quasi-separated étale perfectoid spaces over the X_i and over X.",
+      "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (ii); read with its proof on 2026-09-22",
+      "status": "missing",
+      "ownershipGroup": "P5",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/adic-spectral-limit",
+        "PAPER-CESNAVICIUS-19/adic-finite-etale-limit"
+      ],
+      "proofSteps": [
+        "Faithfulness: two maps f_i, g_i : Y_i → Y'_i that agree after pullback to X have graphs Γ_{f_i}, Γ_{g_i} : Y_i ↪ Z_i = Y_i ×_{X_i} Y'_i, which are immersions and hence determined by their quasi-compact open images in |Z_i|; since |Z| = lim_j |Z_j| by 6.4 (o), two quasi-compact opens that agree over |Z| already agree over some |Z_j|.",
+        "Intermediate step: if f_i : Y_i → Y'_i pulls back to an isomorphism over X, then it is an isomorphism over X_j for large j — its image is a quasi-compact open through which Y' → Y'_i factors, so Y'_j → Y'_i factors through it for large j, and the same argument applied to Y_i → Y_i ×_{Y'_i} Y_i gives injectivity.",
+        "Fullness: for f : Y → Y' over X, approximate the quasi-compact open image of its graph by a quasi-compact open immersion V_j ⊂ Y_j ×_{X_j} Y'_j, apply the intermediate step to V_j → Y_j, and compose the inverse with the second projection.",
+        "Essential surjectivity: cover a qcqs étale Y → X by quasi-compact opens that descend to a stage — full faithfulness then glues them — and reduce to an f that is a composite of a rational open subset, a finite étale map and a rational open subset, each of which descends by 6.4 (o) and 6.4 (i)."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-ADIC-LIMIT"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 4.10 (4.10.6), footnote 3",
+          "item": "PAPER-CESNAVICIUS-19/qcqs-site-limit",
+          "how": "Uses the printed qcqs étale-site limit for affinoid perfectoid stages as the statement that footnote 3 extends to Noetherian stages."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "Scholze, Étale cohomology of diamonds, Proposition 6.4 (ii); read with its proof on 2026-09-22",
+        "match": "Supporting-source statement and proof read directly at the locator on 2026-09-22; remaining external inputs are named in gaps.",
+        "source": "Sch17"
+      },
+      "note": "Stated for stages that are themselves affinoid perfectoid. The proof uses that hypothesis only through 6.4 (o) and 6.4 (i), so Česnavičius's footnote 3 — the same conclusion for Noetherian, integrally closed stages with perfectoid completed limit — reduces to those two statements at Noetherian stages."
     }
   ],
   "prerequisites": [
@@ -7026,9 +7372,16 @@
         "PAPER-CESNAVICIUS-19/local-lef",
         "PAPER-CESNAVICIUS-19/local-leff",
         "PAPER-CESNAVICIUS-19/pic-formal-comparison",
-        "PAPER-CESNAVICIUS-19/parafactorial-descent"
+        "PAPER-CESNAVICIUS-19/parafactorial-descent",
+        "PAPER-CESNAVICIUS-19/sga2-finiteness",
+        "PAPER-CESNAVICIUS-19/sga2-depth-coherence",
+        "PAPER-CESNAVICIUS-19/formal-comparison-sections",
+        "PAPER-CESNAVICIUS-19/formal-algebraization",
+        "PAPER-CESNAVICIUS-19/pic-thickening-sequence",
+        "PAPER-CESNAVICIUS-19/pic-formal-injectivity",
+        "PAPER-CESNAVICIUS-19/pic-hypersurface-descent"
       ],
-      "reason": "Extend the existing lifting/obstruction/formal-algebraization direction with principal henselian approximation, idempotent groupoids, the iterated-completion adapter and the local parafactorial/Picard theorem. Import full cotangent complexes from DD.0, existing completion/regularity from upstream ModularCurves4D, and formal-scheme/GAGA carriers from their shared owners; do not rebuild them. Local Grothendieck–Lefschetz in dimension≥4 is not the curve Picard target of SF.3 or a vanishing-cycle Lefschetz-pencil theorem."
+      "reason": "Extend the existing lifting/obstruction/formal-algebraization direction with principal henselian approximation, idempotent groupoids, the iterated-completion adapter and the local parafactorial/Picard theorem. Import full cotangent complexes from DD.0, existing completion/regularity from upstream ModularCurves4D, and formal-scheme/GAGA carriers from their shared owners; do not rebuild them. Local Grothendieck–Lefschetz in dimension≥4 is not the curve Picard target of SF.3 or a vanishing-cycle Lefschetz-pencil theorem. The continuation of 2026-09-22 adds the SGA 2 statements behind the local Lefschetz and Picard machinery, read at their locators: the finiteness theorem VIII 2.1 and its depth criteria VIII 2.3, the formal comparison IX 1.4/1.5 and algebraization IX 2.2/2.3, the infinitesimal Picard obstruction sequence XI 1.1, the formal Picard comparison XI 2.1/2.2, and the hypersurface descent XI 3.16/3.17. They belong with the parafactoriality and Lefschetz nodes already routed here."
     },
     {
       "route": "source",
@@ -7137,9 +7490,12 @@
       ],
       "items": [
         "PAPER-CESNAVICIUS-19/noetherian-approx",
-        "PAPER-CESNAVICIUS-19/qcqs-site-limit"
+        "PAPER-CESNAVICIUS-19/qcqs-site-limit",
+        "PAPER-CESNAVICIUS-19/adic-spectral-limit",
+        "PAPER-CESNAVICIUS-19/adic-finite-etale-limit",
+        "PAPER-CESNAVICIUS-19/perfectoid-qcqs-limit"
       ],
-      "reason": "Add the explicitly stated Noetherian-stage qcqs étale-descent extension from footnote3 to the finite-stage limit owner. It imports the earlier henselian finite-étale approximation of P3 (as RS-05 specifies). Do not substitute A3's stronger affinoid descent or silently apply a theorem whose stages are required perfectoid."
+      "reason": "Add the explicitly stated Noetherian-stage qcqs étale-descent extension from footnote3 to the finite-stage limit owner. It imports the earlier henselian finite-étale approximation of P3 (as RS-05 specifies). Do not substitute A3's stronger affinoid descent or silently apply a theorem whose stages are required perfectoid. The continuation of 2026-09-22 adds the three parts of Scholze's Proposition 6.4 that footnote 3 extends, so that the limit owner carries the printed statement, the spectral-space part the paper reproves for its Noetherian stages, and the finite étale part that is the only remaining content of the extension."
     },
     {
       "route": "source",
@@ -7249,7 +7605,7 @@
     },
     {
       "id": "G-LEFSCHETZ",
-      "detail": "SGA2 XI3.13 proof is read, not transitive closure. Decompose XI3.16/3.17 without OCR ambiguity and close the VIII2.1/2.3 local-coherence and IX1.5/2.3 formal-coherence/completion inputs, plus infinitesimal Picard obstruction sequences. Existing formal-scheme/GAGA and local algebra owners supply the foundations.",
+      "detail": "Narrowed on 2026-09-22 (Claude Code, cc-7b31c4). The four inputs the earlier checkpoint named are now read at their locators in the Laszlo edition, with their proofs, and are items: VIII 2.1 with 2.2 (finiteness of local cohomology), VIII 2.3 (the four equivalent depth criteria, including the R^i i_* form), IX 1.4 with 1.5 (the section comparison Γ(X, F) ≅ Γ(X-hat, F-hat)) and IX 2.2 with 2.3 (algebraization). The infinitesimal Picard obstruction sequence is XI 1.1, now an item, and XI 3.16/3.17 are decomposed as pic-hypersurface-descent with no remaining ambiguity: hypothesis (e) of 3.17 is printed as y ∈ Y and must be read as y ∉ Y, since it exists only to supply hypothesis 3) of XI 3.12 at the points of X - U. What remains open is the next layer down, which this extraction has not read: the dualizing-module and local-duality theory of SGA 2 IV–V and the Ext-coherence criteria of VII behind VIII 2.1, and EGA 0_III 13.3.1 and 13.7.7 (through EGA III 3.4.2) behind IX 1.1 and IX 2.1. Retain dimension ≥ 4 throughout.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/local-pic-lefschetz",
         "PAPER-CESNAVICIUS-19/parafactorial",
@@ -7349,7 +7705,7 @@
     },
     {
       "id": "G-ADIC-LIMIT",
-      "detail": "Read Sch17 proof6.4(ii) and prove the precise footnote3 extension to Noetherian integral stages with perfectoid completed limit. Close normalization/excellence, rational/open and finite-étale descent, covers, and topos-limit/hypercover continuity. Do not invoke A3's stronger affinoid result.",
+      "detail": "Narrowed on 2026-09-22 (Claude Code, cc-7b31c4). Scholze's Proposition 6.4 is read in full, including the proof of (ii), and its parts (o), (i) and (ii) are now items. The proof of (ii) — faithfulness by quasi-compact open images of graphs, the intermediate isomorphism-at-a-stage step, fullness by approximating the graph, and essential surjectivity by the rational/finite-étale/rational factorisation — uses affinoid perfectoidness of the stages only through (o) and (i). Česnavičius proves (o) for his own Noetherian stages at (4.10.6). So footnote 3 reduces to (i) for a filtered system of affinoid Tate rings with a common pseudouniformizer, each Noetherian, a ring of definition and integrally closed in its generic fibre, whose ϖ-adically completed colimit has perfectoid generic fibre: every finite étale algebra over the limit must descend to a stage. That statement is still to be proved, together with the topos-limit or hypercover continuity of footnote 4. Do not invoke A3's stronger affinoid result. Hub96 3.2.9 itself remains G-HUBER.",
       "consumers": [
         "PAPER-CESNAVICIUS-19/noetherian-approx",
         "PAPER-CESNAVICIUS-19/qcqs-site-limit",
@@ -7501,8 +7857,9 @@
       "url": "https://www.cmls.polytechnique.fr/~laszlo/sga2/sga2-smf.pdf",
       "sha256": "1c648d9588367c7ebcaa1b9c7d043642b8ee470e8d4f5e23579448ec3d858da1",
       "readDate": "2026-09-22",
-      "readScope": "X§2 Lef/Leff definitions and full Example2.1 proof; XI2.1–2.2; XI3.1–3.17 including full3.13(i)/(ii) proof and determinant/parafactorial descent arguments. Not the whole book.",
-      "remaining": "VIII2.1/2.3 and IX1.5/2.3 coherence/formal comparison proofs, Picard obstruction sequences, full exact3.16–3.17 node decomposition."
+      "readScope": "X §2 Lef/Leff definitions and full Example 2.1 proof; VIII §2 Théorème 2.1, Corollaires 2.2 and 2.3 with Lemmes 2.4 and 2.5 and the proof; IX §1 Propositions 1.2–1.4 and Exemple 1.5 with the proof, and §2 Théorèmes 2.1–2.2 and Corollaire 2.3 with the proof; XI §1 the sequence (1.1) and Proposition 1.1; XI 2.1–2.2; XI 3.1–3.18 including the full 3.13 (i)/(ii) proof, Lemmes 3.15–3.17 and the determinant and parafactorial descent arguments. Not the whole book.",
+      "remaining": "The layer below: the dualizing-module and local-duality theory of IV–V and the Ext-coherence criteria of VII behind VIII 2.1; EGA 0_III 13.3.1 behind the comparison theorem IX 1.1; EGA 0_III 13.7.7 and EGA III 3.4.2 behind IX 2.1.",
+      "reading": "XI 3.17 (e) is printed as «pour tout y fermé de X, y ∈ Y» and is used as y ∉ Y; see the note on PAPER-CESNAVICIUS-19/pic-hypersurface-descent. The 1968 North-Holland original was not consulted."
     },
     {
       "id": "Stacks",
@@ -7515,6 +7872,15 @@
         "https://stacks.math.columbia.edu/tag/07D3",
         "https://stacks.math.columbia.edu/tag/09Q7"
       ]
+    },
+    {
+      "id": "Sch17",
+      "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v2",
+      "url": "https://arxiv.org/pdf/1709.07343v2",
+      "sha256": "828adea41601491dc6c35d3d6a29bb94d8f6026861cc76ad4d36ee5e92f4d9f5",
+      "readDate": "2026-09-22",
+      "readScope": "§6: the statement of Proposition 6.4 with all of (o), (i), (ii), (iii), (iv), and the complete proof of (ii) together with the set-theoretic preamble. Not §§1–5 or the rest of §6.",
+      "remaining": "The proof of 6.4 (i), which is where affinoid perfectoidness of the stages enters, and the Noetherian-stage form of it that footnote 3 of the main paper asserts."
     }
   ],
   "libraryAudit": {
@@ -7600,14 +7966,14 @@
   },
   "coverage": {
     "mainPaper": "All sections read and named results/remarks represented; source-specific proof interiors remain partial.",
-    "transitiveClosure": "open: see25 named gaps",
+    "transitiveClosure": "open: see the 25 named gaps; G-NONABELIAN, G-LEFSCHETZ and G-ADIC-LIMIT are narrowed but not closed",
     "definitions": 38,
     "tests": 114,
-    "items": 148,
+    "items": 159,
     "statusCounts": {
       "library": 11,
       "planned": 11,
-      "missing": 126
+      "missing": 137
     },
     "missingRoutedExactlyOnce": true,
     "lean": "Not applicable: no Lean file is a deliverable; planning tests not executed.",
