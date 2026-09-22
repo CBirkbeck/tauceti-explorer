@@ -3670,6 +3670,447 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E1",
+   "kind": "error",
+   "locator": "v1 p.7 Proposition 2.3; final journal text not obtained",
+   "printed": "arbitrary positive d_i",
+   "correction": "Require the weights to be nonzero in k for differential injectivity; the exact rank is the number of nonzero total weights.",
+   "reason": "Multiplication by p has zero differential in characteristic p. Independent unweighted Abel tangent lines do not repair a zero scalar. W1 states the exact rank and overlap convention.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E2",
+   "kind": "error",
+   "locator": "v1 p.7 Corollary 2.4, unrestricted characteristic reading; final journal text not obtained",
+   "printed": "only finitely many points of |L| of the form Σn_iD_i",
+   "correction": "Restrict the characteristic/total weights as in W1. Unrestricted finiteness is false, not merely unproved by the printed tangent argument.",
+   "reason": "W2–W4: on C:y²=x⁵−x in characteristic 5, a nonempty open family P gives Q=τ(P²⁵), h⁰(P+Q)=1 and div(G_P)=5P+Q−6∞. The varying divisors 5P+Q all lie in |6∞|; their multiplicity-five point recovers P.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E3",
+   "kind": "misprint",
+   "locator": "v1 p.8 Corollary 2.9; final journal text not obtained",
+   "printed": "O_(P¹)(g)",
+   "correction": "Use O_(P¹)(g−1) for the canonical rational-normal embedding.",
+   "reason": "Its section space has dimension g, giving P^(g−1); O(g) has g+1 sections.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E4",
+   "kind": "error",
+   "locator": "v1 p.10 Proposition 2.15; final journal text not obtained",
+   "printed": "C^(d) is the Nash blowup of Θ_d",
+   "correction": "Retain the restricted d<g branch used by the proof; do not assert this for all d.",
+   "reason": "At d=g, Θ_g is the smooth Jacobian, whose Nash blowup is itself, whereas special degree-g Abel fibers can have positive dimension. The proof explicitly invokes the d<g embedding.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E5",
+   "kind": "misprint",
+   "locator": "v1 p.11 proof of Proposition 2.16; final journal text not obtained",
+   "printed": "D₁∩D₂ is special",
+   "correction": "At this point the divisor is D₁∪D₂.",
+   "reason": "Lemma 2.1 and Corollary 2.2 compute the tangent image from the union, as does the proposition's displayed statement; the intersection does not give that rank.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E6",
+   "kind": "error",
+   "locator": "v1 p.12 Corollary 2.18; final journal text not obtained",
+   "printed": "min(g,(deg H∩+deg H₁+deg H₂)/2+deg S+deg R∩+deg R₁+deg R₂)",
+   "correction": "Use the union-divisor rank formula until cross-overlap terms are correctly included.",
+   "reason": "For a ramification point p, D₁=p,D₂=2p give H₂=2p,R₁=p, so the display gives min(g,2); the union is 2p and has h⁰=2, hence rank 2+1−2=1. Previously checked in PR #1657; downstream uses remain unclosed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E7",
+   "kind": "error",
+   "locator": "v1 p.12 after Definition 2.19; final journal text not obtained",
+   "printed": "e(L)≥(2g−a−b−1)/2",
+   "correction": "The safe Riemann–Roch bound is floor((deg L−g)/2)≤e(L)≤floor(deg L/2).",
+   "reason": "A generic degree-g class has e(L)=0; choose a+b=g. The printed lower bound is positive for g≥2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E8",
+   "kind": "gap",
+   "locator": "v1 pp.3 and 30, Theorems 1.1 and 4.2; final journal text not obtained",
+   "printed": "Theorem 1.1 without a q restriction",
+   "correction": "Reconcile the introduction with the q>4 hypothesis in Theorem 4.2 before exporting the all-q endpoint.",
+   "reason": "The detailed theorem imposes a condition omitted in the introduction. This is a source/proof-scope discrepancy, not a counterexample to the all-q statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E9",
+   "kind": "error",
+   "locator": "v1 p.30 proof of Theorem 4.2; final journal text not obtained",
+   "printed": "C has a point over F_q",
+   "correction": "Use a degree-one divisor class with its descent, not an assumed rational point.",
+   "reason": "A finite-field curve need not have a rational point. What is required here is that the two degree-parity Picard components have the same cardinality; the index-one/Picard-descent supplier is still needed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E10",
+   "kind": "misprint",
+   "locator": "v1 p.31, contour estimate after (7); final journal text not obtained",
+   "printed": "O_ε(q^((n/2+ε)g))",
+   "correction": "Use O_ε(q^(n/2+εg)); after division by #J use its actual asymptotic normalization.",
+   "reason": "On the circle |t|=q^(−1/2), t^(−n) contributes q^(n/2), not q^(ng/2). The unnormalized count cannot take the subsequently printed tiny normalized error without dividing by #J.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E11",
+   "kind": "gap",
+   "locator": "v1 p.4 geometric proof outline versus p.32; final journal text not obtained",
+   "printed": "q>N, with N=4",
+   "correction": "The stated O(4^g) cohomological argument yields q>16 unless a stronger estimate is supplied.",
+   "reason": "The normalized error has size 4^g q^(−g/2+o(g)); decay requires 4/√q<1. The p.32 proof itself gives q>16. The analytic argument is separate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E12",
+   "kind": "error",
+   "locator": "v1 p.33, joint-tail count display; final journal text not obtained",
+   "printed": "μ_i((a+1+2N)×(b+1+2N))=#X(F_q)",
+   "correction": "For the unconditional two-parity Picard quotient, divide by 2#J(F_q); on a fixed parity component use its conditional normalization.",
+   "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E13",
+   "kind": "error",
+   "locator": "v1 p.18 Theorem 3.12; final journal text not obtained",
+   "printed": "dim H^(−i)(K_p)≤Σ n_α γ^i_(V_α)(p), with χ(K_p)=Σn_α Eu_(V_α)(p)",
+   "correction": "Use effective characteristic-cycle coefficients with the signed Euler-obstruction conversion and the correct shifts.",
+   "reason": "For K=Q_C[1] on a smooth complex curve, χ=−1 but dim H^(−1)=1 and the top polar multiplicity is 1, so the printed bound is 1≤−1. Original Massey normalization remains to acquire.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E14",
+   "kind": "misprint",
+   "locator": "v1 p.19 motivic Abel decomposition and inversion; final journal text not obtained",
+   "printed": "A_(a−2l,b−2r); −[A_(a,b+2)]",
+   "correction": "With A_(a,b)=C^(g−a)×C^(g−b), lower theta degrees have indices a+2l,b+2r; inversion has both middle factors L: Σ_ab=A_ab−L A_(a+2,b)−L A_(a,b+2)+L² A_(a+2,b+2).",
+   "reason": "Fibers of the Abel map over Θ_(g−a−2l) are P^l; decreasing the theta degree increases the a index. Multiplying both geometric-series factors (1−L shift_a)(1−L shift_b) gives the two L coefficients. Derived versions need shifts and Tate twists.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E15",
+   "kind": "error",
+   "locator": "v1 p.27 proof of Lemma 3.22; final journal text not obtained",
+   "printed": "[2]_*[Θ_u]=2^u[Θ_u]",
+   "correction": "The cohomological pushforward factor on a u-dimensional abelian cycle is 4^u; separate image cycles from pushforwards and verify the generic degree.",
+   "reason": "For r=0,s=1,k=g−2 the displayed coefficient gives 2, whereas the doubled-curve pushforward has coefficient 4. No repaired full polar coefficient is asserted without its generic-degree calculation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E16",
+   "kind": "misprint",
+   "locator": "v1 p.26 Lemma 3.21 versus its proof; final journal text not obtained",
+   "printed": "L⊂B",
+   "correction": "Use the proof's condition L^∨ not contained in B, with L and its annihilator correctly typed.",
+   "reason": "The proof passes to the dense open L^∨ minus B. The printed condition is incompatible with that argument.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E17",
+   "kind": "gap",
+   "locator": "v1 p.28 proof of Proposition 3.23; final journal text not obtained",
+   "printed": "lift the normalization through a proper surjection",
+   "correction": "Record a finite base change of the normalized curve and check the subsequent derivative argument after that change.",
+   "reason": "A proper surjection need not admit a section over a given normalized curve. A finite cover can produce a lift, but this step and the relevant separability must be justified.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E18",
+   "kind": "gap",
+   "locator": "v1 pp.17 and 32, Theorem 3.11 and discussion after Conjecture 4.3; final journal text not obtained",
+   "printed": "N=960",
+   "correction": "Retain O_ε((960+ε)^g), not the exact 960^g endpoint, until an independent sharper estimate is proved.",
+   "reason": "An ε-dependent exponential bound does not imply the bound with ε=0. Existing coefficient/sign problems also prevent certification of the printed numerical endpoint.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E19",
+   "kind": "error",
+   "locator": "v1 p.37 Appendix A.2; final journal text not obtained",
+   "printed": "Pic(D)/π*Pic(C)=X_T/T(O), with T(O) maximal compact",
+   "correction": "Use integral unit-level subgroups. At a ramified quadratic place the unit quotient is index two in the compact anisotropic torus.",
+   "reason": "For l_v=k_v(√π), √π maps to [[0,π],[1,0]], with odd determinant valuation. Scalar multiplication changes that valuation by an even number, so no conjugate lies in PGL₂(O_v). The claimed maximal compact containment fails.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E20",
+   "kind": "gap",
+   "locator": "v1 pp.37–38 Appendix A.3; final journal text not obtained",
+   "printed": "the pushforward map X_T→X_GL₂",
+   "correction": "Construct the framed GL₂ map from Res_(l/k)G_m before quotienting scalars; T=Res G_m/G_m has the canonical map to PGL₂, not that GL₂ lift.",
+   "reason": "Multiplication on l is a GL₂ representation of l×. Modding out k× loses the scalar action needed to define a canonical GL₂ representation. Reprove the framed quotient dictionary with its central data.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/E21",
+   "kind": "gap",
+   "locator": "v1 pp.33–34 Theorem 4.4 Case 1; final journal text not obtained",
+   "printed": "the proof carries over",
+   "correction": "Supply the positive-characteristic Linnik/dynamics proof with constants uniform in the chosen split place, or retain it as an explicit hypothesis.",
+   "reason": "The source transfers EMiV's number-field argument and allows a place of growing degree; the required variable-place estimates are not established by that sentence. Its optional Waldspurger sketch also states its formula is not available in sufficient generality.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+    "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+    "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+   ],
+   "owner": "PAPER-SHENDE-TSIMERMAN-17",
+   "file": "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+   "citation": "Shende–Tsimerman, \"Equidistribution in Bun_2(P^1)\", Duke Mathematical Journal (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-WOOD-19/E1",
    "kind": "gap",
    "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
@@ -7776,7 +8217,6 @@
   "PAPER-HARPAZ-WITTENBERG-20",
   "PAPER-KISIN-PAPPAS-18",
   "PAPER-KISIN-PAPPAS-ZHOU-26",
-  "PAPER-MERKURJEV-SCAVIA-26",
-  "PAPER-SHENDE-TSIMERMAN-17"
+  "PAPER-MERKURJEV-SCAVIA-26"
  ]
 }
