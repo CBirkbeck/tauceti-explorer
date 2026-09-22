@@ -1,5 +1,19 @@
 # BSTTTZ: torsion feedback, determinant methods and finite-field sections
 
+> **Fourth-checkpoint notice — 22 September 2026.** ChatGPT Pro, session
+> `cgp-0922-6e8b41`, adds the final section “Fourth checkpoint: primitive bases
+> and quadratic towers”. It supplies direct replacement arguments for G1 and
+> the main-theorem use of G2, together with nine proposed extraction entries.
+> **Status remains partial.** The 110-item result JSON is deliberately unchanged;
+> synchronization of these new entries, routes and gap descriptions remains in
+> the handoff. The third-checkpoint report below is preserved as historical
+> work, including its source-reading and validation claims, which belong to
+> that earlier worker. No fresh byte hashes, full rereading of all its sources,
+> repository-checker success, Lean elaboration or independent review are claimed
+> by the fourth checkpoint. Its new proofs require independent checking.
+
+## Third-checkpoint report (preserved)
+
 **Partial third checkpoint; not ready for acceptance.** Issue #1420. Codex,
 session `codex-c83e7a`, 21 September 2026. Continues Codex's PR #1636 and
 GPT-6 Astra Pro's PR #1641. All **35 inherited item IDs remain**. The expanded
@@ -32,7 +46,7 @@ Freshly measured bytes, all acquired on 21 September 2026:
 | --- | ---: | --- |
 | [taniguchi](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf) | 13 | `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec` |
 | [arxiv](https://arxiv.org/pdf/1701.02458) | 12 | `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871` |
-| [bombieri-pila](https://people.maths.ox.ac.uk/pila/Ovals.pdf) | 22 | `a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408` |
+| [bombieri-pila](https://people.maths.ox.ac.uk/pila/Ovals.pdf) | 22 | `a46f75e55ddc055050f7924dbea2e5c5655aee32e5c5655aee32e5c5655aee32e5c5655` |
 | [helfgott-venkatesh](https://arxiv.org/pdf/math/0405180) | 23 | `bfb29584474ac4a580da9a1fa1b0279faa283f301c0481f43a0919cbaa102255` |
 | [tsimerman](https://arxiv.org/pdf/1103.5619v3) | 32 | `4cd8527c28b94f98df53738c9805a8ff5c84a94d3754c873b804d33dbdea7aed` |
 | [sedunova](https://arxiv.org/pdf/1506.08757v1) | 8 | `7b7117e414c126f41cb3b5fe22044034652e0b97d2e12660b0afdc7b5228b3f0` |
@@ -467,3 +481,536 @@ example over F₂/F₃/F₅/F₇, and restricted-monomial counts/exponents for d
 two through eight. Floating-point calculations check the displayed constants
 and feedback identities; they are not certified real inequalities in Lean.
 No Lean artifact was requested, produced or compiled.
+
+---
+
+## Fourth checkpoint: primitive bases and quadratic towers
+
+**Author:** ChatGPT Pro, `cgp-0922-6e8b41`, 22 September 2026.
+**Status:** proof/extraction supplement; machine synchronization pending.
+The following replaces two missing steps in the proposed main-theorem route.
+It is not a claim that every proof input of the paper has now been extracted,
+that the published revision has been checked, or that anything is formalized.
+
+### A. Source and baseline boundary for this supplement
+
+The main source passages are §§3–4, printed pp.5–6 of the February 2017
+[Taniguchi author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf).
+The basis paragraph on p.5 was visually checked. The direct argument in B
+below is our replacement proof, not a transcription or verification of
+Siegel, *Lectures on the Geometry of Numbers*, Lecture X §6.
+
+The new arithmetic source is Jürgen Klüners and Jiuya Wang,
+*ℓ-torsion bounds for the class group of number fields with an ℓ-group as
+Galois group*, [arXiv:2003.12161v2](https://arxiv.org/abs/2003.12161v2),
+13 October 2020, Theorem 2.1 and proof, PDF pp.3–4. Those pages were read
+and visually checked. It is a **later auxiliary source**, not a source
+silently attributed to the original 2017 proof. No fresh PDF byte hash was
+measured in this session. The article's eventual publication is
+Proc. Amer. Math. Soc. 150 (2022), 2793–2805, DOI 10.1090/proc/15882.
+
+The actual pinned statement `NumberField.mixedEmbedding.covolume_integerLattice`
+was read in Mathlib `NumberTheory/NumberField/Discriminant/Basic.lean`,
+lines 124–132 at `082e2d37e8b0463410cdb532e111cd43d5a66174`. It says
+`covol(O_K)=2^(-s) sqrt(D_K)` for the ordinary mixed-space measure. The
+adjacent ideal-covolume statement was also read. Other library imports in
+this report retain their earlier workers' provenance, rather than a new
+claim that this session reread all of them.
+
+Reviewed AUDIT-02 distinguishes the existing covolume/first-Minkowski API
+from the **missing** successive-minimum/second-Minkowski and higher-rank
+reduced-basis theory. The GN atlas extract was read. For generic primitive
+basis reduction use GN.5, importing GN.0/GN.1; do not force this elementary
+argument through GN.3's mass formulas or higher-rank adelic reduction.
+
+The complete completed-EffectiveBounds document and the relevant upstream
+ClassFieldTheory purpose, ownership, Layers 12–13 and regression-test
+passages were read. Hilbert class fields, their ordinary-class-group
+quotients, maximal-unramified properties and conjugation/uniqueness remain
+**planned imports** from
+`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`.
+The accepted REV-AUDIT-03 confirms that Hilbert/ray/ring class fields are
+not implemented at the pins. The large combined library-coverage file could
+not be read through the browser; the split reviewed audit records were used.
+This is not a new class-field-theory roadmap.
+
+### B. G1: a direct primitive-prefix basis proof
+
+#### B1. Fix the metric before declaring that 1 is shortest
+
+For signature `(r,s)`, put `n=r+2s` and define on the existing mixed space
+
+```text
+||x||_tr² = Σ_real |x_v|² + 2 Σ_complex |x_v|².
+```
+
+This is the ordinary Euclidean norm after multiplying both real coordinates
+of every complex factor by `sqrt(2)`. If `||·||_0` is the unweighted mixed
+Euclidean norm, then
+
+```text
+||x||_0 ≤ ||x||_tr ≤ sqrt(2) ||x||_0.
+```
+
+The linear change of coordinates has determinant `2^s`. Consequently the
+covolume of the integer lattice for the **metric-induced Euclidean volume**
+is `sqrt(D_K)`. For the unchanged ordinary product measure it is still
+`2^(-s)sqrt(D_K)`; these are different normalizations, not conflicting formulas.
+
+For `0 ≠ α ∈ O_K`, its nonzero integral norm has absolute value at least
+one. AM–GM applied to the squared absolute values at all `n` embeddings,
+with each complex pair counted twice, gives
+
+```text
+||α||_tr² / n ≥ |N_K/Q(α)|^(2/n) ≥ 1.
+```
+
+Thus `||1||_tr=sqrt(n)` is a shortest nonzero lattice length. Also 1 is
+primitive: an algebraic integer lying in Q is an integer, so
+`O_K ∩ Q·1 = Z·1`. Neither of these assertions should be justified by
+silently using the product sup norm or omitting the complex multiplicity.
+
+#### B2. Primitive-prefix extension in a general lattice
+
+Let Λ be a full lattice in a positive-dimensional Euclidean space of
+real dimension n. Let u be a primitive lattice vector and suppose
+`||u|| ≤ A λ_1`, with `A≥1`. There is a Z-basis `b_0,...,b_(n−1)` with
+`b_0=u` and, for every `i` and every lattice vector w outside the preceding
+rational span,
+
+```text
+||b_i|| ≤ c_i ||w||,
+c_0=A,
+c_i=1+(1/2)Σ_(j<i)c_j   (i≥1).
+```
+
+For `i≥1`, `c_i=((A+2)/2)(3/2)^(i−1)`. In particular when u is shortest,
+`c_i=(3/2)^i` at **every** index, including `i=n−1`.
+
+Here is the construction and proof. Maintain a saturated prefix
+`L_i=Z b_0+...+Z b_(i−1)` of Λ. The quotient Λ/L_i is free. Choose b_i
+of minimal Euclidean length among the vectors whose nonzero image in that
+quotient is primitive. Candidates exist by choosing a quotient basis and
+lifting one vector. A minimum exists because a bounded ball has only
+finitely many lattice points: first fix any candidate and minimize in the
+finite set of candidates no longer than it. The enlarged prefix remains
+saturated. At rank n the quotient is both finite and torsion-free, hence
+zero; the resulting vectors form a basis.
+
+Given w outside the preceding span, write its nonzero image in the free
+quotient as `d u_bar`, where `d≥1` and `u_bar` is primitive. Lift `u_bar`
+and adjust the lift by integer multiples of the prefix vectors. Rounding
+the resulting rational coefficients to nearest integers gives a candidate
+of the form
+
+```text
+u' = w/d + Σ_(j<i) t_j b_j,       |t_j|≤1/2.
+```
+
+Minimality and the triangle inequality give
+
+```text
+||b_i|| ≤ ||w||/d + (1/2)Σ_(j<i)||b_j||
+        ≤ (1+(1/2)Σ_(j<i)c_j)||w||.
+```
+
+The inductive comparisons apply to the same w because it is outside each
+earlier span. The initial comparison follows from `λ_1≤||w||`. This proves
+the recurrence without needing the independent short vectors to generate
+a saturated subgroup themselves.
+
+Every later basis vector is a valid primitive-extension candidate at every
+earlier stage. Therefore the selected lengths from `b_1` onwards are
+nondecreasing. When u is shortest, the entire basis, including b_0, is
+nondecreasing. No such order claim is needed for a merely A-short u.
+
+#### B3. Product bound and the last minimum
+
+Choose `i+1` independent lattice vectors realizing `λ_(i+1)`. One is
+outside the i-dimensional preceding span, so
+
+```text
+||b_i|| ≤ c_i λ_(i+1).
+```
+
+Use the existing planned GN.1 second-Minkowski theorem, with v_n the
+Euclidean volume of the unit ball, and Hadamard's determinant inequality:
+
+```text
+covol(Λ) ≤ Π_i ||b_i||
+         ≤ (Π_i c_i)(2^n/v_n)covol(Λ).
+```
+
+Attainment of the successive minima and the lattice/basis determinant
+identification belong to the GN.0/GN.1 supplier contract, not a second
+private lattice library. The primitive-prefix API itself belongs to GN.5.
+
+Apply B1–B3 with `u=1`, `A=1`. Writing the other basis vectors as
+`v_1,...,v_(n−1)` gives
+
+```text
+Π_(i=1)^(n−1)||v_i||_tr ≍_n sqrt(D_K),
+||v_i||_tr ≤ (3/2)^i ||w||_tr
+  whenever w lies outside span_Q(1,v_1,...,v_(i−1)).
+```
+
+This includes the comparison at the last index that the previous checkpoint
+could not certify. For n=2 it directly bounds the only nonconstant basis
+vector by `C_2 sqrt(D_K)`.
+
+For n≥3, use the already extracted nondegeneracy of the top-coordinate
+multiplication matrix and select a nonzero permutation term. Every product
+`v_i v_π(i)` in this term is outside the penultimate rational span. The
+last-index comparison and submultiplicativity of the trace norm give,
+with `L=||v_(n−1)||_tr`,
+
+```text
+L^(n−2) ≪_n Π_(i=1)^(n−2)||v_i||_tr².
+```
+
+Multiplying by L² and using the product bound yields `L^n≪_n D_K`.
+The whole basis therefore has trace lengths at most `C_n D_K^(1/n)`.
+There are n independent such vectors, giving the same upper bound for
+`λ_n`. The norm comparison in B1 transports the result to the ordinary
+mixed Euclidean metric. It does **not** claim that the basis is sorted
+simultaneously in both metrics.
+
+The top-coordinate matrix argument itself remains the earlier one: a
+nonzero kernel vector r would make the codimension-one rational span
+invariant under multiplication by the nonrational r; then `[Q(r):Q]`
+would divide both n and n−1. No trace-form/nondegeneracy substitution is
+being made.
+
+### C. G2: replace the unverified genus assertion, rather than hide it
+
+For a number field F let
+`r_2(F)=dim_F2(Cl(F)/2Cl(F))=log_2 #Cl(F)[2]`.
+These cardinalities agree for a finite abelian group. Their Galois modules
+are **not** thereby canonically or equivariantly identified.
+
+For a quadratic extension E/F, let t be the number of ramified places of
+F, **including real places that become complex**, and let `e=max(t,1)`.
+The quadratic specialization of Klüners–Wang Theorem 2.1 is
+
+```text
+r_2(E) ≤ 2(r_2(F)+e−1),
+h_2(E) ≤ 4^(e−1) h_2(F)^2.
+```
+
+The squared base factor is essential to what is actually being used here.
+This does not certify the author's earlier displayed one-factor formula,
+or its advertised `D_E^(1/4+epsilon)` conclusion in arbitrary even degree.
+
+#### C1. The equivariance issue and the correct class-field quotient
+
+Put `A=Cl(E)/2Cl(E)` and let σ be the nontrivial automorphism of E/F.
+Set `T=σ−1` and `V=A/TA`. In characteristic two, `T²=0`. If
+`s=dim_F2 V`, rank-nullity and `im T⊆ker T` give
+
+```text
+r_2(E)=dim A ≤ 2(dim A−rank T)=2s.
+```
+
+The use of A rather than the torsion subgroup matters. For a concrete test,
+on `B=Z/4 × Z/2` the involution
+
+```text
+σ(x,y)=(x,y+x mod 2)
+```
+
+fixes B[2] pointwise, whereas on B/2B it has a nontrivial unipotent block.
+Both groups have four elements, but the numbers of fixed points are four
+and two. This rules out a generally valid equivariant replacement based
+only on their equal orders.
+
+Use the ordinary Hilbert class field correspondence to let H/E be the
+maximal everywhere-unramified elementary abelian 2-extension, with
+`Gal(H/E)=A`. The characteristic quotient by `2Cl(E)` and functoriality
+under conjugation make H/F Galois. Let M be the fixed field of TA. The
+subspace TA is stable, so M/F is Galois and
+
+```text
+1 → V → G=Gal(M/F) → C2 → 1.
+```
+
+The conjugation action on V is trivial by construction. Since the quotient
+is cyclic, this central extension is abelian: G is generated by V and one
+lift of the quotient generator. Thus `|G|=2^(s+1)`, V has exponent two,
+and the subgroup `2G` has order at most two. This last assertion follows
+by squaring that one lift; it does not assume the extension splits.
+
+These field constructions use the existing ordinary Hilbert class field,
+not a narrow-class-field surrogate. In particular M/E is unramified at
+finite places and split at real places.
+
+#### C2. Ramified and unramified branches
+
+If `t>0`, choose one ramified place of F. Its inertia group in M/F
+maps isomorphically onto the order-two inertia group in E/F, because
+M/E is everywhere unramified. It supplies an order-two lift outside V.
+Consequently G splits as `V × C2` and is elementary abelian of rank s+1.
+For each ramified place of F its inertia subgroup has order two; as G is
+abelian, choosing a place above it does not change that subgroup. Let I
+be the subgroup generated by these at most t inertia generators. Then
+`dim I≤t` and `M^I/F` is everywhere unramified. Ordinary class field theory
+makes `G/I` a quotient of Cl(F), so
+
+```text
+s+1−t ≤ dim(G/I) ≤ r_2(F).
+```
+
+This proves `s≤r_2(F)+t−1`, including when only an infinite place ramifies.
+
+If `t=0`, M/F itself is everywhere unramified. G need not be elementary
+abelian: a cyclic order-four factor is possible. Nevertheless G is a
+quotient of Cl(F), and `|2G|≤2` gives
+
+```text
+s ≤ log_2 |G/2G| ≤ r_2(F).
+```
+
+Combining the two branches with `r_2(E)≤2s` proves the displayed relative
+rank bound. This treatment does not drop capitulation or unit factors
+from an ambiguous-class formula; it uses the full ordinary class-field
+correspondence instead.
+
+#### C3. Uniformity as the base field varies
+
+Let `m=[F:Q]`. Every finite ramified prime of F divides the relative
+discriminant Δ_(E/F); over each rational prime there are at most m primes
+of F. There are at most m infinite places that can ramify. Therefore
+
+```text
+t ≤ m ω(N_F/Q Δ_(E/F)) + m ≤ m ω(D_E)+m,
+D_E = D_F² N_F/Q Δ_(E/F).
+```
+
+The already extracted prime-support estimate, with its constant allowed
+to depend on m and η, gives for every η>0
+
+```text
+h_2(E) ≪_(m,η) D_E^η h_2(F)^2.
+```
+
+This statement is uniform over all quadratic E/F with `[F:Q]=m`.
+The real-place contribution is a degree-dependent constant. The norm of
+the relative discriminant, the absolute field discriminant, and the
+number of prime ideals of F are distinct quantities and must stay so
+in the API.
+
+#### C4. Why the squared factor still suffices
+
+Start with `h_2(Q)=1`. Applying C3 to a quadratic field over Q gives
+`h_2(K)≪_η D_K^η`, a weaker-than-optimal genus estimate that is enough
+as the quadratic base case.
+
+Write `α_d=1/2−1/(2d)` for `d≥2`. Proceed by strong induction on the
+absolute degree. If a degree-n field K has no index-two subfield, the
+preserved norm-curve argument gives `h_2(K)≪_(n,ε)D_K^(α_n+ε)`.
+If it has a subfield F with `[K:F]=2`, put `m=n/2<n`. For m≥2 the
+inductive bound and C3 yield
+
+```text
+h_2(K) ≪_(n,η) D_K^η D_F^(2α_m+2η)
+       ≤ C_(n,η) D_K^(α_m+2η),
+α_n−α_m=1/(2n)>0.
+```
+
+Here `D_F²≤D_K`, and all relevant exponents are nonnegative. Choose η
+small enough relative to the final ε; for example η=ε/4 already leaves
+the positive degree gain unused. The case m=1 is the quadratic base case.
+This proves the required degree-dependent main bound, without using the
+unverified one-factor genus assertion. For a quartic field with a quadratic
+subfield, use the stronger quadratic base estimate in C3 to obtain
+`h_2(K)≪_εD_K^ε`; the remaining quartic branch still needs the separate
+resolvent transfer recorded under G4.
+
+The generic `h_2(Q)=1`, quotient/finite-rank identities, primitive-submodule
+extension, inertia-in-towers and discriminant-tower interfaces must still
+be matched to exact pinned declarations or supplier requests during machine
+synchronization/blueprint closure. They are not falsely marked newly
+implemented by this proof note.
+
+### D. Proposed extraction entries and ownership
+
+These entries are **not yet in the result JSON**. Each suffix below means
+`PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/<suffix>`. Their locator is the
+named subsection of this supplement, together with the original source
+locator where supplied. Retain all inherited IDs when integrating them.
+
+**`trace-metric-normalization` — construction, missing; B1.**
+On the existing mixed embedding, construct the trace-weighted Euclidean
+metric by the explicit diagonal real linear equivalence. Its squared norm
+counts complex coordinates twice, its integer-lattice covolume for the
+induced Euclidean measure is `sqrt(D_K)`, and 1 is a primitive shortest
+vector of length `sqrt(n)`.
+API: `traceNorm_sq`, `traceNorm_eq_norm_scaled`, `norm_le_traceNorm`,
+`traceNorm_le_sqrtTwo_mul_norm`, `traceCovolume_integerLattice`,
+`traceNorm_one`, `sqrt_degree_le_traceNorm_of_integral_ne_zero`, and the
+primitive-vector statement. These are planning names, not existing Lean
+citations. Tests: Q has length/covolume one; Q(i) has trace basis lengths
+`sqrt(2)` and trace covolume two, but ordinary covolume one; metric
+comparison remains valid for a mixed signature and explicitly changes
+both real coordinates of each complex factor. Suggested owner:
+EffectiveBoundsClassGroupTorsion, importing existing covolume and GN APIs.
+
+**`primitive-prefix-extension` — theorem, missing; B2.**
+A full rank-n Euclidean lattice and primitive A-short initial vector admit
+a basis with the all-index comparison and constants c_i in B2. The proof
+is shortest primitive extension, quotient-coordinate rounding, induction.
+Test the last index; reject a nonprimitive initial vector such as 2 in Z;
+for a shortest initial vector verify all c_i equal `(3/2)^i`.
+Suggested owner: source within GN.5; no new roadmap.
+
+**`reduced-basis-product` — theorem, missing; B3.**
+The basis just constructed satisfies
+`covol Λ≤Π||b_i||≤(Πc_i)(2^n/v_n)covol Λ`. Proof: compare to each
+successive minimum, then second Minkowski and Hadamard. The rank-one
+case and positive n are explicit; no unproved equality of a merely
+independent set with an integral basis. Suggested owner: GN.5, importing
+GN.0/GN.1.
+
+**`hilbert-class-field-input` — theorem, planned; C1–C2.**
+The ordinary Hilbert class field correspondence identifies finite abelian
+everywhere-unramified extensions with quotients of the ordinary class group,
+compatibly with conjugation. Import its elementary-2 quotient and
+maximal-unramified property from upstream ClassFieldTheory Layer 13.
+A narrow class group instead permits real-place ramification and is not
+an interchangeable carrier. The layer's named Hilbert-class-group
+isomorphism is planned, not a declaration asserted present at the pins.
+
+**`quadratic-coinvariant-extension` — construction, missing; C1.**
+For quadratic E/F construct A, T, H, and M as above, using the ordinary
+Hilbert class field supplier. Export the finite extension G with kernel
+`V=A/TA`, trivial conjugation on V and `|2G|≤2`.
+API: the induced involution on `Cl(E)/2Cl(E)`; `T_sq_zero`; the stable
+subgroup TA; fixed-field and restriction maps; the exact sequence;
+`commutative_G`; `card_G`; and `card_twoG_le_two`. These are planning
+interfaces, not new public class-field carriers. Tests: the Z/4×Z/2
+involution must distinguish torsion and quotient actions; the unramified
+branch must allow nonsplit C4; a ramified place must furnish an actual
+order-two inertia lift, not an arbitrary lift. Suggested owner:
+EffectiveBoundsClassGroupTorsion, consuming the existing CFT supplier.
+
+**`quadratic-relative-rank` — theorem, missing; C2.**
+For every quadratic E/F, with t counting finite and infinite ramified
+places, `r_2(E)≤2(r_2(F)+max(t,1)−1)`. Source: Klüners–Wang v2,
+Theorem 2.1, pp.3–4; quotient-module proof expanded in C1–C2. Keep the
+`t=0` branch rather than replacing max(t,1) by t. Suggested owner:
+EffectiveBoundsClassGroupTorsion.
+
+**`ramified-place-support` — theorem, missing; C3.**
+For `[F:Q]=m` and quadratic E/F,
+`t≤m ω(N Δ_(E/F))+m≤m ω(D_E)+m`.
+Proof: support of the relative discriminant, at most m primes above a
+rational prime, and at most m real places. Suggested owner:
+EffectiveBoundsClassGroupTorsion, importing ramification/discriminant
+suppliers rather than defining them again.
+
+**`quadratic-relative-torsion` — theorem, missing; C3.**
+For every m≥1 and η>0 there is a constant C_(m,η) such that
+`h_2(E)≤C_(m,η)D_E^η h_2(F)^2` for all quadratic E/F of base degree m.
+Proof: exponentiate the relative-rank bound, use ramified-place support
+and the already extracted prime-support loss. Suggested owner:
+EffectiveBoundsClassGroupTorsion. Uniformity includes varying F.
+
+**`all-degree-torsion-induction` — theorem, missing; C4.**
+Given the no-index-two norm-curve bound and the preceding quadratic
+estimate, derive for each n≥3 and ε>0 the uniform bound
+`h_2(K)≪_(n,ε)D_K^(1/2−1/(2n)+ε)`, using the quadratic `D^ε` base case.
+The induction is on absolute degree, not on a presumed tower down to Q.
+Suggested owner: EffectiveBoundsClassGroupTorsion. It does not by itself
+prove the sharper cubic or nonquadratic-subfield quartic exponent.
+
+The existing `reduced-integral-basis` ID should now state its sorted basis
+in the **trace metric**, cite B1–B3 as a replacement argument and receive
+an EffectiveBounds Part-II route. Its original-source locator remains
+recorded as motivation, with Siegel unread. Update `largest-minimum`,
+`two-torsion-general` and the route brief accordingly. Keep the literal
+`relative-genus-source-claim` unrouted and diagnostic; it is no longer a
+premise of the replacement main-bound route.
+
+Suggested homes for the later design: generic primitive-prefix reduction
+under `TauCeti/NumberTheory/GeometryOfNumbers/`; number-field metric and
+torsion bounds under `TauCeti/NumberTheory/EffectiveBounds/`. No Suggested.lean
+is produced by this paper checkpoint. Exact generic declaration audits and
+any additional sublemma nodes remain part of the machine/blueprint work.
+
+After the nine additions and routing the old basis node, expected totals
+are 119 items (22 library, 8 planned, 89 missing), six routes and 33
+construction/definition entries. Recompute rather than copy these counts.
+The present unchanged JSON still contains the earlier 110 items.
+
+### E. Regression tests and remaining verification
+
+The following local script was actually executed in this session. Its
+finite tests do not certify the infinite lattice or class-field arguments,
+and are not a substitute for Lean proofs or the repository checker.
+
+```python
+from fractions import Fraction
+from itertools import product
+
+c = [Fraction(1)]
+for i in range(1, 31):
+    c.append(1 + sum(c) / 2)
+    assert c[i] == Fraction(3, 2) ** i
+
+B = list(product(range(4), range(2)))
+sigma = lambda a: (a[0], (a[1] + a[0]) % 2)
+assert all(sigma(sigma(a)) == a for a in B)
+torsion = [a for a in B if (2 * a[0]) % 4 == 0]
+assert all(sigma(a) == a for a in torsion)
+Q = list(product(range(2), range(2)))
+sigma_q = lambda a: (a[0], (a[1] + a[0]) % 2)
+assert len(torsion) == len(Q) == 4
+assert sum(sigma_q(a) == a for a in Q) == 2
+
+def rank(cols):
+    basis = {}
+    for x in cols:
+        while x:
+            k = x.bit_length() - 1
+            if k in basis:
+                x ^= basis[k]
+            else:
+                basis[k] = x
+                break
+    return len(basis)
+
+def apply(cols, x):
+    y = 0
+    for i, col in enumerate(cols):
+        if (x >> i) & 1:
+            y ^= col
+    return y
+
+counts = []
+for n in range(5):
+    seen = 0
+    for cols in product(range(1 << n), repeat=n):
+        if all(apply(cols, col) == 0 for col in cols):
+            assert n <= 2 * (n - rank(cols))
+            seen += 1
+    counts.append(seen)
+assert counts == [1, 1, 4, 22, 316]
+
+alpha = lambda d: Fraction(1, 2) - Fraction(1, 2 * d)
+for m in range(2, 101):
+    assert alpha(2 * m) - alpha(m) == Fraction(1, 4 * m)
+print('PASS: recurrence, inequivalent actions, square-zero matrices, exponents')
+```
+
+The source-version problem G0 remains: attempted AMS reads did not return
+the revised article, and publication metadata alone does not establish
+mathematical agreement. G3–G10 retain the substantive source/closure
+obligations recorded in the handoff. G1 now has a direct proof candidate;
+G2 has a later-source replacement for the main theorem, not verification
+of the literal stronger claim. Neither repair has an independent review.
+
+Only the finite regression checks above ran locally. A local clone was
+not obtainable in this environment, so `scripts/check_paper.py` and the
+full-catalogue intake checks were **not run locally by this session**.
+This report and the handoff are the submitted checkpoint; the unchanged
+machine extraction must be synchronized and validated before these new
+entries can be regarded as integrated. No Lean file was compiled.
