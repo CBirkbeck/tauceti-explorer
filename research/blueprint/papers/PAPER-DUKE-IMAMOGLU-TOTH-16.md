@@ -131,7 +131,38 @@ The exponent is 3/4−2/7=13/28. This cited argument alone does not establish a 
 \|\phi\|_2\cosh^2(\pi r/4)\ll(1+r)^C.
 \]
 
-Item 151 routes that exact norm comparison to AL.3. Its expected proof uses a Rankin–Selberg norm identity in the **2√y, a(1)=1** convention and a polynomial adjoint-L bound. The exact norm constant and source proof remain open; this report does not claim to have supplied them.
+Item 151 routes that exact norm comparison to AL.3. Its expected proof uses a Rankin–Selberg norm identity in the **2√y, a(1)=1** convention and a polynomial adjoint-L bound.
+
+**Continuation (Claude Code, cc-fb70e5, 22 September 2026): the exact constant.** In the paper's own normalizations, the norm identity is
+
+\[
+\langle\phi,\phi\rangle=\int_F|\phi|^2\,\frac{dx\,dy}{y^2}=\frac{2\,L(1,\mathrm{sym}^2\phi)}{\cosh(\pi r)}.
+\]
+
+The normalizations are E(z,s)=Σ Im(γz)^s from (5.2), φ=2√yΣa(n)K_ir(2π|n|y)e(nx) with a(1)=1 from (5.7), the Ramanujan-normalized Euler product (5.8), and dμ=y^{−2}dxdy from p.961.
+
+*Derivation.* Unfolding ⟨|φ|²,E(·,s)⟩ gives
+
+\[
+8(2\pi)^{-s}\sum_{n\ge1}a(n)^2n^{-s}\int_0^\infty K_{ir}(u)^2u^{s-1}\,du .
+\]
+
+At s=1, three facts combine:
+- the Mellin integral equals 2^{s−3}Γ(s/2)²Γ(s/2+ir)Γ(s/2−ir)/Γ(s), which is π²/(4cosh πr) at s=1;
+- Σa(n)²n^{−s}=ζ(s)L(s,sym²φ)/ζ(2s) has residue 6L(1,sym²φ)/π²;
+- Res E=3/π.
+
+Comparing residues gives the identity. Since √2cosh²(x/4)/√(cosh x)≤√2 for x≥0,
+
+\[
+\|\phi\|_2\cosh^2(\pi r/4)\le\sqrt2\,L(1,\mathrm{sym}^2\phi)^{1/2},
+\]
+
+and the exponential factors in the displayed Weyl bound cancel exactly for u_φ.
+
+*Checks.* The Mellin formula was verified by 40-digit quadrature at r=0.5, 2 and 5. The paper's example on p.966, with r=13.77975135 and ⟨φ,φ⟩=7.26300636×10^{−19}, gives L(1,sym²φ)=⟨φ,φ⟩cosh(πr)/2≈1.1477, which is the expected order of size.
+
+*Remaining gate, S4b.* What is left is a polynomial bound L(1,sym²φ)≪(1+r)^A. It follows from convexity for the entire GL₃ L-function of sym²φ (Gelbart–Jacquet), with absolute convergence for Re s>2 (Jacquet–Shalika) and archimedean conductor ≍(1+r)². Those primary sources are listed as prerequisites and were not re-read here.
 
 Set u_φ=φ/||φ||. If c_φ=⟨f,φ⟩, then
 

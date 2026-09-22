@@ -2653,9 +2653,9 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/66"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4b (the L(1,sym²φ) bound; the norm identity of151 is supplied).",
       "sourceGates": [
-        "S4"
+        "S4b"
       ]
     },
     {
@@ -5224,8 +5224,8 @@
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/151",
       "kind": "theorem",
-      "name": "Norm comparison needed for polynomial spectral summation",
-      "statement": "For level-one Hecke normalization a(1)=1 in φ=2√yΣa(n)K_ir e(nx), prove ||φ||₂ cosh²(πr/4)≪(1+r)^C from the Rankin–Selberg norm identity and a polynomial bound for the adjoint L-value. Record the exact norm constant before using it; this input is presently an open source/proof gate.",
+      "name": "Rankin–Selberg norm identity and the norm comparison for spectral summation",
+      "statement": "Let φ(z)=2√y Σ_{n≠0} a(n)K_{ir}(2π|n|y)e(nx) be an even Hecke–Maass cusp form for PSL₂(Z) with Laplace eigenvalue 1/4+r², normalized by a(1)=1 as in (5.7), so that L(s,φ)=Σa(n)n^{−s}=∏_p(1−a(p)p^{−s}+p^{−2s})^{−1} as in (5.8), and let ⟨φ,φ⟩=∫_F|φ|²y^{−2}dxdy. Then ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr). Consequently ||φ||₂cosh²(πr/4)≤√2·L(1,sym²φ)^{1/2}, and any polynomial bound L(1,sym²φ)≪(1+r)^A gives ||φ||₂cosh²(πr/4)≪(1+r)^{A/2}.",
       "locator": "§6 repair; AL.3 norm comparison",
       "status": "missing",
       "library": [],
@@ -5234,17 +5234,24 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/61",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/64"
       ],
-      "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4.",
+      "proofSteps": [
+        "Unfold against E(z,s)=Σ_{Γ∞\\Γ}Im(γz)^s of (5.2) for Re s>1: ∫_F|φ|²E(z,s)dμ=∫_0^∞∫_0^1|φ|²y^{s−2}dxdy=8(2π)^{−s}Σ_{n≥1}a(n)²n^{−s}·∫_0^∞K_{ir}(u)²u^{s−1}du, using a(−n)=a(n) and real a(n).",
+        "Mellin integral: ∫_0^∞K_{ir}(u)²u^{s−1}du=2^{s−3}Γ(s/2)²Γ(s/2+ir)Γ(s/2−ir)/Γ(s); at s=1 this is (1/4)·π·|Γ(1/2+ir)|²=π²/(4cosh πr).",
+        "Hecke relations give Σ_{n≥1}a(n)²n^{−s}=ζ(s)L(s,sym²φ)/ζ(2s) (Rankin–Selberg), with residue L(1,sym²φ)/ζ(2)=6L(1,sym²φ)/π² at s=1.",
+        "Res_{s=1}E(z,s)=3/π=1/vol(F) for dμ=y^{−2}dxdy; since φ is cuspidal, Res_{s=1}∫_F|φ|²E dμ=(3/π)⟨φ,φ⟩. Comparing residues: (3/π)⟨φ,φ⟩=8(2π)^{−1}·(6L(1,sym²φ)/π²)·π²/(4cosh πr)=(6/π)L(1,sym²φ)/cosh(πr).",
+        "For x≥0, √2cosh²(x/4)/√(cosh x)≤√2 (maximum at x=0, limit 1/2 as x→∞), so ||φ||₂cosh²(πr/4)=√(2L(1,sym²φ))·cosh²(πr/4)/√(cosh πr)≤√2·L(1,sym²φ)^{1/2}.",
+        "Polynomial bound for L(1,sym²φ): sym²φ is cuspidal automorphic on GL₃ (Gelbart–Jacquet; level-one Maass forms are not dihedral), its Euler product converges absolutely for Re s>2 by the Jacquet–Shalika bound |α_p|<p^{1/2}, and its functional equation has archimedean conductor ≍(1+r)²; Phragmén–Lindelöf convexity then gives L(1,sym²φ)≪(1+r)^A. This step is gate S4b."
+      ],
+      "note": "Exact constant derived in the continuation by Claude Code (cc-fb70e5) from the paper's own normalizations (5.2), (5.7), (5.8) and dμ=y^{−2}dxdy (p.961). Checks: the Mellin integral agrees with π²/(4cosh πr) to 40 digits at r=0.5, 2, 5 (numerical quadrature); the paper's example on p.966 (r=13.77975135, ⟨φ,φ⟩=7.26300636×10^{−19}) gives L(1,sym²φ)=⟨φ,φ⟩cosh(πr)/2≈1.1477, of the expected size. The Rankin–Selberg Dirichlet-series identity and the GL₃ convexity input are classical but their primary sources were not re-read here; they are the remaining gate S4b. Missing at the inspected pins.",
       "sourceGates": [
-        "S4"
+        "S4b"
       ]
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/152",
       "kind": "theorem",
       "name": "Unit-normalized Weyl and coefficient pairing",
-      "statement": "With151, |W(u_φ,χ)|≪(1+r)^C|D|^(13/28+ε). Since c_φ||φ||⁻²φ=⟨f,u_φ⟩u_φ, combine68 with this bound and Weyl counting; never multiply a claimed polynomial-only bound for ||φ||⁻²φ by the wrong coefficient.",
+      "statement": "With151, |W(u_φ,χ)|=||φ||₂·|W(||φ||⁻²φ,χ)|≤√2·L(1,sym²φ)^{1/2}·(1+r)^C|D|^{13/28+ε}, hence ≪(1+r)^{C+A/2}|D|^{13/28+ε}, by150. Since c_φ||φ||⁻²φ=⟨f,u_φ⟩u_φ, combine68 with this bound and Weyl counting; never multiply a claimed polynomial-only bound for ||φ||⁻²φ by the wrong coefficient.",
       "locator": "§6 spectral summation refinement",
       "status": "missing",
       "library": [],
@@ -5256,9 +5263,9 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/151"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4.",
+      "note": "Missing at the inspected pins. The exponential factors of150 and151 cancel exactly: cosh²(πr/4)/√(cosh πr) is bounded. Remaining gate S4b (polynomial bound for L(1,sym²φ)).",
       "sourceGates": [
-        "S4"
+        "S4b"
       ]
     },
     {
@@ -5279,9 +5286,9 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/152"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4b (the L(1,sym²φ) bound; the norm identity of151 is supplied).",
       "sourceGates": [
-        "S4"
+        "S4b"
       ]
     },
     {
@@ -5581,6 +5588,16 @@
       ],
       "resume": "Supply branch conventions, compact differentiated majorants, endpoint integration by parts and the Frobenius uniqueness argument for Re(s)>0, including s=1/2. Finite coefficient checks cannot establish the full complex-parameter integral.",
       "readStatus": "Appendix fully read, corrected recurrence derived and exact finite coefficients checked. The full analytic supplier decomposition remains open."
+    },
+    {
+      "citation": "S. Gelbart and H. Jacquet, A relation between automorphic representations of GL(2) and GL(3), Ann. Sci. École Norm. Sup. (4) 11 (1978), 471–542",
+      "link": "doi:10.24033/asens.1355",
+      "why": "Automorphy and entireness of L(s,sym²φ) for non-dihedral φ, used for the polynomial bound on L(1,sym²φ) in item 151 (gate S4b)."
+    },
+    {
+      "citation": "H. Jacquet and J. A. Shalika, On Euler products and the classification of automorphic representations I, Amer. J. Math. 103 (1981), 499–558",
+      "link": "doi:10.2307/2374103",
+      "why": "The bound |α_p|<p^{1/2} giving absolute convergence of L(s,sym²φ) for Re s>2 in the convexity argument of item 151 (gate S4b)."
     }
   ],
   "routes": [
@@ -6153,16 +6170,25 @@
     },
     "exactMathematicalAssertions": 1814,
     "numericalQuadratures": 3,
-    "scope": "No shell git commands used; publication uses GitHub tree/commit/ref APIs."
+    "scope": "No shell git commands used; publication uses GitHub tree/commit/ref APIs.",
+    "s4NormIdentity": "Mellin integral ∫K_ir(u)²du/u·u^{s} at s=1 checked against π²/(4cosh πr) at r=0.5,2,5 (40-digit quadrature); paper example p.966 gives L(1,sym²φ)≈1.1477; √2cosh²(x/4)/√(cosh x)≤√2 checked on [0,200]."
   },
   "continuation": {
     "priority": [
-      "S4/item151 exact Rankin–Selberg norm constant and polynomial bound",
+      "S4b/item151: the norm identity ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr) is supplied (cc-fb70e5); read Gelbart–Jacquet and a primary convexity statement for L(s,sym²φ) to close the polynomial bound",
       "S5/items82–83 operator composition comparison",
       "S2/items31–40 core and rigidity closure",
       "S6/items120–131 automorphy and multiplicity prerequisites",
       "S1/S3/S7/S8 recursive supplier decomposition"
     ],
-    "preserveIds": true
+    "preserveIds": true,
+    "sessions": [
+      {
+        "agent": "Claude Code",
+        "session": "cc-fb70e5",
+        "date": "2026-09-22",
+        "work": "Closed the exact-constant part of gate S4: derived ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr) and ||φ||cosh²(πr/4)≤√2L(1,sym²φ)^{1/2}; updated items 151, 152, 153, 68; added two prerequisites; the remaining gate is S4b."
+      }
+    ]
   }
 }
