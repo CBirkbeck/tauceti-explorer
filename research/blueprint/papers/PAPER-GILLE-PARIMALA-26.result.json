@@ -16,14 +16,21 @@
       "Gille 2024, Loop group schemes and Abhyankar’s lemma: pp. 159–165, §§1–4.3, especially published Lemma 3 and Theorems 4,6",
       "GPS2021 HAL v6, §§3.1–3.4, pp. 5–7: U_last and Lie-span inputs",
       "Chernousov–Gille–Reichstein author manuscript, Theorem 1.2(b), §§4–5: integral finite subgroup, normalizer and toral reduction",
-      "Gille–Stavrova arXiv manuscript, Proposition 7.7, pp. 40–41: henselian invariance, applied with the identity simply connected cover"
+      "Gille–Stavrova arXiv manuscript, Proposition 7.7, pp. 40–41: henselian invariance, applied with the identity simply connected cover",
+      "Publisher HTML, both publicly exposed Appendices A and B including Theorem B.1 and Remark B.2; final main body remains inaccessible",
+      "Colliot-Thélène–Sansuc 1979 original GDZ scan: printed pp. 109–110 (Lemmas 2.1–2.2 and proofs), 127–130 (Proposition 6.11, Corollary 6.12, Theorem 6.13 and proofs, Remark 6.15); not the whole paper",
+      "Harbater–Hartmann–Karemaker–Pop, arXiv:1903.08007v3: entire ten-page paper, §§1–3 and references; concentrate on Lemma 1.1, Proposition 2.3(a), Lemma 2.4 and Theorem 2.5 for the actual GP26 dependency"
     ],
-    "versionNote": "Locators without a prefix are the 26-page HAL author manuscript. The publisher landing page verifies publication metadata, not the inaccessible article text. The URL ending .pdf returned a PDF rendering of the paywall page, not the article. Known numbering comparison: HAL Example 4.1(b)/Proposition 5.2 correspond to errata published Example 5.1(b)/Proposition 6.2; HAL main Theorem 5.4 corresponds to publisher Theorem 6.4. Do not blindly shift other locators.",
+    "versionNote": "Unprefixed locators use the 26-page HAL author manuscript. On 22 September 2026 the publisher HTML exposed final Appendices A and B, which were read; final Theorem B.1 has the same codimension-one-only wording as author Theorem 7.1. The final main body was not obtained. A prior PDF request returned a paywall-page rendering, not article text. Known numbering: author Example 4.1(b), Proposition 5.2 and Theorem 5.4 correspond to published Example 5.1(b), Proposition 6.2 and Theorem 6.4; do not automatically shift other locators. Existing targeted prerequisite reads from the codex-c83e7a checkpoint are retained with their exact scope; new CTS79/HHKP20 reads are codex-a71f92.",
     "authorPdfSha256": "96c8678eacf39e87688b4a8f78bd27882781df367321b5887cb19fa947068303",
     "errataSha256": "6297d7a0dd6d2ea51c04c15f201b07efd2f25b56c8a5b19d17a7c966b79eba61",
-    "accessed": "2026-09-21"
+    "accessed": "2026-09-22",
+    "cts79ScanUrl": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0244/LOG_0024.pdf",
+    "cts79Sha256": "5eb67a18278ce634385688693f7e8267b46e3965d5dbf9cb4bb8b418dc3576e3",
+    "hhkp20PdfUrl": "https://arxiv.org/pdf/1903.08007",
+    "hhkp20Sha256": "5cc1325478af923b1a4774fa5a583da243cd33a01ec8318ba018f63794429fe8"
   },
-  "summary": "Extracts the complete author text and its analytic, semilocal, patching and tame-loop proof chain. The main divisorial theorem assumes residue characteristic exponent prime to the absolute-root-system automorphism order; all-rank-one local-global and finite-patch results are unconditional. Imports existing Banach submersion, analytic differentiation, simply connected field-group and DVR-model declarations. Partial checkpoint: G1 literal derivative hypothesis, G2 optional closure theorem prerequisites, G3 Tits-index directions versus final published text, G4 full scope of affine-quotient surface purity remain explicitly quarantined. Corrected mathematical statements are distinguished from quotations.",
+  "summary": "Complete author-text extraction retained, with a new proof-level repair of surface torsor purity and the HHKP rank-one-to-model argument. Read CTS79 Lemmas 2.1–2.2 and Theorem 6.13; separate the represented fppf quotient from an arbitrary categorical quotient, and require the open to contain codimension-zero as well as codimension-one points. The missing codimension-zero hypothesis has an explicit reductive counterexample. Extract HHKP20's blow-up/valuation/henselization proof and its precise T-valuation family. Partial: G1 derivative wording, G2 optional closure prerequisites, G3 final Tits-index wording and remaining prerequisite interiors are not discharged.",
   "items": [
     {
       "id": "PAPER-GILLE-PARIMALA-26/1",
@@ -948,12 +955,12 @@
       "id": "PAPER-GILLE-PARIMALA-26/83",
       "kind": "theorem",
       "name": "Rank-one local points give a model with all completed local points",
-      "statement": "For a smooth F-variety, the all-rank-one-valuations local-point hypothesis gives a regular projective T-model on which every F_P has a point, in the form used by HHKP Theorem 2.5.",
+      "statement": "Let T be a complete DVR, K=Frac(T), and F/K finitely generated of transcendence degree one with K algebraically closed in F. If a smooth F-variety Z has points over F_v for every nontrivial rank-one valuation v with T contained in O_v, there is a regular projective T-model whose every closed-fibre point P (including generic points) has Z(F_P) nonempty, with F_P=Frac(completed O_model,P).",
       "locator": "Corollary 4.8 proof; HHKP Theorem 2.5",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The exact auxiliary theorem requires its own extraction; retain rank-one valuations, not just discrete ones."
+      "note": "HHKP20 Theorem 2.5, now read with proof; items 139–147 expose the required interiors. No separability of F/K is assumed in HHKP; GP26's smooth geometrically integral curve gives a narrower application. Do not replace all rank-one T-valuations by only discrete ones. Completion is maximal-ideal completion, not just t-adic completion at a closed point."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/84",
@@ -1014,34 +1021,34 @@
       "id": "PAPER-GILLE-PARIMALA-26/89",
       "kind": "theorem",
       "name": "Purity for reductive torsors on a regular surface",
-      "statement": "If X is a regular scheme of dimension two, U contains all codimension-one points and G/X is reductive, restriction gives a bijection H1_fppf(X,G)→H1_fppf(U,G).",
-      "locator": "Theorem 7.1(i), used in Lemma 5.1",
+      "statement": "For a regular noetherian scheme X of dimension at most two, an open U containing every point of codimension at most one, and reductive G/X, restriction H1_fppf(X,G)→H1_fppf(U,G) is bijective. In the integral dimension-two case this is CTS79 Theorem 6.13.",
+      "locator": "Author Theorem 7.1(i); published Theorem B.1(i); CTS79 Theorem 6.13, pp. 129–130",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Source cites Colliot-Thélène–Sansuc Theorem 6.13. No general-dimensional purity claim is made."
+      "note": "Corrected scope, not a verbatim transcription: CTS assumes integral, whereas GP26 drops integral without explicitly adding codimension zero. Item 138 shows why that matters. Proof uses vector-bundle extension, a locally chosen affine linear quotient for an isotrivial reductive group (CTS Corollary 6.12), twisting, and unique gluing via affine Isom schemes. Main integral-model application is unchanged."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/90",
       "kind": "theorem",
       "name": "Purity with an affine linear quotient",
-      "statement": "If X is regular of dimension two, U contains its codimension-one points and an affine G/X admits Zariski-locally closed embeddings into GL_n with affine representable quotient, the source asserts H1_fppf(X,G)≅H1_fppf(U,G).",
-      "locator": "Theorem 7.1(ii)",
+      "statement": "Let X be regular noetherian of dimension at most two and j:U⊂X contain all codimension-zero and codimension-one points. Let G be affine and Zariski-locally admit a closed immersion G→GL_n such that the fppf SHEAF quotient GL_n/G is represented by an affine X-scheme. Restriction of fppf G-torsors from X to U is an equivalence of groupoids, hence induces a bijection on H1_fppf.",
+      "locator": "Author Theorem 7.1(ii); published Theorem B.1(ii); CTS79 Lemmas 2.1–2.2, Theorem 6.13 proof and Remark 6.15",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G4. The text says this follows by inspection of CTS Theorem 6.13. Verify the original proof and any flatness/finiteness assumptions on G and its quotient before routing this full generality. The application in Lemma 5.1 uses H flat affine of finite presentation; record that narrower target separately."
+      "note": "G4 discharged with an explicit correction to GP26's stated open-subset scope, not by attributing that correction to the authors. Items 130–137 give the proof. Affine Hartogs extends a quotient section; the represented fppf sheaf quotient makes GL_n→GL_n/G an epimorphism with torsor identity. No independent flatness assumption on G is used in this sheaf-level argument, and no flatness of the quotient map is claimed. A merely affine categorical quotient is insufficient. The local constructions glue by unique extension of affine Isom torsors. Item 138 tests the missing codimension-zero condition."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/91",
       "kind": "theorem",
       "name": "Surface torsor purity in the finite-presentation application",
-      "statement": "For a flat affine finitely presented group H over a regular surface, with the local closed GL_n embeddings and affine quotient of Lemma 5.1, extend a torsor uniquely across the omitted codimension-two points.",
+      "statement": "For a flat affine finitely presented group H over a regular integral noetherian surface, with the local closed GL_n embeddings and represented affine fppf quotient of Lemma 5.1, a torsor on an open containing all codimension-one points extends uniquely up to its specified restriction isomorphism across the omitted closed points.",
       "locator": "Lemma 5.1 use of Theorem 7.1(ii)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Design must verify the CTS proof under precisely these hypotheses; the broader printed formulation is quarantined as G4. The assertion is a source theorem target, not a library claim."
+      "note": "The main application is contained in corrected item 90. CTS proof inspection is complete for this step: induce a GL_n-torsor, extend its vector bundle, extend the affine quotient section and pull back the universal H-torsor; full faithfulness gives uniqueness and Zariski gluing. Do not impose the field-valued torsor arguments on an arbitrary categorical quotient."
     },
     {
       "id": "PAPER-GILLE-PARIMALA-26/92",
@@ -1456,6 +1463,230 @@
       ],
       "planned": [],
       "note": "Read Artinian/Module.lean:625. Together with nilradical nilpotence this supplies the product algebra; the finite-local-algebra item only asks for the residue-factor and torsor comparison packaging."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/129",
+      "kind": "definition",
+      "name": "Reflexive modules via the existing dual evaluation",
+      "statement": "Use Module.IsReflexive R M: the canonical evaluation M→Dual R (Dual R M) is bijective. This is the module notion used stalkwise for the coherent extension argument; it is not derived or topological reflexivity.",
+      "locator": "CTS79 Lemma 2.2, pp. 109–110",
+      "status": "library",
+      "library": [
+        "mathlib:Module.IsReflexive",
+        "mathlib:Module.bijective_dual_eval",
+        "mathlib:Module.evalEquiv"
+      ],
+      "planned": [],
+      "note": "API: Import Module.IsReflexive, bijective_dual_eval and evalEquiv from Mathlib/LinearAlgebra/Dual/Defs.lean (read at the pinned commit); do not create a second predicate. Tests: (1) A finite free module over a field is reflexive; (2) Z/nZ for n>1 is not reflexive as a Z-module since its dual is zero; (3) For M=0 evaluation is the unique equivalence, so the zero case must be retained in freeness statements."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/130",
+      "kind": "theorem",
+      "name": "Hartogs for finite locally free sheaves",
+      "statement": "If X is noetherian and U contains every point x with depth O_X,x at most one, then a finite locally free sheaf E on X is canonically j_*(E|U). In particular O_X=j_*O_U and sections extend uniquely.",
+      "locator": "CTS79 Lemma 2.1(i), p. 109",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use the local-depth criterion for extension across the complement. On a regular surface, codimension equals local dimension and depth, so the codimension-at-most-one condition suffices. Tau Ceti Scheme/Regular.lean only supplies a dimension-at-most-one Hartogs interface, not this missing surface statement."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/131",
+      "kind": "theorem",
+      "name": "Hartogs extension of affine scheme sections",
+      "statement": "If O_X→j_*O_U is an isomorphism for an open immersion j, then for any affine X-scheme Y the restriction Y(X)→Y(U) is bijective.",
+      "locator": "CTS79 Lemma 2.1(iii), p. 109; explicit generalization of its finite-type version",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Write Y=Spec_X(A). Sections are algebra maps A→O_X. Adjunction identifies maps A→j_*O_U with maps j*A→O_U. No finite-presentation assumption on A is needed for this argument. This is the affine-only extension step, not an assertion for all separated or proper targets."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/132",
+      "kind": "theorem",
+      "name": "Coherence of the extension of a vector bundle",
+      "statement": "For noetherian X and U containing all points of depth at most one, a finite locally free E on U has coherent direct image j_*E.",
+      "locator": "CTS79 Lemma 2.1(ii), pp. 109–110",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Work locally on X; extend E's dual to a coherent sheaf, take a finite presentation, dualize to embed E into O_U^r, and extend using j_*O_U=O_X. The resulting subsheaf of a coherent finite free sheaf is coherent. Retain noetherian and quasi-compactness hypotheses."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/133",
+      "kind": "theorem",
+      "name": "Reflexivity of the coherent Hartogs extension",
+      "statement": "With the preceding hypotheses, j_*E is reflexive. If X is regular, its stalks at points of codimension at most two are free.",
+      "locator": "CTS79 Lemma 2.2, p. 110",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Identify double-dual evaluation on U, then extend using the dual presentation and Hartogs. The stalkwise freeness conclusion imports item 134 from the commutative-algebra owner; do not define a new derived reflexivity notion."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/134",
+      "kind": "theorem",
+      "name": "Reflexive finite modules over small-dimensional regular local rings are free",
+      "statement": "For a regular noetherian local ring R of Krull dimension at most two and a finite reflexive R-module M, M is finite free, including M=0.",
+      "locator": "CTS79 Lemma 2.2 proof, p. 110; local algebra used by Theorem 6.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "R03.3 already plans finite global dimension for regular local rings and Auslander–Buchsbaum. Add only this corollary: a reflexive module is a second syzygy from a finite dual presentation, hence has depth at least min(2,dim R); finite projective dimension and Auslander–Buchsbaum give pd=0, and finite projective modules over a local ring are free. Handle M=0 separately. No completeness, coefficient DVR or arithmetic deformation data are needed."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/135",
+      "kind": "theorem",
+      "name": "Vector bundles extend across codimension two on a regular surface",
+      "statement": "For regular noetherian X of dimension at most two and U containing all codimension-at-most-one points, finite locally free sheaves on X and U are equivalent by restriction, with inverse j_* on such sheaves.",
+      "locator": "CTS79 Lemmas 2.1–2.2; Theorem 6.13 proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Coherence, reflexivity and item 134 give local freeness at every point; Hartogs for Hom bundles gives full faithfulness. Translate through the frame-bundle equivalence to obtain GL_n-torsor extension. Variable rank is locally constant; use a fixed n on each trivializing open. These are SF.0 exports, not consumers of SF.1 purity."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/136",
+      "kind": "theorem",
+      "name": "Full faithfulness of affine torsor restriction",
+      "statement": "Under O_X=j_*O_U, restriction on fppf torsors under an affine X-group G is fully faithful.",
+      "locator": "CTS79 Theorem 6.13 uniqueness and twisting argument; affine Hartogs proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Isom_G(P,Q) is represented by an affine X-scheme: fppf-locally it is G and affineness descends. Item 131 extends an isomorphism uniquely; its inverse extends too and identities hold by uniqueness. This proof does not assume G flat or finite type independently of the fppf torsor condition."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/137",
+      "kind": "construction",
+      "name": "Extend a reduction of a linear torsor by its affine quotient section",
+      "statement": "Given a G-torsor P on U under the hypotheses of item 90, extend E_U=P×^G GL_n to a GL_n-torsor E on X via item 135. Its reduction section of E_U/G extends to E/G, which is affine by descent. Pull back the universal G-torsor E→E/G along the section; glue the locally constructed extensions with item 136.",
+      "locator": "CTS79 Theorem 6.13, p. 129; Remark 6.15, p. 130; GP26 Appendix B.1(ii)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: Induction of torsors, associated quotient E×^GL_n(GL_n/G), reduction/section equivalence, restriction comparison and unique descent. Tests: (1) G=GL_n returns vector-bundle extension; (2) A trivial torsor's identity reduction extends to the trivial torsor; (3) The proof accepts a represented fppf sheaf quotient, but does not accept an arbitrary affine categorical quotient lacking the epimorphism and torsor identity."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/138",
+      "kind": "theorem",
+      "name": "Codimension-one-only opens can lose reductive torsors",
+      "statement": "Let X=A²_R disjoint union Spec R and U=A²_R. X is regular noetherian of dimension two and U contains every codimension-one point, but restriction on PGL_2-torsors is not injective: choose the same trivial torsor on A²_R and respectively the split matrix algebra and Hamilton quaternion algebra on Spec R.",
+      "locator": "Published Theorem B.1 scope check; independent boundary counterexample",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The Hamilton algebra is division since q conjugate(q)=a²+b²+c²+d²>0 for q≠0, while M_2(R) has zero divisors, so their corresponding PGL_2-torsors are distinct and become identical on U. Thus include codimension zero or retain CTS's integral hypothesis. This is an explicit mathematical correction, not an erratum attributed to the authors. It does not affect GP26's integral surface models."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/139",
+      "kind": "definition",
+      "name": "The T-valuation family in the rank-one comparison",
+      "statement": "For F/K semiglobal with base complete DVR T, Ω_F consists of nontrivial valuations v of F with T⊆O_v; Ω_F^1 consists of these of rank one. Rank one is an ordered-value-group condition, not discreteness.",
+      "locator": "HHKP20 introduction and §1, pp. 1–4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "API: Membership, restriction to K, rank-one subfamily, coarsening and completion/henselization inclusions; reuse valuation carriers. Tests: (1) Vertical divisorial valuations belong to Ω_F^1; (2) Horizontal closed-point valuations trivial on K also belong; (3) At a crossing on a model of K(x), monomial weights v(t)=1 and v(x)=positive irrational give a nondiscrete rank-one T-valuation and must not be discarded."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/140",
+      "kind": "theorem",
+      "name": "Rank bound for nontrivial T-valuations of a semiglobal field",
+      "statement": "Every v∈Ω_F has rank one or two; in the rank-two case v=v_2∘v_1 with v_1∈Ω_F^1 and a rank-one residue-field valuation v_2.",
+      "locator": "HHKP20 §1 preceding Lemma 1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Abhyankar's inequality and trdeg_K(F)=1 bound the rank. Distinguish rank from rational rank. This argument is about T-valuations; do not assert the bound for all valuations of F without the base condition."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/141",
+      "kind": "theorem",
+      "name": "Completion at a composite rank-two valuation",
+      "statement": "For v=v_2∘v_1 as above, F_v and F_v1 agree canonically over F.",
+      "locator": "HHKP20 Lemma 1.1(a), p. 4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Explain equivalence of the valuation topologies by cofinal rank-one thresholds. Keep the henselization comparison separate: equality of completions does not assert equality of henselizations."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/142",
+      "kind": "theorem",
+      "name": "Henselization under valuation coarsening",
+      "statement": "For v=v_2∘v_1, there is a compatible F-embedding F_v1^h→F_v^h.",
+      "locator": "HHKP20 Lemma 1.1(b), p. 4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The coarsening of a henselian valuation on F_v^h is henselian; use the universal property of relative henselization. This is an inclusion after compatible choices, not a claim that the two henselizations coincide."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/143",
+      "kind": "theorem",
+      "name": "Smooth rank-one completion points descend to the henselization",
+      "statement": "For a rank-one valued field L and a smooth finite-type L-variety Z, Z(L_v) nonempty implies Z(L_v^h) nonempty.",
+      "locator": "HHKP20 Proposition 2.3(a), p. 6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Use an étale chart about a smooth completion point and the henselian implicit function argument with density of L. The rank-one completion is henselian. Route the general valued-point result to RG2.0; do not impose discrete valuation or finite residue field, and do not drop smoothness."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/144",
+      "kind": "theorem",
+      "name": "An infinite compatible quadratic-transform chain gives a valuation ring",
+      "statement": "Let X_i be regular projective T-models successively blown up at finite sets of closed points, and choose compatible points P_i in those centers. The directed union O=colim O_X_i,P_i is a nontrivial valuation ring of F containing T.",
+      "locator": "HHKP20 Lemma 2.4, pp. 6–7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "For each f∈F×, Lipman 1969 Theorem 26.2 says the points cannot all remain indeterminacy points for f, so some local ring contains f or f^−1. Local transition maps keep t in the maximal ideal, making the valuation nontrivial. This uses two-dimensional point blow-ups, not arbitrary-dimensional resolution."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/145",
+      "kind": "theorem",
+      "name": "Henselization and fraction fields along the quadratic-transform chain",
+      "statement": "In item 144, O^h≅colim O_X_i,P_i^h compatibly over O, and Frac(O^h) embeds in colim F_P_i.",
+      "locator": "HHKP20 Lemma 2.4 equation (1) and proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Filtered colimits of local henselian rings are henselian; the colimit is ind-étale over O and has the same residue field as O. The residue field is the colimit of the stage residue fields, not necessarily equal to every stage field (avoid that shortcut in the printed proof). Compatible embeddings of the henselizations into completed local rings give the last inclusion. Import the existing henselization/local-ring carrier owner rather than recreate it."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/146",
+      "kind": "theorem",
+      "name": "Only finitely many model points can remain bad",
+      "statement": "For smooth Z/F with points over all rank-one T-valued completions and any regular projective T-model, the set of closed-fibre P with Z(F_P) empty is finite and consists of closed points.",
+      "locator": "HHKP20 Theorem 2.5 first paragraph, p. 7; HHK15 Proposition 5.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "At each generic point η there is a rank-one completion point. Spread to a nonempty affine open U in that irreducible component avoiding the others, using HHK completed-patch spreading. Inclusions F_U⊂F_P give points for P∈U; the remaining points on finitely many proper curves form a finite set. HHK's proof interior remains in the ledger."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/147",
+      "kind": "theorem",
+      "name": "Termination of blowing up the bad-point set",
+      "statement": "Under item 83's hypotheses, repeatedly blowing up all bad closed points eventually produces a model without bad points.",
+      "locator": "HHKP20 Theorem 2.5, pp. 7–8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "If all bad sets stay nonempty, finite branching gives a compatible infinite path. Item 144 gives v∈Ω_F of rank one or two; rank-one smooth descent plus item 142 in rank two gives a point over Frac(O^h). Item 145 and finite presentation descend that point to some F_P_i, contradicting badness. Finite-stage descent must be proved; do not assume that arbitrary functors commute with filtered colimits."
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/148",
+      "kind": "theorem",
+      "name": "The rank-one T-valuation family already tests twisted flags",
+      "statement": "In the GP26 semiglobal setting, for any reductive G/F and twisted flag variety Z/F, Z(F) is nonempty iff Z(F_v) is nonempty for every v∈Ω_F^1.",
+      "locator": "HHKP20 Theorem 2.5 combined with GP26 Corollary 4.7; explicit strengthened consequence",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "A smooth flag variety meets HHKP's hypothesis; obtain a model with points at every F_P and apply GP26's model-point local-global theorem. This uses a subset of all rank-one valuations, strengthens the wording of author Corollary 4.8(1), and is recorded as a deduction rather than a quotation. No prime-to-root-automorphism order condition enters this argument."
     }
   ],
   "prerequisites": [
@@ -1472,7 +1703,7 @@
     {
       "citation": "Harbater–Hartmann–Karemaker–Pop, A comparison between obstructions to local-global principles over semiglobal fields (2020), Theorem 2.5",
       "link": "https://arxiv.org/abs/1903.08007",
-      "why": "Model comparison needed for the all-rank-one theorem. Exact theorem-level extraction remains required; do not replace rank-one by discrete."
+      "why": "Entire ten-page v3 read. Items 139–148 extract the input actually used by GP26: nontrivial T-valuations (not every valuation of F), rank at most two, rank-one henselian point descent, blow-up limit valuation, commuting henselization and finite-stage descent. Theorem 2.5 does not assume F/K separable; the GP26 smooth-curve application is narrower. Lipman 1969, HHK 2015 and the general implicit-function input remain separately identified prerequisites, not asserted library results."
     },
     {
       "citation": "Gille–Stavrova, R-equivalence on group schemes, §2 and Proposition 7.7",
@@ -1506,8 +1737,8 @@
     },
     {
       "citation": "Colliot-Thélène–Sansuc, Fibrés quadratiques et composantes connexes réelles (1979), Theorem 6.13",
-      "link": "https://doi.org/10.1007/BF01420486",
-      "why": "Surface torsor purity and the claimed affine-quotient proof extension in GP26 Appendix 7. Original proof was not acquired here; G4 records its exact unresolved generality."
+      "link": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0244/LOG_0024.pdf",
+      "why": "Original printed pp. 109–110 and 127–130 read directly. Theorem 6.13 assumes a regular INTEGRAL surface and proves purity for reductive torsors via vector-bundle extension, affine quotient sections and twisting. Lemmas 2.1–2.2 expose Hartogs, coherence and reflexivity; Remark 6.15 isolates the affine-quotient argument. Items 89–91 and 129–138 make the GP26 generalization explicit and repair the omitted codimension-zero condition; no separate flatness assumption on G is needed when GL_n/G is the represented fppf sheaf quotient."
     },
     {
       "citation": "Lipman, Desingularization of two-dimensional schemes (1978), Theorem and Remark C",
@@ -1523,6 +1754,16 @@
       "citation": "GP26 bibliography [M-P-W1], [MP-W2], [C-G-P], [R], [G-P1], [Mg], [SGA3], [D-G]",
       "link": "https://hal.science/hal-03938963v5",
       "why": "Remaining proof-interior ledger, not a claim to have read these works: MPW flag classification/product restriction; CGP Appendix A.5.2 etale restriction and fixed loci; Raghunathan Lemma 3.1 torus Lie span; GP1 Corollary 1.8 torsor gluing; Margaux nonabelian limit theorem; SGA3 parabolic representability/conjugacy and Chevalley forms; Demazure–Gabriel orbit quotient. Individual source acquisition and their hypothesis checks are required before a complete extraction. This link identifies the precise bibliography rather than inventing source URLs."
+    },
+    {
+      "citation": "Lipman, Rational singularities, with applications to algebraic surfaces and unique factorization (1969), Theorem 26.2",
+      "link": "https://arxiv.org/abs/1903.08007",
+      "why": "Exact reference is HHKP20 [18], used in Lemma 2.4: for a fixed rational function, an infinite chain of point blow-ups cannot consist entirely of indeterminacy points. This is NOT Lipman's 1978 resolution theorem. HHKP's use and resulting lemma have been read; the original theorem's proof remains to be acquired. Link identifies the read bibliography, not a claim to have read Lipman."
+    },
+    {
+      "citation": "Gabber–Gille–Moret-Bailly, Fibrés principaux sur les corps valués henséliens (2014), Proposition 3.5.2",
+      "link": "https://arxiv.org/abs/1903.08007",
+      "why": "HHKP20 [11] supplies smooth completion-to-henselization point descent, Proposition 2.3(a). Étale charts and the generalized implicit function theorem give the stated alternate proof. Plan this once in RG2.0's valued-point interface with rank-one, possibly nondiscrete valuations; exact source proof beyond HHKP's explanation remains a prerequisite. Artin approximation in HHKP Proposition 2.3(b) is not required by the Theorem 2.5 proof extracted here."
     }
   ],
   "routes": [
@@ -1533,9 +1774,14 @@
         "SchemeAndStackFoundations:SF.0"
       ],
       "items": [
-        "PAPER-GILLE-PARIMALA-26/8"
+        "PAPER-GILLE-PARIMALA-26/8",
+        "PAPER-GILLE-PARIMALA-26/130",
+        "PAPER-GILLE-PARIMALA-26/131",
+        "PAPER-GILLE-PARIMALA-26/132",
+        "PAPER-GILLE-PARIMALA-26/133",
+        "PAPER-GILLE-PARIMALA-26/135"
       ],
-      "reason": "Construct the vector-scheme dual conventions using the existing relative-Spec owner; do not introduce a second scheme or vector-bundle foundation."
+      "reason": "Own relative Spec, vector schemes and coherent Hartogs/vector-bundle extension here. Import existing Module.IsReflexive and the small-dimensional local algebra corollary from R03.3. Export these to SF.1's torsor proof; do not create a cycle by making vector bundles depend on torsor purity."
     },
     {
       "route": "source",
@@ -1548,9 +1794,13 @@
         "PAPER-GILLE-PARIMALA-26/88",
         "PAPER-GILLE-PARIMALA-26/89",
         "PAPER-GILLE-PARIMALA-26/91",
-        "PAPER-GILLE-PARIMALA-26/118"
+        "PAPER-GILLE-PARIMALA-26/118",
+        "PAPER-GILLE-PARIMALA-26/90",
+        "PAPER-GILLE-PARIMALA-26/136",
+        "PAPER-GILLE-PARIMALA-26/137",
+        "PAPER-GILLE-PARIMALA-26/138"
       ],
-      "reason": "Add the source-scoped torsor descent, codimension-two extension and orbit/quotient interfaces to the descent owner. Keep the unrestricted affine-group purity assertion G4 outside this route; inspect the CTS proof before implementing even the flat finitely presented application."
+      "reason": "Own the source-scoped torsor descent, affine quotient reduction and corrected codimension-two purity proof. CTS79 proof inspection resolves G4; require U to contain codimension at most one and the quotient to represent the fppf sheaf quotient. Import vector-bundle/Hartogs machinery from SF.0; no flatness of an arbitrary quotient map is asserted."
     },
     {
       "route": "source",
@@ -1577,9 +1827,11 @@
         "PAPER-GILLE-PARIMALA-26/92",
         "PAPER-GILLE-PARIMALA-26/101",
         "PAPER-GILLE-PARIMALA-26/119",
-        "PAPER-GILLE-PARIMALA-26/123"
+        "PAPER-GILLE-PARIMALA-26/123",
+        "PAPER-GILLE-PARIMALA-26/144",
+        "PAPER-GILLE-PARIMALA-26/145"
       ],
-      "reason": "Own complete local models, finite-Artin lifting interfaces and two-dimensional excellent resolution once. Reuse TauCeti.Model and the pinned Artinian algebra results. The blow-up valuation is a geometry export to the semiglobal theorem; do not assume general positive-characteristic resolution."
+      "reason": "Own complete local models, finite-Artin lifting interfaces and two-dimensional excellent resolution once. Reuse TauCeti.Model and the pinned Artinian algebra results. The blow-up valuation is a geometry export to the semiglobal theorem; do not assume general positive-characteristic resolution. Add the specific infinite point-blow-up valuation limit and its henselization comparison from HHKP Lemma 2.4; distinguish Lipman 1969 indeterminacy termination from Lipman 1978 SNC resolution. Use the upstream ModularCurves local/strict-local carrier interfaces where applicable."
     },
     {
       "route": "source",
@@ -1602,9 +1854,10 @@
       ],
       "items": [
         "PAPER-GILLE-PARIMALA-26/29",
-        "PAPER-GILLE-PARIMALA-26/122"
+        "PAPER-GILLE-PARIMALA-26/122",
+        "PAPER-GILLE-PARIMALA-26/143"
       ],
-      "reason": "Generalize the chart-topology and etale analytic-chart foundation to the arbitrary complete discretely valued fields needed here. Retain local compactness and compact integral-point conclusions only under the original local-field hypotheses. This prevents duplicate point-topology definitions in two reductive-group continuations."
+      "reason": "Generalize the chart-topology and etale analytic-chart foundation to the arbitrary complete discretely valued fields needed here. Retain local compactness and compact integral-point conclusions only under the original local-field hypotheses. This prevents duplicate point-topology definitions in two reductive-group continuations. Smooth completion-to-henselization point descent needs arbitrary rank-one valued fields, including nondiscrete ones, as an exported analytic/étale interface."
     },
     {
       "route": "source",
@@ -1627,6 +1880,17 @@
         "PAPER-GILLE-PARIMALA-26/98"
       ],
       "reason": "Add the tame local SNC Kummer-cover theorem as a source-scoped foundation of tame fundamental groups. This is Abhyankar’s local lemma, not the Abhyankar inverse-Galois conjecture or complex Riemann existence."
+    },
+    {
+      "route": "source",
+      "roadmap": "DeformationAndDerivedPatchingAlgebra",
+      "stages": [
+        "DeformationAndDerivedPatchingAlgebra:R03.3"
+      ],
+      "items": [
+        "PAPER-GILLE-PARIMALA-26/134"
+      ],
+      "reason": "R03.3 and its accepted decomposition already own regular-local finite global dimension, depth and Auslander–Buchsbaum. Add only the finite reflexive-module freeness corollary in dimension at most two; do not rebuild those theorems in SF. Its statement is for arbitrary regular noetherian local rings, not only complete coefficient-DVR algebras. AUDIT-17 has regular sequences/projective dimension but lacks depth and Auslander–Buchsbaum. Export the corollary R03.3→SF.0→SF.1; no reverse dependency is introduced."
     },
     {
       "route": "part-ii",
@@ -1726,9 +1990,16 @@
         "PAPER-GILLE-PARIMALA-26/117",
         "PAPER-GILLE-PARIMALA-26/124",
         "PAPER-GILLE-PARIMALA-26/125",
-        "PAPER-GILLE-PARIMALA-26/126"
+        "PAPER-GILLE-PARIMALA-26/126",
+        "PAPER-GILLE-PARIMALA-26/139",
+        "PAPER-GILLE-PARIMALA-26/140",
+        "PAPER-GILLE-PARIMALA-26/141",
+        "PAPER-GILLE-PARIMALA-26/142",
+        "PAPER-GILLE-PARIMALA-26/146",
+        "PAPER-GILLE-PARIMALA-26/147",
+        "PAPER-GILLE-PARIMALA-26/148"
       ],
-      "brief": "Build Reductive algebraic groups, Part II: semiglobal flags and R-equivalence. Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), especially Layers 2–9, instead of re-planning its group, root, parabolic, central-cover and Chevalley constructions. Import affine Weil restriction and generalized valued-point charts from Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0a, RG2.0), geometry/descent/lifting from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.0–SF.4), and tame covers from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.1). Keep these producers independent of this consumer. Existing Mathlib strict submersion and analytic differentiation supply the Banach analysis; do not rebuild them or assume finite dimension over K.\n\nConstruct the type-preserving form torsors and smooth projective twisted flags; semilocal R-equivalence and elementary subgroups with nilpotent-Artin invariance; the product-compatible last unipotent subgroup and its Lie spanning chart; corrected analytic factorization on saturated complete T-modules V,W; restriction of projective flags along arbitrary finite, possibly inseparable, extensions. Prove Theorem 3.13 for the specified diamond with F1 dense in F0 and F1 intersect F2=F, using the supplied module hypotheses. Give separate elementary and R-factorization statements with each isotropy hypothesis retained. Optional Proposition 3.11 is quarantined by G2 and must not enter the main dependency chain.\n\nBuild the normal-model point/open/branch fields and finite patching system, including the finite P1-model map and tensor decompositions. Prove Z(F) nonempty iff all finite-patch points exist for every reductive G/F and twisted flag Z, and deduce the all-special-fibre-points and unconditional all-rank-one-valuations forms. With a reductive model, prove the discrete-valuations form without a residue-characteristic restriction. State the Tits-index corollaries using Delta_0 equal to minimal-parabolic type: the global subset is the smallest Gamma_F-stable subset containing the transported local subsets. This is an explicitly justified correction, pending G3’s final-version comparison.\n\nFor the final theorem let T be any complete DVR, K its fraction field, k its arbitrary residue field, F=K(X) for a smooth projective geometrically integral curve, and p the characteristic exponent of k. If p does not divide the order of the automorphism group of the absolute root system of G_ad, prove Z(F) nonempty iff Z has points over all divisorial completions of F arising from normal projective T-models. It suffices to test those nontrivial on K. Prove the finite-subgroup reduction, SNC spreading, prime-to-p finite-etale loop reduction and loop-parabolic criterion; complete the local ring at P before applying henselian arguments and prove the Grothendieck-completion comparison. The G2 refinement requires residue characteristic different from 2 and its special finite-reduction proof. Do not replace the divisorial family by a fixed model or omit the order hypothesis.\n\nEvery definition/construction has an API and three tests in the items. Mandatory boundary tests include nonreduced E tensor F_i, a proper but not strictly proper parabolic in a product, a non-smooth projective quotient in characteristic p, the factorial-pole series outside Frac(k[x][[t]]), and the corrected V/W derivative condition. The tests of finite algebra and Tits-index conventions must import the existing carriers. Prove, rather than encode as structure fields, every external theorem contract. Before implementation, extract the exact prerequisite proof interiors listed in the ledger. Suggested future files may separate REquivalence, AnalyticFactorization, PatchFields and TwistedFlags; this paper job supplies no Lean file and asserts no formalization.",
+      "brief": "Build Reductive algebraic groups, Part II: semiglobal flags and R-equivalence. Import Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups), especially Layers 2–9, instead of re-planning its group, root, parabolic, central-cover and Chevalley constructions. Import affine Weil restriction and generalized valued-point charts from Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII:RG2.0a, RG2.0), geometry/descent/lifting from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.0–SF.4), and tame covers from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups:IG.0–IG.1). Keep these producers independent of this consumer. Existing Mathlib strict submersion and analytic differentiation supply the Banach analysis; do not rebuild them or assume finite dimension over K.\n\nConstruct the type-preserving form torsors and smooth projective twisted flags; semilocal R-equivalence and elementary subgroups with nilpotent-Artin invariance; the product-compatible last unipotent subgroup and its Lie spanning chart; corrected analytic factorization on saturated complete T-modules V,W; restriction of projective flags along arbitrary finite, possibly inseparable, extensions. Prove Theorem 3.13 for the specified diamond with F1 dense in F0 and F1 intersect F2=F, using the supplied module hypotheses. Give separate elementary and R-factorization statements with each isotropy hypothesis retained. Optional Proposition 3.11 is quarantined by G2 and must not enter the main dependency chain.\n\nBuild the normal-model point/open/branch fields and finite patching system, including the finite P1-model map and tensor decompositions. Prove Z(F) nonempty iff all finite-patch points exist for every reductive G/F and twisted flag Z, and deduce the all-special-fibre-points and unconditional all-rank-one-valuations forms. Read HHKP20's precise family Omega_F of nontrivial valuations whose rings contain T; testing its rank-one subfamily already suffices. Prove the finite bad-point set, blow-up termination, rank-two coarsening and finite-stage point descent, importing SF.4's valuation-limit/henselization interface and RG2.0's smooth completion-to-henselization theorem. With a reductive model, prove the discrete-valuations form without a residue-characteristic restriction. State the Tits-index corollaries using Delta_0 equal to minimal-parabolic type: the global subset is the smallest Gamma_F-stable subset containing the transported local subsets. This is an explicitly justified correction, pending G3’s final-version comparison.\n\nFor the final theorem let T be any complete DVR, K its fraction field, k its arbitrary residue field, F=K(X) for a smooth projective geometrically integral curve, and p the characteristic exponent of k. If p does not divide the order of the automorphism group of the absolute root system of G_ad, prove Z(F) nonempty iff Z has points over all divisorial completions of F arising from normal projective T-models. It suffices to test those nontrivial on K. Import SF.0–SF.1's corrected affine-quotient surface purity, whose local freeness step imports DeformationAndDerivedPatchingAlgebra:R03.3; do not omit codimension-zero points or replace the represented fppf quotient by a categorical quotient. Prove the finite-subgroup reduction, SNC spreading, prime-to-p finite-etale loop reduction and loop-parabolic criterion; complete the local ring at P before applying henselian arguments and prove the Grothendieck-completion comparison. The G2 refinement requires residue characteristic different from 2 and its special finite-reduction proof. Do not replace the divisorial family by a fixed model or omit the order hypothesis.\n\nEvery definition/construction has an API and three tests in the items. Mandatory boundary tests include nonreduced E tensor F_i, a proper but not strictly proper parabolic in a product, a non-smooth projective quotient in characteristic p, the factorial-pole series outside Frac(k[x][[t]]), and the corrected V/W derivative condition. The tests of finite algebra and Tits-index conventions must import the existing carriers. Prove, rather than encode as structure fields, every external theorem contract. Before implementation, extract the exact prerequisite proof interiors listed in the ledger. Suggested future files may separate REquivalence, AnalyticFactorization, PatchFields and TwistedFlags; this paper job supplies no Lean file and asserts no formalization.",
       "reason": "The parent owns algebraic groups and general relative structure, while the existing RG2 continuation concerns local fields with finite residue field, buildings and parahorics. Neither owns semilocal R-equivalence, semiglobal patching or tame-loop flag descent. FunctionFieldArithmetic concerns global finite-constant-field arithmetic and is not this owner. One additional continuation supplies these reusable interfaces without duplicating the existing finite-local-field or number-field Brauer–Manin projects."
     }
   ]
