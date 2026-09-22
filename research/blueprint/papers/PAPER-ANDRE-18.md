@@ -1,10 +1,16 @@
 # PAPER-ANDRE-18 — ramification beyond unramified almost purity
 
-**Partial checkpoint, 21 September 2026.** Author: GPT-6 Astra Pro; session
-`g6ap-0921-andre-7c4e`; issue #1464. This is not a complete extraction, an
-accepted routing decision, a Lean implementation, or an independent review.
-The companion JSON contains 72 items: 35 mapped to existing stage contracts
-and 37 assigned provisionally to a Part II. No item is labelled `library`.
+**Complete. 22 September 2026.** Extraction begun by GPT-6 Astra Pro (session `g6ap-0921-andre-7c4e`, checkpoint PR #1638), continued by ChatGPT Pro (session `cgp-0922-b7d49a`, checkpoint PR #1807), finished by Claude Code (session `cc-fb70e5`). Issue #1464.
+
+The companion JSON now holds **199 items — 126 missing, 65 planned, 8 library** — in three routes, with 22 prerequisite entries and 11 source issues. It is not a Lean implementation and not an independent review.
+
+**What the third pass added.** The two checkpoints had extracted §1, parts of §2.1–2.3, §3.5, §3.8 and §§4.2–5.3. Read and extracted here, into 114 new items: the whole of **§2** (the bicomplete category of uniform Banach algebras — the spectral semi-norm, the dictionary of Sorite 2.3.1, the almost-elements functor and the topological almost category, integral extensions, root saturation, extremal epimorphisms and uniform localization, uniform products and the Gelfand transform, uniform limits and colimits), **§3.1–3.4** (perfectoid fields and algebras, tilting and untilting, coreflectivity, and almost purity with its Galois proof), **§3.6–3.9** (localizations, the Gelfand transform of a perfectoid algebra, perfectoid limits and colimits and the examples separating them from uniform ones), **§4.1** and the final application **§5.4**.
+
+**Provenance, closed.** Both earlier checkpoints recorded that the main PDF's bytes could not be retrieved and left `source.sha256` null. The published Numdam PDF was downloaded and hashed: SHA-256 `087521436778eed56e5bac98f6f2b441bc2898eef35ebba9da1c1575bf00f96a`, 70 pages, journal page = PDF page. arXiv:1609.00320v1 was also downloaded (`485c564a…`, 61 pages) and is **not** the same text — its abstract promises the ramified case « sans restriction sur le discriminant » where the published one says « sans restriction sur le lieu de ramification » and announces the almost perfectoid algebras and the Galois techniques — so locators are published-only. The published version is itself revised (received 28 August 2016, revised 16 November 2017) and its acknowledgements thank O. Gabber for « toute une liste d'erreurs, corrections, simplifications et suggestions »: everything recorded in `sourceIssues` survived a round of expert correction.
+
+**Reading this report.** Everything between « Source and reading boundary » and « Third pass » is the text of the two earlier checkpoints, kept verbatim as a historical record; where it gives counts (72 items, then 85), says that no item is labelled `library`, or calls the extraction partial, it is describing the state at that time and is superseded by this header and by the final section.
+
+**Two routing defects fixed.** The Part II route carried `area: cohomology`, which is the atlas *group* of PerfectoidSpaces and not a galaxy id of `data/galaxies.json`; `scripts/check_paper.py` does not validate the field, so the error was silent. It is now `padic`. And the five statements the second checkpoint deliberately left unrouted now have a route (see below) instead of being developed privately inside a perfectoid roadmap.
 
 ## Source and reading boundary
 
@@ -462,3 +468,49 @@ Main-paper PDF screenshots continued to fail, including the published
 p.13 attempt. No main-paper bytes or SHA-256 were obtained. The successful
 Conrad screenshot is not a substitute for that missing main-source visual
 check. The previous provenance gap therefore remains open.
+
+
+## Third pass: completing the extraction
+
+### What was read, and what was checked on the page
+
+§§2.1–2.9, 3.1–3.4, 3.6–3.9, 4.1 and 5.4 were read in full in the published text. Every recorded source issue was then re-read by this worker, and the ones that turn on a glyph or an exponent were re-read on page images rendered at 300–340 dpi. Claims that came back from the section readings but could not be confirmed personally were **dropped rather than recorded** — about a dozen word-level slips fall into that category.
+
+### Source issue E1, and the audit the second checkpoint asked for
+
+E1 is the assertion, in §2.2.4 p. 13, that *a K-algebra admits at most one spectral norm for which it is complete*. It is false: on C_p viewed as an abstract Q_p-algebra, pick t in a transcendence basis over Q̄_p; since Q̄_p(pt) = Q̄_p(t), there is an automorphism σ of C_p over Q̄_p with σ(t) = pt, and |σ(·)| is then a second complete multiplicative Q_p-algebra norm, distinct because |t|' = p⁻¹|t|. The printed proof replaces one norm by the maximum of the two and applies the open mapping theorem; the maximum need not be complete, and here it is not — a sequence in Q̄_p converging to t for the first norm converges to p⁻¹t for the second. The same assertion and the same proof are in arXiv v1, so it was not introduced in production.
+
+The audit both earlier checkpoints left open is now done. The assertion occurs three times (pp. 13, 22, 41) and is **used once**, in the proof of Lemme 2.4.1(2): "si la norme est spectrale complète, elle est unique avec cette propriété, donc préservée par G". The counterexample is exactly of that shape — a non-continuous automorphism moving the norm — so the gap is real at that point. It is repairable by the paper's own part (3): γ(b) satisfies the same monic polynomial ∏_γ(T − γ(b)) ∈ A[T] as b, and [6, 3.1.2 prop. 1] computes the spectral value from its coefficients, so the spectral norm is G-invariant for that reason rather than by uniqueness. At p. 41 the valid justification — uniqueness of the spectral norm compatible with the canonical topology of a finite projective module — is given in the same parenthesis. **No main theorem is affected**, and the items concerned are stated in their corrected form.
+
+### The other ten findings
+
+| id | where | what |
+|----|-------|------|
+| E2 | pp. 22, 41 | both cite "cf. 2.2.2" for an assertion made in numbered paragraph 2.2.4 |
+| E3 | throughout | paragraphs and labelled statements run on two independent counters, both printed §.§.k; **44 numbers denote two different objects**, several on the same page, so bare cross-references are ambiguous and every locator must say which it means |
+| E4 | Exemple 3.4.2, p. 41 | `\|a₁(0)a₂(0)\| = 2^{−3/2}` should be `2^{3/2}`: with v(2)=1 the relation gives v(a₁a₂) = −3/2, and only that contradicts a₁(0), 2a₂(0) ∈ K° |
+| E5 | (2.17), p. 26 | `B°[1/p]` for `B°[1/ϖ]`; four lines below, the same expression is printed with ϖ, and the companion example is in characteristic p |
+| E6 | Lemme 2.6.3 proof, p. 29 | the bound `inf_m \|(g/λ)^m a\| ≥ 1` is false (A = K⟨T⟩, g = T, a = ϖ); `≥ \|a\| > 0` holds and suffices |
+| E7 | §2.7.2, p. 30 | the relation `T_b + T_{¬b′} − 1` collapses the construction to {0,1}, contradicting `B(A) ≅ B`; read `T_{¬b}` |
+| E8 | §2.7.1, p. 30 | morphisms `K → A, 1 ↦ a_n` do not exist; the free object `K⟨T⟩` is meant |
+| E9 | §3.4.4(c), p. 43 | the `A_α` are untilts and are rational localizations of `A`, not "basculés … de A♭" |
+| E10 | Lemme 2.4.1(2) proof, p. 22 | `B^G = A ∩ B° = A°` should be `B^{oG}`, since the hypothesis is `B^G = A` |
+| E11 | Lemme 2.5.3 proof, p. 27 | "d'après (1)" where the hypothesis in force is (2) |
+
+E4, E6 and E7 have mathematical content; the rest are misprints. Every item whose statement they touch carries the corrected form and a note.
+
+### Routing
+
+The existing two routes are kept: 35 items to **PerfectoidSpaces** P0/P3/P8 as a source route, and the Part II **PerfectoidRamification** (parent PerfectoidSpaces, area now `padic`), which grows to 121 items and whose brief now states its four blocks — §2's categorical apparatus, §3.5–3.9, §4, and §5 with the almost perfectoid envelopes.
+
+A third route is added for the five statements the second checkpoint left deliberately unrouted: a **source route to `AdicSpacesPartII`, stage R0**. These are pure normed-algebra facts — a bounded homomorphism contracts spectral radii, comparable semi-norms have the same spectral-radius function, two power-multiplicative norms with the same topology agree, and with completeness one-sided continuity suffices — together with the source form of §2.2.4. Their natural owner is the Tau Ceti *Foundations of adic spaces* roadmap, whose Layer 0 already plans boundedness, A°, A°°, Tate algebras, completion and the open mapping theorem; but `check_paper.py` forbids a source route from re-planning a Tau Ceti roadmap, and R0 is the stage of its campaign Part II that already depends on "AdicSpaces and complete topological algebra". If the design job judges R0 too narrow they belong in a dedicated topological-algebra stage of that Part II — not in a new roadmap, and not privately inside PerfectoidRamification, which is what the second checkpoint asked to avoid.
+
+The `planned` count rises from 35 to 65 because much of §3.1–3.4 is already planned by the atlas: perfectoid fields and algebras, tilting and untilting and the tilting equivalence by **PerfectoidSpaces:P1**, rational localizations by **P2**, almost purity and the integral closure statement by **P3** (whose brief is ECD Theorem 6.1, which is Théorème 3.4.1 here), perfectoid limits and filtered colimits by **P5**, and descent of perfectoidness along a finite étale extension by **P8**. Basic normed-algebra material of §2.1–2.2 is planned by the Tau Ceti *Foundations of adic spaces* Layer 0, uniform rational localization by its Layer 3, the closedness of `(fU−1)` by its Layer 4, and completed tensor products by `AdicSpacesPartII:R0`.
+
+### Prerequisites
+
+The `prerequisites` array was empty, which the second checkpoint recorded as unresolved rather than as a finding of full coverage. It now has **22 entries**, chosen and weighted by a citation pass over the text itself: Gabber–Ramero is cited 27 times, Kedlaya–Liu 17, Scholze's *Perfectoid spaces* 13, Bosch–Güntzer–Remmert 12, Bourbaki's *Algèbre commutative* 7, Berkovich 6. Each entry names the statement actually used — Gabber–Ramero 6.6.6 for perfectoid = deeply ramified, [16, th. 6.3.92] for the tilting homeomorphism, [6, 3.1.2 prop. 1] for the spectral value of a monic polynomial (which is what repairs the use of E1), Cassels for nothing here but Bartenwerfer for the classical Riemann extension theorem, and so on. DOIs were verified through Crossref where one exists; note that the paper's bibliography dates Shimomoto [32] "220 (2014)" where the volume appeared in 2016.
+
+### What is complete, and what is not
+
+The whole paper is extracted and every missing item is routed exactly once, which is the bar §16 sets for `complete`. What remains is recorded in `gaps` and is for the design jobs, not for an extractor: the §1 packages inherited from the first checkpoint are still coarser than one result per interface; a per-item pinned-declaration search has not been run for all 199 items, and no absence claim is made; the ownership of the §2 topological-algebra block should be settled by the maintainer; Question 3.5.1, Question 4.4.3 and the conditional clause of §5.4 are questions and must not be planned as targets; and the eleven source issues are this worker's findings, not author-confirmed.
