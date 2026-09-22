@@ -1952,8 +1952,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KHAYUTIN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1131"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1131",
+   "finishedAt": "2026-09-22T18:15:30Z"
   },
   {
    "id": "REV-PAPER-KHAYUTIN-19",
@@ -2744,7 +2745,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TREUMANN-VENKATESH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1176"
   },
   {
    "id": "REV-PAPER-TREUMANN-VENKATESH-16",
@@ -2961,7 +2963,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KALETHA-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1190"
   },
   {
    "id": "REV-PAPER-KALETHA-16",
