@@ -29092,7 +29092,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1703"
   },
   {
    "id": "REV-ERRATA-PAPER-DASGUPTA-KAKDE-23",
@@ -29271,8 +29272,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-COUVEIGNES-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1709"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1709",
+   "finishedAt": "2026-09-22T07:50:53Z"
   },
   {
    "id": "REV-ERRATA-PAPER-COUVEIGNES-20",
