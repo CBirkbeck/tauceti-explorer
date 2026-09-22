@@ -5813,6 +5813,148 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E1",
+   "kind": "misprint",
+   "locator": "§1.2, paragraph after Theorem G, p. 5 (arXiv 1803.10897v2)",
+   "printed": "it relies heavily on the calculations of Geisser–Levine [GH] and Geisser–Hesselholt [GH] of p-adic algebraic K-theory and topological cyclic homology",
+   "correction": "Geisser–Levine [GL] and Geisser–Hesselholt [GH] (in the PDF numbering, [34] and [30]).",
+   "reason": "The PDF prints [30] twice; [30] is Geisser–Hesselholt, Topological cyclic homology of schemes, and the Geisser–Levine paper is [34], as cited correctly in Theorem 1.5 and at the start of §4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897 listing (v1 29 March 2018, v2 20 July 2020 'revised and final version') and the v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961 (no update-to or correction relation)",
+    "the AMS page of J. Amer. Math. Soc. 34 (2021) 411–473 (the PDF returned HTTP 403, not read)",
+    "the second author's home page (links to arXiv only)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E2",
+   "kind": "misprint",
+   "locator": "Remark 3.11, p. 20",
+   "printed": "In this case, one takes for U the forgetful functor taking the underlying set, and its right adjoint F is the free ring, nonunital ring, group, etc. on the given set.",
+   "correction": "its left adjoint F is the free ring, nonunital ring, group, etc.",
+   "reason": "Condition (Law) two sentences earlier asks U to admit a left adjoint F, and the free-object functor is left adjoint to the forgetful functor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E3",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.7, pp. 40–41",
+   "printed": "let b_1^{(j)}, …, b_{w_j}^{(j)}, c_1^{(j)}, …, c_{w_j}^{(j)} ∈ k_i be part of such a relative p-basis … dlog(1 + t^jb) ∧ dlog(1 + t^jc) ≡ t^{2j} da ∧ db mod dt, t^{3j} … τ_{2s−2} ≡ Σ_{i=1}^{w_s} b_i^{(s)} ∧ c_i^{(s)} mod Ω^2_{k_{s−1}}",
+   "correction": "The elements lie in k_j; dlog(1 + t^jb) ∧ dlog(1 + t^jc) ≡ t^{2j} db ∧ dc mod dt, t^{3j}; and τ_{2s} ≡ Σ_{i=1}^{w_s} db_i^{(s)} ∧ dc_i^{(s)} modulo the image of Ω^2_{k_{s−1}}, so the growth condition on w_j should use C(2j+2, 2j) (the bound of Lemma B2 at index 2j).",
+   "reason": "dlog(1 + t^jb) ≡ t^j db mod (dt, t^{2j}), so the jth block of f contributes to the coefficient of t^{2j}, not t^{2j−2}, and the coefficient is a 2-form in db ∧ dc. The argument is unaffected: C(2j+2, 2j)/C(2j, 2j−2) ≤ 6 for j ≥ 1, so a sequence w_j that defeats one bound defeats the other.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.30, displays on p. 47",
+   "printed": "{W_sΩ^n_{X,log}}_s →^{p^r} {W_sΩ^n_{X,log}}_s →^{{R^{r−s}}_s} W_rΩ^n_{X,log} (and the same R^{r−s} in the other two displays)",
+   "correction": "The maps are {R^{s−r}}_s, the (s − r)-fold restriction W_s → W_r, as in the statement of Lemma 5.30 and in Illusie's sequence recalled just before it.",
+   "reason": "Restriction lowers the level by one, so passing from W_s to W_r (s ≥ r) needs s − r restrictions; r − s is non-positive.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.2, first paragraph, p. 50",
+   "printed": "Replacing α by α − q^*x_0^*α, we can assume x^*α = 0.",
+   "correction": "we can assume x_0^*α = 0.",
+   "reason": "Subtracting the constant class q^*x_0^*α kills the pullback at the fixed point x_0; the next sentence then uses rigidity at the henselization of X at x_0 to make α vanish near x_0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E6",
+   "kind": "misprint",
+   "locator": "Example 6.10, p. 54",
+   "printed": "the p-adic K-theory of O_C was calculated by Nizioł, cf. [Niz98, Lem 3.1] which shows that K(O_C; Z_p) ≃ K(C; C_p)",
+   "correction": "K(O_C; Z_p) ≃ K(C; Z_p)",
+   "reason": "The coefficients are p-adic (Z_p) on both sides; the sentence continues that this is p-adic connective topological K-theory by Suslin, which is a statement about K(C; Z_p).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E7",
+   "kind": "misprint",
+   "locator": "§6.4, paragraph before Theorem 6.11, p. 54",
+   "printed": "is given by H^1(Spec(R)_ét; π_{n+1}(𝒯𝒞/p^r)), where π_{n+1}(𝒯𝒞/p^r) denotes the étale sheafification of the presheaf π_n(TC(−)/p^r).",
+   "correction": "the étale sheafification of the presheaf π_{n+1}(TC(−)/p^r).",
+   "reason": "The complementary summand of π_n(K(R)/p^r) comes from the E_2^{1,−(n+1)} term of the étale descent spectral sequence, i.e. H^1 of the sheaf of π_{n+1}; for r = 1 this is ν̃^{n+1}(R) = H^1(Spec R_et, ν^{n+1}), as in Theorem 4.29 and the proof of Theorem 6.11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+   "citation": "Clausen–Mathew–Morrow, \"K-theory and topological cyclic homology of henselian pairs\", Journal of the American Mathematical Society (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E1",
    "kind": "gap",
    "locator": "§3.5, after Theorem 3.8, p. 856 (also in arXiv v1, §3.5)",
