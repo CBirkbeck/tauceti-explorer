@@ -1392,6 +1392,27 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-COUVEIGNES-20/E1",
+   "kind": "misprint",
+   "locator": "§3, p.493, in the published version, Annals of Mathematics 192 (2020), 487–497 (publisher PDF, SHA-256 as recorded by the extraction); the same line is in arXiv 1907.13617v2",
+   "printed": "\"This is a free Z-module 𝓛 ⊂ V_R of rank ℓ = C(d+r, d) − n. We set L = 𝓛 ⊗_Q R as the underlying R-vector space and L^⊥ as its orthogonal complement in V_R.\"",
+   "correction": "L = 𝓛 ⊗_Z R, the real span of 𝓛 in V_R (equivalently (𝓛 ⊗_Z Q) ⊗_Q R).",
+   "reason": "𝓛 is defined one sentence earlier as a free Z-module, so a tensor product over Q is not defined for it; the intended object, used in the rest of the section, is its real span. Checked on the page image of p.493 and in the arXiv source (\\cL\\otimes_\\QQ \\RR). Noted by the extraction (item relation-lattice).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2020/192-2/p04, checked 22 September 2026: no erratum is linked",
+    "arXiv 1907.13617: v1 (31 July 2019) and v2 (29 August 2019); v2 has the same line, and there is no later version",
+    "web search for an erratum, corrigendum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-COUVEIGNES-20",
+   "file": "research/blueprint/errata/PAPER-COUVEIGNES-20.json",
+   "citation": "Jean-Marc Couveignes, \"Enumerating number fields\", Annals of Mathematics 192 (2020), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-MARTIN-25/E1",
    "kind": "error",
    "locator": "Theorem 1.4, p.624, in the published version, Inventiones mathematicae 241 (2025), 623–626 (as quoted by the extraction from the publisher PDF, SHA-256 3e1f4b7f…097c); the same theorem, labelled \"Special case/corollary of Chen\", in arXiv 2502.15960v1",
@@ -1427,7 +1448,6 @@
   "PAPER-CESNAVICIUS-22",
   "PAPER-CHARLES-16",
   "PAPER-CIUBOTARU-HARRIS-26",
-  "PAPER-COUVEIGNES-20",
   "PAPER-DASGUPTA-KAKDE-23",
   "PAPER-DITTMANN-POP-23",
   "PAPER-DUKE-IMAMOGLU-TOTH-16",
