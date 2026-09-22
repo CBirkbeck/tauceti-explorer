@@ -2611,8 +2611,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1170"
+   "state": "external",
+   "note": "claimed on GitHub issue #1170"
   },
   {
    "id": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -4270,8 +4270,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GHOSH-SARNAK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1272"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1272",
+   "finishedAt": "2026-09-22T13:13:27Z"
   },
   {
    "id": "REV-PAPER-GHOSH-SARNAK-22",
