@@ -2134,6 +2134,152 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BRESCIANI-24/E1",
+   "kind": "misprint",
+   "locator": "Published §2 pp.133,135; arXiv v3 §2",
+   "printed": "Proposition A.18",
+   "correction": "Cite [6, Proposition A.23] for arbitrary characteristic-zero field extensions.",
+   "reason": "The published dependency, Algebraic Geometry 8 (2021), A.18 p.262, only covers algebraic separable extensions; A.23 p.264 covers arbitrary extensions for geometrically connected concentrated fibered categories. Both statements and the proof of A.23 were reread. k(t)/k requires the latter. Matches the separate errata file E1; no independent review verdict is claimed here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E2",
+   "kind": "error",
+   "locator": "Published §4 p.141, paragraph after Corollary 15; arXiv v3 §4",
+   "printed": "every Galois section of X is cuspidal",
+   "correction": "Treat parabolic curves with nonsplit degree-two boundary separately. A replacement argument for the general-curve reductions /81 and /96 remains open.",
+   "reason": "X=P1_Q minus V(T²−2) has a rational point 0 and hence a geometric section, but no rational boundary point and therefore no cuspidal section. Splitting its proper completion does not split its boundary. This is the same finding as E2 of the separate errata file; no disproof of Theorems A–C is claimed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E3",
+   "kind": "gap",
+   "locator": "Published proof of Lemma 26 p.148; arXiv v3 Lemma 26",
+   "printed": "by hypothesis it is cuspidal",
+   "correction": "First the images are geometric or cuspidal. After identifying the unique associated rational point x, compute the inverse limit over the cofinal opens omitting x.",
+   "reason": "If an open contains x, its image can be geometric. After removing x, uniqueness of the associated point and disjointness of geometric and cuspidal packets force cuspidality at x. The same cofinal limit computes the birational section. Matches E3 of the separate errata file.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E4",
+   "kind": "gap",
+   "locator": "Published Lemma 8 proof p.138; arXiv v3 Lemma 8",
+   "printed": "canonical identification",
+   "correction": "The choice-free comparison is Π_X/k^ab≃Π_P/k for the generalized Albanese torsor P. Use s=γ(*) to obtain a chosen-object equivalence with B_k TJ (and hence Π_J/k), as in /58 and /150–/152.",
+   "reason": "A geometric Albanese isomorphism supplies the same band, not a choice-free equivalence with the neutral gerbe of J. The image of γ(*) gives the required neutralization of Π_P/k, without a point of P or X. The missing descent/choice argument is now supplied in the report.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E5",
+   "kind": "misprint",
+   "locator": "Published Lemma 9 proof p.140; arXiv v3 Lemma 9",
+   "printed": "any lifting",
+   "correction": "Choose qbar monic and a monic lift q of the same degree.",
+   "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E6",
+   "kind": "misprint",
+   "locator": "Published §6 opening p.144; arXiv v3 §6, citation [Sti13]",
+   "printed": "Theorem B",
+   "correction": "The citation should be [21, Theorem B] (Stix 2015), not [20] (the 2013 book).",
+   "reason": "The discussion refers to the density theorem already cited as [21, Theorem B] in the proof of Lemma 16; the arXiv reference key likewise points to the book instead of Sti15. This is a reference correction, not a new theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+    "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+    "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/E7",
+   "kind": "misprint",
+   "locator": "Dependency Bresciani, Essential dimension and pro-finite group schemes, arXiv:1904.00789v2, Lemma 5.8 proof, last sentence p.20",
+   "printed": "banded by A",
+   "correction": "The band is TA, the full Tate module, as in the lemma statement.",
+   "reason": "The proof identifies the gerbe with the inverse limit of gerbes banded by A[n]; its band is therefore lim_n A[n]=TA. The semiabelian variety A is not that profinite band.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1904.00789v2, Lemma 5.8 statement and proof checked 2026-09-22; the statement already says TA. Only this author version is asserted to contain the slip.",
+    "Title/erratum web search and the author institutional publication list checked 2026-09-22; no separate correction located. Publication-version comparison remains open."
+   ],
+   "owner": "PAPER-BRESCIANI-24",
+   "file": "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+   "citation": "Bresciani, \"On the birational section conjecture with strong birationality assumptions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E1",
    "kind": "error",
    "locator": "arXiv:2006.02356v1, Lemma 3.15, p.18, degree-d spanning display; published version not compared",
