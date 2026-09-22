@@ -4569,7 +4569,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-XU-ZHU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1284"
   },
   {
    "id": "REV-PAPER-XU-ZHU-22",
@@ -5512,8 +5513,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLOZEL-THORNE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1336"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1336",
+   "finishedAt": "2026-09-22T23:21:16Z"
   },
   {
    "id": "REV-PAPER-CLOZEL-THORNE-17",
@@ -6163,7 +6165,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DOR-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1373"
   },
   {
    "id": "REV-PAPER-DOR-23",
