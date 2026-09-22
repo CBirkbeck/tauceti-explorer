@@ -1041,8 +1041,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SMITH-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1081"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1081",
+   "finishedAt": "2026-09-22T14:54:14Z"
   },
   {
    "id": "REV-PAPER-SMITH-24",
@@ -2051,8 +2052,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1137"
+   "state": "external",
+   "note": "claimed on GitHub issue #1137"
   },
   {
    "id": "REV-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -7406,7 +7407,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1452"
   },
   {
    "id": "REV-PAPER-CHENEVIER-TAIBI-20",
