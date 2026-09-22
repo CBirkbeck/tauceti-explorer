@@ -10471,6 +10471,48 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LI-LIU-21/E10",
+   "kind": "error",
+   "locator": "Definition 6.8, p.31, and Proposition 6.10(1) with its proof, p.32 (authors' final version; the same in arXiv v5)",
+   "printed": "The Hecke character χ^R_{π^∨} is identified with (χ^R_π)^c, so that Proposition 6.10(1) reads with χ^R_π(s)^c; and the two elements required at several places are asked for in S^R_{Q^ac} \\ m^R_π.",
+   "correction": "χ^R_{π^∨} and (χ^R_π)^c agree only after restriction to T^R_{Q^ac ∩ R}; in Proposition 6.10(1) one should replace χ^R_π(s)^c by χ^R_{π^∨}(s), and the two elements should be taken in S^R_{Q^ac} \\ m^R_{π^∨}.",
+   "reason": "Found and corrected by the authors themselves in the errata section of their later paper with Disegni; they state that the modifications do not affect the proofs of the results.",
+   "affects": "nothing",
+   "known": "Corrected by the authors in Disegni–Liu, A p-adic arithmetic inner product formula, Invent. Math. 236 (2024), 219–371, §4.10 (\"Errata for [LL21, LL22]\"), Remarks 4.50–4.51, pp. 319–320 (read 2026-09-22; extracted as PAPER-DISEGNI-LIU-24), Remark 4.50",
+   "searched": [
+    "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+    "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+    "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+   ],
+   "owner": "PAPER-LI-LIU-21",
+   "file": "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups\", Annals of Mathematics 194 (2021), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-LIU-21/E11",
+   "kind": "error",
+   "locator": "Proof of Lemma 4.4, p.23 (authors' final version; the same in arXiv v5); used in the proof of Proposition 6.10(1), p.32",
+   "printed": "Two formulae for the behaviour of the special cycles Z_T(φ^∞)_L and of the Schwartz functions under Hecke correspondences t ∈ T^R, asserted in the proof of Lemma 4.4.",
+   "correction": "Both formulae are false in general. Lemma 4.4 itself holds: the assignment φ^∞ ↦ Z_T(φ^∞)_{L′} is compatible with shrinking L′, hence defines a map of smooth H(A^∞_F)-representations S(V^m ⊗ A^∞_F) → lim→_{L′}CH^m(X_{L′})_C, whose restriction to L-invariants factors through CH^m(X_L)_C.",
+   "reason": "The two formulae were identified as incorrect in Shah, Explicit Hecke descent for special cycles, arXiv:2310.01677; the alternative argument above is the one given by Disegni and Liu.",
+   "affects": "the proof",
+   "known": "Identified in Shah, arXiv:2310.01677, and repaired in Disegni–Liu, A p-adic arithmetic inner product formula, Invent. Math. 236 (2024), 219–371, §4.10 (\"Errata for [LL21, LL22]\"), Remarks 4.50–4.51, pp. 319–320 (read 2026-09-22; extracted as PAPER-DISEGNI-LIU-24), Remark 4.51",
+   "searched": [
+    "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+    "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+    "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+   ],
+   "owner": "PAPER-LI-LIU-21",
+   "file": "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups\", Annals of Mathematics 194 (2021), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LI-LIU-22/E1",
    "kind": "misprint",
    "locator": "Proof of Proposition 2.44, (2.17) and the following display, pp.27–28",
@@ -10545,6 +10587,26 @@
     "Li–Zhang, arXiv 1908.01701v3 §§10.4–10.5 and the authors' final version (Chao Li's homepage, KRProof.pdf) §§10.4–10.5",
     "Li–Rapoport–Zhang, arXiv:2404.02214v2, Theorem 14.6.2",
     "PAPER-LI-LIU-21/E3 (Li–Liu 2021, Proposition 9.1)"
+   ],
+   "owner": "PAPER-LI-LIU-22",
+   "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-LIU-22/E5",
+   "kind": "error",
+   "locator": "§4.5, p.55, and the proofs on pp.57 and 64 (published version), wherever two elements of S^R_{Q^ac} \\ m^R_π are chosen",
+   "printed": "\"for i = 1, 2, s_i is a product of two elements in (S^R_{Q^ac} \\ m^R_π)\", and the corresponding choices in the later proofs, together with the use of [LL21, Proposition 6.10] with χ^R_π(s)^c.",
+   "correction": "The elements should be taken in S^R_{Q^ac} \\ m^R_{π^∨}, and [LL21, Proposition 6.10(1)] should be quoted with χ^R_{π^∨}(s): the characters χ^R_{π^∨} and (χ^R_π)^c agree only after restriction to T^R_{Q^ac ∩ R}.",
+   "reason": "Found and corrected by the authors in the errata section of their later paper with Disegni, which states that the modifications do not affect the proofs of the results; the same correction applies to PAPER-LI-LIU-21 (E10 there).",
+   "affects": "nothing",
+   "known": "Corrected by the authors in Disegni–Liu, A p-adic arithmetic inner product formula, Invent. Math. 236 (2024), 219–371, §4.10 (\"Errata for [LL21, LL22]\"), Remarks 4.50–4.51, pp. 319–320 (read 2026-09-22; extracted as PAPER-DISEGNI-LIU-24), Remark 4.50",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
    ],
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
