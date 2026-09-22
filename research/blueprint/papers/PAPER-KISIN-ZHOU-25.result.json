@@ -2609,7 +2609,6 @@
       ],
       "acceptance": [
         "For lambda in X_*(T)_I, length(t_lambda)=pair(lambda_dom,2rho_Sigma); the dominant projection and reduced relative Sigma must match N05.",
-        "For split SL_2, translation by n times the coroot has length 2*abs(n).",
         "For split SL_2, translation by n times the coroot has length 2*abs(n)."
       ],
       "sources": [
@@ -2785,7 +2784,6 @@
       ],
       "acceptance": [
         "w is sigma-straight iff length(w)=pair(nu_w_dom,2rho_Sigma).",
-        "A nontrivial finite simple reflection with sigma trivial is not straight: its square has length zero.",
         "A nontrivial finite simple reflection with sigma trivial is not straight: its square has length zero."
       ],
       "sources": [
@@ -3304,7 +3302,6 @@
       ],
       "acceptance": [
         "Every mu-ordinary class is represented by a lift of a sigma-straight t_muprime for muprime in W_0(mu).",
-        "For split GL_2 with mu=(1,0), the ordinary representative is diag(p,1), with Newton slopes (1,0).",
         "For split GL_2 with mu=(1,0), the ordinary representative is diag(p,1), with Newton slopes (1,0)."
       ],
       "sources": [
@@ -3606,7 +3603,6 @@
       ],
       "acceptance": [
         "Under N25, b is sigma-conjugate to the chosen translation lift by an element of G(O_breve F).",
-        "The conjugator must preserve the integral lattice; replacing it with an arbitrary G(breve F) element does not meet this conclusion.",
         "The conjugator must preserve the integral lattice; replacing it with an arbitrary G(breve F) element does not meet this conclusion."
       ],
       "sources": [
@@ -4108,7 +4104,6 @@
       ],
       "acceptance": [
         "For the SL2 root subgroup lattices occurring in 2.4.11, the vector pi_F^n in pi_K^(ne-k) O_K, 0<=k<e, is primitive over O_F; it extends to a basis, giving the closed affine-line embedding.",
-        "For ramification index e=3, k=1, n=1, pi_F has valuation3 and is primitive in pi_K^2 O_K as an O_F module: it is not in pi_F*pi_K^2 O_K.",
         "For ramification index e=3, k=1, n=1, pi_F has valuation3 and is primitive in pi_K^2 O_K as an O_F module: it is not in pi_F*pi_K^2 O_K."
       ],
       "sources": [
@@ -7505,7 +7500,6 @@
       ],
       "acceptance": [
         "At matching points x_i there are exact sequences 1 to C_i to I_x3 to I_xi to 1, with C_i the corresponding central kernel of the datum map.",
-        "For a product datum, the projector tensors recover the two factors and the central kernels in the displayed sequences.",
         "For a product datum, the projector tensors recover the two factors and the central kernels in the displayed sequences."
       ],
       "sources": [
@@ -7810,7 +7804,6 @@
       ],
       "acceptance": [
         "If dominant integral lambda<mu in coroot dominance, there is a positive coroot alpha∨ such that lambda+alpha∨ is dominant and <=mu.",
-        "For PGL_2 with coroot2 and lambda=0,mu=2, the positive-coroot step reaches mu; mu=1 is outside the integral-order hypothesis.",
         "For PGL_2 with coroot2 and lambda=0,mu=2, the positive-coroot step reaches mu; mu=1 is outside the integral-order hypothesis."
       ],
       "sources": [
@@ -8680,7 +8673,6 @@
       ],
       "acceptance": [
         "For a smooth curve over F_q and an irreducible or semisimple lisse Qbar_ell sheaf plain of characteristic p, there is a number field E and an absolutely irreducible or semisimple E-compatible system containing it; integer purity is retained if given.",
-        "The constant rank-one sheaf with Frobenius eigenvalue p is plain of characteristic p and has non-finite-order determinant; it still has the asserted companions.",
         "The constant rank-one sheaf with Frobenius eigenvalue p is plain of characteristic p and has non-finite-order determinant; it still has the asserted companions."
       ],
       "sources": [
@@ -8776,7 +8768,6 @@
       ],
       "acceptance": [
         "Two semisimple lisse sheaves over a common characteristic-zero coefficient field on a smooth geometrically connected finite-field curve, with matching characteristic polynomials at every closed point of a nonempty open, are isomorphic.",
-        "A nontrivial extension of the trivial sheaf by itself has the same characteristic polynomials as its semisimplification; semisimplicity is required for the isomorphism conclusion.",
         "A nontrivial extension of the trivial sheaf by itself has the same characteristic polynomials as its semisimplification; semisimplicity is required for the isomorphism conclusion."
       ],
       "sources": [
@@ -8844,7 +8835,6 @@
       ],
       "acceptance": [
         "In a connected reductive group over an algebraically closed field of characteristic zero, two semisimple elements are conjugate if their images have equal characteristic polynomials in every algebraic representation.",
-        "For G_m embedded by t to diag(t,t^-1), t=2 and t=1/2 require the identity character of G_m to separate them, despite equal faithful GL_2 polynomials.",
         "For G_m embedded by t to diag(t,t^-1), t=2 and t=1/2 require the identity character of G_m to separate them, despite equal faithful GL_2 polynomials."
       ],
       "sources": [
@@ -9515,7 +9505,6 @@
       ],
       "acceptance": [
         "The common class of A12 lifts to an element of G(R) elliptic modulo the center. Choose a semisimple lift over C, normalize by the central weight scalar, and transfer its compact torus through the appropriate real inner twist.",
-        "A nonidentity unipotent 2-by-2 complex matrix has all eigenvalues1 but is not contained in a compact subgroup; choose the semisimple representative.",
         "A nonidentity unipotent 2-by-2 complex matrix has all eigenvalues1 but is not contained in a compact subgroup; choose the semisimple representative."
       ],
       "sources": [
@@ -9549,7 +9538,6 @@
       ],
       "acceptance": [
         "Under A12 plus G_der simply connected and G_Qp quasi-split, there exists gamma_0 in G(Q), elliptic over R, conjugate over Q_ell to actual Frobenius for all but at most one prime ell different from p.",
-        "The output records a set of at most one exceptional coefficient prime; deleting this set from the signature overstates the source.",
         "The output records a set of at most one exceptional coefficient prime; deleting this set from the signature overstates the source."
       ],
       "extractionStatus": "consumer contract extracted; original proof or finer declaration expansion remains gated",
