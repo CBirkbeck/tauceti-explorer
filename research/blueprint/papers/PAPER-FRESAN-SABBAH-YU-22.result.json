@@ -1,0 +1,990 @@
+{
+  "paper": "PAPER-FRESAN-SABBAH-YU-22",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Hodge theory of Kloosterman connections",
+    "authors": "Javier Fresán, Claude Sabbah, Jeng-Daw Yu",
+    "venue": "Duke Mathematical Journal 171 (2022), no. 8, 1649–1747",
+    "doi": "10.1215/00127094-2021-0036",
+    "arxiv": "1810.06454",
+    "url": "https://arxiv.org/abs/1810.06454v5",
+    "readSections": [
+      "The version read is arXiv:1810.06454v5 of 13 June 2022, which the authors label «Final published version»; its source archive (sha256 1bc7711151279a63e6f4ab21afc9d33b7c042381d6b65eb9f5ff1e6a0f288d44) contains the single file kloosterman-revised10_published.tex, 3323 lines, with the style file kloosterman-revised10.sty, and the compiled PDF has sha256 835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a. Earlier versions differ substantially: v3 is described by the authors as a substantial revision after referee reports in which the main construction was moved into the setting of exponential mixed Hodge structures, one appendix was removed and some mistakes were corrected, so v1 and v2 are not usable.",
+      "Read at statement level throughout, and at proof level in §1 (all four subsections), §2.1 including the proofs of Proposition 2.4 and Lemma 2.5, and §3.1 including the proof of Theorem 3.2. The statements of §§2.2–2.3, 3.2, 4, 5 and the appendix were read in full, but their proofs were not read line by line; this is why the extraction is a checkpoint and not complete.",
+      "On numbering. Every statement environment shares the equation counter and the counter is reset per section (all environments are declared [equation] and \\numberwithin{equation}{section}), so statement numbers and displayed-equation numbers interleave. The numbering below was reconstructed from the source and then pinned against the compiled PDF: the set of printed equation tags (i.j) was read off the PDF for each section, its complement in 1..N gives the statement slots, and the ordered list of statement environments in the source was assigned to them. The reconstruction is gap-free in every section and agrees with every one of the 43 statement cross-references the PDF prints, with no type mismatch. There are 58 numbered statements: 3 in §1, 9 in §2, 5 in §3, 10 in §4, 14 in §5 and 17 in the appendix."
+    ]
+  },
+  "summary": "The paper constructs motives over Q attached to symmetric power moments of Kloosterman sums and proves that their L-functions continue meromorphically and satisfy the functional equations conjectured by Broadhurst and Roberts. Its central result, and the reason for its title, is a Hodge-theoretic one: the mixed Hodge structure H¹(G_m, Sym^k Kl₂) has all Hodge numbers equal to 0 or 1, which is exactly the regularity of the associated Galois representations, and that is what makes Patrikis and Taylor's potential-automorphy theorem applicable. The route is as follows. Over a finite field, Z_k(p;T) is the characteristic polynomial of Frobenius on the compactly supported étale cohomology of Sym^k Kl₂, and M_k(p;T) the same on the middle cohomology, which is pure of weight k+1 by Weil II. Over a field of characteristic zero, the Kloosterman connection Kl_{n+1} = π_*E^f is the rank-(n+1) connection of the hypergeometric operator (z∂_z)^{n+1} - z, regular at 0 and of pure slope 1/(n+1) at infinity; a Thom–Sebastiani argument identifies the de Rham cohomology of its symmetric powers with isotypic parts of the twisted de Rham cohomology of a torus. Those cohomologies are a priori only exponential mixed Hodge structures in the sense of Kontsevich and Soibelman; after pulling back along the cover z = t^{n+1}, which turns the function into a product t·g, the appendix's criterion shows they are classical mixed Hodge structures and that the irregular Hodge filtration is the Hodge filtration. The middle one is then identified with a piece of the cohomology of the hypersurface 𝒦 ⊂ G_m^{kn} cut out by g^{⊞ k}, which makes it the Hodge realization of a Nori motive 𝑴_k; the Hodge numbers are computed for n = 1 by an explicit basis of the de Rham cohomology and the toric interpretation of the irregular Hodge filtration. Finally the ℓ-adic realizations are computed at the bad primes, the p-adic realization is compared with rigid cohomology, and potential automorphy gives the analytic continuation. What the atlas lacks: everything on the Hodge side. There is no D-module theory, no Fourier transform of D-modules, no mixed Hodge modules, no exponential mixed Hodge structures and no irregular Hodge filtration; and there is nothing on Kloosterman sheaves or connections, their symmetric powers or the motives of their moments. What the atlas plans and this paper uses: mixed Hodge structures with their weight filtration (the Tau Ceti Hodge-structures roadmap), nearby and vanishing cycles in the ℓ-adic and topological settings, the perverse intermediate extension and Poincaré duality, Weil II, rigid cohomology with its Frobenius, de Rham/semistable/crystalline p-adic representations, and weakly compatible systems with their Weil–Deligne representations.",
+  "items": [
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/1",
+      "kind": "definition",
+      "name": "Dirichlet characters, the Legendre and Kronecker symbols, and the Gamma function",
+      "statement": "The Legendre symbol (p/3), Dirichlet characters, the Riemann zeta function and Euler's Gamma function, as they occur in the local factors and the gamma factor.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.1 and Corollary 5.30",
+      "status": "library",
+      "library": [
+        "mathlib:DirichletCharacter",
+        "mathlib:legendreSym",
+        "mathlib:riemannZeta",
+        "mathlib:Complex.Gamma"
+      ],
+      "planned": [],
+      "note": "Mathlib has Dirichlet characters, the Legendre and Jacobi symbols, the Riemann zeta function and the Gamma function. Nothing else in this paper is in the libraries: Mathlib has no D-modules, no Hodge structures beyond what Tau Ceti plans, and no étale cohomology."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/2",
+      "kind": "definition",
+      "name": "Mixed Hodge structures with their weight and Hodge filtrations",
+      "statement": "Pure and mixed Q-Hodge structures, the Hodge decomposition of the complexification, polarizations, the weight filtration, Tate twists Q(n), and the strictness of morphisms.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.3 and throughout; the target category of Theorem 3.2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+        "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l2--mixed-hodge-structures-strictness-deligne"
+      ],
+      "note": "The Tau Ceti roadmap on Hodge structures plans pure, mixed and polarized Hodge structures with Deligne's strictness. What this paper needs on top is Saito's theory of mixed Hodge modules and the exponential variant, which nothing plans."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/3",
+      "kind": "definition",
+      "name": "Nearby and vanishing cycles with their monodromy",
+      "statement": "The nearby-cycle and vanishing-cycle functors attached to a function, the monodromy operator and its logarithm N, and the monodromy weight filtration centred at a given integer.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §3 and the appendix, where ψ and φ are taken in the sense of mixed Hodge modules",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0",
+        "LefschetzPencilsAndVanishingCycles:LPV.6",
+        "WeightsInEtaleCohomology:R34.3"
+      ],
+      "note": "LefschetzPencilsAndVanishingCycles LPV.0 and LPV.6 plan nearby and vanishing cycles and their perverse form, and WeightsInEtaleCohomology R34.3 the étale version. The Hodge-module refinement, in which ψ and φ carry mixed Hodge structures, is part of the mixed-Hodge-module theory that nothing plans."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/4",
+      "kind": "definition",
+      "name": "The perverse intermediate extension and middle cohomology",
+      "statement": "For an open immersion j and a perverse sheaf or holonomic module F, the intermediate extension j_{!*}F as the image of j_! F → j_* F, and the middle cohomology of F on the open as the image of cohomology with compact support in ordinary cohomology.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.2 and Corollary 2.15, where the middle de Rham cohomology is identified with the cohomology of the intermediate extension on P¹",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "note": "EtaleDualityAndPerverseSheaves EDC.5 plans the perverse category and the intermediate extension, EDC.2 Poincaré duality. The paper needs the same notions for holonomic D-modules and for mixed Hodge modules, which is part of the missing D-module theory."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/5",
+      "kind": "theorem",
+      "name": "Weil II: weights of étale cohomology and purity of the middle extension",
+      "statement": "For a lisse sheaf pure of weight w on a variety over a finite field, the étale cohomology with compact support has weights ≤ w + i and the ordinary étale cohomology has weights ≥ w + i; consequently the middle-extension cohomology is pure.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.2, where the purity of weight k+1 of the middle étale cohomology of Sym^k Kl₂ is deduced",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.4",
+        "WeightsInEtaleCohomology:R34.5"
+      ],
+      "note": "DeligneWeightsAndPurity plans Weil I and the Weil II results it needs; WeightsInEtaleCohomology R34.5–34.6 plan Weil II and its purity applications. The paper uses the statement as a black box."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/6",
+      "kind": "definition",
+      "name": "Rigid cohomology with and without compact support, and its Frobenius structure",
+      "statement": "For a variety over a finite field with an overconvergent F-isocrystal as coefficients, rigid cohomology and rigid cohomology with compact support, with their Frobenius endomorphism, finiteness and Poincaré duality.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §5.5, where H¹_rig,mid(G_m/K, Sym^k Kl₂) is the object compared with the p-adic realization",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+      ],
+      "note": "PadicDifferentialEquationsAndRigidCohomology RD.3–RD.5 plan overconvergent isocrystals, rigid cohomology with compact support, finiteness and duality; RD.6 the trace formula and p-adic weights; RD.7 the crystalline comparison. The Kloosterman F-isocrystal itself is a separate missing item."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/7",
+      "kind": "definition",
+      "name": "de Rham, semistable and crystalline p-adic representations",
+      "statement": "Fontaine's period rings B_dR, B_st and B_crys, the associated functors, and the notions of de Rham, semistable and crystalline p-adic Galois representation with their Hodge–Tate weights.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 5.23, where V_{k,p} is shown to be de Rham and semistable or crystalline",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "note": "PadicHodgeTheory plans the period rings and the comparison theorems; R06.5 owns the geometric comparison theorems. The paper uses them for the representation attached to its motive."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/8",
+      "kind": "definition",
+      "name": "Weakly compatible systems and their Weil–Deligne representations",
+      "statement": "A weakly compatible system of ℓ-adic Galois representations of Gal(Q-bar/Q) with a finite ramification set, the Weil–Deligne representation WD_p attached to each member at a prime p, purity of a Weil–Deligne representation, regularity, and odd essential self-duality.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §5.7, in the hypotheses of Theorem 5.38",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PotentialAutomorphyInfrastructure:PA.5"
+      ],
+      "note": "PotentialAutomorphyInfrastructure PA.5 is titled compatible systems and reusable transport and plans exactly this interface. The Patrikis–Taylor theorem that consumes it is a separate missing item."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/9",
+      "kind": "definition",
+      "name": "Holonomic D-modules on a curve and their six operations",
+      "statement": "The ring of algebraic differential operators on a smooth affine variety, holonomic and regular holonomic modules over it, the derived pushforward and pullback for the immersions j_0: G_m → A¹ and j_∞, the functors j_! , j_* and the intermediate extension j_{!*}, duality, and the slope decomposition of a meromorphic connection at an irregular singular point.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Appendix A.1, the section «Notation and results from the theory of D-modules»",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper's appendix fixes the conventions and quotes the results it uses; nothing in the atlas plans D-modules at all. The slope theory at an irregular singularity is used in Proposition 2.4 (2) and Proposition 4.6 (3)."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/10",
+      "kind": "definition",
+      "name": "The Fourier transform of a D-module on the affine line and its localized form",
+      "statement": "The Fourier transformation FT on holonomic D-modules on A¹, exchanging t and ∂_t with τ and -∂_τ, and the localized Fourier transform ℱ = j_0^* FT j_{0*} on G_m, which preserves holonomicity and sends a regular holonomic module to a module smooth on G_m with a regular singularity at 0 and slopes in {0,1} at infinity. Fourier transformation commutes with duality up to the involution t ↦ -t.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §2.1, and Appendix A.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the engine of the recursive description of the Kloosterman connections and of the whole Hodge-theoretic argument, which reads Sym^k Kl-tilde as the restriction of a Fourier transform of a mixed Hodge module."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/11",
+      "kind": "definition",
+      "name": "Mixed Hodge modules on a curve, their weights and the functor Π",
+      "statement": "Saito's abelian category MHM(X) of mixed Hodge modules on a smooth variety, with the underlying filtered D-module and rational perverse sheaf, the weight filtration, pure Hodge modules, the six operations, the nearby- and vanishing-cycle functors ψ and φ with their monodromy weight filtrations, and the projector Π onto the subcategory used to define exponential mixed Hodge structures.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Appendix A.2, the section «Notation and results from the theory of mixed Hodge modules»",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Nothing in the atlas plans mixed Hodge modules. Everything in §3 and the appendix is stated in this language, and the paper's own appendix only fixes notation and quotes Saito."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/12",
+      "kind": "theorem",
+      "name": "Local structure of a mixed Hodge module at a point (Example A.2)",
+      "statement": "For U = A¹ and f the identity, a pure Hodge module M^H decomposes as M₁^H ⊕ M₂^H with M₁ having no section supported at 0 and M₂ supported at 0; then H⁰ i_* i^! M₁^H = 0, H¹ i_* i^! M₂^H = 0, H⁰ i_* i^! M₂^H ≅ i_* i^! M₂^H, and H¹ i_* i^! M₁^H is isomorphic to the cokernel of the variation map on vanishing cycles.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Example A.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The local computation that feeds the weight statements of Corollary A.31; the filtration conventions for left modules are fixed here."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/13",
+      "kind": "theorem",
+      "name": "Localization sequences for the constant Hodge module along a divisor (Example A.3)",
+      "statement": "For a reduced divisor D ⊂ U with structure morphism a_D, writing Q_D^H for the shifted constant Hodge module, there are an isomorphism i^* Q_U^H ≅ Q_D^H and an exact sequence 0 → i_* Q_D^H → Q_U^H[!D] → Q_U^H → 0; if D is smooth there is in addition i^! Q_U^H[1] ≅ Q_D^H(-1) and the dual exact sequence 0 → Q_U^H → Q_U^H[*D] → i_* Q_D^H(-1) → 0.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Example A.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "These two sequences are what produce the localization long exact sequences of Example A.20, and hence the description of the middle Hodge structure by the hypersurface 𝒦."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/14",
+      "kind": "definition",
+      "name": "Exponential mixed Hodge structures",
+      "statement": "The category EMHS of Kontsevich and Soibelman: the full subcategory of MHM(A¹) of objects N^H with Π(N^H) = N^H, that is those with no sub- or quotient object supported at a point and no constant part, with its tensor structure, its own weight filtration W^EMHS, and the properties relating it to the weight filtration of MHM(A¹).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Appendix A.3, with Remark A.6 for the weight filtration",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the category the paper's main construction takes place in. Its existence lets one speak of the cohomology of a pair (U,f) without needing the square root of the Tate motive that exponential motives would require."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/15",
+      "kind": "theorem",
+      "name": "The weight filtration of an exponential mixed Hodge structure (Remark A.6)",
+      "statement": "There is a functorial morphism W_n N^H → W_n^EMHS N^H when N^H = Π(N^H); if N^H is mixed of weights ≤ n, respectively ≥ n, in MHM(A¹), then Π(N^H) is mixed of weights ≤ n, respectively ≥ n, in EMHS; in particular Π of a pure Hodge module of weight n is a pure object of EMHS of weight n, even though it is only mixed of weights ≥ n in MHM(A¹).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Remark A.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The mismatch between the two weight filtrations is exactly what the whole appendix is for, and what makes Theorem 3.2 a real theorem rather than a formality."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/16",
+      "kind": "definition",
+      "name": "The irregular Hodge filtration",
+      "statement": "For a mixed Hodge module N^H on A¹_t, the filtration irrF^• on H¹_dR(A¹_t, N ⊗ E^t) defined as the image of H¹_dR(P¹, irrF^• j_{∞*}(N ⊗ E^t)), following Deligne's idea as developed by Sabbah and by Esnault, Sabbah and Yu.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Appendix A.4, with Proposition A.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The irregular Hodge filtration is the invariant that makes sense for an exponential mixed Hodge structure even when it is not a classical one; for those that are classical it agrees with the Hodge filtration, by Proposition A.13."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/17",
+      "kind": "theorem",
+      "name": "The bifiltered de Rham fibre factors through Π and is strict (Proposition A.10)",
+      "statement": "The natural morphism H¹_dR(P¹, irrF^• j_{∞*}(N ⊗ E^t)) → H¹_dR(A¹_t, N ⊗ E^t) is injective; defining irrF^• on the target as its image, the functor N^H ↦ (H¹_dR(A¹_t, N ⊗ E^t), irrF^•, W_•) from MHM(A¹_t) to bifiltered vector spaces factors through Π, and every morphism of MHM(A¹_t), or of EMHS, induces a strictly bifiltered morphism.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition A.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Strictness is what lets the Hodge numbers be read off the graded pieces, and factoring through Π is what makes the de Rham fibre an invariant of the exponential mixed Hodge structure."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/18",
+      "kind": "theorem",
+      "name": "Mixed Hodge structures form a full tensor subcategory of EMHS (Lemma A.12)",
+      "statement": "The functor Π ∘ i_{0!} from mixed Hodge structures to EMHS is compatible with tensor products and makes MHS a full tensor subcategory of EMHS; moreover W_• Π_θ(i_{0!}V^H) = Π_θ(i_{0!}W_• V^H), so the two weight filtrations agree on classical objects.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Lemma A.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Fullness is what makes the natural maps between the three cohomologies of a pair (U,f) morphisms of mixed Hodge structures once they are known to be classical."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/19",
+      "kind": "theorem",
+      "name": "When an exponential mixed Hodge structure is classical, the two filtrations agree (Proposition A.13)",
+      "statement": "If N^H in MHM(A¹_t) has Π(N^H) in MHS, then the bifiltered vector space (H¹_dR(A¹_t, N ⊗ E^t), irrF^•, W_•) is naturally isomorphic to the one attached to the mixed Hodge structure φ_{t,1}N^H.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition A.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the bridge the paper needs: it can compute the irregular Hodge filtration geometrically, and then read the answer as the ordinary Hodge filtration."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/20",
+      "kind": "definition",
+      "name": "The exponential mixed Hodge structures of a pair (U,f)",
+      "statement": "For a smooth quasi-projective U with a regular function f and an integer r, the objects H^r(U,f) = Π_t((Q_U^H)^r_*), H^r_c(U,f) = Π_t((Q_U^H)^r_!) and H^r_mid(U,f) = Π_t((Q_U^H)^r_mid) of EMHS, with de Rham fibres the twisted de Rham cohomologies H^r_dR(U, E^f), H^r_{dR,c}(U, E^f) and H^r_{dR,mid}(U, E^f), each bifiltered by irrF^• and W_•.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Definition A.18, after Kontsevich–Soibelman §5; Example A.15 for f = 0",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "These are the objects the whole paper computes with. For f = 0 they are the usual mixed Hodge structures on the cohomology of U."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/21",
+      "kind": "theorem",
+      "name": "Weights of the cohomology of a pair (U,f) (Proposition A.19)",
+      "statement": "For U of dimension d, H^d_c(U,f) is mixed of weights ≤ d, H^d(U,f) is mixed of weights ≥ d, and H^d_mid(U,f) is pure of weight d; moreover the map gr^W_d H^d_c(U,f) → gr^W_d H^d(U,f) is an isomorphism if and only if H^d_mid(U,f) = W_d H^d(U,f).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition A.19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The equivalence in the second half is the criterion used to prove the purity statement of Theorem 3.2, and it is what reduces that theorem to a dimension count."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/22",
+      "kind": "theorem",
+      "name": "Localization long exact sequences for a pair (U,f) (Example A.20)",
+      "statement": "For a divisor D on which f vanishes there is a long exact sequence ··· → H^{r-1}_c(D) → H^r_c(U\\D, f) → H^r_c(U,f) → H^r_c(D) → ···, and, if D is smooth, a dual one ··· → H^{r-2}(D)(-1) → H^r(U,f) → H^r(U\\D,f) → H^{r-1}(D)(-1) → ···.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Example A.20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "These are the sequences that identify the cohomology of a pair with the cohomology of the zero locus of f, and hence give the motive of Theorem 3.8 its geometric description."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/23",
+      "kind": "theorem",
+      "name": "The basic computation H^k(G_m^k, x₁+···+x_k) (Example A.22)",
+      "statement": "For each k ≥ 1 there are isomorphisms H^k(G_m^k, x₁+···+x_k) ≅ Q(-k) and H^k_c(G_m^k, x₁+···+x_k) ≅ Q(0), obtained from the vanishing of H^r(A¹_x, x) and H^r_c(A¹_x, x) and the localization sequences.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Example A.22",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The seed of every weight computation in the paper, and the source of the Tate summand Q(-k-1) that appears in the top weight of H¹(G_m, Sym^k Kl₂)."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/24",
+      "kind": "theorem",
+      "name": "Exponential mixed Hodge structures of the form (A¹ × V, tg) are classical (Theorem A.24)",
+      "statement": "If U = A¹_t × V with V smooth quasi-projective and f = tg for a regular function g on V, and M_V^H is a mixed Hodge module on V, then for N_U^H = Q^H_{A¹} ⊠ M_V^H the exponential mixed Hodge structures H^r(U, N^H, f) and H^r_c(U, N^H, f) belong to MHS for every r, and their bifiltered de Rham fibres underlie the corresponding mixed Hodge structures; the same holds for the localized and dual-localized variants.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem A.24, compare Yu, Theorem 3.3 and Fresán–Jossen, Lemma 6.5.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the criterion that makes Theorem 3.2 possible: after the double cover the function becomes t·g, and the theorem applies verbatim."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/25",
+      "kind": "theorem",
+      "name": "The cohomology of (A¹ × V, tg) is the cohomology of the zero locus (Example A.27)",
+      "statement": "Applying Theorem A.24 to the constant Hodge module with 𝒦 = g^{-1}(0), the mixed Hodge structure H^r_c(A¹_t × V, tg) is isomorphic to H^r_c(A¹_t × 𝒦), and by the Künneth formula to H^{r-2}_c(𝒦)(-1).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Example A.27",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The step that turns a twisted de Rham cohomology into the cohomology of an honest algebraic variety, and hence gives the motive 𝑴_k."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/26",
+      "kind": "theorem",
+      "name": "Fourier transform of a mixed Hodge module and the cohomology of a pair (Lemma A.28, Notation A.29)",
+      "statement": "The de Rham fibres of H^{j+1}(A¹_t × A¹_τ, N^H, tτ) and of its compactly supported analogue are H^j_dR(A¹_t, FT M) for j = 0,1 and H^j_{dR,c}(A¹_t, FT M) for j = 1,2, and zero otherwise; one writes H^j(A¹_t, FT M^H) and H^j_c(A¹_t, FT M^H) for the corresponding mixed Hodge structures, with their bifiltered de Rham fibres.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Lemma A.28 and Notation A.29",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is what gives the Fourier transform of a mixed Hodge module a Hodge-theoretic meaning, which is how §3 transports the weight information from M-tilde to the cohomology of Sym^k Kl-tilde."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/27",
+      "kind": "theorem",
+      "name": "The Fourier transform and the stalk at the origin (Theorem A.30)",
+      "statement": "For every mixed Hodge module M^H on the affine line, the mixed Hodge structures H^j(A¹_t, FT M^H) and H^j(i_0^! M^H) are isomorphic, where i_0 is the inclusion of the origin.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem A.30",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The general form of the comparison; the next corollary is the case actually used."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/28",
+      "kind": "theorem",
+      "name": "Weights of the Fourier transform of a pure Hodge module (Corollary A.31)",
+      "statement": "Let M^H be a pure object of MHM(A¹_τ) of weight w whose underlying D-module has no non-zero section supported at the origin. Then H^{j+1}_dR(A¹_t, FT_τ M) = 0 for j ≠ 0, and H¹(A¹_t, FT_τ M^H) is isomorphic to the cokernel of N on ψ_{τ,1}M^H(-1); if moreover 0 is not a singular point of M, it is pure of weight w+1 and its irregular Hodge numbers are the ranks of the graded pieces.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary A.31",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The computational heart of the appendix: it converts weights of the Fourier transform into the monodromy filtration on nearby cycles, which is what §3 computes for M-tilde."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/29",
+      "kind": "definition",
+      "name": "Kloosterman sums, their symmetric powers and moments",
+      "statement": "For a prime p, a non-trivial additive character ψ of F_p and a ∈ F_q^×, the Kloosterman sum Kl₂(a;q) = Σ_{x ∈ F_q^×} ψ(tr(x + a/x)); by Weil, Kl₂(a;q) = -(α_a + β_a) with α_aβ_a = q and |α_a| = |β_a| = √q. The k-th symmetric power is Kl₂^{Sym^k}(a;q) = Σ_{i≤0}^k α_a^i β_a^{k-i}, the moment is m₂^k(q) = Σ_{a ∈ F_q^×} Kl₂^{Sym^k}(a;q), and Z_k(p;T) = exp(Σ_n m₂^k(p^n)T^n/n) is a polynomial with integer coefficients.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The moments are rational integers independent of ψ, although the individual symmetric powers are not. The convention makes Kl₂^{Sym¹} the negative of Kl₂."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/30",
+      "kind": "definition",
+      "name": "The L-function of symmetric power moments and its completion",
+      "statement": "M_k(p;T) is the polynomial obtained from Z_k(p;T) by removing its trivial factors, all of whose roots have absolute value p^{-(k+1)/2}. For odd k = 2m+1 and S the set of odd primes ≤ k, L_k(s) = ∏_{p ∉ S} M_k(p;p^{-s})^{-1}, convergent for Re(s) > (k+3)/2, and Λ_k(s) = (cond_k/π^m)^{s/2} ∏_{j=1}^m Γ((s-j)/2) ∏_p L_k(p;s) with cond_k the product of the square-free parts of 1,3,5,…,k. For even k, S is the set of primes ≤ k/2, cond'_k is the product of the odd radicals of 2,4,…,k, and Λ'_k(s) is the analogous completion away from 2.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The bad local factors at p ∈ S are given explicitly in §5; at p = 2 for even k they are left as an unknown reciprocal polynomial L_k(2;T) with an exponent r_k."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/31",
+      "kind": "theorem",
+      "name": "Meromorphic continuation and functional equation, odd case (Theorem 1.2)",
+      "statement": "For odd k, L_k(s) admits a meromorphic continuation to C and Λ_k(s) = Λ_k(k+2-s).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 1.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The first main theorem, and the odd half of the Broadhurst–Roberts conjecture; previously known only for k ≤ 8."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/32",
+      "kind": "theorem",
+      "name": "Meromorphic continuation and functional equation, even case (Theorem 1.3)",
+      "statement": "For even k, L_k(s) extends meromorphically to C, and there are a sign ε_k ∈ {±1}, an integer r_k ≥ 0 and a reciprocal of a polynomial with rational coefficients L_k(2;T) such that Λ_k(s) = 2^{r_k s/2}L_k(2;2^{-s})Λ'_k(s) satisfies Λ_k(s) = ε_k Λ_k(k+2-s).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 1.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The even half. The local invariants at p = 2 are not made explicit; Broadhurst and Roberts conjecture r_k = ⌊k/6⌋ and ε_k = (-1)^{t_k} for an explicit t_k, and §5 explains how the terms of t_k other than ⌊k/8⌋ match the computations at odd primes of S and at infinity."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/33",
+      "kind": "definition",
+      "name": "The Kloosterman sheaf and the cohomological interpretation of the moments",
+      "statement": "For ℓ ≠ p, the Artin–Schreier sheaf AS_ψ on A¹_{F_p} and the Kloosterman sheaf Kl₂ = Rπ_! f^* AS_ψ[1] on G_m, where π and f = x + z/x are the two maps out of G_m². It is lisse of rank two, tame at 0, wild at infinity, pure of weight one, and the forget-supports map is an isomorphism. Then Z_k(p;T) = det(1 - F_p T | H¹_{ét,c}(G_m, Sym^k Kl₂)) and M_k(p;T) is the same determinant on the middle cohomology, which by Weil II is pure of weight k+1.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.2, after Deligne",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The degree of Z_k(p;T) is the Swan conductor of Sym^k Kl₂ at infinity, computed by Fu and Wan for odd p and by Yun for p = 2; the set S is exactly the set of primes at which the degree drops."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/34",
+      "kind": "definition",
+      "name": "The Kloosterman connection and its symmetric powers",
+      "statement": "Over a field of characteristic zero, with π: G_m^{n+1} → G_m the first projection and f(z,x) = x₁ + ··· + x_n + z/(x₁···x_n), the Kloosterman connection is Kl_{n+1} = π_* E^f, a complex of D_{G_m}-modules. The cyclic cover [n+1]: t ↦ z = t^{n+1} gives Kl-tilde_{n+1} = [n+1]^* Kl_{n+1} = π-tilde_* E^{t g(y)} with g(y) = y₁ + ··· + y_n + 1/(y₁···y_n), and Kl_{n+1} is recovered as the μ_{n+1}-invariants of [n+1]_+ Kl-tilde_{n+1}.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §2.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The change of variables x = ty is what turns f-tilde into the product t·g, which is the shape Theorem A.24 needs; this is the technical reason the whole argument passes to the cover."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/35",
+      "kind": "theorem",
+      "name": "Structure of the Kloosterman connection (Proposition 2.4)",
+      "statement": "Kl_{n+1} is concentrated in degree zero and is the irreducible free O_{G_m}-module of rank n+1 with connection attached to the hypergeometric operator (z∂_z)^{n+1} - z; it has a regular singularity at z = 0 with unipotent monodromy and a single Jordan block, and an irregular singularity of pure slope 1/(n+1) at z = ∞; its dual is ι_{n+1}^* Kl_{n+1} for the involution z ↦ (-1)^{n+1}z; and Kl-tilde_{n+1} is the restriction to G_m of the Fourier transform of a regular holonomic D_{A¹}-module.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 2.4, with Lemma 2.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proved by the recursion Kl_{n+2} ≅ ℱ inv^* Kl_{n+1} of Lemma 2.5, transposing Deligne's ℓ-adic arguments; clause (4) is what gives the symmetric powers their self-duality and clause (5) is what puts the whole computation inside the theory of mixed Hodge modules."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/36",
+      "kind": "theorem",
+      "name": "Irreducibility of the symmetric powers (Proposition 2.7)",
+      "statement": "The connections Sym^k Kl_{n+1} and Sym^k Kl-tilde_{n+1} are irreducible.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 2.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Irreducibility is what makes the intermediate extension at the origin equal to the minimal extension and is used repeatedly in §4."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/37",
+      "kind": "theorem",
+      "name": "Thom–Sebastiani for tensor powers (Proposition 2.10, Corollary 2.11)",
+      "statement": "With f_k(z, x_{ji}) = Σ_j (Σ_i x_{ji} + z/∏_i x_{ji}) on G_m^{kn+1}, there are isomorphisms Kl_{n+1}^{⊗k} ≅ π_{k*}E^{f_k} and Kl-tilde_{n+1}^{⊗k} ≅ π-tilde_{k+}E^{f-tilde_k}, both concentrated in degree zero, and hence isomorphisms H¹_dR(G_m, Kl_{n+1}^{⊗k}) ≅ H^{kn+1}_dR(G_m^{kn+1}, E^{f_k}) and likewise for the tilde version.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 2.10 and Corollary 2.11",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the refined Künneth formula that turns the cohomology of a tensor power of connections into the twisted de Rham cohomology of a torus, which is what has an exponential-Hodge-theoretic meaning."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/38",
+      "kind": "theorem",
+      "name": "De Rham cohomology of the symmetric powers (Proposition 2.13)",
+      "statement": "The de Rham cohomology of Sym^k Kl_{n+1} and of Sym^k Kl-tilde_{n+1} is concentrated in degree one, and H¹_dR(G_m, Sym^k Kl_{n+1}) is the (𝔖_k, χ_n)-isotypic part of H^{kn+1}_dR(G_m^{kn+1}, E^{f_k}), equivalently the (𝔖_k × μ_{n+1}, χ_n)-isotypic part of H^{kn+1}_dR(G_m^{kn+1}, E^{f-tilde_k}); the tilde version is the (𝔖_k, χ_n)-isotypic part of the latter.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 2.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Symmetric powers are read as isotypic parts of tensor powers, which is what makes the group actions on the hypersurface 𝒦 appear in Theorem 3.8."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/39",
+      "kind": "theorem",
+      "name": "Compactly supported and middle de Rham cohomology (Corollary 2.15)",
+      "statement": "H^r_{dR,c}(G_m, Sym^k Kl_{n+1}) and H^r_{dR,mid}(G_m, Sym^k Kl_{n+1}) vanish for r ≠ 1; the compactly supported group in degree one is the corresponding isotypic part of H^{kn+1}_{dR,c}(G_m^{kn+1}, E^{f_k}); the middle group equals H¹_dR(P¹, j_{!*}Sym^k Kl_{n+1}); and Poincaré duality induces a perfect (-1)^{kn+1}-symmetric pairing on it. The same holds for the tilde version.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 2.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The identification of the middle cohomology with the cohomology of the intermediate extension is what makes the terminology consistent with the ℓ-adic side, and the pairing is what gives the motive its essential self-duality."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/40",
+      "kind": "construction",
+      "name": "The D-modules M and M-tilde and their Hodge module structure (Proposition 2.21, Lemma 2.24)",
+      "statement": "Writing Kl-tilde_{n+1} as the restriction of a Fourier transform, one obtains D_{A¹}-modules M-tilde and Π(M-tilde) fitting in an exact sequence 0 → M-tilde → Π(M-tilde) → M-tilde' → 0 which underlies an exact sequence of mixed Hodge modules; M-tilde^H is the pure Hodge module W_{kn}Π(M-tilde^H) of weight kn and M-tilde'^H has weights ≥ kn+1, pure of weight 2k+1 when n = 1. Moreover M-tilde is irreducible and is the image of the canonical map from the ! to the * extension.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 2.21 and Lemma 2.24",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the object whose nearby cycles carry all the weight information; its purity is what Corollary A.31 is applied to."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/41",
+      "kind": "theorem",
+      "name": "The cohomologies of Sym^k Kl are classical mixed Hodge structures (Theorem 3.2)",
+      "statement": "The exponential mixed Hodge structures H¹(G_m, Sym^k Kl_{n+1}), H¹_c(G_m, Sym^k Kl_{n+1}) and H¹_mid(G_m, Sym^k Kl_{n+1}) are usual mixed Hodge structures, of weights ≥ kn+1, ≤ kn+1 and kn+1 respectively, the natural maps between them are morphisms of mixed Hodge structures, the induced map on gr^W_{kn+1} from the compactly supported to the ordinary one is an isomorphism, the middle one is its image, and it carries a (-1)^{kn+1}-symmetric pairing with values in Q(-kn-1). The same holds for Sym^k Kl-tilde_{n+1}.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 3.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The first of the paper's structural theorems. Its proof applies Theorem A.24 after the change of variables that makes the function of the form t·g, and then reduces purity to a dimension count comparing the Jordan blocks of the monodromy on nearby and vanishing cycles of M-tilde."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/42",
+      "kind": "theorem",
+      "name": "Geometric description of the middle Hodge structure (Theorem 3.8)",
+      "statement": "Assume kn ≥ 2 and let 𝒦 ⊂ G_m^{kn} be the zero locus of the Laurent polynomial g^{⊞ k}(y) = Σ_{j=1}^k (Σ_{i=1}^n y_{ji} + ∏_{i=1}^n 1/y_{ji}), with the action of 𝔖_k × μ_{n+1} permuting the blocks and scaling by roots of unity. Then there is a canonical isomorphism of pure Hodge structures H¹_mid(G_m, Sym^k Kl_{n+1}) ≅ gr^W_{kn+1}[H^{kn-1}_c(𝒦)(-1)]^{𝔖_k × μ_{n+1}, χ_n} ≅ gr^W_{kn+1}H^{kn+1}_{𝒦}(G_m^{kn})^{𝔖_k × μ_{n+1}, χ_n}, and if 𝒦 is smooth also to the same expression with ordinary cohomology.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 3.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is what gives the Hodge structure a motivic origin and lets the paper define the middle motive 𝑴_k as the corresponding piece of the Nori motive of 𝒦. Remark 3.10 says 𝒦 has at worst isolated singularities, at the points whose coordinates are (n+1)-st roots of unity summing to zero; for n = 1 it is singular exactly when k is even."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/43",
+      "kind": "definition",
+      "name": "The middle motive 𝑴_k",
+      "statement": "𝑴_k = gr^W_{kn+1}[𝑵^{kn-1}_c(𝒦)(-1)]^{𝔖_k × μ_{n+1}, χ_n}, the corresponding isotypic graded piece of the Nori motive of 𝒦 over Q, using the weight filtration on Nori motives.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), equation (3.4) in §3, after Theorem 3.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The object whose ℓ-adic realizations are the Galois representations r_{k,ℓ} of the introduction and whose Hodge realization is the middle Hodge structure."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/44",
+      "kind": "theorem",
+      "name": "The étale realization over a finite field (Theorem 3.12)",
+      "statement": "Assume kn ≥ 2. There is a canonical isomorphism of Gal(F-bar_p/F_p)-modules between H¹_{ét,mid}(G_{m,F-bar_p}, Sym^k Kl_{n+1}) and gr^W_{kn+1}[H^{kn-1}_{ét,c}(𝒦_{F-bar_p}, Q_ℓ(ζ))(-1)]^{𝔖_k × μ_{n+1}, χ_n}, and with the corresponding local-cohomology expression, and, when 𝒦 is smooth, with ordinary étale cohomology.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 3.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The ℓ-adic counterpart of Theorem 3.8, proved more easily because the formalism of weights is available regardless of ramification; it is what identifies the Frobenius traces of the motive with the moments."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/45",
+      "kind": "theorem",
+      "name": "Structure of the symmetric powers of Kl₂ (Proposition 4.6)",
+      "statement": "Sym^k Kl₂ and Sym^k Kl-tilde₂ are free of rank k+1, with unipotent monodromy at the origin having a single Jordan block of size k+1; both carry a (-1)^k-symmetric non-degenerate pairing; the formal structure of Sym^k Kl₂ at infinity is the displayed direct sum of ramified exponentials, with irregularity ⌊(k+1)/2⌋ for odd k and k/2 for even k.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 4.6, with Lemma 4.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The formal decomposition at infinity is what determines the dimension of the middle cohomology and the behaviour of the intermediate extension there."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/46",
+      "kind": "theorem",
+      "name": "Intermediate extensions of the symmetric powers (Corollary 4.9)",
+      "statement": "With j₀ and j_∞ the inclusions of G_m into the two affine charts, the map j_{∞!}Sym^k Kl₂ → j_{∞*}Sym^k Kl₂ is an isomorphism if k ≢ 0 mod 4, and for Sym^k Kl-tilde₂ if k is odd; and any proper submodule N of j_{0*}Sym^k Kl₂ with j₀^*N = Sym^k Kl₂ equals j_{0!}Sym^k Kl₂.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 4.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The first clause is the source of the exceptional behaviour when 4 | k, which is where the extra Hodge class of type (k/2+1, k/2+1) in Theorem 1.8 comes from."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/47",
+      "kind": "theorem",
+      "name": "The inverse Fourier transform of the symmetric powers (Corollary 4.10)",
+      "statement": "For M-tilde the inverse Fourier transform of j_{0!}Sym^k Kl-tilde_{n+1}: Π(M-tilde) is regular holonomic, generically of rank k+1, with singularities exactly at τ = 2(2j-k) for j = 0,…,k, vanishing cycle space of rank one at each with local monodromy (-1)^k, and unipotent monodromy at infinity with a single Jordan block of size k+1; M-tilde itself is generically of rank k with a single Jordan block of size k at infinity.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 4.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The explicit local data that Corollary A.31 converts into Hodge numbers."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/48",
+      "kind": "theorem",
+      "name": "The dimension of the middle cohomology (Proposition 4.12)",
+      "statement": "dim H¹_{dR,mid}(G_m, Sym^k Kl₂) = ⌊(k-1)/2⌋ - δ_{4Z}(k), which is (k-1)/2 for odd k and 2⌊(k-1)/4⌋ for even k; and dim H¹_{dR,mid}(G_m, Sym^k Kl-tilde₂) is k for odd k and k-2 for even k.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 4.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the integer m of the introduction, the degree of M_k(p;T) for p outside S and the dimension of the Galois representations r_{k,ℓ}."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/49",
+      "kind": "theorem",
+      "name": "Bases of the de Rham cohomology (Proposition 4.14, Lemmas 4.15 and 4.17)",
+      "statement": "H¹_dR(G_m, Sym^k Kl₂) has a basis of classes z^j e₀^k dz/z for 0 ≤ j < ⌊(k+1)/2⌋, and H¹_dR(G_m, Sym^k Kl-tilde₂) a basis of classes t^j e-tilde₀^k dt/t for 0 ≤ j < 2⌊(k+1)/2⌋. The proof uses that the inclusion of the subcomplex (G^*, z∂_z) into (G, z∂_z) is a quasi-isomorphism and the explicit computation of the cohomology of the associated graded complex.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 4.14, Lemma 4.15 and Lemma 4.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "These are the bases in which the Hodge filtration is written down in Proposition 4.21, which is the computational heart of the Hodge-number theorem."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/50",
+      "kind": "theorem",
+      "name": "Hodge numbers for the double cover (Proposition 4.20)",
+      "statement": "H¹(G_m, Sym^k Kl-tilde₂) has weights ≥ k+1; for odd k it is mixed of weights k+1 and 2k+2 with one-dimensional (p,q)-parts for p+q = k+1 and p ∈ {1,…,k} and at (k+1,k+1); for even k it is mixed of weights k+1, k+2 and 2k+2, with the analogous parts omitting p = k/2, k/2+1 and with extra classes at (k/2+1, k/2+1) and (k+1, k+1). Moreover H¹_mid(G_m, Sym^k Kl-tilde₂) is pure of weight k+1 and equals W_{k+1} of the full group.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 4.20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The computation on the cover, from which the statement downstairs follows by taking μ₂-invariants."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/51",
+      "kind": "theorem",
+      "name": "The Hodge filtration in the explicit bases (Proposition 4.21)",
+      "statement": "In the bases of Proposition 4.14, F^p H¹_dR(G_m, Sym^k Kl-tilde₂) is spanned by the t^j e-tilde₀^k dt/t with 0 ≤ j ≤ k+1-p, and F^p H¹_dR(G_m, Sym^k Kl₂) by the z^j e₀^k dz/z with 0 ≤ j ≤ ⌊(k+1-p)/2⌋, for odd k, or for even k and p > k/2.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 4.21",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The explicit answer; combined with the geometric interpretation of the irregular Hodge filtration on a toric compactification adapted to f_k, after Adolphson–Sperber and Esnault–Sabbah–Yu, it completes the proof of Theorem 1.8."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/52",
+      "kind": "theorem",
+      "name": "Hodge numbers of the cohomology of the symmetric powers (Theorem 1.8)",
+      "statement": "H¹(G_m, Sym^k Kl₂) has weights ≥ k+1. For odd k it is mixed of weights k+1 and 2k+2, with one-dimensional (p,q)-parts exactly for p+q = k+1 with p ∈ {2,4,…,k-1}, and at p = q = k+1. For even k it is mixed of weights k+1 and 2k+2 if k ≡ 2 mod 4, and of weights k+1, k+2 and 2k+2 if 4 | k, with one-dimensional parts exactly for p+q = k+1 with min{p,q} ∈ {2,4,…,2⌊(k-1)/4⌋}, at p = q = k/2+1 when 4 | k, and at p = q = k+1. Moreover H¹_mid(G_m, Sym^k Kl₂) is pure of weight k+1 and equals W_{k+1}H¹(G_m, Sym^k Kl₂).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 1.8, proved in §4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper's central theorem. That every Hodge number is 0 or 1 is exactly the regularity of the Galois representations r_{k,ℓ}, which is what makes the Patrikis–Taylor theorem applicable."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/53",
+      "kind": "theorem",
+      "name": "Structure of the ℓ-adic realization for odd k (Theorem 5.8)",
+      "statement": "For odd k = 2m+1 and distinct primes p, ℓ, the ℓ-adic realization V_{k,ℓ} of 𝑴_k is an m-dimensional representation of Gal(Q-bar/Q); it is unramified at 2 with V_{k,ℓ}[ζ] isomorphic to the middle étale cohomology over F-bar₂; and at an odd prime p it is at most tamely ramified, with the restriction to the decomposition group decomposing as an orthogonal sum whose ramified part is described explicitly in terms of a quadric.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 5.8, with Remarks 5.12 and 5.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the computation of the bad local factors at odd p ∈ S for odd k, and the source of the conductor cond_k in the functional equation."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/54",
+      "kind": "theorem",
+      "name": "Structure of the ℓ-adic realization for even k (Theorem 5.17)",
+      "statement": "For even k, written 2m+2 or 2m+4 with m even, and odd p ≠ ℓ, the inertia group I_p acts unipotently on the m-dimensional representation V_{k,ℓ} with (σ-1)² = 0, and there is an isotropic subspace U of dimension ⌊k/2p⌋, the image of the logarithm of the monodromy, generated by vanishing cycles, with V_{k,ℓ}^{I_p} = U^⊥.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 5.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The even analogue; it is what gives the local factors at odd primes of S and the conductor cond'_k. The prime 2 is left open, which is why Theorem 1.3 carries the unknown invariants r_k and ε_k."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/55",
+      "kind": "theorem",
+      "name": "The p-adic realization is de Rham, and semistable or crystalline (Proposition 5.23)",
+      "statement": "For every k and every prime p, the p-adic representation V_{k,p} of Gal(Q-bar_p/Q_p) is de Rham; for odd p it is semistable over Q_p(√-p) and there is an inclusion of Frobenius modules from H¹_{rig,mid}(G_m/K, Sym^k Kl₂) into the semistable module; and if p > k for odd k, respectively p > k/2 for even k, then V_{k,p} is crystalline and the two are isomorphic.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Proposition 5.23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The bridge between the rigid cohomology of the Kloosterman F-isocrystal and the p-adic realization of the motive, which is what turns the Hodge numbers into a bound on Frobenius slopes."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/56",
+      "kind": "theorem",
+      "name": "Newton above Hodge for the moments (Corollary 5.27, Remark 5.28)",
+      "statement": "For every k ≥ 1 and every odd prime p, the Newton polygon of the Frobenius module H¹_{rig,c}(G_m/K, Sym^k Kl₂) lies above the Hodge polygon of H¹_{dR,c}(G_m, Sym^k Kl₂), with coinciding endpoints when p > k for odd k or 2p > k for even k; consequently, writing Z_k(p;T) = Σ c_n T^n, one has v_p(c_n) ≥ n(n-1) for all p ≥ 3.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 5.27 and Remark 5.28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This sharpens a theorem of Haessig, who had the weaker bound (1 - 1/(p-1))n(n-1) for p ≥ 5 by Dwork-style p-adic analysis; the paper notes that Haessig proved the sharp bound for all p ≥ 2 while this paper was being refereed."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/57",
+      "kind": "theorem",
+      "name": "The gamma factor (Corollary 5.30)",
+      "statement": "The gamma factor of 𝑴_k is L_k(∞,s) = π^{-ms/2}∏_{j=1}^m Γ((s-j)/2) with m = ⌊(k-1)/2⌋ - δ_{4Z}(k).",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 5.30",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Computed from the Hodge numbers of Theorem 1.8 together with the action of complex conjugation on the Betti realization; this is the archimedean half of the completed L-function."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/58",
+      "kind": "theorem",
+      "name": "Potential automorphy for regular, pure, odd essentially self-dual systems (Theorem 5.38)",
+      "statement": "Patrikis–Taylor: a weakly compatible system {r_ℓ} that is pure of some weight w, regular, that is with m distinct Hodge–Tate weights, and odd essentially self-dual, becomes automorphic over a finite totally real Galois extension.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Theorem 5.38, quoted from Patrikis–Taylor, Theorem A",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The external input that converts the Hodge-number computation into the analytic continuation. Nothing in the atlas plans it: ModularityAndLanglandsExtensions ML.2 is the potential-automorphy assembly of the ten-author CM programme, a different theorem."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/59",
+      "kind": "theorem",
+      "name": "Meromorphic continuation and functional equation from potential automorphy (Corollary 5.39, Lemma 5.40, Remark 5.41)",
+      "statement": "For a weakly compatible system that is pure, regular and odd essentially self-dual, the Weil–Deligne representation at each p is pure of weight w and the completed L-function satisfies Λ(𝓛,s) = ε(𝓛,s)Λ(𝓛^∨, 1-s). Moreover a representation with a filtration whose graded Weil–Deligne representation is pure is itself pure with the same L- and ε-factors, and potential automorphy upgrades weak to strict compatibility, which transfers the local information at ℓ ≠ p to the p-adic member.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), Corollary 5.39, Lemma 5.40 and Remark 5.41",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corollary 5.39 is what Theorems 1.2 and 1.3 are deduced from; Lemma 5.40 is what lets the semisimplification be used instead of the representation itself, as Remarks 5.15 and 5.35 observe."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/60",
+      "kind": "theorem",
+      "name": "The Swan conductor of Sym^k Kl₂ at infinity and the degree of Z_k(p;T)",
+      "statement": "deg Z_k(p;T) equals the Swan conductor of Sym^k Kl₂ at infinity, which for odd p is (k+1)/2 - ⌊k/2p + 1/2⌋ for odd k and k/2 - ⌊k/2p⌋ for even k, by Fu and Wan, and for p = 2 is (k+1)/2 for odd k and ⌊(k+2)/4⌋ for even k, by Yun; for p large compared with k it is ⌊(k+1)/2⌋.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.2, quoting Fu–Wan and Yun through the Grothendieck–Ogg–Shafarevich formula",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The set S of bad primes is exactly the set where this degree drops below its generic value, so this computation is what defines the shape of the Euler product."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/61",
+      "kind": "definition",
+      "name": "The Kloosterman F-isocrystal and its rigid cohomology",
+      "statement": "The overconvergent F-isocrystal on G_m over a finite field whose Frobenius traces are the Kloosterman sums, its symmetric powers, and the rigid cohomology H¹_rig, H¹_{rig,c} and H¹_{rig,mid} of Sym^k Kl₂ with their Frobenius structure and Newton polygons.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §5.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is the p-adic avatar of the same object, needed because the ℓ-adic theory says nothing at ℓ = p; the comparison with the p-adic realization of the motive is Proposition 5.23."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/62",
+      "kind": "construction",
+      "name": "Local L-factors and ε-factors of the motive at the bad primes and at infinity",
+      "statement": "The local factors L_k(p;T) at the primes p ∈ S, defined from the Weil–Deligne representation attached to V_{k,ℓ} by the formulae (5.x) of §5.6; the local ε-factors ε_k(p,s) and ε_k(∞,s), their product ε_k(s) = AB^{-s}, and the relation A² = B^{k+2} forced by applying the functional equation twice.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §§5.6–5.7, including Remarks 5.35 and 5.37",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is where the explicit conductors cond_k and cond'_k of the introduction come from, and where the unknown invariants r_k and ε_k at p = 2 for even k are isolated."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/63",
+      "kind": "theorem",
+      "name": "The Broadhurst–Roberts predictions for the remaining invariants",
+      "statement": "Broadhurst and Roberts conjecture that for even k the invariants of Theorem 1.3 are r_k = ⌊k/6⌋ and ε_k = (-1)^{t_k} with t_k = ⌊k/8⌋ + Σ_{p ≡ 1 (4)} ⌊k/2p⌋ + Σ_{p ≡ 3 (4)} ⌊k/4p⌋ + δ_{8Z}(k); the paper shows that all terms of t_k other than ⌊k/8⌋ + δ_{8Z}(k) are accounted for by its computations at the odd primes of S and at infinity.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.1 and §5.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Recorded as the remaining open part of the Broadhurst–Roberts conjecture, not as a theorem of the paper. The obstruction is the local computation at p = 2 for even k."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/64",
+      "kind": "construction",
+      "name": "The toric interpretation of the irregular Hodge filtration",
+      "statement": "On a toric compactification of G_m^{kn} adapted to the Newton polyhedron of the function f_k, the work of Adolphson and Sperber together with the results of Esnault–Sabbah–Yu and Yu gives a geometric description of the irregular Hodge filtration on the twisted de Rham cohomology, in terms of the Newton filtration attached to that polyhedron.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.3 and §4.3, following Adolphson–Sperber and Esnault–Sabbah–Yu",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "This is what makes the filtration computable, and is used together with the Hodge numbers of the cover to complete the proof of Theorem 1.8."
+    },
+    {
+      "id": "PAPER-FRESAN-SABBAH-YU-22/65",
+      "kind": "theorem",
+      "name": "The sequel: Bessel moments and special values",
+      "statement": "The determinants of Bessel moments ∫_0^∞ I_0(z)^a K_0(z)^{k-a} z^b dz/z conjecturally computed by Broadhurst and Roberts are related, through the periods of 𝑴_k, to the special values of L_k(s) at critical integers; this is the subject of the sequel paper.",
+      "locator": "Fresán–Sabbah–Yu, published version (arXiv:1810.06454v5), §1.3, final paragraph",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Recorded because the paper states it as the motivation for the Hodge-theoretic point of view; it is not proved here and belongs to the same lane as a later target."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Morihiko Saito, \"Modules de Hodge polarisables\", Publ. RIMS 24 (1988), 849–995, and \"Mixed Hodge modules\", Publ. RIMS 26 (1990), 221–333",
+      "link": "https://doi.org/10.2977/prims/1195173930",
+      "why": "The whole theory of pure and mixed Hodge modules that the appendix quotes: the abelian categories, the six operations, the weight filtration, and the nearby- and vanishing-cycle functors with their monodromy filtrations. Nothing in this paper can be planned without it."
+    },
+    {
+      "citation": "Maxim Kontsevich and Yan Soibelman, \"Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants\", Commun. Number Theory Phys. 5 (2011), 231–352, §5",
+      "link": "arXiv:1006.2706",
+      "why": "The definition of the category of exponential mixed Hodge structures and of the objects H^r(U,f), H^r_c(U,f) attached to a pair, which is the framework the paper's construction lives in."
+    },
+    {
+      "citation": "Claude Sabbah, \"Fourier–Laplace transform of a variation of polarized complex Hodge structure\", J. reine angew. Math. 621 (2008), 123–158, §6; with Pierre Deligne's 1984 letter",
+      "link": "arXiv:math/0508551",
+      "why": "The construction of the irregular Hodge filtration on the twisted de Rham cohomology of a pair, extending Deligne's idea; it is the filtration the paper computes."
+    },
+    {
+      "citation": "Hélène Esnault, Claude Sabbah and Jeng-Daw Yu, \"E₁-degeneration of the irregular Hodge filtration\", J. reine angew. Math. 729 (2017), 171–227; and Jeng-Daw Yu, \"Irregular Hodge filtration on twisted de Rham cohomology\", Manuscripta Math. 137 (2012), 99–133",
+      "link": "arXiv:1302.4537",
+      "why": "The degeneration theorem and the geometric, toric description of the irregular Hodge filtration in terms of a Newton polyhedron, which together with Adolphson–Sperber is what makes the filtration computable in §4."
+    },
+    {
+      "citation": "Alan Adolphson and Steven Sperber, \"Twisted Kloosterman sums and p-adic Bessel functions II: Newton polygons and analytic continuation\", Amer. J. Math. 109 (1987), 723–764, and their work on exponential sums and Newton polyhedra",
+      "link": "https://doi.org/10.2307/2374611",
+      "why": "The Newton-polyhedron filtration on the twisted de Rham complex of a Laurent polynomial on a torus, which is the geometric input to the Hodge-number computation."
+    },
+    {
+      "citation": "Pierre Deligne, \"Applications de la formule des traces aux sommes trigonométriques\", SGA 4½, Sommes trigonométriques, Lecture Notes in Math. 569 (1977), 168–232",
+      "link": "https://doi.org/10.1007/BFb0091526",
+      "why": "The construction of the Kloosterman sheaf, its rank, ramification and purity, which is the ℓ-adic model the whole paper transposes; Theorems 7.4 and 7.8 there are the ones Proposition 2.4 mirrors."
+    },
+    {
+      "citation": "Nicholas M. Katz, \"On the calculation of some differential Galois groups\", Invent. Math. 87 (1987), 13–61, §II; and Gauss sums, Kloosterman sums and monodromy groups, Ann. of Math. Stud. 116 (1988)",
+      "link": "https://doi.org/10.1007/BF01389152",
+      "why": "The slope theory of a meromorphic connection at an irregular singularity, used for Proposition 2.4 (2) and Proposition 4.6 (3), and the classical theory of Kloosterman sheaves."
+    },
+    {
+      "citation": "Lei Fu and Daqing Wan, \"L-functions for symmetric products of Kloosterman sums\", J. reine angew. Math. 589 (2005), 79–103; and \"L-functions of symmetric products of the Kloosterman sheaf over Z\", Math. Ann. 342 (2008), 387–404",
+      "link": "https://doi.org/10.1515/crll.2005.2005.589.79",
+      "why": "The computation of the Swan conductor of Sym^k Kl₂ at infinity for odd p, which gives the degree of Z_k(p;T) and hence the bad set S, and the realization of the L-functions as Hasse–Weil zeta functions of virtual schemes."
+    },
+    {
+      "citation": "Zhiwei Yun, \"Galois representations attached to moments of Kloosterman sums and conjectures of Evans\", with an appendix by Christelle Vincent, Compos. Math. 151 (2015), 68–120",
+      "link": "arXiv:1308.3920",
+      "why": "The first construction of Galois representations with the right Frobenius traces, cut out of the cohomology of a variety built from the affine Grassmannian of GL₂, and the Swan conductor at p = 2. It is the alternative to the paper's construction and the source of the cases k = 7, 8."
+    },
+    {
+      "citation": "Stefan Patrikis and Richard Taylor, \"Automorphy and irreducibility of some ℓ-adic representations\", Compos. Math. 151 (2015), 207–229; building on Barnet-Lamb, Gee, Geraghty and Taylor, \"Potential automorphy and change of weight\", Ann. of Math. 179 (2014), 501–609",
+      "link": "arXiv:1307.1640",
+      "why": "The potential-automorphy theorem for regular, pure, odd essentially self-dual weakly compatible systems, and its corollary on the functional equation, which is what converts the Hodge-number computation into Theorems 1.2 and 1.3."
+    },
+    {
+      "citation": "Annette Huber and Stefan Müller-Stach, Periods and Nori motives, Ergebnisse der Mathematik 65, Springer (2017)",
+      "link": "https://doi.org/10.1007/978-3-319-50926-6",
+      "why": "Nori motives and the weight filtration on them (Theorem 10.2.5), which is what makes the definition of the middle motive 𝑴_k as a graded piece meaningful."
+    },
+    {
+      "citation": "Javier Fresán and Peter Jossen, Exponential motives (book in preparation)",
+      "link": "https://javier.fresan.perso.math.cnrs.fr/expmot.pdf",
+      "why": "The theory of motives of pairs (X,f) that the construction is modelled on, and Lemma 6.5.3 there, which is the model for Theorem A.24."
+    },
+    {
+      "citation": "Bernard Malgrange, Équations différentielles à coefficients polynomiaux, Progress in Math. 96, Birkhäuser (1991)",
+      "link": "https://doi.org/10.1007/978-1-4612-0377-2",
+      "why": "The Fourier transformation of holonomic D-modules on the affine line and its compatibility with duality (Lemma V.3.6), used in the proof of Proposition 2.4."
+    },
+    {
+      "citation": "C. Douglas Haessig, \"L-functions of symmetric powers of the generalized Airy family of exponential sums\" and \"Meromorphy of the rank one unit root L-function revisited\", with the Newton-polygon bounds of Int. J. Number Theory (2017) and (2020)",
+      "link": "arXiv:1607.06821",
+      "why": "The earlier and then sharpened p-adic lower bounds for the valuations of the coefficients of Z_k(p;T), against which Corollary 5.27 is compared."
+    },
+    {
+      "citation": "David Broadhurst and David P. Roberts, \"Quadratic relations between Feynman integrals\" and the numerical work on L-functions of Kloosterman moments",
+      "link": "https://doi.org/10.22323/1.303.0053",
+      "why": "The conjectural functional equations, the predicted values r_k = ⌊k/6⌋ and ε_k = (-1)^{t_k}, and the Bessel-moment determinants, which are the questions the paper answers and the ones it leaves open."
+    }
+  ],
+  "routes": [
+    {
+      "route": "new",
+      "roadmap": "MixedHodgeModulesAndIrregularHodgeTheory",
+      "title": "Mixed Hodge modules, exponential mixed Hodge structures and the irregular Hodge filtration",
+      "area": "motives",
+      "items": [
+        "PAPER-FRESAN-SABBAH-YU-22/9",
+        "PAPER-FRESAN-SABBAH-YU-22/10",
+        "PAPER-FRESAN-SABBAH-YU-22/11",
+        "PAPER-FRESAN-SABBAH-YU-22/12",
+        "PAPER-FRESAN-SABBAH-YU-22/13",
+        "PAPER-FRESAN-SABBAH-YU-22/14",
+        "PAPER-FRESAN-SABBAH-YU-22/15",
+        "PAPER-FRESAN-SABBAH-YU-22/16",
+        "PAPER-FRESAN-SABBAH-YU-22/17",
+        "PAPER-FRESAN-SABBAH-YU-22/18",
+        "PAPER-FRESAN-SABBAH-YU-22/19",
+        "PAPER-FRESAN-SABBAH-YU-22/20",
+        "PAPER-FRESAN-SABBAH-YU-22/21",
+        "PAPER-FRESAN-SABBAH-YU-22/22",
+        "PAPER-FRESAN-SABBAH-YU-22/23",
+        "PAPER-FRESAN-SABBAH-YU-22/24",
+        "PAPER-FRESAN-SABBAH-YU-22/25",
+        "PAPER-FRESAN-SABBAH-YU-22/26",
+        "PAPER-FRESAN-SABBAH-YU-22/27",
+        "PAPER-FRESAN-SABBAH-YU-22/28",
+        "PAPER-FRESAN-SABBAH-YU-22/64"
+      ],
+      "brief": "Plan the theory of mixed Hodge modules on a curve, exponential mixed Hodge structures and the irregular Hodge filtration, to the depth at which they can be used. The atlas has nothing on D-modules: a search of data/atlas.json for \"D-module\", \"hodge module\", \"irregular hodge\" and \"exponential motive\" returns nothing relevant, and the only hits for \"vanishing cycle\" are the ℓ-adic ones of LefschetzPencilsAndVanishingCycles and WeightsInEtaleCohomology. Construct, in order. Algebraic D-modules on a smooth variety over a field of characteristic zero: holonomic and regular holonomic modules, the derived direct and inverse images for an open immersion, the functors j_!, j_* and the intermediate extension j_{!*}, duality, and, at an irregular singular point of a meromorphic connection on a curve, the slope decomposition and the formal decomposition of Levelt and Turrittin. Then the Fourier transformation FT of holonomic D-modules on the affine line, exchanging t and ∂_t with τ and -∂_τ, its localized form ℱ = j_0^* FT j_{0*} on G_m, the fact that ℱ preserves holonomicity and sends a regular holonomic module to one smooth on G_m with a regular singularity at the origin and slopes in {0,1} at infinity, and the compatibility of FT with duality up to t ↦ -t. Then Saito's category MHM(X) of mixed Hodge modules: the underlying filtered D-module and rational perverse sheaf, the weight filtration, pure Hodge modules, the six operations, and the nearby- and vanishing-cycle functors ψ and φ with their monodromy weight filtrations and the Lefschetz decomposition of the associated graded. The final statements are those of the appendix of Fresán–Sabbah–Yu, which is where the theory is assembled for use. Define the category EMHS of exponential mixed Hodge structures of Kontsevich and Soibelman as the image of the projector Π on MHM(A¹), with its tensor structure and its own weight filtration; prove the comparison of that filtration with the one of MHM(A¹) (Remark A.6), in particular that Π of a pure Hodge module of weight n is pure of weight n in EMHS although only mixed of weights ≥ n in MHM(A¹). Define the irregular Hodge filtration on H¹_dR(A¹_t, N ⊗ E^t) after Deligne, Sabbah and Yu, and prove that the bifiltered de Rham fibre factors through Π and that every morphism is strictly bifiltered (Proposition A.10). Prove that mixed Hodge structures form a full tensor subcategory of EMHS compatibly with weights (Lemma A.12) and that, for an object of EMHS that is classical, the irregular Hodge filtration is the ordinary Hodge filtration of φ_{t,1} (Proposition A.13). Define, for a smooth quasi-projective U with a regular function f, the objects H^r(U,f), H^r_c(U,f) and H^r_mid(U,f) of EMHS with their twisted de Rham fibres (Definition A.18), and prove the weight statement and the purity criterion of Proposition A.19, the localization sequences of Example A.20, and the basic computation H^k(G_m^k, x₁+···+x_k) ≅ Q(-k) of Example A.22. Prove the criterion that an exponential mixed Hodge structure attached to a function of the form t·g is classical (Theorem A.24) and the identification of its compactly supported cohomology with that of the zero locus of g (Example A.27). Finally prove the Hodge-theoretic form of the Fourier transform (Lemma A.28, Notation A.29, Theorem A.30) and the weight computation for the Fourier transform of a pure Hodge module in terms of the monodromy filtration on nearby cycles (Corollary A.31). Add the toric interpretation of the irregular Hodge filtration through the Newton polyhedron, after Adolphson–Sperber and Esnault–Sabbah–Yu, which is what makes it computable. Import, and do not rebuild: pure and mixed Hodge structures with their weight filtrations and Deligne's strictness from the Tau Ceti roadmap on Hodge structures; nearby and vanishing cycles in the topological and ℓ-adic settings from LefschetzPencilsAndVanishingCycles LPV.0 and LPV.6 and WeightsInEtaleCohomology R34.3; the perverse category and the intermediate extension from EtaleDualityAndPerverseSheaves EDC.5, and Poincaré duality from EDC.2. Do not plan the Kloosterman computation here: it is the separate roadmap KloostermanMomentsAndPotentialAutomorphy proposed by this extraction, which is this lane's first consumer.",
+      "reason": "The atlas has no D-modules at all, and no Hodge modules. Searching data/atlas.json, \"hodge module\" and \"exponential motive\" return nothing; \"d-module\" returns seven hits, none of them about D-modules in this sense; \"irregular\" returns the irregularity of a Fuchsian equation in modular-forms layers and the irregular-radius theory of PadicDifferentialEquationsAndRigidCohomology RD.1, which is the p-adic analogue, not this one. Among the pending proposals, HodgeStructuresPartII from PAPER-LANDESMAN-LITT-24 plans variations of Hodge structure, period maps and non-abelian Hodge theory, which is a different extension of the Tau Ceti Hodge-structures roadmap and does not contain Saito's mixed Hodge modules; LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier and the perverse-sheaf Part IIs are ℓ-adic. This is a new roadmap rather than a Part II of the Tau Ceti Hodge-structures roadmap because its subject is not Hodge structures but the sheaf-theoretic theory over them, together with the D-module theory that theory is built on, and because it has an endpoint of its own: the appendix's criterion for an exponential mixed Hodge structure to be classical, with the irregular Hodge filtration agreeing with the Hodge filtration. It is separated from the Kloosterman computation because it is general machinery that many other papers in the queue on exponential motives and irregular Hodge theory will need."
+    },
+    {
+      "route": "new",
+      "roadmap": "KloostermanMomentsAndPotentialAutomorphy",
+      "title": "Symmetric power moments of Kloosterman sums: Hodge numbers, motives and potential automorphy",
+      "area": "motives",
+      "items": [
+        "PAPER-FRESAN-SABBAH-YU-22/29",
+        "PAPER-FRESAN-SABBAH-YU-22/30",
+        "PAPER-FRESAN-SABBAH-YU-22/31",
+        "PAPER-FRESAN-SABBAH-YU-22/32",
+        "PAPER-FRESAN-SABBAH-YU-22/33",
+        "PAPER-FRESAN-SABBAH-YU-22/34",
+        "PAPER-FRESAN-SABBAH-YU-22/35",
+        "PAPER-FRESAN-SABBAH-YU-22/36",
+        "PAPER-FRESAN-SABBAH-YU-22/37",
+        "PAPER-FRESAN-SABBAH-YU-22/38",
+        "PAPER-FRESAN-SABBAH-YU-22/39",
+        "PAPER-FRESAN-SABBAH-YU-22/40",
+        "PAPER-FRESAN-SABBAH-YU-22/41",
+        "PAPER-FRESAN-SABBAH-YU-22/42",
+        "PAPER-FRESAN-SABBAH-YU-22/43",
+        "PAPER-FRESAN-SABBAH-YU-22/44",
+        "PAPER-FRESAN-SABBAH-YU-22/45",
+        "PAPER-FRESAN-SABBAH-YU-22/46",
+        "PAPER-FRESAN-SABBAH-YU-22/47",
+        "PAPER-FRESAN-SABBAH-YU-22/48",
+        "PAPER-FRESAN-SABBAH-YU-22/49",
+        "PAPER-FRESAN-SABBAH-YU-22/50",
+        "PAPER-FRESAN-SABBAH-YU-22/51",
+        "PAPER-FRESAN-SABBAH-YU-22/52",
+        "PAPER-FRESAN-SABBAH-YU-22/53",
+        "PAPER-FRESAN-SABBAH-YU-22/54",
+        "PAPER-FRESAN-SABBAH-YU-22/57",
+        "PAPER-FRESAN-SABBAH-YU-22/60",
+        "PAPER-FRESAN-SABBAH-YU-22/62",
+        "PAPER-FRESAN-SABBAH-YU-22/63",
+        "PAPER-FRESAN-SABBAH-YU-22/65"
+      ],
+      "brief": "Plan the Hodge theory of Kloosterman connections and the resulting L-functions of symmetric power moments of Kloosterman sums. Fix a prime p, a non-trivial additive character ψ of F_p and, for a ∈ F_q^×, the Kloosterman sum Kl₂(a;q) = Σ_{x} ψ(tr(x + a/x)); write Kl₂(a;q) = -(α_a + β_a) with α_aβ_a = q, form the symmetric powers and the moments m₂^k(q), and let Z_k(p;T) be their generating polynomial and M_k(p;T) the factor left after removing the trivial factors. The final theorems are the three results of Fresán, Sabbah and Yu. (1) Theorem 1.8, the Hodge-number theorem: the mixed Hodge structure H¹(G_m, Sym^k Kl₂) has weights ≥ k+1 and all its Hodge numbers are 0 or 1, with the explicit list given there, and H¹_mid is pure of weight k+1 and equals W_{k+1} of it. (2) Theorem 1.2: for odd k the L-function L_k(s) continues meromorphically and Λ_k(s) = Λ_k(k+2-s). (3) Theorem 1.3: for even k it continues meromorphically and satisfies Λ_k(s) = ε_kΛ_k(k+2-s) for a sign ε_k and an unknown local factor at 2. These are the functional equations conjectured numerically by Broadhurst and Roberts; the remaining part of their conjecture, the values r_k = ⌊k/6⌋ and ε_k = (-1)^{t_k}, should be recorded as an open boundary, not a target. Cover, in order. The Kloosterman sheaf of Deligne and the cohomological interpretation Z_k(p;T) = det(1 - F_pT | H¹_{ét,c}(G_m, Sym^k Kl₂)), with M_k(p;T) the same determinant on the middle cohomology and its purity of weight k+1; the Swan conductor computations of Fu–Wan and Yun that give the degree and define the bad set S. The Kloosterman connection Kl_{n+1} = π_*E^f on G_m over a field of characteristic zero, its pullback Kl-tilde_{n+1} along the cyclic cover z = t^{n+1}, and the change of variables that turns the function into t·g; the structure theorem, that Kl_{n+1} is the irreducible rank-(n+1) connection of the hypergeometric operator (z∂_z)^{n+1} - z, regular with a single unipotent Jordan block at 0, of pure slope 1/(n+1) at infinity, self-dual up to an involution, and the restriction of a Fourier transform of a regular holonomic module; and the irreducibility of the symmetric powers. The Thom–Sebastiani description of the tensor powers and the resulting identification of the de Rham cohomology of Sym^k Kl_{n+1} with an isotypic part of the twisted de Rham cohomology of a torus, the vanishing outside degree one, and the Poincaré pairing on the middle part. Then the Hodge theory: that all three cohomologies are classical mixed Hodge structures with the stated weights and that the middle one is pure (Theorem 3.2); the geometric description of the middle Hodge structure by the hypersurface 𝒦 ⊂ G_m^{kn} cut out by g^{⊞ k} with its 𝔖_k × μ_{n+1}-action (Theorem 3.8), the location of its singular points, the definition of the middle motive 𝑴_k as the corresponding piece of the Nori motive of 𝒦, and the étale counterpart over a finite field (Theorem 3.12). Then the explicit computation for n = 1: the formal structure of Sym^k Kl₂ at infinity, the behaviour of the intermediate extensions and the exceptional case 4 | k, the inverse Fourier transform with its singularities at τ = 2(2j-k), the dimension formula ⌊(k-1)/2⌋ - δ_{4Z}(k), the explicit bases of the de Rham cohomology and the Hodge filtration in them, and the Hodge numbers on the double cover, from which Theorem 1.8 follows by taking invariants. Finally the arithmetic: the ℓ-adic realizations V_{k,ℓ} of 𝑴_k with their ramification at the bad primes, tame for odd k and unipotent for even k; the p-adic realization, its de Rham, semistable and crystalline properties and the comparison with rigid cohomology; the gamma factor read off the Hodge numbers; the local L- and ε-factors; and the deduction of Theorems 1.2 and 1.3 from the potential automorphy of the compatible system {r_{k,ℓ}}. Import, and do not rebuild: D-modules, the Fourier transform, mixed Hodge modules, exponential mixed Hodge structures and the irregular Hodge filtration from the companion roadmap MixedHodgeModulesAndIrregularHodgeTheory proposed by this extraction; the étale weight formalism of Weil II from DeligneWeightsAndPurity and WeightsInEtaleCohomology; the perverse intermediate extension from EtaleDualityAndPerverseSheaves EDC.5; rigid cohomology with its Frobenius from PadicDifferentialEquationsAndRigidCohomology RD.4 and RD.6; de Rham, semistable and crystalline representations from PadicHodgeTheory R06.5; weakly compatible systems and Weil–Deligne representations from PotentialAutomorphyInfrastructure PA.5; the Patrikis–Taylor potential-automorphy theorem from the source route to ModularityAndLanglandsExtensions ML.2; and Dirichlet characters, the Gamma function and the Riemann zeta function from Mathlib.",
+      "reason": "Nothing in the atlas follows this proof. \"kloosterman\" returns one unrelated hit in a partition-asymptotics layer. No layer and no pending proposal plans the Kloosterman sheaf or connection, its symmetric powers, their cohomology, or the motives of symmetric power moments. The L-function side is equally uncovered: ModularityAndLanglandsExtensions ML.2 and ML.3 own the potential-automorphy assembly of the CM programme and symmetric powers of modular forms, not a compatible system attached to a rigid motive of this kind. It is a new roadmap rather than a Part II because its two endpoints, the Hodge-number theorem and the Broadhurst–Roberts functional equations, belong to no existing direction, and because it is the first consumer of the general machinery this extraction proposes alongside it. The two are kept apart so that the machinery is reusable and the application stays honest about what it imports."
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularityAndLanglandsExtensions",
+      "stages": [
+        "ModularityAndLanglandsExtensions:ML.2"
+      ],
+      "items": [
+        "PAPER-FRESAN-SABBAH-YU-22/58",
+        "PAPER-FRESAN-SABBAH-YU-22/59"
+      ],
+      "reason": "ML.2 is the potential-automorphy assembly of the campaign. The two items routed here are the statement of Patrikis and Taylor's theorem, that a weakly compatible system which is pure, regular and odd essentially self-dual becomes automorphic over a finite totally real Galois extension, and its corollary on purity of the Weil–Deligne representations and the functional equation of the completed L-function, together with the filtration lemma that lets the semisimplification be used instead. §5.7 of this paper quotes both with their exact hypotheses and then applies them, so it is a good source for that layer, and nothing else in the atlas plans them."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "stages": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+      ],
+      "items": [
+        "PAPER-FRESAN-SABBAH-YU-22/55",
+        "PAPER-FRESAN-SABBAH-YU-22/56",
+        "PAPER-FRESAN-SABBAH-YU-22/61"
+      ],
+      "reason": "RD.6 plans the trace formula, the Fourier transform and p-adic weights, and RD.7 the crystalline comparison and the export of Weil factors. The three items routed here are the Kloosterman F-isocrystal with the rigid cohomology of its symmetric powers, the comparison of that rigid cohomology with the p-adic realization of the motive through B_st and B_crys, and the resulting Newton-above-Hodge inequality with its arithmetic consequence v_p(c_n) ≥ n(n-1) for the coefficients of Z_k(p;T). They are exactly the kind of statement those two layers are for, and §5.5 of the paper is a clean source for them."
+    }
+  ],
+  "sourceIssues": [],
+  "gaps": [
+    {
+      "id": "G-PROOFS-4-5",
+      "status": "open",
+      "detail": "The proofs of §4 (the explicit computation of the de Rham cohomology, its bases, the Hodge filtration and the Hodge numbers on the double cover) and of §5 (the ramification of the ℓ-adic realizations at the bad primes, the local L- and ε-factors, and the p-adic comparison) were not read line by line. Their statements are recorded and routed; a continuation should read those proofs and split the items where the proofs use inputs not yet named, in particular the quadric appearing in Theorem 5.8 and the vanishing-cycle description in Theorem 5.17.",
+      "consumers": [
+        "PAPER-FRESAN-SABBAH-YU-22/45",
+        "PAPER-FRESAN-SABBAH-YU-22/46",
+        "PAPER-FRESAN-SABBAH-YU-22/47",
+        "PAPER-FRESAN-SABBAH-YU-22/48",
+        "PAPER-FRESAN-SABBAH-YU-22/49",
+        "PAPER-FRESAN-SABBAH-YU-22/50",
+        "PAPER-FRESAN-SABBAH-YU-22/51",
+        "PAPER-FRESAN-SABBAH-YU-22/52",
+        "PAPER-FRESAN-SABBAH-YU-22/53",
+        "PAPER-FRESAN-SABBAH-YU-22/54",
+        "PAPER-FRESAN-SABBAH-YU-22/62"
+      ]
+    },
+    {
+      "id": "G-APPENDIX-PROOFS",
+      "status": "open",
+      "detail": "The appendix's statements are recorded, but its proofs, and the results of Saito's theory they rest on, were not read. A continuation should read Saito's two papers at the points the appendix cites, and then decide how much of the mixed-Hodge-module theory the new roadmap must build rather than import.",
+      "consumers": [
+        "PAPER-FRESAN-SABBAH-YU-22/11",
+        "PAPER-FRESAN-SABBAH-YU-22/15",
+        "PAPER-FRESAN-SABBAH-YU-22/17",
+        "PAPER-FRESAN-SABBAH-YU-22/18",
+        "PAPER-FRESAN-SABBAH-YU-22/19",
+        "PAPER-FRESAN-SABBAH-YU-22/21",
+        "PAPER-FRESAN-SABBAH-YU-22/24",
+        "PAPER-FRESAN-SABBAH-YU-22/26",
+        "PAPER-FRESAN-SABBAH-YU-22/27",
+        "PAPER-FRESAN-SABBAH-YU-22/28"
+      ]
+    },
+    {
+      "id": "G-LIBRARY",
+      "status": "open",
+      "detail": "The pinned libraries were searched only for the elementary objects (Dirichlet characters, the Legendre symbol, the zeta and Gamma functions). A continuation should confirm at the pinned commits that Mathlib and Tau Ceti contain nothing for D-modules, perverse sheaves, Hodge modules or étale cohomology, rather than relying on the atlas search alone.",
+      "consumers": [
+        "PAPER-FRESAN-SABBAH-YU-22/1"
+      ]
+    },
+    {
+      "id": "G-SOURCE-ISSUES",
+      "status": "open",
+      "detail": "sourceIssues is recorded as an empty list, meaning that no mistake was found in the parts read at proof level (§1, §2.1, §3.1). The parts read only at statement level have not been checked for misprints, so a continuation must revisit this once §§4–5 and the appendix are read.",
+      "consumers": []
+    }
+  ]
+}
