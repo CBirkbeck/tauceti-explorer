@@ -1292,7 +1292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1095"
   },
   {
    "id": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -5668,8 +5669,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-WANG-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1350"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1350",
+   "finishedAt": "2026-09-22T15:00:25Z"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
