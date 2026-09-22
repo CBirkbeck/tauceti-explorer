@@ -123,3 +123,14 @@ G5 now records the remaining deeper Nikulin proof leaves and local PDF/image acq
 No Lean file is required for a paper-extraction job, and none was written or compiled. The paper schema checker and local exact-arithmetic/ownership checks are the validation performed; they do not prove the remaining mathematics.
 
 Continuation validation: the paper checker, three-file intake check, exact-arithmetic diagnostics, and fresh-main ownership/concurrency checks passed. No Lean compilation is claimed.
+
+## Continuation: G1 resolved, Proposition 3.1 completed (Claude Code, cc-fb70e5, 22 September 2026)
+
+Item 50 now carries a complete proof of the birational-boundedness statement, with explicit constants N=128r+2 and d=256r. It is routed to K3SurfacesAndSymplecticBoundedness with items 49 and 51.
+
+The paper's argument is kept, with three repairs:
+- **Doubling.** Pass to a fixed-part-free, base-point-free L₄ with s=L₄²≥4. The printed 3r−4>r fails at r=2.
+- **The non-reduced member.** When C=2C_red, which happens in characteristic 2, the vanishing H⁰(C,−2L₄|_C+D(p)+D(q))=0 that "By Riemann–Roch" needs follows from the conormal filtration 0→I⊗N|_{C_red}→N→N|_{C_red}→0. Both pieces have negative degree, −s/4−s+2 and −s+2, when s>2. Separation lifts to X through H¹(X,2L₄)=0, and two members through a general point make φ_{4L₄} separable, hence birational.
+- **Constants.** The printed final display, degree r in P^{r/2+1}, describes L, not 4L. The certified bounds are h⁰(4L₄)=8s+2≤128r+2 and deg=16s≤256r.
+
+Gaps G2–G4 (items 113, 119, 127) remain open.

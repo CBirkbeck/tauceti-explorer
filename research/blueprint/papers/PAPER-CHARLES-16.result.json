@@ -1492,12 +1492,23 @@
       "id": "PAPER-CHARLES-16/50",
       "kind": "theorem",
       "name": "K3 birational boundedness at fixed positive square",
-      "statement": "For each r>0 there exist N,d>0 such that every K3 X over an algebraically closed field in any characteristic with a line bundle L of square r has some L′ with h⁰(L′)≤N and |L′| birational onto an image of degree ≤d. The source's final numerical constants and r=2 jet inequality are not asserted.",
+      "statement": "For each r>0 there exist N,d>0 such that every K3 surface X over an algebraically closed field of any characteristic with a line bundle L of square r has some L′ with h⁰(L′)≤N and |L′| birational onto an image of degree ≤d. One may take N=128r+2 and d=256r. The source's final constants, degree r in P^{r/2+1}, and its r=2 jet inequality are not asserted.",
       "locator": "Proposition 3.1, pp.504–506",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unrouted checkpoint: see explicit gap register."
+      "note": "Proof completed by the continuation of Claude Code (cc-fb70e5, 22 September 2026), following the paper's argument with three repairs: doubling to avoid s=2; the filtration vanishing for non-reduced C, which is what \"By Riemann–Roch\" needs; and corrected constants. Source-level issue recorded in research/blueprint/errata/PAPER-CHARLES-16.json (E3). The inputs in item 49 (Saint-Donat, Huybrechts) remain source-read items there.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/49"
+      ],
+      "proofSteps": [
+        "Reduction, as in the paper via item 49: replace L by a nef class of the same square. Saint-Donat's analysis gives a fixed-part-free, base-point-free big nef L₃ with L₃² equal to r or 4r (\"up to replacing L by 2L\"). Put L₄=L₃ if L₃²≥4, otherwise L₄=2L₃. So s:=L₄² satisfies 4≤s≤16r, h¹(mL₄)=0 for m≥1, and h⁰(mL₄)=m²s/2+2.",
+        "If φ_{L₄} is birational onto its image, take L′=L₄. Otherwise φ_{L₄} is generically of degree 2. For general conjugate points x≠y (φ(x)=φ(y)), take C∈|L₄| through both, as a hyperplane section through φ(x). As in the paper, C=aC_red with C_red integral and a∈{1,2} (a=2 only in characteristic 2), and ω_C=L₄|_C by adjunction.",
+        "For smooth points p,q of C_red, let D(p) be the Cartier divisor on C cut by a local function g that meets C_red transversally at p. It has degree 2 when a=2 (length of k[x,y]/(y²,x)) and restricts to p on C_red. Put N=−2L₄|_C+D(p)+D(q). By Serre duality on the Gorenstein curve C, the needed H¹(C,3L₄|_C−D(p)−D(q)) is dual to H⁰(C,N).",
+        "Vanishing when a=2: let I⊂O_C be the ideal of C_red, so I≅O_{C_red}(−C_red), of degree −s/4. Use 0→I⊗N|_{C_red}→N→N|_{C_red}→0. Here deg N|_{C_red}=−s+2<0 and deg(I⊗N|_{C_red})=−s/4−s+2<0, since L₄·C_red=s/2 and s>2. Both pieces are line bundles of negative degree on the integral curve C_red, so H⁰(C,N)=0. When a=1, use ordinary Riemann–Roch, since 3s−4>s. This is where the source's 3r−4>r needs s>2.",
+        "Hence H⁰(C,3L₄|_C)→3L₄|_C⊗O_C/(D(p)+D(q)) is surjective, so 3L₄|_C separates points and tangent directions on the smooth locus of C_red. Since H¹(X,2L₄)=0, sections of 3L₄|_C lift to X. Multiplying by a section of L₄ that does not vanish at x,y (L₄ is base-point-free), 4L₄ separates x and y. Using two members of |L₄| through a general x with distinct tangents, dφ_{4L₄} is injective at x. So φ_{4L₄} is separable and generically injective, hence birational onto its image.",
+        "Bounds: L′=4L₄ has h⁰(L′)=8s+2≤128r+2, and the image has degree (4L₄)²=16s≤256r. This gives the stated N and d. The source's last display, degree r in P^{r/2+1}, gives the numbers for L, not 4L."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/51",
@@ -3994,6 +4005,7 @@
         "PAPER-CHARLES-16/47",
         "PAPER-CHARLES-16/48",
         "PAPER-CHARLES-16/49",
+        "PAPER-CHARLES-16/50",
         "PAPER-CHARLES-16/51",
         "PAPER-CHARLES-16/52",
         "PAPER-CHARLES-16/53",
@@ -4360,7 +4372,8 @@
         "PAPER-CHARLES-16/50"
       ],
       "title": "Characteristic-two birational linear-series proof",
-      "detail": "The source's 3r−4>r fails at r=2, and the final degree/h⁰ bounds for 4L are not the displayed r and 2r+1. Always doubling before the argument may repair the inequality, and then tracking powers gives uniform bounds, but the nonreduced-curve jet-separation-to-birationality step still needs a complete proof. Read Saint-Donat/Huybrechts and the Artin–Swinnerton-Dyer cited passage; certify a precise corrected bound. Items 51,124,125 depend on this gap."
+      "detail": "The source's 3r−4>r fails at r=2, and the final degree/h⁰ bounds for 4L are not the displayed r and 2r+1. Always doubling before the argument may repair the inequality, and then tracking powers gives uniform bounds, but the nonreduced-curve jet-separation-to-birationality step still needs a complete proof. Read Saint-Donat/Huybrechts and the Artin–Swinnerton-Dyer cited passage; certify a precise corrected bound. Items 51,124,125 depend on this gap. RESOLVED (cc-fb70e5, 22 September 2026): item 50 now carries a complete proof. It doubles to s=L₄²≥4, proves H⁰(C,−2L₄|_C+D(p)+D(q))=0 for non-reduced C=2C_red by the conormal filtration, lifts separation through H¹(X,2L₄)=0, and certifies N=128r+2 and d=256r. Item 50 is routed to K3SurfacesAndSymplecticBoundedness.",
+      "status": "resolved"
     },
     {
       "id": "G2",
@@ -4499,6 +4512,14 @@
     "priorPR": 1669,
     "status": "partial",
     "leanCompiled": false,
-    "scope": "Lattice proof interfaces and API structure; no closure claim for remaining Hodge/moduli/Tate proof gates."
+    "scope": "Lattice proof interfaces and API structure; no closure claim for remaining Hodge/moduli/Tate proof gates.",
+    "sessions": [
+      {
+        "agent": "Claude Code",
+        "session": "cc-fb70e5",
+        "date": "2026-09-22",
+        "work": "Resolved G1: completed Proposition 3.1's proof in item 50 (non-reduced separation, corrected bounds) and routed item 50."
+      }
+    ]
   }
 }
