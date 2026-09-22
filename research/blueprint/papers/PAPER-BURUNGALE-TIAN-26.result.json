@@ -61,6 +61,15 @@
         "sha256": "a8990c9ba267bbe0515851799c1ad71bab29cba565832d495a435ca091dbe02d",
         "read": "Good-eigenform fields, newness and normalization, lines 75–107; namespace verified.",
         "checked": "Local statement read and SHA-256 matched the raw GitHub file at the pinned full commit."
+      },
+      {
+        "refs": [
+          "mathlib:LocalizedModule.AtPrime"
+        ],
+        "file": "Mathlib/Algebra/Module/LocalizedModule/AtPrime.lean",
+        "sha256": "024685245e963729ca1215f9c7aad2253e2930ad22e54b683ff1cbac360fd282",
+        "read": "Definition of LocalizedModule.AtPrime, lines 23–27 (abbreviation for LocalizedModule P.primeCompl M).",
+        "checked": "Read by the reviewer (REV-PAPER-BURUNGALE-TIAN-26) in the checkout at the pinned commit."
       }
     ],
     "audit": "Read relevant reviewed data/library-coverage.json entries (AUDIT-07, AUDIT-09, AUDIT-25, AUDIT-26, AUDIT-27 and ModularForms upstream audit). A partly built carrier does not supply a missing arithmetic theorem.",
@@ -152,9 +161,10 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "RankZeroOneBSD:BSD.0"
+        "RankZeroOneBSD:BSD.0",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
       ],
-      "note": "The Q analytic-rank carrier is supplied here; the particular CM/K factorization and continuation are separately missing items."
+      "note": "BSD.0 supplies the analytic rank over Q; over K the order of vanishing of the CM newform L-functions is planned by ModularForms Layer 7. The CM/K factorization itself is the separate missing item cm-elliptic-factorization."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/forward-rank",
@@ -250,10 +260,12 @@
       "name": "Congruent-number twist family",
       "statement": "Fix E/Q:y²=x³−x. For nonzero integer n, E^(n) is given by n y²=x³−x; the counting family restricts to positive squarefree n.",
       "locator": "Theorem 1.2 and §1.0.2, p.2",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "A concrete model/family specialization, not a new elliptic-curve or twisting carrier."
+      "planned": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5"
+      ],
+      "note": "An instance of the planned quadratic twist (item twist) for the curve y²=x³−x; nothing beyond the twist carrier and its model dictionary is needed."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/squarefree-density",
@@ -277,7 +289,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Specialize the root-number/functional-equation infrastructure of BSD.0; source-scoped calculation, not an assertion of parity for algebraic rank."
+      "note": "Specialize the root-number/functional-equation infrastructure of BSD.0; source-scoped calculation, not an assertion of parity for algebraic rank. The classification is for positive n: n=−1≡7 (mod 8) has root number +1, since E^(−1)≅E."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/goldfeld",
@@ -296,10 +308,12 @@
       "name": "Height ordering on number-field squareclasses",
       "statement": "For a number field F and t∈F×/(F×)², put H(t)=∏_{finite primes 𝔭 with v_𝔭(t) odd} N𝔭. Count squareclasses with H(t)<X, unweighted. For F=Q this is absolute value of the squarefree representative; for K this is the ordering used in Proposition 1.3 via BKLOS §2.",
       "locator": "Proposition 1.3, p.2; Theorem 3.5, p.7; BKLOS §2, p.2",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "The exact height is supplied by the cited input, not stated in BT's shorthand '50%'. Establish bounded-height finiteness via units modulo squares and finite ideal classes; do not use a height of arbitrary representatives."
+      "planned": [
+        "ArithmeticStatistics:ST.0"
+      ],
+      "note": "The exact height is supplied by the cited input, not stated in BT's shorthand '50%'. Establish bounded-height finiteness via units modulo squares and finite ideal classes; do not use a height of arbitrary representatives. The height was checked against BKLOS §2: H(s)=∏_{v_𝔭(s) odd}N𝔭, each squareclass counted once with H(s)<X."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/cm-twist-density",
@@ -403,7 +417,8 @@
       "locator": "§2.0.1, final sentence, p.3",
       "status": "library",
       "library": [
-        "mathlib:LocalizedModule"
+        "mathlib:LocalizedModule",
+        "mathlib:LocalizedModule.AtPrime"
       ],
       "planned": [],
       "note": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean, lines 49–52 and 85–90: the general localization accepts a multiplicative submonoid; use q.primeCompl. This does not claim a characteristic-ideal API exists."
@@ -427,10 +442,13 @@
       "name": "Two-variable ray-class tower",
       "statement": "Fix imaginary quadratic K, p prime and nonzero ideal f. Set K(p∞f)=∪_n K(p^n f) and G_{p∞f}=Gal(K(p∞f)/K), with its profinite topology and finite-level restriction maps.",
       "locator": "§2.1.1, p.3",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": "The generic ray class fields are planned upstream; this particular tower and its module package belong to the CM extension."
+      "planned": [
+        "AutomorphicPadicLFunctions:L0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ],
+      "note": "Planned: AutomorphicPadicLFunctions L0 builds the ray-class inverse limit with its reciprocity interpretation, and ClassFieldTheory Layer 13 the ray class fields. The CM extension imports the tower rather than rebuilding it."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/ray-group-structure",
@@ -438,10 +456,12 @@
       "name": "Structure of the CM ray-class Galois group",
       "statement": "With K,p,f as in the preceding item, G_{p∞f} is topologically isomorphic to Z_p²×Δ_f for a finite abelian group Δ_f. No prime-to-p order is assumed for Δ_f.",
       "locator": "§2.1.1, p.3",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
-      "note": ""
+      "planned": [
+        "AutomorphicPadicLFunctions:L0"
+      ],
+      "note": "Planned by the dimension formula of AutomorphicPadicLFunctions L0, which keeps all torsion factors: for imaginary quadratic K the unit group is finite and there is no Leopoldt defect, so the free rank is 2."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/ray-iwasawa-ring",
@@ -509,7 +529,7 @@
       "id": "PAPER-BURUNGALE-TIAN-26/units-torsionfree",
       "kind": "theorem",
       "name": "Torsion-freeness of CM tower units",
-      "statement": "Let K be imaginary quadratic, p any prime and f a nonzero ideal, with R,h¹,h² as above. h¹ is torsion-free over R (torsion is killed by a non-zero-divisor).",
+      "statement": "Let K be imaginary quadratic, p any prime and f a nonzero ideal, with R,h¹,h² as above. h¹ is torsion-free over R: no nonzero element is killed by a non-zero-divisor of R.",
       "locator": "§2.1.1, p.3; Kato §15.1",
       "status": "missing",
       "library": [],
@@ -577,23 +597,23 @@
       "id": "PAPER-BURUNGALE-TIAN-26/regular-prime-equality",
       "kind": "theorem",
       "name": "CM main conjecture at horizontal height-one primes",
-      "statement": "For imaginary quadratic K, prime p, nonzero f, and each height-one prime q⊂R=Z_p[[G_{p∞f}]] with p∉q, length_{R_q}(h²_q)=length_{R_q}((h¹/z)_q).",
+      "statement": "For imaginary quadratic K, prime p, nonzero f, and each height-one prime q⊂R=Z_p[[G_{p∞f}]] with p∉q, length_{R_q}((h¹/z)_q)=length_{R_q}((H²_{pf})_q)=length_{R_q}(h²_q)+Σ_{𝔩|f,𝔩∤p}length_{R_q}(Z_p[[G_{p∞f}/D_𝔩]]_q). In particular length(h²_q)=length((h¹/z)_q) when q lies on a component ramified at every such 𝔩.",
       "locator": "Proof of Theorem 2.1, p.4; Johnson-Leung–Kings §7.2",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "JLK §7.2 treats regular primes. Their singular-prime/μ hypothesis in §7.3 is not required for this assertion and cannot be dropped from an integral extension."
+      "note": "JLK §7.2 treats regular primes. Their singular-prime/μ hypothesis in §7.3 is not required for this assertion and cannot be dropped from an integral extension. Corrected by review: JLK §7.2 works with H² over O_K[1/pf]; equating it with h² needs the Euler terms of h2-euler-comparison. JLK's argument holds for every p, including p=2, 3 and non-split p (their Theorem 5.2 is \"for all primes p with no exceptions\"; the p=2 inputs are Itakura's preprint and Rubin's Euler-system Theorem 2.3.3)."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/equivariant-main",
       "kind": "theorem",
       "name": "Rational equivariant CM main conjecture",
-      "statement": "For imaginary quadratic K, any prime p and nonzero ideal f, ξ(h²_Q)=ξ((h¹/z)_Q) as ideals of Z_p[[G_{p∞f}]][1/p].",
+      "statement": "For imaginary quadratic K, any prime p and nonzero ideal f, ξ((h¹/z)_Q)=ξ(h²_Q)·∏_{𝔩|f, 𝔩∤p}ξ(Z_p[[G_{p∞f}/D_𝔩]]_Q) as ideals of Z_p[[G_{p∞f}]][1/p], D_𝔩 the decomposition group of 𝔩; equivalently ξ((h¹/z)_Q)=ξ((H²_{pf})_Q) with H²_{pf}=lim_{K'}H²(O_{K'}[1/pf],Z_p(1)). The printed form ξ(h²_Q)=ξ((h¹/z)_Q) holds when every prime factor of f lies above p, and after localizing at any height-one prime lying on a component ramified at every 𝔩|f with 𝔩∤p.",
       "locator": "Theorem 2.1, p.4",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": ""
+      "note": "Corrected by review. As printed, Theorem 2.1 omits the Euler factors at the primes of f prime to p: z uses only the modulus-p^n f elliptic units (Kato §15.5), whose projections carry ∏(1−χ(𝔩)Frob_𝔩^{−1}) (Johnson-Leung–Kings Lemma 7.7), while h² is the class-group limit, which Kato (15.6.2) identifies with H² over O[1/p], not over O[1/pf] as in JLK. On the trivial-character component the factor is a non-unit even after inverting p. The same imprecision is in Kato's quotation of Rubin (Thm 15.2(2)); Rubin's elliptic units include all moduli g|f. The paper's later results are unaffected: Theorem 2.6 uses the equality only on ψ-components, f the conductor of ψ, where every such 𝔩 is ramified and the factors are units."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/units-kummer",
@@ -619,6 +639,17 @@
       "library": [],
       "planned": [],
       "note": "The tower-specific pseudo-null error calculation is extra to the generic Selmer/class-group comparison."
+    },
+    {
+      "id": "PAPER-BURUNGALE-TIAN-26/h2-euler-comparison",
+      "kind": "theorem",
+      "name": "Euler-factor comparison of the two H² modules",
+      "statement": "For K imaginary quadratic, p prime and nonzero f, write H^i_S=lim_{K'}H^i(O_{K'}[S^{-1}],Z_p(1)) over finite K⊂K'⊂K(p∞f). Then H¹_p=H¹_{pf}, and restriction gives an exact sequence 0→H²_p→H²_{pf}→⊕_{𝔩|f, 𝔩∤p}Z_p[[G_{p∞f}/D_𝔩]]→0, where D_𝔩 is the decomposition group of 𝔩, of Z_p-rank one. Each Z_p[[G_{p∞f}/D_𝔩]] is torsion but not pseudo-null, and its localization vanishes at every prime of R[1/p] lying on a component where the inertia group of 𝔩 acts nontrivially.",
+      "locator": "Implicit in Theorem 2.1 and footnote 3, p.4; Johnson-Leung–Kings §4.2 (purity as in Lemma 4.3) and Lemma 7.7",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by review. JLK's main conjecture concerns H²_{pf}; BT's h² is the class-group limit, which Kato (15.6.2) identifies with H²_p at height one. These Euler terms are why Theorem 2.1 needs correcting (item equivariant-main); they vanish on the ψ-components used in Theorem 2.6."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/newform",
@@ -650,8 +681,8 @@
       "id": "PAPER-BURUNGALE-TIAN-26/modular-representation",
       "kind": "construction",
       "name": "Kato's cohomological modular representation",
-      "statement": "For f of weight k≥2 and λ|p as above, V_{F_λ}(f) is the two-dimensional continuous G_Q-representation obtained from modular-curve cohomology with Sym^{k−2} coefficients and the f-projector, in Kato (8.3)'s cohomological convention. A stable O_λ-lattice T is chosen. Its determinant is ε_cyc^{1−k} ε_f^{-1}, not the dual convention ε_f ε_cyc^{k−1}.",
-      "locator": "§2.2.1, p.4; Kato (8.3), (14.10.2)",
+      "statement": "For f of weight k≥2 and λ|p as above, V_{F_λ}(f) is the two-dimensional continuous G_Q-representation the quotient of the étale cohomology of the open modular curve Y₁(N) with Sym^{k−2} coefficients by the Hecke ideal generated by the T(n)−a_n(f), in Kato's cohomological convention (6.3, 8.3). For k=2 and f attached to E/Q, V(f)≅V_pE^*≅V_pE(−1). A stable O_λ-lattice T is chosen. Its determinant is ε_cyc^{1−k} ε_f^{-1}, not the dual convention ε_f ε_cyc^{k−1}.",
+      "locator": "§2.2.1, p.4; Kato 6.3 (p.161), (8.3), (14.10.2)",
       "status": "planned",
       "library": [],
       "planned": [
@@ -738,9 +769,10 @@
       "library": [],
       "planned": [
         "SelmerIwasawaCohomology:L0",
-        "SelmerIwasawaCohomology:L3"
+        "SelmerIwasawaCohomology:L3",
+        "SelmerIwasawaCohomology:L2"
       ],
-      "note": ""
+      "note": "Kato 12.2 states only independence of the lattice T; the compatibilities with restriction, corestriction and specialization are routine additions not stated there."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/modular-h2-torsion",
@@ -839,7 +871,7 @@
       "kind": "definition",
       "name": "CM newform in the arithmetic normalization",
       "statement": "A CM newform f of weight k≥2 is the normalized cuspidal theta/automorphic-induction form attached to an algebraic Hecke character ψ of an imaginary quadratic K of infinity type (1−k,0), in Kato's convention.",
-      "locator": "§2.2.5, p.5; Kato Remark 12.8",
+      "locator": "§2.2.5, p.5; Kato Remark 12.8 and 15.10, p.260",
       "status": "planned",
       "library": [],
       "planned": [
@@ -866,7 +898,7 @@
       "id": "PAPER-BURUNGALE-TIAN-26/cm-zeta-bridge",
       "kind": "theorem",
       "name": "Elliptic units specialize to Beilinson–Kato elements",
-      "statement": "For a CM newform f induced from ψ, enlarge coefficients to a field L containing the values of ψ and the Hecke field. Under Kato's CM cohomological comparison (15.12.1) and realization map (15.11.3), z_{p∞f}⊗γ⊗(ζ_{p^n})_n^{−1} maps to z_{γ'}(f), where γ∈V_L(ψ) and γ' is its image in V_L(f). Here z_{p∞f} is the auxiliary-independent fraction-field elliptic-unit element of (15.6); its localized span is z_q at height one.",
+      "statement": "For a CM newform f induced from ψ, enlarge coefficients to a field L containing the values of ψ and the Hecke field. Under Kato's CM cohomological comparison (15.12.1) and his period-compatible comparison isomorphism (15.11.3) (not the Galois identification (15.11.2), which Kato says he never uses as such), z_{p∞f}⊗γ⊗(ζ_{p^n})_n^{−1} maps to z_{γ'}(f), where γ∈V_L(ψ) and γ' is its image in V_L(f). Here z_{p∞f} is the auxiliary-independent fraction-field elliptic-unit element of (15.6); its localized span is z_q at height one.",
       "locator": "Proof of Theorem 2.6, p.5; Kato (15.6.3)–(15.6.4), (15.16.1)",
       "status": "missing",
       "library": [],
@@ -877,7 +909,7 @@
       "id": "PAPER-BURUNGALE-TIAN-26/cm-descent",
       "kind": "theorem",
       "name": "Rational ray-tower to cyclotomic cohomology descent",
-      "statement": "In Kato §15, suppose the CM field K is not contained in Q(μ_{p∞}); let L contain the character and Hecke values, λ|p, and let q be the inverse image of a prime r of O_λ[[G_∞]] under the ψ-twisted ray-tower map. If 2 and #Δ_f are invertible in the residue field at r, both localized rings are regular and the map's kernel is principal, say (a). For a stable lattice T in V_{L_λ}(ψ), H²_ray(T)_q/a≅H²_cyc(Ind_K^Q T)_r and 0→H¹_ray(T)_q/a→H¹_cyc(Ind_K^Q T)_r→H²_ray(T)_q[a]→0 is exact.",
+      "statement": "In Kato §15, suppose the CM field K is not contained in Q(μ_{p∞}); let L contain the character and Hecke values, λ|p, and let f be the conductor of ψ, and let q be the inverse image of a prime r of O_λ[[G_∞]] under the surjection O_λ[[G_{p∞f}]]→O_λ[[G_∞]] induced by restriction (ψ enters only through the coefficient module T). If 2 and #Δ_f are invertible in the residue field at r, both localized rings are regular and the map's kernel is principal, say (a). For a stable lattice T in V_{L_λ}(ψ), H²_ray(T)_q/a≅H²_cyc(Ind_K^Q T)_r and 0→H¹_ray(T)_q/a→H¹_cyc(Ind_K^Q T)_r→H²_ray(T)_q[a]→0 is exact.",
       "locator": "Proof of Theorem 2.6 and footnote 4, p.5; Kato Lemma 15.13",
       "status": "missing",
       "library": [],
@@ -896,6 +928,17 @@
       "note": "Important at p=2 for K=Q(i): do not apply the disjoint-tower case to the congruent-number application."
     },
     {
+      "id": "PAPER-BURUNGALE-TIAN-26/equality-descent",
+      "kind": "theorem",
+      "name": "From the equivariant equality to Kato's equality at one-variable primes",
+      "statement": "In the setting of Kato Lemma 15.13 (K⊄Q(μ_{p∞}), f the conductor of ψ, r a prime of O_λ[[G_∞]] with p∉r, q its inverse image, A=O_λ[[G_{p∞f}]]_q a regular local ring whose kernel to O_λ[[G_∞]]_r is generated by a prime element a), and in its §15.14 variant, put M₁=H²_{p∞f}(T)_q and M₂=H¹_{p∞f}(T)_q/A·(z_{p∞f}⊗T(−1)). If length(M₁)_{q'}=length(M₂)_{q'} at every height-one prime q' of A, then length(H²(T~)_r)=length(H¹(T~)_r/Z(ψ,T)_r). Proof: apply Kato's Lemma 14.15 to M₁ and M₂ and use (15.13.1)–(15.13.2); the Ker(a|H²) terms cancel, and Ker(a|M₂)=0 because A is a UFD, H¹_{p∞f}(T)_q is torsion-free of rank one and z generates it at aA (Kato 15.15).",
+      "locator": "Proof of Theorem 2.6, p.5; not in Kato, whose §15 proves only the inequality (Prop. 15.17, p.265)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by review. BT write that Kato §15 shows the CM case of Conjecture 12.10 follows from the equivariant main conjecture. Kato proves the inequality from Rubin's inequality, and says he does not use Rubin's equality (p.251). This lemma is the missing equality step. The integrality of z_{p∞f}⊗T(−1) at q, implicit in Kato's own proof, must be checked in the blueprint."
+    },
+    {
       "id": "PAPER-BURUNGALE-TIAN-26/cm-kato-main",
       "kind": "theorem",
       "name": "Kato's rational main conjecture for every CM newform and prime",
@@ -904,7 +947,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No integral equality, p-adic L-function, residual irreducibility, good reduction or ordinary hypothesis is asserted."
+      "note": "No integral equality, p-adic L-function, residual irreducibility, good reduction or ordinary hypothesis is asserted. BT's proof overstates Kato: §15 gives only the inequality (Prop. 15.17). Equality needs equality-descent, with equivariant-main on the ψ-components."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/bk-finite-local",
@@ -954,7 +997,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Derive through global duality with the contragredient/conjugate modular representation and its H⁰/local terms. At p=2 Kato's integral exactness is only up to factors of 2; rationalization is mandatory."
+      "note": "Derive through global duality with the contragredient/conjugate modular representation and its H⁰/local terms. At p=2 Kato's integral exactness is only up to factors of 2; rationalization is mandatory. Kato's (14.9.3) is applied twice: first to the Tate-dual lattice T(k/2)^*(1), a lattice in V(f*)(k/2) by (14.10.1), whose Selmer term the hypothesis controls, giving H¹_f(Q,V(f*)(k/2))=0 with (14.9.5) and Prop. 14.12; then to T(k/2). BT compress this into one citation."
     },
     {
       "id": "PAPER-BURUNGALE-TIAN-26/central-specialization",
@@ -1037,7 +1080,8 @@
       "status": "planned",
       "library": [],
       "planned": [
-        "KatoEulerSystems:L3"
+        "KatoEulerSystems:L3",
+        "PadicHodgeRegulators:L1"
       ],
       "note": "Keep the p-imprimitive versus full L-value comparison in the proof. This is the source's central-value implication, not a claim that exp* has kernel H_f for every de Rham representation without qualifications."
     },
@@ -1158,12 +1202,14 @@
       "id": "PAPER-BURUNGALE-TIAN-26/conjugate-dual",
       "kind": "theorem",
       "name": "Duality convention for the conjugate modular form",
-      "statement": "For Kato's weight-k representation, V_{F_λ}(f*)≃Hom_{F_λ}(V_{F_λ}(f),F_λ)(1−k). Thus the Tate dual of V(f)(r) is the representation of f* with twist k−r, with coefficients transported when conjugation changes λ.",
+      "statement": "For Kato's weight-k representation, V_{F_λ}(f*)≃Hom_{F_λ}(V_{F_λ}(f),F_λ)(1−k), over the same F_λ (F is stable under complex conjugation, Kato 6.3). Thus the Tate dual of V(f)(r) is the representation of f* twisted by k−r.",
       "locator": "Proof of Theorem 3.1 via Kato (14.9.3); Kato (14.10.1), printed p.240",
       "status": "planned",
       "library": [],
       "planned": [
-        "AutomorphicGaloisRepresentations:R19.1"
+        "AutomorphicGaloisRepresentations:R19.1",
+        "ModularCurvesPartII:R14.3",
+        "KatoEulerSystems:L3"
       ],
       "note": "This comparison is required in the duality argument; it is not the assertion that every nebentypus representation is self-dual."
     },
@@ -1326,10 +1372,9 @@
         "RankZeroOneBSD:BSD.0"
       ],
       "items": [
-        "PAPER-BURUNGALE-TIAN-26/congruent-curve",
         "PAPER-BURUNGALE-TIAN-26/congruent-root-number"
       ],
-      "reason": "These concrete twist-model and root-number computations fit BSD.0's existing twists, local factors and functional equation. Add BT Theorem 1.2/footnote 2 as the consumer and Birch–Stephens as its arithmetic source. No converse is hidden inside the existing analytic-rank-zero forward theorem."
+      "reason": "This concrete root-number computation fits BSD.0's root-number parity and quadratic-twist local factors, which RS-30 keeps. Add BT footnote 2 as the consumer and Birch–Stephens as its arithmetic source, importing ModularForms Layer 6 (sign of the functional equation), GL2AutomorphicRepresentationsAndTransfer R16.3 (local ε-factors) and EllipticCurveModularity R29.6 (curve/newform L-function comparison). The congruent-number family is an instance of the planned quadratic twist. No converse is hidden inside the existing analytic-rank-zero forward theorem."
     },
     {
       "route": "source",
@@ -1351,8 +1396,6 @@
       "title": "Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures",
       "area": "iwasawa",
       "items": [
-        "PAPER-BURUNGALE-TIAN-26/ray-tower",
-        "PAPER-BURUNGALE-TIAN-26/ray-group-structure",
         "PAPER-BURUNGALE-TIAN-26/units-finite",
         "PAPER-BURUNGALE-TIAN-26/classes-finite",
         "PAPER-BURUNGALE-TIAN-26/units-torsionfree",
@@ -1363,9 +1406,11 @@
         "PAPER-BURUNGALE-TIAN-26/regular-prime-equality",
         "PAPER-BURUNGALE-TIAN-26/equivariant-main",
         "PAPER-BURUNGALE-TIAN-26/class-cohomology",
+        "PAPER-BURUNGALE-TIAN-26/h2-euler-comparison",
         "PAPER-BURUNGALE-TIAN-26/cm-zeta-bridge",
         "PAPER-BURUNGALE-TIAN-26/cm-descent",
         "PAPER-BURUNGALE-TIAN-26/cm-contained-descent",
+        "PAPER-BURUNGALE-TIAN-26/equality-descent",
         "PAPER-BURUNGALE-TIAN-26/cm-kato-main"
       ],
       "prerequisites": [
@@ -1378,14 +1423,14 @@
         "ArithmeticGaloisDuality"
       ],
       "reason": "The existing L0 states the cohomological equality, but L1–L4 prove different, restricted ordinary/family branches. The missing all-prime CM proof and its two-variable elliptic-unit input require new layers. NoncommutativeAndEquivariantIwasawa NE.6 and IntegralIwasawaTheory I.9 concern different arithmetic main conjectures and do not supply this theorem.",
-      "brief": "Design \"Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures\", with ModularIwasawaMainConjectures as its first prerequisite. The final theorem is BT Theorem 2.6: for every normalized CM newform f of weight k≥2, every rational prime p and every place λ|p of its Hecke field, char(H²_Iw(V(f)))=char(H¹_Iw(V(f))/Z(f)) over O_λ[[Gal(Q(μ_{p∞})/Q)]][1/p], in Kato's cohomological representation and étale extension conventions. Prove, as its arithmetic input, BT Theorem 2.1: for every imaginary quadratic K, nonzero ideal f and prime p, char(h²[1/p])=char((h¹/z)[1/p]) over Z_p[[Gal(K(p∞f)/K)]][1/p]. These are rational, not integral, equalities.\n\nImport the parent L0's formulation; Arithmetic Iwasawa theory and the main conjecture (IntegralIwasawaTheory I.1–I.2) for arithmetic towers and norm-compatible unit/class modules; Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.1–CM.4) for CM pairs, ideal actions and characters; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory Layer 13) for actual ray class fields; P-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L1/L4/L5) for completed rings, height-one divisors and specialization with Tor; Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L0/L3/L4) for Kummer/cohomological comparisons; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) for the common cochains and duality; and Kato classes and explicit reciprocity for modular forms (KatoEulerSystems L2–L4) for constructed Beilinson–Kato elements, signs, rational H¹ freeness, H² torsion and reciprocity.\n\nBuild the CM ray tower, prove G≃Z_p²×Δ_f without assuming p∤#Δ_f, and verify finite generation, torsion-freeness/generic rank of h¹, torsion of h² and h¹/z. Construct actual elliptic units with their admissibility, smoothing, norm and auxiliary-independence laws. Prove the Kummer and class/H² comparisons, retaining the p-place/Brauer pseudo-null corrections. Decompose Johnson-Leung–Kings §7.2's regular-prime proof and its Rubin/Huber–Kings inputs. Exclude the singular-prime μ condition from the rational target only because p has been inverted; do not assert the integral non-split case.\n\nProve Kato's actual elliptic-unit/Beilinson–Kato identity (15.16.1), with the normalized fraction-field elliptic-unit element and its height-one span. Carry out twisting, induction and one-variable descent through (15.13.1)–(15.13.2), retaining H²[a] and coefficient descent. Treat K⊂Q(μ_{p∞}) separately via §15.14; K=Q(i), p=2 is an acceptance test, not an excluded corner case. Do not infer specialization from equality of divisors alone.\n\nEvery definition needs a use-derived API and at least three mathematical tests in the subsequent blueprint: norm compatibility, auxiliary-ideal independence, coefficient extension, bad-prime factors and the dyadic finite factor. Export named rational equalities and the precise normalization dictionary to CMRankZeroConverse. No ordinary p-adic L-function, integral BSD formula, or extra prime restriction is a substitute for the stated endpoints."
+      "brief": "Design \"Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures\", with ModularIwasawaMainConjectures as its first prerequisite. The final theorem is BT Theorem 2.6: for every normalized CM newform f of weight k≥2, every rational prime p and every place λ|p of its Hecke field, char(H²_Iw(V(f)))=char(H¹_Iw(V(f))/Z(f)) over O_λ[[Gal(Q(μ_{p∞})/Q)]][1/p], in Kato's cohomological representation and étale extension conventions. Prove, as its arithmetic input, BT Theorem 2.1 in corrected form: for every imaginary quadratic K, nonzero ideal f and prime p, char((h¹/z)[1/p])=char(h²[1/p])·∏_{𝔩|f,𝔩∤p}char(Z_p[[G/D_𝔩]][1/p]) over Z_p[[Gal(K(p∞f)/K)]][1/p], equivalently with h² replaced by the Iwasawa H² over O_K[1/pf] as in Johnson-Leung–Kings. As printed, BT omit these Euler factors (z uses only the modulus-p^n f elliptic units); the printed form holds on the ψ-components used for Theorem 2.6, where every such 𝔩 is ramified. These are rational, not integral, equalities.\n\nImport the parent L0's formulation; Arithmetic Iwasawa theory and the main conjecture (IntegralIwasawaTheory I.1–I.2) for arithmetic towers and norm-compatible unit/class modules; Ray-class distributions and general automorphic constructions (AutomorphicPadicLFunctions L0) for the ray-class inverse limit and its dimension formula; Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields Layer 2) for ray class carriers; Kato classes and explicit reciprocity for modular forms (KatoEulerSystems L0) for Siegel functions and their distribution relations; Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.1–CM.4) for CM pairs, ideal actions and characters; Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory Layer 13) for actual ray class fields; P-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L1/L4/L5) for completed rings, height-one divisors and specialization with Tor; Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L0/L3/L4) for Kummer/cohomological comparisons; Global Galois duality and compact coefficients (ArithmeticGaloisDuality) for the common cochains and duality; and Kato classes and explicit reciprocity for modular forms (KatoEulerSystems L2–L4) for constructed Beilinson–Kato elements, signs, rational H¹ freeness, H² torsion and reciprocity.\n\nImport the CM ray tower and G≃Z_p²×Δ_f (without assuming p∤#Δ_f) from AutomorphicPadicLFunctions L0, and verify finite generation, torsion-freeness/generic rank of h¹, torsion of h² and h¹/z. Construct actual elliptic units with their admissibility, smoothing, norm and auxiliary-independence laws. Prove the Kummer and class/H² comparisons, retaining the p-place/Brauer pseudo-null corrections. Prove the localization sequence 0→H²(O[1/p])→H²(O[1/pf])→⊕_{𝔩|f,𝔩∤p}Z_p[[G/D_𝔩]]→0 of Iwasawa cohomology and the vanishing of its last term on components ramified at 𝔩; it links JLK's formulation to BT's class-group h². Decompose Johnson-Leung–Kings §7.2's regular-prime proof and its Rubin/Huber–Kings inputs. Exclude the singular-prime μ condition from the rational target only because p has been inverted; do not assert the integral non-split case.\n\nProve Kato's actual elliptic-unit/Beilinson–Kato identity (15.16.1), with the normalized fraction-field elliptic-unit element and its height-one span. Carry out twisting, induction and one-variable descent through (15.13.1)–(15.13.2) and coefficient descent. Kato §15 proves only the inequality (Prop. 15.17), so BT's \"it is shown in [12, §15]\" overstates it: prove the equality step separately. Apply Kato's Lemma 14.15 to both H²_q and H¹_q/A·z; the Ker(a|H²) terms of (15.13.1)–(15.13.2) cancel, and Ker(a|H¹_q/Az)=0 because A is regular local, a is prime, H¹_q is torsion-free of rank one and z generates it at aA (Kato 15.15). Treat K⊂Q(μ_{p∞}) separately via §15.14; K=Q(i), p=2 is an acceptance test, not an excluded corner case. Do not infer specialization from equality of divisors alone.\n\nEvery definition needs a use-derived API and at least three mathematical tests in the subsequent blueprint: norm compatibility, auxiliary-ideal independence, coefficient extension, bad-prime factors and the dyadic finite factor. Export named rational equalities and the precise normalization dictionary to CMRankZeroConverse. No ordinary p-adic L-function, integral BSD formula, or extra prime restriction is a substitute for the stated endpoints.\n\nCoordinate with the designs of InertAnticyclotomicCMMainConjecture (issue #1690, also a Part II of ModularIwasawaMainConjectures) and NonordinaryCMSpecialValues (issue #1689), which need the same Kato §15.5 elliptic-unit tower. Put the elliptic-unit and tower-module foundations in an early layer that does not depend on the rational main conjecture, owned by whichever design is written first and imported by the others. The integral two-variable equality those designs need is not an output here."
     },
     {
       "route": "part-ii",
       "parent": "RankZeroOneBSD",
       "roadmap": "CMRankZeroConverse",
       "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing",
-      "area": "diophantine",
+      "area": "iwasawa",
       "items": [
         "PAPER-BURUNGALE-TIAN-26/p-converse-property",
         "PAPER-BURUNGALE-TIAN-26/converse-k",
@@ -1412,10 +1457,12 @@
         "SelmerIwasawaCohomology",
         "ArithmeticGaloisDuality",
         "ComplexMultiplicationAndExplicitReciprocity",
-        "ArithmeticStatistics"
+        "ArithmeticStatistics",
+        "AutomorphicGaloisRepresentations",
+        "PadicHodgeRegulators"
       ],
       "reason": "The parent proves the analytic-to-arithmetic implication and selected leading-term formulas, not the Selmer-to-analytic converse. The maintainer's RankOneConverse design concerns Skinner's rank-one theorem, so it is an adjacent consumer, not a supplier of this all-prime CM rank-zero theorem.",
-      "brief": "Design \"Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing\", with RankZeroOneBSD as its first prerequisite. Prove BT Theorem 3.1: for a normalized CM newform f of even weight k≥2, any p and λ|p, H¹_f(Q,V_{F_λ}(f)(k/2))=0 implies L(k/2,f)≠0. Then prove Theorem 1.1: for E/K with K imaginary quadratic and CM by any order of K, and any prime p, corank_{Z_p}Sel_{p∞}(E/K)=0 implies L(1,E/K)≠0; include the descended E/Q conclusion for every p. State Remark 3.2 as a conditional theorem for non-CM even-weight newforms assuming the rational Kato equality, not an unconditional non-CM converse.\n\nImport Rank-zero and rank-one Birch–Swinnerton-Dyer theory (RankZeroOneBSD BSD.0–BSD.1) for actual analytic L-functions, twists and quadratic descent; the separately designed all-prime CM zeta-element branch (CMAllPrimeMainConjectures) for Theorem 2.6; Kato classes and explicit reciprocity for modular forms (KatoEulerSystems L2–L4) for the actual class, sign relation and regulator formula; Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L2–L4) and P-adic regulators and the local K₃ calculation (PadicHodgeRegulators L1) for finite local conditions; Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.3/R02.4/D7) for Euler characteristics and rational Poitou–Tate; Galois representations attached to modular and Hilbert modular forms (AutomorphicGaloisRepresentations R19.1) for Kato's realization and conjugate-dual comparison; Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.1/CM.4) for CM character factorization and the self-twist isogeny.\n\nSplit the proof into named statements: Selmer zero gives finite-level H² zero; Euler–Poincaré gives H¹ dimension one; define q by σ_c↦c^{−k/2}; prove the control/Tor comparison and localized H² vanishing; the main conjecture and γ^{(−1)^{k/2−1}}≠0 yield a specialized zeta basis; this class fails the finite condition at p; reciprocity gives nonzero central L-value. Match Kato's f* and p-omitted L-value with f and the full arithmetic L-function. At p=2 retain real-place integral errors before rationalization.\n\nFor the elliptic specialization, prove a typed Kummer/Bloch–Kato, CM decomposition and induction/Shapiro comparison with completed coefficients. The author version's p.6 display suppresses duals and the weight-two Tate twist: it must not become an unchecked literal isomorphism. The supplied extraction records only the required vanishing implication. Prove both doubling identities for descent to Q using the self-twist isogeny and rational ± decomposition, not an integral direct sum at p=2.\n\nFinally import Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics ST.0/ST.5), with the two source routes in this extraction. Combine Smith's relative-density-one corank-zero statement with p=2 to obtain BT Theorem 1.2 for E:y²=x³−x and positive squarefree n≡1,2,3 mod 8; establish density 1/2 among all positive squarefree n, without asserting the odd-parity analytic-rank-one half. Combine BKLOS's corank-zero input with p=3 to obtain Proposition 1.3 for CM E/K with 3 split or ramified, in the exact squareclass height H(t)=∏_{v_𝔭(t) odd}N𝔭, as a lower proportion at least 1/2. Include the cube-sum family E_n:x³+y³=2n over Q(ζ₃) and the positive-proportion non-descent consequence in Remark 3.6, with separate model and counting proofs.\n\nRequire use-derived APIs and at least three tests per new definition: p=2 and K=Q(i), ramified 3, nonmaximal CM orders, the correct half-weight/sign, wrong-parity vectors, lower versus exact density, and finite 2-Selmer rank versus 2∞-corank. No integral BSD valuation, unrestricted rank-r converse or positive-proportion cube-sum theorem is claimed."
+      "brief": "Design \"Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing\", with RankZeroOneBSD as its first prerequisite. Prove BT Theorem 3.1: for a normalized CM newform f of even weight k≥2, any p and λ|p, H¹_f(Q,V_{F_λ}(f)(k/2))=0 implies L(k/2,f)≠0. Then prove Theorem 1.1: for E/K with K imaginary quadratic and CM by any order of K, and any prime p, corank_{Z_p}Sel_{p∞}(E/K)=0 implies L(1,E/K)≠0; include the descended E/Q conclusion for every p. State Remark 3.2 as a conditional theorem for non-CM even-weight newforms assuming the rational Kato equality, not an unconditional non-CM converse.\n\nImport Rank-zero and rank-one Birch–Swinnerton-Dyer theory (RankZeroOneBSD BSD.0–BSD.1) for actual analytic L-functions, twists and quadratic descent; Modular forms (tauceti:TauCetiRoadmap/ModularForms Layer 7) for the analytic rank of the newform L-functions; Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves Layer 7) for isogeny invariance of Selmer coranks; the separately designed all-prime CM zeta-element branch (CMAllPrimeMainConjectures) for Theorem 2.6; Kato classes and explicit reciprocity for modular forms (KatoEulerSystems L2–L4) for the actual class, sign relation and regulator formula; Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L2–L4) and P-adic regulators and the local K₃ calculation (PadicHodgeRegulators L1) for finite local conditions; Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.3/R02.4/D7) for Euler characteristics and rational Poitou–Tate; Galois representations attached to modular and Hilbert modular forms (AutomorphicGaloisRepresentations R19.1) for Kato's realization and conjugate-dual comparison; Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.1/CM.4) for CM character factorization and the self-twist isogeny.\n\nSplit the proof into named statements: Selmer zero gives finite-level H² zero; Euler–Poincaré gives H¹ dimension one; define q by σ_c↦c^{−k/2}; prove the control/Tor comparison and localized H² vanishing; the main conjecture and γ^{(−1)^{k/2−1}}≠0 yield a specialized zeta basis; this class fails the finite condition at p; reciprocity gives nonzero central L-value. Match Kato's f* and p-omitted L-value with f and the full arithmetic L-function. At p=2 retain real-place integral errors before rationalization.\n\nFor the elliptic specialization, prove a typed Kummer/Bloch–Kato, CM decomposition and induction/Shapiro comparison with completed coefficients. The author version's p.6 display suppresses duals and the weight-two Tate twist: it must not become an unchecked literal isomorphism. The supplied extraction records only the required vanishing implication. Prove both doubling identities for descent to Q using the self-twist isogeny and rational ± decomposition, not an integral direct sum at p=2.\n\nFinally import Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics ST.0/ST.5), with the two source routes in this extraction. Combine Smith's relative-density-one corank-zero statement with p=2 to obtain BT Theorem 1.2 for E:y²=x³−x and positive squarefree n≡1,2,3 mod 8; establish density 1/2 among all positive squarefree n, without asserting the odd-parity analytic-rank-one half. Combine BKLOS's corank-zero input with p=3 to obtain Proposition 1.3 for CM E/K with 3 split or ramified, in the exact squareclass height H(t)=∏_{v_𝔭(t) odd}N𝔭, as a lower proportion at least 1/2. Include the cube-sum family E_n:x³+y³=2n over Q(ζ₃) and the positive-proportion non-descent consequence in Remark 3.6, with separate model and counting proofs.\n\nRequire use-derived APIs and at least three tests per new definition: p=2 and K=Q(i), ramified 3, nonmaximal CM orders, the correct half-weight/sign, wrong-parity vectors, lower versus exact density, and finite 2-Selmer rank versus 2∞-corank. No integral BSD valuation, unrestricted rank-r converse or positive-proportion cube-sum theorem is claimed.\n\nSkinner's rank-one converse (DESIGN-SKINNER, issue #951, RankOneConverse) is also a Part II of RankZeroOneBSD. The rank-r p-converse proposition (item p-converse-property) should have one owner: whichever design is written first defines it and the other imports it."
     }
   ],
   "supportingSources": [

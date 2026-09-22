@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-BURUNGALE-TIAN-26",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "KatoEulerSystems L2–L4 own the Beilinson–Kato classes, reciprocity and the rational cohomological theorems. Every Kato citation was checked on the page images of Astérisque 295: Theorem 12.4(1)–(2) has no hypothesis on p beyond k ≥ 2 (only 12.4(3) assumes p ≠ 2); Theorem 12.5(1) matches critical-reciprocity in f*, the sign (−1)^{k−r−1}χ(−1), (2πi)^{k−r−1}, the p-removed L-value and γ^±; the relation z_{ι(γ)}=−σ_{−1}z_γ of zeta-conjugation is printed in 12.5(1) and makes the (−1)^{k/2−1} component the one that survives at q. modular-h1-free is correctly a source addition to L4."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SelmerIwasawaCohomology L0/L2/L3/L4 own Kato's j_* étale Iwasawa cohomology, strict and Bloch–Kato conditions and the Kummer comparisons; (15.6.1) (units-kummer) was checked. lattice-independence now also cites L2's lattice-change formulas. (ModularIwasawaMainConjectures L0 says 'extension-by-zero' where Kato 8.2 uses j_*; the extraction's j_* is right, and the atlas text is the thing to fix.)"
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ArithmeticStatistics ST.0 owns the squarefree and squareclass families, heights and bounded-height finiteness; ST.5 is the source-scoped home for Smith's 2∞ distribution and the BKLOS consequence. The inputs were checked: BKLOS's height is exactly H(s)=∏_{v_𝔭(s) odd}N𝔭 and its Theorem 2.7 states only Mordell–Weil rank, the Selmer statement coming from §9.2 and §11 (as bklos-density says); Smith's Theorem 1.2 counts all nonzero integers, so BT's Theorem 3.3 needs the squarefree restriction and the 2-parity theorem (as smith-density says); 303,947 of the 607,926 squarefree n ≤ 10⁶ lie in the classes 1, 2, 3 mod 8. number-field-twist-height is now planned by ST.0 and stays in the route as a source item."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "IntegralIwasawaTheory I.1–I.2 own the cyclotomic towers and the norm-compatible unit and class modules. The route's items are planned; it records the full-tower versus Z_p-quotient distinction for the design."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accepted after a correction in place: congruent-curve is an instance of the planned quadratic twist (EllipticCurves Layer 5), so the route now carries only congruent-root-number. BSD.0 keeps root-number parity and quadratic-twist local factors after RS-30. PARI root numbers of ny²=x³−x agree with the item for all squarefree 0<n<400; the classification is for positive n (E^(−1)≅E has root number +1), now noted."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "ComplexMultiplicationAndExplicitReciprocity CM.1 and CM.4 own the ideal action, Hecke characters and Tate-module dictionary; the self-twist isogeny and the L-factorization over K are concrete comparisons in those layers."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "A Part II of ModularIwasawaMainConjectures is right: no layer plans elliptic units, the imaginary-quadratic main conjecture or Kato's §15 descent (the HE.7s stage records Rubin's elliptic-unit route as unresolved). Accepted after corrections in place. ray-tower and ray-group-structure are planned by AutomorphicPadicLFunctions L0 and left the route. Theorem 2.1 as printed omits the Euler factors at the primes of f prime to p; equivariant-main and regular-prime-equality now state the corrected equality, and the new item h2-euler-comparison gives the comparison of H² over O[1/p] and O[1/pf]. Kato §15 proves only the inequality (Prop. 15.17), so the new item equality-descent supplies the step to equality. The brief now imports AutomorphicPadicLFunctions L0, GlobalNumberFields Layer 2 and KatoEulerSystems L0, and asks for a single owner of the elliptic-unit foundations shared with the Burungale–Kobayashi–Ota designs InertAnticyclotomicCMMainConjecture (#1690) and NonordinaryCMSpecialValues (#1689). The maintainer may prefer to merge this Part II with #1690."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "A Part II of RankZeroOneBSD is right: the parent proves the analytic-to-arithmetic direction only, and no layer owns the Selmer-to-analytic converse or the twist-density applications. Accepted after corrections in place: area \"diophantine\" is not a galaxy id and is now \"iwasawa\" (the parent's galaxy); AutomorphicGaloisRepresentations and PadicHodgeRegulators, imported by the brief, were added to the prerequisites; the brief also imports ModularForms Layer 7 and EllipticCurves Layer 7, and asks for a single owner of p-converse-property shared with Skinner's RankOneConverse design (#951), also a Part II of this parent."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5) of the extraction by Codex (codex-a71f92); this session did no part of it. arXiv 2506.03465v2 was read in full (SHA-256 as recorded). Kato's Astérisque 295 (SHA-256 as recorded) was checked on the page images for every cited statement; Johnson-Leung–Kings (arXiv 0804.2828v2), BKLOS and Smith I were read at the cited places, with matching SHA-256. The extraction is faithful and careful: hypotheses, the rational normalization, Kato's cohomological convention and the dyadic and contained-field cases are all right. Corrections in place: 4 status changes (3 missing → planned, 1 missing → planned inside its route); extra planned citations on 5 items and one extra library citation; 8 statements, locators or notes corrected against Kato; two items (equivariant-main, regular-prime-equality) restated because BT Theorem 2.1 as printed omits Euler factors at the primes of f prime to p; two items added (h2-euler-comparison, equality-descent); routes 5, 7 and 8 amended (route 8's area was not a galaxy id). Counts are now 3 library, 48 planned, 41 missing; every missing item is routed exactly once. Mistakes found in the paper are listed in the report for the errata job ERRATA-PAPER-BURUNGALE-TIAN-26 (issue #1701), which owns this file's sourceIssues."
+}
