@@ -21,7 +21,9 @@
       "Helfgott–Venkatesh: Theorem 3.8 and proof, Definition 1, Corollaries 3.9/3.11, Proposition 3.10 and adjacent remarks; preceding local-repulsion and spherical-code proof interiors still to audit.",
       "Tsimerman arXiv v3: §4 negligible-factor definition/Theorem 4.7; §5 Theorem 5.1 through Corollary 5.7 with proofs; §6 quartic/cubic argument. Earlier analytic/class-formation proof closure not claimed.",
       "Sedunova v1: entire eight-page source read, with particular attention to Theorem 1, Lemmas 1–2 and proof §§2–3; compilation date August 2018 differs from the June 2015 arXiv version stamp.",
-      "ChatGPT Pro cgp-0922-b7d49a: selected §§2–4 of the February 2017 Taniguchi copy, with the basis formula visually checked; Klüners–Wang v2 Theorem 2.1 and full proof pp.3–4 read and visually checked, plus first-page version stamp. No new PDF byte hash, fresh complete reading of §§5–7, or acquisition of the final publisher text is claimed."
+      "ChatGPT Pro cgp-0922-b7d49a: selected §§2–4 of the February 2017 Taniguchi copy, with the basis formula visually checked; Klüners–Wang v2 Theorem 2.1 and full proof pp.3–4 read and visually checked, plus first-page version stamp. No new PDF byte hash, fresh complete reading of §§5–7, or acquisition of the final publisher text is claimed.",
+      "ChatGPT Pro cgp-0922-d4f8c2: the February 2017 main-paper author copy, all parsed pages including references, with the p.4 volume display visually checked; Bombieri–Pila selected determinant foundations pp.1–6 and all of §3 pp.10–17 read, with printed pp.3,14,17 visually checked. The original-source formulas are distinguished from the new BP1–BP6 replacement arguments. No new PDF byte hash, full reading of unrelated prerequisite interiors, or acquisition of the final 2020 publisher revision is claimed.",
+      "Codex codex-a71f92 (2026-09-22): freshly downloaded and hashed the Taniguchi author copy and Oxford Bombieri–Pila PDF; hashes match the inherited records. Read the entire 13-page main author copy including references, BP pp.1–6 and all §3 pp.10–17; visually inspected main p.4 and BP pp.14,17. Did not read BP pp.7–9 or §4 as part of this checkpoint. Exact Mathlib Taylor, interpolation, Vandermonde, root-count and mean-value declarations read at the prescribed pin."
     ],
     "files": [
       {
@@ -60,7 +62,7 @@
       "locator": "Theorem 5, author preprint p.17 (PDF page index 16)",
       "accessed": "2026-09-21",
       "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
-      "accessNote": "Fresh bytes retrieved and hashed. Selected proof path §2 pp.1–6 and complete §3 pp.10–17 read. Exact-constant rounding remains G7."
+      "accessNote": "Fresh bytes retrieved and hashed. Selected proof path §2 pp.1–6 and complete §3 pp.10–17 read. Exact-constant rounding remains G7. Sixth checkpoint (2026-09-22): selected proof path reread; BP1–BP6 now supply an explicit integer rounding and singular-point cover. The quoted byte hash remains the earlier worker’s measurement, not a fresh download hash. Seventh checkpoint: fresh hash again matches; BP1–BP6 are integrated with explicit library-adapter boundaries, so the earlier unwritten-rounding status is historical."
     },
     "pins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -103,9 +105,27 @@
         "accessed": "2026-09-22",
         "provenance": "Auxiliary source first added in the fourth-checkpoint report. ChatGPT Pro cgp-0922-b7d49a reread Theorem 2.1 and its full proof and visually checked PDF pp.3–4; the first-page version stamp and arXiv version history confirm v2. No PDF byte hash was measured in this session. This later source is not attributed to the original 2017 proof or asserted to be its final published text."
       }
+    ],
+    "freshSourceChecks": [
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-22",
+        "url": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
+        "sha256": "bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec",
+        "scope": "All 13 pages, including references; p.4 visual."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-22",
+        "url": "https://people.maths.ox.ac.uk/pila/Ovals.pdf",
+        "sha256": "a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408",
+        "scope": "pp.1–6 and §3 pp.10–17; pp.14,17 visual."
+      }
     ]
   },
-  "summary": "Partial fifth checkpoint: 119 stable-identified items (22 library, 8 planned, 89 missing), retaining all 110 inherited IDs and prior provenance. Synchronizes the fourth-checkpoint trace-metric/primitive-prefix basis proof and the Klüners–Wang quadratic-relative replacement, including finite/infinite ramification and strong induction for the general exponent. Generic basis reduction is owned once in GN.5; ordinary Hilbert class fields are imported from the existing upstream plan. The seven literal/acquisition diagnostics remain unrouted, and G0 plus G3–G10 prevent complete status. Earlier proof interiors and their unresolved obligations are preserved.",
+  "summary": "Partial seventh checkpoint: 129 stable-identified items (27 library, 8 planned, 94 missing). Retains all 119 inherited IDs, integrates the five BP1–BP6 determinant proof nodes and four proposed source issues from #1817, and adds five exact Mathlib supplier nodes with explicit adapter boundaries. Six routes cover 87 missing items exactly once; seven diagnostic targets stay unrouted. Thirty-three definitions/constructions retain APIs and tests. No complete extraction, final-publisher-version agreement, independent review or Lean formalization is claimed.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
@@ -450,7 +470,7 @@
       "statement": "Let C be an absolutely irreducible affine plane curve of total degree d ≥ 2, and let N ≥ exp(d^6). The number of integral points on C in [0,N] × [0,N] is at most N^(1/d) exp(12 sqrt(d log N log log N)).",
       "locator": "Bombieri–Pila, The number of integral points on arcs and ovals, Theorem 5, author preprint p.17; cited in BSTTTZ §4 p.6",
       "status": "missing",
-      "note": "The original theorem and its local concluding proof were read and the formula was visually checked in a PDF screenshot. No smoothness or coefficient-height hypothesis is present. The full preceding determinant-method proof remains to decompose."
+      "note": "The selected original proof path consists of the extracted determinant, auxiliary-curve and derivative-partition items. The sixth-checkpoint supplement BP1–BP6 adds the integer-parameter proof of constant 11 and an explicit 8d^3 cover of the integer points, including singular/boundary points; log(8d^3)≤sqrt(d log N loglog N) gives constant 12. This replacement does not assume smoothness of C or coefficient-height bounds. Proper Bézout, analytic branch continuation and exact generic supplier matching remain G7; no Lean implementation or independent review is claimed."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-epsilon",
@@ -627,19 +647,19 @@
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
       "kind": "theorem",
       "name": "Large derivative implies short interval",
-      "statement": "If |g^(i)(x)|≤i! A^(i/k)N^(1−i) for i<k and |g^(k)(x)|≥k! A N^(1−k) on a compact interval, with A,N>0, then its length is at most 2 A^(−1/k)N.",
+      "statement": "Let k≥1 be an integer, A,N>0, a≤b, and g∈C^k([a,b]). If |g^(i)(x)|≤i! A^(i/k)N^(1−i) for 0≤i<k and |g^(k)(x)|≥k! A N^(1−k) throughout [a,b], then b−a≤2 A^(−1/k)N.",
       "locator": "Bombieri–Pila Lemma 7 p.14",
       "status": "missing",
-      "note": "Taylor with remainder; normalized length is length·A^(1/k)/N. The displayed proof prints the opposite exponent in its definition of lambda; retain the corrected substitution."
+      "note": "The sixth-checkpoint supplement BP2 gives the complete Taylor argument with t=(b−a)A^(1/k)/N. The identity t^k−Σ_(i=1)^(k−1)t^i−2=(t−2)Σ_(i=0)^(k−1)t^i gives t≤2, including k=1 and the degenerate interval. Source issue E1 records the printed opposite exponent. Exact Taylor supplier matching and Lean elaboration remain unclaimed."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
       "kind": "theorem",
       "name": "Coefficient-uniform algebraic graph bound",
-      "statement": "For an absolutely irreducible degree-d relation F(x,f(x))=0, d≥2, a smooth graph with |f′|≤1 over a subinterval of [0,N] has at most N^(1/d)exp(11√(d log N loglog N)) integral points when N≥exp(d^6).",
+      "statement": "Let d≥2 be an integer, N≥exp(d^6), and f a C-infinity real function on a neighbourhood of a compact interval I⊂[0,N]. If |f′|≤1 on I and F(x,f(x))=0 for an absolutely irreducible real plane polynomial F of total degree d, its graph over I has at most N^(1/d)exp(11√(d log N loglog N)) integral points.",
       "locator": "Bombieri–Pila Theorem 4 pp.15–17",
       "status": "missing",
-      "note": "The recurrence G(N)≤HN^α+KG(λN), Kλ^α=1/2, precedes optimization. Check rounding of the integer δ and the printed p≤q typo (actual q≤p) before transcribing exact constants; proof closure remains G7."
+      "note": "The sixth-checkpoint supplement BP1–BP5 supplies integer-only normalization, contraction stopping, the H+K inequalities and delta=floor(2 sqrt(log N/(d loglog N))). It proves the exact constant 11 conditional on the extracted determinant/partition inputs. Use q≤p, not the printed reverse inequality. G7 now concerns exact generic supplier matching and independent verification, not an unwritten integer-rounding argument. No Lean proof or independent acceptance is claimed."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition",
@@ -648,7 +668,7 @@
       "statement": "An absolutely irreducible degree-d plane curve in a square decomposes into O(d²) smooth graph pieces, each with slope at most one relative to one coordinate axis, together with O(d²) exceptional points.",
       "locator": "Bombieri–Pila Theorem 5 proof p.17",
       "status": "missing",
-      "note": "Explicitly count singular points, slope ±1 points and boundary intersections. Smoothness is a condition on pieces, not on the original curve."
+      "note": "The source claims a stronger O(d²) whole-curve decomposition, whose exact singular/end-point treatment is not verified by the sixth checkpoint. The new bp-explicit-graph-cover instead proves an 8d³ cover of the finite integer-point set and suffices for constant 12; it is not asserted to prove this stronger original item. Keep this original target for possible later refinement, not as a premise of the replacement route."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/explicit-selmer",
@@ -1287,6 +1307,114 @@
       "locator": "Fourth-checkpoint supplement in the companion report, C4; replacement completion of the general-exponent route in BSTTTZ §4",
       "status": "missing",
       "note": "Strong induction on n, not an assumption that every field has a quadratic tower to Q. With α_d=1/2−1/(2d), an index-two subfield F of degree m=n/2≥2 gives h_2(K)≪D_K^η D_F^(2α_m+2η)≤D_K^(α_m+2η), since D_F²≤D_K. The gain α_n−α_m=1/(2n)>0 and η=ε/4 suffice. For m=1 use the quadratic base case; for quartics with a quadratic subfield apply that base estimate with a suitably smaller η to both factors. This does not establish the sharper cubic exponent or the remaining quartic resolvent branch. Owner: EffectiveBoundsClassGroupTorsion. Tests: degree three has no index-two branch; degree four uses m=2; no quadratic subfield means the norm-curve branch, not a nonexistent induction step."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-normalization",
+      "kind": "theorem",
+      "name": "Integer-preserving normalization of a bounded-slope graph",
+      "statement": "Let N≥1 and let g be C-infinity near a compact interval I of length at most N, with |g′|≤1. If its graph has at least two integral points, restrict I to the interval between their least and greatest integer abscissae. Integer translations of the two coordinates then put the new interval inside [0,N] and the graph inside [0,N]×[−N,N], preserving every counted integral point, total degree and absolute irreducibility of a defining polynomial.",
+      "locator": "BP1 of the sixth-checkpoint supplement; expands Bombieri–Pila Theorem 4 proof, author preprint pp.15–16.",
+      "status": "missing",
+      "note": "Choose the vertical integer nearest the midpoint of the range; the new absolute value is ≤N/2+1/2≤N. Zero/one-point cases are separate. No arbitrary real translation of the lattice is allowed. For 0<N<1 use at most one integer abscissa instead. This is a lemma about the existing real interval and polynomial carriers, not a new definition. Tests: noninteger original interval endpoints; graph y=x+M for large integer M; N=1 and the zero/one-point branches. Owner: IntegralPointDeterminantMethods."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-contraction-iteration",
+      "kind": "theorem",
+      "name": "Stopping a determinant recurrence below lattice scale",
+      "statement": "Let G:(0,∞)→[0,∞), α>0, H≥0, K≥1 and 0<λ<1 with Kλ^α=1/2. Suppose G(x)≤Hx^α+KG(λx) for x≥1 and G(x)≤1 for 0<x<1. Then G(N)≤(2H+K)N^α≤2(H+K)N^α for every N≥1.",
+      "locator": "BP3 of the sixth-checkpoint supplement; Bombieri–Pila Theorem 4 recurrence, author preprint pp.16–17.",
+      "status": "missing",
+      "note": "For the least m with λ^mN<1, iterate m times. The residual term K^m equals 2^(−m)λ^(−mα) and is ≤2^(1−m)KN^α≤KN^α because λ^mN≥λ. The geometric sum is ≤2. Tests: N=1; λ^(m−1)N=1 with strict termination only at the next step; H=0. This numerical recurrence uses existing real powers and finite sums; no new generic owner."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "kind": "theorem",
+      "name": "Uniform determinant recurrence constants",
+      "statement": "Let integers d≥2 and δ≥2d satisfy D=d(δ−d+1), p=d(δ(δ+1)−d(d−1))/2 and 0≤q≤p. Put α=2p/(D(D−1)), K=2d^4δ², λ=(2K)^(−1/α), A=(2/λ)^(D−1), X=(D^p A^q)^(2/(D(D−1))) and H=4d^5δ³X. Then Kλ^α=1/2 and H+K≤δ^(9dδ)/2. Consequently a graph-count function satisfying the preceding recurrence obeys G(N)≤N^(1/d)exp(4 log(N)/δ+9dδ log δ) for N≥1.",
+      "locator": "BP4 of the sixth-checkpoint supplement; Bombieri–Pila Theorem 4 proof, author preprint pp.16–17.",
+      "status": "missing",
+      "note": "Use 1/d≤α≤1/d+4/δ≤2, D≤dδ and X≤(DA)^α. The full inequality chain is in BP4, not a numerical approximation. Choose the worst case q=p when taking a maximum over polynomials, so H is uniform in their leading monomials. Derivative partitions give at most K intervals; the small-norm contribution is ≤HN^α and the remaining pieces have length ≤λN. Source issue E2 corrects the printed p≤q. Tests: d=2, δ=4; every possible leading Y-degree; the q=0 and q=p endpoints."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-optimization",
+      "kind": "theorem",
+      "name": "Integer parameter giving the Bombieri–Pila constant eleven",
+      "statement": "For an integer d≥2 and N≥exp(d^6), put L=log N, ell=log L, S=sqrt(d L ell), x=2 sqrt(L/(d ell)) and δ=floor x. Then δ≥2d and 4L/δ+9dδ log δ≤11S.",
+      "locator": "BP5 of the sixth-checkpoint supplement; repairs the unstated integer rounding in Bombieri–Pila Theorem 4, author preprint p.17.",
+      "status": "missing",
+      "note": "The proof is analytic, not inferred from testing: δ≥3x/4 and δ≥L^(1/4); E(t)=4L/t+9dt log t has E′(t)≥(17/36)d ell+9d>0 on [δ,x]. Thus E(δ)≤E(x)=S[11+(9/ell)log(4/(d ell))]≤11S. BP5 proves all threshold inequalities, using log d≤d/2. Source issue E3 records the gap, not a false theorem. Tests: d=2 and log N=64; both sides of integer jumps of x; large d at the threshold."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+      "kind": "theorem",
+      "name": "A singularity-safe cover for the integral-point theorem",
+      "statement": "For N>0 and an absolutely irreducible real plane polynomial F of total degree d≥2, its integral zeros in [0,N]² are covered by at most 8d³ sets, each either a singleton or contained in a C-infinity graph on a compact subinterval of [0,N] with absolute slope at most one relative to one coordinate axis. Each graph satisfies F, or F with coordinates exchanged. For N≥exp(d^6), the constant-eleven graph bound therefore implies the constant-twelve plane-curve bound.",
+      "locator": "BP6 of the sixth-checkpoint supplement; replacement for the abbreviated final passage of Bombieri–Pila Theorem 5, author preprint p.17.",
+      "status": "missing",
+      "note": "Use proper Bézout on F_Y, F_X+F_Y and F_X−F_Y, and horizontal boundary intersections. There are at most Q=3d(d−1)+2d critical abscissae. Each open strip has at most d simple analytic root graphs; invert steep ones, and restrict each to the compact hull of its finitely many integer points. Critical vertical fibers contribute at most d points each. The total is ≤d(Q+1)+d(Q+2)≤8d³; log(8d³)≤sqrt(d log N loglog N) absorbs it. No smoothness at the original singular endpoints is assumed. Generic proper-intersection/Bézout stays with SF.5; exact root-continuation and analytic inverse-function supplier matching remains G7. This does not prove the stronger O(d²) whole-curve claim. Tests: singular cusp Y²=X³; steep graphs needing axis exchange; integral points on critical/boundary vertical fibers. Owner: IntegralPointDeterminantMethods."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
+      "kind": "theorem",
+      "name": "Taylor remainder on a nondegenerate real interval",
+      "statement": "For f:ℝ→ℝ, n∈ℕ and a≠b, ContDiffOn ℝ (n+1) f (uIcc a b) implies that some c∈uIoo a b satisfies f(b)−taylorWithinEval f n (uIcc a b) a b = iteratedDeriv (n+1) f c · (b−a)^(n+1)/(n+1)!.",
+      "locator": "Generic input to Bombieri–Pila selected proof path pp.1–6,14–17; Mathlib/Analysis/Calculus/Taylor.lean:348–363",
+      "status": "library",
+      "library": [
+        "mathlib:taylor_mean_remainder_lagrange_iteratedDeriv"
+      ],
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Set n=k−1 in bp-large-derivative-interval; a=b is a separate trivial case. This exactly supplies the generic remainder, not BP's scaled inequality. Converting taylorWithinEval coefficients to ordinary endpoint derivatives requires the smooth-neighbourhood/within-derivative adapter; it is not checked by this citation. Tests: k=1; a=b bypass; f(x)=x^k. No Lean instantiation run."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+      "kind": "theorem",
+      "name": "Existence and uniqueness of polynomial interpolation",
+      "statement": "For a field F, finite index set s, nodes v injective on s and values r, Lagrange.interpolate s v r evaluates to r(i) at v(i), has polynomial degree strictly less than #s, and is the unique polynomial with those properties.",
+      "locator": "Generic input to Bombieri–Pila selected proof path pp.1–6,14–17; Mathlib/LinearAlgebra/Lagrange.lean:295–379",
+      "status": "library",
+      "library": [
+        "mathlib:Lagrange.eval_interpolate_at_node",
+        "mathlib:Lagrange.degree_interpolate_lt",
+        "mathlib:Lagrange.eq_interpolate_iff"
+      ],
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Generic interpolation for the derivative-determinant proof, not the derivative-witness or factorial estimate. The empty set uses degree(0)=bottom, not a false natural-degree <0 assertion. Distinct-node hypotheses must be retained; repeated graph abscissae are removed before interpolation. Tests: empty set gives zero; one node gives its constant value; duplicate nodes cannot invoke the uniqueness theorem. Reuse Lagrange.interpolate, do not define another carrier."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-vandermonde-supplier",
+      "kind": "theorem",
+      "name": "Vandermonde determinant and distinct-node criterion",
+      "statement": "For a commutative ring R and v:Fin n→R, det(Matrix.vandermonde v)=∏i∏j>i(v(j)−v(i)). If R is an integral domain, this determinant is nonzero exactly when v is injective.",
+      "locator": "Generic input to Bombieri–Pila selected proof path pp.1–6,14–17; Mathlib/LinearAlgebra/Vandermonde.lean:219–235",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.det_vandermonde",
+        "mathlib:Matrix.det_vandermonde_ne_zero_iff"
+      ],
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. The matrix has entries v(i)^j. This supplies the algebraic factor of bp-derivative-determinant; it does not supply divided differences, derivative witnesses or the analytic bound. Tests: n=0 has empty determinant/product one; two nodes give v(1)−v(0); repeated nodes give zero."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-root-supplier",
+      "kind": "theorem",
+      "name": "Too many distinct roots force a polynomial to vanish",
+      "statement": "For a polynomial p over a commutative integral domain, a finite type ι and an injective f:ι→R, if p.eval(f(i))=0 for every i and p.natDegree<Fintype.card ι, then p=0. Consequently a nonzero univariate polynomial cannot vanish on a finite set of more than its natural degree distinct elements.",
+      "locator": "Generic input to Bombieri–Pila selected proof path pp.1–6,14–17; Mathlib/Algebra/Polynomial/Roots.lean:740–755",
+      "status": "library",
+      "library": [
+        "mathlib:Polynomial.eq_zero_of_natDegree_lt_card_of_eval_eq_zero"
+      ],
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Apply contrapositively to the specialized polynomial F(a,Y) in bp-explicit-graph-cover. The adapter must prove this specialization is nonzero and its degree ≤d. Absolute irreducibility and total degree d≥2 exclude the vertical linear component; root counting alone does not. Also supplies the polynomial-branch case in bp-derivative-partition. Tests: nonzero constant has no zeros; p=X^d has one distinct zero; p=0 must be excluded from the counting corollary."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-mean-value-supplier",
+      "kind": "theorem",
+      "name": "Derivative bound gives a Lipschitz estimate on a convex set",
+      "statement": "For 𝕜 real or complex, a normed 𝕜-vector space G, convex s⊂𝕜, f differentiable at every point of s, and ‖deriv f x‖≤C on s, any x,y∈s satisfy ‖f y−f x‖≤C‖y−x‖.",
+      "locator": "Generic input to Bombieri–Pila selected proof path pp.1–6,14–17; Mathlib/Analysis/Calculus/MeanValue.lean:728–733",
+      "status": "library",
+      "library": [
+        "mathlib:Convex.norm_image_sub_le_of_norm_deriv_le"
+      ],
+      "note": "Codex codex-a71f92 read the actual declaration statement at Mathlib pin 082e2d37e8b0463410cdb532e111cd43d5a66174. Specialize to ℝ→ℝ, C=1 and a closed interval for bp-integer-normalization. Its smooth-neighbourhood assumption gives differentiability at the endpoints, avoiding an unjustified within/ordinary-derivative conversion. The estimate bounds the range diameter; compactness and nearest-integer translation are further inputs, not conclusions of this theorem. Tests: constant graph; slope-one graph; singleton interval."
     }
   ],
   "prerequisites": [
@@ -1406,10 +1534,15 @@
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-partition",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-normalization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-contraction-iteration",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-optimization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover"
       ],
       "reason": "Catalogue screen finds no coefficient-uniform algebraic-curve counting owner. RP.4 is finiteness, ED is certified algorithms, and LD.6 is Pila–Wilkie outside the algebraic part. Retain the inherited candidate, now with selected original proof interiors.",
-      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately."
+      "brief": "Prove original Bombieri–Pila Theorem 5: for an absolutely irreducible real plane curve of total degree d≥2 and N≥exp(d^6), the integer-point count in [0,N]^2 is at most N^(1/d)exp(12 sqrt(d log N loglog N)); deduce the coefficient-uniform epsilon form for all N≥1 and integer translates. The curve may be singular. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), SF.0/SF.5, for plane curves and proper intersection/Bézout, and Mathlib determinants, interpolation, derivatives and Taylor/mean-value machinery. Build monomial evaluation kernels, scaled derivative norms, Vandermonde determinant estimates, the integer determinant separation argument, auxiliary covers, leading-term avoidance, derivative-level partitions, the short-interval lemma, recurrence and bounded-slope arc decomposition. Keep generic linear algebra and algebraic geometry with their existing suppliers. Correct the lambda substitution and q≤p typo in the author preprint; resolve integer rounding of delta with the displayed constants (G7), including singular/boundary exceptional points. Tests include Y²=X³ (singular degree three), coefficient translations, polynomial branches with constant higher derivatives, the smallest allowed d,N, and repeated abscissae. Suggested file: TauCeti/NumberTheory/IntegralPointBounds/DeterminantMethod.lean. Sedunova’s printed uniformity is not a supplied positive-characteristic analogue; G9 must be resolved separately. Sixth-checkpoint refinement: use bp-integer-normalization, bp-contraction-iteration and bp-recurrence-constants, then delta=floor(2 sqrt(log N/(d loglog N))) with the derivative-monotonicity proof in bp-integer-optimization to obtain constant 11 without changing the threshold. For constant 12 use the explicit 8d^3 finite-integer-point graph cover rather than assuming the stronger O(d^2) whole-curve decomposition. Retain singular/critical fibers, horizontal boundaries, noninteger interval endpoints, inverse steep graphs and the strict N<1 stopping case. E1–E3 record the source-level corrections; G7 now retains exact generic supplier matching and independent verification. Earlier wording asking for an unwritten rounding proof is superseded by this refinement. Seventh checkpoint: import the five exact Mathlib supplier nodes (Taylor, interpolation, Vandermonde, finite polynomial roots and mean value). Their consumer adapters remain explicit; none supplies Bézout or global analytic branch continuation."
     },
     {
       "route": "part-ii",
@@ -1477,32 +1610,40 @@
     }
   ],
   "verification": {
-    "agent": "ChatGPT Pro",
-    "session": "cgp-0922-b7d49a",
+    "agent": "Codex",
+    "session": "codex-a71f92",
     "issue": 1420,
+    "date": "2026-09-22",
     "continues": [
       1636,
       1641,
       1650,
-      1695
+      1695,
+      1760,
+      1817
     ],
-    "date": "2026-09-22",
-    "baseResultBlob": "e89464b8c926b8bfcc2676e7130c18c94ddca883",
+    "baseResultBlob": "ceec6960b756d275354f00c58e429cf0e498c583",
     "baseReportBlob": "48f7b052bab8574c85fc0ef4d6ddb467fa56edc1",
-    "stableIds": "All 110 inherited item IDs retained; 104 inherited item objects unchanged. Nine items from the fourth-checkpoint supplement integrated. No inherited library or planned item was reclassified.",
-    "libraryBoundary": "Actual Mathlib covolume_integerLattice and covolume_idealLattice statements reread in Discriminant/Basic.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174. Reviewed AUDIT-02 and REV-AUDIT-02 distinguish implemented covolumes/first Minkowski from absent successive-minimum and reduced-basis theory. Other inherited library citations retain earlier-worker provenance; they were not all independently reread in this session.",
-    "ownership": "Read the complete completed-EffectiveBounds roadmap and GN atlas record; read ClassFieldTheory purpose/ownership and its Layers 11–13 including the ordinary Hilbert-class-field contract. Generic basis reduction is a source of GN.5, consuming GN.0/GN.1. Arithmetic applications stay in the inherited EffectiveBounds Part II. The combined library-coverage.json reader returned empty content, so reviewed split GN audit records were used. Inherited catalogue-wide collision screening is preserved in verificationHistory, not claimed freshly rerun here.",
-    "reportBoundary": "The companion Markdown is unchanged: its fourth-checkpoint supplement contains the full integrated proofs. Its historical remarks that these nine entries are not yet in JSON describe checkpoint #1695 and are superseded by this JSON and the updated handoff.",
-    "checks": "Local Python checks passed: baseline Git-blob hash equals e89464b8c926b8bfcc2676e7130c18c94ddca883; UTF-8 JSON parse; all 110 old IDs retained; only the six enumerated inherited item objects changed; original source hashes, pins, prerequisites and prior verification retained; 119 items with status counts 22/8/89, six routes, 82 missing items uniquely routed and seven explicit unrouted diagnostics; all 33 definitions/constructions retain API outlines and three tests. Exact rational recurrence tested through index 30 for A=1,3/2,7; the Z/4×Z/2 involution test passed; exhaustive square-zero F2 matrices in dimensions 0–4 gave counts [1,1,4,22,316] and the rank bound; nonsplit C4 and 99 exact tower-exponent comparisons passed. These are regressions, not general proofs. The full-catalogue check_paper.py and intake checks were not run locally because no clone/full catalogue could be acquired; the unchanged Swarm submission check runs both on the submitted PR. Their CI outcome must be read from the actual workflow, not inferred from these local checks.",
-    "lean": "No Lean artifact requested or compiled. No new implementation or independent-review acceptance is claimed.",
+    "baseHandoffBlob": "651de4b35222e8d83dbf6fcccc8892c2d87d19e8",
+    "stableIds": "All 119 inherited IDs retained; all 22 inherited library and 8 planned objects unchanged. Only the four missing item objects in the previous guarded patch replaced. Five missing theorem nodes plus five generic library theorem nodes added. Historical report remains contiguous.",
     "modifiedInheritedItems": [
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
-      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic"
-    ]
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition"
+    ],
+    "libraryBoundary": "Five actual generic declaration statements read at the prescribed Mathlib pin. No other inherited library classification was independently re-audited. Supplier edges record missing adaptations and do not promote consuming theorems to library status.",
+    "ownership": "Read SF.5 and GN.0/GN.1/GN.5 reviewed coverage entries, full SchemeAndStackFoundations and GN roadmaps, and the full completed EffectiveBounds roadmap. Reuse the inherited owner split and six routes; no new owner/collision-screen claim. Generic intersection theory stays SF.5, basis reduction GN.5, arithmetic applications downstream.",
+    "checks": "PASS on full repository snapshot a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7: current scripts/check_paper.py reports ok using data/atlas.json and every proposed roadmap JSON; intake.py check-files reports 3 files, 0 problems. Custom checks verified both original blob hashes, all 119 old IDs, exactly the four authorized missing-item replacements, all 30 inherited library/planned objects, unchanged original source hashes/pins/prerequisites, retained verification history and entire historical report, 129 items with status counts 27/8/94, six routes with 87 missing targets routed once and seven unrouted diagnostics, all 33 unchanged definition/construction API/test notes, 17 acyclic selected edges and four unreviewed source issues. Finite regression rerun passed 19,720 exact monomial cases, Taylor k=1..30, piece counts d=2..300, 1,188 threshold/floor-jump tests and 348 H+K chains using mpmath 1.3.0 at 80 decimal digits. Finite tests and schema checks are not mathematical proofs.",
+    "lean": "No Lean artifact requested or compiled. This is an unreviewed paper-extraction checkpoint, not formalization.",
+    "catalogueSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+    "checkerBlobs": {
+      "paper": "41644c9677abd46f97d293a20e66c1e4c3e20a23",
+      "sourceIssues": "da67776033cefc24d185ffd47b2c74d3e9167099",
+      "intake": "8cda90feed8d138c422d1d5e02ff86a28d2b8ebc",
+      "atlas": "37f2add06983c206067d1104e0f40a839cc3961a",
+      "coverage": "5e708cfc74a51b10e62149113872fe4e00eb5846"
+    }
   },
   "gaps": [
     {
@@ -1551,7 +1692,7 @@
     },
     {
       "id": "G7",
-      "detail": "Bombieri–Pila proof selected path read; integer delta rounding and exact constants 11/12 remain to certify, with corrected lambda substitution and q≤p. Complete the generic supplier audit and tests at the blueprint stage."
+      "detail": "BP1–BP6 and five new proof nodes now supply integer-preserving normalization, recurrence stopping, the H+K inequalities, integer rounding with constant 11 and the 8d^3 finite-point cover yielding constant 12. Five generic Mathlib suppliers are now matched exactly: Taylor remainder, polynomial interpolation, Vandermonde determinant, finite distinct-root counting and the mean-value norm inequality. Remaining: Taylor within/ordinary endpoint conversion; interpolation-to-derivative witnesses and factorial bounds; rectangular evaluation-rank/kernel API; specialization nonzeroness and degree adapters; proper Bézout supplier closure in SF.5; smooth root continuation across each open strip and inverse-graph construction; and independent review of the replacement arguments. The stronger O(d^2) whole-curve claim is not verified. No Lean implementation is claimed."
     },
     {
       "id": "G8",
@@ -1567,7 +1708,7 @@
     },
     {
       "id": "G10",
-      "detail": "Still not a complete extraction of every proof input. The fourth-checkpoint basis and quadratic-relative replacements are now synchronized, but exact generic supplier matching, torus class-group infrastructure, HV and hyperelliptic descent interiors, del Pezzo geometry, the counting originals and the existing source-issue documentation obligations remain. G0 and G3–G9 are not closed by this synchronization."
+      "detail": "Still not a complete extraction of every proof input. The fourth-checkpoint basis and quadratic-relative replacements are now synchronized, but exact generic supplier matching, torus class-group infrastructure, HV and hyperelliptic descent interiors, del Pezzo geometry, the counting originals and the existing source-issue documentation obligations remain. G0 and G3–G9 are not closed by this synchronization. Sixth checkpoint adds structured sourceIssues E1–E4 and the five G7 proof nodes. This is not a complete source-issue inventory: earlier relative-genus, hyperelliptic, characteristic-two and function-field-counting observations still require their own verified records and source-version checks. G0 and G3–G9 remain distinct; the new determinant arguments do not close the entire paper. Seventh checkpoint integrates the five proof nodes and four source issues, plus five separately scoped generic library nodes; this reduces selected G7 supplier ambiguity only."
     }
   ],
   "verificationHistory": [
@@ -1591,6 +1732,213 @@
       ],
       "ownership": "Read full GN, EffectiveBounds, ED, RP, ST, FA and JacobianChallenge documents; selected complete AlgebraicCurves Layer 5 and EllipticCurves Layers 6–7; catalogue-wide text search of 211 atlas records, proposed roadmaps and reserved IDs. Couveignes routing read in full. None of the four extension/new candidate IDs is an installed roadmap. Remaining torus/HV proof-interior ownership is G3/G4.",
       "checks": "Unmodified check_paper.py passed with the full available catalogue; intake check-files reported three files and zero problems. Stable-ID, unique-route, explicit-gap and 31-definition API/three-test checks passed. Finite quotient-module, projective-orbit, parabola and monomial checks passed; exact constants were checked numerically, not proved in Lean. No Lean artifact requested or compiled."
+    },
+    {
+      "agent": "ChatGPT Pro",
+      "session": "cgp-0922-b7d49a",
+      "issue": 1420,
+      "continues": [
+        1636,
+        1641,
+        1650,
+        1695
+      ],
+      "date": "2026-09-22",
+      "baseResultBlob": "e89464b8c926b8bfcc2676e7130c18c94ddca883",
+      "baseReportBlob": "48f7b052bab8574c85fc0ef4d6ddb467fa56edc1",
+      "stableIds": "All 110 inherited item IDs retained; 104 inherited item objects unchanged. Nine items from the fourth-checkpoint supplement integrated. No inherited library or planned item was reclassified.",
+      "libraryBoundary": "Actual Mathlib covolume_integerLattice and covolume_idealLattice statements reread in Discriminant/Basic.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174. Reviewed AUDIT-02 and REV-AUDIT-02 distinguish implemented covolumes/first Minkowski from absent successive-minimum and reduced-basis theory. Other inherited library citations retain earlier-worker provenance; they were not all independently reread in this session.",
+      "ownership": "Read the complete completed-EffectiveBounds roadmap and GN atlas record; read ClassFieldTheory purpose/ownership and its Layers 11–13 including the ordinary Hilbert-class-field contract. Generic basis reduction is a source of GN.5, consuming GN.0/GN.1. Arithmetic applications stay in the inherited EffectiveBounds Part II. The combined library-coverage.json reader returned empty content, so reviewed split GN audit records were used. Inherited catalogue-wide collision screening is preserved in verificationHistory, not claimed freshly rerun here.",
+      "reportBoundary": "The companion Markdown is unchanged: its fourth-checkpoint supplement contains the full integrated proofs. Its historical remarks that these nine entries are not yet in JSON describe checkpoint #1695 and are superseded by this JSON and the updated handoff.",
+      "checks": "Local Python checks passed: baseline Git-blob hash equals e89464b8c926b8bfcc2676e7130c18c94ddca883; UTF-8 JSON parse; all 110 old IDs retained; only the six enumerated inherited item objects changed; original source hashes, pins, prerequisites and prior verification retained; 119 items with status counts 22/8/89, six routes, 82 missing items uniquely routed and seven explicit unrouted diagnostics; all 33 definitions/constructions retain API outlines and three tests. Exact rational recurrence tested through index 30 for A=1,3/2,7; the Z/4×Z/2 involution test passed; exhaustive square-zero F2 matrices in dimensions 0–4 gave counts [1,1,4,22,316] and the rank bound; nonsplit C4 and 99 exact tower-exponent comparisons passed. These are regressions, not general proofs. The full-catalogue check_paper.py and intake checks were not run locally because no clone/full catalogue could be acquired; the unchanged Swarm submission check runs both on the submitted PR. Their CI outcome must be read from the actual workflow, not inferred from these local checks.",
+      "lean": "No Lean artifact requested or compiled. No new implementation or independent-review acceptance is claimed.",
+      "modifiedInheritedItems": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic"
+      ]
+    },
+    {
+      "agent": "ChatGPT Pro",
+      "session": "cgp-0922-d4f8c2",
+      "issue": 1420,
+      "date": "2026-09-22",
+      "continues": [
+        1636,
+        1641,
+        1650,
+        1695,
+        1760
+      ],
+      "baseResultBlob": "ceec6960b756d275354f00c58e429cf0e498c583",
+      "baseReportBlob": "48f7b052bab8574c85fc0ef4d6ddb467fa56edc1",
+      "stableIds": "All 119 inherited IDs retained, all 22 library and eight planned item objects unchanged, five new theorem items. The four modified inherited missing items are enumerated below. Source-file hashes, pins, prerequisites and earlier verification are preserved; the entire previous Markdown report is preserved as a contiguous historical text.",
+      "modifiedInheritedItems": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-arc-decomposition"
+      ],
+      "libraryBoundary": "No new library or planned classification is made. The oversized data/library-coverage.json reader returned empty content; the relevant accepted REV-AUDIT-01 review was read instead, along with the SchemeAndStackFoundations atlas record and the complete upstream AlgebraicCurves roadmap. Exact generic determinant, Taylor, real-root continuation and Bézout declarations remain G7, rather than being inferred from the audit or a name search.",
+      "ownership": "Read WORKERS, PROTOCOL including sections 15/16/18, BROWSER_AGENTS, UPSTREAM_GUIDE, expansion PROTOCOL, the live issue/handoff and complete inherited result/report. Read complete completed-EffectiveBounds and AlgebraicCurves roadmaps and SchemeAndStackFoundations stage descriptions. The five lemmas refine the inherited IntegralPointDeterminantMethods candidate only. Generic algebraic geometry remains with SF.5; no new roadmap, intersection library or stronger O(d^2) proof is claimed. Earlier catalogue-wide screens retain their historical attribution.",
+      "checks": "Local baseline UTF-8 Git-blob hashes matched both current files exactly. JSON parse, all stable IDs, preservation of library/planned objects and provenance, unique routing, explicit gaps, definition API/tests and source-issue schema were checked. Reproducible script in the report passed 19,720 exact monomial cases, Taylor identities for k=1..30, piece-count inequalities for d=2..300, 1,188 high-precision threshold/floor-jump cases and 348 recurrence-constant chains. Finite regressions are not proofs. The unmodified full-catalogue check_paper.py and intake check-files were not run locally: no full repository clone/catalogue was available. The full-catalogue check must run on the PR that integrates this patch; its real outcome must be read from the workflow and recorded in the PR discussion, not inferred from these tests.",
+      "lean": "No Lean artifact requested or compiled. No independent review or complete-source acceptance is claimed.",
+      "integrationBoundary": "This is the prior worker's handoff verification, preserved as attributed history from #1817; it is not the present worker's check result."
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E1",
+      "kind": "misprint",
+      "locator": "Bombieri–Pila, The number of integral points on arcs and ovals, Oxford author preprint, Lemma 7 proof, printed p.14 (PDF index 13).",
+      "printed": "lambda = ell A^(-1/k)/N",
+      "correction": "Use lambda = ell A^(1/k)/N, where ell is the interval length. Then Taylor gives lambda^k≤lambda^(k−1)+...+lambda+2.",
+      "reason": "Divide the Taylor inequality by N. The k-th-order term is ell^k A/N^k, the k-th power of the corrected dimensionless quantity. The polynomial identity in supplement BP2 proves lambda≤2, retaining the stated interval bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
+        "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
+        "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E2",
+      "kind": "misprint",
+      "locator": "Bombieri–Pila Oxford author preprint, Theorem 4 proof, printed p.17 (PDF index 16), just before the estimate for H+K.",
+      "printed": "Since p ≤ q",
+      "correction": "Since q ≤ p.",
+      "reason": "For the selected monomials X^i Y^j, q=Σj while p=Σ(i+j), and i≥0. Since A>1 this gives A^q≤A^p, the direction needed in the next estimate. Supplement BP4 writes out the entire subsequent bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
+        "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
+        "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E3",
+      "kind": "gap",
+      "locator": "Bombieri–Pila Oxford author preprint, Theorem 4 proof, printed p.17 (PDF index 16), final choice of the monomial cutoff δ.",
+      "printed": "δ = 2 sqrt(log N/(d log log N))",
+      "correction": "Take the floor of the displayed real number and prove the threshold and error inequalities; supplement BP5 proves δ≥2d and 4 log N/δ+9dδ log δ≤11 sqrt(d log N log log N).",
+      "reason": "The monomial cutoff used to define D and p must be an integer. The printed real choice alone does not supply an admissible cutoff or justify the exact constant. Monotonicity of the objective between its floor and that real choice proves that rounding down preserves the estimate; the stated theorem and threshold need not change.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
+        "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
+        "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches."
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
+      "kind": "misprint",
+      "locator": "BSTTTZ, Taniguchi author copy dated 18 February 2017, proof of Theorem 2.1, printed p.4 (PDF index 3), product formula for the volume of B.",
+      "printed": "sqrt(pi) |Disc(K)|^(1/(2n)) |alpha|_v^(-1/m)",
+      "correction": "For every complex place, square the whole displayed factor: its disc contributes pi R_v^2, not sqrt(pi) R_v. The body volume is 2^r pi^s sqrt(D_K)/N(I).",
+      "reason": "A complex coordinate is two real dimensions. With K=Q(i), I=O_K and alpha=1, the radius is sqrt(2); the disc area is 2pi rather than sqrt(2pi). The latter is below the Minkowski threshold 4 in the ordinary metric, whereas the correct area is above it. The existing balanced-body item already uses the corrected formula, so the theorem and its route are unchanged.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Web search on 2026-09-22: \"Bounds on 2-torsion in class groups\" corrigendum",
+        "Read and visually inspected https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf, printed p.4. No existing correction located in the search.",
+        "AMS final article/PDF paths and the author publication page were attempted but did not yield the final revision; this record makes no claim about its typography."
+      ]
+    }
+  ],
+  "sourceIssueBoundary": "E1–E4 refer only to the exact author-copy versions and locators given. The known=new marker means that the recorded limited searches found no existing correction, not a priority claim. These are proposed source-issue records, not independently verified errata; the final BSTTTZ publisher text remains unacquired. No authors were contacted. These records and their search history originate with cgp-0922-d4f8c2 (#1817). Codex codex-a71f92 checked the cited PDF displays and correction arguments but did not act as their independent reviewer or repeat all novelty searches.",
+  "selectedProofEdges": [
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-taylor-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "adapter": "Taylor n=k−1; separate equal endpoints and adapt within coefficients."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-interpolation-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "adapter": "Distinct abscissae; derivative-witness/factorial adapter remains."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-vandermonde-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-determinant",
+      "adapter": "Exact algebraic determinant factor, not the analytic estimate."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-root-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+      "adapter": "Specialized F(a,Y) must be nonzero and have degree at most d."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-finite-root-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-partition",
+      "adapter": "Polynomial branch: exclude identically zero level equations before root count."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-mean-value-supplier",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-normalization",
+      "adapter": "Smooth-neighbourhood endpoint differentiability; range diameter at most N."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-normalization",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "adapter": "Preserve the lattice when normalizing each recurrence interval."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-derivative-partition",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "adapter": "At most K=2d^4δ^2 threshold intervals."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-large-derivative-interval",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "adapter": "The first failed derivative condition gives interval length at most λN."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-auxiliary-cover",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "adapter": "Small-derivative interval auxiliary-curve count."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-proper-intersection",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "adapter": "At most dδ points on each proper auxiliary intersection."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-standard-monomials",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "adapter": "D,p formulas; q≤p uniformly in the leading monomial."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-contraction-iteration",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "adapter": "Stop strictly below lattice scale; control residual K^m."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-recurrence-constants",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "adapter": "Uniform H,K,λ and exponent bound."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-integer-optimization",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "adapter": "Admissible integer δ and the exact constant 11."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-graph-count",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
+      "adapter": "Apply to the finite-point cover's compact graph pieces."
+    },
+    {
+      "from": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-explicit-graph-cover",
+      "to": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
+      "adapter": "At most 8d^3 pieces, absorbed by the extra exponential factor."
+    }
+  ],
+  "selectedProofEdgesBoundary": "Selected G7 supplier/consumer DAG only, not a complete proof graph for the entire paper. An edge names a dependency, not an implemented adapter.",
+  "prerequisiteStatusBoundary": "The inherited prerequisites and their why fields are preserved as historical source-reading records. In the first entry, the earlier G7 rounding/constants gap is superseded by integrated BP1–BP6 and the current G7 detail; final-source and supplier/adapter gaps remain as specified there."
 }
