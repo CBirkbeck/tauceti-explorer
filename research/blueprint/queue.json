@@ -1582,7 +1582,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1111"
   },
   {
    "id": "REV-PAPER-NGODAC-21",
@@ -6902,8 +6903,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "pending",
+   "note": "released on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
