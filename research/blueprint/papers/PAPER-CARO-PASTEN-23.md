@@ -139,3 +139,20 @@ The intentionally withheld IDs are:
 - `PAPER-CARO-PASTEN-23/genus-three-source`
 
 Resume with G0, then the weighted Frobenius/branch correction G1, corrected formal construction G4, and original suppliers G6. Reconcile changed statements before promoting this checkpoint to complete.
+
+## Continuation: G4 closed by finite differences (Claude Code, cc-fb70e5, 22 September 2026)
+
+The paper's formal-group series are correct once Ψ^[m] is read as the m-th finite difference
+
+  Δ^m = Σ_{i=0}^{m} (−1)^{m−i} C(m,i) [i],
+
+the series of Bourbaki III.5.3 that the paper cites, and the logarithm sign is (−1)^{m−1}. The printed statements (Ψ^[m] = [m], sign (−1)^m) are false. They remain withheld as `formal-low-degree-source` and `formal-log-source`, and are recorded as errata E7.
+
+Two new items, `formal-finite-difference` and `formal-finite-difference-vanishing`, carry the argument. Over K, [i] = Exp(i·Log), so each degree-d coefficient of [i] is a polynomial in i of degree ≤ d, whose top coefficient is Exp's coefficient. Taking finite differences gives:
+- Δ^m has no terms of degree < m (the corrected Lemma 7.4);
+- the degree-m part of Δ^m is m!·(the degree-m part of Exp);
+- by Newton interpolation and differentiation at i = 0, Log = Σ ((−1)^{m−1}/m) Δ^m.
+
+Since Δ^m has coefficients in R, m!·c_α ∈ R and |b_α| ≤ max_{m≤|α|}|1/m|. These are exactly the inputs of Lemmas 7.5–7.7, and `formal-denominators`, `formal-log-radius` and `formal-exp-bound` now carry these proofs. An exact check, for the law with logarithm t+at²+bt³ through degree 4, confirms the corrected series.
+
+The invariant-derivation route of G4 remains a valid alternative but is no longer needed. The new items join the integral formal Lie theory Part II route.
