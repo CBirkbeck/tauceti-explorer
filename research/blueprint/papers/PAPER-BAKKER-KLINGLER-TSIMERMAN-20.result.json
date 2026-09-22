@@ -19,7 +19,7 @@
     ],
     "version": "Full author PDF read together with official erratum (JAMS36(2023), DOI10.1090/jams/1025). Published metadata checked; full typeset collation remains G1."
   },
-  "summary": "The corrected paper gives fixed-maximal-compact semialgebraic arithmetic quotient structures and compatible morphisms, finite Siegel containment for period maps, R_an,exp definability of period maps on algebraic bases and algebraicity of individual exceptional Hodge-locus components. This partial extraction imports existing Hodge carriers and reduction/variation owners, proposes two Part II extensions, and records the remaining source and proof-interface gaps.",
+  "summary": "The corrected paper gives fixed-maximal-compact semialgebraic arithmetic quotient structures and compatible morphisms, finite Siegel containment for period maps, R_an,exp definability of period maps on algebraic bases and algebraicity of individual exceptional Hodge-locus components. This partial extraction imports existing Hodge carriers and reduction/variation owners, proposes two Part II extensions, and records the remaining source and proof-interface gaps. A continuation recorded seven source mistakes in sourceIssues: four new (E1–E4) and three already corrected by the official erratum (E5–E7). It also repaired the proof of Lemma 4.5.",
   "items": [
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/pure-hodge",
@@ -913,7 +913,7 @@
       "kind": "construction",
       "name": "Boundary with local branches",
       "statement": "The boundary of an n-manifold with corners consists of pairs (x,b), where b is a local codimension-one boundary component at x. It is an (n−1)-manifold with corners with a weakly analytic immersion i_X to X; i_X need not be injective at corners.",
-      "locator": "AppendixA.1; A.3 corrects the dimension printed in A.1",
+      "locator": "Appendix A.1; A.1 prints dimension n, corrected to n − 1 as in the proof of Proposition A.2 (sourceIssues E4)",
       "status": "missing",
       "prerequisites": [
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/analytic-corners"
@@ -2828,20 +2828,23 @@
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rational-curve-test",
       "kind": "theorem",
       "name": "Curve test for a global rough-polynomial bound",
-      "statement": "Let f be roughly polynomial and g roughly monomial on Σ_n. Suppose |f|≤C_τ|g| on every nonempty intersection with a complex affine curve α₁z₁+β₁=⋯=α_(n₀)z_(n₀)+β_(n₀), remaining coordinates fixed in H, for each 1≤n₀≤n, positive rational α_i and real β_i. Then one constant C bounds |f|/|g| on all Σ_n.",
+      "statement": "For R ≥ 1 let Σ_n^R = {|Re z_i| < R, Im z_1 ≥ ⋯ ≥ Im z_n > 1}; Σ_n is the part with 0 < Re z_i < 1. Let f be roughly polynomial and g roughly monomial on every Σ_n^R. Suppose that for every R, |f| ≤ C_{τ,R}|g| on every nonempty intersection of Σ_n^R with a complex affine curve α₁z₁+β₁=⋯=α_(n₀)z_(n₀)+β_(n₀), remaining coordinates fixed in H, for each 1≤n₀≤n, positive rational α_i and real β_i. Then one constant C bounds |f|/|g| on Σ_n. The R-uniform hypothesis repairs the printed proof (sourceIssues E2).",
       "locator": "Lemma4.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/rough-ring-laws"
       ],
       "proofSteps": [
-        "Clear roughly monomial denominators and reduce to a Laurent polynomial bounded relative to one monomial.",
-        "Taylor-expand the restricted analytic coefficients in q₁; the discarded terms decay exponentially relative to all required monomials on the ordered sector.",
-        "Eliminate positive powers of y₁ using fixed-tail curves, then use finitely many rational slopes and real offsets to isolate coefficients by interpolation and induct on n."
+        "Clear roughly monomial denominators and reduce to g = 1 with f ∈ O[x, y, y⁻¹]. Expand f = Σ_j a_j x_1^{j_1} y_1^{j_2}. Taylor-expand the coefficients in t_1 = e(z_1): the terms that depend on t_1 are O(y_1^A e^{−2πy_1}), faster than every monomial, so the a_j may be taken independent of z_1.",
+        "Fixing the other variables along fixed-tail curves forces j_2 ≤ 0. Since y_1 ≥ y_2, it is then enough to bound |a_j| y_2^{j_2}.",
+        "For m ≥ 1 and c ∈ {0, …, r_1}, substitute z_1 = mz_2 + c. This maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}, and affine curves of the lemma's shape to affine curves of the same shape (α_1 = 1, α_2 = m, β_2 = c). So f_{m,c} satisfies the hypothesis on every Σ_{n−1}^{R′}, and induction gives f_{m,c} ≪ 1 on Σ_{n−1}. The printed proof applies this with the hypothesis only on Σ_n, where the substituted sets are empty for c ≥ 1 (E2).",
+        "The r_1-th finite difference in c of Σ_j a_j (mx_2 + c)^{j_1}(my_2)^{j_2} keeps exactly the j_1 = r_1 terms, multiplied by r_1!. A Vandermonde combination over r_2 + 1 distinct m isolates a_{j_max} y_2^{r_2} ≪ 1. Subtract that term and repeat for each j in lexicographic order.",
+        "On Σ_n, |x_1| < 1, so |f| ≤ Σ_j |a_j| y_1^{j_2} ≪ 1.",
+        "Application (§4.5): the curvewise reducedness comes from Schmid's one-variable Corollary 5.29 and the norm estimates of Theorem 4.8. These are uniform for real parts in any bounded interval (Theorem 1.5 is stated on H^n_{R,η} for all R), so they supply the R-uniform hypothesis. Certifying that uniformity in the cited sources belongs to G3."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "L",
-      "note": "The printed substitutions z₁=mz₂+i can leave 0<Re z₁<1. A buffered/subdivided-horizontal-strip interpolation lemma must justify those steps; this proof-interface gap remains explicit."
+      "note": "Repaired by the continuation (Claude Code cc-fb70e5): the printed proof's substitutions leave Σ_n (E2). The R-uniform hypothesis makes the induction valid."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/monodromy-weight-filtration",
@@ -3452,7 +3455,7 @@
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "A",
-      "note": "The printed assertion of full reducedness in the unchanged ordered basis is too strong: reversing the basis for diag(1,T) preserves determinant-product control but violates the ordering uniformly as T→∞. The quantitative off-diagonal proof still needs the original reduction-theory audit."
+      "note": "The printed assertion of full reducedness in the unchanged ordered basis is too strong: reversing the basis for diag(1,T) preserves determinant-product control but violates the ordering uniformly as T→∞. The quantitative off-diagonal proof still needs the original reduction-theory audit. Recorded as sourceIssues E3."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/determinant-weight-bound",
@@ -3607,7 +3610,7 @@
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "H",
-      "note": "The printed whole-open-polydisk formulation is not adopted without shrinking; see local-outer-boundary-obstruction."
+      "note": "The printed whole-open-polydisk formulation is false (sourceIssues E1); see local-outer-boundary-obstruction."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/global-period-definability",
@@ -3649,7 +3652,7 @@
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "H",
-      "note": "Derived scope check, not a published author erratum and not a counterexample to Theorem1.3 on an algebraic base."
+      "note": "Recorded as sourceIssues E1: printed Theorem 4.1 claims the whole punctured polydisk. This is not in the official erratum and is not a counterexample to Theorem 1.3 on an algebraic base."
     },
     {
       "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/symmetric-space-canonical",
@@ -4246,6 +4249,14 @@
       "accessed": "2026-09-22",
       "pages": 24,
       "readExtent": "PDF11–14 and18–24, printed863–866 and870–875; image of printed870 inspected for norm-square formulas. Section4 proof text read but missing OCR formulas prevent full proof verification."
+    },
+    {
+      "name": "arxiv-v2",
+      "url": "https://arxiv.org/pdf/1810.04801v2",
+      "sha256": "9f997104c775342fa49ba54f4b4782650f1da07a3bdc1717be977f86cc4ddcdc",
+      "accessed": "2026-09-22",
+      "pages": 23,
+      "readExtent": "Continuation (cc-fb70e5): Theorem 4.1, Lemma 4.5 and proof, §4.5 and Appendix A.1 compared with the author copy; same wording."
     }
   ],
   "baseline": {
@@ -4321,17 +4332,18 @@
     {
       "id": "G3",
       "scope": "Hodge analytic prerequisites",
-      "remaining": "Schmid Lemma4.5 and Corollary5.29 proofs plus the nilpotent-orbit statement were read, but the full nilpotent-orbit/SL₂ proof and metric-decrease inputs were not. Kashiwara selected pages include splitting and norm statements, distributivity proof and Section4 proof text, but several OCR formulas and the Section1/2.5/3 inputs require image verification and complete proof decomposition. Cattani–Kaplan original inputs are unacquired. The faithful adjoint/central-cover representation, finite-level and compact-target extension adapters remain open."
+      "remaining": "Schmid Lemma4.5 and Corollary5.29 proofs plus the nilpotent-orbit statement were read, but the full nilpotent-orbit/SL₂ proof and metric-decrease inputs were not. Kashiwara selected pages include splitting and norm statements, distributivity proof and Section4 proof text, but several OCR formulas and the Section1/2.5/3 inputs require image verification and complete proof decomposition. Cattani–Kaplan original inputs are unacquired. The faithful adjoint/central-cover representation, finite-level and compact-target extension adapters remain open. Continuation: this gap now also covers the R-uniformity of Schmid Corollary 5.29 and Theorem 4.8 (CKS 5.21 / Kashiwara 3.4.1–3.4.2) on sectors with |Re z_i| < R, needed by the repaired Lemma 4.5 (E2)."
     },
     {
       "id": "G4",
       "scope": "Rough-polynomial curve test",
-      "remaining": "Lemma4.5 substitutes z₁=mz₂+i in a domain initially written 0<Re z₁<1. Supply buffered/subdivided horizontal rectangles and the exact finite interpolation argument preserving all coefficient domains. This records a proof-interface gap, not a claim that the lemma is false."
+      "remaining": "Resolved by the continuation (Claude Code cc-fb70e5). The gap is recorded as sourceIssues E2, and the lemma is restated and proved with the curve hypothesis on the sectors Σ_n^R for all R (item rational-curve-test). What remains is to check, in the cited sources, the R-uniformity of Schmid Corollary 5.29 and of the CKS/Kashiwara norm estimates; that now belongs to G3. Original text: Lemma4.5 substitutes z₁=mz₂+i in a domain initially written 0<Re z₁<1. Supply buffered/subdivided horizontal rectangles and the exact finite interpolation argument preserving all coefficient domains. This records a proof-interface gap, not a claim that the lemma is false.",
+      "status": "resolved"
     },
     {
       "id": "G5",
       "scope": "Reducedness and local-scope repairs",
-      "remaining": "The printed basis-change assertion needs a finite basis permutation: determinant/product bounds do not control an arbitrary fixed order. The draft states that corrected interface and gives an explicit diagonal example; write its quantitative full proof. The whole-open-polydisk statement must be restricted to smaller buffered disks; verify all finite angular/face charts for Theorem1.5 with arbitrary η and global finite-level descent."
+      "remaining": "The printed basis-change assertion needs a finite basis permutation: determinant/product bounds do not control an arbitrary fixed order. The draft states that corrected interface and gives an explicit diagonal example; write its quantitative full proof. The whole-open-polydisk statement must be restricted to smaller buffered disks; verify all finite angular/face charts for Theorem1.5 with arbitrary η and global finite-level descent. Continuation: the printed basis-transfer sentence and Theorem 4.1 are recorded as sourceIssues E3 and E1."
     },
     {
       "id": "G6",
@@ -4600,7 +4612,115 @@
       "check_paper.py: pass",
       "intake.py check-files: 3 files, 0 problems",
       "Custom dependency/API/route/provenance/finite diagnostic checks: pass",
-      "Fresh-main input, ownership and deliverable concurrency checks: pass"
+      "Fresh-main input, ownership and deliverable concurrency checks: pass",
+      "Continuation (cc-fb70e5): sourceIssues E1–E7 checked at their locators in the author copy (sha b559c652…), arXiv v2 and the erratum (sha 86d76a5d…). E1's fibre was checked numerically for 0<|n|≤2000 and E3's diagonal example by hand. check_paper.py: pass."
     ]
-  }
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
+      "kind": "error",
+      "locator": "Theorem 4.1, p.13 of the author copy (= arXiv 1810.04801v2, p.13); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk, p.4.)",
+      "correction": "Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.",
+      "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
+      "kind": "gap",
+      "locator": "Proof of Lemma 4.5, p.15 of the author copy (= arXiv v2 p.15); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "printed": "\"Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}\"",
+      "correction": "State the lemma, and verify its curve hypothesis, on the wider sectors Σ_n^R = {|x_i| < R, y_1 ≥ ⋯ ≥ y_n > 1} for every R, with constants depending on R. The substitution then maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}, and the induction goes through unchanged. In the application in §4.5, the curve bounds come from Schmid's one-variable Corollary 5.29 and the norm estimates of Theorem 4.8, which hold for real parts in any bounded interval; Theorem 1.5 is already stated on H^n_{R,η} for all R.",
+      "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
+      "kind": "error",
+      "locator": "Proof of Theorem 1.5 (§4.5), p.18 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "printed": "\"Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0.\"",
+      "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
+      "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
+      "kind": "misprint",
+      "locator": "Appendix A.1, p.20 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+      "printed": "\"Given X a real-analytic n-manifold with corners, one defines its boundary ∂X (cf. [Joy12, def. 2.6]. This is a real-analytic n-manifold with corners for n > 0\"",
+      "correction": "∂X is a real-analytic (n − 1)-manifold with corners.",
+      "reason": "The boundary of an n-manifold with corners in Joyce's sense is (n − 1)-dimensional; for [0,∞) it is a point. The appendix itself later says 'the compact real-analytic (n − 1)-manifold with corners ∂X' (proof of Proposition A.2). Noted by the extraction (item corner-boundary).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
+      "kind": "error",
+      "locator": "Theorem 1.1(1), p.3, Definition 2.5, p.8, and Proposition 2.7 of the author copy",
+      "printed": "\"(1) The arithmetic quotient S_{Γ,G,M} := Γ\\G/M admits a natural structure of R_alg-definable manifold, characterized by the following property. ... S ⊂ G/M a semi-algebraic Siegel set ...\"",
+      "correction": "The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).",
+      "reason": "Erratum §1.6.1: for G = SL₂, a Siegel set built with K_x is not contained in finitely many Siegel sets built with K_i when x ≠ i, so the two structures on Γ\\G differ. The Hodge-theoretic statements are unaffected, because Hodge manifolds carry a canonical K (Erratum §1.4).",
+      "affects": "a stated result",
+      "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.1 and Theorem 1.2(1)",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
+      "kind": "error",
+      "locator": "Theorem 1.1(2), p.3 of the author copy",
+      "printed": "\"(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable.\"",
+      "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
+      "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
+      "affects": "a stated result",
+      "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §§1.1, 1.3 and Theorem 1.2(2)",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    },
+    {
+      "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
+      "kind": "error",
+      "locator": "Proof of Theorem 1.5 (§4.5), p.17 of the author copy",
+      "printed": "\"By [B-HC62, 7.5] the preimage of any Siegel set S ⊂ X is contained in the union of finitely many Siegel sets of D.\"",
+      "correction": "Cite Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, instead. [B-HC62, 7.5] concerns real Siegel sets and does not give this rational statement.",
+      "reason": "The erratum (§1.5) states that the proof of Theorem 1.3 is otherwise correct, with this citation replaced. BGST Proposition 28.1 needs a forward-containment hypothesis, which the extraction retains.",
+      "affects": "the proof",
+      "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.5",
+      "searched": [
+        "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+        "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+        "Benjamin Bakker's web page (author copy and erratum)"
+      ]
+    }
+  ]
 }

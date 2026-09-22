@@ -6,12 +6,23 @@ The full author paper and official erratum were read. The result contains 118 st
 
 Preserve the official erratum's fixed-K parameter, same-K Siegel comparisons and Cartan-compatible morphism conditions. Preserve the rational forward-containment hypothesis in BGST28.1. Hodge morphisms have the canonical compatible compact data; general morphisms do not. Preserve existing carriers and owners, especially ShimuraData D3 for the general VHS definition, AA.3 for reduction, LD.6 for definable Chow, ALS.2 for the symmetric Borel–Serre construction, and upstream HodgeStructures L0–L3 for built Hodge algebra and point carriers.
 
-Resume with the six explicit `verificationGaps` in the JSON:
+## Continuation 2026-09-22 (Claude Code, session `cc-fb70e5`)
+
+This continuation recorded `sourceIssues` E1–E7 in the result. Four are new:
+
+- **E1:** Theorem 4.1 is false on the whole polydisk.
+- **E2:** a gap in the proof of Lemma 4.5.
+- **E3:** the basis-transfer sentence in §4.5.
+- **E4:** a misprint in Appendix A.1, dimension n for n−1.
+
+The other three, E5–E7, are the official erratum's corrections, recorded with it as `known`. Lemma 4.5 is restated with R-uniform sectors and its proof repaired (item `rational-curve-test`), so G4 is resolved and the R-uniformity of the cited Hodge estimates moves to G3. Items, routes and counts are otherwise unchanged.
+
+Resume with the explicit `verificationGaps` in the JSON (G4 is now resolved):
 
 1. Collate the full published 2020 version with the fully read author copy; publisher metadata alone was verified. All six acquired PDF hashes/read extents are in `provenance`.
 2. Finish original Borel–Harish-Chandra/Borel–Serre and Orr2018 proof decomposition. Orr–Schnell's correction was fully read; BGST28.1 statement and full proof were read on author pages13–15. Resolve the proper definable quotient/local slice construction and the surjective group-map arithmetic product adapter.
 3. Finish Schmid's nilpotent-orbit and one-variable SL₂ foundations, Kashiwara's earlier inputs and unread/missing image formulas. Exact selected reads are in provenance. The printed870 image confirms squared norms. Do not replace simultaneous weight splittings by the existing single-MHS Deligne splitting. Finish the faithful adjoint/central-cover representation and finite-level extension adapters.
-4. Repair and source-check Lemma4.5's finite interpolation domains for z₁=mz₂+i. Its starting strip is not invariant under those substitutions.
+4. Done in the continuation: Lemma 4.5 is repaired with R-uniform sectors (E2). Check the R-uniformity of Schmid Corollary 5.29 and CKS/Kashiwara under G3.
 5. Prove the quantitative basis-permutation adapter and all finite buffered/face chart reductions. The report's diag(1,T) and Möbius period-map examples explain why fixed ordering and whole-open-disk versions are not adopted. These are derived audit qualifications, not assertions in the published erratum. The global algebraic-base theorem remains the target.
 6. Acquire Peterzil–Starchenko Chow and the original o-minimality inputs; verify that the Hermitian arithmetic/algebraic definability comparison can be used independently of Borel algebraicity. Finish graph regularity, closed analytic proper Hodge images and the exceptional tensor/subdatum countability correspondence. A countable union of algebraic loci is not automatically definable.
 
