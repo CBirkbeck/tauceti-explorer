@@ -5284,8 +5284,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1330"
+   "state": "pending",
+   "note": "released on GitHub issue #1330"
   },
   {
    "id": "REV-PAPER-WOOD-19",
@@ -6835,8 +6835,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1422"
+   "state": "external",
+   "note": "claimed on GitHub issue #1422"
   },
   {
    "id": "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
