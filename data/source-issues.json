@@ -6432,6 +6432,126 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E1",
+   "kind": "gap",
+   "locator": "Lemma 5.3, Proposition 5.2, Theorems 5.7 and 5.8, pp.25–31",
+   "printed": "Proposition 5.2: \"Let m ∈ Z_{>0} such that Z(m) ≠ ∅; and if b is odd, we further assume that for a fixed D, √(m/D) ∈ Z, as in Theorem 2.4.\" Lemma 5.3 likewise, with the proof \"we conclude by [BK03, Theorem 4.11, (4.73), (4.74)], since both d_0 and k are independent of m.\" But: \"Theorem 5.7. For every m representable by (L, Q) …\" and \"Theorem 5.8. For every positive integer m, we have the following bounds …\", proved from Proposition 5.2.",
+   "correction": "For b odd and m/D not a square, add this to the proof of Lemma 5.3. In [BK03, Thm. 4.11(ii)] (r odd), the m-dependence through d_0 = d_0(m) enters as log|4m/D_0²| − 2L′(χ_{D_0}, 3/2 − κ)/L(χ_{D_0}, 3/2 − κ). By the functional equation of L(s, χ_{D_0}), this is log m + 2L′(χ_{D_0}, κ − 1/2)/L(χ_{D_0}, κ − 1/2) + O(1): the log|D_0| terms cancel. The logarithmic derivative at κ − 1/2 ≥ 2 is bounded by |ζ′/ζ(2)|, and the χ_{d_0}-factors of σ_m(s) are bounded uniformly as in the proof of Proposition 5.2. So Lemma 5.3 (with O(1) uniform in m) and Proposition 5.2 hold for every m with Z(m) ≠ ∅. That is what Theorems 5.7–5.8 assert, and what Proposition 6.4 and Lemma 7.6 use.",
+   "reason": "Theorem 5.8 is proved from equation (3.1), Proposition 3.2 and Proposition 5.2, so for b odd its proof covers only m ∈ D·(Q^×)². It is then applied to arbitrary integers:\n- in Proposition 6.4 to M = Q(λ) for a difference λ of two lattice vectors (\"Theorem 5.8(i) implies X^{b/2} ≪ −log|Q(λ_x)| ≪ A(M) ≪ M^{b/2} log M\");\n- in Lemma 7.6 to m = a_1(n)², a square but not in general D times a square.\nBoth feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b ≥ 3. For b even, d = (−1)^{r/2}det(L) does not depend on m and there is no gap. BK03 Theorem 4.11 was read in arXiv:math/0204100v2 (p.27): its r-odd formula contains log|4m/D_0²| and −2L′(χ_{D_0}, 3/2 − κ)/L(χ_{D_0}, 3/2 − κ).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E2",
+   "kind": "error",
+   "locator": "§7.3, construction of μ, p.43",
+   "printed": "\"We define the a_i as follows: suppose that a_n ≠ 0; we define a_i = 0 for n + 1 ≤ i ≤ e^{e^{p^n}}, and we then define a_i = 1 for i = ⌈e^{e^{p^n}}⌉. This implies that Σ_{i≤n} a_ip^i ≡ μ mod p^N with N ≥ e^{e^{p^n}} – that is, there is an integer x_n of size O(p^n) that approximates μ mod p^N, with N double-exponential in the size of x_n. … the lattice Λ created this way must also have property 2.\"",
+   "correction": "Make the gaps double-exponential in the discriminant rather than in x_n: after a_n ≠ 0, set a_i = 0 for n < i < exp(exp(C·p^{2c(n+1)})) with C depending only on L (so that exp(C·p^{2c(n+1)}) exceeds the discriminant of L_n below). Then property (2) of Lemma 7.11 holds with L_n = span_Z{e_j + x_nf_j}, and the example stands.",
+   "reason": "Property (2) of Lemma 7.11 needs N_i ≥ e^{e^{D_i}}, where D_i is the discriminant of the approximating sublattice L_i. Here L_i = span_Z{e_j + x_nf_j : 1 ≤ j ≤ c}, with e_j, f_j orthogonal and Q positive definite. So D_i ≍ Π_j (Q(e_j) + x_n²Q(f_j)) ≥ x_n^{2c} ≥ p^{2cn}, because a_n ≠ 0 forces x_n ≥ p^n. The printed choice gives only N ≈ e^{e^{p^n}}, which is far below e^{e^{D_i}}, so the proof of Lemma 7.11 (m_i < e^{D_i} and (Y_Λ.Z(m_i)) > N_i ≥ e^{e^{D_i}} > e^{m_i}) does not apply. \"Double-exponential in the size of x_n\" is not double-exponential in D_i ≍ x_n^{2c}. The example is illustrative and not used for the main results.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E3",
+   "kind": "misprint",
+   "locator": "§9.2, pp.45",
+   "printed": "\"… A^+ is isogenous to B^{2^n}, where B is an abelian variety with dim B = 2^n.\" and, in the proof of Theorems 1.4 and 1.6, \"Since s_B is not a scalar multiplication, ker(s_B − [Dm]) is a nontrivial simple factor of B_𝔓, and hence B_𝔓 is nonsimple.\"",
+   "correction": "\"dim B = 2^{n−1}\"; \"ker(s_B − [Dm]) contains a nonzero proper abelian subvariety of B_𝔓\".",
+   "reason": "dim A = 2^{b+1} (the paper's own 2^{2+3−1} = 16 for b = 3), so dim A^+ = 2^b = 2^{2n−1}, and A^+ ~ B^{2^n} forces dim B = 2^{n−1}. For b = 3, n = 2, B is the abelian surface (A^+ ~ B^4 of dimension 8), not a 4-fold. The PDF text layer shows the superscript n on 2 in both M_{2^n}(Q) and dim B = 2^n. The kernel of the non-scalar s_B − [Dm] (with (s_B − Dm)(s_B + Dm) = 0) has identity component a proper nonzero abelian subvariety, which need not be simple; nonsimplicity is all that is used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 7.2, p.37; statement of Lemma 7.11, p.42; proof of Theorem 7.1, p.41",
+   "printed": "The display ending the proof of Lemma 7.2 reads \"… = Σ_{n=1}^∞ Σ_{v ∈ L_n, v∘v=[m]} 1.here\". Lemma 7.11(2): \"Λ ≡ L_{n_i} mod p^{N_i}\". Proof of Theorem 7.1: three displays read \"N_D(1, ⌊e log_p X⌋, X)\".",
+   "correction": "Delete \".here\"; read L_i for L_{n_i}; read ⌊(e/4) log_p X⌋ in the three displays, as in (7.3) and the reduction before it.",
+   "reason": "The sublattices of Lemma 7.11 are indexed L_i (with discriminants D_i), and the proof uses \"L_i + p^{N_i}L\". The proof of Theorem 7.1 reduces to N_D(1, ⌊(e/4) log_p X⌋, X) and bounds that range in (7.3)–(7.4). The argument would also cover ⌊e log_p X⌋, so nothing is affected. All three readings were checked in the PDF text layer.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.5, p.29; proof of Lemma 6.3, p.34; proof of Proposition 6.4, p.35",
+   "printed": "Proposition 5.5: \"≪ Σ_{N=1}^∞ N^{−(s+k)}·N^{b/2}m^{b/2}(log mN)^{−A} ≤ m^{b/2} Σ_{N=1}^∞ N^{−1}(log N)^{−A} ≪ m^{b/2}\". Lemma 6.3: \"Let 2T be the smallest distance … there exist two points v and v′ in S such that Q(v_{x⊥} − v′_{x⊥}) ≤ T² ≪ X/N^{2/b}\". Proposition 6.4: \"≤ 2X^{b/2−ε} log(2X) + 8X^{b/2−ε} + 4Σ_i (X^{b/2−ε}/Z_i)·Z_i ≤ 14X^{b/2−ε} log(2X)\".",
+   "correction": "Keep (log mN)^{−A} ≤ (log m)^{−A} for the N = 1 term (the printed sum has log 1 = 0 in a denominator); (2T)² in place of T²; and a constant depending on b in place of 14 (e.g. (2 + 3b)X^{b/2−ε} log(2X) for large X).",
+   "reason": "The first two are harmless slips inside ≪. For the third, the dyadic intervals covering ]C, X^{b/2}] number |I| ≈ (b/2) log_2 X. The printed bound needs 4|I| + 8 ≤ 12 log(2X), which fails for b ≥ 5. Any constant times X^{b/2−ε} log X is eventually below X^{b/2}, so the conclusion holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E6",
+   "kind": "misprint",
+   "locator": "Reference [MST22], p.48",
+   "printed": "\"[MST22] Davesh Maulik, Ananth N. Shankar, and Yunqing Tang. Picard ranks of K3 surfaces and the Hecke orbit conjecture. Invent. Math., 228(3): 1075–1143, 2022.\"",
+   "correction": "\"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\".",
+   "reason": "Crossref for DOI 10.1007/s00222-022-01097-x gives the published title with \"over function fields\" (Invent. Math. 228 (2022), 1075–1143).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+    "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+   ],
+   "owner": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+   "citation": "Ananth Shankar–Arul Shankar–Tang–Tayou, \"Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-SHENDE-TSIMERMAN-17/E1",
    "kind": "error",
    "locator": "v1 p.7 Proposition 2.3; final journal text not obtained",
