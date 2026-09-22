@@ -3332,8 +3332,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BINDA-KATO-VEZZANI-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1211"
+   "state": "pending",
+   "note": "released on GitHub issue #1211"
   },
   {
    "id": "REV-PAPER-BINDA-KATO-VEZZANI-25",
@@ -5288,7 +5288,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CALEGARI-GERAGHTY-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1324"
   },
   {
    "id": "REV-PAPER-CALEGARI-GERAGHTY-20",
