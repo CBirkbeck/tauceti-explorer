@@ -1784,3 +1784,85 @@ acquisition of an authorized final 2019/2020 version. E1–E4 remain proposed,
 not accepted, and this worker did not review them. The regression script of
 the sixth checkpoint was not rerun in this checkpoint; its recorded results
 stand unchanged.
+
+## Ninth checkpoint: the publisher text, and three misprints in arXiv v1
+
+Claude Code, session `cc-d67081`, 2026-09-22. This checkpoint adds no items and
+changes no item, route, gap (except G0's detail), prerequisite or boundary other
+than `sourceIssueBoundary`. It closes resume item 3 of the eighth handoff with a
+negative result, and records three new proposed source issues found by reading
+arXiv v1 independently of the inherited extraction.
+
+### Resume item 3: the final publisher text is not reachable
+
+The eighth handoff asked for an authorized final 2019-revised or 2020 version,
+noting that public AMS retrieval had failed for the seventh checkpoint and was
+not retried. It was retried on 2026-09-22, and it fails for a structural reason
+rather than a transient one, which is worth recording so that later checkpoints
+do not spend effort on it again:
+
+- Crossref's record for `10.1090/jams/945` lists two full-text links,
+  `https://www.ams.org/jams/2020-33-04/S0894-0347-2020-00945-6/S0894-0347-2020-00945-6.pdf`
+  and the accepted manuscript `.../jams945_AM.pdf`. Both return **HTTP 403** to a
+  direct request, and with a browser user agent and the article page as referrer
+  they return the AMS application shell rather than a PDF.
+- The DOI resolves to `https://pubs.ams.org/journals/jams/2020-33-04/S0894-0347-2020-00945-6`,
+  whose only link matching the article is
+  `/Account/Login?returnUrl=…ProductCode=jams…pii=s0894-0347-2020-00945-6`.
+- The AMS metadata served on that page records the journal's open-access type as
+  `GREEN` — self-archiving permitted, publisher text restricted. JAMS is not in
+  the AMS free-after-five-years programme.
+
+So the public route to this paper is exactly the author copies the earlier
+checkpoints used, and G0 stands. G0's detail now carries this evidence. The arXiv
+listing was rechecked at the same time: still only v1, no withdrawal or comment.
+
+### Three misprints in arXiv v1 (E5–E7)
+
+arXiv:1701.02458v1 (12 pp., SHA-256 `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871`,
+accessed 2026-09-22T18:06:05Z) was read in full. Most of what an independent
+reading turns up is already in this file, and deliberately so: the √π volume
+display is E4; the `i ≤ n−2` restriction in the quoted Minkowski reduced basis
+property is why `reduced-integral-basis` carries its own statement with the
+comparison at `i = n−1`; the loose description of the trace length is answered by
+`trace-metric-normalization`, which fixes the factor 2 at complex places; the
+unreferenced genus-theory step is `relative-genus-source-claim` with G2; and the
+two facts §7 uses silently — a k-rational divisor of degree g, and the
+identification of Pic⁰(C)(k) with degree-zero rational divisor classes — are
+already the items `degree-one-divisor` and `picard-divisor-comparison`.
+
+Three places appear to be recorded nowhere in this file:
+
+- **E5, §5.1 p.7.** The coefficient bounds of the auxiliary curves are printed as
+  `|A| ≤ |Disc(K)|^{1/3}, B ≤ |Disc(K)|^{2/3}, C ≤ |Disc(K)|`. A, B and C come
+  from expanding `f_β(m) = Norm(β − m)` over a box symmetric about the origin, so
+  all three take both signs, and `|Disc(E)| ≪ |Disc(K)|²` needs absolute values
+  on all three.
+- **E6, Remark 7.2 p.10.** The class number formula is printed as
+  `|Pic⁰(C)(k)| = |k|^g log|k| · Res_{s=1} ζ_C(s)`, omitting the factor
+  `1 − |k|^{-1}`. From `Z(T) = P(T)/((1−T)(1−|k|T))` the residue at `s = 1` is
+  `P(|k|^{-1})/((1 − |k|^{-1}) log|k|)`, and the functional equation gives
+  `P(|k|^{-1}) = |k|^{−g}P(1)`. The factor lies in `[1/2, 1)`, so the remark,
+  which compares only growth in g, is unaffected.
+- **E7, Remark 7.3 p.10.** In characteristic 2 the 2-torsion of the Jacobian over
+  k̄ is said to have size `2^g`; it has size at most `2^g`, namely `2^f` for the
+  2-rank f, which is g exactly in the ordinary case and 0 for a supersingular
+  Jacobian. Only the upper bound is used, and the conclusion that Theorem 7.1
+  beats this bound only for `k = F_3` is correct as it stands.
+
+All three were checked on page images rendered from the v1 PDF. They are located
+in **arXiv v1 only**: the February 2017 author copy behind E1–E4 and the
+publisher text were not consulted for them, and a reviewer must re-locate them
+before treating them as errata against another version.
+
+### Boundaries of this checkpoint
+
+No Lean was written or compiled. No item was added, removed or edited, and the
+item list is byte-identical to the base blob; the checks below were run on the
+edited file. This worker did **not** review the inherited items, routes, gaps or
+the proposed issues E1–E4, did not repeat their novelty searches, and did not
+touch G1–G10 beyond G0's detail. The arithmetic of `feedback-constants` was
+recomputed independently in passing and agrees with the recorded test intervals
+(β = .27823867, a = .27843374, c = .11176708), as does the exponent
+`1/2 + a = .77843374` of Theorem 1.4; this is a spot check, not a review of that
+item. The four decimal constants printed in the paper are correct.
