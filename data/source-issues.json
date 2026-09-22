@@ -14390,7 +14390,7 @@
    "kind": "gap",
    "locator": "Proof of Theorem 1.1 (§5.3), p. 416, and Example 2.7, p. 392",
    "printed": "\"When r is even, this follows from the discussion in Example 2.7 and Theorem 1.7. When r is odd and d1 is fundamental, Theorem 7.13 of [BEY21] gives the algebraicity … Using this and proceeding with the rest of the argument in the proof of Theorem 1.7 gives Theorem 1.1.\"",
-   "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and Conjecture 1.6 for F = Q is Bruinier–Ehlen–Yang, Theorem 5.5 (see §1.2). This gives (1.3)–(1.4) with α in the ring class field. The case E1 = E2 is also Viazovska's theorem (arXiv:1110.4654), as the introduction says (p. 377).",
+   "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and the statement is Bruinier–Ehlen–Yang, Theorem 6.1: for CM points in the same imaginary quadratic field, |D|^r G_{r+1,f}(z1^σ, z2^σ) = −(1/t) log|α^σ| with α in the ring class field H_D (deduced from their Theorem 5.5 and Corollary 5.6, which is the F = Q case of Conjecture 1.6 quoted in §1.2). This strengthens Viazovska (arXiv:1110.4654), who obtained α ∈ Q̄.",
    "reason": "Example 2.7 and Theorems 1.3 and 1.7 require F = Q(√(d1d2)) to be a real quadratic field, while Theorem 1.1 is stated for all negative discriminants. A comment in the arXiv TeX ('it is enough to treat the case that d1d2 is not a perfect square') shows the case was known to be covered by the literature, but the published proof does not say so.",
    "affects": "the proof",
    "known": "new",
