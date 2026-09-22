@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-0 new mistakes confirmed · 191 awaiting review · 26 already corrected in print · 0 rejected on review · 14 extractions and packets not yet checked.
+0 new mistakes confirmed · 191 awaiting review · 26 already corrected in print · 0 rejected on review · 13 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -335,4 +335,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `MordellLawrenceVenkatesh`, `PAPER-BAKKER-KLINGLER-TSIMERMAN-20`, `PAPER-BENOIST-19`, `PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20`, `PAPER-BHATT-ETAL-23`, `PAPER-CESNAVICIUS-22`, `PAPER-HACON-WITASZEK-23`, `PAPER-HARPAZ-WITTENBERG-20`, `PAPER-KISIN-PAPPAS-18`, `PAPER-KISIN-PAPPAS-ZHOU-26`, `PAPER-LIPNOWSKI-TSIMERMAN-18`, `PAPER-MERKURJEV-SCAVIA-26`, `PAPER-NEWTON-THORNE-26`, `PAPER-SHENDE-TSIMERMAN-17`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `MordellLawrenceVenkatesh`, `PAPER-BAKKER-KLINGLER-TSIMERMAN-20`, `PAPER-BENOIST-19`, `PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20`, `PAPER-BHATT-ETAL-23`, `PAPER-CESNAVICIUS-22`, `PAPER-HACON-WITASZEK-23`, `PAPER-HARPAZ-WITTENBERG-20`, `PAPER-KISIN-PAPPAS-18`, `PAPER-KISIN-PAPPAS-ZHOU-26`, `PAPER-LIPNOWSKI-TSIMERMAN-18`, `PAPER-MERKURJEV-SCAVIA-26`, `PAPER-SHENDE-TSIMERMAN-17`.
