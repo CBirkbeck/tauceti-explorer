@@ -13,7 +13,7 @@
     "accessed": "2026-09-21",
     "read": "Entire published paper, §§1–12 and references; sensitive displays also inspected as page images."
   },
-  "summary": "Full published-paper extraction, including Granville's §12 addendum: 151 items (9 pinned-library, 12 already planned, 130 missing), with every missing item routed once across five source routes, three Part II continuations and one new progression-specific modular-method roadmap. The main theorem is an effective prime-exponent bound and fixed-length finiteness, not Erdős nonexistence. Printed errors and proof gaps are retained visibly, including a corrected Frey discriminant and order-four point, conductor bookkeeping, and the insufficient Roth threshold; the executable original-proof endgame uses exp(exp(10^7)). Complete means extraction/routing complete, not a closed blueprint, verified original-source proof for every prerequisite, or formalization.",
+  "summary": "Full published-paper extraction, including Granville's §12 addendum: 151 items (9 pinned-library, 12 already planned, 130 missing), with every missing item routed once across five source routes, three Part II continuations and one new progression-specific modular-method roadmap. The main theorem is an effective prime-exponent bound and fixed-length finiteness, not Erdős nonexistence. Printed errors and proof gaps are retained visibly, including a corrected Frey discriminant and order-four point, conductor bookkeeping, and the insufficient Roth threshold; the executable original-proof endgame uses exp(exp(10^7)). Complete means extraction/routing complete, not a closed blueprint, verified original-source proof for every prerequisite, or formalization. Independent review (REV-PAPER-BENNETT-SIKSEK-20) corrected the file in place: 152 items (11 library, 12 planned, 129 missing), nine source routes, two Part II continuations and one new roadmap; every change is listed in research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md.",
   "author": {
     "agent": "Codex",
     "session": "codex-a71f92",
@@ -65,9 +65,10 @@
         "mathlib:WeierstrassCurve.b₄",
         "mathlib:WeierstrassCurve.b₆",
         "mathlib:WeierstrassCurve.b₈",
-        "mathlib:WeierstrassCurve.Δ"
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.Affine.Equation"
       ],
-      "note": "Pinned Mathlib Weierstrass.lean definitions reread. Infrastructure only: the two specialized Frey discriminant identities are separately extracted."
+      "note": "Pinned Mathlib Weierstrass.lean definitions reread. Infrastructure only: the two specialized Frey discriminant identities are separately extracted. Reviewer: the curve equation itself is mathlib:WeierstrassCurve.Affine.Equation (Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean:149, with equation_iff)."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/04",
@@ -94,10 +95,10 @@
       "statement": "In the situation of Theorem 3, for a rational prime p not dividing ell*M*M0, a_p(E) is congruent to c_p modulo lambda.",
       "locator": "Lemma 2.1(i), p. 359",
       "status": "planned",
-      "note": "These stages explicitly compare good-prime Frobenius polynomials on the actual elliptic and modular realizations. Reduction at lambda gives this congruence; no implemented comparison is claimed.",
+      "note": "These stages explicitly compare good-prime Frobenius polynomials on the actual elliptic and modular realizations. Reduction at lambda gives this congruence; no implemented comparison is claimed. Reviewer: AutomorphicGaloisRepresentations:R19.2 (cohomological Hilbert forms) replaced by R19.1, which plans the weight-two representation from Jacobian cohomology with \"the unramified characteristic polynomial by the geometric Eichler–Shimura relation\".",
       "planned": [
         "ArithmeticGaloisRepresentations:R01.6",
-        "AutomorphicGaloisRepresentations:R19.2"
+        "AutomorphicGaloisRepresentations:R19.1"
       ]
     },
     {
@@ -340,8 +341,12 @@
       "name": "Finite-field two-descent homomorphism",
       "statement": "For p odd and lambda in Q minus {0,1} with ord_p(lambda)=ord_p(1-lambda)=0, the descent homomorphism from F_lambda(F_p) to (F_p^*/F_p^{*2})^3 has coordinates given on affine non-2-torsion points by x, x-1, x-lambda modulo squares, takes the identity to (1,1,1), and has kernel 2*F_lambda(F_p). At a 2-torsion point its two nonzero coordinates determine the third by the product-one condition.",
       "locator": "Section 6, Legendre elliptic curves revisited, p. 370",
-      "status": "missing",
-      "note": "Pinned-library and atlas comparison: see report audit groups and the unique route. No declaration proving this source-specific statement was found."
+      "status": "library",
+      "note": "Reviewer correction: pinned Tau Ceti has the x−θ descent homomorphism μ : Multiplicative W.Point →* W.M into the square classes of the étale algebra K[X]/(f) (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean:817) and ker_μ_eq (line 991): its kernel is exactly 2·W(K), over any field of characteristic ≠ 2 (planned by Tau Ceti EllipticCurves Layer 6, \"the x − θ map into the étale algebra A = K[X]/(f)\"). The item is the case f = X(X−1)(X−λ) over F_p, read through the CRT identification F_p[X]/(f) ≅ F_p^3; that identification is a routine adapter, stated as one lemma in the design, not new mathematics.",
+      "library": [
+        "tauceti:WeierstrassCurve.Affine.μ",
+        "tauceti:WeierstrassCurve.Affine.ker_μ_eq"
+      ]
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/34",
@@ -614,12 +619,8 @@
       "name": "Local conductor-exponent bounds",
       "statement": "For E/Q, its elliptic/Artin conductor exponent at 2 is at most 8, at 3 at most 5, and at primes p>=5 at most 2; good reduction gives exponent 0 and multiplicative reduction exponent 1.",
       "locator": "§3, conductor bounds in Lemmas 3.3 and 3.5",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
-        "ArithmeticGaloisRepresentations:R01.3"
-      ],
-      "note": "Tate/Ogg algorithm and Artin comparison are distinct suppliers. This does not license identifying every algorithmic conductor with an Artin conductor before the comparison."
+      "status": "missing",
+      "note": "Reviewer correction: neither cited layer states these bounds. Tau Ceti EllipticCurves Layer 4 plans only the algorithmic (Ogg) exponent and names the comparison with the Artin exponent as a separate project; ArithmeticGaloisRepresentations:R01.3 defines conductors and promises \"the precise comparison with the conductor of an elliptic curve\", with wild contributions at 2 and 3, but does not state f_2<=8, f_3<=5, f_p<=2. Neither pinned library has conductor exponents of elliptic curves over Q. Routed as a source of R01.3 (route 12)."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/62",
@@ -749,8 +750,11 @@
       "name": "Quadratic-twist trace comparison",
       "statement": "For odd p and E/F_p with a nonzero twist parameter D, a_p(E^D)=(D/p)*a_p(E); in particular twisting preserves trace zero.",
       "locator": "§6, Lemmas 6.4 and 6.6",
-      "status": "missing",
-      "note": "The existing quadratic-twist equation and extension isomorphism do not themselves prove this point-count identity."
+      "status": "planned",
+      "note": "Reviewer correction: RankZeroOneBSD:BSD.0, which the accepted restructure RS-30 made part of \"Elliptic curves, Part II\", plans \"for a quadratic character construct the existing quadratic twist and prove every local Euler-factor comparison, including bad primes\"; at a good odd prime that comparison is a_p(E^D) = (D/p)·a_p(E). Tau Ceti has the ingredients (quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map, ncard_setOf_map_frobeniusAlgHom_eq_self) but no trace identity.",
+      "planned": [
+        "RankZeroOneBSD:BSD.0"
+      ]
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/74",
@@ -804,7 +808,7 @@
       "statement": "For k>=2*10^10, the prime-power mass psi(k)-theta(k)-psi(k/2)+theta(k/2) is smaller than (((1-3*0.002811)/8)-0.1239)*k. Thus an absolute prime-weighted sum >=(1-3*epsilon)k/8 implies an absolute Lambda-weighted sum >0.1239*k.",
       "locator": "§6 end of Case I, pp. 369–370; Schoenfeld Theorem 6*, (5.3*)–(5.4*)",
       "status": "missing",
-      "note": "Alternative verified proof from 65: psi(k)-theta(k)<=1.000081*(sqrt(k)+(log(k)/log(2))*k^(1/3)). Dividing by k gives a decreasing function for k>=2*10^10; at this threshold it is <0.000012<0.000045875, the available margin. Dropping the nonnegative lower-end prime-power mass preserves the bound. This repair does not require Schoenfeld's sharper Theorem 6*."
+      "note": "Alternative verified proof from 65: psi(k)-theta(k)<=1.000081*(sqrt(k)+(log(k)/log(2))*k^(1/3)). Dividing by k gives a decreasing function for k>=2*10^10; at this threshold it is <0.000012<0.000045875, the available margin. Dropping the nonnegative lower-end prime-power mass preserves the bound. This repair does not require Schoenfeld's sharper Theorem 6*. Reviewer: a proof needing neither item 65 nor Schoenfeld is available from pinned Mathlib: Chebyshev.psi_sub_theta_le_psi_add_psi_add_psi (Mathlib/NumberTheory/Chebyshev.lean:584, psi-theta <= psi(x^(1/2))+psi(x^(1/3))+psi(x^(1/5))), Chebyshev.psi_le (line 444, psi x <= log 4*x+2*sqrt(x)*log x) and Chebyshev.theta_le_psi (line 404) give a prime-power mass below 1.05e-5*k at k=2e10, under the 4.5875e-5*k margin, with the ratio decreasing in k. The item stays missing: the numerical inequality itself is not a declaration."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/80",
@@ -867,10 +871,15 @@
       "id": "PAPER-BENNETT-SIKSEK-20/86",
       "kind": "definition",
       "name": "Largest prime divisor and odd part",
-      "statement": "For N>1 let P(N) be its largest prime divisor; N^odd=N/2^v_2(N). Quadratic primitive conductors satisfy N<=8*N^odd.",
+      "statement": "For N>1 let P(N) be the largest prime divisor of N, and let N^odd=N/2^v_2(N) be the odd part of N.",
       "locator": "§§6–8, pp. 366,375",
-      "status": "missing",
-      "note": "P is used only for N_a^odd!=1, so there is no unmentioned P(1) convention. Integer factorization infrastructure is reused."
+      "status": "library",
+      "note": "Reviewer correction (REV-PAPER-BENNETT-SIKSEK-20): the definitional clause is in pinned Mathlib. P(N) is Nat.maxPrimeFac (Mathlib/Data/Nat/MaxPrimeFac.lean:39), with Nat.isGreatest_maxPrimeFac (1<n → IsGreatest {p | p.Prime ∧ p ∣ n} (maxPrimeFac n), line 66); N^odd is the notation ordCompl[2] N = N / 2^(N.factorization 2) (Mathlib/Data/Nat/Factorization/Defs.lean:331, documented as the odd part). The junk value maxPrimeFac 1 = 1 is never used, since P is applied only to N>1. The conductor bound formerly in this item is item 152.",
+      "library": [
+        "mathlib:Nat.maxPrimeFac",
+        "mathlib:Nat.isGreatest_maxPrimeFac",
+        "mathlib:Nat.factorization"
+      ]
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/87",
@@ -1067,7 +1076,7 @@
       "statement": "For the J1 above and k>=exp(exp(10^6)), log(product_{k^(7/16)<p<=k}p^v_p((k-1)!)) >=(9/16)*k*log k-5*k. With the explicit Stirling upper bound for (k-1)!, this gives product_{i in J1}A_i<k^(.44*k).",
       "locator": "§9 proof, p. 384",
       "status": "missing",
-      "note": "The weighted-prime input and Stirling remainder are separately itemized below; no unspecified asymptotic may replace the stated threshold."
+      "note": "The weighted-prime input and Stirling remainder are separately itemized below; no unspecified asymptotic may replace the stated threshold. Reviewer: the explicit Stirling bound (item 141) is not needed here: Nat.factorial_le_pow (n! <= n^n, Mathlib/Data/Nat/Factorial/Basic.lean:183) already gives product A_i < exp((7/16)k log k + 5k) <= k^(0.44k) once log k >= 2000, which holds for k >= exp(exp(10^6)). Item 142 is still needed. Status unchanged."
     },
     {
       "id": "PAPER-BENNETT-SIKSEK-20/108",
@@ -1478,6 +1487,15 @@
       "locator": "§5 proof of Lemma 5.1, p.365; alternate direct input from Rosser–Schoenfeld Theorem 8 (3.29), p.70",
       "status": "missing",
       "note": "Bound this product by product(1-1/p)^(-1)<exp(gamma)*log x*(1+1/(2 log^2 x)); the latter is <2 log x at x>=10^8. This avoids requiring an uninspected Tenenbaum constant and does not duplicate the progression-specific mu specialization."
+    },
+    {
+      "id": "PAPER-BENNETT-SIKSEK-20/152",
+      "kind": "theorem",
+      "name": "Quadratic primitive conductors are at most eight times their odd part",
+      "statement": "If N is the conductor of a primitive quadratic Dirichlet character, then N<=8*N^odd, i.e. v_2(N)<=3.",
+      "locator": "§§6–8, pp. 366, 375 (used with N=2^kappa*N_1, kappa in {0,1,2} as printed in the proof of Lemma 7.3; split from item 86 by the reviewer)",
+      "status": "missing",
+      "note": "Split from item 86 by the reviewer. Neither pinned tree states the 2-adic exponent bound for primitive quadratic conductors; Mathlib has DirichletCharacter.conductor and MulChar.IsQuadratic but no classification of primitive quadratic characters by fundamental discriminants. Routed with item 72 (primitive character of a rational squareclass) to AnalyticNumberTheory, route 2."
     }
   ],
   "prerequisites": [
@@ -1583,27 +1601,21 @@
       "route": "source",
       "roadmap": "AnalyticNumberTheory",
       "stages": [
-        "AnalyticNumberTheory:AN.0",
-        "AnalyticNumberTheory:AN.1",
         "AnalyticNumberTheory:AN.2",
         "AnalyticNumberTheory:AN.3",
-        "AnalyticNumberTheory:AN.5",
-        "AnalyticNumberTheory:AN.6"
+        "AnalyticNumberTheory:AN.5"
       ],
       "items": [
         "PAPER-BENNETT-SIKSEK-20/40",
         "PAPER-BENNETT-SIKSEK-20/41",
         "PAPER-BENNETT-SIKSEK-20/43",
         "PAPER-BENNETT-SIKSEK-20/65",
-        "PAPER-BENNETT-SIKSEK-20/72",
         "PAPER-BENNETT-SIKSEK-20/74",
         "PAPER-BENNETT-SIKSEK-20/78",
         "PAPER-BENNETT-SIKSEK-20/79",
-        "PAPER-BENNETT-SIKSEK-20/86",
         "PAPER-BENNETT-SIKSEK-20/87",
         "PAPER-BENNETT-SIKSEK-20/88",
         "PAPER-BENNETT-SIKSEK-20/89",
-        "PAPER-BENNETT-SIKSEK-20/90",
         "PAPER-BENNETT-SIKSEK-20/96",
         "PAPER-BENNETT-SIKSEK-20/102",
         "PAPER-BENNETT-SIKSEK-20/103",
@@ -1611,11 +1623,10 @@
         "PAPER-BENNETT-SIKSEK-20/117",
         "PAPER-BENNETT-SIKSEK-20/118",
         "PAPER-BENNETT-SIKSEK-20/139",
-        "PAPER-BENNETT-SIKSEK-20/141",
         "PAPER-BENNETT-SIKSEK-20/142",
         "PAPER-BENNETT-SIKSEK-20/151"
       ],
-      "reason": "These are reusable Dirichlet-character, explicit-prime, zero-free/density, divisor and numerical summation interfaces within the proposed analytic roadmap. The rational-squareclass/conductor bridge consumes existing fundamental-discriminant and reciprocity facts, not a second multiquadratic field theory. Numerical constants, certified small-conductor computations and the low-zero-safe half-interval formula are added source requirements, not claims that broad stage titles already prove them."
+      "reason": "Reusable zero-free-region, exceptional-zero, explicit-formula, zero-density, explicit prime-count and divisor-bound inputs. After the accepted restructure RS-07, AnalyticNumberTheory is \"Arithmetic Dirichlet series and Tauberian methods, Part II: analytic number theory and zeta functions\"; its layers AN.0, AN.1 and AN.6 are dropped, so the route targets the surviving owners: AN.2 (quantitative zero-free regions, exceptional-zero and effectivity distinctions, explicit PNT instances: items 40, 41, 65, 74, 78, 79, 87–89, 102, 103, 116, 118, 142, 151), AN.3 (zero counting, explicit formulas and zero-density: items 117, 139) and AN.5 (divisor problems and smooth numbers: items 43, 96). The squareclass-character items move to ClassicalArithmeticCompletion (route 10), the certified small-conductor computation to ComputationalNumberTheory (route 11), and the explicit Stirling bound to the application (route 9). Numerical constants and computations are added source requirements, not claims that the stage titles already prove them. [Retargeted by REV-PAPER-BENNETT-SIKSEK-20.]"
     },
     {
       "route": "source",
@@ -1665,7 +1676,7 @@
         "PAPER-BENNETT-SIKSEK-20/60",
         "PAPER-BENNETT-SIKSEK-20/82"
       ],
-      "brief": "Build the reusable effective modular-method comparison package of Bennett–Siksek §2. Final exports are the removed-prime exponent bound ell<=(sqrt(p)+1)^((M0+1)/6), and Kraus's full-rational-two-torsion realization at the exact prime-to-ell residual conductor N when ell>=5, Serre weight is 2, irreducibility holds and ell>max(F(N),G(N)), with F and G exactly as item 09. Also prove the sharp weight-two newspace bound dim S_2^new(N)<=(N+1)/12 and the rational-isogeny consequences giving irreducibility at ell>=7 with full two-torsion and ell>=11 with one rational two-torsion point. Export Lemos's proved non-CM cyclic-rational-isogeny surjectivity theorem for ell>37, not unrestricted Serre uniformity. Import the parent Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Modular forms (tauceti:TauCetiRoadmap/ModularForms), Automorphic Galois representations (AutomorphicGaloisRepresentations), and Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves). Use actual newforms, coefficient fields, all conjugates, norm bounds, integral trace comparisons and Sturm recognition. Expose residual conductor versus quotient-level and finite-flat weight-two bridges. Source-decompose Kraus, Martin, Mazur/Kenku and Lemos, with exact theorem hypotheses, before proof execution; no new modularity or local conductor carrier is owned here.",
+      "brief": "Build the reusable effective modular-method comparison package of Bennett–Siksek §2. Final exports are the removed-prime exponent bound ell<=(sqrt(p)+1)^((M0+1)/6), and Kraus's full-rational-two-torsion realization at the exact prime-to-ell residual conductor N when ell>=5, Serre weight is 2, irreducibility holds and ell>max(F(N),G(N)), with F and G exactly as item 09. Also prove the sharp weight-two newspace bound dim S_2^new(N)<=(N+1)/12 and the rational-isogeny consequences giving irreducibility at ell>=7 with full two-torsion and ell>=11 with one rational two-torsion point. Export Lemos's proved non-CM cyclic-rational-isogeny surjectivity theorem for ell>37, not unrestricted Serre uniformity. Import the parent Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Modular forms (tauceti:TauCetiRoadmap/ModularForms), Automorphic Galois representations (AutomorphicGaloisRepresentations), and Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves). Use actual newforms, coefficient fields, all conjugates, norm bounds, integral trace comparisons and Sturm recognition. Expose residual conductor versus quotient-level and finite-flat weight-two bridges. Source-decompose Kraus, Martin, Mazur/Kenku and Lemos, with exact theorem hypotheses, before proof execution; no new modularity or local conductor carrier is owned here. This Part II owns the uniform rational-isogeny inputs of items 59–60 (Mazur 1978 and the Kenku/two-torsion consequences); the parent's R29.1 proves residual irreducibility for each fixed curve and does not import them, so no cycle arises. Import the Sturm bound from Modular forms (tauceti:TauCetiRoadmap/ModularForms, Layer 10) and ComputationalNumberTheory CN.3 for coefficient recognition, and the dimension formulas of ModularForms Layer 10C for Martin's bound. [Revised by REV-PAPER-BENNETT-SIKSEK-20.]",
       "reason": "The parent supplies unconditional modularity, not effective norm/Kraus thresholds or uniform rational-isogeny image bounds. This coherent continuation owns those generic comparisons once; the Frey progressions are a consumer."
     },
     {
@@ -1679,21 +1690,19 @@
         "PAPER-BENNETT-SIKSEK-20/29",
         "PAPER-BENNETT-SIKSEK-20/30",
         "PAPER-BENNETT-SIKSEK-20/31",
-        "PAPER-BENNETT-SIKSEK-20/33",
         "PAPER-BENNETT-SIKSEK-20/34",
         "PAPER-BENNETT-SIKSEK-20/69",
-        "PAPER-BENNETT-SIKSEK-20/73",
         "PAPER-BENNETT-SIKSEK-20/77"
       ],
-      "brief": "Build equation-level Legendre interfaces for elliptic curves with full rational two-torsion: a twist-normalization construction with all six possibly coincident parameters, the good-odd-prime unit criterion for lambda and 1-lambda, and odd-conductor support for the primitive characters of omega*lambda. Final finite-field exports include the Z/2 times Z/4 subgroup for the squared-parameter curve at p=3 mod 4, the three-coordinate squareclass descent homomorphism with kernel 2E and explicit two-torsion values, v_2(#F_-1(F_p))=3 at p=5 mod 8, and the explicit order-four point of Bennett–Siksek Lemma 6.6. Prove trace zero for y^2=x(x-u)(x+u) at p=3 mod 4 and the quadratic-twist trace factor. Import Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), especially Layers 2–5 and the existing group law, point counts, torsion, reduction and quadratic-twist equation; do not redevelop pointed-twist classification or global Selmer groups. Import the primitive-squareclass character/conductor bridge from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) and the actual Legendre-symbol library. Cover rational and finite-field domains separately, exclude singular parameters and characteristic two, certify equation membership/doubling, and test lambda=-1, 2, 1/2 as well as generic parameters. These generic lemmas feed the progression roadmap rather than carry its contradictory large-exponent hypothesis.",
-      "reason": "Existing elliptic layers supply the carriers, Hasse, local models and twist descent, but do not state the Legendre normalization, finite-field coordinate descent or these explicit character/torsion tests. Extending upstream requires a Part II, not re-planning it."
+      "brief": "Build equation-level Legendre interfaces for elliptic curves with full rational two-torsion: the twist-normalization construction with all six possibly coincident Legendre parameters λ, 1/λ, 1−λ, 1/(1−λ), λ/(λ−1), (λ−1)/λ; the good-odd-prime unit criterion for λ and 1−λ; and odd-conductor support for the primitive quadratic characters attached to ω·λ, ω ∈ {±1, ±2}. Final finite-field exports: the subgroup Z/2 × Z/4 of F_p-points of Y²=X(X−1)(X−η²) for p ≡ 3 (mod 4) and η ∉ {0, ±1}; v_2(#F_{−1}(F_p)) = 3 for Y²=X(X−1)(X+1) at p ≡ 5 (mod 8); the explicit order-four point with 2P = (2λ, 0) on Y²=X(X−2)(X−2λ) when λ = 2t², 1−λ = 2v² (Bennett–Siksek Lemma 6.6, with the corrected witness x = 2λ + 4ivt); and a_p = 0 for Y²=X(X−u)(X+u) at p ≡ 3 (mod 4). Import Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), especially Layers 2–6: the group law, point counts, torsion, reduction, quadratic-twist equations and the x−θ descent map, which pinned Tau Ceti already has as WeierstrassCurve.Affine.μ with kernel 2E(K); read it on the split cubic through the CRT identification rather than defining a second descent map. Import the quadratic-twist Euler-factor comparison from Elliptic curves, Part II: rank-zero and rank-one Birch–Swinnerton-Dyer theory (RankZeroOneBSD, layer BSD.0), and the primitive quadratic character of a rational squareclass from Classical arithmetic, sequences, polynomials and reciprocity (ClassicalArithmeticCompletion, layer CA.1). Cover rational and finite-field domains separately, exclude singular parameters and characteristic two, and test λ = −1, 2, 1/2 as well as generic parameters. These generic lemmas feed the progression roadmap and do not carry its large-exponent hypothesis. [Revised by REV-PAPER-BENNETT-SIKSEK-20.]",
+      "reason": "Existing elliptic layers supply the carriers, Hasse, local models and twist descent, but do not state the Legendre normalization, finite-field coordinate descent or these explicit character/torsion tests. Extending upstream requires a Part II, not re-planning it. Reviewer: items 33 (library: Tau Ceti μ, ker_μ_eq) and 73 (planned by RankZeroOneBSD:BSD.0) were removed; the remaining generic Legendre and finite-field torsion lemmas have no owner, and Elliptic curves is a Tau Ceti roadmap, so a Part II is the mechanism. It is thin and a natural candidate to merge with other Elliptic curves Part II material at the next restructuring."
     },
     {
-      "route": "part-ii",
-      "parent": "SieveMethodsAndPrimePatterns",
-      "roadmap": "SmoothModulusCharacterSums",
-      "title": "Sieve methods, prime gaps and prime patterns, Part II: short sums at smooth moduli",
-      "area": "analytic",
+      "route": "source",
+      "roadmap": "ExponentialSumsAndCircleMethod",
+      "stages": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
       "items": [
         "PAPER-BENNETT-SIKSEK-20/44",
         "PAPER-BENNETT-SIKSEK-20/92",
@@ -1701,8 +1710,7 @@
         "PAPER-BENNETT-SIKSEK-20/95",
         "PAPER-BENNETT-SIKSEK-20/97"
       ],
-      "brief": "Prove the individual short-character-sum machinery and Proposition 8.2 of Bennett–Siksek. The final theorem says that for each c2>0, effectively for all large k, distinct primitive quadratic characters with N_i<=k^c2 and P(N_i)<=k^(7/16) have half-interval product sum at most k^(1-c3(c2)) for an effective c3>0. First construct the product's primitive inducing character and coprime exclusion modulus; never identify lcm(N1,N2) with the primitive conductor. Prove the Graham–Ringrose/Iwaniec–Kowalski estimate of item 92 with the exact exponent 2^(-r), later factors specified by modulus (they may be principal), and a bounded CRT packing with explicit dyadic and modulus-one cases. Then handle the small primitive conductor by Mobius inversion and periodic cancellation. Import Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns) for primitive reduction/duality and the elementary sieve API, Finite fields, character sums, finite rings and coding interfaces (FiniteFieldsAndCharacterSums) for the finite-field character estimates used by the chosen complete short-sum proof, and Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) for effective divisor subpower bounds. Acquire and check the original book/Graham–Ringrose proof before execution. The printed universal divisor inequality is false; use the corrected eventual bound. No progression-specific Frey curve or global zero-density theorem belongs here.",
-      "reason": "SV.2 plans average large-sieve/duality and bilinear estimates, not this individual smooth-modulus short-sum theorem. New layers are needed in the same analytic direction; the large-sieve inequality itself remains a source of SV.2."
+      "reason": "ES.0 already owns this direction: \"Develop Weyl differencing, van der Corput, stationary phase and completion of sums; connect to finite-field character-sum producers\". The Graham–Ringrose short-character-sum estimate at smooth moduli (Iwaniec–Kowalski Theorem 12.13, item 92) is the q-analogue of van der Corput differencing with completion, and items 44, 94, 95 and 97 (the two-character cancellation of Proposition 8.2, the primitive factor and exclusion modulus of a product character, the bounded CRT packing, and the small-conductor Möbius cancellation) are its inputs and application. ES.0 imports FiniteFieldsAndCharacterSums FF.2 for the complete sums; primitive reduction of Dirichlet characters is in pinned Mathlib (item 93). The paper becomes a source for ES.0; no Part II is needed. Keep the corrections recorded in the report: the product character's ambient modulus is not its conductor, and the printed universal divisor bound is false. [Converted from a Part II by REV-PAPER-BENNETT-SIKSEK-20.]"
     },
     {
       "route": "new",
@@ -1747,7 +1755,6 @@
         "PAPER-BENNETT-SIKSEK-20/75",
         "PAPER-BENNETT-SIKSEK-20/76",
         "PAPER-BENNETT-SIKSEK-20/80",
-        "PAPER-BENNETT-SIKSEK-20/81",
         "PAPER-BENNETT-SIKSEK-20/84",
         "PAPER-BENNETT-SIKSEK-20/85",
         "PAPER-BENNETT-SIKSEK-20/91",
@@ -1789,10 +1796,47 @@
         "PAPER-BENNETT-SIKSEK-20/146",
         "PAPER-BENNETT-SIKSEK-20/149",
         "PAPER-BENNETT-SIKSEK-20/150",
-        "PAPER-BENNETT-SIKSEK-20/64"
+        "PAPER-BENNETT-SIKSEK-20/64",
+        "PAPER-BENNETT-SIKSEK-20/141"
       ],
-      "brief": "Build the Bennett–Siksek modular-method proof for primitive arithmetic progression products, including both the original analytic endgame and Granville's published §12 addendum. The main target is exactly: there is an effectively computable absolute k0 such that if k>=k0, ell is prime, gcd(n,d)=1 and product_{0<=i<k}(n+i*d)=y^ell, then y*d=0 or ell<=exp(10^k). Derive finiteness of positive integer solutions for each fixed sufficiently large k and all integer exponents ell>=2; do not claim nonexistence, one finite set over all k, or an effective enumeration of points. Define the signed small-prime factorization, both indexed Frey families, minimal/semistable local tests, reduced-level bounds and one fixed family of primitive quadratic characters with nontrivial odd conductor and Lambda-weighted half-interval sum >.1239*k. Prove both Legendre cases and every simultaneous conductor-avoidance/size choice. Import Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), and the new effective-comparison and Legendre-interface continuations (EllipticModularityEffectiveComparisons, EllipticLegendreCharacterInterfaces). Import generic zeros/prime estimates from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory), short smooth-modulus sums from SmoothModulusCharacterSums, Gram duality from SieveMethodsAndPrimePatterns, quantitative Roth from AdditiveCombinatorics, CM integrality/images from ComplexMultiplicationAndExplicitReciprocity, and Faltings from HeightsRationalPointsAndObstructions. The fixed-exponent Darmon–Granville adapter and elementary quartic descent remain explicit local proof tasks. Follow the report's corrected discriminant, conductor bookkeeping, interval endpoints, divisor bounds and low-zero estimates. For the addendum, prove the single-witness lemma by deletion and disjoint triples; never combine unrelated existence claims. Include the historical theorem, Erdős conjecture and §11 smooth-multiplier announcement in a statement register with their actual status; neither unproved assertion is an assumption. Every definition needs API and unit tests, every nonroutine comparison a dependency, and both proof routes must terminate at these named suppliers or recorded blueprint gaps. The printed comparison of Roth constants is false: retain Proposition 9.1's exp(exp(10^6)) threshold as a source claim with a proof gap, and execute item 149 at exp(exp(10^7)), which suffices for the main theorem. Do not claim to have proved the sharper threshold.",
+      "brief": "Build the Bennett–Siksek modular-method proof for primitive arithmetic progression products, including both the original analytic endgame and Granville's published §12 addendum. The main target is exactly: there is an effectively computable absolute k0 such that if k>=k0, ell is prime, gcd(n,d)=1 and product_{0<=i<k}(n+i*d)=y^ell, then y*d=0 or ell<=exp(10^k). Derive finiteness of positive integer solutions for each fixed sufficiently large k and all integer exponents ell>=2; do not claim nonexistence, one finite set over all k, or an effective enumeration of points. Define the signed small-prime factorization, both indexed Frey families, minimal/semistable local tests, reduced-level bounds and one fixed family of primitive quadratic characters with nontrivial odd conductor and Lambda-weighted half-interval sum >.1239*k. Prove both Legendre cases and every simultaneous conductor-avoidance/size choice. Import Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity), Weight and level optimisation of residual modular representations (SerreWeightAndLevelOptimisation), Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), and the new effective-comparison and Legendre-interface continuations (EllipticModularityEffectiveComparisons, EllipticLegendreCharacterInterfaces). Import generic zeros/prime estimates from Arithmetic Dirichlet series and Tauberian methods, Part II: analytic number theory and zeta functions (AnalyticNumberTheory, layers AN.2, AN.3 and AN.5), short smooth-modulus sums from Exponential sums, decoupling and the circle method (ExponentialSumsAndCircleMethod, layer ES.0), Gram duality from SieveMethodsAndPrimePatterns, quantitative Roth from AdditiveCombinatorics, CM integrality/images from ComplexMultiplicationAndExplicitReciprocity, and Faltings from HeightsRationalPointsAndObstructions. The fixed-exponent Darmon–Granville adapter and elementary quartic descent remain explicit local proof tasks. Follow the report's corrected discriminant, conductor bookkeeping, interval endpoints, divisor bounds and low-zero estimates. For the addendum, prove the single-witness lemma by deletion and disjoint triples; never combine unrelated existence claims. Include the historical theorem, Erdős conjecture and §11 smooth-multiplier announcement in a statement register with their actual status; neither unproved assertion is an assumption. Every definition needs API and unit tests, every nonroutine comparison a dependency, and both proof routes must terminate at these named suppliers or recorded blueprint gaps. The printed comparison of Roth constants is false: retain Proposition 9.1's exp(exp(10^6)) threshold as a source claim with a proof gap, and execute item 149 at exp(exp(10^7)), which suffices for the main theorem. Do not claim to have proved the sharper threshold. Import the Frey–Hellegouarch curve freyCurve A B of Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), y² = x(x − A)(x + B) with Δ = 16·A²B²(A + B)², for items 14, 16 and 17 rather than defining a second model; its semistability theorem there covers only the Fermat case, so the progression local tests stay here. The quartic descent T⁴ + V⁴ = 2U² (item 81) is imported from ClassicalArithmeticCompletion CA.4. The explicit Stirling upper bound (item 141) is a local numerical adapter here; Nat.factorial_le_pow already suffices for the factorial estimate of item 107. [Revised by REV-PAPER-BENNETT-SIKSEK-20.]",
       "reason": "No current roadmap owns this modular-method treatment of progression products. EffectiveDiophantineMethods has certified algorithms, not this non-effective finiteness/large-exponent contradiction. The new roadmap owns only application-specific constructions and adapters, with reusable machinery assigned to its existing subject owners or explicit continuations."
+    },
+    {
+      "route": "source",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "stages": [
+        "ClassicalArithmeticCompletion:CA.1",
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/72",
+        "PAPER-BENNETT-SIKSEK-20/152",
+        "PAPER-BENNETT-SIKSEK-20/81"
+      ],
+      "reason": "CA.1 owns power residues, quadratic reciprocity and \"residue symbols at 2\": the primitive quadratic Dirichlet character attached to a rational squareclass (item 72) and the bound v_2(N) <= 3 for primitive quadratic conductors (item 152) belong there. RS-07 hands characters and conductors to Mathlib, which has neither the squareclass classification nor the conductor bound, and Tau Ceti's fundamental-discriminant and genus-character functions are unbundled. CA.4 owns \"elementary descent\"; the quartic descent T⁴ + V⁴ = 2U² ⇒ T = V = U = 1 (item 81) is its instance. [Added by REV-PAPER-BENNETT-SIKSEK-20.]"
+    },
+    {
+      "route": "source",
+      "roadmap": "ComputationalNumberTheory",
+      "stages": [
+        "ComputationalNumberTheory:CN.4"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/90"
+      ],
+      "reason": "Platt's exclusion of exceptional real zeros for conductors below 400000 is a validated numerical computation: CN.4 owns interval arithmetic, certified roots and L-value approximations, and requires that \"a sign, zero ... or nonvanishing claim uses an enclosing interval\". [Added by REV-PAPER-BENNETT-SIKSEK-20.]"
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisRepresentations",
+      "stages": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "items": [
+        "PAPER-BENNETT-SIKSEK-20/61"
+      ],
+      "reason": "R01.3 defines Artin conductors, promises \"the precise comparison with the conductor of an elliptic curve\" and insists that \"wild contributions at 2 and 3 are not omitted\"; the exponent bounds f_2 <= 8, f_3 <= 5, f_p <= 2 for elliptic curves over Q (item 61) are that comparison's quantitative content. [Added by REV-PAPER-BENNETT-SIKSEK-20.]"
     }
   ],
   "handoff": "research/blueprint/handoff/PAPER-BENNETT-SIKSEK-20.md",

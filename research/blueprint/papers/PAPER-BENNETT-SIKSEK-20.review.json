@@ -1,0 +1,67 @@
+{
+  "paper": "PAPER-BENNETT-SIKSEK-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "SerreWeightAndLevelOptimisation R20.2–R20.4, R20.6 plan Ribet/Diamond level lowering, coefficient-prime level and character control, and the weight-two trivial-character export; the reduced-level quotient, Theorem 3 and the removed-prime congruence (items 04, 05, 07) are consumer contracts of those layers. ClassicalSerreModularity R27.6 exports the same weight-two newform, so the design should cite it for item 05 rather than re-prove it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accepted as corrected in place. As submitted the route named AN.0, AN.1 and AN.6, which the accepted restructure RS-07 dropped. It now names AN.2 (zero-free regions, exceptional zeros, explicit PNT instances), AN.3 (explicit formulas, zero density) and AN.5 (divisor problems), each of which RS-07 keeps with that content; the squareclass-character, certified-computation and Stirling items moved to routes 10, 11 and 9."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SV.2, as narrowed by RS-07, keeps \"additive and multiplicative large-sieve inequalities, their finite-dimensional duality argument\"; the Bombieri–Selberg inner-product inequality (item 45) is exactly that duality input. Pinned Mathlib has only Bessel's inequality for orthonormal families."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AC.2 owns Roth's theorem \"with finite quantitative and infinite positive-density forms\"; only Rahman's explicit threshold (item 101) is new, since Mathlib's roth_3ap_theorem_nat has a tower-type bound. The report correctly records that the printed comparison K0(10^-5) < exp(exp(10^6)) is false."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "CM.4 compares CM Hecke-character components with the Tate module; the residual Cartan-normalizer image of a CM curve (item 148) is a direct consequence. CM.3 already plans integrality of CM j-invariants (item 83)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "No layer owns Kraus's effective realization theorem, the removed-prime norm bound, Martin's sharp newspace bound, the uniform two-torsion irreducibility cutoffs or Lemos's theorem; EllipticCurveModularity proves qualitative modularity only, so a Part II in its direction is justified. The brief was amended in place to state that it owns the uniform Mazur/Kenku inputs (no cycle with the parent's R29.1) and to import the Sturm bound and dimension formulas. Area `automorphic` is valid; `arithmeticgeometry` would also fit."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accepted as corrected in place. Items 33 (library: Tau Ceti WeierstrassCurve.Affine.μ and ker_μ_eq) and 73 (planned by RankZeroOneBSD:BSD.0) were removed and the brief now imports them. The remaining generic Legendre and finite-field torsion lemmas (28–31, 34, 69, 77) have no owner, and Elliptic curves is a Tau Ceti roadmap, so a Part II is the right mechanism. It is thin; flag it for merging with other Elliptic curves Part II material at the next restructuring."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accepted as corrected in place. As submitted this was a Part II, SmoothModulusCharacterSums, but ExponentialSumsAndCircleMethod ES.0 already owns \"Weyl differencing, van der Corput ... and completion of sums; connect to finite-field character-sum producers\", and the Graham–Ringrose estimate at smooth moduli is the q-analogue of van der Corput with completion. The route is now a source route to ES.0 with the same five items; no new roadmap is needed."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "No roadmap covers perfect powers in products of arithmetic progressions or the modular-method proof with its analytic endgame: EffectiveDiophantineMethods has certified algorithms, HeightsRationalPointsAndObstructions RP.4 has Faltings only, ClassicalArithmeticCompletion CA.4 is elementary, and Tau Ceti EllipticCurves has only the Fermat Frey curve. The brief states Theorem 2 exactly (ℓ ≤ exp(10^k) for prime ℓ, finiteness for each fixed large k, not nonexistence) and imports the reusable parts. It was amended in place to reuse Tau Ceti's freyCurve, import ES.0 and CA.4, and use the current AnalyticNumberTheory title."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Added by this review. CA.1 owns quadratic reciprocity and \"residue symbols at 2\": the primitive quadratic character of a rational squareclass (item 72) and the 2-adic conductor bound (item 152). CA.4 owns \"elementary descent\": the quartic descent T⁴ + V⁴ = 2U² (item 81)."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Added by this review. Platt's exclusion of exceptional zeros below conductor 400000 (item 90) is a validated computation, which ComputationalNumberTheory CN.4 owns (\"a sign, zero ... or nonvanishing claim uses an enclosing interval\")."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Added by this review. ArithmeticGaloisRepresentations R01.3 promises \"the precise comparison with the conductor of an elliptic curve\" including wild contributions at 2 and 3; the exponent bounds of item 61 are that comparison's quantitative content. The item had been marked planned, but neither cited layer states the bounds."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5; the extraction is by Codex codex-a71f92, continuing ChatGPT chatgpt-0921-b74e). The published PDF (SHA-256 3920a752…fbf, as recorded) was read in full. The items match the paper, and the extractor's corrections of printed errors were each re-derived: Δ = 16(abc)² for Y² = X(X−a)(X+c), the order-four point's x-coordinate 2λ + 4ivt from the halving formula with the printed y-coordinate inconsistent, 132·log 2·10^5 ≈ 9.15·10^6 > 10^6 so the printed Roth threshold fails, τ(120) = 16 > 120^{1/log log 360} ≈ 14.9, and ℓ ≤ exp(10^k), the reading forced by the level bound in Lemma 4.1. All nine library citations were opened at the pinned commits and confirmed. The extraction was corrected in place: items 86 (split, with new item 152), 03, 06, 33, 61, 73, 79 and 107; route 2 retargeted after the accepted restructure RS-07; route 7 shrunk; route 8 converted from a Part II to a source of ExponentialSumsAndCircleMethod ES.0; routes 6 and 9 briefs amended; routes 10–12 added. python3 scripts/check_paper.py reports ok. Every change is listed in research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md."
+}
