@@ -1,0 +1,640 @@
+{
+ "paper": "PAPER-IM-KIM-LE-ETAL-24",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Zagier–Hoffman's conjectures in positive characteristic",
+  "authors": "Bo-Hae Im, Hojin Kim, Khac Nhuan Le, Tuan Ngo Dac, Lan Huong Pham",
+  "venue": "Forum of Mathematics, Pi 12 (2024)",
+  "doi": "10.1017/fmp.2024.18",
+  "arxiv": "2205.07165v2",
+  "url": "https://arxiv.org/abs/2205.07165v2",
+  "read": "arXiv v2 (10 June 2024), 60 pages, the version whose comment records that the details of proofs were added. Read in the LaTeX source of that version (arXiv e-print of 2205.07165v2, file AMZV_ZagierHoffman_arxiv_v2.tex, sha256 of the source archive 362cf73f69e7a7adc58c10667cf3226004842e3384191bd2b628bc43ca1c29b1), fetched 22 September 2026, together with the open-access published version at doi:10.1017/fmp.2024.18 on Cambridge Core. The preprint leaves the introduction unnumbered, so its statements are numbered 0.k, while the published version numbers the introduction as Section 1; the correspondence is a shift of one in the section number throughout (arXiv Remark 1.1 is published Remark 2.1, arXiv Theorem 3.6 is published Theorem 4.6, and so on), verified statement by statement, and Theorems A and B keep their letters. Every locator below gives the preprint number and, in parentheses, the published one.",
+  "readSections": [
+   "0 Introduction (0.1 Classical setting, 0.2 Function field setting with the conjectures of Zagier–Hoffman type, 0.3 Main results and ingredients of the proofs)",
+   "1 Weak and strong Brown's theorems for ACMPL's (1.1 Analogues of power sums, 1.2 A strong version of Brown's theorem for ACMPL's)",
+   "2 Dual t-motives and linear independence",
+   "3 Linear relations between ACMPL's",
+   "4 Applications on AMZV's and Zagier–Hoffman's conjectures in positive characteristic (including the sharp bounds without ACMPL's)",
+   "References"
+  ]
+ },
+ "summary": "Im, Kim, Le, Ngo Dac and Pham determine the dimensions of the spaces of alternating multiple zeta values in positive characteristic and prove the analogues of Zagier's and Hoffman's conjectures. Over A = F_q[θ] with K = F_q(θ), Thakur's multiple zeta values ζ_A(s) and Harada's alternating values ζ_A(ε; s) span K-vector spaces Z_w and AZ_w in each weight. Their Theorem A computes dim_K AZ_w = s(w) for an explicit Fibonacci-like sequence and exhibits a Hoffman-like basis; their Theorem B proves Thakur's basis conjecture, that the values ζ_A(s) with s_i ≤ q for i < r and s_r < q form a basis of Z_w, and with it Todd's dimension conjecture. The method does not work inside the theory of alternating multiple zeta values, where the available algorithm only produces a generating set that is too large; instead the paper develops the algebraic theory of alternating Carlitz multiple polylogarithms, whose stuffle relations are simpler, proves a strong Brown theorem there with a generating set AS_w of exactly the right size, and establishes a bridge AZ_w = AL_w between the two theories. The linear independence of the proposed basis comes from the Anderson–Brownawell–Papanikolas criterion applied to dual t-motives, through an improved criterion (their Theorem 2.4) that controls the coefficients of a hypothetical relation, a character-splitting lemma and a Kuan–Lin degree bound. The atlas plans the Carlitz module, its period, Anderson t-motives, Carlitz zeta values and Papanikolas's difference-Galois theory in the roadmap Drinfeld modules, t-motives and characteristic-p special values, and stops at depth one; the classical analogues are planned at PeriodsAndSpecialValues PS.9. Nothing plans multiple zeta values in characteristic p, their alternating versions, Carlitz polylogarithms or the ABP criterion. This extraction proposes the same Part II as the extraction of Chang–Chen–Mishiba, which proves Theorem B independently and simultaneously, and asks for the two to be designed together.",
+ "items": [
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/1",
+   "kind": "definition",
+   "name": "The base ring and fields",
+   "statement": "A = F_q[θ] with A_+ the monic polynomials, K = F_q(θ) with the rational point ∞, v_∞ the normalised valuation with v_∞(θ) = −1 and |·|_∞ = q^{−v_∞}, K_∞ the completion at ∞, C_∞ the completion of a fixed algebraic closure K̄ of K, and F̄_q the algebraic closure of F_q in K̄.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.1 (published: Section 1.2.1)",
+   "status": "library",
+   "library": [
+    "mathlib:Polynomial",
+    "mathlib:RatFunc",
+    "mathlib:LaurentSeries",
+    "mathlib:Polynomial.Monic"
+   ],
+   "planned": [],
+   "note": "Mathlib has polynomial rings over a finite field, rational functions and Laurent series with monic polynomials; the valuation-theoretic package and C_∞ are assumed by the DrinfeldModulesAndTModules roadmap (analytic uniformisation in DM.2) without being constructed."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/2",
+   "kind": "theorem",
+   "name": "Carlitz zeta values",
+   "statement": "For n ∈ N, ζ_A(n) = Σ_{a ∈ A_+} a^{−n} ∈ K_∞ are the Carlitz zeta values, the depth-one case of the multiple values.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.1 (published: Section 1.2.1)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.0",
+    "DrinfeldModulesAndTModules:DM.2",
+    "DrinfeldModulesAndTModules:DM.6"
+   ],
+   "note": "DM.0 constructs the Carlitz module, DM.2 its uniformisation and period, and DM.6 requires the explicit Carlitz zeta value and period normalisation."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/3",
+   "kind": "definition",
+   "name": "Thakur's multiple zeta values",
+   "statement": "For s = (s_1, …, s_r) ∈ N^r, ζ_A(s) = Σ a_1^{−s_1} ⋯ a_r^{−s_r} ∈ K_∞, the sum over (a_1, …, a_r) ∈ A_+^r with deg a_1 > ⋯ > deg a_r; r is the depth and w(s) = Σ s_i the weight. Thakur proved that these values never vanish. Z_w denotes the K-span of the MZVs of weight w.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.1 (published: Section 1.2.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The same object as in PAPER-CHANG-CHEN-MISHIBA-23; the two papers prove the same theorem independently and should be routed together."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/4",
+   "kind": "definition",
+   "name": "Alternating multiple zeta values",
+   "statement": "Following Harada, for s = (s_1, …, s_r) ∈ N^r and ε = (ε_1, …, ε_r) ∈ (F_q^×)^r one sets ζ_A(ε; s) = Σ ε_1^{deg a_1} ⋯ ε_r^{deg a_r} / (a_1^{s_1} ⋯ a_r^{s_r}) ∈ K_∞, the sum over (a_1, …, a_r) ∈ A_+^r with deg a_1 > ⋯ > deg a_r, with ζ_A(∅; ∅) = 1; AZ_w denotes the K-span of the AMZVs of weight w. Harada extended non-vanishing, shuffle relations, the period interpretation and linear independence to these values.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.2 (published: Section 1.2.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The alternating values are the new object of this paper; they are not in the atlas, and not in the companion paper of Chang, Chen and Mishiba either."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/5",
+   "kind": "definition",
+   "name": "Carlitz multiple polylogarithms and their alternating version",
+   "statement": "With ℓ_0 = 1 and ℓ_d = ∏_{i=1}^d (θ − θ^{q^i}), the Carlitz multiple polylogarithm is Li(s) = Σ_{d_1 > ⋯ > d_n ≥ 0} 1/(ℓ_{d_1}^{s_1} ⋯ ℓ_{d_n}^{s_n}), and the alternating Carlitz multiple polylogarithm (ACMPL) attached to an array is Li(ε; s) = Σ_{d_1 > ⋯ > d_r ≥ 0} ε_1^{d_1} ⋯ ε_r^{d_r}/(ℓ_{d_1}^{s_1} ⋯ ℓ_{d_r}^{s_r}) ∈ K_∞, with Li(∅; ∅) = 1; AL_w denotes the K-span of the ACMPLs of weight w.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Sections 0.3.2 and 1.1.2 (published: Sections 1.3.2 and 2.1.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The objects the whole proof is carried out with; DM.8 plans Carlitz logarithms, not polylogarithms, and nothing plans the alternating versions."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/6",
+   "kind": "definition",
+   "name": "Power sums for both realisations",
+   "statement": "For a tuple s, S_d(s) = Σ_{d = deg a_1 > ⋯ > deg a_n ≥ 0} a_1^{−s_1} ⋯ a_n^{−s_n} and S_{<d}(s) the analogous sum over d > deg a_1; 𝔖_d(s) = Σ_{d = d_1 > ⋯ > d_n ≥ 0} 1/(ℓ_{d_1}^{s_1} ⋯ ℓ_{d_n}^{s_n}) and 𝔖_{<d}(s) likewise; ζ_A(s) = Σ_{d ≥ 0} S_d(s) and Li(s) = Σ_{d ≥ 0} 𝔖_d(s), and both have alternating versions twisted by the ε_i^{d_i}.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 1.1.2 (published: Section 2.1.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The two families of truncated sums whose product formulae drive the algebraic part."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/7",
+   "kind": "theorem",
+   "name": "Zagier's and Hoffman's conjectures and Brown's theorem",
+   "statement": "Classically: with d_0 = 1, d_1 = 0, d_2 = 1 and d_k = d_{k-2} + d_{k-3}, Zagier conjectured dim_Q Z_k = d_k; Hoffman conjectured that the MZVs ζ(n_1, …, n_r) of weight k with n_i ∈ {2,3} form a basis; Deligne–Goncharov and Terasoma proved dim_Q Z_k ≤ d_k; Brown proved that those MZVs generate; and Deligne–Goncharov proved dim_Q A_k ≤ F_{k+1} for the space spanned by alternating MZVs of weight k, F_n the Fibonacci numbers.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Conjectures 0.1 and 0.2 and Theorems 0.3, 0.4 and 0.5 (published: Conjectures 1.1 and 1.2, Theorems 1.3, 1.4 and 1.5)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PeriodsAndSpecialValues:PS.9"
+   ],
+   "note": "PS.9 plans classical multiple zeta values with shuffle and stuffle, regularisation, the mixed-Tate category and 'selected motivic basis/spanning and numerical spanning results' — that is, exactly Zagier, Hoffman, Terasoma–Deligne–Goncharov and Brown. The alternating classical case is of the same kind and belongs there too."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/8",
+   "kind": "theorem",
+   "name": "Zagier's conjecture in positive characteristic",
+   "statement": "With d(0) = 1, d(w) = 2^{w−1} for 1 ≤ w ≤ q − 1, d(q) = 2^{q−1} − 1 and d(w) = Σ_{i=1}^q d(w−i) for w > q, one has dim_K Z_w = d(w) for every w ∈ N.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Conjecture 0.6 (published: Conjecture 1.6; formulated by Todd)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The same conjecture appears in PAPER-CHANG-CHEN-MISHIBA-23 as its Conjecture 1.2.2; the two papers prove it independently."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/9",
+   "kind": "theorem",
+   "name": "Hoffman's conjecture in positive characteristic",
+   "statement": "A K-basis of Z_w is given by the set T_w of ζ_A(s_1, …, s_r) of weight w with s_i ≤ q for 1 ≤ i < r and s_r < q.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Conjecture 0.7 (published: Conjecture 1.7; formulated by Thakur)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Thakur's basis conjecture, the same statement as Conjecture 1.2.3 of PAPER-CHANG-CHEN-MISHIBA-23."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/10",
+   "kind": "theorem",
+   "name": "Ngo Dac's algebraic part",
+   "statement": "For all w ∈ N, dim_K Z_w ≤ d(w), proved from the Chen–Thakur shuffle relations and Todd's operations; and sharp lower bounds were known only for w ≤ 2q − 2 through the ABP criterion.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.2.1 (published: Section 1.2.1), quoting [ND21, Theorems A and D]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The state of the art this paper completes, and the source of the algebraic method it generalises."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/11",
+   "kind": "theorem",
+   "name": "Dimensions and a Hoffman-like basis for alternating multiple zeta values",
+   "statement": "Define s(w) = (q − 1)q^{w−1} for 1 ≤ w < q, s(q) = (q − 1)(q^{q−1} − 1), and s(w) = (q − 1)Σ_{i=1}^{q−1} s(w−i) + s(w−q) for w > q. Then dim_K AZ_w = s(w) for every w ∈ N, and an explicit Hoffman-like basis of AZ_w is exhibited.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem A (published: Theorem A)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The main theorem for alternating values, and the harder of the two; it has no counterpart in the companion paper."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/12",
+   "kind": "theorem",
+   "name": "Zagier–Hoffman's conjectures in positive characteristic",
+   "statement": "For every w ∈ N, T_w is a K-basis of Z_w; in particular dim_K Z_w = d(w).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem B (published: Theorem B)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Thakur's basis conjecture and Todd's dimension conjecture. The same theorem is proved independently in PAPER-CHANG-CHEN-MISHIBA-23 (its Theorem 1.2.4); the authors record the simultaneity in the remark closing the introduction."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/13",
+   "kind": "construction",
+   "name": "Strategy: passing through alternating Carlitz multiple polylogarithms",
+   "statement": "Working with AMZVs alone gives only a weak Brown theorem — a generating set too large to be a basis — because the algorithm of Ngo Dac moves forward without control on the coefficients. The paper instead develops the algebraic theory of ACMPLs by stuffle relations, obtains a weak Brown theorem there with the same generating set, deduces AL_w = AZ_w (the bridge, Theorem 4.9), constructs a smaller Hoffman-like set AS_w and proves a strong Brown theorem for it, and finally determines all K-linear relations between ACMPLs by the ABP criterion.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 0.3.2 (published: Section 1.3.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The three new ingredients the authors isolate: the basis AS_w, the strong Brown theorem, and the improved linear-independence criterion of Theorem 2.4."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/14",
+   "kind": "definition",
+   "name": "Tuples, arrays and their orders",
+   "statement": "A tuple is s = (s_1, …, s_n) ∈ N^n with depth n and weight w(s) = Σ s_i; with s_i := 0 for i > depth(s), one writes s ≤ t when s_1 + ⋯ + s_i ≤ t_1 + ⋯ + t_i for all i and w(s) = w(t), a partial order, and T_i(s) := (s_1 + ⋯ + s_i, s_{i+1}, …, s_n). The initial tuple Init(s) is (s_1, …, s_i) for the largest i with s_j ≤ q for all j ≤ i, and initial tuples are compared lexicographically (≼). An array is a pair of an ε-tuple and an s-tuple of the same length, with character χ(ε) = ε_1 ⋯ ε_n; arrays are preordered by requiring equal characters, equal weights and the same partial-sum inequalities.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Sections 1.1.1 and 1.1.2 (published: Sections 2.1.1 and 2.1.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The combinatorial framework; the order on arrays is only a preorder, which is why the arguments track characters separately."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/15",
+   "kind": "theorem",
+   "name": "Depth is reversed by the order",
+   "statement": "If (ε; s) ≤ (e; t) as arrays then depth(s) ≥ depth(t).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Remark 1.1 (published: Remark 2.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The elementary consequence of the partial-sum inequalities used throughout the induction."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/16",
+   "kind": "theorem",
+   "name": "The two power sums agree in the Thakur range",
+   "statement": "For an array with s_i ≤ q for all i, S_d(ε; s) = 𝔖_d(ε; s) for all d ∈ Z, and therefore ζ_A(ε; s) = Li(ε; s).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 1.2 (published: Lemma 2.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Carlitz's identity in the alternating setting; it is what lets the two theories be compared index by index."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/17",
+   "kind": "theorem",
+   "name": "Product formulae for the ACMPL power sums",
+   "statement": "For arrays (ε; s) and (e; t) there exist f_i ∈ F_q and arrays (m_i; u_i) with (m_i; u_i) ≤ (ε; s) + (e; t) and depth(u_i) ≤ depth(s) + depth(t) such that the products 𝔖_d(ε; s)𝔖_d(e; t) and 𝔖_{<d}(ε; s)𝔖_{<d}(e; t) decompose as the stated F_q-linear combinations of 𝔖_d and 𝔖_{<d} of the arrays (m_i; u_i).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 1.3 (published: Proposition 2.3)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The stuffle relations for ACMPLs, which are simpler than the shuffle relations for AMZVs — the technical reason the paper works with ACMPLs."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/18",
+   "kind": "definition",
+   "name": "Binary and fixed relations",
+   "statement": "A binary relation is an identity Σ_i a_i 𝔖_d(ε_i; s_i) + Σ_i b_i 𝔖_{d+1}(e_i; t_i) = 0 valid for all d ∈ Z, with a_i, b_i ∈ K and all arrays of the same weight; it is a fixed relation when all b_i vanish.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Definition 1.4 (published: Definition 2.4)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The calculus of relations between truncated sums at consecutive degrees, the same device as in the companion paper's appendix."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/19",
+   "kind": "theorem",
+   "name": "The operators B* and C on relations",
+   "statement": "For an array (Σ; V) the operator 𝓑*_{Σ,V} transforms a relation R into a relation of the displayed shape (Lemma 1.5), and the operator 𝓒_{Σ,V} applied to R_ε produces the identity 𝔖_d(εσ_1, Σ_-; q + v_1, V_-) + 𝔖_d(ε, Σ; q, V) + Σ_i b_i 𝔖_{d+1}(ε, e_i; 1, t_i) = 0 with b_i ∈ A divisible by D_1 and the arrays (e_i; t_i) suitably bounded (Proposition 1.6).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 1.5 and Proposition 1.6 (published: Lemma 2.5 and Proposition 2.6)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The two operators that generate new relations from old, the engine of the rewriting."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/20",
+   "kind": "theorem",
+   "name": "The decomposition of an ACMPL",
+   "statement": "For an array whose initial tuple is (s_1, …, s_{k−1}) and ε ∈ F_q^×, Li(ε; s) decomposes as a sum of a type-1 term −Li(ε'; s'), type-2 terms Σ_i b_i Li(e_i'; t_i') and type-3 terms, with explicit control on depths, initial tuples and the order relations of the arrays occurring.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 1.7 (published: Proposition 2.7)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The step that strictly increases the initial tuple, which makes the algorithm terminate."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/21",
+   "kind": "definition",
+   "name": "k-admissible tuples",
+   "statement": "A tuple s is k-admissible if s_1, …, s_k ≤ q and s is not of the form (s_1, …, s_r) with r ≤ k, s_1, …, s_{r−1} ≤ q and s_r = q (with s_i = 0 for i > depth(s)); the empty array is k-admissible, and an array is k-admissible when its tuple is.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Definition 1.8 (published: Definition 2.8)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The measure of progress for the rewriting algorithm."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/22",
+   "kind": "theorem",
+   "name": "Reduction to k-admissible arrays",
+   "statement": "For every k ∈ N and every array, Li(ε; s) is a K-linear combination of Li(e; t) of the same weight with t k-admissible.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 1.9 (published: Proposition 2.9)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The termination statement for the rewriting, proved by the strictly increasing sequence of initial tuples."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/23",
+   "kind": "theorem",
+   "name": "Weak Brown theorem for ACMPLs",
+   "statement": "The set AT_w of ACMPLs Li(ε; s) of weight w with s_1, …, s_{n−1} ≤ q and s_n < q generates AL_w; its cardinality t(w) satisfies t(w) = (q − 1)q^{w−1} for 1 ≤ w < q, t(q) = (q − 1)(q^{q−1} − 1) and t(w) = (q − 1)Σ_{i=1}^q t(w−i) for w > q.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 1.10 with the preceding computation (published: Proposition 2.10)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The generating set is too large to be a basis — this is precisely the weakness of the earlier method that the paper overcomes."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/24",
+   "kind": "definition",
+   "name": "The sets J_w, J'_w and the Hoffman-like set AS_w",
+   "statement": "J_w consists of the tuples of weight w with s_1, …, s_{n−1} ≤ q and s_n < q; J'_w of those with q ∤ s_i for all i; the bijection ι : J'_w → J_w replaces s_i = h_i q + r_i with 0 < r_i < q by (q^{{h_i}}, r_i). AS_w is the set of ACMPLs Li(ε; s) with s ∈ J'_w; it is strictly smaller than AT_w except when q = 2 or w ≤ q, and its cardinality is the s(w) of Theorem A, computed through the auxiliary sets AJ_w and AJ^1_w and the map φ between them.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 1.2.1 and the cardinality computation (published: Section 2.2.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Hoffman-like basis: the first of the three new ingredients, and the one the transcendence method dictates."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/25",
+   "kind": "theorem",
+   "name": "Strong Brown theorem for ACMPLs",
+   "statement": "The set AS_w generates AL_w; in particular dim_K AL_w ≤ s(w).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 1.11 (published: Theorem 2.11)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The second new ingredient: a generating set of the right size, obtained by going backwards through the rewriting with control on the coefficients."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/26",
+   "kind": "definition",
+   "name": "Effective dual t-motives",
+   "statement": "An effective dual t-motive is a K̄[t, σ]-module M' which is free and finitely generated over K̄[t] and satisfies (t − θ)^ℓ (M'/σM') = 0 for ℓ ≫ 0.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Definition 2.1 (published: Definition 3.1)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.4"
+   ],
+   "note": "DM.4 plans Anderson t-modules and effective t-motives with the contravariant convention, the τ-action and the finite-generation requirements; the dual t-motive is the same theory in its σ-form."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/27",
+   "kind": "theorem",
+   "name": "The Anderson–Brownawell–Papanikolas criterion",
+   "statement": "Let Φ ∈ Mat_ℓ(K̄[t]) with det Φ = c(t − θ)^s for some c ∈ K̄^× and s ≥ 0, let ψ ∈ Mat_{ℓ×1}(E) satisfy ψ^{(−1)} = Φψ, and let ρ ∈ Mat_{1×ℓ}(K̄) satisfy ρψ(θ) = 0. Then there is P ∈ Mat_{1×ℓ}(K̄[t]) with Pψ = 0 and P(θ) = ρ.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 2.2 (published: Theorem 3.2; [ABP04])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The same criterion the companion paper uses; it belongs inside DM.8, which plans the Papanikolas theory built on it."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/28",
+   "kind": "construction",
+   "name": "Dual t-motives attached to tuples and the series 𝔏(s; Q)",
+   "statement": "To a tuple s and a datum Q of polynomials one attaches an effective dual t-motive and a series 𝔏(s; Q) ∈ E whose value at t = θ is the corresponding ACMPL or AMZV value; the construction packages the period interpretation of these values in the form required by the ABP criterion.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Section 2.2 (published: Section 3.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The period interpretation, due to Anderson–Thakur and Chang in the non-alternating case and extended by Harada; it is the bridge between the analytic values and the difference equations."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/29",
+   "kind": "theorem",
+   "name": "K-linear and K̄-linear independence agree",
+   "statement": "For data (s_i; Q_i), 1 ≤ i ≤ m, whose tuples all have the same weight, the values 𝔏(s_i; Q_i)(θ) are K-linearly independent if and only if they are K̄-linearly independent.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 2.3 (published: Proposition 3.3)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The descent of linear independence from K̄ to K, the analogue of Chang's theorem in the companion paper."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/30",
+   "kind": "theorem",
+   "name": "The linear-independence criterion",
+   "statement": "Under the hypotheses (LW) — for every weight w' < w the values 𝔏(t; Q)(θ) with (t; Q) ∈ I of weight w' are K-linearly independent — and (LD) — there exist a, a_i ∈ A not all zero with a + Σ_i a_i 𝔏(s_i; Q_i)(θ) = 0 — one obtains the stated system of Frobenius difference equations for the associated f_{(t;Q)}, with f_∅ = Σ_i a_i(t)𝔏(s_i; Q_i), from which the coefficients are controlled.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 2.4 with Remark 2.5 (published: Theorem 3.4 and Remark 3.5)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The third new ingredient: an improvement of Theorem B of Ngo Dac in two directions, which is what makes the induction on weights work for all weights."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/31",
+   "kind": "theorem",
+   "name": "Roots of unity give independent elements",
+   "statement": "For distinct ε_i ∈ F_q^× and γ_i ∈ F̄_q a (q − 1)-st root of ε_i, the γ_i are F_q-linearly independent.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 3.1 (published: Lemma 4.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The elementary fact that separates the characters in the alternating setting."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/32",
+   "kind": "theorem",
+   "name": "Relations split by character",
+   "statement": "If Σ_i a_i 𝔏(s_i; e_i)(θ) = 0 with Li(e_i; s_i) ∈ AL_w and a_i ∈ K, then for every ε ∈ F_q^× the partial sum over the indices with χ(e_i) = ε already vanishes.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 3.2 (published: Lemma 4.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Reduces any relation to one within a single character class, which is why the character is part of the order on arrays."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/33",
+   "kind": "theorem",
+   "name": "The Kuan–Lin degree bound",
+   "statement": "Let m ∈ N, ε ∈ F_q^×, δ ∈ K̄[t] and F(t, θ) ∈ F̄_q[t, θ] (respectively F_q[t, θ]) satisfy εδ = δ^{(−1)}(t − θ)^m + F^{(−1)}(t, θ). Then δ ∈ F̄_q[t, θ] (respectively F_q[t, θ]) and deg_θ δ ≤ max{qm/(q − 1), deg_θ F(t, θ)/q}.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 3.3 (published: Lemma 4.3)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The rationality and degree bound for the solutions of the twisted equations, the analogue of the companion paper's Lemmas 4.2.2 and 4.2.3."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/34",
+   "kind": "theorem",
+   "name": "All linear relations between ACMPL values",
+   "statement": "Let w ∈ N and J'_w as above. If a + Σ_{s_i ∈ J'_w} a_i 𝔏(s_i; e_i)(θ) = 0 is a non-trivial relation with a, a_i ∈ K, then (q − 1) | w and a ≠ 0; and when (q − 1) | w there is a unique relation of the form 1 + Σ_{s_i ∈ J'_w} a_i 𝔏(s_i; e_i)(θ) = 0, with the stated description of the indices carrying non-trivial characters.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 3.4 with Remark 3.5 (published: Theorem 4.4 and Remark 4.5)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The transcendental heart: it needs the full strength of the strong Brown theorem, as the authors emphasise."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/35",
+   "kind": "theorem",
+   "name": "The Hoffman-like basis for ACMPLs",
+   "statement": "For every w ∈ N the ACMPLs in AS_w form a basis of AL_w; in particular dim_K AL_w = s(w).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 3.6 (published: Theorem 4.6)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The combination of the strong Brown theorem (upper bound) with the relation theorem (lower bound)."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/36",
+   "kind": "theorem",
+   "name": "Products of depth-one power sums in low weight",
+   "statement": "When s + t ≤ q one has S_d(ε; s) S_d(e; t) = S_d(εe; s + t).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Remark 4.1 (published: Remark 5.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The degenerate case of the shuffle relation, where no correction terms appear."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/37",
+   "kind": "theorem",
+   "name": "Product formulae for the AMZV power sums",
+   "statement": "For arrays (ε; s) and (e; t) there exist f_i ∈ F_q and arrays (m_i; u_i) with (m_i; u_i) ≤ (ε; s) + (e; t) and depth(u_i) ≤ depth(s) + depth(t) such that S_d(ε; s)S_d(e; t) and S_{<d}(ε; s)S_{<d}(e; t) decompose accordingly.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 4.2 with Definition 4.3 (published: Proposition 5.2 and Definition 5.3)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The shuffle relations of Chen–Thakur in Harada's alternating form; they are more complicated than the stuffle relations for ACMPLs, which is why the ACMPL route is taken."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/38",
+   "kind": "theorem",
+   "name": "The operators and the decomposition in the AMZV setting",
+   "statement": "The analogues of Lemma 1.5 and Propositions 1.6, 1.7 and 1.9 hold for AMZVs — the operator 𝓑*_{Σ,V} under the hypothesis v_n + t_{i1} ≤ q (Lemma 4.4), the operator 𝓒_{Σ,V} (Proposition 4.5), the decomposition of ζ_A(ε; s) into type-1, type-2 and type-3 terms (Proposition 4.6), and the reduction to k-admissible arrays (Proposition 4.7).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Lemma 4.4 and Propositions 4.5–4.7 (published: Lemma 5.4 and Propositions 5.5–5.7)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The algebraic theory for AMZVs, following Ngo Dac's method; it gives only the weak Brown theorem below."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/39",
+   "kind": "theorem",
+   "name": "Weak Brown theorem for AMZVs",
+   "statement": "The set of AMZVs ζ_A(ε; s) of weight w with s_1, …, s_{n−1} ≤ q and s_n < q — the same index set AT_w as for ACMPLs — generates AZ_w.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 4.8 (published: Proposition 5.8)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The generating set coincides with the one for ACMPLs, which is what makes the bridge possible."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/40",
+   "kind": "theorem",
+   "name": "The bridge between AMZVs and ACMPLs",
+   "statement": "The K-vector space AZ_w of AMZVs of weight w and the K-vector space AL_w of ACMPLs of weight w are equal.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Theorem 4.9 (published: Theorem 5.9)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The key result of the paper: it transports the basis theorem for ACMPLs to the alternating multiple zeta values, giving Theorem A."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/41",
+   "kind": "theorem",
+   "name": "The lower bound for multiple zeta values",
+   "statement": "For every w ∈ N, dim_K Z_w ≥ d(w); with Ngo Dac's upper bound this gives Theorem B.",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Proposition 4.10 (published: Proposition 5.10)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The proof restricts the ACMPL basis to the non-alternating indices and uses the bridge."
+  },
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/42",
+   "kind": "theorem",
+   "name": "Sharp bounds in small weights without ACMPLs",
+   "statement": "For w ≤ 2q − 2 one has dim_K AZ_w ≤ s(w) by an ad hoc argument inside the AMZV theory (Proposition 4.11); the hypothesis is essential, since for w = 2q − 1 the expression of 𝓑_{e,U}𝓒_{λ,W}(R_ε) is already complicated (Remark 4.12). For w ≤ 3q − 3, or w = 3q − 2 with q = 2, one has dim_K AZ_w ≥ s(w) (Proposition 4.13), by an ad hoc construction of a smaller generating set AT'_w which reflects the known relations ζ_A(1, 2q−2) ∼ ζ_A(2q−1) of Lara Rodríguez–Thakur (Remark 4.14).",
+   "locator": "arXiv:2205.07165v2 (10 June 2024), Propositions 4.11 and 4.13 with Remarks 4.12 and 4.14 (published: Propositions 5.11 and 5.13 with Remarks 5.12 and 5.14)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The record of what the direct approach achieves and where it stops, which is the best justification for the ACMPL detour."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Tuan Ngo Dac, On Zagier–Hoffman's conjectures in positive characteristic, Ann. of Math. 194 (2021), 361–392",
+   "link": "arXiv:2007.11060",
+   "why": "The algebraic part dim_K Z_w ≤ d(w), the sharp lower bounds for w ≤ 2q − 2, and the method — operators on relations, decomposition of indices, the linear-independence criterion — that this paper generalises and improves."
+  },
+  {
+   "citation": "Ryotaro Harada, Alternating multiple zeta values in positive characteristic, Ramanujan J. (2021)",
+   "link": "arXiv:2004.07208",
+   "why": "Introduces the alternating multiple zeta values ζ_A(ε; s) and extends non-vanishing, shuffle relations, the period interpretation and linear independence to them."
+  },
+  {
+   "citation": "Greg W. Anderson, W. Dale Brownawell, Matthew A. Papanikolas, Determination of the algebraic relations among special Γ-values in positive characteristic, Ann. of Math. 160 (2004), 237–313",
+   "link": "arXiv:math/0207168",
+   "why": "The ABP criterion, quoted as Theorem 2.2 and used for the whole transcendental part."
+  },
+  {
+   "citation": "Dinesh S. Thakur, Function field arithmetic (2004); Power sums with applications to multizeta (2009); Shuffle relations for function field multizeta values (2010); Multizeta values for F_q[t], relations and conjectures (2017)",
+   "link": "https://doi.org/10.1142/5535",
+   "why": "The definition of the multiple zeta values, their non-vanishing, the shuffle relations and the basis conjecture proved here as Theorem B."
+  },
+  {
+   "citation": "Chieh-Yu Chang, Linear independence of monomials of multizeta values in positive characteristic, Compos. Math. 150 (2014), 1789–1808",
+   "link": "arXiv:1207.4736",
+   "why": "Carlitz multiple polylogarithms, the analogues of Goncharov's conjectures in positive characteristic quoted in Section 0.3.1, and the period interpretation."
+  },
+  {
+   "citation": "Chieh-Yu Chang, Yen-Tsung Chen, Yoshinori Mishiba, On Thakur's basis conjecture for multiple zeta values in positive characteristic, Forum of Mathematics, Pi 11 (2023)",
+   "link": "arXiv:2205.09929",
+   "why": "The simultaneous and independent proof of Theorem B by a parallel method; the two papers acknowledge each other and should be planned together."
+  },
+  {
+   "citation": "Robert Todd, A conjectural characterization for F_q(t)-linear relations between multizeta values, J. Number Theory 187 (2018), 264–287",
+   "link": "https://doi.org/10.1016/j.jnt.2017.10.025",
+   "why": "The dimension conjecture in positive characteristic and the operations on relations that the algebraic part uses."
+  },
+  {
+   "citation": "Hsin-Jui Chen, On shuffle of double zeta values over F_q[t], J. Number Theory 148 (2015), 153–163",
+   "link": "https://doi.org/10.1016/j.jnt.2014.09.019",
+   "why": "The shuffle relations for the truncated sums that underlie the AMZV product formulae of Proposition 4.2."
+  },
+  {
+   "citation": "Greg W. Anderson, Dinesh S. Thakur, Tensor powers of the Carlitz module and zeta values (1990); Multizeta values for F_q[t], their period interpretation and relations between them (2009)",
+   "link": "https://doi.org/10.2307/1971503",
+   "why": "The Anderson–Thakur polynomials and the period interpretation of multiple zeta values behind the dual t-motive constructions of Section 2.2."
+  },
+  {
+   "citation": "Matthew A. Papanikolas, Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms, Invent. Math. 171 (2008), 123–174",
+   "link": "arXiv:math/0506078",
+   "why": "The difference-Galois framework that DM.8 plans and in which these criteria live."
+  },
+  {
+   "citation": "José Alejandro Lara Rodríguez, Dinesh S. Thakur, Zeta-like multizeta values for F_q[t], Indian J. Pure Appl. Math. 45 (2014), 787–801",
+   "link": "arXiv:1401.2708",
+   "why": "The relations ζ_A(1, 2q−2) ∼ ζ_A(2q−1) explaining the ad hoc generating sets of Section 4.3."
+  },
+  {
+   "citation": "Pierre Deligne, Alexander Goncharov, Groupes fondamentaux motiviques de Tate mixte, Ann. Sci. ÉNS 38 (2005); Terasoma; Francis Brown, Mixed Tate motives over Z, Ann. of Math. 175 (2012)",
+   "link": "arXiv:1102.1312",
+   "why": "The classical statements quoted as Theorems 0.3, 0.4 and 0.5, including the alternating bound dim_Q A_k ≤ F_{k+1}."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "DrinfeldModulesAndTModules",
+   "roadmap": "DrinfeldModulesAndTModulesPartII",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values, Part II: multiple zeta values and Thakur's basis",
+   "area": "functionfields",
+   "items": [
+    "PAPER-IM-KIM-LE-ETAL-24/3",
+    "PAPER-IM-KIM-LE-ETAL-24/4",
+    "PAPER-IM-KIM-LE-ETAL-24/5",
+    "PAPER-IM-KIM-LE-ETAL-24/6",
+    "PAPER-IM-KIM-LE-ETAL-24/8",
+    "PAPER-IM-KIM-LE-ETAL-24/9",
+    "PAPER-IM-KIM-LE-ETAL-24/10",
+    "PAPER-IM-KIM-LE-ETAL-24/11",
+    "PAPER-IM-KIM-LE-ETAL-24/12",
+    "PAPER-IM-KIM-LE-ETAL-24/13",
+    "PAPER-IM-KIM-LE-ETAL-24/14",
+    "PAPER-IM-KIM-LE-ETAL-24/15",
+    "PAPER-IM-KIM-LE-ETAL-24/16",
+    "PAPER-IM-KIM-LE-ETAL-24/17",
+    "PAPER-IM-KIM-LE-ETAL-24/18",
+    "PAPER-IM-KIM-LE-ETAL-24/19",
+    "PAPER-IM-KIM-LE-ETAL-24/20",
+    "PAPER-IM-KIM-LE-ETAL-24/21",
+    "PAPER-IM-KIM-LE-ETAL-24/22",
+    "PAPER-IM-KIM-LE-ETAL-24/23",
+    "PAPER-IM-KIM-LE-ETAL-24/24",
+    "PAPER-IM-KIM-LE-ETAL-24/25",
+    "PAPER-IM-KIM-LE-ETAL-24/28",
+    "PAPER-IM-KIM-LE-ETAL-24/29",
+    "PAPER-IM-KIM-LE-ETAL-24/30",
+    "PAPER-IM-KIM-LE-ETAL-24/31",
+    "PAPER-IM-KIM-LE-ETAL-24/32",
+    "PAPER-IM-KIM-LE-ETAL-24/33",
+    "PAPER-IM-KIM-LE-ETAL-24/34",
+    "PAPER-IM-KIM-LE-ETAL-24/35",
+    "PAPER-IM-KIM-LE-ETAL-24/36",
+    "PAPER-IM-KIM-LE-ETAL-24/37",
+    "PAPER-IM-KIM-LE-ETAL-24/38",
+    "PAPER-IM-KIM-LE-ETAL-24/39",
+    "PAPER-IM-KIM-LE-ETAL-24/40",
+    "PAPER-IM-KIM-LE-ETAL-24/41",
+    "PAPER-IM-KIM-LE-ETAL-24/42"
+   ],
+   "brief": "Plan alternating multiple zeta values in positive characteristic and the proof of the Zagier–Hoffman conjectures by Im, Kim, Le, Ngo Dac and Pham. The final theorems are their Theorem A — with s(w) = (q − 1)q^{w−1} for 1 ≤ w < q, s(q) = (q − 1)(q^{q−1} − 1) and s(w) = (q − 1)Σ_{i=1}^{q−1} s(w−i) + s(w−q) for w > q, one has dim_K AZ_w = s(w) for the space spanned by the alternating multiple zeta values ζ_A(ε; s) of weight w, with an explicit Hoffman-like basis — and their Theorem B: for every w the set T_w of ζ_A(s) with s_i ≤ q for i < r and s_r < q is a K-basis of Z_w, so dim_K Z_w = d(w). The roadmap must cover: Thakur's multiple zeta values and Harada's alternating values with their non-vanishing and shuffle relations; Carlitz multiple polylogarithms and their alternating versions with the power sums S_d and 𝔖_d and Carlitz's identity making the two agree on Thakur's index set; the combinatorics of tuples and arrays — the partial order, initial tuples, characters, k-admissibility; the calculus of binary and fixed relations with the operators 𝓑* and 𝓒, the decomposition of an ACMPL into three types, and the resulting weak Brown theorem with the generating set AT_w; the Hoffman-like set AS_w indexed by tuples with q ∤ s_i, its cardinality s(w), and the strong Brown theorem that it generates AL_w; the dual t-motive package — effective dual t-motives, the series 𝔏(s; Q) realising these values as periods, the equivalence of K- and K̄-linear independence, and the improved linear-independence criterion; the transcendental theorem determining all K-linear relations between ACMPLs, with the character-splitting lemma and the Kuan–Lin degree bound; and finally the bridge AZ_w = AL_w and the deduction of both main theorems, together with the record of what the direct AMZV approach gives in small weights. Import, and do not re-plan: the Carlitz module and its period from Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules), stages DM.0 and DM.2; Anderson t-modules and effective t-motives from DM.4; Carlitz zeta values from DM.6; and the Frobenius-difference machinery with the ABP criterion from DM.8, to which this paper is also routed as a source. Import global function fields and their constants from FunctionFieldArithmetic FA.0. The classical analogues — Zagier's and Hoffman's conjectures, Brown's theorem and the Deligne–Goncharov–Terasoma bounds, including the alternating case — are planned at PeriodsAndSpecialValues PS.9 and should be cited, not re-planned. This roadmap must be designed together with the extraction of Chang, Chen and Mishiba, 'On Thakur's basis conjecture for multiple zeta values in positive characteristic' (PAPER-CHANG-CHEN-MISHIBA-23), which proves Theorem B independently and simultaneously by a parallel route: that paper works with an abstract space of indices carrying the harmonic and q-shuffle products and an explicit rewriting operator, this one with alternating Carlitz multiple polylogarithms and the bridge AZ_w = AL_w. The two developments share the ABP criterion, the Frobenius difference systems, the index sets and Carlitz's identity; the design job should plan the shared material once and then both routes, since each proves something the other does not — the alternating dimensions here, the generating set of all linear relations there.",
+   "reason": "The atlas plans the Carlitz module (DM.0), its analytic uniformisation and period (DM.2), Anderson t-modules and effective t-motives (DM.4), Carlitz zeta values (DM.6) and Papanikolas's difference-Galois theory (DM.8), and stops at depth one. Multiple zeta values in characteristic p, their alternating versions, Carlitz multiple polylogarithms, the Brown-type generating theorems and the transcendence results are new layers in that roadmap's direction, hence a Part II. The same Part II, with the same id and title, is proposed by the extraction of Chang–Chen–Mishiba (PAPER-CHANG-CHEN-MISHIBA-23): the two papers prove Thakur's basis conjecture independently and at the same time, they share most of their machinery, and the brief asks for them to be designed together rather than as two roadmaps that would duplicate each other."
+  },
+  {
+   "route": "source",
+   "roadmap": "DrinfeldModulesAndTModules",
+   "stages": [
+    "DrinfeldModulesAndTModules:DM.8"
+   ],
+   "items": [
+    "PAPER-IM-KIM-LE-ETAL-24/27"
+   ],
+   "reason": "DM.8 plans the Tannakian difference-Galois theory of rigid analytically trivial t-motives after Papanikolas, which is built on the Anderson–Brownawell–Papanikolas linear independence criterion; the layer does not state the criterion itself. This paper uses it in the form quoted as its Theorem 2.2, and is a source for it, exactly as PAPER-CHANG-CHEN-MISHIBA-23 is."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/E1",
+   "kind": "misprint",
+   "locator": "Section 0.2.2, the definition of the alternating multiple zeta values (published: Section 1.2.2); present in arXiv v2 and in the published version",
+   "printed": "Letting 𝔰 = (s_1, …, s_r) ∈ N^n and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^n, we define ζ_A(𝛆; 𝔰) := Σ ε_1^{deg a_1} ⋯ ε_r^{deg a_r} / (a_1^{s_1} ⋯ a_r^{s_r})",
+   "correction": "𝔰 = (s_1, …, s_r) ∈ N^r and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^r",
+   "reason": "Both tuples are displayed with r entries and the sum runs over r-tuples (a_1, …, a_r) ∈ A_+^r, so the ambient sets are N^r and (F_q^×)^r; the letter n is not introduced at that point. The same objects are written correctly with exponent r later, for instance in the definition of the alternating Carlitz multiple polylogarithms in Section 0.3.2 ('for any tuple 𝔰 = (s_1, …, s_r) ∈ N^r and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^r'). Checked against the published text on Cambridge Core, which prints the same formula.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.07165, read 22 September 2026: v1 (14 May 2022) and v2 (10 June 2024), the version read, whose comment records that the details of proofs were added; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2024.18 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the finding below appears there in the same form",
+    "the sequel, arXiv:2402.11539 (Zagier–Hoffman's conjectures in positive characteristic II), which does not correct this point"
+   ]
+  }
+ ]
+}
