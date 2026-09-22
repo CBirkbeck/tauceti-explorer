@@ -1652,7 +1652,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-LIU-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1115"
   },
   {
    "id": "REV-PAPER-LI-LIU-21",
@@ -6178,8 +6179,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1380"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1380",
+   "finishedAt": "2026-09-22T16:33:59Z"
   },
   {
    "id": "REV-PAPER-CHANG-CHEN-MISHIBA-23",
@@ -6572,7 +6574,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-VENKATESH-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1404"
   },
   {
    "id": "REV-PAPER-VENKATESH-19",
