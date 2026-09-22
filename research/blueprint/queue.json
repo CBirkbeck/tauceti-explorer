@@ -29271,7 +29271,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1709"
   },
   {
    "id": "REV-ERRATA-PAPER-COUVEIGNES-20",
@@ -29376,8 +29377,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1711"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1711",
+   "finishedAt": "2026-09-22T07:49:09Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
