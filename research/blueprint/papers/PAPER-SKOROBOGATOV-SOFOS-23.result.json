@@ -1,0 +1,3736 @@
+{
+  "paper": "PAPER-SKOROBOGATOV-SOFOS-23",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "agent": "Codex",
+  "session": "codex-a71f92",
+  "source": {
+    "title": "Schinzel Hypothesis on average and rational points",
+    "authors": "Alexei N. Skorobogatov and Efthymios Sofos",
+    "venue": "Inventiones Mathematicae 231 (2023), 673–739",
+    "doi": "10.1007/s00222-022-01153-6",
+    "arxiv": "2005.02998v3",
+    "url": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+    "version": "Published Version, 67 pages; university repository identifies the deposited file as the published version.",
+    "retrieved": "2026-09-22",
+    "sha256": "8499680e907e06bf0b1eeae0c1bc7d46e5cbe93411388b17e843f3b8c6a0e9b1",
+    "readSections": [
+      "Entire published paper, §§1–7 and references, pp673–739; every proof read.",
+      "ArXiv v3 introduction and Lemma6.6 only: not a full version collation.",
+      "Later arXiv2212.14778v2 introduction and Theorem1.1 proof, pp1–4; arXiv2212.10373v2 pp2–3 and correction-keyword search only.",
+      "Conrad authorPDFp11 local smooth-openness discussion precedingTheorem4.5; this is not a full reading of that paper."
+    ],
+    "publicationComparison": "Primary reading is the published PDF itself. The erroneous inserted display in published Lemma6.6 is already correct in arXivv3. No identity of the remaining versions is asserted."
+  },
+  "summary": "Fixed-degree, growing-coefficient-height averages of Schinzel/Bateman–Horn prime values, followed by density-one local-to-global results for cyclic norm fibrations and diagonal conic bundles, and a >56% integral-point lower bound for x²+y²=f(t). The extraction is a substantive checkpoint: a direct counterexample to printed Lemma3.14 requires an archimedean/positivity repair before the analytic chain is executable. Generic class-field and quadratic-form suppliers are imported, not replanned. All inventoried missing items are routed, but original prerequisite proofs, fine decomposition and several source gaps remain open.",
+  "items": [
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/1",
+      "kind": "definition",
+      "name": "Fixed-degree coefficient box and height",
+      "statement": "Fix n≥1 and degrees d_i≥1; D=Σd_i, N=D+n. P=(P_i) has degP_i=d_i and positive leading coefficients. |P|=max_{i,j}|coeff_jP_i|. Poly(H;M,Q) imposes |P|≤H and coefficientwise P_i≡Q_i mod M, where M≥1 and degQ_i≤d_i.",
+      "locator": "Published §1 Definition1.8 pp679–680",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.1.api1",
+          "statement": "Construct from N bounded coefficients with n strictly positive leading entries."
+        },
+        {
+          "name": "SS23.1.api2",
+          "statement": "Membership is the conjunction of degree, sign, height and congruence predicates."
+        },
+        {
+          "name": "SS23.1.api3",
+          "statement": "The leading coefficient may vanish after reduction; never require degQ_i=d_i."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.1.test1",
+          "statement": "d=1,H=1,M=1 gives t−1,t,t+1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.1.test2",
+          "statement": "Q=1 mod4 is allowed for every positive degree.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/3",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/6",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/24",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/52",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/2",
+      "kind": "definition",
+      "name": "Relative coefficient-height density",
+      "statement": "For B⊆A⊆ℤ^N, with A∩[-H,H]^N finite and eventually nonempty, density_A(B)=lim_{H→∞}#(B∩boxH)/#(A∩boxH), when the limit exists. Density1 is relative to the named denominator A; positive lower density must not silently become existence of a limit.",
+      "locator": "Published §1; Theorems5.3,5.8,6.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "family",
+      "prerequisites": [],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.2.api1",
+          "statement": "Expose numerator, denominator and eventual nonzero denominator."
+        },
+        {
+          "name": "SS23.2.api2",
+          "statement": "Finite unions of exceptional o(H^N) sets remain negligible in a family of positive H^N density."
+        },
+        {
+          "name": "SS23.2.api3",
+          "statement": "Transfer density1 from coefficient boxes to a congruence subfamily only with its positive-density estimate."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.2.test1",
+          "statement": "A=even integers,B=A has relative density1 but ambient density1/2.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.2.test2",
+          "statement": "An empty denominator does not define density1.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/56",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/3",
+      "kind": "definition",
+      "name": "Bouniakowsky polynomial",
+      "statement": "A positive-degree P∈ℤ[t] has positive leading coefficient and for every prime p some residue a∈𝔽_p has P(a)≠0. Irreducibility is NOT part of the paper's definition.",
+      "locator": "Published §1 p674",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/1"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.3.api1",
+          "statement": "Characterize the condition by absence of a fixed prime divisor."
+        },
+        {
+          "name": "SS23.3.api2",
+          "statement": "Equivalent finite-field form: t^p−t does not divide P modp."
+        },
+        {
+          "name": "SS23.3.api3",
+          "statement": "Expose positive-leading separately from finite-place admissibility."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.3.test1",
+          "statement": "t+1 is admissible.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.3.test2",
+          "statement": "t(t+1) fails at2.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.3.test3",
+          "statement": "2t+1 is admissible; reducibility is a separate predicate.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/4",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/83",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/4",
+      "kind": "definition",
+      "name": "Schinzel tuple",
+      "statement": "A tuple of nonconstant positive-leading P_i is Schinzel iff for each prime p there exists a SINGLE a∈𝔽_p with ∏_iP_i(a)≠0. Individual admissibility is insufficient.",
+      "locator": "Published §1 p675",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/3"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.4.api1",
+          "statement": "Project joint admissibility to each factor."
+        },
+        {
+          "name": "SS23.4.api2",
+          "statement": "Use a common residue witness for every factor."
+        },
+        {
+          "name": "SS23.4.api3",
+          "statement": "Equivalent to no fixed prime divisor of the product."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.4.test1",
+          "statement": "(t,t+1) is not Schinzel although each factor is admissible.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.4.test2",
+          "statement": "Repeating t+1 is admissible; distinctness/irreducibility is not built in.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/5",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/69",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/5",
+      "kind": "definition",
+      "name": "Root-count local data",
+      "statement": "Z_P(p)=#{a∈𝔽_p:P(a)=0}; for a tuple use Z_{∏P_i}(p), counting distinct roots, not the sum with multiplicity. SC(P)={p:Z_{∏P_i}(p)≠p}.",
+      "locator": "Published Definition1.8; §2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/4"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.5.api1",
+          "statement": "Compute product roots by union of factor root sets."
+        },
+        {
+          "name": "SS23.5.api2",
+          "statement": "Reduction of the zero polynomial has p roots."
+        },
+        {
+          "name": "SS23.5.api3",
+          "statement": "For a nonzero reduction, root count≤degree."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.5.test1",
+          "statement": "P=(t+1)^2 has one root over every field.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.5.test2",
+          "statement": "Zero polynomial has p roots, not degree0 roots.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/7",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/6",
+      "kind": "definition",
+      "name": "Weighted positive-prime count",
+      "statement": "θ_P(x)=Σ_{1≤m≤x, m≡n₀ modM, all P_i(m) positive primes}∏_i logP_i(m), for x≥1, M≥1, n₀∈ℤ. Negative prime values and higher prime powers are excluded.",
+      "locator": "Published Definition1.8 p679",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/1"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.6.api1",
+          "statement": "Provide membership and finite-sum APIs with positive-prime predicate."
+        },
+        {
+          "name": "SS23.6.api2",
+          "statement": "Monotone in x, with a step only at integral m in the chosen class."
+        },
+        {
+          "name": "SS23.6.api3",
+          "statement": "Bound each weight by ∏log((d_i+1)Hx^{d_i})."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.6.test1",
+          "statement": "A negative value −3 contributes0.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.6.test2",
+          "statement": "Repeated equal prime values count here; the distinct-prime variant is separate.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/8",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/10",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/40",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/73",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/78",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/7",
+      "kind": "definition",
+      "name": "Truncated congruence singular series",
+      "statement": "For x≥3, S_P(x)=1(gcd(M,∏P_i(n₀))=1)·M^{n−1}/φ(M)^n·∏_{p≤logx,p∤M}(1−Z_{∏P_i}(p)/p)/(1−1/p)^n. This is a finite product, not an automatically convergent infinite series.",
+      "locator": "Published Definition1.8 pp679–680",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/5"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.7.api1",
+          "statement": "Expose the unit indicator and primes dividingM separately."
+        },
+        {
+          "name": "SS23.7.api2",
+          "statement": "The product is nonnegative and vanishes at a included local obstruction."
+        },
+        {
+          "name": "SS23.7.api3",
+          "statement": "Do not export infinite convergence without additional hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.7.test1",
+          "statement": "n=M=1 and P=t+1 gives S=1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.7.test2",
+          "statement": "P1=P2=t+1,M=1 gives ∏(1−1/p)^{-1}, which grows.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/8",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/43",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/49",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/8",
+      "kind": "definition",
+      "name": "Mean absolute discrepancy and dispersion",
+      "statement": "For nonempty Poly(H), R(x,H)=average_P|θ_P(x)−xS_P(x)| and V(x,H)=average_P(θ_P(x)−xS_P(x))². Cauchy–Schwarz gives R²≤V.",
+      "locator": "Published §1 Eq1.6 p682",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/6",
+        "PAPER-SKOROBOGATOV-SOFOS-23/7"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.8.api1",
+          "statement": "Normalize by exactly #Poly(H), not H^N."
+        },
+        {
+          "name": "SS23.8.api2",
+          "statement": "Expand V into θ²−2xSθ+x²S² averages."
+        },
+        {
+          "name": "SS23.8.api3",
+          "statement": "Expose R²≤V with finiteness and nonempty hypotheses."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.8.test1",
+          "statement": "Singleton family gives R²=V.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.8.test2",
+          "statement": "Changing to an unrestricted box changes the normalizing count.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/9",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/9",
+      "kind": "theorem",
+      "name": "Quantitative mean Schinzel discrepancy",
+      "statement": "For fixed n,d_i,M≥1, n₀∈ℤ and coefficient classesQ_i represented in degree≤d_i, and n<A₁<A₂, uniformly (logH)^A₁<x≤(logH)^A₂ and H sufficiently large, R(x,H)≪x/√logx. No gcd(Q_i(n₀),M)=1 hypothesis is needed for Theorem1.9: the singular-series unit indicator handles those classes. This is the stated endpoint; its proof is gated by E1/E4 positivity repair, not certified here.",
+      "locator": "Published Theorem1.9 p680",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/8"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/11",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/15",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/48",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "proofSteps": [
+        "Repair the signed and positive-prime averaging inputs first (E1/E4).",
+        "Establish the three matched second/mixed moment estimates; expand the nonnegative dispersion.",
+        "Use the coefficient-family count and Cauchy–Schwarz, with n<A₁ for the diagonal error."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/10",
+      "kind": "definition",
+      "name": "Bounded prime-witness set",
+      "statement": "S_C(P)={m∈ℕ:1≤m≤(log|P|)^C, m≡n₀ modM, all P_i(m) prime}; for small |P| use the literal finite range, and formulate asymptotic statements only for sufficiently large heights.",
+      "locator": "Published Theorem1.5 p677",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/6"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.10.api1",
+          "statement": "Convert positive weighted count to existence of a witness."
+        },
+        {
+          "name": "SS23.10.api2",
+          "statement": "Upper bound θ by #S_C times the maximum log weight when x≤(log|P|)^C."
+        },
+        {
+          "name": "SS23.10.api3",
+          "statement": "Expose least witness only after proving nonemptiness."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.10.test1",
+          "statement": "No witness may be inferred from an empty sum.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.10.test2",
+          "statement": "The prime count is unweighted whereas θ carries n logarithms.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/11",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/11",
+      "kind": "theorem",
+      "name": "Quantitative many-prime-value theorem",
+      "statement": "Fix data as in item9 with gcd(∏Q_i(n₀),M)=1, A>0, D=Σd_i. Among Schinzel P∈Poly(H), the proportion with #S_{n+A}(P)≥(log|P|)^{A/3} is 1+O((logloglogH)^{D−n}/√loglogH). Constants may depend on the fixed data and A. Gated on the repaired item9.",
+      "locator": "Published Theorem1.5 pp677–678",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/9",
+        "PAPER-SKOROBOGATOV-SOFOS-23/10"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/12",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/13",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/12",
+      "kind": "theorem",
+      "name": "Schinzel on average in a congruence family",
+      "statement": "For n,d_i≥1, M≥1, n₀∈ℤ and Q_i∈ℤ[t] of degree≤d_i with gcd(Q_i(n₀),M)=1, density1 of Schinzel tuples P_i≡Q_i modM have a positive integer m≡n₀ modM with all P_i(m) positive primes. Theorem1.2 additionally requires these primes distinct; item79 handles the thin repeated-polynomial locus. M≥1 corrects E2.",
+      "locator": "Published Theorem1.2 p675",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/11",
+        "PAPER-SKOROBOGATOV-SOFOS-23/79"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/13",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/65",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/13",
+      "kind": "theorem",
+      "name": "Single-polynomial least-prime consequence",
+      "statement": "For d≥1, density1 of degree-d Bouniakowsky polynomials represent a positive prime at some positive integer. More precisely, for every ε>0 the least positive such m is≤(log|P|)^{1+ε} for density1 of these polynomials. These are density assertions, not a theorem for each individual admissible polynomial.",
+      "locator": "Published Theorem1.1; Corollary1.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/11",
+        "PAPER-SKOROBOGATOV-SOFOS-23/12"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/14",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/14",
+      "kind": "theorem",
+      "name": "Least represented prime size",
+      "statement": "For d≥1, ε>0 and density1 of degree-d Bouniakowsky polynomials, there is a positive prime value≤|P|(log|P|)^{d+ε}. Absorb the fixed factor d+1 by using a smaller exponent margin in the least-input bound.",
+      "locator": "Published Corollary1.7 p678",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/13"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/15",
+      "kind": "theorem",
+      "name": "Pointwise averaged Bateman–Horn corollary",
+      "statement": "For n=M=1,d≥1,0<c<1/2,1<A₁<A₂ and each fixed x in the allowed logarithmic H-range, Markov applied to item9 bounds the exceptional count for |θ_P(x)−xS_P(x)|>x/(logx)^c by O(H^{d+1}(loglogH)^{c−1/2}). The printed simultaneous-for-all-x, |P|-dependent version remains gateE11; it is NOT asserted by this corrected pointwise contract.",
+      "locator": "Published Corollary1.10 pp680–681",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/9"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/16",
+      "kind": "definition",
+      "name": "Uniform finite-field coefficient model",
+      "statement": "Ω_p(d) is ALL coefficient vectors (c₀,…,c_d)∈𝔽_p^{d+1}, equivalently polynomials of degree≤d including zero, with uniform mass p^{−d−1}. For tuples take the independent product across polynomial indices.",
+      "locator": "Published §2.1 pp683–684",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.16.api1",
+          "statement": "Use bounded degree rather than exactlyd."
+        },
+        {
+          "name": "SS23.16.api2",
+          "statement": "Coefficient evaluation is a linear map over𝔽_p."
+        },
+        {
+          "name": "SS23.16.api3",
+          "statement": "Tuple product law gives independence across polynomial indices only."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.16.test1",
+          "statement": "Ω₂(1) has4 elements including0 and1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.16.test2",
+          "statement": "Evaluation coordinates need not be fully independent.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/18",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/19",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/17",
+      "kind": "theorem",
+      "name": "Vandermonde determinant and distinct-point nonsingularity",
+      "statement": "For v:Fin r→R over a commutative ring, det(vandermonde v)=∏_i∏_{j>i}(v_j−v_i); over a domain this is nonzero iff v is injective. This supplies the square evaluation matrix, not the ensuing probability law by itself.",
+      "locator": "Published §2.1 Eq2.1",
+      "status": "library",
+      "library": [
+        "mathlib:Matrix.det_vandermonde",
+        "mathlib:Matrix.det_vandermonde_ne_zero_iff"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/18",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/75",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/18",
+      "kind": "theorem",
+      "name": "Evaluation fibers of random polynomials",
+      "statement": "For r≤min(p,d+1) distinct field points, arbitrary prescribed evaluations have exactly p^{d+1−r} preimages in Ω_p(d), hence probability p^{−r}. Vanishing at more than d distinct points forces the zero polynomial, probability p^{−d−1}.",
+      "locator": "Published §2.1 Eq2.1 and Lemma2.4 proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/16",
+        "PAPER-SKOROBOGATOV-SOFOS-23/17"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/20",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/19",
+      "kind": "definition",
+      "name": "Bernoulli nonvanishing variables",
+      "statement": "Y_m(P)=1(P(m)≠0) and X_m(P₁,…,P_n)=∏_iY_m(P_i), for m∈𝔽_p. Set Z=p−Σ_mX_m. The Y_m have independence only for subsets of size≤d+1; X_m have pairwise independence when every d_i≥1.",
+      "locator": "Published §2.1 pp684–685",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/16"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.19.api1",
+          "statement": "Expose X_m as an indicator for joint nonvanishing."
+        },
+        {
+          "name": "SS23.19.api2",
+          "statement": "Compute first and pairwise moments from evaluation fibers."
+        },
+        {
+          "name": "SS23.19.api3",
+          "statement": "Identify Z with product root count."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.19.test1",
+          "statement": "d=1,p=3: three evaluations are not independent.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.19.test2",
+          "statement": "d≥1 guarantees distinct two-point evaluation surjectivity.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/21",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/22",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/20",
+      "kind": "definition",
+      "name": "Finite-field inclusion-exclusion polynomial",
+      "statement": "G_p(d,s)=Σ_{r=0}^s (−1)^r binom(s,r)p^{−min(r,d+1)}, for0≤s≤p. It is the probability a degree≤d random polynomial is nonzero on s specified distinct points.",
+      "locator": "Published Eq2.4 p685",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/18"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.20.api1",
+          "statement": "Evaluate G(d,0)=1 and G(d,s)=(1−1/p)^s for s≤d+1."
+        },
+        {
+          "name": "SS23.20.api2",
+          "statement": "Relate to subset-cardinality-grouped inclusion-exclusion; fixE3."
+        },
+        {
+          "name": "SS23.20.api3",
+          "statement": "For tuples multiply G_p(d_i,s)."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.20.test1",
+          "statement": "p=2,d=1,s=2 gives1/4.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.20.test2",
+          "statement": "p=3,d=1,s=3 gives2/9, not8/27.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/21",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/21",
+      "kind": "theorem",
+      "name": "All joint Bernoulli moments and atom law",
+      "statement": "For J⊆𝔽_p, E∏_{m∈J}X_m=∏_iG_p(d_i,|J|). If O is a prescribed set of ones and Z₀ its complementary zero set, P(X|O=1,X|Z₀=0)=Σ_{T⊆Z₀}(−1)^|T|∏_iG_p(d_i,|O∪T|).",
+      "locator": "Published Lemmas2.4–2.5 pp685–686",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/19",
+        "PAPER-SKOROBOGATOV-SOFOS-23/20"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "verification": "374 exact rational identities include all atoms and moments for listed small configurations; see C1.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/23",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/44",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/22",
+      "kind": "definition",
+      "name": "Singular-series second-moment factor",
+      "statement": "γ_n(p)=1−1/p+p^{n−1}/(p−1)^n. For n≥1,d_i≥1, E[(1−Z/p)/(1−1/p)^n]=1 and its second moment isγ_n(p). In particular γ_n(p)=1+O_n(p^{-2}).",
+      "locator": "Published Lemma2.6 p687; §4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/19"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.22.api1",
+          "statement": "Expose normalized first and second moments."
+        },
+        {
+          "name": "SS23.22.api2",
+          "statement": "Use γ_n(p)>0 and summable deviation from1."
+        },
+        {
+          "name": "SS23.22.api3",
+          "statement": "Separate diagonal m=m′ from distinct evaluation pairs."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.22.test1",
+          "statement": "n=1 gives γ=1+1/(p(p−1)).",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.22.test2",
+          "statement": "p=2,n=2 givesγ=5/2.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/42",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/44",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/23",
+      "kind": "definition",
+      "name": "Local obstruction density",
+      "statement": "T_p={P∈∏Ω_p(d_i):∃m,∏P_i(m)≠0}; c_p=1−#T_p/p^{D+n}. Its exact formula is Σ_{s=0}^p (−1)^s binom(p,s)∏_iG_p(d_i,s). For p>D, 1−c_p=∏_i(1−p^{−d_i−1}).",
+      "locator": "Published §2.2 Eqs2.5–2.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/21"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.23.api1",
+          "statement": "Compute zero-atom by inclusion-exclusion."
+        },
+        {
+          "name": "SS23.23.api2",
+          "statement": "Exhibit constant-one tuple so c_p<1."
+        },
+        {
+          "name": "SS23.23.api3",
+          "statement": "For largep, use total degree bound to characterize obstruction by a zero factor polynomial."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.23.test1",
+          "statement": "n=1 gives c_p=p^{-min(p,d+1)}.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.23.test2",
+          "statement": "Small p can cover the field by nonzero factors; do not use the large-p product there.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/24",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/24",
+      "kind": "theorem",
+      "name": "Positive density of Schinzel tuples",
+      "statement": "For fixed d_i≥1,M≥1,n₀,Q as item9, #Schinzel(Poly(H))=2^D(H/M)^{D+n}∏_{p∤M}(1−c_p)+O(H^{D+n}/logH). The Euler product converges absolutely and is positive. The proof separates finite CRT counting from a uniform large-prime tail.",
+      "locator": "Published Proposition2.8 pp688–689",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/1",
+        "PAPER-SKOROBOGATOV-SOFOS-23/23"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/25",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/48",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "proofSteps": [
+        "Sieve primes≤(logH)/10 by coefficientwise CRT.",
+        "For primes>D an obstruction forces a whole polynomial reduction to0; bound this tail uniformly over coefficient vectors.",
+        "Take the convergent product and retain the leading-coefficient2^{-n} factor."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/25",
+      "kind": "theorem",
+      "name": "Single-polynomial admissibility density in a class",
+      "statement": "For d,M≥1 and Q of degree≤d, the number of positive-leading degree-d P≡Q modM of height≤H avoiding fixed prime divisors at p∤M equals 2^dH^{d+1}M^{−d−1}∏_{p∤M}(1−p^{-min(p,d+1)})+O(H^{d+1}/logH). M=1 yields Corollary2.10; at p|M no admissibility is asserted without the unit hypothesis.",
+      "locator": "Published Corollaries2.9–2.10 pp689–690",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/24"
+      ],
+      "note": "Mathematical planning contract, not a claim of formalization; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/65",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/83",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/26",
+      "kind": "definition",
+      "name": "Natural von Mangoldt function",
+      "statement": "For r∈ℕ, Λ(r)=logp if r=p^a for a primep and a≥1, and0 otherwise. Its domain isℕ; extension to negative integers is a separate choice.",
+      "locator": "Published §3 pp690–691",
+      "status": "library",
+      "library": [
+        "mathlib:ArithmeticFunction.vonMangoldt",
+        "mathlib:ArithmeticFunction.vonMangoldt_apply_prime",
+        "mathlib:ArithmeticFunction.vonMangoldt_ne_zero_iff"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.26.api1",
+          "statement": "Reuse ArithmeticFunction.vonMangoldt."
+        },
+        {
+          "name": "SS23.26.api2",
+          "statement": "At a positive prime, value=logp; at0 and1, value0."
+        },
+        {
+          "name": "SS23.26.api3",
+          "statement": "Expose support exactly prime powers."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.26.test1",
+          "statement": "Λ(4)=log2.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.26.test2",
+          "statement": "Λ(1)=0; Λ(−3) is not a natural-domain expression.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/27",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/34",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/27",
+      "kind": "theorem",
+      "name": "Möbius divisor formula",
+      "statement": "For r∈ℕ, Σ_{d|r}μ(d)logd=−Λ(r), using the natural-number divisor convention at0. This does not justify the same formula over all signed or zero values with unrestricted integer divisors.",
+      "locator": "Published §3.1 p691",
+      "status": "library",
+      "library": [
+        "mathlib:ArithmeticFunction.sum_moebius_mul_log_eq"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/26"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/28",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/28",
+      "kind": "definition",
+      "name": "Truncated Mangoldt and signed-domain adapter",
+      "statement": "For z≥1 and r∈ℕ_{>0}, Λ_z(r)=−Σ_{d≤z,d|r}μ(d)logd and E_z(r)=Λ(r)−Λ_z(r). To use polynomial values inℤ, define an extension explicitly: even extension away from0 and a separate value0, or positive-only extension with a positivity cutoff. No equivalence of those extensions is assumed.",
+      "locator": "Published §3.1 p691",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/27"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.28.api1",
+          "statement": "For0<r≤z recoverΛ(r)."
+        },
+        {
+          "name": "SS23.28.api2",
+          "statement": "Express E_z(r) as the tail over d>z only forr>0."
+        },
+        {
+          "name": "SS23.28.api3",
+          "statement": "Keep the signed extension as named data; expose the cutoff under Fourier sums."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.28.test1",
+          "statement": "At r=0 the unrestricted truncated divisibility sum is generally nonzero.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.28.test2",
+          "statement": "Even extension givesΛ(−3)=log3 but positive-prime weight at−3 is0.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/35",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/38",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/29",
+      "kind": "theorem",
+      "name": "Davenport uniform Möbius exponential cancellation",
+      "statement": "For every A>0 there is C_A such that for y≥2, sup_{α∈ℝ}|Σ_{1≤r≤y}μ(r)e^{irα}|≤C_A y(logy)^{−A}. Original proof input [22] or [39,Thm13.10] still requires full source extraction.",
+      "locator": "Published Lemma3.2 p690",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/35",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/36",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/30",
+      "kind": "definition",
+      "name": "Finite Fourier sums and Dirichlet kernels",
+      "statement": "For H≥1,d≥1,k,m≥1 use B=(d+1)H max(k,m)^d and S_f(α)=Σ_{|c|≤B}f(c)e^{icα}. D_H(α)=Σ_{|c|≤H}e^{icα}; D_H⁺(α)=Σ_{0<c≤H}e^{icα}. For signed k,m replace max by max(1,|k|,|m|).",
+      "locator": "Published §3.1 pp691–692",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.30.api1",
+          "statement": "Integer Fourier orthogonality requires conjugating S_fS_g in the coefficient integral."
+        },
+        {
+          "name": "SS23.30.api2",
+          "statement": "Separate D_H⁺ for the strictly positive leading coefficient."
+        },
+        {
+          "name": "SS23.30.api3",
+          "statement": "Use periodicity and symmetric versus one-sided kernels explicitly."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.30.test1",
+          "statement": "H=1,α=2π/3: D_H=0 but |D_H⁺|=1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.30.test2",
+          "statement": "Negativek cannot use max(k,m)^d as a positive support bound.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/31",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/32",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/31",
+      "kind": "theorem",
+      "name": "Two-point coefficient Fourier identity",
+      "statement": "For d≥1,H≥1,positive distinct integersk,m and real f,g, the sum over coefficient box degP=d,lcP>0 of f(P(k))g(P(m)) equals (2π)^{-2}∫_{[-π,π]^2}overline(S_f(α₁)S_g(α₂))D_H⁺(k^dα₁+m^dα₂)∏_{j<d}D_H(k^jα₁+m^jα₂)dα. The published conjugation bar is present.",
+      "locator": "Published Lemma3.4 p692",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/30"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/33",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/32",
+      "kind": "theorem",
+      "name": "Dirichlet kernel L1 estimates",
+      "statement": "For H≥2, ∫_{−π}^π|D_H(t)|dt≪logH and likewise forD_H⁺. The latter follows from the geometric-sum bound min(H,2/|1−e^{it}|), and repairs the degree1 use in Lemma3.5.",
+      "locator": "Published Eq3.2 p693",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "oscillation",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/30"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/33",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/33",
+      "kind": "theorem",
+      "name": "Coefficient bilinear Fourier estimate",
+      "statement": "For d≥1,H≥2,positive distinctk,m and realf,g, |Σ_P f(Pk)g(Pm)|≪_d ||S_f||∞ S_|g|(0) H^{d−1} max(k,m)(logH)^2/|k−m|. Use D_H⁺ in the two retained factors when d=1; both retained factors are D_H when d≥2.",
+      "locator": "Published Lemma3.5 p693, corrected proof E6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/31",
+        "PAPER-SKOROBOGATOV-SOFOS-23/32"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/35",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/34",
+      "kind": "theorem",
+      "name": "One-point prime-weight counterexample and repair requirement",
+      "statement": "For integerH≥1, Σ_{1≤a≤H,−H≤b≤H,a+b prime}log(a+b)=Σ_{a=1}^Hθ(H+a). The PNT gives (3/2)H²+o(H²). Thus Lemma3.14's2H² main term for d=k=Ω=1 is false. No universal replacement estimate is claimed; the correct real-region factor or an error controlled after summing overk must be proved.",
+      "locator": "Published Lemma3.14 pp701–703",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/26",
+        "PAPER-SKOROBOGATOV-SOFOS-23/90"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "proved analytic counterexample using classical PNT; repair open",
+      "sourceClaim": "The printed unrestricted formula has main term2^dH^{d+1}/(Ω^dφΩ) and arbitrarily strong logarithmic error, uniformly1≤k≤(logH)^δ,Ω≤H.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/35",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/46",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/35",
+      "kind": "theorem",
+      "name": "Signed two-point and progression estimates: unresolved contract",
+      "statement": "Before exporting Theorem3.1 or Propositions3.8/3.9 as prime-value estimates, fix Λ onℤ, handle zero values, and quantify the difference between the full coefficient box and the positive-value region. Needed source endpoints are the two-point main factor∏_{p|k−m}p/(p−1) and the uniform coefficient-congruence approximation. They are NOT accepted unconditional contracts here; E1/E4 block them.",
+      "locator": "Published Theorem3.1; Propositions3.8–3.9 pp690–695",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/28",
+        "PAPER-SKOROBOGATOV-SOFOS-23/29",
+        "PAPER-SKOROBOGATOV-SOFOS-23/33",
+        "PAPER-SKOROBOGATOV-SOFOS-23/34"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "unresolved source-contract repair",
+      "sourceClaim": "For d≥1,δ>0,1≤k≠m≤(logH)^δ, source states G_{k,m}=2^dH^{d+1}∏_{p|k−m}p/(p−1)+O_A(H^{d+1}/log^A H). Source3.9 is uniformΩ≤H,H^{δ₁}≤z≤H,δ₁∈(0,1),k≤log^{δ₂}H.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/40",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/88",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/36",
+      "kind": "theorem",
+      "name": "Coprime Möbius weighted asymptotic",
+      "statement": "For everyA>0, uniformly1≤q≤√T,T sufficiently large, Σ_{t≤T,(t,q)=1}μ(t)logt/t=−q/φ(q)+O_A((logT)^{−A}) and Σ_{t≤T,(t,q)=1}μ(t)/t=O_A((logT)^{−A}). The q-uniform proof uses the source's divisor convolution and Möbius cancellation; original analytic supplier remains gated.",
+      "locator": "Published Lemma3.11 pp698–699",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/29"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/37",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/89",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/37",
+      "kind": "theorem",
+      "name": "Truncated double-divisor main-term Euler factor",
+      "statement": "For positive distinctk,m,z≥2, the main-term sum of Lemma3.10 is Σ_{cℓ≤z,(c,ℓ)=1} μ(c)μ(ℓ)²gcd(ℓ,k−m)/(cℓ)² ·[Σ_{t≤z/(cℓ),(t,cℓ)=1}μ(t)log(cℓt)/t]². It equals ∏_{p|k−m}p/(p−1)+O_A(|k−m|/log^A z). Correct the double square inE8 before applying item36.",
+      "locator": "Published Lemmas3.10–3.12 pp696–701",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/36"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/38",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/39",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/38",
+      "kind": "theorem",
+      "name": "Truncated coefficient correlation",
+      "statement": "For d≥1,H≥1,z≥1,1≤k≠m, count the simultaneous divisibility constraints in the polynomial coefficient box to obtain 2^dH^{d+1} times the main-term sum in item37, with errorO_d(H^dz³). This is the arithmetic Λ_z sum with integer divisibility; it must not be identified with positive-prime weights without item35's repair.",
+      "locator": "Published Lemma3.10 pp696–698",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/28",
+        "PAPER-SKOROBOGATOV-SOFOS-23/37"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/39",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/39",
+      "kind": "theorem",
+      "name": "Choice of truncation scale",
+      "statement": "Takingz=H^{1/8}, d≥1 and1≤k≠m≤(logH)^δ gives a power-saving lattice-count error in item38 and an arbitrarily strong log-saving Euler-product error from item37. This establishes the truncated divisor model, not the unqualified prime model.",
+      "locator": "Published Lemma3.13 p701",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/37",
+        "PAPER-SKOROBOGATOV-SOFOS-23/38"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/40",
+      "kind": "theorem",
+      "name": "Positive prime-power deletion contract",
+      "statement": "For each evaluationm and each polynomial, valuesp^a witha≥2 form a separate error. To convert the θ² off-diagonal into products ofΛ correlations, explicitly bound tuples with at least one higher prime-power value and coefficients realizing that value. The printed diagonal-only argument is insufficient; no exact replacement bound is certified here.",
+      "locator": "Published Lemma4.1 pp703–704",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/6",
+        "PAPER-SKOROBOGATOV-SOFOS-23/35"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "proof gap E10",
+      "sourceClaim": "Source claims Σ_Pθ_P(x)²=Σ_{k≠m≤x,k≡m≡n₀modM}∏_iG_{k,m}(H;d_i)+O(xH^{D+n}(logH)^n).",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/88",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/41",
+      "kind": "theorem",
+      "name": "Wintner-type mean over prime divisors",
+      "statement": "For fixedn≥1,c>0 and prime-indexedf with |f(p)|≤c/p, Σ_{m≤T}∏_{p|m}(1+f(p))^n=T∏_p(1+((1+f(p))^n−1)/p)+O_{c,n}(√T), T≥1. The weighted versionΣ_{m≤T}(T−m)∏_{p|m}(1+f(p))^n has main termT²/2 times that product and errorO(T^{3/2}).",
+      "locator": "Published Lemma4.3 pp705–706",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/88",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/42",
+      "kind": "theorem",
+      "name": "Gamma Euler-product truncation",
+      "statement": "For fixedn≥1,γ_n(p)=1+O_n(p^{-2}), so ∏_{p>logx,p∤M}γ_n(p)=1+O_n(1/logx). Positivity and absolute convergence allow comparison of truncated and full products.",
+      "locator": "Published Lemma4.5 p708",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/22"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/43",
+      "kind": "definition",
+      "name": "Small-prime CRT modulus",
+      "statement": "Forx≥3,M≥1 letW=∏_{p≤logx,p∤M}p. For sufficiently largex,W≤x² by a prime-sum bound. Coefficients moduloWM simultaneously determine the relevant congruence and truncated singular-series data.",
+      "locator": "Published §4.2 p708",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/7"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.43.api1",
+          "statement": "Expose squarefreeness and coprimality(W,M)=1."
+        },
+        {
+          "name": "SS23.43.api2",
+          "statement": "Use coefficientwise CRT, not independence for arbitrary integer boxes."
+        },
+        {
+          "name": "SS23.43.api3",
+          "statement": "Count each residue coefficient box with its boundary error."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.43.test1",
+          "statement": "Primes dividingM are absent fromW.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.43.test2",
+          "statement": "Smallx may haveW=1, with empty-product conventions.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/44",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/45",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/44",
+      "kind": "theorem",
+      "name": "Residue-class singular-series moments",
+      "statement": "For squarefreeW coprimeM supported at the truncation primes, averaging the local normalized nonvanishing factors over all coefficients moduloW multiplies their first moments1 and second momentsγ_n(p). Conditioning P_i(n₀) to be units moduloM contributes the exact M^{n−2}/φ(M)^n prefactor in the unrestricted integer-coefficient second moment.",
+      "locator": "Published Lemma4.6 pp708–709",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/21",
+        "PAPER-SKOROBOGATOV-SOFOS-23/22",
+        "PAPER-SKOROBOGATOV-SOFOS-23/43"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/45",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/46",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/45",
+      "kind": "theorem",
+      "name": "Second singular-series moment in coefficient boxes",
+      "statement": "For fixed n,d_i,M,n₀ and sufficiently largeH, x≤H^{1/4}, Σ_{degP_i=d_i,lcP_i>0,|P|≤H}S_P(x)²=2^DH^{D+n}M^{n−2}/φ(M)^n∏_{p≤logx,p∤M}γ_n(p)+O(H^{D+n−1/2}). The sum is unrestricted in coefficient residues; S contains its own unit indicator.",
+      "locator": "Published Lemma4.7 pp709–710",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/43",
+        "PAPER-SKOROBOGATOV-SOFOS-23/44"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/46",
+      "kind": "theorem",
+      "name": "Mixed prime/series moment: gated endpoint",
+      "statement": "The desired mixed estimate in the unrestricted coefficient box is Σ_PS_P(x)θ_P(x)=2^DH^{D+n}x M^{n−2}/φ(M)^n∏_{p≤logx,p∤M}γ_n(p)+O(H^{D+n}) in the logarithmic x-range. Treat it only as a target conditional on a valid replacement for Lemma3.14; the published proof invokes the false unrestricted estimate.",
+      "locator": "Published Lemma4.9 pp710–713",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/34",
+        "PAPER-SKOROBOGATOV-SOFOS-23/44"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+      "kind": "theorem",
+      "name": "Dispersion cancellation and normalization",
+      "statement": "Conditional on valid θ², Sθ and S² estimates with matched main terms and their stated errors, expanding the square gives V(x,H)≪x²/logx for n<A₁<A₂ and log^{A₁}H<x≤log^{A₂}H. Normalize using#Poly(H)~2^DH^{D+n}/M^{D+n}; thenR≪x/√logx.",
+      "locator": "Published §4.4 p714",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/8",
+        "PAPER-SKOROBOGATOV-SOFOS-23/40",
+        "PAPER-SKOROBOGATOV-SOFOS-23/41",
+        "PAPER-SKOROBOGATOV-SOFOS-23/42",
+        "PAPER-SKOROBOGATOV-SOFOS-23/45",
+        "PAPER-SKOROBOGATOV-SOFOS-23/46",
+        "PAPER-SKOROBOGATOV-SOFOS-23/88"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "conditional assembly; not repair of the inputs",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/48",
+      "kind": "theorem",
+      "name": "Markov passage inside the admissible family",
+      "statement": "Forε(x)>0, item9 and the positive Schinzel-family density imply that the relative exceptional proportion among Schinzel P∈Poly(H) with |θ_P(x)−xS_P(x)|>ε(x)x isO(1/(ε(x)√logx)). This statement is for each x, not a supremum over an uncountable range.",
+      "locator": "Published Lemma4.10 pp714–715",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/9",
+        "PAPER-SKOROBOGATOV-SOFOS-23/24"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/49",
+      "kind": "theorem",
+      "name": "Uniform lower bound for the finite singular series",
+      "statement": "For fixedn,d_i,M,n₀ and Schinzel P with gcd(∏P_i(n₀),M)=1, there existsβ>0 depending only on these fixed data such that S_P(x)≥β(loglogx)^{n−D} for sufficiently largex. Separate small primes≤D, and use Z≤D forp>D plus Mertens. Correct exponent signsE12.",
+      "locator": "Published Lemma4.11 pp715–716",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/7"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/50",
+      "kind": "theorem",
+      "name": "Mertens product input",
+      "statement": "For y≥2, ∏_{p≤y}(1−1/p) is comparable to1/logy, with absolute positive upper and lower constants. The application here needs the lower estimate after removing finitely many fixed primes, not an unsourced precise constant.",
+      "locator": "Published Lemma4.11 proof; §3.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/51",
+      "kind": "definition",
+      "name": "Field norm as determinant",
+      "statement": "For a finite extensionK/ℚ, N_{K/ℚ}(a) is the determinant of multiplication bya onK. Reuse Algebra.norm and its basis-matrix formula; multiplicativity is built into the monoid homomorphism.",
+      "locator": "Published §5.1 pp717–718",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.norm",
+        "mathlib:Algebra.norm_eq_matrix_det",
+        "mathlib:Algebra.norm_algebraMap_of_basis"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.51.api1",
+          "statement": "Use Algebra.norm rather than a second field norm."
+        },
+        {
+          "name": "SS23.51.api2",
+          "statement": "Identify with the determinant in a chosenℚ-basis."
+        },
+        {
+          "name": "SS23.51.api3",
+          "statement": "A base-field scalarq has normq^[K:ℚ]."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.51.test1",
+          "statement": "K=ℚ gives the identity.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.51.test2",
+          "statement": "Norm(1)=1; norm(0)=0 for a nonzero finite extension.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/52",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/53",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/64",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/52",
+      "kind": "definition",
+      "name": "Integral norm form and universal open norm family",
+      "statement": "Choose aℤ-basisω₁,…,ω_r of𝒪_K. N_K(z)=N(Σz_iω_i) is an integral homogeneous form. For P(t,x)=Σ_{j=0}^d x_jt^j letV=D(P)⊂𝔸_Z^{d+2}, U={N_K(z)=P(t,x)} overV; f=(g,h):U→V records t and coefficients. FibersU_m andU_{ν,m} keep these two parameter levels distinct.",
+      "locator": "Published §5.1 p718",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/1",
+        "PAPER-SKOROBOGATOV-SOFOS-23/51"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.52.api1",
+          "statement": "Change basis by GL_r(ℤ) without changing integral solubility."
+        },
+        {
+          "name": "SS23.52.api2",
+          "statement": "For a ringR, D(P)(R) requires P to be a UNIT, not merely nonzero."
+        },
+        {
+          "name": "SS23.52.api3",
+          "statement": "Overℚ, f is smooth with geometrically integral norm-torus fibers."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.52.test1",
+          "statement": "ForR=ℤ₂, P=2 is nonzero but not inD(P)(R).",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.52.test2",
+          "statement": "K=ℚ(i) with basis1,i givesz₁²+z₂².",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/54",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/55",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/62",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/66",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/53",
+      "kind": "theorem",
+      "name": "Units are norms in an unramified local extension",
+      "statement": "IfL/ℚ_p is a finite unramified extension, everyu∈ℤ_p^× is the norm of somev∈𝒪_L^×. For the product of local factors ofK⊗ℚ_p, put suchv in one factor and1 in the others.",
+      "locator": "Published Lemma5.1 p718, cited [13] I§7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+      ],
+      "cluster": "import",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/51"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/54",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/54",
+      "kind": "theorem",
+      "name": "Unramified fibers of the norm family",
+      "statement": "IfS is the finite ramified-prime set ofK/ℚ,p∉S and(ν,m)∈V(ℤ_p), thenU_{ν,m}(ℤ_p)≠∅. The unit assumption is indispensable; no theorem for arbitrary nonzero integral values is inferred.",
+      "locator": "Published Lemma5.1 p718",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/52",
+        "PAPER-SKOROBOGATOV-SOFOS-23/53"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/55",
+      "kind": "theorem",
+      "name": "Joint p-adic openness and local persistence",
+      "statement": "For primep andN∈U(ℚ_p), there existsM_p≥1 such that max(|ν−gN|_p,|m−hN|_p)≤p^{−M_p} impliesU_{ν,m}(ℚ_p)≠∅. Use smoothness and openness of the JOINT mapf, not just openness ofg andh separately. Integral persistence requires restricting the source to an integral neighborhood.",
+      "locator": "Published Lemma5.2 p718, corrected proof E14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/52"
+      ],
+      "note": "Not formalized; source issues and completion gates apply. The local smooth-openness argument in Conrad's author PDF p11 was checked; full scheme-topology suppliers remain G6.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/56",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/81",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/56",
+      "kind": "construction",
+      "name": "Compact local images and finite congruence cover",
+      "statement": "For the unit-open norm family, U(ℤ_p) is closed in compact affine integral-coordinate space. For finiteS, cover∏_{p∈S}h(U(ℤ_p)) by finitely many product balls supplied by item55. CRT converts each product ball to coefficient and input residue conditions modulo∏p^{M_p}. Overlaps require finite-union/inclusion-exclusion bookkeeping.",
+      "locator": "Published Proof Theorem5.3 pp719–720",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/2",
+        "PAPER-SKOROBOGATOV-SOFOS-23/55"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/81",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/57",
+      "kind": "theorem",
+      "name": "Local Brauer invariant supplier",
+      "statement": "For a nonarchimedean completionF of a number field, inv_F:Br(F)≃ℚ/ℤ; atℝ the invariant is injective with image{0,1/2}, and atℂ the Brauer group vanishes. Compatibility is with the canonical arithmetic normalization.",
+      "locator": "Published §5.2 p722",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+      ],
+      "cluster": "import",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/58",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/59",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/77",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/58",
+      "kind": "theorem",
+      "name": "Albert–Brauer–Hasse–Noether exact sequence",
+      "statement": "For a number fieldK,0→Br(K)→⊕_vBr(K_v)→ℚ/ℤ→0 is exact, with last map the sum of local invariants and v including real places. Finite support is part of the supplier contract.",
+      "locator": "Published Eq5.3 p722",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
+      ],
+      "cluster": "import",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/57"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/60",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/68",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/77",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/59",
+      "kind": "definition",
+      "name": "Cyclic norm obstruction and invariant matrix",
+      "statement": "For cyclicK/ℚ of degreer, choose a characterχ:Gal(ℚbar/ℚ)→ℤ/r cutting outK. Fora∈ℚ_v^× use the cyclic-algebra class(χ,a)∈Br(ℚ_v)[r], with class0 iff a is a local norm. For tupleP and local inputt_p, b_{p,i}=inv_p(χ,P_i(t_p)) forms the local invariant matrix.",
+      "locator": "Published §5.2 Theorem5.8/Eqs5.2–5.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "obstruction",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/57"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.59.api1",
+          "statement": "Bilinearity in the multiplicative argument gives the row sum for the product norm."
+        },
+        {
+          "name": "SS23.59.api2",
+          "statement": "Local constancy on units gives congruence neighborhoods preserving eachentry."
+        },
+        {
+          "name": "SS23.59.api3",
+          "statement": "Keep column sums over ramifiedp separate from row sums overi."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.59.test1",
+          "statement": "A matrix with all row sums0 need not have all column sums0.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.59.test2",
+          "statement": "Atℝ positivea has zero cyclic norm obstruction.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/60",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/68",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/60",
+      "kind": "theorem",
+      "name": "Cyclic norm principle with one omitted place",
+      "statement": "For cyclicK/ℚ and a∈ℚ^×, ifa is a local norm at every place except possibly one, then it is a norm fromK. Indeed all but one local invariants of(χ,a) vanish, the sum law kills the last, and ABHN kills the global class. The cyclic splitting/norm equivalence must be supplied, not assumed for arbitrary noncyclic extensions.",
+      "locator": "Published Theorem5.3 proof p720",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "obstruction",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/58",
+        "PAPER-SKOROBOGATOV-SOFOS-23/59"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/68",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/61",
+      "kind": "theorem",
+      "name": "Density-one rational points on cyclic norm families",
+      "statement": "For cyclicK/ℚ,d≥1,S ramified primes, letP be degree-d Bouniakowsky coefficients andM={m∈P:U_m(ℤ_p)≠∅∀p∈S}. There isM′⊆M with relative density_M(M′)=1 andU_m(ℚ)≠∅ for everym∈M′; M′ has positive ambient coefficient density. This is conditional on the repaired average-prime input, not on a claim that every locally soluble fiber is soluble.",
+      "locator": "Published Theorem5.3 pp719–720",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/24",
+        "PAPER-SKOROBOGATOV-SOFOS-23/54",
+        "PAPER-SKOROBOGATOV-SOFOS-23/56",
+        "PAPER-SKOROBOGATOV-SOFOS-23/60"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/91",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/62",
+      "kind": "construction",
+      "name": "Locally rational but not unit-integral norm example",
+      "statement": "For K=ℚ(i),m≥2,s=2^{m−1},P(t)=3+(2^m−3)t^s+2^{m+2}Q(t): even t givesP(t)≡3mod4; oddt gives2^m|P(t); P(1)=2^m(1+4Q(1)) is a sum of twoℤ₂ squares. Thus the equation can haveℤ₂ solutions while its UNIT-open model has noℤ₂ points. Its value at1 hasv₂=m, correctingE16.",
+      "locator": "Published Example5.6 p720",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/52"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/63",
+      "kind": "definition",
+      "name": "Strict Hilbert class field",
+      "statement": "K^(+) is the ray class field of the modulus consisting of all real places ofK; K^(1)⊆K^(+). A prime ideal splits inK^(+)/K iff it is principal with a totally positive generator. Import ray-class existence/reciprocity; the definition is not an elementary ideal-class quotient alone.",
+      "locator": "Published §5.1 p720",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+      ],
+      "cluster": "import",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.63.api1",
+          "statement": "Pin the real-place modulus explicitly."
+        },
+        {
+          "name": "SS23.63.api2",
+          "statement": "Totally imaginaryK hasK^(+)=K^(1)."
+        },
+        {
+          "name": "SS23.63.api3",
+          "statement": "Use the splitting law only at primes unramified in the ray-class extension."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.63.test1",
+          "statement": "Ordinary principal does not imply narrow principal in a real field.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.63.test2",
+          "statement": "Class number1 and totally imaginary impliesK^(+)=K.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/64",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/64",
+      "kind": "theorem",
+      "name": "Totally positive norm prime from a congruence",
+      "statement": "IfK/ℚ is finite abelian andK^(+)/ℚ is abelian, chooseM withK^(+)⊆ℚ(ζ_M). Every positive primeq≡1modM splits completely inK^(+), so a prime ideal aboveq inK has a totally positive generatorξ∈𝒪_K of field normq. Positivity removes the± ambiguity of ideal norms.",
+      "locator": "Published Theorem5.7 proof p721",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/51",
+        "PAPER-SKOROBOGATOV-SOFOS-23/63"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/65",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/65",
+      "kind": "theorem",
+      "name": "Positive proportion of integral norm equations",
+      "statement": "For fixed d≥1 and finite abelianK/ℚ withK^(+)/ℚ abelian, a positive proportion of degree-d integral polynomials ordered by coefficient height have N_K(z)=P(t) soluble in integers(t,z). This is an existence result on the affine equation, NOT aℤ-point assertion forD(P), whereP would have to be±1.",
+      "locator": "Published Theorem5.7 p720",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/25",
+        "PAPER-SKOROBOGATOV-SOFOS-23/64"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/66",
+      "kind": "definition",
+      "name": "Product norm family",
+      "statement": "For d_i≥1,N=D+n and integral norm formN_K, defineV=D(∏P_i)⊂𝔸_Z^{N+1} andU={N_K(z)=∏P_i(t,x_i)} overV. Over any local ringR, everyP_i(t,x_i) must be a unit for anR-point ofV.",
+      "locator": "Published §5.2 Eq5.1 pp721–722",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/52"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.66.api1",
+          "statement": "Recover single-factor family whenn=1."
+        },
+        {
+          "name": "SS23.66.api2",
+          "statement": "Map to each coefficient block and the common inputt."
+        },
+        {
+          "name": "SS23.66.api3",
+          "statement": "Expose unit product iff all factors units."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.66.test1",
+          "statement": "One nonunit factor excludes aℤ_p-point ofV.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.66.test2",
+          "statement": "All factors share the same t.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/67",
+      "kind": "theorem",
+      "name": "Density-one rational product norms under Brauer conditions",
+      "statement": "For cyclicK/ℚ, n,d_i≥1 andS ramified primes, letM consist of Schinzel tuples admitting for eachp∈S a point(t_p,z_p)∈U_m(ℤ_p) such that for EACH i, Σ_{p∈S}inv_p(χ,P_i(t_p,m_i))=0. Then relative density1 ofM hasU_m(ℚ)≠∅ and this subfamily has positive ambient density. Preserve the common choice of all local points across the column conditions.",
+      "locator": "Published Theorem5.8 p722",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/24",
+        "PAPER-SKOROBOGATOV-SOFOS-23/56",
+        "PAPER-SKOROBOGATOV-SOFOS-23/58",
+        "PAPER-SKOROBOGATOV-SOFOS-23/59",
+        "PAPER-SKOROBOGATOV-SOFOS-23/66"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/68",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "proofSteps": [
+        "Choose a finite CRT cover on which all local invariant matrix entries stay constant.",
+        "Apply the repaired prime-value theorem inside each coefficient class.",
+        "Use column sums and global reciprocity at the new primes, then ABHN and the cyclic norm criterion."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/68",
+      "kind": "theorem",
+      "name": "Product-norm local-to-global assembly",
+      "statement": "At a prime-producing inputν in the selected CRT class, putq_i=P_i(ν). OutsideS∪{q_i} and at∞, inv(χ,q_i)=0. The column condition and sum formula kill inv_{q_i}(χ,q_i); row sums then kill the product class at everyplace. ABHN and cyclic splitting imply∏q_i is a global norm. No repeated prime obstruction occurs in this argument if the terms are handled separately.",
+      "locator": "Published Eqs5.7–5.10 pp723–724",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "obstruction",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/58",
+        "PAPER-SKOROBOGATOV-SOFOS-23/59",
+        "PAPER-SKOROBOGATOV-SOFOS-23/60",
+        "PAPER-SKOROBOGATOV-SOFOS-23/67"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/69",
+      "kind": "definition",
+      "name": "Diagonal conic bundle unit-open family",
+      "statement": "Fixn₁,n₂>0,n₃≥0, nonzero integersa_i and degreesd_{ij}≥1; n=Σn_i,D=Σd_{ij}. U_m⊂ℙ_Z²×𝔸_Z¹ is a₁∏P_{1j}(t)x²+a₂∏P_{2j}(t)y²+a₃∏P_{3j}(t)z²=0 with∏P_{ij} invertible. The projective coordinate triple is nonzero; n₃=0 means empty product1.",
+      "locator": "Published §6 Eq6.1 p725",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/4"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.69.api1",
+          "statement": "Keep coefficient dimensionD+n."
+        },
+        {
+          "name": "SS23.69.api2",
+          "statement": "Projective points exclude the zero vector."
+        },
+        {
+          "name": "SS23.69.api3",
+          "statement": "Treat integral model points via primitive projective coordinates, not arbitrary zero vectors."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.69.test1",
+          "statement": "n₃=0 is a supported endpoint.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.69.test2",
+          "statement": "Definite real coefficients cannot yield a real conic point.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/78",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/81",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/70",
+      "kind": "theorem",
+      "name": "Hasse–Minkowski supplier for conics",
+      "statement": "For a regular ternary quadratic form overℚ, nontrivial rational isotropy holds iff it holds overℝ and everyℚ_p. This is planned, not built; finite-field nontrivial zeros alone do not prove the global theorem.",
+      "locator": "Published §6.2 pp729–730",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
+      ],
+      "cluster": "import",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/77",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/71",
+      "kind": "definition",
+      "name": "Legendre–Jacobi symbol including even denominator",
+      "statement": "Fora∈ℤ,b∈ℕ_{>0}, (a/b)=∏_{p in prime factors ofb with multiplicity}legendreSym p a. At denominator2 this is0 ifa even,1 ifa odd: exactly Mathlib's jacobiSym, NOT the Kronecker symbol. Denominator0 is excluded even though the library assigns1 there.",
+      "locator": "Published §6.1 p725",
+      "status": "library",
+      "library": [
+        "mathlib:jacobiSym",
+        "mathlib:legendreSym",
+        "mathlib:legendreSym.to_jacobiSym"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.71.api1",
+          "statement": "Reuse jacobiSym and legendreSym; argument orders differ."
+        },
+        {
+          "name": "SS23.71.api2",
+          "statement": "Multiplicative denominator and numerator laws apply."
+        },
+        {
+          "name": "SS23.71.api3",
+          "statement": "At a prime reduce to legendreSym."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.71.test1",
+          "statement": "(3/2)=1 here, whereas Kronecker(3,2)=−1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.71.test2",
+          "statement": "(2/2)=0 and(a/1)=1.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/72",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/73",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/76",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/72",
+      "kind": "theorem",
+      "name": "Heath-Brown bilinear prime character estimate",
+      "statement": "For complex sequences supportedk≤K,l≤L, K,L≥1,ε>0, |Σ_{k,l primes}a_kb_l(k/l)|≪_ε ||a||∞||b||∞((KL)^{1+ε}min(K,L)^{-1/2}+K). Separate denominator2, which supplies the+K term. Original [35,Cor4] needs its own full extraction.",
+      "locator": "Published Lemma6.3 p726",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "sieve",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/71"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/74",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/73",
+      "kind": "definition",
+      "name": "Decoupled character-weighted prime sum",
+      "statement": "For n≥2,h≠k,F₁,F₂:ℤ^{n−1}→unit disk,G:ℤ^{n−2}→unit disk (G=1 ifn=2), η_P(x;h,k)=Σ_{m≤x,m≡n₀modM,allP_i(m)prime}∏logP_i(m)·(P_h(m)/P_k(m))·F₁(P_{a≠k}(m))F₂(P_{b≠h}(m))G(P_{c≠h,k}(m)).",
+      "locator": "Published Definition6.4 p726",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/6",
+        "PAPER-SKOROBOGATOV-SOFOS-23/71"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.73.api1",
+          "statement": "Expose exactly which variable each bounded factor omits."
+        },
+        {
+          "name": "SS23.73.api2",
+          "statement": "Every multiplicative factor has modulus≤1."
+        },
+        {
+          "name": "SS23.73.api3",
+          "statement": "Conjugate all complex weights in a squared-moment expansion."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.73.test1",
+          "statement": "n=2 makesG constant1.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.73.test2",
+          "statement": "F₁ depending onP_k is disallowed, even if bounded.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/74",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/74",
+      "kind": "theorem",
+      "name": "Average character cancellation",
+      "statement": "Fix the data ofDefinition6.4, d_i,M≥1,Q withgcd(Q_i(n₀),M)=1, n<A₁<A₂. UniformlyH≥3,log^{A₁}H<x≤log^{A₂}H, average_P|η_P(x;h,k)|≪x^{1/2+n/(2A₁)}. The proof establishes the squared average≪x^{1+n/A₁}; constants depend on fixed degree/congruence/range data, not the bounded functions.",
+      "locator": "Published Proposition6.5 pp727–729",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/72",
+        "PAPER-SKOROBOGATOV-SOFOS-23/73"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/75",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/75",
+      "kind": "theorem",
+      "name": "Off-diagonal coefficient incidence bound",
+      "statement": "For m₁≠m₂, specifying P(m₁)=u,P(m₂)=v fixes the two lowest coefficients once the others are fixed, so the number of coefficient vectors isO(H^{d−1}); the evaluation determinant ism₂−m₁. Use this only after separatingm₁=m₂. With a log weight the bound gainsO(logH) in the logarithmicm-range.",
+      "locator": "Published Proposition6.5 proof p728",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/17",
+        "PAPER-SKOROBOGATOV-SOFOS-23/74"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/76",
+      "kind": "definition",
+      "name": "Prime block products and conic indicator",
+      "statement": "For distinct primesp_{ij}∤2a₁a₂a₃ putπ_i=∏_jp_{ij},π(S_i)=∏_{j∈S_i}p_{ij}. DefineQ=2^{−n}(2+Σ*∏_{i=1}³(−a_{i′}a_{i″}π_{i′}π_{i″}/π(S_i))), where* omits both the all-empty and all-full subset tuple.",
+      "locator": "Published §6.2 p729",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/71"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.76.api1",
+          "statement": "Empty subset contributes1."
+        },
+        {
+          "name": "SS23.76.api2",
+          "statement": "Track all-full subset separately via the Hilbert product formula."
+        },
+        {
+          "name": "SS23.76.api3",
+          "statement": "Construct Boolean expansion only when all symbols at the distinct prime denominators are±1."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.76.test1",
+          "statement": "n₃=0 givesπ₃=1 and onlyS₃=∅.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.76.test2",
+          "statement": "Coincident prime factors break the±1 expansion hypothesis.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/77",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/77",
+      "kind": "theorem",
+      "name": "Conic indicator identity",
+      "statement": "Assume n₁,n₂>0,n₃≥0,a_i≠0 not all same sign,a₁a₂a₃ squarefree, distinctp_{ij}∤2a₁a₂a₃, and local solubility at everyp|2a₁a₂a₃. Then the conicΣa_iπ_ix_i²=0 has aℚ-point iffQ=1; otherwiseQ=0. Hasse–Minkowski plus the Hilbert-symbol product formula makes the all-full term1. Restore the correct display fromarxivv3 inE18.",
+      "locator": "Published Lemma6.6 pp729–730",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/57",
+        "PAPER-SKOROBOGATOV-SOFOS-23/58",
+        "PAPER-SKOROBOGATOV-SOFOS-23/70",
+        "PAPER-SKOROBOGATOV-SOFOS-23/76"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/78",
+      "kind": "definition",
+      "name": "Distinct-prime weighted count",
+      "statement": "tildeθ_P isθ_P restricted to pairwise distinct valuesP_i(m). C_P further restricts to conic-soluble prime fibers. Both remain sums over one common inputm in the prescribed residue class.",
+      "locator": "Published §6.2 pp731–732",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/6",
+        "PAPER-SKOROBOGATOV-SOFOS-23/69"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.78.api1",
+          "statement": "Compare0≤C_P≤tildeθ_P≤θ_P."
+        },
+        {
+          "name": "SS23.78.api2",
+          "statement": "Expand C_P using item77's conic indicator."
+        },
+        {
+          "name": "SS23.78.api3",
+          "statement": "Do not boundθ−tildeθ uniformly without excluding identical polynomial pairs."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.78.test1",
+          "statement": "P₁=P₂=t+1 gives tildeθ=0 butθ generallypositive.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.78.test2",
+          "statement": "Distinct polynomials can coincide at finitely many input values.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/79",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/79",
+      "kind": "theorem",
+      "name": "Removing repeated polynomial values correctly",
+      "statement": "If the integral polynomialsP_i are pairwise distinct, equalityP_i(m)=P_j(m) occurs for at mostdeg(P_i−P_j) inputs, soθ_P−tildeθ_P=O_{degrees}((log(Hx))^n). For equal degreesd_i=d_j, the locusP_i=P_j hasO(H^{N−d_i−1}) coefficient tuples; remove these thin diagonals before the pointwise estimate. The paper omits this qualification inEq6.7.",
+      "locator": "Published Eq6.7 p731, corrected E19",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/78"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/12",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/80",
+      "kind": "theorem",
+      "name": "Prime conic fibers in a fixed congruence family",
+      "statement": "Under Lemma6.6's signs/squarefree data, letM≥1 be divisible by8a₁a₂a₃ and fixn₀,Q_{ij} ofdegree≤d_{ij} withgcd(Q_{ij}(n₀),M)=1. Assume everyP≡Q andm≡n₀ gives a conic point overℚ_p for everyp|M. Then density1 of Schinzel tuples in this class has a rational point on its conic bundle. Character expansion usesC_P=2^{1−n}tildeθ_P+2^{−n}Σ*T_{S,P}; input9 remains gated.",
+      "locator": "Published Proposition6.7 pp730–732",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/49",
+        "PAPER-SKOROBOGATOV-SOFOS-23/74",
+        "PAPER-SKOROBOGATOV-SOFOS-23/77",
+        "PAPER-SKOROBOGATOV-SOFOS-23/79"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/81",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/81",
+      "kind": "theorem",
+      "name": "Density-one conic bundles in the locally soluble family",
+      "statement": "For the data ofitem69 witha_i not all same sign anda₁a₂a₃ squarefree, S={p:p|2a₁a₂a₃}, letM be Schinzel coefficient tuples withU_m(ℤ_p)≠∅ for everyp∈S. There is a subfamilyM′⊆M of relative density1 whose members haveU_m(ℚ)≠∅; M′ has positive ambient coefficient density.",
+      "locator": "Published Theorem6.1 p725",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/55",
+        "PAPER-SKOROBOGATOV-SOFOS-23/56",
+        "PAPER-SKOROBOGATOV-SOFOS-23/69",
+        "PAPER-SKOROBOGATOV-SOFOS-23/80"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/82",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "proofSteps": [
+        "Use properness ofℙ² for compactness of integral points over the unit-open base.",
+        "Use smoothness of the joint family map to choose finitely many local congruence balls.",
+        "Apply the fixed-class conic theorem and transfer relative density; preserve ambient positivity."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/82",
+      "kind": "theorem",
+      "name": "Positive proportion for arbitrary diagonal coefficients",
+      "statement": "For fixed nonzeroa₁,a₂,a₃,n₁,n₂>0,n₃≥0 and positive degreesd_{ij}, a positive proportion of all degree-prescribed polynomial coefficient tuples yield a rational point in a smooth fiber (∏P_{ij}(t)≠0) ofΣa_i∏P_{ij}(t)x_i²=0. Sign changes in one polynomial and square-removal/scaling of the quadratic coordinates reduce to item81; do not impose positive-leading restrictions before performing the sign change.",
+      "locator": "Published Theorem1.4; §6.4 p734",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/81"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/83",
+      "kind": "definition",
+      "name": "Mod4-good coefficient family",
+      "statement": "For d≥2 letP_d(H) be positive-leading degree-d integral polynomials of height≤H, R_d(H) the relative count that are Bouniakowsky and take value1mod4 at some input, and r_d=4^{−d−1}#{Q∈(ℤ/4)[t],degQ≤d:∃a∈ℤ/4,Q(a)=1}.",
+      "locator": "Published §7 pp734–736",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/3",
+        "PAPER-SKOROBOGATOV-SOFOS-23/25"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "api": [
+        {
+          "name": "SS23.83.api1",
+          "statement": "Distinguish finite local proportionr_d from global admissibility densityR_d(H)."
+        },
+        {
+          "name": "SS23.83.api2",
+          "statement": "Testing the four residues is exhaustive."
+        },
+        {
+          "name": "SS23.83.api3",
+          "statement": "Coefficient reduction can drop degree."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "SS23.83.test1",
+          "statement": "d=2:38 of64 coefficient vectors succeed.",
+          "status": "proposed"
+        },
+        {
+          "name": "SS23.83.test2",
+          "statement": "A constant1 mod4 reduction is allowed for everydegree.",
+          "status": "proposed"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/84",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        },
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ],
+      "apiStatus": "Proposed mathematical contracts and regression tests; no Lean elaboration or formal test execution claimed."
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/84",
+      "kind": "theorem",
+      "name": "Exact mod4 probability",
+      "statement": "r₂=19/32 and r_d=39/64 for d≥3. For d≥3 all even coefficient columns j≥2 have the same evaluation vector mod4, and all odd columns j≥3 have the same vector; hence the image equals the degree3 image. Its kernel has4 elements, so the image has64 elements, precisely those(v₀,v₁,v₂,v₃) withv₀≡v₂mod2 andv₁≡v₃mod2. Of these,25 avoid1, giving39/64. Exhaustion throughd=6 independently checks the formulas.",
+      "locator": "Published §7 p736",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/83"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "verification": "C2 exhausts all coefficient vectors ford=2,…,6.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/85",
+      "kind": "theorem",
+      "name": "Fermat two-square prime supplier",
+      "statement": "For a natural primep withp%4≠3, there exista,b∈ℕ witha²+b²=p. In particular every prime1mod4 is represented, and the natural solution gives an integral solution.",
+      "locator": "Published §7 p735",
+      "status": "library",
+      "library": [
+        "mathlib:Nat.Prime.sq_add_sq"
+      ],
+      "planned": [],
+      "cluster": "library",
+      "prerequisites": [],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/86",
+      "kind": "theorem",
+      "name": "Explicit density lower bound for affine Châtelet equations",
+      "statement": "For d≥2,ε>0 and sufficiently largeH, the proportion ofP∈P_d(H) for whichx²+y²=P(t) has an integral solution is≥(1−ε)(38+1_{d≥3})/64·∏_{p≥3}(1−p^{−min(p,d+1)}). This is a lower bound, not the actual density and not density1. The prime-producing input is still gated.",
+      "locator": "Published Theorem7.1 p735",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/25",
+        "PAPER-SKOROBOGATOV-SOFOS-23/83",
+        "PAPER-SKOROBOGATOV-SOFOS-23/84",
+        "PAPER-SKOROBOGATOV-SOFOS-23/85"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "executionStatus": "gated source endpoint",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/87",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/87",
+      "kind": "theorem",
+      "name": "Strict56percent lower bound",
+      "statement": "For every fixedd≥2 and sufficiently largeH the integral-soluble proportion in item86 exceeds56/100. A fully rational certificate gives∏_{p≥3}(1−p^{-3})>19/20, hence (19/32) times that product>.564> .56; chooseε with positive margin. This certifies the numerical implication, not the unresolved analytic input.",
+      "locator": "Published Corollary7.2 p735",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/86"
+      ],
+      "note": "Not formalized; source issues and completion gates apply.",
+      "verification": "C3: exact finite product through100 and integral-comparison tail bound; lower product>.950713 and resulting density>.564486 beforeε.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/88",
+      "kind": "theorem",
+      "name": "Second prime-count moment: gated endpoint",
+      "statement": "For fixedn,d_i,M≥1,n₀∈ℤ,δ>0 and1≤x≤(logH)^δ, the printed target is Σ_Pθ_P(x)²=2^DH^{D+n}x²M^{n−2}/φ(M)^n∏_{p∤M}γ_n(p)+O(xH^{D+n}(logH)^n+x^{3/2}H^{D+n}), summing all positive-leading coefficient tuples of height≤H. This remains conditional on the repaired correlation and prime-power-deletion estimates, not a certified assertion here.",
+      "locator": "Published Lemma4.4 p707",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "prime",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/35",
+        "PAPER-SKOROBOGATOV-SOFOS-23/40",
+        "PAPER-SKOROBOGATOV-SOFOS-23/41"
+      ],
+      "note": "Not formalized; original suppliers and source issues remain gates.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/47",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/89",
+      "kind": "theorem",
+      "name": "Shifted coprime Möbius sum",
+      "statement": "For everyA>0 and uniformly1≤q≤√T asT→∞, Σ_{t≤T/q,(t,q)=1}μ(t)log(qt)/t=−q/φ(q)+O_A((logT)^{-A}). This is the exactLemma3.11 form used in the Euler-factor calculation; the original PNT-with-coprimality supplier must establish its uniformity.",
+      "locator": "Published Lemma3.11 p699",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "analytic",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/36"
+      ],
+      "note": "Not formalized; original suppliers and source issues remain gates.",
+      "uses": []
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/90",
+      "kind": "theorem",
+      "name": "Prime number theorem supplier",
+      "statement": "For realx→∞, θ(x)=Σ_{p≤x}logp satisfiesθ(x)/x→1. Needed both for CRT modulus bounds and the explicit counterexample toLemma3.14. No pinned-library PNT theorem was found; qualitative Dirichlet infinitude is not sufficient.",
+      "locator": "Published §2.2; §3.2; diagnostic forLemma3.14",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "cluster": "import",
+      "prerequisites": [],
+      "note": "Not formalized; original suppliers and source issues remain gates.",
+      "uses": [
+        {
+          "where": "PAPER-SKOROBOGATOV-SOFOS-23/34",
+          "how": "Consumes this carrier or exact statement, with its hypotheses and completion gates."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/91",
+      "kind": "theorem",
+      "name": "Positive proportion of rational norm varieties",
+      "statement": "For every cyclic extensionK/ℚ and fixedd≥1, a positive proportion of degree-d integral polynomials ordered by coefficient height admit(t,z)∈ℚ^{1+[K:ℚ]} withN_K(z)=P(t)≠0. This is the ambient-family corollary, separate from the relative density-one assertion for the locally unit-soluble subfamily.",
+      "locator": "Published Theorem1.3 p675",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "cluster": "geometry",
+      "prerequisites": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/61"
+      ],
+      "note": "Not formalized; original suppliers and source issues remain gates.",
+      "uses": []
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "ArithmeticStatistics",
+      "roadmap": "ArithmeticStatisticsPartIISchinzelAverages",
+      "title": "Arithmetic statistics, counting fields and Selmer distributions, Part II: Schinzel averages over coefficient boxes",
+      "area": "analytic",
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/1",
+        "PAPER-SKOROBOGATOV-SOFOS-23/3",
+        "PAPER-SKOROBOGATOV-SOFOS-23/4",
+        "PAPER-SKOROBOGATOV-SOFOS-23/5",
+        "PAPER-SKOROBOGATOV-SOFOS-23/6",
+        "PAPER-SKOROBOGATOV-SOFOS-23/7",
+        "PAPER-SKOROBOGATOV-SOFOS-23/8",
+        "PAPER-SKOROBOGATOV-SOFOS-23/9",
+        "PAPER-SKOROBOGATOV-SOFOS-23/10",
+        "PAPER-SKOROBOGATOV-SOFOS-23/11",
+        "PAPER-SKOROBOGATOV-SOFOS-23/12",
+        "PAPER-SKOROBOGATOV-SOFOS-23/13",
+        "PAPER-SKOROBOGATOV-SOFOS-23/14",
+        "PAPER-SKOROBOGATOV-SOFOS-23/15",
+        "PAPER-SKOROBOGATOV-SOFOS-23/16",
+        "PAPER-SKOROBOGATOV-SOFOS-23/18",
+        "PAPER-SKOROBOGATOV-SOFOS-23/19",
+        "PAPER-SKOROBOGATOV-SOFOS-23/20",
+        "PAPER-SKOROBOGATOV-SOFOS-23/21",
+        "PAPER-SKOROBOGATOV-SOFOS-23/22",
+        "PAPER-SKOROBOGATOV-SOFOS-23/23",
+        "PAPER-SKOROBOGATOV-SOFOS-23/24",
+        "PAPER-SKOROBOGATOV-SOFOS-23/25",
+        "PAPER-SKOROBOGATOV-SOFOS-23/30",
+        "PAPER-SKOROBOGATOV-SOFOS-23/31",
+        "PAPER-SKOROBOGATOV-SOFOS-23/33",
+        "PAPER-SKOROBOGATOV-SOFOS-23/34",
+        "PAPER-SKOROBOGATOV-SOFOS-23/35",
+        "PAPER-SKOROBOGATOV-SOFOS-23/37",
+        "PAPER-SKOROBOGATOV-SOFOS-23/38",
+        "PAPER-SKOROBOGATOV-SOFOS-23/39",
+        "PAPER-SKOROBOGATOV-SOFOS-23/40",
+        "PAPER-SKOROBOGATOV-SOFOS-23/43",
+        "PAPER-SKOROBOGATOV-SOFOS-23/44",
+        "PAPER-SKOROBOGATOV-SOFOS-23/45",
+        "PAPER-SKOROBOGATOV-SOFOS-23/46",
+        "PAPER-SKOROBOGATOV-SOFOS-23/47",
+        "PAPER-SKOROBOGATOV-SOFOS-23/48",
+        "PAPER-SKOROBOGATOV-SOFOS-23/49",
+        "PAPER-SKOROBOGATOV-SOFOS-23/73",
+        "PAPER-SKOROBOGATOV-SOFOS-23/74",
+        "PAPER-SKOROBOGATOV-SOFOS-23/75",
+        "PAPER-SKOROBOGATOV-SOFOS-23/78",
+        "PAPER-SKOROBOGATOV-SOFOS-23/79",
+        "PAPER-SKOROBOGATOV-SOFOS-23/83",
+        "PAPER-SKOROBOGATOV-SOFOS-23/84",
+        "PAPER-SKOROBOGATOV-SOFOS-23/88"
+      ],
+      "reason": "ST.0–5 provide height-family and number-field/Selmer counting infrastructure, but not positive-prime values of fixed-degree integer polynomials in growing coefficient boxes. This is different from the previously proposed growing-degree random-irreducibility direction. The local evaluation laws and three matched dispersion moments require new layers, importing generic family density and Fourier/arithmetic suppliers.",
+      "brief": "Extend Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics). Import ST.0 relative height-family density; Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns) for quadratic-character bilinear input; Exponential sums, decoupling and the circle method (ExponentialSumsAndCircleMethod) for kernel estimates; Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory) for Möbius, Mertens, PNT and multiplicative means. Endpoint contracts are items9,11–15,24–25,74,79 and83–84. In particular for fixed positive degrees d_i and M, n<A₁<A₂ and log^{A₁}H<x≤log^{A₂}H, the desired average absolute discrepancy is O(x/√logx); for Schinzel tuples in compatible congruence classes the fraction with at least(log|P|)^{A/3} prime witnesses up to(log|P|)^{n+A} is1+O((logloglogH)^{D−n}/√loglogH). Preserve the common input, positive primes, positive leading coefficients, coefficientwise congruence and exact normalization. These endpoints are gated: Lemma3.14 is false atd=k=Ω=1, so first prove a real-region correction with error sufficient after summation. Fix signed/zeroΛ, prime-power deletion and uniform-in-x issues before marking downstream nodes ready. Construct finite-field coefficient probability, Vandermonde fibers, G_p, c_p, γ_n, singular series, CRT counting, large-prime tails and weighted counts with the stated API/tests. Reuse the built Vandermonde and natural Mangoldt APIs. Distinct-prime claims require deleting the repeated-polynomial diagonals. Proposed files: TauCeti/NumberTheory/PolynomialPrimeValues/LocalModels.lean and Dispersion.lean. Proposed landmarks: Schinzel tuple; Bernoulli Euler factors; Schinzel on average; quadratic-character cancellation. No conjectural full Schinzel or fixed-polynomial Bateman–Horn theorem is a proved endpoint."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIRandomFibrations",
+      "title": "Heights, rational points and obstructions, Part II: random norm and conic fibrations",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/52",
+        "PAPER-SKOROBOGATOV-SOFOS-23/54",
+        "PAPER-SKOROBOGATOV-SOFOS-23/55",
+        "PAPER-SKOROBOGATOV-SOFOS-23/56",
+        "PAPER-SKOROBOGATOV-SOFOS-23/61",
+        "PAPER-SKOROBOGATOV-SOFOS-23/62",
+        "PAPER-SKOROBOGATOV-SOFOS-23/64",
+        "PAPER-SKOROBOGATOV-SOFOS-23/65",
+        "PAPER-SKOROBOGATOV-SOFOS-23/66",
+        "PAPER-SKOROBOGATOV-SOFOS-23/67",
+        "PAPER-SKOROBOGATOV-SOFOS-23/69",
+        "PAPER-SKOROBOGATOV-SOFOS-23/76",
+        "PAPER-SKOROBOGATOV-SOFOS-23/77",
+        "PAPER-SKOROBOGATOV-SOFOS-23/80",
+        "PAPER-SKOROBOGATOV-SOFOS-23/81",
+        "PAPER-SKOROBOGATOV-SOFOS-23/82",
+        "PAPER-SKOROBOGATOV-SOFOS-23/86",
+        "PAPER-SKOROBOGATOV-SOFOS-23/87",
+        "PAPER-SKOROBOGATOV-SOFOS-23/91"
+      ],
+      "reason": "RP.2–3 own Brauer evaluation and descent, not density-one existence theorems across arbitrary-degree coefficient families. Add their arithmetic-family applications as new layers. Do not rebuild class field theory, Hasse–Minkowski, generic scheme carriers or the prime-value engine.",
+      "brief": "Extend Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), importing RP.2 cyclic norm obstruction APIs and ArithmeticStatisticsPartIISchinzelAverages for fixed-degree prime-value statistics. Import Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), layers5,6,10,12, for local invariants, unramified norm units, ABHN and strict ray-class splitting, and Global quadratic forms (tauceti:TauCetiRoadmap/GlobalQuadraticForms), layer5, for Hasse–Minkowski. Endpoint61 is relative density1 of rational points among cyclic norm fibers satisfying the specified unit-integral local conditions at ramified primes, together with positive ambient coefficient density. Endpoint67 retains the column-sum Brauer conditions for a product of generic polynomials. Endpoint65 gives a positive proportion of integral affine norm equations only under the additional hypothesis K^(+)/Q abelian. Endpoints80–82 give relative density1 of locally unit-soluble diagonal conic bundles and positive ambient proportion for arbitrary nonzero diagonal coefficients, with n₁,n₂>0,n₃≥0 and all prescribed polynomial degrees positive; resulting points lie in smooth fibers. Endpoints86–87 give the exact product lower bound and >56% for x²+y²=P(t), d≥2. All these conclusions remain gated on the repaired prime-value input. Build basis-independent integral norm forms, unit-open universal families, joint smooth local persistence, compact-image finite CRT covers, invariant matrices, character indicators and thin-diagonal removal. Preserve the distinction between affine integral solutions and integral points of the unit-open scheme. The real sign hypothesis and nonzero projective vector must be explicit. Suggested files: TauCeti/ArithmeticGeometry/RandomFibrations/Norm.lean and Conic.lean. Suggested landmarks: local congruence cover; random cyclic norm Hasse principle; conic-solubility indicator;56percent integral Châtelet bound. No unrestricted Brauer–Manin completeness is asserted."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0"
+      ],
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/2"
+      ],
+      "reason": "The generic relative coefficient-height density interface belongs to ST.0. This paper supplies essential denominator tests and congruence-subfamily uses; its specific prime-value law is a separate PartII consumer."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.2",
+        "AnalyticNumberTheory:AN.5"
+      ],
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/28",
+        "PAPER-SKOROBOGATOV-SOFOS-23/29",
+        "PAPER-SKOROBOGATOV-SOFOS-23/36",
+        "PAPER-SKOROBOGATOV-SOFOS-23/41",
+        "PAPER-SKOROBOGATOV-SOFOS-23/42",
+        "PAPER-SKOROBOGATOV-SOFOS-23/50",
+        "PAPER-SKOROBOGATOV-SOFOS-23/89"
+      ],
+      "reason": "AN.5 owns Möbius cancellation, uniform multiplicative means and Euler-product estimates; AN.2 supplies their quantitative prime-distribution prerequisites. The truncated/signed Mangoldt interface reuses the existing natural ArithmeticFunction.vonMangoldt, exposing what is genuinely missing rather than duplicating it. Original proof extraction is still required."
+    },
+    {
+      "route": "source",
+      "roadmap": "ExponentialSumsAndCircleMethod",
+      "stages": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/32"
+      ],
+      "reason": "The symmetric and one-sided Dirichlet-kernel L1 bounds are reusable oscillatory-sum inputs, with the one-sided case needed to repair the degree1 coefficient calculation. The random-polynomial specialization stays in its PartII."
+    },
+    {
+      "route": "source",
+      "roadmap": "SieveMethodsAndPrimePatterns",
+      "stages": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/72"
+      ],
+      "reason": "Heath-Brown's quadratic-character bilinear estimate belongs to the existing large-sieve/bilinear-sum layer. The prime-denominator2 error and exact norms must be retained; a generic DFT or character-orthogonality theorem does not establish this bound."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "items": [
+        "PAPER-SKOROBOGATOV-SOFOS-23/59",
+        "PAPER-SKOROBOGATOV-SOFOS-23/60",
+        "PAPER-SKOROBOGATOV-SOFOS-23/68"
+      ],
+      "reason": "RP.2 owns effective Brauer evaluation and local-to-global obstruction tests. Add the cyclic norm class and invariant-matrix adapters here, importing the CFT local invariant and ABHN sequence without re-planning them. The density-one geometric applications consume these interfaces in the PartII."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Davenport, On some infinite series involving arithmetical functions II, QJM8(1937),313–320; SS23[22].",
+      "link": "https://doi.org/10.1093/qmath/os-8.1.313",
+      "why": "Uniform Möbius exponential cancellation, Lemma3.2. No paper extraction found in the catalog; original proof not fully read."
+    },
+    {
+      "citation": "Heath-Brown, A mean value estimate for real character sums, ActaArith72(1995),235–275, Corollary4; SS23[35].",
+      "link": "https://doi.org/10.4064/aa-72-3-235-275",
+      "why": "Crucial quadratic-character bilinear estimate in§6. Publisher metadata checked; original proof still to extract."
+    },
+    {
+      "citation": "Conrad, Weil and Grothendieck approaches to adelic points, Enseign.Math58(2012),61–97; SS23[21].",
+      "link": "https://math.stanford.edu/~conrad/papers/adelictop.pdf",
+      "why": "Smooth joint maps induce open maps on local points. The local discussion precedingTheorem4.5 (authorPDFp11) was read; complete topology and integral-neighborhood supplier extraction remains open. Do not use the stronger adelic theorem without its extra hypotheses."
+    },
+    {
+      "citation": "Colliot-Thélène–Skorobogatov, The Brauer–Grothendieck Group(2021),§§1.3.4,13.1.2 andCor13.1.10; SS23[20].",
+      "link": "https://doi.org/10.1007/978-3-030-74248-5",
+      "why": "Cyclic algebra/norm equivalence, local invariant and ABHN. Existing CFT/RP stages own these directions, but exact source-specific proof closure for these applications is not supplied by this extraction."
+    },
+    {
+      "citation": "Montgomery–Vaughan, Multiplicative Number Theory I(2007), exercise17,p185; SS23[51].",
+      "link": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "why": "The q-uniform coprime Möbius estimates ofLemma3.11. Must check the precise quantified original argument, not simply cite qualitative PNT.",
+      "linkScope": "Bibliographic entry in the published SS23 paper, not a retrieved full original proof."
+    },
+    {
+      "citation": "Zygmund, Trigonometric SeriesI, Eq12.1,p67; SS23[62].",
+      "link": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "why": "Symmetric Dirichlet-kernel L1 estimate; also prove the one-sided version needed atd=1. Original source edition/page match remains to verify.",
+      "linkScope": "Bibliographic entry in the published SS23 paper, not a retrieved full original proof."
+    },
+    {
+      "citation": "Cassels–Fröhlich(eds.), Algebraic Number Theory(1967), I§7; Janusz, Algebraic Number Fields,2nded(1996),p241; SS23[13,40].",
+      "link": "https://eprints.gla.ac.uk/292484/1/292484.pdf",
+      "why": "Local unramified norms and strict-class-field splitting. Original editions and proofs remain to be retrieved; existing CFT owners must supply the exact theorems.",
+      "linkScope": "Bibliographic entry in the published SS23 paper, not a retrieved full original proof."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E1",
+      "kind": "error",
+      "locator": "Published Lemma3.14 pp701–703",
+      "printed": "2^d H^(d+1)/(Ω^d φ(Ω)) · 1(gcd(R(k),Ω)=1) + O_A(H^(d+1)/(log H)^A)",
+      "correction": "The main term must retain the positive-value real-region factor, or the statement must be restricted with a proved error sufficient for§4. No all-parameter repair is claimed here. Items34–35 explicitly block the false unrestricted statement.",
+      "reason": "Setd=k=Ω=1. P(t)=at+b,1≤a≤H,−H≤b≤H. The left side is exactlyΣ_{a=1}^Hθ(H+a), hence(3/2)H²+o(H²) by PNT, whereas the display gives2H²+o(H²). The missing half-triangle has areaH²/2. This disproves the auxiliary lemma, NOT Theorem1.9 by itself.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E2",
+      "kind": "misprint",
+      "locator": "Published Theorem1.2 p675; Proposition6.7 p730",
+      "printed": "integers n₀ and M; Let M be a multiple of 8a₁a₂a₃.",
+      "correction": "RequireM≠0, and normalizeM≥1 in every congruence-family asymptotic.",
+      "reason": "For Theorem1.2 takeM=0,n₀=0,Q=t+1,d=1. gcd(Q(0),0)=1 butP≡Qmod0 forcesP=Q andm≡0mod0 forcesm=0, with value1 not prime. Theorem1.9 already assumes positiveM.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E3",
+      "kind": "misprint",
+      "locator": "Published Lemma2.4 proof p686",
+      "printed": "Σ_{r=0}^s (−1)^{#A} Σ_{A⊂J} E ∏_{m∈A}(1−Y_m)",
+      "correction": "Add#A=r to the inner sum, or omit the outer sum and retain one sum over all subsets.",
+      "reason": "The published image has both sums and no cardinality restriction. As printed each subset term is repeateds+1 times. The corrected grouped inclusion-exclusion is exactlyG_p(d,s); checked on finite cases.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E4",
+      "kind": "gap",
+      "locator": "Published §3 pp690–695, especially Eq3.1 and the paragraph definingΛ_z",
+      "printed": "where Λ(n) is the von Mangoldt function; for r∈N we have Λ(r)=−Σ_{d|r}μ(d)logd.",
+      "correction": "SpecifyΛ andΛ_z onℤ including0; prove Fourier-tail bounds with that convention and a separate positive-value adapter before deducing positive-prime sums.",
+      "reason": "The coefficient box includes negative and zero P(k), but the divisor identity is stated only on positive integers. Even extension might support some divisor estimates, yet does not equal the positive-prime weight; zero extension requires positivity cutoffs. E1 shows this distinction changes a main term.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E5",
+      "kind": "misprint",
+      "locator": "Published Definition ofMcal before Lemma3.4 p691 and Lemmas3.4–3.5 pp692–693",
+      "printed": "Mcal=max{k,m}; for any integers k≠m",
+      "correction": "Restrictk,m to positive integers, as the consumers do, or usemax(1,|k|,|m|) in the support and bound.",
+      "reason": "For negativek,m, max{k,m} need not bound absolute evaluation sizes and can be negative; the claimed Fourier support and right-hand estimate then fail. Item30 uses the corrected positive-input contract.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E6",
+      "kind": "gap",
+      "locator": "Published Lemma3.5 proof p693",
+      "printed": "∫ |D_H(α₁+α₂)||D_H(kα₁+mα₂)| dα",
+      "correction": "Ford=1 the second factor isD_H⁺, notD_H. Apply the sameO(logH) L1 estimate toD_H⁺. Ford≥2 the displayed retained pair is valid.",
+      "reason": "ForH=1,t=2π/3,D_H(t)=0 while|D_H⁺(t)|=1; there is no pointwise domination replacing one by the other. The elementary geometric-series L1 bound repairs the argument, not an alteration of the final estimate.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E7",
+      "kind": "misprint",
+      "locator": "Published Lemma3.9 proof p695",
+      "printed": "Using Λ−Λ_z=E_z turns the left hand side into [the product of coefficient exponential sums].",
+      "correction": "Insert(2π)^{-1}∫_{−π}^π overline(S_{E_z}(α₁)) times that productdα₁.",
+      "reason": "The published page repeats the product with a freeα₁ in two consecutive displays. A scalar coefficient sum is not a function of freeα₁; Fourier orthogonality supplies the missing integral and conjugated weight. This repairs the display only, not E4.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E8",
+      "kind": "misprint",
+      "locator": "Published Lemma3.12 proof p700",
+      "printed": "((cℓ₀)^2/φ(cℓ₀)^2 + O_A(1/(log z)^A))^2",
+      "correction": "Use(−cℓ₀/φ(cℓ₀)+O_A((logz)^{−A}))², or its expanded squared main term with an appropriately absorbed error.",
+      "reason": "Lemma3.11 gives an unsquared−q/φ(q). The printed inner square followed by outer square would giveq⁴/φ(q)⁴, inconsistent with the correctq²/φ(q)² main term in the next display.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E9",
+      "kind": "misprint",
+      "locator": "Published Opening§4 p703",
+      "printed": "V(x,H) ≪ x²/(log x)^{−1}",
+      "correction": "WriteV(x,H)≪x²/logx, equivalentlyx²(logx)^{−1}.",
+      "reason": "The printed expression isx²logx; it cannot giveR≪x/√logx by Cauchy–Schwarz. The end of§4.4 uses the intended saving.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E10",
+      "kind": "gap",
+      "locator": "Published Lemma4.1 proof pp703–704",
+      "printed": "The proof bounds the diagonal after replacing the prime-weighted square by a von Mangoldt sum.",
+      "correction": "Bound the off-diagonal terms with at least one higher prime power as well, and propagate the signed/positive-value correction fromE4. Keep this as a proof obligation until its uniform estimate is supplied.",
+      "reason": "A one-sided comparisonθ²≤aΛ-weighted sum plus a bound onk=m does not prove an equality up to the claimed error: contributionsp^a,a≥2, at distinct inputsk,m remain. No counterexample to the repaired lemma is asserted.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E11",
+      "kind": "gap",
+      "locator": "Published Corollary1.10 pp680–681",
+      "printed": "for all x with (log|P|)^A₁ < x ≤ (log|P|)^A₂",
+      "correction": "Supply a maximal/discretization argument giving one exceptional set for allx in the|P|-dependent range, with the printed exception exponent; otherwise state the pointwise-in-x result of item15.",
+      "reason": "Markov from the mean estimate provides an exceptional set for each fixedx. It does not by itself bound the union overx, nor replaceH by|P|. This is a missing derivation, not a demonstrated false corollary.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E12",
+      "kind": "misprint",
+      "locator": "Published End Lemma4.11 p716; end Theorem1.5 p717",
+      "printed": "(loglogx)^{−n+d}; denominators(logloglogH)^{n−d} and(loglogx)^{n−d}",
+      "correction": "Use(loglogx)^{n−d} in the Lemma4.11 lower bound, and exponentd−n in both denominators of the final comparison.",
+      "reason": "Mertens applied to∏(1−1/p)^{d−n} yields(loglogx)^{n−d}. Eq4.10 immediately above the later comparison already has the correct denominator exponentd−n. The available logarithmic power margin still yields the theorem after correction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E13",
+      "kind": "misprint",
+      "locator": "Published Lemma4.4 proof p707",
+      "printed": "1<tM≤x",
+      "correction": "Parameterize positive differences byintegert≥1 withtM<x; retain the correspondingm≤x−tM endpoint convention.",
+      "reason": "WhenM=1 the printed range omitst=1, althoughk−m=1 occurs. ItsO(x) contribution is harmless relative to the displayed larger error after being accounted for.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E14",
+      "kind": "gap",
+      "locator": "Published Lemma5.2 proof p718; its reuse in§6.3 p733",
+      "printed": "g and h are smooth ... g and h are open ... U₁×U₂⊂f(U).",
+      "correction": "Apply openness to the smooth joint mapf=(g,h), which the paper has available, and restrict to an integral neighborhood for the integral version.",
+      "reason": "Separate openness of coordinates does not imply openness of their joint map: the diagonal map into a product is the standard counterexample. In these familiesf is smooth, so the intended persistence statement can be justified directly. Conrad's author PDF p11 explicitly states and explains openness of the smooth joint map on local-field points.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E15",
+      "kind": "misprint",
+      "locator": "Published Theorem5.3 p719 (denominator convention also used in5.8 and6.1)",
+      "printed": "When P is ordered by height, there is a subset M′⊂M of density1",
+      "correction": "State explicitly thatM′ has relative density1 IN M, while the later assertion is positive ambient coefficient density.",
+      "reason": "The proof establishes100% within each local-condition congruence familyM_i, not100% of the larger admissible familyP. Reading the denominator asP would exclude possible positive-proportion local obstructions. This records an ambiguity, not a claim that the intended theorem is false.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E16",
+      "kind": "misprint",
+      "locator": "Published Example5.6 p720",
+      "printed": "the2-adic valuation of the right hand side is divisible by2^m",
+      "correction": "Say that the right-hand side is divisible by2^m, or that its2-adic valuation is at leastm.",
+      "reason": "At t=1 the displayed value is2^m(1+4Q(1)), with valuation exactlym. For examplem=2 gives valuation2, which is not divisible by4.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E17",
+      "kind": "gap",
+      "locator": "Published Remark5.9(2) p722",
+      "printed": "Since each P_i ... is a Bouniakowsky polynomial, ... we can find a t_p ... Taking the product",
+      "correction": "Use the JOINT Schinzel hypothesis to choose one residue t_p for which everyP_i(t_p) is a unit.",
+      "reason": "Individual admissibility may give different residues; (t,t+1) modulo2 has individually nonzero values but no common nonvanishing residue. The theorem does assume the stronger joint hypothesis, so the intended conclusion is repairable.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E18",
+      "kind": "misprint",
+      "locator": "Published Lemma6.6 proof p730",
+      "printed": "R(x,H)^2≤V(x,H):=1/#Poly(H) Σ_P(θ_P(x)−S_P(x)x)^2",
+      "correction": "Replace the accidentally pasted Eq1.6 with(−a₂a₃π₂π₃/π₁)(−a₁a₃π₁π₃/π₂)(−a₁a₂π₁π₂/π₃).",
+      "reason": "The surrounding proof is computing the all-full subset term of a finite character expansion. The display about dispersion has unrelated variables and is correct elsewhere, but not here. The correct product is present in arxivv3's Lemma6.6 proof.",
+      "affects": "nothing",
+      "known": "Correct expression already in arXiv:2005.02998v3, Lemma6.6 proof; publication/typesetting regression.",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E19",
+      "kind": "error",
+      "locator": "Published Eq6.7 p731",
+      "printed": "θ_P(x)−tildeθ_P(x) ≪ (log(Hx))^n",
+      "correction": "Require the polynomialsP_i to be pairwise distinct for this pointwise estimate. Remove the repeated-polynomial coefficient diagonals, whose density tends to0, in the average argument.",
+      "reason": "ForP₁=P₂=t+1,tildeθ=0 andθ=Σ_{m≤x,m+1prime}(log(m+1))²~xlogx, notO((log(Hx))²), e.g. x=(logH)^A,A>2. For distinctP_i the nonzero difference has only finitely many roots. The same unqualified equation is reused in2212.14778v2p3.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E20",
+      "kind": "misprint",
+      "locator": "Published §6.3 p734",
+      "printed": "m₀∈ℤ^{d+1}",
+      "correction": "Writem₀∈ℤ^{d+n}.",
+      "reason": "There ared_{ij}+1 coefficients in each of then polynomial blocks; total dimensiond+n. Earlier definitions and the surrounding congruence balls use that dimension.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E21",
+      "kind": "misprint",
+      "locator": "Published DefinitionP_d(H),§7 p734",
+      "printed": "deg(d)=d",
+      "correction": "Writedeg(f)=d.",
+      "reason": "The set variable is the polynomialf;d is its prescribed positive integerdegree.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    },
+    {
+      "id": "PAPER-SKOROBOGATOV-SOFOS-23/E22",
+      "kind": "error",
+      "locator": "Published Discussion following Definition1.8 p680",
+      "printed": "For a fixed P the product S_P(x) converges as x→∞.",
+      "correction": "Do not assert this for arbitrary tuples allowed by Definition1.8. State the classical convergence result with its distinct irreducible polynomial hypotheses and handle fixed-divisor/content cases separately; for this paper's averages retain the finite product only.",
+      "reason": "Forn=2,M=1,P₁=P₂=t+1, one hasZ_{P₁P₂}(p)=1, henceS=∏_{p≤logx}(1−1/p)^{-1}, which diverges. This tuple is even Schinzel under the paper's definition. No infinite-product claim is needed for Theorem1.9.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher article and Inventiones231(2) issue listing checked2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
+        "ArXiv2005.02998 history checked; v3 introduction and Lemma6.6 compared, not a full collation: https://arxiv.org/abs/2005.02998",
+        "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
+        "Web searches for exact title with erratum/correction and authors with Lemma3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
+        "Later2212.14778v2 pp1–4 and2212.10373v2 pp2–3 inspected. The former reuses Eq6.7; the latter explicitly extendsΛ evenly toℤ. Neither inspected passage identifies a correction to Lemma3.14."
+      ]
+    }
+  ],
+  "completionGates": [
+    {
+      "id": "G1",
+      "task": "Repair Lemma3.14 with an explicit positive-value real-region factor or prove a restricted-input estimate with summed error adequate for§4; propagate it through35,40,46,47 and9.",
+      "status": "open"
+    },
+    {
+      "id": "G2",
+      "task": "FixΛ andΛ_z on signed and zero integer arguments; re-prove every Fourier/divisor transition with the chosen convention.",
+      "status": "open"
+    },
+    {
+      "id": "G3",
+      "task": "Obtain and fully read original proofs of Davenport, the uniform coprime Möbius estimate, Heath-BrownCor4, Mertens and Dirichlet-kernel L1 estimates. Citations in SS23 are not completed supplier extraction.",
+      "status": "open"
+    },
+    {
+      "id": "G4",
+      "task": "Complete omitted fine items: Lemmas2.1–2.3 and2.7 conditioned moments, exact3.8 proof bounds,4.2/4.4/4.8 coefficient summations, and the detailed6.5 off-diagonal proof. Current items expose the main interfaces but are not full closure.",
+      "status": "open"
+    },
+    {
+      "id": "G5",
+      "task": "Resolve E10 higher-prime-power deletion and E11 simultaneous-in-x exceptional set with all uniformity and normalization constants.",
+      "status": "open"
+    },
+    {
+      "id": "G6",
+      "task": "Read original cyclic-algebra/local-invariant, local smooth-openness, unramified norm, strict-class-field/Kronecker–Weber and conic/Hilbert-symbol proofs. Import existing upstream carriers; refine all partial supplier interfaces.",
+      "status": "open"
+    },
+    {
+      "id": "G7",
+      "task": "Complete the blueprint-level CRT/large-prime-tail proof and transport the exact finite calculations to the chosen carriers. The report supplies the general mod4 image/fiber argument; executed checks are not Lean proofs.",
+      "status": "open"
+    },
+    {
+      "id": "G8",
+      "task": "Fully collate arxivv3 and published version, verify each source finding independently, and inspect any subsequent corrections beyond the limited later-paper passages read. No author contact is authorized or made.",
+      "status": "open"
+    },
+    {
+      "id": "G9",
+      "task": "Expand API/unit-test contracts into blueprint-level declarations with uses and proof steps for every omitted construction, including residue-conditioned probability and local scheme topology.",
+      "status": "open"
+    },
+    {
+      "id": "G10",
+      "task": "Check downstream-family overlap against the latest accepted proposals before design intake; keep fixed-degree Schinzel averages separate from growing-degree random irreducibility, importing generic height-family infrastructure.",
+      "status": "open"
+    }
+  ],
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "atlas": "6660b3c597a8c70872eeb63f3d01a198cfeb0dd9",
+    "method": "Read relevant reviewed audits and stage descriptions; searched both pinned source trees and atlas roadmaps, new roadmaps, packets, decompositions, links and reserved IDs. Exact library statuses use opened declaration statements; a partial carrier match is not theorem coverage.",
+    "auditsRead": [
+      "ArithmeticStatistics:ST.0–1",
+      "AnalyticNumberTheory:AN.2,AN.5",
+      "SieveMethodsAndPrimePatterns:SV.0–2",
+      "ExponentialSumsAndCircleMethod:ES.0",
+      "HeightsRationalPointsAndObstructions:RP.2–3",
+      "ClassFieldTheory layers5,6,10,12",
+      "GlobalQuadraticForms layer5"
+    ],
+    "statementEvidence": [
+      {
+        "library": "mathlib",
+        "file": "Mathlib/LinearAlgebra/Vandermonde.lean",
+        "lines": "219–237",
+        "sha256": "132f71d1c931c61cceac4770d5ea1ddabd71d2f0f7657b40e2a90cd9e846c58c",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/17"
+        ]
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/NumberTheory/ArithmeticFunction/VonMangoldt.lean",
+        "lines": "65–136",
+        "sha256": "0eaa8af946dc26bf04adb966c84e808318e7ec61d050a8ce7c981d480e0c2ea1",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/26",
+          "PAPER-SKOROBOGATOV-SOFOS-23/27"
+        ]
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Norm/Defs.lean",
+        "lines": "48–90",
+        "sha256": "59365ae15613b3073ed34a7466a49304d085174e7192136ed69085388ad73d49",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/51"
+        ]
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/NumberTheory/LegendreSymbol/JacobiSymbol.lean",
+        "lines": "71–120",
+        "sha256": "d35bfeb872eb08f49d062d95d01f3342db1994b5f2b01c7dedaaeda2ed298a87",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/71"
+        ]
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/NumberTheory/LegendreSymbol/Basic.lean",
+        "lines": "99–115",
+        "sha256": "e719ed31ee33a23d312f2747347358da79cfee90d2ba6a8ed0de81b1aa6cd47b",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/71"
+        ]
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/NumberTheory/SumTwoSquares.lean",
+        "lines": "24–44",
+        "sha256": "ecc1647de087331c1876ca386b495ff2a83943a428bf140bf6ba8047f9fd80f9",
+        "items": [
+          "PAPER-SKOROBOGATOV-SOFOS-23/85"
+        ]
+      }
+    ],
+    "searchLimits": "No specialized Schinzel/Bateman–Horn, Heath-Brown, Wintner, Châtelet or unramified-unit norm theorem found in broad pinned searches. TauCeti supplies many arithmetic carriers, but none is credited with the missing analytic or local-global endpoint. Proposed routes are not executable until gates close.",
+    "validationAtlas": "2b68718fe486e286620941d9c7d2fe5fc92ac4ca"
+  },
+  "coverage": {
+    "items": 91,
+    "definitions": 29,
+    "statusCounts": {
+      "library": 6,
+      "planned": 6,
+      "missing": 79
+    },
+    "apiContracts": 87,
+    "proposedTests": 59,
+    "sourceIssues": 22,
+    "complete": false,
+    "limitations": "Full primary-paper reading is complete; full extraction closure is not. GateG4 lists omitted fine lemmas; G3/G6 list unextracted original suppliers. All missing items currently inventoried have exactly one route."
+  },
+  "verification": {
+    "lean": "No Lean source is a deliverable of this paper job. No Lean elaboration or Lean test execution claimed.",
+    "C1": "Executed374 exact rational Bernoulli moment, atom, first/second moment and single-obstruction identities for the configurations specified in the report's self-contained Python certificate.",
+    "C2": "Executed mod4 coefficient enumeration for degrees2–6:38/64,156/256,624/1024,2496/4096,9984/16384; general degree proof given in report.",
+    "C3": "Exact rational product over odd primes≤100, multiplied by1−1/20000, exceeds19/20. This proves a >.564486 lower density factor beforeε.",
+    "C4": "Analytic counterexample uses the classicalPNT, not a numerical fit. Diagnostic ratios forH=10,100,1000,10000 are1.151914,1.348581,1.452753,1.485089."
+  }
+}
