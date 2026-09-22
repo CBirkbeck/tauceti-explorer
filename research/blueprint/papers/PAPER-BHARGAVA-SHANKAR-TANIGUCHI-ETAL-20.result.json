@@ -20,7 +20,8 @@
       "Bombieri–Pila: §2 determinant foundations pp.1–6 and §3 pp.10–17 completely read; §2 later analytic-curve digression and §4 are not prerequisites of the selected Theorem 5 and are not claimed fully read.",
       "Helfgott–Venkatesh: Theorem 3.8 and proof, Definition 1, Corollaries 3.9/3.11, Proposition 3.10 and adjacent remarks; preceding local-repulsion and spherical-code proof interiors still to audit.",
       "Tsimerman arXiv v3: §4 negligible-factor definition/Theorem 4.7; §5 Theorem 5.1 through Corollary 5.7 with proofs; §6 quartic/cubic argument. Earlier analytic/class-formation proof closure not claimed.",
-      "Sedunova v1: entire eight-page source read, with particular attention to Theorem 1, Lemmas 1–2 and proof §§2–3; compilation date August 2018 differs from the June 2015 arXiv version stamp."
+      "Sedunova v1: entire eight-page source read, with particular attention to Theorem 1, Lemmas 1–2 and proof §§2–3; compilation date August 2018 differs from the June 2015 arXiv version stamp.",
+      "ChatGPT Pro cgp-0922-b7d49a: selected §§2–4 of the February 2017 Taniguchi copy, with the basis formula visually checked; Klüners–Wang v2 Theorem 2.1 and full proof pp.3–4 read and visually checked, plus first-page version stamp. No new PDF byte hash, fresh complete reading of §§5–7, or acquisition of the final publisher text is claimed."
     ],
     "files": [
       {
@@ -89,10 +90,22 @@
         "bytes": 154990,
         "pages": 8,
         "accessed": "2026-09-21T20:51:34.530003+00:00"
+      },
+      {
+        "name": "kluenners-wang",
+        "title": "ℓ-torsion bounds for the class group of number fields with an ℓ-group as Galois group",
+        "authors": "Jürgen Klüners and Jiuya Wang",
+        "arxiv": "2003.12161v2",
+        "url": "https://arxiv.org/pdf/2003.12161v2",
+        "version": "13 October 2020, arXiv v2",
+        "pages": 12,
+        "locator": "Theorem 2.1 and proof, PDF pp.3–4",
+        "accessed": "2026-09-22",
+        "provenance": "Auxiliary source first added in the fourth-checkpoint report. ChatGPT Pro cgp-0922-b7d49a reread Theorem 2.1 and its full proof and visually checked PDF pp.3–4; the first-page version stamp and arXiv version history confirm v2. No PDF byte hash was measured in this session. This later source is not attributed to the original 2017 proof or asserted to be its final published text."
       }
     ]
   },
-  "summary": "Partial third checkpoint: 110 stable-identified items (22 library, 7 planned, 81 missing), preserving all 35 prior IDs. Expands original Bombieri–Pila proof interiors, cubic feedback and elliptic consequences, resolvents/field counts, and the characteristic-free finite-field section-count proof. Imports implemented RR, projective cardinality, explicit descent and heights. Literal source gaps, final-version mismatch and unfinished original-input closure prevent complete status; unrouted claims are enumerated in G1/G2/G4/G5/G6/G9.",
+  "summary": "Partial fifth checkpoint: 119 stable-identified items (22 library, 8 planned, 89 missing), retaining all 110 inherited IDs and prior provenance. Synchronizes the fourth-checkpoint trace-metric/primitive-prefix basis proof and the Klüners–Wang quadratic-relative replacement, including finite/infinite ramification and strong induction for the general exponent. Generic basis reduction is owned once in GN.5; ordinary Hilbert class fields are imported from the existing upstream plan. The seven literal/acquisition diagnostics remain unrouted, and G0 plus G3–G10 prevent complete status. Earlier proof interiors and their unresolved obligations are preserved.",
   "items": [
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/class-group",
@@ -272,10 +285,10 @@
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
       "kind": "construction",
       "name": "Reduced integral basis starting with one",
-      "statement": "For a degree-n number field with n ≥ 2, choose a Z-basis 1,v_1,...,v_(n-1) of O_K ordered by archimedean Euclidean length, with |v_i| ≪_n |v| for nonzero integral v outside the preceding rational span, and |v_1|...|v_(n-1)| comparable to sqrt(D_K) by positive constants depending only on n.",
-      "locator": "§3 p.5, citing Siegel Lecture X §6",
+      "statement": "For every degree-n number field with n≥2, there is a Z-basis 1,v_1,...,v_(n−1) of O_K, nondecreasing in the trace-weighted Euclidean norm, such that ||v_i||_tr≤(3/2)^i||w||_tr for every 1≤i≤n−1 and integral w outside span_Q(1,v_1,...,v_(i−1)). The product Π_(i=1)^(n−1)||v_i||_tr is bounded above and below by positive degree-dependent multiples of sqrt(D_K).",
+      "locator": "BSTTTZ §3 p.5, originally citing Siegel Lecture X §6; replacement proof in the fourth-checkpoint supplement B1–B3",
       "status": "missing",
-      "note": "Original Siegel proof remains unread. The source prints the comparison only through n−2, then uses it at n−1; certify the full lemma, primitive vector 1, metric and n=2 case. General reduction belongs to GN.1/GN.3. API: Import GN.1/GN.3 reduction, then certify an integral basis extending primitive 1, all comparison indices and a degree-uniform product bound. Tests: (1) quadratic case has one nonconstant basis vector; (2) last-index comparison must be exported; (3) Euclidean and conjugate-trace metrics require their explicit constants. G1: no route for the literal source-dependent basis package until the comparison at its last index is proved."
+      "note": "Original Siegel proof remains unread. The present route instead uses trace-metric-normalization, primitive-prefix-extension with u=1 and A=1, and reduced-basis-product. The comparison now includes i=n−1. Generic reduction belongs to GN.5, consuming GN.0/GN.1; the number-field specialization belongs to EffectiveBoundsClassGroupTorsion. API: a basis extending 1, primitive saturated prefixes, all-index length comparison, trace-metric ordering, degree-uniform product bounds and explicit comparison with ordinary Euclidean lengths. Tests: (1) the quadratic case has exactly one nonconstant vector; (2) the last-index comparison is present; (3) Q(i) uses trace covolume two while ordinary covolume is one. Sorting is asserted only in the trace metric, not simultaneously in both metrics. This integrates the earlier direct proof candidate, not an independent review or a Lean implementation."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
@@ -299,10 +312,10 @@
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
       "kind": "theorem",
       "name": "Degree-dependent upper bound for the largest minimum",
-      "statement": "For every n ≥ 2 there is C_n > 0 such that every degree-n number field K satisfies λ_n(O_K) ≤ C_n D_K^(1/n) for its archimedean Euclidean lattice. For the controlled reduced basis of §3, also |v_(n−1)| ≪_n D_K^(1/n).",
+      "statement": "For every n≥2 there is C_n>0 such that every degree-n number field K satisfies λ_n(O_K)≤C_n D_K^(1/n) for its ordinary archimedean Euclidean lattice. The trace-reduced basis constructed in reduced-integral-basis also satisfies ||v_i||_tr≤C_n D_K^(1/n) for every i.",
       "locator": "Theorems 1.6 p.3 and 3.1 p.5",
       "status": "missing",
-      "note": "For n=2 use the product bound. For n≥3 use a nonzero permutation term, reduction and norm multiplication to obtain |v_(n−1)|^n ≪_n D_K. Still depends on the exact reduced-basis source lemma."
+      "note": "For n=2 use the reduced-basis product bound. For n≥3, choose a nonzero permutation term of the top-coordinate multiplication matrix; its n−2 products lie outside the penultimate span. The last-index comparison and submultiplicativity of the trace norm give L^(n−2)≪Π_(i=1)^(n−2)||v_i||_tr², where L=||v_(n−1)||_tr. Multiplying by L² and using the product estimate gives L^n≪D_K. Trace ordering bounds the whole basis, and ||.||_0≤||.||_tr transfers the conclusion to ordinary successive minima. This uses the replacement B1–B3 argument, not an unread Siegel assertion; nonzero determinant-term extraction and exact generic library interfaces remain blueprint tasks."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-box-count",
@@ -428,7 +441,7 @@
       "statement": "For every n ≥ 3 and ε > 0 there is C_(n,ε) such that every degree-n number field K with no subfield F satisfying [K:F]=2 has |Cl(K)[2]| ≤ C_(n,ε) D_K^(1/2−1/(2n)+ε).",
       "locator": "Theorem 1.1 general exponent and §4 p.6, explicitly restricted to the branch whose proof is expanded here",
       "status": "missing",
-      "note": "Combine torsion-square-norm-injection with balanced-square-norm-count. This covers odd degrees, but is not the whole theorem for even degrees, nor the sharper cubic/quartic exponent. The relative-genus-theory reduction remains unresolved in this checkpoint."
+      "note": "Combine torsion-square-norm-injection with balanced-square-norm-count. This includes all odd degrees. The general even-degree completion now uses quadratic-relative-torsion and all-degree-torsion-induction, not the literal unverified relative-genus-source-claim. The sharper cubic and quartic exponents require their separate inputs."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bombieri-pila-explicit",
@@ -473,7 +486,7 @@
       "statement": "The author copy claims: if [K:F]=2, h₂(K) is bounded by h₂(F) times O(2^t), where t counts ramified primes of K/F, and consequently h₂(K)≪_{n,ε}D_K^(1/4+ε). This literal dependence on h₂(F) is NOT certified here.",
       "locator": "§4 p.6 first paragraph",
       "status": "missing",
-      "note": "G2: audit ambiguous versus all 2-torsion classes, capitulation, base-class and unit terms. A quadratic-over-Q genus theorem does not justify this relative assertion. No route is assigned to an unverified formula."
+      "note": "G2: the literal one-factor h_2(F) claim and its advertised D_K^(1/4+epsilon) conclusion remain unverified, and this diagnostic item stays unrouted. The integrated Klüners–Wang replacement uses h_2(F)^2 and proves the general exponent by strong degree induction; it is not verification of this stronger displayed source assertion. Any future direct verification must retain ambiguous versus all 2-torsion classes, capitulation, unit, base-class and finite/infinite ramification terms."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
@@ -482,7 +495,7 @@
       "statement": "For every n>4 and ε>0 there is C_(n,ε) such that h₂(K)≤C_(n,ε)D_K^(1/2−1/(2n)+ε) for every degree-n number field K.",
       "locator": "Theorem 1.1; §§3–4",
       "status": "missing",
-      "note": "Source theorem target; no-index-two case expanded, but G1 (basis) and G2 (relative reduction) remain genuine proof dependencies."
+      "note": "Derive this source target from all-degree-torsion-induction. The replacement primitive-prefix proof and Klüners–Wang relative-rank argument are integrated as explicit missing nodes, importing GN.1/GN.5 and the upstream ordinary Hilbert class field. The literal Siegel/genus assertions are not used as unverified premises. Full paper closure, exact generic declaration audit and independent review are still pending."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic",
@@ -491,7 +504,7 @@
       "statement": "For every ε>0, h₂(K)≪_ε D_K^(a+ε) uniformly over cubic number fields K, with exact a from feedback-constants.",
       "locator": "Theorem 1.1; §5.1 equation (4)",
       "status": "missing",
-      "note": "The cubic case has no index-two subfield. Retain G1 and the unacquired Brumer–Kramer original input G3."
+      "note": "The cubic case has no index-two subfield. The replacement trace-reduced basis is now explicitly routed; the unacquired Brumer–Kramer original input and the remaining HV proof interiors are still G3."
     },
     {
       "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-quartic",
@@ -1190,6 +1203,90 @@
         "mathlib:Algebra.norm_norm",
         "mathlib:Algebra.norm_eq_norm_adjoin"
       ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/trace-metric-normalization",
+      "kind": "construction",
+      "name": "Trace-weighted Euclidean metric on the mixed embedding",
+      "statement": "For a number field K of signature (r,s) and degree n=r+2s, put ||x||_tr²=Σ_real |x_v|²+2Σ_complex |x_v|² on its existing mixed space. The diagonal real map scaling both real coordinates of each complex factor by sqrt(2) identifies this metric with ordinary Euclidean space and has determinant 2^s. Thus ||x||_0≤||x||_tr≤sqrt(2)||x||_0, and the integer lattice has covolume sqrt(D_K) for the metric-induced Euclidean volume. The vector 1 is primitive and shortest, of trace length sqrt(n).",
+      "locator": "Fourth-checkpoint supplement in the companion report, B1; BSTTTZ §3 p.5 motivates the normalization",
+      "status": "missing",
+      "note": "Replacement construction, not a new mixed-embedding carrier. The unchanged ordinary product measure still gives covolume 2^(-s)sqrt(D_K), by the actual pinned declaration integer-covolume. For nonzero integral alpha, AM–GM on all n conjugates and |N(alpha)|≥1 proves the shortest-vector assertion; O_K∩Q=Z proves primitivity. Owner: EffectiveBoundsClassGroupTorsion. API: traceNorm_sq, traceNorm_eq_norm_scaled, norm_le_traceNorm, traceNorm_le_sqrtTwo_mul_norm, traceCovolume_integerLattice, traceNorm_one, sqrt_degree_le_traceNorm_of_integral_ne_zero, and primitive_one. These are planning names, not existing Lean declarations. Tests: (1) Q has length and covolume one; (2) Q(i) has trace basis lengths sqrt(2) and trace covolume two, but ordinary covolume one; (3) a mixed signature scales both real coordinates of each complex factor and satisfies both norm comparisons."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/primitive-prefix-extension",
+      "kind": "theorem",
+      "name": "A reduced basis extending a prescribed primitive short vector",
+      "statement": "Let Λ be a full lattice in a real Euclidean space of dimension n≥1. Let A≥1 and let u be primitive in Λ with ||u||≤Aλ_1. There exists a Z-basis b_0=u,...,b_(n−1) such that for every 0≤i<n and w∈Λ outside span_Q(b_0,...,b_(i−1)), ||b_i||≤c_i||w||, where c_0=A and c_i=1+(1/2)Σ_(j<i)c_j for i≥1. If A=1, c_i=(3/2)^i and the whole basis is nondecreasing in length. For general A only the suffix from b_1 is asserted nondecreasing.",
+      "locator": "Fourth-checkpoint supplement in the companion report, B2; direct replacement proof for the reduction input in BSTTTZ §3 p.5",
+      "status": "missing",
+      "note": "Maintain a saturated prefix L_i, so Λ/L_i is free. Choose a shortest lift with primitive nonzero quotient image; existence follows by minimizing among the finitely many candidates no longer than one chosen candidate. For w outside the prefix, divide its quotient image by its positive content d, lift, and round the prefix coefficients to [-1/2,1/2]. This gives u′=w/d+Σt_jb_j and the displayed recurrence. Saturation at full rank proves that the result is a basis, not just an independent set. Later basis vectors are primitive-extension candidates at earlier stages, giving the stated ordering. Import generic free-module, primitive-submodule and finite bounded-lattice-point APIs; own the reduction theorem once in GeometryOfNumbersAndQuadraticArithmetic:GN.5. Acceptance tests: rank one and A=1; rejection of nonprimitive u=2 in Z; comparison at i=n−1; c_i=((A+2)/2)(3/2)^(i−1) for i≥1. This is an existence theorem, not a claimed implemented LLL algorithm."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-basis-product",
+      "kind": "theorem",
+      "name": "Covolume comparison for the primitive-prefix reduced basis",
+      "statement": "For the rank-n lattice and basis constructed in primitive-prefix-extension, let v_n>0 be the Euclidean volume of the unit ball. Then ||b_i||≤c_iλ_(i+1) for every 0≤i<n and covol(Λ)≤Π_i||b_i||≤(Π_i c_i)(2^n/v_n)covol(Λ).",
+      "locator": "Fourth-checkpoint supplement in the companion report, B3",
+      "status": "missing",
+      "note": "Among i+1 independent vectors attaining λ_(i+1), at least one is outside the i-dimensional preceding span, so primitive-prefix-extension applies. Hadamard gives the lower product bound; the existing planned GN.1 second-Minkowski theorem gives the upper bound. Import attainment and basis/covolume identification through GN.0/GN.1 rather than privately redeveloping them. Owner: GN.5. Acceptance tests: rank-one lattice aZ, n positive and Λ full-rank, and a short independent set of nonunit index which must not be called a Z-basis."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hilbert-class-field-input",
+      "kind": "theorem",
+      "name": "Ordinary Hilbert class fields and their characteristic quotients",
+      "statement": "For a number field E, the ordinary Hilbert class field identifies finite abelian extensions unramified at all finite places and split at every real place with quotients of the ordinary class group Cl(E), compatibly with conjugation and restriction to quotient extensions. In particular Cl(E)/2Cl(E) corresponds to the maximal everywhere-unramified elementary abelian 2-extension of E.",
+      "locator": "Upstream ClassFieldTheory Layers 11–13, especially Layer 13; Fourth-checkpoint supplement in the companion report, C1–C2",
+      "status": "planned",
+      "note": "Planned import, not an implemented declaration. The actual upstream contract defines hilbertClassField from rayClassField at Modulus.one and plans gal_hilbertClassField_equiv_classGroup, maximal-unramified properties and splitting criteria. Use its global uniqueness/conjugation interfaces to show stability of the elementary-2 quotient when E/F is Galois. The narrow class field permits real ramification and is not a substitute. Do not create another class-field-theory roadmap or claim this named planned isomorphism is in the pinned Lean library.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-coinvariant-extension",
+      "kind": "construction",
+      "name": "The class-field extension cut out by quadratic coinvariants",
+      "statement": "For a quadratic extension E/F, let A=Cl(E)/2Cl(E), let σ be the induced involution, and put T=σ−1, V=A/TA and s=dim_F2 V. Then T²=0 and dim_F2 A≤2s. In the elementary-2 ordinary Hilbert class field H/E corresponding to A, the fixed field M=H^(TA) is Galois over F and yields a central exact sequence 1→V→G=Gal(M/F)→C2→1. The group G is abelian, has order 2^(s+1), and |2G|≤2; the sequence is not asserted to split without a ramified place.",
+      "locator": "Fourth-checkpoint supplement in the companion report, C1; Klüners–Wang arXiv:2003.12161v2, Theorem 2.1 proof, pp.3–4, with the quotient carrier made explicit",
+      "status": "missing",
+      "note": "Use the quotient A, not an equivariant identification with Cl(E)[2] inferred from equal cardinalities. Rank-nullity and im T⊆ker T give dim A≤2s. The characteristic class-group quotient and conjugation compatibility make H/F Galois; stability of TA gives M/F. Trivial conjugation on V makes G abelian because G/V is cyclic. G is generated by V and a lift τ, so 2G is generated by 2τ and has at most two elements. Owner: EffectiveBoundsClassGroupTorsion, importing hilbert-class-field-input. API: inducedClassQuotientInvolution, T_sq_zero, stable_range_T, fixedField_range_T, restriction_exact, commutative_G, card_G and card_twoG_le_two, all planning names. Tests: (1) on Z/4×Z/2, σ(x,y)=(x,y+x mod 2) fixes all 2-torsion but not the quotient modulo two; (2) the unramified branch admits nonsplit C4; (3) a ramified place provides an actual order-two inertia lift, not just an arbitrary lift."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-relative-rank",
+      "kind": "theorem",
+      "name": "Relative 2-rank bound for a quadratic extension",
+      "statement": "For every quadratic extension E/F of number fields, let t count the ramified places of F, including real places that become complex, and put e=max(t,1). With r_2(L)=dim_F2(Cl(L)/2Cl(L)), one has r_2(E)≤2(r_2(F)+e−1), hence h_2(E)≤4^(e−1)h_2(F)^2.",
+      "locator": "Klüners–Wang arXiv:2003.12161v2, Theorem 2.1 and proof, pp.3–4; Fourth-checkpoint supplement in the companion report, C2",
+      "status": "missing",
+      "note": "Apply quadratic-coinvariant-extension. If t>0, one order-two inertia lift splits G, so it is elementary abelian of rank s+1. Kill the at most t inertia generators; the quotient corresponds to an everywhere-unramified abelian extension of F and is a quotient of Cl(F), giving s+1−t≤r_2(F). If t=0, G itself is a quotient of Cl(F), and |2G|≤2 gives s≤dim(G/2G)≤r_2(F). Combine with r_2(E)≤2s. Preserve both branches and infinite inertia. This later auxiliary theorem replaces, but does not verify, the original one-factor relative-genus-source-claim. Owner: EffectiveBoundsClassGroupTorsion. Tests: t=0 permits a C4 extension; t=1 gives r_2(E)≤2r_2(F); finite and real ramification are both counted."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/ramified-place-support",
+      "kind": "theorem",
+      "name": "Ramified places bounded by relative-discriminant support",
+      "statement": "For a quadratic extension E/F with [F:Q]=m≥1 and relative discriminant ideal Δ_(E/F), the number t of finite and infinite ramified places of F satisfies t≤mω(N_F/Q Δ_(E/F))+m≤mω(D_E)+m. Here D_E=D_F² N_F/Q Δ_(E/F), and ω counts distinct rational prime divisors of a positive integer.",
+      "locator": "Fourth-checkpoint supplement in the companion report, C3",
+      "status": "missing",
+      "note": "Each finite ramified prime divides the relative discriminant, at most m primes of F lie above a rational prime, and at most m real places ramify. Import the actual ramification/discriminant-tower and prime-fiber bounds from their existing suppliers; exact generic declaration matching remains a blueprint obligation. Relative ideal discriminant, its positive rational norm, and the absolute field discriminant are separate quantities. Owner: EffectiveBoundsClassGroupTorsion. Tests: relative discriminant norm one leaves only the infinite contribution; several prime ideals above one rational prime require the m factor; real-to-complex ramification is not silently dropped."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-relative-torsion",
+      "kind": "theorem",
+      "name": "Uniform quadratic relative torsion bound with squared base factor",
+      "statement": "For every m≥1 and η>0 there is C_(m,η)>0 such that every quadratic extension E/F with [F:Q]=m satisfies h_2(E)≤C_(m,η)D_E^η h_2(F)^2. The constant is uniform as the base field F varies. In particular h_2(Q)=1 gives h_2(E)≪_η D_E^η for quadratic fields E/Q.",
+      "locator": "Fourth-checkpoint supplement in the companion report, C3–C4, deduced from Klüners–Wang Theorem 2.1",
+      "status": "missing",
+      "note": "Exponentiate quadratic-relative-rank, use ramified-place-support, and absorb (4^m)^ω(D_E) with prime-support-loss; the infinite-place factor is degree-bounded. State h_2(Q)=1 separately through the existing class-group/PID supplier at blueprint time. This proof needs h_2(F)^2, not the unverified h_2(F) factor in the 2017 source. Owner: EffectiveBoundsClassGroupTorsion. Tests: varying F at fixed m must not enter the implied constant; quadratic fields give the D^η base case; the ramification-free branch still retains the squared class-group factor."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/all-degree-torsion-induction",
+      "kind": "theorem",
+      "name": "The general-exponent torsion bound by induction on absolute degree",
+      "statement": "For every n≥3 and ε>0 there is C_(n,ε)>0 such that every degree-n number field K has h_2(K)≤C_(n,ε)D_K^(1/2−1/(2n)+ε). This follows from two-torsion-no-index-two and quadratic-relative-torsion, with the quadratic D^η base case. A quartic field containing a quadratic subfield satisfies the stronger h_2(K)≪_ε D_K^ε.",
+      "locator": "Fourth-checkpoint supplement in the companion report, C4; replacement completion of the general-exponent route in BSTTTZ §4",
+      "status": "missing",
+      "note": "Strong induction on n, not an assumption that every field has a quadratic tower to Q. With α_d=1/2−1/(2d), an index-two subfield F of degree m=n/2≥2 gives h_2(K)≪D_K^η D_F^(2α_m+2η)≤D_K^(α_m+2η), since D_F²≤D_K. The gain α_n−α_m=1/(2n)>0 and η=ε/4 suffice. For m=1 use the quadratic base case; for quartics with a quadratic subfield apply that base estimate with a suitably smaller η to both factors. This does not establish the sharper cubic exponent or the remaining quartic resolvent branch. Owner: EffectiveBoundsClassGroupTorsion. Tests: degree three has no index-two branch; degree four uses m=2; no quadratic subfield means the norm-curve branch, not a nonexistent induction step."
     }
   ],
   "prerequisites": [
@@ -1222,6 +1319,11 @@
       "citation": "A. M. Baily (1980); H. Cohn (1954); M. Bhargava and A. Shnidman (2014); H. Cohen and A. Morra (2011), works cited in §6.",
       "link": "https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf",
       "why": "Original exact weighted/fixed-resolvent refinements remain to acquire under G8. Generic field-count ownership already exists in ST.0/ST.1/ST.3; this entry requests precise source coverage, not duplicate roadmaps."
+    },
+    {
+      "citation": "J. Klüners and J. Wang, ℓ-torsion bounds for the class group of number fields with an ℓ-group as Galois group, arXiv:2003.12161v2 (13 October 2020), Theorem 2.1, PDF pp.3–4.",
+      "link": "https://arxiv.org/abs/2003.12161v2",
+      "why": "Later auxiliary replacement for the index-two branch, with the full selected proof read. Its quadratic relative-rank bound gives a squared base-class-group factor. The companion supplement expands the quotient-module, inertia and ordinary Hilbert-class-field steps; import the existing ClassFieldTheory Layer 13 supplier rather than re-plan it."
     }
   ],
   "routes": [
@@ -1272,9 +1374,16 @@
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-torsion-transfer",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-discriminant",
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-f2-modules",
-        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible"
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/trace-metric-normalization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-coinvariant-extension",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-relative-rank",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/ramified-place-support",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-relative-torsion",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/all-degree-torsion-induction"
       ],
-      "brief": "FIRST import Effective arithmetic bounds and geometry of numbers (tauceti:Completed/EffectiveBounds), including its completed discriminant, ideal-count and class-group APIs. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.3, for existing lattices, covolumes and the planned genuine successive-minimum/reduced-basis theorems. Reconcile the pending EffectiveBoundsCompactModels proposal from PAPER-COUVEIGNES-20: share its measure and short-integer interfaces; do not create a second generic reduction theory or assume that unreviewed proposal is installed. Prove balanced generators for every class killed by m, the largest minimum bound, variable-radius box counts, ideal-square injection and the original degree-n signed norm-curve argument. Import Uniform integral-point bounds by determinant methods (IntegralPointDeterminantMethods) for coefficient-uniform Bombieri–Pila, preserving singular curves. The no-index-two bound is D^(1/2−1/(2n)+epsilon); close G1/G2 before exporting it for all n>4. Import Elliptic curves, Part II: uniform integral-point estimates (EllipticCurvesPartIIIntegralPointBounds) only for HV and Brumer–Kramer inputs, which do not depend on the sharper torsion bound. Construct the smooth cubic norm family, separate rational generators, and solve the feedback inequality with a=1/[6(1−b/log 2)]. Export h₂(K)≪D_K^(a+epsilon) in degrees three and four; the latter needs G4 resolvent/tori closure including reducible algebras. Derive the integral-model Selmer, rank and integral-point exponents a,a,c=ab/log 2 in this consuming extension, avoiding a roadmap dependency cycle back into the HV supplier. Do not export the unverified hyperelliptic or del Pezzo claims. Suggested future files: TauCeti/NumberTheory/EffectiveBounds/ClassGroupTorsion/{Balanced,NormCurves,CubicFeedback,Resolvents,EllipticApplications}.lean. Definitions use existing carriers and the discriminating tests in the items.",
+      "brief": "FIRST import Effective arithmetic bounds and geometry of numbers (tauceti:Completed/EffectiveBounds), including its completed discriminant, ideal-count and class-group APIs. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.5, for existing lattices, covolumes and the planned genuine successive-minimum/reduced-basis theorems. Reconcile the pending EffectiveBoundsCompactModels proposal from PAPER-COUVEIGNES-20: share its measure and short-integer interfaces; do not create a second generic reduction theory or assume that unreviewed proposal is installed. Prove balanced generators for every class killed by m, the largest minimum bound, variable-radius box counts, ideal-square injection and the original degree-n signed norm-curve argument. Import Uniform integral-point bounds by determinant methods (IntegralPointDeterminantMethods) for coefficient-uniform Bombieri–Pila, preserving singular curves. For the reduced basis, use the trace-weighted metric, primitive vector 1, the GN.5 primitive-prefix construction and its product bound; then transport the largest-minimum conclusion to the ordinary Euclidean metric. The no-index-two norm-curve bound is D^(1/2−1/(2n)+epsilon). Import ordinary Hilbert class fields and conjugation/uniqueness from ClassFieldTheory Layer 13, not a new class-field carrier. For a quadratic E/F, construct the class-quotient coinvariants and prove r_2(E)≤2(r_2(F)+max(t,1)−1), counting finite and infinite ramification. Deduce h_2(E)≪D_E^eta h_2(F)^2 uniformly in F of fixed degree, then close the general-exponent theorem by strong induction on absolute degree using the quadratic D^eta base case. The original one-factor relative-genus-source-claim stays diagnostic and is not a premise. Import Elliptic curves, Part II: uniform integral-point estimates (EllipticCurvesPartIIIntegralPointBounds) only for HV and Brumer–Kramer inputs, which do not depend on the sharper torsion bound. Construct the smooth cubic norm family, separate rational generators, and solve the feedback inequality with a=1/[6(1−b/log 2)]. Export h₂(K)≪D_K^(a+epsilon) in degrees three and four; the latter needs G4 resolvent/tori closure including reducible algebras. Derive the integral-model Selmer, rank and integral-point exponents a,a,c=ab/log 2 in this consuming extension, avoiding a roadmap dependency cycle back into the HV supplier. Do not export the unverified hyperelliptic or del Pezzo claims. Suggested future files: TauCeti/NumberTheory/EffectiveBounds/ClassGroupTorsion/{Balanced,NormCurves,CubicFeedback,Resolvents,EllipticApplications}.lean. Definitions use existing carriers and the discriminating tests in the items.",
       "reason": "Retains the inherited application owner, whose completed parent supplies coarse bounds but no torsion power saving. Applications stay downstream of independent elliptic tools. All proof gaps remain explicit; a routed target is not a proof-ready theorem."
     },
     {
@@ -1353,28 +1462,47 @@
       ],
       "brief": "FIRST import Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), FA.0/FA.1, which in turn consume the implemented divisor and Riemann–Roch theory of Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves). Do not reconstruct divisors, genus, section spaces, Riemann–Roch, finite Cl-zero or projective-space cardinality: the exact pinned declarations are listed. Import the existing AlgebraicCurves Layer-5 degree-one-divisor target and Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge) Layer D for the rational Picard/divisor obstruction; no rational point on C is assumed. Fix E of degree g, form the nonzero sections of L(2E) with even principal divisor and quotient by every nonzero constant. Construct the half-divisor class map and prove it surjective onto 2-torsion using Riemann–Roch and 2c=0, not an unjustified injection from a unique choice of effective representative. High-degree RR gives dimension g+1, hence #Pic⁰(C)(F_q)[2]≤(q^(g+1)−1)/(q−1) in every characteristic. Import general Jacobian torsion and p-rank from existing Layer E; in characteristic two only 2^f geometric points exist, f≤g. Treat gonality as base-field-relative data. The claimed stronger q^((1−1/n)g) bound is withheld at G9 until an exact function-field counting theorem, epsilon handling, uniformity in q and inseparable/characteristic-two branches are proved. Suggested file: TauCeti/FieldTheory/FunctionField/PicardTorsionBounds.lean. Tests: genus zero, curves without a chosen rational point, nonsquare constants, even divisors which are not global squares, and ordinary versus supersingular characteristic-two Jacobians.",
       "reason": "FA.1 supplies finiteness and RR infrastructure; this adds a quantitative torsion theorem with its own section-count proof. It imports existing generic abelian-variety/p-rank and projective-space results instead of duplicating them."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.5"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/primitive-prefix-extension",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-basis-product"
+      ],
+      "reason": "GN.5 already owns certified reductions and their exact change-of-basis and approximation properties. Add the primitive-prefix existence proof, including a prescribed primitive short vector and every comparison index, within that owner. Import GN.0 lattice/covolume interfaces and GN.1 successive minima, attainment and Minkowski II. The number-field trace metric and torsion applications stay downstream in EffectiveBoundsClassGroupTorsion. This neither creates a duplicate generic reduction roadmap nor sends this elementary basis argument through GN.3 mass formulas or adelic reduction."
     }
   ],
   "verification": {
-    "agent": "Codex",
-    "session": "codex-c83e7a",
+    "agent": "ChatGPT Pro",
+    "session": "cgp-0922-b7d49a",
     "issue": 1420,
     "continues": [
       1636,
-      1641
+      1641,
+      1650,
+      1695
     ],
-    "baseCommit": "ae87a08382fa43cc779b97e65942b05b51e8587a",
-    "stableIds": "All 35 inherited item IDs retained.",
-    "libraryBoundary": "First ten Mathlib library declarations reread at 082e2d3; new norm/projective cardinality statements and Tau Ceti divisor, RR, class-group, explicit Selmer, rank, finite-generation and canonical-height statements read at the prescribed pins. No new Lean implementation is claimed.",
-    "audits": [
-      "AUDIT-01 reviewed AlgebraicCurves Layers 3–5 and JacobianChallenge E",
-      "AUDIT-02 reviewed GN.0/GN.1/GN.3 and adjacent reduction scope",
-      "AUDIT-03 reviewed completed EffectiveBounds",
-      "AUDIT-11 reviewed EllipticCurves Layers 6–7",
-      "AUDIT-20 reviewed FA.1"
-    ],
-    "ownership": "Read full GN, EffectiveBounds, ED, RP, ST, FA and JacobianChallenge documents; selected complete AlgebraicCurves Layer 5 and EllipticCurves Layers 6–7; catalogue-wide text search of 211 atlas records, proposed roadmaps and reserved IDs. Couveignes routing read in full. None of the four extension/new candidate IDs is an installed roadmap. Remaining torus/HV proof-interior ownership is G3/G4.",
-    "checks": "Unmodified check_paper.py passed with the full available catalogue; intake check-files reported three files and zero problems. Stable-ID, unique-route, explicit-gap and 31-definition API/three-test checks passed. Finite quotient-module, projective-orbit, parabola and monomial checks passed; exact constants were checked numerically, not proved in Lean. No Lean artifact requested or compiled."
+    "date": "2026-09-22",
+    "baseResultBlob": "e89464b8c926b8bfcc2676e7130c18c94ddca883",
+    "baseReportBlob": "48f7b052bab8574c85fc0ef4d6ddb467fa56edc1",
+    "stableIds": "All 110 inherited item IDs retained; 104 inherited item objects unchanged. Nine items from the fourth-checkpoint supplement integrated. No inherited library or planned item was reclassified.",
+    "libraryBoundary": "Actual Mathlib covolume_integerLattice and covolume_idealLattice statements reread in Discriminant/Basic.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174. Reviewed AUDIT-02 and REV-AUDIT-02 distinguish implemented covolumes/first Minkowski from absent successive-minimum and reduced-basis theory. Other inherited library citations retain earlier-worker provenance; they were not all independently reread in this session.",
+    "ownership": "Read the complete completed-EffectiveBounds roadmap and GN atlas record; read ClassFieldTheory purpose/ownership and its Layers 11–13 including the ordinary Hilbert-class-field contract. Generic basis reduction is a source of GN.5, consuming GN.0/GN.1. Arithmetic applications stay in the inherited EffectiveBounds Part II. The combined library-coverage.json reader returned empty content, so reviewed split GN audit records were used. Inherited catalogue-wide collision screening is preserved in verificationHistory, not claimed freshly rerun here.",
+    "reportBoundary": "The companion Markdown is unchanged: its fourth-checkpoint supplement contains the full integrated proofs. Its historical remarks that these nine entries are not yet in JSON describe checkpoint #1695 and are superseded by this JSON and the updated handoff.",
+    "checks": "Local Python checks passed: baseline Git-blob hash equals e89464b8c926b8bfcc2676e7130c18c94ddca883; UTF-8 JSON parse; all 110 old IDs retained; only the six enumerated inherited item objects changed; original source hashes, pins, prerequisites and prior verification retained; 119 items with status counts 22/8/89, six routes, 82 missing items uniquely routed and seven explicit unrouted diagnostics; all 33 definitions/constructions retain API outlines and three tests. Exact rational recurrence tested through index 30 for A=1,3/2,7; the Z/4×Z/2 involution test passed; exhaustive square-zero F2 matrices in dimensions 0–4 gave counts [1,1,4,22,316] and the rank bound; nonsplit C4 and 99 exact tower-exponent comparisons passed. These are regressions, not general proofs. The full-catalogue check_paper.py and intake checks were not run locally because no clone/full catalogue could be acquired; the unchanged Swarm submission check runs both on the submitted PR. Their CI outcome must be read from the actual workflow, not inferred from these local checks.",
+    "lean": "No Lean artifact requested or compiled. No new implementation or independent-review acceptance is claimed.",
+    "modifiedInheritedItems": [
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/largest-minimum",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-no-index-two",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-general",
+      "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/two-torsion-cubic"
+    ]
   },
   "gaps": [
     {
@@ -1386,14 +1514,14 @@
       "items": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis"
       ],
-      "detail": "Read and verify the original Siegel basis with primitive initial vector 1, last-index comparison, metric constants and n=2. Do not infer this exact lemma from the broad GN.1/GN.3 plan."
+      "detail": "The direct primitive-prefix proof from the fourth-checkpoint supplement B1–B3 is now integrated, including primitive 1, trace-metric normalization, the last index and n=2. The original Siegel lemma remains unread but is no longer a premise of this route. Remaining work: exact generic primitive-submodule/free-quotient and lattice-minimum supplier declarations, decomposition at blueprint granularity, and independent review of the replacement proof. GN.1 second Minkowski remains a planned import, not an implemented theorem."
     },
     {
       "id": "G2",
       "items": [
         "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/relative-genus-source-claim"
       ],
-      "detail": "Original relative genus estimate needs exact base class-group, capitulation, unit and ramification terms. All-degree target remains source-gated."
+      "detail": "The literal one-factor relative-genus-source-claim remains unverified and unrouted. The later Klüners–Wang quadratic bound, with h_2(F)^2, both finite and infinite ramification, and separate unramified branch, is now integrated and supplies the strong-induction completion of the general exponent. The original claimed D_K^(1/4+epsilon) consequence has not been certified. Exact class-group/PID, inertia-in-towers and discriminant-supplier interfaces and independent review remain; do not equivariantly identify Cl(E)[2] with Cl(E)/2Cl(E) by cardinality alone."
     },
     {
       "id": "G3",
@@ -1439,7 +1567,30 @@
     },
     {
       "id": "G10",
-      "detail": "This expanded checkpoint still is not a complete extraction of every proof input: relative genus, torus class-group infrastructure, hyperelliptic descent, del Pezzo geometry and the counting originals retain explicit acquisition/decomposition work."
+      "detail": "Still not a complete extraction of every proof input. The fourth-checkpoint basis and quadratic-relative replacements are now synchronized, but exact generic supplier matching, torus class-group infrastructure, HV and hyperelliptic descent interiors, del Pezzo geometry, the counting originals and the existing source-issue documentation obligations remain. G0 and G3–G9 are not closed by this synchronization."
+    }
+  ],
+  "verificationHistory": [
+    {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "issue": 1420,
+      "continues": [
+        1636,
+        1641
+      ],
+      "baseCommit": "ae87a08382fa43cc779b97e65942b05b51e8587a",
+      "stableIds": "All 35 inherited item IDs retained.",
+      "libraryBoundary": "First ten Mathlib library declarations reread at 082e2d3; new norm/projective cardinality statements and Tau Ceti divisor, RR, class-group, explicit Selmer, rank, finite-generation and canonical-height statements read at the prescribed pins. No new Lean implementation is claimed.",
+      "audits": [
+        "AUDIT-01 reviewed AlgebraicCurves Layers 3–5 and JacobianChallenge E",
+        "AUDIT-02 reviewed GN.0/GN.1/GN.3 and adjacent reduction scope",
+        "AUDIT-03 reviewed completed EffectiveBounds",
+        "AUDIT-11 reviewed EllipticCurves Layers 6–7",
+        "AUDIT-20 reviewed FA.1"
+      ],
+      "ownership": "Read full GN, EffectiveBounds, ED, RP, ST, FA and JacobianChallenge documents; selected complete AlgebraicCurves Layer 5 and EllipticCurves Layers 6–7; catalogue-wide text search of 211 atlas records, proposed roadmaps and reserved IDs. Couveignes routing read in full. None of the four extension/new candidate IDs is an installed roadmap. Remaining torus/HV proof-interior ownership is G3/G4.",
+      "checks": "Unmodified check_paper.py passed with the full available catalogue; intake check-files reported three files and zero problems. Stable-ID, unique-route, explicit-gap and 31-definition API/three-test checks passed. Finite quotient-module, projective-orbit, parabola and monomial checks passed; exact constants were checked numerically, not proved in Lean. No Lean artifact requested or compiled."
     }
   ]
 }
