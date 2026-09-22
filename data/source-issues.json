@@ -18313,6 +18313,94 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-WEI-26/E1",
+   "kind": "misprint",
+   "locator": "§6.2, in the proof of Theorem 6.2.3 (arXiv:2207.01165v2; the published version is paywalled and was not read)",
+   "printed": "= [𝕂:𝕜]  (by Proposition 3.3.5).",
+   "correction": "(by Theorem 3.3.5). Statement 3.3.5, the transcendence-degree theorem quoted from Brownawell–Chang–Papanikolas–Wei, is a Theorem, not a Proposition.",
+   "reason": "3.3.5 is declared as \\begin{theorem} in §3.3 of the source, and the paper cites it correctly as \"Theorem 3.3.5\" at its two other occurrences, in §1.2 of the introduction and in the proof of Theorem 5.4.7. A mechanical cross-reference type audit of the whole source — comparing the word introducing each \\ref with the environment carrying the label it points at — flags this one occurrence and no other.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ],
+   "owner": "PAPER-WEI-26",
+   "file": "research/blueprint/papers/PAPER-WEI-26.result.json",
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-WEI-26/E2",
+   "kind": "misprint",
+   "locator": "Theorem 6.4.5, the hypothesis line (arXiv:2207.01165v2)",
+   "printed": "Given a character χ ∈ 𝔊_{𝔫,ℓ}, the following equality holds:",
+   "correction": "Given a character χ ∈ 𝔊̂_{𝔫,ℓ}: the character belongs to the dual group, not to 𝔊_{𝔫,ℓ} itself.",
+   "reason": "The conclusion is a formula for L_𝔸'(0,χ) involving the conductor 𝔠_χ and the values χ(a,i+deg 𝔠_χ), all of which are defined only for χ in the dual group. The source writes \\widehat{\\eG} in all 38 other places where a character of one of these groups is quantified; this is the only place where the hat is missing, and the word \"character\" makes the intended reading unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ],
+   "owner": "PAPER-WEI-26",
+   "file": "research/blueprint/papers/PAPER-WEI-26.result.json",
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-WEI-26/E3",
+   "kind": "misprint",
+   "locator": "Example 6.3.11, final sentence, and the Remark following Theorem 1.3.3 in §1.3, part (2) (arXiv:2207.01165v2)",
+   "printed": "Example 6.3.11: \"The second statement of Theorem 6.3.7 (3) says that the space of quasi-periods of E_ρ is spanned over k-bar by {ω_𝕂^+,ω_𝕂^-}, and ω_𝕂^+,ω_𝕂^- are algebraically independent over k-bar.\" §1.3: the display defines ω_𝕂^±, and the two sentences after it read \"λ ∼ ϖ_𝕂^+\" and \"{ϖ_𝕂^+,ϖ_𝕂^-} are algebraically independent\".",
+   "correction": "The same object is written ϖ (varpi) in one place and ω (omega) in the other. In Example 6.3.11 the intended symbol is ϖ_𝕂^±, the quantity defined in the display earlier in that example; in §1.3 the intended symbol in the two closing sentences is ω_𝕂^±, the quantity the display just defined — equivalently, the display should define ϖ_𝕂^±.",
+   "reason": "ϖ and ω are distinct symbols in the source (\\varpi and \\omega). ω_𝕂^± is defined once in the whole paper, in the §1.3 Remark, and is never defined in §6, so the reference to it in Example 6.3.11 has no antecedent there; ϖ_𝕂^± is defined in Example 6.3.11 and is used again in §7 through that definition, and ϖ_𝕂^ϱ for ϱ ∈ 𝔊_𝕂 is defined in Theorem 1.3.3, where the superscript is a Galois element rather than a sign. The two formulas agree: with 𝔫 = 𝔡 and ℓ = 2 the exponent n_𝔡(ϱ,a,i) computed in Example 6.3.11 turns the Theorem 1.3.3 definition into the §1.3 display, so nothing but the name is affected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ],
+   "owner": "PAPER-WEI-26",
+   "file": "research/blueprint/papers/PAPER-WEI-26.result.json",
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-WEI-26/E4",
+   "kind": "misprint",
+   "locator": "Remark 6.3.6, its last sentence and the display closing it (arXiv:2207.01165v2)",
+   "printed": "\"the expression of 𝔫_𝔠(ϱ,a,i) in (the displayed definition) tells us in particular that\" and \"h(𝕂/𝕂^+) · 𝔫_𝔠(ϱ,a,i) ∈ ℤ\".",
+   "correction": "n_𝔠(ϱ,a,i) in both places, the rational number defined by the displayed equation the sentence points at.",
+   "reason": "𝔫 (fraktur n) denotes a monic polynomial in 𝔸_+ everywhere else in the paper, and 𝔫_𝔠 is never defined; the equation the sentence cites defines n_𝔠(ϱ,a,i) as a sum of χ(ϱ)χ(a,i+deg 𝔠)/L_𝔸(0,χ). The roman n_𝔠 is used correctly at its 19 other occurrences, including the statement of Theorem 1.3.3 and the whole of §6.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ],
+   "owner": "PAPER-WEI-26",
+   "file": "research/blueprint/papers/PAPER-WEI-26.result.json",
+   "citation": "Wei, \"Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields\", Inventiones Mathematicae (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-WOOD-19/E1",
    "kind": "gap",
    "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
