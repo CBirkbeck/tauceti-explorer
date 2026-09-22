@@ -46,7 +46,7 @@ Freshly measured bytes, all acquired on 21 September 2026:
 | --- | ---: | --- |
 | [taniguchi](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf) | 13 | `bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec` |
 | [arxiv](https://arxiv.org/pdf/1701.02458) | 12 | `99ee35275ecb42c52cd8bbc615538dbe6094326fb72894e88ef82c0b89286871` |
-| [bombieri-pila](https://people.maths.ox.ac.uk/pila/Ovals.pdf) | 22 | `a46f75e55ddc055050f7924dbea2e5c5655aee32e5c5655aee32e5c5655aee32e5c5655` |
+| [bombieri-pila](https://people.maths.ox.ac.uk/pila/Ovals.pdf) | 22 | `a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408` |
 | [helfgott-venkatesh](https://arxiv.org/pdf/math/0405180) | 23 | `bfb29584474ac4a580da9a1fa1b0279faa283f301c0481f43a0919cbaa102255` |
 | [tsimerman](https://arxiv.org/pdf/1103.5619v3) | 32 | `4cd8527c28b94f98df53738c9805a8ff5c84a94d3754c873b804d33dbdea7aed` |
 | [sedunova](https://arxiv.org/pdf/1506.08757v1) | 8 | `7b7117e414c126f41cb3b5fe22044034652e0b97d2e12660b0afdc7b5228b3f0` |
