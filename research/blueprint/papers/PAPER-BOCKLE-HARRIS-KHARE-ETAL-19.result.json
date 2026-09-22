@@ -1,0 +1,910 @@
+{
+  "paper": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Ĝ-local systems on smooth projective curves are potentially automorphic",
+    "authors": "Gebhard Böckle, Michael Harris, Chandrashekhar Khare and Jack A. Thorne",
+    "venue": "Acta Mathematica 223 (2019), no. 1, 1–111",
+    "doi": "10.4310/acta.2019.v223.n1.a1",
+    "arxiv": "1609.03491",
+    "url": "https://arxiv.org/abs/1609.03491",
+    "readSections": [
+      "The whole of arXiv 1609.03491v2 (29 August 2019, dated 30 August 2019 in its header), 77 pp.: §§1–11 and the two appendices by D. Gaitsgory, together with the bibliography. SHA-256 ec54cf92ce04146c73b48945be2765f675359255d46cc94a0aa35a39229743b9, fetched and read 2026-09-22. Locators are the pages of that version together with the paper's own statement numbers.",
+      "v2 is the last arXiv version and is contemporaneous with publication in Acta Math. 223 (2019), 1–111. The published version could not be consulted (Acta Mathematica is not open access), so all readings and the recorded source issues are against v2; Crossref records no correction notice for the DOI.",
+      "Pages 5, 10–18, 21–26, 32, 43–48, 51, 54, 58–60, 64–66 and 71 were additionally read as rendered page images, because the text layer flattens the sub- and superscripts and the hats on which most of the recorded items turn."
+    ]
+  },
+  "summary": "Böckle, Harris, Khare and Thorne prove the **converse** to V. Lafforgue’s theorem, potentially and for every split semisimple group. Let X be a smooth projective geometrically connected curve over F_q, K = F_q(X), G split semisimple over F_q with dual group Ĝ (a split reductive group over Z), and l ∤ q. **Theorem 1.1 = Theorem 11.1**: for every continuous σ : π_1(X) → Ĝ(Q̄_l) with **Zariski dense image** there are a finite Galois extension K′/K and an everywhere unramified cuspidal automorphic representation Π of G(A_{K′}) matched with σ|_{W_{K′_v}} at every place of K′ under the unramified local Langlands correspondence — explicitly, χ_V(σ(Frob_v)) is the T_{V,v}-eigenvalue on Π^{G(Ô_{K′})}. One expects K′ = K but cannot prove it. Nothing is new for GL_n or PGL_n, where L. Lafforgue has the full correspondence, and split classical groups would follow from his theorem with descent or the twisted trace formula; “however, for semisimple groups in the exceptional series, this is the first theorem of this kind”.\n\nThe four ingredients of §1 are (i) Ĝ-valued Galois representations attached to automorphic forms, (ii) an automorphy lifting theorem for them, (iii) local systems with big mod-l monodromy, (iv) universally automorphic Ĝ-valued representations; they are combined by the “chutes and ladders” argument of [Ell05]. The paper’s own contributions are:\n- **Ĝ-pseudocharacters and their deformation theory** (§§3–4). V. Lafforgue’s pseudocharacters — compatible families Θ_n : Z[Ĝ^n]^Ĝ → Map(Γ^n, A) — correspond bijectively to Ĝ-completely reducible representations over an algebraically closed field of **any** characteristic (Theorem 4.5), have integral models by Bruhat–Tits theory (Theorem 4.8), and, when the centralizer of ρ̄ in Ĝ^{ad} is **scheme-theoretically trivial**, deform exactly as the representation does: Def_{ρ̄} ≅ PDef_{Θ̄} (Theorem 4.10). For GL_n that hypothesis is Schur’s lemma and the statement is Carayol’s; in general it is strictly stronger. The proof rests on invariant theory over a DVR, including a mixed-characteristic case of Luna’s slice theorem (§3.2).\n- **Deformation theory of Ĝ-valued representations over a function field** (§§5–7). R_{ρ̄,S} has as many relations as generators, because the Euler characteristic of a function field vanishes, and is a reduced finite flat complete intersection with characteristic-zero points — the finiteness coming from **de Jong’s conjecture** as proved by Gaitsgory, and the étaleness from Weil II purity. Taylor–Wiles data are places where ρ̄(Frob_v) is regular semisimple with connected centralizer, the diamond group is the l-power quotient of ∏T(k(v)), and the largeness hypothesis is **Ĝ-abundance**, a new member of the ‘big’/‘adequate’/‘enormous’ family.\n- **The automorphy lifting theorem** (§8). The excursion algebra has a finite flat integral form B(U, O) whose maximal ideals carry residual representations σ̄_m; spaces of cusp forms are free over the group ring of the diamond operators, because that group acts freely on the adelic double coset space and a Hecke operator can be manufactured to annihilate every Eisenstein constituent; and Taylor–Wiles patching then gives **R = B**: f_m : R_{σ̄_m,∅} ≅ B(U, O)_m with C_{cusp}(U, O)_m free over it and R a complete intersection (Theorem 8.20, Corollary 8.21).\n- **Potential automorphy** (§§9–11). Moret-Bailly’s theorems link two residual representations over a common extension, an auxiliary curve supplies a compatible system with full Ĝ(F_l)-monodromy — so no families of “Ĝ-motives” are needed — and the universally automorphic objects are **Coxeter parameters**, whose automorphy is deduced from Braverman–Gaitsgory’s geometric Eisenstein series, with two appendices by Gaitsgory proving the resulting automorphic function cuspidal and non-zero. “Thus the geometric Langlands program plays an essential role in the proof of Theorem 1.1, although it does not appear in the statement.”\n\n§11.1 is explicitly informal: granting the then-announced Genestier–Lafforgue local parametrization, Proposition 11.5 would show that the semisimple local Langlands map hits every Ĝ-irreducible parameter, but it assumes Conjecture 11.6 (cyclic descent) and an unproved generalization of Theorem 11.1. §11.2 sketches the globally generic variant.",
+  "items": [
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/1",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (= Theorem 11.1): potential automorphy of Zariski-dense Ĝ-local systems",
+      "statement": "Let X be a smooth, projective, geometrically connected curve over F_q, K = F_q(X), G a split semisimple group over F_q with dual group Ĝ (a split reductive group over Z), and l ∤ q. Let σ : π_1(X) → Ĝ(Q̄_l) be a continuous homomorphism with **Zariski dense image**. Then there is a finite Galois extension K′/K and a cuspidal automorphic representation Π = ⊗′_vΠ_v of G(A_{K′}) such that for every place v of K′, Π_v^{G(O_{K′_v})} ≠ 0 and Π_v and σ|_{W_{K′_v}} are matched under the unramified local Langlands correspondence. One expects the theorem with K′ = K, which the authors cannot prove. It is known for G = PGL_n by L. Lafforgue [Laf02] (with K′ = K), and for split classical groups it would follow from [Laf02] with the descent method of Ginzburg–Rallis–Soudry or Arthur's twisted trace formula; for groups of exceptional type this is the first theorem of its kind. Everywhere unramifiedness is inessential (§1 explains the finitely-ramified analogue follows at once, and that the general ramified case should follow by the same techniques).",
+      "locator": "Theorem 1.1, p. 2, proved as Theorem 11.1, p. 59, arXiv v2",
+      "status": "missing",
+      "note": "Routed to the new Part II. The four ingredients listed in §1 are (i) V. Lafforgue's Ĝ-valued Galois representations, (ii) automorphy lifting for Ĝ-valued representations, (iii) local systems with big mod-l monodromy, (iv) universally automorphic Ĝ-valued representations; they are then combined by the \"chutes and ladders\" argument of [Ell05, pp. 1136–1137]."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/2",
+      "kind": "theorem",
+      "name": "Theorem 2.1 and Corollary 2.2: Chebotarev over a function field, in the form needed",
+      "statement": "For X geometrically connected, smooth and projective over F_q with K = F_q(X) and S finite, Γ_{K,S} sits in 1 → Γ̄_{K,S} → Γ_{K,S} → Ẑ → 1, the quotient corresponding to the everywhere unramified scalar extension F̄_q·K/K with 1 ∈ Ẑ acting as geometric Frobenius. Theorem 2.1 ([Cha97, Thm. 4.1]): given a commutative diagram with rows that sequence and 1 → G_0 → G → Γ → 1 with G finite, λ_0 : Γ̄_{K,S} → G_0 surjective and Γ abelian, and given a conjugation-invariant C ⊆ G, one has #{v : q_v = q^n, λ(Frob_v) ∈ C}/#{v : q_v = q^n} = #(C ∩ m^{-1}(γ^n))/#G_0 + O(q^{-n/2}), the constant depending on X and G but not on n. Corollary 2.2: (i) the Frobenius elements Frob_w, indexed by the places of K_S not dividing S, are dense in Γ_{K,S}; (ii) for l ∤ q, two continuous semisimple ρ, ρ′ : Γ_{K,S} → GL_n(Q̄_l) with equal traces of Frobenius at all v ∉ S are isomorphic.",
+      "locator": "Theorem 2.1 and Corollary 2.2, p. 7, arXiv v2",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "note": "FA.5 plans Chebotarev over a function field. The precise shape needed here — the arithmetic/geometric sequence with the Ẑ-quotient, an error term O(q^{-n/2}) uniform in n, and the version for a finite quotient fibred over an abelian Γ — is stronger than a bare density statement and should be recorded as the contract."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/3",
+      "kind": "construction",
+      "name": "§2.1: root data, split reductive groups over a base, and the dual group over Z",
+      "statement": "A root datum (M, Φ, M^∨, Φ^∨) is required here to be **reduced**; a based root datum adds a root basis R. For S connected a reductive G/S is split if there is a split maximal torus with each non-zero root space free of rank 1, which follows from the existence of a split maximal torus when Pic(S) = 1 ([Con14, Def. 5.1.1]). For Φ ⊆ N ⊆ M there is Q ⊆ Z_G with X^*(Q) ≅ M/N, the quotients G/Q, T/Q exist, and G → G/Q is smooth if and only if the order of the torsion of M/N is invertible on S; taking N = ZΦ gives the adjoint group G^{ad}, whose formation commutes with base change ([Con14, Cor. 3.3.5]). Standard parabolics P_I = M_IN_I correspond to subsets I ⊆ R with M_I the unique Levi containing T ([Con14, Prop. 5.4.5]). For G split reductive over a field k, the **dual group** is a triple (Ĝ, B̂, T̂) with Ĝ a split reductive group **over Z** and an identification of its based root datum with (M^∨, Φ^∨, R^∨, M, Φ, R); it is determined up to non-unique isomorphism, X^*(T) ≅ X_*(T̂), and the standard Levi M̂_I ⊆ Ĝ is the dual group of M_I ([Bor79, §3]).",
+      "locator": "§2.1, pp. 5–6, arXiv v2",
+      "status": "planned",
+      "planned": [
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "note": "RG2.5 plans the pinned split dual group over Z with its L-group, change of pinning and Levi inclusions — exactly this package. Working with Ĝ over Z rather than over Q̄_l is what makes the integral pseudocharacter theory of §4 possible, and RG2.5 is explicit that the integral dual group is its object."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/4",
+      "kind": "theorem",
+      "name": "§3.1: classical invariant theory — closed orbits in G^n, Ĝ-complete reducibility and semisimplification",
+      "statement": "Over a field k with G a linear algebraic group acting on an integral affine variety X: the orbit map has open image in its closure, giving the orbit G·x smooth and G-invariant, and G → G·x is smooth iff the scheme-theoretic centralizer Z_G(x) is smooth (a **separable** orbit) — Lemma 3.1. For G reductive, X⫽G = Spec k[X]^G is the categorical quotient, again integral affine and normal if X is, and Proposition 3.2 ([Ses77, Thm. 3]) gives: surjectivity on K-points for K algebraically closed, closed images of invariant closed sets, separation of disjoint invariant closed sets, a unique closed orbit in each fibre, and compatibility with affine opens. Definition 3.3 (k = k̄): H ⊆ G closed is **G-completely reducible** if every parabolic containing it contains a Levi containing it, **G-irreducible** if no proper parabolic contains it, **strongly reductive** if it lies in no proper parabolic of Z_G(S) for S ⊆ Z_G(H) a maximal torus. Theorem 3.4: for x = (g_1, …, g_n) ∈ G^n(k) generating H, the diagonal conjugation orbit of x is closed iff H is strongly reductive iff H is G-completely reducible ([Ric88, Thm. 16.4, Prop. 16.7] with [BMR05, Thm. 3.1]), and is **stable** (closed with Z_G(x) finite modulo Z_G) iff H is G-irreducible. Definition 3.5 gives the absolute versions for a homomorphism ρ : Γ → G(k), including **absolute strong G-irreducibility** (G-irreducibility is preserved by any ρ′ with the same invariants). The semisimplification ρ^{ss}, defined through a minimal parabolic and a Levi, is G-completely reducible and independent of the choices up to conjugacy ([Ser05, Prop. 3.3]); Proposition 3.6 identifies it invariant-theoretically as a limit lim_{t→0}λ(t)g_iλ(t)^{-1} along a cocharacter with L = Z_G(λ), giving the unique closed orbit in the fibre; Proposition 3.7: a minimal parabolic containing Γ has Γ L-irreducible in its Levi, and all such parabolics have the same dimension.",
+      "locator": "§3.1, Lemma 3.1, Proposition 3.2, Definitions 3.3, 3.5, Theorem 3.4, Propositions 3.6–3.7, pp. 7–9, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of LanglandsParameterStacks LP2 and LP3, extending the source route that PAPER-LAFFORGUE-18 opens there: that paper needs Richardson's closed-orbit theorem in characteristic zero only, whereas this one needs it over an algebraically closed field of **any** characteristic, with G-complete reducibility in the sense of Serre and Bate–Martin–Röhrle, and with the semisimplification realized as a cocharacter limit."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/5",
+      "kind": "theorem",
+      "name": "Theorem 3.8 and Lemma 3.9: separability of subgroups and very good characteristic",
+      "statement": "Theorem 3.8 ([BMRT10, Thm. 1.2, Cor. 2.13]): if either the characteristic of k is **very good** for G, or G admits a faithful V for which (GL(V), G) is a reductive pair (g ⊆ gl(V) has a G-invariant complement), then every closed linear algebraic subgroup of G is separable in G, i.e. has smooth scheme-theoretic centralizer. Very good characteristic is defined by the table: for G simple, l ∤ n+1 in type A_n, l ≠ 2 for B, C, D, E, F, G, l ≠ 3 for E, F, G, and l ≠ 5 for E_8; then g is a simple Lie algebra, self-dual as a G-representation because of a non-degenerate G-invariant symmetric bilinear form ([SS70, Lemma I.5.3]); in general l is very good for G if it is very good for each simple factor, and then g is semisimple and G → G^{ad} is smooth with smooth (central) kernel. Lemma 3.9: if l = char k > 0 is prime to the order of the Weyl group of G, then l is very good for G (by inspection of [Bou68, Planches I–IX]).",
+      "locator": "Theorem 3.8, Lemma 3.9 and the definition of very good characteristic, pp. 9–10, arXiv v2",
+      "status": "missing",
+      "note": "Routed with the invariant theory to LP2/LP3. This is the hypothesis on l that the whole paper runs on, imposed from §5 onwards; separability of centralizers is what makes the deformation theory of §5 behave, and the atlas plans neither it nor the very-good-characteristic table (upstream ReductiveGroups Layer 7 is structure theory over a field and is not a source target)."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/6",
+      "kind": "theorem",
+      "name": "§3.2: invariant theory over a discrete valuation ring, and Luna's slice theorem in mixed characteristic",
+      "statement": "Let O be the ring of integers of a coefficient field E ⊆ Q̄_l, G reductive over O, X integral affine **flat** of finite type over O with a G-action, X⫽G = Spec O[X]^G. Proposition 3.10: X⫽G is integral of finite type, normal if X is; for any O → K with K algebraically closed, X(K) → (X⫽G)(K) is surjective and identifies (X⫽G)(K) with X(K) modulo the relation that the orbit closures in X ⊗_O K meet, so closed orbits correspond bijectively to K-points of the quotient; invariant closed sets have closed images and disjoint ones have disjoint images; invariants commute with **flat** base change, O[X]^G ⊗_O R ≅ R[X_R]^{G_R} ([Ses77, Lemma 2]); and invariant localizations D_X(f) can be chosen inside a given invariant open with D_X(f)⫽G ≅ D_{X⫽G}(f). The paper stresses the warning that although K-points agree, the algebras O[X]^G ⊗_O K and K[X_K]^{G_K} are **not** in general isomorphic. Lemma 3.11 descends étaleness to quotients along a finite equivariant morphism under four explicit conditions, via Lemma 3.12, an étaleness criterion for intermediate integral closures in a Galois extension (Spec B → Spec A is étale at b̄ iff Stab_𝒢(c̄) ⊆ ℋ). Proposition 3.13 is the special case of **Luna's étale slice theorem** needed here, in mixed characteristic: if X is smooth over O and x ∈ X(k) has closed G_k-orbit and scheme-theoretically trivial Z_{G_k}(x), then the action G^∧ × X^{∧,x} → X^{∧,x} on completions is free and X^{∧,x}/G^∧ ≅ (X⫽G)^{∧,π(x)}. It is applied with X = Ĝ^n_O and G = Ĝ^{ad}_O acting by simultaneous conjugation.",
+      "locator": "Proposition 3.10, Lemmas 3.11–3.12, Proposition 3.13 and the following remark, pp. 10–13, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of LP3, which is the atlas's stage for **integral** reductive invariant theory (good filtrations, Donkin's subgroup property, base change of invariants). None of LP1–LP4 states a slice theorem, a DVR-base quotient or the flat-base-change/failure-of-base-change dichotomy, and all three are exactly what an integral parameter space needs. [BR85, Prop. 7.6] (Luna in characteristic p) is the input."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/7",
+      "kind": "definition",
+      "name": "Definition 4.1 with Remark 4.2 and Lemmas 4.3–4.4: Ĝ-pseudocharacters",
+      "statement": "For a ring A and a group Γ, a **Ĝ-pseudocharacter** of Γ over A is a collection of algebra maps Θ_n : Z[Ĝ^n]^Ĝ → Map(Γ^n, A), n ≥ 1, such that (i) Θ_n(f^ζ)((γ_i)) = Θ_m(f)((γ_{ζ(i)})) for every ζ : {1,…,m} → {1,…,n} and f ∈ Z[Ĝ^m]^Ĝ, where f^ζ((g_i)) = f((g_{ζ(i)})); and (ii) Θ_{n+1}(f̂)(γ_1,…,γ_{n+1}) = Θ_n(f)(γ_1,…,γ_nγ_{n+1}) for f̂(g_1,…,g_{n+1}) = f(g_1,…,g_ng_{n+1}). The definition is V. Lafforgue's. Remark 4.2: for O flat over Z one may equivalently use O-algebra maps out of O[Ĝ^n]^Ĝ = Z[Ĝ^n]^Ĝ ⊗_Z O; this can fail for non-flat O (e.g. a field of characteristic p), although Theorem 4.5 remains true there. Lemma 4.3: a homomorphism ρ : Γ → Ĝ(A) has a pseudocharacter tr ρ given by Θ_n(f)((γ_i)) = f((ρ(γ_i))), depending only on the Ĝ(A)-conjugacy class of ρ. Lemma 4.4: pseudocharacters are functorial in the coefficient ring and contravariantly in the group, and for N ⊴ Γ they identify the pseudocharacters of Γ/N with those of Γ whose Θ_n factor through (Γ/N)^n.",
+      "locator": "Definition 4.1, Remark 4.2, Lemmas 4.3–4.4, pp. 13–14, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of IntegralHeckeAndGaloisDeterminants IHG.0. IHG.0 constructs homogeneous polynomial laws and determinants D : A[G] → A with their characteristic-polynomial identities, base change, restriction and continuity criteria — that is the GL_n case. The Ĝ-pseudocharacter is its general-reductive-group replacement, with the invariant ring Z[Ĝ^n]^Ĝ in place of a degree-n multiplicative law, and the atlas has no notion of it."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/8",
+      "kind": "theorem",
+      "name": "Theorem 4.5: Ĝ-pseudocharacters over an algebraically closed field are exactly the completely reducible representations",
+      "statement": "Let Γ be a group and k an algebraically closed field, of **any** characteristic. Then ρ ↦ tr ρ is a bijection between the Ĝ(k)-conjugacy classes of Ĝ-completely reducible homomorphisms ρ : Γ → Ĝ(k) and the Ĝ-pseudocharacters of Γ over k. The construction maximizes n(γ) = dim of a minimal parabolic containing the Zariski closure of the group generated by a tuple representing γ, chooses δ ∈ Γ^n attaining N = sup n(γ) and then minimizing the dimension and the number of components of the centralizer, and defines ρ(γ) as the unique g with (g_1, …, g_n, g) conjugate to the tuple attached to (δ_1, …, δ_n, γ). The result is due to V. Lafforgue [Lafb, §5]; the authors reprove it because \"some modifications are required in the case of positive characteristic\".",
+      "locator": "Theorem 4.5, pp. 14–16, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of IHG.1, which plans reconstruction \"over algebraically closed fields up to semisimplification\" for GL_n determinants. This is the same theorem for a general reductive Ĝ, in any characteristic, and it is also the statement that LanglandsParameterStacks LP2:semisimple-characters uses in its Fargues–Scholze local form; the design job should cite one proof, not three."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/9",
+      "kind": "theorem",
+      "name": "Definition 4.6 and Proposition 4.7: continuous pseudocharacters",
+      "statement": "A pseudocharacter over a topological ring R is continuous if every Θ_n lands in the continuous maps Γ^n → R. Proposition 4.7: for Γ profinite, k an algebraically closed topological field and ρ : Γ → Ĝ(k) completely reducible with tr ρ = Θ: (i) ρ continuous implies Θ continuous; (ii) if k has a rank one valuation and characteristic zero (for instance k = Q̄_l) then Θ continuous implies ρ continuous ([Lafb, Prop. 5.7]); (iii) if k is discrete (for instance k = F̄_l) then Θ continuous implies ρ continuous, proved by mimicking the uniqueness argument of Theorem 4.5 and using that Z[Ĝ^{n+1}]^Ĝ is a finitely generated Z-algebra ([Ses77, Thm. 3]) to find an open normal subgroup through whose quotient ρ factors.",
+      "locator": "Definition 4.6 and Proposition 4.7, p. 16, arXiv v2",
+      "status": "missing",
+      "note": "Routed with the pseudocharacter theory to IHG.0/IHG.1, whose contract includes \"continuity criteria\". The discrete case (iii) is the one the mod-l theory needs and is not a formal consequence of (ii)."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/10",
+      "kind": "theorem",
+      "name": "Theorem 4.8 and Definition 4.9: integral models of Ĝ-valued representations and reduction modulo l",
+      "statement": "Let l be a prime and Γ profinite. (i) A continuous Ĝ-pseudocharacter of Γ over Q̄_l takes values in O_E for some coefficient field E ⊆ Q̄_l. (ii) A continuous ρ : Γ → Ĝ(Q̄_l) is, after Ĝ(Q̄_l)-conjugation, valued in Ĝ(O_E) for some coefficient field E. (iii) If ρ′ is such a conjugate then the semisimplification ρ̄ : Γ → Ĝ(F̄_l) of ρ′ mod ̟ is continuous and independent, up to Ĝ(F̄_l)-conjugacy, of all choices; it is called the reduction modulo l of ρ (Definition 4.9), and likewise Θ̄ for a pseudocharacter. The proof uses the Baire category theorem to descend to Ĝ(E), then Bruhat–Tits theory [Tit79] — the building B(DĜ, E), the subgroup Ĝ(E)^0 of elements with all characters valued in O_E^×, maximal compacts as stabilizers of centroids of facets, and the unique hyperspecial point with stabilizer Ĝ(O_E) — together with [Lar95, Lemma 2.4] to find a totally ramified E′/E and a ρ(Γ)-stable hyperspecial vertex.",
+      "locator": "Theorem 4.8 and Definition 4.9, pp. 16–17, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of ArithmeticGaloisRepresentations R01.1, which plans \"continuous representations and integral models\" — for GL_n over number fields. This is the Ĝ-valued statement over any profinite group, and its proof is genuinely different: it is Bruhat–Tits theory plus Larsen's lemma, not a lattice-stabilization argument. Note l is arbitrary here; no very-good hypothesis is needed."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/11",
+      "kind": "theorem",
+      "name": "Theorem 4.10: deforming a Ĝ-pseudocharacter is deforming the representation (the paper's first main contribution)",
+      "statement": "Fix l, a coefficient field E with ring of integers O and residue field k, and a profinite Γ. Let ρ̄ : Γ → Ĝ(k) with Θ̄ = tr ρ̄, and let PDef_{Θ̄}, Def_{ρ̄} : C_O → Sets be the functors of pseudocharacters lifting Θ̄, respectively of homomorphisms lifting ρ̄ up to conjugation by ker(Ĝ^{ad}(A) → Ĝ^{ad}(k)). Suppose that the centralizer of ρ̄ in Ĝ^{ad}_k is **scheme-theoretically trivial** and that ρ̄ is absolutely Ĝ-completely reducible. Then ρ ↦ tr ρ is an isomorphism of functors Def_{ρ̄} → PDef_{Θ̄}. The proof applies Proposition 3.13 with X_n = Ĝ^n_O and Ĝ^{ad}_O acting by conjugation, so that X_n^{∧,x}/Ĝ^{ad,∧}_O ≅ Y_n^{∧,π(x)}, and observes that the square relating level n+1 to level n consists of two Ĝ^{ad,∧}_O-torsors, hence is Cartesian. §1 explains the significance: for Ĝ = GL_n the hypothesis is equivalent to irreducibility by Schur's lemma, but in general it is strictly stronger; with it one can localize an integral version of V. Lafforgue's excursion algebra B at a maximal ideal and construct B-valued Galois representations, \"in a manner recalling the work of Carayol [Car94]\".",
+      "locator": "Theorem 4.10 with §4.1, pp. 17–18, and §1(i), p. 3, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of IHG.1, whose contract already includes reconstruction \"over complete local rings when residual absolute irreducibility supplies an actual representation\" — the GL_n statement of Carayol and Rouquier. This is its general-group analogue, with \"scheme-theoretically trivial centralizer in Ĝ^{ad}\" in place of absolute irreducibility, and it is what makes the whole automorphy-lifting argument possible."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/12",
+      "kind": "theorem",
+      "name": "§5.1: deformations of a Ĝ-valued residual representation and the universal ring R_ρ̄",
+      "statement": "Standing hypotheses from §5 on: Ĝ split **semisimple** over Z, l a **very good characteristic** for Ĝ, E ⊆ Q̄_l a coefficient field, and Γ a profinite group satisfying Mazur's condition Φ_l [Maz89]. Fix an absolutely Ĝ-irreducible ρ̄ : Γ → Ĝ(k). Lemma 5.1: the scheme-theoretic centralizer of ρ̄(Γ) in Ĝ^{ad}_k is étale over k and H^0(Γ, ĝ_k) = 0 — by Theorem 3.8 the centralizer is étale as soon as it is finite, and Theorem 3.4 gives finiteness. Definitions 5.2–5.4: a lifting of ρ̄ over A ∈ C_O is ρ : Γ → Ĝ(A) with ρ mod m_A = ρ̄; two liftings are strictly equivalent if conjugate by ker(Ĝ(A) → Ĝ(k)) — equivalently, by Remark 5.3, by ker(Ĝ^{ad}(A) → Ĝ^{ad}(k)), since Ĝ^∧_O → Ĝ^{ad,∧}_O is an isomorphism for Ĝ semisimple in very good characteristic; Def_ρ̄ is the functor of strict equivalence classes. Proposition 5.5: Def_ρ̄ is pro-represented by a complete Noetherian local O-algebra R_ρ̄, because Ĝ^{ad,∧}_O acts freely on the functor of liftings (Lemma 5.1) and quotients by free actions are pro-representable ([KW09, Prop. 2.5]). Proposition 5.6: there is a presentation R_ρ̄ ≅ O⟦X_1, …, X_g⟧/(f_1, …, f_r) with g = dim_k H^1(Γ, ĝ_k) and r = dim_k H^2(Γ, ĝ_k), both finite by Φ_l, \"a well-known calculation with cocycles, which exactly parallels that done by Mazur\".",
+      "locator": "§5.1, Lemma 5.1, Definitions 5.2–5.4, Remark 5.3, Propositions 5.5–5.6, pp. 18–19, arXiv v2",
+      "status": "missing",
+      "note": "Routed to the new Part II. The atlas plans this for GL_n over number fields: GlobalGaloisDeformations R04.1/R04.2 (deformation functors, representability, universal representations) and R04.3 (global presentations). Ĝ-valued deformations are not planned anywhere, and the mechanism is different — freeness of the Ĝ^{ad,∧}-action replaces the Schur-lemma argument, and the very-good-characteristic hypothesis is what makes Ĝ^∧ ≅ Ĝ^{ad,∧}."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/13",
+      "kind": "theorem",
+      "name": "Lemma 5.7 and Proposition 5.8: the auxiliary faithful-up-to-finite-kernel representation and surjectivity of R_{iρ̄} → R_ρ̄",
+      "statement": "Suppose given i : Ĝ → GL(V) of finite kernel, V finite free over Z, such that iρ̄ : Γ → GL(V_k) is absolutely irreducible and **l > 2(dim V − 1)**. Lemma 5.7: then gl(V_k) is a semisimple k[Γ]-module and ĝ_k → gl(V_k) is split injective. Semisimplicity comes from [Ser05, Cor. 5.5] with the bound on l; absolute irreducibility makes V_{Q̄} an irreducible highest-weight module of Ĝ_{Q̄}, and the bound makes it of **low height**, Σ_{α∈Φ^+}⟨λ, α^∨⟩ < l, a condition checkable on the principal SL_2 with an explicit bound on the SL_2-submodules that occur; injectivity then follows from finiteness of ker i ([LS96, Lemma 1.2]). Proposition 5.8: the map R_{iρ̄} → R_ρ̄ induced by ρ ↦ iρ is surjective, checked on tangent spaces, where it amounts to injectivity of H^1(Γ, ĝ_k) → H^1(Γ, gl(V_k)).",
+      "locator": "Lemma 5.7 and Proposition 5.8, p. 19, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is the device that transports L. Lafforgue's GL_n theory to a general Ĝ: everything finite about R_ρ̄ is deduced from the GL(V)-deformation ring through i. The bound l > 2(dim V − 1) is the paper's only explicit numerical hypothesis on l besides very-goodness."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/14",
+      "kind": "theorem",
+      "name": "Lemma 5.9 and Proposition 5.12: the cotangent space at a characteristic-zero point, and formal unramifiedness",
+      "statement": "Lemma 5.9 (generalizing an observation of Wiles for GL_2, [Wil95, Prop. 1.2]): for a finite E′/E and an E-algebra map f : R_ρ̄[1/l] → E′ with p = ker f and ρ_f the specialization of the universal deformation, there is a canonical isomorphism p/p² ⊗_{k(p)} E′ ≅ H^1(Γ, ĝ_{E′})^∨; in particular Spec R_ρ̄[1/l] is formally unramified over Spec E at p when H^1(Γ, ĝ_{E′}) = 0. Proposition 5.12: for Γ = Γ_{K,S} this vanishing always holds, so Spec R_ρ̄,S[1/l] is formally unramified over Spec E at every such point. The proof is a **weight** argument: inflation–restriction along 1 → Γ̄_{K,S} → Γ_{K,S} → Ẑ → 1 reduces to H^1(Ẑ, H^0(Γ̄_{K,S}, ĝ_E)) and H^0(Ẑ, H^1(Γ̄_{K,S}, ĝ_E)); ρ_f is absolutely Ĝ-irreducible so the Zariski closure of its image is reductive and the irreducible constituents of ĝ_E have determinant of finite order; the associated lisse sheaf is punctually pure of weight 0 by [Laf02, Thm. VII.6], so by Weil II [Del80] H^j(X̄ − S̄, F) is mixed of weights ≥ j, killing the second term, and the first vanishes because H^0(Γ_{K,S}, ĝ_k) = 0 (Lemma 5.1).",
+      "locator": "Lemma 5.9, p. 19, and Proposition 5.12, p. 20, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is where L. Lafforgue's purity theorem and Weil II enter the deformation theory; the atlas plans the weight machinery (DeligneWeightsAndPurity, WeightsInEtaleCohomology) but nothing that combines it with a Ĝ-valued deformation ring. The number-field analogue would be a Fontaine–Mazur-type vanishing, which is exactly what is unavailable there."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15",
+      "kind": "theorem",
+      "name": "§5.2: the global deformation ring R_ρ̄,S over a function field, with as many relations as generators",
+      "statement": "Take Γ = Γ_{K,S} for K = F_q(X), char F_q ≠ l, and S a finite set of places; this group satisfies Mazur's condition Φ_l. For a finite discrete k[Γ_{K,S}]-module M the Galois cohomology H^i(Γ_{K,S}, M) agrees canonically with the étale cohomology H^i(X − S, M) provided S ≠ ∅ or X is not a form of P¹ — one of which always holds once ρ̄ exists — so the Euler characteristic formula and the Poitou–Tate sequence are available **even when S is empty**. Proposition 5.10: Def_ρ̄ is represented by a complete Noetherian local O-algebra R_ρ̄,S. Proposition 5.11: there is a presentation R_ρ̄,S ≅ O⟦X_1, …, X_g⟧/(f_1, …, f_g) with g = dim_k H^1(Γ_{K,S}, ĝ_k) — **equally many generators and relations** — because the global Euler characteristic formula ([Mil06, Thm. 5.1]) gives h^0 − h^1 + h^2 = 0 and h^0 = 0 by Lemma 5.1, so h^2 = h^1.",
+      "locator": "§5.2, Propositions 5.10–5.11, p. 20, arXiv v2",
+      "status": "missing",
+      "note": "Part II. The equality h^1 = h^2 is special to the function-field case (no archimedean places, no oddness, Euler characteristic zero) and is what makes R_ρ̄,S a complete intersection of dimension zero; the number-field stages R04.3/R04.6 plan presentations with a defect term instead."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/16",
+      "kind": "theorem",
+      "name": "Theorems 5.13 and 5.14: R_ρ̄,S is a reduced finite flat complete intersection, and characteristic-zero lifts exist",
+      "statement": "Theorem 5.13: for Ĝ = SL_n, R_ρ̄,S is a reduced finite flat complete intersection O-algebra. By Proposition 5.11 it suffices that R_ρ̄,S/(̟) be a finite k-algebra; if it were infinite one produces α : R_ρ̄,S/(̟) → k⟦t⟧ with open image ([dJ01, 3.14]), and **de Jong's conjecture** [dJ01, Conj. 1.1], proved for l > 2 by Gaitsgory [Gai07, Thm. 3.6] — any continuous Γ_{K,S} → GL_n(k̄((t))) has finite image on Γ̄_{K,S} — forces the deformation to be strictly equivalent to the trivial one ([dJ01, Lemma 3.15]), a contradiction; reducedness then follows from Proposition 5.12, since a complete intersection is reduced as soon as it is generically reduced. Theorem 5.14: if there is i : Ĝ → GL(V) of finite kernel with iρ̄ absolutely irreducible and l > 2(dim V − 1), then R_ρ̄,S is a reduced finite flat complete intersection O-algebra; **in particular there is a finite E′/E and a continuous ρ : Γ_{K,S} → Ĝ(O_{E′}) lifting ρ̄**. The proof combines Theorem 5.13 for SL(V) with Propositions 5.8, 5.11 and 5.12.",
+      "locator": "Theorems 5.13–5.14, p. 21, arXiv v2",
+      "status": "missing",
+      "note": "Part II. §1 calls this \"the Khare–Wintenberger method of constructing characteristic 0 lifts of mod l Galois representations in this setting … a very useful application of the work of L. Lafforgue [Laf02] for GL_n and the solution of de Jong's conjecture by Gaitsgory [Gai07]\". ClassicalSerreModularity R26.1 names Khare–Wintenberger for the number-field case; nothing plans the function-field mechanism, whose engine is de Jong's conjecture."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/17",
+      "kind": "theorem",
+      "name": "§5.3: Taylor–Wiles data, the diagonal shape of the universal deformation at such a place, and the O[Δ_Q]-structure",
+      "statement": "Assume Ĝ semisimple, ρ̄ : Γ_{K,S} → Ĝ(k) absolutely Ĝ-irreducible, and (after enlarging E) that Z_Ĝ(h)° is split for every regular semisimple h ∈ ρ̄(Γ_{K,S}). Lemma 5.15: for v ∈ S with ρ̄|_{Γ_{K_v}} unramified, q_v ≡ 1 mod l and ρ̄(Frob_v) regular semisimple, with T_v = Z_Ĝ(ρ̄(Frob_v))° and an inner isomorphism φ : T̂_k ≅ T_v (there are #W choices), there is a unique torus T̃_v ⊆ Ĝ_{R_ρ̄,S} lifting T_v with ρ_S|_{Γ_{K_v}} valued in T̃_v(R_ρ̄,S) and a unique lift φ̃ of φ, and φ̃^{-1}∘ρ_S|_{I_{K_v}} has finite l-power order. The proof factors through the tame quotient, uses the unique maximal torus containing ρ_S(φ_v) ([ABD+64, XIII.3.2], [ABD+64, IX.7.3]), the identification ker(Ĝ(R/m^{i+1}) → Ĝ(R/m^i)) ≅ ĝ_k ⊗ m^i/m^{i+1} ([Pin98, Prop. 6.2]) and the relation (1 − α(ρ̄(φ_v)))X_α = 0, which kills every root component because ρ̄(φ_v) is regular semisimple. Definition 5.16: a **Taylor–Wiles datum** is a finite set Q of places disjoint from S with ρ̄(Frob_v) regular semisimple and q_v ≡ 1 mod l for v ∈ Q, together with inner isomorphisms φ_v : T̂_k ≅ Z_Ĝ(ρ̄(Frob_v)) — so in particular that centralizer is connected; Δ_Q is the maximal l-power quotient of ∏_{v∈Q}T(k(v)). Lemma 5.17: R_ρ̄,S∪Q is then naturally an O[Δ_Q]-algebra, via local class field theory and the duality of Lemma 7.1, and R_ρ̄,S∪Q ⊗_{O[Δ_Q]} O ≅ R_ρ̄,S, the quotient being the maximal one over which the deformation is unramified at Q.",
+      "locator": "§5.3, Lemma 5.15, Definition 5.16, Lemma 5.17, pp. 21–23, arXiv v2",
+      "status": "missing",
+      "note": "Part II. GlobalGaloisDeformations R04.5 plans Taylor–Wiles auxiliary primes for GL_n over number fields, with \"prescribed Frobenius eigenvalues and q ≡ 1 mod p^n\"; the Ĝ-valued version replaces eigenvalues by regular semisimplicity with connected centralizer, and the diamond group by the maximal l-power quotient of ∏T(k(v))."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/18",
+      "kind": "theorem",
+      "name": "Definition 5.18 and Proposition 5.19: Ĝ-abundance and the existence of Taylor–Wiles data",
+      "statement": "Definition 5.18: H ⊆ Ĝ(k) is **Ĝ-abundant** if (i) H^0(H, ĝ_k), H^0(H, ĝ^∨_k), H^1(H, ĝ^∨_k) and H^1(H, k) all vanish and Z_Ĝ(h)° is split for every regular semisimple h ∈ H; and (ii) for every simple k[H]-submodule W ⊆ ĝ^∨_k there is a regular semisimple h ∈ H with W^h ≠ 0 and Z_Ĝ(h) connected (automatic when Ĝ_k is simply connected). It \"plays the role of 'big' or 'adequate' subgroups of GL_n(k) in previous works on automorphy lifting (compare [CHT08, Tho12])\", and §1 adds that it is closer to the \"enormous\" condition of [CG, KTb]. Proposition 5.19: if ρ̄(Γ_{K(ζ_l)}) is Ĝ-abundant and H^0(K_v, ĝ^∨_k(1)) = 0 for every v ∈ S, then for every N ≥ 1 there is a Taylor–Wiles datum with q_v ≡ 1 mod l^N for v ∈ Q, #Q = h^1(Γ_{K,S}, ĝ_k) = h^1(Γ_{K,S}, ĝ^∨_k(1)), vanishing Q-trivial dual Selmer group h^1_{Q-triv}(Γ_{K,S}, ĝ^∨_k(1)) = 0, and a surjection O⟦X_1, …, X_g⟧ → R_ρ̄,S∪Q with **g = h^1(Γ_{K,S}, ĝ_k) + (r − 1)#Q**, r = rank Ĝ. The proof uses the Cassels–Poitou–Tate sequence ([Čes, Thm. 6.2]) with the Euler characteristic formula and h^2(K_v, ĝ_k) = h^0(K_v, ĝ^∨_k(1)) = r, and then a Chebotarev argument producing places where a given class fails to be locally trivial, the hypothesis H^1(H, k) = 0 being what gives ρ̄(Γ_{K_1}) = ρ̄(Γ_{K_N}).",
+      "locator": "Definition 5.18 and Proposition 5.19, pp. 23–24, arXiv v2",
+      "status": "missing",
+      "note": "Part II. R04.5 is explicit that \"adequacy, cyclotomic absolute irreducibility and enormous image are different hypotheses: use the one required by the chosen theorem\"; Ĝ-abundance is a new member of that family, for a general dual group, and the dual-Selmer count with the rank-r correction (r − 1)#Q is the shape the patching argument needs."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/19",
+      "kind": "theorem",
+      "name": "§6: compatible systems of Ĝ-representations, and their rigidity under Zariski density",
+      "statement": "Definition 6.1: a **compatible system of Ĝ-representations** is a finite set S of places together with continuous Ĝ-completely reducible ρ_λ : Γ_{K,S} → Ĝ(Q̄_λ), indexed by the prime-to-q places λ of Q̄, such that for v ∉ S the semisimple conjugacy class of ρ_λ(Frob_v) is defined over Q̄ and independent of λ — equivalently f(ρ_λ(Frob_v)) ∈ Q̄ is independent of λ for every f ∈ Z[Ĝ]^Ĝ. The paper states plainly that \"if Ĝ ≠ GL_n, then compatible systems of Ĝ-representations are not generally determined by individual members. For this reason, Definition 6.1 should be regarded as provisional\", and that the uniqueness property is recovered under Zariski density. Definition 6.2 gives weak equivalence (equal semisimple Frobenius classes) and equivalence (conjugate at every λ). Lemma 6.3: weak equivalence is equivalent to R∘ρ_λ ≅ R∘σ_λ for every representation R of Ĝ_{Q̄} and every λ, or for a single λ. Proposition 6.4: if ρ has Zariski dense image and ρ′ has the same semisimple Frobenius classes almost everywhere, then ρ′ also has dense image and the two are Ĝ(Q̄_λ)-conjugate; the proof turns on the fact that an automorphism of a reductive group over an algebraically closed field of characteristic zero acting trivially on H//H is inner. Theorem 6.5: for Ĝ semisimple and ρ : Γ_{K,S} → Ĝ(Q̄_{λ_0}) continuous with **Zariski dense image**, there exists a compatible system containing ρ, every member has Zariski dense image, and it is unique up to equivalence — by Chin's independence-of-l theorem ([Chi04, Thms. 1.4, 6.12]) applied to a faithful R∘ρ, which lies in a compatible system pure of weight 0 by [Laf02, Thm. VII.6].",
+      "locator": "Definitions 6.1–6.2, Lemma 6.3, Propositions 6.4, Theorem 6.5, pp. 24–26, arXiv v2",
+      "status": "missing",
+      "note": "Part II. §1 says the definition \"should be regarded as provisional\" and points to [Dri] for a possible solution; PotentialModularityAndCompatibleSystems R24.5 and AutomorphicGaloisRepresentationsPartII AG2.6 plan compatible systems for GL_n/number fields only. The Part II must carry the provisional status and the Zariski-density hypothesis that repairs it."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/20",
+      "kind": "theorem",
+      "name": "Propositions 6.6 and 6.7: a number field of definition, hyperspecial image at a density-one set of primes, and Ĝ(F_l)-residual image",
+      "statement": "Proposition 6.6 (an application of Larsen [Lar95]): for Ĝ semisimple **simply connected** and a compatible system all of whose members have Zariski dense image, after passing to an equivalent system there is a number field E ⊆ Q̄ such that (i) every ρ_λ is valued in Ĝ(E_λ), and (ii) there is a density-zero set L′ of rational primes such that if l splits in E/Q, l ∉ L′ and λ | l, then the image of ρ_λ is **exactly Ĝ(Z_l)**. The proof uses [Chi04, Thm. 4.6] and [Chi04, Lemma 6.4] to find a place where the Frobenius generates a split maximal torus, Proposition 6.4 to make the system Galois-stable and Theorem 4.8 for continuity, H^1(E_λ, T) = 0 for a split torus, and then [SW, Prop. 7.1] (from Larsen's theorem) plus conjugacy of hyperspecial subgroups. Proposition 6.7: for Ĝ simple simply connected, l very good and **l > 2 dim_{F_l} ĝ_{F_l}**, any closed H ⊆ Ĝ(O) whose image in Ĝ(k) contains Ĝ(F_l) contains a conjugate of Ĝ(Z_l), hence is Zariski dense. It is proved by the strategy of [KTa, Lemma 4.2] from three inputs: H^1(Ĝ(F_l), ĝ_{F_l}) = 0 ([Völ89]), non-splitness of Ĝ(Z/l²Z) → Ĝ(F_l) (via the claim that no lift of an element of exact order l has order l, checked in GL_n using l > 2n and nilpotence), and absolute irreducibility of ĝ_{F_l}, which holds because l is very good. \"Results of this type will be studied exhaustively in [BAdR].\"",
+      "locator": "Propositions 6.6–6.7, pp. 26–28, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is ingredient (iii) of §1, \"existence of local systems with big mod l monodromy\", in the form the paper needs: the conclusion is not merely largeness but equality with the hyperspecial Ĝ(Z_l), so that the residual representation is Ĝ-abundant. No stage of the atlas plans image results for Ĝ-valued representations."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/21",
+      "kind": "construction",
+      "name": "§7: Iwahori and pro-prime-to-l level Hecke algebras, and unramified principal series",
+      "statement": "Local setup: K non-archimedean with residue field F_q of characteristic p, l ≠ p, a square root p^{1/2} in Q̄_l, a coefficient field E, G split reductive over O_K with T ⊆ B ⊆ G, and the **running assumptions q ≡ 1 mod l and l ∤ #W**. The compact opens are U = G(O_K), U_0 the Iwahori (preimage of B(F_q)) and U_1 its maximal pro-prime-to-l subgroup, with U_0/U_1 the maximal l-power quotient of T(F_q). H_V is the convolution algebra of compactly supported V-biinvariant O-valued functions with V of volume 1 (for V ⊆ V′ the inclusion H_{V′} ⊆ H_V is **not** an algebra map, since it does not preserve the unit). H_{U_0} has the Bernstein presentation O[X_*(T)] ⊗̃ O[U_0\\U/U_0] with e_λ ↦ q^{-⟨ρ,λ⟩}[U_0λ(̟_K)U_0] for dominant λ and the twisted relation T_{s_α}e_λ = e_{s_α(λ)}T_{s_α} + (q−1)(e_{s_α(λ)} − e_λ)/(1 − e_{−α^∨}), with O[X_*(T)]^W central ([HKP10]). Lemma 7.2: π^{U_0} ≠ 0 iff π embeds in an unramified principal series i_B^Gχ, χ determined up to W, the characters of O[T(K)_0] appearing in π^{U_0} being among the w(χ); a T(K)_0-stable lattice forces χ integral, and if χ̄ has trivial stabilizer in W then each localization (π^{U_0})_{m_{w(χ̄)}} has dimension 0 or 1 — proved from Casselman's π^{U_0} ≅ r_N(π)^{T(O_K)} ([Cas80, Props. 2.4–2.5]) and [BZ77, 2.9].",
+      "locator": "§7 opening, Lemmas 7.1–7.2 and (7.1)–(7.2), pp. 28–30, arXiv v2",
+      "status": "planned",
+      "planned": [
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ],
+      "note": "SR.1 plans Hecke algebras over rings with A-valued volumes and normalized idempotents, SR.2 normalized induction and Jacquet functors with Frobenius reciprocity, SR.4 the Satake transform and the identification of Hecke eigencharacters with unramified semisimple classes. The Iwahori–Hecke algebra with its Bernstein presentation over O, and Casselman's theorem with Q̄_l-coefficients, are the exact contracts needed here; Lemma 7.1, the duality between characters T(K) → A^× and homomorphisms W_K → T̂(A) for an arbitrary ring A, belongs with SR.4 and RG2.5."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/22",
+      "kind": "theorem",
+      "name": "Lemmas 7.3–7.7 and Propositions 7.8–7.9: the Taylor–Wiles place calculation at pro-prime-to-l level",
+      "statement": "Lemma 7.3: e_t ↦ q^{-⟨ρ,λ⟩}[U_1tU_1] gives an algebra map O[T(K)_l] → H_{U_1} (T(K)_l = T(K)/T(O_K)^l with T(O_K)^l the maximal pro-prime-to-l subgroup), and the inclusion Π^{U_0} ⊆ Π^{U_1} is compatible with O[T(K)_l] → O[T(K)_0]; the proof transposes the Iwahori–Matsumoto and Bernstein presentations of [Vig05, Fli11] from the pro-p to the pro-prime-to-l Iwahori and checks a bijection of coset spaces through the Iwahori decomposition. Lemma 7.4 is the U_1-level analogue of Lemma 7.2, and adds that on the one-dimensional localization T(K)_l acts by the character w(χ). Lemma 7.5: since q ≡ 1 in k, H_{U_0} ⊗_O k ≅ k[X_*(T) ⋊ W]. Lemma 7.6: if Π is flat with Π^{U_0} finite free and exactly one maximal ideal of O[X_*(T)]^W in the support of Π^{U_0} ⊗ k, corresponding to a χ̄ with trivial stabilizer, then Π^{U_0} = ⊕_{w∈W}(Π^{U_0})_{m_{w(χ̄)}} and [U] = Σ_w[U_0ẇU_0] restricts to an isomorphism (Π^{U_0})_{m_χ̄} ≅ Π^U — here l ∤ #W is used through [U : U_0] ≡ #W mod l. Lemma 7.7: two smooth characters ψ, ψ′ : W_K → T̂(Ω) with Z_Ĝ(ψ) = T̂_Ω are W-conjugate if and only if the Ĝ-pseudocharacters of ιψ and ιψ′ agree — an application of Theorem 4.5. Propositions 7.8 and 7.9 (modelled on [Tho12, Props. 5.9, 5.12], compare [Gue11]) are the two statements the Taylor–Wiles argument consumes: given a smooth R[G(K)]-module Π with finite free invariants and a homomorphism ρ_{U_0} (resp. ρ_{U_1}) : Γ_K → Ĝ(R_{U_0}) whose residual restriction to W_K is ι of an unramified character with trivial W-stabilizer, and whose pseudocharacter on each isotypic piece is scalar and equal to that of ιχ_π^∨, one gets a canonical isomorphism (Π^{U_0})_{m_χ̄} ≅ Π^U, respectively the agreement of the diamond action of T(O_K)_l ≅ U_0/U_1 with the Galois-theoretic action through χ.",
+      "locator": "Lemmas 7.3–7.7 and Propositions 7.8–7.9, pp. 30–34, arXiv v2",
+      "status": "missing",
+      "note": "Part II. These are the local inputs of the patching argument, stated so that the Hecke side and the Galois side are compared **through Ĝ-pseudocharacters** rather than through eigenvalues — the point where Theorem 4.5 is used locally. The atlas has nothing at pro-prime-to-l Iwahori level, and SR.1–SR.4 stop short of the m_χ̄-localization statements."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/23",
+      "kind": "theorem",
+      "name": "§9: the Moret-Bailly input — linking two mod-l representations over a common extension",
+      "statement": "Setting: X, Y smooth geometrically connected curves over F_q with K = F_q(X), F = F_q(Y); φ : π_1(X, η_X) → H and ψ : π_1(Y, η_Y) → H homomorphisms into a finite group H, with X_φ, X_ψ the corresponding H-torsors over the curve Y_K and Z_{ψ,φ} = Isom_{Y_K,H}(X_φ, X_ψ). Lemma 9.1: if ψ is surjective even after restriction to π_1(Y_{F̄_q}, η_Y) then Z_{ψ,φ} is geometrically connected and finite étale over Y_K (see the recorded misprint), and a point z ∈ Z_{ψ,φ}(K′) whose image in Y(K′) does not come from Y(F̄_q ∩ K′) determines an F_q-embedding β : F ↪ K′ with β^*ψ and φ|_{Γ_{K′}} H-conjugate. Proposition 9.2: in that situation, for any finite Galois L/K there are a finite Galois K′/K and an F_q-embedding β : F ↪ K′ with K′/K linearly disjoint from L/K, K′ ∩ F̄_q = F_q, and φ|_{Γ_{K′}} H-conjugate to β^*ψ. The proof chooses a finite set S of places so that every simple intermediate layer of L/K has a non-split place in S, so that Z_{ψ,φ}(K_v) ≠ ∅ for v ∈ S (spreading out plus the Weil bounds), and two places of coprime residue degree, and then invokes [MB89, Thm. 1.3] for the existence of an S-split K′ carrying the required point. Theorem 9.3, **quoted from [MB90]** without proof, is the other Moret-Bailly statement used: given a finite group H and, for each v in a finite S, a Galois M_v/K_v with an injection Gal(M_v/K_v) → H, there are a finite S-split K′/K and a Galois M/K′ with an isomorphism Gal(M/K′) ≅ H inducing the prescribed φ_v at each place above S. Remark 9.4 points to [GLa] for a strong automorphic analogue of Theorem 9.3.",
+      "locator": "§9, Lemma 9.1, Propositions 9.2, Theorem 9.3, Remark 9.4, pp. 50–53, arXiv v2",
+      "status": "missing",
+      "note": "Routed as a source of PotentialModularityAndCompatibleSystems R23.1, \"Moret–Bailly's theorem\", which plans \"the rational-point existence theorem for the smooth geometrically irreducible varieties used here, with prescribed nonempty local open sets and a finite extension satisfying the required disjointness and real-place conditions\" and says to \"include the geometric and approximation prerequisites of the theorem rather than citing it as an axiom\". This is the **function-field** case: no real places, the extra condition K′ ∩ F̄_q = F_q replacing them, [MB89, Thm. 1.3] and [MB90] as the two inputs, and the auxiliary variety being the isomorphism scheme of two H-torsors on a curve rather than a Hilbert–Blumenthal moduli space."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/24",
+      "kind": "theorem",
+      "name": "Proposition 9.5: an everywhere unramified compatible system with full mod-l monodromy Ĝ(F_l)",
+      "statement": "Let G be split simple adjoint over F_q, l > 2 dim G, K = F_q(X) and S a finite set of places. Then there are a finite **S-split** extension K′/K, a coefficient field E ⊆ Q̄_l and a continuous everywhere unramified ρ : Γ_{K′} → Ĝ(O_E) whose reduction ρ̄ has image exactly **Ĝ(F_l)**; moreover ρ = ρ_λ fits into a compatible system (∅, (ρ_λ)_λ) of everywhere unramified representations each with Zariski dense image in Ĝ(Q̄_λ). The proof uses Theorem 9.3 to produce an S-split K′ carrying a surjective S-unramified ρ̄ : Γ_{K′} → Ĝ(F_l), enlarges K′ to make it everywhere unramified, notes that Ĝ(F_l) is saturated hence ρ̄ is absolutely Ĝ-irreducible ([Ser05, §5.1], using that l exceeds the Coxeter number), lifts to characteristic zero by Theorem 5.14 with V the adjoint representation, and concludes Zariski density from Proposition 6.7.",
+      "locator": "Proposition 9.5, pp. 52–53, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is ingredient (iii) of §1 — \"existence of local systems with 'big mod l monodromy'\" — and §1 stresses what it replaces: \"The reader familiar with works such as [SBT97, HSBT10] may expect that in order to do this, we must construct families of Ĝ-motives (whatever this may mean) … By contrast, here we are able to get away with compatible families of Ĝ-Galois representations (without showing they arise from motives).\" That is why no analogue of the Dwork/Calabi–Yau families of the number-field proofs is needed."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/25",
+      "kind": "theorem",
+      "name": "§10.1: abstract Coxeter homomorphisms and their Ĝ-abundance",
+      "statement": "Standing assumptions: Ĝ split simply connected **simple** over Z of rank r, k algebraically closed of characteristic 0 or l with l > 2h − 2 (h the Coxeter number) and l ∤ #W (implied by the first). Definition 10.1: a Coxeter element of W is one conjugate to a product s_{α_1}⋯s_{α_r} over an ordering of the simple roots. Proposition 10.2 (recalled): there is a unique conjugacy class of Coxeter elements, of order h ([Cox34]); a Coxeter element acts freely on Φ with r orbits, so #Φ = rh ([Kos59]); a lift ẇ ∈ N_Ĝ(T̂)(k) is regular semisimple with T̂^w = Z_Ĝ and ẇ^h ∈ Z_Ĝ(k), its conjugacy class independent of choices ([GR10, Lemma 6.2]); and for t ≡ 1 mod h prime to char k and #W, and q ∈ F_t^× a primitive h-th root of unity, T̂(k)[t]^{w=q} is a one-dimensional F_t-vector space whose non-zero elements are regular semisimple, and w′v = qv forces w′ = w ([Spr74, Thm. 4.2, Props. 3.5, 4.7]). Definition 10.3: φ : Γ → Ĝ(k) is an **abstract Coxeter homomorphism** if φ(Γ) ⊆ N_{Ĝ_k}(T) for a maximal torus T with image in W the cyclic group generated by a Coxeter element w, and if for some t ≡ 1 mod h as above φ^{ad}(Γ) ∩ T^{ad}(k) is cyclic of order t with wvw^{-1} = v^q on it. Lemma 10.4: reduction modulo a place λ with l > 2h − 2 and l ∤ #φ(Γ) is again an abstract Coxeter homomorphism. Lemma 10.5: with Δ = (φ^{ad})^{-1}(T^{ad}(k)), Γ/Δ is cyclic of order h, φ^{ad}(Γ) ≅ Z/tZ ⋊ Z/hZ, and ĝ_k ≅ t ⊕ ⊕_{α∈Φ/w}Ind^Γ_Δ ĝ_α with each induced summand **irreducible**. Lemma 10.6: H^0(Γ, ĝ_k) = H^0(Γ, ĝ_k^∨) = 0 and every simple non-trivial submodule of ĝ_k^∨ has a regular semisimple γ with connected centralizer and non-zero fixed vectors. Proposition 10.7: φ is Ĝ-irreducible with scheme-theoretically trivial centralizer in Ĝ^{ad}_k, the torus T is unique, and φ is rigid — any ψ with the same image in (Ĝ⫽Ĝ)(k) pointwise is Ĝ(k)-conjugate to it; the paper stresses that part (i) \"really depends on the fact that Ĝ is simply connected, and would be false in general otherwise, as one sees already by considering the example Ĝ = PGL_2\". Corollary 10.8: φ is strongly Ĝ-irreducible and φ(Γ) is **Ĝ-abundant**.",
+      "locator": "§10.1, Definitions 10.1, 10.3, Propositions 10.2, 10.7, Lemmas 10.4–10.6, Corollary 10.8, pp. 53–57, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is ingredient (iv) of §1: the class of representations for which automorphy can be established unconditionally. §1 explains the analogy — \"This class of Coxeter parameters generalizes, in some sense, the class of representations into GL_n which are induced from a normal subgroup with quotient cyclic of order n\", whose automorphy over number fields is Arthur–Clozel's trace-formula theorem [AC89]. Note that the term \"Coxeter parameter\", used in the section heading and throughout §11, is never formally defined: Definitions 10.3 and 10.9 define \"abstract Coxeter homomorphism\" and \"Coxeter homomorphism over k\"."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/26",
+      "kind": "theorem",
+      "name": "Definition 10.9 and Proposition 10.10: Galois Coxeter parameters, their rigidity, reduction and base change",
+      "statement": "Definition 10.9: for k algebraically closed of characteristic 0 or l > 2h − 2, a **Coxeter homomorphism over k** is an abstract Coxeter homomorphism φ : Γ_{K,S} → Ĝ(k) that is continuous for the discrete topology on Ĝ(k). Proposition 10.10: for φ : Γ_{K,S} → Ĝ(Q̄) a Coxeter homomorphism and λ a place of residue characteristic l ≠ p, (i) any continuous ψ : Γ_{K,S} → Ĝ(Q̄_λ) with the same image as φ in (Ĝ⫽Ĝ)(Q̄_λ) at every Frob_v, v ∉ S, is Ĝ(Q̄_λ)-conjugate to φ_λ; (ii) if l ∤ #φ(Γ_{K,S}) and l > 2h − 2 then the residual φ̄_λ : Γ_K → Ĝ(F̄_l) is again a Coxeter homomorphism, hence strongly Ĝ-irreducible with Ĝ-abundant image; (iii) if K′/K is a finite separable extension linearly disjoint from the extension cut out by φ^{ad}, then φ|_{Γ_{K′}} is again a Coxeter homomorphism.",
+      "locator": "Definition 10.9 and Proposition 10.10, pp. 57–58, arXiv v2",
+      "status": "missing",
+      "note": "Part II. These three properties are exactly the hypotheses that the automorphy lifting theorem of §8.4 needs at the residual level, and (iii) is what makes the Coxeter parameter survive the base change produced by Moret-Bailly."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/27",
+      "kind": "theorem",
+      "name": "Theorem 10.11 and Lemma 10.12: Coxeter parameters are automorphic, via geometric Eisenstein series",
+      "statement": "Theorem 10.11: let G be split reductive over K with dual group Ĝ (simply connected, so G is adjoint), φ : Γ_{K,∅} → Ĝ(Q̄) a Coxeter homomorphism, λ a place of residue characteristic l ≠ p, and suppose **φ(Γ_{K·F̄_q}) lies in a conjugate of T̂(Q̄)** — so that the parameter comes from a Ť-local system on X̄. Then there is a cuspidal automorphic representation π over Q̄_λ with π^{G(Ô_K)} ≠ 0 corresponding to φ|_{W_{K_v}} at every place, i.e. χ_V(φ_λ(Frob_v)) is the T_{V,v}-eigenvalue on π^{G(Ô_K)} for every irreducible V of Ĝ. The proof takes the spherical automorphic function f supplied by **Braverman–Gaitsgory's geometric Eisenstein series** ([BG02, Thm. 2.2.8], whose simply-connected-derived-group hypothesis is removed using z-extensions [Kot82]) and needs exactly two properties of it, both established in the appendices: that f is cuspidal (Appendix A) and that f ≠ 0 (Appendix B); the non-vanishing proof computes the first Whittaker coefficient, so π is in fact globally generic. Lemma 10.12: given a prime t ∤ p#W with q mod t of exact order h, there is a Coxeter parameter φ : Γ_{K,S} → Ĝ(Q̄) valued in Ĝ(Z[ζ_t]) such that for every prime-to-p place λ and every finite separable K′/K linearly disjoint from the extension cut out by φ^{ad} over which φ is everywhere unramified, φ_λ|_{Γ_{K′}} is **automorphic** in the sense of Definition 8.7 — associated with a prime of the excursion algebra. The construction is explicit: α ∈ K of valuation 1 at one place, the splitting field of Y^t − α, which has Galois group µ_t ⋊ Z/hZ with Frobenius acting by ζ ↦ ζ^q, and then a generator of µ_t sent to a non-zero element of T̂(Z[ζ_t])[t]^{w=q} and Frobenius to a lift of a Coxeter element.",
+      "locator": "Theorem 10.11 and Lemma 10.12, p. 58, arXiv v2",
+      "status": "missing",
+      "note": "Part II, and the place where the geometric Langlands programme enters: §1 says \"we deduce the automorphy of Coxeter parameters from work of Braverman–Gaitsgory on geometrization of classical Eisenstein series [BG02]. Thus the geometric Langlands program plays an essential role in the proof of Theorem 1.1, although it does not appear in the statement.\" The atlas has no geometric-Langlands roadmap, the same gap this session's PAPER-LAFFORGUE-18 extraction records for its §15."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/28",
+      "kind": "theorem",
+      "name": "Appendices A and B (by D. Gaitsgory): cuspidality and non-vanishing of the Eisenstein automorphic function",
+      "statement": "**Appendix A** proves that the spherical automorphic function attached to Aut_{Ē_Ǧ} = Eis^G_T(Aut_{Ē_Ť}), with the Weil structure coming from Fr^*(Ē_Ť) ≅ Ē_Ť^w and the functional equation [BG02, Thm. 2.2.4], is **cuspidal**. Hypotheses are those of [BG02, Thm. 2.2.8]: Ē_Ť a Ť-local system on X̄ whose induced Ǧ-local system carries a Weil structure and is irreducible — whence Ē_Ť is regular and Fr^*(Ē_Ť) ≅ Ē_Ť^w for some w ∈ W ([BG02, Prop. 2.2.9]). One reduces to Ē_Ť **strongly regular** by embedding G in G ×^{Z(G)} T′, computes the constant term CT^G_M ∘ Eis^G_T as an iterated extension of functors indexed by W_M\\W ([BG08, Prop. 10.8]), uses orthogonality ([BG08, Prop. 10.6]) to split it as a direct sum, shows that the Weil structure permutes the summands by w′ ↦ w′w — with **no** fixed summand, precisely because Ē_Ǧ is irreducible — and concludes with the elementary lemma that a sheaf with a Weil structure permuting the summands of a finite direct sum without fixed points has vanishing trace function. **Appendix B** proves that the function attached to Aut_{Ē_Ǧ} is **non-zero**, assuming only that Ē_Ť is a Ť-local system and that Aut_{Ē_Ǧ} carries a Weil structure — no regularity and no irreducibility. It computes the first Whittaker coefficient: with ρ(ω_X) built from a square root of ω_X and χ the Artin–Schreier pullback on Bun^{ρ(ω_X)}_{N^-}, \"Whit ∘ Eis^G_T identifies canonically with the functor of ^*-fibre at the point ρ(ω_X) ∈ Bun_T\" (Theorem 2′), whence Whit(Aut_{Ē_Ǧ}) ≅ Q̄_ℓ up to shift and the coefficient is the trace of Frobenius on it. The proof kills the non-transversal strata (Proposition 3, by the argument of [BG08, §10.9]), identifies the open stratum with the **Zastava space** ([BFGM02, §2.2]), and applies Raskin's vanishing π^λ_! ∘ (′p)^*(χ) = 0 for λ ≠ 0 ([Ras, Thm. 3.4.1], a preprint), leaving only λ = 0 with Z^0 = pt.",
+      "locator": "Appendix A, pp. 67–69, and Appendix B, pp. 69–72, arXiv v2",
+      "status": "missing",
+      "note": "Part II. These are self-contained geometric-Langlands results and the only place the paper uses Drinfeld compactifications, the Zastava space and Whittaker sheaves; they are also the paper's only dependence on an unpublished preprint ([Ras]) other than [Con] and [BAdR]. The difference in hypotheses between the two appendices (Appendix A needs Ē_Ǧ irreducible, Appendix B does not) should be preserved."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/29",
+      "kind": "theorem",
+      "name": "Theorem 11.4 with Proposition 11.2 and Lemma 11.3: the chutes-and-ladders argument and the descent to the adjoint group",
+      "statement": "Theorem 11.4: for Ĝ **simple and simply connected** and a compatible system (∅, (ρ_λ)_λ) of representations Γ_{K,∅} → Ĝ(Q̄_λ) each with Zariski dense image, there are a finite Galois K′/K and a cuspidal automorphic Π of G(A_{K′}) over Q̄ with Π^{G(Ô_{K′})} ≠ 0 matching ρ_λ|_{W_{K′_v}} at every place and every λ. This is the case to which Theorem 11.1 is reduced, and its proof is the full ladder: an auxiliary curve Y with an everywhere unramified Zariski-dense system (Proposition 9.5); a common number field of definition with a density-zero exceptional set (Proposition 6.6); a prime t > #W with h^{b+1} | ord(q mod t) (by [Mor05]); two primes l_0, l_1 chosen by Chebotarev so that Ĝ(F_{l_0}) and Ĝ(F_{l_1}) are perfect with no isomorphic non-trivial quotients; a Coxeter parameter over K·F_{q^α} (Lemma 10.12); and then Proposition 9.2 applied to H = Ĝ(F_{l_0}) × Ĝ(F_{l_1}) with the product of the two residual representations, surjective by Goursat's lemma, to produce K′ and β linking them. Corollary 8.21 is then applied twice — first to the pulled-back auxiliary system, whose residual representation is the automorphic Coxeter parameter, then, after transporting automorphy along the compatible system (Lemma 8.8), to ρ_{λ_0}|_{Γ_{K′}}. The reduction of Theorem 11.1 to Theorem 11.4 uses the canonical isogeny η : G → H onto the adjoint group, lifts ρ through the dual isogeny by [Con, Thm. 1.4], and needs Proposition 11.2: if f is a non-zero cuspidal Hecke eigenform on H with eigenvalues given by a Zariski-dense ρ, then f does not vanish on η(G(A_K)) — otherwise the representation generated by f would be a lift from a twisted endoscopic group, contradicting Zariski density. Its proof shows that Y = H(A_K)/(H(K)·η(G(A_K))·H(Ô_K)) is finite (through H^1(K, Z_G) and Pic(X) ⊗ Z/nZ) and that the twists {f ⊗ ω} are linearly independent, using the Cassels–Poitou–Tate sequence, an isomorphism Y^* ≅ Hom(Γ_{K,∅}, ker(Z_Ĥ → Z_Ĝ)), and Lemma 11.3, a local cup-product/Artin-map compatibility for an isogeny of split tori ([Ser62, XIV.1, Prop. 3]).",
+      "locator": "Theorem 11.4, p. 62, Proposition 11.2, p. 59, Lemma 11.3, p. 61, and the proof of Theorem 11.1, p. 59, arXiv v2",
+      "status": "missing",
+      "note": "Part II. The ladder is the one diagrammed in [Ell05, pp. 1136–1137]. Proposition 11.2 is the step that has no counterpart in the number-field literature as stated — it is what lets one descend automorphy from the adjoint group to G, and it is where Zariski density is used to exclude endoscopic lifts."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/30",
+      "kind": "theorem",
+      "name": "§11.1: descent, and a conjectural application to local Langlands",
+      "statement": "The section is explicitly informal: \"we discuss informally a conjectural application of Theorem 11.1\". Granting the expectations **announced** by Genestier–Lafforgue [GLb] — that the semisimplification of ρ_π|_{W_{K_v}} depends only on π_v and only on K_v as a local field — one gets a map LLC^{ss}_F from irreducible admissible representations of G(F), F = F_q((t)), to Ĝ-completely reducible homomorphisms W_F → Ĝ(Q̄_l). Proposition 11.5, stated **conditionally on Conjecture 11.6** and only sketched, asserts that the image of LLC^{ss}_F contains all Ĝ-irreducible homomorphisms; the sketch also requires \"a slight generalization of Theorem 11.1\" allowing ramification at one place, which the paper does not prove (§1: \"we leave this extension to a future work\"). Conjecture 11.6 is the cyclic descent statement: for E/K a cyclic extension of global fields and ρ : Γ_K → Ĝ(Q̄_l) continuous, almost everywhere unramified with Zariski dense image, if ρ|_{Γ_E} is matched with a cuspidal automorphic π_E of G(A_E) at every unramified place, then there is a cuspidal π_K of G(A_K) matched with ρ at every unramified place.",
+      "locator": "§11.1, Proposition 11.5 and Conjecture 11.6, pp. 63–65, arXiv v2",
+      "status": "missing",
+      "note": "Part II, recorded as a register of what is conditional. The dependency chain must be carried: Proposition 11.5 rests on an unproved conjecture, on an unproved generalization of the paper's own main theorem, and on announced (then unpublished) work of Genestier–Lafforgue — which is the same [GL17] that PAPER-LAFFORGUE-18 records as the source of GS.7."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/31",
+      "kind": "theorem",
+      "name": "Definition 11.7 and Theorems 11.8–11.9: the globally generic variant",
+      "statement": "Definition 11.7: a character ψ : N(A_K) → Q̄^× is generic if non-trivial on each simple root subgroup of the abelianization ([JS07]), and a cuspidal automorphic π is **globally generic** if some f in its image under an embedding into the cusp forms has non-zero ψ-Whittaker integral over N(K)\\N(A_K). Theorem 11.8, proved by a sketch (\"we sketch a variant of our main theorem\"): for a Ĝ-compatible system of everywhere unramified representations with Zariski dense image there are a finite extension K′/K and a **globally generic**, everywhere unramified cuspidal Π of G(A_{K′}) over Q̄ matching ρ_λ|_{Γ_{K′}} everywhere locally. Theorem 11.9 is the input it needs in place of Theorem 10.11: for G simple adjoint and φ a Coxeter homomorphism with φ(Γ_{K·F̄_q}) torus-valued, one can choose the automorphic form f integrally, f ∈ C_{cusp}(G(Ô_K), O) spanning the spherical line, and a generic ψ valued in Z̄_l^× with ∫_{N(K)\\N(A_K)}f(n)ψ(n)dn = 1 — the **normalized** Whittaker coefficient — so that π is globally generic. The existence of such an f is exactly the computation of Appendix B.",
+      "locator": "Definition 11.7, Theorems 11.8–11.9, pp. 65–67, arXiv v2",
+      "status": "missing",
+      "note": "Part II. The integral normalization (11.9) is what allows the Whittaker functional to be used inside the patching argument (it gives an element of Hom_O(C_cusp(U, O)_m, O)), and it is the reason Appendix B proves a statement about the first Whittaker coefficient rather than mere non-vanishing."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/32",
+      "kind": "construction",
+      "name": "§8.1: integral spaces of cusp forms, the Hecke algebra and the Satake transform",
+      "statement": "X_U = G(K)\\\\G(A_K)/U for U ⊆ G(A_K) open compact; for a Z[1/p]-algebra R, C(U, R) are the functions on X_U, C_c(U, R) those of finite support, and C_{cusp}(U, R) the **cuspidal** ones, ∫_{N(K)\\\\N(A_K)}f(ng)dn = 0 for every proper parabolic P = MN and every g, the probability Haar measure making sense because p is a unit in R. Proposition 8.1: G(K) is discrete in G(A_K) and gG(K)g^{-1} ∩ U is finite. Proposition 8.2: for R Noetherian embedding in C, C_{cusp}(U, R) ⊆ C_c(U, R) and is a finite R-module — cusp forms are compactly supported ([Har74, Cor. 1.2.3]). C_{cusp}(Ω) = colim_U C_{cusp}(U, Ω) is a semisimple admissible Ω[G(A_K)]-module and a **cuspidal automorphic representation** is an irreducible submodule; any one over C or Q̄_l can be defined over Q̄. H(H, U) is the abstract Hecke algebra of compactly supported U-biinvariant Z-valued functions ([NT, §2.2]). The Satake isomorphism H(G(K_v), G(O_{K_v})) ⊗ Z[q_v^{±1/2}] ≅ Z[X^*(T̂)]^{W} ⊗ Z[q_v^{±1/2}] ([Gro98]) and a choice of p^{1/2} give the unramified Hecke operators T_{V,v} with χ_V(χ^∨(Frob_v)) as the eigenvalue on the spherical line of i^G_Bχ. The relative Satake transform S^G_P is transitive, compatible with normalized induction, and Proposition 8.3 is the **Chevalley restriction theorem over Z**: Z[M̂]^{M̂} → Z[T̂]^{W(M̂,T̂)} is an isomorphism, surjectivity because the characters of irreducible highest-weight representations of M̂_Q admit M̂-stable Z-lattices ([Jan03, I.10.4]). Unramified local Langlands then matches spherical π with Ĝ(Ω)-conjugacy classes of semisimple elements, S(π) ∈ (Ĝ⫽Ĝ)(Ω) ([BH06, I.4.3]); twisting by ψ ↦ z_ψ ∈ Z°_{M̂} satisfies S(π ⊗ ψ) = z_ψ·S(π) locally and S((π ⊗ ψ)_v) = z_ψ^{[k(v):F_q]}·S(π_v) globally.",
+      "locator": "§8.1, Propositions 8.1–8.3 and (8.1)–(8.8), pp. 34–37, arXiv v2",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.6",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "note": "FA.6 plans G(K)\\\\G(A_K), compact-level functions, cuspidal subspaces and the unramified Satake dictionary over a function field, and its reduction-theoretic finiteness of cuspidal spaces is Proposition 8.2 (Harder); SR.4 plans the Satake transform with its q-half normalization and the identification of Hecke eigencharacters with unramified semisimple classes. Proposition 8.3, Chevalley restriction **over Z** for a Levi, is the one statement here that the atlas does not plan; it belongs with RG2.5's integral dual data and is recorded in the source route to LP3."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/33",
+      "kind": "theorem",
+      "name": "§8.2: V. Lafforgue's excursion algebra, the pseudocharacter Θ_U, and what \"automorphic\" means",
+      "statement": "For l ∤ q and a level U(N) = ker(∏_vG(O_{K_v}) → G(O_N)), Lafforgue constructs the **excursion operators** S_{I,(γ_i)_{i∈I},f} ∈ End(C_{cusp}(U(N), Q̄_l)) for I finite, (γ_i) ∈ Γ_K^I and f ∈ Z[Ĝ^I]^Ĝ. Proposition 8.4: they generate a commutative finite Q̄_l-algebra B(U(N), Q̄_l), commute with the abstract Hecke algebra, contain the unramified Hecke operators (S_{{0},Frob_v,χ_V} = T_{V,v} for v outside the level), and are compatible with change of level. Theorem 8.5 ([Lafa, Prop.-Déf. 11.3]): Θ_{U(N),n}(f)(γ_1, …, γ_n) = S_{{1,…,n},(γ_i),f} defines a **B(U(N), Q̄_l)-valued pseudocharacter** in the sense of §4, factoring through Γ_{K,T} and continuous for the l-adic topology. Corollary 8.6: every prime p of the excursion algebra therefore yields a continuous Ĝ-completely reducible σ_p : Γ_K → Ĝ(Q̄_l), unique up to conjugacy, unramified outside T, with χ_V(σ_p(Frob_v)) = T_{V,v} mod p — by Theorem 4.5. Definition 8.7 defines σ to be **automorphic** if it is conjugate to some σ_p, and the paper warns that this implies but is not a priori implied by the existence of an automorphic representation with the right Hecke eigenvalues, \"because of the possible existence of homomorphisms σ, σ′ such that σ|Γ_{K_v} and σ′|Γ_{K_v} are Ĝ(Q̄_l)-conjugate for every place v of K, but nevertheless σ and σ′ are not Ĝ(Q̄_l)-conjugate\". Lemma 8.8: **under Zariski density the two notions agree**, and then the eigenvalue identity holds at every place where π is spherical (via Proposition 6.4). Theorem 8.9, quoted from Genestier–Lafforgue [GLb], is the local–global compatibility at a ramified place that controls Θ_{U(N)} at Taylor–Wiles places: for π_v ⊆ i^G_Bχ_v the restriction Θ_{U(N),π_v}|_{W_{K_v}} is scalar-valued and equals the pseudocharacter of ιχ_v^∨.",
+      "locator": "§8.2, Proposition 8.4, Theorems 8.5 and 8.9, Corollary 8.6, Definition 8.7, Lemma 8.8, pp. 37–39, arXiv v2",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.7"
+      ],
+      "note": "GS.5 plans the excursion operators, their relations and the reconstruction of semisimple parameters — PAPER-LAFFORGUE-18 is its named source, and this section is the form in which that package is consumed. GS.7 plans the local–global comparison, which is Theorem 8.9 ([GLb] = the Genestier–Lafforgue paper GS.7 is sourced from). The one thing not planned anywhere is **Definition 8.7 and Lemma 8.8**: that \"automorphic\" for a Ĝ-parameter has to be defined through a prime of the excursion algebra, and that this is equivalent to the naive Hecke-eigenvalue definition exactly under Zariski density."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/34",
+      "kind": "theorem",
+      "name": "Proposition 8.10 and Corollary 8.11: the integral excursion algebra B(U, O) and the residual representation σ̄_m",
+      "statement": "Proposition 8.10: the excursion operators preserve the O-lattice C_{cusp}(U, O) ⊂ C_{cusp}(U, Q̄_l), so the O-algebra B(U, O) they generate in End_O(C_{cusp}(U, O)) is a **finite flat O-algebra** and Θ_U takes values in it. The proof reduces to writing any f ∈ Z[Ĝ^n]^{Ĝ×Ĝ} as f((g_i)) = ξ((g_i)·x) for a representation W of Ĝ^n on a free Z-module with Ĝ-equivariant x : Z → W and ξ : W → Z, taking W spanned by the left translates of f ([Lafa, Prop. 13.1], [Lafa, Lemme 10.5]). Corollary 8.11: hence for every maximal ideal m ⊂ B(U, O) and an embedding B(U, O)/m ↪ F̄_l there is a Ĝ-completely reducible **σ̄_m : Γ_K → Ĝ(F̄_l)**, unique up to conjugacy, with f((σ̄_m(γ_i))) = S_{I,(γ_i),f} mod m, unramified at every v with U_v = G(O_{K_v}) and satisfying χ_V(σ̄_m(Frob_v)) = T_{V,v} mod m there — the character of the mod-l reduction of V being independent of choices.",
+      "locator": "Proposition 8.10 and Corollary 8.11, p. 39, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is the integral refinement of V. Lafforgue's construction that makes the whole paper possible, and the point at which the invariant theory of §3.2 over a DVR is used: GS.5 plans the characteristic-zero decomposition only, and PAPER-LAFFORGUE-18's own §13 gives the F̄_ℓ-coefficient statement but not the finite flat integral algebra B(U, O) with its residual representations."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/35",
+      "kind": "theorem",
+      "name": "§8.3: automorphic forms are free over the group ring of the diamond operators",
+      "statement": "Theorem 8.17: fix l and a coefficient field E; let U ⊆ G(Ô_K) be open compact, V ⊆ U an open normal subgroup with U/V **abelian of l-power order**, v_0 a place, l^M the order of an l-Sylow of G(F_{q_{v_0}}), and V ⊆ W ⊆ U with (U/V)[l^M] ⊆ W/V; let m ⊂ B(W, O) be maximal with σ̄_m **strongly Ĝ-irreducible**. Then C_{cusp}(W, O)_m is a **finite free O[U/W]-module**. Two ingredients: Lemma 8.18, the principle of [BK06, Appendix], that U/W then acts **freely** on X_W = G(K)\\\\G(A_K)/W — because gG(K)g^{-1} ∩ U is finite with l-part dividing l^M (Proposition 8.1) — so that C_c(W, O) is free over O[U/W]; and Lemma 8.16, the existence of an integral unramified Hecke operator t with t·C_c(W, O) ⊆ C_{cusp}(W, O) and t ≠ 0 mod m. Lemma 8.16 rests on Proposition 8.12, which produces a Hecke operator killing every constituent induced from a proper parabolic — for each standard P = MN and each of finitely many π_i one arranges f_{i,Σ}(t) = 0 while f_{i_0,Σ}(t) ≢ 0 mod m_R, using Chebotarev to choose Σ and the **absolute strong Ĝ-irreducibility** of σ̄_m to exclude twists ρ̄_i ⊗ λ — and on Lemma 8.15, which converts that vanishing into t·C_c ⊆ A_0 through the density of the geometric Eisenstein span in the orthogonal complement of the cusp forms ([MW95, Prop. I.3.4]) and the adjunction formula (8.12) for compactly supported Eisenstein series. §8.3.2 develops the required complex theory of automorphic forms of moderate growth, constant terms and the decompositions of Propositions 8.13–8.14 ([MW95, I.2.3, I.2.17, I.3, I.3.4]; [Har74, Thm. 1.2.1]).",
+      "locator": "§8.3, Propositions 8.12–8.14, Lemmas 8.15–8.16, Theorem 8.17, Lemma 8.18, pp. 40–45, arXiv v2",
+      "status": "missing",
+      "note": "Part II. This is the function-field replacement for the \"auxiliary level\" freeness of the classical Taylor–Wiles method (GL2ModularityLifting R22.2 plans \"Auxiliary levels and freeness\" for GL_2 over Q). Two features are specific: the free action of the diamond group on the adelic double coset space, which follows from the finiteness of gG(K)g^{-1} ∩ U rather than from neatness of a Shimura level; and the need to manufacture a Hecke operator that annihilates all Eisenstein constituents, which is where the *strong* irreducibility of Definition 3.5 is used."
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/36",
+      "kind": "theorem",
+      "name": "Theorem 8.20 and Corollary 8.21: R = B, and the automorphy lifting theorem",
+      "statement": "Hypotheses, with U = G(Ô_K) and m ⊂ B(U, O) maximal: (i) l ∤ #W (hence l is very good for Ĝ); (ii) Z_{Ĝ^{ad}}(σ̄_m(Γ_K)) is **scheme-theoretically trivial**; (iii) σ̄_m is absolutely strongly Ĝ-irreducible; (iv) σ̄_m(Γ_{K(ζ_l)}) is **Ĝ-abundant**. Lemma 8.19: there is a unique surjection f_m : R_{σ̄_m,∅} → B(U, O)_m carrying the universal pseudocharacter to Θ_{U,m} — this is where Theorem 4.10 is used, and hypothesis (ii) is what upgrades Lafforgue's pseudocharacter to an actual representation. **Theorem 8.20**: f_m is an isomorphism, C_{cusp}(U, O)_m is a **free R_{σ̄_m,∅}-module**, and R_{σ̄_m,∅} is a complete intersection O-algebra. The proof is a Taylor–Wiles patching argument: Taylor–Wiles data from Proposition 5.19 give levels U_0(Q), U_1(Q) with U_0(Q)/U_1(Q) ≅ Δ_Q, the localizations at the maximal ideals n_{Q,0}, n_{Q,1} of the torus Hecke algebras are identified with the level-U forms by Proposition 7.8 and carry the right Δ_Q-action by Proposition 7.9 — both via Theorem 8.9 — Lemma 8.22 (a reformulation of Theorem 8.17) gives freeness of the invariants over O[Δ_Q/l^{N−M}Δ_Q], and the patching modules H_Q = Hom_O((H′_{Q,1,n_{Q,1}})^{l^{N−M}Δ_Q}, O) are assembled over R_∞ = O⟦X_1, …, X_g⟧ with g = qr and S_∞ = O⟦Δ_∞⟧, the count of Proposition 5.19 making dim R_∞ = dim S_∞; the Auslander–Buchsbaum inequalities then collapse, H_∞ is free, and Gorenstein-ness of complete intersections transfers freeness to C_{cusp}(U, O)_m. The paper explains the role of each hypothesis: (i) is \"convenient\", (ii) is \"absolutely essential\", (iii) is what Lemma 8.22 needs, and of (iv) \"Some condition of this type is essential\". Corollary 8.21: every continuous everywhere unramified ρ : Γ_K → Ĝ(E) with ρ̄ ≅ σ̄_m is then automorphic, with the Hecke eigenvalue identity at every place; and if some f in C_{cusp}(U, O)_m[p] has non-zero Whittaker integral mod m_{Z̄_l}, the resulting Π can be taken **globally generic**.",
+      "locator": "Lemma 8.19, Theorem 8.20, Corollary 8.21 and Lemma 8.22 with the patching construction, pp. 45–50, arXiv v2",
+      "status": "missing",
+      "note": "Part II, and the engine of the whole paper (\"an automorphy lifting theorem, which is the engine driving the proof of our main Theorem 1.1\"). The atlas plans the abstract patching algebra in DeformationAndDerivedPatchingAlgebra R03.1–R03.5 (complete local coefficient categories, representability, dimension and depth, patching modules) and the GL_n/number-field assembly in GlobalGaloisDeformations R04.5/R04.6; what is new is that the patched module is a space of **cusp forms on an adelic quotient over a function field** and that the Galois side is V. Lafforgue's excursion algebra, so that R = B rather than R = T."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "V. Lafforgue, Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891 [Lafa]",
+      "link": "https://doi.org/10.1090/jams/897",
+      "why": "The automorphic-to-Galois direction this paper inverts: the excursion operators, the excursion algebra B, Proposition-Définition 11.3 (the pseudocharacter Θ_{U(N)}), Proposition 13.1 and Lemme 10.5 (integrality). Extracted as PAPER-LAFFORGUE-18 in this repository."
+    },
+    {
+      "citation": "V. Lafforgue, Introduction to chtoucas for reductive groups and to the global Langlands parameterization, arXiv:1404.6416 [Lafb]",
+      "link": "https://arxiv.org/abs/1404.6416",
+      "why": "§5: the definition of a Ĝ-pseudocharacter and the bijection with Ĝ-completely reducible representations over an algebraically closed field, together with Proposition 5.7 on continuity — reproved here in positive characteristic as Theorem 4.5."
+    },
+    {
+      "citation": "A. Genestier and V. Lafforgue, Chtoucas restreints pour les groupes réductifs et paramétrisation de Langlands locale, arXiv:1709.00978 [GLb]",
+      "link": "https://arxiv.org/abs/1709.00978",
+      "why": "Theorem 8.9, the local–global compatibility of Θ_{U(N)} at a ramified place, quoted in the special case needed to control the pseudocharacter at Taylor–Wiles places; also the announced local parametrization on which §11.1 depends."
+    },
+    {
+      "citation": "L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math. 147 (2002), no. 1, 1–241 [Laf02]",
+      "link": "https://doi.org/10.1007/s002220100174",
+      "why": "The GL_n correspondence: Théorème VII.6 (punctual purity of weight 0) drives Proposition 5.12 and Theorem 6.5, and the theorem itself makes Theorem 1.1 known for PGL_n with K′ = K."
+    },
+    {
+      "citation": "D. Gaitsgory, On de Jong's conjecture, Israel J. Math. 157 (2007), 155–191 [Gai07]",
+      "link": "https://doi.org/10.1007/s11856-006-0006-2",
+      "why": "Theorem 3.6: de Jong's conjecture for l > 2 — any continuous Γ_{K,S} → GL_n(k̄((t))) has finite image on the geometric subgroup. This is what forces R_ρ̄,S/(̟) to be finite in Theorem 5.13, hence the existence of characteristic-zero lifts."
+    },
+    {
+      "citation": "A. J. de Jong, A conjecture on arithmetic fundamental groups, Israel J. Math. 121 (2001), 61–84 [dJ01]",
+      "link": "https://doi.org/10.1007/bf02802496",
+      "why": "The conjecture itself (Conjecture 1.1), the construction of a map to k⟦t⟧ with open image (3.14), and Lemma 3.15 identifying deformations with finite image as trivial — all used in Theorem 5.13."
+    },
+    {
+      "citation": "R. W. Richardson, Conjugacy classes of n-tuples in Lie algebras and algebraic groups, Duke Math. J. 57 (1988), 1–35 [Ric88]",
+      "link": "https://doi.org/10.1215/s0012-7094-88-05701-8",
+      "why": "Theorem 16.4 and Proposition 16.7: closed and stable diagonal conjugation orbits in G^n versus strong reductivity and G-irreducibility — Theorem 3.4 here, and the same theorem PAPER-LAFFORGUE-18 routes to LP2/LP3 in characteristic zero."
+    },
+    {
+      "citation": "M. Bate, B. Martin and G. Röhrle, A geometric approach to complete reducibility, Invent. Math. 161 (2005), no. 1, 177–218 [BMR05]",
+      "link": "https://doi.org/10.1007/s00222-004-0425-9",
+      "why": "Theorem 3.1: strong reductivity is equivalent to G-complete reducibility in positive characteristic — the half of Theorem 3.4 that Richardson does not give; and Lemma 2.10, which supplies finitely many elements detecting all parabolics and Levis containing the image, used in Theorem 4.5."
+    },
+    {
+      "citation": "M. Bate, B. Martin, G. Röhrle and R. Tange, Complete reducibility and separability, Trans. Amer. Math. Soc. 362 (2010), no. 8, 4283–4311 [BMRT10]",
+      "link": "https://doi.org/10.1090/S0002-9947-10-04901-9",
+      "why": "Theorem 1.2 and Corollary 2.13: in very good characteristic, or for a reductive pair, every closed subgroup of a reductive group has smooth scheme-theoretic centralizer — Theorem 3.8, the hypothesis the whole deformation theory runs on."
+    },
+    {
+      "citation": "J.-P. Serre, Complète réductibilité, Séminaire Bourbaki 2003/2004, exp. 932, Astérisque 299 (2005), 195–217 [Ser05]",
+      "link": "https://zbmath.org/?q=an:1156.20043",
+      "why": "G-complete reducibility: Proposition 3.2, Proposition 3.3 (the semisimplification is well defined up to conjugacy), Proposition 4.2 (equivalence with reductivity of the Zariski closure), Corollaire 5.5 (semisimplicity of ĝ_k as a k[H]-module under a bound on l) and §5.1 (saturation of Ĝ(F_l))."
+    },
+    {
+      "citation": "C. S. Seshadri, Geometric reductivity over arbitrary base, Adv. Math. 26 (1977), no. 3, 225–274 [Ses77]",
+      "link": "https://doi.org/10.1016/0001-8708(77)90041-X",
+      "why": "Theorem 3 and Proposition 3 for the properties of categorical quotients over a field and over a DVR, and Lemma 2 for commutation of invariants with flat base change — Propositions 3.2 and 3.10, and the finite generation of Z[Ĝ^n]^Ĝ."
+    },
+    {
+      "citation": "P. Bardsley and R. W. Richardson, Étale slices for algebraic transformation groups in characteristic p, Proc. London Math. Soc. (3) 51 (1985), no. 2, 295–317 [BR85]",
+      "link": "https://doi.org/10.1112/plms/s3-51.2.295",
+      "why": "Proposition 7.6, Luna's étale slice theorem in characteristic p, of which Proposition 3.13 is the mixed-characteristic special case; and 2.3.1, 4.2.3 for the integral-closure lemmas."
+    },
+    {
+      "citation": "B. Conrad, Reductive group schemes, in Autour des schémas en groupes I, Panor. Synthèses 42/43, SMF, 2014, 93–444 [Con14]",
+      "link": "https://zbmath.org/?q=an:1349.14157",
+      "why": "§1.4, Definition 5.1.1, Corollary 3.3.5 and Proposition 5.4.5: root data, split reductive groups over a connected base, central quotients and the adjoint group, and the Levi decomposition — the foundations for treating Ĝ as a group scheme over Z."
+    },
+    {
+      "citation": "R. Taylor, Galois representations associated to Siegel modular forms of low weight, Duke Math. J. 63 (1991), no. 2, 281–332 [Tay91]",
+      "link": "https://zbmath.org/?q=an:0810.11033",
+      "why": "The pseudo-character reconstruction theorem for GL_n, which Definition 4.1 and Theorem 4.5 generalize to an arbitrary reductive group."
+    },
+    {
+      "citation": "H. Carayol, Formes modulaires et représentations galoisiennes à valeurs dans un anneau local complet, Contemp. Math. 165 (1994), 213–237 [Car94]",
+      "link": "https://zbmath.org/?q=an:0814.11046",
+      "why": "The GL_n statement that deforming the pseudocharacter of an absolutely irreducible representation is deforming the representation — Theorem 4.10 is its analogue for a general Ĝ, with \"scheme-theoretically trivial centralizer in Ĝ^{ad}\" in place of irreducibility. With [Rou96]."
+    },
+    {
+      "citation": "B. Mazur, Deforming Galois representations, in Galois groups over Q, MSRI Publ. 16, Springer, 1989, 385–437 [Maz89]",
+      "link": "https://zbmath.org/?q=an:0714.11076",
+      "why": "Condition Φ_l on a profinite group and the cocycle calculation giving the presentation of the universal deformation ring by h¹ generators and h² relations (Proposition 5.6)."
+    },
+    {
+      "citation": "C. Khare and J.-P. Wintenberger, Serre's modularity conjecture II, Invent. Math. 178 (2009), no. 3, 505–586 [KW09]",
+      "link": "https://zbmath.org/?q=an:1201.11052",
+      "why": "Proposition 2.5: pro-representability of the quotient of a pro-representable functor by a free group-functor action, used for Proposition 5.5; and the Khare–Wintenberger method of characteristic-zero lifting that Theorem 5.14 transposes."
+    },
+    {
+      "citation": "N. Chavdarov, The generic irreducibility of the numerator of the zeta function in a family of curves with large monodromy, Duke Math. J. 87 (1997), no. 1, 151–180 [Cha97]",
+      "link": "https://doi.org/10.1215/S0012-7094-97-08707-X",
+      "why": "Theorem 4.1: the quantitative Chebotarev density theorem over a function field, with the arithmetic/geometric sequence and the error term O(q^{-n/2}) — Theorem 2.1 here."
+    },
+    {
+      "citation": "C. Chin, Independence of l of monodromy groups, J. Amer. Math. Soc. 17 (2004), no. 3, 723–747 [Chi04]",
+      "link": "https://zbmath.org/?q=an:1049.14011",
+      "why": "Theorems 1.4 and 6.12: a compatible system of GL_n-representations pure of weight 0 has a common reductive group G_0 over Q̄ with isomorphisms to the monodromy groups transporting it into compatible systems for every irreducible representation — the engine of Theorem 6.5; also Theorem 4.6 and Lemma 6.4 for Proposition 6.6."
+    },
+    {
+      "citation": "M. Larsen, Maximality of Galois actions for compatible systems, Duke Math. J. 80 (1995), no. 3, 601–630 [Lar95]",
+      "link": "https://doi.org/10.1215/S0012-7094-95-08021-1",
+      "why": "Lemma 2.4 (a totally ramified extension over which a stable vertex of the building becomes hyperspecial), used in Theorem 4.8; and the main theorem, which underlies [SW, Prop. 7.1] and hence the Ĝ(Z_l)-image statement of Proposition 6.6."
+    },
+    {
+      "citation": "A. Snowden and A. Wiles, Bigness in compatible systems, in Elliptic curves, modular forms and Iwasawa theory, Springer Proc. Math. Stat. 188 (2016), 469–492 [SW]",
+      "link": "https://zbmath.org/?q=an:1416.11095",
+      "why": "Proposition 7.1: an open normal subgroup and a density-zero set of primes outside which the image is hyperspecial — the form of Larsen's theorem used in Proposition 6.6."
+    },
+    {
+      "citation": "G. Harder, Chevalley groups over function fields and automorphic forms, Ann. of Math. 100 (1974), 249–306 [Har74]",
+      "link": "https://doi.org/10.2307/1971073",
+      "why": "Corollary 1.2.3 and Theorem 1.2.1: cusp forms on a semisimple, respectively reductive, group over a function field are supported on a fixed finite set of the adelic double coset space — Propositions 8.2 and 8.13, i.e. the reduction theory behind every finiteness statement in §8."
+    },
+    {
+      "citation": "C. Mœglin and J.-L. Waldspurger, Spectral decomposition and Eisenstein series, Cambridge Tracts in Math. 113, CUP, 1995 [MW95]",
+      "link": "https://zbmath.org/?q=an:0846.11032",
+      "why": "I.2.3, I.2.17, I.3, I.3.4, I.3.6 and Proposition I.3.4: automorphic forms of moderate growth, the induced description of A and A_0, the twisting decomposition, compactly supported Eisenstein series and the density of their span in the orthogonal complement of the cusp forms — all of §8.3.2 and Lemma 8.15."
+    },
+    {
+      "citation": "B. Gross, On the Satake isomorphism, in Galois representations in arithmetic algebraic geometry, LMS Lecture Note Ser. 254, CUP, 1998, 223–237 [Gro98]",
+      "link": "https://zbmath.org/?q=an:0996.11038",
+      "why": "The Satake isomorphism in the integral normalization used for (8.1) and the unramified Hecke operators T_{V,v}."
+    },
+    {
+      "citation": "A. Braverman and D. Gaitsgory, Geometric Eisenstein series, Invent. Math. 150 (2002), no. 2, 287–384 [BG02]",
+      "link": "https://doi.org/10.1007/s00222-002-0237-8",
+      "why": "Theorem 2.2.8 (the spherical automorphic function attached to an irreducible induced Ǧ-local system, with the right unramified Hecke eigenvalues), Theorem 2.2.4 (the functional equation), Proposition 2.2.9 and §2.2.10. This is what makes Coxeter parameters automorphic, and with it the geometric Langlands programme enters the proof."
+    },
+    {
+      "citation": "A. Braverman and D. Gaitsgory, Deformations of local systems and Eisenstein series, Geom. Funct. Anal. 17 (2008), 1788–1850 [BG08]",
+      "link": "https://zbmath.org/?q=an:1234.14006",
+      "why": "Propositions 10.6 and 10.8 (orthogonality and the constant term of geometric Eisenstein series) for Appendix A, and §10.9 for Proposition 3 of Appendix B."
+    },
+    {
+      "citation": "A. Braverman, M. Finkelberg, D. Gaitsgory and I. Mirković, Intersection cohomology of Drinfeld's compactifications, Selecta Math. (N.S.) 8 (2002), 381–418 [BFGM02]",
+      "link": "https://zbmath.org/?q=an:1051.14026",
+      "why": "§2.2: the Zastava space, the maps π^λ : Z^λ → X^λ and the identification of the pullback of IC_{B̄un_B} — the geometry Appendix B computes on."
+    },
+    {
+      "citation": "S. Raskin, Chiral principal series categories I: finite-dimensional calculations, preprint [Ras]",
+      "link": "https://web.ma.utexas.edu/users/sraskin/cpsi.pdf",
+      "why": "Theorem 3.4.1: the vanishing π^λ_! ∘ (′p)^*(χ) = 0 for λ ≠ 0. Appendix B, and hence the non-vanishing of the automorphic function in Theorem 10.11, depends on this **preprint**."
+    },
+    {
+      "citation": "K. Česnavičius, Poitou–Tate without restrictions on the order, Math. Res. Lett. 22 (2015), no. 6, 1621–1666 [Čes]",
+      "link": "https://doi.org/10.4310/mrl.2015.v22.n6.a5",
+      "why": "Theorem 6.2, the Cassels–Poitou–Tate exact sequence, used both for the Taylor–Wiles place count (Proposition 5.19) and for the duality computation in Proposition 11.2."
+    },
+    {
+      "citation": "J. S. Milne, Arithmetic duality theorems, 2nd ed., BookSurge, 2006 [Mil06]",
+      "link": "https://www.jmilne.org/math/Books/ADTnot.pdf",
+      "why": "Theorem 5.1, the global Euler characteristic formula, which for a function field gives h⁰ − h¹ + h² = 0 and hence h¹ = h² in Proposition 5.11."
+    },
+    {
+      "citation": "J. Thorne, On the automorphy of l-adic Galois representations with small residual image, J. Inst. Math. Jussieu 11 (2012), no. 4, 855–920 [Tho12]",
+      "link": "https://doi.org/10.1017/S1474748012000023",
+      "why": "Propositions 5.9 and 5.12, the models for Propositions 7.8 and 7.9; and, with [CHT08], the notions of 'big' and 'adequate' subgroup that Ĝ-abundance replaces."
+    },
+    {
+      "citation": "J. S. Ellenberg, Serre's conjecture over F_9, Ann. of Math. 161 (2005), no. 3, 1111–1142 [Ell05]",
+      "link": "https://doi.org/10.4007/annals.2005.161.1111",
+      "why": "The 'chutes and ladders' diagram of pp. 1136–1137, which organizes the final argument of §11."
+    },
+    {
+      "citation": "L. Moret-Bailly, Groupes de Picard et problèmes de Skolem II, Ann. Sci. École Norm. Sup. 22 (1989), 181–194, and Extensions de corps globaux à ramification et groupe de Galois donnés, C. R. Acad. Sci. Paris 311 (1990), 273–276 [MB89, MB90]",
+      "link": "https://zbmath.org/?q=an:0704.14015",
+      "why": "Théorème 1.3 of the first (existence of an S-split extension carrying a rational point of a given variety) and the second in its entirety (global fields with prescribed local Galois behaviour, Theorem 9.3, quoted without proof)."
+    },
+    {
+      "citation": "T. A. Springer, Regular elements of finite reflection groups, Invent. Math. 25 (1974), 159–198 [Spr74]",
+      "link": "https://doi.org/10.1007/bf01390173",
+      "why": "Theorem 4.2, Propositions 3.5 and 4.7: the eigenspace T̂(k)[t]^{w=q} of a Coxeter element is one-dimensional with regular semisimple non-zero vectors, and a generator of the cyclic group it generates is again Coxeter — Proposition 10.2(iv). With [Cox34] and [Kos59] for the classical properties, and [GR10, Lemma 6.2]."
+    },
+    {
+      "citation": "H. Völklein, The 1-cohomology of the adjoint module of a Chevalley group, Forum Math. 1 (1989), 1–13 [Völ89]",
+      "link": "https://doi.org/10.1515/form.1989.1.1",
+      "why": "H¹(Ĝ(F_l), ĝ_{F_l}) = 0 for l > 5, one of the three inputs to Proposition 6.7."
+    },
+    {
+      "citation": "R. E. Kottwitz, Rational conjugacy classes in reductive groups, Duke Math. J. 49 (1982), no. 4, 785–806 [Kot82]",
+      "link": "https://doi.org/10.1215/s0012-7094-82-04939-0",
+      "why": "z-extensions, used to remove the simply-connected-derived-group hypothesis of [BG02, Thm. 2.2.8] in Theorem 10.11."
+    },
+    {
+      "citation": "G. Böckle and C. Khare, Mod l representations of arithmetic fundamental groups II: a conjecture of A. J. de Jong, Compos. Math. 142 (2006), no. 2, 271–294 [BK06]",
+      "link": "https://zbmath.org/?q=an:1101.11020",
+      "why": "The Appendix, whose principle is Lemma 8.18: the diamond group acts freely on the adelic double coset space, so integral spaces of forms are free over its group ring."
+    },
+    {
+      "citation": "B. Conrad, Lifting global representations with local properties, preprint [Con]",
+      "link": "http://math.stanford.edu/~conrad/papers/",
+      "why": "Theorem 1.4: lifting ρ : Γ_K → Ĝ(Q̄_l) through the dual isogeny Ĥ → Ĝ, used in the reduction of Theorem 11.1 to the simply connected case. A **preprint**."
+    },
+    {
+      "citation": "G. Böckle and S. Arias-de Reyna, Deformation rings and images of Galois representations, in preparation [BAdR]",
+      "link": "https://zbmath.org/?q=ai%3Aarias-de-reyna.sara+deformation",
+      "why": "Announced as the place where results like Proposition 6.7 \"will be studied exhaustively\"; recorded because the atlas should know that this input is, at the time of writing, unpublished."
+    },
+    {
+      "citation": "T. J. Haines, R. E. Kottwitz and A. Prasad, Iwahori–Hecke algebras, J. Ramanujan Math. Soc. 25 (2010), no. 2, 113–145 [HKP10]",
+      "link": "https://zbmath.org/?q=an:1202.22013",
+      "why": "The Bernstein presentation of the Iwahori–Hecke algebra used in §7, with [Vig05] and [Fli11] for its pro-p and pro-prime-to-l analogues, [Cas80] for the unramified principal series and [BZ77] for the Jordan–Hölder factors of Jacquet modules."
+    },
+    {
+      "citation": "R. Pink, Compact subgroups of linear algebraic groups, J. Algebra 206 (1998), no. 2, 438–504 [Pin98]",
+      "link": "https://zbmath.org/?q=an:0914.20044",
+      "why": "Proposition 6.2: the kernel of Ĝ(R/m^{i+1}) → Ĝ(R/m^i) is ĝ_k ⊗ m^i/m^{i+1}, the computation behind Lemma 5.15."
+    },
+    {
+      "citation": "J. Tits, Reductive groups over local fields, Proc. Sympos. Pure Math. 33, part 1, AMS, 1979, 29–69 [Tit79]",
+      "link": "https://zbmath.org/?q=an:0415.20035",
+      "why": "Bruhat–Tits theory: the building, maximal compacts as stabilizers of centroids of facets, and hyperspecial points — the proof of Theorem 4.8."
+    },
+    {
+      "citation": "J. C. Jantzen, Representations of algebraic groups, 2nd ed., Math. Surveys Monogr. 107, AMS, 2003 [Jan03]",
+      "link": "https://zbmath.org/?q=an:1034.20041",
+      "why": "I.10.4: irreducible highest-weight representations admit stable Z-lattices, the surjectivity half of Proposition 8.3 (Chevalley restriction over Z)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "GlobalShtukasAndFunctionFieldLanglands",
+      "roadmap": "GValuedDeformationsAndPotentialAutomorphy",
+      "title": "Global shtukas and Langlands over function fields, Part II: Ĝ-valued deformation theory and potential automorphy",
+      "area": "functionfields",
+      "items": [
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/1",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/12",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/13",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/14",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/15",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/16",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/17",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/18",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/19",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/20",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/22",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/34",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/35",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/36",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/24",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/25",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/26",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/27",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/28",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/29",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/30",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/31"
+      ],
+      "brief": "Böckle–Harris–Khare–Thorne prove the **converse** direction of the global Langlands correspondence over a function field, potentially and for every reductive group: for X smooth projective geometrically connected over F_q, G split semisimple with dual group Ĝ, and σ : π_1(X) → Ĝ(Q̄_l) continuous with **Zariski dense image**, there is a finite Galois K′/K and an everywhere unramified cuspidal automorphic Π of G(A_{K′}) matched with σ|_{W_{K′_v}} at every place under unramified local Langlands (Theorem 1.1 = Theorem 11.1). For groups of exceptional type this is the first theorem of its kind. The parent roadmap owns the automorphic side and V. Lafforgue’s automorphic-to-Galois direction (GS.0–GS.5, sourced from PAPER-LAFFORGUE-18); this Part II owns the Galois-to-automorphic machinery for the same objects.\n\nImport, never re-plan:\n- **GS.5** for V. Lafforgue’s excursion operators, the pseudocharacter Θ_{U(N)} valued in the excursion algebra B, and the parameters σ_p attached to its primes; **GS.7** for the local–global compatibility of Genestier–Lafforgue quoted as Theorem 8.9; **FA.6** for cuspidal functions on G(K)\\\\G(A_K)/U with their reduction-theoretic finiteness (Harder) and the unramified Satake dictionary; **FA.5** for Chebotarev over a function field in Chavdarov’s quantitative form; **RG2.5** for the dual group over Z and the L-group.\n- **DeformationAndDerivedPatchingAlgebra R03.1–R03.5** for complete local coefficient categories, representability, the dimension/depth inequalities and the abstract patching module; **SmoothRepresentationsOfLocalGroups SR.1, SR.2, SR.4** for Hecke algebras over rings, normalized induction and Jacquet functors, and the Satake transform; **LanglandsParameterStacks LP2/LP3** and **IntegralHeckeAndGaloisDeterminants IHG.0/IHG.1** for the invariant theory and the pseudocharacter theory, both routed as sources by this same extraction; **ArithmeticGaloisRepresentations R01.1** for integral models of continuous representations; **PotentialModularityAndCompatibleSystems R23.1** for Moret-Bailly.\n\nConstruct, in the order the proof uses them:\n- **Ĝ-valued deformation theory** (§5): the functor Def_{ρ̄} for ρ̄ absolutely Ĝ-irreducible, pro-represented by R_{ρ̄} because Ĝ^{ad,∧}_O acts freely on liftings, with the Mazur presentation by h¹ generators and h² relations; for Γ = Γ_{K,S} the Euler characteristic gives h¹ = h², so R_{ρ̄,S} is a complete intersection, and Weil II purity ([Laf02, Thm. VII.6], [Del80]) makes Spec R_{ρ̄,S}[1/l] formally unramified over E. Then Theorems 5.13–5.14: R_{ρ̄,S} is a reduced finite flat complete intersection and characteristic-zero lifts exist — the Khare–Wintenberger method in this setting, whose engine is **de Jong’s conjecture** as proved by Gaitsgory.\n- **Taylor–Wiles data for Ĝ** (§5.3): places with ρ̄(Frob_v) regular semisimple, q_v ≡ 1 mod l and connected centralizer, the diagonal shape of the universal deformation there, the group Δ_Q as the maximal l-power quotient of ∏T(k(v)), the O[Δ_Q]-algebra structure on R_{ρ̄,S∪Q}, the **Ĝ-abundance** condition, and the existence of data killing the dual Selmer group with the rank-corrected count g = h¹ + (r − 1)#Q.\n- **Compatible systems of Ĝ-representations** (§6), with the explicit warning that Definition 6.1 is *provisional* unless the image is Zariski dense, the rigidity Proposition 6.4, existence and uniqueness through Chin’s independence-of-l theorem, and the image results: a number field of definition with Ĝ(Z_l)-image at a density-one set of split primes (Larsen, Snowden–Wiles) and the criterion that Ĝ(F_l) in the residual image forces Ĝ(Z_l) for l > 2 dim ĝ.\n- **The local calculation at a Taylor–Wiles place** (§7): the pro-prime-to-l Iwahori level U_1, the algebra map O[T(K)_l] → H_{U_1}, the localization (Π^{U_0})_{m_{χ̄}} ≅ Π^U, and the two compatibility propositions 7.8–7.9 comparing the Hecke and Galois actions **through Ĝ-pseudocharacters**.\n- **The integral excursion algebra** B(U, O), finite flat over O, with its residual representations σ̄_m (§8.2–8.3), the freeness of C_{cusp}(W, O)_m over O[U/W] — through the free action of the diamond group on the adelic double coset space and a Hecke operator annihilating all Eisenstein constituents — and then **Theorem 8.20: f_m : R_{σ̄_m,∅} ≅ B(U, O)_m with C_{cusp}(U, O)_m free over it**, by Taylor–Wiles patching. Corollary 8.21 is the automorphy lifting theorem, with its Whittaker refinement.\n- **Potential automorphy** (§§9–11): the Moret-Bailly linking of two residual representations over a common extension, an auxiliary curve carrying a compatible system with full Ĝ(F_l)-monodromy — which is how the paper avoids families of “Ĝ-motives” — the **Coxeter parameters** of §10 with their rigidity, good reduction and Ĝ-abundance, their automorphy through Braverman–Gaitsgory’s geometric Eisenstein series together with Gaitsgory’s two appendices (cuspidality; non-vanishing of the first Whittaker coefficient), and finally the “chutes and ladders” argument of [Ell05] with the descent to the adjoint group (Proposition 11.2).\n\nKeep the hypotheses visible: l ∤ q; l very good for Ĝ, and l > 2(dim V − 1) for the auxiliary representation, l > 2h − 2 for Coxeter parameters, l > 2 dim ĝ for the image criterion; Zariski density throughout; the scheme-theoretically trivial centralizer in Ĝ^{ad}, which for GL_n is Schur’s lemma but in general is **strictly stronger** than irreducibility; and K′ ≠ K — “One expects that this theorem should be true with K′ = K, but we are not able to prove this.”\n\nRecord what is conditional: §11.1 is explicitly informal, Proposition 11.5 assumes Conjecture 11.6 and a generalization of Theorem 11.1 that the paper does not prove, and Appendix B rests on Raskin’s preprint. Tests: GL_n/PGL_n must recover L. Lafforgue’s theorem with K′ = K; a torus must recover class field theory; the r = 0 count of Taylor–Wiles places must degenerate correctly.",
+      "reason": "Every object here is a Ĝ-valued representation of the Galois group of a function field, or a space of automorphic forms on G over that function field, or V. Lafforgue’s excursion algebra acting on it — which is exactly what GlobalShtukasAndFunctionFieldLanglands constructs in GS.0–GS.5, and the theorem proved is the converse of GS.5’s. So this is new work in the parent roadmap’s direction, not a rebuild of it: GS.5 gives the map from automorphic representations to parameters, and this Part II gives, for Zariski-dense parameters, a cuspidal automorphic representation after a finite base change.\n\nIt is not a Part II of PotentialAutomorphyInfrastructure, PotentialModularityAndCompatibleSystems or GlobalGaloisDeformations, although all three plan the analogous machinery: those roadmaps are written for **number fields** and for **GL_n or polarized** representations — PotentialAutomorphyInfrastructure is explicitly “over CM fields” and built for Allen–Calegari–Caraiani–Gee–Helm–Le Hung–Newton–Scholze–Taylor–Thorne, with cohomology of locally symmetric spaces as its object; PotentialModularityAndCompatibleSystems is Hilbert–Blumenthal GL_2; GlobalGaloisDeformations says “over number fields” and its stages are polarized or determinant-variable. Their mathematics is imported here, not repeated, and the differences are structural rather than cosmetic: the Galois side is a pseudocharacter valued in an excursion algebra rather than a Hecke algebra acting on cohomology; h¹ = h² replaces a defect term; de Jong’s conjecture replaces p-adic Hodge theory as the source of characteristic-zero lifts; Ĝ-abundance replaces adequacy; the patched module is a space of adelic cusp forms; and the universally automorphic objects are Coxeter parameters via geometric Eisenstein series rather than CM or induced representations via the trace formula.\n\nIt is also distinct from the three Part IIs of the same parent already proposed: ShtukaSpecialCyclesAndHigherSiegelWeil (PAPER-YUN-ZHANG-17, PAPER-FENG-YUN-ZHANG-24) is about special cycles on shtuka moduli; ShtukaTateCohomologyAndGlobalBaseChange (PAPER-FENG-24) about Tate cohomology and cyclic base change with mod p coefficients; GlobalShtukasPartIIRamanujanArthur (PAPER-CIUBOTARU-HARRIS-26) about Ramanujan/Arthur weight constraints. None touches deformation theory of Ĝ-valued representations or potential automorphy. The design job should nonetheless cross-reference PAPER-FENG-24, which uses the Böckle–Harris–Khare–Thorne reconstruction theorem for modular coefficients, and PAPER-LAFFORGUE-18, whose Proposition 10.10 was found by these four authors for use here."
+    },
+    {
+      "route": "source",
+      "roadmap": "LanglandsParameterStacks",
+      "stages": [
+        "LanglandsParameterStacks:LP2",
+        "LanglandsParameterStacks:LP3"
+      ],
+      "items": [
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/4",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/5",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/6"
+      ],
+      "reason": "LP2 owns the coarse quotient and the excursion presentation with “the relation to closed semisimple geometric orbits”, and LP3 is the atlas’s stage for **integral reductive invariant theory**. §3 of this paper is precisely that theory, and in a stronger form than the characteristic-zero statements that PAPER-LAFFORGUE-18 routes to the same two stages:\n- **Over an algebraically closed field of any characteristic** (§3.1): the categorical quotient X⿰G with Seshadri’s properties, the three notions of Definition 3.3 — G-complete reducibility in the sense of Serre, G-irreducibility, strong reductivity — and Theorem 3.4, that the diagonal conjugation orbit of a tuple is closed iff the group it generates is G-completely reducible ([Ric88] with [BMR05, Thm. 3.1]) and stable iff it is G-irreducible; Proposition 3.6 realizing the semisimplification as a limit lim_{t→0}λ(t)gλ(t)^{-1} along a cocharacter, which is the invariant-theoretic form of Serre’s construction; and Proposition 3.7.\n- **Separability and very good characteristic**: Theorem 3.8 ([BMRT10]), that in very good characteristic — or for a reductive pair — every closed subgroup has smooth scheme-theoretic centralizer, with the explicit table (l ∤ n+1 in type A_n, l ≠ 2, 3, 5 in the other types) and Lemma 3.9, that l prime to #W suffices. Every deformation-theoretic statement in the paper runs on this hypothesis.\n- **Over a discrete valuation ring** (§3.2): Proposition 3.10 — finite type, normality, the bijection between closed orbits and K-points of the quotient for every algebraically closed O → K, closed images, and commutation of invariants with **flat** base change — together with the sharp warning that O[X]^G ⊗_O K and K[X_K]^{G_K} are **not** isomorphic in general, which is exactly the trap an integral parameter space must avoid; and Proposition 3.13, the special case of **Luna’s étale slice theorem in mixed characteristic**: for X smooth over O and x with closed orbit and scheme-theoretically trivial centralizer, X^{∧,x}/G^∧ ≅ (X⿰G)^{∧,π(x)}. Applied to X = Ĝ^n_O with Ĝ^{ad}_O acting by conjugation, this is what makes Theorem 4.10 — and hence the whole paper — work. Lemmas 3.11–3.12 (descent of étaleness along a finite equivariant morphism, and an étaleness criterion for intermediate integral closures) are the technical inputs. Proposition 8.3, Chevalley restriction Z[M̂]^{M̂} ≅ Z[T̂]^{W(M̂,T̂)} over **Z**, belongs with them."
+    },
+    {
+      "route": "source",
+      "roadmap": "IntegralHeckeAndGaloisDeterminants",
+      "stages": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.0",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1"
+      ],
+      "items": [
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/7",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/8",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/9",
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/11"
+      ],
+      "reason": "IHG.0 constructs homogeneous polynomial laws and determinants D : A[G] → A with characteristic-polynomial identities, base change, restriction and **continuity criteria**; IHG.1 constructs the Cayley–Hamilton quotient and proves **reconstruction** — over an algebraically closed field up to semisimplification, and over a complete local ring when residual absolute irreducibility supplies an actual representation. That is the GL_n theory of Chenevier, Carayol and Rouquier. §4 of this paper is its replacement for a general reductive group, and the atlas has no notion of it:\n- Definition 4.1, the **Ĝ-pseudocharacter**: a compatible family of algebra maps Z[Ĝ^n]^Ĝ → Map(Γ^n, A) satisfying the reindexing and multiplication axioms, with the flat-base-change reformulation (Remark 4.2) and its explicit failure for non-flat O, and the functorialities of Lemmas 4.3–4.4.\n- Theorem 4.5: over an algebraically closed field of **any** characteristic, ρ ↦ tr ρ is a bijection from Ĝ(k)-conjugacy classes of Ĝ-completely reducible representations to Ĝ-pseudocharacters. This is V. Lafforgue’s theorem, reproved here because “some modifications are required in the case of positive characteristic”, and it is the statement LP2:semisimple-characters uses in its Fargues–Scholze local form: one proof should serve all three.\n- Proposition 4.7, the continuity dictionary, with the discrete case (iii) that the mod-l theory needs and that does not follow from the characteristic-zero case (ii).\n- Theorem 4.10, the paper’s **first main contribution**: if the centralizer of ρ̄ in Ĝ^{ad}_k is scheme-theoretically trivial and ρ̄ is absolutely Ĝ-completely reducible, then deforming the pseudocharacter is the same as deforming the representation, Def_{ρ̄} ≅ PDef_{Θ̄}. For GL_n the hypothesis is Schur’s lemma and the statement is Carayol’s; in general the hypothesis is strictly stronger, and it is what allows an integral form of Lafforgue’s excursion algebra to carry an actual Ĝ-valued representation. Its proof is the mixed-characteristic slice theorem routed to LP3."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisRepresentations",
+      "stages": [
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "items": [
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/10"
+      ],
+      "reason": "R01.1 plans continuous representations and **integral models**: invariant lattices by compactness for field coefficients, and “reduction followed by semisimplification” with independence of the lattice by characteristic polynomials and Brauer–Nesbitt — all for GL_n. Theorem 4.8 is the Ĝ-valued analogue for an arbitrary profinite group: a continuous Ĝ-pseudocharacter over Q̄_l takes values in some O_E; a continuous ρ : Γ → Ĝ(Q̄_l) is conjugate into Ĝ(O_E); and the semisimplification of its reduction is a well-defined continuous ρ̄ : Γ → Ĝ(F̄_l) up to conjugacy (Definition 4.9). The proof is genuinely different from the lattice argument: Baire category to descend to Ĝ(E), then **Bruhat–Tits theory** — the building of the derived group, the subgroup Ĝ(E)⁰ of elements whose characters are units, maximal compacts as stabilizers of centroids of facets, and the hyperspecial vertex with stabilizer Ĝ(O_E) — together with [Lar95, Lemma 2.4] to find a totally ramified extension over which some ρ(Γ)-stable vertex becomes hyperspecial. No hypothesis on l is needed. R01.1 should state the general reductive case with this proof and specialize to GL_n, rather than the other way round."
+    },
+    {
+      "route": "source",
+      "roadmap": "PotentialModularityAndCompatibleSystems",
+      "stages": [
+        "PotentialModularityAndCompatibleSystems:R23.1"
+      ],
+      "items": [
+        "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/23"
+      ],
+      "reason": "R23.1, “Moret–Bailly’s theorem”, plans the rational-point existence theorem “for the smooth geometrically irreducible varieties used here, with prescribed nonempty local open sets and a finite extension satisfying the required disjointness and real-place conditions”, and insists on including “the geometric and approximation prerequisites of the theorem rather than citing it as an axiom”. §9 is the **function-field** instance, and it differs in every detail that matters: there are no real places, so the condition K′ ∩ F̄_q = F_q takes their place and is forced by choosing two places of coprime residue degree; the auxiliary variety is the isomorphism scheme Z_{ψ,φ} = Isom_{Y_K,H}(X_φ, X_ψ) of two H-torsors on a curve, whose geometric connectedness (Lemma 9.1) comes from the surjectivity of ψ on the geometric fundamental group via [SGA1, V.6.9]; local points exist at almost all places by spreading out and the Weil bounds; and the two inputs quoted from Moret-Bailly are [MB89, Théorème 1.3] for the S-split extension carrying a rational point (Proposition 9.2) and [MB90] for global fields with prescribed local Galois behaviour (Theorem 9.3, quoted without proof). Remark 9.4 points to Gan–Lomelí [GLa] for an automorphic analogue of Theorem 9.3, which R23.1 may want to record as a consumer."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E1",
+      "kind": "misprint",
+      "locator": "Lemma 9.1(i), p. 51 (arXiv v2)",
+      "printed": "\"Suppose that ψ is surjective, even after restriction to π_1(Y_{F̄_q}, η_Y). Then Z_{ψ,φ} is a geometrically connected finite étale K-scheme.\"",
+      "correction": "a geometrically connected finite étale **Y_K**-scheme.",
+      "reason": "Z_{ψ,φ} is defined on p. 50 as Isom_{Y_K,H}(X_φ, X_ψ), the scheme of isomorphisms of two H-torsors over the curve Y_K, so it is finite étale over Y_K, not over K. The distinction is not cosmetic: the proof of Proposition 9.2 uses the lemma in the form \"By the first part of Lemma 9.1, Z_{ψ,φ} is a smooth, geometrically connected curve over K\", and a finite étale K-scheme has relative dimension 0 over K, so it could carry no such family of local points.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E2",
+      "kind": "misprint",
+      "locator": "§8.4, hypothesis (ii), p. 45 (arXiv v2)",
+      "printed": "\"(ii) The subgroup Z_{Ĝ^{ad}}(σ̄_m(Γ_K)) of Ĝ_k is scheme-theoretically trivial.\"",
+      "correction": "of Ĝ^{ad}_k.",
+      "reason": "A centralizer formed in Ĝ^{ad} is a subgroup scheme of Ĝ^{ad}_k. The paper's own paraphrases confirm the intended reading: \"our assumption on the centralizer of the image of σ̄_m in the group Ĝ^{ad}\" (p. 46), and Theorem 4.10, which this hypothesis is designed to feed, says \"the centralizer of ρ̄ in Ĝ^{ad}_k is scheme-theoretically trivial\".",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E3",
+      "kind": "misprint",
+      "locator": "§8.4, p. 47 (arXiv v2)",
+      "printed": "\"According to Lemma 5.15, the ring R_{σ̄_m,Q} then has a canonical structure of O[Δ_Q]-algebra. We will write a_Q ⊂ O[Δ_Q] for the augmentation ideal; the same lemma shows that there is a canonical isomorphism R_{σ̄_m,Q}/(a_Q) ≅ R_{σ̄_m,∅}.\"",
+      "correction": "According to Lemma 5.17.",
+      "reason": "Lemma 5.15 (p. 21) is the statement that the universal deformation is diagonal at a Taylor–Wiles place — the unique torus T̃_v and the finite l-power order of the inertial character. The two assertions attributed here, the O[Δ_Q]-algebra structure and R_{ρ̄,S∪Q} ⊗_{O[Δ_Q]} O ≅ R_{ρ̄,S}, are exactly the content of **Lemma 5.17**.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E4",
+      "kind": "misprint",
+      "locator": "§8.4, p. 47 (arXiv v2), twice in one sentence",
+      "printed": "\"we assume in §7 that if v ∈ Q, then the stabilizer in the Weyl group of the regular semisimple element ρ_m(Frob_v) ∈ Ĝ(k) is trivial; this is equivalent to the condition that the centralizer in Ĝ_k of ρ_m(Frob_v) is connected\"",
+      "correction": "σ̄_m(Frob_v) in both places.",
+      "reason": "No object ρ_m is defined anywhere in the paper; §8.4 works throughout with the residual representation σ̄_m attached to a maximal ideal m of the excursion algebra by Corollary 8.11, and the Taylor–Wiles datum in question is the one for σ̄_m in the sense of Definition 5.16.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E5",
+      "kind": "misprint",
+      "locator": "Lemma 8.15, p. 43 (arXiv v2)",
+      "printed": "\"Let t ∈ H(G(A_K^S), U^S) ⊗_Z C be an operator such that for any character χ : Z_M(K)\\Z_M(A_K) → C^×, t·A_0(N(A_K)M(K)\\G(A_K))^U_χ = 0. Then t·C_c(G(K)\\G(A_K))^U ⊂ A_0(G(K)\\G(A_K))^U.\"",
+      "correction": "\"… such that **for every proper standard parabolic subgroup P = MN of G** and for any character χ …\".",
+      "reason": "The letters M and N are not introduced in the statement — the last parabolic fixed before it, on p. 42, is a single one — yet the proof begins \"We therefore need show that for each proper standard parabolic P = MN of G\", and the application in Lemma 8.16 supplies the vanishing for every proper P. As stated the hypothesis is about one unspecified parabolic and the conclusion does not follow.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 8.16, p. 44 (arXiv v2)",
+      "printed": "\"If P = MN is a standard parabolic subgroup of G, let I_P denote the set of all irreducible constituents of A_0(N(A_K)M(K)\\G(A_K))_χ with non-zero U-invariants, as χ ranges over X_P.\"",
+      "correction": "irreducible constituents of A_0(M(K)\\M(A_K))_χ, i.e. cuspidal automorphic representations of M(A_K).",
+      "reason": "Proposition 8.12, which this paragraph invokes (\"We are now in the situation of Proposition 8.12\"), requires I_P to consist of irreducible admissible C[M(A_K)]-modules π_i with (i^G_Pπ_i)^U ≠ 0; the next sentence induces them, i^{G(A_K)}_{P(A_K)}(π ⊗ ψ) for π ∈ I_P, which is meaningless for constituents of a space of functions on G(A_K). A_0(N(A_K)M(K)\\G(A_K)) is a G(A_K)-module, and by [MW95, I.2.17] it is already the induction of A_0(M(K)\\M(A_K)).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E7",
+      "kind": "misprint",
+      "locator": "Proof of Corollary 8.21, pp. 46–47, against the definition on p. 48 (arXiv v2)",
+      "printed": "\"… therefore defines an element of Hom_O(C_{cusp}(U, O)_m, O) = H^*_0, say.\" and \"By Theorem 8.20, both H_0 and H^*_0 are free B(U, O)_m-modules … Since f ∈ H_0[p]\"; but p. 48 sets \"H_0 = Hom_O(H′_0, O)\" with H′_0 = C_{cusp}(U, O)_m.",
+      "correction": "On pp. 46–47 read H′_0 = C_{cusp}(U, O)_m and H_0 = Hom_O(H′_0, O), as on p. 48.",
+      "reason": "In the proof of Corollary 8.21 the symbol H_0 denotes the space of cusp forms itself (it contains the cusp form f) and H^*_0 its O-dual, which is the opposite of the definition given later in the proof of Theorem 8.20; moreover the notation is used on pp. 46–47 before it is introduced on p. 48.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E8",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.19, p. 23 (arXiv v2)",
+      "printed": "\"we obtain h^1(Γ_{K,S∪Q}, ĝ_k) = r#Q = h^1(Γ_{K,S∪Q}, ĝ_k) + (r − 1)#Q, hence the third point in the statement of the proposition.\"",
+      "correction": "the second occurrence should be h^1(Γ_{K,S}, ĝ_k).",
+      "reason": "As printed the identity forces (r − 1)#Q = 0, which is false for r > 1. The intended chain uses the equalities just established, h^1(Γ_{K,S}, ĝ_k) = h^1(Γ_{K,S}, ĝ^∨_k(1)) = #Q, and it is what produces the generator count g = h^1(Γ_{K,S}, ĝ_k) + (r − 1)#Q of part (iii) — the number that makes dim R_∞ = dim S_∞ in the patching argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E9",
+      "kind": "misprint",
+      "locator": "Proposition 5.19, p. 23, and its proof, p. 24 (arXiv v2)",
+      "printed": "\"and that for each v ∈ S, the group H^0(K_v, g^∨_k(1)) is trivial\" (no hat on the Lie algebra), and \"the element Res_{L_N}[φ] determines a non-zero, Γ_{K_N}-equivariant homomorphism f : Γ_{L_N} → ĝ^∨_k(1)\"",
+      "correction": "H^0(K_v, ĝ^∨_k(1)); and Res_{L_N}[ψ].",
+      "reason": "The coefficient module throughout §5 is the dual of the Lie algebra of the **dual** group, written ĝ^∨_k everywhere else in the same proposition; g is the Lie algebra of the automorphic group G, which plays no role in §5. In the proof the cohomology class fixed at the start of the induction is [ψ], used two lines later as ψ(σ_0) and ψ(τσ_0) = f(τ) + ψ(σ_0); no class φ is introduced (the only φ in §5.3 are the inner isomorphisms φ_v and the Frobenius lift).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E10",
+      "kind": "misprint",
+      "locator": "§§5–6, pp. 21, 25, 26, 32 (arXiv v2): four hat- and index-slips",
+      "printed": "(a) p. 21: \"This is the same argument we have already applied in the case G = SL_n in the proof of Theorem 5.13\"; (b) p. 25: \"Let W denote the Weyl group of G, let Λ = ZΦ(H,T) ⊂ X^*(T)\"; (c) p. 26: \"we have a tautological isomorphism j_0 : Ĝ_{Q̄_λ} ≅ G_{λ_0}\"; (d) p. 32: \"conjugating ρ_{U_0} by an element of Ĝ(R_U) with trivial image in Ĝ(k), that ρ_{U_0}|_{W_K} = ιχ^∨ for some character χ^∨ : W_K → T̂(R_U)\"",
+      "correction": "(a) Ĝ = SL_n, the hypothesis of Theorem 5.13; (b) the Weyl group of H; (c) j_0 : Ĝ_{Q̄_{λ_0}} ≅ G_{λ_0}; (d) Ĝ(R_{U_0}) and T̂(R_{U_0}).",
+      "reason": "(a) G is the automorphic group over F_q and plays no role in §5. (b) The whole paragraph works with the reductive group H over an algebraically closed field of characteristic zero — Φ(H,T), H⫽H ≅ T/W, the Dynkin diagram of H. (c) G_{λ_0} is the Zariski closure of the image of α_{λ_0} = R∘ρ inside GL(V)(Q̄_{λ_0}), and φ_{λ_0}∘j_0 is formed three lines later, so the source must be Ĝ over Q̄_{λ_0}. (d) ρ_{U_0} is valued in Ĝ(R_{U_0}), of which R_U is a quotient; the parallel statement in Proposition 7.9 correctly writes Ĝ(R_{U_1}) and T(K) → R^×_{U_1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E11",
+      "kind": "misprint",
+      "locator": "§§2–4, pp. 15, 16, 17 (arXiv v2): four hat- and index-slips in the proofs of Theorems 4.5, 4.8 and Proposition 4.7",
+      "printed": "(a) p. 15: \"Since QN_P is a parabolic subgroup of G, we obtain n(δ) = N ≤ dim QN_P\"; (b) p. 15: \"We claim that there exist g, g′ ∈ G(k) such that (g_1, …, g_n, g, g′) is Ĝ(k)-conjugate to T(δ_1, …, δ_n, γ, γ′)\"; (c) p. 15: \"for any m ≥ 1, γ = (γ_1, …, γ_m) ∈ Γ^m, and f ∈ Z[Ĝ^n]^Ĝ, we have the formula f(ρ(γ_1), …, ρ(γ_m)) = Θ_m(f)(γ)\"; (d) p. 16: \"ρ(γ) is the unique element g ∈ Ĝ(k) such that (g_1, …, g_n, g) has a closed orbit in Ĝ(k)\"; (e) p. 17: \"Let Ĝ(E)^0 denote the subgroup of elements g ∈ G(E) such that for all χ ∈ X^*(Ĝ), χ(g) ∈ O_E^×\"",
+      "correction": "(a) a parabolic subgroup of Ĝ_k; (b) g, g′ ∈ Ĝ(k); (c) f ∈ Z[Ĝ^m]^Ĝ; (d) a closed orbit in Ĝ^{n+1}_k; (e) g ∈ Ĝ(E).",
+      "reason": "Throughout §4 the ambient group is Ĝ over Z and no group G is in play, so the unhatted G of (a), (b) and (e) is undefined; in (b) the elements are conjugated inside Ĝ(k) in the very same sentence, and in (e) Ĝ(E)^0 is being defined as a subgroup of Ĝ(E). In (c) the tuple and Θ_m are indexed by m, so f must be an invariant function of m variables for both sides to be defined; n is an unrelated integer fixed earlier in the proof. In (d) the tuple has n + 1 entries and the relevant orbit, throughout §§3–4, is the diagonal conjugation orbit in Ĝ^{n+1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E12",
+      "kind": "misprint",
+      "locator": "§§2–3, pp. 5, 10, 11, 12, 13 (arXiv v2): five slips with mathematical content",
+      "printed": "(a) p. 5: \"We write Art_{K_v} : K^× → Γ^{ab}_{K_v} for the Artin map of local class field theory\"; (b) p. 10: \"self-dual as a representation of G (because there exists a non-degenerate G-invariant symmetric bilinear form on G; see for example [SS70, Lemma I.5.3])\"; (c) p. 11: \"let f(T) = T^n + a_1T^{n−1} + ⋯ + a_n ∈ K[X] denote the characteristic polynomial of multiplication by a\"; (d) p. 12: \"S is an integral locally closed subscheme of X, smooth over O, such that O_{S,x}/(λ) = O_{S_0,x}\"; (e) p. 13: \"Indeed, G_k·φ(x) is closed inside X, by hypothesis, and η is finite, so η^{-1}(G_k·φ(x)) is a closed subset of X′_k\"",
+      "correction": "(a) Art_{K_v} : K_v^× → Γ^{ab}_{K_v}; (b) a symmetric bilinear form on 𝔤; (c) ∈ K[T]; (d) O_{S,x}/(̟) = O_{S_0,x}; (e) G_k·x, twice.",
+      "reason": "(a) The local Artin map has the local multiplicative group as its source; K^× is the global one. (b) The assertion being justified is that the **Lie algebra** 𝔤 is self-dual as a G-representation, which needs an invariant form on 𝔤; [SS70, Lemma I.5.3] is about the Lie algebra. (c) The polynomial is in the variable T over K, whereas K[X] would be functions on the scheme X being acted on. (d) One divides by the uniformizer ̟ of O fixed in §2 to pass to the special fibre; λ is never introduced as an element of O and denotes a cocharacter in Proposition 3.6. (e) Here φ : G × S → X and x ∈ X(k), so φ(x) is not defined; the hypothesis of Proposition 3.13 is that G_k·x is closed, and the point of G × S in play is (1, x), as the last line of the same proof writes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E13",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 10.2, p. 54 (arXiv v2)",
+      "printed": "\"It now follows from the facts that t̂^{ẇ}_k = 0 and that dim_k ĝ_k ≥ r that dim_k ĝ^{ẇ}_k = #R = r\"",
+      "correction": "dim_k ĝ^{ẇ}_k ≥ r.",
+      "reason": "As printed the middle clause is vacuous, since dim ĝ_k ≥ r holds for any reductive group of rank r and gives no information about the ẇ-invariants. The fact being used is that the invariants of a lift of a Coxeter element have dimension at least the rank, which with the free action of ẇ on the roots forces equality and hence regularity of ẇ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E14",
+      "kind": "misprint",
+      "locator": "Proposition 11.2 and its proof, pp. 59–60 (arXiv v2)",
+      "printed": "(a) \"Proposition 11.2. Let η : G → H denote the adjoint group of G, and let l ∤ q be a prime.\"; (b) \"Taking K-points in the diagram (11.1) and applying Theorem 90 leads to a commutative diagram\"; (c) \"P : Y^* → Hom(Γ_{K,∅}, ker(Z_Ĥ(Q̄_l) → Z_Ĝ(Q̄_l)).\"",
+      "correction": "(a) \"let H denote the adjoint group of G and η : G → H the canonical isogeny\", as the proof of Theorem 11.1 puts it one paragraph earlier; (b) Hilbert's Theorem 90; (c) one closing parenthesis is missing.",
+      "reason": "(a) η is a morphism, not a group. (b) There is no \"Theorem 90\" in the paper; the intended reference is Hilbert's Theorem 90, which is what makes the top row of the displayed diagram end in 1 (H^1(K, T_G) = 1 for a split torus). (c) Four opening delimiters against three closing ones.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E15",
+      "kind": "misprint",
+      "locator": "Theorem 11.8, p. 65 (arXiv v2)",
+      "printed": "\"Suppose given a Ĝ-compatible system (∅, (ρ_λ : Γ_K → Ĝ(Q̄_λ))_λ) … Then there exists a finite extension K′/K and a globally generic, everywhere unramified, cuspidal automorphic representation Π of G(A_{K′}) over Q̄ such that ρ|Γ_{K′} and Π are matched everywhere locally\"",
+      "correction": "ρ_λ|Γ_{K′}, for each prime-to-q place λ of Q̄.",
+      "reason": "The hypothesis introduces only the compatible system (ρ_λ)_λ; no single representation ρ is given. Theorem 11.4, the statement this one varies, correctly quantifies over λ: \"for every place v of K′, and for each prime-to-q place λ of Q̄, ρ_λ|_{W_{K′_v}} and Π_v are matched\".",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    },
+    {
+      "id": "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19/E16",
+      "kind": "misprint",
+      "locator": "Conjecture 11.6, p. 64, and a group of typographical slips (arXiv v2)",
+      "printed": "(a) \"Conjecture 11.6. Let E/K be a cyclic extension of global fields, as above, and let ρ : Γ_K → Ĝ(Q̄_l) be …\"; (b) \"they correspond under the unramified local Langlands correspondenec.\"; (c) p. 56 \"up to Ĝ(k)-conjuation\"; (d) p. 58 \"Our goal in this section the following result\"; (e) p. 66 \"We can reduce, as in at the beginning of §11\"; (f) p. 46 \"in facts takes values in O\"; (g) p. 71 \"Whit ∘ Eis^G_T can calculated be calculated by\"; (h) p. 22 \"Q is a finite set of place K, disjoint from S\"; (i) p. 12 \"We let G act on G × S be left multiplication on G\"; (j) p. 16 \"Suppose that Γ a profinite group\"; (k) bibliography, [Ric88]: \"Duke Math. J., 1988\" with no volume or pages, unlike every other journal entry.",
+      "correction": "(a) delete \"as above\" or make it a reference to the cyclic layers of K′/K_0; (b) \"correspondence\"; (c) \"conjugation\"; (d) \"is the following result\"; (e) \"as at the beginning\"; (f) \"in fact takes values\"; (g) \"can be calculated by\"; (h) \"a finite set of places of K\"; (i) \"by left multiplication\"; (j) \"Suppose that Γ is a profinite group\"; (k) Duke Math. J. 57 (1988), 1–35.",
+      "reason": "\"as above\" in (a) has no antecedent: no extension E/K appears earlier in §11.1, whose fields are F, K, K′ and K_0, and the conjecture is applied on the next page to \"the abelian layers of this soluble extension\" K′/K_0. The rest are doubled or dropped words and a truncated bibliography entry.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1609.03491v2 (29 August 2019), the last arXiv version, dated 30 August 2019 in its header and contemporaneous with publication in Acta Math. 223 (2019), 1–111; every reading below was checked in the extracted text layer and, where sub- or superscripts and diacritics are involved, on a page image rendered at 200–450 dpi.",
+        "The published version could not be consulted (Acta Mathematica is not open access and no copy was reachable), so the items may have been corrected in production; Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for DOI 10.4310/acta.2019.v223.n1.a1.",
+        "The companion and sequel literature ([GLb] = arXiv:1709.00978, and the papers citing this one) lists no errata for it."
+      ]
+    }
+  ]
+}
