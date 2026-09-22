@@ -5982,6 +5982,96 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-GAN-ICHINO-18/E1",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.2, pp. 988–989 in the published version (arXiv v3 p. 19); the text is the same in both",
+   "printed": "“On the other hand, as in the proof of [24, Th. 8.1], it follows from Kudla’s filtration (see, e.g., [24, Prop. 7.3]) and [24, Lemma 7.4], which continues to hold for s > −1/2, that there exists a surjection Ind_P̃^{Mp_2n}((τ^∨ ⊗ χ_ψ) ⊗ Θ_ψ(σ_0)) ↠ Θ_ψ(σ).”",
+   "correction": "Needed: a proof that Gan–Savin’s Lemma 7.4 (Compos. Math. 148 (2012)) holds for s > −1/2, or another proof of the surjection. The statement of Lemma 5.2 for p-adic F does not depend on this proof: the paper attributes that case to Atobe (Math. Ann. 371 (2018), Th. 3.13) and includes its own proof only ‘for the convenience of the reader’.",
+   "reason": "The words ‘which continues to hold for s > −1/2’ extend a cited lemma, and no argument is given for the extension. Gan–Savin’s paper was not read, so it was not checked how far this goes beyond what they prove.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E2",
+   "kind": "gap",
+   "locator": "Proof of Lemma 6.3, p. 992 in the published version (arXiv v3 p. 21)",
+   "printed": "“Hence it follows from the induction principle [42], [2, Cor. 3.21], [3, Th. 8.4], which easily extends to the case at hand, that there exists a nonzero equivariant map ω_ψ → Ind_P̃^{Mp_2n}(τ̃_ψ ⊗ π_{η_0}) ⊗ Ind_{Q′}^{SO_2r+1}(τ ⊗ σ_{η′_0}).”",
+   "correction": "Needed: the induction principle for the pair (Mp_2n, SO_2r+1) in the stable range, where σ_{η′_0} is an irreducible, possibly non-tempered, member of an A-packet of SO_2r−2k+1, over every local field of characteristic zero, with a proof. The cited results are Kudla’s for p-adic dual pairs and Adams–Barbasch’s for complex dual pairs and for the real metaplectic group.",
+   "reason": "The extension to the case at hand is asserted, not proved. Lemma 6.3 carries Propositions 5.4 and 6.1 from good parameters to non-good ones, and Lemma 6.4 uses the non-good case, so the gap lies inside the proof of Theorem 1.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E3",
+   "kind": "gap",
+   "locator": "Proof of Proposition A.2, p. 1005 in the published version (arXiv v3 p. 32)",
+   "printed": "“On the other hand, it follows from the analog of [36, Lemma A.2] for Mp_2n that π_S is isolated in Irr_{unit,ψ_S-gen,≤c} G_S with respect to the Fell topology.”",
+   "correction": "Needed: the Mp_2n(F_S) analogue of Ichino–Lapid–Mao’s Lemma A.2 (Duke Math. J. 166 (2017)), with a proof: a square-integrable ψ_S-generic π_S is isolated, in the Fell topology, among the irreducible genuine ψ_S-generic unitary representations whose exponents are bounded by c < 1/2.",
+   "reason": "The analogue for the metaplectic group is invoked without an argument. Ichino–Lapid–Mao’s lemma was not read. Without this step, the weak containment does not identify π_S with some Π_{i,S}. Proposition A.2 feeds, through Propositions A.1 and 6.5 and Corollary 6.7, into Lemmas 6.8–6.12, the good-parameter case of Proposition 6.1 and so Theorem 1.4.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E4",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.1, p. 979, and reference [44], p. 1012, in the published version; arXiv v3 (p. 12 and reference [44]) is correct",
+   "printed": "“Then, as explained in [44, p. 205], π is a subrepresentation of Ind_{P̃(A)}^{Mp_2n(A)}(ρ)”, with “[44] R. P. Langlands, Automorphic representations, Shimura varieties, and motives. Ein Märchen, in Automorphic Forms, Representations and L-Functions, Part 2 (Proc. Sympos. Pure Math., Oregon State Univ., Corvallis, Ore., 1977), Proc. Sympos. Pure Math. XXXIII, Amer. Math. Soc., Providence, RI, 1979, pp. 205–246. MR 0546619. Zbl 0447.12009.”",
+   "correction": "[44] should be R. P. Langlands, On the notion of an automorphic representation. A supplement to the preceding paper, in Automorphic Forms, Representations and L-Functions, Part 1, Proc. Sympos. Pure Math. XXXIII, Amer. Math. Soc., 1979, pp. 203–207 (https://doi.org/10.1090/pspum/033.1/9811), as in arXiv v3.",
+   "reason": "arXiv v3, dated 3 August 2018 like the final revision, lists ‘On the notion of an automorphic representation’ as [44]. The published list has no entry for that note. Its [44] is the Märchen, with the Märchen’s MR and Zbl numbers, so the entry was replaced when those numbers were added in copyediting. Every other entry matches v3 after renumbering, and the renumbered citations in the text are consistent. The cited page 205 lies in the note’s range (pp. 203–207); the Märchen begins on p. 205 and is about Shimura varieties and motives. Crossref records confirm both page ranges. The note itself could not be fetched, so its p. 205 was not read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1705.10106: v1 (29 May 2017) and v3 (3 August 2018), both read; v3 compared word by word with the published text",
+    "The published version, Ann. of Math. 188 (2018), 965–1016, from the Annals site, and its article page (no erratum or correction listed)",
+    "Crossref search for errata or corrigenda to the paper (none found)",
+    "Later work: Ishimoto, IMRN 2024 (arXiv:2301.12143v2), introduction and main theorem",
+    "Crossref records 10.1090/pspum/033.1/9811 and 10.1090/pspum/033.2/546619",
+    "The reference lists of arXiv v3 and the published version, matched entry by entry"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-GAO-GE-KUHNE-26/E1",
    "kind": "misprint",
    "locator": "Theorem 1.3, p.192 of the published version",
@@ -8370,6 +8460,29 @@
    "searched": [
     "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
     "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
+   ],
+   "owner": "PAPER-LI-LIU-22",
+   "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
+   "citation": "Chao Li–Yifeng Liu, \"Chow groups and L-derivatives of automorphic motives for unitary groups, II\", Forum of Mathematics, Pi (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-LIU-22/E4",
+   "kind": "gap",
+   "locator": "Proposition 4.27(2) and its proof, p.64",
+   "printed": "\"Part (2) is proved in the same way as [LL21, Proposition 9.1].\"",
+   "correction": "Proposition 4.27(2), and with it Theorems 1.4 and 1.5 and Corollary 1.7 whenever S_π ≠ ∅, should carry Li–Zhang Conjecture 10.4.1 as a hypothesis or cite a proof of it (Li–Rapoport–Zhang, arXiv:2404.02214, Theorem 14.6.2).",
+   "reason": "[LL21, Proposition 9.1] computes the local index at an almost self-dual inert place by [LZ, Theorem 10.5.1 & Remark 10.5.4]. Li–Zhang state that Theorem 10.5.1 \"is conditional on Conjecture 10.4.1\", in arXiv v3 and in their final version. This is recorded as PAPER-LI-LIU-21/E3. Proposition 4.27(2) inherits the dependence. It is not needed when S_π = ∅, which is the case of Remark 4.32. Li–Rapoport–Zhang (2024) prove the structure result that Li–Zhang Conjecture 10.4.1 asserts, which should close the gap; that it covers every part used was not checked line by line.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read",
+    "Li–Zhang, arXiv 1908.01701v3 §§10.4–10.5 and the authors' final version (Chao Li's homepage, KRProof.pdf) §§10.4–10.5",
+    "Li–Rapoport–Zhang, arXiv:2404.02214v2, Theorem 14.6.2",
+    "PAPER-LI-LIU-21/E3 (Li–Liu 2021, Proposition 9.1)"
    ],
    "owner": "PAPER-LI-LIU-22",
    "file": "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
