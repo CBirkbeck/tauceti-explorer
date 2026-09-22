@@ -7767,8 +7767,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1466"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1466",
+   "finishedAt": "2026-09-22T21:20:41Z"
   },
   {
    "id": "REV-PAPER-ESNAULT-GROECHENIG-20",
