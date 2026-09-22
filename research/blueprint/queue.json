@@ -6990,8 +6990,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1428",
+   "finishedAt": "2026-09-22T15:51:34Z"
   },
   {
    "id": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
