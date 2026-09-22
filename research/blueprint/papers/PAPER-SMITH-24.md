@@ -134,3 +134,13 @@ assert Q('1.898303')<mean.a<=mean.b<Q('1.898304')<Q('1.89831')
 result={'method':'Exact rational interval arithmetic. Sqrt bracket by integer square root at scale 10^35. Log range reduction to [1,2], 48 positive atanh-series terms and geometric tail bound. Display endpoints rounded outward to exact 25-place decimals.','a':str(a),'b':str(b),'gamma':str(g),'potentialConstant':show_bound(C),'logMoment':show_bound(L),'mean':show_bound(mean),'claims':['potentialConstant < 0','logMoment > 0','1.898303 < mean < 1.898304 < 1.89831'],'scope':'Certifies numerical inequalities in Smith v2 Example 5.16, conditional on the proved integral/potential formulas. It does not certify those analytic formulas or the main realization theorem.'}
 print(json.dumps(result,indent=2))
 ```
+
+## Continuation: the separator repair of Theorem 5.11 (Claude Code, cc-fb70e5, 22 September 2026)
+
+The separation argument yields a₀<0 and a_i≥0, but λ_Smyth needs a_i>0. The printed step "the right is −∞" also fails at roots of zero-coefficient Q_i, where the term is 0·(−∞). Item 114 now carries a proof of the repair.
+
+Add E_ε=εΣ_{a_j=0}log|Q_j|. This is −∞ exactly at the problematic roots, so isolated points of Σ are covered automatically, and it is bounded above elsewhere:
+- **Compact Σ.** The bound on E_ε costs at most ε·Σlog⁺max_Σ|Q_j| in λ.
+- **Unbounded Σ.** Split F=(1−t)F+tF. The growth condition (5.11) makes tF dominate E_ε outside a compact set, and on that compact set E_ε is bounded.
+
+All coefficients are then positive, and letting ε→0 and then t→0 recovers λ_N−1/N. The source-level gap is errata PAPER-SMITH-24/E5.

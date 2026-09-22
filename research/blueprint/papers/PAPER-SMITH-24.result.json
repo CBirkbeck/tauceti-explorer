@@ -4317,7 +4317,7 @@
       "id": "PAPER-SMITH-24/114",
       "kind": "theorem",
       "name": "Positive-coefficient separator repair",
-      "statement": "The separating normal has a₀<0 and a_i≥0. To obtain 111 with all included a_i>0, perturb zero coefficients with an arbitrarily small loss in λ. On compact Σ use upper bounds for logs; on unbounded Σ use F/log coercivity and rescale. Treat isolated roots directly; do not evaluate 0·(−∞).",
+      "statement": "Let the separation in the proof of Theorem 5.11 give F(x)≥λ₀+Σ_{i≤N}a_i log|Q_i(x)| with λ₀=λ_N−1/N and a_i≥0, valid at every x∈Σ that is not a root of any Q_i with a_i=0. For every δ>0 there are λ′≥λ₀−δ and coefficients a′_i>0 for all i≤N such that F(x)≥λ′+Σ_{i≤N}a′_i log|Q_i(x)| for all x∈Σ, with right side −∞ at roots of the Q_i. Hence λ_Smyth(Σ,F)≥λ₀.",
       "locator": "Theorem 5.11 proof qualification, pp 39–40",
       "status": "missing",
       "library": [],
@@ -4326,11 +4326,15 @@
         "PAPER-SMITH-24/111",
         "PAPER-SMITH-24/113"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Let Z={j≤N : a_j=0}, and for ε>0 put E_ε(x)=εΣ_{j∈Z}log|Q_j(x)|. At a root of some Q_j with j∈Z, E_ε(x)=−∞, so any inequality with E_ε added on the right holds there. Isolated points of Σ need no separate treatment, and 0·(−∞) never occurs.",
+        "Compact Σ: E_ε(x)≤εC with C=Σ_{j∈Z}log⁺max_Σ|Q_j|. Take a′_i=a_i for i∉Z, a′_j=ε for j∈Z, and λ′=λ₀−εC. Off the roots of the Q_j (j∈Z) the old inequality holds and the added term is at most εC, so F≥λ′+Σa′_i log|Q_i| on all of Σ. Let ε→0.",
+        "Unbounded Σ, using (5.11), F(x)/log|x|→+∞: for t∈(0,1) write F=(1−t)F+tF. Off the roots of the Q_j (j∈Z), (1−t)F≥(1−t)λ₀+Σ(1−t)a_i log|Q_i|. Since log|Q_j(x)|≤deg(Q_j)log(1+|x|)+log‖Q_j‖₁, the growth of F gives R_t with tF(x)≥E_ε(x) for |x|≥R_t and every ε≤1. On the compact set Σ∩[−R_t,R_t], tF(x)−E_ε(x)≥t·min_ΣF−εC_t, where C_t bounds Σ_{j∈Z}log⁺|Q_j| there.",
+        "Hence F≥λ′+Σ_{i∉Z}(1−t)a_i log|Q_i|+E_ε on Σ, with λ′=(1−t)λ₀+min(0,t·min_ΣF−εC_t). All coefficients (1−t)a_i and ε are positive. Letting ε→0 and then t→0 gives λ′→λ₀, so λ_Smyth(Σ,F)≥λ₀, as the proof of Theorem 5.11 requires."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Proof supplied in the continuation of Claude Code (cc-fb70e5, 22 September 2026). It repairs the printed step \"the right is −∞\", which fails at roots of zero-coefficient Q_i, and the missing positivity of the a_i. The source-level gap is recorded as research/blueprint/errata/PAPER-SMITH-24.json, E5. Uses only (5.11) and upper bounds for log|Q_j|. The positive-auxiliary-coefficient part of G5 is closed for this item; the version gate G7 remains.",
       "sourceGates": [
-        "G5",
         "G7"
       ]
     },
@@ -7109,6 +7113,14 @@
       "G5 positive separator coefficients, polar singleton exhaustion and support theorem",
       "G6 Honda–Tate, isomorphism finiteness and geometric-simplicity congruences"
     ],
-    "preserveIds": true
+    "preserveIds": true,
+    "sessions": [
+      {
+        "agent": "Claude Code",
+        "session": "cc-fb70e5",
+        "date": "2026-09-22",
+        "work": "Supplied the proof of item 114 (positive-coefficient separator repair, compact and unbounded Σ), closing that part of G5."
+      }
+    ]
   }
 }
