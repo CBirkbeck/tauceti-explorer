@@ -1,3 +1,187 @@
+# Smith: current partial checkpoint
+
+Codex — `codex-a71f92`, issue #1081. The following continuation is current; earlier reports are retained verbatim below as historical provenance.
+
+## Continuation: closing the trial-measure formula gap (Codex, codex-a71f92, 22 September 2026)
+
+This continuation supplies written proofs of the specific G8 formulas. It does not close G1–G7, general equilibrium/capacity theory, or the realization theorem, and it is not Lean formalization. All 146 earlier item IDs, statuses and statements are preserved, including the cc-fb70e5 separator repair. The current inventory is **155 items: 14 library, 2 planned, 139 missing**; four routes take every missing item exactly once. The 47 definitions/constructions retain their 141 proposed APIs and 141 proposed tests. The nine additions are theorems, not duplicate carriers.
+
+### Fresh evidence and exact import boundary
+
+I reread all 47 pages of [Smith v2](https://arxiv.org/pdf/2111.12660v2), with the same SHA-256 recorded above. I also read Serre's Appendix B in Aguirre–Peral, *The trace problem for totally positive algebraic integers*, printed pp14–18 and references pp18–19, in the [publisher-distributed preview](https://api.pageplace.de/preview/DT0400.9780511894121_A23680461/preview-9780511894121_A23680461.pdf), SHA-256 `a30183254a0583dd5d6c3357795e79014dd59ffb92e51cc0af0a41e22d8aed38`. Its formulas (8), (10)–(12) concern the required interval integrals. Its numerical maximization is not used as a proved optimization theorem here; other chapters were not read.
+
+The official Annals Full Article link redirects via DOI to Project Euclid. The landing page and PDF endpoint both returned 1,161-byte HTML responses rather than the published PDF. G7 therefore remains open; no preprint/final agreement is inferred.
+
+At the unchanged library pins, the full file `Mathlib/Analysis/SpecialFunctions/Integrals/PosLogEqCircleAverage.lean` supplies:
+
+- Item 147, `circleAverage_log_norm_sub_const_eq_posLog`: the unit-circle average of log|ζ−r| is log⁺|r|, including |r|=1.
+- Item 148, `circleIntegrable_log_norm_sub_const`: that logarithmic factor is integrable on every circle.
+
+I read the entire file, including the unit-norm/log-sine proof. Its SHA-256 is `9b1498f882e4819fb0863f068728d3a075f27ea2c80cea3d8f3a6b24fe6590be`. Item 149 imports `TauCeti.map_cos_chebyshevAngleMeasure` from `TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/Transfer.lean`, SHA-256 `5fb25b310e341e633b2a7820f750a593b37a165d1cf0edad2ff85184b08250cb`. Its angular-measure definition, complete pushforward proof and cosine/arccos measure-preserving wrappers were read. The reviewed Orthogonal L2 Bases Part C audit and its evidence agree that this transfer is built. None of these general suppliers is replanned. Scoped searches for arcsine/Joukowski names in both library trees found no named interval-potential adapter; that is a scoped search, not a proof of global absence.
+
+### G8-A: angular normalization and the endpoint-safe potential
+
+Fix a<b, c=(a+b)/2, d=(b−a)/2>0 and ℓ=b−a. Let ρ be item 68's affine pushforward of (1/π)measureT. Item 149 gives
+
+\[
+\int f\,d\rho=\frac1\pi\int_0^\pi f(c+d\cos\theta)\,d\theta
+=\frac1{2\pi}\int_0^{2\pi}f(c+d\cos\theta)\,d\theta.
+\]
+
+The second identity follows by reflecting the second half-circle. The adapter includes the corresponding integrability equivalence, not an assumption that f is continuous or bounded. On the open half-circle, |dt|=d sinθ dθ and √((t−a)(b−t))=d sinθ. Thus ρ has the claimed density, total mass one, no endpoint atoms and full support [a,b]. This is item 150; it only normalizes and transports the existing measure.
+
+For z∈C put w=(z−c)/d. The roots of T²−2wT+1 are r and r⁻¹, and one can choose |r|≥1 because their product is one. For |ζ|=1,
+
+\[
+z-c-\frac d2(\zeta+\zeta^{-1})
+=-\frac d2\zeta^{-1}(\zeta-r)(\zeta-r^{-1}).
+\]
+
+Take log absolute values away from the at most two exceptional angular points. Both logarithmic factors are integrable by item 148, including unit-norm roots. Using 147 and 150 gives
+
+\[
+-U_\rho(z)=\log(d/2)+\log^+|r|+\log^+|r^{-1}|
+=\log(\ell/4)+\log|r|.
+\]
+
+Hence Uρ(z)≤−log(ℓ/4). Equality is equivalent to |r|=1, equivalent to w=(r+conjugate(r))/2∈[−1,1], hence to z∈[a,b]. This includes a and b: their quadratic has a repeated unit root, and each log factor remains integrable. No continuous complex-square-root branch or unjustified boundary limit is used. This is item 151.
+
+Using `Real.log` inside the library integral is legitimate only after proving the exceptional set null. It does **not** replace the pointwise extended logarithm by `Real.log 0 = 0`. All external logarithms at zero below retain value −∞.
+
+For an interval J of length h, split [a,b] at c. On its left half the density is bounded by √(2/ℓ)/(π√(t−a)); on the right use √(2/ℓ)/(π√(b−t)). Integrating each half and using √v−√u≤√(v−u) gives
+
+\[
+\rho(J)\le \frac{4\sqrt{2/\ell}}\pi\sqrt h.
+\]
+
+The density-weighted measure (√ab/t)ρ for a>0 has the same bound multiplied by √ab/a. This is item 152. A ball of radius e⁻ˢ meets the real line in an interval of length at most 2e⁻ˢ, so the negative-log singularity has integrable layer-cake bound K√2∫₀∞e⁻ˢᐟ²ds. The positive log part is bounded on compact support. Thus the logarithmic potentials here are finite at every complex z; their linear combinations and factorizations involve actual finite integrals.
+
+For 0<a<b set s=√ab and A=a+2s+b. At z=0 choose r=−A/ℓ, whose modulus is >1. Item 151 now gives
+
+\[
+\int\log t\,d\rho(t)=\log(A/4).
+\]
+
+Also ∫t dρ=c since ∫₀πcosθ dθ=0. These are the elementary moment calculations in item 153. Identifying this probability as the minimizer of the general logarithmic energy, and deducing the abstract capacity formula, is still part of G1; the pointwise integral computation itself no longer requires that theorem.
+
+### G8-B: inversion, probability and the value at zero
+
+Let σ be arcsine probability on [1/b,1/a] and let ν be its inversion pushforward. For u=1/t,
+
+\[
+\sqrt{(1/a-u)(u-1/b)}
+=\frac{\sqrt{(t-a)(b-t)}}{\sqrt{ab}\,t},
+\qquad |du/dt|=t^{-2}.
+\]
+
+Consequently dν(t)=(√ab/t)dρ(t). In particular it is a probability, not merely a proportional density; inversion carries full support to [a,b]. This also proves ∫t dν=√ab and ∫t⁻¹dρ=1/√ab.
+
+For z≠0 the identity |z−u⁻¹|=|z||z⁻¹−u|/u gives, with all terms integrable,
+
+\[
+U_\nu(z)=-\log|z|-U_\sigma(0)+U_\sigma(z^{-1}).
+\]
+
+The reciprocal interval has length ℓ/(ab), and its value of A is A/(ab). Applying G8-A shows
+
+\[
+U_\nu(z)+\log|z|\le \log(A/\ell),
+\]
+
+with equality for z∈[a,b]. At z=0 evaluate directly:
+Uν(0)=∫log u dσ(u)=log(A/(4ab)). Thus the previous left side at zero is finite plus −∞. No continuity/limit interchange at zero is needed. Item 154 records the Jacobian and pullback; it supplies the proofs now attached to items 94 and 95.
+
+### G8-C: trial-measure formulas and a nonmonic arithmetic check
+
+For the exact γ∈(0,1) of item 119, put μ=γν+(1−γ)ρ. Probability, full support and finite potentials follow from G8-A/B. Their linear combinations give
+
+\[
+U_\mu(z)+\gamma\log|z|\le C=-\log(\ell/4)+\gamma\log(A/4),
+\]
+
+with equality on [a,b], together with
+
+\[
+L_\mu(X)=-\gamma\log(A/(4ab))+(1-\gamma)\log(A/4),
+\qquad
+\int t\,d\mu=\gamma\sqrt{ab}+(1-\gamma)(a+b)/2.
+\]
+
+These are items 120–122, now with proofs instead of an unresolved G8 formula import. The earlier exact-rational certificate was rerun unchanged: C<0, Lμ(X)>0 and mean<1.898304<1.89831.
+
+There is a useful direct check that these conditions cover nonmonic integer polynomials. If Q≠X is primitive irreducible of degree n, with leading coefficient c and nonzero constant coefficient q₀, its roots αj are nonzero. Factorization and the potential inequality yield
+
+\[
+L_\mu(Q)=\log|c|-\sum_jU_\mu(\alpha_j)
+\ge(1-\gamma)\log|c|+\gamma\log|q_0|-nC>0.
+\]
+
+Both |c| and |q₀| are at least one. Treat X using Lμ(X)>0, then multiply primitive irreducible factors with multiplicity and include integer content. Every nonconstant nonzero integer polynomial has strictly positive logarithmic integral; constants have nonnegative logarithmic integral. This is item 155. It proves the constraint certificate, not realization or the optimal trace constant. In particular, Serre's different numerical optimization problem is unnecessary for this conclusion.
+
+### Ownership, tests and resume boundary
+
+Items 150–154 go to the existing proposed PDELogarithmicPotentialPartII route (now 62 items); item 155 goes to NumberFieldConjugatesPartII (now 53). The GN and abelian routes remain at 15 and 11, including the two planned GN imports. The new library imports receive no missing-work route.
+
+Discriminating acceptance cases are: mass one rather than π; [−1,1] endpoint potential log 2; [0,4] interval potential zero; [1,4] means 5/2 for ρ and 2 for ν; the reciprocal-interval logarithmic moment has the factor ab in its denominator; zero is allowed as an evaluation point, but not as the lower endpoint for inversion; and nonmonic Q=2X+1 must retain its leading-coefficient contribution. The numerical diagnostics below are not analytic proofs; the derivations above are the mathematical justification.
+
+G8 is marked **paper-proof-supplied**, not formally implemented. G7 and all unrelated G1–G6 work remain open. The general equilibrium identification, full realization chain, weighted zero distribution, transference, protected-root gaps and Honda–Tate applications have not been upgraded. No self-review verdict or correction to the separate errata files is introduced. Preserve the historical text below as provenance; its earlier statement that G8 is unproved is superseded only by this continuation.
+
+
+### Continuation validation and exact regression reproducer
+
+The unchanged rational interval certificate below passes with identical bounds. In addition, the following standard-library script passes **3,205 exact rational assertions**. These finite tests target algebraic factors and Jacobians, not the all-parameter analytic theorem. Structural validation passed: all 155 item dependencies form a DAG with known endpoints; all 146 prior IDs/kinds/statuses/statements are preserved; all 139 missing items have exactly one route; API/test counts are unchanged; all 23 pinned declaration file hashes match. The paper checker and three-file intake check also passed.
+
+```python
+from fractions import Fraction as F
+from itertools import product
+
+checks = 0
+def check(x):
+    global checks
+    assert x
+    checks += 1
+def add(z,w): return (z[0]+w[0],z[1]+w[1])
+def neg(z): return (-z[0],-z[1])
+def sub(z,w): return add(z,neg(w))
+def mul(z,w): return (z[0]*w[0]-z[1]*w[1],z[0]*w[1]+z[1]*w[0])
+def scale(s,z): return (s*z[0],s*z[1])
+def norm2(z): return z[0]**2+z[1]**2
+def inv(z):
+    n=norm2(z)
+    assert n
+    return (z[0]/n,-z[1]/n)
+roots=[(F(x),F(y)) for x,y in [(1,0),(-1,0),(0,1),(2,1),(F(1,2),0),(2,-3)]]
+for a,ell,r,u in product(map(F,[-3,-1,0,F(1,2),1,2]),
+                         map(F,[F(1,3),1,4,8]),roots,map(F,[0,F(1,3),1,2,-2])):
+    b=a+ell;c=(a+b)/2;d=ell/2
+    zeta=((1-u*u)/(1+u*u),2*u/(1+u*u))
+    check(norm2(zeta)==1)
+    w=scale(F(1,2),add(r,inv(r)))
+    z=add((c,F(0)),scale(d,w))
+    lhs=sub(sub(z,(c,F(0))),scale(d/2,add(zeta,inv(zeta))))
+    rhs=scale(-d/2,mul(inv(zeta),mul(sub(zeta,r),sub(zeta,inv(r)))))
+    check(lhs==rhs)
+    check(norm2(lhs)==(d/2)**2*norm2(sub(zeta,r))*norm2(sub(zeta,inv(r))))
+    check(mul(r,inv(r))==(1,0))
+for a,ell,v in product(map(F,[F(1,100),F(1,2),1,3]),
+                       map(F,[F(1,3),1,4,20]),map(F,[F(1,20),F(1,3),F(1,2),F(9,10)])):
+    b=a+ell;t=a+v*ell;u=1/t
+    check((1/a-u)*(u-1/b)==(t-a)*(b-t)/(a*b*t*t))
+    check((1/t**4)/((1/a-u)*(u-1/b)) == (a*b/t**2)/((t-a)*(b-t)))
+    # Squared norm identity for the singular logarithm pullback; avoid z=0.
+    for z in [(F(2),F(1)),(F(-1),F(0)),(F(1,3),F(2))]:
+        check(norm2(sub(z,(1/u,F(0))))==norm2(z)*norm2(sub(inv(z),(u,F(0))))/u**2)
+check((F(1)+4)/2==F(5,2))
+check(F(2)!=F(5,2))
+check(F(87353,10**6)>0)
+check(F(1102769,250000)-F(87353,10**6)>4)
+check(0<F(43097,200000)<1)
+print(f"PASS: {checks} exact rational assertions (finite algebra diagnostics, not integral proofs)")
+
+```
+
+## Historical checkpoints (preserved verbatim)
+
 # Smith: prescribed distributions of algebraic conjugates
 
 Codex, session `codex-c83e7a`; issue #1081. Status: **partial checkpoint**. The main preprint has been read completely, but the recursively used prerequisite proofs and the published-version comparison are not closed. Nothing in this extraction is claimed to be formalized.

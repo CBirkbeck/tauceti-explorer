@@ -3,7 +3,7 @@
   "protocol": "paper-v1",
   "status": "partial",
   "agent": "Codex",
-  "session": "codex-c83e7a",
+  "session": "codex-a71f92",
   "source": {
     "title": "Algebraic integers with conjugates in a prescribed distribution",
     "authors": "Alexander Smith",
@@ -23,7 +23,7 @@
     "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
     "accessed": "2026-09-22"
   },
-  "summary": "Smith characterizes prescribed real conjugate distributions by integer polynomial logarithmic constraints and proves λ_SSS<1.89831, with extreme finite-field point-count applications. This 146-item checkpoint separates existing library carriers, two planned successive-minimum contracts and owner-routed missing declarations; 47 carriers have 141 proposed API statements and 141 discriminating tests. It includes an exact rational numerical certificate and explicit source/version/proof gates. Recursive closure is incomplete.",
+  "summary": "Smith characterizes real conjugate distributions and proves a strict trace bound below 1.89831. This partial 155-item checkpoint preserves 146 earlier contracts, imports three pinned analytic suppliers and supplies six missing proof-sized adapters/certificates. The G8 trial-measure formulas now have written derivations, paired with a rerun exact rational certificate. General recursive source closure, final-version reconciliation and Lean formalization remain incomplete.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -188,6 +188,30 @@
         "statementRead": "structure AbelianVariety (K : Type u) [Field K] where\n  /-- The underlying group scheme over `Spec K`. -/\n  toOver : Over (Spec (.of K))\n  /-- The group-object structure on `toOver`. -/\n  grpObj : GrpObj toOver\n  /-- The structure morphism to `Spec K` is proper. -/\n  isProper : IsProper toOver.hom\n  /-- The structure morphism to `Spec K` is geometrically integral. -/\n  geometricallyIntegral : GeometricallyIntegral toOver.hom",
         "sha256": "3cd659fd8e36b15a5bda24900515d5a076602b51146d6c1fe9dbd6904accf402",
         "checked": "Statement and surrounding hypotheses read at the pinned commit."
+      },
+      {
+        "ref": "mathlib:circleAverage_log_norm_sub_const_eq_posLog",
+        "module": "Mathlib/Analysis/SpecialFunctions/Integrals/PosLogEqCircleAverage.lean",
+        "line": 181,
+        "statementRead": "theorem circleAverage_log_norm_sub_const_eq_posLog : circleAverage (log ‖· - a‖) 0 1 = log⁺ ‖a‖ := by",
+        "sha256": "9b1498f882e4819fb0863f068728d3a075f27ea2c80cea3d8f3a6b24fe6590be",
+        "checked": "Full file, all three norm regimes and hypotheses read fresh by codex-a71f92."
+      },
+      {
+        "ref": "mathlib:circleIntegrable_log_norm_sub_const",
+        "module": "Mathlib/Analysis/SpecialFunctions/Integrals/PosLogEqCircleAverage.lean",
+        "line": 37,
+        "statementRead": "lemma circleIntegrable_log_norm_sub_const (r : ℝ) : CircleIntegrable (log ‖· - a‖) c r := MeromorphicOn.circleIntegrable_log_norm (fun z hz ↦ by fun_prop)",
+        "sha256": "9b1498f882e4819fb0863f068728d3a075f27ea2c80cea3d8f3a6b24fe6590be",
+        "checked": "Full file and variable declarations read fresh by codex-a71f92."
+      },
+      {
+        "ref": "tauceti:TauCeti.map_cos_chebyshevAngleMeasure",
+        "module": "TauCeti/Analysis/SpecialFunctions/Trigonometric/Chebyshev/Cosine/Transfer.lean",
+        "line": 53,
+        "statementRead": "theorem map_cos_chebyshevAngleMeasure : Measure.map Real.cos chebyshevAngleMeasure = measureT := by",
+        "sha256": "5fb25b310e341e633b2a7820f750a593b37a165d1cf0edad2ff85184b08250cb",
+        "checked": "Definition of angular measure, complete pushforward proof and measure-preserving wrappers read fresh by codex-a71f92."
       }
     ],
     "qualifications": [
@@ -2687,11 +2711,16 @@
       "planned": [],
       "prerequisites": [
         "PAPER-SMITH-24/16",
-        "PAPER-SMITH-24/67"
+        "PAPER-SMITH-24/67",
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/152"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Use normalized affine angular integration (150) and reciprocal roots (151) for the stated pointwise potential, including endpoints. The half-Hölder estimate is 152. General energy minimization/equilibrium identification remains under G1."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "api": [
         {
           "name": "Smith.Arcsine.map",
@@ -2735,8 +2764,7 @@
       "apiStatus": "Proposed signatures and tests; existing carrier APIs are reused where available. No Lean implementation or execution of these tests is claimed.",
       "sourceGates": [
         "G1",
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -3619,11 +3647,15 @@
       "library": [],
       "planned": [],
       "prerequisites": [
-        "PAPER-SMITH-24/68"
+        "PAPER-SMITH-24/68",
+        "PAPER-SMITH-24/152",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Item 154 supplies the inversion Jacobian, probability and full support; item 152 supplies the half-Hölder bound by density domination."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "api": [
         {
           "name": "Smith.InverseArcsine.probability",
@@ -3667,8 +3699,7 @@
       "apiStatus": "Proposed signatures and tests; existing carrier APIs are reused where available. No Lean implementation or execution of these tests is claimed.",
       "sourceGates": [
         "G5",
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -3683,16 +3714,20 @@
       "prerequisites": [
         "PAPER-SMITH-24/11",
         "PAPER-SMITH-24/68",
-        "PAPER-SMITH-24/94"
+        "PAPER-SMITH-24/94",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/153",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Apply the exact inversion identity in 154 and the arcsine potential bound in 151. Evaluate U_nu(0) directly using the reciprocal interval logarithmic moment, avoiding any unsupported limiting interchange."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "sourceGates": [
         "G1",
         "G5",
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4479,11 +4514,16 @@
       "planned": [],
       "prerequisites": [
         "PAPER-SMITH-24/68",
-        "PAPER-SMITH-24/94"
+        "PAPER-SMITH-24/94",
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/152",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Both components are probabilities with positive interior densities; their convex mixture has full support and finite logarithmic potential. Exact rational inequalities give 0<gamma<1 and b-a>4."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "api": [
         {
           "name": "Smith.SerreMeasure.parameters",
@@ -4526,8 +4566,7 @@
       ],
       "apiStatus": "Proposed signatures and tests; existing carrier APIs are reused where available. No Lean implementation or execution of these tests is claimed.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4542,14 +4581,17 @@
       "prerequisites": [
         "PAPER-SMITH-24/68",
         "PAPER-SMITH-24/95",
-        "PAPER-SMITH-24/119"
+        "PAPER-SMITH-24/119",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "For A=a+2sqrt(ab)+b and ell=b-a, combine U_nu+log|z|<=log(A/ell) with U_rho<=-log(ell/4). Their gamma-weighted sum is -log(ell/4)+gamma log(A/4), with equality on [a,b]. At z=0 gamma>0 makes the external logarithm -infinity."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4564,14 +4606,17 @@
       "prerequisites": [
         "PAPER-SMITH-24/68",
         "PAPER-SMITH-24/95",
-        "PAPER-SMITH-24/119"
+        "PAPER-SMITH-24/119",
+        "PAPER-SMITH-24/153",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Use L_rho(X)=log(A/4), L_nu(X)=-U_nu(0)=-log(A/(4ab)), then probability-mixture linearity."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4586,14 +4631,17 @@
       "prerequisites": [
         "PAPER-SMITH-24/68",
         "PAPER-SMITH-24/94",
-        "PAPER-SMITH-24/119"
+        "PAPER-SMITH-24/119",
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/154"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "The ordinary arcsine mean is (a+b)/2. Since t dnu(t)=sqrt(ab) drho(t), the nu mean is sqrt(ab). Combine linearly."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4616,8 +4664,7 @@
       "implementationStatus": "unchecked",
       "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -4634,14 +4681,16 @@
         "PAPER-SMITH-24/117",
         "PAPER-SMITH-24/118",
         "PAPER-SMITH-24/119",
-        "PAPER-SMITH-24/123"
+        "PAPER-SMITH-24/123",
+        "PAPER-SMITH-24/155"
       ],
-      "proofSteps": [],
+      "proofSteps": [
+        "Item 155 directly verifies all integer-polynomial logarithmic constraints for the trial measure. Capacity/equilibrium identification and the realization theorem retain their earlier independent gates."
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8.",
+      "note": "Source-qualified planning contract; recursive closure remains partial. See gaps G 1–G 8. Continuation codex-a71f92 supplies the G8 analytic derivation in the report; formalization remains unchecked.",
       "sourceGates": [
-        "G7",
-        "G8"
+        "G7"
       ]
     },
     {
@@ -5274,6 +5323,217 @@
         "G2",
         "G7"
       ]
+    },
+    {
+      "id": "PAPER-SMITH-24/147",
+      "kind": "theorem",
+      "name": "Existing circle-average logarithm formula",
+      "statement": "For every a:C, circleAverage (fun z => Real.log ‖z-a‖) 0 1 = Real.log⁺ ‖a‖, including ‖a‖=1.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "library",
+      "library": [
+        "mathlib:circleAverage_log_norm_sub_const_eq_posLog"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "Read the entire pinned PosLogEqCircleAverage.lean, including the boundary log-sine calculation."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-SMITH-24/148",
+      "kind": "theorem",
+      "name": "Existing circle integrability of a logarithmic factor",
+      "statement": "For every a,c:C and r:R, CircleIntegrable (fun z => Real.log ‖z-a‖) c r.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "library",
+      "library": [
+        "mathlib:circleIntegrable_log_norm_sub_const"
+      ],
+      "planned": [],
+      "prerequisites": [],
+      "proofSteps": [
+        "The pinned declaration imports the meromorphic logarithm integrability theorem; no new generic integrability theorem is planned."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-SMITH-24/149",
+      "kind": "theorem",
+      "name": "Existing cosine pushforward of angular measure",
+      "statement": "Measure.map Real.cos TauCeti.chebyshevAngleMeasure = Polynomial.Chebyshev.measureT, where chebyshevAngleMeasure is volume restricted to (0,pi]. Neither measure is normalized to probability.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.map_cos_chebyshevAngleMeasure"
+      ],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/67"
+      ],
+      "proofSteps": [
+        "Read the pinned definition, pushforward proof and measure-preserving wrapper in Cosine/Transfer.lean."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": []
+    },
+    {
+      "id": "PAPER-SMITH-24/150",
+      "kind": "theorem",
+      "name": "Normalized affine arcsine integration adapter",
+      "statement": "Let a<b, c=(a+b)/2, d=(b-a)/2, and rho be the affine pushforward of (1/pi)measureT under x↦c+dx. Then rho is probability with density 1/(pi sqrt((t-a)(b-t))) on (a,b), no endpoint atoms and support [a,b]. For Borel f integrable against rho, integral f drho = (1/pi) integral_0^pi f(c+d cos theta)dtheta = (1/(2pi)) integral_0^(2pi) f(c+d cos theta)dtheta.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/67",
+        "PAPER-SMITH-24/149"
+      ],
+      "proofSteps": [
+        "Normalize the existing angular pushforward by pi and compose with the positive affine map.",
+        "On (0,pi), t=c+d cos theta has |dt|=d sin theta dtheta and sqrt((t-a)(b-t))=d sin theta. Endpoints are null; density is strictly positive in the interior.",
+        "Reflect theta↦2pi-theta to double the half-circle integral. Integral transport includes the corresponding integrability equivalence, so singular kernels are not assumed bounded."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
+    },
+    {
+      "id": "PAPER-SMITH-24/151",
+      "kind": "theorem",
+      "name": "Arcsine potential from reciprocal quadratic roots",
+      "statement": "For a<b, c=(a+b)/2, d=(b-a)/2 and z:C, set w=(z-c)/d and choose a root r of T²-2wT+1 with |r|>=1. Then r≠0, the other root is r^-1, and U_rho(z)=-log(d/2)-log|r|. In particular U_rho(z)<=-log((b-a)/4), with equality exactly for z in [a,b], including both endpoints.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/147",
+        "PAPER-SMITH-24/148",
+        "PAPER-SMITH-24/150"
+      ],
+      "proofSteps": [
+        "The quadratic has product of roots 1, so at least one root has norm >=1; no global square-root branch is selected.",
+        "For |zeta|=1, z-c-d(zeta+zeta^-1)/2=-(d/2)zeta^-1(zeta-r)(zeta-r^-1).",
+        "Apply log norm additivity away from at most two angular points. The two logarithmic factors are integrable by 148; their circle averages are log|r| and 0 by 147. Finite null sets do not affect the integral, but pointwise extended logs retain their values.",
+        "A unit-norm root implies w=(r+conj(r))/2 in [-1,1]; conversely w=cos theta gives two unit roots. Thus equality includes the double-root endpoints."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
+    },
+    {
+      "id": "PAPER-SMITH-24/152",
+      "kind": "theorem",
+      "name": "Quantitative half-Hölder arcsine bound",
+      "statement": "For a<b, length ell=b-a and any real interval J of length h>=0, rho_[a,b](J)<=4 sqrt(2/ell) sqrt(h)/pi. For 0<a<b, the measure with density sqrt(ab)/t relative to rho has the same bound multiplied by sqrt(ab)/a.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/150"
+      ],
+      "proofSteps": [
+        "Split at (a+b)/2. On the left the density is at most sqrt(2/ell)/(pi sqrt(t-a)); on the right use sqrt(2/ell)/(pi sqrt(b-t)).",
+        "Each half contributes at most 2 sqrt(2/ell) sqrt(h)/pi by the elementary antiderivative and sqrt(v)-sqrt(u)<=sqrt(v-u).",
+        "For the second measure use t>=a and nonnegativity. These estimates imply atomlessness and finite absolute logarithmic integrals via the layer-cake bound integral_0^infty K sqrt(2) exp(-s/2) ds."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
+    },
+    {
+      "id": "PAPER-SMITH-24/153",
+      "kind": "theorem",
+      "name": "Positive-interval arcsine logarithmic moment",
+      "statement": "For 0<a<b, rho=rho_[a,b], s=sqrt(ab), A=a+2s+b, integral log t drho(t)=log(A/4). Also integral t drho(t)=(a+b)/2.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/151"
+      ],
+      "proofSteps": [
+        "At z=0, w=-(a+b)/(b-a)<-1. Choose r=-(a+b+2sqrt(ab))/(b-a), whose norm exceeds 1, and use 151.",
+        "Negating U_rho(0) gives log((b-a)/4)+log(A/(b-a))=log(A/4).",
+        "The mean follows by integrating c+d cos theta on [0,pi]. All logarithm arguments are strictly positive."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
+    },
+    {
+      "id": "PAPER-SMITH-24/154",
+      "kind": "theorem",
+      "name": "Inversion Jacobian and logarithmic pullback",
+      "statement": "For 0<a<b let sigma=rho_[1/b,1/a] and nu be its inversion pushforward. Then dnu(t)=sqrt(ab)/t drho_[a,b](t); nu is probability with full support [a,b]. For z≠0, U_nu(z)=-log|z|-U_sigma(0)+U_sigma(1/z), and U_nu(0)=log((a+b+2sqrt(ab))/(4ab)).",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/152",
+        "PAPER-SMITH-24/153"
+      ],
+      "proofSteps": [
+        "With u=1/t, sqrt((1/a-u)(u-1/b))=sqrt((t-a)(b-t))/(sqrt(ab)t) and |du/dt|=1/t², yielding the stated density and probability normalization.",
+        "For z,u≠0 use |z-u^-1|=|z||z^-1-u|/u. All logarithms are integrable: sigma and nu satisfy 152, and u is bounded away from zero.",
+        "At z=0 use directly -log(1/u)=log u and 153 on [1/b,1/a], not a limit at a singular external logarithm.",
+        "For z≠0 the potential formula and 151 imply U_nu(z)+log|z|<=log((a+b+2sqrt(ab))/(b-a)), equality on [a,b]. At z=0 the left side is finite plus -infinity."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
+    },
+    {
+      "id": "PAPER-SMITH-24/155",
+      "kind": "theorem",
+      "name": "Strict one-polynomial arithmetic certificate",
+      "statement": "Let mu be a compactly supported probability on (0,infinity), with finite logarithmic potentials everywhere. Suppose 0<gamma<1, C<0, U_mu(z)+gamma logAbs_e(z)<=C for all z:C, and integral log t dmu(t)>0. Then integral log|Q(t)| dmu(t)>0 for every nonconstant nonzero integer polynomial Q; for nonzero constant Q it is >=0.",
+      "locator": "Continuation codex-a71f92, §G8 analytic derivation; Smith v2 Lemma 5.2 and Example 5.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-SMITH-24/6",
+        "PAPER-SMITH-24/7",
+        "PAPER-SMITH-24/11",
+        "PAPER-SMITH-24/120",
+        "PAPER-SMITH-24/121",
+        "PAPER-SMITH-24/123"
+      ],
+      "proofSteps": [
+        "For an irreducible Q≠X of degree n, leading coefficient c and nonzero constant coefficient q0, factor over C and sum U_mu at its roots. Obtain L_mu(Q)>=(1-gamma)log|c|+gamma log|q0|-nC>0 since c,q0 are nonzero integers.",
+        "Handle Q=X by the given logarithmic moment. For arbitrary integer Q use primitive irreducible factorization with multiplicities and its integer content, whose log absolute value is >=0.",
+        "Finite log integrals justify factorwise addition; no assumption that Q is monic and no substitution Real.log 0 into a pointwise condition is permitted."
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Paper-level proof/import contract only; no new Lean implementation or independent review.",
+      "sourceGates": [
+        "G7"
+      ]
     }
   ],
   "prerequisites": [
@@ -5433,7 +5693,7 @@
         "PAPER-SMITH-24/126",
         "PAPER-SMITH-24/138"
       ],
-      "resume": "Prove product-measure continuity and extended-log integration adapters, the singleton-component exhaustion and diagonal subsequence. Complete uniform tail confinement and the positive-coefficient separator perturbation, including isolated zeros. Source Helly/compactness and strict Jensen at the pin.",
+      "resume": "Prove product-measure continuity and extended-log integration adapters, singleton-component exhaustion and diagonal subsequence. Complete uniform tail confinement and support exclusion. Source Helly/compactness and strict Jensen at the pin. The positive-coefficient separator perturbation in item114 was already supplied by cc-fb70e5.",
       "readStatus": "Smith§5 fully read. Serre pp 3–6 and 25–27 read. Serre energy has the opposite sign. Lower compactness/convex-separation and logarithmic integrability proof decomposition remains open."
     },
     {
@@ -5611,7 +5871,7 @@
         "PAPER-SMITH-24/146"
       ],
       "resume": "Obtain the final Annals PDF and compare all theorem hypotheses, equation numbering and the identified preprint slips. Do not attribute a preprint defect to the published version without that comparison.",
-      "readStatus": "Publisher metadata and author publication link agree. All 47 pages of arXiv 2111.12660 v 2 were read. Guessed public publisher PDF returned 404; no complete final/preprint comparison is claimed."
+      "readStatus": "Publisher metadata and author publication link agree. All 47 pages of arXiv 2111.12660 v 2 were read. Guessed public publisher PDF returned 404; no complete final/preprint comparison is claimed. Fresh continuation: the official Full Article link redirects via DOI to Project Euclid; both the landing page and PDF URL returned a 1,161-byte HTML challenge (HTTP 200), not a PDF. G7 remains open."
     },
     {
       "id": "G8",
@@ -5629,8 +5889,9 @@
         "PAPER-SMITH-24/123",
         "PAPER-SMITH-24/124"
       ],
-      "resume": "Close the arcsine potential and inversion formulas analytically, then translate the rational interval certificate into the suggested Lean test suite during blueprint work. The exact arithmetic certificate does not prove the integral formulas.",
-      "readStatus": "The exact rational certificate was run successfully. The original AppendixB and the complete potential-theory proof closure remain unclosed."
+      "resume": "The specific analytic formulas are derived in continuation codex-a71f92 from pinned circle-average and cosine-pushforward imports. Implement missing adapters 150–155 during blueprint work. This does not close general energy minimization/capacity, weighted potential theory, the realization theorem, or G7. No Lean tests have run.",
+      "readStatus": "Freshly read all 47 Smith v2 pages and Serre's Appendix B in Aguirre–Peral (2008), printed pp14–18 plus references pp18–19, from a publisher-distributed preview. Read pinned PosLogEqCircleAverage.lean completely and Cosine/Transfer.lean through the cosine/arccos measure-preserving proofs. Specific G8 analytic formulas now have written all-parameter derivations; no global optimization claim from Appendix B is used.",
+      "status": "paper-proof-supplied"
     }
   ],
   "routes": [
@@ -5697,10 +5958,15 @@
         "PAPER-SMITH-24/120",
         "PAPER-SMITH-24/121",
         "PAPER-SMITH-24/122",
-        "PAPER-SMITH-24/123"
+        "PAPER-SMITH-24/123",
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/152",
+        "PAPER-SMITH-24/153",
+        "PAPER-SMITH-24/154"
       ],
       "reason": "PDE LaneC already owns harmonic functions, maximum principles, Green/Perron and Newtonian potentials. Logarithmic energy, capacity, weighted equilibrium and extremal polynomials go beyond that scope. The completed orthogonal-L 2 roadmap supplies the Chebyshev measure, not general compact-set minimax polynomials.",
-      "brief": "Build on Partial differential equations (tauceti:TauCetiRoadmap/PDE), especially LaneC milestones 12–15, and the completed weighted orthogonal L 2 bases (tauceti:Completed/OrthogonalL 2 Bases). Import their harmonic/Green and Chebyshev-measure APIs. Construct extended logarithmic potentials, energy, capacity, equilibrium and domination with the negative-log convention; prove Hölder potential regularity, Remez division, quantile estimates, finite-interval alternation and Totik–Widom bounds. For finite-interval Σ and Hölder probability μ, prove that monic polynomials with roots in Σ and weighted nth norms tending to 1 have root measures tending to μ. Supply the one-sided inversion-arcsine smoothing and sweetening potential bounds, and the exact formulas and rational certificate for Serre’s measure. The arithmetic criterion and integer polynomial construction belong to NumberFieldConjugatesPartII and are imported only at arithmetic consumer nodes; keep the core analytic layer independent of them. Split the inward-smoothing theorem into its analytic construction here and constraint preservation in that consumer. Close G 1, G 4, G 5, G 8 before marking the blueprint closed."
+      "brief": "Build on Partial differential equations (tauceti:TauCetiRoadmap/PDE), especially LaneC milestones 12–15, and the completed weighted orthogonal L 2 bases (tauceti:Completed/OrthogonalL 2 Bases). Import their harmonic/Green and Chebyshev-measure APIs. Construct extended logarithmic potentials, energy, capacity, equilibrium and domination with the negative-log convention; prove Hölder potential regularity, Remez division, quantile estimates, finite-interval alternation and Totik–Widom bounds. For finite-interval Σ and Hölder probability μ, prove that monic polynomials with roots in Σ and weighted nth norms tending to 1 have root measures tending to μ. Supply the one-sided inversion-arcsine smoothing and sweetening potential bounds, and the exact formulas and rational certificate for Serre’s measure. The arithmetic criterion and integer polynomial construction belong to NumberFieldConjugatesPartII and are imported only at arithmetic consumer nodes; keep the core analytic layer independent of them. Split the inward-smoothing theorem into its analytic construction here and constraint preservation in that consumer. Close G 1, G 4, G 5, G 8 before marking the blueprint closed. Continuation: import Mathlib's exact circle-average logarithm and circle integrability and TauCeti's cosine pushforward. Add only the affine normalization adapter, reciprocal-quadratic-root potential proof with endpoint null-set handling, half-Hölder bound, positive-interval logarithmic moment and inversion Jacobian; do not duplicate general Jensen or cosine-transfer theory."
     },
     {
       "route": "part-ii",
@@ -5760,10 +6026,11 @@
         "PAPER-SMITH-24/126",
         "PAPER-SMITH-24/137",
         "PAPER-SMITH-24/138",
-        "PAPER-SMITH-24/144"
+        "PAPER-SMITH-24/144",
+        "PAPER-SMITH-24/155"
       ],
       "reason": "The upstream number-field roadmap supplies integer/minimal-polynomial arithmetic and the global/local dictionary, but none of its eight layers plans measure-valued distributions of conjugates or the trace optimization theorem. ArithmeticDynamics DY.4 concerns polarized dynamical small points and PM.2 concerns Weyl/discrepancy, neither this unrestricted prescribed-distribution problem.",
-      "brief": "Begin after Number fields, ramification, Frobenius, and the LMFDB invariants (tauceti:TauCetiRoadmap/NumberFieldArithmetic). Reuse integer polynomials, resultants, Gauss, algebraic integrality and Eisenstein. Import logarithmic potential and weighted approximation from PDELogarithmicPotentialPartII and geometry-of-numbers rounding suppliers from GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.4. The final realization theorem is: for compact Σ⊂R with at most countably many components and capacity>1, a probability μ is a weak limit of root distributions of infinitely many distinct monic irreducible integer polynomials with all roots in Σ iff every nonzero integerQ has∫log|Q|dμ≥0, withlog 0=−∞. Cover nonmonic deflation integrality, bounded squarefree combinations, short integer polynomial families, protected-root coefficient adjustment, Eisenstein rounding, inward Hölder approximation and a degree-increasing diagonal. For closed possibly unbounded Σ and continuous superlogarithmicF, prove optimal auxiliary-polynomial duality and compact attainment, then λ_SSS<1.89831 and the exceptional-polynomial support restriction. Do not claim realization at capacity 1, on arbitrary complex sets, or without the countable-component hypothesis. Preserve and close G 3–G 5 before completeness."
+      "brief": "Begin after Number fields, ramification, Frobenius, and the LMFDB invariants (tauceti:TauCetiRoadmap/NumberFieldArithmetic). Reuse integer polynomials, resultants, Gauss, algebraic integrality and Eisenstein. Import logarithmic potential and weighted approximation from PDELogarithmicPotentialPartII and geometry-of-numbers rounding suppliers from GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.4. The final realization theorem is: for compact Σ⊂R with at most countably many components and capacity>1, a probability μ is a weak limit of root distributions of infinitely many distinct monic irreducible integer polynomials with all roots in Σ iff every nonzero integerQ has∫log|Q|dμ≥0, withlog 0=−∞. Cover nonmonic deflation integrality, bounded squarefree combinations, short integer polynomial families, protected-root coefficient adjustment, Eisenstein rounding, inward Hölder approximation and a degree-increasing diagonal. For closed possibly unbounded Σ and continuous superlogarithmicF, prove optimal auxiliary-polynomial duality and compact attainment, then λ_SSS<1.89831 and the exceptional-polynomial support restriction. Do not claim realization at capacity 1, on arbitrary complex sets, or without the countable-component hypothesis. Preserve and close G 3–G 5 before completeness. Include the strict one-polynomial certificate using nonzero integer leading and constant coefficients, without a monicity assumption."
     },
     {
       "route": "source",
@@ -5880,6 +6147,19 @@
       "pages": 36,
       "readScope": "pp 171–175, 181–184, 196–199 read; other pages not read. Survey statements and indicated proofs do not close cited book proofs.",
       "date": "2026-09-22"
+    },
+    {
+      "id": "aguirre-peral08-preview",
+      "url": "https://api.pageplace.de/preview/DT0400.9780511894121_A23680461/preview-9780511894121_A23680461.pdf",
+      "sha256": "a30183254a0583dd5d6c3357795e79014dd59ffb92e51cc0af0a41e22d8aed38",
+      "date": "2026-09-22",
+      "readScope": "Only Serre's Appendix B, printed pp14–18 in full and chapter references pp18–19. Other preview chapters not read. Integration formulas8,10–12 checked against the derived formulas. The appendix's numerical maximization is not used as a proved theorem."
+    },
+    {
+      "id": "smith-final-fresh-attempt-codex-a71f92",
+      "url": "https://projecteuclid.org/journals/annals-of-mathematics/volume-200/issue-1/Algebraic-integers-with-conjugates-in-a-prescribed-distribution/10.4007/annals.2024.200.1.2.pdf",
+      "date": "2026-09-22",
+      "error": "HTTP200 text/html,1161 bytes; no PDF acquired. Official DOI redirects to corresponding .full landing page, also HTML challenge."
     }
   ],
   "inspection": {
@@ -7062,16 +7342,21 @@
       "ProbabilityMeasure, convolution, extended-log conventions and Chebyshev measure",
       "Integer resultants, Eisenstein and bounded-root finiteness leads",
       "Lattices, covolumes, Minkowski and successive minima",
-      "AbelianVariety, Honda–Tate, WeilNumber, Remez and logarithmicPotential"
+      "AbelianVariety, Honda–Tate, WeilNumber, Remez and logarithmicPotential",
+      "Continuation codex-a71f92: scoped search for arcsine/Joukowski across both pinned library trees found no named adapter; exact circle-average log identity and cosine pushforward were found and read, so imported in147–149, not replanned."
     ],
-    "limits": "Negative searches are scoped evidence; uninspected polynomial, potential-theory and finiteness adapters remain missing with source gates, not claims of global absence."
+    "limits": "Negative searches are scoped evidence; uninspected polynomial, potential-theory and finiteness adapters remain missing with source gates, not claims of global absence.",
+    "inputsContinuation": {
+      "explorer": "ebc9fdacad2fbb606fb84158121fffa4177a9b00",
+      "read": "Reviewed completed OrthogonalL2Bases Part C row including all evidence; existing route boundary decisions retained."
+    }
   },
   "coverage": {
-    "mainPaper": "All 47 pages read. Main theorems and the proof-level inventory are represented; recursion and some further declaration splits remain open under G 1–G 8.",
+    "mainPaper": "All 47 pages read. Main theorems and the proof-level inventory are represented; recursion and some further declaration splits remain open under G 1–G 8. Continuation codex-a71f92 freshly reread all 47 pages; items147–155 refine only the trial-measure chain.",
     "counts": {
-      "library": 11,
-      "missing": 133,
-      "planned": 2
+      "library": 14,
+      "planned": 2,
+      "missing": 139
     },
     "definitionsAndConstructions": 47,
     "apiStatements": 141,
@@ -7100,9 +7385,36 @@
         "logMoment > 0",
         "1.898303 < mean < 1.898304 < 1.89831"
       ],
-      "scope": "Certifies numerical inequalities in Smith v2 Example 5.16, conditional on the proved integral/potential formulas. It does not certify those analytic formulas or the main realization theorem."
+      "scope": "Certifies numerical inequalities in Smith v2 Example 5.16, conditional on the proved integral/potential formulas. It does not certify those analytic formulas or the main realization theorem.",
+      "formulaDerivation": "Continuation codex-a71f92 supplies the specific formulas in items150–154 and the report. The arithmetic program itself remains conditional on those formulas and does not prove realization."
     },
-    "lean": "No suggested Lean file is authorized for this paper job; no Lean compilation or formalization claimed. Proposed tests have not been run in Lean."
+    "lean": "No suggested Lean file is authorized for this paper job; no Lean compilation or formalization claimed. Proposed tests have not been run in Lean.",
+    "analyticDerivation": {
+      "session": "codex-a71f92",
+      "scope": "Written proof of the arcsine and inversion formulas and the strict arithmetic certificate; not Lean formalization and not the general equilibrium/realization theorem.",
+      "newImports": [
+        "PAPER-SMITH-24/147",
+        "PAPER-SMITH-24/148",
+        "PAPER-SMITH-24/149"
+      ],
+      "newMissing": [
+        "PAPER-SMITH-24/150",
+        "PAPER-SMITH-24/151",
+        "PAPER-SMITH-24/152",
+        "PAPER-SMITH-24/153",
+        "PAPER-SMITH-24/154",
+        "PAPER-SMITH-24/155"
+      ]
+    },
+    "continuationChecks": {
+      "exactFiniteAssertions": 3205,
+      "meaning": "Rational complex factorization, reciprocal roots, inversion Jacobian and log-pullback norm identity; diagnostics do not prove integration theorems.",
+      "rationalCertificate": "Earlier standard-library certificate rerun unchanged; identical outward bounds and all sign/trace assertions passed.",
+      "analyticProof": "See continuation G8-A/B/C in companion report.",
+      "lean": "Not run; no Lean deliverable authorized.",
+      "structural": "PASS: all155 item dependencies form a DAG with known endpoints; all146 earlier IDs/kinds/statuses/statements preserved; all139 missing items have exactly one route;47 definitions/constructions retain141 APIs and141 tests; all23 recorded pinned declaration file hashes match.",
+      "repository": "PASS: scripts/check_paper.py and intake.py check-files on the three authorized deliverables."
+    }
   },
   "continuation": {
     "priority": [
@@ -7110,7 +7422,7 @@
       "G1 weighted zero distribution and full potential-theory imports",
       "G2 transference and Minkowski second theorem proof closure",
       "G3/G4 nonmonic deflations, fixed-size resultant, pruning and real constant-shift proofs",
-      "G5 positive separator coefficients, polar singleton exhaustion and support theorem",
+      "G5 extended-integral compactness, singleton exhaustion and support theorem; positive-coefficient item114 was already repaired by cc-fb70e5",
       "G6 Honda–Tate, isomorphism finiteness and geometric-simplicity congruences"
     ],
     "preserveIds": true,
@@ -7120,6 +7432,12 @@
         "session": "cc-fb70e5",
         "date": "2026-09-22",
         "work": "Supplied the proof of item 114 (positive-coefficient separator repair, compact and unbounded Σ), closing that part of G5."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-22",
+        "work": "Derived G8 formulas via pinned circle-average and cosine-pushforward imports; added items147–155, retaining all146 prior IDs/statuses/statements and cc-fb70e5's separator repair."
       }
     ]
   }
