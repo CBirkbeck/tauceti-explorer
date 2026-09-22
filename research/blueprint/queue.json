@@ -3580,8 +3580,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GUO-REINECKE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1226"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1226",
+   "finishedAt": "2026-09-22T19:19:01Z"
   },
   {
    "id": "REV-PAPER-GUO-REINECKE-24",
