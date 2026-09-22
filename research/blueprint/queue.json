@@ -7611,8 +7611,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1456"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1456",
+   "finishedAt": "2026-09-22T23:48:28Z"
   },
   {
    "id": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
