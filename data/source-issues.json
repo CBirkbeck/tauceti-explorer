@@ -14062,6 +14062,214 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-NGODAC-21/E1",
+   "kind": "misprint",
+   "locator": "HAL v1, printed p.9, sentence preceding Proposition 2.5",
+   "printed": "S_d(v) ∑_{j<d} R(d)",
+   "correction": "Replace R(d) in the summand by R(j).",
+   "reason": "The following displayed calculation has S_j and S_{j+1}. Repeating a fixed R(d) over all j<d does not give that calculation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E2",
+   "kind": "misprint",
+   "locator": "HAL v1, printed p.10, paragraph immediately before Proposition 2.8",
+   "printed": "f_j, g_ℓ ∈ F_p",
+   "correction": "The resulting binary-relation coefficients lie in K; only the product-expansion structure constants are in F_p.",
+   "reason": "Input a_i,b_i lie in K and are multiplied by the prime-field structure constants. At q=2, C_(1)(R₁) retains θ²−θ as the coefficient of S_{d+1}(1,2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E3",
+   "kind": "gap",
+   "locator": "HAL v1, printed p.12, proof of Proposition 2.12, j=0 case",
+   "printed": "B*_{s_j}",
+   "correction": "When j=0 (the proof sets s_0=0), omit this operation and sum the already constructed binary relation (2.11) directly over d. Apply B*_{s_j} only for j>0.",
+   "reason": "B*_v was defined only for v>0. If no preceding entry is below q, the proof's j=0 branch attempts B*_0. Direct summation gives precisely the required first two output classes; the positive-prefix branch remains unchanged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E4",
+   "kind": "error",
+   "locator": "HAL v1, printed p.18, Theorem 4.2",
+   "printed": "c ∈ K̄",
+   "correction": "Require c∈K̄^× in det Φ=c(t−θ)^s, as in the original ABP criterion.",
+   "reason": "If c=0 is allowed, take f=Ω^(−1)=(t−θ)Ω∈E (the superscript denotes inverse coefficient twist, not reciprocal), Φ=diag(t−θ^(1/q),0), ψ=(f,0)^T and ρ=(1,0). Then ψ^(−1)=Φψ, det Φ=0 and ρψ(θ)=0. Any polynomial row P with Pψ=0 has P_1=0 because f≠0, so P(θ) cannot equal ρ. Actual matrices in the paper have nonzero determinant and are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E5",
+   "kind": "misprint",
+   "locator": "HAL v1, printed p.18, first paragraph of §5",
+   "printed": "[9, Proposition 4.3.1]",
+   "correction": "Use Chang 2014 Theorem 3.4.5 (or the MZV specialization Theorem 2.2.1) for K-to-K̄ linear-independence descent.",
+   "reason": "Chang's Proposition 4.3.1 is the Eulerian descent statement involving the extra period π̃^w; the precise same-weight implication used here is Theorem 3.4.5, proved in §§4.1–4.2. Those proof sections were read.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E6",
+   "kind": "misprint",
+   "locator": "HAL v1, printed p.26, reference [28]",
+   "printed": "187:264–28",
+   "correction": "The page range is 264–287.",
+   "reason": "Todd's own publication list gives Journal of Number Theory 187 (2018), 264–287: https://www.math.union.edu/~toddg/.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2021/194-1/p06 inspected 2026-09-22; full published PDF not obtained.",
+    "Author publication page http://tuan.ngodac.perso.math.cnrs.fr/publications.html points to HAL; no linked correction found.",
+    "HAL hal-03298790v1 manuscript and title-plus-erratum/correction web searches checked 2026-09-22; no matching correction located. 'New' means not found in this search, not proof that none exists."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E7",
+   "kind": "misprint",
+   "locator": "External source: Chang 2014, arXiv:1207.2326 PDF read 2026-09-22, printed p.15, proof of Lemma 5.3.1",
+   "printed": "[ABP04, Prop. 3.1.1]",
+   "correction": "Use ABP04 Proposition 3.1.3 for the analytic-to-entire criterion.",
+   "reason": "ABP Proposition 3.1.3 has the exact inputs det Φ(0)≠0 and a Tate-algebra solution and concludes membership in E. ABP 3.1.1 is a theorem lifting relations and is not this proposition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Chang's author page https://www.math.nthu.edu.tw/~cychang/ and arXiv:1207.2326 landing page inspected 2026-09-22.",
+    "Title-plus-corrigendum search on 2026-09-22 found no matching correction; full published comparison remains open.",
+    "ABP arXiv:math/0207168 §3.1 read directly to verify the correct locator."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E8",
+   "kind": "misprint",
+   "locator": "External source: Thakur 2010, author-hosted published shufflepub.pdf, printed p.1980, reference [11]",
+   "printed": "2009, no. 11 (2009): 2038–55",
+   "correction": "For Thakur's Relations Between Multizeta Values use IMRN 2009 no.12, 2318–2346, DOI 10.1093/imrn/rnp018.",
+   "reason": "The actual author-hosted Relations PDF's first page gives this bibliographic data. The printed pages 2038–2055 belong to Anderson–Thakur's period-interpretation paper, not the title/author of [11].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Thakur's author publication list https://www.sas.rochester.edu/mth/sites/dinesh-thakur/indexp.htm inspected 2026-09-22.",
+    "Published author-hosted imrnrelation.pdf first page read; corrected target metadata verified.",
+    "Thakur's updates.pdf, https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf, entry 36 (47), pp.7–8, and title-plus-erratum searches inspected 2026-09-22. The update corrects the higher-depth proof, not the bibliography entry."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E9",
+   "kind": "error",
+   "locator": "External source: Thakur 2010 published shufflepub.pdf, p.1979, fourth equality of the proof of Theorem 3",
+   "printed": "S_{d₂}(X_i′, A′) + S_{d₁}(A′, X_i′)",
+   "correction": "Use the simultaneous mixed/fixed power-sum induction in Shuhui Shi's corrected proof reproduced in the author's updates, or the controlled recursion in Ngo Dac Proposition 2.1. Concatenating two tails does not account for their internal degree interleavings.",
+   "reason": "For tails X_i′=(1), A′=(1,1), cutoff d=2, both concatenated depth-three sums vanish, while the omitted unequal-leading-degree term S_0(1)S_1(1,1)=S_1(1) is nonzero. The author explicitly acknowledges the fourth equality as wrong; the theorem remains true with the corrected proof.",
+   "affects": "the proof",
+   "known": "Thakur updates.pdf entry 36 (47), pp.7–8, correction credited to Shuhui Shi; the update also points to the proof after Theorem 4 of his 2017 MZV survey.",
+   "searched": [
+    "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/updates.pdf, relevant correction and full replacement proof read 2026-09-22.",
+    "Original shufflepub.pdf proof read in full and compared with the corrected mixed/fixed induction."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-NGODAC-21/E10",
+   "kind": "misprint",
+   "locator": "External source: CPY author-hosted EulerianJEMS_Corrections1.pdf dated 13 August 2018, p.6, Proposition 2.2.1; rendered page checked",
+   "printed": "F ∈ Mat_{r₁×r₂}(k̄[t])",
+   "correction": "The matrix of the rationalized-module homomorphism lies in Mat_{r₁×r₂}(k̄(t)); the conclusion is that its monic common denominator belongs to F_q[t].",
+   "reason": "Already for the two trivial rank-one modules, multiplication by 1/t is a k̄(t)[σ]-linear map and has a non-polynomial representing matrix. The proof immediately works with rational denominators and proves the corrected statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author publication page https://www.math.nthu.edu.tw/~cychang/Publications.html and author-hosted file explicitly named EulerianJEMS_Corrections1.pdf inspected 2026-09-22.",
+    "arXiv:1411.0124 and searches for the paper/corrections checked; this finding is restricted to the PDF read, not asserted for every journal version."
+   ],
+   "owner": "PAPER-NGODAC-21",
+   "file": "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+   "citation": "Tuan Ngo Dac, \"On Zagier-Hoffman's conjectures in positive characteristic\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-RICHARD-YAFAEV-25/E1",
    "kind": "misprint",
    "locator": "Proof of Theorem 4.7, number field case, p.263 (published version)",
