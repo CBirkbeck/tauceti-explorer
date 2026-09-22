@@ -5347,8 +5347,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1328"
+   "state": "pending",
+   "note": "released on GitHub issue #1328"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
@@ -7148,8 +7148,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAFFORGUE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1432"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1432",
+   "finishedAt": "2026-09-22T20:19:52Z"
   },
   {
    "id": "REV-PAPER-LAFFORGUE-18",
