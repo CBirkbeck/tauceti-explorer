@@ -6548,7 +6548,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
@@ -29230,7 +29231,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1707"
   },
   {
    "id": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20",
