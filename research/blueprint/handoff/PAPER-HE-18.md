@@ -1,34 +1,31 @@
 # PAPER-HE-18 handoff
 
-Agent: Codex — codex-a71f92. Refs #1406. Status: partial research checkpoint.
+Codex — `codex-7e92bd`, continuing `codex-a71f92`. Refs #1406. Partial checkpoint.
 
-## What is complete
+## Current state
 
-The 27-page published He18 paper was read completely, including all proofs and references. Selected arXiv v3 passages were compared, with published pages 9 and 24 visually checked. Richarz16 was read completely; the HN14 author-final introduction and §§1–3.4 were read; Haines–Rapoport's relevant setup/Proposition13 passage was checked. Exact versions, public URLs, hashes and read scopes are in the JSON.
+100 items: 4 library, 9 planned, 87 missing. All missing items routed exactly once through the existing seven routes. 265 internal edges, acyclic. 37 definitions/constructions, 112 API entries and 111 specified tests. No Lean implementation or compilation.
 
-The extraction contains 94 stable items, 249 internal dependency edges, 36 definitions/constructions, 108 API entries and 108 specified tests. Every one of the 82 missing items is routed exactly once. Nine other items are planned imports and three are exact library ingredients. Seven routes reuse SR.1, RG2.0/1/3/4 and the existing RootSystemsPartIIDominanceAndDemazure candidate, and propose one distinct SmoothRepresentationsPartIINewtonCocenters continuation.
+This continuation reread all 27 published pages and selected HN14 author-final passages. It added C17, N18–N21 and L18, preserving every inherited item ID and all ten source findings. N21 reuses the pinned abstract simple-cell/subword API; the actual local adapter remains separate.
 
-The main report includes complete symbolic counterexamples for finite twisted Ω-cosets/minimal representatives, arbitrary-ring distribution finite generation and the graph direction; it also gives a direct finite-clopen/cosheaf proof strategy for the corrected general-ring rigid presentation. Ten structured sourceIssues await independent review. There is no self-review verdict.
+## New arguments to preserve
 
-Pinned-library statements were actually read. In particular, use Mathlib CompactlySupportedContinuousMap with discrete coefficients, and Representation.Coinvariants with arbitrary-target universal property. Do not duplicate these carriers or confuse pointwise multiplication with convolution. The compact-ambient locally constant stabilizer theorem is not already a proof for noncompact G.
+- **G5:** finite outside subword sets preserve their Ω factors and the middle translation. Two repeated finite endpoint pairs in the full affine apartment force the same Newton slope. No root-length positivity on central translations, and no separate equal-central-average lemma, is needed. See N18/N19 and report Section 5.
+- **G7:** choose one τ0 over κ, then conjugate minimal w by η∈Ω with prΩ(w)−τ0=(1−θ)η. The uniform length bound makes the set in that fixed coset finite. L18 transports tests at the same level provided the actual Ω lifts normalize I_n. This supplies a compact core and the field-valued Howe argument without the finite-minima guard. The full minimal-index set can still be infinite, and arbitrary-ring distribution finite generation is still false.
 
-The related reviewed coverage entries and owner documents were read. No SR/RGII/RootSystems coverage entry was invented where absent. All 42 paper results were screened at the claim snapshot. HE21's merged follow-up #1753 adds the generic affine-Hecke cocenter branch to the existing KP18 parahoric-center candidate; preserve it. The refreshed KPZ26 root route still uses the same root candidate and requests KZ25 alias consolidation.
+Both arguments are conditional on explicitly named producers. They are not independent review verdicts or closure of the entire extraction.
 
-## Where to resume
+## Resume
 
-1. **G1 and G5:** build the actual Iwahori–Weyl/translation interface for arbitrary local reductive G, including a nontorus minimal Levi, possible torsion kernel and split center. Repair the Theorem3 power-growth argument by tracking Ω-cosets and central averages before applying root-length growth.
-2. **G2 and G6:** read the cited Bruhat–Tits and Tits root-filtration inputs, then give connected intersection models, finite-level Lang lifting with compatible inverse limits, σ-equivariant depth shifts, the level-n contracted-product bijection and the adjacent-depth containment. Richarz's unshifted count is read but is not a substitute for these adapters.
-3. **G4:** finish the omitted affine gradient-wall-crossing details via He–Nie's finite-Weyl predecessor and He's partial-conjugation proof. Preserve the exact author-final HN14 numbering and the central-kernel scope.
-4. **G3:** close Vignéras I§2 and reductive unimodularity/θ-volume preservation. Only pro-p compact volumes are automatically units in arbitrary R.
-5. **G7:** recover general finite-order central-twist field-valued Howe finiteness with a compact core or another level-compatible bound. The torus example disproves the printed finite-minima argument, not Howe itself. Do not restore arbitrary-ring distribution finite generation: the square-zero example genuinely refutes it.
-6. **G8:** independently check the ten source findings and the direct presentation repair. A subsequent extraction worker is not an independent reviewer of its own edits. No author contact is authorized or performed by this checkpoint.
+1. **G1/G4:** construct the actual local affine/Iwahori–Weyl and HN standard-triple adapters with full central directions, finite/torsion kernels and possibly nontorus minimal Levi. The selected HN14 carrier has reduced/finite-action restrictions; do not silently import it unchanged.
+2. **G2/G6:** read the full BT/Tits root-filtration producers, then construct the actual barycentric levels, Ω-normalizer and θ compatibility, connected intersection models, compatible finite-level Lang lifting, shifted root counts and contracted-product bijections. N21 is an abstract upper bound, not these local models.
+3. **G3:** finish integral Haar/convolution source closure and reductive unimodularity. Only pro-p compact volumes are automatically units in arbitrary R.
+4. **G8:** preserve the direct rigid cosheaf proof and all counterexamples for a different worker's independent review. No author contact is authorized.
 
-Keep level cocenters as images in the ambient cocenter. Infinite distribution decompositions use products. The graph relation is (f,−T_(x⁻¹)f). Rigid means central Newton vector, not zero Newton vector. Do not route these actual G(F) strata into BunG's Frobenius geometry.
+## Ownership and conventions
 
-## Checks and scope
+Preserve RootSystemsPartIIDominanceAndDemazure and its KZ alias-consolidation requirement; SmoothRepresentationsPartIINewtonCocenters owns this actual group cocenter. SR.1 supplies integral test functions; RG2.4 owns N18's local adapter. The KP18/HE21 generic affine-Hecke/parahoric-center candidate is distinct. Level cocenters are images in the ambient quotient. Infinite distribution decompositions use products. Overlap graphs use inverse transport. Rigid means central Newton vector.
 
-The refreshed current paper checker, including source-issue validation, reports no errors. Structural checks cover unique IDs, exact-one routing, acyclicity, definition APIs and three tests each, gap endpoints, source-excerpt presence and no private paths/self-review. Scratch diagnostics pass: 24 S3 relation-space comparisons, 1,681 torus lattice checks, four exact GL2 matrix examples, and six square-zero coefficient models.
+## Checks
 
-These are finite diagnostics and structural checks, not Lean proofs. The infinite coefficient example is justified by the symbolic argument in the report. No Lean deliverable was requested for this paper issue; no Lean file was created or compiled. Every implementation status is unchecked.
-
-Claim-snapshot main: 4c3314007ebfd7c3a595698404caf1331356d63a. Publication owner/protocol refresh: 52efbf53b0a0129fe2d71f37a19510488f743966. The PR changes only this issue's result JSON, report and this handoff.
+Run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-HE-18.result.json` and intake `check-files` on the JSON/report/handoff, plus exact-once routes, references, graph and definition API/tests. Fresh finite diagnostics: 216 S3 protected-middle products, 405 Ω normalizations, 108 affine identities and the central length-zero example. Report Section 7 gives reproduction details. Earlier diagnostics are historical, not rerun. Refresh main and owner/protocol changes before publication. Keep status partial until the actual source producers are closed.

@@ -32,15 +32,28 @@
       "protocolBlob": "80101433c4a5e9c306c316873d0607470ab8f5e0",
       "checkerBlob": "41644c9677abd46f97d293a20e66c1e4c3e20a23",
       "note": "Protocols unchanged from the fully read current versions. Core owner documents and coverage unchanged. HE21 merged generic-Hecke routing and the refreshed KPZ26 root route inspected; no active HE18 deliverable or applicable AGENTS file on main."
+    },
+    "continuation": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-22",
+      "atlasCommit": "aa064fcad1a29387eef6bccacfd8a531f5cd2fcd",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf",
+      "sha256": "321f4c427c92352c4a34b6dbbff93aee2b402a031e12537125ed88285b601b52",
+      "read": "All 27 published pages, including every proof and references, reread. Earlier supporting-source history remains attributed to the previous worker.",
+      "hn14": {
+        "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/315/8989-affmin-2.pdf",
+        "sha256": "370abc45c00d91279f69d115ba10da758a23dfe3b56d1245d0a5370372807e09",
+        "read": "Author-final pp.4–6,10,12–15: setup, finite/reduced scope, Proposition2.7 and proof, Corollary2.8/proof, Theorem2.9 statement, §§3.2–3.4 through Theorem3.4 statement and complete Theorem3.3 proof. Selected scope; proof suppliers outside it remain G4."
+      }
     }
   },
-  "summary": "Source-complete main-paper reading with a declaration-sized extraction of Newton strata, twisted Hecke coinvariants, congruence-level generators, Howe finiteness and the rigid presentation. Partial proof closure: several published assertions need corrected scopes or proofs. In particular finite minimal representatives fail for inversion on a split central torus, distribution duals use products, arbitrary-ring Howe finite generation fails, and overlap graphs require inverse transport. Reuse existing Hecke and local-group owners, extend the existing affine-Coxeter candidate, and propose one distinct Newton-cocenter continuation. Nothing is claimed formalized.",
+  "summary": "Partial 100-item continuation: supplies conditional repairs of Newton separation and general central-twist Howe finiteness using finite endpoint subwords and Ω-normalized minimal representatives, reuses the pinned Tits-system subword API, and preserves all original source counterexamples. Actual local-group, root-filtration, Lang and recursive proof suppliers remain explicit.",
   "conventions": {
     "local": "F is a nonarchimedean local field of either characteristic, residue field F_q of characteristic p; G is the F-points of a connected reductive F-group, with maximal F-split torus A, chosen alcove, Iwahori I and pro-p Iwahori I'.",
     "coefficients": "R is a commutative Z[1/p]-algebra, given the discrete topology for test functions. Haar volume is normalized by μ(I')=1. Convolution is NOT the pointwise multiplication instance on compactly supported continuous maps.",
     "twisting": "θ is an automorphism of G preserving A and I, continuous and inducing finite-order actions on the apartment and Iwahori–Weyl group. ω:G→R× has open kernel. T_x f(g)=ω(x)f(x⁻¹gθ(x)); supp(T_x f)=x supp(f) θ(x)⁻¹.",
     "guard": "The phrase finite-minima guard means that the fibre of Ω→Ω_θ over each κ under consideration is finite, for example θ=id. This is a genuine extra scope restriction on the printed finite-minimal-element argument, not an implication of finite order of θ.",
-    "scope": "The corrected field Howe targets also require R a field of characteristic different from p and the finite-minima guard. No general-ring dual finite-generation assertion is retained. General twisted Newton partition and rigid presentation remain intended targets with explicit proof gaps, not disproved conclusions.",
+    "scope": "The corrected Howe conclusion is field-valued (characteristic different from p). C17/L18 now remove the finite-minima guard from its conditional proof, while the actual affine and filtration producers remain open. No general-ring dual finite-generation assertion is retained. Newton partition and rigid presentation retain explicit source obligations.",
     "baseline": "Library means an exact stated ingredient, not an implemented p-adic specialization. All implementationStatus values remain unchecked."
   },
   "items": [
@@ -69,35 +82,35 @@
       "uses": [
         {
           "where": "PAPER-HE-18/A2; §1.1 p.6; Richarz16 §1.1",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Actual Iwahori–Weyl quotient."
+          "how": "Supplies Local reductive apartment data to Actual Iwahori–Weyl quotient."
         },
         {
           "where": "PAPER-HE-18/A3; §4.2 p.15; §4.3 pp.16–18",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Barycentric congruence filtration."
+          "how": "Supplies Local reductive apartment data to Barycentric congruence filtration."
         },
         {
           "where": "PAPER-HE-18/A4; §1.3 p.7",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Admissible twisting datum."
+          "how": "Supplies Local reductive apartment data to Admissible twisting datum."
         },
         {
           "where": "PAPER-HE-18/H3; §1.2 pp.6–7",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Integral normalized Haar integration."
+          "how": "Supplies Local reductive apartment data to Integral normalized Haar integration."
         },
         {
           "where": "PAPER-HE-18/N10; §3.2 p.14",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Admissible subsets of a locally profinite group."
+          "how": "Supplies Local reductive apartment data to Admissible subsets of a locally profinite group."
         },
         {
           "where": "PAPER-HE-18/L3; §4.3 p.16; Richarz16 §§1.1–1.4",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Unramified completion and fixed local data."
+          "how": "Supplies Local reductive apartment data to Unramified completion and fixed local data."
         },
         {
           "where": "PAPER-HE-18/R1; §6.1 p.21",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Newton centralizer Levi."
+          "how": "Supplies Local reductive apartment data to Newton centralizer Levi."
         },
         {
           "where": "PAPER-HE-18/A7; §1.1 p.6, citing BT Proposition5.2.12; Richarz16 §1.1",
-          "how": "Supplies Local reductive apartment data to the specified proof or construction of Local double Tits system."
+          "how": "Supplies Local reductive apartment data to Local double Tits system."
         }
       ],
       "gaps": [],
@@ -173,59 +186,63 @@
       "uses": [
         {
           "where": "PAPER-HE-18/A3; §4.2 p.15; §4.3 pp.16–18",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Barycentric congruence filtration."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Barycentric congruence filtration."
         },
         {
           "where": "PAPER-HE-18/A4; §1.3 p.7",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Admissible twisting datum."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Admissible twisting datum."
         },
         {
           "where": "PAPER-HE-18/C1; §2.1 p.9",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Twisted Kottwitz class."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Twisted Kottwitz class."
         },
         {
           "where": "PAPER-HE-18/C2; §2.1 p.9; HN14 §1.1",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Newton vector by a twisted power."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Newton vector by a twisted power."
         },
         {
           "where": "PAPER-HE-18/C4; §2.3 p.10",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Length-nonincreasing twisted reduction."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Length-nonincreasing twisted reduction."
         },
         {
           "where": "PAPER-HE-18/C6; §2.5 p.11",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Straight twisted elements."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Straight twisted elements."
         },
         {
           "where": "PAPER-HE-18/N1; §2.2 pp.9–10",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Newton strata of the local group."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Newton strata of the local group."
         },
         {
           "where": "PAPER-HE-18/N2; §2.4 p.10",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Length-sensitive simple Bruhat multiplication."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Length-sensitive simple Bruhat multiplication."
         },
         {
           "where": "PAPER-HE-18/L2; §4.2 p.15",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Iwahori-cell level functions."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Iwahori-cell level functions."
         },
         {
           "where": "PAPER-HE-18/L3; §4.3 p.16; Richarz16 §§1.1–1.4",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Unramified completion and fixed local data."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Unramified completion and fixed local data."
         },
         {
           "where": "PAPER-HE-18/R4; §6.2 p.22",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Standard parahoric pair."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Standard parahoric pair."
         },
         {
           "where": "PAPER-HE-18/R5; Proposition21 first half p.22",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Minimal finite-parabolic elements are globally minimal."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Minimal finite-parabolic elements are globally minimal."
         },
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Double-coset descent of overlap relations."
         },
         {
           "where": "PAPER-HE-18/A5; §1.1 p.6; §2.5 p.11; Richarz16 Theorem1.4",
-          "how": "Supplies Actual Iwahori–Weyl quotient to the specified proof or construction of Local Iwahori–Bruhat decomposition."
+          "how": "Supplies Actual Iwahori–Weyl quotient to Local Iwahori–Bruhat decomposition."
+        },
+        {
+          "where": "PAPER-HE-18/N18; Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+          "how": "Supplies Actual Iwahori–Weyl quotient to Finite Bruhat multipliers with the middle cell retained."
         }
       ],
       "gaps": [
@@ -281,7 +298,7 @@
       "id": "PAPER-HE-18/A3",
       "kind": "construction",
       "name": "Barycentric congruence filtration",
-      "statement": "For the fixed alcove barycenter let I_n be the integer-depth Moy–Prasad filtration, with I_0=I in the paper's convention and positive levels compact open pro-p. The filtration is normal in I, θ-stable, descending and cofinal among identity neighborhoods; record root-depth and toral coordinates rather than an unspecified congruence subgroup.",
+      "statement": "For the fixed alcove barycenter let I_n be the integer-depth Moy–Prasad filtration, with I_0=I in the paper's convention and positive levels compact open pro-p. The filtration is normal in I, θ-stable, descending and cofinal among identity neighborhoods; record root-depth and toral coordinates rather than an unspecified congruence subgroup. Required Ω compatibility: every chosen length-zero normalizer representative, and its θ-image, normalizes I_n; for a nonfaithful or enlarged apartment specify how the barycentric filtration is transported.",
       "locator": "§4.2 p.15; §4.3 pp.16–18",
       "status": "planned",
       "library": [],
@@ -304,39 +321,43 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H2; §1.2 p.7; §3.2 p.14; §4.2 p.15",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Uniform compact level for a test function."
+          "how": "Supplies Barycentric congruence filtration to Uniform compact level for a test function."
         },
         {
           "where": "PAPER-HE-18/H3; §1.2 pp.6–7",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Integral normalized Haar integration."
+          "how": "Supplies Barycentric congruence filtration to Integral normalized Haar integration."
         },
         {
           "where": "PAPER-HE-18/H11; Proposition1 pp.8–9",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Commutators equal coinvariant relations."
+          "how": "Supplies Barycentric congruence filtration to Commutators equal coinvariant relations."
         },
         {
           "where": "PAPER-HE-18/L1; §4.2 p.15",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Congruence-level image in the ambient cocenter."
+          "how": "Supplies Barycentric congruence filtration to Congruence-level image in the ambient cocenter."
         },
         {
           "where": "PAPER-HE-18/L3; §4.3 p.16; Richarz16 §§1.1–1.4",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Unramified completion and fixed local data."
+          "how": "Supplies Barycentric congruence filtration to Unramified completion and fixed local data."
         },
         {
           "where": "PAPER-HE-18/L5; Lemma16 proof pp.17–18; Tits79 §3.1",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Ordered root-factorization at shifted depth."
+          "how": "Supplies Barycentric congruence filtration to Ordered root-factorization at shifted depth."
         },
         {
           "where": "PAPER-HE-18/L8; Lemma16 pp.17–18; Theorem20 proof p.21",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Congruence double-coset cardinality."
+          "how": "Supplies Barycentric congruence filtration to Congruence double-coset cardinality."
         },
         {
           "where": "PAPER-HE-18/L11; Lemma17 proof p.19",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Simple-cell containment at adjacent depths."
+          "how": "Supplies Barycentric congruence filtration to Simple-cell containment at adjacent depths."
         },
         {
           "where": "PAPER-HE-18/F4; Corrected Theorem18 and §5.3 pp.20–21",
-          "how": "Supplies Barycentric congruence filtration to the specified proof or construction of Howe finiteness in the verified field scope."
+          "how": "Supplies Barycentric congruence filtration to Field-valued Howe finiteness via a fixed Ω representative."
+        },
+        {
+          "where": "PAPER-HE-18/L18; Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+          "how": "Supplies Barycentric congruence filtration to Length-zero twisted transport preserves a level cell."
         }
       ],
       "gaps": [
@@ -365,6 +386,11 @@
           "name": "He18.smallLevel",
           "role": "characterisation",
           "statement": "Every compact open K and open ker ω contain I_n, respectively I_(n−1), for some sufficiently large n."
+        },
+        {
+          "name": "He18.levelOmegaNormalizer",
+          "role": "compatibility",
+          "statement": "Chosen representatives of Ω and their θ-images normalize every I_n; supply this from the actual barycentric filtration."
         }
       ],
       "tests": [
@@ -412,39 +438,39 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H9; §1.3 p.7",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Weighted twisted-conjugation representation."
+          "how": "Supplies Admissible twisting datum to Weighted twisted-conjugation representation."
         },
         {
           "where": "PAPER-HE-18/H10; §1.3 p.7",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Twisted commutator submodule."
+          "how": "Supplies Admissible twisting datum to Twisted commutator submodule."
         },
         {
           "where": "PAPER-HE-18/C1; §2.1 p.9",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Twisted Kottwitz class."
+          "how": "Supplies Admissible twisting datum to Twisted Kottwitz class."
         },
         {
           "where": "PAPER-HE-18/C2; §2.1 p.9; HN14 §1.1",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Newton vector by a twisted power."
+          "how": "Supplies Admissible twisting datum to Newton vector by a twisted power."
         },
         {
           "where": "PAPER-HE-18/C4; §2.3 p.10",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Length-nonincreasing twisted reduction."
+          "how": "Supplies Admissible twisting datum to Length-nonincreasing twisted reduction."
         },
         {
           "where": "PAPER-HE-18/C6; §2.5 p.11",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Straight twisted elements."
+          "how": "Supplies Admissible twisting datum to Straight twisted elements."
         },
         {
           "where": "PAPER-HE-18/N4; §2.4(2) p.10",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Decreasing reduction splits saturated cells."
+          "how": "Supplies Admissible twisting datum to Decreasing reduction splits saturated cells."
         },
         {
           "where": "PAPER-HE-18/F5; Source-derived test of Theorems18/20; E3",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Square-zero coefficient counterexample datum."
+          "how": "Supplies Admissible twisting datum to Square-zero coefficient counterexample datum."
         },
         {
           "where": "PAPER-HE-18/R4; §6.2 p.22",
-          "how": "Supplies Admissible twisting datum to the specified proof or construction of Standard parahoric pair."
+          "how": "Supplies Admissible twisting datum to Standard parahoric pair."
         }
       ],
       "gaps": [],
@@ -523,39 +549,39 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H2; §1.2 p.7; §3.2 p.14; §4.2 p.15",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Uniform compact level for a test function."
+          "how": "Supplies Compactly supported test-function carrier to Uniform compact level for a test function."
         },
         {
           "where": "PAPER-HE-18/H3; §1.2 pp.6–7",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Integral normalized Haar integration."
+          "how": "Supplies Compactly supported test-function carrier to Integral normalized Haar integration."
         },
         {
           "where": "PAPER-HE-18/H4; §1.2 pp.6–7; §1.3 p.7",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Finite-sum Hecke convolution and scalar extension."
+          "how": "Supplies Compactly supported test-function carrier to Finite-sum Hecke convolution and scalar extension."
         },
         {
           "where": "PAPER-HE-18/H9; §1.3 p.7",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Weighted twisted-conjugation representation."
+          "how": "Supplies Compactly supported test-function carrier to Weighted twisted-conjugation representation."
         },
         {
           "where": "PAPER-HE-18/N11; §3.2 p.14",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Compact-open right stabilizer and admissibility."
+          "how": "Supplies Compactly supported test-function carrier to Compact-open right stabilizer and admissibility."
         },
         {
           "where": "PAPER-HE-18/N12; §3.1 p.14",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Test functions supported in a Newton stratum."
+          "how": "Supplies Compactly supported test-function carrier to Test functions supported in a Newton stratum."
         },
         {
           "where": "PAPER-HE-18/R8; §6.3 p.23",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Local parahoric-coset test module."
+          "how": "Supplies Compactly supported test-function carrier to Local parahoric-coset test module."
         },
         {
           "where": "PAPER-HE-18/R12; Source-derived expansion of Theorem22 sheaf step pp.23–24",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Finite clopen refinement of a compact support."
+          "how": "Supplies Compactly supported test-function carrier to Finite clopen refinement of a compact support."
         },
         {
           "where": "PAPER-HE-18/R13; Source-derived repair of §§6.3–6.4",
-          "how": "Supplies Compactly supported test-function carrier to the specified proof or construction of Compact-test cosheaf presentation."
+          "how": "Supplies Compactly supported test-function carrier to Compact-test cosheaf presentation."
         }
       ],
       "gaps": [],
@@ -629,19 +655,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H3; §1.2 pp.6–7",
-          "how": "Supplies Uniform compact level for a test function to the specified proof or construction of Integral normalized Haar integration."
+          "how": "Supplies Uniform compact level for a test function to Integral normalized Haar integration."
         },
         {
           "where": "PAPER-HE-18/H4; §1.2 pp.6–7; §1.3 p.7",
-          "how": "Supplies Uniform compact level for a test function to the specified proof or construction of Finite-sum Hecke convolution and scalar extension."
+          "how": "Supplies Uniform compact level for a test function to Finite-sum Hecke convolution and scalar extension."
         },
         {
           "where": "PAPER-HE-18/H6; §1.2 p.7",
-          "how": "Supplies Uniform compact level for a test function to the specified proof or construction of Double-coset basis at compact level."
+          "how": "Supplies Uniform compact level for a test function to Double-coset basis at compact level."
         },
         {
           "where": "PAPER-HE-18/L16; Corollary12 p.16",
-          "how": "Supplies Uniform compact level for a test function to the specified proof or construction of Global Iwahori–Matsumoto-type generators."
+          "how": "Supplies Uniform compact level for a test function to Global Iwahori–Matsumoto-type generators."
         }
       ],
       "gaps": [],
@@ -683,19 +709,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H4; §1.2 pp.6–7; §1.3 p.7",
-          "how": "Supplies Integral normalized Haar integration to the specified proof or construction of Finite-sum Hecke convolution and scalar extension."
+          "how": "Supplies Integral normalized Haar integration to Finite-sum Hecke convolution and scalar extension."
         },
         {
           "where": "PAPER-HE-18/H11; Proposition1 pp.8–9",
-          "how": "Supplies Integral normalized Haar integration to the specified proof or construction of Commutators equal coinvariant relations."
+          "how": "Supplies Integral normalized Haar integration to Commutators equal coinvariant relations."
         },
         {
           "where": "PAPER-HE-18/F5; Source-derived test of Theorems18/20; E3",
-          "how": "Supplies Integral normalized Haar integration to the specified proof or construction of Square-zero coefficient counterexample datum."
+          "how": "Supplies Integral normalized Haar integration to Square-zero coefficient counterexample datum."
         },
         {
           "where": "PAPER-HE-18/R10; Theorem23 setup p.24 and proof p.25",
-          "how": "Supplies Integral normalized Haar integration to the specified proof or construction of Local commutators equal local action relations."
+          "how": "Supplies Integral normalized Haar integration to Local commutators equal local action relations."
         }
       ],
       "gaps": [
@@ -775,19 +801,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H5; §1.2 p.7; §4.1 p.15",
-          "how": "Supplies Finite-sum Hecke convolution and scalar extension to the specified proof or construction of Level Hecke submodule."
+          "how": "Supplies Finite-sum Hecke convolution and scalar extension to Level Hecke submodule."
         },
         {
           "where": "PAPER-HE-18/H10; §1.3 p.7",
-          "how": "Supplies Finite-sum Hecke convolution and scalar extension to the specified proof or construction of Twisted commutator submodule."
+          "how": "Supplies Finite-sum Hecke convolution and scalar extension to Twisted commutator submodule."
         },
         {
           "where": "PAPER-HE-18/H11; Proposition1 pp.8–9",
-          "how": "Supplies Finite-sum Hecke convolution and scalar extension to the specified proof or construction of Commutators equal coinvariant relations."
+          "how": "Supplies Finite-sum Hecke convolution and scalar extension to Commutators equal coinvariant relations."
         },
         {
           "where": "PAPER-HE-18/L10; Proposition13 p.16; proof §4.4 p.18",
-          "how": "Supplies Finite-sum Hecke convolution and scalar extension to the specified proof or construction of Length-additive congruence convolution."
+          "how": "Supplies Finite-sum Hecke convolution and scalar extension to Length-additive congruence convolution."
         }
       ],
       "gaps": [
@@ -865,19 +891,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H6; §1.2 p.7",
-          "how": "Supplies Level Hecke submodule to the specified proof or construction of Double-coset basis at compact level."
+          "how": "Supplies Level Hecke submodule to Double-coset basis at compact level."
         },
         {
           "where": "PAPER-HE-18/L1; §4.2 p.15",
-          "how": "Supplies Level Hecke submodule to the specified proof or construction of Congruence-level image in the ambient cocenter."
+          "how": "Supplies Level Hecke submodule to Congruence-level image in the ambient cocenter."
         },
         {
           "where": "PAPER-HE-18/L2; §4.2 p.15",
-          "how": "Supplies Level Hecke submodule to the specified proof or construction of Iwahori-cell level functions."
+          "how": "Supplies Level Hecke submodule to Iwahori-cell level functions."
         },
         {
           "where": "PAPER-HE-18/F1; §5.1 p.20",
-          "how": "Supplies Level Hecke submodule to the specified proof or construction of Distributions supported on a twisted saturation."
+          "how": "Supplies Level Hecke submodule to Distributions supported on a twisted saturation."
         }
       ],
       "gaps": [],
@@ -951,7 +977,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
-          "how": "Supplies Double-coset basis at compact level to the specified proof or construction of Finite generation of a guarded level cocenter component."
+          "how": "Supplies Double-coset basis at compact level to Finite generation from Ω-normalized level cells."
         }
       ],
       "gaps": [],
@@ -993,11 +1019,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H8; Pinned RepresentationTheory/Coinvariants.lean, lift and hom_ext",
-          "how": "Supplies Generic representation coinvariants to the specified proof or construction of Coinvariant universal map."
+          "how": "Supplies Generic representation coinvariants to Coinvariant universal map."
         },
         {
           "where": "PAPER-HE-18/H12; §1.4 pp.8–9",
-          "how": "Supplies Generic representation coinvariants to the specified proof or construction of Twisted cocenter."
+          "how": "Supplies Generic representation coinvariants to Twisted cocenter."
         }
       ],
       "gaps": [],
@@ -1077,15 +1103,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H12; §1.4 pp.8–9",
-          "how": "Supplies Coinvariant universal map to the specified proof or construction of Twisted cocenter."
+          "how": "Supplies Coinvariant universal map to Twisted cocenter."
         },
         {
           "where": "PAPER-HE-18/R9; §6.3 p.23; universal repair of §6.4",
-          "how": "Supplies Coinvariant universal map to the specified proof or construction of Local invariant distributions."
+          "how": "Supplies Coinvariant universal map to Local invariant distributions."
         },
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Coinvariant universal map to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Coinvariant universal map to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [],
@@ -1122,31 +1148,35 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H11; Proposition1 pp.8–9",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Commutators equal coinvariant relations."
+          "how": "Supplies Weighted twisted-conjugation representation to Commutators equal coinvariant relations."
         },
         {
           "where": "PAPER-HE-18/N15; Theorem10(2) proof p.15",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Commutator relations split by Newton component."
+          "how": "Supplies Weighted twisted-conjugation representation to Commutator relations split by Newton component."
         },
         {
           "where": "PAPER-HE-18/F6; Source-derived counterexample; E3",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Failure of arbitrary-ring Howe finite generation."
+          "how": "Supplies Weighted twisted-conjugation representation to Failure of arbitrary-ring Howe finite generation."
         },
         {
           "where": "PAPER-HE-18/R8; §6.3 p.23",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Local parahoric-coset test module."
+          "how": "Supplies Weighted twisted-conjugation representation to Local parahoric-coset test module."
         },
         {
           "where": "PAPER-HE-18/R11; Corrected §6.4 p.24; E4",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Inverse-transport overlap graph."
+          "how": "Supplies Weighted twisted-conjugation representation to Inverse-transport overlap graph."
         },
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Weighted twisted-conjugation representation to Double-coset descent of overlap relations."
         },
         {
           "where": "PAPER-HE-18/R18; Source-derived counterexample to §6.4; E4",
-          "how": "Supplies Weighted twisted-conjugation representation to the specified proof or construction of Concrete failure of forward overlap transport."
+          "how": "Supplies Weighted twisted-conjugation representation to Concrete failure of forward overlap transport."
+        },
+        {
+          "where": "PAPER-HE-18/L18; Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+          "how": "Supplies Weighted twisted-conjugation representation to Length-zero twisted transport preserves a level cell."
         }
       ],
       "gaps": [],
@@ -1220,15 +1250,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H11; Proposition1 pp.8–9",
-          "how": "Supplies Twisted commutator submodule to the specified proof or construction of Commutators equal coinvariant relations."
+          "how": "Supplies Twisted commutator submodule to Commutators equal coinvariant relations."
         },
         {
           "where": "PAPER-HE-18/L12; Lemma17(1) pp.18–19",
-          "how": "Supplies Twisted commutator submodule to the specified proof or construction of Equal-length cell reduction in the cocenter."
+          "how": "Supplies Twisted commutator submodule to Equal-length cell reduction in the cocenter."
         },
         {
           "where": "PAPER-HE-18/L13; Lemma17(2) pp.18–19",
-          "how": "Supplies Twisted commutator submodule to the specified proof or construction of Decreasing cell reduction in the cocenter."
+          "how": "Supplies Twisted commutator submodule to Decreasing cell reduction in the cocenter."
         }
       ],
       "gaps": [],
@@ -1305,15 +1335,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H12; §1.4 pp.8–9",
-          "how": "Supplies Commutators equal coinvariant relations to the specified proof or construction of Twisted cocenter."
+          "how": "Supplies Commutators equal coinvariant relations to Twisted cocenter."
         },
         {
           "where": "PAPER-HE-18/N15; Theorem10(2) proof p.15",
-          "how": "Supplies Commutators equal coinvariant relations to the specified proof or construction of Commutator relations split by Newton component."
+          "how": "Supplies Commutators equal coinvariant relations to Commutator relations split by Newton component."
         },
         {
           "where": "PAPER-HE-18/R10; Theorem23 setup p.24 and proof p.25",
-          "how": "Supplies Commutators equal coinvariant relations to the specified proof or construction of Local commutators equal local action relations."
+          "how": "Supplies Commutators equal coinvariant relations to Local commutators equal local action relations."
+        },
+        {
+          "where": "PAPER-HE-18/L18; Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+          "how": "Supplies Commutators equal coinvariant relations to Length-zero twisted transport preserves a level cell."
         }
       ],
       "gaps": [
@@ -1353,19 +1387,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/H13; §1.4 pp.8–9",
-          "how": "Supplies Twisted cocenter to the specified proof or construction of Invariant distributions."
+          "how": "Supplies Twisted cocenter to Invariant distributions."
         },
         {
           "where": "PAPER-HE-18/N14; §3.1 p.14",
-          "how": "Supplies Twisted cocenter to the specified proof or construction of Newton component of the cocenter."
+          "how": "Supplies Twisted cocenter to Newton component of the cocenter."
         },
         {
           "where": "PAPER-HE-18/L1; §4.2 p.15",
-          "how": "Supplies Twisted cocenter to the specified proof or construction of Congruence-level image in the ambient cocenter."
+          "how": "Supplies Twisted cocenter to Congruence-level image in the ambient cocenter."
         },
         {
           "where": "PAPER-HE-18/L2; §4.2 p.15",
-          "how": "Supplies Twisted cocenter to the specified proof or construction of Iwahori-cell level functions."
+          "how": "Supplies Twisted cocenter to Iwahori-cell level functions."
         }
       ],
       "gaps": [],
@@ -1438,15 +1472,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N17; Corrected §5.2 p.20; source issue E2",
-          "how": "Supplies Invariant distributions to the specified proof or construction of Product decomposition of invariant distributions."
+          "how": "Supplies Invariant distributions to Product decomposition of invariant distributions."
         },
         {
           "where": "PAPER-HE-18/F1; §5.1 p.20",
-          "how": "Supplies Invariant distributions to the specified proof or construction of Distributions supported on a twisted saturation."
+          "how": "Supplies Invariant distributions to Distributions supported on a twisted saturation."
         },
         {
           "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
-          "how": "Supplies Invariant distributions to the specified proof or construction of Rigid support and rigid cocenter."
+          "how": "Supplies Invariant distributions to Rigid support and rigid cocenter."
         }
       ],
       "gaps": [],
@@ -1520,15 +1554,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C3; §2.1 p.9",
-          "how": "Supplies Twisted Kottwitz class to the specified proof or construction of Newton invariance and arithmetic classifier."
+          "how": "Supplies Twisted Kottwitz class to Newton invariance and arithmetic classifier."
         },
         {
           "where": "PAPER-HE-18/C10; Corrected §2.1(a) p.9; source issue E1",
-          "how": "Supplies Twisted Kottwitz class to the specified proof or construction of Finite Ω-cosets under an explicit guard."
+          "how": "Supplies Twisted Kottwitz class to Finite Ω-cosets under an explicit guard."
         },
         {
-          "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
-          "how": "Supplies Twisted Kottwitz class to the specified proof or construction of Separation of distinct Newton power growth."
+          "where": "PAPER-HE-18/C17; Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+          "how": "Supplies Twisted Kottwitz class to Finite minimal representatives after Ω transport."
         }
       ],
       "gaps": [],
@@ -1602,19 +1636,23 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C3; §2.1 p.9",
-          "how": "Supplies Newton vector by a twisted power to the specified proof or construction of Newton invariance and arithmetic classifier."
+          "how": "Supplies Newton vector by a twisted power to Newton invariance and arithmetic classifier."
         },
         {
           "where": "PAPER-HE-18/C13; HN14 §§1.1,2.1–2.2",
-          "how": "Supplies Newton vector by a twisted power to the specified proof or construction of Newton affine axis."
+          "how": "Supplies Newton vector by a twisted power to Newton affine axis."
         },
         {
           "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
-          "how": "Supplies Newton vector by a twisted power to the specified proof or construction of Separation of distinct Newton power growth."
+          "how": "Supplies Newton vector by a twisted power to Separation of distinct Newton power growth."
         },
         {
           "where": "PAPER-HE-18/R1; §6.1 p.21",
-          "how": "Supplies Newton vector by a twisted power to the specified proof or construction of Newton centralizer Levi."
+          "how": "Supplies Newton vector by a twisted power to Newton centralizer Levi."
+        },
+        {
+          "where": "PAPER-HE-18/N19; Source-derived elementary affine argument replacing He18 §2.6 p.13 final inequality",
+          "how": "Supplies Newton vector by a twisted power to Finite affine errors separate distinct translation slopes."
         }
       ],
       "gaps": [
@@ -1690,15 +1728,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C7; Theorem6 p.11; HN14 Theorem3.3",
-          "how": "Supplies Newton invariance and arithmetic classifier to the specified proof or construction of Straight-class arithmetic classification."
+          "how": "Supplies Newton invariance and arithmetic classifier to Straight-class arithmetic classification."
         },
         {
           "where": "PAPER-HE-18/N1; §2.2 pp.9–10",
-          "how": "Supplies Newton invariance and arithmetic classifier to the specified proof or construction of Newton strata of the local group."
+          "how": "Supplies Newton invariance and arithmetic classifier to Newton strata of the local group."
         },
         {
           "where": "PAPER-HE-18/R5; Proposition21 first half p.22",
-          "how": "Supplies Newton invariance and arithmetic classifier to the specified proof or construction of Minimal finite-parabolic elements are globally minimal."
+          "how": "Supplies Newton invariance and arithmetic classifier to Minimal finite-parabolic elements are globally minimal."
+        },
+        {
+          "where": "PAPER-HE-18/C17; Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+          "how": "Supplies Newton invariance and arithmetic classifier to Finite minimal representatives after Ω transport."
         }
       ],
       "gaps": [],
@@ -1735,31 +1777,31 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C5; Theorem4 p.10; HN14 Theorem2.9",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Affine twisted RedMin."
+          "how": "Supplies Length-nonincreasing twisted reduction to Affine twisted RedMin."
         },
         {
           "where": "PAPER-HE-18/C8; Theorem7 and Remark8 p.11",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Standard affine reduction triple."
+          "how": "Supplies Length-nonincreasing twisted reduction to Standard affine reduction triple."
         },
         {
           "where": "PAPER-HE-18/C14; HN14 Proposition2.4, §§2.1–2.2",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Gradient descent to an axis alcove."
+          "how": "Supplies Length-nonincreasing twisted reduction to Gradient descent to an axis alcove."
         },
         {
           "where": "PAPER-HE-18/C15; HN14 §2.4 Theorem2.5 and Proposition2.7",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Finite-parabolic partial conjugation reduction."
+          "how": "Supplies Length-nonincreasing twisted reduction to Finite-parabolic partial conjugation reduction."
         },
         {
           "where": "PAPER-HE-18/N1; §2.2 pp.9–10",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Newton strata of the local group."
+          "how": "Supplies Length-nonincreasing twisted reduction to Newton strata of the local group."
         },
         {
           "where": "PAPER-HE-18/N3; §2.4(1) p.10",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Equal-length reduction preserves saturated cells."
+          "how": "Supplies Length-nonincreasing twisted reduction to Equal-length reduction preserves saturated cells."
         },
         {
           "where": "PAPER-HE-18/R5; Proposition21 first half p.22",
-          "how": "Supplies Length-nonincreasing twisted reduction to the specified proof or construction of Minimal finite-parabolic elements are globally minimal."
+          "how": "Supplies Length-nonincreasing twisted reduction to Minimal finite-parabolic elements are globally minimal."
         }
       ],
       "gaps": [],
@@ -1835,27 +1877,27 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C7; Theorem6 p.11; HN14 Theorem3.3",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Straight-class arithmetic classification."
+          "how": "Supplies Affine twisted RedMin to Straight-class arithmetic classification."
         },
         {
           "where": "PAPER-HE-18/C9; Theorem7 and Remark8 p.11; HN14 Proposition2.7",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Reduction to a standard triple."
+          "how": "Supplies Affine twisted RedMin to Reduction to a standard triple."
         },
         {
           "where": "PAPER-HE-18/C12; Corollary9 second assertion p.12",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Finite conjugacy-class fibres in the guarded scope."
+          "how": "Supplies Affine twisted RedMin to Finite conjugacy-class fibres without the finite-minima guard."
         },
         {
           "where": "PAPER-HE-18/N5; Proposition5 pp.10–11",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Compact sets meet finitely many Newton strata."
+          "how": "Supplies Affine twisted RedMin to Compact sets meet finitely many Newton strata."
         },
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Affine twisted RedMin to Minimal-cell generators at each level."
         },
         {
           "where": "PAPER-HE-18/R6; Proposition21 second half p.23; HN14 Corollary2.8",
-          "how": "Supplies Affine twisted RedMin to the specified proof or construction of Central-Newton minimal elements lie in a standard pair."
+          "how": "Supplies Affine twisted RedMin to Central-Newton minimal elements lie in a standard pair."
         }
       ],
       "gaps": [
@@ -1895,11 +1937,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C7; Theorem6 p.11; HN14 Theorem3.3",
-          "how": "Supplies Straight twisted elements to the specified proof or construction of Straight-class arithmetic classification."
+          "how": "Supplies Straight twisted elements to Straight-class arithmetic classification."
         },
         {
           "where": "PAPER-HE-18/C8; Theorem7 and Remark8 p.11",
-          "how": "Supplies Straight twisted elements to the specified proof or construction of Standard affine reduction triple."
+          "how": "Supplies Straight twisted elements to Standard affine reduction triple."
         }
       ],
       "gaps": [],
@@ -1974,11 +2016,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C9; Theorem7 and Remark8 p.11; HN14 Proposition2.7",
-          "how": "Supplies Straight-class arithmetic classification to the specified proof or construction of Reduction to a standard triple."
+          "how": "Supplies Straight-class arithmetic classification to Reduction to a standard triple."
         },
         {
           "where": "PAPER-HE-18/C11; Corrected Corollary9 first assertion p.12",
-          "how": "Supplies Straight-class arithmetic classification to the specified proof or construction of Finite minimal elements in a guarded Newton fibre."
+          "how": "Supplies Straight-class arithmetic classification to Finite minimal elements in a guarded Newton fibre."
+        },
+        {
+          "where": "PAPER-HE-18/C17; Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+          "how": "Supplies Straight-class arithmetic classification to Finite minimal representatives after Ω transport."
         }
       ],
       "gaps": [
@@ -2018,19 +2064,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C9; Theorem7 and Remark8 p.11; HN14 Proposition2.7",
-          "how": "Supplies Standard affine reduction triple to the specified proof or construction of Reduction to a standard triple."
+          "how": "Supplies Standard affine reduction triple to Reduction to a standard triple."
         },
         {
           "where": "PAPER-HE-18/N6; §2.6 equation(a) pp.12–13",
-          "how": "Supplies Standard affine reduction triple to the specified proof or construction of Bounded finite-parabolic error in twisted powers."
+          "how": "Supplies Standard affine reduction triple to Bounded finite-parabolic error in twisted powers."
         },
         {
           "where": "PAPER-HE-18/R5; Proposition21 first half p.22",
-          "how": "Supplies Standard affine reduction triple to the specified proof or construction of Minimal finite-parabolic elements are globally minimal."
+          "how": "Supplies Standard affine reduction triple to Minimal finite-parabolic elements are globally minimal."
         },
         {
           "where": "PAPER-HE-18/R6; Proposition21 second half p.23; HN14 Corollary2.8",
-          "how": "Supplies Standard affine reduction triple to the specified proof or construction of Central-Newton minimal elements lie in a standard pair."
+          "how": "Supplies Standard affine reduction triple to Central-Newton minimal elements lie in a standard pair."
         }
       ],
       "gaps": [],
@@ -2106,15 +2152,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C11; Corrected Corollary9 first assertion p.12",
-          "how": "Supplies Reduction to a standard triple to the specified proof or construction of Finite minimal elements in a guarded Newton fibre."
+          "how": "Supplies Reduction to a standard triple to Finite minimal elements in a guarded Newton fibre."
         },
         {
           "where": "PAPER-HE-18/N8; Theorem3 p.10; proof §2.6 pp.12–13",
-          "how": "Supplies Reduction to a standard triple to the specified proof or construction of Newton partition of G."
+          "how": "Supplies Reduction to a standard triple to Newton partition of G."
         },
         {
           "where": "PAPER-HE-18/L17; §4.6 p.19",
-          "how": "Supplies Reduction to a standard triple to the specified proof or construction of Standard-triple support representatives."
+          "how": "Supplies Reduction to a standard triple to Standard-triple support representatives."
+        },
+        {
+          "where": "PAPER-HE-18/C17; Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+          "how": "Supplies Reduction to a standard triple to Finite minimal representatives after Ω transport."
         }
       ],
       "gaps": [
@@ -2152,7 +2202,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C11; Corrected Corollary9 first assertion p.12",
-          "how": "Supplies Finite Ω-cosets under an explicit guard to the specified proof or construction of Finite minimal elements in a guarded Newton fibre."
+          "how": "Supplies Finite Ω-cosets under an explicit guard to Finite minimal elements in a guarded Newton fibre."
         }
       ],
       "gaps": [],
@@ -2187,19 +2237,8 @@
       "acceptance": [
         "For θ=id on G_m, the fibre at ν=m contains only m. Inversion violates the added guard."
       ],
-      "uses": [
-        {
-          "where": "PAPER-HE-18/C12; Corollary9 second assertion p.12",
-          "how": "Supplies Finite minimal elements in a guarded Newton fibre to the specified proof or construction of Finite conjugacy-class fibres in the guarded scope."
-        },
-        {
-          "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
-          "how": "Supplies Finite minimal elements in a guarded Newton fibre to the specified proof or construction of Finite generation of a guarded level cocenter component."
-        }
-      ],
-      "gaps": [
-        "PAPER-HE-18/G7"
-      ],
+      "uses": [],
+      "gaps": [],
       "sources": [
         {
           "source": "HE18-published",
@@ -2212,8 +2251,8 @@
     {
       "id": "PAPER-HE-18/C12",
       "kind": "theorem",
-      "name": "Finite conjugacy-class fibres in the guarded scope",
-      "statement": "Under C11's hypotheses, π has finite fibres on θ-conjugacy classes, since every class has a minimal representative. The torus inversion example does not disprove the broader printed class-finiteness assertion; removing the guard here needs a separate proof.",
+      "name": "Finite conjugacy-class fibres without the finite-minima guard",
+      "statement": "Under C17 and existence of minimal representatives (C5), every fibre of π on θ-conjugacy classes is finite. The finite set S(ν,τ0) surjects onto the class fibre, even when the full minimal-element set is infinite.",
       "locator": "Corollary9 second assertion p.12",
       "status": "missing",
       "library": [],
@@ -2222,10 +2261,10 @@
       "ownerHint": "RootSystemsPartIIDominanceAndDemazure",
       "prerequisites": [
         "PAPER-HE-18/C5",
-        "PAPER-HE-18/C11"
+        "PAPER-HE-18/C17"
       ],
       "proofSteps": [
-        "Map the finite set of minimal representatives onto the class fibre."
+        "Choose a minimal representative of each class, then Ω-normalize it by C17. This gives a surjection from the finite representative set onto the fibre."
       ],
       "acceptance": [
         "For the inverted torus each arithmetic fibre is one class even though C11 without its guard fails."
@@ -2264,15 +2303,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C14; HN14 Proposition2.4, §§2.1–2.2",
-          "how": "Supplies Newton affine axis to the specified proof or construction of Gradient descent to an axis alcove."
+          "how": "Supplies Newton affine axis to Gradient descent to an axis alcove."
         },
         {
           "where": "PAPER-HE-18/C15; HN14 §2.4 Theorem2.5 and Proposition2.7",
-          "how": "Supplies Newton affine axis to the specified proof or construction of Finite-parabolic partial conjugation reduction."
+          "how": "Supplies Newton affine axis to Finite-parabolic partial conjugation reduction."
         },
         {
           "where": "PAPER-HE-18/C16; HN14 Proposition2.7 and Lemma2.6",
-          "how": "Supplies Newton affine axis to the specified proof or construction of Axis-alcove parabolic factorization."
+          "how": "Supplies Newton affine axis to Axis-alcove parabolic factorization."
         }
       ],
       "gaps": [],
@@ -2346,7 +2385,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C5; Theorem4 p.10; HN14 Theorem2.9",
-          "how": "Supplies Gradient descent to an axis alcove to the specified proof or construction of Affine twisted RedMin."
+          "how": "Supplies Gradient descent to an axis alcove to Affine twisted RedMin."
         }
       ],
       "gaps": [
@@ -2385,7 +2424,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C5; Theorem4 p.10; HN14 Theorem2.9",
-          "how": "Supplies Finite-parabolic partial conjugation reduction to the specified proof or construction of Affine twisted RedMin."
+          "how": "Supplies Finite-parabolic partial conjugation reduction to Affine twisted RedMin."
         }
       ],
       "gaps": [
@@ -2423,19 +2462,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/C5; Theorem4 p.10; HN14 Theorem2.9",
-          "how": "Supplies Axis-alcove parabolic factorization to the specified proof or construction of Affine twisted RedMin."
+          "how": "Supplies Axis-alcove parabolic factorization to Affine twisted RedMin."
         },
         {
           "where": "PAPER-HE-18/C9; Theorem7 and Remark8 p.11; HN14 Proposition2.7",
-          "how": "Supplies Axis-alcove parabolic factorization to the specified proof or construction of Reduction to a standard triple."
-        },
-        {
-          "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
-          "how": "Supplies Axis-alcove parabolic factorization to the specified proof or construction of Separation of distinct Newton power growth."
+          "how": "Supplies Axis-alcove parabolic factorization to Reduction to a standard triple."
         },
         {
           "where": "PAPER-HE-18/R6; Proposition21 second half p.23; HN14 Corollary2.8",
-          "how": "Supplies Axis-alcove parabolic factorization to the specified proof or construction of Central-Newton minimal elements lie in a standard pair."
+          "how": "Supplies Axis-alcove parabolic factorization to Central-Newton minimal elements lie in a standard pair."
         }
       ],
       "gaps": [
@@ -2475,15 +2510,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N5; Proposition5 pp.10–11",
-          "how": "Supplies Newton strata of the local group to the specified proof or construction of Compact sets meet finitely many Newton strata."
+          "how": "Supplies Newton strata of the local group to Compact sets meet finitely many Newton strata."
         },
         {
           "where": "PAPER-HE-18/N9; §3.2 p.14",
-          "how": "Supplies Newton strata of the local group to the specified proof or construction of Newton strata are clopen."
+          "how": "Supplies Newton strata of the local group to Newton strata are clopen."
         },
         {
           "where": "PAPER-HE-18/N15; Theorem10(2) proof p.15",
-          "how": "Supplies Newton strata of the local group to the specified proof or construction of Commutator relations split by Newton component."
+          "how": "Supplies Newton strata of the local group to Commutator relations split by Newton component."
+        },
+        {
+          "where": "PAPER-HE-18/N20; Source-derived replacement of the compact-core claims in He18 Introduction and §5.2",
+          "how": "Supplies Newton strata of the local group to Compact Newton core in one Ω coset."
         }
       ],
       "gaps": [],
@@ -2557,31 +2596,27 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N3; §2.4(1) p.10",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Equal-length reduction preserves saturated cells."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Equal-length reduction preserves saturated cells."
         },
         {
           "where": "PAPER-HE-18/N4; §2.4(2) p.10",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Decreasing reduction splits saturated cells."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Decreasing reduction splits saturated cells."
         },
         {
           "where": "PAPER-HE-18/N6; §2.6 equation(a) pp.12–13",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Bounded finite-parabolic error in twisted powers."
-        },
-        {
-          "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Separation of distinct Newton power growth."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Bounded finite-parabolic error in twisted powers."
         },
         {
           "where": "PAPER-HE-18/L7; Lemma16 proof p.17",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Reduced-word contracted multiplication at level."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Reduced-word contracted multiplication at level."
         },
         {
           "where": "PAPER-HE-18/L10; Proposition13 p.16; proof §4.4 p.18",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Length-additive congruence convolution."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Length-additive congruence convolution."
         },
         {
           "where": "PAPER-HE-18/L13; Lemma17(2) pp.18–19",
-          "how": "Supplies Length-sensitive simple Bruhat multiplication to the specified proof or construction of Decreasing cell reduction in the cocenter."
+          "how": "Supplies Length-sensitive simple Bruhat multiplication to Decreasing cell reduction in the cocenter."
         }
       ],
       "gaps": [],
@@ -2618,15 +2653,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N5; Proposition5 pp.10–11",
-          "how": "Supplies Equal-length reduction preserves saturated cells to the specified proof or construction of Compact sets meet finitely many Newton strata."
+          "how": "Supplies Equal-length reduction preserves saturated cells to Compact sets meet finitely many Newton strata."
         },
         {
           "where": "PAPER-HE-18/N8; Theorem3 p.10; proof §2.6 pp.12–13",
-          "how": "Supplies Equal-length reduction preserves saturated cells to the specified proof or construction of Newton partition of G."
+          "how": "Supplies Equal-length reduction preserves saturated cells to Newton partition of G."
         },
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Equal-length reduction preserves saturated cells to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Equal-length reduction preserves saturated cells to Rigid standard-pair covering."
         }
       ],
       "gaps": [],
@@ -2663,11 +2698,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N5; Proposition5 pp.10–11",
-          "how": "Supplies Decreasing reduction splits saturated cells to the specified proof or construction of Compact sets meet finitely many Newton strata."
+          "how": "Supplies Decreasing reduction splits saturated cells to Compact sets meet finitely many Newton strata."
         },
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Decreasing reduction splits saturated cells to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Decreasing reduction splits saturated cells to Rigid standard-pair covering."
         }
       ],
       "gaps": [],
@@ -2707,15 +2742,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N8; Theorem3 p.10; proof §2.6 pp.12–13",
-          "how": "Supplies Compact sets meet finitely many Newton strata to the specified proof or construction of Newton partition of G."
+          "how": "Supplies Compact sets meet finitely many Newton strata to Newton partition of G."
         },
         {
           "where": "PAPER-HE-18/N13; Theorem10(1) and proof pp.14–15; §4.1",
-          "how": "Supplies Compact sets meet finitely many Newton strata to the specified proof or construction of Newton direct sum of test functions."
+          "how": "Supplies Compact sets meet finitely many Newton strata to Newton direct sum of test functions."
         },
         {
           "where": "PAPER-HE-18/F4; Corrected Theorem18 and §5.3 pp.20–21",
-          "how": "Supplies Compact sets meet finitely many Newton strata to the specified proof or construction of Howe finiteness in the verified field scope."
+          "how": "Supplies Compact sets meet finitely many Newton strata to Field-valued Howe finiteness via a fixed Ω representative."
         }
       ],
       "gaps": [],
@@ -2752,7 +2787,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
-          "how": "Supplies Bounded finite-parabolic error in twisted powers to the specified proof or construction of Separation of distinct Newton power growth."
+          "how": "Supplies Bounded finite-parabolic error in twisted powers to Separation of distinct Newton power growth."
         }
       ],
       "gaps": [],
@@ -2769,7 +2804,7 @@
       "id": "PAPER-HE-18/N7",
       "kind": "theorem",
       "name": "Separation of distinct Newton power growth",
-      "statement": "For standard-triple cells with distinct dominant Newton vectors and equal κ, no fixed g∈G θ-conjugates an element of one to the other. The proof must track the actual Ω-coset of g and compare both central projections and root-span translation growth.",
+      "statement": "For standard-triple cells with distinct dominant Newton vectors, no fixed g∈G θ-conjugates an element of one to the other. Assume the validated full-apartment action C2, finite-order θ on W̃, N6 and the local simple-cell adapters in N18. The proof handles Ω-cosets and central translations directly.",
       "locator": "§2.6 pp.12–13, corrected proof target",
       "status": "missing",
       "library": [],
@@ -2777,14 +2812,16 @@
       "implementationStatus": "unchecked",
       "ownerHint": "SmoothRepresentationsPartIINewtonCocenters",
       "prerequisites": [
-        "PAPER-HE-18/C1",
         "PAPER-HE-18/C2",
-        "PAPER-HE-18/C16",
         "PAPER-HE-18/N6",
-        "PAPER-HE-18/N2"
+        "PAPER-HE-18/N18",
+        "PAPER-HE-18/N19"
       ],
       "proofSteps": [
-        "Take a common twisted power producing translations. Bound Bruhat multipliers in finitely many fixed Ω-cosets, not in Wa without justification. Prove equal central averages from κ, then use the positive root-length norm on the semisimple span. These missing comparison steps are G5."
+        "Choose n0 divisible by the order of θ on W̃, with (xiθ)^n0 acting as translation λi. If hi are conjugate by fixed g∈IżI, their n0m-fold twisted products remain conjugate by g and θ^(n0m)(g). The latter stays in IżI; θ need not have finite order on G itself.",
+        "Use N6 to bound the parabolic errors by the fixed finite groups WK1 and WK2. Move the second finite-parabolic error to the other side, using inversion. All outside cells then range over fixed finite sets independent of m.",
+        "N18 gives finite endpoint sets A,B and an equality t^(mλ2)=a_m t^(mλ1)b_m of Bruhat labels for every m; disjointness of Bruhat cells is used here. Apply their full affine actions.",
+        "N19 forces λ2 into the W0-orbit of λ1, contrary to distinct dominant Newton vectors. No inference that z∈Wa, nor positivity of length on central translations, is used."
       ],
       "acceptance": [
         "Distinct central translations of GL2 must be separated even though both have Coxeter length zero; the printed inequality alone cannot do so."
@@ -2792,11 +2829,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N8; Theorem3 p.10; proof §2.6 pp.12–13",
-          "how": "Supplies Separation of distinct Newton power growth to the specified proof or construction of Newton partition of G."
+          "how": "Supplies Separation of distinct Newton power growth to Newton partition of G."
         }
       ],
       "gaps": [
-        "PAPER-HE-18/G5"
+        "PAPER-HE-18/G1"
       ],
       "sources": [
         {
@@ -2811,7 +2848,7 @@
       "id": "PAPER-HE-18/N8",
       "kind": "theorem",
       "name": "Newton partition of G",
-      "statement": "For the local/twisting setup, G is the disjoint union of G(ν) over Ω_θ×V_+. This is the intended general Theorem3; proof closure requires the actual-lattice and central-growth repairs G1/G5. The torus counterexample to finite minima does not contradict this partition.",
+      "statement": "For the local/twisting setup, G is the disjoint union of G(ν) over Ω_θ×V_+. The separation argument is supplied in N7/N18/N19, relative to the actual affine/local Bruhat and standard-triple producers still covered by G1/G4. The torus counterexample to finite minima does not contradict this partition.",
       "locator": "Theorem3 p.10; proof §2.6 pp.12–13",
       "status": "missing",
       "library": [],
@@ -2833,19 +2870,20 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N9; §3.2 p.14",
-          "how": "Supplies Newton partition of G to the specified proof or construction of Newton strata are clopen."
+          "how": "Supplies Newton partition of G to Newton strata are clopen."
         },
         {
           "where": "PAPER-HE-18/N13; Theorem10(1) and proof pp.14–15; §4.1",
-          "how": "Supplies Newton partition of G to the specified proof or construction of Newton direct sum of test functions."
+          "how": "Supplies Newton partition of G to Newton direct sum of test functions."
         },
         {
           "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
-          "how": "Supplies Newton partition of G to the specified proof or construction of Rigid support and rigid cocenter."
+          "how": "Supplies Newton partition of G to Rigid support and rigid cocenter."
         }
       ],
       "gaps": [
-        "PAPER-HE-18/G5"
+        "PAPER-HE-18/G1",
+        "PAPER-HE-18/G4"
       ],
       "sources": [
         {
@@ -2880,7 +2918,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N12; §3.1 p.14",
-          "how": "Supplies Newton strata are clopen to the specified proof or construction of Test functions supported in a Newton stratum."
+          "how": "Supplies Newton strata are clopen to Test functions supported in a Newton stratum."
         }
       ],
       "gaps": [],
@@ -2916,7 +2954,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N11; §3.2 p.14",
-          "how": "The clopen-subset argument supplies precisely this admissibility condition."
+          "how": "Supplies Admissible subsets of a locally profinite group to Compact-open right stabilizer and admissibility."
         }
       ],
       "gaps": [],
@@ -2990,7 +3028,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R12; Source-derived expansion of Theorem22 sheaf step pp.23–24",
-          "how": "Supplies Compact-open right stabilizer and admissibility to the specified proof or construction of Finite clopen refinement of a compact support."
+          "how": "Supplies Compact-open right stabilizer and admissibility to Finite clopen refinement of a compact support."
         }
       ],
       "gaps": [],
@@ -3027,19 +3065,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N13; Theorem10(1) and proof pp.14–15; §4.1",
-          "how": "Supplies Test functions supported in a Newton stratum to the specified proof or construction of Newton direct sum of test functions."
+          "how": "Supplies Test functions supported in a Newton stratum to Newton direct sum of test functions."
         },
         {
           "where": "PAPER-HE-18/N14; §3.1 p.14",
-          "how": "Supplies Test functions supported in a Newton stratum to the specified proof or construction of Newton component of the cocenter."
+          "how": "Supplies Test functions supported in a Newton stratum to Newton component of the cocenter."
         },
         {
           "where": "PAPER-HE-18/L1; §4.2 p.15",
-          "how": "Supplies Test functions supported in a Newton stratum to the specified proof or construction of Congruence-level image in the ambient cocenter."
+          "how": "Supplies Test functions supported in a Newton stratum to Congruence-level image in the ambient cocenter."
         },
         {
           "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
-          "how": "Supplies Test functions supported in a Newton stratum to the specified proof or construction of Rigid support and rigid cocenter."
+          "how": "Supplies Test functions supported in a Newton stratum to Rigid support and rigid cocenter."
         }
       ],
       "gaps": [],
@@ -3114,11 +3152,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N15; Theorem10(2) proof p.15",
-          "how": "Supplies Newton direct sum of test functions to the specified proof or construction of Commutator relations split by Newton component."
+          "how": "Supplies Newton direct sum of test functions to Commutator relations split by Newton component."
         },
         {
           "where": "PAPER-HE-18/N16; Theorem10(2) pp.14–15",
-          "how": "Supplies Newton direct sum of test functions to the specified proof or construction of Newton direct sum of the cocenter."
+          "how": "Supplies Newton direct sum of test functions to Newton direct sum of the cocenter."
         }
       ],
       "gaps": [],
@@ -3155,11 +3193,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N16; Theorem10(2) pp.14–15",
-          "how": "Supplies Newton component of the cocenter to the specified proof or construction of Newton direct sum of the cocenter."
+          "how": "Supplies Newton component of the cocenter to Newton direct sum of the cocenter."
         },
         {
           "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
-          "how": "Supplies Newton component of the cocenter to the specified proof or construction of Rigid support and rigid cocenter."
+          "how": "Supplies Newton component of the cocenter to Rigid support and rigid cocenter."
         }
       ],
       "gaps": [],
@@ -3235,7 +3273,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N16; Theorem10(2) pp.14–15",
-          "how": "Supplies Commutator relations split by Newton component to the specified proof or construction of Newton direct sum of the cocenter."
+          "how": "Supplies Commutator relations split by Newton component to Newton direct sum of the cocenter."
         }
       ],
       "gaps": [],
@@ -3273,23 +3311,23 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N17; Corrected §5.2 p.20; source issue E2",
-          "how": "Supplies Newton direct sum of the cocenter to the specified proof or construction of Product decomposition of invariant distributions."
+          "how": "Supplies Newton direct sum of the cocenter to Product decomposition of invariant distributions."
         },
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Newton direct sum of the cocenter to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Newton direct sum of the cocenter to Minimal-cell generators at each level."
         },
         {
           "where": "PAPER-HE-18/L15; Theorem11(1) p.15; §4.5 p.19",
-          "how": "Supplies Newton direct sum of the cocenter to the specified proof or construction of Newton direct sum of the level image."
+          "how": "Supplies Newton direct sum of the cocenter to Newton direct sum of the level image."
+        },
+        {
+          "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
+          "how": "Supplies Newton direct sum of the cocenter to Rigid support and rigid cocenter."
         },
         {
           "where": "PAPER-HE-18/R3; §6.1 pp.21–22",
-          "how": "Supplies Newton direct sum of the cocenter to the specified proof or construction of Rigid/nonrigid two-summand decomposition."
-        },
-        {
-          "where": "PAPER-HE-18/R2; §6.1",
-          "how": "Identify the rigid image with the direct sum of its central-Newton components."
+          "how": "Supplies Newton direct sum of the cocenter to Rigid/nonrigid two-summand decomposition."
         }
       ],
       "gaps": [],
@@ -3326,15 +3364,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F3; Corrected Theorem20 pp.20–21",
-          "how": "Supplies Product decomposition of invariant distributions to the specified proof or construction of Field-valued Newton distribution bound."
+          "how": "Supplies Product decomposition of invariant distributions to Field-valued Newton distribution bound."
         },
         {
           "where": "PAPER-HE-18/F4; Corrected Theorem18 and §5.3 pp.20–21",
-          "how": "Supplies Product decomposition of invariant distributions to the specified proof or construction of Howe finiteness in the verified field scope."
+          "how": "Supplies Product decomposition of invariant distributions to Field-valued Howe finiteness via a fixed Ω representative."
         },
         {
           "where": "PAPER-HE-18/R3; §6.1 pp.21–22",
-          "how": "Supplies Product decomposition of invariant distributions to the specified proof or construction of Rigid/nonrigid two-summand decomposition."
+          "how": "Supplies Product decomposition of invariant distributions to Rigid/nonrigid two-summand decomposition."
         }
       ],
       "gaps": [],
@@ -3373,11 +3411,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Congruence-level image in the ambient cocenter to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Congruence-level image in the ambient cocenter to Minimal-cell generators at each level."
         },
         {
           "where": "PAPER-HE-18/L15; Theorem11(1) p.15; §4.5 p.19",
-          "how": "Supplies Congruence-level image in the ambient cocenter to the specified proof or construction of Newton direct sum of the level image."
+          "how": "Supplies Congruence-level image in the ambient cocenter to Newton direct sum of the level image."
         }
       ],
       "gaps": [],
@@ -3452,15 +3490,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L12; Lemma17(1) pp.18–19",
-          "how": "Supplies Iwahori-cell level functions to the specified proof or construction of Equal-length cell reduction in the cocenter."
+          "how": "Supplies Iwahori-cell level functions to Equal-length cell reduction in the cocenter."
         },
         {
           "where": "PAPER-HE-18/L13; Lemma17(2) pp.18–19",
-          "how": "Supplies Iwahori-cell level functions to the specified proof or construction of Decreasing cell reduction in the cocenter."
+          "how": "Supplies Iwahori-cell level functions to Decreasing cell reduction in the cocenter."
         },
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Iwahori-cell level functions to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Iwahori-cell level functions to Minimal-cell generators at each level."
+        },
+        {
+          "where": "PAPER-HE-18/L18; Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+          "how": "Supplies Iwahori-cell level functions to Length-zero twisted transport preserves a level cell."
         }
       ],
       "gaps": [],
@@ -3535,19 +3577,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L4; Lemma15 pp.16–17",
-          "how": "Supplies Unramified completion and fixed local data to the specified proof or construction of Frobenius fixed-coset lifting."
+          "how": "Supplies Unramified completion and fixed local data to Frobenius fixed-coset lifting."
         },
         {
           "where": "PAPER-HE-18/L5; Lemma16 proof pp.17–18; Tits79 §3.1",
-          "how": "Supplies Unramified completion and fixed local data to the specified proof or construction of Ordered root-factorization at shifted depth."
+          "how": "Supplies Unramified completion and fixed local data to Ordered root-factorization at shifted depth."
         },
         {
           "where": "PAPER-HE-18/L8; Lemma16 pp.17–18; Theorem20 proof p.21",
-          "how": "Supplies Unramified completion and fixed local data to the specified proof or construction of Congruence double-coset cardinality."
+          "how": "Supplies Unramified completion and fixed local data to Congruence double-coset cardinality."
         },
         {
           "where": "PAPER-HE-18/L9; §4.3 p.16; Richarz16 Proposition1.11/Sublemma1.12",
-          "how": "Supplies Unramified completion and fixed local data to the specified proof or construction of Length additivity after unramified base change."
+          "how": "Supplies Unramified completion and fixed local data to Length additivity after unramified base change."
         }
       ],
       "gaps": [
@@ -3622,11 +3664,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L6; Lemma16 proof p.18; Richarz16 Proposition1.11",
-          "how": "Supplies Frobenius fixed-coset lifting to the specified proof or construction of Frobenius-compatible rank-one level quotient count."
+          "how": "Supplies Frobenius fixed-coset lifting to Frobenius-compatible rank-one level quotient count."
         },
         {
           "where": "PAPER-HE-18/L7; Lemma16 proof p.17",
-          "how": "Supplies Frobenius fixed-coset lifting to the specified proof or construction of Reduced-word contracted multiplication at level."
+          "how": "Supplies Frobenius fixed-coset lifting to Reduced-word contracted multiplication at level."
         }
       ],
       "gaps": [
@@ -3665,15 +3707,15 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L6; Lemma16 proof p.18; Richarz16 Proposition1.11",
-          "how": "Supplies Ordered root-factorization at shifted depth to the specified proof or construction of Frobenius-compatible rank-one level quotient count."
+          "how": "Supplies Ordered root-factorization at shifted depth to Frobenius-compatible rank-one level quotient count."
         },
         {
           "where": "PAPER-HE-18/L7; Lemma16 proof p.17",
-          "how": "Supplies Ordered root-factorization at shifted depth to the specified proof or construction of Reduced-word contracted multiplication at level."
+          "how": "Supplies Ordered root-factorization at shifted depth to Reduced-word contracted multiplication at level."
         },
         {
           "where": "PAPER-HE-18/L11; Lemma17 proof p.19",
-          "how": "Supplies Ordered root-factorization at shifted depth to the specified proof or construction of Simple-cell containment at adjacent depths."
+          "how": "Supplies Ordered root-factorization at shifted depth to Simple-cell containment at adjacent depths."
         }
       ],
       "gaps": [
@@ -3712,7 +3754,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L8; Lemma16 pp.17–18; Theorem20 proof p.21",
-          "how": "Supplies Frobenius-compatible rank-one level quotient count to the specified proof or construction of Congruence double-coset cardinality."
+          "how": "Supplies Frobenius-compatible rank-one level quotient count to Congruence double-coset cardinality."
         }
       ],
       "gaps": [
@@ -3752,7 +3794,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L8; Lemma16 pp.17–18; Theorem20 proof p.21",
-          "how": "Supplies Reduced-word contracted multiplication at level to the specified proof or construction of Congruence double-coset cardinality."
+          "how": "Supplies Reduced-word contracted multiplication at level to Congruence double-coset cardinality."
         }
       ],
       "gaps": [
@@ -3793,11 +3835,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L10; Proposition13 p.16; proof §4.4 p.18",
-          "how": "Supplies Congruence double-coset cardinality to the specified proof or construction of Length-additive congruence convolution."
+          "how": "Supplies Congruence double-coset cardinality to Length-additive congruence convolution."
         },
         {
           "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
-          "how": "Supplies Congruence double-coset cardinality to the specified proof or construction of Finite generation of a guarded level cocenter component."
+          "how": "Supplies Congruence double-coset cardinality to Finite generation from Ω-normalized level cells."
         }
       ],
       "gaps": [
@@ -3835,7 +3877,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L10; Proposition13 p.16; proof §4.4 p.18",
-          "how": "Supplies Length additivity after unramified base change to the specified proof or construction of Length-additive congruence convolution."
+          "how": "Supplies Length additivity after unramified base change to Length-additive congruence convolution."
         }
       ],
       "gaps": [],
@@ -3874,11 +3916,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L12; Lemma17(1) pp.18–19",
-          "how": "Supplies Length-additive congruence convolution to the specified proof or construction of Equal-length cell reduction in the cocenter."
+          "how": "Supplies Length-additive congruence convolution to Equal-length cell reduction in the cocenter."
         },
         {
           "where": "PAPER-HE-18/L13; Lemma17(2) pp.18–19",
-          "how": "Supplies Length-additive congruence convolution to the specified proof or construction of Decreasing cell reduction in the cocenter."
+          "how": "Supplies Length-additive congruence convolution to Decreasing cell reduction in the cocenter."
         }
       ],
       "gaps": [
@@ -3917,11 +3959,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L12; Lemma17(1) pp.18–19",
-          "how": "Supplies Simple-cell containment at adjacent depths to the specified proof or construction of Equal-length cell reduction in the cocenter."
+          "how": "Supplies Simple-cell containment at adjacent depths to Equal-length cell reduction in the cocenter."
         },
         {
           "where": "PAPER-HE-18/L13; Lemma17(2) pp.18–19",
-          "how": "Supplies Simple-cell containment at adjacent depths to the specified proof or construction of Decreasing cell reduction in the cocenter."
+          "how": "Supplies Simple-cell containment at adjacent depths to Decreasing cell reduction in the cocenter."
         }
       ],
       "gaps": [
@@ -3962,11 +4004,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Equal-length cell reduction in the cocenter to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Equal-length cell reduction in the cocenter to Minimal-cell generators at each level."
         },
         {
           "where": "PAPER-HE-18/L17; §4.6 p.19",
-          "how": "Supplies Equal-length cell reduction in the cocenter to the specified proof or construction of Standard-triple support representatives."
+          "how": "Supplies Equal-length cell reduction in the cocenter to Standard-triple support representatives."
         }
       ],
       "gaps": [],
@@ -4006,7 +4048,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L14; Theorem11(2) p.15; §4.5 p.19",
-          "how": "Supplies Decreasing cell reduction in the cocenter to the specified proof or construction of Minimal-cell generators at each level."
+          "how": "Supplies Decreasing cell reduction in the cocenter to Minimal-cell generators at each level."
         }
       ],
       "gaps": [],
@@ -4047,19 +4089,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/L15; Theorem11(1) p.15; §4.5 p.19",
-          "how": "Supplies Minimal-cell generators at each level to the specified proof or construction of Newton direct sum of the level image."
+          "how": "Supplies Minimal-cell generators at each level to Newton direct sum of the level image."
         },
         {
           "where": "PAPER-HE-18/L16; Corollary12 p.16",
-          "how": "Supplies Minimal-cell generators at each level to the specified proof or construction of Global Iwahori–Matsumoto-type generators."
+          "how": "Supplies Minimal-cell generators at each level to Global Iwahori–Matsumoto-type generators."
         },
         {
           "where": "PAPER-HE-18/L17; §4.6 p.19",
-          "how": "Supplies Minimal-cell generators at each level to the specified proof or construction of Standard-triple support representatives."
+          "how": "Supplies Minimal-cell generators at each level to Standard-triple support representatives."
         },
         {
           "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
-          "how": "Supplies Minimal-cell generators at each level to the specified proof or construction of Finite generation of a guarded level cocenter component."
+          "how": "Supplies Minimal-cell generators at each level to Finite generation from Ω-normalized level cells."
         }
       ],
       "gaps": [],
@@ -4097,7 +4139,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F3; Corrected Theorem20 pp.20–21",
-          "how": "Supplies Newton direct sum of the level image to the specified proof or construction of Field-valued Newton distribution bound."
+          "how": "Supplies Newton direct sum of the level image to Field-valued Newton distribution bound."
         }
       ],
       "gaps": [],
@@ -4199,11 +4241,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F3; Corrected Theorem20 pp.20–21",
-          "how": "Supplies Distributions supported on a twisted saturation to the specified proof or construction of Field-valued Newton distribution bound."
+          "how": "Supplies Distributions supported on a twisted saturation to Field-valued Newton distribution bound."
         },
         {
           "where": "PAPER-HE-18/F6; Source-derived counterexample; E3",
-          "how": "Supplies Distributions supported on a twisted saturation to the specified proof or construction of Failure of arbitrary-ring Howe finite generation."
+          "how": "Supplies Distributions supported on a twisted saturation to Failure of arbitrary-ring Howe finite generation."
         }
       ],
       "gaps": [],
@@ -4256,8 +4298,8 @@
     {
       "id": "PAPER-HE-18/F2",
       "kind": "theorem",
-      "name": "Finite generation of a guarded level cocenter component",
-      "statement": "Assume the finite-minima guard and n≥1 with ω(I_(n−1))=1. Put N_ν=# {w∈W̃_min:π(w)=ν}. Then H̄_R(G,I_n;ν) is generated by at most N_ν[I:I_n] elements over every commutative Z[1/p]-algebra R.",
+      "name": "Finite generation from Ω-normalized level cells",
+      "statement": "Assume C17, L18 and the level generator/cardinality theorems L14/L8. For n≥1 with ω(I_(n−1))=1 let N_ν=#S(ν,τ0). Then H̄_R(G,I_n;ν) is generated by at most N_ν[I:I_n] elements over every commutative Z[1/p]-algebra R, without the finite-minima guard.",
       "locator": "Theorem20 proof p.21, valid primal conclusion",
       "status": "missing",
       "library": [],
@@ -4265,13 +4307,16 @@
       "implementationStatus": "unchecked",
       "ownerHint": "SmoothRepresentationsPartIINewtonCocenters",
       "prerequisites": [
-        "PAPER-HE-18/C11",
+        "PAPER-HE-18/C17",
+        "PAPER-HE-18/L18",
         "PAPER-HE-18/H6",
         "PAPER-HE-18/L8",
         "PAPER-HE-18/L14"
       ],
       "proofSteps": [
-        "Each contributing level-cell module is free of rank [I:I_n]; their finite direct sum surjects onto the component. This is a cocenter bound, not a dual bound over arbitrary R."
+        "L14 supplies all minimal cells. C17 and L18 replace each by its image at the same level in the finite set S(ν,τ0).",
+        "By L8 and H6 each chosen cell contributes a free module of rank [I:I_n]; take their finite direct sum and its surjection. N_ν does not depend on n.",
+        "This is a primal cocenter bound. It does not imply finite generation of its R-dual or of a submodule of that dual over arbitrary R."
       ],
       "acceptance": [
         "For an ordinary torus N_ν=1 and the bound is [I:I_n]."
@@ -4279,11 +4324,12 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F3; Corrected Theorem20 pp.20–21",
-          "how": "Supplies Finite generation of a guarded level cocenter component to the specified proof or construction of Field-valued Newton distribution bound."
+          "how": "Supplies Finite generation from Ω-normalized level cells to Field-valued Newton distribution bound."
         }
       ],
       "gaps": [
-        "PAPER-HE-18/G7"
+        "PAPER-HE-18/G2",
+        "PAPER-HE-18/G6"
       ],
       "sources": [
         {
@@ -4320,11 +4366,12 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F4; Corrected Theorem18 and §5.3 pp.20–21",
-          "how": "Supplies Field-valued Newton distribution bound to the specified proof or construction of Howe finiteness in the verified field scope."
+          "how": "Supplies Field-valued Newton distribution bound to Field-valued Howe finiteness via a fixed Ω representative."
         }
       ],
       "gaps": [
-        "PAPER-HE-18/G7"
+        "PAPER-HE-18/G2",
+        "PAPER-HE-18/G6"
       ],
       "sources": [
         {
@@ -4338,8 +4385,8 @@
     {
       "id": "PAPER-HE-18/F4",
       "kind": "theorem",
-      "name": "Howe finiteness in the verified field scope",
-      "statement": "Let R be a field of characteristic ≠p and assume the finite-minima guard for the finitely many Newton strata meeting a compact X⊆G. For every compact open K, the restriction image of J(G·_θX) on H_R(G,K) is finite-dimensional.",
+      "name": "Field-valued Howe finiteness via a fixed Ω representative",
+      "statement": "Assume the validated local producers for N5, F3 and L18. For a field R of characteristic ≠p, compact X⊆G, and compact open K, the restriction image of J(G·_θX) on H_R(G,K) is finite-dimensional for the paper’s finite-order apartment/Iwahori–Weyl twists; no finite-minima guard is required.",
       "locator": "Corrected Theorem18 and §5.3 pp.20–21",
       "status": "missing",
       "library": [],
@@ -4353,14 +4400,18 @@
         "PAPER-HE-18/N17"
       ],
       "proofSteps": [
-        "X meets finitely many strata; use a finite SUM of their supported distribution modules, choose n with I_n⊆K and ω(I_(n−1))=1, and pass by restriction image to level K. The general finite-order twisted case remains G7."
+        "N5 gives finitely many strata meeting X. Choose n with I_n⊆K and ω(I_(n−1))=1.",
+        "Each Newton restriction image is finite-dimensional by F2/F3 with its Ω-normalized representatives. Distributions supported in the finite union form a finite sum.",
+        "Restrict the resulting finite-dimensional space from H_R(G,I_n) to H_R(G,K). This repairs the additional central-twist argument; local group and level producers retain G1/G2/G4/G6."
       ],
       "acceptance": [
         "For θ=id on G_m it reduces to finitely many valuation shells and finitely many unit cosets."
       ],
       "uses": [],
       "gaps": [
-        "PAPER-HE-18/G7"
+        "PAPER-HE-18/G1",
+        "PAPER-HE-18/G2",
+        "PAPER-HE-18/G6"
       ],
       "sources": [
         {
@@ -4395,7 +4446,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/F6; Source-derived counterexample; E3",
-          "how": "Supplies Square-zero coefficient counterexample datum to the specified proof or construction of Failure of arbitrary-ring Howe finite generation."
+          "how": "Supplies Square-zero coefficient counterexample datum to Failure of arbitrary-ring Howe finite generation."
         }
       ],
       "gaps": [],
@@ -4504,7 +4555,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R2; §6.1 pp.21–22",
-          "how": "Supplies Newton centralizer Levi to the specified proof or construction of Rigid support and rigid cocenter."
+          "how": "Supplies Newton centralizer Levi to Rigid support and rigid cocenter."
         }
       ],
       "gaps": [],
@@ -4582,11 +4633,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R3; §6.1 pp.21–22",
-          "how": "Supplies Rigid support and rigid cocenter to the specified proof or construction of Rigid/nonrigid two-summand decomposition."
+          "how": "Supplies Rigid support and rigid cocenter to Rigid/nonrigid two-summand decomposition."
         },
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Rigid support and rigid cocenter to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Rigid support and rigid cocenter to Rigid standard-pair covering."
         }
       ],
       "gaps": [],
@@ -4661,7 +4712,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Rigid/nonrigid two-summand decomposition to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Rigid/nonrigid two-summand decomposition to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [],
@@ -4698,19 +4749,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Standard parahoric pair to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Standard parahoric pair to Rigid standard-pair covering."
         },
         {
           "where": "PAPER-HE-18/R8; §6.3 p.23",
-          "how": "Supplies Standard parahoric pair to the specified proof or construction of Local parahoric-coset test module."
+          "how": "Supplies Standard parahoric pair to Local parahoric-coset test module."
         },
         {
           "where": "PAPER-HE-18/R10; Theorem23 setup p.24 and proof p.25",
-          "how": "Supplies Standard parahoric pair to the specified proof or construction of Local commutators equal local action relations."
+          "how": "Supplies Standard parahoric pair to Local commutators equal local action relations."
         },
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Standard parahoric pair to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Standard parahoric pair to Double-coset descent of overlap relations."
         }
       ],
       "gaps": [],
@@ -4786,7 +4837,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Minimal finite-parabolic elements are globally minimal to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Minimal finite-parabolic elements are globally minimal to Rigid standard-pair covering."
         }
       ],
       "gaps": [],
@@ -4824,7 +4875,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R7; Proposition21 pp.22–23",
-          "how": "Supplies Central-Newton minimal elements lie in a standard pair to the specified proof or construction of Rigid standard-pair covering."
+          "how": "Supplies Central-Newton minimal elements lie in a standard pair to Rigid standard-pair covering."
         }
       ],
       "gaps": [
@@ -4868,11 +4919,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R15; Corrected Theorem22 pp.23–24; source-derived universal strengthening",
-          "how": "Supplies Rigid standard-pair covering to the specified proof or construction of Rigid invariant-distribution gluing."
+          "how": "Supplies Rigid standard-pair covering to Rigid invariant-distribution gluing."
         },
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Rigid standard-pair covering to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Rigid standard-pair covering to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [],
@@ -4910,19 +4961,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R9; §6.3 p.23; universal repair of §6.4",
-          "how": "Supplies Local parahoric-coset test module to the specified proof or construction of Local invariant distributions."
+          "how": "Supplies Local parahoric-coset test module to Local invariant distributions."
         },
         {
           "where": "PAPER-HE-18/R10; Theorem23 setup p.24 and proof p.25",
-          "how": "Supplies Local parahoric-coset test module to the specified proof or construction of Local commutators equal local action relations."
+          "how": "Supplies Local parahoric-coset test module to Local commutators equal local action relations."
         },
         {
           "where": "PAPER-HE-18/R11; Corrected §6.4 p.24; E4",
-          "how": "Supplies Local parahoric-coset test module to the specified proof or construction of Inverse-transport overlap graph."
+          "how": "Supplies Local parahoric-coset test module to Inverse-transport overlap graph."
         },
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Local parahoric-coset test module to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Local parahoric-coset test module to Double-coset descent of overlap relations."
         }
       ],
       "gaps": [],
@@ -4996,7 +5047,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R14; Corrected Theorem22 p.23",
-          "how": "Supplies Local invariant distributions to the specified proof or construction of Compatible product of local distributions."
+          "how": "Supplies Local invariant distributions to Compatible product of local distributions."
         }
       ],
       "gaps": [],
@@ -5072,7 +5123,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Local commutators equal local action relations to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Local commutators equal local action relations to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [
@@ -5111,19 +5162,19 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R14; Corrected Theorem22 p.23",
-          "how": "Supplies Inverse-transport overlap graph to the specified proof or construction of Compatible product of local distributions."
+          "how": "Supplies Inverse-transport overlap graph to Compatible product of local distributions."
         },
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Inverse-transport overlap graph to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Inverse-transport overlap graph to Rigid cocenter generators and relations."
         },
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Inverse-transport overlap graph to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Inverse-transport overlap graph to Double-coset descent of overlap relations."
         },
         {
           "where": "PAPER-HE-18/R18; Source-derived counterexample to §6.4; E4",
-          "how": "Supplies Inverse-transport overlap graph to the specified proof or construction of Concrete failure of forward overlap transport."
+          "how": "Supplies Inverse-transport overlap graph to Concrete failure of forward overlap transport."
         }
       ],
       "gaps": [],
@@ -5197,7 +5248,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R13; Source-derived repair of §§6.3–6.4",
-          "how": "Supplies Finite clopen refinement of a compact support to the specified proof or construction of Compact-test cosheaf presentation."
+          "how": "Supplies Finite clopen refinement of a compact support to Compact-test cosheaf presentation."
         }
       ],
       "gaps": [],
@@ -5234,11 +5285,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R15; Corrected Theorem22 pp.23–24; source-derived universal strengthening",
-          "how": "Supplies Compact-test cosheaf presentation to the specified proof or construction of Rigid invariant-distribution gluing."
+          "how": "Supplies Compact-test cosheaf presentation to Rigid invariant-distribution gluing."
         },
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Compact-test cosheaf presentation to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Compact-test cosheaf presentation to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [
@@ -5277,7 +5328,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R15; Corrected Theorem22 pp.23–24; source-derived universal strengthening",
-          "how": "Supplies Compatible product of local distributions to the specified proof or construction of Rigid invariant-distribution gluing."
+          "how": "Supplies Compatible product of local distributions to Rigid invariant-distribution gluing."
         }
       ],
       "gaps": [],
@@ -5430,11 +5481,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R15; Corrected Theorem22 pp.23–24; source-derived universal strengthening",
-          "how": "Supplies Double-coset descent of overlap relations to the specified proof or construction of Rigid invariant-distribution gluing."
+          "how": "Supplies Double-coset descent of overlap relations to Rigid invariant-distribution gluing."
         },
         {
           "where": "PAPER-HE-18/R16; Corrected Theorem23 pp.24–26",
-          "how": "Supplies Double-coset descent of overlap relations to the specified proof or construction of Rigid cocenter generators and relations."
+          "how": "Supplies Double-coset descent of overlap relations to Rigid cocenter generators and relations."
         }
       ],
       "gaps": [],
@@ -5508,15 +5559,23 @@
       "uses": [
         {
           "where": "PAPER-HE-18/N2; §2.4 p.10",
-          "how": "Supplies Local Iwahori–Bruhat decomposition to the specified proof or construction of Length-sensitive simple Bruhat multiplication."
+          "how": "Supplies Local Iwahori–Bruhat decomposition to Length-sensitive simple Bruhat multiplication."
         },
         {
           "where": "PAPER-HE-18/N5; Proposition5 pp.10–11",
-          "how": "Supplies Local Iwahori–Bruhat decomposition to the specified proof or construction of Compact sets meet finitely many Newton strata."
+          "how": "Supplies Local Iwahori–Bruhat decomposition to Compact sets meet finitely many Newton strata."
         },
         {
           "where": "PAPER-HE-18/A6; Theorem22 proof p.24; Richarz16 Theorem1.4",
-          "how": "Supplies Local Iwahori–Bruhat decomposition to the specified proof or construction of Parahoric double-coset representatives."
+          "how": "Supplies Local Iwahori–Bruhat decomposition to Parahoric double-coset representatives."
+        },
+        {
+          "where": "PAPER-HE-18/N18; Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+          "how": "Supplies Local Iwahori–Bruhat decomposition to Finite Bruhat multipliers with the middle cell retained."
+        },
+        {
+          "where": "PAPER-HE-18/N20; Source-derived replacement of the compact-core claims in He18 Introduction and §5.2",
+          "how": "Supplies Local Iwahori–Bruhat decomposition to Compact Newton core in one Ω coset."
         }
       ],
       "gaps": [],
@@ -5555,7 +5614,7 @@
       "uses": [
         {
           "where": "PAPER-HE-18/R17; Theorem22 proof p.24; direct repair of Theorem23",
-          "how": "Supplies Parahoric double-coset representatives to the specified proof or construction of Double-coset descent of overlap relations."
+          "how": "Supplies Parahoric double-coset representatives to Double-coset descent of overlap relations."
         }
       ],
       "gaps": [],
@@ -5594,7 +5653,11 @@
       "uses": [
         {
           "where": "PAPER-HE-18/A5; §1.1 p.6; §2.5 p.11; Richarz16 Theorem1.4",
-          "how": "Supplies Local double Tits system to the specified proof or construction of Local Iwahori–Bruhat decomposition."
+          "how": "Supplies Local double Tits system to Local Iwahori–Bruhat decomposition."
+        },
+        {
+          "where": "PAPER-HE-18/N18; Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+          "how": "Supplies Local double Tits system to Finite Bruhat multipliers with the middle cell retained."
         }
       ],
       "gaps": [
@@ -5643,6 +5706,276 @@
           "kind": "non-example",
           "statement": "For G_m the full Iwahori–Weyl group Z is not the trivial affine Coxeter group.",
           "status": "specified; not Lean compiled"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/C17",
+      "kind": "theorem",
+      "name": "Finite minimal representatives after Ω transport",
+      "statement": "Assume W̃=Wa⋊Ω, Ω abelian, (Wa,S̃) a Coxeter system with finite S̃, θ preserving the factors and S̃, π invariant under θ-conjugacy, and C7/C9 with straight length determined by the Newton vector. For ν in Im π and any τ0∈Ω lifting κ(ν), the set S(ν,τ0)={w∈W̃_min:π(w)=ν, prΩ(w)=τ0} is finite, and every minimal w in that fibre is θ-conjugate by an element of Ω to a member of S(ν,τ0). No finite-fibre hypothesis on Ω→Ω_θ is required.",
+      "locator": "Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "RootSystemsPartIIDominanceAndDemazure",
+      "prerequisites": [
+        "PAPER-HE-18/C1",
+        "PAPER-HE-18/C3",
+        "PAPER-HE-18/C7",
+        "PAPER-HE-18/C9"
+      ],
+      "proofSteps": [
+        "C9 bounds every such minimal length by Bν=ℓ(xν)+max_K max_{u∈W_K}ℓ(u), where K ranges over the finitely many subsets with finite W_K. Straight length is fixed by ν.",
+        "In one Wa-coset the length ball of radius Bν is finite: enumerate the finitely many words in S̃ of length at most Bν.",
+        "Write prΩ(w)−τ0=(1−θ)η. The element w′=η⁻¹wθ(η) has Ω projection τ0, the same length and the same π. Length is preserved because left and right multiplication by Ω have length zero. Being conjugate, w′ is still minimal."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "He18 continuation",
+          "locator": "Source-derived correction of He18 §2.1(a), Corollary9 pp.9–12; HN14 Theorem3.4 supplies the guarded standard-triple input",
+          "match": "Explicit derived repair, conditional on its named producers; not attributed verbatim to the source."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/C12; Corollary9 second assertion p.12",
+          "how": "Supplies Finite minimal representatives after Ω transport to Finite conjugacy-class fibres without the finite-minima guard."
+        },
+        {
+          "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
+          "how": "Supplies Finite minimal representatives after Ω transport to Finite generation from Ω-normalized level cells."
+        },
+        {
+          "where": "PAPER-HE-18/N20; Source-derived replacement of the compact-core claims in He18 Introduction and §5.2",
+          "how": "Supplies Finite minimal representatives after Ω transport to Compact Newton core in one Ω coset."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/N21",
+      "kind": "theorem",
+      "name": "Abstract simple-cell multiplication and subword upper bound",
+      "statement": "For a TauCeti.TitsSystem G and simple s, cell(s)cell(w) is either cell(sw) or cell(sw)∪cell(w); the analogous right law holds. A product of simple cells is contained in cells indexed by products of sublists of the simple word. These are exact abstract statements at the pin; no local G(F) or extended-Ω instance is implicit.",
+      "locator": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean:220–225 and Subword.lean:64–111 at f790474",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.TitsSystem.bruhatCell_mul_eq_or_eq_union_of_mem_simple",
+        "tauceti:TauCeti.TitsSystem.bruhatCell_mul_eq_or_eq_union_of_mem_simple_right",
+        "tauceti:TauCeti.TitsSystem.exists_sublist_of_mem_prod_bruhatCell"
+      ],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "pinned library",
+      "prerequisites": [
+        "tauceti:TauCeti.TitsSystem.bruhatCell_mul_eq_or_eq_union_of_mem_simple",
+        "tauceti:TauCeti.TitsSystem.bruhatCell_mul_eq_or_eq_union_of_mem_simple_right",
+        "tauceti:TauCeti.TitsSystem.exists_sublist_of_mem_prod_bruhatCell"
+      ],
+      "proofSteps": [
+        "Read the exact statements and their proofs. Their upper-bound form is sufficient; a length-sensitive branch classifier is unnecessary for the next lemma."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "pinned-library",
+          "locator": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean:220–225 and Subword.lean:64–111 at f790474",
+          "match": "Exact abstract baseline statement; the local extended-group adapter remains separate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/N18; Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+          "how": "Supplies Abstract simple-cell multiplication and subword upper bound to Finite Bruhat multipliers with the middle cell retained."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/N18",
+      "kind": "theorem",
+      "name": "Finite Bruhat multipliers with the middle cell retained",
+      "statement": "Assume an extended Iwahori–Bruhat datum W̃=Wa⋊Ω, representatives of Ω normalizing I, and the local adapters of the two simple-cell upper bounds in N21. For finite A,B⊂W̃ there are finite A′,B′⊂W̃, independent of w, such that (⋃a∈A IȧI)(IẇI)(⋃b∈B IḃI)⊆⋃a′∈A′,b′∈B′ Iȧ′ẇḃ′I for every w. The candidate endpoints retain their actual Ω factors.",
+      "locator": "Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "ReductiveGroupsPartII:RG2.4",
+      "prerequisites": [
+        "PAPER-HE-18/A2",
+        "PAPER-HE-18/A5",
+        "PAPER-HE-18/A7",
+        "PAPER-HE-18/N21"
+      ],
+      "proofSteps": [
+        "Choose words a=s1⋯srτ and b=τ′t1⋯tk. Representatives of τ and τ′ normalize I, so multiply the middle label exactly to τwτ′.",
+        "Iterate the left and right simple-cell upper bounds while always retaining this middle label. Endpoint candidates are qτ and τ′q′, for subwords q of s1⋯sr and q′ of t1⋯tk.",
+        "Take the finite union of these endpoint sets over A and B. At most 2^r and 2^k candidates per pair are needed. The argument never deletes or expands w."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "He18 continuation",
+          "locator": "Derived from He18 §2.4 and the pinned abstract simple-cell laws; replacement for §2.6 p.13 bounded-multiplier step",
+          "match": "Explicit derived repair, conditional on its named producers; not attributed verbatim to the source."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
+          "how": "Supplies Finite Bruhat multipliers with the middle cell retained to Separation of distinct Newton power growth."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/N19",
+      "kind": "theorem",
+      "name": "Finite affine errors separate distinct translation slopes",
+      "statement": "Let V be a real vector space, W0 a finite linear group, and A,B finite sets of affine maps with linear parts in W0. If, for infinitely many positive integers m, there are a∈A,b∈B with t^(mλ2)=a t^(mλ1)b as affine maps, then λ2 lies in the W0-orbit of λ1. This includes central directions and does not require the affine action to be faithful.",
+      "locator": "Source-derived elementary affine argument replacing He18 §2.6 p.13 final inequality",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "RootSystemsPartIIDominanceAndDemazure",
+      "prerequisites": [
+        "PAPER-HE-18/C2"
+      ],
+      "proofSteps": [
+        "One pair a,b occurs for two distinct m,n by finite pigeonhole. Write a(v)=Lv+c and b(v)=Mv+d.",
+        "The linear parts satisfy LM=1; comparing translations gives m(λ2−Lλ1)=c+Ld and n(λ2−Lλ1)=c+Ld.",
+        "Subtract and use characteristic zero to obtain λ2=Lλ1. No root-length lower bound or separate central-average lemma is needed."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "He18 continuation",
+          "locator": "Source-derived elementary affine argument replacing He18 §2.6 p.13 final inequality",
+          "match": "Explicit derived repair, conditional on its named producers; not attributed verbatim to the source."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/N7; §2.6 pp.12–13, corrected proof target",
+          "how": "Supplies Finite affine errors separate distinct translation slopes to Separation of distinct Newton power growth."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/L18",
+      "kind": "theorem",
+      "name": "Length-zero twisted transport preserves a level cell",
+      "statement": "Let η∈Ω and choose its representative h∈N_G(A)(F). Assume h and θ(h) normalize both I and I_n. Then T_(h⁻¹) gives an R-linear isomorphism H_R(G,I_n)_w→H_R(G,I_n)_(η⁻¹wθ(η)). The two submodules have the same image in the ambient twisted cocenter. Retain ω(h⁻¹) as an invertible coefficient.",
+      "locator": "Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "SmoothRepresentationsPartIINewtonCocenters",
+      "prerequisites": [
+        "PAPER-HE-18/A3",
+        "PAPER-HE-18/H9",
+        "PAPER-HE-18/H11",
+        "PAPER-HE-18/L2"
+      ],
+      "proofSteps": [
+        "The support map is U↦h⁻¹Uθ(h), taking IẇI exactly to I(η⁻¹wθ(η))I.",
+        "Both endpoint normalizers preserve left/right I_n invariance; inverse transport is T_h.",
+        "H11 identifies f and T_(h⁻¹)f in the cocenter. Barycentric Ω-normalizer compatibility is required from A3/G2, not inferred from a bare permutation of labels."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "He18 continuation",
+          "locator": "Derived from He18 §1.3, Proposition1, and the Ω-normalization used at the start of Lemma16 p.17",
+          "match": "Explicit derived repair, conditional on its named producers; not attributed verbatim to the source."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/F2; Theorem20 proof p.21, valid primal conclusion",
+          "how": "Supplies Length-zero twisted transport preserves a level cell to Finite generation from Ω-normalized level cells."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/N20",
+      "kind": "construction",
+      "name": "Compact Newton core in one Ω coset",
+      "statement": "Under C17 and representatives of Ω normalizing I, choose τ0 over κ(ν) and set Y(ν,τ0)=⋃w∈S(ν,τ0) IẇI. It is compact open and G·_θY(ν,τ0)=G(ν). It is empty for an empty fibre. This is a replacement core, not a claim that the paper’s original X_ν is compact.",
+      "locator": "Source-derived replacement of the compact-core claims in He18 Introduction and §5.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "implementationStatus": "unchecked",
+      "ownerHint": "SmoothRepresentationsPartIINewtonCocenters",
+      "prerequisites": [
+        "PAPER-HE-18/C17",
+        "PAPER-HE-18/N1",
+        "PAPER-HE-18/A5"
+      ],
+      "proofSteps": [
+        "C17 makes the index set finite, and each I-double coset is compact open.",
+        "For each minimal w use η⁻¹wθ(η)∈S(ν,τ0); transport by a lift of η maps its cell to the chosen core. Hence its saturation contains X_ν.",
+        "The reverse inclusion follows from Y⊆X_ν; different choices of τ0 have the same saturation."
+      ],
+      "acceptance": [],
+      "gaps": [],
+      "sources": [
+        {
+          "source": "He18 continuation",
+          "locator": "Source-derived replacement of the compact-core claims in He18 Introduction and §5.2",
+          "match": "Explicit derived repair, conditional on its named producers; not attributed verbatim to the source."
+        }
+      ],
+      "api": [
+        {
+          "name": "He18.coreCompactOpen",
+          "role": "property",
+          "statement": "Y(ν,τ0) is compact open by a finite union of compact I-double cosets."
+        },
+        {
+          "name": "He18.coreSaturation",
+          "role": "compatibility",
+          "statement": "Its θ-saturation is exactly G(ν), independently of τ0 and of representatives in N_G(A)(F)."
+        },
+        {
+          "name": "He18.coreLevelGeneration",
+          "role": "consumer",
+          "statement": "Using L18 and L14, its I_n-biinvariant tests generate the ambient level ν-component."
+        }
+      ],
+      "tests": [
+        {
+          "name": "He18.N20.invertedTorus",
+          "kind": "computation",
+          "statement": "For F× with inversion and parity κ, τ0=0 or 1 gives Y=uniformizer^τ0 O_F×, although X_ν has infinitely many valuation shells.",
+          "status": "specified; not Lean compiled"
+        },
+        {
+          "name": "He18.N20.ordinaryTorus",
+          "kind": "degenerate",
+          "statement": "For θ=id on F×, τ0=m gives Y=X_ν=uniformizer^m O_F×.",
+          "status": "specified; not Lean compiled"
+        },
+        {
+          "name": "He18.N20.emptyFibre",
+          "kind": "degenerate",
+          "statement": "An empty arithmetic fibre gives empty Y and zero test module.",
+          "status": "specified; not Lean compiled"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-HE-18/F2; finite representative set interpretation",
+          "how": "Interprets the normalized minimal-cell generators as tests supported on one compact Newton core."
         }
       ]
     }
@@ -5753,7 +6086,8 @@
         "PAPER-HE-18/L9",
         "PAPER-HE-18/A5",
         "PAPER-HE-18/A6",
-        "PAPER-HE-18/A7"
+        "PAPER-HE-18/A7",
+        "PAPER-HE-18/N18"
       ],
       "reason": "The existing local reductive-group layers own the rational topology, valued roots, parahoric filtration and Bruhat comparisons. This paper supplies the precise additional adapters in those scopes, not a second building or local-root roadmap."
     },
@@ -5801,10 +6135,12 @@
         "PAPER-HE-18/C15",
         "PAPER-HE-18/C16",
         "PAPER-HE-18/R5",
-        "PAPER-HE-18/R6"
+        "PAPER-HE-18/R6",
+        "PAPER-HE-18/C17",
+        "PAPER-HE-18/N19"
       ],
       "reason": "Reuse the RootSystemsPartIIDominanceAndDemazure candidate from PAPER-HE-21 and PAPER-KISIN-PAPPAS-ZHOU-26. Its existing RedMin lane is the supplier; add the straight-class, finite-parabolic and central-kernel scope here instead of duplicating affine Coxeter theory in Newton harmonic analysis.",
-      "brief": "Continue the candidate RootSystemsPartIIDominanceAndDemazure already routed by PAPER-HE-21 and reused by PAPER-KISIN-PAPPAS-ZHOU-26; do not mint another root-system roadmap. Begin with Root systems, Weyl groups, and the Cartan–Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its root data, chambers, affine Coxeter/length and parabolic APIs. Preserve the existing Demazure and dominant-subtraction targets and the consolidation of the Kisin–Zhou RootSystemsDominancePartII alias. Add κ in Ω/(1−θ)Ω, Newton vectors by powers, twisted reduction, straight elements, Newton affine axes and standard triples. Decompose HN14's gradient-descent and partial-conjugation inputs; prove RedMin (He18 Theorem4), straight-class classification (Theorem6), and standard-triple reduction (Theorem7), with a verified adapter from the actual local Iwahori–Weyl datum supplied by ReductiveGroupsPartII. Prove finite minimal representatives only under the explicit finite Ω-coinvariant-fibre guard; the split-torus inversion counterexample must be a regression test, not excluded silently. Supply the finite-parabolic minimality and central-Newton/parahoric containment needed for Proposition21 while retaining central translations and torsion kernels. Keep group-theoretic Ω and the reduced apartment action separate. Test ordinary/inverted G_m, GL2 central length-zero translations, rank-one reflection nonstraightness, affine s0 and empty/infinite parabolics. The output feeds SmoothRepresentationsPartIINewtonCocenters; no distribution algebra, generic affine-Hecke carrier or local building is rebuilt here."
+      "brief": "Continue the candidate RootSystemsPartIIDominanceAndDemazure already routed by PAPER-HE-21 and reused by PAPER-KISIN-PAPPAS-ZHOU-26; do not mint another root-system roadmap. Begin with Root systems, Weyl groups, and the Cartan–Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its root data, chambers, affine Coxeter/length and parabolic APIs. Preserve the existing Demazure and dominant-subtraction targets and the consolidation of the Kisin–Zhou RootSystemsDominancePartII alias. Add κ in Ω/(1−θ)Ω, Newton vectors by powers, twisted reduction, straight elements, Newton affine axes and standard triples. Decompose HN14's gradient-descent and partial-conjugation inputs; prove RedMin (He18 Theorem4), straight-class classification (Theorem6), and standard-triple reduction (Theorem7), with a verified adapter from the actual local Iwahori–Weyl datum supplied by ReductiveGroupsPartII. Keep the finite-minima assertion guarded, but prove C17: normalize Ω by twisted length-zero conjugation into a fixed Ω-coset, where the uniform length bound gives a finite set. Deduce finite conjugacy-class fibres without that guard. Supply N19’s elementary finite affine-error separation, including central translations; the split-torus inversion counterexample must be a regression test, not excluded silently. Supply the finite-parabolic minimality and central-Newton/parahoric containment needed for Proposition21 while retaining central translations and torsion kernels. Keep group-theoretic Ω and the reduced apartment action separate. Test ordinary/inverted G_m, GL2 central length-zero translations, rank-one reflection nonstraightness, affine s0 and empty/infinite parabolics. The output feeds SmoothRepresentationsPartIINewtonCocenters; no distribution algebra, generic affine-Hecke carrier or local building is rebuilt here."
     },
     {
       "route": "part-ii",
@@ -5859,10 +6195,12 @@
         "PAPER-HE-18/R15",
         "PAPER-HE-18/R16",
         "PAPER-HE-18/R17",
-        "PAPER-HE-18/R18"
+        "PAPER-HE-18/R18",
+        "PAPER-HE-18/L18",
+        "PAPER-HE-18/N20"
       ],
       "reason": "SR.1 plans test-function convolution but no current layer states Newton decomposition, congruence cocenter generators, Howe finiteness or the rigid graph presentation. These form a distinct continuation. The existing SmoothRepresentationsPartIIParahoricCenters candidate owns Bernstein/parahoric centers and HE21's generic affine-Hecke branch, not this full locally constant p-adic group cocenter.",
-      "brief": "Start after Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), with SR.1 as the first prerequisite supplying the integral C_c Hecke algebra, pro-p Haar normalization, level/corner comparisons and compact-test cosheaf API. Import Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII RG2.0–RG2.4) for actual rational groups, parahorics, Frobenius/valued-root descent and congruence double-coset counts, and RootSystemsPartIIDominanceAndDemazure for twisted RedMin, straight classes and standard triples. Do not re-plan the generic Iwahori presentation, cocenter/class-polynomial branch already routed to SmoothRepresentationsPartIIParahoricCenters by HE21, or BunGAndNewtonStrata's Frobenius geometry. Define weighted θ-conjugation, its commutator submodule and cocenter using Mathlib Representation.Coinvariants; prove Proposition1. Define actual G(F) Newton strata and prove Theorems3 and10: the clopen partition and direct sums of compact tests and their cocenter. Supply the missing central/Ω power-growth argument, not the erroneous length-zero inequality. At barycentric depth n≥1 with ω(I_(n−1))=1 prove both parts of Theorem11 and Corollary12 using Proposition13/Lemma17; level cocenters are IMAGES in the ambient quotient. Prove the primal N_ν[I:I_n] generator bound under the finite-minima guard and field-valued Howe finite-dimensionality in that scope. Recovering general central twists requires a new compact-core/level argument; arbitrary-ring distribution finite generation is false and is replaced by its explicit square-zero counterexample. Define central-Newton rigid support, standard pairs and the Proposition21 cover. The final corrected Theorem22 is a compatible PRODUCT of local distributions. The corrected Theorem23 kernel is generated by local commutators and inverse-transport overlap graphs (f,−T_(x⁻¹)f); prove it directly using finite clopen partitions and coinvariant universality for arbitrary target modules, not unfaithful R-duals. Retain every E1–E10 finding for independent review and close G1–G8 before declaring proof closure. Definition APIs must include quotient lifts, support/transport, representative independence and level functoriality. Unit tests include finite S3 twists, ordinary/inverted tori, nonunit compact volumes, square-zero coefficient rings and the GL2 graph-direction counterexample. A future design may separate foundational coinvariants, Newton decomposition, congruence reduction, Howe and rigid presentation into successive layers. This paper job provides no Lean implementation or signatures file."
+      "brief": "Start after Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), with SR.1 as the first prerequisite supplying the integral C_c Hecke algebra, pro-p Haar normalization, level/corner comparisons and compact-test cosheaf API. Import Reductive groups, Part II: local structure and arithmetic models (ReductiveGroupsPartII RG2.0–RG2.4) for actual rational groups, parahorics, Frobenius/valued-root descent and congruence double-coset counts, and RootSystemsPartIIDominanceAndDemazure for twisted RedMin, straight classes and standard triples. Do not re-plan the generic Iwahori presentation, cocenter/class-polynomial branch already routed to SmoothRepresentationsPartIIParahoricCenters by HE21, or BunGAndNewtonStrata's Frobenius geometry. Define weighted θ-conjugation, its commutator submodule and cocenter using Mathlib Representation.Coinvariants; prove Proposition1. Define actual G(F) Newton strata and prove Theorems3 and10: the clopen partition and direct sums of compact tests and their cocenter. Use N18/N19’s finite outside-cell and affine-action proof for Newton separation; retain the actual full-apartment producer G1. At barycentric depth n≥1 with ω(I_(n−1))=1 prove both parts of Theorem11 and Corollary12 using Proposition13/Lemma17; level cocenters are IMAGES in the ambient quotient. Use C17 to choose N_ν finite Ω-normalized representatives, N20 for their compact core and L18 for same-level transport. Prove the primal N_ν[I:I_n] generator bound and field-valued Howe finite-dimensionality without the finite-minima guard; verify the barycentric Ω-normalizer producer in A3/G2; arbitrary-ring distribution finite generation is false and is replaced by its explicit square-zero counterexample. Define central-Newton rigid support, standard pairs and the Proposition21 cover. The final corrected Theorem22 is a compatible PRODUCT of local distributions. The corrected Theorem23 kernel is generated by local commutators and inverse-transport overlap graphs (f,−T_(x⁻¹)f); prove it directly using finite clopen partitions and coinvariant universality for arbitrary target modules, not unfaithful R-duals. Retain every E1–E10 finding for independent review and close G1–G8 before declaring proof closure. Definition APIs must include quotient lifts, support/transport, representative independence and level functoriality. Unit tests include finite S3 twists, ordinary/inverted tori, nonunit compact volumes, square-zero coefficient rings and the GL2 graph-direction counterexample. A future design may separate foundational coinvariants, Newton decomposition, congruence reduction, Howe and rigid presentation into successive layers. This paper job provides no Lean implementation or signatures file."
     }
   ],
   "gaps": [
@@ -5917,12 +6255,13 @@
     },
     {
       "id": "PAPER-HE-18/G5",
-      "title": "Newton partition power-growth repair",
+      "title": "Newton separation: conditional proof supplied",
       "neededBy": [
         "PAPER-HE-18/N7",
         "PAPER-HE-18/N8"
       ],
-      "detail": "Supply the fixed-Ω-coset bound and equal-central-average lemma, then the semisimple length-growth separation. The paper's arbitrary z∈W̃ is not automatically in Wa, and a nonzero central translation has length zero. Full general θ partition is an intended target, not a closed theorem in this checkpoint."
+      "detail": "N18/N19 now give the complete finite-multiplier/affine comparison argument. The standalone G5 step is resolved relative to the explicit actual-group producers; full extraction closure still requires C2/A5/A7 from G1 and the standard-triple source chain. Do not resume with a separate equal-central-average lemma.",
+      "resolutionStatus": "conditional argument supplied"
     },
     {
       "id": "PAPER-HE-18/G6",
@@ -5938,14 +6277,15 @@
     },
     {
       "id": "PAPER-HE-18/G7",
-      "title": "General central-twist Howe scope",
+      "title": "General central twist: finite-core argument supplied",
       "neededBy": [
         "PAPER-HE-18/C11",
         "PAPER-HE-18/F2",
         "PAPER-HE-18/F3",
         "PAPER-HE-18/F4"
       ],
-      "detail": "The finite-minima argument is valid under the explicit fibre-finiteness guard, including θ=id, and the field coefficient bound is stated there. The inverted-torus example invalidates the printed finite core, not Howe itself over fields. To recover every finite-order central twist construct a suitable compact representative set or another bound, and prove its level compatibility."
+      "detail": "C17 Ω-normalizes all minimal representatives into a finite fixed coset. L18 supplies the exact same-level transport, yielding N20/F2/F3/F4. This removes the finite-minima guard from class finiteness and the field-valued Howe argument. The Ω-normalizer/barycentric producer is explicitly assigned to A3/G2, and cardinalities remain G6. Arbitrary-ring dual finite generation is still false.",
+      "resolutionStatus": "conditional argument supplied"
     },
     {
       "id": "PAPER-HE-18/G8",
@@ -5966,14 +6306,15 @@
       "kind": "error",
       "locator": "§2.1(a) p.9; Corollary9 p.12; §5.2 p.20; Theorem23 pp.24–25",
       "printed": "Each θ-twisted conjugacy class of W̃ intersects only finitely many Wa cosets.",
-      "correction": "For the finite-minimal-element and defined-X_ν compactness claims, add a finite-fibre condition on Ω→Ω_θ (ordinary θ=id is safe), or replace the argument and compact core. Ordinary finite θ-orbits do not control twisted Ω-orbits.",
+      "correction": "For the finite-minimal-element and defined-X_ν compactness claims, add a finite-fibre condition on Ω→Ω_θ (ordinary θ=id is safe), or replace the argument and compact core. Ordinary finite θ-orbits do not control twisted Ω-orbits. The continuation supplies C17/N20: replace X_ν by the finite core in one chosen Ω-coset. L18 preserves the level, and C12 recovers finite class fibres. The full minimal-element assertion remains false without its guard.",
       "reason": "For G=G_m(F), θ inversion, W̃=Ω=Z, Wa=1, all lengths zero and θ has order2. Twisted conjugation sends m to m+2k; π records parity and Newton0. Thus every parity class contains infinitely many minimal elements and X_ν is the noncompact union of all corresponding valuation cosets. This does not refute the Newton partition, finiteness of conjugacy-CLASS fibres, or existence of a different compact core. In Theorem23 finite ordinary θ-saturation of Ω labels likewise need not be twisted-conjugacy stable.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
         "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+        "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review."
       ],
       "affectedItems": [
         "PAPER-HE-18/C10",
@@ -6015,7 +6356,7 @@
       "kind": "error",
       "locator": "Theorems18/20 and §5.2–5.3 pp.20–21; printed arbitrary commutative Z[1/p]-algebra R",
       "printed": "J(G(ν))|_(H_R(G,I_n)) is generated by N_ν[I:I_n] elements.",
-      "correction": "The proof establishes finite generation of the level COCENTER under the finite-minima guard. For distribution finiteness use a coefficient field of characteristic ≠p (and the guard for this proof), not arbitrary R. Restriction to a submodule is not generally surjective on R-duals.",
+      "correction": "Retain finite generation for the level cocenter, and use a coefficient field of characteristic ≠p for distribution finiteness. C17/L18 repair the finite representative argument for central twists. Arbitrary-ring distribution finite generation remains false, and restriction to a submodule is not generally surjective on R-duals.",
       "reason": "Take Q2×,θ=id, R=F3⊕V with V=⊕_N F3 e_m square-zero, t=e_0,ω(g)=(1+t)^v2(g). This is an allowed open-kernel character. For I=Z2×, evaluation at 1_I maps the restricted invariant distributions supported on I onto Ann(t)=V: j_b(f)=b∫_I f for b∈V is invariant and has j_b(1_I)=b. V is not finitely generated as an R-module. All sufficiently deep levels have 1_I as a test, so Theorem20 fails even for θ=id. 'Finite dimensional' in Theorem18 additionally has no vector-space meaning for arbitrary R; its finite-generation interpretation fails in this example.",
       "affects": "a stated result",
       "known": "new",
@@ -6107,14 +6448,15 @@
       "kind": "gap",
       "locator": "Theorem3 proof §2.6 p.13",
       "printed": "I ż I ⊂ ⋃_(y∈Wa,ℓ(y)≤N0) I ẏ I; the last inequality bounds ℓ(t^(l(λ2−y0λ1))) below by l.",
-      "correction": "Track the Ω-coset of the fixed conjugator and handle central projections separately before using root-span translation growth. Give an actual comparison proof in the local-group translation datum.",
+      "correction": "Retain the fixed Ω factors in finite endpoint subword sets (N18), and compare full affine translation vectors for two repeated endpoint pairs (N19). This proves the required separation, including central directions, relative to the explicit full-apartment and local Bruhat producers; no root-length positivity claim is needed.",
       "reason": "The source has z∈W̃, not necessarily Wa, so the asserted length ball can miss its entire double coset. Also a nonzero central translation (e.g.(1,1) for GL2) has length0. Equal κ may supply a missing central comparison, but this needs an argument. These observations identify a proof gap; they do not disprove the Newton partition.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
         "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+        "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review."
       ],
       "affectedItems": [
         "PAPER-HE-18/N6",
@@ -6298,7 +6640,44 @@
       "Searched compact/local-constant intersections, then read the compactly supported continuous carrier and discrete equivalence; this corrects a too-broad 'no C_c carrier' inference from name searches.",
       "Read CompactOpenCovered lines1–150: finite compact-open image covers are useful but not already a disjoint-refinement/cosheaf presentation.",
       "Searched public Mathlib GitHub and Lean Zulip archive for compactly supported locally constant Hecke/cocenter work on 2026-09-22. No exact proposed API located in that search; current documentation was only a lead, not baseline evidence."
-    ]
+    ],
+    "continuation": {
+      "agent": "Codex — codex-7e92bd",
+      "files": [
+        {
+          "path": "Mathlib/Topology/ContinuousMap/CompactlySupported.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/ContinuousMap/CompactlySupported.lean",
+          "sha256": "e999e7d40ead99fec6c01c57adca72a65ee74ba1d3011747442b1ee0ad570aa3",
+          "comparison": "Byte-for-byte matches inspected pinned snapshot."
+        },
+        {
+          "path": "Mathlib/Topology/LocallyConstant/Basic.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/LocallyConstant/Basic.lean",
+          "sha256": "2723dc5a4177d2b1a6a87be38b28ed024a7ae183ab7b37a2ea76072bef49892f",
+          "comparison": "Byte-for-byte matches inspected pinned snapshot."
+        },
+        {
+          "path": "Mathlib/RepresentationTheory/Coinvariants.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory/Coinvariants.lean",
+          "sha256": "f2da278388bda1636ada6e7dfaf6588ed99bc4b4d02d1214df85fe3b2916a43c",
+          "comparison": "Byte-for-byte matches inspected pinned snapshot."
+        },
+        {
+          "path": "TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/TitsSystem/Bruhat/Basic.lean",
+          "sha256": "4169994a1c480356bc4a3e7b5a2186ba1fdc4c784c97a78ec7de4f0a0c0c05ca",
+          "comparison": "Byte-for-byte matches inspected pinned snapshot."
+        },
+        {
+          "path": "TauCeti/GroupTheory/TitsSystem/Bruhat/Subword.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/TitsSystem/Bruhat/Subword.lean",
+          "sha256": "de0b3d0437ceb2148bd1a84f17d25436b34f46195e04c3cac474a58e9bd3f640",
+          "comparison": "Byte-for-byte matches inspected pinned snapshot."
+        }
+      ],
+      "read": "Reopened all three inherited library items; read all Bruhat/Subword.lean and exact Basic.lean simple-cell law. N21 reuses their statements. Rechecked reviewed AA.0/AA.1/AF.0 entries; no SR/RG2/RootSystems entry exists.",
+      "negativeSearch": "Screened both pinned GroupTheory trees for Newton/cocenter/twisted conjugacy/subword/finite length. The abstract subword input is present; the full affine Ω-normalization, local level transport and protected-middle extended-cell adapters are not exact existing matches. Elementary finite-set and affine-linear algebra are imported as ingredients, not new competing carriers."
+    }
   },
   "ownerAudit": {
     "snapshot": "4c3314007ebfd7c3a595698404caf1331356d63a",
@@ -6318,108 +6697,134 @@
       "BunGAndNewtonStrata concerns Frobenius/isocrystal geometry and does not supply these θ-conjugacy strata of G(F).",
       "The new Newton-cocenter extension imports foundational test functions, local-group structure and affine reduction. It does not depend on late trace formulas or integral representation finiteness it might eventually support."
     ],
-    "notExtractedAsProofInputs": "The introductory finite-group trace analogy, generic affine-Hecke cocenter-basis discussion, Kazhdan/Paley–Wiener motivation and future nonrigid Levi decomposition are context, not lemmas invoked in the proofs of §§1–6. Their independent theorems are not represented as proved here. The generic affine-Hecke branch already has the HE21/KP18 candidate owner; no additional copy is routed."
+    "notExtractedAsProofInputs": "The introductory finite-group trace analogy, generic affine-Hecke cocenter-basis discussion, Kazhdan/Paley–Wiener motivation and future nonrigid Levi decomposition are context, not lemmas invoked in the proofs of §§1–6. Their independent theorems are not represented as proved here. The generic affine-Hecke branch already has the HE21/KP18 candidate owner; no additional copy is routed.",
+    "continuation": {
+      "snapshot": "aa064fcad1a29387eef6bccacfd8a531f5cd2fcd",
+      "read": "Complete SmoothRepresentations README; relevant RG2 stages, reviewed coverage and peer routes reread. Two complete upstream RootSystems/ReductiveGroups documents had already been read in this same worker session. Screened all current paper route IDs and roadmaps/packets/links/restructure for the three shared candidate names; no new owner replaces them.",
+      "note": "One existing RG2.4 source route and the two existing Part II briefs extended. No new roadmap ID.",
+      "preflightCommit": "a56269f7d67142cf398fbdb612af2893f67c4f36",
+      "preflightNote": "Worker/protocol, atlas, coverage and roadmap/packet files unchanged. Screened changed Bhatt–Scholze17 and Li–Zhang22-B route sets; neither supersedes these candidate owners. No HE18 deliverable changed on main."
+    }
   },
   "dependencyAudit": {
-    "internalEdges": 249,
+    "internalEdges": 265,
     "acyclic": true,
     "topologicalOrder": [
       "PAPER-HE-18/A1",
+      "PAPER-HE-18/H1",
+      "PAPER-HE-18/H7",
+      "PAPER-HE-18/N21",
       "PAPER-HE-18/A2",
+      "PAPER-HE-18/N10",
+      "PAPER-HE-18/A7",
+      "PAPER-HE-18/H8",
       "PAPER-HE-18/A3",
       "PAPER-HE-18/A4",
-      "PAPER-HE-18/H1",
+      "PAPER-HE-18/N11",
+      "PAPER-HE-18/A5",
       "PAPER-HE-18/H2",
-      "PAPER-HE-18/H3",
-      "PAPER-HE-18/H4",
-      "PAPER-HE-18/H5",
-      "PAPER-HE-18/H6",
-      "PAPER-HE-18/H7",
-      "PAPER-HE-18/H8",
+      "PAPER-HE-18/L3",
       "PAPER-HE-18/H9",
-      "PAPER-HE-18/H10",
-      "PAPER-HE-18/H11",
-      "PAPER-HE-18/H12",
-      "PAPER-HE-18/H13",
       "PAPER-HE-18/C1",
       "PAPER-HE-18/C2",
-      "PAPER-HE-18/C3",
       "PAPER-HE-18/C4",
+      "PAPER-HE-18/C6",
+      "PAPER-HE-18/R4",
+      "PAPER-HE-18/R12",
+      "PAPER-HE-18/N2",
+      "PAPER-HE-18/A6",
+      "PAPER-HE-18/N18",
+      "PAPER-HE-18/H3",
+      "PAPER-HE-18/L4",
+      "PAPER-HE-18/L5",
+      "PAPER-HE-18/L9",
+      "PAPER-HE-18/C10",
+      "PAPER-HE-18/C3",
       "PAPER-HE-18/C13",
+      "PAPER-HE-18/R1",
+      "PAPER-HE-18/N19",
+      "PAPER-HE-18/C8",
+      "PAPER-HE-18/R8",
+      "PAPER-HE-18/R13",
+      "PAPER-HE-18/N3",
+      "PAPER-HE-18/N4",
+      "PAPER-HE-18/H4",
+      "PAPER-HE-18/F5",
+      "PAPER-HE-18/L6",
+      "PAPER-HE-18/L7",
+      "PAPER-HE-18/L11",
+      "PAPER-HE-18/N1",
       "PAPER-HE-18/C14",
       "PAPER-HE-18/C15",
       "PAPER-HE-18/C16",
-      "PAPER-HE-18/C5",
-      "PAPER-HE-18/C6",
-      "PAPER-HE-18/C7",
-      "PAPER-HE-18/C8",
-      "PAPER-HE-18/C9",
-      "PAPER-HE-18/C10",
-      "PAPER-HE-18/C11",
-      "PAPER-HE-18/C12",
-      "PAPER-HE-18/N1",
-      "PAPER-HE-18/A7",
-      "PAPER-HE-18/A5",
-      "PAPER-HE-18/N2",
-      "PAPER-HE-18/N3",
-      "PAPER-HE-18/N4",
-      "PAPER-HE-18/N5",
       "PAPER-HE-18/N6",
+      "PAPER-HE-18/R5",
+      "PAPER-HE-18/R9",
+      "PAPER-HE-18/R11",
+      "PAPER-HE-18/H5",
+      "PAPER-HE-18/H10",
+      "PAPER-HE-18/L8",
+      "PAPER-HE-18/C5",
       "PAPER-HE-18/N7",
+      "PAPER-HE-18/R14",
+      "PAPER-HE-18/R17",
+      "PAPER-HE-18/R18",
+      "PAPER-HE-18/H6",
+      "PAPER-HE-18/H11",
+      "PAPER-HE-18/L10",
+      "PAPER-HE-18/C7",
+      "PAPER-HE-18/N5",
+      "PAPER-HE-18/R6",
+      "PAPER-HE-18/H12",
+      "PAPER-HE-18/R10",
+      "PAPER-HE-18/C9",
+      "PAPER-HE-18/H13",
+      "PAPER-HE-18/L2",
+      "PAPER-HE-18/C11",
       "PAPER-HE-18/N8",
+      "PAPER-HE-18/C17",
+      "PAPER-HE-18/F1",
+      "PAPER-HE-18/L12",
+      "PAPER-HE-18/L13",
+      "PAPER-HE-18/L18",
       "PAPER-HE-18/N9",
-      "PAPER-HE-18/N10",
-      "PAPER-HE-18/N11",
+      "PAPER-HE-18/C12",
+      "PAPER-HE-18/N20",
+      "PAPER-HE-18/F6",
       "PAPER-HE-18/N12",
       "PAPER-HE-18/N13",
       "PAPER-HE-18/N14",
+      "PAPER-HE-18/L1",
       "PAPER-HE-18/N15",
       "PAPER-HE-18/N16",
       "PAPER-HE-18/N17",
-      "PAPER-HE-18/L1",
-      "PAPER-HE-18/L2",
-      "PAPER-HE-18/L3",
-      "PAPER-HE-18/L4",
-      "PAPER-HE-18/L5",
-      "PAPER-HE-18/L6",
-      "PAPER-HE-18/L7",
-      "PAPER-HE-18/L8",
-      "PAPER-HE-18/L9",
-      "PAPER-HE-18/L10",
-      "PAPER-HE-18/L11",
-      "PAPER-HE-18/L12",
-      "PAPER-HE-18/L13",
       "PAPER-HE-18/L14",
+      "PAPER-HE-18/R2",
       "PAPER-HE-18/L15",
       "PAPER-HE-18/L16",
       "PAPER-HE-18/L17",
-      "PAPER-HE-18/F1",
       "PAPER-HE-18/F2",
-      "PAPER-HE-18/F3",
-      "PAPER-HE-18/F4",
-      "PAPER-HE-18/F5",
-      "PAPER-HE-18/F6",
-      "PAPER-HE-18/R1",
-      "PAPER-HE-18/R2",
       "PAPER-HE-18/R3",
-      "PAPER-HE-18/R4",
-      "PAPER-HE-18/R5",
-      "PAPER-HE-18/R6",
       "PAPER-HE-18/R7",
-      "PAPER-HE-18/R8",
-      "PAPER-HE-18/R9",
-      "PAPER-HE-18/R10",
-      "PAPER-HE-18/R11",
-      "PAPER-HE-18/R12",
-      "PAPER-HE-18/R13",
-      "PAPER-HE-18/R14",
-      "PAPER-HE-18/A6",
-      "PAPER-HE-18/R17",
+      "PAPER-HE-18/F3",
       "PAPER-HE-18/R15",
       "PAPER-HE-18/R16",
-      "PAPER-HE-18/R18"
+      "PAPER-HE-18/F4"
     ],
     "complete": false,
     "note": "The internal graph is explicit but not a proof-closed graph. Planned stages are imports, source-derived corrections await independent review, and G1–G8 identify the recursive proof frontier."
+  },
+  "validation": {
+    "continuation": {
+      "agent": "Codex — codex-7e92bd",
+      "diagnostics": {
+        "protectedMiddleProducts": 216,
+        "omegaNormalizations": 405,
+        "affineIdentities": 108,
+        "centralLengthZeroRegression": "passed"
+      },
+      "lean": "No Lean file written or compiled; paper job only.",
+      "note": "Finite diagnostics supplement the symbolic proofs; previous diagnostics are historical, not rerun."
+    }
   }
 }
