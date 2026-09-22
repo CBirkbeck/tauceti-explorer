@@ -1,0 +1,809 @@
+{
+  "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension",
+    "authors": "Manjul Bhargava, Benedict H. Gross and Xiaoheng Wang (appendix by Tim and Vladimir Dokchitser)",
+    "venue": "Journal of the American Mathematical Society 30 (2017), 451–493",
+    "doi": "10.1090/jams/863",
+    "arxiv": "1310.7692",
+    "url": "https://arxiv.org/abs/1310.7692v2",
+    "readSections": [
+      "The entire arXiv v2 (24 February 2017, dated March 2, 2017; 42 pages; §§1–12, Appendix A and references), read 2026-09-22. PDF from arxiv.org, SHA-256 8833a226eea99eab7e48b90de7d747fa535eafe032d5c62fd50812d38ad4c4f2. The JAMS version (online 27 July 2016) returned 403 to scripted access; v2 postdates it and is presumably the final text. Locators are v2 pages."
+    ]
+  },
+  "summary": "Proves that for every g ≥ 1 a positive proportion of locally soluble hyperelliptic curves over Q of genus g have no point over any odd-degree extension (Theorem 1). Equivalently J¹(Q) = ∅, the index is 2, and Ш[2] is nontrivial. The failure is a Brauer–Manin obstruction for J¹ and, as g → ∞, for Sym^k(C).\n\nThe key is Theorem 6: the average size of the 2-Selmer set Sel_2(J¹) of locally soluble two-covers of J¹ is at most 2. Combined with the Dokchitsers' appendix, where both parities of 2-Selmer rank occur with positive proportion, this forces Sel_2(J¹) = ∅ often. Sel_2(J¹) is parametrized by (SL_n/μ_2)(Q)-orbits of locally soluble pencils of quadrics with discriminant form f:\n- Wood's parametrization over Dedekind domains;\n- Wang's group J ⊔ F ⊔ J¹ ⊔ F of Fano varieties;\n- regular pencils and the generalized Jacobian J_m, which decide when f is the discriminant of a pencil (Theorems 13, 24, 25);\n- soluble orbits = J¹(K)/2J(K);\n- integral representatives with κ = 4.\nThe orbits are then counted as in Bhargava's work on rational points of hyperelliptic curves, with a weighted sieve.\n\nThe libraries have only Kummer theory (Tau Ceti, with Mathlib's Hilbert 90). The atlas plans Jacobians (SF.3), Néron models (R11.1), the Weil pairing (A3), Hilbert irreducibility (IG.2) and the descent–Brauer–Manin comparison (RP.3). Everything else is routed as sources of ArithmeticStatistics ST.0/ST.1, ST.2 and ST.4, HeightsRationalPointsAndObstructions RP.1/RP.3, NeronModels R11.4 and SchemeAndStackFoundations SF.3.\n\nFive source issues are recorded:\n- the explicit isotropic planes in the proof of Theorem 28 are wrong (corrected planes verified);\n- the conductor-571 curve of §8 is misprinted;\n- Theorem 44 omits conditions at 2;\n- 16^n should be 16;\n- smaller misprints.",
+  "items": [
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/1",
+      "kind": "definition",
+      "name": "Hyperelliptic curves z² = f(x, y) ordered by height",
+      "statement": "A hyperelliptic curve C over Q of genus g ≥ 1 is a smooth geometrically irreducible complete curve with a degree-2 map to P¹; it is z² = f(x, y) = f_0x^n + ⋯ + f_ny^n in P(1, 1, g + 1), n = 2g + 2, with f_i ∈ Z and Δ(f) ≠ 0. H(C) := H(f) := max|f_i| (2). C is locally soluble if C(Q_ν) ≠ ∅ for every place ν; more than 75% of curves are ([27], [3]).",
+      "locator": "§1, (1)–(2), p.1; §3, p.9, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/2",
+      "kind": "definition",
+      "name": "The Jacobian J = Pic⁰ and the torsor J¹ = Pic¹",
+      "statement": "J = Pic⁰_{C/Q} is the Jacobian and J¹ = Pic¹_{C/Q} the J-torsor of degree-one divisor classes; d is the hyperelliptic class (pull-back of O(1)), and Pic_{C/K}/Z·d = J ⊔ J¹. A point of C over an extension of odd degree k gives the rational point (sum of conjugates) − ((k − 1)/2)d of J¹.",
+      "locator": "§1, pp.1–2; §3, pp.9–11, arXiv:1310.7692v2",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "note": "SF.3 plans Picard schemes and Jacobians (integrating AlgebraicCurves and JacobianChallenge)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/3",
+      "kind": "definition",
+      "name": "Two-covers, the class W[2] and the 2-Selmer group",
+      "statement": "A two-cover of a J-torsor I is an unramified π : Y → I with Y a J-torsor and π(y + a) = π(y) + 2a (degree 2^{2g}); its isomorphism class is the class of Y[2] in H¹(Q, J[2]). Locally soluble two-covers of J form Sel_2(J), with 0 → J(Q)/2J(Q) → Sel_2(J) → Ш_J[2] → 0. The two-cover J¹ →(×2) J² ≅ J gives W[2] ∈ Sel_2(J) when C is locally soluble, and W[2] maps to 0 in Ш_J[2] iff J¹(Q) ≠ ∅.",
+      "locator": "§1, p.2, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to HeightsRationalPointsAndObstructions RP.1/RP.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/4",
+      "kind": "theorem",
+      "name": "W[2] and odd factorizations",
+      "statement": "The points of W[2] are the Weierstrass divisors e of degree 1 with 2e ≡ d, and correspond to the odd factorizations f = gh of f over Q (g, h of odd degree, rational or conjugate over a quadratic field). So W[2] ≠ 0 whenever f has no odd factorization, which by Hilbert irreducibility is 100% of the time.",
+      "locator": "§1, p.2; Proposition 22(4), p.11, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to HeightsRationalPointsAndObstructions RP.1/RP.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/5",
+      "kind": "definition",
+      "name": "The 2-Selmer set Sel_2(J¹) and the 2-Selmer set of order k",
+      "statement": "Sel_2(J¹) is the set of isomorphism classes of locally soluble two-covers of J¹. It is empty or a principal homogeneous space for Sel_2(J), and equals the set of elements of Sel_4(J) mapping to W[2]. For odd k > 0, the 2-Selmer set of order k is the subset of classes that come locally at every ν from points e_ν − ((k − 1)/2)d with e_ν an effective Q_ν-divisor of degree k.",
+      "locator": "§1, pp.2–3; §12, p.33, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to HeightsRationalPointsAndObstructions RP.1/RP.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/6",
+      "kind": "theorem",
+      "name": "Hilbert irreducibility: odd and even factorizations are rare",
+      "statement": "For 100% of integral binary forms of degree n ordered by height, f has no odd or even factorization over Q, so W[2] ≠ 0 and J(Q)[2] = 0.",
+      "locator": "§1, pp.2–3, arXiv:1310.7692v2",
+      "status": "planned",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "IG.2 plans Hilbert irreducibility."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/7",
+      "kind": "theorem",
+      "name": "Remark 4 (J¹(Q) is empty or infinite)",
+      "statement": "For 100% of locally soluble hyperelliptic curves over Q, J¹(Q) is either empty or infinite: if J¹(Q) ≠ ∅ then W[2] lies in the image of J(Q)/2J(Q), and since W[2] ≠ 0 and J(Q)[2] = 0, J(Q) has positive rank.",
+      "locator": "Remark 4, p.2, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/8",
+      "kind": "theorem",
+      "name": "Theorem 5 (Sel_2(J¹) is empty for a positive proportion)",
+      "statement": "Fix g ≥ 1. For a positive proportion of locally soluble hyperelliptic curves C over Q of genus g, Sel_2(J¹) = ∅. Proof: if Sel_2(J¹) ≠ ∅, then #Sel_2(J¹) = #Sel_2(J) ≥ 2, and ≥ 4 when rk_2 Sel_2(J) is even; combine Theorem 6 (average ≤ 2) with the appendix (a positive proportion have even 2-Selmer rank).",
+      "locator": "Theorem 5, p.3; proof, p.4, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/9",
+      "kind": "theorem",
+      "name": "Theorem 6 (the average size of Sel_2(J¹) is at most 2)",
+      "statement": "Fix g ≥ 1. When locally soluble hyperelliptic curves over Q of genus g are ordered by height, the average size of Sel_2(J¹) is at most 2 (expected to equal 2). The same holds over any large congruence family with locally soluble Div¹ (§12).",
+      "locator": "Theorem 6, p.3; proof §12, p.33, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/10",
+      "kind": "theorem",
+      "name": "Theorems 1, 2 and 12 (no points over odd-degree extensions; index 2)",
+      "statement": "Fix g ≥ 1. For a positive proportion of locally soluble hyperelliptic curves C over Q of genus g: C has no point over any odd-degree extension of Q (Theorem 1); equivalently J¹(Q) = ∅ (Theorem 2); equivalently the index I(C), the gcd of degrees of rational divisors, is 2 (Theorem 12). These follow from Theorem 5.",
+      "locator": "Theorems 1, 2 and 12, pp.1–2, 4, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/11",
+      "kind": "theorem",
+      "name": "Corollary 3 (nontrivial 2-torsion in Ш)",
+      "statement": "Fix g ≥ 1. A positive proportion of locally soluble hyperelliptic curves over Q of genus g have nontrivial 2-torsion in the Tate–Shafarevich group of their Jacobian (the image of W[2]).",
+      "locator": "Corollary 3, p.2, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/12",
+      "kind": "theorem",
+      "name": "Theorem 7 and Corollary 8 (Selmer sets of order k)",
+      "statement": "Fix an odd k > 0. The average size of the 2-Selmer set of order k over locally soluble hyperelliptic curves of genus g is < 2 if k < g, and tends to 0 as g → ∞. Hence for fixed m > 0, as g → ∞, 100% of hyperelliptic curves of genus g have no points over any extension of Q of odd degree ≤ m (Corollary 8). Proof at ∞: with 2m real roots, the image of Sym^k(C)(R) in J¹(R)/2J(R) (of size 2^{m−1}) has at most S_m(k) = C(m, 1) + C(m, 3) + ⋯ + C(m, k) elements, and S_{g+1}(k) < 2^g for k < g; for g → ∞ use Dembo–Poonen–Shao–Zeitouni.",
+      "locator": "Theorem 7, Corollary 8, p.3; proof §12, pp.33–34, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/13",
+      "kind": "theorem",
+      "name": "Dembo–Poonen–Shao–Zeitouni: random polynomials have many real roots",
+      "statement": "The density of real polynomials of degree n with fewer than log n/log log n real roots is O(n^{−b+o(1)}) for some b > 0 ([15, Theorem 1.2]).",
+      "locator": "Proof of Theorem 7, p.34, citing [15], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/14",
+      "kind": "theorem",
+      "name": "Skorobogatov–Stoll: the two-cover descent obstruction is Brauer–Manin",
+      "statement": "The non-existence of a locally soluble two-cover of J¹ is a Brauer–Manin obstruction, both for J¹ and for Sym^k(C) (Skorobogatov [33, Theorem 6.1.1]; Stoll [34, Remark 6.5, Theorem 7.1]; via Colliot-Thélène–Sansuc descent).",
+      "locator": "§1, p.3, citing [14], [33], [34], arXiv:1310.7692v2",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.3"
+      ],
+      "note": "RP.3 plans torsor descent and its comparison with Brauer–Manin under the chosen hypotheses."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/15",
+      "kind": "theorem",
+      "name": "Corollary 9 and Theorems 10–11 (Hasse principle failures with a Brauer–Manin obstruction)",
+      "statement": "For fixed odd k > 0, as g → ∞, Sym^k(C) fails the Hasse principle for a proportion approaching 100% of locally soluble hyperelliptic C over Q of genus g, and the failure is a Brauer–Manin obstruction (Corollary 9, Theorem 11). For fixed g ≥ 1, for a positive proportion of locally soluble C, the g-dimensional variety J¹ has a Brauer–Manin obstruction to a rational point (Theorem 10).",
+      "locator": "Corollary 9, Theorems 10–11, p.3, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to HeightsRationalPointsAndObstructions RP.1/RP.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/16",
+      "kind": "definition",
+      "name": "The representation 2 ⊗ Sym²(n) over a Dedekind domain",
+      "statement": "For a Dedekind domain D (quotient field K, char ≠ 2) and n ≥ 2, SL_n(D) acts on pairs (A, B) of symmetric bilinear forms on D^n. The invariant form f(x, y) = disc(xA − yB) := (−1)^{n(n−1)/2}det(xA − yB) = f_0x^n + ⋯ + f_ny^n has n + 1 coefficients, of degree n, which freely generate the invariants. Δ(f) has degree 2n(n − 1) in the entries. For even n, μ_2 acts trivially and (SL_n/μ_2)(D) acts, with 1 → SL_n(D)/μ_2(D) → (SL_n/μ_2)(D) → H¹(D, μ_2) → 1 and 1 → D^×/D^{×2} → H¹(D, μ_2) → Pic(D)[2] → 1.",
+      "locator": "§2, pp.6–8, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/17",
+      "kind": "construction",
+      "name": "The order R_f and the ideals I(k)",
+      "statement": "For f_0 ≠ 0, f(x, 1) = f_0g(x), L = K[x]/g(x), θ the image of x, ζ_k = f_0θ^k + ⋯ + f_{k−1}θ. R = R_f = ⟨1, ζ_1, …, ζ_{n−1}⟩_D is an order of discriminant Δ(f). I(k) = ⟨1, θ, …, θ^k, ζ_{k+1}, …, ζ_{n−1}⟩ are fractional ideals with I(k) = I(1)^k, and (1/f′(θ))I(n − 2) is the trace dual of R ([9], [25, Proposition 1.1], [39, §2.1]).",
+      "locator": "§2, pp.6–7, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "The ring R_f is also an item of PAPER-BHARGAVA-SHANKAR-WANG-25 (ST.1); coalesce. Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/18",
+      "kind": "theorem",
+      "name": "Theorem 16 (SL_n(D)-orbits and triples (I, α, s); after Wood)",
+      "statement": "For f over D with Δ(f), f_0 ≠ 0, SL_n(D)-orbits with invariant form f are in bijection with equivalence classes of triples (I, α, s): I a fractional R-ideal, α ∈ L^×, s ∈ K^×, with I² ⊂ αI(n − 3), N(I) = sD and N(α) = s²f_0^{n−3}; (I, α, s) ~ (cI, c²α, N(c)s). The stabilizer is S^×[2]_{N=1}, S = End_R(I). The forms are λ, μ ↦ the ζ_{n−1}- and ζ_{n−2}-coefficients of λμ/α in I(n − 3) ([40, Theorem 1.3]).",
+      "locator": "Theorem 16, p.7, citing [40], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/19",
+      "kind": "theorem",
+      "name": "Theorem 17 and Remark 18 ((SL_n/μ_2)(D)-orbits)",
+      "statement": "For even n, (SL_n/μ_2)(D)-orbits with invariant form f are in bijection with triples (I, α, s) up to (cMI, c²tα, N(c)t^{n/2}s), c ∈ L^×, t ∈ K^×(2) with tD = M²; stabilizers contain S^×[2]_{N=1}/D^×[2]. If D is a PID and every fractional R-ideal is principal, the classes are (R^×/R^{×2}D^×)_{N=f_0}, and the stabilizer is (R^×[2])_{N=1}/D^×[2] for n ≡ 2 mod 4, and an extension (3) for n ≡ 0 mod 4.",
+      "locator": "Theorem 17, Remark 18, (3), pp.7–8, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/20",
+      "kind": "theorem",
+      "name": "Corollaries 19–20 (orbits over a field)",
+      "statement": "Over a field K: SL_n(K)-orbits with invariant f correspond to pairs (α, s) with N(α) = s²f_0^{n−3} modulo (c²α, N(c)s), with stabilizer (Res_{L/K}μ_2)_{N=1}; for even n, (SL_n/μ_2)(K)-orbits correspond to pairs modulo (c²tα, N(c)t^{n/2}s), t ∈ K^×, with stabilizer (Res_{L/K}μ_2)_{N=1}/μ_2 ([6, Theorems 7–8]). So the orbit set maps bijectively or 2-to-1 to (L^×/L^{×2}K^×)_{N=f_0} according as f has an odd factorization or not. Stabilizer elements are even factorizations.",
+      "locator": "Corollaries 19–20 and the following paragraphs, pp.8–9, citing [6], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/21",
+      "kind": "theorem",
+      "name": "Kummer theory: H¹(K, μ_2) = K^×/K^{×2}",
+      "statement": "For a field K of characteristic ≠ 2, the Kummer map identifies K^×/K^{×2} with H¹(K, μ_2).",
+      "locator": "§2, p.8; §5, p.16; §8, p.22, arXiv:1310.7692v2",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.FieldTheory.kummerClassMap_injective — TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:298, pin f790474821cf4256814db967cb154e7af3d0c369 (Kˣ/(Kˣ)ⁿ ↪ H¹(G_K, μₙ))",
+        "mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units — RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean:84 at 082e2d3 (Hilbert 90, which gives surjectivity)"
+      ],
+      "note": "Tau Ceti proves injectivity; surjectivity is Hilbert 90 (Mathlib, finite Galois form)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/22",
+      "kind": "construction",
+      "name": "The singular curve C_m and its generalized Jacobian J_m",
+      "statement": "For f_0 ≠ 0, let P, P′ be the points of C above ∞ (rational over K′ = K(√f_0)), m = P + P′, and C_m : z² = f(x, y)y² the curve with an ordinary double point Q at ∞ ([30, Ch. IV, §4]). J_m = Pic⁰_{C_m} fits into 0 → T → J_m → J → 0 (5), with T the one-dimensional torus split by K′. Pic_{C_m}/Z·d = J_m ⊔ J¹_m, and there are morphisms C → J¹ and C − {P, P′} → J¹_m.",
+      "locator": "§1, p.4; §3, (4)–(5), pp.10–11, citing [30], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to NeronModelsAndSemistableAbelianVarieties R11.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/23",
+      "kind": "theorem",
+      "name": "Proposition 21 (rational divisor classes versus rational divisors)",
+      "statement": "Pic_{C/K}(K)/Pic(C/K) ↪ Br(K′/K) = K^×/N(K′^×) (quaternion algebras split by K′). Hence if C has a rational divisor of odd degree, every K-rational divisor class is represented by a K-rational divisor; over a global field the same holds if Div¹(C) is locally soluble.",
+      "locator": "Proposition 21 and the preceding paragraph, p.10; §3, p.11, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Mathlib 082e2d3 has the Brauer group (Algebra/BrauerGroup/Defs.lean), but not this injection. Routed to SchemeAndStackFoundations SF.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/24",
+      "kind": "theorem",
+      "name": "Proposition 22 (2-torsion of J_m and J and the torsors W_m[2], W[2])",
+      "statement": "With L = K[x]/f(x, 1): J_m[2] ≅ (Res_{L/K}μ_2)_{N=1}, whose K-points are the even-degree factors of f over K; J[2] ≅ (Res_{L/K}μ_2)_{N=1}/μ_2, whose K-points are the even factorizations; W_m[2] ⊂ J¹_m and W[2] ⊂ J¹ are torsors whose K-points are the odd-degree factors, resp. the odd factorizations. The Weil pairing makes J[2] self-dual, and H¹(K, J[2]) → H²(K, μ_2) is cup product with W[2] ([28, Proposition 10.3]).",
+      "locator": "Proposition 22 and proof, pp.11–12, citing [22], [28], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to NeronModelsAndSemistableAbelianVarieties R11.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/25",
+      "kind": "definition",
+      "name": "Generic pencils and their Fano schemes",
+      "statement": "For symmetric A, B on W = K^n, the pencil is generic if Δ(disc(xA − yB)) ≠ 0, i.e. the base locus Y is a smooth complete intersection of dimension n − 3. The Fano scheme F(A, B) is the Hilbert scheme of maximal linear subspaces in Y. For n = 2g + 1 it is a finite torsor for (Res_{L/K}μ_2)_{N=1}. For n = 2g + 2 it is a smooth g-dimensional torsor for J, whose points are the g-dimensional subspaces isotropic for the whole pencil ([37]).",
+      "locator": "§1, p.4; §4, p.12, citing [16], [19], [29], [37], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/26",
+      "kind": "theorem",
+      "name": "Theorem 23 (Wang: the group J ⊔ F ⊔ J¹ ⊔ F)",
+      "statement": "For a generic pencil with invariant form f and n = 2g + 2, X := J ⊔ F ⊔ J¹ ⊔ F has a commutative algebraic group structure over K, so [F] ∈ H¹(K, J) is 4-torsion with 2[F] = [J¹]. Multiplication by 2 gives two-covers F → J¹ and F[4] → W[2]. So the classes of J¹ in H¹(K, J) and of W[2] in H¹(K, J[4]) must be divisible by 2. This necessary condition is not sufficient, as z² = −x² − y² over R shows ([37, Theorem 2.7]).",
+      "locator": "Theorem 23 and the following paragraphs, pp.12–13, citing [37], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/27",
+      "kind": "construction",
+      "name": "Regular pencils: (A′, B′) = (A ⊕ ⟨aa′⟩, B ⊕ ⟨ab′ + a′b⟩)",
+      "statement": "On W ⊕ K², (A′, B′) has invariant form f(x, y)y², a base locus with one ordinary double point, and 2g + 3 singular quadrics, all simple cones. Its algebra L′ ≅ L ⊕ K[y]/y², and W ⊕ K² is free of rank 1 over it. The Fano scheme F_m of (g + 1)-planes isotropic for the pencil and not containing the radical line of A′ is a smooth non-projective J_m-torsor. X_m = J_m ⊔ F_m ⊔ J¹_m ⊔ F_m is a group (7) with 2[F_m] = [J¹_m].",
+      "locator": "§5, (7), pp.13–14, citing [37, §3], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/28",
+      "kind": "theorem",
+      "name": "Theorem 24 and Theorem 13 (when is f the discriminant of a pencil?)",
+      "statement": "For f of degree 2g + 2 over K with Δ(f), f_0 ≠ 0, the following are equivalent:\n- (a) a generic pencil (A, B) over K has disc(xA − yB) = f;\n- (b) a regular pencil has discriminant fy²;\n- (c) f_0 ∈ K^{×2}N(L^×);\n- (d) [J¹_m] is divisible by 2 in H¹(K, J_m);\n- (e) [W_m[2]] lies in the image of H¹(K, J_m[4]);\n- (f) there is a two-cover F_m → J¹_m;\n- (g) the maximal unramified exponent-2 cover of C − {P, P′} descends to K;\n- (h) the maximal exponent-2 cover of C ramified only at P, P′ descends to K.\nThe equivalence of (a), (d) and (f) is Theorem 13.",
+      "locator": "Theorem 13, p.5; Theorem 24 and proof, pp.14–15, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/29",
+      "kind": "theorem",
+      "name": "Theorem 25, Proposition 26 and Lemma 27 (the obstruction classes coincide)",
+      "statement": "The obstruction classes for conditions (a)–(h) are all equal in H²(K, J_m[2]): [f_0] = δ[J¹_m]. [f_0] comes from K^×/(K^{×2}N(L^×)) ↪ H²(K, (Res_{L/K}μ_2)_{N=1}), and δ is the connecting map of 0 → J_m[2] → J_m → J_m → 0. Proof: for a ∈ K a class [J¹ᐟ²_a] with 2[J¹ᐟ²_a] = [J¹_m] maps to f_0g(a) in K^×/K^{×2} (Proposition 26), and a lemma on central extensions (Lemma 27, commutative up to sign) finishes it.",
+      "locator": "Theorem 25, Proposition 26, Lemma 27 and proofs, pp.15–17, citing [6, §2.4, Theorem 9], [33, Lemma 2.4.5], [36, Lemma 2.8.2], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/30",
+      "kind": "construction",
+      "name": "Cassels' descent map x − T",
+      "statement": "x − T : J¹_m(K)/2J_m(K) → (L^×/L^{×2})_{N≡f_0} sends a non-Weierstrass point (x_0, 1, z_0) to x_0 − β, and a Weierstrass point to h_1(β) − h_0(β) (h_0 = t − x_0, h_1 = f(t, 1)/(t − x_0)). The induced map J¹(K)/2J(K) → (L^×/L^{×2}K^×)_{N≡f_0} is injective or 2-to-1 according as W[2] is trivial or not ([12]).",
+      "locator": "Proof of Theorem 28, pp.18–19, citing [12], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Tau Ceti has the elliptic-curve analogue (TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean), not this one. Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/31",
+      "kind": "theorem",
+      "name": "Theorem 28 (soluble SL_n(K)-orbits)",
+      "statement": "For f of degree n = 2g + 2 with Δ(f), f_0 ≠ 0, soluble orbits for SL_n(K) (those whose regular pencil has F_m(K) ≠ ∅) with invariant form f exist iff C has a K-rational divisor of odd degree, and they are then in bijection with J¹_m(K)/2J_m(K). Proof: H¹(K, SL_n) = 1, so rational orbits are a torsor for H¹(K, J_m[2]), and [F(A_1, B_1)_m] = [F(A, B)_m] + j′(c) up to sign (8). For a point Q there is an explicit isotropic (g + 1)-plane; for a divisor of odd degree k, corestriction kills the order-4 class.",
+      "locator": "Theorem 28 and proof, pp.18–19, arXiv:1310.7692v2 (error E1)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/32",
+      "kind": "theorem",
+      "name": "Theorem 29 (soluble (SL_n/μ_2)(K)-orbits)",
+      "statement": "Soluble orbits for (SL_n/μ_2)(K) (those with F(K) ≠ ∅) with invariant form f exist iff C has a K-rational divisor of odd degree. They are then in bijection with J¹(K)/2J(K), on which J(K)/2J(K) acts simply transitively. Absence without an odd-degree divisor uses 1 → T → X_m → X → 1 ([37, Corollary 3.22]).",
+      "locator": "Theorem 29 and the preceding paragraph, pp.19–20, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/33",
+      "kind": "theorem",
+      "name": "Orbits over finite fields (§7.1)",
+      "statement": "Over F_q (q odd), with g(x) = ∏_{i≤m}g_i of degrees d_i, f always has an odd or even factorization. The number of (SL_n/μ_2)(F_q)-orbits with invariant form f is 2^m if all d_i are even and n ≡ 0 mod 4, 2^{m−1} if all d_i are even and n ≡ 2 mod 4, and 2^{m−2} otherwise. The stabilizers have the same sizes, so #{(A, B) : f_{A,B} = f} = |SL_n(F_q)|. By Lang's theorem every orbit is soluble.",
+      "locator": "§7.1, p.20, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "The counts were rederived from Corollary 20. Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/34",
+      "kind": "theorem",
+      "name": "Orbits over R and C (§7.2)",
+      "statement": "Over C there is one orbit. Over R, with 2m real roots: no orbits if f is negative definite; if f is positive definite, 2 orbits (n ≡ 0 mod 4) or 1 (n ≡ 2 mod 4), all soluble; if m > 0, 2^{2m−2} orbits (sign assignments to the real factors, modulo overall sign), of which 2^{m−1} are soluble. The stabilizer sizes are 2^{n/2}, 2^{n/2−1} and 2^{n/2+m−2} respectively.",
+      "locator": "§7.2, pp.20–21, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "The counts were rederived from Corollary 20. Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/35",
+      "kind": "theorem",
+      "name": "Theorem 30 (existence of rational orbits over a global field)",
+      "statement": "Let K be a global field of characteristic ≠ 2 and C : z² = f with Div¹(C) locally soluble. Suppose J¹ has a locally soluble two-cover, i.e. W[2] is divisible by 2 in Sel_4(J/K). Then some (A, B) over K has invariant form f. Proof: with T = (Res_{K′/K}G_m)_{N=1}, the local-global principles for H¹(K, T) and H²(K, T), plus local injectivity of H¹(K_ν, T) → H¹(K_ν, J_m), show that [J¹_m] is divisible by 2.",
+      "locator": "Theorem 30 and proof, pp.21–23, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/36",
+      "kind": "theorem",
+      "name": "Theorems 31 and 14 and Lemma 32 (locally soluble orbits and Sel_2(J¹))",
+      "statement": "Suppose Div¹(C)(K_ν) ≠ ∅ for all ν. Then locally soluble (SL_n/μ_2)(K)-orbits with invariant form f exist iff W[2] is divisible by 2 in Sel_4(J/K), and then Sel_2(J/K) acts simply transitively on them (a finite set). Over Q they are in bijection with Sel_2(J¹) (Theorem 14). Key inputs:\n- γ : H¹(K, J[2]) → H²(K, μ_2) is cup product with W[2];\n- the Hasse principle for H¹(K, SL_n/μ_2);\n- Lemma 32: e_2(F[2], W[2]) = 0 locally, since local Kummer images are isotropic and soluble orbits exist.\nThe analogous (SL^±_n/μ_2)-orbits give the fake Selmer set.",
+      "locator": "Theorem 14, p.5; Theorem 31, Lemma 32 and proofs, pp.23–25, citing [4, Proposition 1], [28, Proposition 10.3], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/37",
+      "kind": "theorem",
+      "name": "The Weil pairing on J[2] and J[4]",
+      "statement": "The Weil pairings e_2 on J[2] and e_4 on J[4] are perfect and Galois-equivariant. The Selmer groups and the local Kummer images J(K_ν)/2J(K_ν), J(K_ν)/4J(K_ν) are isotropic for the induced cup-product pairings.",
+      "locator": "Proof of Theorem 31, pp.24–25, arXiv:1310.7692v2",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "note": "A3 plans torsion and pairings of abelian schemes. The isotropy of Kummer images (local Tate duality) is an ArithmeticGaloisDuality input."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/38",
+      "kind": "theorem",
+      "name": "Examples: locally soluble orbits without soluble orbits, and conversely",
+      "statement": "For E : y² = x³ − 1221 (E(Q) = 0, Ш ≅ (Z/4)²), the quartic f = 3x⁴ − 12x³y + 11xy³ − 11y⁴ (Δ = −3⁵·11²·37²) has locally soluble orbits (from order-4 elements of Ш) but no soluble orbit. For f = −x⁴ + 2x³y + 104x²y² − 104xy³ − 2764y⁴ (Δ = −2⁸·571; L = Q(θ), θ⁴ − 2θ² + 2θ − 3 = 0, disc −2⁴·571, O_L = Z[θ], N(θ³ − θ) = −36), rational orbits exist but no locally soluble ones, since C is a nontrivial element of Ш(E)[2] = (Z/2)² not divisible by 2 in Sel_4. Here E is the conductor-571 curve y² + y = x³ − x² − 929x − 10595 (the paper prints y² + xy, E2).",
+      "locator": "§8, p.23, arXiv:1310.7692v2 (misprint E2)",
+      "status": "missing",
+      "note": "Checked with PARI: disc(f) values, I = 0, J = 32967 (Jacobian y² = x³ − 3⁶·1221), analytic Ш of order 16 and 4, rank 0, conductor 571 and isomorphism to Jac(z² = f). Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/39",
+      "kind": "theorem",
+      "name": "Theorems 15 and 33 and Proposition 34 (integral representatives, κ = 4)",
+      "statement": "For even n: if f has coefficients in 16Z (printed: 16^nZ, E4) and C : z² = f has locally soluble Div¹, then every locally soluble (SL_n/μ_2)(Q)-orbit with invariant form f has a representative in Z² ⊗ Sym²Z^n. Hence the orbits with disc(Ax − By) = 16f are in bijection with Sel_2(J¹) (Theorem 15, κ = 4). The proof reduces to Proposition 34, where 2^{4i} | f_0^{i−1}f_i. It works over Z_p with divisors D = Σ(P_i) − D* (m odd, m ≤ g + 1) and the explicit ideal I_D = ⟨f_0^{2m}R(f_0θ), P(f_0θ)I_f(n − 3 − m/2)⟩ with α = f_0^{2m}α_0. The norm is computed by a specialization argument over a generic ring.",
+      "locator": "Theorem 15, p.5; Theorem 33, Proposition 34 and proofs, pp.25–28, citing [1, §2], [5, Proposition 8.2], [31, Proposition 2.9], [38, Lemma 3.8], arXiv:1310.7692v2 (misprints E4, E5)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/40",
+      "kind": "theorem",
+      "name": "Proposition 35 (uniqueness of integral representatives at good odd primes)",
+      "statement": "For odd p, f ∈ Z_p[x, y] of even degree with p² ∤ Δ(f) and f_0 ≠ 0, and Div¹(C)(Q_p) ≠ ∅: the (SL_n/μ_2)(Z_p)-orbits with invariant form f are in bijection with the soluble (SL_n/μ_2)(Q_p)-orbits, and integral and rational stabilizers agree. Proof: R_f is maximal, the Néron model 𝒥 is fiberwise connected with 𝒥[2] ≅ (Res_{R/Z_p}μ_2)_{N=1}/μ_2, and 𝒥(Z_p)/2𝒥(Z_p) ≅ (R_f^×/R_f^{×2}Z_p^×)_{N≡1} ([31, Proposition 2.11]).",
+      "locator": "Proposition 35 and proof, p.29, citing [10, §9.5 Theorem 1], [31], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/41",
+      "kind": "theorem",
+      "name": "Néron models: fiberwise connectedness",
+      "statement": "If the special fiber of a proper regular model of a curve over Z_p is geometrically reduced and irreducible, the Néron model of its Jacobian is fiberwise connected, and 𝒥(Z_p) = J(Q_p) ([10, §9.5, Theorem 1]).",
+      "locator": "Proof of Proposition 35, p.29, citing [10], arXiv:1310.7692v2",
+      "status": "planned",
+      "planned": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.1"
+      ],
+      "note": "R11.1 plans Néron models and their uniqueness."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/42",
+      "kind": "theorem",
+      "name": "Theorem 36 (counting irreducible G(Z)-orbits, after [1])",
+      "statement": "For G = SL_n/μ_2 (n even), V(R) with Δ ≠ 0 and f not negative definite splits into components V^{(m,r)} (r ≤ 2^{2m−2} for m ≥ 1; 2 or 1 for m = 0 as n ≡ 0 or 2 mod 4). For a G(Z)-invariant S ⊂ V(Z)^{(m,r)} defined by finitely many congruence conditions, the number of G(Z)-classes of irreducible v ∈ S with H(v) < X is c_{m,r}∏_pν_p(S)X^{n+1} + o(X^{n+1}), with c_{m,r} the volume of a fundamental domain of height < 1 ([1, Theorems 9 and 17]).",
+      "locator": "§10, Theorem 36, pp.29–30, citing [1], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/43",
+      "kind": "definition",
+      "name": "Definitions 37 and 39 (functions defined by congruence conditions; large families)",
+      "statement": "φ : U(Z) → [0, 1] is defined by congruence conditions if φ = ∏_pφ_p with φ_p locally constant outside a measure-zero closed set and ∫φ_p ≠ 0. A set F of integral binary n-ic forms is large if it is defined by congruence conditions and, for almost all p, its complement mod p lies in S_0(F_p) for a fixed subscheme S_0 of codimension ≥ 2. The forms with locally soluble Div¹, and those with locally soluble C, are large ([26, Lemma 15]).",
+      "locator": "Definitions 37 and 39 and the following paragraph, pp.30–31, citing [26, Lemma 15], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/44",
+      "kind": "theorem",
+      "name": "Theorem 38 (weighted orbit counts)",
+      "statement": "If φ : V(Z) → [0, 1] is G(Z)-invariant and defined by congruence conditions, and S ⊂ V(Z)^{(m,r)} is defined by congruence conditions, then the weighted count of G(Z)-classes of irreducible v ∈ S of height < X is ≤ c_{m,r}X^{n+1}∏_p∫φ_p + o(X^{n+1}). This follows by sifting from Theorem 36, as in [7, §2.7].",
+      "locator": "Theorem 38, pp.30–31, citing [7, §2.7], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/45",
+      "kind": "theorem",
+      "name": "Proposition 42 (tail estimate via the geometric sieve)",
+      "statement": "For a large family F with p-adic closures F_p and any M > 0, #⋃_{p>M}{f ∈ I(m) : f ∉ F_p, H(f) < X} = O(X^{n+1}/M) + O(X^n), by Bhargava's quantitative Ekedahl sieve ([2, Theorem 3.3]), since the conditions are codimension ≥ 2 mod p. With a sifting argument this gives #{C ∈ F : H(C) < X} = Σ_mμ_∞({f ∈ I(m) : H < X})∏_pμ_p(F_p) + o(X^{n+1}) (22).",
+      "locator": "Proposition 42 and (22), p.33, citing [2, Theorem 3.3], [7, §2.7], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "The geometric sieve is also an item of PAPER-BHARGAVA-SHANKAR-WANG-22 (ST.2); coalesce. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/46",
+      "kind": "theorem",
+      "name": "Theorem 40 (Sel_2(J¹) as a weighted orbit count)",
+      "statement": "For a large F contained in the forms with locally soluble Div¹, with coefficients in 16Z (printed 16^nZ, E4): Σ_{C∈F, H<X}#Sel_2(J¹) ≤ Σ_mΣ_{r soluble}N_w(V(Z)^{(m,r)}_F; X) + o(X^{n+1}) (18). The weight w(v) = (Σ_{v′}#Stab_{G(Q)}(v′)/#Stab_{G(Z)}(v′))^{−1} (17) counts each G(Q)-class once, up to the ≤ 2^{2g} stabilizer and negligibly many nontrivial stabilizers ([1, Proposition 14]); it is a product of local weights as in [7, Proposition 3.6].",
+      "locator": "Theorem 40, (17)–(20) and proof, pp.31–32, citing [1], [7], arXiv:1310.7692v2 (misprint E4)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/47",
+      "kind": "theorem",
+      "name": "Local masses and the product formula",
+      "statement": "c_{m,r}X^{n+1} = |𝒥|τ_∞(G(Z)\\G(R))μ_∞({f ∈ I(m) : H < X})/#J[2](R) ([1, §4.4]), and ∫w_p = |𝒥|_pτ_p(G(Z_p))μ_p(F_p)#(J¹(Q_p)/2J(Q_p))/#J[2](Q_p) (as in [31, §4.5]). The ratios a_ν = #(J¹(Q_ν)/2J(Q_ν))/#J[2](Q_ν) equal 2^{−g} (ν = ∞), 2^g (ν = 2) and 1 otherwise ([4, Lemma 12.3]), so ∏_νa_ν = 1.",
+      "locator": "§11, pp.32–33, citing [1], [4], [31], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/48",
+      "kind": "theorem",
+      "name": "The Tamagawa number τ(SL_n/μ_2) = 2",
+      "statement": "The Tamagawa number of G = SL_n/μ_2 is 2.",
+      "locator": "Theorem 41, p.33, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "AdelicAlgebraicGroups AA.2 constructs Tamagawa measures but leaves individual values out of scope. Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/49",
+      "kind": "theorem",
+      "name": "Theorem 41 (the upper bound for Σ#Sel_2(J¹))",
+      "statement": "For F as in Theorem 40: Σ_{C∈F, H(C)<X}#Sel_2(J¹) ≤ Σ_mτ(G)μ_∞({f ∈ I(m) : H(f) < X})∏_pμ_p(F_p) + o(X^{n+1}) (21), with τ(G) = 2. Dividing by (22) proves Theorem 6.",
+      "locator": "Theorem 41, (21), p.33; proof of Theorem 6, p.33, arXiv:1310.7692v2 (misprint E4)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/50",
+      "kind": "definition",
+      "name": "Definition 43 (admissible families)",
+      "statement": "A set F of integral binary n-ic forms is admissible if it is defined by congruence conditions and, for all large p, its p-adic closure contains every f over Z_p for which z² = f(x, y) has a Q_p-point.",
+      "locator": "Definition 43, p.34, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/51",
+      "kind": "theorem",
+      "name": "Theorem 44 (general version of Theorem 1)",
+      "statement": "Let F be a large family of integral binary forms of degree 2g + 2, and p, q primes neither of which is a square modulo the other. Suppose that for a positive proportion of f ∈ F: f, pf, qf, pqf all lie in F and have points over Q_p and Q_q; J has split semistable reduction of toric dimension 1 at p and good reduction at q; and, if 2 has a unique prime above it in Q(√p, √q), the corresponding conditions hold at 2 (added, E3). Then for a positive proportion of f ∈ F, J¹(Q) = ∅ and Sel_2(J¹) = ∅.",
+      "locator": "Theorem 44, pp.34–35, arXiv:1310.7692v2 (gap E3)",
+      "status": "missing",
+      "note": "Stated without proof. Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/52",
+      "kind": "theorem",
+      "name": "Theorems A.1–A.2 (odd and even 2-Selmer ranks occur with positive proportion)",
+      "statement": "In the family y² = a_nx^n + ⋯ + a_0 (n ≥ 3) over Q ordered by height, both odd and even 2^∞-Selmer ranks occur with proportion ≥ 2^{−4n−4}; assuming finiteness of Ш[2^∞], so do odd and even Mordell–Weil ranks (Theorem A.1). Over any number field, in the full family or any admissible family, a positive proportion have even and a positive proportion odd 2-Selmer rank, and likewise for the 2^∞-Selmer rank (Theorem A.2).",
+      "locator": "Appendix A, Theorems A.1–A.2, p.35; proofs pp.36–37, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "The constant 2^{−4n−4} was rederived: the quadruples {±f, ±2f} for f in the congruence class of Proposition A.4 with H(f) < X/2 are disjoint. Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/53",
+      "kind": "theorem",
+      "name": "Theorem A.3 (parity of 2-Selmer ranks in a biquadratic family of twists)",
+      "statement": "Let F = K(√α, √β) be biquadratic with some prime p_0 of K having a unique prime above it in F, and let C/K have Jacobian J. Suppose C(K_{p_0}) ≠ ∅ and J has split semistable reduction of toric dimension 1 at p_0, and that C(K_p) ≠ ∅ and J has good reduction at every other p with a unique prime above it in F. Then rk_{2^∞}(J) + rk_{2^∞}(J^α) + rk_{2^∞}(J^β) + rk_{2^∞}(J^{αβ}) ≡ 1 mod 2. If also C^α, C^β, C^{αβ} have points at all such p, the same holds for 2-Selmer ranks.",
+      "locator": "Theorem A.3, p.36; proof pp.38–39, arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/54",
+      "kind": "theorem",
+      "name": "Proposition A.4 and Lemma A.5 (families with the required local behaviour)",
+      "statement": "If a_2 ≡ 1, a_{2g+1} ≡ 4 and all other a_i ≡ 0 mod 8, then y² = f(x) reduces (after y ↦ 2y + x) to y² + xy = x^{2g+1} with one split node, so J has split toric reduction of dimension 1 at 2 and C(Q_2) ≠ ∅. Hence among y² = ±f, ±2f both parities occur (Proposition A.4). For p odd (Lemma A.5): squarefree f̄ with an F_q-root gives good reduction and points on all twists; f̄ = (x − a)²h with h squarefree, h(a) ∈ F_q^{×2} and an F_q-root gives split toric reduction of dimension 1; and if f̄ is not λh² and q > 4n², then C(K) ≠ ∅.",
+      "locator": "Proposition A.4, Lemma A.5 and proofs, pp.36–37, citing [26, Lemma 15], arXiv:1310.7692v2 (misprint E5)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/55",
+      "kind": "theorem",
+      "name": "Theorem A.7 and Corollary A.8 (Brauer relations and 2^∞-Selmer parity)",
+      "statement": "For a principally polarized abelian variety A/K, a Galois extension F/K with group G and a Brauer relation Θ = Σn_iH_i: Σ_{ρ∈S_Θ}m_ρ ≡ ord_p∏_i(c̃_{A/F^{H_i}}·|Ш^{[p]}_{A/F^{H_i}}|) mod 2, where m_ρ are multiplicities in the dual p^∞-Selmer group and S_Θ the self-dual representations with odd regulator constant ([17, Theorem 1.6], with the Ш[2] term for p = 2). For F = K(√α, √β) and Θ = {1} − C_2^a − C_2^b − C_2^c + 2G, S_Θ = {1, ε_a, ε_b, ε_c}, which gives the formula (†) for the four twists.",
+      "locator": "Theorem A.7, Corollary A.8 and proofs, pp.38–39, citing [17], [18], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/56",
+      "kind": "theorem",
+      "name": "Poonen–Stoll: the parity of Ш[2] is a sum of local terms",
+      "statement": "For a principally polarized Jacobian, the parity of ord_2|Ш^{[2]}| is a sum of local terms, 1 or 0 according as Pic^{g−1}(C) is empty or not over the completion ([26, §8]).",
+      "locator": "Proof of Theorem A.3, p.39, citing [26, §8], arXiv:1310.7692v2",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.4 as a source."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Bhargava, Most hyperelliptic curves over Q have no rational points, arXiv:1308.0395",
+      "link": "https://arxiv.org/abs/1308.0395",
+      "why": "Theorems 9 and 17 and Proposition 14: the orbit counts behind Theorem 36, and the integral orbits attached to rational points (§9)."
+    },
+    {
+      "citation": "X. Wang, Maximal linear spaces contained in the base loci of pencils of quadrics, arXiv:1302.2385; and Pencils of quadrics and Jacobians of hyperelliptic curves, PhD thesis, Harvard (2013)",
+      "link": "https://arxiv.org/abs/1302.2385",
+      "why": "Theorem 2.7 and §3: the Fano variety as a 4-torsion torsor and regular pencils (Theorem 23, §5); Lemma 3.8 (§9)."
+    },
+    {
+      "citation": "M. M. Wood, Parametrization of ideal classes in rings associated to binary forms, J. reine angew. Math. 689 (2014), 169–199; and Rings and ideals parameterized by binary n-ic forms, J. London Math. Soc. (2) 83 (2011), 208–231",
+      "link": "https://doi.org/10.1515/crelle-2012-0058",
+      "why": "Theorem 1.3: the orbit parametrization translated in Theorems 16–17."
+    },
+    {
+      "citation": "M. Bhargava, B. H. Gross, X. Wang, Arithmetic invariant theory II: Pure inner forms and obstructions to the existence of orbits, Progr. Math. 312 (2015), 139–171",
+      "link": "https://doi.org/10.1007/978-3-319-23443-4_5",
+      "why": "Theorems 7–9: orbits over fields and the obstruction class [f_0]."
+    },
+    {
+      "citation": "M. Bhargava, B. H. Gross, Arithmetic invariant theory, Progr. Math. 257 (2014), 33–54; and The average size of the 2-Selmer group of Jacobians of hyperelliptic curves having a rational Weierstrass point, TIFR Stud. Math. 22 (2013), 23–91",
+      "link": "https://doi.org/10.1007/978-1-4939-1590-3_3",
+      "why": "Proposition 1 (obstruction map), Lemma 12.3 (the local ratios a_ν), Proposition 8.2 and Proposition 8.5 (§9)."
+    },
+    {
+      "citation": "A. Shankar, X. Wang, Average size of the 2-Selmer group for monic even hyperelliptic curves, Compos. Math. 154 (2018), 188–222; arXiv:1307.3531",
+      "link": "https://arxiv.org/abs/1307.3531",
+      "why": "Propositions 2.9 and 2.11 and the local mass computation of §4.5."
+    },
+    {
+      "citation": "M. Bhargava, A. Shankar, Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves, Ann. of Math. (2) 181 (2015), 191–242; and Ternary cubic forms having bounded invariants, Ann. of Math. (2) 181 (2015), 587–621",
+      "link": "https://doi.org/10.4007/annals.2015.181.1.3",
+      "why": "The sifting argument of §2.7, Proposition 3.6, and the root-number argument adapted in the appendix."
+    },
+    {
+      "citation": "M. Bhargava, The geometric sieve and the density of squarefree values of invariant polynomials, arXiv:1402.0031",
+      "link": "https://arxiv.org/abs/1402.0031",
+      "why": "Theorem 3.3 (Proposition 42)."
+    },
+    {
+      "citation": "B. Poonen, M. Stoll, The Cassels–Tate pairing on polarized abelian varieties, Ann. of Math. 150 (1999), 1109–1149; and A local-global principle for densities, Math. Appl. 467 (1999), 241–244",
+      "link": "https://doi.org/10.2307/121064",
+      "why": "Lemma 15 (large families), §8 (parity of Ш[2]) and the density principle."
+    },
+    {
+      "citation": "B. Poonen, E. F. Schaefer, Explicit descent for Jacobians of cyclic covers of the projective line, J. reine angew. Math. 488 (1997), 141–188",
+      "link": "https://doi.org/10.1515/crll.1997.488.141",
+      "why": "Proposition 10.3: the obstruction map is cup product with W[2]; generalized Jacobians in descent."
+    },
+    {
+      "citation": "A. N. Skorobogatov, Torsors and rational points, Cambridge Tracts in Math. 144 (2001); M. Stoll, Finite descent obstructions and rational points on curves, Algebra Number Theory 1 (2007), 349–391",
+      "link": "https://doi.org/10.1017/CBO9780511549588",
+      "why": "Descent obstructions are Brauer–Manin (Theorems 10–11); Lemma 2.4.5."
+    },
+    {
+      "citation": "T. Dokchitser, V. Dokchitser, Regulator constants and the parity conjecture, Invent. Math. 178 (2009), 23–71; and Self-duality of Selmer groups, Math. Proc. Cambridge Philos. Soc. 146 (2009), 257–267",
+      "link": "https://doi.org/10.1007/s00222-009-0193-7",
+      "why": "Brauer relations and regulator constants (Theorem A.7, Corollary A.8)."
+    },
+    {
+      "citation": "A. Dembo, B. Poonen, Q.-M. Shao, O. Zeitouni, Random polynomials having few or no real zeros, J. Amer. Math. Soc. 15 (2002), 857–892",
+      "link": "https://doi.org/10.1090/S0894-0347-02-00386-7",
+      "why": "Theorem 1.2, used for Theorem 7 as g → ∞."
+    },
+    {
+      "citation": "J.-L. Colliot-Thélène, J.-J. Sansuc, La descente sur les variétés rationnelles II, Duke Math. J. 54 (1987), 375–492; J.-L. Colliot-Thélène, B. Poonen, Algebraic families of nonzero elements of Shafarevich–Tate groups, J. Amer. Math. Soc. 13 (2000), 83–99",
+      "link": "https://doi.org/10.1215/S0012-7094-87-05420-2",
+      "why": "The descent theory behind the Brauer–Manin statements, and earlier special families."
+    },
+    {
+      "citation": "N. Bruin, M. Stoll, Two-cover descent on hyperelliptic curves, Math. Comp. 78 (2009), 2347–2370",
+      "link": "https://doi.org/10.1090/S0025-5718-09-02255-8",
+      "why": "The fake 2-Selmer set (§8)."
+    },
+    {
+      "citation": "J.-P. Serre, Groupes algébriques et corps de classes, Hermann (1959)",
+      "why": "Generalized Jacobians and the curve C_m (§3)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.1"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/1",
+        "PAPER-BHARGAVA-GROSS-WANG-17/16",
+        "PAPER-BHARGAVA-GROSS-WANG-17/17",
+        "PAPER-BHARGAVA-GROSS-WANG-17/18",
+        "PAPER-BHARGAVA-GROSS-WANG-17/19",
+        "PAPER-BHARGAVA-GROSS-WANG-17/20",
+        "PAPER-BHARGAVA-GROSS-WANG-17/25",
+        "PAPER-BHARGAVA-GROSS-WANG-17/26",
+        "PAPER-BHARGAVA-GROSS-WANG-17/27",
+        "PAPER-BHARGAVA-GROSS-WANG-17/28",
+        "PAPER-BHARGAVA-GROSS-WANG-17/29",
+        "PAPER-BHARGAVA-GROSS-WANG-17/30",
+        "PAPER-BHARGAVA-GROSS-WANG-17/31",
+        "PAPER-BHARGAVA-GROSS-WANG-17/32",
+        "PAPER-BHARGAVA-GROSS-WANG-17/33",
+        "PAPER-BHARGAVA-GROSS-WANG-17/34",
+        "PAPER-BHARGAVA-GROSS-WANG-17/35",
+        "PAPER-BHARGAVA-GROSS-WANG-17/36",
+        "PAPER-BHARGAVA-GROSS-WANG-17/38",
+        "PAPER-BHARGAVA-GROSS-WANG-17/39",
+        "PAPER-BHARGAVA-GROSS-WANG-17/40"
+      ],
+      "reason": "ST.1 owns integral orbit parametrizations. RS-07 narrows it to parametrizations with proved inverse, stabilizer identification, degenerate loci and local-solubility restrictions, and to the comparison of orbits with Selmer objects that ST.4 then uses. The paper supplies exactly that for hyperelliptic curves of even degree:\n- the orbits of SL_n and SL_n/μ_2 on 2 ⊗ Sym²(n) over Dedekind domains, via Wood's ideal classes (§2);\n- the pencil-of-quadrics geometry that identifies orbits with two-covers, using Wang's group J ⊔ F ⊔ J¹ ⊔ F, regular pencils and the eight equivalent conditions (§§4–5);\n- soluble and locally soluble orbits, identified with J¹(K)/2J(K) and Sel_2(J¹) (§§6–8, including the examples);\n- integral representatives with κ = 4 (§9).\nThis extends the genus-one parametrization of the RS-07 scope to all genera, in the same direction as the SO_n representation already routed here from PAPER-BHARGAVA-SHANKAR-WANG-22. The family and height definition belongs to ST.0. None of these statements is in the atlas or the libraries."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.2"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/42",
+        "PAPER-BHARGAVA-GROSS-WANG-17/43",
+        "PAPER-BHARGAVA-GROSS-WANG-17/44",
+        "PAPER-BHARGAVA-GROSS-WANG-17/45"
+      ],
+      "reason": "ST.2 owns the uniform orbit counts and the tail estimates that pass to infinitely many local conditions: the congruence-weighted count of irreducible orbits (Theorems 36 and 38), large families, and the geometric-sieve tail (Proposition 42)."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.4"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/7",
+        "PAPER-BHARGAVA-GROSS-WANG-17/8",
+        "PAPER-BHARGAVA-GROSS-WANG-17/9",
+        "PAPER-BHARGAVA-GROSS-WANG-17/10",
+        "PAPER-BHARGAVA-GROSS-WANG-17/11",
+        "PAPER-BHARGAVA-GROSS-WANG-17/12",
+        "PAPER-BHARGAVA-GROSS-WANG-17/13",
+        "PAPER-BHARGAVA-GROSS-WANG-17/46",
+        "PAPER-BHARGAVA-GROSS-WANG-17/47",
+        "PAPER-BHARGAVA-GROSS-WANG-17/48",
+        "PAPER-BHARGAVA-GROSS-WANG-17/49",
+        "PAPER-BHARGAVA-GROSS-WANG-17/50",
+        "PAPER-BHARGAVA-GROSS-WANG-17/51",
+        "PAPER-BHARGAVA-GROSS-WANG-17/52",
+        "PAPER-BHARGAVA-GROSS-WANG-17/53",
+        "PAPER-BHARGAVA-GROSS-WANG-17/54",
+        "PAPER-BHARGAVA-GROSS-WANG-17/55",
+        "PAPER-BHARGAVA-GROSS-WANG-17/56"
+      ],
+      "reason": "ST.4 owns Bhargava–Shankar Selmer averages and their statistical consequences, using ST.1's orbit-to-Selmer comparison. That covers the average of #Sel_2(J¹) (Theorems 6, 40 and 41 with the local masses and τ(SL_n/μ_2) = 2) and its consequences (Theorems 1, 2, 5, 7 and 12, Corollaries 3 and 8, Remark 4, Theorem 44). It also covers the Dokchitsers' appendix, which supplies the Selmer-parity input: odd and even 2-Selmer ranks with positive proportion via Brauer relations, regulator constants and the Poonen–Stoll local terms."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.3"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/3",
+        "PAPER-BHARGAVA-GROSS-WANG-17/4",
+        "PAPER-BHARGAVA-GROSS-WANG-17/5",
+        "PAPER-BHARGAVA-GROSS-WANG-17/15"
+      ],
+      "reason": "RP.1 owns Kummer maps, finite Selmer groups and descent. Two-covers of torsors, the class W[2] with its odd-factorization description, and the 2-Selmer sets Sel_2(J¹) and those of order k are descent objects. RP.3 owns torsor descent and its comparison with the Brauer–Manin obstruction, where the Hasse-principle failures for J¹ and Sym^k(C) belong (Corollary 9, Theorems 10–11); the Skorobogatov–Stoll comparison itself is planned there."
+    },
+    {
+      "route": "source",
+      "roadmap": "NeronModelsAndSemistableAbelianVarieties",
+      "stages": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.4"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/22",
+        "PAPER-BHARGAVA-GROSS-WANG-17/24"
+      ],
+      "reason": "R11.4 owns the degree-zero Picard schemes and generalized Jacobians of semistable curves. That covers the nodal curve C_m with generalized Jacobian J_m, the sequence 0 → T → J_m → J → 0, and the description of J_m[2], J[2] and the torsors W_m[2], W[2] by factors of f."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-GROSS-WANG-17/23"
+      ],
+      "reason": "SF.3 owns divisors, line bundles and Picard objects. The comparison of rational divisor classes with rational divisors, via Pic_{C/K}(K)/Pic(C/K) ↪ Br(K′/K), is a Picard-object statement."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/E1",
+      "kind": "error",
+      "locator": "Proof of Theorem 28, p.19 (arXiv v2)",
+      "printed": "\"When z_0 ≠ 0, we have α = (x − T)(Q) = x_0 − β. Then x′ = Span{(1, 0, 0), (β, 0, 0), . . ., (β^{g−1}, 0, 0), (β^g, 1, −½(x_0 + f_1/f_0))} is isotropic with respect to both bilinear forms.\" and, for z_0 = 0, \"x′ = Span{(h_1(β) − h_1(x_0), 0, 0), (β − x_0, 0, 0), . . . , ((β − x_0)^{g−1}, 0, 0), ((β − x_0)^g, 1, −½((2g + 1)x_0 + f_1/f_0))}\"",
+      "correction": "For g ≥ 1 neither plane is isotropic for B′: the (g − 1)-st basis vector pairs with the last one to −1 in the first case (+1, or h_1(x_0), in the second). The fix is to give that vector the third coordinate that cancels the pairing through ab′ + a′b:\n- z_0 ≠ 0: replace (β^{g−1}, 0, 0) by (β^{g−1}, 0, 1);\n- z_0 = 0, g ≥ 2: replace ((β − x_0)^{g−1}, 0, 0) by ((β − x_0)^{g−1}, 0, 1);\n- z_0 = 0, g = 1: replace (h_1(β) − h_1(x_0), 0, 0) by (h_1(β) − h_1(x_0), 0, −h_1(x_0)).\nThe corrected planes are isotropic for A′ and B′ and avoid the radical of A′, so the solubility claim and Theorem 28 stand.",
+      "reason": "With ⟨λ, μ⟩_{B′} = [β^{n−1}](αβλμ) + ab′ + a′b and α = x_0 − β: ⟨(β^{g−1}, 0, 0), (β^g, 1, −c)⟩_{B′} = [β^{2g+1}]((x_0 − β)β^{2g}) = −1 ≠ 0. All the other pairings of the printed plane vanish. In the Weierstrass case, h_1(β)(β − x_0) = f(β, 1) = 0 in L gives the same pairing −[β^{2g+1}](β(β − x_0)^{2g}) = −1 for g ≥ 2. The Gram matrices were computed symbolically: the printed planes fail and the corrected ones are isotropic in random examples with g = 1, 2, 3 in both cases.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+        "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/E2",
+      "kind": "misprint",
+      "locator": "§8, second example, p.23 (arXiv v2)",
+      "printed": "\"… its Jacobian E, which is an elliptic curve with equation y² + xy = x³ − x² − 929x − 10595 and prime conductor 571.\"",
+      "correction": "y² + y = x³ − x² − 929x − 10595 (Cremona's 571b1).",
+      "reason": "With PARI: the printed curve [1, −1, 0, −929, −10595] has conductor 43792070 and analytic rank 1. The curve [0, −1, 1, −929, −10595] has conductor 571, rank 0, trivial torsion and analytic Ш of order 4 = |(Z/2)²|. It is isomorphic to the Jacobian y² = x³ − 27Ix − 27J of the quartic (minimal model computed from I, J). The other numbers of both examples check: Δ = −2⁸·571 and −3⁵·11²·37²; the field of discriminant −2⁴·571 with O_L = Z[θ]; N(θ³ − θ) = −36; F(1), F(0), F(−1) = −2, −3, −6; the first quartic's Jacobian is y² = x³ − 3⁶·1221; its analytic Ш has order 16.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+        "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/E3",
+      "kind": "gap",
+      "locator": "Theorem 44, pp.34–35 (arXiv v2)",
+      "printed": "\"Suppose F is a large congruence family … for which there exist two primes p, q neither of which is a quadratic residue modulo the other such that … 1. f, pf, qf, pqf all lie inside F and the hyperelliptic curves have points over Q_p and Q_q. 2. … J has split semistable reduction of toric dimension 1 at p and good reduction at q.\"",
+      "correction": "Add the conditions at 2 whenever 2 has a unique prime above it in Q(√p, √q). That happens exactly when one of p, q is ≡ 3 mod 4 and the other ≡ 5 mod 8, e.g. (p, q) = (5, 3). The condition needed is that J has good reduction at 2 and the four twists have Q_2-points. Alternatively, restrict to p ≡ q ≡ 1 mod 4, or to the prime ≡ 1 mod 4 being ≡ 1 mod 8.",
+      "reason": "The natural proof (none is written) applies Theorem A.3 with F = Q(√p, √q) and p_0 = p. Theorem A.3 requires good reduction and local points of all four twists at every prime with a unique prime above it in F. The primes p and q have this property, as the hypothesis makes each inert in the other's quadratic field. So does 2 when it ramifies in one quadratic subfield and is inert in another. For p = 5, q = 3: 2 is inert in Q(√5) and ramified in Q(√3). The hypotheses of Theorem 44 say nothing at 2.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+        "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/E4",
+      "kind": "misprint",
+      "locator": "Theorems 33, 40 and 41, pp.25, 31, 33 (arXiv v2)",
+      "printed": "\"Let f(x, y) be a binary form of degree n = 2g + 2 with coefficients in 16^nZ\" (Theorem 33), and \"suppose that the coefficients of every f(x, y) ∈ F lie in 16^nZ\" (Theorems 40–41).",
+      "correction": "\"coefficients in 16Z\", as in the proof (\"Given one such f … with coefficients in 16Z, then 2^{4i} | f_0^{i−1}f_i\") and in Theorem 15, which claims κ = 4 (κ² = 16).",
+      "reason": "16 | f_i for all i already gives 2^{4i} | f_0^{i−1}f_i, the hypothesis of Proposition 34, so the printed 16^n is an unnecessarily strong hypothesis. With 16^n, Theorem 33 would not give the κ = 4 stated in Theorem 15.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+        "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-GROSS-WANG-17/E5",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 34, p.26; proof of Lemma A.5(3), p.37; references [33], [34], pp.41–42 (arXiv v2)",
+      "printed": "\"Define g(x, y) = x^n + f_1x^{n−1}y + f_0f_2x^{n−2}y + · · · + f_0^{n−1}f_ny^n.\" \"By the Weil conjectures, the curve y² = l(x) has at least q + 1 − n√q > n rational points over F_q. So there is at least one whose x-coordinate is not a root of f.\" \"[33] A. Skorobogatov, Torsors and rational points, Cambridge Tracts in Mathematics 114, 2007.\" \"[34] M. Stoll, … Algebra and Number Theory 1 (1997), 349–391.\"",
+      "correction": "\"f_0f_2x^{n−2}y²\"; \"> 2n + 2 rational points\" (which q > 4n² also gives); \"Cambridge Tracts in Mathematics 144, 2001\"; \"Algebra and Number Theory 1 (2007)\".",
+      "reason": "g must be homogeneous of degree n for g(f_0x, y) = f_0^{n−1}f(x, y). The points whose x-coordinate is a root of f, or at infinity, number up to 2n + 2, so \"> n\" does not by itself yield a good point, though q + 1 − n√q > 2n² does. Crossref gives Skorobogatov's tract as no. 144 (2001, DOI 10.1017/CBO9780511549588), and Algebra & Number Theory began in 2007 (DOI 10.2140/ant.2007.1.349).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+        "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+      ]
+    }
+  ]
+}
