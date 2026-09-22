@@ -3371,8 +3371,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABE-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1214"
+   "state": "external",
+   "note": "claimed on GitHub issue #1214"
   },
   {
    "id": "REV-PAPER-ABE-25",
@@ -4571,8 +4571,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-XU-ZHU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1284"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1284",
+   "finishedAt": "2026-09-22T23:55:40Z"
   },
   {
    "id": "REV-PAPER-XU-ZHU-22",
