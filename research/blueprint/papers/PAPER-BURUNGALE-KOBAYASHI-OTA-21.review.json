@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ComplexMultiplicationAndExplicitReciprocity CM.4 owns CM Hecke characters and their realizations. The canonical character and, as added by this review, the Gross Q-curve descent clauses of cm-field-data (φ∘N_{H/K} = ψ_E and φ(ā) = φ̄(a), which CM.4 does not state) are a concrete source for that layer."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer owns Lubin–Tate formal modules, their reciprocity tower, universal formal-module deformations or quasi-canonical lifts: Tau Ceti ClassFieldTheory Layer 8 explicitly excludes Lubin–Tate, and ET.6a even refers to a formal-module deformation owner that does not exist. A Part II of FiniteFlatGroupsAndIntegralPadicHodgeTheory, whose R07.1–R07.2 supply p-divisible groups and Dieudonné theory, is the right foundational home, shared with the later consumers. Accepted after two corrections in place: the area \"cohomology\" is not a galaxy id and is now \"padic\", and the brief now imports the elliptic formal logarithm (EllipticCurves Layer 1) and the height-2 statement (ModularCurves 7E)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ColemanPowerSeries L0–L4 is strictly cyclotomic, and the signed material elsewhere in the atlas (PadicHodgeRegulators L4, ModularIwasawaMainConjectures L0/L4, GH.8, BSD.6a) is cyclotomic and modular. Nothing covers the two-variable Lubin–Tate local units, the anticyclotomic quotient, Rubin's decomposition or the optimal formal CM point systems, so a Part II of ColemanPowerSeries is justified. The review added the δ/δ₁ relation, Wiles's dual-exponential reciprocity, the non-vanishing of δ_χ on V*, and Rubin's small-prime range."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AutomorphicPadicLFunctions L3 (Katz) and L3h (Hsieh) require a p-ordinary CM type and explicitly exclude the nonordinary case, and no layer plans elliptic units or Kato's CM explicit reciprocity, so a Part II is justified. Its early/late split keeps the dependency graph acyclic. Coordination note: the Kato §15 elliptic-unit construction is also planned by the pending Part II CMAllPrimeMainConjectures of PAPER-BURUNGALE-TIAN-26; the extraction already defers to a single shared construction, and whichever roadmap is designed first must own it while the other imports it. The review added the identification of the CM formal group with the Lubin–Tate group of parameter −p."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "ModularIwasawaMainConjectures L6 re-exports ordinary Heegner/BDP, Eisenstein and the Jetchev–Skinner–Wan supersingular branches, none of which is the integral inert-anticyclotomic Gross Q-curve CM main conjecture, so a Part II in that direction is justified. Coordination note for the maintainer: PAPER-BURUNGALE-TIAN-26 proposes a second Part II of the same parent (CMAllPrimeMainConjectures). The theorems differ, and Burungale–Tian's equivariant main conjecture is rational (after inverting p) while this route needs Rubin's integral two-variable equality, so neither can supply the other as proposed. If both are accepted, consider merging them into one \"CM main conjectures\" Part II with separate layers at the next restructuring."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5). This session did no part of the extraction. The published paper (Caltech repository copy, SHA-256 77ff3290…790e, as recorded) was read in full, with formula-heavy pages viewed as images. Fidelity is high: hypotheses (p ≥ 5 inert, p ∤ h_K, π = −p, parity with 1 ∈ Ξ⁺), normalisations and locators are faithful, and the extraction's three claimed corrections (the (−1)^n generator difference, the conjugation bars, the inverse-character denominator) were confirmed. One error inherited from the paper was corrected: Lemma 5.2(ii)'s \"in particular ... p ≥ 31\" fails at p = 47 (the bound is 0 there; checked for all primes ≥ 31 up to 400), and p = 47 goes through Lemma 5.2(iii). Other corrections in place: route 2's area; statements of formal-law, twisted-root-sign, augmentation-unit-generation, hecke-lattice-relation, optimal-point-boundary and cm-field-data; locators; notes and supplier citations; five added items. All six library citations were confirmed; eight planned items confirmed and two recorded as partial. python3 scripts/check_paper.py reports ok."
+}
