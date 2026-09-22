@@ -4604,8 +4604,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CASTELLA-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1286"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1286",
+   "finishedAt": "2026-09-22T23:16:43Z"
   },
   {
    "id": "REV-PAPER-CASTELLA-ETAL-22",
@@ -4786,8 +4787,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1296"
+   "state": "external",
+   "note": "claimed on GitHub issue #1296"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
