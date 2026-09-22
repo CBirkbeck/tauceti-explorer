@@ -46,7 +46,7 @@
     },
     "atlasCommit": "14482fbdbea546a681b66b8bb4ff336bdc8830c6"
   },
-  "summary": "A source-qualified checkpoint for finite-field abelian-variety counts. Imports existing abelian varieties, isocrystals, CM fields, class-number and finite-GL APIs; routes polarization, hermitian-lattice and distribution suppliers to their existing owners and adds one finite-field arithmetic Part II. The complete public preprint was read, but published-version comparison, local-order estimates, mass normalization and statistical endpoints remain open. A concrete characteristic-two counterexample blocks v1 Lemma 5.19. No formalization is claimed.",
+  "summary": "Partial continuation of PR #1652: 124 items (11 library, 26 planned, 87 missing), with eight new local-counting/stabilizer suppliers routed only to existing GN.2/GN.3. Imports the pinned generic monogenic trace dual, Hensel lifting and scalar-length formula. Gives a mathematical replacement for repeated-block local orbit counting and an isotypic congruence-kernel bound, not the source's sharper local exponent or its general global stabilizer bound. Preserves all 19 withheld claims and G0–G8; no final-version comparison or Lean formalization is claimed.",
   "items": [
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/abelian-variety",
@@ -333,7 +333,7 @@
       "statement": "For a monic irreducible f∈Z_ℓ[X] with separable fraction algebra F, R=Z_ℓ[X]/(f)⊂O_F; an R-lattice of rank n is a full Z_ℓ-lattice in F^n stable under R.",
       "locator": "§3.1.2",
       "status": "missing",
-      "note": " API: Use existing submodules, integral closure and finite-length quotients; define saturation and the trace-dual lattice. Tests: (1) R=O_F gives one GL_n(F)-orbit of R-lattices; (2) nonmaximal orders allow nonfree modules; (3) the residue field of R need not equal F_ℓ. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+      "note": " API: Use existing submodules, integral closure and finite-length quotients; define saturation and the trace-dual lattice. Tests: (1) R=O_F gives one GL_n(F)-orbit of R-lattices; (2) nonmaximal orders allow nonfree modules; (3) the residue field of R need not equal F_ℓ. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. Continuation: reuse Mathlib Submodule.traceDual / the trace-form dualSubmodule for ordinary trace duality; do not define a competing dual-lattice carrier."
     },
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
@@ -378,7 +378,11 @@
       "statement": "For the extension quotient in §3.1.4, semisimplicity bounds its order by the residue cardinality to the valuation of the product of all nonzero cross-eigenvalue differences, counted with multiplicity.",
       "locator": "§3.1.4 pp.8–10",
       "status": "missing",
-      "note": "The cokernel torsion is a quotient of the lattice on the nonzero-eigenvalue subspace modulo F applied to that lattice; the printed subset inclusion is reversed. Prove the quotient map explicitly. This does not certify the later global exponent. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+      "note": "The cokernel torsion is a quotient of the lattice on the nonzero-eigenvalue subspace modulo F applied to that lattice; the printed subset inclusion is reversed. Prove the quotient map explicitly. This does not certify the later global exponent. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports. Continuation L5 proves the graph/shear quotient is M'/FM, with a canonical surjection M'/FM'→M'/FM. Here W=Hom_K(V₂,V₁), M=Hom_O(U₂,U₁), F(T)=γ₁T−Tγ₂, W'=im F and M'=M∩W'. Semisimplicity gives W=ker F⊕W'. A finite-DVR determinant/index adapter computes #M'/FM'=ℓ^(v_ℓ det(F|W')).",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear"
+      ]
     },
     {
       "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/punctual-hilbert-count",
@@ -1175,13 +1179,170 @@
       "locator": "§5.4.2 (44), sharper elementary bound",
       "status": "missing",
       "note": "Every ramified prime divides the relative discriminant and has norm at least 2; multiply their norms and use relative-discriminant. This avoids the extra factor d in the source estimate. Ownership checked against the 211 atlas records, relevant full descriptions and reviewed audits at the recorded explorer commit; no matching pinned implementation found beyond the explicit library imports."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-trace-dual-library",
+      "kind": "theorem",
+      "name": "Monogenic trace-dual formula",
+      "statement": "For an integrally closed domain A with fraction field K, a finite separable field extension L/K and integral x generating L/K, the trace-form dual of A[x] is (minpoly_K(x)'(x))⁻¹·A[x].",
+      "locator": "Mathlib/RingTheory/DedekindDomain/Different.lean:592–631 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "Actual statement and proof read, including standing hypotheses. The source order need not be integrally closed: A, not A[x], carries that hypothesis. Use the existing trace dual, not a new LT-specific carrier.",
+      "library": [
+        "mathlib:traceForm_dualSubmodule_adjoin",
+        "mathlib:Submodule.traceDual",
+        "mathlib:Submodule.traceDual_span_of_basis"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/complete-hensel-library",
+      "kind": "theorem",
+      "name": "Hensel lifting from adic completeness",
+      "statement": "An I-adically complete ring is Henselian at I. A monic polynomial with an approximate root modulo I and invertible derivative in the quotient has a congruent exact root.",
+      "locator": "Mathlib/RingTheory/Henselian.lean:88–178 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "The declarations were read in full. These are generic imports; finite-order completeness, its local residue field, the unramified coefficient DVR and continuous power-series evaluation are still adapters.",
+      "library": [
+        "mathlib:IsAdicComplete.henselianRing",
+        "mathlib:HenselianRing.is_henselian"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/local-length-scalar-library",
+      "kind": "theorem",
+      "name": "Length under restriction of local scalars",
+      "statement": "For a local algebra map A→B and compatible B-module M, length_A(M)=length_B(M)·length_(ResidueField A)(ResidueField B), with the library's extended-natural length conventions.",
+      "locator": "Mathlib/RingTheory/LocalRing/Length.lean:54–81 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "Actual statement/proof and hypotheses read. Apply to the unramified coefficient DVR over Z_ℓ; prove the finite-length and residue-degree identifications before converting to natural exponents.",
+      "library": [
+        "mathlib:IsLocalRing.length_restrictScalars"
+      ]
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+      "kind": "theorem",
+      "name": "Monogenic conductor and dual sandwich",
+      "statement": "Let O=Z_ℓ, K=Q_ℓ, F=K(θ), f=minpoly_K θ monic integral irreducible, R=O[θ], S=O_F, β=f'(θ), δ=v_ℓ disc(f). Then βS⊆R and #S/βS=ℓ^δ. If R⊆M⊆S is a full R-lattice, N=βM^∨ is an R-ideal in R and length_O(R/N)=length_O(M/R)≤δ; dual homothety classes, not identical classes, are represented by N.",
+      "locator": "§3.1.2; continuation L1",
+      "status": "missing",
+      "note": "Import ordinary field-trace duality, integrality of traces, finite-DVR determinant/index and discriminant=±Norm(β). Use the trace-dual involution for the rank-one class count; do not identify N with the original class of M.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-trace-dual-library",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model",
+      "kind": "theorem",
+      "name": "Residue-correct coefficient DVR",
+      "statement": "For the local monogenic order R above, write R/rad R=F_(ℓ^s). There is an unramified coefficient DVR O₀⊂R with that residue field and t∈rad R such that R=O₀[t] and O₀[[T]]→R, T↦t, is surjective. Every finite R-quotient has Z_ℓ-length s times its O₀-length.",
+      "locator": "Yun §4.12; LT §3.1.5; continuation L2",
+      "status": "missing",
+      "note": "Lift the residue of θ via a monic lift of its separable irreducible polynomial; put t=θ−w. Complete finite local algebra, topological evaluation and residue-cardinality identifications remain explicit adapters. No quotient of Z_ℓ[[T]] is asserted when s>1.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/complete-hensel-library",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/local-length-scalar-library"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound",
+      "kind": "theorem",
+      "name": "Weighted partition cumulative bound",
+      "statement": "For a complete DVR with residue cardinality Q≥2 let H_Q(j)=Σ_(λ⊢j)Q^(j−length λ). Then H_Q(0)=1, H_Q(j)≤(Q+1)^(j−1) for j≥1 and Σ_(j=0)^a H_Q(j)≤(Q+1)^a≤Q^(2a). Consequently R has at most ℓ^(2δ) ideals of Z_ℓ-colength ≤δ.",
+      "locator": "Yun Proposition 4.13; continuation L3",
+      "status": "missing",
+      "note": "Inject partitions into ordered compositions, sum their weights with the binomial theorem, then take a=floor(δ/s). Retain j=0 and δ=0; this avoids the false weak-composition estimate in LT (13).",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-partition-formula",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
+      "kind": "theorem",
+      "name": "Rank-one local ideal-class bound",
+      "statement": "Under the local-order hypotheses, the number C₁ of F×-orbits of full R-lattices in F is at most ℓ^(2δ). A finite covering list is given by the trace duals of the ideals in R of colength at most δ.",
+      "locator": "LT §3.1.2 and corrected §3.1.5; continuation L4",
+      "status": "missing",
+      "note": "Normalize SM=S, divide M by one of its S-unit elements to obtain R⊆M⊆S, and apply βM^∨. Duality induces a bijection of homothety classes. The selected list is dualized; no unjustified direct representative choice.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
+      "kind": "theorem",
+      "name": "Repeated-block local orbit bound",
+      "statement": "Let C_n be the number of GL_n(F)-orbits on full R-lattices in F^n, n≥1. Then C_n≤C_(n−1)C₁ℓ^((n−1)δ), hence C_n≤ℓ^((n(n−1)/2+2n)δ)≤ℓ^(2n²δ). When δ=0 the bound is one.",
+      "locator": "LT §§3.1.3–3.1.5; continuation L5–L6",
+      "status": "missing",
+      "note": "Induct using a fixed F-coordinate flag. Normalize prefix and quotient by block-diagonal centralizers, then divide graph fibers by rational commuting shears. Count parabolic orbits first, which surject onto full centralizer orbits. This quadratic-in-n replacement does not certify the source's linear exponent 4nδ.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-shear",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
+      "kind": "theorem",
+      "name": "Semisimple local orbit bound with multiplicities",
+      "statement": "For an integral semisimple γ with characteristic polynomial ∏f_i^n_i, define δ_i=v_ℓ disc(f_i), ρ_ij=v_ℓ Res(f_i,f_j), Δ=Σn_i²δ_i+2Σ_(i<j)n_i n_jρ_ij. Its full-centralizer lattice-orbit count is at most ℓ^(Σ_i[n_i(n_i−1)/2+2n_i]δ_i+Σ_(i<j)n_i n_jρ_ij)≤ℓ^(2Δ).",
+      "locator": "LT §§3.1.1–3.1.6 and Yun Lemma 4.9; continuation L7",
+      "status": "missing",
+      "note": "The disjoint-spectrum Sylvester operator is invertible, so its determinant contributes each unordered pair once with multiplicity n_i n_j. This reproves the flag-fiber extension with repeated blocks; it does not cite Yun's regular-semisimple theorem beyond its hypotheses.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/yun-resultant-fiber",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/extension-determinant-bound"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound",
+      "kind": "theorem",
+      "name": "Adelic local-orbit bound for Weil polynomials",
+      "statement": "Let a monic integral characteristic polynomial of degree m have complex roots of absolute value √p and semisimple local realizations. The product of local centralizer lattice-orbit counts is at most D_*²≤(2√p)^(2m(m−1)), where D_* is the absolute product of differences of ordered unequal root occurrences, with multiplicities. For m=2g the last exponent is 4g(2g−1).",
+      "locator": "LT §3.1.6; continuation L8",
+      "status": "missing",
+      "note": "D_* is a nonzero Galois-invariant algebraic integer, hence an integer, and its ℓ-valuation is Δ_ℓ. Almost all local factors are one. This counts only restricted-product local orbits, not rational adelic class sets or global abelian varieties; the general stabilizer bound is still missing. F,V reduction uses the existing prime-field adapter, not a nonprime-field semilinear claim.",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/prime-p-centralizer"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound",
+      "kind": "theorem",
+      "name": "Isotypic integral stabilizer via a congruence kernel",
+      "statement": "If R^n⊆M⊆S^n, β=f'(θ), then ker(GL_n(S)→GL_n(S/βS))⊆Stab(M). Consequently [GL_n(S):Stab(M)]≤ℓ^(n²δ). This includes δ=0, when the stabilizer is all GL_n(S).",
+      "locator": "LT §3.2.1 p.12; continuation L9",
+      "status": "missing",
+      "note": "For g in the kernel, (g−1)M⊆βS^n⊆M; apply the same to g⁻¹ for equality. Bound the finite image by all n×n matrices. The normalization SM=S^n puts Stab(M) inside GL_n(S). This proves only the isotypic bound and does not close the general nonisotypic global exponent in (20).",
+      "dependsOn": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/saturation-normalization",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/gl-card"
+      ],
+      "proof": "See continuation L1–L9 in the adjacent report; mathematical proof plan, not a Lean proof."
     }
   ],
   "prerequisites": [
     {
       "citation": "Yun, Orbital integrals and Dedekind zeta functions (2013), arXiv v2",
       "link": "https://arxiv.org/abs/1303.2420",
-      "why": "Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint."
+      "why": "Selected original proof read: §§1.3–1.5 and 4.8–4.13; full orbital-integral functional equation and repeated-eigenvalue extension remain outside this checkpoint. Continuation L5–L8 now supplies a separate coarse repeated-block/local-orbit argument; the regular-semisimple theorem is still not applied directly beyond its scope, and general global stabilizer closure remains outstanding."
     },
     {
       "citation": "Conrad, Polarizations, VIGRE notes",
@@ -1312,9 +1473,12 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/norm-ideal",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/local-hermitian-classification",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-genus",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/free-projective-comparison"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/free-projective-comparison",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/monogenic-conductor-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/coefficient-dvr-model",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/isotypic-stabilizer-congruence-bound"
       ],
-      "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built."
+      "reason": "GN.2 explicitly owns integral/hermitian lattices, local invariants, genera and local-global theory. Existing rational Z-lattices and CM fields are reused; O_L-projective lattices and dyadic norm ideals are not already built. The continuation adds coefficient-DVR, monogenic conductor and isotypic congruence-kernel adapters on these same carriers."
     },
     {
       "route": "source",
@@ -1337,9 +1501,14 @@
         "PAPER-LIPNOWSKI-TSIMERMAN-18/factorial-asymptotic",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/finite-integral-group",
         "PAPER-LIPNOWSKI-TSIMERMAN-18/mass-cardinality-comparison",
-        "PAPER-LIPNOWSKI-TSIMERMAN-18/ramification-count"
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/ramification-count",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/weighted-partition-cumulative-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/rank-one-local-class-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/repeated-block-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/semisimple-local-orbit-bound",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/adelic-local-orbit-bound"
       ],
-      "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. Add the checked Yun local inputs and weighted-to-unweighted comparison, while the disputed exact estimates remain outside the route."
+      "reason": "GN.3 owns arithmetic quotient counts, local densities and mass. Add the checked Yun local inputs and weighted-to-unweighted comparison, while the disputed exact estimates remain outside the route. The continuation supplies weighted rank-one counts and a repeated-block argument yielding a coarse quadratic multiplicity bound; the printed sharper local bound and the general global stabilizer estimate remain withheld."
     },
     {
       "route": "source",
@@ -1415,6 +1584,374 @@
       ],
       "reason": "A1–A6 construct relative geometry and realizations but have no Honda–Tate/Waterhouse classification or prime-field lattice-counting layers. This extension consumes them; PEL moduli and statistical models remain with their existing owners.",
       "brief": "Construct the finite-field arithmetic of existing Tau Ceti abelian varieties. Import Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A2–A4/A6, Finite flat groups and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory) R07.2, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic) GN.2–GN.3, Adelic algebraic groups (AdelicAlgebraicGroups) AA.4, and the built NumberField class-number APIs. Prove Tate full faithfulness and the Honda–Tate simple-isogeny correspondence with the exact local invariants; prove Waterhouse order realization only in the nonreal simple prime-field case. Construct the marked quasi-isogeny/lattice correspondence, its rational-orbit quotient, and the prime-field p-component reduction. Export the corrected reciprocal-polynomial upper bound (4g+1)^g q^(g(g+1)/4) and its exp((log q)g²/4+O_q(g log g)) isogeny-class consequence. Keep real-Weil/quaternionic factors, norm-image class sets and integral stabilizers explicit. Prove the source-scoped exp(O_p(g²)) squarefree polarization bound only after its local-order and unit-norm suppliers close. Obtain CM elliptic examples and point-count isogeny invariance; the p-group lemma in this route is restricted to p≥7. Do not use or advertise v1 Theorem 0.1 numerical constant, Lemma 5.11 leading coefficient, Corollaries 5.13/5.14/5.20 or an all-q extension until the final published source is compared and gaps G0–G8 are closed. PELModuli owns the moduli stack, ArithmeticStatistics ST.0/ST.5 owns the family measures and conditional distribution consequences. Every definition needs ≥3 discriminating unit tests, a consumer-derived API and a suggested Lean file on existing carriers. No implementation or formalization is claimed."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E1",
+      "kind": "error",
+      "locator": "v1 p.10, §3.1.5 (13); final 2018 text not obtained",
+      "printed": "Σ_(a₁+⋯+a_n≤δn)1 ≤ (nδ)^n/n!",
+      "correction": "Use the weighted-partition/rank-one argument L3–L6 for a coarse replacement; do not retain this weak-composition bound.",
+      "reason": "At n=1,δ=0 the two sides are 1 and 0; even δ=1 gives 2≤1. The source's claimed sharper final exponent is not proved by the replacement.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E2",
+      "kind": "error",
+      "locator": "v1 p.12, §3.2.1 orbit-map display; final 2018 text not obtained",
+      "printed": "gM ↦ (m ↦ gm mod R^n)",
+      "correction": "This formula does not descend from elements to orbit points. Use the isotypic congruence-kernel argument L9; general blocks still need work.",
+      "reason": "Take ℓ=3,F=Q₃(i),R=Z₃[3i],S=Z₃[i],M=S,n=1. Both 1 and −1 belong to GL₁(R), and M=(−1)M; evaluating the two proposed maps at i gives i and −i modulo R, differing by 2i∉R. Also S⊆R^∨, so the claimed target is defined. No element outside GL₁(R) is used.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E3",
+      "kind": "misprint",
+      "locator": "v1 p.9, §3.1.4 display after (10); final 2018 text not obtained",
+      "printed": "M'/(F(M)∩W') ⊂ M'/F(M')",
+      "correction": "There is a canonical surjection M'/F(M')→M'/F(M), not the displayed inclusion. Since F(M)⊆M', the denominator intersection is redundant.",
+      "reason": "F(M')⊆F(M)⊆M'. Passing to quotients reverses the direction of the natural map. The cardinality upper bound survives via this surjection; see L5.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E4",
+      "kind": "error",
+      "locator": "v1 p.10, §3.1.5, power-series quotient assertion; final 2018 text not obtained",
+      "printed": "R is a quotient of Z_ℓ[[X]]",
+      "correction": "First pass to the unramified coefficient DVR O₀ with residue field R/rad R; then R is a quotient of O₀[[T]].",
+      "reason": "An unramified quadratic order has residue field F_(ℓ²), whereas the local ring Z_ℓ[[X]] has residue F_ℓ; no such local quotient is possible. L2 also tracks the residue degree in colength.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "G2 concerns flagged in PR #1652; local argument and source page images rechecked by codex-a71f92. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E5",
+      "kind": "error",
+      "locator": "v1 p.5, Lemma 2.1; final 2018 text not obtained",
+      "printed": "(2g)^g q^(g(g+1)/4)",
+      "correction": "For reciprocal polynomials use the safe bound (4g+1)^g q^(g(g+1)/4); impose reciprocity explicitly for the reconstruction by g coefficients.",
+      "reason": "At g=1,q=2 there are five reciprocal polynomials X²−aX+2 with −2≤a≤2, exceeding 2√2. The root-radius condition alone also admits X²−q, which does not satisfy the asserted reciprocity.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E6",
+      "kind": "error",
+      "locator": "v1 p.15, (26); final 2018 text not obtained",
+      "printed": "(2√p)^binom(d,2)",
+      "correction": "The elementary discriminant bound has exponent d(d−1).",
+      "reason": "The discriminant is the square of the Vandermonde product. Each unordered pair contributes two differences, so the displayed argument loses a square. The corrected bound is retained by weil-discriminant-bound; the sharp main constant is not certified.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E7",
+      "kind": "gap",
+      "locator": "v1 p.16, (28), final fixed-p asymptotic; final 2018 text not obtained",
+      "printed": "p^((33/4)g²(1+o(1)))",
+      "correction": "Keep powers of 2 with exponents proportional to g² in the fixed-p leading coefficient, or export only exp(O_p(g²)).",
+      "reason": "For fixed p, log_p(2) is a nonzero constant; C·g²·log_p(2) is not o(g²). Neither the displayed equality nor the stated sharp main coefficient follows from discarding it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E8",
+      "kind": "error",
+      "locator": "v1 p.16, §4.1 graph-pullback assertion; final 2018 text not obtained",
+      "printed": "(1,φ_L)*P_A = L",
+      "correction": "Use [2]*L⊗L^(−2), up to the chosen rigidification, with Néron–Severi class 2[L].",
+      "reason": "Inherited checked Conrad Example 2.2 supplier from PR #1652: the Poincaré biextension pullback is not L. On a symmetric ample L its class is twice that of L. The continuation preserves that primary-source evidence; it does not claim a fresh full Conrad reading.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E9",
+      "kind": "error",
+      "locator": "v1 pp.17–18, §4.2 and Lemma 4.6; final 2018 text not obtained",
+      "printed": "Φ_f : NS(A) → S⁰(A)",
+      "correction": "Use NS(A)⊗Q for the claimed rational vector-space isomorphism and rational pullback D_f on quasi-endomorphisms.",
+      "reason": "The domain displayed is an integral lattice, whereas S⁰(A) is rational. The formula on End⁰(A) needs rationalized pullback. At a principal class L₀, Φ_f(L₀)=1/2 and D_f(1,1)=2[L₀], consistent only after the domain and normalization are made explicit.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E10",
+      "kind": "error",
+      "locator": "v1 p.18, Remark 4.8; final 2018 text not obtained",
+      "printed": "t = reduced trace_(D/Q)",
+      "correction": "Use the trace of the Tate representation, including representation multiplicity over the reduced trace.",
+      "reason": "For a simple positive-dimensional abelian variety with End⁰(A)=Q, t(1)=2g but Trd_(Q/Q)(1)=1. The identity without multiplicity is false.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E11",
+      "kind": "misprint",
+      "locator": "v1 p.27, (41), quadratic discriminant factor; final 2018 text not obtained",
+      "printed": "p sin²θ",
+      "correction": "The absolute quadratic discriminant factor is 4p sin²θ.",
+      "reason": "If α=√p exp(iθ), then (α−conj α)²=−4p sin²θ. Restoring the factor does not change the O_p(d) logarithmic bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E12",
+      "kind": "gap",
+      "locator": "v1 p.29, (49); final 2018 text not obtained",
+      "printed": "log L(1,χ_(L/K)) = O([K:Q] log[K:Q])",
+      "correction": "Supply lower as well as upper controls for the residue ratio before asserting this two-sided logarithmic bound.",
+      "reason": "Equation (24) only supplies upper bounds for each residue; subtracting their logarithms does not bound their difference without lower bounds. No claim that the displayed bound itself is false.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E13",
+      "kind": "error",
+      "locator": "v1 p.30, (51), compared with p.26 (39); final 2018 text not obtained",
+      "printed": "[K:Q] n² log n + O(n²[K:Q]²)",
+      "correction": "The displayed factorial product contributes (1/2)[K:Q]n²log n+O([K:Q]n²). Recheck the mass normalization and all consumers before asserting a total asymptotic.",
+      "reason": "Σ_(d=1)^n log((d−1)!)=(1/2)n²log n+O(n²). For fixed K, a missing half of n²log n is not absorbed by O(n²[K:Q]²). No corrected full mass theorem is asserted without Gan–Yu and the remaining factors.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E14",
+      "kind": "gap",
+      "locator": "v1 p.33, Corollary 5.13 proof applying Conjecture 5.2; final 2018 text not obtained",
+      "printed": "Conjecture 5.2 and Proposition 5.10 imply the bound for bad A",
+      "correction": "Handle the real-Weil/quaternionic factor separately, or restrict the conditional conclusion to the conjecture's CM-matrix scope.",
+      "reason": "Conjecture 5.2 assumes products of matrix algebras over CM fields; Q(√p) real Frobenius factors with quaternionic endomorphisms were already separated in §3.2.2. No covering estimate for this omitted family is supplied by that conjecture.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E15",
+      "kind": "error",
+      "locator": "v1 p.34, Corollary 5.14 proof; final 2018 text not obtained",
+      "printed": "αδ₀, with α=h/g",
+      "correction": "For 2g cyclic gaps, two distinct roots each repeated h times force zero mass at least (2h−2)/(2g)=h/g−1/g; state a limiting discrepancy conclusion in a specified metric.",
+      "reason": "Each group of h equal roots contributes h−1 zero gaps. At g=h with two distinct roots the exact zero mass is 1−1/g, not 1. Other coincident roots can only increase the lower bound.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E16",
+      "kind": "gap",
+      "locator": "v1 pp.35–36, Definition 5.16 and Example 5.17; final 2018 text not obtained",
+      "printed": "CL_(n,ℓ) := lim_(g→∞) Haar_g(...)",
+      "correction": "Prove existence and total mass one of the joint limiting law. The odd-prime union bound supplies a positive liminf, not convergence.",
+      "reason": "A definition by a limit requires that limit; pointwise convergence alone also need not preserve mass without tightness. A uniform positive lower bound does not imply convergence. The ℓ=2 special calculation is not a proof for general tuples.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    },
+    {
+      "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E17",
+      "kind": "error",
+      "locator": "v1 p.36, Lemma 5.19; final 2018 text not obtained",
+      "printed": "E(F_p) and E(F_(p²)) are not both p-groups",
+      "correction": "Retain the checked p≥7 repair; the all-prime assertion is false.",
+      "reason": "Over F₂, y²+xy=x³+x²+1 is smooth and has 2 points over F₂ and 8 over F₄. Both groups are 2-groups. PR #1652 enumerated them; the continuation retains its finite check and the source argument's small-prime failure.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1511.02212 version record: only public v1 found, accessed 2026-09-22.",
+        "Authors' public pages (math.toronto.edu/jacobt/ and sites.google.com/site/michaellipnowski/) still link the v1 preprint.",
+        "Publisher DOI 10.1215/00127094-2018-0029 and its canonical Project Euclid download: final PDF not obtained; security HTML returned.",
+        "Web searches on 2026-09-22: \"1511.02212\" erratum; \"Lipnowski\" \"Tsimerman\" \"correction\" \"large\". No relevant correction located. This limited search does not establish priority or absence of corrections."
+      ],
+      "attribution": "Finding retained from codex-c83e7a, PR #1652, now recorded in sourceIssues. No independent-review verdict is claimed."
+    }
+  ],
+  "verification": {
+    "session": "codex-a71f92",
+    "date": "2026-09-22",
+    "status": "partial",
+    "predecessor": "PR #1652 by codex-c83e7a; all original 113 IDs, statuses, statements, library references, planned imports and original route assignments retained. Two notes clarified; eight missing theorems and three library theorems added.",
+    "explorerSnapshot": "a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7",
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "freshRead": [
+      {
+        "url": "https://arxiv.org/pdf/1511.02212v1",
+        "sha256": "5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a",
+        "extent": "All 38 pages / all 1804 extracted lines including bibliography; page images 9, 10 and 12 additionally checked."
+      },
+      {
+        "url": "https://arxiv.org/pdf/1303.2420v2",
+        "sha256": "a9f560f9c7ed334ff4895cde2676476cd430e0efa7c14e3d6d508df5326bc347",
+        "extent": "Selected §§1–2.2, 4.1–4.7 (4.7 only partial), 4.8–4.14; complete Lemma 4.9 and Proposition 4.13 proofs. Not a whole-paper reading."
+      }
+    ],
+    "historicalReadBoundary": "Conrad and the original eight library-item checks remain attributed to PR #1652. This claim freshly read only the three additional pinned generic library suppliers and their supporting trace-dual statements.",
+    "audit": "GN.2 and GN.3 reviewed rows read at library-coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. Existing owners reused; no new roadmap or definition. Existing Part II unchanged.",
+    "sourceIssueBoundary": "17 proposed findings about public v1; new means no correction located in the listed limited search, not a priority claim. None is independently reviewed; do not call these confirmed errors in the final journal text.",
+    "finiteChecks": "Reproducible Python in continuation report: 176 weighted-partition tests, 992 residue-degree cases, 6144 exponent cases, 28 exact trace-dual examples, one exhaustive GL₂(F₉) example and 30 finite shear tests. Finite tests are not proofs.",
+    "lean": "No Lean file is requested, written or compiled. All new mathematical endpoints are still missing library implementations.",
+    "checks": "PASS: check_paper.py against the complete current catalogue; intake.py check-files (3 files, 0 problems); preservation of all 113 original IDs/statuses/statements, original route assignments and historical report/handoff; 37 API/test blocks; 68 uniquely routed missing items and the same 19 withheld items; 24 known-ID acyclic selected edges; no local paths; the embedded finite regression. Rerun on the fresh publication snapshot before opening the PR.",
+    "publishSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399"
+  },
+  "gaps": [
+    {
+      "id": "G0",
+      "status": "open",
+      "detail": "Final 2018 paper not acquired; legitimate publisher download returned security HTML. All findings are v1-only."
+    },
+    {
+      "id": "G1",
+      "status": "open",
+      "detail": "Sharp unpolarized numerical coefficient and original lower-count proof interiors remain unverified; existing corrected reciprocal/discriminant bounds retained."
+    },
+    {
+      "id": "G2",
+      "status": "partial",
+      "detail": "L1–L9 supplies mathematical local coarse orbit and isotypic congruence arguments. Coefficient-DVR/topological evaluation, finite-DVR index, trace-dual/class and flag-quotient adapters still require library planning/implementation. General nonisotypic global stabilizer exponent (20), exact source linear 4nδ and global rational class-set glue remain withheld."
+    },
+    {
+      "id": "G3",
+      "status": "open",
+      "detail": "Polarization normalization, rational NS, geometric/reduced trace and original Lang supplier closure remain as in predecessor."
+    },
+    {
+      "id": "G4",
+      "status": "open",
+      "detail": "Gan–Yu dyadic measures, mass leading coefficient, residue-ratio bounds and free/projective comparison unresolved."
+    },
+    {
+      "id": "G5",
+      "status": "open",
+      "detail": "Real-Weil/quaternionic conditional-scope and reduced-norm/narrow class-set obstructions unresolved."
+    },
+    {
+      "id": "G6",
+      "status": "open",
+      "detail": "F₂ counterexample retained; only p≥7 repaired source lemma is routed; final-version comparison outstanding."
+    },
+    {
+      "id": "G7",
+      "status": "open",
+      "detail": "Spacing normalization, asymptotic quantifiers, enhanced joint-limit existence/tightness and odd-prime convergence unresolved."
+    },
+    {
+      "id": "G8",
+      "status": "open",
+      "detail": "Original Tate/Honda/Waterhouse/Gan–Yu/Jacobowitz/Lang/Friedman–Washington and other inherited supplier proofs, Euler/trace-formula and atomic closure remain unfinished."
     }
   ]
 }

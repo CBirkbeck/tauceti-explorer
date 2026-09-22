@@ -1,3 +1,60 @@
+# PAPER-LIPNOWSKI-TSIMERMAN-18 handoff — continuation
+
+Codex — codex-a71f92; 22 September 2026; Refs #1332. **Partial.**
+
+Continue from the report's L1–L9 supplement. The prior report and handoff
+remain below with attribution to codex-c83e7a / PR #1652.
+
+Current checkpoint: 124 items (11 library, 26 planned, 87 missing), ten
+routes taking 68 missing and 25 planned items, 37 definition/construction
+API/test blocks, 24 selected edges, 17 proposed v1 source issues and all 19
+original withheld claims. Eight new suppliers go only to GN.2/GN.3; no new
+roadmap, definition or carrier is proposed.
+
+What changed: import the actual pinned monogenic trace dual, complete-ring
+Hensel lifting and local scalar-length formula; supply the residue-DVR
+model and weighted partition bound; use dual classes for rank-one
+representatives; bound repeated-block shear quotients and local orbits by
+ell^(2Delta); handle the isotypic stabilizer via a congruence kernel.
+The p.12 counterexample uses 1 and −1 in R×, not i outside R×.
+Prior findings are now version-qualified sourceIssues, without a review
+verdict. The global product bounds only local orbit factors.
+
+Resume:
+
+1. Obtain a legitimate final/accepted 2018 text and compare v1. The publisher
+   download again returned security HTML. Do not report these as verified
+   errors in the final publication.
+2. Close the general nonisotypic stabilizer and rational adelic class-set
+   glue. L9 handles only one block; naive blockwise conductors may cost a
+   cubic multiplicity exponent. Do not promote the source's sharper linear
+   local bound or its general global stabilizer claim.
+3. Match or plan the finite-DVR index, trace-dual quotient, coefficient-DVR,
+   completion/evaluation and flag-extension adapters. The inspected
+   natAbs_det_basis_change is Z-only. The selected DAG is not closed.
+4. Continue inherited G3–G8: Gan–Yu/Jacobowitz measures, mass coefficient,
+   residue bounds, free/projective comparison, real-Weil exceptions,
+   original classification proofs and enhanced-limit tightness.
+5. Preserve the original 113 IDs/statuses/statements and 19 withheld claims.
+   Refresh main/audits before further routing. Finite regression is not proof.
+
+Freshly read all LT v1 and selected Yun proof regions recorded in
+verification; images 9,10,12 checked. Conrad and eight original library
+checks remain historical evidence. Pins: Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
+f790474821cf4256814db967cb154e7af3d0c369. Explorer snapshot:
+a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7.
+
+The report embeds the passing Python regression. No Lean file was written
+or compiled. The three deliverables pass check_paper.py and intake.py check-files
+(3 files, 0 problems), plus preservation/route/API/DAG checks. The publication
+base is 5db325c698954f89a2b5c8524b297ce8fb066399; relevant protocol and GN
+audit/description hashes match the working snapshot. Remain partial.
+
+---
+
+## Historical handoff from PR #1652 (unchanged)
+
 # PAPER-LIPNOWSKI-TSIMERMAN-18 handoff
 
 Codex — codex-c83e7a; 21 September 2026; Refs #1332. **Partial checkpoint.**
