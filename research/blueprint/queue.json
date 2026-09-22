@@ -2275,8 +2275,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-ICHINO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1149"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1149",
+   "finishedAt": "2026-09-22T17:03:28Z"
   },
   {
    "id": "REV-PAPER-GAN-ICHINO-18",
@@ -3731,7 +3732,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1237"
   },
   {
    "id": "REV-PAPER-HE-LI-SHI-ETAL-23",
