@@ -3293,7 +3293,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABDURRAHMAN-VENKATESH-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1209"
   },
   {
    "id": "REV-PAPER-ABDURRAHMAN-VENKATESH-25",
@@ -4626,8 +4627,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRUINIER-EHLEN-YANG-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1288"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1288",
+   "finishedAt": "2026-09-22T20:02:53Z"
   },
   {
    "id": "REV-PAPER-BRUINIER-EHLEN-YANG-21",
@@ -6496,8 +6498,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1395"
+   "state": "external",
+   "note": "claimed on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -6893,8 +6895,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1418"
+   "state": "pending",
+   "note": "released on GitHub issue #1418"
   },
   {
    "id": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
