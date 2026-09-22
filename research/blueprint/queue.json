@@ -2675,8 +2675,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-JANNSEN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1172"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1172",
+   "finishedAt": "2026-09-22T18:53:01Z"
   },
   {
    "id": "REV-PAPER-JANNSEN-16",
@@ -3540,7 +3541,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1224"
   },
   {
    "id": "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24",
