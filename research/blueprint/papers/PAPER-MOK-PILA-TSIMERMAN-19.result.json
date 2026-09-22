@@ -2666,8 +2666,8 @@
     {
       "id": "PAPER-MOK-PILA-TSIMERMAN-19/triple-characterization-obligation",
       "kind": "theorem",
-      "name": "Compatibility required in the triple characterization",
-      "statement": "Theorem 11.3 intends the conditions on the pair jets, the third jet locus, its tangent foliation and its restriction to u to characterize exactly L(w,g,r). Interpret restricts to u as full jet compatibility, or supply additional chain-rule equations; zeroth-order equality alone does not imply the intended conclusion.",
+      "name": "Triple characterization of uniformized loci (repaired Theorem 11.3)",
+      "statement": "Let k≥1, r≥2 and m as in §11, and let (w,u,v):Δ^k→Ω̂×X×J^n_rX be holomorphic, with Γ torsion-free or the image away from elliptic points. Suppose:\n(i) J^k_m(w,u) lies in V^k_m;\n(ii) v lies in V_{n,r} and Tv lies in W_{n,r};\n(iii) the zeroth-order part of v is u;\n(iv) the first-order chain rule holds: du=v_1·dw in N⁺-invariant algebraic coordinates on Ω̂ and algebraic coordinates on X, where v_1 is the first-order part of v.\nThen (w,u,v)=L(w,g,r) for some g∈G(C). Without (iv) the statement fails: take w(t)=2t, u(t)=q(t), v(t)=J_rq(id_r(t)) on a modular curve.",
       "locator": "Theorem 11.3, published p. 971; arXiv v3 p. 23",
       "status": "missing",
       "dependsOn": [
@@ -2675,7 +2675,13 @@
         "PAPER-MOK-PILA-TSIMERMAN-19/derivative-lift",
         "PAPER-MOK-PILA-TSIMERMAN-19/constant-group-foliation"
       ],
-      "note": "OPEN INTERFACE, not a proved repaired theorem. The local modular-curve test w(t)=2t,u(t)=q(t),v(t)=J_r q(id_r(t)) satisfies the literal zeroth-order reading and foliation condition but violates du=v_1 dw. See the report; no author erratum was acquired."
+      "note": "Repaired statement and proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026). The printed hypothesis \"v restricts to u\" is used in the proof only as (iii); read that way the theorem is false, which is recorded in research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json (E5). Condition (iv) is an algebraic differential equation, Dx=y_1·Dz, so the repaired theorem fits the differential-field setting of Theorem 12.1. It holds for every L(w,g,r).",
+      "proofSteps": [
+        "By (ii), since the leaves of the foliation W_{n,r} are the images of g′·id_r(Ω̂) for fixed g′∈G(C), v lifts locally to v(t)=J_r(q∘g′)(id_r(z(t))) for one g′ and a holomorphic z:Δ^k→Ω̂.",
+        "By (iii), u(t)=q(g′z(t)), so du=D(q∘g′)(z(t))·dz. By (iv), du=v_1·dw=D(q∘g′)(z(t))·dw. D(q∘g′) is invertible, since q is a local biholomorphism away from elliptic points. Hence dz=dw.",
+        "In N⁺-invariant coordinates, dz=dw gives z(t)=w(t)+c for a constant c, which is translation by τ_c∈N⁺(C). So v(t)=J_r(q∘g′∘τ_c)(id_r(w(t))) and u=q∘g′τ_c∘w.",
+        "With g=g′τ_c this gives (w,u,v)=L(w,g,r). Hypothesis (i) is not needed for this conclusion; with Theorem 11.2 it shows g agrees up to Γ with the element produced there."
+      ]
     },
     {
       "id": "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field",
@@ -3064,7 +3070,7 @@
       "id": "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel",
       "kind": "theorem",
       "name": "Ax-Schanuel in a differential field",
-      "statement": "Fix characteristic-zero (K,D) with finitely many commuting derivations, constants C, and the specified embedding of the finitely generated complex equation field into C. Let (z,x,y) be a uniformized tuple with y in J_r^n X, r>=2, and rank_D(z)=rank_D(x)=rank_D(z,x)=k>=1. If x is not in any proper weakly special locus in the transported families, then trdeg_C C(z,x,y)>=k+dim G. The finite-equation meaning of uniformized retains the unresolved full compatibility obligation of Theorem 11.3.",
+      "statement": "Fix characteristic-zero (K,D) with finitely many commuting derivations, constants C, and the specified embedding of the finitely generated complex equation field into C. Let (z,x,y) be a uniformized tuple with y in J_r^n X, r>=2, and rank_D(z)=rank_D(x)=rank_D(z,x)=k>=1. If x is not in any proper weakly special locus in the transported families, then trdeg_C C(z,x,y)>=k+dim G. The finite-equation meaning of uniformized includes the first-order chain rule Dx=y_1·Dz required by the repaired Theorem 11.3.",
       "locator": "Theorem 1.5 = Theorem 12.1",
       "status": "missing",
       "dependsOn": [
@@ -3073,7 +3079,7 @@
         "PAPER-MOK-PILA-TSIMERMAN-19/conjugate-shimura",
         "PAPER-MOK-PILA-TSIMERMAN-19/jet-ax-schanuel"
       ],
-      "note": "The geometric/analytic tuple interpretation has the stated jet proof; this checkpoint does not certify the printed zeroth-order-only equation interface."
+      "note": "The geometric/analytic tuple interpretation has the stated jet proof; this checkpoint does not certify the printed zeroth-order-only equation interface. Continuation (cc-fb70e5): the finite equations defining \"uniformized\" should include the first-order chain rule Dx=y_1·Dz, condition (iv) of the repaired Theorem 11.3 (triple-characterization-obligation), which the jet argument supplies for genuine uniformized loci."
     },
     {
       "id": "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery",
@@ -3866,7 +3872,8 @@
       "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient"
     ],
     "negativeCompleteControl": 4,
-    "note": "Exact rational regression calculations and data-contract checks only; no Lean elaboration or proof of Ax-Schanuel."
+    "note": "Exact rational regression calculations and data-contract checks only; no Lean elaboration or proof of Ax-Schanuel.",
+    "theorem113Repair": "The repaired Theorem 11.3 proof is elementary: leaf lift, chain rule, translation. The w=2t counterexample to the zeroth-order reading violates (iv), as expected."
   },
   "ownershipScreen": {
     "portfolio": "All 211 cached atlas roadmap records keyword-screened; prepublication checks compare their blob IDs against fresh main. Current proposed-roadmap, packet and reserved-ID files screened for the two proposed extension IDs. No ID was reserved by this worker.",
@@ -3893,5 +3900,13 @@
       "ArithmeticLocallySymmetricSpaces reduction/Siegel infrastructure is imported; the Hwang-To metric estimates are additional domain geometry.",
       "A source route here proposes the specified extension of a supplier blueprint; it does not claim its unproved definitions are library implementations."
     ]
-  }
+  },
+  "continuationLog": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-fb70e5",
+      "date": "2026-09-22",
+      "work": "Supplied the repaired Theorem 11.3 (first-order chain-rule hypothesis) with proof; aligned the uniformized-tuple meaning in Theorem 12.1."
+    }
+  ]
 }
