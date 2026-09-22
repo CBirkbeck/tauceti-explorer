@@ -1,0 +1,1169 @@
+{
+ "paper": "PAPER-LAWRENCE-SAWIN-25",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "The Shafarevich conjecture for hypersurfaces in abelian varieties",
+  "authors": "Brian Lawrence and Will Sawin",
+  "venue": "Annals of Mathematics 202 (2025), no. 3",
+  "doi": "10.4007/annals.2025.202.3.1",
+  "arxiv": "2004.09046",
+  "url": "https://arxiv.org/pdf/2004.09046v5",
+  "sha256": "5e5f829e2841637de38852bde0d5f0a0b80183e6f9d23b60250cc2be1ee21d97",
+  "readDate": "2026-09-22",
+  "version": "arXiv:2004.09046v5, posted 16 October 2025, 121 pages, the authors' latest revision, posted after the article appeared in the November 2025 issue of the Annals; v1 is from 20 April 2020. The published text is behind the journal's paywall and was not consulted, so every locator gives the section, theorem or equation number together with the page of the arXiv v5 PDF, and any finding would be recorded against that version. No erratum or corrigendum is listed on the arXiv page or in Crossref.",
+  "readSections": [
+   "§1 Introduction, pp. 1–13: the main theorems, §1.1 the outline of the proof, §1.2 sheaf convolution and uniform big monodromy, §1.3 the outline of the paper",
+   "§2 Sheaf convolution over a field, pp. 14–19: Lemmas 2.1–2.9, the convolution category, character sheaves and the two Tannakian groups",
+   "§3 The convolution monodromy group of a hypersurface, pp. 20–28: Lemmas 3.1–3.14, Theorem 3.5 and Proposition 3.15",
+   "§4 Big monodromy from big convolution monodromy, pp. 28–38: Lemmas 4.1–4.9, Theorem 4.7, Corollary 4.10 and Proposition 4.11",
+   "§5 Hodge–Deligne systems, pp. 39–63: §5.2 the definition, §5.3 H⁰-algebras, §5.4 modules, §5.5 the construction of E_I and V_I, §5.6–5.7 the groups, §5.8 disconnected reductive groups, §5.9 adjoint Hodge numbers, §5.10 Galois representations",
+   "§6 Period maps and monodromy, pp. 63–73: Lemmas 6.1–6.3, Theorem 6.4, Definition 6.6 and Lemma 6.8",
+   "§7 The semisimple case, pp. 73–76: Lemmas 7.1, 7.2 and Theorem 7.3",
+   "§8 Hodge–Deligne systems and integral points, pp. 73–85: Lemmas 8.1–8.16 and Theorem 8.17",
+   "§9 Proof of the main theorem, pp. 85–87: Definition 9.1, Theorem 9.2, Corollary 9.3 and Theorems 9.4, 9.5, 9.6",
+   "Appendices A, B and C, pp. 87–118: Lemma A.1 and its supporting lemmas, the classification of the wedge-power case, and the inequalities for Eulerian numbers",
+   "References, pp. 118–121, read in full to identify the inputs listed under prerequisites"
+  ]
+ },
+ "summary": "Complete extraction of the 121-page paper. Lawrence and Sawin prove that for an abelian variety A of dimension at least four over a number field K with good reduction outside S, and an ample class ϕ in NS(A), there are only finitely many smooth hypersurfaces in A representing ϕ with good reduction outside S, up to translation; in dimension three the same holds when ϕ·ϕ·ϕ avoids an explicit sparse set of divisors, and in dimension two the statement is the Shafarevich conjecture for curves. The proof runs the Lawrence–Venkatesh machine on the cohomology of the family of hypersurfaces with coefficients in a rank-one local system, and its new ingredient is a uniform big-monodromy theorem obtained from the Tannakian theory of sheaf convolution on abelian varieties: the convolution monodromy group of a single smooth hypersurface contains a classical group, and that forces the ordinary monodromy group of the twisted cohomology of any non-constant family to contain a classical group as well. The p-adic side needs Hodge–Deligne systems, H⁰-algebras to express the semilinearity of Frobenius, p-adic Hodge theory for disconnected reductive groups, a p-adic Bakker–Tsimerman theorem, and a careful treatment of global semisimplification. Of the 82 items, 1 is in the pinned libraries, 12 are planned by existing layers of the atlas, and 69 are missing. The extraction routes them so that the p-adic and Diophantine half becomes a Part II of the proposed roadmap The Mordell conjecture after Lawrence and Venkatesh, which it extends layer by layer, while the sheaf-convolution half becomes a new roadmap of its own, since nothing in the atlas plans convolution of perverse sheaves on abelian varieties or convolution monodromy groups; the complex Bakker–Tsimerman theorem goes to LogicAndDefinabilityInNumberTheory LD.6, the Weil restriction of scalars to SchemeAndStackFoundations SF.0, and the Eulerian numbers with their inequalities to ClassicalArithmeticCompletion CA.2. No mistakes were found in the source: the statements and their cross-references between the introduction and the body were checked, and the arithmetic of the sequences a(i) and d(i) was verified, reproducing 1, 5, 20, 76, 285, 1065 and d(1) = 6, d(2) = 53130, d(3) = 216182590635135019896, d(4) ≈ 2.5 × 10^79 exactly. This is a paper inventory and routing, not a proof blueprint: the results quoted from Krämer, Krämer–Weissauer, Bakker–Tsimerman, Scholze, Fontaine, Bate–Martin–Röhrle and Lawrence–Venkatesh are recorded as items with their own prerequisite entries and are not decomposed here.",
+ "items": [
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/1",
+   "kind": "definition",
+   "name": "Hypersurfaces in an abelian variety with good reduction",
+   "statement": "Fix a number field K with ring of integers O_K, a finite set S of primes of O_K, and an abelian variety A over K with good reduction outside S. A hypersurface H ⊆ A has good reduction at p ∉ S if the closure of H in the unique smooth projective model of A over O_K[1/S] is smooth at p. H is primitive if it is not invariant under translation by any point of A(ℚ‾).",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1, p. 1, and §9, p. 85, Definition 9.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "API: the model over O_K[1/S], smoothness of the closure at a prime, the translation action of A on its hypersurfaces, and primitivity. Tests: a translate of a hypersurface with good reduction has good reduction; a hypersurface invariant under a subgroup is not primitive."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/2",
+   "kind": "theorem",
+   "name": "Finiteness of hypersurfaces in dimension at least four (Theorem 1.1 = Theorem 9.4)",
+   "statement": "Suppose dim A ≥ 4 and fix an ample class ϕ in the Néron–Severi group of A. There are, up to translation, only finitely many smooth hypersurfaces H ⊆ A representing ϕ with good reduction outside S.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1, p. 1, Theorem 1.1; proved as Theorem 9.4, p. 87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Equivalently, fixing a Picard class ψ, there are finitely many H representing ψ, which is a finiteness statement for the Diophantine equation Δ(x₁,…,x_N) = u in S-integers, with Δ the discriminant of the linear system and u an S-unit."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/3",
+   "kind": "theorem",
+   "name": "Finiteness in dimension three under a divisibility hypothesis (Theorem 1.2 = Theorem 9.5)",
+   "statement": "Let a(i) be defined by a(1) = 1, a(2) = 5, a(i+2) = 4a(i+1) + 1 − a(i), and d(i) := C(a(i)+a(i+1), a(i)), so that d(1) = 6, d(2) = 53130, d(3) = 216182590635135019896 and so on. Suppose dim A = 3 and ϕ is an ample class in NS(A) whose self-intersection ϕ·ϕ·ϕ is not divisible by d(i) for any i ≥ 2. Then there are only finitely many smooth hypersurfaces H ⊆ A representing ϕ with good reduction outside S, up to translation.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1, pp. 1–2, Theorem 1.2; proved as Theorem 9.5, p. 87",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The sequence a(i) grows exponentially and d(i) superexponentially, so the excluded intersection numbers are very sparse; d(2) = 53130 is already large. Tests: the recursion for a(i); d(1) = 6 and d(2) = 53130."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/4",
+   "kind": "theorem",
+   "name": "Dimension two from the Shafarevich conjecture for curves (Theorem 9.6)",
+   "statement": "Suppose dim A = 2 and fix an ample class ϕ in NS(A). There are only finitely many smooth curves C ⊆ A representing ϕ with good reduction outside S, up to translation.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, p. 87, Theorem 9.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This case follows from Faltings's theorem, the Shafarevich conjecture for curves, and does not need the machinery of the paper; it is recorded to complete the trichotomy."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/5",
+   "kind": "theorem",
+   "name": "The primitive form of the main theorem (Theorem 9.2, Corollary 9.3)",
+   "statement": "Let A be an abelian variety of dimension n over K, S a finite set of primes of O_K containing the places of bad reduction, ϕ an ample class in NS(A) and d := ϕⁿ/n!. Suppose either n ≥ 4, or n = 3 and d is not C(a(i)+a(i+1), a(i+1))/6 for any i ≥ 2. Then, up to translation, there are only finitely many smooth primitive hypersurfaces H ⊆ A representing ϕ defined over K with good reduction outside S. If moreover d is not a multiple of that quantity, the same holds for all smooth hypersurfaces, not only the primitive ones.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, pp. 85–87, Theorem 9.2 and Corollary 9.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Passage from primitive to arbitrary hypersurfaces uses that a non-primitive hypersurface is the preimage of a hypersurface in a quotient abelian variety, whose intersection number divides d. The proof of 9.2 is the assembly of the whole paper."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/6",
+   "kind": "theorem",
+   "name": "Quasi-finiteness of the period map for hypersurfaces (Proposition 4.11)",
+   "statement": "Let A be an abelian variety of dimension n ≥ 2 over ℂ and ϕ an ample class in Pic(A). There exists a positive integer m such that the period map from the moduli space of smooth hypersurfaces H ⊆ A of class ϕ to a period domain, sending H to the Hodge structure on H^{n−1}([m]^{−1}H, ℚ), is quasi-finite.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, p. 37, Proposition 4.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the geometric shadow of the big-monodromy theorem and, with Zuo's hyperbolicity theorem, connects the result to the Javanpeykar–Loughran programme deducing Shafarevich-type statements from Lang–Vojta. Tests: m = 1 does not suffice in general, which is why the multiplication-by-m pullback is taken."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/7",
+   "kind": "theorem",
+   "name": "Convolution of complexes on an abelian variety (Lemma 2.1)",
+   "statement": "For an abelian variety A over a field, (D^b_c(A,ℚ_p), ∗) with K₁ ∗ K₂ := Ra_*(K₁ ⊠ K₂) for the addition map a is a rigid symmetric monoidal category whose unit is the skyscraper sheaf at 0 and whose dual is K^∨ = [−1]^*DK, with D Verdier duality and [−1] the inversion map.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, p. 14, Lemma 2.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "API: the convolution bifunctor, associativity and symmetry constraints, the unit and the duality. Tests: convolution with the skyscraper at a point is translation; the dual of the constant sheaf on a subvariety involves its inverse."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/8",
+   "kind": "theorem",
+   "name": "Negligible perverse sheaves and the convolution quotient category (Lemma 2.2)",
+   "statement": "Let P be the category of perverse sheaves on A and N the full subcategory of those with vanishing Euler characteristic. Then: (1) perverse sheaves on A have non-negative Euler characteristic; (2) N is a thick subcategory of P; (3) D^b(N) is thick in D^b_c(A,ℚ_p); (4) convolution with an object of D^b(N) lands in D^b(N); (5) for perverse K₁, K₂ the perverse cohomologies ^pH^i(K₁∗K₂) are negligible for i ≠ 0; (6) convolution descends to the quotient; (7) the essential image of P in the quotient is P/N; (8) that image is stable under convolution; (9) (P/N, ∗) is a rigid symmetric monoidal ℚ_p-linear abelian category.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, pp. 14–15, Lemma 2.2, following Krämer–Weissauer",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the construction of the sheaf convolution category over an arbitrary field; the key facts hold over k once checked over k‾. Tests: a local system on A is negligible; the skyscraper at a point is not."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/9",
+   "kind": "definition",
+   "name": "Character sheaves on an abelian variety (Definitions 2.3, 2.4)",
+   "statement": "For a continuous character χ : π₁^et(A_k‾) → ℚ‾_p^×, L_χ is the unique rank-one sheaf on A_k‾ with monodromy χ. If χ is Gal(k‾|k)-invariant, L_χ denotes the unique lisse rank-one sheaf on A_k whose associated representation restricts to χ and whose stalk at the identity has trivial Galois action, obtained from the splitting of 1 → π₁^et(A_k‾) → π₁^et(A_k) → Gal(k‾|k) → 1 given by the identity section. For such χ, P^χ is the subcategory of perverse K with H^i(A_k‾, Q ⊗ L_χ) = 0 for i ≠ 0 and all subquotients Q of K_k‾, and N^χ := P^χ ∩ N.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, pp. 15–16, Definitions 2.3 and 2.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: L_χ ⊗ L_{χ'} = L_{χχ'}; the trivial character gives the constant sheaf; the splitting at the identity is what makes the descent canonical."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/10",
+   "kind": "theorem",
+   "name": "The Tannakian structure with fibre functor H⁰(A,K⊗L_χ) (Lemma 2.5)",
+   "statement": "(1) The essential image of P^χ in P/N is equivalent to P^χ/N^χ; (2) P^χ/N^χ contains the unit and is stable under convolution and duality; (3) K ↦ H⁰(A_k‾, K ⊗ L_χ) is an exact tensor functor from P^χ/N^χ to ℚ_p-vector spaces; (4) P^χ/N^χ with convolution and this functor is a rigid symmetric monoidal ℚ_p-linear abelian category with a faithful exact tensor functor to vector spaces.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, p. 16, Lemma 2.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This makes P^χ/N^χ Tannakian and defines the convolution monodromy group as the image of the Tannakian group acting on the representation attached to a perverse sheaf."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/11",
+   "kind": "theorem",
+   "name": "Morphisms and Tannakian subcategories of geometrically semisimple objects (Lemmas 2.6, 2.7)",
+   "statement": "A perverse sheaf on A is geometrically semisimple if its pullback to A_k‾ is a sum of irreducible perverse sheaves. For geometrically semisimple K₁, K₂, Hom_{P/N}(K₁,K₂) is the quotient of Hom(K₁,K₂) by the homomorphisms factoring through a negligible object. The full subcategory of geometrically semisimple objects of P^χ/N^χ is Tannakian, and so is the full subcategory of P^χ_{k‾}/N^χ_{k‾} consisting of summands of pullbacks to A_k‾ of geometrically semisimple objects on A_k.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, pp. 16–17, Lemmas 2.6 and 2.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Restricting to geometrically semisimple objects is what makes the comparison between the arithmetic and geometric Tannakian groups work."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/12",
+   "kind": "theorem",
+   "name": "The arithmetic–geometric exact sequence of Tannakian groups (Lemma 2.8)",
+   "statement": "With G_k the Tannakian group of the category of geometrically semisimple perverse sheaves on A_k in P^χ, G_k‾ the Tannakian group of the corresponding category on A_k‾, and Gal_k the Tannakian group of ℓ-adic Gal(k‾|k)-representations, G_k‾ is a normal subgroup of G_k with quotient Gal_k: 1 → G_k‾ → G_k → Gal_k → 1.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1.2, pp. 9–10, (1), and §2, p. 17, Lemma 2.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The analogue of 1 → π₁^geom → π₁^arith → Gal(k‾|k) → 1 for the convolution category. Splittings come from character sheaves defined over k, which is how the Galois action on the fibre functor is seen inside the Tannakian group."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/13",
+   "kind": "theorem",
+   "name": "Galois normalizes the geometric convolution monodromy group (Lemma 2.9)",
+   "statement": "Let A be an abelian variety over k, χ a Gal(k‾|k)-invariant character with sheaf L_χ, and K a geometrically semisimple perverse sheaf on A with H^i(A_k‾, K ⊗ L_χ) = 0 for i ≠ 0. Then the action of Gal(k‾|k) on H⁰(A_k‾, K ⊗ L_χ) normalizes the commutator subgroup of the identity component of the geometric convolution monodromy group of K.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, p. 18, Lemma 2.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what allows the tests of Lemma 4.5 to be applied to the Galois image rather than only to the geometric monodromy group."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/14",
+   "kind": "theorem",
+   "name": "Euler characteristics of a hypersurface in an abelian variety (Lemmas 3.1–3.4)",
+   "statement": "For a line bundle L on an abelian variety A of dimension n, χ(A,L) = c₁(L)ⁿ/n!. For a smooth hypersurface H ⊆ A, the arithmetic Euler characteristic is χ(H,O_H) = (−1)^{n−1}[H]ⁿ/n!, the topological Euler characteristic is (−1)^{n−1}[H]ⁿ, and χ(H,Ω^i_H) = (−1)^{n−1−i} d A(n,i) where d := [H]ⁿ/n! and A(n,i) is the Eulerian number.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 20–21, Lemmas 3.1, 3.2, 3.3 and 3.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved by Hirzebruch–Riemann–Roch and the adjunction sequence on A, whose tangent bundle is trivial. These Euler characteristics are the numerical invariants that later eliminate the exceptional Tannakian groups. Tests: for a curve in an abelian surface, [H]² = 2g−2; the Eulerian numbers A(n,i) satisfy Σ_i A(n,i) = n!."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/15",
+   "kind": "theorem",
+   "name": "The convolution monodromy group of a smooth hypersurface (Theorem 3.5, Remark 3.6)",
+   "statement": "Let H be a smooth hypersurface in an abelian variety A of dimension n, let d = [H]ⁿ/n! and let G_H be the convolution monodromy group of i_*ℚ_p[n−1] with distinguished representation of dimension N = (−1)^{n−1}[H]ⁿ. Assume H is not equal to its translate by any nontrivial point of A, that n > 2, and that neither (1) n = 2 and d = 28, nor (2) n = 3 and d = C(a(i)+a(i+1), a(i))/6 for some i ≥ 2 holds. Then G_H contains SL_N, Sp_N or SO_N as a normal subgroup: SL_N if H is not a translate of [−1]^*H, Sp_N if it is and n is even, SO_N if it is and n is odd. In the excluded cases the only other possibilities are E₇ in its 56-dimensional representation, and SL_{a(i)+a(i+1)} acting by ∧^{a(i)}.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, p. 21, Theorem 3.5 and Remark 3.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The proof occupies §3 and Appendix B: minisculeness and simplicity come from Krämer's characteristic-cycle criteria, and the remaining cases are eliminated by Euler characteristics and Hodge numbers. Tests: the theta divisor of a Jacobian, where the convolution group is the classical one of Krämer–Weissauer."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/16",
+   "kind": "theorem",
+   "name": "Minisculeness and simplicity of the distinguished representation (Lemmas 3.7–3.10)",
+   "statement": "The distinguished representation of G_H, the one attached to i_*ℚ_p[n−1], has dimension N. If H is not translation-invariant by any nontrivial point of A, it is an irreducible minuscule representation of the Lie algebra; if in addition n > 2, the identity component of G_H is simple modulo its centre; and then the commutator subgroup of the identity component with its distinguished representation is one of: (1) SL_N, Sp_N or SO_N with the standard representation; (2) SO_m with a spin representation, or E₆ or E₇ with a lowest-dimensional nontrivial representation; (3) SL_m with ∧^k for some 2 ≤ k ≤ m/2.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 21–24, Lemmas 3.7, 3.8, 3.9 and 3.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Minisculeness uses that the characteristic cycle of a smooth hypersurface is its conormal variety; simplicity is a modification of Krämer's argument that does not assume invariance under inversion. The classification of minuscule representations of simple groups is the group-theoretic input."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/17",
+   "kind": "theorem",
+   "name": "Which classical group occurs (Lemma 3.11)",
+   "statement": "If G_H contains SL_N, Sp_N or SO_N as a normal subgroup, then it contains SL_N only if H is not equal to any translate of [−1]^*H; it contains Sp_N only if n is even; and it contains SO_N only if n is odd.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, p. 23, Lemma 3.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The self-duality of the object i_*ℚ_p[n−1] under K ↦ [−1]^*DK is what distinguishes the symplectic from the orthogonal case, with the parity of n entering through the shift."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/18",
+   "kind": "theorem",
+   "name": "Elimination of the spin and exceptional cases (Lemma 3.12)",
+   "statement": "If n > 2 then the commutator subgroup of the identity component of G_H cannot be SO_m with a spin representation distinguished, nor E₆ or E₇ with a lowest-dimensional nontrivial irreducible representation distinguished.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, p. 24, Lemma 3.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These representations occur only in specific dimensions, and comparing them with the Euler-characteristic formula N = (−1)^{n−1}[H]ⁿ confines them to curves in abelian surfaces, excluded by n > 2."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/19",
+   "kind": "theorem",
+   "name": "Hodge–Tate weights of the twisted cohomology of a hypersurface (Lemma 3.13)",
+   "statement": "Let H be a smooth hypersurface in an abelian variety A of dimension n over a p-adic field k, and χ a finite-order character of π₁(A_k‾) with H^i(H_k‾, L_χ) = 0 for i ≠ n−1. Let k′ be a finite extension of k containing the coefficient field and field of definition of χ. Then the Hodge–Tate weights of Gal(k‾|k′) on H^{n−1}(H_{k‾}, L_χ) are 0,…,n−1, the weight q occurring with multiplicity d·A(n,q).",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 24–25, Lemma 3.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved from the Hodge–Tate decomposition and the Euler characteristics of Lemma 3.4. These multiplicities are the Hodge numbers used in the numerical conditions and in Appendix A, and their independence of χ is what makes the Hodge numbers uniform."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/20",
+   "kind": "theorem",
+   "name": "The wedge-power constraint on Hodge numbers (Lemma 3.14, Proposition 3.15)",
+   "statement": "Suppose the commutator subgroup of the identity component of G_H is SL_m with distinguished representation ∧^k. Then there are a function m_H from ℤ to the natural numbers with Σ_i m_H(i) = m and an integer s such that, for all q, Σ over functions m_S with 0 ≤ m_S(i) ≤ m_H(i), Σ_i m_S(i) = k and Σ_i i·m_S(i) = s+q, of ∏_i C(m_H(i), m_S(i)) equals d·A(n,q), with A(n,q) = 0 unless 0 ≤ q < n. Conversely, if such k > 1, m_H and s exist with 1 < k < −1 + Σ_i m_H(i), then one of the following holds: m = 4 and k = 2; n = 2 and d = C(2k−1,k) for some k > 2; or n = 3 and d = C(a(i)+a(i+1), a(i))/6 for some i ≥ 2.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 25–27, Lemma 3.14 and Proposition 3.15, the latter proved in Appendix B",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The case m = 4, k = 2 is harmless since ∧²SL₄ = SO₆. The constraint says that the Hodge numbers of the twisted cohomology would have to be those of a k-th wedge power, which almost never matches the Eulerian-number pattern. Tests: n = 3, i = 2 gives d = 53130/6."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/21",
+   "kind": "theorem",
+   "name": "Pullbacks and the triviality of the geometric action (Lemma 4.1, Corollary 4.3)",
+   "statement": "Let X be a variety, A an abelian variety and Y ⊆ X × A a family of smooth hypersurfaces over X, all over ℂ, with η the generic point, K = i_*ℚ_p[n−1] on A_η‾, G its convolution monodromy group and G^* the commutator subgroup of the identity component. Assume G^* is simple with irreducible distinguished representation and that Y is not a constant family translated by a section of A. If K′ is an irreducible perverse sheaf on A_η‾ in the Tannakian category generated by K and is pulled back from A_ℂ, then G^* acts trivially on the corresponding irreducible representation. Consequently, for the c coordinate inclusions i_j : A → A^c, the convolution monodromy group of ⊕_j i_{j*}K is G and contains (G^*)^c as a normal subgroup, acting by c copies of the distinguished representation and trivially on any representation coming from a perverse sheaf pulled back from A^c_ℂ.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 28–31, Lemma 4.1 and Corollary 4.3, with Lemma 4.2 on products of abelian varieties",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lemma 4.2 says that for perverse sheaves K_j on A_j, the convolution group of z_{1*}K₁ ⊕ z_{2*}K₂ on A₁ × A₂ is G₁ × G₂. Tests: a constant family gives a pullback, hence a trivial action, which is exactly the excluded case."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/22",
+   "kind": "theorem",
+   "name": "Vanishing and Galois invariants for generic characters (Lemma 4.4)",
+   "statement": "Let K be a perverse sheaf of geometric origin on A_{ℂ(η)‾} no irreducible component of which is a pullback from A_ℂ. Then for all characters χ of π₁^et(A_{ℂ(η)‾}) outside a finite set of torsion translates of proper subtori of the character torus Π(A), one has H^i(A_{ℂ(η)‾}, K ⊗ L_χ) = 0 for i ≠ 0 and H⁰(A_{ℂ(η)‾}, K ⊗ L_χ)^{Gal(ℂ(η)‾|ℂ(η))} = 0.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 30–31, Lemma 4.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the generic-vanishing input, in the form of the structure theory of cohomology support loci on abelian varieties. It is what turns 'no component is a pullback' into 'the Galois action has no invariants'."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/23",
+   "kind": "theorem",
+   "name": "A battery of tests for containing a power of a simple group (Lemma 4.5)",
+   "statement": "Let G^* be a simple algebraic group, c a natural number, and fix an irreducible representation of G^* with normalizer N(G^*) inside the automorphism group of that representation. Then there is a finite list of irreducible representations of N(G^*)^c such that a reductive subgroup B ⊆ N(G^*)^c contains (G^*)^c if and only if B has no invariants on any of them.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, p. 31, Lemma 4.5, with Remark 4.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remark 4.6 notes that Larsen's conjecture would give smaller-dimensional test representations for classical G^*, at the cost of depending on the classification of finite simple groups; the dimensions are irrelevant here. Combined with Lemma 4.4, each test representation corresponds to a perverse sheaf whose Galois invariants must vanish."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/24",
+   "kind": "theorem",
+   "name": "Big monodromy from big convolution monodromy (Theorem 4.7)",
+   "statement": "Assume Y_η is not translation-invariant by any nonzero element of A, that G^* is simple with irreducible distinguished representation, and that Y is not a constant family translated by a section of A. Fix c ∈ ℕ. Then for characters χ₁,…,χ_c of π₁^et(A) avoiding a finite set of torsion translates of proper subtori of Π(A)^c: R^k f_*(g^*L_{χ_i}) = 0 for k ≠ n−1, and the geometric monodromy group of ⊕_{i=1}^c R^{n−1}f_*(g^*L_{χ_i}) contains (G^*)^c as a normal subgroup, acting by a sum of c copies of the distinguished representation.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 31–33, Theorem 4.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the analogue of Pink's specialization theorem with characters in place of fibres, and is the paper's key new mechanism: the monodromy of the family is controlled by the convolution monodromy of a single member. Tests: a constant family violates the hypothesis and indeed has small monodromy."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/25",
+   "kind": "theorem",
+   "name": "Arithmetic avoidance of the bad subtori (Lemmas 4.8, 4.9)",
+   "statement": "Let A be defined over a number field K and p a prime of good reduction, and let m be such that Frob_p^m fixes the Galois closure of K. For any c and any finite set S of torsion translates of proper subtori of Π(A)^c, there is a finite set S′ of torsion translates of proper subtori of Π(A) such that for χ outside S′ there exist e₁,…,e_c ∈ ℤ with (Frob_p^{me₁}(χ),…,Frob_p^{me_c}(χ)) ∉ ∪S. Moreover, for any tuple of finite sets S_ι indexed by embeddings ι : K → ℚ‾, there exist an embedding ι and a torsion character χ of π₁(A_ι), of order a power of any prescribed prime ℓ, such that no Gal_ℚ × Gal_{ℚ^cyc/ℚ}-conjugate (ι′,χ′) lies in the corresponding S_{ι′}.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 33–36, Lemmas 4.8 and 4.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These make the generic choice of character compatible with the Galois descent used to build the Hodge–Deligne system: every conjugate of the chosen character must also be generic."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/26",
+   "kind": "theorem",
+   "name": "Uniform big monodromy along a Galois orbit (Corollary 4.10)",
+   "statement": "Under the hypotheses of Theorem 4.7, for any prime ℓ, positive integer c and prime p of good reduction of A, and m with Frob_p^m fixing the Galois closure of K, there exist an embedding ι : K → ℂ and a torsion character χ of π₁^et(A_ι) of ℓ-power order such that for every Gal(ℚ‾) × Gal_{ℚ^cyc/ℚ}-conjugate (ι′,χ′): R^k f_{ι′*}(g_{ι′}^*L_{(ι′,χ′)}) = 0 for k ≠ n−1, and there are e₁,…,e_c ∈ ℤ such that the monodromy group of ⊕_{i=1}^c R^{n−1}f_{ι′*}(g^*_{ι′}L_{Frob_p^{me_i}(ι′,χ′)}) contains (G^*)^c as a normal subgroup acting by c copies of the distinguished representation.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 36–37, Corollary 4.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the form in which big monodromy is fed into the p-adic Hodge theory argument; c is chosen at the very end, in the proof of Theorem 9.2, to satisfy the numerical conditions of Theorem 8.17."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/27",
+   "kind": "definition",
+   "name": "Rational and integral Weil numbers (Definition 5.1)",
+   "statement": "For an integer k and a prime power q, a rational q-Weil number of weight k is an algebraic number all of whose conjugates have complex absolute value q^{k/2}; it is integral if it is an algebraic integer. For a prime ℓ of O_K, q_ℓ denotes the cardinality of the residue field.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, p. 40, Definition 5.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Non-integral Weil numbers are allowed so that Hodge–Deligne systems form a Tannakian category closed under duals. Tests: q^{k/2} for k even is a rational Weil number; Frobenius eigenvalues on the cohomology of a smooth proper variety are integral Weil numbers."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/28",
+   "kind": "definition",
+   "name": "Hodge–Deligne systems (Definition 5.2)",
+   "statement": "Let X be a smooth variety over a number field K with a chosen complex embedding, S a finite set of primes, X a smooth model over O_{K,S}, p a prime with K unramified at p and v | p. A Hodge–Deligne system on X at v consists of: a singular local system V_Sing of ℚ-vector spaces on X_ℂ; an étale local system V_et of ℚ_p-vector spaces on X_et ×_{Spec ℤ} Spec ℤ[1/p]; a vector bundle V_dR on X with integrable connection ∇ and a descending filtration Fil^i by local direct summands; and a filtered F-isocrystal V_cris on X_{K_v}; together with comparison isomorphisms (1) V_Sing ⊗ ℚ_p ≅ V_et on X_{ℂ,an}, (2) V_Sing ⊗ O ≅ V_dR ⊗ O on X_{ℂ,an}, (3) the underlying bundle of V_cris with the pullback of V_dR near the rigid generic fibre, and (4) V_cris ⊗ OB_cris ≅ V_et ⊗ OB_cris on X_{K_v,proet}; and a weight filtration W_i compatible with all of these, subject to: Griffiths transversality for Fil and ∇; ∇ corresponds to the trivial connection under (2); each graded piece is a pure polarizable Hodge structure at every complex point; and the Frobenius eigenvalues are Weil numbers of the corresponding weight.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, pp. 40–42, Definition 5.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A cut-down version of Deligne's systems of realizations, keeping exactly the realizations the argument needs. API: the four realizations, the four comparisons, the weight filtration and the axioms. Tests: the constant system O_E; R^kπ_*V for a smooth proper family; the Tate twist."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/29",
+   "kind": "definition",
+   "name": "Integral, polarized and integral-Frobenius Hodge–Deligne systems (Definitions 5.3–5.5)",
+   "statement": "An integral Hodge–Deligne system carries a local system V_int of free ℤ-modules with V_int ⊗ ℚ ≅ V_sing; a polarized one is pure of some weight and carries a polarization of the underlying variation of Hodge structure; and one has integral Frobenius eigenvalues if the Weil numbers occurring as eigenvalues of Frobenius on V_{et,x} and V_{cris,x} are algebraic integers for all closed points x.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, p. 42, Definitions 5.3, 5.4 and 5.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Integrality and polarization are the hypotheses of the p-adic Bakker–Tsimerman theorem; integrality of the Frobenius eigenvalues is a hypothesis of the finiteness lemma."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/30",
+   "kind": "definition",
+   "name": "The differential Galois group of a Hodge–Deligne system (Definition 5.6)",
+   "statement": "The differential Galois group of a Hodge–Deligne system V is the differential Galois group of the vector bundle with connection V_dR, that is the differential Galois group of a Picard–Vessiot ring of the associated linear differential equation. It equals the Zariski closure of the monodromy group of the variation of Hodge structure, by the Riemann–Hilbert correspondence and the regularity of the period map along a smooth normal-crossings compactification.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, pp. 42–43, Definition 5.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Differential Galois theory and Picard–Vessiot rings are absent from both libraries. This group, written G_mon, is where the big-monodromy hypothesis lives. Tests: for a constant system it is trivial; for a family with Zariski-dense monodromy it is the full group."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/31",
+   "kind": "theorem",
+   "name": "Filtered F-isocrystals, fibres and the pair (V_x, φ_x) (Remark 5.7)",
+   "statement": "A filtered F-isocrystal V_cris gives, for every x ∈ X(k_v), a K_v-vector space V_x with a Frobenius-semilinear endomorphism φ_x, and for every x ∈ X(O_{K_v}) in the residue class of x a filtration F_x on V_x together with an isomorphism to V_dR ⊗ K_v, giving the triple V_{cris,x} = (V_{cris,x}, φ_{cris,x}, F_{cris,x}).",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, p. 43, Remark 5.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The constancy of (V_x, φ_x) on a residue disk and the variation of F_x with x is what the p-adic period map records; this is the mechanism inherited from Lawrence–Venkatesh."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/32",
+   "kind": "theorem",
+   "name": "Examples and functoriality of Hodge–Deligne systems (Examples 5.8, 5.10, Definitions 5.11, 5.13, Lemma 5.12)",
+   "statement": "The trivial system O_E attached to a number field E has O_{E,sing} = E, O_{E,et} = E ⊗ ℚ_p with trivial Galois action, O_{E,dR} = E ⊗ K with trivial connection and filtration, and O_{E,cris} = E ⊗ K_v with Frobenius acting through K_v, all in weight zero. For a smooth projective family π : Y → X of relative dimension n and a Hodge–Deligne system V on Y, R^kπ_*V is a Hodge–Deligne system on X, with the four realizations given by the corresponding pushforwards and the comparisons by Artin's comparison theorem, Hodge theory, de Rham–crystalline comparison and relative p-adic Hodge theory. Morphisms are compatible maps of all four realizations, the Hodge–Deligne systems on X at v form a Tannakian category with fibre functor V_{sing,x}, and a constant system is one pulled back from Spec O_{K,S}.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, pp. 42–44, Examples 5.8 and 5.10, Definitions 5.11 and 5.13, Lemma 5.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The notion is deliberately weaker than any notion of motive: nothing prevents combining the étale cohomology of one variety with the Hodge structure of another with the same Hodge numbers. Tests: R^kπ_* of the constant system is the usual cohomology; the Tannakian structure is componentwise."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/33",
+   "kind": "definition",
+   "name": "H⁰-algebras and their examples (Definition 5.14, Examples 5.15–5.21, Definition 5.16)",
+   "statement": "A commutative H⁰-algebra is a Hodge–Deligne system E, pure of weight 0 with trivial filtration on E_dR, equipped with unit O_ℚ → E and multiplication E ⊗ E → E making it a commutative algebra object. It is étale if E_sing is an étale ℚ-algebra. Examples: the trivial system O_E of a number field; over Spec O_{K,S} an étale H⁰-algebra is described by a ℚ-algebra E with E_dR = E ⊗ K, E_et = E ⊗ ℚ_p with GalK acting through a finite quotient, and E_cris = E ⊗ K_v with Frobenius σ₁ ⊗ σ₂; the degree-zero cohomology R⁰π_*O_ℚ of a proper family with cup product; the group algebra of a finite abelian group; the dual of the structure sheaf of a finite étale commutative group scheme; and the pushforward of an H⁰-algebra along a finite étale map of bases.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.3, pp. 44–47, Definition 5.14, Examples 5.15, 5.17, 5.18, 5.19, 5.20, 5.21 and Definition 5.16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "H⁰-algebras package the semilinearity of Frobenius: H^k of a fibre is a module over H⁰ of the fibre, and Frobenius on the former is semilinear over Frobenius on the latter. This is the device that bounds the Frobenius centralizer."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/34",
+   "kind": "definition",
+   "name": "Modules over an H⁰-algebra and structures on them (Definitions 5.22–5.27, Remark 5.23, Lemma 5.26)",
+   "statement": "An E-module is a module object over the H⁰-algebra E in Hodge–Deligne systems, with tensor product over E defined as a coequalizer. For E a finite étale algebra over a field E₀, an E-module is equidimensional if it is free of finite rank, equivalently if dim_{E_i}(V ⊗_E E_i) is independent of the factors E_i; for a constant étale H⁰-algebra, V is equidimensional if the stalks of V_sing are, and then the stalks of V_et, V_dR and V_cris are equidimensional of the same rank N. Such a V is said to have GL_N-structure over E; if there is a rank-one Hodge–Deligne system L and a nondegenerate pairing V ⊗_E V → L, then V has GSp_N-structure over E when the pairing is alternating and GO_N-structure when it is symmetric.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.4, pp. 47–49, Definitions 5.22, 5.24, 5.25, 5.27, Remark 5.23 and Lemma 5.26",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "An O_E-module is a motive with coefficients in E and an O[G]-module a motive with G-action. The three structures correspond to the three classical groups that the convolution monodromy group can contain."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/35",
+   "kind": "theorem",
+   "name": "Character local systems as Hodge–Deligne systems and the construction of E_I and V_I (Lemmas 5.28, 5.29, 5.30)",
+   "statement": "For a character χ of π₁^et(A) of finite order r there is an O_{ℚ[μ_r]}-module L_χ on A over O_{L,S} whose étale realization is the character sheaf of χ and whose singular realization is the corresponding analytic ℚ[μ_r]-local system. For I an orbit of Gal_ℚ × Gal_{ℚ[μ_r]/ℚ} on Π_{K/ℚ}(A)[r], there exist an H⁰-algebra E_I on O_{K,S} and an E_I-module V_I on X such that, after base change to O_{L,S} and extension of coefficients to ℚ[μ_r], E_I decomposes as ⊕_{(ι,χ) ∈ I} O_{ℚ[μ_r]} with Galois and Frobenius permuting the summands through the action on I, and V_I decomposes as ⊕_{(ι,χ) ∈ I} R^k f_{ι*}g_ι^*L_χ compatibly; V_I can be made polarized and integral. Moreover V_I has GL_N-structure over E_I, and if Y is a translate of [−1]^*Y then GSp_N-structure for n even and GO_N-structure for n odd.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.5, pp. 49–52, Lemmas 5.28, 5.29 and 5.30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the construction of the object to which the whole machine is applied: the cohomology of the family twisted by a character, descended to ℚ by summing over a Galois orbit. Tests: the rank N equals the Euler characteristic of the hypersurface; the pairing is cup product into the top cohomology."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/36",
+   "kind": "theorem",
+   "name": "Semilinear endomorphisms and the bound on the Frobenius centralizer (Definition 5.31, Lemmas 5.32, 5.33)",
+   "statement": "For an E₀-linear automorphism σ of E, an endomorphism φ of V is σ-semilinear if φ(λv) = σ(λ)φ(v). With H = GL_N, GSp_N or GO_N, G⁰ = Res^E_{E₀}H and G the normalizer of G⁰ in the E₀-linear automorphisms of V: the E₀-points of G are the endomorphisms of V semilinear over some E₀-linear automorphism of E, preserving the pairing up to a factor in the GSp and GO cases, and there is an exact sequence 1 → G⁰ → G → Aut_{E₀}E → 1. If σ ∈ Aut_{E₀}E has fixed field E^σ = E₀ and φ ∈ G is σ-semilinear, then dim Z_G(φ) ≤ dim H.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.6, pp. 52–54, Definition 5.31, Lemmas 5.32 and 5.33",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lemma 5.33 is the reason for introducing H⁰-algebras: a Frobenius that permutes the factors of E transitively has a centralizer of dimension only dim H rather than dim G⁰ = [E:E₀]·dim H. Tests: E = E₀^c with σ a c-cycle."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/37",
+   "kind": "definition",
+   "name": "Parabolic and Levi subgroups, complete reducibility and semisimplification (Definitions 5.34, 5.36, Example 5.35, Lemma 5.37)",
+   "statement": "For a cocharacter µ of G, P_µ, U_µ and L_µ are defined by the existence and value of lim_{t→0} µ(t)gµ(t)^{−1}; a subgroup is parabolic if it is some P_µ, with Levi L_µ, and P_µ is the semidirect product of L_µ by U_µ. A subgroup H ⊆ G is G-completely reducible if every parabolic containing H has a Levi containing H; the semisimplification of H is the image of H under P → L for P minimal containing H. H is G-completely reducible if and only if its identity component is reductive, if and only if it is GL_n-completely reducible for one, equivalently any, embedding; and the semisimplification is well defined up to G-conjugacy and is G-completely reducible. A parabolic of G is not determined by its intersection with G⁰.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.8, pp. 55–56, Definitions 5.34 and 5.36, Example 5.35 and Lemma 5.37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These are the disconnected-reductive-group tools needed because G is the normalizer of a Weil restriction and is not connected. Complete reducibility for disconnected groups follows Bate–Martin–Röhrle. Tests: the example G = N_{GL_{2N}}(GL_N × GL_N) with two cocharacters giving different parabolics."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/38",
+   "kind": "definition",
+   "name": "Objects with G-structure and G-filtrations (Definitions 5.38, 5.40, 5.41, Remark 5.39, Lemma 5.42)",
+   "statement": "An object with G-structure in an E-linear rigid abelian tensor category with fibre functor is an exact faithful tensor functor ω : Rep G → C together with an identification of its composition with the fibre functor with the forgetful functor; two such are G-conjugate if the functors are isomorphic, and a morphism G₁ → G₂ transports G₁-structures to G₂-structures. A filtration on G is an exact tensor filtration of the forgetful functor, equivalently, in characteristic zero, one induced by a cocharacter; a G⁰-filtration is associated to a G-filtration when the latter is induced by functoriality, and this is a bijection between G⁰-filtrations and G-filtrations.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.8.1–5.8.3, pp. 55–58, Definitions 5.38, 5.40, 5.41, Remark 5.39 and Lemma 5.42",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Saavedra's formalism of filtrations is used because the category of filtered vector spaces is not abelian; in characteristic zero every filtration is scindable, hence comes from a cocharacter."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/39",
+   "kind": "theorem",
+   "name": "Crystalline representations valued in a disconnected group (Lemma 5.43)",
+   "statement": "For an algebraic group G ⊆ GL_N over ℚ_p, a representation Gal_{ℚ_p} → G is crystalline if the composite to GL_N is, independently of the embedding. Then (1) D_cris extends to a functor from crystalline representations Gal_{ℚ_p} → G to pairs of an inner form G′ of G and an admissible filtered φ-module with G′-structure; (2) a homomorphism G₁ → G₂ induces a compatible morphism of inner forms, which is the twist of G₁ → G₂ by a G₁-torsor, so properties preserved by such twists are preserved; (3) for G = G_et and a representation whose composition with G_et → Aut_{ℚ_p}E_et is the usual Galois action on E_et, the relevant inner twist is G_dR.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.8.4, pp. 58–59, Lemma 5.43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This extends Fontaine's theory to G-valued crystalline representations for possibly disconnected G, which is what the semilinear Frobenius forces. It is the bridge between the global Galois representation and the filtered φ-module carrying the period map."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/40",
+   "kind": "definition",
+   "name": "Adjoint Hodge numbers, the function T and uniformity (Definitions 5.44, 5.45, 5.46, Example 5.47, Lemma 5.48)",
+   "statement": "For a reductive G with a filtration F, the adjoint Hodge numbers h^a are the dimensions of the graded pieces of the induced filtration on Lie G. T(x) is the continuous piecewise-linear function on [0, Σ_a h^a] with T(0) = 0 and slope k on the interval where Σ_{a>k}h^a < x < Σ_{a≥k}h^a, the sum of the topmost Hodge numbers. A G⁰_dR-filtration is uniform if, after base change splitting E ⊗ ℚ‾_p into copies indexed by embeddings ι, the adjoint Hodge numbers h^a_ι are independent of ι; in that case h^a_{G⁰_dR} = c·h^a_H and T_{G⁰_dR}(cx) = c·T_H(x) with c = [E:ℚ_p].",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.9, pp. 60–61, Definitions 5.44, 5.45, 5.46, Example 5.47 and Lemma 5.48",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The two numerical conditions of Theorems 7.3 and 8.17 are inequalities between Σ_{a>0}h^a, Σ_{a>0}a·h^a and values of T, so these definitions carry the whole numerical part of the argument."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/41",
+   "kind": "theorem",
+   "name": "Faltings's finiteness lemma for G-valued representations (Lemma 5.49)",
+   "statement": "Let E₀ = ℚ_p and let E, N, H, G_et, G⁰_et be as in §5.6, with G_et embedded in GL_{N[E:ℚ_p]}(ℚ_p) through its action on a free E-module of rank N. Fix a number field K, a finite set S of primes of O_K and an integer w. Then, up to G_et-conjugacy, there are only finitely many representations ρ : Gal_K → G_et that are semisimple in the sense of G-complete reducibility, unramified outside S, and pure of weight w with integral Weil numbers.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.10, pp. 61–62, Lemma 5.49",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The G-valued form of the finiteness lemma of Faltings used by Lawrence–Venkatesh; the proof corrects an argument of [48, Lemma 2.6] by reducing to the case where the Zariski closure of the image is connected and controlling extensions by a vanishing H¹ of a finite group with characteristic-zero coefficients."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/42",
+   "kind": "theorem",
+   "name": "Finiteness of Levi subgroups giving a semisimplification (Lemmas 5.50, 5.52, Remark 5.51)",
+   "statement": "For an algebraic group G over a field E with reductive identity component and a subgroup H ⊆ G, the Levi subgroups of G containing H and defined over E form finitely many orbits under conjugation by Z_G(H)(E). Consequently, for a semisimple ρ₀ : Gal_K → G_et there is a finite collection of Levi subgroups L ⊆ G_et such that every ρ with semisimplification conjugate to ρ₀ is, after conjugation, valued in a parabolic P containing one of these L, with the composite Gal_K → P → L equal to ρ₀.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.10, pp. 62–63, Lemmas 5.50 and 5.52, Remark 5.51",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Even for a torus identity component there can be several Levis when the component group acts on cocharacters, but only finitely many. This finiteness is what makes the list of semisimplicity types in Lemma 8.10 finite."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/43",
+   "kind": "theorem",
+   "name": "The p-adic period map and its image in a single orbit (Lemmas 6.1, 6.2)",
+   "statement": "With G_mon the differential Galois group of V_dR, the image of the p-adic period map Φ_p on a residue disk is contained in a single G_mon-orbit, and Φ_p is a map Ω → G_mon/P_mon to the quotient by a parabolic subgroup of G_mon.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.1, pp. 63–66, Lemmas 6.1 and 6.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The argument compares the p-adic period map with the complex one as power series, following Lawrence–Venkatesh §3: both are given by the same Gauss–Manin transport, so the monodromy group of the complex variation controls the p-adic image."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/44",
+   "kind": "theorem",
+   "name": "The complex Bakker–Tsimerman transcendence theorem (Lemma 6.3)",
+   "statement": "In the above setting, if Z ⊆ (G_mon/P)_ℂ is an algebraic subvariety with codim_{G_mon/P} Z ≥ dim X, then any irreducible component of Φ_ℂ^{−1}(Z) is contained in the preimage, in the universal cover of X^an, of the complex points of a proper subvariety of X_ℂ.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.1, pp. 66–67, Lemma 6.3, from Bakker–Tsimerman",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the o-minimal Ax–Schanuel-type input: an algebraic subvariety of the period domain of large codimension cannot meet the image of the period map in a Zariski-dense set. The atlas plans o-minimality and Ax–Schanuel-type theorems at LogicAndDefinabilityInNumberTheory LD.6."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/45",
+   "kind": "theorem",
+   "name": "The p-adic Bakker–Tsimerman theorem (Theorem 6.4)",
+   "statement": "Let V be a polarized integral Hodge–Deligne system on X smooth over O_{K,S} with differential Galois group G_mon, and let Φ_p : Ω → G_mon/P be the period map on a p-adic residue disk Ω ⊆ X(O_{K_v}) with a basepoint. If Z ⊆ G_mon/P is a closed subscheme with codim_{G_mon/P}Z ≥ dim X, then Φ_p^{−1}(Z) ⊆ Ω is not Zariski dense in X.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.1, pp. 67–68, Theorem 6.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Deduced from the complex statement by comparing the two period maps; it is the form in which transcendence enters the Diophantine argument. In the application K = ℚ."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/46",
+   "kind": "theorem",
+   "name": "Index classes and c-balanced subgroups (Lemma 6.5, Definition 6.6, Example 6.7)",
+   "statement": "Let H be SL_N, Sp_N or SO_N and G ⊆ H^d a subgroup with all d coordinate projections surjective. Declaring i ∼ j when (π_i,π_j) : G → H² is not surjective defines an equivalence relation, and for a set of representatives i₁,…,i_c the map (π_{i₁},…,π_{i_c}) : G → H^c is surjective with finite kernel. The classes are the index classes of G; G is c-balanced if they all have the same size and there are at least c of them, and strongly c-balanced with respect to a permutation σ of {1,…,d} if in addition σ preserves the partition into index classes and each σ-orbit meets at least c of them. For G ⊆ G_dR the condition is imposed on (G ∩ G¹_dR) after base change, with G¹_dR the kernel of the determinant and/or similitude characters.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.2, pp. 67–70, Lemma 6.5, Definition 6.6 and Example 6.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Example 6.7: G = Δ⁴ ⊆ H⁸ is c-balanced for c ≤ 4 but strongly c-balanced with respect to σ = (13)(24)(57)(68) only for c ≤ 2. Being strongly c-balanced strengthens as c grows, and c is chosen large at the end of the proof."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/47",
+   "kind": "theorem",
+   "name": "The monodromy of V_I is strongly c-balanced (Lemma 6.8)",
+   "statement": "With the notation of §5.5, fix ι₀, c, and χ₀ as in Corollary 4.10 with G^* = SL_N, Sp_N or SO_N, let I be the full Gal_ℚ × Gal_{ℚ^cyc/ℚ}-orbit of (ι₀,χ₀) and V = V_I. Let σ be the permutation of I induced by the Frobenius at v. Then the differential Galois group G_mon of V, after base change to ℚ‾_p, is a strongly c-balanced subgroup of G⁰_dR with respect to σ.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.2, pp. 70–73, Lemma 6.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is where the big monodromy of Corollary 4.10 is converted into the exact hypothesis of Theorems 7.3 and 8.17. The Frobenius permutation σ comes from the H⁰-algebra structure."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/48",
+   "kind": "theorem",
+   "name": "Non-density of integral points in the semisimple case (Lemmas 7.1, 7.2, Theorem 7.3)",
+   "statement": "If a semisimple crystalline global representation ρ₀ : G_ℚ → G_et, whose composite with G_et → Aut_{ℚ_p}E_et is the usual Galois action, and another crystalline ρ isomorphic to it give filtered φ-modules (V₀,φ₀,F₀) and (V,φ,F), then these are isomorphic, and if (V₀,φ₀) = (V,φ) there is f ∈ G_dR commuting with φ and carrying F₀ to F. Consequently, if G_mon ⊆ G⁰_dR is strongly c-balanced with respect to σ, F₀ is uniform with adjoint Hodge numbers h^a on H, and e satisfies Σ_{a>0}h^a ≥ (e + dim H)/c, then the filtrations F with (V,φ,F) ≅ (V₀,φ₀,F₀) have codimension at least e in the flag variety of filtrations conjugate to F₀ under G_mon. Hence, for X over ℚ with a smooth model X over ℤ[1/S], a constant H⁰-algebra E and a polarized integral E-module V with H-structure, integral Frobenius eigenvalues and uniform Hodge numbers, if G_mon is strongly c-balanced with respect to Frobenius and Σ_{a>0}h^a ≥ (dim X + dim H)/c, then the image of the set of integral points with semisimple global Galois representation is not Zariski dense in X.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §7, pp. 73–76, Lemmas 7.1 and 7.2 and Theorem 7.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the simplified argument under the assumption that all global representations that arise are semisimple; §8 removes it at the price of the semisimplicity-type formalism. Tests: the numerical condition fails for small c, which is why c is taken large."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/49",
+   "kind": "theorem",
+   "name": "Purity forces the average Hodge weight (Lemma 8.1)",
+   "statement": "Let V be a representation of Gal_ℚ on a ℚ_p-vector space, crystalline at p, such that at all primes ℓ outside a finite set the characteristic polynomial of Frobenius has algebraic coefficients and all roots rational ℓ-Weil numbers of weight w. Then the average weight of the Hodge filtration on V_dR = (V ⊗ B_cris)^{Gal_{ℚ_p}} equals w/2.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 73–74, Lemma 8.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the step that forces the base field to be ℚ, or at least a field with no CM subfield: over a CM field the determinant character can have Hodge weights away from the average. It is the source of the Weil restriction in the proof of Theorem 9.2."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/50",
+   "kind": "theorem",
+   "name": "The associated graded filtration on a Levi (Lemma 8.2, Definition 8.3)",
+   "statement": "For G with reductive identity component, P a parabolic, M an associated Levi and F a filtration on G, there is a cocharacter µ with image in P defining F, and the filtration F_M on M defined by the composite G_m → P → M is independent of the choice; it is written Gr_M F.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, p. 74, Lemma 8.2 and Definition 8.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Gr_M F records the filtration on the semisimplification of a filtered Galois representation, which is the invariant that survives the passage from ρ to ρ^ss."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/51",
+   "kind": "definition",
+   "name": "Balanced, weakly balanced and semibalanced filtrations (Definition 8.4, Remark 8.5, Example 8.6)",
+   "statement": "With a_S := X_*(ZS⁰) ⊗ ℚ and the weight w_S(µ) of a cocharacter defined by (χ ∘ µ)(t) = t^{⟨w_S(µ),χ⟩}, and γ_P the modular character of P, a filtration F_M on M given by a cocharacter µ is balanced with respect to P if w_M(µ) = ι_{GM}(w_G(µ_G)), weakly balanced if γ_P(µ) = 0, and semibalanced if γ_P(µ) ≤ 0; a G-filtration is balanced if its associated graded is. Balanced implies weakly balanced implies semibalanced.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 74–76, Definition 8.4, Remark 8.5 and Example 8.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Example 8.6 works this out for GL₆ with a three-step flag: balanced means (a₀,a₁,a₂) = (1,1,1), weakly balanced a₀ = a₂ and semibalanced a₀ ≤ a₂, while the generic filtration has (2,1,0). Being semibalanced is a strong, high-codimension condition, which is exactly what Lemma 8.12 quantifies."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/52",
+   "kind": "theorem",
+   "name": "Filtered φ-modules from global representations are balanced (Lemma 8.7)",
+   "statement": "Let G be an algebraic group over ℚ_p with reductive identity component, embedded in GL_N, and ρ : Gal_ℚ → G(ℚ_p) a representation satisfying the hypotheses of Lemma 8.1, with image in a parabolic P(ℚ_p) and M an associated Levi. Let (V,φ,F) be the filtered φ-module of ρ|_{ℚ_p}. Then F is a G-filtration and Gr_M(F) is balanced on M.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 76–77, Lemma 8.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved by showing that every character of P killing Z(G) is pure of weight zero on ρ, using the Weil-number hypothesis and a relation among the eigenvalues of a semisimplified Frobenius. It is the global input that constrains the local filtration."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/53",
+   "kind": "definition",
+   "name": "Bifiltered φ-modules and semisimplicity types (Definition 8.8, Remark 8.9)",
+   "statement": "A G-bifiltered φ-module is (V,φ,F,f) with F, f two G-filtrations and φ ∈ G a σ-semilinear endomorphism respecting f; a graded G-bifiltered φ-module is (V,φ,f,F_M) with F_M a filtration on an associated Levi M. Two graded bifiltered modules are equivalent if they agree up to G-conjugacy matching parabolics, filtrations on Levis and the projections of φ; two bifiltered modules are semisimply equivalent when their gradings are equivalent; and (V,φ,F) is of semisimplicity type (V₀,φ₀,F₀,f₀) if there is f making (V,φ,F,f) semisimply equivalent to it.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 77–78, Definition 8.8 and Remark 8.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "For G = GL_n this is the p-adic Hodge theory of a filtered Galois representation and of its associated graded: two filtered φ-modules have the same semisimplicity type exactly when the semisimplifications of the corresponding Galois representations agree."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/54",
+   "kind": "theorem",
+   "name": "Global semisimplification and a finite list of types (Lemma 8.10, Remark 8.11)",
+   "statement": "Let ρ₀ : G_ℚ → G_et be semisimple and crystalline at p, with the usual composite to Aut_{ℚ_p}E_et, giving an admissible filtered φ-module (V₀,φ₀,F₀) with G_dR-structure. If ρ : G_ℚ → G_et is crystalline with the same composite and has semisimplification ρ₀, with filtered φ-module (V,φ,F), then there are G_dR-filtrations f₀ on V₀ and f on V such that (V,φ,F,f) and (V₀,φ₀,F₀,f₀) are semisimply equivalent; f₀ may be taken from a finite list depending only on ρ₀, and F₀ is balanced with respect to f₀.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 78–79, Lemma 8.10 and Remark 8.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Combines Lemma 5.52 (finitely many Levis), Lemma 5.43 (D_cris with G-structure and inner forms) and Lemma 8.7 (balance). It is the replacement for the false step of assuming that all global representations are semisimple."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/55",
+   "kind": "theorem",
+   "name": "Codimension of semibalanced filtrations (Lemma 8.12)",
+   "statement": "With E = E₀^c, P a parabolic of G⁰ = H^c with filtration f and Levi M, and Q₀ a parabolic corresponding to a uniform filtration F₀ with adjoint Hodge numbers h^a on H and t the dimension of a maximal torus of H, suppose e is a positive integer with Σ_{a>0}h^a ≥ e/c and Σ_{a>0}a·h^a > T(e/c) + T((h⁰−t)/2 + e/c). Then for any semibalanced filtration F_{0,M} on M, the set of filtrations F conjugate to F₀ with Gr_M F = F_{0,M} has codimension at least e in G⁰/Q₀.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 79–80, Lemma 8.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the disconnected, coefficient-carrying analogue of the counting in [48, §11]; the proof replaces two displayed equations of that paper by inequalities valid in the present setting. Tests: for c = 1 the conditions are vacuous, which is why c must be large."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/56",
+   "kind": "theorem",
+   "name": "Semilinear conjugation lemmas (Lemmas 8.13, 8.14, 8.15)",
+   "statement": "If U is a unipotent group in characteristic zero and ψ an automorphism with ψ^r = id, then u with u·ψ(u)···ψ^{r−1}(u) = 1 is of the form v^{−1}ψ(v). If G has reductive identity component, P is a parabolic of G⁰ with Levi M and φ ∈ G is semisimple and normalizes P, then φ is P-conjugate to an element normalizing M. Consequently, fixing (V₀,φ₀,F₀,f₀) and another φ-module (V,φ) with G-structure, both semilinear over σ, the set of pairs (f,F_M) with (V,φ,f,F_M) equivalent to the given graded bifiltered module has dimension at most dim Z_{G⁰_dR}(φ^{ss}).",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 80–81, Lemmas 8.13, 8.14 and 8.15",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lemma 8.15 generalizes [48, (11.18)] to the semilinear setting, where φ lies in G but not in G⁰. The centralizer bound of Lemma 5.33 is what makes the dimension small."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/57",
+   "kind": "theorem",
+   "name": "Codimension of filtrations of a given semisimplicity type (Lemma 8.16)",
+   "statement": "Fix a G⁰_dR-bifiltered φ-module (V₀,φ₀,F₀,f₀) with F₀ balanced with respect to f₀ and uniform, another φ-module (V,φ) with G_dR-structure, both semilinear over σ, and let G_mon ⊆ G⁰_dR be strongly c-balanced with respect to σ. Let h^a be the adjoint Hodge numbers on H and t the dimension of a maximal torus. If e satisfies Σ_{a>0}h^a ≥ (e + dim H)/c and Σ_{a>0}a·h^a > T((e+dim H)/c) + T((h⁰−t)/2 + (e+dim H)/c), then the filtrations F such that (V,φ,F) has semisimplicity type (V₀,φ₀,F₀,f₀) have codimension at least e in the flag variety G_mon/(Q₀ ∩ G_mon).",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 81–82, Lemma 8.16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is condition (a′) of the outline: the filtrations compatible with a fixed global semisimplification lie in a subvariety of large codimension. It combines Lemmas 8.12, 8.15 and 5.33."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/58",
+   "kind": "theorem",
+   "name": "Non-density of integral points (Theorem 8.17)",
+   "statement": "Let X be a variety over ℚ with a smooth model X over ℤ[1/S], E a constant H⁰-algebra on X, H one of GL_N, GSp_N, GO_N, and V a polarized integral E-module with H-structure having integral Frobenius eigenvalues and uniform Hodge numbers, with adjoint Hodge numbers h^a on H and t the dimension of a maximal torus. Suppose there is c > 0 such that the differential Galois group G_mon ⊆ G⁰_dR of V is strongly c-balanced with respect to Frobenius, and Σ_{a>0}h^a ≥ (dim X + dim H)/c and Σ_{a>0}a·h^a > T_G((dim X + dim H)/c) + T_G((h⁰−t)/2 + (dim X + dim H)/c). Then the image of X(ℤ[1/S]) is not Zariski dense in X.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §8, pp. 82–84, Theorem 8.17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The analogue of Lemma 4.2, Proposition 5.3 and Theorem 10.1 of Lawrence–Venkatesh, generalized to coefficients in a local system, to disconnected groups and to a monodromy group known only to be c-balanced. Proof: Lemma 5.49 gives finitely many semisimplifications, Lemma 8.10 finitely many semisimplicity types, Lemma 8.16 a high-codimension locus in the flag variety, and Theorem 6.4 non-density."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/59",
+   "kind": "theorem",
+   "name": "Assembly of the main theorem (proof of Theorem 9.2)",
+   "statement": "Take Hilb the moduli space of smooth hypersurfaces in a fixed ample class, pass to the Weil restriction from O_{K,S} to ℤ[1/S′] so that the base is a variety over ℚ, let X_sing be an irreducible component of the Zariski closure of the primitive integral points, X → X_sing a resolution of singularities, and Y the pullback of the universal family. Assuming Y is not a translate of a constant family, Corollary 4.10 supplies a character χ₀ with big monodromy, Lemma 5.29 builds the H⁰-algebra E_I and the module V_I, Lemma 5.30 gives its H-structure, Lemma 3.13 computes its Hodge numbers, Lemma 6.8 gives that G_mon is strongly c-balanced, and Lemma A.1 makes the two numerical conditions hold for c large; Theorem 8.17 then contradicts Zariski density. Hence each component's family is a translate of a constant hypersurface, and there are finitely many hypersurfaces up to translation.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, pp. 85–87, the proof of Theorem 9.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Weil restriction is forced by Lemma 8.1; the resolution of singularities by the need for a smooth model. Every ingredient of the paper enters here, which is why the assembly is recorded as its own item."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/60",
+   "kind": "theorem",
+   "name": "The key Hodge-number inequality (Lemma A.1)",
+   "statement": "Let Y be a smooth hypersurface in an n-dimensional abelian variety A, χ a finite-order character of π₁(A) with H^i(Y,L_χ) = 0 for i ≠ n−1, and V the Hodge structure on H^{n−1}(Y,L_χ) regarded as a filtered vector space with H-structure for H one of GL, GSp, GO, with adjoint Hodge numbers h^k and t the dimension of a maximal torus. If n ≥ 2 then (h⁰ − t)/2 < Σ_{k>0}h^k.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix A, pp. 87–88, Lemma A.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By monotonicity of T this gives T((h⁰−t)/2) < Σ_{k>0}k·h^k, which for c large is the second numerical condition of Theorem 8.17. It is proved from the Eulerian-number description of the Hodge numbers through Lemmas A.2–A.6 on the normalized sequence a_i."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/61",
+   "kind": "theorem",
+   "name": "Properties of the normalized Hodge sequence (Lemmas A.2–A.6)",
+   "statement": "The normalized sequence (a_i) attached to the Hodge numbers is log-concave and symmetric, a_{−i} = a_i; its second moment is Σ_i i²a_i = (n+1)/6; if a₀ > 1/2 then Σ_{i≥k}a_i < Σ_{i≥k}1/(2·3^i) for all k ≥ 1 and Σ_k k·a_k < 2; and for n ≥ 2 one has a₀ ≤ 1/2.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix A, pp. 88–91, Lemmas A.2, A.3, A.4, A.5 and A.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Log-concavity and the second-moment identity for Eulerian numbers are the inputs; the conclusion a₀ ≤ 1/2 for n ≥ 2 is what yields Lemma A.1."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/62",
+   "kind": "theorem",
+   "name": "The combinatorial classification in low dimensions (Lemmas B.2–B.9)",
+   "statement": "In the situation of Lemma 3.14, with w and w′ the extreme indices where m_min and m_max are supported: Σ_{i<w}(w−i)m_H(i) + Σ_{i>w′}(i−w′)m_H(i) + k(w′−w) = n−1, all terms non-negative. If n = 2 then d = C(2k−1,k) and, when k = 2, m = 4. If n = 3 then, unless m = 4 and k = 2, m_H is supported on w−1, w, w+1 with m_H(w−1) = m_H(w+1) = 1, and (m−k)² − 4(m−k)k + k² = m; the positive solutions of a² − 4ab + b² = a+b with a ≤ b are (a(i),a(i+1)), so m = a(i)+a(i+1) and k = a(i) for some i ≥ 2. There are no solutions for n = 4.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix B, pp. 91–95, Lemmas B.2, B.3, B.4, B.5, B.6, B.7, B.8 and B.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is where the sequence a(i) of the main theorems originates: it enumerates the solutions of a Pell-like equation. Tests: (1,5), (5,20), (20,76) are consecutive pairs; d(2) = C(25,5) = 53130."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/63",
+   "kind": "theorem",
+   "name": "The two ratios and the first bounds (Lemmas B.10–B.14)",
+   "statement": "In the situation of Lemma 3.14 write N(m^a₁)/N(m₀) and N(m^b₁)/N(m₀) for the two ratios attached to the extreme indices. They sum to A(n,1) and their product is less than m_H(w−1)m_H(w+1), so if m_H(w−1)m_H(w+1) < A(n,1)²/4 they are separated by the roots α < β of X² − A(n,1)X + m_H(w−1)m_H(w+1). If n ≥ 5 and one ratio is at least A(n,1)/2 then m_H(w−1) = 1, m_H(w−2) ≤ 2, and m_H(w+j)(m_H(w+j)−1) ≤ (48/11)A(n,2j−1)A(n,1) for j = 1, 2, with (36/11) in place of (48/11) when m₀(w) ≥ 2.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix B, pp. 96–104, Lemmas B.10, B.11, B.12, B.13 and B.14",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These are the quantitative consequences of the defining equation (3) of Lemma 3.14 at q = 1, 3, 5. They feed the dimension bound of Lemma B.15."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/64",
+   "kind": "theorem",
+   "name": "The large-ratio regime is impossible (Lemmas B.15–B.18)",
+   "statement": "If one of the two ratios is at least A(n,1)/2 then n ≤ 10; if in addition 5 ≤ n ≤ 19 then m₀(w−1) = 1 and m₀(w−s) = 0 for s ≥ 2, and m₀(w) = 1; and for n ≥ 5 the regime is impossible altogether.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix B, pp. 104–107, Lemmas B.15, B.16, B.17 and B.18",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bound n ≤ 10 comes from comparing the growth of A(n,3) and A(n,5) with A(n,1)², and the remaining cases are eliminated by direct computation with the recursion for the Eulerian numbers."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/65",
+   "kind": "theorem",
+   "name": "The complementary regime and the conclusion for n ≥ 5 (Lemmas B.19–B.31)",
+   "statement": "If n ≥ 5 and k ≥ n then one ratio is less than 1 and the other exceeds A(n,1) − 1, which forces m_H(w∓1) ≤ 1 and is impossible; so k ≤ n−1. If n ≥ 5, k ≤ n−1 and the second ratio is at least A(n,1)/2, then m_H(w+1) ≥ A(n,1)/(2(n−1)) ≥ 4, m₀(w) = 1, m₀(w−1) ≤ 1, and the least r > 0 with m₀(w−r) > 0 is at least 2; for r ≥ 2 one has m_H(w+i) = dA(n,i) for 0 ≤ i ≤ r−1 and m_H(w+r) = dA(n,r) − d(d−1)m_H(w−r)/2, whence A(n,3r−2) ≥ A(n,r−1)(dA(n,r−1)−1)/2, forcing r = 2 and d < 3A(n,4)/A(n,1)², which is impossible. Hence there is no solution with n ≥ 5.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix B, pp. 107–115, Lemmas B.19 through B.31",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Together with Lemmas B.4–B.9 this completes Proposition 3.15: the wedge-power case survives only for n = 2, for n = 3 with d of the exceptional shape, and for m = 4, k = 2 where ∧²SL₄ = SO₆ is already a classical group."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/66",
+   "kind": "theorem",
+   "name": "Inequalities for Eulerian numbers (Lemmas C.1–C.5)",
+   "statement": "For all n ≥ 1 and q ≥ 0, (q+1)ⁿ − (n+1)qⁿ ≤ A(n,q) ≤ (q+1)ⁿ and A(n,q) ≤ n!. For n ≥ 2 and q < n/(log(n+1)+1) − 1, (1−1/e)(q+1)ⁿ ≤ A(n,q) ≤ (q+1)ⁿ. For 3 ≤ r ≤ n−2, A(n,r−1)(A(n,r−1)−1) > 2A(n,3r−2). For n ≥ 11, A(n,2)/A(n,1)² < 1/27.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendix C, pp. 116–118, Lemmas C.1, C.2, C.3, C.4 and C.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Elementary but delicate estimates on Eulerian numbers, used throughout Appendix B. Neither library has Eulerian numbers; the Mathlib occurrences of 'Eulerian' concern Eulerian circuits in graphs."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/67",
+   "kind": "definition",
+   "name": "Eulerian numbers",
+   "statement": "A(n,q) is the number of permutations of {1,…,n} with exactly q descents, satisfying Σ_q A(n,q) = n!, the symmetry A(n,q) = A(n,n−1−q) and the recursion A(n,q) = (q+1)A(n−1,q) + (n−q)A(n−1,q−1); by convention A(n,q) = 0 unless 0 ≤ q < n.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, p. 21, in Lemma 3.4, and throughout Appendices B and C",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Absent from both libraries: the occurrences of 'Eulerian' in Mathlib are Eulerian circuits in graphs, and Tau Ceti has none. The Hodge numbers of a hypersurface in an abelian variety twisted by a character are d·A(n,q), so these numbers carry the whole numerical part of the paper. Tests: A(2,0) = A(2,1) = 1; A(3,1) = 4; Σ_q A(n,q) = n!."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/68",
+   "kind": "definition",
+   "name": "Perverse sheaves and the perverse t-structure",
+   "statement": "The middle perverse t-structure on the bounded constructible derived category of a finite-type scheme over a field, its heart the category of perverse sheaves, intermediate extensions, and Verdier duality.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, pp. 14–18, and §3, where the fundamental object is i_*ℚ_p[n−1]",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EtaleDualityAndPerverseSheaves:EDC.5",
+    "EtaleDualityAndPerverseSheaves:EDC.1"
+   ],
+   "note": "EDC.5 plans the middle perverse t-structure and intermediate extension and EDC.1 Verdier duality; neither library has perverse sheaves at all — a search of the pinned trees for 'perverse' returns nothing. The convolution formalism of §2 is built on top of this layer."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/69",
+   "kind": "definition",
+   "name": "Tannakian categories and their groups",
+   "statement": "A rigid symmetric monoidal abelian category over a field with a faithful exact tensor functor to vector spaces, its Tannakian group as the automorphisms of the fibre functor, and the correspondence between subcategories and quotient groups.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §2, pp. 16–18, and §5.8.1, p. 55",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "MotivesAndAlgebraicCycles:MC.6",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+   ],
+   "note": "MC.6 plans motivic Galois groups and the Tannakian formalism, and the Tau Ceti reductive-groups roadmap owns representations as comodules. Mathlib has Tannaka duality only for finite groups (Mathlib/RepresentationTheory/Tannaka.lean) and for modules over a ring; there is no Tannakian category with fibre functor in the sense used here."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/70",
+   "kind": "theorem",
+   "name": "Faltings's finiteness lemma for Galois representations",
+   "statement": "For a number field K, a finite set of places T, and integers w and d, there are only finitely many isomorphism classes of semisimple continuous ρ : G_K → GL_d(ℚ_p) unramified outside T and pure of weight w with integral Weil numbers.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1.1, p. 4, and §5.10, p. 61, where Lemma 5.49 is its G-valued form",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.1"
+   ],
+   "note": "LV.1 of the proposed roadmap The Mordell conjecture after Lawrence and Venkatesh plans Faltings's finiteness lemma with friendly places and purity of Hodge weights. The present paper needs the version valued in a possibly disconnected reductive group, which is its own item."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/71",
+   "kind": "theorem",
+   "name": "Crystalline comparison and the p-adic period map on residue disks",
+   "statement": "For a smooth proper family over a p-adic base, the crystalline comparison identifies D_cris of the local Galois representation with the filtered φ-module of crystalline cohomology; on a fixed residue disk the pair (V_x, φ_x) is constant and the filtration F_x varies, giving the p-adic period map to a flag variety.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1.1, p. 6, and §5.2, p. 43, Remark 5.7",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.4",
+    "MordellLawrenceVenkatesh:LV.3",
+    "PadicHodgeTheory:R06.1"
+   ],
+   "note": "LV.4 plans the crystalline comparison on residue disks and the finiteness criterion, LV.3 the complex and p-adic period maps, and R06.1 the period rings. Mathlib has B_dR^+ and B_dR for perfectoid rings (Mathlib/RingTheory/Perfectoid/BDeRham.lean) but no B_cris, no D_cris and no crystalline representations."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/72",
+   "kind": "theorem",
+   "name": "Hodge structures, polarizations and variations",
+   "statement": "Pure and mixed Hodge structures, polarizations, and variations of Hodge structure with Griffiths transversality, together with the period map to a period domain.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §5.2, pp. 40–42, in the axioms of a Hodge–Deligne system",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l0--pure-hodge-structures-the-hodge-decomposition",
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
+    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group"
+   ],
+   "note": "The Tau Ceti roadmap Hodge structures (pure, mixed, and polarized) is existing work and is never re-planned here; it supplies the Hodge-theoretic realization and the polarization axiom."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/73",
+   "kind": "theorem",
+   "name": "Abelian varieties, the Néron–Severi group and ample classes",
+   "statement": "An abelian variety over a field with its dual, the Néron–Severi group, ample classes with their intersection numbers, the multiplication-by-m isogeny and the character group of the fundamental group.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1, p. 1, and throughout",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AbelianSchemesAndArithmeticModuli:A2"
+   ],
+   "note": "A2 plans duals, Picard functors and polarizations for abelian schemes. Tau Ceti has abelian varieties over a field with isogenies and endomorphisms (TauCeti/AlgebraicGeometry/AbelianVariety/) but no Néron–Severi group, no ample classes and no intersection numbers on them."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/74",
+   "kind": "theorem",
+   "name": "The Shafarevich conjecture for abelian varieties and for curves",
+   "statement": "There are only finitely many isomorphism classes of abelian varieties of a given dimension over K with good reduction outside S, and only finitely many curves of a given genus, both theorems of Faltings.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §1, pp. 2–3, where the relationship with the present theorem is discussed",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5",
+    "HeightsRationalPointsAndObstructions:RP.4"
+   ],
+   "note": "R28.5 plans Shafarevich finiteness and RP.4 the Faltings/Parshin route for curves. This paper's theorem is logically independent of both: there is no nonconstant map from the moduli of hypersurfaces in A to a moduli of abelian varieties when dim A > 2, and the map to A^∨ sending a hypersurface to its Picard class is surjective, so Faltings's theorem on subvarieties of abelian varieties does not apply either."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/75",
+   "kind": "theorem",
+   "name": "Hirzebruch–Riemann–Roch and Euler characteristics of coherent sheaves",
+   "statement": "The Riemann–Roch theorem expressing χ(X,F) as the degree of ch(F)·Td(T_X), used on an abelian variety and on a hypersurface in it.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 20–21, in the proofs of Lemmas 3.1–3.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "note": "SF.5 plans Chow groups, Chern classes, intersection products and source-scoped Grothendieck–Riemann–Roch. Neither library has Chern classes of coherent sheaves or Riemann–Roch in this generality."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/76",
+   "kind": "theorem",
+   "name": "o-minimality and Ax–Schanuel-type transcendence for period maps",
+   "statement": "Definable structures, definable Chow and GAGA theorems, and the Ax–Schanuel theorem for variations of Hodge structure underlying the Bakker–Tsimerman theorem quoted in Lemma 6.3.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §6.1, pp. 66–67, in the statement and use of Lemma 6.3",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "LogicAndDefinabilityInNumberTheory:LD.6"
+   ],
+   "note": "LD.6 plans o-minimal structures, definable counting and unlikely intersections with Pila–Wilkie and Pila–Zannier. Bakker–Tsimerman's theorem is of that family; the paper uses it as a black box and deduces a p-adic analogue, which is its own item."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/77",
+   "kind": "theorem",
+   "name": "Reductive groups, parabolic subgroups and cocharacters",
+   "statement": "Reductive algebraic groups in characteristic zero, their parabolic subgroups, Levi decompositions, cocharacters, root data, minuscule representations and the classification of simple groups with their representations.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §3, pp. 22–24, and §5.8, pp. 55–58",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
+    "ReductiveGroupsPartII:RG2.0"
+   ],
+   "note": "The Tau Ceti roadmap Reductive algebraic groups is existing work and covers the connected theory; disconnected reductive groups, G-complete reducibility in the sense of Bate–Martin–Röhrle, and the semisimplification of a subgroup are what this paper adds and are recorded as their own items."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/78",
+   "kind": "theorem",
+   "name": "Weil numbers, purity and the Weil conjectures",
+   "statement": "The Riemann hypothesis over finite fields: for a smooth proper variety the eigenvalues of Frobenius on H^i are Weil numbers of weight i, with the corresponding statements for the cohomology of a local system of geometric origin.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, p. 86, where integrality of the Frobenius eigenvalues on V is deduced, and §5.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "WeilConjectures:WC.3",
+    "DeligneWeightsAndPurity:DWP.7"
+   ],
+   "note": "WC.3 and DWP.7 plan the Weil bounds and the weight formalism. They are what make V a Hodge–Deligne system with integral Frobenius eigenvalues, one of the hypotheses of Theorem 8.17."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/79",
+   "kind": "definition",
+   "name": "Free groups, characters of the fundamental group and the dual torus",
+   "statement": "The character group Π(A) of the étale fundamental group of an abelian variety, a torus over ℚ‾_p whose torsion points are the finite-order characters; torsion translates of proper subtori are the loci to be avoided.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §4, pp. 30–36",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The structure of the character torus and the theory of torsion translates of subtori, as in the generic vanishing theorems of Green–Lazarsfeld and Simpson, is not in either library and is not planned by any layer of the atlas; it is needed to state Lemma 4.4, Theorem 4.7 and Corollary 4.10."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/80",
+   "kind": "theorem",
+   "name": "Binomial coefficients and elementary asymptotics",
+   "statement": "Binomial coefficients with their recursion and monotonicity, factorials, and the elementary inequalities used in the combinatorial appendices.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), Appendices B and C, pp. 91–118",
+   "status": "library",
+   "library": [
+    "mathlib:Nat.choose",
+    "mathlib:Nat.factorial",
+    "mathlib:Nat.choose_symm",
+    "mathlib:Nat.succ_mul_choose_eq"
+   ],
+   "planned": [],
+   "note": "Mathlib/Data/Nat/Choose/ provides binomial coefficients with Pascal's rule, symmetry, monotonicity and the standard estimates, and Mathlib/Data/Nat/Factorial/ the factorials. These are the only library-level ingredients of the appendices; Eulerian numbers themselves are missing."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/81",
+   "kind": "theorem",
+   "name": "Resolution of singularities in characteristic zero",
+   "statement": "A variety over a field of characteristic zero admits a resolution of singularities: a proper birational morphism from a smooth variety.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, p. 86, in the proof of Theorem 9.2, where X → X_sing is chosen",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7"
+   ],
+   "note": "R09.7 plans characteristic-zero resolution following Bierstone–Milman, with normal-crossings compactification. The paper uses it to replace the possibly singular Zariski closure of the integral points by a smooth model, which is needed for the period map and the Hodge–Deligne system."
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/82",
+   "kind": "definition",
+   "name": "Weil restriction of scalars",
+   "statement": "For a finite étale extension of rings and a scheme over the larger ring, the Weil restriction represents the functor of points over the smaller ring, giving a canonical bijection on integral points.",
+   "locator": "arXiv:2004.09046v5 (16 October 2025), §9, p. 86, in the proof of Theorem 9.2, following [12, Theorem 7.6.4]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Neither library has Weil restriction; a search of the pinned trees for 'WeilRestriction' or 'restrictionOfScalars' in this sense returns nothing, and no layer of the atlas plans it. It is forced here by Lemma 8.1, which needs the base field to have no CM subfield."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "T. Krämer and R. Weissauer, Vanishing theorems for constructible sheaves on abelian varieties, J. Algebraic Geom. 24 (2015), no. 3, 531–568",
+   "link": "https://arxiv.org/abs/1111.4947",
+   "why": "The Tannakian category of perverse sheaves on an abelian variety modulo negligible sheaves, with convolution as tensor product, which §2 reconstructs over a general base field. Everything in §§2–4 rests on it and the atlas does not cover it."
+  },
+  {
+   "citation": "T. Krämer, Characteristic cycles and the microlocal geometry of the Gauss map, I and II, Geom. Funct. Anal. 32 (2022), 1180–1231, and J. reine angew. Math. 774 (2021), 53–92",
+   "link": "https://arxiv.org/abs/1604.02389",
+   "why": "The criteria, in terms of the characteristic cycle, for the commutator of the identity component of the convolution monodromy group to be simple and for the distinguished representation to be minuscule; Lemmas 3.8 and 3.9 are a modification of them that does not assume invariance under inversion."
+  },
+  {
+   "citation": "B. Bakker and J. Tsimerman, The Ax–Schanuel conjecture for variations of Hodge structures, Invent. Math. 217 (2019), no. 1, 77–94",
+   "link": "https://arxiv.org/abs/1712.05088",
+   "why": "The transcendence theorem quoted as Lemma 6.3, from which the p-adic Theorem 6.4 is deduced. The atlas covers Mok–Pila–Tsimerman and Bakker–Klingler–Tsimerman but not this paper."
+  },
+  {
+   "citation": "M. Bate, B. Martin and G. Röhrle, A geometric approach to complete reducibility, Invent. Math. 161 (2005), 177–218, with Bate–Herpel–Martin–Röhrle and Bate–Martin–Röhrle–Tange on cocharacter-closure and semisimplification",
+   "link": "https://arxiv.org/abs/math/0403361",
+   "why": "Complete reducibility and semisimplification for subgroups of a possibly disconnected reductive group, used in Definition 5.36 and Lemma 5.37; the theory is developed there over an arbitrary field, and only the characteristic-zero case is needed."
+  },
+  {
+   "citation": "N. Saavedra Rivano, Catégories Tannakiennes, Lecture Notes in Math. 265, Springer, 1972",
+   "link": "https://doi.org/10.1007/BFb0059108",
+   "why": "The formalism of filtrations of a fibre functor used in Definition 5.40: in characteristic zero every filtration is scindable, hence induced by a cocharacter, which is what makes G-filtrations manageable."
+  },
+  {
+   "citation": "M. van der Put and M. F. Singer, Galois Theory of Linear Differential Equations, Grundlehren 328, Springer, 2003",
+   "link": "https://doi.org/10.1007/978-3-642-55750-7",
+   "why": "Picard–Vessiot theory and the differential Galois group, which is how the monodromy group of the variation is defined in Definition 5.6 and identified with the Zariski closure of the topological monodromy."
+  },
+  {
+   "citation": "P. Scholze, p-adic Hodge theory for rigid analytic varieties, Forum Math. Pi 1 (2013), e1; F. Tan and J. Tong, Crystalline comparison isomorphisms in p-adic Hodge theory: the absolutely unramified case, Algebra Number Theory 13 (2019), 1509–1581",
+   "link": "https://doi.org/10.1017/fmp.2013.1",
+   "why": "Relative p-adic Hodge theory: the comparison isomorphism (4) of Definition 5.2 between the filtered F-isocrystal and the étale realization over OB_cris, and the fact that crystalline cohomology of a smooth proper family is a filtered F-isocrystal."
+  },
+  {
+   "citation": "J.-M. Fontaine, Périodes p-adiques, Astérisque 223, Soc. Math. France, 1994",
+   "link": "https://smf.emath.fr/publications/periodes-p-adiques",
+   "why": "The functor D_cris and the theory of admissible filtered φ-modules, extended in Lemma 5.43 to representations valued in a disconnected reductive group."
+  },
+  {
+   "citation": "A. Ogus, F-crystals and Griffiths transversality, in Proc. Int. Symp. on Algebraic Geometry, Kyoto 1977, 15–44",
+   "link": "https://math.berkeley.edu/~ogus/preprints/FcrystalsGT.pdf",
+   "why": "The structure of crystalline cohomology as a filtered F-isocrystal, cited for the axioms of a Hodge–Deligne system."
+  },
+  {
+   "citation": "N. M. Katz, Convolution and Equidistribution: Sato–Tate theorems for finite-field Mellin transforms, Ann. of Math. Stud. 180, Princeton, 2012",
+   "link": "https://doi.org/10.1515/9781400842704",
+   "why": "The equidistribution philosophy that motivates the convolution monodromy group: the distribution of character sums against a perverse sheaf is governed by the maximal compact subgroup of that group. §1.2 explains the analogy in detail."
+  },
+  {
+   "citation": "K. Zuo, On the negativity of kernels of Kodaira–Spencer maps on Hodge bundles and applications, Asian J. Math. 4 (2000), 279–301",
+   "link": "https://doi.org/10.4310/AJM.2000.v4.n1.a17",
+   "why": "The hyperbolicity theorem behind the Javanpeykar–Loughran programme: a locally injective period map forces the base to be hyperbolic, which is the context in which the paper's quasi-finiteness statement (Proposition 4.11) is significant."
+  },
+  {
+   "citation": "A. Javanpeykar and D. Loughran, Complete intersections: moduli, Torelli, and good reduction, Math. Ann. 368 (2017), 1191–1225",
+   "link": "https://doi.org/10.1007/s00208-016-1455-5",
+   "why": "The conjecture that the Shafarevich conjecture holds in broad generality and the implication from Lang–Vojta for families of complete intersections, against which this paper's result is measured."
+  },
+  {
+   "citation": "T. Krämer and M. Maculan, Arithmetic finiteness of very regular varieties, preprint",
+   "link": "https://arxiv.org/abs/2005.11290",
+   "why": "An alternate proof of the finiteness of G-valued semisimple Galois representations quoted in the proof of Lemma 5.49, and a parallel line of work on arithmetic finiteness through convolution."
+  },
+  {
+   "citation": "E. Tevelev, Projective Duality and Homogeneous Spaces, Encyclopaedia Math. Sci. 133, Springer, 2005",
+   "link": "https://doi.org/10.1007/b138379",
+   "why": "The classical result that the singular hypersurfaces in a very ample linear system on a non-ruled variety form an irreducible divisor, which is what turns the main theorem into a statement about a single discriminant equation Δ(x) = u."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "roadmap": "MordellLawrenceVenkateshPartII",
+   "parent": "MordellLawrenceVenkatesh",
+   "title": "The Mordell conjecture after Lawrence and Venkatesh, Part II: the Shafarevich conjecture for hypersurfaces in abelian varieties",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-LAWRENCE-SAWIN-25/1",
+    "PAPER-LAWRENCE-SAWIN-25/2",
+    "PAPER-LAWRENCE-SAWIN-25/3",
+    "PAPER-LAWRENCE-SAWIN-25/4",
+    "PAPER-LAWRENCE-SAWIN-25/5",
+    "PAPER-LAWRENCE-SAWIN-25/27",
+    "PAPER-LAWRENCE-SAWIN-25/28",
+    "PAPER-LAWRENCE-SAWIN-25/29",
+    "PAPER-LAWRENCE-SAWIN-25/30",
+    "PAPER-LAWRENCE-SAWIN-25/31",
+    "PAPER-LAWRENCE-SAWIN-25/32",
+    "PAPER-LAWRENCE-SAWIN-25/33",
+    "PAPER-LAWRENCE-SAWIN-25/34",
+    "PAPER-LAWRENCE-SAWIN-25/35",
+    "PAPER-LAWRENCE-SAWIN-25/36",
+    "PAPER-LAWRENCE-SAWIN-25/37",
+    "PAPER-LAWRENCE-SAWIN-25/38",
+    "PAPER-LAWRENCE-SAWIN-25/39",
+    "PAPER-LAWRENCE-SAWIN-25/40",
+    "PAPER-LAWRENCE-SAWIN-25/41",
+    "PAPER-LAWRENCE-SAWIN-25/42",
+    "PAPER-LAWRENCE-SAWIN-25/43",
+    "PAPER-LAWRENCE-SAWIN-25/45",
+    "PAPER-LAWRENCE-SAWIN-25/46",
+    "PAPER-LAWRENCE-SAWIN-25/47",
+    "PAPER-LAWRENCE-SAWIN-25/48",
+    "PAPER-LAWRENCE-SAWIN-25/49",
+    "PAPER-LAWRENCE-SAWIN-25/50",
+    "PAPER-LAWRENCE-SAWIN-25/51",
+    "PAPER-LAWRENCE-SAWIN-25/52",
+    "PAPER-LAWRENCE-SAWIN-25/53",
+    "PAPER-LAWRENCE-SAWIN-25/54",
+    "PAPER-LAWRENCE-SAWIN-25/55",
+    "PAPER-LAWRENCE-SAWIN-25/56",
+    "PAPER-LAWRENCE-SAWIN-25/57",
+    "PAPER-LAWRENCE-SAWIN-25/58",
+    "PAPER-LAWRENCE-SAWIN-25/59",
+    "PAPER-LAWRENCE-SAWIN-25/60",
+    "PAPER-LAWRENCE-SAWIN-25/61"
+   ],
+   "brief": "Extend The Mordell conjecture after Lawrence and Venkatesh (MordellLawrenceVenkatesh) to the setting needed for the Shafarevich conjecture for hypersurfaces in abelian varieties, following Lawrence and Sawin, Annals of Mathematics 202 (2025), no. 3. It starts where that roadmap stops: there the method is run on the primitive cohomology of an abelian-by-finite family over a curve, with connected monodromy group and constant coefficients; here it must be run on the cohomology of a family with coefficients in a rank-one local system, with a possibly disconnected reductive group, and with a monodromy group known only to be strongly c-balanced. The final theorems are these. (1) Non-density (Theorem 8.17): for X a variety over ℚ with smooth model X over ℤ[1/S], E a constant H⁰-algebra, H one of GL_N, GSp_N, GO_N, and V a polarized integral E-module with H-structure, integral Frobenius eigenvalues and uniform Hodge numbers h^a with maximal torus of dimension t, if the differential Galois group G_mon ⊆ G⁰_dR is strongly c-balanced with respect to Frobenius and Σ_{a>0}h^a ≥ (dim X + dim H)/c and Σ_{a>0}a h^a > T((dim X + dim H)/c) + T((h⁰−t)/2 + (dim X + dim H)/c), then the image of X(ℤ[1/S]) is not Zariski dense in X. (2) The p-adic Bakker–Tsimerman theorem (Theorem 6.4): for a polarized integral Hodge–Deligne system with differential Galois group G_mon and period map Φ_p : Ω → G_mon/P on a residue disk, and Z closed of codimension at least dim X, the set Φ_p^{−1}(Z) is not Zariski dense. (3) Faltings's finiteness lemma for representations valued in a possibly disconnected reductive group (Lemma 5.49). (4) The main Diophantine theorems: for A an abelian variety over a number field K with good reduction outside S and ϕ an ample class in NS(A), there are finitely many smooth hypersurfaces H ⊆ A representing ϕ with good reduction outside S, up to translation, when dim A ≥ 4; when dim A = 3 and ϕ·ϕ·ϕ is not divisible by d(i) = C(a(i)+a(i+1), a(i)) for any i ≥ 2, with a(1) = 1, a(2) = 5, a(i+2) = 4a(i+1)+1−a(i); and when dim A = 2, from the Shafarevich conjecture for curves. Cover, in layers: Hodge–Deligne systems with their four realizations and four comparisons, their integral, polarized and integral-Frobenius variants, their Tannakian category and their differential Galois group; H⁰-algebras and their modules, with the GL_N, GSp_N and GO_N structures and the semilinearity of Frobenius that bounds its centralizer; the construction of E_I and V_I from a Galois orbit of characters; disconnected reductive groups — parabolic and Levi subgroups through cocharacters, G-complete reducibility, semisimplification, objects with G-structure, G-filtrations and the extension of D_cris to G-valued crystalline representations with its inner forms; adjoint Hodge numbers, the function T and uniformity; the p-adic period map on a residue disk and its image in a single orbit; index classes and the c-balanced and strongly c-balanced conditions; the semisimple case in full (Lemmas 7.1, 7.2 and Theorem 7.3) before the general case; purity forcing the average Hodge weight, balanced and semibalanced filtrations, bifiltered φ-modules and semisimplicity types, the finite list of types attached to a semisimplification, and the codimension estimates that make the locus of admissible filtrations small; and finally the assembly over the Weil restriction of the Hilbert scheme, with a resolution of singularities of an irreducible component of the Zariski closure of the integral points. Import, never re-plan: Faltings's finiteness lemma, friendly places and purity of Hodge weights from MordellLawrenceVenkatesh LV.1; the crystalline comparison on residue disks and the finiteness criterion from LV.4; the complex and p-adic period maps from LV.3; the abelian-by-finite families and Gauss–Manin transport from LV.2. Import perverse sheaves from EtaleDualityAndPerverseSheaves EDC.5, Tannakian formalism from MotivesAndAlgebraicCycles MC.6 and the Tau Ceti roadmap Reductive algebraic groups, Hodge structures from the Tau Ceti roadmap Hodge structures, period rings and crystalline comparison from PadicHodgeTheory R06.1 and CohomologyComparisons CP.2, weights and purity from WeilConjectures WC.3 and DeligneWeightsAndPurity DWP.7, abelian varieties and their Néron–Severi groups from AbelianSchemesAndArithmeticModuli A2, Riemann–Roch from SchemeAndStackFoundations SF.5, resolution of singularities from AlgebraicModuliForArithmeticGeometry R09.7, o-minimality and Ax–Schanuel from LogicAndDefinabilityInNumberTheory LD.6, and the big-monodromy input — the convolution monodromy group of a hypersurface and Corollary 4.10 — from the new roadmap proposed alongside this route, Sheaf convolution on abelian varieties and convolution monodromy (SheafConvolutionOnAbelianVarieties). Record that the Shafarevich conjecture for hypersurfaces is logically independent of Faltings's two finiteness theorems, and do not claim otherwise.",
+   "reason": "MordellLawrenceVenkatesh plans the Lawrence–Venkatesh method itself: Faltings's finiteness lemma, abelian-by-finite families, the complex and p-adic period maps, the crystalline comparison on residue disks and the assembly for curves. This paper needs new layers in exactly that direction and no other: the same three-realization argument run with coefficients in a rank-one local system, with Galois representations valued in a disconnected reductive group, and with a monodromy group known only to be strongly c-balanced rather than identified. The new material — Hodge–Deligne systems, H⁰-algebras and the semilinearity of Frobenius, complete reducibility and semisimplification for disconnected groups, D_cris for G-valued crystalline representations, adjoint Hodge numbers and the function T, the p-adic Bakker–Tsimerman theorem, the semisimplicity-type formalism and Theorem 8.17 — starts where LV.1–LV.11 stop and imports them. A new roadmap was rejected because every layer here is a strengthening of a layer there, and a source route was rejected because the generalizations are not statements those layers plan."
+  },
+  {
+   "route": "new",
+   "roadmap": "SheafConvolutionOnAbelianVarieties",
+   "title": "Sheaf convolution on abelian varieties and convolution monodromy",
+   "area": "algebraicgeometry",
+   "items": [
+    "PAPER-LAWRENCE-SAWIN-25/6",
+    "PAPER-LAWRENCE-SAWIN-25/7",
+    "PAPER-LAWRENCE-SAWIN-25/8",
+    "PAPER-LAWRENCE-SAWIN-25/9",
+    "PAPER-LAWRENCE-SAWIN-25/10",
+    "PAPER-LAWRENCE-SAWIN-25/11",
+    "PAPER-LAWRENCE-SAWIN-25/12",
+    "PAPER-LAWRENCE-SAWIN-25/13",
+    "PAPER-LAWRENCE-SAWIN-25/14",
+    "PAPER-LAWRENCE-SAWIN-25/15",
+    "PAPER-LAWRENCE-SAWIN-25/16",
+    "PAPER-LAWRENCE-SAWIN-25/17",
+    "PAPER-LAWRENCE-SAWIN-25/18",
+    "PAPER-LAWRENCE-SAWIN-25/19",
+    "PAPER-LAWRENCE-SAWIN-25/20",
+    "PAPER-LAWRENCE-SAWIN-25/21",
+    "PAPER-LAWRENCE-SAWIN-25/22",
+    "PAPER-LAWRENCE-SAWIN-25/23",
+    "PAPER-LAWRENCE-SAWIN-25/24",
+    "PAPER-LAWRENCE-SAWIN-25/25",
+    "PAPER-LAWRENCE-SAWIN-25/26",
+    "PAPER-LAWRENCE-SAWIN-25/62",
+    "PAPER-LAWRENCE-SAWIN-25/63",
+    "PAPER-LAWRENCE-SAWIN-25/64",
+    "PAPER-LAWRENCE-SAWIN-25/65",
+    "PAPER-LAWRENCE-SAWIN-25/79"
+   ],
+   "brief": "Plan the Tannakian theory of sheaf convolution on abelian varieties and the convolution monodromy group, following Krämer and Weissauer and the first half of Lawrence and Sawin, Annals of Mathematics 202 (2025), no. 3, §§2–4 and Appendices B–C. The final theorems are these. (1) The convolution category: for an abelian variety A over a field, convolution makes the bounded constructible derived category a rigid symmetric monoidal category; perverse sheaves have non-negative Euler characteristic; those with zero Euler characteristic, the negligible ones, form a thick subcategory N; convolution of perverse sheaves is perverse modulo negligible sheaves; and P/N is a rigid symmetric monoidal abelian category which, after restricting to a character-dependent subcategory P^χ and to geometrically semisimple objects, is Tannakian with fibre functor K ↦ H⁰(A_k‾, K ⊗ L_χ). (2) The arithmetic–geometric exact sequence 1 → G_k‾ → G_k → Gal_k → 1 of Tannakian groups, and the fact that the Galois action on the fibre functor normalizes the commutator of the identity component of the geometric convolution monodromy group. (3) The convolution monodromy group of a smooth hypersurface (Theorem 3.5): for H ⊆ A smooth of dimension n−1, not a translate of itself by a nontrivial point, with n > 2 and outside two explicit exceptional cases, G_H contains SL_N, Sp_N or SO_N as a normal subgroup, where N = (−1)^{n−1}[H]^n; SL_N when H is not a translate of [−1]^*H, Sp_N when it is and n is even, SO_N when it is and n is odd. (4) Big monodromy from big convolution monodromy (Theorem 4.7 and Corollary 4.10): if the family of hypersurfaces over X is not a translate of a constant family, then for all characters outside a finite union of torsion translates of proper subtori, R^k f_*(g^*L_χ) vanishes for k ≠ n−1 and the geometric monodromy group of a c-fold sum contains (G^*)^c as a normal subgroup, uniformly over Galois conjugates. (5) Quasi-finiteness of the period map for hypersurfaces of a fixed class after pullback by multiplication by m (Proposition 4.11). Cover, in layers: convolution and its rigidity; negligible sheaves and the quotient category; character sheaves over k and over k‾ with their canonical descent; the Tannakian subcategories of geometrically semisimple objects and the two Tannakian groups; the Euler characteristics χ(A,L) = c₁(L)^n/n!, χ(H,O_H), the topological Euler characteristic and χ(H,Ω^i) = (−1)^{n−1−i}dA(n,i); minisculeness and simplicity of the distinguished representation through Krämer's characteristic-cycle criteria, with the modification needed when H is not invariant under inversion; the Hodge–Tate weights of the twisted cohomology; the elimination of the spin and exceptional cases and of the wedge-power case, including the Eulerian-number combinatorics of Appendices B and C and the sequence a(i) defined by a(1) = 1, a(2) = 5, a(i+2) = 4a(i+1)+1−a(i); the generic-vanishing lemma for characters outside a finite set of torsion translates of subtori; the battery of test representations detecting a power of a simple group; and the arithmetic avoidance lemmas that keep every Galois conjugate of the chosen character generic. Every definition gets its API and the concrete acceptance cases recorded in the extraction. Import, never re-plan: perverse sheaves, the perverse t-structure, intermediate extensions and Verdier duality from EtaleDualityAndPerverseSheaves EDC.1 and EDC.5; the Tannakian formalism from MotivesAndAlgebraicCycles MC.6 and the Tau Ceti roadmap Reductive algebraic groups; abelian varieties, their duals and ample classes from AbelianSchemesAndArithmeticModuli A2; Riemann–Roch and Chern classes from SchemeAndStackFoundations SF.5; Hodge structures from the Tau Ceti roadmap Hodge structures; weights and purity from DeligneWeightsAndPurity; and the Eulerian numbers with their elementary inequalities from ClassicalArithmeticCompletion CA.2. Export the big-monodromy statement to the Part II of the Lawrence–Venkatesh roadmap proposed alongside this route, which consumes Corollary 4.10 and nothing else from here.",
+   "reason": "Nothing in the atlas goes in this direction. EtaleDualityAndPerverseSheaves EDC.5 plans the perverse t-structure and intermediate extensions, but not convolution, not the quotient by negligible sheaves, not the resulting Tannakian category and not the convolution monodromy group; MotivesAndAlgebraicCycles MC.6 plans motivic Galois groups, a different Tannakian category; GeometricSatakeAndFusion plans convolution on affine Grassmannians, an unrelated geometry. The theory is a self-contained body of work of Krämer and Weissauer with its own applications — the Schottky problem and Katz's equidistribution theorems for character sums on abelian varieties — and this paper adds to it the computation of the convolution monodromy group of a smooth hypersurface and the transfer from convolution monodromy to ordinary monodromy. It is routed as a roadmap of its own so that the Part II of the Lawrence–Venkatesh roadmap can import a single big-monodromy statement, Corollary 4.10, rather than re-plan perverse-sheaf theory. The Eulerian-number combinatorics of Appendices B and C is kept here because it exists only to eliminate the exceptional Tannakian groups."
+  },
+  {
+   "route": "source",
+   "roadmap": "LogicAndDefinabilityInNumberTheory",
+   "stages": [
+    "LogicAndDefinabilityInNumberTheory:LD.6"
+   ],
+   "items": [
+    "PAPER-LAWRENCE-SAWIN-25/44"
+   ],
+   "reason": "LD.6 plans o-minimal structures, definable counting and unlikely intersections, with Pila–Wilkie and Pila–Zannier as its named targets. The complex Bakker–Tsimerman theorem quoted as Lemma 6.3 — an algebraic subvariety of a period domain of codimension at least dim X meets the image of the period map only inside the preimage of a proper subvariety — is a theorem of that family, proved by o-minimal methods, and the paper states it in the exact form a Diophantine application needs. The atlas covers Mok–Pila–Tsimerman and Bakker–Klingler–Tsimerman but not Bakker–Tsimerman's Ax–Schanuel theorem for variations of Hodge structures, which is listed under prerequisites. The p-adic analogue the paper proves is not routed here: it belongs with the rest of the p-adic machinery in the Part II."
+  },
+  {
+   "route": "source",
+   "roadmap": "SchemeAndStackFoundations",
+   "stages": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "items": [
+    "PAPER-LAWRENCE-SAWIN-25/82"
+   ],
+   "reason": "SF.0 owns schemes and morphisms with their named properties and is the most foundational layer that could own the Weil restriction of scalars along a finite étale extension, with its universal property and the resulting bijection on integral points. Neither library has it and no layer of the atlas mentions it, yet the main proof cannot start without it: Lemma 8.1 needs a base field with no CM subfield, so the whole argument is moved from K to ℚ by restriction of scalars. PROTOCOL.md section 15 asks that a general missing notion be planned once in its most foundational owner, which is this layer."
+  },
+  {
+   "route": "source",
+   "roadmap": "ClassicalArithmeticCompletion",
+   "stages": [
+    "ClassicalArithmeticCompletion:CA.2"
+   ],
+   "items": [
+    "PAPER-LAWRENCE-SAWIN-25/66",
+    "PAPER-LAWRENCE-SAWIN-25/67"
+   ],
+   "reason": "CA.2 plans sequences, recurrences, Bernoulli and Euler numbers, binomial identities and combinatorial number families. Eulerian numbers A(n,q), counting permutations by descents, with Σ_q A(n,q) = n!, the symmetry A(n,q) = A(n,n−1−q), the standard recursion and the elementary estimates (q+1)^n − (n+1)q^n ≤ A(n,q) ≤ (q+1)^n, A(n,q) ≤ n!, and the two sharper inequalities of Appendix C, are exactly that layer's subject. They are absent from both libraries: the occurrences of 'Eulerian' in Mathlib are Eulerian circuits in graphs. The paper is a good source for them because its appendices state and prove the inequalities in the form a consumer needs. The use of these numbers as the Hodge numbers of a twisted hypersurface stays with the new roadmap."
+  }
+ ],
+ "sourceIssues": []
+}
