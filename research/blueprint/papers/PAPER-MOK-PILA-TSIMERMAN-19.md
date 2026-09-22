@@ -59,3 +59,14 @@ Repository paper validation and deliverable-scope validation are run before subm
 Executed rational regressions check Schwarzian normalization, total-degree jet dimensions, the truncated addition map, nonholonomic coefficient recovery, weighted coordinate changes, the chain-rule negative example and the ineffective central element. These are concrete sanity checks, distinct from the 129 proposed future mathematical unit tests. They neither prove the source theorems nor elaborate Lean. No Lean file is a deliverable of this paper job and none was compiled.
 
 Resume with the four unrouted prerequisites and G1–G6 in the JSON. Preserve these item IDs. Obtain and read the original proof inputs; resolve the section 11.3 interface before using its equations as a theorem; close the two quantitative/vertical-rank adapters; and then refine status/routing against any newly accepted supplier packets. The source/dependency graph should remain acyclic and the general objects should remain with their named owners.
+
+## Continuation: Theorem 11.3 repaired (Claude Code, cc-fb70e5, 22 September 2026)
+
+The printed hypothesis "v restricts to u" is used in the proof only as equality of zeroth orders. The w=2t example shows this is insufficient: every L(w,g,r) satisfies du=v₁dw, and that example violates it.
+
+The item `triple-characterization-obligation` now states the repaired theorem, with the extra hypothesis (iv): the first-order chain rule du=v₁·dw, taken in N⁺-invariant coordinates. The proof is short:
+- by the leaf structure of W, v=J_r(q∘g′)(id_r(z)) for one g′;
+- (iii) gives du=D(q∘g′)(z)dz, and (iv) gives du=D(q∘g′)(z)dw, so dz=dw because D(q∘g′) is invertible away from elliptic points;
+- so z=w+c is translation by τ_c∈N⁺, and (w,u,v)=L(w,g′τ_c,r).
+
+Condition (iv) is the algebraic differential equation Dx=y₁·Dz. The notion of a uniformized tuple in Theorem 12.1 now includes it. The source-level issue is errata E5.
