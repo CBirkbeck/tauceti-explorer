@@ -1,0 +1,1304 @@
+{
+  "paper": "PAPER-XU-ZHU-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Bessel F-isocrystals for reductive groups",
+    "authors": "Daxin Xu and Xinwen Zhu",
+    "venue": "Inventiones mathematicae 227 (2022), 997–1092",
+    "doi": "10.1007/s00222-021-01079-5",
+    "arxiv": "1910.13391",
+    "url": "https://doi.org/10.1007/s00222-021-01079-5",
+    "readSections": [
+      "arXiv 1910.13391v2 (19 December 2019, 'A few typos corrected. Add Remark 4.5.8 on local monodromy at infinity'; TeX source SHA-256 0eab46d96ed75d385ebee89b1d1f53900efd7f0fa090553aeb526a26d0293f0e, PDF SHA-256 b8d153ef1822a20e8179005d4775e43fc3af7430d840d2b077b45cb8583667cd, fetched from arxiv.org 22 September 2026), read in full: §1 Introduction, §2 Review and complements on arithmetic D-modules, §3 Geometric Satake equivalence for arithmetic D-modules, §4 Bessel F-isocrystals for reductive groups, §5 Applications, Appendix A (a 2-adic proof of Carlitz's identity). The journal version (Springer TDM licence, not open access) was not available: the Springer PDF link redirects to the paywalled article page, and the Caltech Authors record (authors.library.caltech.edu/records/3qd0b-14e41) holds only this preprint. Items and issues are therefore based on the last arXiv version; the published text may differ.",
+      "Numbers and pages are those of the arXiv PDF (71 pages; results numbered section.subsection.n, displays (section.subsection.n.m), appendix A.n).",
+      "Numerical checks (scratch scripts, Python and exact rational arithmetic): the identities of §1.2.9 and Corollary 5.3.11 over F_q for small q; the Landau–Ginzburg sum (5.3.4.6) against Proposition 5.3.5 for n = 3, 4, 5; the convolution normalisation (5.3.9.1); the appendix congruences (c), (c′) for n = 1, 2, 3."
+    ]
+  },
+  "summary": "Xu and Zhu construct the p-adic companion of the Kloosterman sheaves of Heinloth–Ngô–Yun. For a split reductive group Ǧ, the Frenkel–Gross connection Be_Ǧ = d + (N + λ^h xE)dx/x on G_m receives a unique Frobenius structure φ ∈ Ǧ(A^†) whose traces are those of Kl_Ǧ (Theorem 4.4.4); the resulting Bessel F-isocrystal Be^†_Ǧ generalises Dwork's Bessel F-isocrystal Be_n^†. The proof runs Heinloth–Ngô–Yun's geometric Langlands construction with arithmetic D-modules, for which the paper first develops complements to the six-functor formalism (§2: specialisation maps, equivariance, weights, nearby cycles, universal local acyclicity, local monodromy, Braden's hyperbolic localisation) and proves the geometric Satake equivalence for arithmetic D-modules, with and without Frobenius structures (§3). It then compares the de Rham and rigid Kloosterman objects by specialisation on minuscule and quasi-minuscule Schubert varieties (§4.2) and identifies the de Rham one with the Frenkel–Gross connection by strengthening Zhu's theorem (§4.3). Applications: the geometric and arithmetic monodromy groups of Be^†_Ǧ and Kl_Ǧ, with G_2 and SO_{2n+1} appearing for SL_{2n+1} at p = 2 (Theorem 4.5.2), local monodromy at ∞ (Corollary 4.5.7), Heinloth–Ngô–Yun's functoriality conjecture (Theorem 5.1.4), hypergeometric descriptions and exponential-sum identities for classical groups (§5.3), ordinarity of Frobenius slopes for classical groups and G_2 (Theorem 5.4.2), and a 2-adic proof of Carlitz's identity through Dwork's congruences and Tsuzuki's minimal-slope theorem (Appendix A).\nThe atlas has no arithmetic D-modules, no Kloosterman sheaves for reductive groups and no Frenkel–Gross connection. Routes:\n- a Part II of PadicDifferentialEquationsAndRigidCohomology for arithmetic D-modules, their six operations and weights, nearby cycles, ULA, hyperbolic localisation, and geometric Satake with p-adic coefficients (the geometry of Beilinson–Drinfeld Grassmannians and Mirković–Vilonen cycles is planned in GlobalShtukasAndFunctionFieldLanglands GS.1);\n- a new roadmap for Kloosterman sheaves and Bessel F-isocrystals of reductive groups, carrying the paper's main theorems;\n- Deligne's Kloosterman sheaf, the Kloosterman connection and Katz's monodromy groups join the pending KloostermanMomentsAndPotentialAutomorphy (PAPER-FRESAN-SABBAH-YU-22), and Tsuzuki's theorem joins the pending minimal-slope Part II (PAPER-TSUZUKI-23);\n- sources for RD stages where the paper uses planned p-adic foundations with extra precision.\nThirty source issues, each checked by hand or by exhaustive computation. The main ones:\n- two exponential-sum identities of the introduction are wrong as printed;\n- the convolution formula for SO_{2n+1} misses a factor −1/√q (a half Tate twist);\n- the toric formula for Kloosterman sums of SO_{2n} has the wrong constant for n ≥ 4, because the proof misses a stratum;\n- Mirković–Vilonen's dimension of T_λ ∩ Gr_μ is misquoted;\n- the normality needed for Braden's theorem fails for Schubert varieties when p divides |π_1(G_der)|;\n- Corollary 2.4.3 on top-degree cohomology and Lemma 2.5.3 on equivariance are false as stated;\n- the proof of Proposition 2.4.4 reduces to a point by a base change that is not available;\n- the sign conventions for the Dwork and Kummer F-isocrystals disagree between §1, §2.1.5 and §4.1.13;\n- misprints in the monodromy theorem, Lemma 4.5.5, §5.1, §§2–3 and the appendix.",
+  "items": [
+    {
+      "id": "PAPER-XU-ZHU-22/1",
+      "kind": "definition",
+      "name": "Bessel connection and Kloosterman D-module of rank n",
+      "statement": "Over a field K of characteristic 0 and λ ∈ K, the Bessel connection Be_n is the trivial rank-n bundle on G_{m,K} with ∇ = d + M(x) dx/x, where M(x) has 1 on the superdiagonal, λ^n x in the lower-left corner and 0 elsewhere; it is the system of the Bessel equation (x d/dx)^n f − λ^n x f = 0, whose solution holomorphic at 0 is Σ_{r≥0} (λ^n x)^r/(r!)^n. With add, mult : G_m^n → A¹, G_m and the exponential D-module E_λ, the Kloosterman D-module is Kl_n^dR = R^{n−1}mult_!(add^*E_λ); with E_λ = K⟨x, ∂_x⟩/(∂_x − λ) = (O, d + λ dx), the convention of §4.1.13, Be_n ≅ Kl_n^dR (the introduction's E_λ = (O, d − λ dx) changes Kl_n^dR by x ↦ (−1)^n x). Be_n is regular singular at 0 with unipotent monodromy of one Jordan block and irregular at ∞ with irregularity 1.",
+      "locator": "§1.1.1, (1.1.1.1)–(1.1.1.6), pp. 2–3",
+      "status": "missing",
+      "note": "Sign conventions as in sourceIssues E22. The GL_n case of the Frenkel–Gross and Heinloth–Ngô–Yun constructions. The Kloosterman connection, its hypergeometric operator and its local structure are planned by the pending KloostermanMomentsAndPotentialAutomorphy proposal (PAPER-FRESAN-SABBAH-YU-22), which this item joins."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/2",
+      "kind": "theorem",
+      "name": "Kloosterman sums and Deligne's Kloosterman sheaf",
+      "statement": "For a ∈ F_q^×, Kl(n; a) = (−1/√q)^{n−1} Σ_{z_i ∈ F_q^×} ψ(Tr_{F_q/F_p}(z_1 + ⋯ + z_{n−1} + a/(z_1⋯z_{n−1}))). With the Artin–Schreier sheaf AS_ψ, Deligne's Kl_n = Rmult_!(add^*AS_ψ)[n−1]((n−1)/2) on G_{m,F_p} satisfies: (i) its Frobenius trace at a ∈ F_q^× is Kl(n; a); (ii) it is an irreducible lisse sheaf of rank n, pure of weight 0, in degree 0, so |Kl(n; a)| ≤ n; (iii) it is tame at 0 with unipotent monodromy of one Jordan block; (iv) it is wild at ∞ with Swan conductor 1.",
+      "locator": "§1.1.2, (1.1.2.1)–(1.1.2.2) and (i)–(iv), p. 3 (Deligne, SGA 4½, Sommes trig. 7.4, 7.8)",
+      "status": "missing",
+      "note": "The normalisation differs from the usual sum by (−1/√q)^{n−1}. The pending KloostermanMomentsAndPotentialAutomorphy proposal plans Deligne's Kloosterman sheaf and its local invariants; FiniteFieldsAndCharacterSums FF.2 plans the Weil bound only as a target of curve-based estimates."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/3",
+      "kind": "theorem",
+      "name": "Katz's monodromy groups of Kloosterman sheaves",
+      "statement": "G_geo(Kl_n) = G_arith(Kl_n) is Sp_n for n even, SL_n for pn odd, SO_n for p = 2 and n odd with n ≠ 7, and G_2 for p = 2 and n = 7.",
+      "locator": "§1.1.2, (1.1.2.3), p. 3 (Katz, Gauss sums, Kloosterman sums and monodromy groups, §11)",
+      "status": "missing",
+      "note": "Recalled from Katz. The paper reproves it by the p-adic method (Theorem 4.5.2 with Corollary 4.5.6, and the appendix for p = 2). The pending KloostermanMomentsAndPotentialAutomorphy proposal plans Katz's monodromy computations, so the statement joins it; the new proof belongs to this paper's own route."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/4",
+      "kind": "theorem",
+      "name": "Dwork–Sperber: the Bessel F-isocrystal of rank n",
+      "statement": "Let K = Q_p(μ_p), π ∈ K with π^{p−1} = −p matching ψ, λ = −π, n prime to p, and A^† the p-adic functions on P¹ overconvergent along ∞ (power series with radius of convergence > 1). There is a unique φ ∈ GL_n(A^†) with x (dφ/dx) φ^{−1} + φ M(x) φ^{−1} = p M(x^p) (so φ : F^*Be_n ≅ Be_n for F : x ↦ x^p), such that (ii) for a ∈ F_q^× with Teichmüller lift ã and φ_a = ∏_{i<deg a} φ(ã^{p^i}), ι Tr φ_a = Kl(n; a); and (iii) the eigenvalues α_i of φ_a satisfy |α_i|_p = p^{(n+1−2i) deg(a)/2} after reordering. (Be_n, φ) =: Be_n^† is an overconvergent F-isocrystal on G_{m,F_p}, the p-adic companion of Kl_n.",
+      "locator": "§1.1.3, Theorem 1.1.4, pp. 3–4 (Dwork 1974, Sperber 1977, 1980)",
+      "status": "missing",
+      "note": "The GL_n base case of the paper's main theorem (Theorem 4.4.4 with 5.3.1)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/5",
+      "kind": "definition",
+      "name": "Frenkel–Gross Bessel connection of a reductive group",
+      "statement": "For split reductive Ǧ over K (char 0) with Borel B̌ and pinning, grade ǧ_aff = ǧ ⊗ A_K by Ad ρ(G_m) on ǧ and ȟ times the loop grading, ȟ the Coxeter number; ǧ_aff(1) = ⊕_{α̌ affine simple} ǧ_{aff,α̌}. For generic ξ̌ ∈ ǧ_aff(1) (every affine simple component nonzero), Be_Ǧ(ξ̌) = d + ξ̌ dx/x = d + (N + xE) dx/x on the trivial Ǧ-bundle on X = P¹ − {0, ∞}, with N principal nilpotent and E ∈ Σ_i ǧ_{−θ̌_i}; equivalently ∇ = d + N dx/x + λ^h E dx. It is a tensor functor Rep(Ǧ) → Conn(X), regular singular at 0 with principal unipotent monodromy and irregular at ∞ of maximal formal slope 1/ȟ. For δ̌ = (a, σ̌) ∈ G_m × Aut(Ǧ, B̌, Ť), Be_{Ǧ,V}(δ̌(ξ̌)) ≅ a^+Be_{Ǧ,σ̌V}(ξ̌), so Be_Ǧ(ξ̌) depends only on the Ť_ad-orbit of ξ̌, and these orbits are parametrised by ǧ_aff(1)//Ť_ad.",
+      "locator": "§1.2.2, (1.2.2.1)–(1.2.2.2), pp. 4–5; §4.3.1–4.3.2, (4.3.1.1)–(4.3.2.1), pp. 46–47",
+      "status": "missing",
+      "note": "Frenkel–Gross, Ann. of Math. 170 (2009). No stage plans rigid irregular G-connections or the Frenkel–Gross connection."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/6",
+      "kind": "theorem",
+      "name": "Frenkel–Gross: differential Galois groups of Bessel connections",
+      "statement": "For Ǧ almost simple the differential Galois group G_alg ⊂ Ǧ of Be_Ǧ over K̄ is connected, and up to central isogeny: A_{2n} ↦ A_{2n}; A_{2n−1}, C_n ↦ C_n; B_n, D_{n+1} (n ≥ 4) ↦ B_n; E_7 ↦ E_7; E_8 ↦ E_8; E_6, F_4 ↦ F_4; B_3, D_4, G_2 ↦ G_2. Be_Ǧ is rigid, and Aut(Be_Ǧ) = Z(Ǧ).",
+      "locator": "§1.2.6, table (1.2.6.1), p. 6; §4.5.1, p. 51 (Frenkel–Gross, Cor. 9 and Cor. 10)",
+      "status": "missing",
+      "note": "Recalled from Frenkel–Gross; used as the upper bound for G_geo in Theorem 4.5.2 and for the uniqueness of the Frobenius structure (Aut(Be_Ǧ) = Z(Ǧ), §4.4.1)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/7",
+      "kind": "definition",
+      "name": "Frames, overconvergent (F-)isocrystals and rigid cohomology",
+      "statement": "For a k-scheme X with a frame (Y, j, 𝒫, i) (X ⊂ Y open, Y ⊂ 𝒫 closed, 𝒫 a formal R-scheme smooth near X), j^† on sheaves on strict neighbourhoods of ]X[ in ]Y[; Isoc^†(X, Y/K) is the category of coherent j^†O-modules with a stratification (p_2^*M ≅ p_1^*M with the cocycle condition), independent of 𝒫, giving the convergent Isoc(X/K) for Y = X and Isoc^†(X/K) for Y a compactification; these embed fully faithfully into modules with overconvergent integrable connection. RΓ_rig(X/K, M) = RΓ(]X̄[, M ⊗ j^†Ω^•). With F_X^* induced by the s-th Frobenius and σ, an overconvergent F-isocrystal is (M, φ : F_X^*M ≅ M); Isoc^{††}(X/K) is the thick subcategory generated by objects admitting an s′-th Frobenius structure for some s | s′.",
+      "locator": "§2.1.1–2.1.4, (2.1.1.1)–(2.1.4.1), pp. 9–10 (Berthelot, Cohomologie rigide … première partie)",
+      "status": "planned",
+      "planned": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4"
+      ],
+      "note": "PadicDifferentialEquationsAndRigidCohomology RD.3 plans frames, tubes, strict neighbourhoods and overconvergent (F-)isocrystals with independence of the embedding; RD.4 plans rigid cohomology."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/8",
+      "kind": "definition",
+      "name": "Dwork and Kummer F-isocrystals",
+      "statement": "(i) For k = F_p, K = Q_p(μ_p), π^{p−1} = −p, the Dwork isocrystal A_π on A¹_k is j^†O_{P̂¹} with an overconvergent rank-one connection ±π dt, and its Frobenius structure for the lift t ↦ t^p is multiplication by θ_π(x) = exp(π(x − x^p))^{±1}; with the sign conventions made consistent (∇ = d − π dt with Frobenius θ_π), its Frobenius trace is ψ ∘ Tr, where ψ(1) ≡ 1 + π mod π², and A_ψ := A_π. (ii) For k = F_q, K = Q_q and a ∈ (1/(q−1))Z, the Kummer isocrystal K_a on G_m (∇ = d − a dx/x) has the Frobenius structure x^{−(q−1)a} for the lift x ↦ x^q, with trace χ^{−1} ∘ N, χ(x) = x̃^{(q−1)a}; replacing a by −a gives trace χ ∘ N, and K_χ denotes that object.",
+      "locator": "§2.1.5, p. 10",
+      "status": "missing",
+      "note": "Berthelot, Astérisque 119–120 (1984) 1.4. The printed connections (d + π dt, d − a dx/x) and Frobenius maps (θ_π, t^{(q−1)a}) do not match (sourceIssues); the statement records the consistent version. RD.6's acceptance test uses an additive-character coefficient to check Fourier normalisation, so these examples are sources for RD.6."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/9",
+      "kind": "theorem",
+      "name": "Specialisation and cospecialisation between de Rham and rigid cohomology",
+      "statement": "Let X be a smooth R-scheme of pure relative dimension d with a smooth proper compactification X̄ over R, (M, ∇) a coherent O_{X_K}-module with integrable connection whose analytification M^† = j^†(M^an) is overconvergent. There are a specialisation map ρ_M : RΓ_dR(X_K, M) → RΓ_rig(X_k/K, M^†) and a cospecialisation map ρ_{c,M} : RΓ_rig,c(X_k/K, M^†) → RΓ_dR,c(X_K, M) (with RΓ_dR,c defined by R lim over the powers of the boundary ideal), and ι_rig = ρ_M ∘ ι_dR ∘ ρ_{c,M} : RΓ_rig,c → RΓ_rig (Proposition 2.2.5).",
+      "locator": "§2.2, (2.2.1.1)–(2.2.4.9) and Proposition 2.2.5, pp. 11–13",
+      "status": "missing",
+      "note": "Baldassarri–Berthelot §1 and André–Baldassarri App. D.2 for the maps; Proposition 2.2.5 is new, by rigid GAGA and the admissible covering of 𝒳̄ by 𝒳 and the tube of the boundary. RD.4 owns rigid cohomology with compact supports and its comparison maps, of which these are two."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/10",
+      "kind": "definition",
+      "name": "Holonomic arithmetic D-modules and their six operations",
+      "statement": "Over a base tuple 𝔗 = {k, R, K, L} (L/K algebraic) or an arithmetic tuple 𝔗_F = {k, R, K, L, s, σ}, D(X/L) (resp. D(X/L_F)) is Abe's triangulated category D^b_hol of holonomic complexes on a k-scheme X (for L = K and X quasi-projective, a full subcategory of the bounded coherent D^†_{𝒫,Q}-complexes built from Berthelot's D^†_{𝔛,Q}(†Z) and O_{𝔛,Q}(†Z) ≅ Sp_*(j^†O)), with the holonomic t-structure (Noetherian and Artinian heart Hol(X/L)), D(X/L) ≃ D^b(Hol(X/L)), and the six operations: ⊗ with unit L_X and internal ℋom (right adjoint), duality 𝔻_X with 𝔻𝔻 ≅ id, adjunctions (f^+, f_+), (f_!, f^!), f_! → f_+ an isomorphism for proper f, proper base change, the localisation triangles, f^! ≅ f^+(d)[2d] for smooth f of relative dimension d, Berthelot–Kashiwara, and the exact external product ⊠. Also: L-structures and scalar extension, invariance under finite extension of k, the σ-semilinear Frobenius pullback F_X^* with Hol(X/L_F) the objects with φ : F_X^*E ≅ E, and the constructible t-structure (heart Con(X), f^+ c-exact, f_+ left c-exact, stalks detect vanishing).",
+      "locator": "§2.3.1–2.3.5, (2.3.1.1)–(2.3.4.2), Remark 2.3.3, pp. 13–15 (Abe, JAMS 31 (2018) §§1–2; Abe–Caro)",
+      "status": "missing",
+      "note": "Recalled from Berthelot, Caro, Caro–Tsuzuki, Abe and Abe–Caro. Nothing in the atlas plans arithmetic D-modules or overholonomicity. (The printed text calls ℋom_X a left adjoint of ⊗.)"
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/11",
+      "kind": "theorem",
+      "name": "Smooth objects are overconvergent F-isocrystals; relative de Rham complexes",
+      "statement": "For X smooth of dimension d, Sm(X/L) ⊂ Hol(X/L)[−d], and for L = K the specialisation S̃p_* = Sp_*(−d)[−d] gives Isoc^{††}(X/K) ≅ Sm(X/K) and F-Isoc^†(X/K) ≅ Sm(X/K_F), with f^+ matching pullback of isocrystals and f^!M ≅ f^+M(d)[2d] for smooth M on the target (d = dim X − dim Y). For a smooth morphism f : Spec B → Spec A of smooth affine R-schemes, f_+^dR(M) is computed by the relative de Rham complex DR_{B/A}(M, ∇); if f has a good compactification (a smooth f̄ between smooth projective R-schemes with ample boundary divisors) and M^† is overconvergent, then f_{k,+}(M^†) is computed by DR^†_{B/A}(M^†) = (M ⊗_{B_K} B^†) ⊗ Ω^•_{B/A}, and the relative specialisation DR_{B/A}(M, ∇) → DR^†_{B/A}(M^†) is D-linear.",
+      "locator": "§2.3.4, §2.3.6–2.3.7, (2.3.4.1)–(2.3.4.2), (2.3.6.1), (2.3.7.1)–(2.3.7.2), pp. 15–16",
+      "status": "missing",
+      "note": "Caro–Tsuzuki's overholonomicity of overconvergent F-isocrystals and Abe's 2.4.15; 𝒟^†-affinity (Huyghe 5.3.3). The relative specialisation is the input of Theorem 4.2.1."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/12",
+      "kind": "theorem",
+      "name": "Cohomology of holonomic modules: top degree and full faithfulness of smooth pullback",
+      "statement": "(2.4.1) H^*(X, F) = ℋ^*f_+F and H^*_c(X, F) = ℋ^*f_!F are finite-dimensional; for X of dimension ≤ d and F constructible they live in degrees [0, 2d]; they agree with rigid cohomology (with compact supports) for smooth X with a smooth liftable compactification by a divisor; for smooth X, dim H⁰(X, L_X) is the number of connected components of X ⊗ k̄, with Frobenius permuting them; there is the excision sequence and the stratification spectral sequence. (Corollary 2.4.3, corrected) dim H^{2d}_c(X, L_X) is the number of d-dimensional irreducible components of X ⊗ k̄, on which Frobenius acts by q^d times the permutation of these components. (Proposition 2.4.4) If f : X → Y is smooth of relative dimension d, surjective with geometrically connected fibres, then f^+[d] : Hol(Y/L_▲) → Hol(X/L_▲) is fully faithful (▲ ∈ {∅, F}). (Lemma 2.4.5) For M ∈ D^{≤0} and N ∈ D^{≥0}, ℋom_X(M, N) ∈ cD^{≥0}.",
+      "locator": "§2.4, (2.4.1.1)–(2.4.2.2), Corollary 2.4.3, Proposition 2.4.4, Lemma 2.4.5, §2.4.6, pp. 16–17",
+      "status": "missing",
+      "note": "Corollary 2.4.3 and 2.4.1(iii) are false as printed; Proposition 2.4.4 (the analogue of BBD 4.2.5) is proved through (2.4.6.2), whose reduction to a point by 'smooth base change' is not valid (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/13",
+      "kind": "definition",
+      "name": "Equivariant holonomic modules on schemes and ind-schemes",
+      "statement": "For a smooth affine S-group scheme H with geometrically connected fibres acting on X → S, Hol_H(X) consists of (M, θ : act^+M ≅ pr_2^+M) with e^+θ = id and the cocycle condition; it is an abelian subcategory of Hol(X), Hol_H(X) → Hol(X) is fully faithful (Lemma 2.5.2), and q^+[d_H] : Hol(X̄) ≅ Hol_H(X) when X̄ = [X/H] is a separated k-scheme of finite type. (Lemma 2.5.3, corrected) If H_1 ⊂ H is closed normal, H/H_1 and H_1 are smooth, H_1 has geometrically connected fibres and H acts through H/H_1, then Hol_{H/H_1}(X) ≅ Hol_H(X). Twisted external products M ⊠̃ N on Y ×̃_S X for an H-torsor on Y; D and Hol on strict ind-schemes as 2-limits along closed pushforwards; Hol_H(𝒳) for pro-smooth H = lim H_j acting on an ind-scheme.",
+      "locator": "§2.5, Lemmas 2.5.2–2.5.3, §2.5.1, §2.5.4–2.5.6, (2.5.1.1)–(2.5.1.2), pp. 17–19",
+      "status": "missing",
+      "note": "Lemma 2.5.3 is false without the connectedness of H_1 (sourceIssues); for L^+G the kernels of the jet groups are vector groups, so its uses are unaffected."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/14",
+      "kind": "theorem",
+      "name": "Intermediate extensions, weights and the decomposition theorem",
+      "statement": "For a locally closed immersion u, u_{!+}E = Im(ℋ⁰u_!E → ℋ⁰u_+E); u_{!+} of an irreducible is the unique irreducible subobject of ℋ⁰u_+E, and every irreducible holonomic module is u_{!+} of a smooth one (Abe–Caro). (Corollary 2.6.2) For j : U → X open with complement i : Z → X, j_{!+}E is the unique extension F with i^+F ∈ D^{≤−1} and i^!F ∈ D^{≥1}; if X is smooth, U dense and F smooth, j_{!+}(F|_U) ≅ F. For k = F_q and ι : K̄ ≅ C, ι-mixed and ι-pure complexes are stable under the operations with the usual weight bounds (f_+, f^! raise, f_!, f^+ lower), u_{!+} preserves purity, and (Theorem 2.6.4) an ι-pure F-holonomic module is semisimple in Hol(X/L), and an ι-pure F-holonomic complex F is isomorphic in D(X/L) to ⊕_n ℋ^n(F)[−n].",
+      "locator": "§2.6, §2.6.1, Corollary 2.6.2, §2.6.3, Theorem 2.6.4, p. 19 (Abe–Caro, Amer. J. Math. 140 (2018) 1.3–1.4, 4.1–4.3)",
+      "status": "missing",
+      "note": "The printed 2.6.2(ii) omits 'U dense' and the printed 2.6.4(ii) has [n] for [−n] (sourceIssues). The paper transfers Abe–Caro's decomposition from overholonomic modules to Hol(X/L) by 'the same argument'."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/15",
+      "kind": "definition",
+      "name": "Nearby and vanishing cycles for arithmetic D-modules",
+      "statement": "For f : X → A¹ with U = f^{−1}(G_m) and X_0 = f^{−1}(0), Abe–Caro's unipotent nearby cycles Ψ^un_f(F) = lim_n Ker(j_!(F ⊗ Log^n_f) → j_+(F ⊗ Log^n_f)) and vanishing cycles Φ^un_f are exact functors with a triangle i^+[−1] → Ψ^un_f → Φ^un_f, and (𝔻 ∘ Ψ^un_f)(1) ≅ Ψ^un_f ∘ 𝔻, 𝔻 ∘ Φ^un_f ≅ Φ^un_f ∘ 𝔻 (Proposition 2.7.2). Here Log^n has connection ∇(g log^{[i]}) = ∂g log^{[i]} + (g/t)log^{[i−1]} and Frobenius log^{[i]} ↦ q^i log^{[i]}. For a strictly henselian trait S in Pro(k), Abe's Ψ_f and Φ_f are the limits over henselian traits generically étale over S of the unipotent ones.",
+      "locator": "§2.7, (2.7.1.1)–(2.7.4.2), Proposition 2.7.2, pp. 20–21 (Abe–Caro, Selecta Math. 24 (2018) §2; Abe, Nagoya Math. J. 236 (2019))",
+      "status": "missing",
+      "note": "Recalled; no stage plans p-adic nearby cycles."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/16",
+      "kind": "theorem",
+      "name": "Universal local acyclicity for arithmetic D-modules",
+      "statement": "For f : X → S with S smooth, M ∈ D(X) is locally acyclic (LA) over f if M ⊗ f^+N → (M ⊗̃ f^!N)(d_S)[2d_S] is an isomorphism for all N ∈ D(S), and ULA if this persists after every base change S′ → S of smooth k-schemes. (Proposition 2.8.3) Every M is ULA over Spec k; LA is preserved by smooth pullback (and descends along smooth surjections), by composition with smooth S → S′, by proper pushforward (and detected by closed immersions), and by duality. (Proposition 2.8.5) If D ⊂ S is a smooth divisor, i : Z = f^{−1}(D) → X, M LA over f with M|_U holonomic, then M ≅ j_{!+}(M|_U), i^+M[−1] ≅ i^!M(1)[1], both are holonomic, and i^+M[−1] is LA over f|_Z : Z → D. (Corollary 2.8.6) ULA objects have vanishing Φ^un and Φ after base change to any strictly henselian trait. (Corollary 2.8.7) On smooth X, an M that is ULA over the identity has smooth constructible (and holonomic) cohomology modules. The notions extend to ind-schemes and algebraic stacks, with nearby cycles for families over curves.",
+      "locator": "§2.8, Definition 2.8.2, Propositions 2.8.3 and 2.8.5, Corollaries 2.8.6–2.8.7, §2.8.8, (2.8.1.1)–(2.8.5.3), pp. 21–23",
+      "status": "missing",
+      "note": "New in this paper, after Braverman–Gaitsgory. Proofs of 2.8.5(ii) and of the amplitude induction in 2.8.7 are left to the reader or compressed; the statements check out. (The proof of 2.8.3(i) writes the twist (2d_S) for (d_S), sourceIssues.)"
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/17",
+      "kind": "definition",
+      "name": "Local monodromy of p-adic differential modules",
+      "statement": "MC(R_K/K) is the category of differential modules over the Robba ring R_K, MC(R/K̄) its base change, and MCF those with Frobenius structure. Unipotent objects form MC^uni ≃ Vec^nil via (V, N) ↦ (V ⊗ R, ∇_N) with ∇_N(v ⊗ 1) = Nv ⊗ dx/x, so the Tannakian group of MC^uni is G_a; MCF is Tannakian with group 𝒢 ≅ I × G_a and slope filtration 𝒢^{>λ}, 𝒢^{>0} ≅ P (André). The p-adic local monodromy theorem holds, and the irregularity of an object of MCF equals the Swan conductor of the associated representation (Matsuda, Tsuzuki); the restriction functor |_x : Isoc^†(X/K) → MC(R_K/K) at a point at infinity of a curve.",
+      "locator": "§2.9.1, (2.9.1.1), §2.9.3, (2.9.3.1), pp. 23–24 (André, Invent. Math. 148 (2002); Matsuda; Christol–Mebkhout; Kedlaya; Mebkhout; Tsuzuki)",
+      "status": "missing",
+      "note": "RD.2 plans the p-adic local monodromy theorem and its logarithmic solutions; the Tannakian description of MC and MCF and the irregularity–Swan comparison are the extra precise leaves this paper uses."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/18",
+      "kind": "theorem",
+      "name": "Solutions, log extensions and nearby cycles at a unipotent point",
+      "statement": "(2.9.2) With K{x} the functions on the open unit disc and d = x d/dx, a unipotent (M, ∇) ∈ MC(R_K/K) with associated (V, N) extends to a log ∇-module over K{x}, and Sol(M) = Hom_{K{x}}((M, ∇), (K{x}, d))^{∇=0} ≅ Coker(N)^∨ canonically. (2.9.3) If E ∈ Isoc^†(X/K) is unipotent at x, it extends to a log-isocrystal E^log with a log pole at x (Kedlaya, Compos. Math. 143 (2007) 6.3.2), whose fibre E^log_x is a (φ, N)-module with φ^{−1}Nφ = qN. (Proposition 2.9.4) For X = G_m ⊂ P¹ and E unipotent at 0, E^log_0 ≅ Ψ(E), with Frobenius, for the nearby cycle functor Ψ defined by the identity.",
+      "locator": "§2.9.2–2.9.4, (2.9.2.1)–(2.9.2.2), Proposition 2.9.4, p. 24",
+      "status": "missing",
+      "note": "The printed (2.9.2.2) identifies Sol(M) with Coker(N) itself (sourceIssues); the uses in §§5 and A need only its dimension. Proposition 2.9.4 follows the arguments of Abe–Caro, Selecta 2.4(1) and Amer. J. Math. 3.4.19: for n at least the nilpotency index, v ↦ Σ_i (−N)^i v ⊗ log^{[i]} identifies V with the kernel defining Ψ, compatibly with Frobenius because Nφ = qφN."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/19",
+      "kind": "theorem",
+      "name": "Hyperbolic localisation for arithmetic D-modules",
+      "statement": "Let X be quasi-projective with X ⊗ k̄ connected and normal, with a G_m-action; X^0 the fixed points, X^+ the attractor and X^− the repeller (Drinfeld–Gaitsgory), with sections f, f′ of π : X^+ → X^0, π′ : X^− → X^0 and g, g′ locally closed on components. For F ∈ D(X) put F^{!+} = f^!g^+F and F^{+!} = f′^+g′^!F; F is weakly equivariant if μ^+F ≅ L[−1] ⊠ F for a smooth L on G_m. (Theorem 2.10.2) (i) There is a canonical morphism ι_F : F^{+!} → F^{!+}, an isomorphism for weakly equivariant F. (ii) The canonical morphisms F^{!+} = f^!g^+F → π_!g^+F and π′_+g′^!F → f′^+g′^!F = F^{+!} are isomorphisms for weakly equivariant F.",
+      "locator": "§2.10, §2.10.1–2.10.6, Theorem 2.10.2, Lemma 2.10.6, pp. 25–26 (Braden, Transform. Groups 8 (2003))",
+      "status": "missing",
+      "note": "Proved as in Braden via Sumihiro's equivariant embedding and Lemma 2.10.6 (Braden's Lemma 6) for a projective bundle, with details left to the reader. The printed (ii) has the first canonical map in the wrong direction, and the construction of ι_F in 2.10.3 asserts an isomorphism that fails for X = P¹ (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/20",
+      "kind": "definition",
+      "name": "Affine Grassmannian, Schubert varieties, convolution and Beilinson–Drinfeld Grassmannians",
+      "statement": "For split reductive G over k = F_q: LG and L^+G are the fpqc sheaves R ↦ G(R((t))), G(R[[t]]); Gr_G = LG/L^+G is ind-projective (replaced by its reduction); for μ ∈ X_•(T)^+ the L^+G-orbit Gr_μ is smooth quasi-projective of dimension ⟨2ρ, μ⟩ with open immersion into its closure Gr_{≤μ} = ∪_{λ≤μ} Gr_λ, and L^+G acts on Gr_{≤μ} through a smooth connected jet group G_i. The convolution Grassmannian Gr ×̃ Gr = LG ×^{L^+G} Gr has the ind-proper map m([g, [h]]) = [gh]. For a smooth curve X, Gr_{G,X^n} (x ∈ X^n, a G-torsor on X_R and a trivialisation off Γ_x) is ind-projective over X^n, with Gr_X ≅ Gr × X for X = A¹, Gr_{X²} ×_{X²,Δ} X ≅ Gr_X, the S_2-equivariant factorisation Gr_{X²}|_U ≅ (Gr_X × Gr_X)|_U off the diagonal, and the global convolution m : Gr_X ×̃ Gr_X → Gr_{X²}, an isomorphism over U.",
+      "locator": "§3.1.1, §3.1.6, §3.2.1, §3.2.3–3.2.4, (3.1.6.1), (3.2.3.1)–(3.2.4.2), pp. 26–29",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1"
+      ],
+      "note": "The geometry of classical (equal-characteristic) geometric Satake, as in Zhu's Park City notes §§1–3; GlobalShtukasAndFunctionFieldLanglands GS.1 plans the Beilinson–Drinfeld Grassmannian over powers of a curve, convolution and collision/factorisation maps."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/21",
+      "kind": "theorem",
+      "name": "Semi-infinite orbits and Mirković–Vilonen dimensions",
+      "statement": "Let S_λ = i(π^{−1}(L_λ)) and T_λ = i′(π′^{−1}(L_λ)) for Gr_T ← Gr_B → Gr_G and Gr_T ← Gr_{B^op} → Gr_G, L_λ = t^λ ∈ Gr_T(k). (i) S_{≤λ} = ∪_{λ′≤λ} S_{λ′} is closed and S_λ is open dense in it. (ii) For μ ∈ X_•(T)^+, Gr_μ ∩ S_λ (resp. Gr_μ ∩ T_λ) is non-empty iff L_λ ∈ Gr_{≤μ}, equivalently wλ ≤ μ for every w ∈ W (i.e. the dominant conjugate of λ is ≤ μ); it then has pure dimension ⟨ρ, λ + μ⟩ (resp. ⟨ρ, μ − λ⟩).",
+      "locator": "§3.4.1–3.4.2, Proposition 3.4.2, p. 31 (Mirković–Vilonen 3.1–3.2; Zhu, Park City notes 5.3.6)",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1"
+      ],
+      "note": "Stated with corrections: the printed proposition gives dimension ρ(λ + μ) for both intersections and the equivalent condition 'there exists w ∈ W with wλ ≤ μ' (sourceIssues). This is Mirković–Vilonen's geometry, part of the classical Satake proof GlobalShtukasAndFunctionFieldLanglands GS.1 plans."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/22",
+      "kind": "definition",
+      "name": "The Satake category of arithmetic D-modules",
+      "statement": "Over the geometric base tuple {k, R, K, L}, Sat_G is the category of L^+G-equivariant holonomic arithmetic D-modules on Gr_G (a full subcategory of Hol(Gr_G)), with IC_μ = j_{μ,!+}(L_{Gr_μ}[⟨2ρ, μ⟩]) for μ ∈ X_•(T)^+; the convolution A_1 ⋆ A_2 = m_+(A_1 ⊠̃ A_2) uses the twisted external product on Gr ×̃ Gr.",
+      "locator": "§3.1.1 and §3.1.6, (3.1.6.2), pp. 26–28",
+      "status": "missing",
+      "note": "Equivariant holonomic modules are those of §2.5.6; for A_X on Gr_X one uses A_X = A ⊠ L_X[1], which is ULA over X and gives a fully faithful ι : D(Gr) → D(Gr_X) (3.2.2, via Proposition 2.4.4)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/23",
+      "kind": "theorem",
+      "name": "Semisimplicity of the Satake category",
+      "statement": "(Proposition 3.1.2) Sat_G is semisimple with simple objects IC_μ, μ ∈ X_•(T)^+. (Lemma 3.1.3) Sm(Gr_μ) is semisimple with simple object L_{Gr_μ}, and H¹(Gr_μ, L) = 0. (Lemma 3.1.4) The constructible cohomology cH^i(IC_μ) vanishes unless i ≡ dim Gr_μ mod 2.",
+      "locator": "§3.1, Proposition 3.1.2, Lemmas 3.1.3–3.1.4 and §3.1.5, (3.1.5.1), pp. 26–27",
+      "status": "missing",
+      "note": "Proof: Ext¹(IC_λ, IC_μ) = 0 in three cases (λ = μ by H¹ = 0 for the affine bundle Gr_μ → G/P_μ; comparable λ, μ by parity; incomparable by base change as in Baumann–Riche 4.3). Lemma 3.1.3 cites simple connectivity of Gr_μ ⊗ k̄ (Richarz), Abe's companions with finite determinant and Abe–Esnault's companion theorem with Čebotarev."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/24",
+      "kind": "theorem",
+      "name": "Fusion and the monoidal structure on Sat_G",
+      "statement": "For A_1, A_2 ∈ Sat_X: (i) m_+(A_1 ⊠̃ A_2) ≅ j_{!+}(A_1 ⊠ A_2|_U) =: A_1 ⊠* A_2 on Gr_{X²}, ULA over X² and (L^+G)_{X²}-equivariant; (ii) Δ^+[−1](A_1 ⊠* A_2) ≅ Δ^!(A_1 ⊠* A_2)(1)[1], and the fusion product A_1 ⊛ A_2 := Δ^+[−1](A_1 ⊠* A_2) is ULA over X. For A_1, A_2 ∈ Sat_G: (A_1 ⋆ A_2)_X ≅ A_{1,X} ⊛ A_{2,X}; A_1 ⋆ A_2 is holonomic and lies in Sat_G; and (Sat_G, ⋆, IC_0) and (Sat_X, ⊛, IC_{0,X}) are monoidal categories.",
+      "locator": "§3.2, Proposition 3.2.5, Corollary 3.2.6, (3.2.5.1), (3.2.6.1), p. 29",
+      "status": "missing",
+      "note": "Uses ULA descent along smooth surjections (Proposition 2.8.3; the printed proof cites (iii) where the smooth-descent part is meant) and Proposition 2.8.5(i). The Tate twist (1) of Proposition 2.8.5 is dropped in the printed (ii) (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/25",
+      "kind": "theorem",
+      "name": "The hypercohomology fibre functor",
+      "statement": "H^* : Sat_G → Vec_L, A ↦ ⊕_n H^n(Gr, A), is exact, faithful and monoidal: by Künneth q_+(A_X)[−1] ≅ π_+(A) ⊠ L_X, and q_+(A_1 ⊛ A_2)[−1] ≅ q_+(A_1)[−1] ⊗ q_+(A_2)[−1] (Lemma 3.3.2), compatibly with Frobenius structures (Remark 3.3.4). The swap of X² gives c′ : A_1 ⋆ A_2 ≅ A_2 ⋆ A_1 with H^*(c′) the super-commutativity constraint s ⊗ t ↦ (−1)^{ij} t ⊗ s.",
+      "locator": "§3.3, (3.3.1.1)–(3.3.5.3), Lemma 3.3.2, Corollary 3.3.3, Remark 3.3.4, pp. 30–31",
+      "status": "missing",
+      "note": "Faithfulness also uses H^*(IC_μ) ≠ 0, which follows from Proposition 3.4.3. The last step of Lemma 3.3.2 (an isomorphism on U and on Δ^!) needs, besides the distinguished triangle, that the cohomology modules are constant on A² — true since each is j_{!+} of its restriction to U."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/26",
+      "kind": "theorem",
+      "name": "Weight functors via hyperbolic localisation",
+      "statement": "(Proposition 3.4.3) (i) For A ∈ Sat_G, H^i_c(S_λ, A) ≅ H^i_{T_λ}(Gr_G, A), and both vanish for i ≠ ⟨2ρ, λ⟩. (ii) dim H^{⟨2ρ,λ⟩}_c(S_λ, IC_μ) is the number of irreducible components of S_λ ∩ Gr_μ over k̄; over the arithmetic tuple {k, R, K, L, s, id_L}, Frobenius acts on it by q^{⟨ρ,λ+μ⟩} when these components are defined over k. (iii) H^i(Gr_G, A) ≅ ⊕_λ H^i_c(S_λ, A). (Proposition 3.4.4) H^{⟨2ρ,λ⟩}_c(S_λ, A_1 ⋆ A_2) ≅ ⊕_{λ_1+λ_2=λ} H^{⟨2ρ,λ_1⟩}_c(S_{λ_1}, A_1) ⊗ H^{⟨2ρ,λ_2⟩}_c(S_{λ_2}, A_2), proved by extending S_λ, T_λ to Gr_{X²} (3.4.5–3.4.6).",
+      "locator": "§3.4, Propositions 3.4.3–3.4.4, §3.4.5–3.4.6, (3.4.3.1)–(3.4.6.6), pp. 31–33",
+      "status": "missing",
+      "note": "Braden's theorem for arithmetic D-modules (Theorem 2.10.2) replaces the ℓ-adic one in Mirković–Vilonen 3.5–3.6. The Frobenius claim in (ii) rests on Corollary 2.4.3, which needs the top-dimensional components of S_λ ∩ Gr_μ to be defined over k; 3.4.6 has a uniform index shift; the normality claims of 3.4.5 fail when p divides |π_1(G_der)| (all in sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/27",
+      "kind": "theorem",
+      "name": "Symmetric monoidal structure and neutral Tannakian category",
+      "statement": "With the parity p(μ) = ⟨2ρ, μ⟩ mod 2, H^i(Gr, IC_μ) = 0 for i ≢ p(μ) mod 2, and c_{A_1,A_2} = (−1)^{p(A_1)p(A_2)}c′_{A_1,A_2} (extended by semisimplicity) makes (Sat_G, ⋆, IC_0, c) symmetric monoidal with H^* a tensor functor (Proposition 3.4.8); with H^* it is a neutral Tannakian category over L (Theorem 3.5.1), whose group G̃ = Aut^⊗H^* is a connected reductive group over L (Proposition 3.5.2: IC_{μ_1+μ_2} is a summand of IC_{μ_1} ⋆ IC_{μ_2}, so Sat_G is finitely generated; no non-trivial tensor subcategory has finitely many simple objects; semisimplicity).",
+      "locator": "§3.4.7–3.5.2, (3.4.7.1)–(3.4.7.3), Proposition 3.4.8, Theorem 3.5.1, Proposition 3.5.2, p. 33",
+      "status": "missing",
+      "note": "Following Mirković–Vilonen after Remark 6.2 and Zhu's notes 5.2.9. The printed parity map is written μ ↦ (−1)^{2ρ(μ)} ∈ Z/2Z (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/28",
+      "kind": "theorem",
+      "name": "Geometric Satake for arithmetic D-modules: the dual group",
+      "statement": "The Tannakian group G̃ of (Sat_G, H^*) is the Langlands dual group of G over L: for a maximal torus T̃ its root datum is dual to that of (G, T). Steps: the torus case (Gr_{T,red} is discrete, indexed by X_•(T)); the constant-term functor CT : Sat_G → Sat_T, A ↦ (H^*_c(S_λ, A))_λ, with H^*_G ≅ H^*_T ∘ CT a tensor functor, giving a closed subtorus Ť ≅ T̃ ⊂ G̃ (Deligne–Milne 2.21(b)) that is maximal (Lemma 3.5.6); the Borel with 2ρ dominant has X^•(Ť)^+ = X_•(T)^+ and simple roots the simple coroots of G, which determine the root datum. Hence Hol_{L^+G}(Gr_G/K) ≅ Rep(Ǧ) as monoidal categories.",
+      "locator": "§3.5, Theorem 3.5.3, Lemmas 3.5.4, 3.5.6, §3.5.5, §3.5.7, (3.5.5.1)–(3.5.5.3), pp. 33–34; Theorem 1.3.6(i), p. 8",
+      "status": "missing",
+      "note": "Theorem 1.3.6(i) of the introduction. The p-adic realisation of the motivic Satake equivalence is not available, so the proof is carried out directly with arithmetic D-modules."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/29",
+      "kind": "theorem",
+      "name": "Tannakian categories with a semilinear Z-action",
+      "statement": "Let (C, ω) be a neutralised Tannakian category over L with σ^n-semilinear tensor autoequivalences τ_n, isomorphisms α_n : ω ∘ τ_n ≅ σ^n ∘ ω and compatible ε : τ_m ∘ τ_n ≅ τ_{m+n}; this defines ι : Z → Aut(H(L)), H the Tannakian group. C^Z is the category of (X, {c_n : τ_nX ≅ X}) with c_{n+m} = c_n ∘ τ_n(c_m). (Proposition 3.6.4) For split reductive H over L, Rep_L(H) → Rep_L(H(L)) is fully faithful. (Proposition 3.6.5) (i) C^Z is a Tannakian category over L_0 = L^{σ=1} neutralised by ω over L; (ii) if H is split reductive, ω induces C^Z ≅ Rep°_{L,σ}(H(L) ⋊ Z), the σ-semilinear representations whose restriction to H(L) is algebraic.",
+      "locator": "§3.6.1–3.6.5, (3.6.2.1), (3.6.5.1)–(3.6.5.3), pp. 34–36",
+      "status": "missing",
+      "note": "After Richarz–Zhu's appendix to Zhu's ramified Satake paper. Essential surjectivity in 3.6.5(ii) is left to the reader; with ι as defined, the representation (3.6.5.3) is one of the semidirect product formed through ι^{−1} in the standard convention, a relabelling."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/30",
+      "kind": "theorem",
+      "name": "Geometric Satake with Frobenius structures",
+      "statement": "Let F-Sat_G be the category of objects of Sat_G with a Frobenius structure for an arithmetic tuple {k, R, K, L, t, σ}. (i) F-Sat_G ≅ Sat_G^Z is a Tannakian category over L_0 neutralised by H^* over L, and neutral if t = s and σ = id_L. (ii) F-Sat_G ≅ Rep°_{L,σ}(Ǧ(L) ⋊ Z), compatibly with fibre functors. For t = s, σ = id_L and p^{1/2} ∈ L, the Weil-normalised objects IC^Weil_μ = j_{μ,!+}(L_{Gr_μ}[⟨2ρ, μ⟩])(⟨ρ, μ⟩) (μ dominant) have weight 0, their direct sums form a subcategory S closed under ⋆, and Sat : Rep_L(Ǧ) ≅ Sat_G ≅ S. The action of Aut(G) on Gr_G gives ι : Aut(G) → Aut(Ǧ) factoring through Out(G) ≅ Aut^†(Ǧ, B̌, Ť, N) for a natural pinning, with σ^*Sat(V) ≅ Sat(ι(σ)V).",
+      "locator": "§3.6.6–3.6.10, Theorem 3.6.7, (3.6.7.1), (3.6.8.1), Lemma 3.6.10, p. 36; Theorem 1.3.6(ii), p. 8",
+      "status": "missing",
+      "note": "Theorem 1.3.6(ii). Closure of S under ⋆ uses that Frobenius acts on H^i(IC^Weil_μ) by q^{i/2} (Proposition 3.4.3(ii)) and that an object whose summands are IC_ν ⊗ (M_ν, φ_ν) is determined by the Frobenius on its cohomology. Lemma 3.6.10 follows HNY B.2 and Richarz–Zhu A.6. The printed IC^Weil_μ applies j_{!+} before the shift (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/31",
+      "kind": "definition",
+      "name": "Heinloth–Ngô–Yun level groups and moduli of bundles on P¹",
+      "statement": "For split reductive G with B ⊃ T and coordinate x on P¹ (y = x^{−1} at ∞): I(0) = {g ∈ G(k[[y]]) : g(0) ∈ B}, I(1) its pro-unipotent radical, I(2) = Z(G)(1)[I(1), I(1)] (so I(2) = [I(1), I(1)] for G semisimple and I(2) = I(1) for a torus), I(i)^op ⊂ G(k[[x]]) the opposite ones; I(1)/I(2) ≅ ⊕_{α affine simple} U_α, and Ω = N_{G(k((x)))}(I(0)^op)/I(0)^op. G(m, n) is the group scheme on P¹ equal to G × X on X with G(m, n)(O_0) = I(m)^op and G(m, n)(O_∞) = I(n). The connected components of Bun_{G(0,n)} are in bijection with Ω via Hecke modifications Hk_γ at 0, with base points i_γ = Hk_γ(⋆), and j : Ω × I(1)/I(2) → Bun_{G(0,2)} is the open immersion of the big cell.",
+      "locator": "§4.1.1, (4.1.1.1)–(4.1.1.2), pp. 37–38 (Heinloth–Ngô–Yun §§1.2–1.3)",
+      "status": "missing",
+      "note": "The paper's I(2) differs from HNY 1.2 when G is not semisimple but agrees for GL_n. GlobalShtukasAndFunctionFieldLanglands GS.0 plans Bun_G with level structures for a smooth model on a curve; this item is the specific Iwahori/Moy–Prasad data at 0 and ∞, imported from GS.0's general construction."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/32",
+      "kind": "definition",
+      "name": "Geometric Hecke operators and Hecke eigen-modules for holonomic D-modules",
+      "statement": "Hk^X_{G(m,n)} is the stack of (E_1, E_2, x, β) with E_i ∈ Bun_{G(m,n)}, x ∈ X and β : E_1 ≅ E_2 off Γ_x, with pr_1, pr_2 : Hk → Bun, Bun × X and a smooth atlas U → Bun trivialising both projections as U × Gr_{G,X}. For V ∈ Rep(Ǧ), IC_V on Hk is the smooth descent of K_{U×X} ⊠ Sat(V), and Hk_V(M) = pr_{2,!}(pr_{1,V}^+(M) ⊗ IC_V) : D(Bun_{G(m,n)}) → D(Bun_{G(m,n)} × X). A Ǧ-valued overconvergent (F-)isocrystal on X is a tensor functor E : Rep(Ǧ) → Sm(X/L) (resp. Sm(X/L_F)); a Hecke eigen-module with eigenvalue E is a holonomic M with isomorphisms Hk_V(M) ≅ M ⊠ E_V compatible with the tensor structure and composition of Hecke operators (Beilinson–Drinfeld 5.4.2).",
+      "locator": "§4.1.2, (4.1.2.1)–(4.1.2.4), p. 38",
+      "status": "missing",
+      "note": "Uses the geometric Satake equivalence for arithmetic D-modules of §3 (Sat) and the six operations on stacks of §2."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/33",
+      "kind": "theorem",
+      "name": "Cleanness of the Artin–Schreier module on the big cell",
+      "statement": "Fix ψ and π with π^{p−1} = −p, the Dwork F-isocrystal A_ψ on A¹ and a generic linear function φ : I(1)/I(2) → A¹ (an isomorphism on each U_α); A_{ψφ} = φ^+A_ψ. (i) j_{γ,!}(A_{ψφ}) → j_{γ,+}(A_{ψφ}) is an isomorphism. (ii) M ↦ j_{γ,!}(A_{ψφ}) ⊠ M is an equivalence Hol(X) ≅ Hol(Bun^γ_{G(0,2)} × X)^{I(1)/I(2), A_{ψφ}}, with quasi-inverse N ↦ (i_γ × id)^+N ≅ (i_γ × id)^!N. A_{ψφ} denotes (j_{γ,!}(A_{ψφ})[dim Bun])_{γ∈Ω}.",
+      "locator": "§4.1.3 and Lemma 4.1.4, pp. 38–39",
+      "status": "missing",
+      "note": "The arithmetic D-module version of Heinloth–Ngô–Yun Lemma 2.3, by the same argument."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/34",
+      "kind": "theorem",
+      "name": "Kloosterman F-isocrystals as Hecke eigenvalues",
+      "statement": "(Theorem 4.1.5) For (m, n) = (0, 2), A_{ψφ} is a Hecke eigen-module whose eigenvalue is a Ǧ-valued overconvergent F-isocrystal Kl^rig_Ǧ(ψφ) : Rep(Ǧ) → Sm(X/L_F), and each Kl^rig_{Ǧ,V}(ψφ) is pure of weight 0. (Lemma 4.1.6) Hk_V(A_{ψφ})[1] is holonomic. Concretely, with GR ≅ Gr_G × X, GR°_V its part over the big cell and p_1°, p_2° as in (4.1.8.2), E_V ≅ p°_{2,!}(p°^+_{1,V}(A_{ψφ}) ⊗ IC_V|_{GR°}) and the map to p°_{2,+} of the same object is an isomorphism.",
+      "locator": "§4.1.5–4.1.8, Theorem 4.1.5, Lemma 4.1.6, (4.1.8.1)–(4.1.8.4), pp. 39–40",
+      "status": "missing",
+      "note": "Proof: cleanness on the Hecke stack, ULA of IC_V over X (so its vanishing cycles vanish), commutation of vanishing cycles with smooth pullback and proper pushforward (Abe), and smoothness of an object with vanishing Φ; purity from the equality of ! and + pushforwards."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/35",
+      "kind": "theorem",
+      "name": "Trivial functoriality, exceptional isomorphisms and symmetries of Kl^rig",
+      "statement": "(i) If G′ → G induces G′_ad ≅ G_ad, then Kl^rig_{Ǧ′} ≅ Kl^rig_Ǧ ∘ Res along Ǧ → Ǧ′; hence Kl^rig_{SL_2,Sym²} ≅ Kl^rig_{SO_3,Std}, Kl^rig_{Sp_4, ker(∧²→1)} ≅ Kl^rig_{SO_5,Std}, Kl^rig_{SO_4,Std} ≅ Kl^rig_{SL_2×SL_2, Std⊠Std} and Kl^rig_{SO_6,Std} ≅ Kl^rig_{SL_4,∧²}. (ii) For δ = (a, σ) ∈ (G_m × Aut(G, B, T))(k), Kl^rig_{Ǧ,V}(ψ(φ∘δ)) ≅ a^+Kl^rig_{Ǧ,ι(σ^{−1})V}(ψφ); so Kl^rig_Ǧ(ψφ) depends only on the T_ad-orbit of φ, and Kl_Ǧ(ψ_aφ) ≅ (a^h)^+Kl_Ǧ(ψφ). (iii) If Ǧ is almost simple not of type A_{2n}, or p = 2, then Kl^rig_{Ǧ,V} ≅ Kl^rig_{Ǧ,ι(σ^{−1})V} for σ ∈ Out(G); if G is of type A_{2n} and p > 2, Kl^rig_{Ǧ,V} ≅ (−1)^+Kl^rig_{Ǧ,V^∨}.",
+      "locator": "§4.1.9–4.1.10, (4.1.9.1)–(4.1.10.5), pp. 40–41",
+      "status": "missing",
+      "note": "Proved from the G_m × Aut(G, B, T)-action on the Hecke diagram and on the Satake category (Lemma 3.6.10: ι : Aut(G) → Aut(Ǧ, B̌, Ť, N))."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/36",
+      "kind": "definition",
+      "name": "Kloosterman F-isocrystals with a multiplicative character, and the ℓ-adic and de Rham variants",
+      "statement": "(4.1.11) For T̃ = N_{G(k((x)))}(I(0)^op)/I(1)^op (an extension of Ω by T), a splitting s : T ⋊ Ω ≅ T̃ and a character χ : T(k) → K^×, the same construction on Bun_{G(1,2)} with K_χ ⊠ A_{ψφ} gives Kl^rig_Ǧ(ψφ, χ, s), pure of weight 0, with Kl^rig_Ǧ(ψφ) = Kl^rig_Ǧ(ψφ, 1, s). (4.1.12) Heinloth–Ngô–Yun's ℓ-adic Ǧ-local system Kl^{et,ℓ}_Ǧ(ψφ, χ, s) has the same Frobenius traces as Kl^rig_Ǧ(ψφ, χ, s) at every closed point, via ι : K̄ ≅ Q̄_ℓ (trace formula and Gabber–Fujiwara ℓ-independence). (4.1.13) Replacing AS_ψ by E_λ = K⟨x, ∂_x⟩/(∂_x − λ) and K_χ by the Kummer D-module gives a Ǧ-connection Kl^dR_Ǧ(λφ, χ, s) : Rep(Ǧ) → Conn(X_K) (HNY 2.6).",
+      "locator": "§4.1.11–4.1.13, (4.1.12.1), (4.1.13.1)–(4.1.13.2), pp. 41–42",
+      "status": "missing",
+      "note": "The ℓ-adic Kloosterman sheaves of Heinloth–Ngô–Yun (Ann. of Math. 177 (2013)) are not planned anywhere; the trace comparison uses Abe–Caro's trace formula and ℓ-independence."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/37",
+      "kind": "theorem",
+      "name": "Kl^dR and Kl^rig agree after analytification",
+      "statement": "Over R with residue field k and L = K, for a generic linear function φ over R (generic modulo the maximal ideal), a character χ̄ : T(k) → K^× lifting to χ : T → G_m, and a splitting s over R, for every V ∈ Rep(Ǧ) there is a canonical isomorphism of O_X-modules with connection ι_V : (Kl^dR_{Ǧ,V}(−πφ, χ, s))^† ≅ Kl^rig_{Ǧ,V}(φ, χ̄, s), compatible with tensor structures; here O_X = O_{P̂¹,Q}(†{0, ∞}).",
+      "locator": "§4.2, Theorem 4.2.1, (4.2.1.1), p. 42; proof §4.2.2–4.2.8, pp. 43–46",
+      "status": "missing",
+      "note": "Minuscule V: the specialisation map H*_dR((GR°_{V,s})_K, M_s) → H*_rig((GR°_{V,s})_k, 𝓜_s) is an isomorphism concentrated in degree 0 (Lemma 4.2.3), then the relative specialisation map and faithful flatness of A^† → A^0. Quasi-minuscule V: the same for intermediate extensions from the smooth locus (Lemma 4.2.6), with overconvergence checked on a dense open (Ogus 2.16, Kedlaya 6.3.2). General V: direct summands of tensor products of minuscule and quasi-minuscule representations."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/38",
+      "kind": "theorem",
+      "name": "Fibrewise comparison of twisted de Rham and rigid cohomology",
+      "statement": "(Lemma 4.2.3) For V minuscule, s ∈ X(k) lifted to X(R), M = p_1^+(E_{−π})[dim Gr_λ] and 𝓜 = p_1^+(A_ψ)[dim Gr_λ], the specialisation map H*_dR((GR°_{V,s})_K, M_s) → H*_rig((GR°_{V,s})_k, 𝓜_s) is an isomorphism and both vanish outside degree 0. (Lemma 4.2.6) For V quasi-minuscule, with τ = p_2° ∘ j : GR°°_V → X on the smooth locus: (i) τ_{k,+}(𝓜)[1] and τ_{K,+}(M)[1] are holonomic; (ii) the specialisation map induces H⁰_dR((GR°_{V,s})_K, j_{!+}(M_s)) ≅ H⁰((GR°_{V,s})_k, j_{!+}(𝓜_s)).",
+      "locator": "§4.2.2–4.2.7, Lemma 4.2.3 and Lemma 4.2.6, pp. 43–45",
+      "status": "missing",
+      "note": "Uses the compatibility of specialisation and cospecialisation maps (Proposition 2.2.5), cleanness (4.1.8.4) and the smooth compactification Gr_λ (resp. the Demazure-type resolution of Gr_{≤λ}, Ngô–Polo §7)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/39",
+      "kind": "theorem",
+      "name": "Zhu: Kloosterman connections are Frenkel–Gross connections",
+      "statement": "There is a canonical isomorphism of affine schemes g*_aff(1)//T ≅ ǧ_aff(1)//Ť such that if the T_ad-orbit of λφ matches the Ť_ad-orbit of ξ̌ then Kl^dR_Ǧ(λφ) ≅ Be_Ǧ(ξ̌) as Ǧ-bundles with connection on X. The isomorphism is the one compatible with the Hitchin maps to Γ(X, c* ×^{G_m} ω_X) ≅ Γ(X, č ×^{G_m} ω_X); for G almost simple, λφ matches ξ̌ iff λ^h P_r(φ) = P̌_r(ξ̌) for matching invariant polynomials of degree h = ȟ.",
+      "locator": "§4.3, Theorem 4.3.3, (4.3.3.1), (4.3.4.1)–(4.3.4.2), pp. 47–49",
+      "status": "missing",
+      "note": "Proof: quantise the classical duality to U(Lie I(1)/I(2))^T ≅ Fun Op_ǧ (Zhu 2017, Lemma 21), where Op_ǧ is the space of Ǧ_ad-opers on X regular singular with principal unipotent monodromy at 0 and of slope ≤ 1/ȟ at ∞ (Beilinson–Drinfeld §3), and apply the Galois-to-automorphic direction of Beilinson–Drinfeld (Zhu 2017) for Ǧ adjoint. For general Ǧ: a de Rham Ǧ-local system inducing Be_{Ǧ_ad} with unipotent monodromy at 0 is unique, since two differ by a Ž-local system on A¹, which must be trivial. Strengthens Zhu, Selecta Math. 23 (2017), which had the adjoint case."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/40",
+      "kind": "definition",
+      "name": "The Bessel F-isocrystal of a reductive group",
+      "statement": "With λ = −π and ξ̌ matching −πφ, fix x and a pinning N; there is a unique E = E_φ ∈ Σ_i ǧ_{−θ̌_i} with Kl^dR_Ǧ(1·φ) ≅ d + (N + xE)dx/x, and then Kl^dR_Ǧ(−πφ) ≅ d + (N + (−π)^h xE)dx/x = Be_Ǧ(ξ̌). By Theorem 4.2.1 this endows Be^†_Ǧ(ξ̌) (Be_Ǧ(ξ̌) composed with (−)^†) with a Frobenius structure φ : F^*_{X_k} ∘ Be^†_Ǧ ≅ Be^†_Ǧ, independent of the chosen isomorphism because Aut(Be_Ǧ) = Z(Ǧ); (Be^†_Ǧ(ξ̌), φ) : Rep(Ǧ) → F-Iso^†(X_k/K) is the Bessel F-isocrystal of Ǧ. Its restriction at 0 has p-adic exponents 0, is equivalent to d + dρ(N) over the Robba ring and is unipotent, so Be^†_Ǧ factors through log convergent F-isocrystals on (A¹_k, 0) with nilpotent residue, overconvergent along ∞.",
+      "locator": "§4.4.1–4.4.2, (4.4.1.1)–(4.4.2.1), pp. 49–50",
+      "status": "missing",
+      "note": "The object in the title. The log extension uses Kedlaya's p-adic differential equations 12.6.1, 13.7.1 and Kedlaya, Compos. Math. 143 (2007), 6.3.2."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/41",
+      "kind": "theorem",
+      "name": "Frobenius structure on Bessel connections with Kloosterman traces",
+      "statement": "Let A^† = Γ(P¹_k, O_{P̂¹,Q}(†{∞})). There is a unique φ ∈ Ǧ(A^†) with x (dφ/dx) φ^{−1} + Ad_φ(N + (−π)^h xE) = q(N + (−π)^h x^q E) such that, via a fixed K̄ ≅ Q̄_ℓ, Tr(φ_a, V) = Tr(Frob_a, Kl^{et,ℓ}_{Ǧ,V,ā}(ψφ)) for every a ∈ |X| and V ∈ Rep(Ǧ), where φ_a = ∏_{i<deg a} φ(ã^{q^i}). In particular the analytification of Be_Ǧ is overconvergent and Be^†_Ǧ : Rep(Ǧ) → F-Iso^†(G_{m,F_p}/K) is a p-adic companion of Kl_Ǧ.",
+      "locator": "§4.4.3, Theorem 4.4.4, (4.4.3.1)–(4.4.4.1), p. 50; Theorem 1.2.4(i), p. 5",
+      "status": "missing",
+      "note": "The first main theorem of the paper, assembled from Theorems 4.1.5, 4.2.1 and 4.3.3 and the trace comparison of §4.1.12."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/42",
+      "kind": "theorem",
+      "name": "Frobenius of the Bessel F-isocrystal at 0",
+      "statement": "Let 2ρ be the sum of the positive coroots in X_•(Ť). Then φ_0 = 2ρ(√q) in the set of semisimple conjugacy classes of Ǧ(K̄).",
+      "locator": "§4.4.3, Proposition 4.4.5, p. 50",
+      "status": "missing",
+      "note": "φ_0^{−1}Nφ_0 = qN gives φ_0 = ερ(q) with ε central; ε = 1 by comparing the Frobenius eigenvalues on the nearby cycles Ψ(Be^†_{Ǧ,V}) with those of Ψ(Kl^{et,ℓ}_{Ǧ,V}) (ℓ-independence), whose weight graded pieces have dimension dim H^{2i}(Gr_G, IC_V) and Frobenius q^i (Görtz–Haines, HNY 4.3)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/43",
+      "kind": "definition",
+      "name": "Geometric, arithmetic and differential monodromy groups of Be_Ǧ",
+      "statement": "With L = K̄, ⟨Be^†_Ǧ⟩ ⊂ Sm(X_k/K̄), ⟨Be^†_Ǧ, φ⟩ ⊂ Sm(X_k/K̄_F) and ⟨Be_Ǧ⟩ ⊂ Conn(X_K̄) are the full subcategories of subquotients of the Be^†_{Ǧ,V}, (Be^†_{Ǧ,V}, φ) and Be_{Ǧ,V}. They are Tannakian over K̄, with groups G_geo, G_arith and G_alg, and the tensor functors from Rep(Ǧ) give closed immersions G_geo → G_arith → Ǧ and G_geo → G_alg → Ǧ.",
+      "locator": "§4.5.1, (4.5.1.1), p. 51",
+      "status": "missing",
+      "note": "Tannakian formalism for overconvergent (F-)isocrystals (Crew; Deligne, Catégories tannakiennes)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/44",
+      "kind": "theorem",
+      "name": "Monodromy groups of Bessel F-isocrystals",
+      "statement": "Let G be split almost simple over R, Ǧ its dual over K̄, Σ the outer automorphism group of Ǧ (a subgroup of Out(ǧ) depending on the isogeny type). (i) If Ǧ is not of type A_{2n} or char k > 2, G_geo → G_alg is an isomorphism; in particular G_geo ≅ Ǧ^{Σ,∘} if Ǧ is not of type A_{2n} (n ≥ 1), nor B_3, nor D_{2n} (n ≥ 2) with Σ ≠ Out(ǧ); G_geo = Ǧ if Ǧ is of type A_{2n}; G_geo ≅ G_2 if Ǧ is of type B_3 or D_4; G_geo ≅ Spin_{4n−1} if Ǧ is of type D_{2n} with Σ trivial (n ≥ 3). (ii) If Ǧ = SL_{2n+1} and char k = 2, G_geo(Be^†_{SL_{2n+1}}) = G_geo(Be^†_{SO_{2n+1}}), which is SO_{2n+1} for n ≠ 3 and G_2 for n = 3, so G_geo ≠ G_alg. (iii) G_geo → G_arith is always an isomorphism.",
+      "locator": "§4.5, Theorem 4.5.2, pp. 51–53; Theorem 1.2.7, p. 6",
+      "status": "missing",
+      "note": "The first bullet of (i) as printed excludes A_{2n} only for n ≥ 2, so for A_2 it contradicts the second bullet; the statement above uses the reading the proof supports (sourceIssues). Proof: G_geo contains the image of G_a with Lie algebra N (principal unipotent at 0), so G°_geo is semisimple containing a principal PGL_2; Lemma 4.5.5 excludes PGL_2; comparison with G_alg (Frenkel–Gross); symmetries §4.1.10 and φ_0 (Proposition 4.4.5) for G_arith; for A_{2n}, p > 2, a descent to G_m/μ_2 contradicting Swan conductor 1; for A_{2n}, p = 2, the appendix."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/45",
+      "kind": "theorem",
+      "name": "Wild ramification at ∞ and exclusion of a principal PGL_2",
+      "statement": "(Lemma 4.5.3) Restriction to ∞ gives I_∞ × G_a → G_geo, non-trivial on the wild inertia P_∞. (4.5.4) G°_geo is semisimple (Be^†_{Ǧ,V} is pure of weight 0, hence geometrically semisimple) and almost simple, with Lie algebra in one of the chains sl_2 → sp_{2n} → sl_{2n}; sl_2 → so_{2n+1} → sl_{2n+1}, so_{2n+2}; sl_2 → g_2 → so_7 → sl_7, so_8; sl_2 → f_4 → e_6; sl_2 → e_7; sl_2 → e_8. (Lemma 4.5.5) If Ǧ is not of type A_1, and not of type A_2 when p = 2, the image of G_geo in Ǧ_ad is not contained in a principal PGL_2: Irr_∞(Be^†_{Ǧ,Ad}) ≤ (ȟ + 1)r/ȟ < r + 1 by Baldassarri's bound, while Ad ≅ ⊕_i S^{2ℓ_i} over the principal PGL_2 with {ℓ_1, …, ℓ_r} the exponents of ǧ would force Irr_∞ ≥ r + 1.",
+      "locator": "§4.5, Lemma 4.5.3, §4.5.4 and Lemma 4.5.5, (4.5.5.1), pp. 51–53",
+      "status": "missing",
+      "note": "The printed proof says {ℓ_i + 1} are the exponents; the decomposition requires {ℓ_i} (sourceIssues). Cases: P_∞ acting through G_m ⊂ PGL_2 (Irr(S^{2ℓ}) ≥ ℓ − ⌊ℓ/p⌋) or, for p = 2, I_∞ ↠ A_4 (decompositions of S^{2ℓ}, ℓ ≤ 7, into A_4-representations). Baldassarri's comparison of p-adic and formal slopes (André, Filtrations de type Hasse–Arf 3.2)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/46",
+      "kind": "theorem",
+      "name": "Monodromy of ℓ-adic Kloosterman sheaves via companions",
+      "statement": "For Ǧ almost simple, the geometric and arithmetic monodromy groups of Kl^{et,ℓ}_Ǧ(ψφ) over Q̄_ℓ are those of Theorem 4.5.2. This reproves Heinloth–Ngô–Yun Theorem 3 without their restrictions on small p, and Katz's theorem for Kl_n.",
+      "locator": "§4.5, Corollary 4.5.6, p. 53",
+      "status": "missing",
+      "note": "The semisimplifications of Kl^{et,ℓ}_{Ǧ,V} and Be^†_{Ǧ,V} have the same Frobenius traces, so D'Addezio (arXiv:1711.06669, 4.1.1, 4.3.2) gives G^ℓ_arith ↠ G_arith, and both are closed subgroups of Ǧ."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/47",
+      "kind": "theorem",
+      "name": "Local monodromy of Bessel F-isocrystals at ∞",
+      "statement": "For Ǧ almost simple of rank r: (i) H^i(P¹, j_{!+}(Be^†_{Ǧ,Ad})) = 0 for all i; (ii) Irr_∞(Be^†_{Ǧ,Ad}) = r, Ad^{I_∞} = 0 and the nilpotent monodromy N_∞ = 0, so I_∞ → Ǧ is a simple wild parameter in the sense of Gross–Reeder. The same holds for Kl_Ǧ, with no restriction on p (recovering HNY Prop. 5.3). When p ∤ #W the only non-zero break of Be^†_{Ǧ,Ad} at ∞ is 1/ȟ (Gross–Reeder 5.6); for p = 2 and n odd the local parameter of Be^†_{SO_n} at ∞ is the Gross–Reeder parameter of §6.3, with I_∞ acting on the SO_3 case through A_4, which recovers André's result on Be^†_2 at p = 2.",
+      "locator": "§4.5, Corollary 4.5.7 and Remark 4.5.8, pp. 53–54; §1.2.7, p. 7",
+      "status": "missing",
+      "note": "Proof: H⁰ = H² = 0 (G_geo has no invariants on Ad, D^†-affinity, Poincaré duality), dim H¹_c = Irr_∞ ≤ r by Grothendieck–Ogg–Shafarevich and (4.5.5.1), and the localisation sequence with dim Ad^N = r at 0 forces Ad^{I_∞, N_∞} = 0."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/48",
+      "kind": "theorem",
+      "name": "Uniqueness of the Frobenius structure",
+      "statement": "Any two Frobenius structures on Be^†_Ǧ(ξ̌) (isomorphisms of tensor functors F^*_X ∘ Be^†_Ǧ ≅ Be^†_Ǧ) differ by an element of the centre Z_Ǧ(K̄).",
+      "locator": "§5.1, Lemma 5.1.1, p. 55",
+      "status": "missing",
+      "note": "Tannakian formalism: the difference is an element of Ǧ(K̄) centralising G_geo, and Z_Ǧ(G_geo) = Z_Ǧ."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/49",
+      "kind": "theorem",
+      "name": "Functoriality of Bessel F-isocrystals",
+      "statement": "Let Ǧ′ ⊂ Ǧ be dual groups of split almost simple G′, G over R appearing in the same line of table (1.2.6.1), the inclusion preserving pinnings (so ǧ′_aff(1) ⊂ ǧ_aff(1)); let φ′ be a generic linear function of G′ over R and ξ̌ ∈ ǧ′_aff(1) match −πφ′. (i) There is a generic linear function φ of G over R such that −πφ matches ξ̌ ∈ ǧ_aff(1). (ii) With (Be^†_{Ǧ′}(ξ̌), φ′) and (Be^†_Ǧ(ξ̌), φ) constructed from φ′ and φ, (Be^†_Ǧ(ξ̌), φ) is the push-out of (Be^†_{Ǧ′}(ξ̌), φ′) along Ǧ′ → Ǧ.",
+      "locator": "§5.1.2 and Proposition 5.1.3, p. 55",
+      "status": "missing",
+      "note": "(i): the matching φ over K is integral, since writing Be_{Ǧ,Ad}(ξ̌) = d + (N + cxE)dx/x against an integral reference, a non-unit c would give an irreducible summand a solution at 0 of convergence radius ≠ 1 and hence a trivial quotient. (ii): the Frobenius structures differ by a central ε (Lemma 5.1.1), and ε = 1 by Proposition 4.4.5. The printed (ii) writes φ for the Frobenius structure of Be^†_{Ǧ′} (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/50",
+      "kind": "theorem",
+      "name": "Heinloth–Ngô–Yun functoriality conjecture",
+      "statement": "Fix ψ and Ǧ′ ⊂ Ǧ (over Q̄_ℓ) in the same line of table (1.2.6.1). For every generic linear function φ′ of G′ over k there is a generic linear function φ of G over k such that Kl^{et,ℓ}_Ǧ(ψφ) is isomorphic to the push-out of Kl^{et,ℓ}_{Ǧ′}(ψφ′) along Ǧ′ ⊂ Ǧ as ℓ-adic Ǧ-local systems on X_k. This is HNY Conjecture 7.3.",
+      "locator": "§5.1, Theorem 5.1.4, pp. 55–56; Theorem 1.2.8(i), p. 6",
+      "status": "missing",
+      "note": "Proof: reduce to Ǧ simply connected; lift φ′ to R and take φ as in Proposition 5.1.3 (the printed proof swaps φ and φ′, sourceIssues); equal traces for V ∈ Rep(Ǧ) extend to all representations of G_geo because K(Rep Ǧ) ⊗ Q̄_ℓ → K(Rep Ǧ^Σ) ⊗ Q̄_ℓ is surjective, so the two representations π_1 → G_geo are conjugate in GL(W) by an element inducing an automorphism of G_geo that fixes G_geo//G_geo, hence inner."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/51",
+      "kind": "definition",
+      "name": "Hypergeometric sums, hypergeometric D-modules and multiplicative convolution",
+      "statement": "For ψ, n ≥ 1 and multiplicative characters ρ = (ρ_1, …, ρ_m) of k^×, H_ψ(n, ρ)(a) = Σ ψ(Tr(Σ_i x_i − Σ_j y_j)) ∏_j ρ_j^{−1}(N(y_j)) over (x, y) ∈ (k′^×)^{n+m} with ∏ x_i = a ∏ y_j (Katz 8.2.7 with n trivial characters). For M, N ∈ D(G_{m,k}/L) and μ the multiplication, M ⋆ N = μ_!(M ⊠ N). For n > m ≥ 0, π as above and β ∈ ((1/(q−1))Z − Z)^m, Hyp_π(n, β) = δ^n − (−1)^{n+mp}π^{n−m} x ∏_j (δ − β_j) with δ = x d/dx, and DHyp_π(n, β) = D^†_{P̂¹,Q}({0, ∞})/D^† Hyp_π(n, β), which depends only on ψ and ρ (written DHyp_ψ(n, ρ)).",
+      "locator": "§5.2.1, (5.2.1.1)–(5.2.1.4), p. 56",
+      "status": "missing",
+      "note": "Katz, Exponential sums and differential equations (1990) §§5.3, 8.2; Miyatani, Amer. J. Math. 142 (2020). No stage plans hypergeometric sums, sheaves or F-isocrystals."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/52",
+      "kind": "theorem",
+      "name": "Miyatani: hypergeometric F-isocrystals",
+      "statement": "Fix Q̄_p ≅ C. (i) DHyp_π(n, β) underlies a pure overconvergent F-isocrystal on G_{m,k} of rank n and weight n + m − 1. (ii) Its Frobenius structure is unique up to a scalar. (iii) Its Frobenius trace on G_{m,k} is (−1)^{n+m−1}H_ψ(n, ρ), with ρ_i(ξ) = ξ̃^{(q−1)β_i} for the Teichmüller lift ξ̃.",
+      "locator": "§5.2, Theorem 5.2.2, p. 57 (Miyatani, Main Theorem; (ii) by the method of 4.2.1)",
+      "status": "missing",
+      "note": "Miyatani constructs the Frobenius by multiplicative convolution of arithmetic D-modules; (ii) follows from irreducibility of DHyp in D(G_{m,k}/K)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/53",
+      "kind": "definition",
+      "name": "Normalised hypergeometric sheaves, F-isocrystals and sums",
+      "statement": "Let F be the ℓ-adic hypergeometric sheaf on G_{m,k} for ψ, n trivial and m non-trivial characters ρ. F^{I_0} is one-dimensional with Frob_k acting by α = (−1)^m ∏_j G(ψ^{−1}, ρ_j^{−1}) (Katz 2.6.1); I_0 acts maximally unipotently and a lift F_0 of Frobenius in D_0 has eigenvalues {α, qα, …, q^{n−1}α}. The normalised F̃ (resp. THyp_ψ(n, ρ)) is the twist with Frobenius eigenvalues {q^{−(n−1)/2}, …, q^{(n−1)/2}} at 0, and its trace is H̃_ψ(n, ρ)(a) = H_ψ(n, ρ)(a)/((−√q)^{n−1} ∏_j G(ψ^{−1}, ρ_j^{−1})). For m = 0, F̃ = Kl_n and THyp_ψ(n, ∅) = Be_n^†.",
+      "locator": "§5.2.3, (5.2.3.1), p. 57",
+      "status": "missing",
+      "note": "The printed eigenvalue set ends at q^{2n}α (sourceIssues). Gauss sums are in Mathlib (gaussSum), but the sheaves and their local invariants are not."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/54",
+      "kind": "theorem",
+      "name": "Bessel F-isocrystals of SL_n and Sp_{2n}",
+      "statement": "For G = GL_n (or SL_n) with the standard B ⊃ T, (a_1, …, a_n) ↦ Σ_{i<n} a_iE_{i,i+1} + a_n x^{−1}E_{n,1} identifies G_a^n ≅ I(1)/I(2); for φ the addition map, ξ̌ = N + E dx with N the principal nilpotent Jordan block and E = E_{n,1}. Then Kl^et_{SL_n,Std} ≅ Kl^et_{GL_n,Std} ≅ Kl_n, Kl^dR_{SL_n,Std}(λφ) ≅ Be_n and Kl^rig_{SL_n,Std}(φ) ≅ Be_n^†. For G = SO_{2n+1}, Ǧ = Sp_{2n} (J_{ij} = (−1)^i δ_{i,2n+1−j}), (N, E) lie in sp_{2n} and Be^†_{Sp_{2n},Std}(ξ̌) ≅ Be_{2n}^†.",
+      "locator": "§5.3.1–5.3.2, (5.3.1.1)–(5.3.1.3), pp. 57–58",
+      "status": "missing",
+      "note": "Diagram (4.1.8.2) reduces to Deligne's diagram (1.1.1.4) for GL_n (HNY §3); the Sp_{2n} case follows from Proposition 5.1.3."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/55",
+      "kind": "theorem",
+      "name": "Bessel connections of SO_{2n} and SO_{2n+1}",
+      "statement": "(5.3.3) For G = Ǧ = SO_{2n} (J_{ij} = (−1)^{max(i,j)}δ_{i,2n+1−j}), G_a^{n+1} ≅ I(1)/I(2) as in (5.3.3.1), φ the addition map and n ≥ 3, λφ corresponds to ξ̌ = N + λ^{2n−2}Ex with (N, E) as in (5.3.3.2), so Be_{SO_{2n},Std}(ξ̌) = d + (N + λ^{2n−2}Ex)dx/x; the line spanned by e_n − e_{n+1} is a trivial horizontal subbundle and its complement is Be_{SO_{2n−1},Std}(ξ̌). (5.3.6) For G = Sp_{2n}, Ǧ = SO_{2n+1}, λφ corresponds to ξ̌ = N + λ^{2n}Ex with E having entries 2 at (2n, 1) and (2n+1, 2), and Kl^dR_{SO_{2n+1},Std}(λφ) ≅ Be_{SO_{2n+1},Std}(ξ̌) = d + (N + λ^{2n}Ex)dx/x, whose scalar equation is (x d/dx)^{2n+1} − λ^{2n}x(4x d/dx + 2) = 0. Via SO_{2n+1} ⊂ SO_{2n+2}, Be_{SO_{2n+2},Std} ≅ Be_{SO_{2n+1},Std} ⊕ (O, d) and the same for Be^†.",
+      "locator": "§5.3.3 and §5.3.6, (5.3.3.1)–(5.3.3.3), (5.3.6.1)–(5.3.6.5), pp. 58–61; Remark 5.3.7, p. 61",
+      "status": "missing",
+      "note": "Remark 5.3.7: the entries 2 of E come from the invariant polynomials and make the Frobenius structure exist at λ = −π; the solution at 0, Σ_r (2r−1)!!(2π^{2n})^r x^r/(r!)^{2n+1}, converges on the open unit disc for every p. The scalar equation and the solution were checked by hand."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/56",
+      "kind": "theorem",
+      "name": "Landau–Ginzburg formula for Kloosterman sums of SO_{2n}",
+      "statement": "(Lam–Templier, after Pech–Rietsch–Williams) Let Q_{2n−2} ⊂ P^{2n−1} be the quadric p_{n−1}p′_{n−1} − p_{n−2}p_n + ⋯ + (−1)^{n−1}p_0p_{2n−2} = 0 in Plücker coordinates, D = D_0 + ⋯ + D_{n−1} + D′_{n−1} with D_0 = {p_0 = 0}, D_ℓ = {δ_ℓ = 0} (δ_ℓ = Σ_{k=0}^ℓ (−1)^k p_{ℓ−k}p_{2n−2−ℓ+k}, 1 ≤ ℓ ≤ n−3), D_{n−2} = {p_{2n−2} = 0}, D_{n−1} = {p_{n−1} = 0}, D′_{n−1} = {p′_{n−1} = 0}, and W = p_1/p_0 + Σ_{ℓ=1}^{n−3} p_{ℓ+1}p_{2n−2−ℓ}/δ_ℓ + p_n/p_{n−1} + p_n/p′_{n−1} + x p_1/p_{2n−2} on (Q_{2n−2} − D) × G_m. Then Kl^rig_{SO_{2n},Std}(φ) ≅ pr_{2,!}(W^*A_ψ)[2(n−1)](n−1), Kl^dR_{SO_{2n},Std}(λφ) ≅ pr_{2,!}(W^*E_λ)[2(n−1)], and Kl_{SO_{2n},Std}(a) = q^{−(n−1)} Σ_{(Q_{2n−2} − D)(F_q)} ψ(Tr W(·; a)).",
+      "locator": "§5.3.4, (5.3.4.1)–(5.3.4.6), pp. 58–59",
+      "status": "missing",
+      "note": "Lam–Templier (arXiv:1705.00758) identify the HNY diagram for SO_{2n} with the Landau–Ginzburg mirror of the quadric."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/57",
+      "kind": "theorem",
+      "name": "Toric formula for Kloosterman sums of SO_{2n}",
+      "statement": "(i) Kl_{SO_4,Std}(a) = Kl(2; a)². (ii) For n ≥ 3, Kl_{SO_{2n},Std}(a) = q^{−(n−1)}(Σ_{x_i ∈ F_q^×} ψ(Tr(x_1 + ⋯ + x_{2n−2} + a(x_1 + x_2)/(x_1⋯x_{2n−2}))) + q^{n−1} − q).",
+      "locator": "§5.3.5, Proposition 5.3.5, (5.3.5.1)–(5.3.5.2), pp. 59–60",
+      "status": "missing",
+      "note": "The printed constant is (q − 1)q^{n−2}, which agrees with q^{n−1} − q only for n = 3: the proof's case division omits the points with p_n ≠ 0 and some later p_{n+j} = 0, which contribute q^{n−2} − q. The corrected constant was checked by brute force against the Landau–Ginzburg sum for n = 4 (q = 3, 5) and n = 5 (q = 3) (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/58",
+      "kind": "theorem",
+      "name": "SO_{2n+1} Bessel F-isocrystals are hypergeometric",
+      "statement": "(i) If p > 2, Be^†_{SO_{2n+1},Std} ≅ [x ↦ 4x]^+THyp_ψ(2n+1, ρ) with ρ the quadratic character of k^×. (ii) If p = 2, Be^†_{SO_{2n+1},Std} ≅ Be^†_{2n+1}. Consequently (p = 2) Be^†_{SL_{2n+1}} is the push-out of Be^†_{SO_{2n+1}} along SO_{2n+1} → SL_{2n+1}, and Kl_{SL_{2n+1}} is the push-out of Kl_{SO_{2n+1}}.",
+      "locator": "§5.3, Proposition 5.3.8 and Corollary 5.3.10, p. 61; Theorem 1.2.8(ii), p. 6",
+      "status": "missing",
+      "note": "(i): x ↦ x/4 turns (5.3.6.4) into Hyp(2n+1; ρ); both Frobenius structures have weight 0 and eigenvalues q^{−n}, …, q^n at 0, so they agree by Miyatani's uniqueness. (ii) is Proposition A.1, proved in the appendix."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/59",
+      "kind": "theorem",
+      "name": "Convolution formula for SO_{2n+1}",
+      "statement": "Be^†_{SO_{2n+1},Std} ≅ (Be^†_{SO_3,Std} ⋆ Be^†_{2n−2})(1/2) as overconvergent F-isocrystals (the convolution μ_! of two weight-0 objects has weight 1, so a half Tate twist is needed); on traces, Kl_{SO_{2n+1},Std}(a) = −(1/√q) Σ_{xy=a} Kl_{SO_3,Std}(x) Kl(2n−2; y).",
+      "locator": "§5.3.9, (5.3.9.1), p. 61",
+      "status": "missing",
+      "note": "From Miyatani's convolution description of hypergeometric F-isocrystals (Main Theorem (ii), 3.3.3). The printed isomorphism and (5.3.11.1) omit the twist and the factor −1/√q; the corrected trace identity was checked numerically for n = 2 at q = 3, 5, 7 and every a (against H̃_ψ(5, ρ)(4a)) and at q = 4, 8 with a = 1 (against Kl(5; a)) (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/60",
+      "kind": "theorem",
+      "name": "Identities between exponential sums",
+      "statement": "(i) Kl_{SO_{2n+1},Std}(a) = −(1/√q) Σ_{xy=a} Kl_{SO_3,Std}(x) Kl(2n−2; y), which equals Kl(2n+1; a) if p = 2 and H̃_ψ(2n+1; ρ)(4a) if p > 2. (ii) Kl_{SO_{2n+2},Std}(a) − 1 = Kl_{SO_{2n+1},Std}(a). Explicitly, for a ∈ F_q^× and S(a) = Σ_x ψ(Tr(x + a/x)): S(a)² − q = Σ_{x_1,x_2} ψ(Tr(x_1 + x_2 + a/(x_1x_2))) if p = 2, and S(a)² − q = G(ψ^{−1}, ρ^{−1})^{−1} Σ_{x_1x_2x_3 = 4ay} ψ(Tr(x_1 + x_2 + x_3 − y))ρ^{−1}(y) if p > 2 (Carlitz, Katz); and for n ≥ 2, Σ_{uv=a} (S(u)² − q) Σ_{x_i} ψ(Tr(x_1 + ⋯ + x_{2n−3} + v/(x_1⋯x_{2n−3}))) = Σ_{x_i} ψ(Tr(x_1 + ⋯ + x_{2n} + a(x_1 + x_2)/(x_1⋯x_{2n}))) − q.",
+      "locator": "§5.3, Corollary 5.3.11, (5.3.11.1)–(5.3.11.3), pp. 61–62; §1.2.9, (1.2.9.1)–(1.2.9.2), pp. 6–7",
+      "status": "missing",
+      "note": "Corrected statements: the printed p = 2 line of (1.2.9.1) has a spurious factor −1/√q, and the printed (1.2.9.2) reads −(1/√q)(Σ − q^{n−1}) on the right, which inherits the two errors of (5.3.9.1) and (5.3.5.2); every corrected identity was checked by brute force (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/61",
+      "kind": "definition",
+      "name": "Newton polygon of a semisimple conjugacy class",
+      "statement": "Order X_•(Ť)^+_R by μ ≤ λ iff λ − μ is a non-negative real combination of positive coroots. With v the p-adic valuation normalised by v(q) = 1, v : Ť(K̄) → X_•(Ť) ⊗ R induces NP : Conj^ss(Ǧ(K̄)) = Ť(K̄)/W → X_•(Ť)^+_R. For GL_n this is the classical Newton polygon, and μ ≤ λ iff the polygon of μ lies above that of λ with the same endpoints.",
+      "locator": "§5.4.1, (5.4.1.1), p. 62",
+      "status": "missing",
+      "note": "The group-theoretic Newton map of Kottwitz and Rapoport–Richartz, used for Hecke eigenvalues by V. Lafforgue. VectorBundlesAndIsocrystals VB0 plans slopes of isocrystals, not this group-valued map for Frobenius conjugacy classes."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/62",
+      "kind": "theorem",
+      "name": "Frobenius slopes of Bessel F-isocrystals",
+      "statement": "Let φ_x ∈ Ǧ(K̄) be the Frobenius of (Be^†_Ǧ, φ) at a closed point x ∈ |A¹_k| and v normalised by v(q^{deg x}) = 1. (i) NP(φ_x) = ρ for all but finitely many x. (ii) If Ǧ is of type A_n, B_n, C_n, D_n or G_2, NP(φ_x) = ρ for every x; that is, the p-adic orders of the eigenvalues of φ_x are those of ρ(p^{deg x}).",
+      "locator": "§5.4, Theorem 5.4.2, p. 62; Theorem 1.2.4(ii), p. 5",
+      "status": "missing",
+      "note": "(i): V. Lafforgue's bound NP ≤ ρ for Hecke eigenvalues of cuspidal functions, equality at 0 (Proposition 4.4.5) and Grothendieck–Katz specialisation (Crew 1.6). (ii): by functoriality reduce to Be_n^† (ordinary everywhere: Dwork, Sperber, Wan) and Be^†_{SO_{2n+1},Std} (Proposition 5.3.8 and Lemma 5.4.3). Remark 1.2.5 conjectures ordinarity at every closed point for every Ǧ."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/63",
+      "kind": "theorem",
+      "name": "Frobenius slopes of the hypergeometric F-isocrystal DHyp(2n+1; ρ)",
+      "statement": "The Frobenius slope set of DHyp_ψ(2n+1; ρ) at each closed point is {1/2, 3/2, …, 2n + 1/2}.",
+      "locator": "§5.4, Lemma 5.4.3, (5.4.3.1)–(5.4.3.2), pp. 62–63",
+      "status": "missing",
+      "note": "Proof via Wan's theory of toric exponential sums: for f_d = x_1 + ⋯ + x_{2n} − x_{2n+1}^d + a x_{2n+1}^d/(x_1⋯x_{2n}) (d | p − 1), S_m(f_2) = S_m(f_1) + H_ψ(2n+1; ρ)(a) over F_{q^m} (checked by the substitution u = x_{2n+1}²; the last term is minus the Frobenius trace of DHyp by Theorem 5.2.2(iii), a sign that does not affect slopes), L(f_d, T) is a polynomial of degree d(2n+1) (Adolphson–Sperber), the Hodge polygon of Δ(f_d) has slopes {0, 1/d, …, 2n + (d−1)/d}, and f_d is ordinary by Wan's boundary decomposition (Wan 2004, Cor. 2.6 and Thm. 3.1)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/64",
+      "kind": "theorem",
+      "name": "2-adic isomorphism of Bessel F-isocrystals",
+      "statement": "On G_{m,F_2}, the overconvergent F-isocrystals Be^†_{2n+1}, defined by (x d/dx)^{2n+1} + 2^{2n+1}x = 0, and Be^†_{SO_{2n+1},Std}, defined by (x d/dx)^{2n+1} − 2^{2n+1}x(2x d/dx + 1) = 0, are isomorphic. Their solutions at 0 are F(x) = Σ_r (−2)^{(2n+1)r}x^r/(r!)^{2n+1} and G(x) = Σ_r 2^{(2n+1)r}(2r−1)!! x^r/(r!)^{2n+1}. For n = 1 this reproves Carlitz's identity Kl(3; a) = Kl(2; a)² − 1 on F_{2^s}^×.",
+      "locator": "Appendix A, Proposition A.1, (A.1.1), p. 63; proof A.11, p. 66",
+      "status": "missing",
+      "note": "Proof: the maximal-slope quotients E_F and E_G are isomorphic (Lemma A.12), and Tsuzuki's theorem (Theorem A.3) lifts this to the overconvergent objects. Both equations and solutions were checked by hand (π = −2 at p = 2)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/65",
+      "kind": "definition",
+      "name": "Slope filtrations of convergent F-isocrystals",
+      "statement": "If the Newton polygons of a convergent F-isocrystal M on a smooth k-scheme X are constant, M has an increasing slope filtration 0 = M_0 ⊊ M_1 ⊊ ⋯ ⊊ M_r = M by convergent sub-F-isocrystals with M_i/M_{i−1} isoclinic of slope s_i and s_1 < ⋯ < s_r; by Grothendieck's specialisation theorem the Newton polygons are constant on a dense open. The same holds for log convergent F-isocrystals with constant Newton polygons on a smooth scheme with a normal crossings divisor. Renumbered decreasingly, M = M^0 ⊋ M^1 ⊋ ⋯ ⊋ M^r = 0 with slopes s^0 > ⋯ > s^{r−1}, and M/M^1 is the maximal-slope quotient.",
+      "locator": "Appendix A, A.2, (A.2.1), pp. 63–64; (A.3.1), p. 64",
+      "status": "missing",
+      "note": "Katz's slope filtration theorem in the convergent setting, with Grothendieck's specialisation theorem. RD.1 owns Frobenius slope filtrations; PAPER-TSUZUKI-23 routed the same global statement ('slope filtrations on a dense open') to the RD stages as a source, and this item follows it."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/66",
+      "kind": "theorem",
+      "name": "Tsuzuki: overconvergent isomorphisms from maximal-slope quotients",
+      "statement": "Let X be a smooth connected curve over k and M^†, N^† irreducible overconvergent F-isocrystals whose convergent F-isocrystals M, N have slope filtrations. Every isomorphism h : N/N^1 ≅ M/M^1 of the maximal-slope quotients is induced by a unique isomorphism g^† : N^† ≅ M^† of overconvergent F-isocrystals.",
+      "locator": "Appendix A, Theorem A.3 (Tsuzuki, arXiv:1910.03871, Theorem 1.3), p. 64",
+      "status": "missing",
+      "note": "The dual form of Kedlaya's minimal slope conjecture (Kedlaya, Notes on isocrystals 5.14). It is the curve target of the pending PadicDifferentialEquationsPartIIMinimalSlope proposal (PAPER-TSUZUKI-23, Corollary 6.5 of the published version)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/67",
+      "kind": "theorem",
+      "name": "Dwork's congruences and their 2-adic refinement",
+      "statement": "For maps B^{(i)} : Z_{≥0} → K^× (i ≥ 0), consider (a) B^{(i)}(0) ∈ R^×; (b) B^{(i)}(a + np)/B^{(i+1)}(n) ∈ R; (c) B^{(i)}(a + np + mp^{s+1})/B^{(i+1)}(n + mp^s) ≡ B^{(i)}(a + np)/B^{(i+1)}(n) mod p^{s+1}; (c′) for p = 2 the same with a factor u(i, s, m) ∈ {±1} on the right, u = 1 unless s = 1; (d) B^{(i)}(0) = 1; (e) B^{(i+r)} = B^{(i)}. With F^{(i)} = Σ_j B^{(i)}(j)x^j and F^{(i)}_{m,s} = Σ_{j=mp^s}^{(m+1)p^s−1} B^{(i)}(j)x^j: (i) (Dwork, Theorem 2) under (a)–(c), F^{(0)}(x)F^{(1)}_{m,s}(x^p) ≡ F^{(0)}_{m,s+1}(x)F^{(1)}(x^p) mod p^{s+1}B^{(s+1)}(m)R[[x]]; (i′) under (a), (b), (c′), the same holds for p = 2 mod 2^sB^{(s+1)}(m); (ii) (Dwork, Theorem 3) under (i) or (i′) and (d), (e), f(x) = lim_s F^{(0)}_{s+1}(x)/F^{(1)}_s(x^p) is a function on the formal open U of Â¹_R over U = {F^{(i)}_1 ≠ 0, i < r} ⊂ A¹_k, with unit values at every rigid point.",
+      "locator": "Appendix A, A.4 and Theorem A.5, (A.5.1)–(A.5.4), pp. 64–65; proof of (i′) in A.13, pp. 67–69",
+      "status": "missing",
+      "note": "Dwork, p-adic cycles, Publ. IHÉS 37 (1969) §§1–3. Part (i′) is new here, proved by Dwork's induction (α_s, β_{t,s}, γ_N) with signs v(s, t, m) = ±1; the printed induction has index misprints (sourceIssues)."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/68",
+      "kind": "theorem",
+      "name": "Unit-root F-isocrystals from Dwork's congruences and maximal-slope quotients",
+      "statement": "(Corollary A.7) If F = Σ B(j)x^j ∈ R[[x]] satisfies Dwork's congruences (B^{(i)} = B for all i), then f = F(x)/F(x^p) and η = F′/F extend to U, satisfy f′/f + px^{p−1}η(x^p) = η(x), and (O, d − η) with Frobenius f is a unit-root convergent F-isocrystal E_F on U/K with Frobenius eigenvalue 1 at 0. (Proposition A.9) Let M^† be an overconvergent F-isocrystal on G_{m,k} on a trivial bundle, given by P(δ) = δ^r + p_rδ^{r−1} + ⋯ + p_1 with p_i ∈ Γ(Â¹_R, O)[1/p], unipotent at 0 with maximal unipotent monodromy, so it extends to M^log on (A¹, 0) with slopes s_1, s_1 + 1, …, s_1 + r − 1 at 0 (and generically, by Drinfeld–Kedlaya), with unique solution F = Σ A(n)x^n, A(0) = 1, at 0. If F satisfies Dwork's congruences, then (i) there is an epimorphism M^log → E_F on (U, 0), from a factorisation P(δ) = Q(δ)(δ − xη); and (ii) E_F is the maximal-slope quotient M^log/M^{log,1}.",
+      "locator": "Appendix A, A.6–A.9, Corollary A.7, Proposition A.9, (A.9.1), pp. 65–66; Remark A.10, p. 66",
+      "status": "missing",
+      "note": "(ii) uses Pic(U^rig) ≅ Pic(U) = 0 (Fresnel–van der Put 3.7.4) and uniqueness of the rank-one quotient near 0. Remark A.10: an instance of the Dwork–Chiarellotto–Tsuzuki log-growth conjecture, proved by Ohkubo."
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/69",
+      "kind": "theorem",
+      "name": "The 2-adic Bessel solutions satisfy Dwork's congruences",
+      "statement": "At p = 2: (i) F(x) = Σ_r (−2)^{(2n+1)r}x^r/(r!)^{2n+1} satisfies (a), (b), (c′) (with u(1, m) = (−1)^m), (d), (e), and G(x) = Σ_r 2^{(2n+1)r}(2r−1)!!x^r/(r!)^{2n+1} satisfies (a)–(e); since F_1 ≡ G_1 ≡ 1 mod 2, E_F and E_G are unit-root convergent F-isocrystals on A¹_k. (ii) With B^{(0)}, B^{(1)} the coefficients of F and G and B^{(i+2)} = B^{(i)}, conditions (a), (b), (c′), (d), (e) hold with u(0, 1, m) = 1 and u(1, 1, m) = (−1)^m; F(x)/G(x²), hence F(x)/G(x), extends to a global function on Â¹_R and induces an isomorphism E_G ≅ E_F.",
+      "locator": "Appendix A, Lemma A.12, pp. 66–67",
+      "status": "missing",
+      "note": "All the stated congruences, including that F fails (c) at s = 1 for odd m, were checked in exact rational arithmetic for n = 1, 2, 3, a ∈ {0, 1}, ℓ < 6, 1 ≤ m < 5 and s < 5."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "J. Heinloth, B. C. Ngô and Z. Yun, Kloosterman sheaves for reductive groups, Ann. of Math. 177 (2013), 241–310",
+      "link": "10.4007/annals.2013.177.1.5",
+      "why": "The ℓ-adic Kloosterman sheaves Kl_Ǧ, the automorphic data on Bun_{G(0,2)}, cleanness (Lemma 2.3), the de Rham variant (2.6), and the conjectured functoriality (Conjecture 7.3) proved here."
+    },
+    {
+      "citation": "E. Frenkel and B. Gross, A rigid irregular connection on the projective line, Ann. of Math. 170 (2009), 1469–1512",
+      "link": "10.4007/annals.2009.170.1469",
+      "why": "The Bessel connection Be_Ǧ, its rigidity and its differential Galois groups (Cor. 9, 10), the upper bound in Theorem 4.5.2."
+    },
+    {
+      "citation": "X. Zhu, Frenkel–Gross' irregular connection and Heinloth–Ngô–Yun's are the same, Selecta Math. 23 (2017), 245–274",
+      "link": "10.1007/s00029-016-0238-x",
+      "why": "The identification Kl^dR ≅ Be_Ǧ for adjoint Ǧ and the quantisation U(Lie I(1)/I(2))^T ≅ Fun Op_ǧ (Lemma 21) used in Theorem 4.3.3."
+    },
+    {
+      "citation": "T. Abe, Langlands correspondence for isocrystals and the existence of crystalline companions for curves, J. Amer. Math. Soc. 31 (2018), 921–1057",
+      "link": "10.1090/jams/898",
+      "why": "The category D^b_hol(X/L) of holonomic arithmetic D-modules with its six operations, t-structures and Frobenius structures (§§1–2), and companions; queued as PAPER-ABE-18."
+    },
+    {
+      "citation": "T. Abe and D. Caro, Theory of weights in p-adic cohomology, Amer. J. Math. 140 (2018), 879–975",
+      "link": "10.1353/ajm.2018.0021",
+      "why": "Weights, intermediate extensions, the decomposition theorem and geometric semisimplicity for arithmetic D-modules (§2.6), and the trace formula with ℓ-independence (4.3.9, 4.3.11)."
+    },
+    {
+      "citation": "D. Caro and N. Tsuzuki, Overholonomicity of overconvergent F-isocrystals over smooth varieties, Ann. of Math. 176 (2012), 747–813",
+      "link": "10.4007/annals.2012.176.2.2",
+      "why": "Overconvergent F-isocrystals are overholonomic, so they are smooth objects of the holonomic category (§2.3.4)."
+    },
+    {
+      "citation": "P. Berthelot, D-modules arithmétiques. I. Opérateurs différentiels de niveau fini, Ann. Sci. École Norm. Sup. 29 (1996), 185–272",
+      "link": "10.24033/asens.1739",
+      "why": "The rings D^†_{𝔛,Q}(†Z) of arithmetic differential operators and O_{𝔛,Q}(†Z) ≅ Sp_*(j^†O) on which the whole theory rests."
+    },
+    {
+      "citation": "T. Abe, Around the nearby cycle functor for arithmetic D-modules, Nagoya Math. J. 236 (2019), 1–28",
+      "link": "10.1017/nmj.2019.23",
+      "why": "Nearby and vanishing cycles over henselian traits (§2.7.3–2.7.4), used for universal local acyclicity (§2.8) and Theorem 4.1.5."
+    },
+    {
+      "citation": "T. Braden, Hyperbolic localization of intersection cohomology, Transform. Groups 8 (2003), 209–216",
+      "link": "10.1007/s00031-003-0606-4",
+      "why": "Hyperbolic localisation, adapted to arithmetic D-modules in §2.10 and used for the weight functors of the Satake category (§3.4)."
+    },
+    {
+      "citation": "K. Miyatani, p-adic generalized hypergeometric equations from the viewpoint of arithmetic D-modules, Amer. J. Math. 142 (2020), 1017–1050",
+      "link": "10.1353/ajm.2020.0030",
+      "why": "Hypergeometric F-isocrystals, their Frobenius traces and uniqueness of Frobenius (Theorem 5.2.2), and the convolution description behind (5.3.9.1)."
+    },
+    {
+      "citation": "B. Dwork, Bessel functions as p-adic functions of the argument, Duke Math. J. 41 (1974), 711–738",
+      "link": "10.1215/s0012-7094-74-04176-3",
+      "why": "The Frobenius structure on the Bessel connection Be_n with Kloosterman traces (Theorem 1.1.4), the GL_n case of the main theorem."
+    },
+    {
+      "citation": "B. Dwork, p-adic cycles, Publ. Math. IHÉS 37 (1969), 27–115",
+      "link": "10.1007/bf02684886",
+      "why": "Dwork's congruences (Theorems 2 and 3) and the unit-root functions they produce, refined 2-adically in Appendix A."
+    },
+    {
+      "citation": "A. Adolphson and S. Sperber, Exponential sums and Newton polyhedra: cohomology and estimates, Ann. of Math. 130 (1989), 367–406",
+      "link": "10.2307/1971424",
+      "why": "Degree of L-functions of non-degenerate toric exponential sums and Newton polygon above Hodge polygon (Lemma 5.4.3)."
+    },
+    {
+      "citation": "D. Wan, Variation of p-adic Newton polygons for L-functions of exponential sums, Asian J. Math. 8 (2004), 427–472",
+      "link": "10.4310/ajm.2004.v8.n3.a4",
+      "why": "The ordinarity criteria (boundary decomposition, Cor. 2.6 and Thm. 3.1) that give the slopes of DHyp(2n+1; ρ) in Lemma 5.4.3."
+    },
+    {
+      "citation": "V. Lafforgue, Estimées pour les valuations p-adiques des valeurs propres des opérateurs de Hecke, Bull. Soc. Math. France 139 (2011), 455–477",
+      "link": "10.24033/bsmf.2614",
+      "why": "The bound NP ≤ ρ for Hecke eigenvalues of cuspidal functions over function fields, used in Theorem 5.4.2(i)."
+    },
+    {
+      "citation": "M. D'Addezio, The monodromy groups of lisse sheaves and overconvergent F-isocrystals, Selecta Math. 26 (2020)",
+      "link": "10.1007/s00029-020-00569-3",
+      "why": "Companions have the same arithmetic monodromy groups (4.1.1, 4.3.2), which transfers Theorem 4.5.2 to Kl_Ǧ (Corollary 4.5.6)."
+    },
+    {
+      "citation": "B. Gross and M. Reeder, Arithmetic invariants of discrete Langlands parameters, Duke Math. J. 154 (2010), 431–508",
+      "link": "10.1215/00127094-2010-043",
+      "why": "Simple wild parameters and their breaks (§§5–6), matched with the local monodromy of Be^†_Ǧ at ∞ (Corollary 4.5.7, Remark 4.5.8)."
+    },
+    {
+      "citation": "T. Lam and N. Templier, The mirror conjecture for minuscule flag varieties, Duke Math. J. 173 (2024)",
+      "link": "10.1215/00127094-2024-0007",
+      "why": "The Landau–Ginzburg description of the Kloosterman D-module of SO_{2n} (§5.3.4), the input of Proposition 5.3.5."
+    },
+    {
+      "citation": "N. Katz, Gauss Sums, Kloosterman Sums, and Monodromy Groups, Ann. of Math. Stud. 116, Princeton University Press, 1988",
+      "link": "10.1515/9781400882120",
+      "why": "Kloosterman sheaves and their monodromy groups (§11), and the Frobenius at 0 of hypergeometric sheaves (7.0.7)."
+    },
+    {
+      "citation": "N. Katz, Exponential Sums and Differential Equations, Ann. of Math. Stud. 124, Princeton University Press, 1990",
+      "link": "10.1515/9781400882434",
+      "why": "Hypergeometric D-modules and ℓ-adic hypergeometric sheaves as multiplicative convolutions (5.3.1, 8.2.7), used in §5.2."
+    },
+    {
+      "citation": "N. Katz, From Clausen to Carlitz: low-dimensional spin groups and identities among character sums, Mosc. Math. J. 9 (2009), 57–89",
+      "link": "10.17323/1609-4514-2009-9-1-57-89",
+      "why": "The sheaf-theoretic identities among character sums that §1.2.9 and Corollary 5.3.11 recover, and the Frobenius eigenvalue at 0 of hypergeometric sheaves (2.6.1)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "stages": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+      ],
+      "items": [
+        "PAPER-XU-ZHU-22/65",
+        "PAPER-XU-ZHU-22/17",
+        "PAPER-XU-ZHU-22/9",
+        "PAPER-XU-ZHU-22/8"
+      ],
+      "reason": "The RD stages own the foundations the paper recalls with extra precision. RD.1 owns Frobenius slope filtrations, and PAPER-TSUZUKI-23 already routed the global statement 'slope filtrations on a dense open' there. RD.2 owns the p-adic local monodromy theorem and logarithmic solutions; the paper uses in addition André's Tannakian description of MC and MCF and the irregularity–Swan comparison. RD.4 owns rigid cohomology with compact supports and its comparison maps; the specialisation and cospecialisation maps between algebraic de Rham and rigid cohomology (Baldassarri–Berthelot), with the new compatibility of Proposition 2.2.5, are such maps. RD.6's acceptance test already uses an additive-character coefficient; the Dwork and Kummer F-isocrystals (§2.1.5), with their sign conventions fixed, are those coefficients."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PadicDifferentialEquationsAndRigidCohomology",
+      "roadmap": "PadicDifferentialEquationsPartIIArithmeticDModules",
+      "title": "P-adic differential equations, rigid cohomology and p-adic weights, Part II: arithmetic D-modules, the six operations and geometric Satake",
+      "area": "padic",
+      "items": [
+        "PAPER-XU-ZHU-22/10",
+        "PAPER-XU-ZHU-22/11",
+        "PAPER-XU-ZHU-22/12",
+        "PAPER-XU-ZHU-22/13",
+        "PAPER-XU-ZHU-22/14",
+        "PAPER-XU-ZHU-22/15",
+        "PAPER-XU-ZHU-22/16",
+        "PAPER-XU-ZHU-22/18",
+        "PAPER-XU-ZHU-22/19",
+        "PAPER-XU-ZHU-22/22",
+        "PAPER-XU-ZHU-22/23",
+        "PAPER-XU-ZHU-22/24",
+        "PAPER-XU-ZHU-22/25",
+        "PAPER-XU-ZHU-22/26",
+        "PAPER-XU-ZHU-22/27",
+        "PAPER-XU-ZHU-22/28",
+        "PAPER-XU-ZHU-22/29",
+        "PAPER-XU-ZHU-22/30"
+      ],
+      "brief": "Extend PadicDifferentialEquationsAndRigidCohomology from overconvergent F-isocrystals and rigid cohomology (RD.3–RD.6) to Berthelot's arithmetic D-modules with the six operations, and use them to prove the geometric Satake equivalence with p-adic coefficients. Final theorems: Xu–Zhu Theorem 3.5.1 with 3.5.3 (Sat_G ≅ Rep(Ǧ) for holonomic arithmetic D-modules) and Theorem 3.6.7 with §3.6.8 (the version with Frobenius structures, F-Sat_G ≅ Rep°_{L,σ}(Ǧ(L) ⋊ Z), and the Weil-normalised Sat : Rep_L(Ǧ) ≅ S). Construct, in order. (1) Berthelot's sheaves D^†_{𝔛,Q}(†Z) of arithmetic differential operators of finite level on a smooth formal R-scheme, O_{𝔛,Q}(†Z) ≅ Sp_*(j^†O), coherent D^†-modules, Sp_* from overconvergent isocrystals, and frame independence (import frames and isocrystals from RD.3). (2) Caro's overholonomic modules, Caro–Tsuzuki's theorem that overconvergent F-isocrystals on smooth varieties are overholonomic, and Abe's category D^b_hol(X/L) on separated k-schemes of finite type: base tuples and L-structures, the holonomic and constructible t-structures, D ≃ D^b(Hol), the six operations (⊗, ℋom, 𝔻, f^+, f_+, f_!, f^!) with proper and smooth base change, localisation, Berthelot–Kashiwara, f^! = f^+(d)[2d] for smooth f, Frobenius structures, and Sm(X) ≅ Isoc^{††}(X). (3) Cohomology and comparisons: H^*, H^*_c, agreement with rigid cohomology (RD.4), the specialisation map from algebraic de Rham cohomology of a smooth R-scheme and its relative version DR → DR^† for a good compactification, top-degree cohomology in the corrected form (Xu–Zhu sourceIssue E15), full faithfulness of f^+[d] for smooth surjective f with geometrically connected fibres (prove the degree-0 base change properly, sourceIssue E25). (4) Equivariant holonomic modules on schemes, stacks and ind-schemes (with the corrected descent lemma, E24), twisted external products. (5) Weights (Abe–Caro): ι-mixed and ι-pure complexes, stability under the operations, intermediate extension, the decomposition theorem and geometric semisimplicity of pure objects; the trace formula and Gabber–Fujiwara ℓ-independence. (6) Nearby and vanishing cycles (Abe–Caro, Abe) with duality, universal local acyclicity with the properties of Xu–Zhu 2.8.3–2.8.7 (proofs written out), and the extension to ind-schemes and algebraic stacks. (7) Local monodromy at a point: log extensions of objects unipotent at a point (Kedlaya), solutions Sol(M) ≅ Coker(N)^∨, and E^log_0 ≅ Ψ(E); import the p-adic local monodromy theorem, MC/MCF and Swan conductors from RD.2. (8) Braden's hyperbolic localisation for arithmetic D-modules for a G_m-action, with ι_F defined by restriction to X^0 ⊂ X^+ ×_X X^− (E26) and without assuming X normal, or else restricted to p ∤ |π_1(G_der)| (E14). (9) Geometric Satake: Sat_G, its semisimplicity, fusion over A¹, the fibre functor, weight functors and constant terms, the commutativity constraint, the Tannakian group and its identification with Ǧ, and the version with Frobenius structures through Tannakian categories with a semilinear Z-action (Richarz–Zhu). Import, and do not re-plan: affine Grassmannians, Schubert varieties, Beilinson–Drinfeld Grassmannians, convolution, fusion and Mirković–Vilonen's semi-infinite orbits from GlobalShtukasAndFunctionFieldLanglands GS.1 (this Part II is the p-adic coefficient branch of GS.1's classical Satake, following its proof); ℓ-adic perverse sheaves and weights from EtaleDualityAndPerverseSheaves EDC.5 and DeligneWeightsAndPurity for the ℓ-adic side of ℓ-independence; Tannakian formalism from the Tau Ceti ReductiveGroups roadmap; overconvergent F-isocrystals, rigid cohomology, finiteness and weights from RD.3–RD.6. Coordinate with PAPER-ABE-18 (Abe's Langlands correspondence for isocrystals, queued), whose §§1–2 are the main source for (2)–(5), and with the pending Part IIs PadicDifferentialEquationsPartIIRigidCompanions and PadicDifferentialEquationsPartIIMinimalSlope, which should import (2)–(5) from here. Consumer: KloostermanSheavesAndBesselIsocrystals (PAPER-XU-ZHU-22). Tests: A¹ and G_m with constant, Dwork and Kummer coefficients (conventions fixed as in E22–E23); IC sheaves of Gr_{≤α^∨} for PGL_2; Braden's theorem on P¹ with the standard G_m-action.",
+      "reason": "The atlas has no arithmetic D-modules: in the atlas extracts 'holonomic' and 'overholonomic' occur nowhere and 'nearby cycle' only in ℓ-adic layers (LefschetzPencilsAndVanishingCycles LPV.6–LPV.7, IgusaVarietiesAndTorsionConcentration IG.4); among pending routes 'D-module' means the characteristic-zero D-modules of MixedHodgeModulesAndIrregularHodgeTheory (PAPER-FRESAN-SABBAH-YU-22). Berthelot appears only as the source of frames (RD.3) and of crystalline cohomology. PadicDifferentialEquationsAndRigidCohomology stops at overconvergent F-isocrystals, rigid cohomology, finiteness and Kedlaya's weights (RD.3–RD.6). The six-operation formalism of Berthelot, Caro, Caro–Tsuzuki, Abe and Abe–Caro extends that direction, so it is a Part II. Its natural final target is the geometric Satake equivalence with p-adic coefficients (§3), the first application that needs all of it. The two other pending Part IIs of the same parent (PadicDifferentialEquationsPartIIRigidCompanions from PAPER-ESNAULT-GROECHENIG-20 and PadicDifferentialEquationsPartIIMinimalSlope from PAPER-TSUZUKI-23) consume Abe's companions and Abe–Esnault's mixedness; this Part II supplies the D-module formalism under them."
+    },
+    {
+      "route": "new",
+      "roadmap": "KloostermanSheavesAndBesselIsocrystals",
+      "title": "Kloosterman sheaves and Bessel F-isocrystals for reductive groups",
+      "area": "geomlanglands",
+      "items": [
+        "PAPER-XU-ZHU-22/4",
+        "PAPER-XU-ZHU-22/5",
+        "PAPER-XU-ZHU-22/6",
+        "PAPER-XU-ZHU-22/31",
+        "PAPER-XU-ZHU-22/32",
+        "PAPER-XU-ZHU-22/33",
+        "PAPER-XU-ZHU-22/34",
+        "PAPER-XU-ZHU-22/35",
+        "PAPER-XU-ZHU-22/36",
+        "PAPER-XU-ZHU-22/37",
+        "PAPER-XU-ZHU-22/38",
+        "PAPER-XU-ZHU-22/39",
+        "PAPER-XU-ZHU-22/40",
+        "PAPER-XU-ZHU-22/41",
+        "PAPER-XU-ZHU-22/42",
+        "PAPER-XU-ZHU-22/43",
+        "PAPER-XU-ZHU-22/44",
+        "PAPER-XU-ZHU-22/45",
+        "PAPER-XU-ZHU-22/46",
+        "PAPER-XU-ZHU-22/47",
+        "PAPER-XU-ZHU-22/48",
+        "PAPER-XU-ZHU-22/49",
+        "PAPER-XU-ZHU-22/50",
+        "PAPER-XU-ZHU-22/51",
+        "PAPER-XU-ZHU-22/52",
+        "PAPER-XU-ZHU-22/53",
+        "PAPER-XU-ZHU-22/54",
+        "PAPER-XU-ZHU-22/55",
+        "PAPER-XU-ZHU-22/56",
+        "PAPER-XU-ZHU-22/57",
+        "PAPER-XU-ZHU-22/58",
+        "PAPER-XU-ZHU-22/59",
+        "PAPER-XU-ZHU-22/60",
+        "PAPER-XU-ZHU-22/61",
+        "PAPER-XU-ZHU-22/62",
+        "PAPER-XU-ZHU-22/63",
+        "PAPER-XU-ZHU-22/64",
+        "PAPER-XU-ZHU-22/67",
+        "PAPER-XU-ZHU-22/68",
+        "PAPER-XU-ZHU-22/69"
+      ],
+      "brief": "Plan the Kloosterman sheaves of Heinloth–Ngô–Yun for split reductive groups, the Frenkel–Gross rigid irregular connection, Zhu's identification of the two, and the Bessel F-isocrystal of Xu–Zhu, their p-adic companion. Final theorems, from Xu–Zhu, Invent. Math. 227 (2022): Theorem 4.4.4 (the unique Frobenius structure φ ∈ Ǧ(A^†) on Be_Ǧ with the traces of Kl_Ǧ); Theorem 4.5.2 in its corrected form (sourceIssue E5) with Corollaries 4.5.6–4.5.7 (monodromy groups of Be^†_Ǧ and Kl_Ǧ; local monodromy at ∞ and simple wild parameters); Theorem 5.1.4 (Heinloth–Ngô–Yun's functoriality conjecture) with Corollary 5.3.10 for p = 2; Theorem 5.4.2 (Frobenius slopes). Cover, in order. (a) The automorphic data: I(0), I(1), I(2), Ω, the group schemes G(m, n) on P¹, the big cell, Hecke stacks and geometric Hecke operators, cleanness, Hecke eigen-objects, in three sheaf theories: Heinloth–Ngô–Yun's ℓ-adic Kl_Ǧ (with rank, purity, tame principal-unipotent monodromy at 0, Swan conductors, and HNY's monodromy theorem), the de Rham Kl^dR_Ǧ(λφ) and the arithmetic Kl^rig_Ǧ(ψφ), including the variant with a multiplicative character, trivial functoriality, the exceptional isomorphisms and the symmetries under G_m × Aut(G, B, T). (b) The Frenkel–Gross connection, its differential Galois groups (Frenkel–Gross Cor. 9–10) and rigidity. (c) Zhu's theorem Kl^dR ≅ Be_Ǧ via the classical duality g*_aff(1)//T ≅ ǧ_aff(1)//Ť, opers (Beilinson–Drinfeld §3) and the quantisation U(Lie I(1)/I(2))^T ≅ Fun Op_ǧ, then the extension from adjoint to general Ǧ. (d) The comparison (Kl^dR)^† ≅ Kl^rig through the specialisation of twisted de Rham to twisted rigid cohomology on minuscule and quasi-minuscule Schubert cells. (e) The Bessel F-isocrystal, its log extension at 0 and φ_0 = 2ρ(√q). (f) Monodromy: G_geo, G_arith, G_alg; Baldassarri's bound of p-adic slopes by formal slopes; the exclusion of a principal PGL_2 (with the exponents corrected, E6); companions and D'Addezio's comparison of monodromy groups; Gross–Reeder simple wild parameters. (g) Functoriality (E8, E9). (h) Classical groups: Be_n and the Dwork–Sperber theorem; hypergeometric sums, Katz's ℓ-adic hypergeometric sheaves with their Frobenius at 0 (E7) and Miyatani's hypergeometric F-isocrystals; the Lam–Templier Landau–Ginzburg formula for SO_{2n} and the toric formula with the corrected constant (E4); the convolution formula with its half twist (E3); the identities of Corollary 5.3.11 and §1.2.9 in corrected form (E1–E3). (i) Slopes: the Newton map on Conj^ss(Ǧ(K̄)), V. Lafforgue's bound NP ≤ ρ for Hecke eigenvalues, Adolphson–Sperber's degree and Hodge bound, Wan's ordinarity criterion for the toric sums f_d, and Sperber–Wan ordinarity of Kloosterman sums. (j) The 2-adic appendix: Dwork's congruences with the 2-adic refinement (E10), unit-root F-isocrystals and maximal-slope quotients, and Be^†_{2n+1} ≅ Be^†_{SO_{2n+1},Std} at p = 2. Import, and do not rebuild: arithmetic D-modules, weights, nearby cycles, ULA, hyperbolic localisation and p-adic geometric Satake from PadicDifferentialEquationsPartIIArithmeticDModules (proposed by this extraction), with its sign conventions for the Dwork isocrystal (E22); overconvergent F-isocrystals, rigid cohomology, the trace formula and weights from RD.3–RD.6 and the p-adic local monodromy theorem from RD.2; Tsuzuki's minimal-slope theorem from the pending PadicDifferentialEquationsPartIIMinimalSlope; Bun_G with level structure from GlobalShtukasAndFunctionFieldLanglands GS.0 and ℓ-adic classical Satake and Beilinson–Drinfeld Grassmannians from GS.1; ℓ-adic perverse sheaves and weights from EDC.5 and DeligneWeightsAndPurity; Deligne's Kloosterman sheaf Kl_n, the Kloosterman connection and Katz's monodromy groups of Kl_n from the pending KloostermanMomentsAndPotentialAutomorphy; Gauss sums from Mathlib (gaussSum) and FiniteFieldsAndCharacterSums FF.1; the Weil bound from FF.2. Tests: GL_2 (Be_2, Kl_2); SL_3 at p = 2 against p odd (SO_3 against SL_3); Spin_7 and SO_8 against G_2; the exceptional isomorphisms for Sp_4, SO_4, SO_6; Carlitz's identity over F_{2^s}; the identities of §1.2.9 for small q by exhaustive summation.",
+      "reason": "Nothing in the atlas follows this paper. 'Kloosterman' occurs only in a partition-asymptotics layer (QSeriesPartitionsAndMockModularForms QM.2) and in the pending KloostermanMomentsAndPotentialAutomorphy (PAPER-FRESAN-SABBAH-YU-22), which plans GL_2 Kloosterman sheaves and symmetric-power moments, not group-valued Kloosterman sheaves. 'Heinloth', 'Frenkel–Gross' and 'oper' occur nowhere, and 'Bessel' only for Bessel functions and potentials in analysis layers and Bessel models in the Gan–Gross–Prasad proposals. GlobalShtukasAndFunctionFieldLanglands plans the automorphic side over function fields in general, not rigid automorphic data or their Langlands parameters. It is a new roadmap rather than a Part II because its endpoints, the p-adic companion of Kl_Ǧ with its monodromy groups, functoriality, exponential-sum identities and slopes, belong to no existing direction; it imports the D-module machinery from the Part II proposed alongside it."
+    },
+    {
+      "route": "new",
+      "roadmap": "KloostermanMomentsAndPotentialAutomorphy",
+      "title": "Symmetric power moments of Kloosterman sums: Hodge numbers, motives and potential automorphy",
+      "area": "motives",
+      "items": [
+        "PAPER-XU-ZHU-22/1",
+        "PAPER-XU-ZHU-22/2",
+        "PAPER-XU-ZHU-22/3"
+      ],
+      "brief": "This route coalesces with the KloostermanMomentsAndPotentialAutomorphy candidate proposed by PAPER-FRESAN-SABBAH-YU-22 (same id, title and area) and keeps its brief. Xu–Zhu, Invent. Math. 227 (2022) need its Kloosterman foundations for every n, in their normalisation. State them so: (1) Kl(n; a) = (−1/√q)^{n−1} Σ ψ(Tr(z_1 + ⋯ + z_{n−1} + a/(z_1⋯z_{n−1}))) and Deligne's Kl_n = Rmult_!(add^*AS_ψ)[n−1]((n−1)/2), with trace Kl(n; a), rank n, purity of weight 0, tame unipotent monodromy with one Jordan block at 0 and Swan conductor 1 at ∞ (Sommes trig. 7.4, 7.8); (2) the Bessel connection Be_n (∇ = d + M(x)dx/x with λ^n x in the corner) and Kl_n^dR = R^{n−1}mult_!add^*E_λ, identified up to the duality (x ↦ (−1)^n x) that the sign convention of E_λ dictates (see Xu–Zhu sourceIssue E22), with the local structure at 0 and ∞; (3) Katz's theorem G_geo(Kl_n) = G_arith(Kl_n) = Sp_n (n even), SL_n (pn odd), SO_n (p = 2, n odd, n ≠ 7), G_2 (p = 2, n = 7). Consumer: KloostermanSheavesAndBesselIsocrystals (PAPER-XU-ZHU-22), which reproves (3) by p-adic methods.",
+      "reason": "PAPER-FRESAN-SABBAH-YU-22 proposed KloostermanMomentsAndPotentialAutomorphy, whose brief plans Deligne's Kloosterman sheaf with its local invariants, the Kloosterman connection Kl_{n+1} as the hypergeometric connection with its local structure, and Katz's monodromy groups of Kloosterman connections and sheaves. The three items here are those statements in the paper's normalisation, so the route keeps that candidate's id, title and area rather than planning them twice."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PadicDifferentialEquationsAndRigidCohomology",
+      "roadmap": "PadicDifferentialEquationsPartIIMinimalSlope",
+      "title": "P-adic differential equations and rigid cohomology, Part II: PBQ filtrations and minimal slopes",
+      "area": "padic",
+      "items": [
+        "PAPER-XU-ZHU-22/66"
+      ],
+      "brief": "This route coalesces with the PadicDifferentialEquationsPartIIMinimalSlope candidate proposed by PAPER-TSUZUKI-23 (same id, title and area) and keeps its brief, whose curve target is exactly the statement Xu–Zhu use (their Theorem A.3, citing Tsuzuki arXiv:1910.03871, Theorem 1.3): for irreducible overconvergent F-isocrystals M^†, N^† on a smooth curve whose convergent realisations have slope filtrations, an isomorphism of maximal-slope quotients is induced by a unique overconvergent isomorphism. Consumer: KloostermanSheavesAndBesselIsocrystals (PAPER-XU-ZHU-22), Appendix A, where it upgrades an isomorphism of unit-root quotients built from Dwork's congruences to Be^†_{2n+1} ≅ Be^†_{SO_{2n+1},Std} at p = 2.",
+      "reason": "Tsuzuki's theorem (the dual form of Kedlaya's minimal slope conjecture on curves) is the curve target of the pending PadicDifferentialEquationsPartIIMinimalSlope proposed by PAPER-TSUZUKI-23 (its Corollary 6.5). The route keeps that candidate's id, title and area."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-XU-ZHU-22/E1",
+      "kind": "error",
+      "locator": "§1.2.9(i), (1.2.9.1), p = 2 line, p. 6",
+      "printed": "(Σ_{x∈F_q^×} ψ(Tr(x + a/x)))² − q = −(1/√q) Σ_{x_1,x_2∈F_q^×} ψ(Tr(x_1 + x_2 + a/(x_1x_2))),  p = 2",
+      "correction": "(Σ_x ψ(Tr(x + a/x)))² − q = Σ_{x_1,x_2} ψ(Tr(x_1 + x_2 + a/(x_1x_2))) for p = 2, with no factor −1/√q.",
+      "reason": "In the paper's normalisation Kl(2; a) = −S_2(a)/√q and Kl(3; a) = S_3(a)/q, so Carlitz's identity Kl(3; a) = Kl(2; a)² − 1, which the appendix states and reproves, reads S_2(a)² − q = S_3(a). A brute-force computation over F_q for q = 2, 4, 8, 16, 32 and every a ∈ F_q^× gives S_2(a)² − q = S_3(a) exactly. The printed right-hand side is −S_3(a)/√q, which is not even rational for q = 2, 8, 32. The p > 2 line, S_2(a)² − q = G(ψ^{−1}, ρ^{−1})^{−1} Σ_{x_1x_2x_3=4ay} ψ(Tr(x_1 + x_2 + x_3 − y))ρ^{−1}(y), holds, as the same computation confirms for q = 3, 5, 7, 11, 13 and a = 1, 2.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E2",
+      "kind": "error",
+      "locator": "§1.2.9(ii), (1.2.9.2), p. 7",
+      "printed": "Σ_{uv=a} ((Σ_x ψ(Tr(x + u/x)))² − q)(Σ_{x_i} ψ(Tr(x_1 + ⋯ + x_{2n−3} + v/(x_1⋯x_{2n−3})))) = −(1/√q)(Σ_{x_i} ψ(Tr(x_1 + ⋯ + x_{2n} + a(x_1 + x_2)/(x_1x_2⋯x_{2n}))) − q^{n−1})",
+      "correction": "The right-hand side is Σ_{x_i∈F_q^×} ψ(Tr(x_1 + ⋯ + x_{2n} + a(x_1 + x_2)/(x_1⋯x_{2n}))) − q, with no factor −1/√q and with q in place of q^{n−1}.",
+      "reason": "Brute force gives left-hand side = T − q, where T is the 2n-variable sum: for q = 3 with n = 2, 3, 4, for q = 5 with n = 2, 3 and for q = 7 with n = 2 (a = 1, 2), and for q = 2, 4 with n = 2, 3 and q = 8 with n = 2 (a = 1). For n ≥ 3 this differs from T − q^{n−1}, and in every case from the printed −(1/√q)(T − q^{n−1}). The printed identity is what the body's two slips give together (E3, E4): with Kl_{SO_{2n+1}} = Σ Kl_{SO_3}Kl(2n−2) and the constant (q − 1)q^{n−1} for SO_{2n+2}, one gets −(1/√q)(T − q^{n−1}). The correct versions, Kl_{SO_{2n+1}} = −(1/√q)Σ Kl_{SO_3}Kl(2n−2) and Kl_{SO_{2n+2}}(a) = q^{−n}(T + q^n − q), give T − q.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E3",
+      "kind": "error",
+      "locator": "§5.3.9, (5.3.9.1), p. 61; Corollary 5.3.11(i), (5.3.11.1), p. 61",
+      "printed": "Be^†_{SO_{2n+1},Std} ≃ Be^†_{SO_3,Std} ⋆ Be^†_{2n−2}. … Kl_{SO_{2n+1},Std}(a) = Σ_{x,y∈k^×, xy=a} Kl_{SO_3,Std}(x) Kl(2n−2; y)",
+      "correction": "Be^†_{SO_{2n+1},Std} ≅ (Be^†_{SO_3,Std} ⋆ Be^†_{2n−2})(1/2) and Kl_{SO_{2n+1},Std}(a) = −(1/√q) Σ_{xy=a} Kl_{SO_3,Std}(x) Kl(2n−2; y).",
+      "reason": "The convolution μ_! of two objects pure of weight 0 is pure of weight 1 (and its trace carries the sign of the degree shift), so it cannot be the weight-0 object Be^†_{SO_{2n+1},Std} without a half Tate twist. Numerically, with Kl_{SO_3,Std}(x) = Kl(2; x)² − 1: at p = 2 the ratio Kl(5; a)/Σ_{xy=a} Kl_{SO_3}(x)Kl(2; y) is exactly −1/√q (q = 4 and 8, a = 1), and at p = 3, 5, 7 the ratio H̃_ψ(5; ρ)(4a)/Σ_{xy=a} Kl_{SO_3}(x)Kl(2; y) is exactly −1/√q for every a ∈ F_p^×. The second equality of (5.3.11.1) (with Kl(2n+1; a) for p = 2 and H̃_ψ(2n+1; ρ)(4a) for p > 2) is correct.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E4",
+      "kind": "error",
+      "locator": "§5.3.5, Proposition 5.3.5(ii), (5.3.5.2), and its proof, pp. 59–60",
+      "printed": "(ii) When n ≥ 3, … Kl_{SO_{2n},Std}(a) = (1/q^{n−1})(Σ_{x_i∈F_q^×} ψ(Tr(x_1 + ⋯ + x_{2n−2} + a(x_1 + x_2)/(x_1⋯x_{2n−2}))) + (q − 1)q^{n−2}). … (ii) The equality follows from subdividing the sum (5.3.4.6) in the following parts: (a) Case p_n, p_{n+1}, …, p_{2n−3} ≠ 0 … (b) Case p_n = 0 and p_{2n−2−ℓ} ≠ 0 for some ℓ ∈ {1, …, n−3} … (c) Case p_n = p_{n+1} = ⋯ = p_{2n−3} = 0: … equals to (q−1)/q",
+      "correction": "The constant is q^{n−1} − q, which equals (q − 1)q^{n−2} only for n = 3: Kl_{SO_{2n},Std}(a) = q^{−(n−1)}(Σ_{x_i} ψ(…) + q^{n−1} − q). The proof must also treat the points with p_n ≠ 0 and some p_{n+j} = 0 (1 ≤ j ≤ n−3), which none of (a)–(c) covers.",
+      "reason": "Summing the Landau–Ginzburg expression (5.3.4.6) over the F_q-points of Q_{2n−2} − D by brute force gives T + q^{n−1} − q, not T + (q − 1)q^{n−2}, for n = 4 (q = 3, 5) and n = 5 (q = 3); for n = 3 the two agree. Splitting by which of p_n, …, p_{2n−3} vanish: case (a) gives T, case (b) gives 0 and case (c) gives (q − 1)q^{n−2}, as the proof says, but the uncovered patterns (p_n ≠ 0 and some later p_{n+j} = 0) contribute q^{j+1} − q^j for the pattern with first zero at p_{n+j}, in total q^{n−2} − q (for n = 4: q² − q = 6 at q = 3 and 20 at q = 5; for n = 5 at q = 3: 18 + 6). Corollary 5.3.11(ii) is still true, since it also follows from the decomposition (5.3.6.5), but its proof via this proposition inherits the error, and so does (1.2.9.2) (E2).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E5",
+      "kind": "misprint",
+      "locator": "§4.5, Theorem 4.5.2(i), first bullet, p. 51",
+      "printed": "G_geo ≅ Ǧ^{Σ,∘}, if Ǧ is not type A_{2n} (n ≥ 2) or B_3 or D_{2n} (n ≥ 2) with Σ ≠ Out(ǧ). • G_geo = Ǧ, if Ǧ is of type A_{2n},",
+      "correction": "… if Ǧ is not of type A_{2n} (n ≥ 1) …: the type A_2 belongs to the second bullet only.",
+      "reason": "As printed, Ǧ = SL_3 (type A_2, Σ = Z/2) satisfies both bullets, which give SO_3 and SL_3. Part (b) of the proof (A_{2n} with p > 2) excludes G_geo ⊂ SO_{2n+1} for every n ≥ 1 (Lemma 4.5.5 applies to A_2 when p > 2), and Katz's theorem gives G_geo(Kl_3) = SL_3 for p odd; so SL_3 is correct.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E6",
+      "kind": "misprint",
+      "locator": "§4.5, proof of Lemma 4.5.5, p. 52",
+      "printed": "we have a decomposition Ad ≃ ⊕_{i=1}^r S^{2ℓ_i} as representations of principal PGL_2, where {ℓ_1 + 1, ⋯, ℓ_r + 1} is the set of exponents of ǧ",
+      "correction": "… where {ℓ_1, …, ℓ_r} is the set of exponents of ǧ.",
+      "reason": "Under the principal SL_2 the adjoint representation is ⊕_i S^{2m_i} with m_i the exponents (Kostant): for sl_3, with exponents 1 and 2, Ad = S² ⊕ S⁴ of dimension 3 + 5 = 8, whereas the printed reading would give S⁰ ⊕ S², of dimension 4. The rest of the proof (ℓ_i − ⌊ℓ_i/p⌋ > 1 for some i, and the A_4 analysis with ℓ up to 7) uses the exponents, as corrected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E7",
+      "kind": "misprint",
+      "locator": "§5.2.3, p. 57",
+      "printed": "Any lifting F_0 in the decomposition group D_0 at 0 of the Frobenius automorphism has eigenvalues set {α, qα, ⋯, q^{2n}α} (cf. [56] 7.0.7).",
+      "correction": "{α, qα, …, q^{n−1}α}",
+      "reason": "F has rank n with maximally unipotent I_0-action, so a Frobenius lift has n eigenvalues α, qα, …, q^{n−1}α; the normalisation in the next sentence, eigenvalues q^{−(n−1)/2}, …, q^{(n−1)/2}, and the factor (−√q)^{n−1} in (5.2.3.1) presuppose that. The exponent 2n is the value for the (2n+1)-dimensional case used later.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E8",
+      "kind": "misprint",
+      "locator": "§5.1, Proposition 5.1.3(ii), p. 55",
+      "printed": "Then (Be^†_Ǧ(ξ̌), φ) is the push-out of (Be^†_{Ǧ′}(ξ̌), φ).",
+      "correction": "… is the push-out of (Be^†_{Ǧ′}(ξ̌), φ′).",
+      "reason": "The sentence before names the Frobenius structure of Be^†_{Ǧ′}(ξ̌) φ′ (constructed from φ′); φ is that of Be^†_Ǧ(ξ̌).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E9",
+      "kind": "misprint",
+      "locator": "§5.1, proof of Theorem 5.1.4, p. 56",
+      "printed": "We lift φ to be a generic linear function of G′ over R and take φ′ as in 5.1.3.",
+      "correction": "We lift φ′ to a generic linear function of G′ over R and take φ as in Proposition 5.1.3(i).",
+      "reason": "The theorem starts from a given φ′ for G′ and produces φ for G; Proposition 5.1.3(i) constructs φ of G from φ′ of G′.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E10",
+      "kind": "misprint",
+      "locator": "Appendix A.13, proof of Theorem A.5(i′), the display after 'we put j = μ + 2i', p. 68",
+      "printed": "Σ_{μ=0}^{1} Σ_{i=0}^{2^{s−t−1}} B^{(t+1)}(μ + 2i + m2^{s−i}) H_a(μ + 2i, t, N)/B^{(t+1)}(μ + 2i)",
+      "correction": "Σ_{μ=0}^{1} Σ_{i=0}^{2^{s−t−1}−1} B^{(t+1)}(μ + 2i + m2^{s−t}) H_a(μ + 2i, t, N)/B^{(t+1)}(μ + 2i)",
+      "reason": "This rewrites the right side of β_{t,s}, Σ_{j=0}^{2^{s−t}−1} B^{(t+1)}(j + m2^{s−t})H_a(j, t, N)/B^{(t+1)}(j), with j = μ + 2i, so i runs up to 2^{s−t−1} − 1 and the shift is m2^{s−t}; the next displays use exactly these (B^{(t+1)}(μ + 2i + m2^{s−t}) and Σ_{i=0}^{2^{s−t−1}−1}).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E11",
+      "kind": "misprint",
+      "locator": "§5.4, proof of Lemma 5.4.3, after (5.4.3.1), p. 63",
+      "printed": "where the last term is the Frobenius trace of DHyp(2n+1; ρ).",
+      "correction": "… is minus the Frobenius trace of DHyp_ψ(2n+1; ρ) at a.",
+      "reason": "The last term of (5.4.3.1) is H_ψ(2n+1, ρ)(a) (substitute x_{2n+1} = a u/(x_1⋯x_{2n}), y = u), while Theorem 5.2.2(iii) gives the trace of DHyp_π(n, β) as (−1)^{n+m−1}H_ψ(n, ρ), which is −H_ψ(2n+1, ρ) here. The identity S_m(f_2) = S_m(f_1) + H_ψ(2n+1, ρ)(a) itself is correct, and the sign does not change the slopes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E12",
+      "kind": "error",
+      "locator": "§3.4, Proposition 3.4.2(ii), p. 31",
+      "printed": "In the non-empty case, Gr_{G,μ} ∩ S_λ (resp. Gr_{G,μ} ∩ T_λ) has pure dimension ρ(λ + μ).",
+      "correction": "Gr_μ ∩ S_λ has pure dimension ⟨ρ, λ + μ⟩ and Gr_μ ∩ T_λ has pure dimension ⟨ρ, μ − λ⟩ (Mirković–Vilonen, Theorem 3.2).",
+      "reason": "For λ = μ the printed statement would make both S_μ ∩ Gr_μ and T_μ ∩ Gr_μ of dimension ⟨2ρ, μ⟩ = dim Gr_μ, hence both open dense in the irreducible Gr_μ, so they would meet in a dense open set; but S_μ ∩ T_μ = {L_μ}, so this fails whenever dim Gr_μ > 0. Concretely, for GL_n and μ = (1, 0, …, 0), Gr_μ = P^{n−1} and T_{e_i} ∩ Gr_μ ≅ A^{i−1}, of dimension ⟨ρ, μ − e_i⟩ = i − 1, while ⟨ρ, e_i + μ⟩ = n − i. Mirković–Vilonen's proof of the vanishing in Proposition 3.4.3(i), which the paper follows, uses the correct value.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E13",
+      "kind": "error",
+      "locator": "§3.4, Proposition 3.4.2(ii), p. 31",
+      "printed": "is non-empty if and only if L_λ ∈ Gr_{G,≤μ} (equivalently there exists w ∈ W such that wλ ≤ μ).",
+      "correction": "… (equivalently wλ ≤ μ for every w ∈ W, i.e. the dominant W-conjugate of λ is ≤ μ).",
+      "reason": "For G = SL_2 or PGL_2, μ = 0 and λ = −α^∨ one has λ ≤ μ, so w = 1 satisfies the printed condition, but Gr_{≤0} = {L_0} does not contain L_{−α^∨}. The first formulation, L_λ ∈ Gr_{≤μ}, is correct and is the one used later (§3.5.7).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E14",
+      "kind": "gap",
+      "locator": "§3.4.5, p. 32; with §2.10.1, p. 25",
+      "printed": "we have ind-representation Gr_{G,X} ≃ lim Gr_{G,≤μ,X}, where Gr_{G,≤μ,X} ≃ Gr_{G,≤μ} × X is normal for μ ∈ X_•(T)^+. … The composition Gr_{G,≤(μ,ν),X²} → X² → X … is flat with reduced fiber at 0 and is normal on X − {0}. Then we deduce that Gr_{G,≤(μ,ν),X²} is normal (cf. [PZ] 9.2).",
+      "correction": "Normality of Gr_{≤μ} and reducedness of the special fibre hold when p ∤ |π_1(G_der)| (Faltings, Pappas–Rapoport, Zhu). For other p, apply Braden's theorem on a normal G_m-stable ambient scheme into which Gr_{≤μ} (resp. Gr_{≤(μ,ν),X²}) embeds equivariantly, using compatibility with closed pushforward, or use a form of hyperbolic localisation without normality hypotheses.",
+      "reason": "The paper's Braden theorem (2.10.2) assumes X quasi-projective with X ⊗ k̄ connected and normal (2.10.1), and §3.4 applies it to Gr_{≤μ} and Gr_{≤(μ,ν),X²} for every split reductive G over any finite field. When p divides |π_1(G_der)| (for example PGL_2 in characteristic 2), most Schubert varieties in the affine Grassmannian are not normal (Haines–Lourenço–Richarz, arXiv:1806.11001; the complete classification is arXiv:2312.11154). So Propositions 3.4.3 and 3.4.4, and everything after them, are not justified as written for such p. The statements themselves are expected to hold.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E15",
+      "kind": "error",
+      "locator": "§2.4, Corollary 2.4.3 and §2.4.1(iii), p. 16; used in Proposition 3.4.3(ii), p. 31",
+      "printed": "Let d be the dimension of X. Then the dimension of the top degree compact support cohomology H^{2d}_c(X, L_X) is equal to the number of geometrically irreducible components of X. The Frobenius on H^{2d}_c(X, L_X) acts by multiplication by q^d.",
+      "correction": "dim H^{2d}_c(X, L_X) is the number of irreducible components of X ⊗ k̄ of dimension d, and Frobenius acts on it by q^d times the permutation action on those components; so it acts by q^d if and only if they are all defined over k. Likewise in 2.4.1(iii) ('The Frobenius acts on H⁰(X, L_X) as identity') Frobenius permutes the connected components of X ⊗ k̄ and acts as the identity only when they are defined over k.",
+      "reason": "X = A¹ ⊔ Spec k has d = 1 and two geometrically irreducible components, but H²_c is one-dimensional. X = Spec F_{q²} over k = F_q has d = 0 and H⁰_c two-dimensional, with Frobenius exchanging the two geometric points (eigenvalues 1 and −1). In Proposition 3.4.3(ii) the Frobenius eigenvalue q^{ρ(λ+μ)} on H^{2ρ(λ)}_c(S_λ, IC_μ) therefore needs the top-dimensional components of S_λ ∩ Gr_μ to be defined over k, which the paper does not address.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E16",
+      "kind": "misprint",
+      "locator": "§3.4.6, (3.4.6.2)–(3.4.6.6), pp. 32–33",
+      "printed": "the stalk of L^i_λ(A_1, A_2) at a k-point (x_1, x_2) of X² is isomorphic to H^i_c(S_λ, A_1 ⋆ A_2) if x_1 = x_2 … The left hand side is a constant module with value H^i(Gr, A_1 ⋆ A_2)",
+      "correction": "Replace B by B[−2] (equivalently H^i by H^{i+2} in the stalks and in the value of the constant module) throughout §3.4.6.",
+      "reason": "B = A_{1,X} ⊠* A_{2,X} with A_X = A ⊠ L_X[1] restricts to (A_1 ⋆ A_2)[2] at a diagonal point and to (A_1 ⊠ A_2)[2] off the diagonal, so the stalk of cH^i(q²_+ i_{λ,!}i_λ^+B) is H^{i+2}_c(S_λ, A_1 ⋆ A_2); likewise q²_+B ≅ π_+(A_1 ⋆ A_2) ⊠ L_{X²}[2] by (3.3.1.2) and (3.3.2.2). The shift is uniform, so the argument is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E17",
+      "kind": "misprint",
+      "locator": "§3.4.7, p. 33",
+      "printed": "The morphism p : X_•(T) → Z/2Z, μ ↦ (−1)^{2ρ(μ)} defines a Z/2Z-grading on simple objects of Sat_G.",
+      "correction": "p(μ) = ⟨2ρ, μ⟩ mod 2 ∈ Z/2Z.",
+      "reason": "The value (−1)^{2ρ(μ)} is ±1, and (3.4.7.2) then uses (−1)^{p(A_1)p(A_2)}, which with p ∈ {±1} would be −1 for every pair; the parity class is meant.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E18",
+      "kind": "misprint",
+      "locator": "§3.4.5, p. 32",
+      "printed": "its fiber at x = (x, y) ∈ X² − Δ(X) is isomorphic to ∏_{λ_1+λ_2=λ} {L_{λ_1}} × {L_{λ_2}}. … its fiber at x = (x, y) ∈ X² − Δ(X) is isomorphic to ∏_{λ_1+λ_2=λ} S_{λ_1} × S_{λ_2} (resp. ∏_{λ_1+λ_2=λ} T_{λ_1} × T_{λ_2}).",
+      "correction": "∐_{λ_1+λ_2=λ} (disjoint unions) in all three places.",
+      "reason": "Off the diagonal the fibre of C_λ(X²) has one point for each pair (λ_1, λ_2) with λ_1 + λ_2 = λ; the proof uses the corresponding direct sum over pairs in (3.4.6.3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E19",
+      "kind": "misprint",
+      "locator": "§3.6.8, p. 36",
+      "printed": "For μ ∈ X_•(T), we denote by IC^Weil_μ = j_{μ,!+}(L_{Gr_μ})[2ρ(μ)](ρ(μ))",
+      "correction": "For μ ∈ X_•(T)^+, IC^Weil_μ = j_{μ,!+}(L_{Gr_μ}[2ρ(μ)])(ρ(μ)).",
+      "reason": "j_{!+} is defined on holonomic modules, and L_{Gr_μ} is holonomic only after the shift [2ρ(μ)], as in the definition of IC_μ in Proposition 3.1.2; Gr_μ is defined for dominant μ.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E20",
+      "kind": "misprint",
+      "locator": "§3.2, Proposition 3.2.5(ii), p. 29",
+      "printed": "Δ^+[−1](A_1 ⊠* A_2) ≅ Δ^![1](A_1 ⊠* A_2). We denote one of the above module by A_1 ⊛ A_2",
+      "correction": "Δ^+[−1](A_1 ⊠* A_2) ≅ Δ^!(A_1 ⊠* A_2)(1)[1]; set A_1 ⊛ A_2 := Δ^+[−1](A_1 ⊠* A_2).",
+      "reason": "The isomorphism comes from Proposition 2.8.5(i), i^+M[−1] ≅ i^!M(1)[1], which carries a Tate twist. Without Frobenius structures the twist is invisible, but §3.3.4 and §3.6 use Frobenius structures, where 'one of the above modules' is ambiguous up to (1); Corollary 3.2.6(i) uses the Δ^+ version.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E21",
+      "kind": "misprint",
+      "locator": "§3.2, proof of Corollary 3.2.6(iii), p. 29; §3.4.6, (3.4.6.4), p. 32",
+      "printed": "By identifying (A_1 ⋆ A_2) ⋆ A_2 and A_1 ⋆ (A_2 ⋆ A_3) with A_1 ⋆ A_2 ⋆ A_3 … H^{2ρ(λ_1)}_c(S_{λ_1}, A_1) ⊗ H^{2ρ(λ_2)}_c(S_{λ_1}, A_2)",
+      "correction": "(A_1 ⋆ A_2) ⋆ A_3; H^{2ρ(λ_2)}_c(S_{λ_2}, A_2).",
+      "reason": "Index slips: the associativity constraint concerns three objects, and the second Künneth factor lives on S_{λ_2}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E22",
+      "kind": "error",
+      "locator": "§2.1.5(i), p. 10; with (1.1.1.6), p. 3, and §4.1.13, p. 42",
+      "printed": "the connection on j^†O_{]Y[} defined by ∇ = d + π dt … We define a Frobenius structure φ : F^*(A_π) → A_π by the multiplication by θ_π(x) = exp(π(x − x^p)) … So the Frobenius trace function of A_π is equal to ψ ∘ Tr",
+      "correction": "∇ = d − π dt: then multiplication by θ_π is a horizontal F^*(A_π) → A_π and the trace is ψ ∘ Tr. (With ∇ = d + π dt as printed, the horizontal Frobenius is θ_π^{−1} and the trace is ψ^{−1} ∘ Tr.)",
+      "reason": "Horizontal sections of d + π dt are exp(−πt) and those of F^*A_π are exp(−πt^p), so a horizontal g : F^*A_π → A_π satisfies g·exp(−πt^p) ∈ K·exp(−πt), i.e. g = θ_π^{−1}. The sign conventions of the paper disagree in three places. §4.1.13 takes E_λ = K⟨x, ∂_x⟩/(∂_x − λ), which is (O, d + λ dx). The introduction takes E_λ = (O, d − λ dx) (1.1.1.6), and with it Kl_1^dR = E_λ is dual to Be_1 = d + λ dx rather than isomorphic as (1.1.1) states for n = 1. And §2.1.5(i) takes d + π dt. The consistent choice is that of §4.1.13 together with ∇ = d − π dt here: then E^†_{−π} = A_ψ, as Theorem 4.2.1 needs, and it matches Theorem 1.1.4, where Be_1 = d − π dx has Frobenius θ_π. With the printed A_π instead, E^†_{−π} ≠ A_π and the traces would be those of ψ^{−1}, i.e. x ↦ −x for groups of odd Coxeter number.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E23",
+      "kind": "misprint",
+      "locator": "§2.1.5(ii), p. 10",
+      "printed": "With the lifting of Frobenius as in (i), F^*_{G_m}(K_a) is … ∇^σ = d − ap dx/x. The isocrystal K_a has a Frobenius structure if and only if a ∈ (1/(q−1))Z. This Frobenius structure is given by multiplication by t^{(q−1)a}.",
+      "correction": "For k = F_q the Frobenius lift is x ↦ x^q, so ∇^σ = d − aq dx/x, and the horizontal Frobenius F^*K_a → K_a is multiplication by x^{−(q−1)a}; its trace is then χ^{−1} ∘ N, so K_χ should be K_{−a} (or ∇ = d + a dx/x).",
+      "reason": "Horizontal sections of K_a are x^a, those of F^*K_a are x^{aq}, and g·x^{aq} ∈ K·x^a forces g = x^{−(q−1)a}. With p in place of q the existence criterion would read (p − 1)a ∈ Z, contradicting the stated a ∈ (1/(q−1))Z; and t is not the coordinate here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E24",
+      "kind": "error",
+      "locator": "§2.5, Lemma 2.5.3, p. 18",
+      "printed": "Let H_1 ⊂ H be a closed normal subgroup scheme over S. Suppose that H/H_1, H_1 are smooth over S and that the action of H on X factors through H/H_1. Then, the canonical functor Hol_{H/H_1}(X) → Hol_H(X) is an equivalence of categories.",
+      "correction": "Add the hypothesis that H_1 has geometrically connected fibres; essential surjectivity then follows from smooth descent and Proposition 2.4.4 applied to the H_1-torsor H ×_S X → (H/H_1) ×_S X.",
+      "reason": "Counterexample: S = Spec k, H = G_m, H_1 = μ_n with n ≥ 2 prime to p, X = G_m with t·x = t^n x. H/H_1 ≅ G_m acts simply transitively, so Hol_{H/H_1}(X) contains only constant objects. The Kummer module K_{1/n} (which has a Frobenius structure over F_{q′} with n | q′ − 1) is H-equivariant: act^+K_{1/n} = d − dt/t − (1/n)dx/x ≅ pr_2^+K_{1/n} via multiplication by t. But K_{1/n} is not constant. In the paper's uses (L^+G and its jet groups, whose kernels are vector groups) the extra hypothesis holds.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E25",
+      "kind": "gap",
+      "locator": "§2.4.6, proof of Proposition 2.4.4, (2.4.6.2), p. 17",
+      "printed": "By smooth base change and 2.3.5, to prove (2.4.6.2) [F ≅ cH⁰f_+f^+F], we can reduce to the case where Y is a point.",
+      "correction": "Base change to a closed point is not smooth base change, and for smooth f the formation of f_+ does not commute with restriction to fibres beyond degree 0. The degree-0 statement cH⁰f_+f^+F ≅ F for f smooth surjective with geometrically connected fibres (the analogue of SGA 4 XV 1.16) needs its own argument, for example generic base change on a dense open and noetherian induction.",
+      "reason": "For f : A² ∖ {0} → A¹ the first projection (smooth, with geometrically connected fibres), f_+L = L_{A¹} ⊕ δ_0(−2)[−3], so the stalk of f_+L at 0 has cohomology in degrees 0 and 3, while the fibre G_m has cohomology in degrees 0 and 1. Proposition 2.4.4 underlies Lemmas 2.5.2–2.5.3, hence the Satake category.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E26",
+      "kind": "error",
+      "locator": "§2.10.3, (2.10.3.1), p. 25",
+      "printed": "(F^+)^{+!} = f′^+g′^!g_+g^+F ≃ f′^+h′_+h^!g^+F ≃ F^{!+}",
+      "correction": "Only a canonical morphism f′^+h′_+h^!g^+F → F^{!+} exists in general, obtained by restricting to the open and closed X^0 ⊂ Z = X^+ ×_X X^−, as in Braden's construction; ι_F is its composite with β^{+!}.",
+      "reason": "For X = P¹ with t·[x : y] = [tx : y] and F = L_{P¹}: X^+ = A¹ ⊔ {∞}, X^− = {0} ⊔ (P¹ ∖ {0}) and Z = {0} ⊔ {∞} ⊔ G_m. At ∞, F^{!+} is L, but f′^+g′^!g_+g^+F is the stalk of j_+L_{G_m} ⊕ δ_∞ at ∞, namely L ⊕ L(−1)[−1] ⊕ L; the G_m-component of Z contributes. The statements of Theorem 2.10.2 are unaffected, and after the paper's reduction to affine X (where Z = X^0) so is the proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E27",
+      "kind": "misprint",
+      "locator": "§2.10, Theorem 2.10.2(ii), p. 25",
+      "printed": "The canonical morphisms π_! → f^!, π′_+ → f′^+ induce morphisms π_!g^+F → F^{!+}, π′_+g′^! → F^{+!}",
+      "correction": "The canonical morphisms f^! → π_! (from the counit f_!f^! → id, as πf = id) and π′_+ → f′^+ induce F^{!+} → π_!g^+F and π′_+g′^!F → F^{+!}.",
+      "reason": "There is no natural transformation π_! → f^!; the natural one goes the other way. The isomorphism claims, which are what §3 uses, are unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E28",
+      "kind": "misprint",
+      "locator": "§2.6, Corollary 2.6.2(ii) and Theorem 2.6.4(ii), p. 19",
+      "printed": "(ii) If X is smooth and F is a smooth holonomic module on X, then j_{!+}(F|_U) ≃ F. … (ii) An ι-pure F-holonomic complex F is isomorphic, in D(X/L) to ⊕_{n∈Z} ℋ^n(F)[n].",
+      "correction": "(ii) … if moreover U is dense in X, then j_{!+}(F|_U) ≃ F. … ⊕_n ℋ^n(F)[−n].",
+      "reason": "For U = ∅ and F ≠ 0 the first fails; the complex ℋ^1(F)[−1] is not ℋ^1(F)[1]. The paper's uses have U dense and use the decomposition only up to this shift.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E29",
+      "kind": "misprint",
+      "locator": "§2.8, proof of Proposition 2.8.3(i), p. 21",
+      "printed": "Then we reduce to show that the canonical morphism N → Δ^!(p_2^+(N))(2d_S)[2d_S] is an isomorphism.",
+      "correction": "N → Δ^!(p_2^+(N))(d_S)[2d_S]",
+      "reason": "p_2 is smooth of relative dimension d_S, so p_2^+ = p_2^!(−d_S)[−2d_S] and Δ^!p_2^+N = N(−d_S)[−2d_S]; with (2d_S) the map is off by a Tate twist and is not an isomorphism of objects with Frobenius structure.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    },
+    {
+      "id": "PAPER-XU-ZHU-22/E30",
+      "kind": "error",
+      "locator": "§2.9.2, (2.9.2.2), p. 24",
+      "printed": "there exists a canonical isomorphism between Coker(N) and the solution space Sol(M) of (M, ∇): Coker(N) ≅ Sol(M) = Hom_{K{x}}((M, ∇), (K{x}, d))^{∇=0}.",
+      "correction": "Sol(M) ≅ Coker(N)^∨ = (V/NV)^∨ canonically.",
+      "reason": "For M = V ⊗ K{x} with ∇(v ⊗ 1) = Nv ⊗ dx/x, a horizontal K{x}-linear λ = Σ_n λ_n x^n : M → K{x} satisfies λ_n ∘ N = nλ_n, so λ_n = 0 for n ≠ 0 (N nilpotent) and λ_0 ∘ N = 0, i.e. λ_0 ∈ (V/NV)^∨. The later uses (Proposition 5.1.3, Remark 5.3.7, Appendix A) need only dim Sol(M) = dim Coker(N).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref record of doi:10.1007/s00222-021-01079-5: no correction, erratum or update relation; a Crossref search for a correction found none (22 September 2026)",
+        "arXiv 1910.13391: v2 (19 December 2019) is the last version and was read in full; the published version (Invent. Math. 227 (2022) 997–1092, Springer TDM licence, not open access) could not be fetched, and the Caltech repository record holds only the arXiv preprint"
+      ]
+    }
+  ]
+}
