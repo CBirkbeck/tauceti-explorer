@@ -11,13 +11,14 @@
     "url": "https://arxiv.org/pdf/2012.01307v2",
     "version": "Final author version, 27 April 2023, 19 pages",
     "sha256": "f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f",
-    "accessed": "2026-09-21",
+    "accessed": "2026-09-22",
     "readSections": [
-      "Entire paper, §§1–5 and references, PDF pages 1–19"
+      "Full author-version PDF pp.1–19, §§1–5 and references reread by codex-c83e7a on 2026-09-22."
     ],
-    "publicationMatch": "Title, authors, DOI, venue and conclusions agree with publisher metadata; arXiv labels v2 final version, posted after acceptance. Publisher-format PDF not acquired: guessed annals-v198-n3-p04-p.pdf returned 404. No line-by-line publication collation claimed."
+    "publicationMatch": "Title, authors, DOI, venue and conclusions agree with publisher metadata; arXiv labels v2 final version, posted after acceptance. Publisher-format PDF not acquired: guessed annals-v198-n3-p04-p.pdf returned 404. No line-by-line publication collation claimed.",
+    "previousCheckpoint": "codex-a71f92; PR #1662; all prior item and API IDs preserved."
   },
-  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves.",
+  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. Continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -45,12 +46,12 @@
       {
         "library": "mathlib",
         "file": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
-        "line": 80,
+        "line": 176,
         "names": [
           "IsIntegralClosure.finite"
         ],
-        "note": "Whole ambient setup and finite-normalization statements read through line188; exact only in the finite SEPARABLE extension case.",
-        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean#L80"
+        "note": "Actual separable theorem and surrounding typeclass context reread; purely inseparable and assembly steps remain separate.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean#L176"
       },
       {
         "library": "tauceti",
@@ -108,6 +109,79 @@
         ],
         "note": "Read setup and actual theorem; proper subset of places, exact constants and the multiplicative bound are essential.",
         "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Consequences/StrongApproximation.lean#L88"
+      },
+      {
+        "library": "tauceti",
+        "file": "TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean",
+        "line": 167,
+        "names": [
+          "TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/IntegralClosure/PurelyInseparable.lean#L167"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/FieldTheory/Normal/Closure.lean",
+        "line": 167,
+        "names": [
+          "normalClosure.normal",
+          "normalClosure.is_finiteDimensional",
+          "normalClosure.algebra"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Normal/Closure.lean#L167"
+      },
+      {
+        "library": "tauceti",
+        "file": "TauCeti/FieldTheory/Normal/FixedField.lean",
+        "line": 44,
+        "names": [
+          "TauCeti.IntermediateField.isPurelyInseparable_fixedField_top"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/Normal/FixedField.lean#L44"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "line": 94,
+        "names": [
+          "IsGalois.of_fixed_field"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Galois/Basic.lean#L94"
+      },
+      {
+        "library": "tauceti",
+        "file": "TauCeti/RingTheory/IntegralClosure/Transfer.lean",
+        "line": 52,
+        "names": [
+          "TauCeti.IsIntegralClosure.tower_bot",
+          "TauCeti.IsIntegralClosure.finite_of_injective"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/IntegralClosure/Transfer.lean#L52"
+      },
+      {
+        "library": "tauceti",
+        "file": "TauCeti/RingTheory/Valuation/IntegralOfValuationLeOne.lean",
+        "line": 112,
+        "names": [
+          "TauCeti.isIntegral_of_forall_valuation_le_one"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Valuation/IntegralOfValuationLeOne.lean#L112"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean",
+        "line": 56,
+        "names": [
+          "minpoly.isIntegrallyClosed_eq_field_fractions'"
+        ],
+        "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean#L56"
       }
     ],
     "searchScope": "Both full pinned Mathlib/Mathlib and TauCeti/TauCeti trees, with targeted Pfister, Henselization, biinterpretability, Kronecker-dimension, patch, normalization, valuation-place, high-degree pole, approximation and cohomology searches. Absence of an exact hit is recorded as an audit result, not a theorem about every possible library encoding."
@@ -173,6 +247,12 @@
           "statement": "The language has no primitive inverse function.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/main-single-sentence",
+          "how": "Express the final parameter-free field-characterizing sentence and eliminate total inversion."
+        }
       ]
     },
     {
@@ -230,6 +310,12 @@
           "statement": "With parameter a, x=a defines {a}.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/normalization-definable",
+          "how": "Close formula-defined sets under Boolean operations and projection when defining normalization rings."
+        }
       ]
     },
     {
@@ -283,6 +369,12 @@
           "kind": "regression-contract",
           "statement": "An algebraic closure of F_p is not finitely generated as a field.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/main-single-sentence",
+          "how": "Restrict the comparison class to fields finitely generated over their prime field."
         }
       ]
     },
@@ -338,6 +430,12 @@
           "statement": "In Q(√2)(t), √2 is constant and t is not.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/normalization-ring",
+          "how": "Separate the finite or number-field constant field from its integer ring in the arithmetic normalization."
+        }
       ]
     },
     {
@@ -392,6 +490,12 @@
           "statement": "dim_Kr(Q(t))=2 and dim_Kr(F_p(t))=1.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/uniform-divisors",
+          "how": "Fix formula arity and the dimension drop at geometric divisors."
+        }
       ]
     },
     {
@@ -443,6 +547,12 @@
           "kind": "regression-contract",
           "statement": "A degree-two alteration is not a birational morphism.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/lgp-characteristic-two",
+          "how": "Retain both resolution clauses in the high-dimensional characteristic-two Hasse input."
         }
       ]
     },
@@ -499,6 +609,12 @@
           "statement": "H_4(F_2(x,y,z)) is false by the dimension clause.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/uniform-divisors",
+          "how": "Track exactly when the resolution assumption is needed; do not impose it in dimension three."
+        }
       ]
     },
     {
@@ -552,6 +668,12 @@
           "kind": "regression-contract",
           "statement": "The trivial valuation is excluded.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/uniform-divisors",
+          "how": "Specify precisely which valuation rings must be enumerated by the formula."
         }
       ]
     },
@@ -626,6 +748,12 @@
           "kind": "regression-contract",
           "statement": "No fiber equals K.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/normalization-uniform",
+          "how": "Turn the fixed-dimension divisor parameter tuple into quantified ring formulas."
         }
       ]
     },
@@ -705,6 +833,12 @@
       ],
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.0"
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/fraction-interpretation",
+          "how": "Interpret a fraction field using equivalence classes of numerator/denominator pairs."
+        }
       ]
     },
     {
@@ -758,6 +892,12 @@
           "kind": "regression-contract",
           "statement": "A finite structure cannot interpret the infinite structure Z.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/main-biinterpretability",
+          "how": "Compose the definable field/domain interpretations with the integer interpretation, including definable composite isomorphisms."
         }
       ]
     },
@@ -891,6 +1031,12 @@
           "statement": "The wild coefficient is not the trivial group of μ_2-points.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/kato-cohomology",
+          "how": "Choose the tame twist or wild logarithmic coefficient object before forming the Hasse group."
+        }
       ]
     },
     {
@@ -944,6 +1090,12 @@
           "kind": "regression-contract",
           "statement": "At characteristic two H^3(F)=H^1(F,Ω^2_log).",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/lgp-global-base",
+          "how": "State the exact degree and twist for global-to-local injectivity."
         }
       ]
     },
@@ -999,6 +1151,12 @@
           "statement": "Two-step restriction of a symbol equals one-step restriction to the top field.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/odd-degree-injectivity",
+          "how": "Use restriction/corestriction multiplication by odd degree on mod-two coefficients."
+        }
       ]
     },
     {
@@ -1053,6 +1211,12 @@
           "kind": "regression-contract",
           "statement": "The residue of a zero class is zero.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/nice-detection",
+          "how": "Pass a higher cohomology class through divisor residues to detect anisotropy."
         }
       ]
     },
@@ -1128,6 +1292,12 @@
           "statement": "If K=k_1 then K_v=k_{1v}.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/lgp-global-base",
+          "how": "Index constant-place base changes without confusing completion and henselization."
+        }
       ]
     },
     {
@@ -1201,6 +1371,12 @@
           "kind": "regression-contract",
           "statement": "The boundary composite is zero, not an arbitrary family of unrelated maps.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/lgp-good-model",
+          "how": "Encode the residue complex whose exactness supplies the local-global comparison."
         }
       ]
     },
@@ -1333,6 +1509,12 @@
           "statement": "q_{a,b} has diagonal 1,−b,−a,ab.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/pfister-invariant-zero",
+          "how": "Match characteristic-not-two Pfister tensors to cohomological symbols."
+        }
       ]
     },
     {
@@ -1384,6 +1566,12 @@
           "kind": "regression-contract",
           "statement": "An outer parameter 1 makes q⊥q isotropic using equal nonzero vectors.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/pfister-invariant-zero",
+          "how": "Use the nonsingular quadratic last factor with bilinear outer factors in characteristic two."
         }
       ]
     },
@@ -1461,6 +1649,12 @@
           "kind": "regression-contract",
           "statement": "Its invariant becomes zero after extension to F_4.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/nice-detection",
+          "how": "Translate form anisotropy into nonzero cohomology classes with natural residue maps."
         }
       ]
     },
@@ -1554,6 +1748,12 @@
           "kind": "regression-contract",
           "statement": "The extension is separable algebraic, unlike general completion.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/henselian-prime-orbit",
+          "how": "Use immediacy and the decomposition-field description for a finite henselian subextension."
         }
       ]
     },
@@ -1751,6 +1951,12 @@
           "statement": "Every outer extension of a fixed nice presentation stays nice.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/nice-parity",
+          "how": "Force local anisotropy to occur at a non-dyadic place with odd last coefficient valuation."
+        }
       ]
     },
     {
@@ -1893,6 +2099,12 @@
           "statement": "ε_i=0 is forbidden by the nonzero-parameter convention.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/test-abundance",
+          "how": "Construct enough prescribed geometric-divisor tests with controlled global tails."
+        }
       ]
     },
     {
@@ -1971,6 +2183,12 @@
           "statement": "For a field, valuation-ring membership a∈O_v is patch-clopen after the additive/multiplicative convention conversion.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood",
+          "how": "Make the finitely many polynomial valuation conditions clopen."
+        }
       ]
     },
     {
@@ -2026,7 +2244,8 @@
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/henselization",
         "PAPER-DITTMANN-POP-23/patch-field-dictionary",
-        "PAPER-DITTMANN-POP-23/henselian-generator-input"
+        "PAPER-DITTMANN-POP-23/henselian-generator-input",
+        "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood"
       ],
       "proofSteps": [
         "Choose the henselian generator and an approximate root x in F.",
@@ -2106,6 +2325,12 @@
           "statement": "For transcendental u the extension k(u)/k(u²−u) is separable of degree two.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/detecting-domination",
+          "how": "Translate the coordinate substitutions into test inequalities for the compactness argument."
+        }
       ]
     },
     {
@@ -2157,6 +2382,12 @@
           "kind": "regression-contract",
           "statement": "In characteristic two the derivative of X²−X−c is −1.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/anisotropy-union",
+          "how": "Test isotropy over actual root fields, including trivial adjunctions."
         }
       ]
     },
@@ -2276,6 +2507,12 @@
           "statement": "In that Z² example a positive first coordinate puts an element in the prime even if the second coordinate is negative.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/coarsening-constant-trivial",
+          "how": "Localize the valuation ring at the prime obtained from domination by the last coefficient."
+        }
       ]
     },
     {
@@ -2391,6 +2628,12 @@
           "statement": "In k_1(u,v), v does not belong to this k_t.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/refined-detection",
+          "how": "Require the detecting valuation to be trivial on the algebraic constants of the selected rational subfield."
+        }
       ]
     },
     {
@@ -2447,6 +2690,12 @@
           "statement": "For nonempty V_a, zero belongs to b_a.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/anisotropy-union",
+          "how": "Identify the root-field anisotropy locus with a union of valuation balls."
+        }
       ]
     },
     {
@@ -2500,6 +2749,12 @@
           "kind": "regression-contract",
           "statement": "The scalar 1 belongs even when b_a is empty.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/stabilizer-intersection",
+          "how": "Recover the intersection of valuation rings from multiplicative preservation of the union."
         }
       ]
     },
@@ -2559,6 +2814,12 @@
           "statement": "The isolation construction gives exactly {w}.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/single-divisor",
+          "how": "Use finite support and a prescribed odd pole to isolate one desired divisor."
+        }
       ]
     },
     {
@@ -2613,6 +2874,12 @@
           "kind": "regression-contract",
           "statement": "Zero belongs to the ball.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/ball-stabilizer",
+          "how": "Use the strict inequality 2w(τ)>w(a_d), including parity and τ=0 conventions."
         }
       ]
     },
@@ -2776,6 +3043,12 @@
           "statement": "An isolated divisor's parameters return exactly its valuation ring.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/uniform-divisors",
+          "how": "Reject the whole field and all non-proper valuation-ring candidates so invalid parameters give empty fibers."
+        }
       ]
     },
     {
@@ -2926,6 +3199,12 @@
           "statement": "In characteristic≠2 when 1+4c=0, adjoining a root of X²−X−c gives K, not a quadratic field.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/uniform-divisors",
+          "how": "Encode isotropy in quadratic root fields by ring formulas with explicit split/trivial branches."
+        }
       ]
     },
     {
@@ -2979,6 +3258,12 @@
           "kind": "regression-contract",
           "statement": "For Q(√2)(t), R_{t}=Z[√2][t], not Q(√2)[t].",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/normalization-finite",
+          "how": "Obtain a finite module over A[T] and a finitely generated domain with fraction field K."
         }
       ]
     },
@@ -3054,6 +3339,12 @@
           "kind": "regression-contract",
           "statement": "The pole-at-infinity place of t is not in W_T.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/normalization-intersection",
+          "how": "Intersect rank-one geometric divisors integral on the chosen basis."
         }
       ]
     },
@@ -3133,6 +3424,12 @@
           "statement": "The flag t_1=0 followed by t_2=0 has final residue Q.",
           "execution": "not executed in Lean"
         }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/arithmetic-intersection",
+          "how": "Iterate geometric residues until the final residue is a number field before using arithmetic primes."
+        }
       ]
     },
     {
@@ -3186,6 +3483,12 @@
           "kind": "regression-contract",
           "statement": "Every unit has nonzero residue.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/composition-definability",
+          "how": "Compose the definable quotient interpretations along a fixed-length valuation flag."
         }
       ]
     },
@@ -3261,6 +3564,12 @@
           "kind": "regression-contract",
           "statement": "A real place is not an allowed final factor.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/coefficient-detection",
+          "how": "Append a finite number-field prime to a full geometric flag to detect a nonintegral polynomial coefficient."
         }
       ]
     },
@@ -3398,6 +3707,12 @@
           "kind": "regression-contract",
           "statement": "Pairs with denominator zero are excluded.",
           "execution": "not executed in Lean"
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-DITTMANN-POP-23/field-ring-biinterpretation",
+          "how": "Recover the field from its definable normalization domain with a definable identification of fraction pairs."
         }
       ]
     },
@@ -3546,11 +3861,23 @@
       "statement": "Let A be a field or the ring of integers of a number field, T a finite tuple of independent variables, and E/Frac(A[T]) a finite field extension. The integral closure of A[T] in E is a finite A[T]-module, without a separability restriction.",
       "locator": "Proposition5.1; Eisenbud Corollary13.13 and Proposition13.14",
       "status": "planned",
-      "note": "",
-      "prerequisites": [],
+      "note": "Same existing A0-extension owner. The reviewed audit already identifies the purely inseparable polynomial result; this continuation imports it explicitly. General excellent-scheme normalization is a different, broader target.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/separable-normalization-finite",
+        "PAPER-DITTMANN-POP-23/purely-inseparable-normalization-finite",
+        "PAPER-DITTMANN-POP-23/normal-envelope-finite",
+        "PAPER-DITTMANN-POP-23/normal-fixed-field-pure",
+        "PAPER-DITTMANN-POP-23/finite-action-fixed-field-galois",
+        "PAPER-DITTMANN-POP-23/integral-closure-tower-bottom",
+        "PAPER-DITTMANN-POP-23/finite-normalization-injective-descent"
+      ],
       "proofSteps": [
-        "Use the Nagata/excellence input for A[T], then finiteness of normalization in finite field extensions.",
-        "The separately cited pinned IsIntegralClosure.finite handles the separable case only; the inseparable case is not inferred from it."
+        "For characteristic-zero A (a field or a number-field integer ring), A[T] is normal noetherian and every finite fraction-field extension is separable: invoke IsIntegralClosure.finite.",
+        "For a field k of positive characteristic, put P=k[T] and enlarge E/Frac(P) to its finite normal envelope N.",
+        "Let I=N^Aut(N/Frac(P)). Import the purely inseparable lower step Frac(P)⊂I and the Galois upper step I⊂N. The reverse ordering is essential.",
+        "The integral closure C of P in I is finite over P by the pinned purely inseparable polynomial theorem. C is normal noetherian with fraction field I.",
+        "Apply the pinned separable theorem to C⊂N; transfer the resulting integral closure down to P using tower_bot and transitivity of module finiteness.",
+        "Descend to E using the pinned injective finite-normalization theorem. Only the assembly, normal/noetherian polynomial instances and algebra/fraction-field tower adapters remain; a new general excellence theory is unnecessary for this consumer."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "G",
@@ -3697,12 +4024,11 @@
       "status": "missing",
       "note": "",
       "prerequisites": [
-        "PAPER-DITTMANN-POP-23/henselization"
+        "PAPER-DITTMANN-POP-23/henselian-simple-reduction"
       ],
       "proofSteps": [
-        "Use the henselian-element theorem for the generator.",
-        "Immediacy gives a residue representative x; the polynomial inequalities define a clopen neighborhood.",
-        "The original henselian-element proof remains to be read."
+        "Use the CRT residue-one generator η and its simple minimal polynomial; this is the residue-degree-one specialization of the fully read Kuhlmann–Novacoski Theorem1.2 proof.",
+        "Take x=1, since w(η−1)>0. The more general residue approximation follows from immediacy."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "V"
@@ -3734,10 +4060,16 @@
       "locator": "Lemma5.3, reduction to K=κ(T)",
       "status": "missing",
       "note": "",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/valuative-integrality-built",
+        "PAPER-DITTMANN-POP-23/integral-minpoly-coefficient-descent",
+        "PAPER-DITTMANN-POP-23/normal-envelope-finite"
+      ],
       "proofSteps": [
-        "Use the valuative criterion for integrality together with extensions of valuations and the monic-minimal-polynomial criterion.",
-        "All prolongations, not just one choice per v, are required."
+        "Integral over B implies integral over every selected O_v and hence membership in every prolonged valuation ring, which is integrally closed.",
+        "For the converse fix a selected v and prolong it to a finite normal envelope of E/F. Every F-embedding of E into that envelope pulls the prolongation back to one of the quantified prolongations on E, so every conjugate of x has nonnegative valuation.",
+        "Write the monic minimal polynomial as the product of its conjugate roots WITH their inseparable multiplicities. Its coefficients are sums of products of nonnegative-valuation elements, hence lie in O_v∩F.",
+        "Intersect over v to put all coefficients in B; the monic polynomial proves integrality. Valuation extension to the normal envelope and the conjugate/multiplicity interfaces remain to be matched and source-audited; the universal valuative criterion alone does not supply this selected-family statement."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "G"
@@ -3815,6 +4147,247 @@
       "library": [
         "tauceti:TauCeti.Place.exists_forall_mem_valuation_sub_le_and_forall_mem_integers"
       ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/purely-inseparable-normalization-finite",
+      "kind": "theorem",
+      "name": "Existing finite polynomial normalization in a purely inseparable extension",
+      "statement": "Let k be any field, P=k[X_i : i∈I] for finite I, K=Frac(P), and M/K a finite purely inseparable extension. With compatible algebra maps, any integral closure C of P in M is finite as a P-module. No perfectness assumption on k is required.",
+      "locator": "Proposition5.1 input; TauCeti IntegralClosure/PurelyInseparable.lean:167–173",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the pinned theorem with all fraction-field and scalar-tower instances; its proof uses a bounded Frobenius exponent and a finite coefficient-root extension."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "tauceti:TauCeti.IsIntegralClosure.finite_mvPolynomial_of_isPurelyInseparable"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/normal-envelope-finite",
+      "kind": "theorem",
+      "name": "Existing finite normal envelope",
+      "statement": "A finite field extension E/F embeds in a finite normal extension N/F: take its normal closure inside an algebraic closure of E, with the induced compatible F- and E-algebra structures.",
+      "locator": "Proposition5.1 normalization input; Mathlib Normal/Closure.lean:143–187",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use the normal-closure algebra map for the embedding, the normal instance in the ambient algebraically closed field, and the finite-dimensional instance."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:normalClosure.normal",
+        "mathlib:normalClosure.is_finiteDimensional",
+        "mathlib:normalClosure.algebra"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/normal-fixed-field-pure",
+      "kind": "theorem",
+      "name": "Existing purely inseparable fixed-field step",
+      "statement": "For a normal algebraic extension N/F, the intermediate field N^Aut(N/F) is purely inseparable over F. Finiteness of N/F is not needed for this assertion.",
+      "locator": "Stacks 030M(2); TauCeti Normal/FixedField.lean:44–46",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the pinned theorem; its proof makes every separable element fixed by all automorphisms have minimal polynomial of degree one."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "tauceti:TauCeti.IntermediateField.isPurelyInseparable_fixedField_top"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/finite-action-fixed-field-galois",
+      "kind": "theorem",
+      "name": "Existing Galois extension over a finite-action fixed field",
+      "statement": "If a finite group G acts on a field N by semiring automorphisms, N/FixedPoints.subfield(G,N) is Galois. Applied to G=Aut(N/F) for finite N/F, this supplies the separable upper step over N^Aut(N/F).",
+      "locator": "Stacks 030M(2); Mathlib Galois/Basic.lean:94–96",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Use IsGalois.of_fixed_field; the IntermediateField fixedField carrier is compatible as demonstrated at Galois/Basic.lean:481–485."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:IsGalois.of_fixed_field"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/integral-closure-tower-bottom",
+      "kind": "theorem",
+      "name": "Existing transfer of integral closure down an integral base extension",
+      "statement": "For compatible commutative-ring maps R→A→B and C→B, if A is integral over R and C is an integral closure of A in B, then C is also an integral closure of R in B.",
+      "locator": "Stacks 0308; TauCeti IntegralClosure/Transfer.lean:52–59",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import tower_bot, using transitivity of integrality in one direction and extension of the base in the other."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "tauceti:TauCeti.IsIntegralClosure.tower_bot"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/finite-normalization-injective-descent",
+      "kind": "theorem",
+      "name": "Existing descent of finite normalization through an injection",
+      "statement": "Let A be noetherian, C its integral closure in an A-algebra M, and C′ its integral closure in another A-algebra N. If C′ is finite over A and there is an injective A-algebra map M→N, then C is finite over A. Fields and separability are not required by this declaration.",
+      "locator": "Stacks 032N proof; TauCeti IntegralClosure/Transfer.lean:65–72",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Lift the injection to integral closures and use noetherian finite-module descent, as in the pinned theorem."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "tauceti:TauCeti.IsIntegralClosure.finite_of_injective"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/valuative-integrality-built",
+      "kind": "theorem",
+      "name": "Existing valuative criterion for integrality",
+      "statement": "For any commutative ring R, subring B and x∈R, if every valuative relation v on R bounded by one on B also has v(x)≤v(1), then x is integral over B. The quantifier is over ALL such valuative relations.",
+      "locator": "Lemma5.3 input comparison; TauCeti Valuation/IntegralOfValuationLeOne.lean:112–114",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Invoke the pinned arbitrary-ring theorem. Do not substitute one chosen prolongation of each selected base valuation for its universal quantifier."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "tauceti:TauCeti.isIntegral_of_forall_valuation_le_one"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/integral-minpoly-coefficient-descent",
+      "kind": "theorem",
+      "name": "Existing minimal-polynomial comparison over a normal domain",
+      "statement": "Let R be an integrally closed domain, K=Frac(R), S a domain with compatible R- and K-algebra structures, and s∈S integral over R. Then minpoly K s is the coefficientwise image of minpoly R s. In particular its coefficients lie in R.",
+      "locator": "Kuhlmann–Novacoski Lemma3.3(i) input; Mathlib Minpoly/IsIntegrallyClosed.lean:55–60",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Import the primed comparison for a K-algebra S. This theorem requires integrality of s; it does not prove integrality from selected valuation bounds."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:minpoly.isIntegrallyClosed_eq_field_fractions'"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/henselian-prime-orbit",
+      "kind": "theorem",
+      "name": "Finite conjugate-prime data for a henselian subextension",
+      "statement": "Let (F,w) be any valued field, fix a prolongation to F^sep, and let E/F be finite inside F_w. If A=O_w and C is its integral closure in E, the maximal ideals of C over m_A form a finite family of distinct pairwise comaximal ideals. The chosen p has C_p=O_{w|E} and C/p=κ(w). Among F-embeddings of E into a finite Galois hull, the identity is the unique one inducing the chosen prolongation; each other embedding induces a different prime of C.",
+      "locator": "Kuhlmann–Novacoski setting(1), Definition3.1, Lemmas2.5,3.2 specialized to E⊂F_w",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselization"
+      ],
+      "proofSteps": [
+        "Use henselization as the decomposition field: its decomposition group fixes E pointwise.",
+        "Conjugacy of primes in the finite normal hull and the decomposition-group cosets give the finite embedding/prime correspondence.",
+        "Localization of the integral closure at the chosen prime gives the prolonged valuation ring; immediacy identifies its residue with κ(w). These valuation/Galois background interfaces still require implementation and source completion."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/henselian-crt-generator",
+      "kind": "theorem",
+      "name": "CRT element with residue one at the chosen prime",
+      "statement": "In henselian-prime-orbit, there exists η∈C congruent to 1 modulo p and to 0 modulo each other maximal ideal of C over m_A. Thus η is a unit in C_p, and every nonidentity F-embedding σ of E has σ(η) reducing to zero at the fixed prolongation to a Galois hull.",
+      "locator": "Kuhlmann–Novacoski proof of Theorem1.2, p.11, residue-degree-one specialization",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselian-prime-orbit"
+      ],
+      "proofSteps": [
+        "Apply the finite Chinese remainder theorem to the distinct maximal ideals with residues 1,0,…,0.",
+        "Translate membership in the prime induced by σ into positive valuation of σ(η). No finite-generation claim for C_p as an A-algebra is used."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/henselian-crt-primitivity",
+      "kind": "theorem",
+      "name": "Primitivity of the CRT henselian element",
+      "statement": "The η constructed by henselian-crt-generator generates E/F. Indeed no nonidentity F-embedding of E into a normal hull fixes η, so [F(η):F]=[E:F] by separability.",
+      "locator": "Kuhlmann–Novacoski Theorem1.2 proof, p.11",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselian-crt-generator"
+      ],
+      "proofSteps": [
+        "The identity conjugate has residue 1, whereas every other embedding sends η to residue 0.",
+        "Since E/F is separable, counting embeddings extending an embedding of F(η) gives the degree equality. The identity embedding is excluded from the nonfixing claim; the source index range includes it accidentally."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/henselian-simple-reduction",
+      "kind": "theorem",
+      "name": "Simple unit root in the conjugate polynomial",
+      "statement": "For η above and n=[E:F], its monic minimal polynomial h belongs to A[X], and its reduction at m_A is X^(n−1)(X−1). Consequently h(η)=0, w(η)=w(h′(η))=0, w(h(1))>0 and w(h′(1))=0. The assertions include n=1 and h(1)=0, with w(0)=∞.",
+      "locator": "Kuhlmann–Novacoski Lemma3.3(i), pp.10–11; Theorem1.2, specialized to residue degree one",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselian-crt-primitivity",
+        "PAPER-DITTMANN-POP-23/integral-minpoly-coefficient-descent"
+      ],
+      "proofSteps": [
+        "Integrality of η and normality of the valuation ring give h∈A[X] using the pinned minimal-polynomial comparison.",
+        "Over a Galois hull h is the product over the distinct embeddings; CRT makes exactly one root reduce to 1 and all others to 0.",
+        "The derivative of X^(n−1)(X−1) at 1 equals 1 in every characteristic."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood",
+      "kind": "theorem",
+      "name": "Finite clopen inequalities giving henselian embeddability",
+      "statement": "For a finite E/F embedded in F_w, choose h from henselian-simple-reduction. The set of valuations v with v(a_i)≥0 for every coefficient a_i of h, v(h(1))>0, and v(h′(1))=0 is a patch-clopen neighborhood of w on which E embeds into F_v.",
+      "locator": "Dittmann–Pop Lemma3.9(1), with the residue-one generator from Kuhlmann–Novacoski",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselian-simple-reduction",
+        "PAPER-DITTMANN-POP-23/patch-field-dictionary"
+      ],
+      "proofSteps": [
+        "Each condition is a field patch-clopen membership or strict-membership predicate; only finitely many coefficients occur.",
+        "The Hensel simple-root criterion at 1 produces a root of h in F_v. Its irreducibility over F identifies F[X]/(h) with E and gives an embedding.",
+        "Using 1 avoids an unstated integrality condition on an arbitrary approximate root. For the source’s x, integrality also follows from monicity, integral coefficients and v(h(x))>0."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "V"
     }
   ],
   "prerequisites": [
@@ -3831,7 +4404,7 @@
     {
       "citation": "Kuhlmann–Novacoski, Henselian Elements, J. Algebra 418 (2014), 44–65.",
       "link": "https://arxiv.org/abs/1311.6155",
-      "why": "Theorem1.2 supplies the henselian generator in Lemma3.9. Its actual statement and setting are checked; the proof still needs extraction."
+      "why": "The full Theorem1.2 proof has now been read and its residue-degree-one use decomposed into prime-orbit, CRT, primitivity, simple-reduction and patch-neighborhood items. Its decomposition/inertia and integral-closure localization background remains an imported source-audit task; the remainder of the paper is not extracted."
     },
     {
       "citation": "Pop, Elementary equivalence versus isomorphism, II, Algebra & Number Theory 11 (2017), 2091–2111.",
@@ -3878,7 +4451,12 @@
         "PAPER-DITTMANN-POP-23/maximal-geometric-flags",
         "PAPER-DITTMANN-POP-23/composition-definability",
         "PAPER-DITTMANN-POP-23/henselian-generator-input",
-        "PAPER-DITTMANN-POP-23/interpretation"
+        "PAPER-DITTMANN-POP-23/interpretation",
+        "PAPER-DITTMANN-POP-23/henselian-prime-orbit",
+        "PAPER-DITTMANN-POP-23/henselian-crt-generator",
+        "PAPER-DITTMANN-POP-23/henselian-crt-primitivity",
+        "PAPER-DITTMANN-POP-23/henselian-simple-reduction",
+        "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood"
       ],
       "reason": "LD.0 already owns interpretation and explicit semantics; LD.1 owns henselianity and residue/value sorts. Supply quotient/composition, valuation coarsening and field-patch adapters here, importing actual library carriers. No Ax–Kochen–Ershov or Denef–Pas theorem is used to assert the new global-field definability result."
     },
@@ -3916,7 +4494,7 @@
         "PAPER-DITTMANN-POP-23/valuation-prolongation-integrality",
         "PAPER-DITTMANN-POP-23/finite-normalization-generic"
       ],
-      "reason": "The existing finite-normalization-under-excellence owner supplies the arithmetic and field polynomial cases. Add its normal-domain intersection and valuation-prolongation interfaces here; import the pinned separable special case. This paper is a consumer of general normalization, not a reason to create a second excellence development."
+      "reason": "A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add normal-domain intersection and the selected-family valuation-prolongation adapter in the same owner."
     },
     {
       "route": "part-ii",
@@ -4045,9 +4623,10 @@
         "real-place-finite-descent",
         "arason-pfister-bound",
         "graded-witt-invariant",
-        "henselian-generator-input"
+        "henselian-generator-input",
+        "henselian-prime-orbit"
       ],
-      "remaining": "Audit coefficient fields in equicharacteristic-zero henselian fields, cohomology continuity and compact real-place descent; EKM subform/cancellation inputs; Kato's graded quadratic-Witt comparison; Kuhlmann–Novacoski Theorem1.2 proof."
+      "remaining": "Audit coefficient fields in equicharacteristic-zero henselian fields, cohomology continuity and compact real-place descent; EKM subform/cancellation inputs; Kato’s graded quadratic-Witt comparison. Kuhlmann–Novacoski Theorem1.2 proof is now read and decomposed; finish its decomposition-field, conjugate-prime and integral-closure localization foundations (including their cited Raynaud inputs) before calling that branch closed."
     },
     {
       "id": "DP23-G4",
@@ -4071,7 +4650,7 @@
         "krull-intersection",
         "valuation-prolongation-integrality"
       ],
-      "remaining": "Finish exact ownership/library matching for the off-a-finite-place number-field strong-approximation adapter, general divisorial criterion, inseparable normalization and normal-domain intersection interfaces. Read underlying sources; partial nearby library results are not exact matches."
+      "remaining": "Finish exact off-a-finite-place number-field approximation, general divisorial criterion, Krull intersection and selected-family valuation-prolongation interfaces. The inseparable polynomial normalization theorem and normal fixed-field step are already in Tau Ceti; the arithmetic polynomial proof is now an explicit assembly using them, the separable theorem and transfer/descent. Check the algebra/fraction-field tower adapters; do not recreate the pinned results or infer generic excellent-scheme finiteness."
     },
     {
       "id": "DP23-G6",
@@ -4100,7 +4679,8 @@
         "Theorem3.1 and §3.2 proof"
       ],
       "notRead": "§3.1 and the earlier coding/model-theoretic lemmas on which the selected proof rests; external arithmetic inputs.",
-      "accessed": "2026-09-21"
+      "accessed": "2026-09-21",
+      "provenanceSession": "codex-a71f92 (inherited selected reading; not claimed as reread by this continuation)"
     },
     {
       "id": "Poonen",
@@ -4113,7 +4693,8 @@
         "Proposition4.10 and §5 including Lemma5.3"
       ],
       "notRead": "Earlier elliptic-curve/Moret-Bailly and definability proof inputs.",
-      "accessed": "2026-09-21"
+      "accessed": "2026-09-21",
+      "provenanceSession": "codex-a71f92 (inherited selected reading; not claimed as reread by this continuation)"
     },
     {
       "id": "Jannsen",
@@ -4125,7 +4706,8 @@
         "Definition4.18 and adjacent Theorem4.19 statement"
       ],
       "notRead": "The full higher-dimensional Hasse proofs; already queued as PAPER-JANNSEN-16.",
-      "accessed": "2026-09-21"
+      "accessed": "2026-09-21",
+      "provenanceSession": "codex-a71f92 (inherited selected reading; not claimed as reread by this continuation)"
     },
     {
       "id": "KerzSaito",
@@ -4135,7 +4717,8 @@
         "§8 setup, coefficient complex(8.1), Theorem8.1 and its proof, adjacent Theorem8.2"
       ],
       "notRead": "Proof ingredients in §§3–7.",
-      "accessed": "2026-09-21"
+      "accessed": "2026-09-21",
+      "provenanceSession": "codex-a71f92 (inherited selected reading; not claimed as reread by this continuation)"
     },
     {
       "id": "EKM",
@@ -4147,21 +4730,59 @@
         "§23.A Theorem23.7 and proof, surrounding Corollaries23.4–23.9"
       ],
       "notRead": "The complete subform theorem, Witt theory and original Kato/Voevodsky proofs cited by these selections.",
-      "accessed": "2026-09-21"
+      "accessed": "2026-09-21",
+      "provenanceSession": "codex-a71f92 (inherited selected reading; not claimed as reread by this continuation)"
     },
     {
       "id": "KuhlmannNovacoski",
       "url": "https://arxiv.org/pdf/1311.6155",
       "sha256": "19bcd00d932899fdd8ba63b56aff45cee048fa8d6667de154206d23c63058a62",
       "readSections": [
-        "Introduction setting(1), Theorem1.2, adjacent Theorem1.3"
+        "PDF pp.1–3,5,7–13: setting(1), Theorems1.2–1.3, Definition3.1, Lemmas2.5,3.2,3.3 and full proof of Theorem1.2; selected adjacent proof material."
       ],
-      "notRead": "Original proof of Theorem1.2.",
-      "accessed": "2026-09-21"
+      "notRead": "Raynaud local-rings inputs cited in Lemma3.2, full proofs of the remaining valuation/Galois background, and the rest of the paper. Lemma2.5 is stated by reference, not proved there.",
+      "accessed": "2026-09-22",
+      "provenanceSession": "codex-c83e7a; same PDF hash, additional proof reading"
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/032N",
+      "sha256": "006c9c4fb36aae28dc403381cfe5600f830abe3c71dce0105fe65431e9d6944e",
+      "accessed": "2026-09-22",
+      "id": "Stacks-032N",
+      "readSections": [
+        "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
+      ]
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/030M",
+      "sha256": "4e733ee60ee94ab83ab858e68b4b3a3b437f6a90672cb79993d99cbf5f5e382a",
+      "accessed": "2026-09-22",
+      "id": "Stacks-030M",
+      "readSections": [
+        "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
+      ]
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/032L",
+      "sha256": "ab6529a0cf20c0dfb03e16aa3e883fd89bd15d1d536f2349e216ca856c1c6b5a",
+      "accessed": "2026-09-22",
+      "id": "Stacks-032L",
+      "readSections": [
+        "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
+      ]
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/032O",
+      "sha256": "64c40bc5a0bf1acb69ab6713f3782244e4b364b747de4c7719dab6df774e4639",
+      "accessed": "2026-09-22",
+      "id": "Stacks-032O",
+      "readSections": [
+        "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
+      ]
     }
   ],
   "atlasAudit": {
-    "checkedMain": "ef9286e4ee82dee8a7d483c61df782c33c5fa5bc",
+    "checkedMain": "8c1784e9ccdc6dfef9fef5207ee3cdc02a5977b3",
     "previousStructuralComparison": "595136204f9d0c4b6d70132502491870fe90b929",
     "reviewedLayers": [
       "HL.0–HL.7 (AUDIT-03)",
@@ -4175,6 +4796,7 @@
       "LogicAndDefinabilityInNumberTheory",
       "CrystallineCohomology:CR.4"
     ],
-    "ownership": "Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer4, AlgebraicCurves Layer12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields."
+    "ownership": "Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer4, AlgebraicCurves Layer12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields.",
+    "continuation": "Fresh eleven-owner extracts and documents, reviewed library audit, new-roadmap/packet files and reserved IDs fetched. A0-extension audit explicitly identifies the previously omitted purely inseparable polynomial theorem. LD.0/LD.1 and A0-extension signatures reread; full 211-roadmap portfolio rechecked for competing owners. Existing Part II names and routing retained."
   }
 }
