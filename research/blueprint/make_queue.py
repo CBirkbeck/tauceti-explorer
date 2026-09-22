@@ -50,7 +50,7 @@ METHOD = """METHOD
    Build on existing roadmaps and never duplicate them (PROTOCOL.md section 15): what a Tau Ceti roadmap or another proposed roadmap plans is imported through (b) or (c), never planned again in (d). If you need more than an existing roadmap provides in its own direction, propose the addition as "<that roadmap>, Part II" in `restructure`.
 3. Granularity. One node per library declaration. Split multi-part results. Every non-routine step becomes its own lemma node.
 4. Uses, API and unit tests. For every definition and construction, first find where and how it is used, in the sources and in the layers that consume it (the stage links in the atlas extracts, and other packets), and record each use in `uses` as {{"where", "how"}}. Then give it an `api` outline that serves those uses (PROTOCOL.md section 4) and a `tests` list of at least three unit tests (section 12), chosen so that a plausible wrong definition fails one of them: a value in a small case, the degenerate case, agreement with the closest Mathlib or Tau Ceti notion wherever both are defined, and a non-example. Think as a library designer: what does a user of this object need in order to use it without unfolding its definition? Include compatibility with the closest Mathlib or Tau Ceti notion, stated precisely.
-5. Sources. Every node cites the passage that states or proves it. Keep excerpts short.
+5. Sources. Every node cites the passage that states or proves it. Keep excerpts short. Record every mistake you find in a source under the packet's `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, quoted at their locators, with the correction, the reason, and whether a published correction exists; nodes use the corrected statements.
 6. Check. Run `python3 scripts/check_blueprint.py {OUTPUT}` and fix every error. Record anything you could not establish as a gap; never paper over a missing step.
 7. Document. Write {README} in the style and density of the upstream Tau Ceti roadmap documents. For each layer in scope, give:
    - the objects, with exact definitions and pinned conventions;
@@ -110,6 +110,7 @@ Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md
 3. For each item, search the pinned libraries ({BASELINE}/declarations.tsv, then open the Lean file and read the statement) and the atlas: data/atlas.json (layers and their descriptions), the new roadmaps in research/blueprint/roadmaps/, the packets in research/blueprint/packets/, and the reviewed library audit data/library-coverage.json. Mark it `library`, `planned` or `missing`, and cite what you found.
 4. Route every missing item exactly once: `source` of existing layers of a proposed roadmap, `part-ii` of an existing roadmap (a Tau Ceti roadmap is extended this way, never re-planned), or `new`. Build on what exists (PROTOCOL.md section 15). For each part-ii or new route, write the brief its design job will follow.
 5. List the prerequisite papers the atlas does not yet cover.
+5a. Record every mistake you find in the paper under `sourceIssues` (PROTOCOL.md section 18), including those noted earlier in this extraction's items, gaps and report: misprints, errors and gaps, each quoted at its locator with the correction and the reason, how far it reaches, and whether a published erratum or a later version already corrects it (say where you looked). Keep the list even if it is empty, which says you found none. Items use the corrected statements. A `sourceIssues` list in an older form is converted, keeping everything it says.
 6. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors. Set "status": "complete" only when the whole paper is extracted and every missing item is routed. Otherwise leave "partial" and write a handoff note, research/blueprint/handoff/{PAPER}.md.
 
 Worked examples of routing, by the maintainer (research/blueprint/papers/papers.json, "guides"):
@@ -157,6 +158,25 @@ Apply each fix to the files it names: correct the statement, claim, owner, route
 Edit only the files the findings name, the target's files, your report and your scratch directory.
 """ + CHECK_INPUTS
 
+ERRATA_TEMPLATE = HEADER + """
+JOB: record the mistakes in a published paper that its extraction found (PROTOCOL.md section 18).
+Paper: {CITATION}. Its extraction, finished before mistakes were recorded: research/blueprint/papers/{PAPER}.result.json, with the report research/blueprint/papers/{PAPER}.md.
+Its worker read the paper line by line and noted mistakes in passing: in item statements and locators, gaps, notes and the report (misprints, false statements, steps that fail, gaps, published errata used). Read all of them, and the paper at each place they point to, and record every mistake in the paper under `sourceIssues` in the extraction, in the format of PROTOCOL.md section 18: each quoted at its locator, with the correction, the reason, how far it reaches, and whether a published erratum or later version already corrects it (look in the journal's errata listing, the arXiv versions and the authors' pages, and say where you looked). Corrections a published erratum already makes are recorded too, with the erratum as `known`. A list in an older form is converted, keeping everything it says. Add any other mistake you find while checking; if there are none, write an empty list. Add a section "Mistakes in the paper" to the report.
+Change nothing else in the extraction. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors.
+Edit only the extraction, its report, a handoff note research/blueprint/handoff/{JOB}.md if you stop early, and your scratch directory.
+Sources: {LIBRARY}/ (the maintainer's reference library); public versions may be fetched into your scratch directory with provenance (URL, SHA-256, date), never into the repository.
+"""
+
+ERRATA_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the files you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, section 18.
+
+VERIFY: the mistakes recorded under `sourceIssues` in research/blueprint/papers/{PAPER}.result.json, found in {CITATION}.
+For each, read the paper at its locator (the version it names, and the published one where they differ), check the reason and the correction yourself, and check whether a published erratum or later version already corrects it. Add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. A confirmed new mistake goes into the register of mistakes in published work (research/errata/REGISTER.md), so confirm only what you have checked yourself; fix an entry in place where its correction or reach is wrong, and say so in the reason. Add any mistake the list missed, with your own verdict.
+Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors, and write research/blueprint/reviews/{JOB}.md: what you checked and each verdict.
+Sources: {LIBRARY}/; public versions may be fetched into your scratch directory with provenance, never into the repository.
+"""
+
 REDTEAM_FOCUS = {
     "audit": "An audit: re-check every claim. For each target marked built or partly built, open each cited declaration at the pinned commit and check that it provides the target. For each target marked not built, search the libraries (declarations.tsv, then the files) for it under other names.",
     "restructure": "A restructuring proposal: check it against the member roadmaps' documents. Every target of a changed layer is kept, moved or supplied; every owner owns what it is said to; no consumer loses a prerequisite; there is no cycle; Tau Ceti roadmaps are unchanged.",
@@ -176,8 +196,9 @@ Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declara
 1. Items. Check statements and locators against the paper, and that no definition or key theorem on the way to the main results is missing.
 2. Statuses. Open every cited declaration at the pinned commit and check that it provides the item. Read every cited layer's description and check that it plans the item. Search the libraries and the atlas yourself for every missing item.
 3. Routes. Every missing item is routed once. A source route names the layers the item belongs in. A Part II or a new roadmap is justified only when nothing in the atlas owns the mathematics, and its brief states the final theorems exactly and names what to import. Tau Ceti roadmaps are never re-planned.
-4. Correct the extraction in place where the fix is clear, and record every change.
-5. Run `python3 scripts/check_paper.py` on the extraction and fix every error.
+4. Mistakes in the paper (PROTOCOL.md section 18). Check every entry of `sourceIssues` at its locator in the paper, and whether a published erratum or later version already corrects it; add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. Add any mistake the extraction missed, with your own verdict. A confirmed new mistake goes into the register of mistakes in published work, so confirm only what you have checked yourself.
+5. Correct the extraction in place where the fix is clear, and record every change.
+6. Run `python3 scripts/check_paper.py` on the extraction and fix every error.
 Write research/blueprint/papers/{PAPER}.review.json, {{"paper", "verdict": "accept | revise", "routes": [{{"route": <n>, "verdict": "accept | reject", "reason"}}], "notes"}}, and research/blueprint/reviews/REV-{PAPER}.md. Accept a route only if you would build on it: accepted routes become design jobs and blueprint sources.
 """
 
@@ -199,6 +220,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 4. Granularity. Split any node that bundles several declarations or hides a non-routine argument.
 5. API. For every definition and construction, check that the outline would let a user work with the object without unfolding its definition. It should cover constructors, extensionality, simp lemmas, structure, functoriality, the universal property, compatibility with Mathlib or Tau Ceti, relations and examples. Add any missing items.
 6. Unit tests, suggested file and planets. Every definition and construction has at least three unit tests that would catch a plausible wrong definition (PROTOCOL.md section 12). The suggested Lean file matches the packet, uses `sorry` honestly and, if you can run Lean at the pinned baseline, elaborates (section 13). Planets are key definitions, central constructions and named theorems, named from the source (section 14). Add or correct what is missing.
+6a. Mistakes in the sources (PROTOCOL.md section 18). Check every entry of the packet's `sourceIssues` at its locator, and add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. Add any mistake the packet missed, with your own verdict.
 7. Library audit. Nothing that the reviewed audit (data/library-coverage.json) shows in the libraries is planned as a new node, and a duplicated layer is requested from its owner rather than planned again.
 8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
 9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
@@ -1023,6 +1045,27 @@ def main():
                           f"{listed(r for p in parts if p is not part for r in p)}. Read their layer titles and descriptions as well, to find what is planned twice across the parts.")
             fields = dict(AREA=label, ROADMAPS=listed(part), PARTS=others, TARGET=f"the area {label}" + (f", part {k} of {len(parts)}" if len(parts) > 1 else ""))
             redteam(rt, target, "area", name, part, REDTEAM_AREA_TEMPLATE, fields, [], 300 + 10 * number + k)
+
+    # Mistakes in published sources (PROTOCOL.md section 18): extractions finished
+    # before findings were recorded are read again for them, and each finding is verified.
+    def without_findings(path):
+        try:
+            issues = json.loads((REPO / path).read_text()).get("sourceIssues")
+        except (OSError, ValueError, AttributeError):
+            return False
+        return issues is None or any(not isinstance(item, dict) or "kind" not in item for item in issues)
+    for number, job in enumerate([j for j in jobs if j["kind"] == "paper"], 1):
+        result, report = f"research/blueprint/papers/{job['id']}.result.json", f"research/blueprint/papers/{job['id']}.md"
+        errata = "ERRATA-" + job["id"]
+        if states.get(job["id"]) != "done" or (errata not in states and not without_findings(result)):
+            continue
+        paper = next((entry for entry in registry.get("papers", []) if entry["id"] == job["id"]), {})
+        fields = dict(PAPER=job["id"], CITATION=paper.get("citation", job.get("name", job["id"])))
+        add({"id": errata, "kind": "errata", "priority": 1, "order": 500 + number, "name": job.get("name", job["id"]), "roadmapIds": [],
+             "outputs": [result, report], "after": [], "independentOf": []}, ERRATA_TEMPLATE.format(**fill, JOB=errata, **fields))
+        add({"id": "REV-" + errata, "kind": "review", "priority": 1, "order": 500 + number, "name": job.get("name", job["id"]), "roadmapIds": [],
+             "outputs": [f"research/blueprint/reviews/REV-{errata}.md", result, report], "after": [errata], "avoidAccountOf": errata},
+            ERRATA_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + errata, **fields))
 
     queue_path = BP / "queue.json"
     import fcntl

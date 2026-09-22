@@ -96,6 +96,8 @@ roadmap that owns it (PROTOCOL.md section 15).
       or a new roadmap, with the brief its design job will follow
       (PROTOCOL.md section 16).
    4. `kind:fix`: apply red-team findings that a verifier has confirmed.
+      `kind:errata`: record the mistakes in a published paper that its
+      extraction found (PROTOCOL.md section 18).
    5. `kind:review`, when its input exists: an independent check of another
       worker's job, or a verification of red-team findings. Never review your
       own work.

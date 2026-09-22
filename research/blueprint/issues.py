@@ -28,7 +28,7 @@ BP = REPO / "research" / "blueprint"
 GITHUB = "https://github.com/CBirkbeck/tauceti-explorer"
 BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
-              "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix",
+              "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix", "errata": "Errata",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping"}
 
 
@@ -165,6 +165,12 @@ def body(job, jobs, roadmaps, stages):
                   "- **Each finding precise and evidenced:** where, what, the evidence (a source locator with a quotation, or a declaration read at the pinned commit), the fix, and its severity.",
                   "- **What you checked**, even when you find nothing: a clean result is evidence too.",
                   "", "An independent verifier checks every finding; confirmed findings of high or medium severity become a fix job."]
+    if job["kind"] == "errata":
+        lines += ["", "### What this issue delivers",
+                  "- **Every mistake in the paper that its extraction found**, recorded under `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, each quoted at its locator with the correction, the reason and how far it reaches.",
+                  "- **Whether each is already corrected in print:** a published erratum or a later version, and where you looked.",
+                  "- **A section \"Mistakes in the paper\"** in the extraction's report.",
+                  "", "An independent reviewer checks each one at its locator; confirmed new mistakes go into the register of mistakes in published work, research/errata/REGISTER.md."]
     if job["kind"] == "fix":
         lines += ["", "### What this issue delivers",
                   "- **Every confirmed finding fixed** in the files it names, each file still valid under its checker (PROTOCOL.md section 17).",
@@ -251,6 +257,10 @@ def title(job, roadmaps):
         return f"[Paper] {job.get('name') or jid}"[:240]
     if job["kind"] == "redteam":
         return f"[Red team] {job.get('name') or jid}"[:240]
+    if job["kind"] == "errata":
+        return f"[Errata] {job.get('name') or jid}"[:240]
+    if job["kind"] == "review" and jid.startswith("REV-ERRATA-"):
+        return f"[Review] Mistakes recorded in {job.get('name') or jid[len('REV-ERRATA-'):]}"[:240]
     if job["kind"] == "fix":
         return f"[Fix] Red-team findings on the {job.get('name') or jid}"[:240]
     if job["kind"] == "design" and job.get("name"):
@@ -425,6 +435,9 @@ def deliverables_complete(job, root=REPO):
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
         if job["kind"] in ("link", "paper", "redteam"):
             return json.loads(paths[0].read_text()).get("status") == "complete"
+        if job["kind"] == "errata":
+            issues = json.loads(paths[0].read_text()).get("sourceIssues")
+            return isinstance(issues, list) and all(isinstance(item, dict) and "kind" in item for item in issues)
         if job["kind"] == "audit":
             listed = {layer["id"] for roadmap in json.loads((bp / "audit" / f"{job['id']}.json").read_text())["roadmaps"] for layer in roadmap["layers"]}
             present = {lid for roadmap in json.loads(paths[0].read_text()).get("roadmaps", {}).values() for lid in roadmap.get("layers", {})}
