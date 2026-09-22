@@ -4039,6 +4039,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-SMITH-24/E1",
+   "kind": "misprint",
+   "locator": "Introduction, definition of λ_SSS, p.1, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "\"Take λ_SSS to be the least real number such that, for any ε > 0, there are only finitely many totally positive algebraic integers α satisfying tr(α) < (λ_SSS − ε) deg(α).\"",
+   "correction": "\"Take λ_SSS to be the greatest (the supremum of the) real numbers λ such that, for any ε > 0, there are only finitely many totally positive algebraic integers α with tr(α) < (λ − ε) deg(α).\"",
+   "reason": "If λ has the property, so does every smaller λ′, since fewer α satisfy the weaker inequality. So the set of such λ is downward closed and has no least element. The bounds that follow (Schur, Siegel, Smyth, 1.793145 ≤ λ_SSS ≤ 2) and Example 5.9 treat λ_SSS as the greatest such number. Checked on the page image. Noted by the extraction (item 117).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-SMITH-24",
+   "file": "research/blueprint/errata/PAPER-SMITH-24.json",
+   "citation": "Alexander Smith, \"Algebraic integers with conjugates in a prescribed distribution\", Annals of Mathematics 200 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SMITH-24/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.5, after (2.14), p.11, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "\"Since P_{n,μ}(x) = exp(−nU^{μ_n}(x)), we may exponentiate this inequality to find that (2.8) holds for sufficiently large C.\"",
+   "correction": "|P_{n,μ}(x)| = exp(−nU^{μ_n}(x)).",
+   "reason": "With U^{μ_n}(x) = −∫ log|x − t| dμ_n(t) and μ_n the normalized root-counting measure of the monic P_{n,μ}, one has −nU^{μ_n}(x) = log|P_{n,μ}(x)|. The polynomial P_{n,μ} takes negative values on R, so the absolute value is needed. Checked on the page image. Noted by the extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-SMITH-24",
+   "file": "research/blueprint/errata/PAPER-SMITH-24.json",
+   "citation": "Alexander Smith, \"Algebraic integers with conjugates in a prescribed distribution\", Annals of Mathematics 200 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SMITH-24/E3",
+   "kind": "misprint",
+   "locator": "Proposition 3.4, p.14, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "\"For a nonnegative integer i satisfying i ≤ m, take λ_i to be the least real number so λ_i K contains at least i + 1 linearly independent integer polynomials.\"",
+   "correction": "\"… take λ_i to be the least nonnegative real number so λ_i K contains …\" (the successive minima of K).",
+   "reason": "K is centrally symmetric, so λK = |λ|K. Every sufficiently negative λ then has the property, and there is no least real number with it. Minkowski's second theorem, applied in the proof, concerns the successive minima λ_i ≥ 0. Checked on the page image. Noted by the extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-SMITH-24",
+   "file": "research/blueprint/errata/PAPER-SMITH-24.json",
+   "citation": "Alexander Smith, \"Algebraic integers with conjugates in a prescribed distribution\", Annals of Mathematics 200 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SMITH-24/E4",
+   "kind": "misprint",
+   "locator": "Notation 5.3, the estimate leading to (5.5), p.33, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "\"Given any other Borel measure μ with support contained in a compact subset Σ of R … By Lemma 5.2, this is at most log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) − ∫ log|z − x| dμ(x), and we can conclude that (5.5) U^{μ∗ν_ε}(z) − U^μ(z) ≤ log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) ≤ Cε^{1/2}\"",
+   "correction": "The bound is μ(Σ) · log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) − ∫ log|z − x| dμ(x), so (5.5) reads U^{μ∗ν_ε}(z) − U^μ(z) ≤ μ(Σ) · log(…) ≤ μ(Σ) · Cε^{1/2}.",
+   "reason": "Integrating the bound of Lemma 5.2 for U^{ν_ε}(z − x) against dμ(x) multiplies the constant term by the total mass μ(Σ). The notation allows any finite Borel measure; the same page keeps the factor μ(Σ) in the Hölder estimate just above. The later applications, to μ_± in the proof of Proposition 2.5 on p.36, are sub-probability measures, for which the printed bound follows because the logarithm is positive. Checked on the page image. Noted by the extraction (item 97).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-SMITH-24",
+   "file": "research/blueprint/errata/PAPER-SMITH-24.json",
+   "citation": "Alexander Smith, \"Algebraic integers with conjugates in a prescribed distribution\", Annals of Mathematics 200 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-SMITH-24/E5",
+   "kind": "gap",
+   "locator": "Proof of Theorem 5.11, pp.39–40, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The theorem defines λ_Smyth(Σ, F) using \"a finite sequence a_1, …, a_N of positive numbers\". The proof obtains a from the separation theorem: \"we see that a_1, …, a_N must all be nonnegative\", and then: \"F(x) ≥ λ_N − N^{−1} + Σ_{i≤N} a_i log|Q_i(x)| for all x ∈ Σ unless x is a root of some Q_i with i ≤ N. For such an x, the inequality follows since the left hand side is finite and the right is −∞.\"",
+   "correction": "Discard the Q_i with a_i = 0, so that the remaining coefficients are positive as the definition requires. At points x ∈ Σ that are roots only of discarded Q_i, the right side is then finite, and the inequality needs an argument. If x is a limit point of Σ, use continuity. If x is an isolated point of Σ, perturb, for example by giving the relevant Q_i a small positive coefficient at a small cost in λ.",
+   "reason": "When a_i = 0 the term a_i log|Q_i(x)| is 0 · (−∞), not −∞. At a root x of such a Q_i that is not a root of any Q_j with a_j > 0, the right side is finite. The Dirac measure δ_x is not in M_N, since ∫ log|Q_i| dδ_x = −∞, so the separation inequality does not cover x, and the printed justification (\"the right is −∞\") fails. The definition of λ_Smyth also demands positive coefficients, which the separation argument does not supply. The conclusion λ(Σ, F) = λ_Smyth(Σ, F) is expected to survive the repair. Noted by the extraction (item 114), which left the perturbation as an outstanding step.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-SMITH-24",
+   "file": "research/blueprint/errata/PAPER-SMITH-24.json",
+   "citation": "Alexander Smith, \"Algebraic integers with conjugates in a prescribed distribution\", Annals of Mathematics 200 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-TSIMERMAN-18/E1",
    "kind": "misprint",
    "locator": "§5, proof of Theorem 5.2, p.386, in the published version, Annals of Mathematics 187 (2018), 379–390 (publisher PDF)",
@@ -4471,7 +4576,6 @@
   "PAPER-LIPNOWSKI-TSIMERMAN-18",
   "PAPER-MERKURJEV-SCAVIA-26",
   "PAPER-NEWTON-THORNE-26",
-  "PAPER-SHENDE-TSIMERMAN-17",
-  "PAPER-SMITH-24"
+  "PAPER-SHENDE-TSIMERMAN-17"
  ]
 }
