@@ -1,0 +1,1342 @@
+{
+  "paper": "PAPER-GAO-GE-KUHNE-26",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "The Uniform Mordell–Lang Conjecture",
+    "authors": "Ziyang Gao, Tangli Ge and Lars Kühne",
+    "venue": "Publications Mathématiques de l'IHÉS 143 (2026), 189–235",
+    "doi": "10.5802/pmihes.26",
+    "arxiv": "2105.15085v4",
+    "url": "https://pmihes.centre-mersenne.org/articles/10.5802/pmihes.26/",
+    "readSections": [
+      "Entire published article, pp.189–235: §§1–8, Appendix A and references, read 2026-09-22 (PDF https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf, SHA-256 4ee5a38b327807289885a1d7292bddc3341b7fc3e0aa8a3682d995d13237834f; CC BY 4.0)."
+    ],
+    "license": "CC BY 4.0"
+  },
+  "summary": "Proves the uniform Mordell–Lang conjecture: X(F) ∩ Γ is covered by c(dim A, deg_L X)^{1+rk Γ} cosets, over any algebraically closed field of characteristic 0 (Theorem 1.1). The key new result is a gap principle for subvarieties generating A: points of X° of height ≤ c₁ max{1, h_Fal(A)} lie in a proper subvariety of bounded degree (Theorem 1.2). The paper also proves uniform Bogomolov for such X (Theorem 1.3). The method builds non-degenerate fibred powers over a restricted Hilbert scheme of subvarieties in principally polarized abelian varieties with level-4 structure, then applies the Dimitrov–Gao–Habegger height inequality, Kühne's equidistribution in families and Rémond's quantitative Vojta method, with Masser specialization from ℚ̄ to F. The atlas plans the classical inputs (Néron–Tate and Faltings heights, the moduli-height comparison, Hilbert schemes, Siegel moduli, qualitative Mordell–Lang and Bogomolov). It lacks Betti maps and non-degeneracy, the height inequality, equidistribution in families and the quantitative Vojta machinery.",
+  "items": [
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/1",
+      "kind": "definition",
+      "name": "Abelian variety over a field",
+      "statement": "An abelian variety A over a field F is a proper geometrically integral group scheme over Spec F; the paper works with F algebraically closed of characteristic 0 (F = ℚ̄ or ℂ in the main arguments), and fixes an ample line bundle L on A.",
+      "locator": "§1, p.189 (standing conventions)",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+      ],
+      "note": "Tau Ceti defines `TauCeti.AlgebraicGeometry.AbelianVariety K` (TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean:94) as a proper geometrically integral group scheme over Spec K, with commutativity, smoothness and geometric connectedness derived. The characteristic-zero, algebraically closed base is a hypothesis of the theorems, not part of the definition."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/2",
+      "kind": "definition",
+      "name": "Line bundles on an abelian variety",
+      "statement": "Line bundles (invertible sheaves) L on A, their tensor products, pullbacks along morphisms (in particular translations t_a and [−1]), and the Picard group Pic(A).",
+      "locator": "§1, p.189; §2.1, p.194",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf"
+      ],
+      "note": "Tau Ceti `TauCeti.AlgebraicGeometry.InvertibleSheaf X` (TauCeti/AlgebraicGeometry/LineBundle/Basic.lean:78). Pic(A) as a group and the translation/pullback API are JacobianChallenge layer A (partly built)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/3",
+      "kind": "definition",
+      "name": "Coset (translate of an abelian subvariety)",
+      "statement": "A coset in A is a subvariety x + B with B ⊆ A an abelian subvariety and x ∈ A(F) a closed point.",
+      "locator": "§1, p.189",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "note": "RP.5 plans \"translates, stabilizers and finitely generated subgroup intersections\" for subvarieties of abelian varieties."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/4",
+      "kind": "definition",
+      "name": "Subgroup of finite rank",
+      "statement": "A subgroup Γ ⊆ A(F) has finite rank if dim_ℚ(Γ ⊗_ℤ ℚ) < ∞; rk Γ := dim_ℚ(Γ ⊗ ℚ). Equivalently (used in §7.3) there is a finitely generated Γ₀ of rank rk Γ with Γ ⊆ {x : [N]x ∈ Γ₀ for some N ≥ 1}, and Γ₀ may be taken End(A)-stable.",
+      "locator": "§1, Theorem 1.1, p.190; §7.3, p.224",
+      "status": "missing",
+      "note": "RP.5 plans finitely generated subgroup intersections, not division hulls of finite rank; routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/5",
+      "kind": "definition",
+      "name": "Ueno locus and its complement X°",
+      "statement": "For a closed subvariety X ⊆ A, the Ueno locus is the union of all positive-dimensional cosets contained in X; X° denotes its complement in X. For a curve of genus ≥ 2 in its Jacobian the Ueno locus is empty. (X − P)° = X° − P, and (X′)° ⊇ X° ∩ X′ for closed X′ ⊆ X.",
+      "locator": "§1.1, p.191",
+      "status": "missing",
+      "note": "Not in the atlas; RP.5 is the owner of special subvarieties of abelian varieties. Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/6",
+      "kind": "theorem",
+      "name": "Kawamata: the Ueno locus is Zariski closed",
+      "statement": "For a closed subvariety X of an abelian variety over an algebraically closed field of characteristic 0, the Ueno locus of X is Zariski closed; hence X° is Zariski open in X.",
+      "locator": "§1.1, p.191, citing Kawamata [31, Thm. 4]",
+      "status": "missing",
+      "note": "Kawamata, On Bloch's conjecture (1980). Routed to RP.5 as a source; the proof needs the structure theory of subvarieties with positive-dimensional stabilizer (Ueno fibration)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/7",
+      "kind": "definition",
+      "name": "X generates A",
+      "statement": "A subvariety X ⊆ A generates A if the smallest abelian subvariety containing X − X is A. For irreducible X the abelian subvariety A′ generated by X − X equals the g-fold sum (X − X) + ⋯ + (X − X), and X ⊆ A′ + Q for some Q ∈ A(F); translation preserves the property (X − P₀ generates A iff X does).",
+      "locator": "§1.2, p.191; proof of Lemma 2.5, p.197; §7.2, p.222",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/8",
+      "kind": "construction",
+      "name": "Néron–Tate height for L ⊗ [−1]*L",
+      "statement": "For an ample L on A over ℚ̄, ĥ_{L⊗[−1]*L} : A(ℚ̄) → [0,∞) is the Néron–Tate height attached to the symmetric ample line bundle L ⊗ [−1]*L (limit h([N]P)/N² of a Weil height); it is a positive semidefinite quadratic form vanishing exactly on torsion, and it induces a Euclidean norm on Γ ⊗ ℝ for Γ of finite rank.",
+      "locator": "§1.2, p.191; Appendix A.1, p.227",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ],
+      "note": "RP.0 plans \"the Néron–Tate canonical height with its quadratic (parallelogram) identity\". Tau Ceti has the elliptic-curve case only (`neronTatePairing`, TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean:374)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/9",
+      "kind": "construction",
+      "name": "Stable Faltings height h_Fal(A)",
+      "statement": "The (stable) Faltings height h_Fal(A) of an abelian variety A over ℚ̄, used through max{1, h_Fal(A)} as the scale separating large and small points.",
+      "locator": "§1.2, Theorem 1.2, p.192",
+      "status": "planned",
+      "planned": [
+        "ArakelovGeometryAndAbelianHeights:R35.3"
+      ],
+      "note": "ArakelovGeometryAndAbelianHeights R35.3 plans the stable Faltings height."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/10",
+      "kind": "theorem",
+      "name": "Mordell–Lang conjecture (Faltings)",
+      "statement": "For X ⊆ A irreducible closed and Γ ⊆ A(F) of finite rank, X(F) ∩ Γ is contained in a finite union of cosets x_i + B_i ⊆ X, F algebraically closed of characteristic 0.",
+      "locator": "§1, p.190, citing Faltings [18, 19], Hindry [29], Vojta [49]",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "note": "RP.5 plans the selected Mordell–Lang proof route with precise field hypotheses. The paper uses the qualitative theorem only through Rémond's quantitative version (Theorem 7.1)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/11",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (uniform Mordell–Lang)",
+      "statement": "For all integers g, d ≥ 0 there is c(g,d) > 0 such that: for every abelian variety A over an algebraically closed field F of characteristic 0 with ample L, every irreducible closed X ⊆ A with deg_L X = d, dim A = g, and every subgroup Γ ⊆ A(F) of finite rank, there are cosets x_i + B_i ⊆ X, 1 ≤ i ≤ N ≤ c(g,d)^{1+rk Γ}, with X(F) ∩ Γ = ⋃_i (x_i + B_i)(F) ∩ Γ.",
+      "locator": "Theorem 1.1 and (1.1), p.190",
+      "status": "missing",
+      "note": "Main theorem; deduced from Theorem 1.1′ by Lemma 7.4."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/12",
+      "kind": "theorem",
+      "name": "Theorem 1.1′ (uniform count off the Ueno locus)",
+      "statement": "For all g, d ≥ 0 there is c(g,d) > 0 such that for A, L, X, Γ as in Theorem 1.1: #(X°(F) ∩ Γ) ≤ c(dim A, deg_L X)^{1+rk Γ}.",
+      "locator": "Theorem 1.1′ and (1.2), p.191",
+      "status": "missing",
+      "note": "Proved over ℚ̄ in §7.2 (Rémond + gap principle), then for arbitrary F by Lemma 7.3 and a filtered-union argument (§7.3)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/13",
+      "kind": "theorem",
+      "name": "Theorem 1.2 (new gap principle)",
+      "statement": "Given positive integers g and d there are c₁ = c₁(g,d) > 0 and c₂ = c₂(g,d) > 0 such that for every polarized abelian variety (A,L) over ℚ̄ of dimension g and every irreducible closed X ⊆ A generating A with deg_L X ≤ d, the set {P ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(P) ≤ c₁ max{1, h_Fal(A)}} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c₂.",
+      "locator": "Theorem 1.2 and (1.3), p.192; proof §6, p.220",
+      "status": "missing",
+      "note": "The generation hypothesis cannot be dropped and the exceptional set is not finite in general ([22, §10.2] examples cited on p.192)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/14",
+      "kind": "theorem",
+      "name": "Theorem 1.3 (uniform Bogomolov)",
+      "statement": "Given positive integers g and d there are c₃ = c₃(g,d) > 0 and c₄ = c₄(g,d) > 0 such that for every polarized abelian variety (A,L) over ℚ̄ of dimension g and every irreducible closed X ⊆ A generating A with deg_L X ≤ d: #{P ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(P) ≤ c₃} < c₄.",
+      "locator": "Theorem 1.3 and (1.4), p.192 (second constant misprinted as c₃, sourceIssues E1); proof §8, p.226",
+      "status": "missing",
+      "note": "The printed proof applies Proposition 5.1 and the induction hypothesis to components that need not generate A; see sourceIssues E12 for the translation repair used in this extraction."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/15",
+      "kind": "definition",
+      "name": "Polarization φ_L and principal polarization",
+      "statement": "For L ∈ Pic(A), φ_L : A → A^∨, a ↦ t_a*L ⊗ L^{−1} ∈ Pic⁰(A) = A^∨(ℚ̄). If L is ample, φ_L is an isogeny, called a polarization; it is principal if φ_L is an isomorphism.",
+      "locator": "§2.1, pp.194–195",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "note": "AbelianSchemesAndArithmeticModuli A2 plans φ_L : A → A^∨, its behaviour under tensor/translation/pullback and the positivity making it a polarization. Tau Ceti defines isogenies (`TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`) but not the dual abelian variety."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/16",
+      "kind": "definition",
+      "name": "Isogeny",
+      "statement": "An isogeny is a surjective homomorphism of abelian varieties with finite kernel; its degree is the order of the kernel.",
+      "locator": "§2.1, p.195",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny"
+      ],
+      "note": "Tau Ceti `TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny` (TauCeti/AlgebraicGeometry/AbelianVariety/Isogeny.lean:61): finite surjective homomorphisms, closed under composition and base change. The degree is not yet defined there; A3 plans degrees and [n] of rank n^{2g}."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/17",
+      "kind": "theorem",
+      "name": "Lemma 2.1 (c₁ determines the polarization)",
+      "statement": "For ample line bundles L, L′ on A: L and L′ define the same polarization (φ_L = φ_{L′}) iff c₁(L) = c₁(L′).",
+      "locator": "Lemma 2.1, p.195, citing Debarre [11, Thm. 6.10]",
+      "status": "missing",
+      "note": "Over ℂ via Appell–Humbert; routed to AbelianSchemesAndArithmeticModuli A2/A5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/18",
+      "kind": "definition",
+      "name": "Polarized abelian variety (A, L)",
+      "statement": "A polarized abelian variety is a pair (A, L) with A an abelian variety and L an ample line bundle serving as a representative of its Chern class c₁(L); its degree is deg_L A.",
+      "locator": "§2.1, p.195",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A2"
+      ],
+      "note": "A2 plans polarizations; the paper's convention (a chosen ample representative of c₁) is recorded with the item."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/19",
+      "kind": "construction",
+      "name": "Chern class as an alternating form on the period lattice",
+      "statement": "For A(ℂ) = ℂ^g/Λ, H²(A(ℂ),ℤ) ≅ Alt²(Λ,ℤ); c₁(L) defines E : Λ × Λ → ℤ, non-degenerate when L is ample (c₁(L) positive definite).",
+      "locator": "§2.1, (2.1), p.195",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A5"
+      ],
+      "note": "AbelianSchemesAndArithmeticModuli A5 plans the Riemann bilinear relations and polarizable integral Hodge structures of the complex torus."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/20",
+      "kind": "definition",
+      "name": "Polarization type D and Pfaffian Pf(L)",
+      "statement": "There is a basis of Λ in which E has matrix [[0, D], [−D, 0]] with D = diag(d₁,…,d_g), d₁ | ⋯ | d_g positive integers, uniquely determined (the polarization type); Pf(L) := det D.",
+      "locator": "§2.1, (2.2), p.195, citing [11, Prop. 6.1]",
+      "status": "missing",
+      "note": "A2 plans \"polarization types\" abstractly; the elementary-divisor normal form and the Pfaffian are routed to A2 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/21",
+      "kind": "theorem",
+      "name": "Lemma 2.2(i): dim H⁰(A, L) = Pf(L)",
+      "statement": "For an ample line bundle L on A, dim H⁰(A, L) = Pf(L).",
+      "locator": "Lemma 2.2(i), p.195, citing [3, Cor. 3.2.8]",
+      "status": "missing",
+      "note": "Riemann–Roch for abelian varieties; routed to A2."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/22",
+      "kind": "theorem",
+      "name": "Lemma 2.2(ii): deg_L(A) = g!·Pf(L)",
+      "statement": "For ample L on A of dimension g, deg_L(A) = c₁(L)^g = g!·Pf(L).",
+      "locator": "Lemma 2.2(ii), p.195, citing [3, §3.6]",
+      "status": "missing",
+      "note": "Routed to A2."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/23",
+      "kind": "theorem",
+      "name": "Lemma 2.2(iii): sections under isogeny pullback",
+      "statement": "If f : A′ → A is an isogeny and L ample on A, then dim H⁰(A′, f*L) = deg(f)·dim H⁰(A, L).",
+      "locator": "Lemma 2.2(iii), p.195, citing [11, Cor. 6 to Prop. 6.12]",
+      "status": "missing",
+      "note": "Routed to A2."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/24",
+      "kind": "theorem",
+      "name": "Lemma 2.2(iv): isogeny to a principally polarized abelian variety",
+      "statement": "For ample L on A there are an abelian variety A₀, an ample L₀ on A₀ defining a principal polarization and an isogeny u₀ : A → A₀ with L ≅ u₀*L₀; moreover deg(u₀) = deg_L(A)/g!.",
+      "locator": "Lemma 2.2(iv), p.195, citing Mumford [41, p.234, Cor. 1]",
+      "status": "missing",
+      "note": "Routed to A2."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/25",
+      "kind": "theorem",
+      "name": "Quasi-inverse of an isogeny",
+      "statement": "For an isogeny u₀ : A → A₀ of degree n there is an isogeny u : A₀ → A with u₀ ∘ u = [n] on A₀; then deg u = n^{2g−1}.",
+      "locator": "§4.3, p.210",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "note": "A3 plans isogenies, their duals and [n] of rank n^{2g}; the factorization through [deg] is part of that package."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/26",
+      "kind": "theorem",
+      "name": "Lemma 2.3 (Néron–Tate height depends only on c₁)",
+      "statement": "If L, L′ are symmetric ample line bundles on A with c₁(L′) = c₁(L), then ĥ_L = ĥ_{L′}.",
+      "locator": "Lemma 2.3 and proof, pp.195–196",
+      "status": "missing",
+      "note": "Proof: L′ ≅ t_a*L with φ_L(a) = L′ ⊗ L^{−1}; ĥ_L(a) = ĥ_{L′}(0) = 0 forces a torsion, and ĥ_L is invariant under torsion translation. Routed to RP.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/27",
+      "kind": "definition",
+      "name": "Degree of a subvariety with respect to L",
+      "statement": "For irreducible closed X ⊆ A, deg_L X := c₁(L)^{dim X} ∩ [X]; for general X, deg_L X := Σ_i deg_L X_i over the irreducible components (so a 0-dimensional X has degree equal to its number of points).",
+      "locator": "§2.2, p.196, citing Fulton [20, Ch. 1–2]",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "SchemeAndStackFoundations SF.5 plans Chern classes, intersection products and the projection formula."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/28",
+      "kind": "theorem",
+      "name": "Degree of a product (2.6)",
+      "statement": "For irreducible Y, Y′ ⊆ A of dimensions d, d′ and L⊠² = p₁*L ⊗ p₂*L on A × A: deg_{L⊠²}(Y × Y′) = binom(d+d′, d)·deg_L Y·deg_L Y′; inductively deg_{L⊠M}(X^M) = ((M·dim X)!/((dim X)!)^M)·(deg_L X)^M.",
+      "locator": "(2.5)–(2.6), p.196; proof of Lemma 4.3, p.208",
+      "status": "missing",
+      "note": "Routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/29",
+      "kind": "theorem",
+      "name": "Pullback of L⊠² along (x,y) ↦ (x+y, x−y)",
+      "statement": "For α : A × A → A × A, (x,y) ↦ (x+y, x−y), an isogeny of degree 2^{2g}, c₁(α*L⊠²) = 2c₁(L⊠²).",
+      "locator": "Proof of Lemma 2.4, p.196, citing Hindry–Silverman [30, Prop. A.7.3.3]",
+      "status": "missing",
+      "note": "A consequence of the theorem of the square/parallelogram law; routed to A2 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/30",
+      "kind": "theorem",
+      "name": "Degree of a projection image",
+      "statement": "For a closed subvariety Z of a product with very ample box line bundle, the image of Z under a projection satisfies deg(q(Z)) ≤ deg(Z); more generally the projection formula gives deg_L(f(Y)) ≤ deg_{f*L}(Y) for generically finite f.",
+      "locator": "Proof of Lemma 2.4, p.197, citing Dill [13, Lem. 2.4] and [20, Prop. 2.5(c)]",
+      "status": "missing",
+      "note": "Routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/31",
+      "kind": "theorem",
+      "name": "Lemma 2.4 (degree of a sum of subvarieties)",
+      "statement": "If L is very ample and Y, Y′ ⊆ A are irreducible, then deg_L(Y + Y′) ≤ 4^{dim Y + dim Y′}·deg_L Y·deg_L Y′.",
+      "locator": "Lemma 2.4 and proof, pp.196–197",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/32",
+      "kind": "theorem",
+      "name": "Lemma 2.5 (degree of the abelian subvariety generated by X)",
+      "statement": "For irreducible X ⊆ A with A′ the abelian subvariety generated by X − X: deg_L A′ ≪_g deg_L(X)^{2g}.",
+      "locator": "Lemma 2.5, p.197 (argument due to Hindry); constants in the proof misprinted, sourceIssues E2",
+      "status": "missing",
+      "note": "Proof: after L ↦ L^{⊗3}, A′ is the g-fold sum of X − X and Lemma 2.4 is applied inductively; the correct per-step factor is 4^{dim + dim} ≤ 16^{kr}. Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/33",
+      "kind": "theorem",
+      "name": "Finitely many Hilbert polynomials in bounded degree",
+      "statement": "For a projective scheme with a (relatively) very ample O(1) over a noetherian base (A over ℚ̄, or 𝔄_g over 𝔸_g with 𝔏_g^{⊗4}), there is a finite set Ξ of polynomials containing the Hilbert polynomial of every irreducible subvariety of any fibre of dimension r and degree d.",
+      "locator": "§3.1, p.198 and §3.2, p.200, citing Grothendieck FGA [26, Thm. 2.1(b) and Lem. 2.4]",
+      "status": "missing",
+      "note": "R09.1 plans Hilbert polynomials and \"boundedness statements in the exact Noetherian setting later used\"; this Chow/Hilbert boundedness is routed to R09.1 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/34",
+      "kind": "construction",
+      "name": "Hilbert scheme H_P(A) and its universal family",
+      "statement": "For a projective A over ℚ̄ with very ample L and a polynomial P, H_P(A) represents closed subschemes of A with Hilbert polynomial P; there is a universal closed subscheme X ⊆ A × H_P(A), flat and proper over H_P(A). H_P(A) is projective.",
+      "locator": "§3.1, (3.1), p.198, citing [26, Thm. 3.2]",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "note": "R09.2 plans Hilbert schemes with fixed Hilbert polynomial, projectivity and flatness of the universal family (explicitly not of H → S)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/35",
+      "kind": "construction",
+      "name": "H_{r,d}(A) and its universal family",
+      "statement": "H_{r,d}(A) := ⨆_{P ∈ Ξ} H_P(A), a projective scheme over ℚ̄ with universal family X_{r,d}(A) ⊆ A × H_{r,d}(A) (the diagram (3.1)); its fibre over s is the subscheme it parametrizes.",
+      "locator": "§3.1, (3.1), p.198",
+      "status": "missing",
+      "note": "Routed to R09.2 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/36",
+      "kind": "theorem",
+      "name": "Openness of the geometrically integral locus (EGA IV 12.2.4(viii))",
+      "statement": "For a flat proper morphism X → H of finite presentation, {s ∈ H : X_s geometrically integral} is Zariski open in H.",
+      "locator": "(3.2), p.198 and (3.6), p.201, citing EGA IV [27, Thm. 12.2.4(viii)]",
+      "status": "missing",
+      "note": "Routed to SchemeAndStackFoundations SF.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/37",
+      "kind": "construction",
+      "name": "H_{r,d}(A)° (irreducible subvarieties of dimension r and degree d)",
+      "statement": "H_{r,d}(A)° is the maximal reduced subscheme of the open locus (3.2); it is a quasi-projective variety whose ℚ̄-points parametrize all irreducible X ⊆ A with dim X = r, deg_L X = d. For each irreducible component V of H_{r,d}(A), V ∩ H_{r,d}(A)° is dense open in V or empty.",
+      "locator": "§3.1, pp.198–199",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/38",
+      "kind": "theorem",
+      "name": "Lemma 3.1 (finitely many points cut a family to a finite set)",
+      "statement": "For a (possibly reducible) subvariety V ⊆ H_{r,d}(A)° there are m₀ = m₀(V) points P₁,…,P_{m₀} ∈ A(ℚ̄) such that {[X] ∈ V(ℚ̄) : P₁,…,P_{m₀} ∈ X(ℚ̄)} is non-empty and finite.",
+      "locator": "Lemma 3.1 and proof, p.199",
+      "status": "missing",
+      "note": "Induction on k ≤ dim V choosing points of X₀ outside some X_W ≠ X₀ in each positive-dimensional component; two distinct irreducible subvarieties of equal dimension and degree cannot contain one another."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/39",
+      "kind": "construction",
+      "name": "Fibered powers X^{[m]} and the maps ι^{[m]}, π^{[m]}",
+      "statement": "X_{r,d}(A)^{[m]} := m-fold fibre product over H_{r,d}(A); (3.1) induces X^{[m]} ×_H H° ⊆ A^m × H° with projections π_A^{[m]} to H° and ι_A^{[m]} to A^m. In families (3.7): X_{H°}^{[m]} ⊆ A_{H°}^{[m]} → 𝔄_g^{[m]} over H° → 𝔸_g.",
+      "locator": "(3.3), p.199; (3.7), p.201",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/40",
+      "kind": "theorem",
+      "name": "Lemma 3.2 (a finite fibre of ι^{[m]})",
+      "statement": "For a subvariety V ⊆ H_{r,d}(A)° there is m₀ = m₀(V) ≥ 1 such that for every m ≥ m₀ some P ∈ A^m(ℚ̄) has (ι_A^{[m]}|_{X^{[m]} ×_H V})^{−1}(P) non-empty and finite.",
+      "locator": "Lemma 3.2 and proof, pp.199–200",
+      "status": "missing",
+      "note": "Take P = (P₁,…,P_{m₀},P_{m₀},…) from Lemma 3.1."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/41",
+      "kind": "construction",
+      "name": "Universal abelian variety 𝔄_g → 𝔸_g with level-4 structure",
+      "statement": "π_univ : 𝔄_g → 𝔸_g is the universal abelian scheme over the fine moduli space of principally polarized g-dimensional abelian varieties with level-4 structure; the fibre over b is the abelian variety parametrized by b.",
+      "locator": "§3.2, p.200",
+      "status": "planned",
+      "planned": [
+        "PELModuli:M5",
+        "PELModuli:M6"
+      ],
+      "note": "PELModuli M5 (Siegel moduli for every g) and M6 (fine schemes at rigidifying level with universal abelian scheme and Hodge line)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/42",
+      "kind": "theorem",
+      "name": "Symmetric relatively ample 𝔏_g with c₁ = 2c₁(L)",
+      "statement": "There is a symmetric relatively ample line bundle 𝔏_g on 𝔄_g/𝔸_g with c₁(𝔏_g|_{(𝔄_g)_b}) = 2c₁(L) = c₁(L ⊗ [−1]*L) for every principally polarized (A, L) parametrized by b; 𝔏_g^{⊗4} is relatively very ample.",
+      "locator": "§3.2, p.200, citing Mumford–Fogarty–Kirwan [42, Prop. 6.10]",
+      "status": "missing",
+      "note": "Routed to AbelianSchemesAndArithmeticModuli A2 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/43",
+      "kind": "construction",
+      "name": "Relative Hilbert scheme H over 𝔸_g",
+      "statement": "H := ⨆_{P ∈ Ξ} H_P(𝔄_g/𝔸_g) → 𝔸_g, with H_P(𝔄_g/𝔸_g) representing proper subschemes W ⊆ 𝔄_g ×_{𝔸_g} T flat over T with Hilbert polynomial P (w.r.t. 𝔏_g^{⊗4}); each H_P is projective over 𝔸_g and the universal family X ⊆ 𝔄_g ×_{𝔸_g} H =: A is flat and proper over H.",
+      "locator": "(3.4)–(3.5), pp.200–201",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "note": "R09.2 plans relative Hilbert schemes with base change and flat universal family."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/44",
+      "kind": "construction",
+      "name": "Restricted Hilbert scheme H° = H_{r,d}(𝔄_g/𝔸_g)°",
+      "statement": "H° is the maximal reduced subscheme of the open locus of H where X_s is geometrically integral; it is a quasi-projective variety over ℚ̄ whose points parametrize pairs ((A,L), X) with (A,L) principally polarized and X ⊆ A irreducible, dim X = r ≥ 1, deg_{𝔏_g^{⊗4}|A} X = d. For S ⊆ H°, A_S → S is an abelian scheme and X_S ⊆ A_S dominates S; ι_{H°}^{−1}(b) = H_{r,d}(A_b)°.",
+      "locator": "(3.6), p.201",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/45",
+      "kind": "theorem",
+      "name": "Lemma 3.3 (generic finiteness of the moduli map on fibered powers)",
+      "statement": "For an irreducible subvariety S ⊆ H° there is m₀ = m₀(S) ≥ 1 such that ι^{[m]} restricted to X_S^{[m]} is generically finite onto its image for every m ≥ m₀.",
+      "locator": "Lemma 3.3 and proof, p.202",
+      "status": "missing",
+      "note": "Uses Lemma 3.2 on a fibre over b, openness of flat morphisms and irreducibility of X_S^{[m]} (every component dominates S; geometrically irreducible fibres)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/46",
+      "kind": "theorem",
+      "name": "Openness of flat morphisms and irreducibility of fibered powers",
+      "statement": "Flat morphisms of finite presentation are open, so every irreducible component of X_S^{[m]} dominates S; if all fibres X_s are geometrically irreducible and S is irreducible, X_S^{[m]} has a single component dominating S (EGA IV 2.4.6, 9.7.8). Fibre dimension is upper semicontinuous (Chevalley, EGA IV 13.1.3, 13.2.3).",
+      "locator": "Proofs of Lemmas 3.3, 3.5 and 4.3, pp.202–207",
+      "status": "missing",
+      "note": "Routed to SchemeAndStackFoundations SF.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/47",
+      "kind": "construction",
+      "name": "Betti map and Betti form of an abelian scheme",
+      "statement": "For an abelian scheme A → S over a complex variety, the Betti map identifies A restricted to a simply connected open of S^an with (ℝ/ℤ)^{2g} × S real-analytically (fibrewise group isomorphisms given by period coordinates); the Betti form ω on A(ℂ) is the pullback of the standard translation-invariant (1,1)-form, a closed semipositive form.",
+      "locator": "§3.3, p.202 and §5.1 Step 1, p.212, via [15, §2] and [21]",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/48",
+      "kind": "definition",
+      "name": "Non-degenerate subvariety of an abelian scheme",
+      "statement": "An irreducible subvariety X ⊆ A of an abelian scheme A → S over ℂ (or over ℚ̄ after base change to ℂ) is non-degenerate if the Betti form satisfies (ω|_X)^{∧ dim X} ≢ 0 on X^{sm}(ℂ) — equivalently the Betti map restricted to X has generic rank 2 dim X — as in Dimitrov–Gao–Habegger [15, Def. 1.5 and B.4].",
+      "locator": "§3.3, p.202, citing [15, Def. 1.5 and B.4]",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/49",
+      "kind": "construction",
+      "name": "The t-th degeneracy locus X^{deg}(t) and its Zariski closedness",
+      "statement": "For X ⊆ A → S, the 0-th degeneracy locus is the union of positive-dimensional subvarieties Y ⊆ X that are degenerate in the sense of [21, Def. 1.6]; by [21, Thm. 1.8] it is Zariski closed, defined over ℚ̄ when X is, and X^{[m],*} := X^{[m]} minus its 0-th degeneracy locus is Zariski open and dense when X^{[m]} is non-degenerate.",
+      "locator": "Proof of Proposition 4.2, p.205, citing Gao [21, Def. 1.6, Thm. 1.8]",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/50",
+      "kind": "theorem",
+      "name": "Gao's non-degeneracy criterion for fibered powers",
+      "statement": "Let A → S be an abelian scheme over an irreducible base and X ⊆ A an irreducible subvariety dominating S with (a) relative dimension ≥ 1, (b) X_s generating A_s for all s, (c) X_η of finite stabilizer. If m ≥ dim S and ι^{[m]}|_{X^{[m]}} (the moduli map to 𝔄_g^{[m]}) is generically finite, then X^{[m]} ⊆ A^{[m]} is non-degenerate.",
+      "locator": "Proof of Proposition 3.4, p.203, citing Gao [21, Thm. 10.1(i)] in the form of [22, Thm. 6.5(i)]",
+      "status": "missing",
+      "note": "Proved in Gao 2020 via mixed Ax–Schanuel for the universal abelian variety. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/51",
+      "kind": "theorem",
+      "name": "Proposition 3.4 (non-degenerate fibered powers over the restricted Hilbert scheme)",
+      "statement": "Let S ⊆ H° be irreducible with geometric generic point η, and assume (i) X_η is an irreducible subvariety of A_η, (ii) X_s generates A_s for each s ∈ S(ℂ), (iii) X_η has finite stabilizer. Then there is m₀ = m₀(S) ≥ 1 such that X_S^{[m]} is a non-degenerate subvariety of A_S^{[m]} for every m ≥ m₀.",
+      "locator": "Proposition 3.4 and proof, pp.202–203",
+      "status": "missing",
+      "note": "Gao's criterion plus Lemma 3.3, with m₀ replaced by max{m₀, dim S}."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/52",
+      "kind": "definition",
+      "name": "The subset S_gen",
+      "statement": "For a subvariety S ⊆ H°, S_gen := {s ∈ S(ℚ̄) : Stab_{A_s}(X_s) is finite and X_s generates A_s}.",
+      "locator": "(3.9), p.203",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/53",
+      "kind": "theorem",
+      "name": "Lemma 3.5 (components of the closure of S_gen satisfy (i)–(iii))",
+      "statement": "For S ⊆ H°, each irreducible component S′ of the Zariski closure of S_gen, with reduced structure, satisfies hypotheses (i)–(iii) of Proposition 3.4 for X_{S′} ⊆ A_{S′} → S′.",
+      "locator": "Lemma 3.5 and proof, p.203",
+      "status": "missing",
+      "note": "(i) from geometric irreducibility of fibres; (ii) because generation is closed in proper families (the image of the proper sum map X^{[2g]} → A is closed); (iii) by spreading out the identity component of Stab(X_η) over a quasi-finite dominant S′′ → S′ and meeting S_gen."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/54",
+      "kind": "construction",
+      "name": "Heights on the restricted Hilbert scheme via a compactification of 𝔸_g",
+      "statement": "Fix an ample line bundle 𝔐 on a compactification 𝔸̄_g and extend ι_{H°} to a projective compactification H̄° → 𝔸̄_g; set M := ι_{H°}*𝔐 and use the Weil height h_{H°,M}(s) = h_{𝔸̄_g,𝔐}(ι_{H°}(s)).",
+      "locator": "§4.1, pp.204–205",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "ShimuraCompactifications:C5"
+      ],
+      "note": "RP.0 plans the height machine for line bundles modulo bounded functions; ShimuraCompactifications C5 plans the minimal compactification with ample Hodge line."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/55",
+      "kind": "construction",
+      "name": "Weil height on projective space over ℚ̄",
+      "statement": "The absolute logarithmic Weil height on ℙ^n(ℚ̄), and the height h : A(ℚ̄) → ℝ induced by a projective embedding.",
+      "locator": "Appendix A.1, p.227",
+      "status": "library",
+      "library": [
+        "mathlib:Projectivization.logHeight"
+      ],
+      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) for fields with `Height.AdmissibleAbsValues`; the extension to ℚ̄ and Northcott for bounded degree are RP.0/DT.0 work."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/56",
+      "kind": "theorem",
+      "name": "Height inequality for non-degenerate subvarieties (Dimitrov–Gao–Habegger)",
+      "statement": "Let A → S be an abelian scheme over ℚ̄ with symmetric relatively ample L, M an ample line bundle on a compactification of S, and X ⊆ A non-degenerate. Then there are c > 0, c′ and a Zariski open dense U ⊆ X with ĥ_L(P) ≥ c·h_{S,M}(π(P)) − c′ for all P ∈ U(ℚ̄); in particular (4.6) Σ_{i≤m} ĥ_L(x_i) ≥ c·h_{H°,M}(s) − c′ on (X_{S′}^{[m],*})_s(ℚ̄).",
+      "locator": "(4.6), p.206, citing [15, Thm. 1.6 and B.1] in the form of [22, Thm. 7.1]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/57",
+      "kind": "theorem",
+      "name": "Proposition 4.2 (height gap on the restricted Hilbert scheme)",
+      "statement": "Let S ⊆ H° be a subvariety over ℚ̄. There are c′₁, c′₂, c′₃ > 0 depending on r, d, S such that for each s ∈ S_gen the set Σ_s = {x ∈ X_s°(ℚ̄) : ĥ_𝓛(x) ≤ c′₁ max{1, h_{H°,M}(s)} − c′₃} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X_s with deg_{𝓛_s}(X′) < c′₂, where 𝓛 := ι*𝔏_g^{⊗4}.",
+      "locator": "Proposition 4.2 and proof, pp.204–207",
+      "status": "missing",
+      "note": "Noetherian induction on dim S: Case (i) the lower-dimensional components S_i where the degeneracy-free locus misses the fibre; Case (ii) the height inequality forces Σ^m into the degeneracy locus and Lemma 4.3 produces X′."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/58",
+      "kind": "theorem",
+      "name": "Lemma 4.3 (from Σ^M ⊆ Z to a bounded-degree exceptional set)",
+      "statement": "Let X be an irreducible projective variety over a field k with very ample L, and Z ⊊ X^M closed. There is c = c(M, dim X, deg_L X, deg_{L⊠M} Z) > 0 such that every Σ ⊆ X(k) with Σ^M ⊆ Z(k) is contained in X′(k) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c.",
+      "locator": "Lemma 4.3 and proof, pp.207–208",
+      "status": "missing",
+      "note": "Induction on M splitting Z into components dominating the first factor and the rest; Bézout bounds the degrees."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/59",
+      "kind": "theorem",
+      "name": "Bézout inequality for intersections",
+      "statement": "For closed subvarieties Y, Z of a projective variety embedded by a very ample line bundle, deg(Y ∩ Z) ≤ deg Y·deg Z (degrees summed over components of the intersection).",
+      "locator": "Proofs of Lemma 4.3, Lemma 7.4 and Proposition A.3",
+      "status": "missing",
+      "note": "Refined Bézout (Fulton Ex. 8.4.6); routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/60",
+      "kind": "theorem",
+      "name": "Comparison of the Faltings height with the moduli height",
+      "statement": "For (A,L) principally polarized parametrized by b ∈ 𝔸_g(ℚ̄): max{1, h_Fal(A)} ≤ c(g)·h_{𝔸̄_g,𝔐}(b) + c′(g)·log(h_{𝔸̄_g,𝔐}(b) + 2).",
+      "locator": "(4.11), p.209, citing Moret-Bailly [40, Thm. 1.1] (Faltings)",
+      "status": "planned",
+      "planned": [
+        "ArakelovGeometryAndAbelianHeights:R35.5"
+      ],
+      "note": "ArakelovGeometryAndAbelianHeights R35.5 plans the two-sided comparison between the Faltings height and a moduli height."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/61",
+      "kind": "theorem",
+      "name": "Proposition 4.4 (height gap, principally polarized case)",
+      "statement": "For positive integers g, r, d there are c′₁, c′₂, c′₃ > 0 depending on g, r, d such that for every principally polarized (A,L) over ℚ̄ of dimension g and every irreducible X ⊆ A generating A with dim X = r, deg_L X = d, the set {x ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(x) ≤ c′₁ max{1, h_Fal(A)} − c′₃} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c′₂.",
+      "locator": "Proposition 4.4 and proof, pp.208–210",
+      "status": "missing",
+      "note": "Apply Proposition 4.2 with S = H°_{r,8^r d}; deg_{𝔏_g^{⊗4}|A} X = 8^r d (4.10) and ĥ_{𝓛|A} = 4ĥ_{L⊗L^−} (4.12, by Lemma 2.3), with (4.11) to replace the moduli height."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/62",
+      "kind": "theorem",
+      "name": "Faltings height under isogeny (Raynaud)",
+      "statement": "For an isogeny u₀ : A → A₀, |h_Fal(A) − h_Fal(A₀)| ≤ ½ log deg u₀.",
+      "locator": "(4.13), p.210, citing Raynaud [43, Prop. 1.4.1]",
+      "status": "planned",
+      "planned": [
+        "ArakelovGeometryAndAbelianHeights:R35.4"
+      ],
+      "note": "ArakelovGeometryAndAbelianHeights R35.4 plans the isogeny variation formula."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/63",
+      "kind": "theorem",
+      "name": "Proposition 4.1 (height gap, all polarizations)",
+      "statement": "For positive integers g, l, r ≤ g, d there are c′₁, c′₂, c′₃ > 0 depending on g, l, r, d such that for every polarized (A,L) over ℚ̄ of dimension g with deg_L A = l and every irreducible X ⊆ A with dim X = r, deg_L X = d generating A, the set {x ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(x) ≤ c′₁ max{1, h_Fal(A)} − c′₃} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c′₂.",
+      "locator": "Proposition 4.1, p.203; proof §4.3, pp.210–211 (degree step misprinted, sourceIssues E4)",
+      "status": "missing",
+      "note": "Reduce to Proposition 4.4 through u₀ and its quasi-inverse u (Lemma 2.2(iv)), with (4.13) and the projection formula (4.14)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/64",
+      "kind": "theorem",
+      "name": "Equidistribution in families of abelian varieties (Kühne)",
+      "statement": "Let A → S be an abelian scheme over ℚ̄, L symmetric relatively ample and X ⊆ A a non-degenerate subvariety. There is an equilibrium measure μ on X(ℂ), proportional to (ω|_X)^{∧ dim X} for the Betti form ω, such that for every f ∈ C⁰_c(X(ℂ)) and ε > 0 there are δ > 0 and a proper Zariski closed Z ⊊ X with |∫ f μ − (1/#O(x)) Σ_{y ∈ O(x)} f(y)| < ε for all x ∈ (X ∖ Z)(ℚ̄) with ĥ_L(x) < δ.",
+      "locator": "§5.1 Steps 2 and 4, pp.213–215, citing Kühne [33, Thm. 1, Lem. 23, Lem. 11, Lem. 25 and §3]",
+      "status": "missing",
+      "note": "Also available from Yuan–Zhang [51, Thm. 6.7] and Gauthier [23]. Routed to the uniformity Part II, importing ArithmeticDynamics DY.4 for the classical equidistribution machinery."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/65",
+      "kind": "theorem",
+      "name": "Zhang's difference-map lemma",
+      "statement": "For an irreducible subvariety X of an abelian variety with finite stabilizer, there is M₀ such that for M ≥ M₀ the generic fibre of D₀ : X^{M+1} → A^M, (a₀,…,a_M) ↦ (a₁ − a₀, …, a_M − a₀), is an orbit of Stab(X) acting diagonally.",
+      "locator": "§5.1 Step 1, p.213, citing the proof of Zhang [53, Lem. 3.1]",
+      "status": "missing",
+      "note": "Part of the Zhang–Ullmo route to Bogomolov; routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/66",
+      "kind": "theorem",
+      "name": "Non-vanishing of the top power of the Betti form on a non-degenerate subvariety",
+      "statement": "If X ⊆ A → S is non-degenerate, there is a smooth point z ∈ X^{sm}(ℂ), which may be taken over a smooth point of S, with (ω|_X)^{∧ dim X}_z ≠ 0 (an open condition).",
+      "locator": "(5.4), p.212, citing [15, Prop. 2.2(iii)]",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/67",
+      "kind": "theorem",
+      "name": "Non-degeneracy is preserved by the difference construction",
+      "statement": "If X^{[m]}_{S′} is non-degenerate, then so is D(X^{[m(M+2)]}_{S′}) = X^{[m]}_{S′} ×_{S′} D₀((X^{[m]}_{S′})^{[M+1]}) ⊆ A^{[m(M+1)]}_{S′}.",
+      "locator": "§5.1 Step 1, p.213, citing [33, Lem. 24] or [22, Lem. 6.2]",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/68",
+      "kind": "theorem",
+      "name": "Proposition 5.2 (uniform Bogomolov on the restricted Hilbert scheme)",
+      "statement": "For a subvariety S ⊆ H° there are c″₂, c″₃ > 0 depending on r, d, S such that for each s ∈ S_gen the set Σ_s = {x ∈ X_s°(ℚ̄) : ĥ_𝓛(x) ≤ c″₃} is contained in a proper Zariski closed X′ ⊊ X_s with deg_{𝓛_s}(X′) < c″₂.",
+      "locator": "Proposition 5.2 (constant label misprinted, sourceIssues E5) and proof Steps 1–5, pp.211–217",
+      "status": "missing",
+      "note": "Family Ullmo–Zhang argument: non-degenerate X^{[m]} and D-images (Step 1), non-proportional equilibrium measures (Step 2, via a non-trivial kernel of dD at (z,Δ_z)), stabilizer-invariant test functions f₁ = f₂ ∘ D (Step 3), the height alternative via equidistribution (Step 4), and noetherian induction with Lemma 4.3 (Step 5; index and exponent misprints sourceIssues E6, E7)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/69",
+      "kind": "theorem",
+      "name": "Proposition 5.1 (uniform Bogomolov with exceptional set)",
+      "statement": "For positive integers g, l, r, d there are c″₂, c″₃ > 0 depending on g, l, r, d such that for every polarized (A,L) over ℚ̄ of dimension g with deg_L A = l and every irreducible X ⊆ A generating A with dim X = r, deg_L X = d, the set {x ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(x) ≤ c″₃} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c″₂.",
+      "locator": "Proposition 5.1, p.211; proof sketch §5.2, pp.217–218",
+      "status": "missing",
+      "note": "Deduced from Proposition 5.2 exactly as §4.2–4.3 deduce Propositions 4.4 and 4.1 (details left to the reader in the source)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/70",
+      "kind": "theorem",
+      "name": "Proposition 6.1 (gap principle with fixed l, r)",
+      "statement": "For positive integers g, l, r, d there are c₁, c₂ > 0 depending on g, l, r, d such that for every polarized (A,L) over ℚ̄ of dimension g with deg_L A = l and every irreducible X ⊆ A generating A with dim X = r, deg_L X = d, the set {P ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(P) ≤ c₁ max{1, h_Fal(A)}} is contained in X′(ℚ̄) for a proper Zariski closed X′ ⊊ X with deg_L X′ < c₂.",
+      "locator": "Proposition 6.1 and proof, pp.219–220 (degree constant misstated, sourceIssues E8)",
+      "status": "missing",
+      "note": "c₁ := min{c″₃/max{1, 2c′₃/c′₁}, c′₁/2}; the two cases compare max{1,h_Fal(A)} with max{1, 2c′₃/c′₁}. The exceptional set is the union of those of Propositions 4.1 and 5.1, so c₂ := c′₂ + c″₂."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/71",
+      "kind": "definition",
+      "name": "Hypothesis (Hyp pack)",
+      "statement": "For (A,L) with L symmetric ample, X ⊆ A irreducible and Γ ⊆ A(ℚ̄) of finite rank, (Hyp pack) holds if there is c₀ = c₀(g, deg_L X) > 0 such that for every P₀ ∈ X(ℚ̄): #{P − P₀ ∈ (X°(ℚ̄) − P₀) ∩ Γ : ĥ_L(P − P₀) ≤ c₀^{−1} max{1, h_Fal(A)}} ≤ c₀^{rk Γ + 1}.",
+      "locator": "§7.1, (7.1), p.220; restated Appendix A, p.227",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/72",
+      "kind": "theorem",
+      "name": "Rémond's generalized Vojta inequality (Theorem A.1)",
+      "statement": "With L symmetric very ample and projectively normal, n = deg_L A/g! − 1, there are c₄, c₅ > 0 depending on g, deg_L X, deg_L A such that if P₀,…,P_{dim X} ∈ X°(ℚ̄) satisfy ⟨P_i, P_{i+1}⟩ ≥ (1 − 1/c₄)|P_i||P_{i+1}| and |P_{i+1}| ≥ c₄|P_i|, then |P₀|² ≤ c₅ max{1, h(X), h_Fal(A)}.",
+      "locator": "Theorem A.1, p.227, citing Rémond [46, Thm. 1.1] with (A.1)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/73",
+      "kind": "theorem",
+      "name": "Rémond's generalized Mumford inequality (Proposition A.2)",
+      "statement": "There are c₄, c₅ > 0 depending on g, deg_L X, deg_L A such that if P₀ ∈ X(ℚ̄) and P₁,…,P_{dim X} ∈ X(ℚ̄) with (P₀,…,P_{dim X}) isolated in its fibre of D_{dim X} : X^{dim X+1} → A^{dim X}, ⟨P₀,P_i⟩ ≥ (1 − 1/c₄)|P₀||P_i| and ||P₀| − |P_i|| ≤ |P₀|/c₄, then |P₀|² ≤ c₅ max{1, h(X), h_Fal(A)}.",
+      "locator": "Proposition A.2, p.228, citing Rémond [45, Prop. 3.4]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/74",
+      "kind": "theorem",
+      "name": "Proposition A.3 (isolated fibres or a small exceptional set)",
+      "statement": "For Ξ ⊆ X°(ℚ̄), either (i) for every x ∈ X(ℚ̄) there are pairwise distinct x₁,…,x_{dim X} ∈ Ξ with (x, x₁,…,x_{dim X}) isolated in its fibre of D_{dim X}, or (ii) Ξ ⊆ X′ for a proper Zariski closed X′ ⊊ X with deg X′ ≤ (deg_L X)^{2 dim X}.",
+      "locator": "Proposition A.3 and proof, pp.228–229, citing Rémond [45, Prop. 3.3] (strict inequality misprinted, sourceIssues E13)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/75",
+      "kind": "construction",
+      "name": "Height h(X) of a projective subvariety",
+      "statement": "For an irreducible subvariety X ⊆ ℙ^n over ℚ̄, the height h(X) in the sense of Bost–Gillet–Soulé (arithmetic intersection / Chow form height).",
+      "locator": "Appendix A.1, p.227, citing [6]",
+      "status": "missing",
+      "note": "Not planned anywhere in the atlas; routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/76",
+      "kind": "theorem",
+      "name": "Lemma A.4 (removing h(X))",
+      "statement": "For finite S ⊆ X(ℚ̄) such that every equidimensional Y ⊇ S of dimension dim X − 1 has deg_L Y > deg_L A·(deg_L X)²/g!: h(X) ≤ (deg_L A/g! + 1)^{dim X + 1}·deg_L X·(max_{x ∈ S} h(x) + 3 log(deg_L A/g!)).",
+      "locator": "Lemma A.4, p.229, citing Rémond [45, Lem. 3.1]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/77",
+      "kind": "theorem",
+      "name": "David–Philippon formulation of Rémond's theorem",
+      "statement": "There are constants c_NT(A) ≥ 0 with |ĥ_L − h| ≤ c_NT(A), and h₁(A) (the height of the addition and subtraction polynomials), both ≤ c′(g, deg_L A)·max{1, h_Fal(A)}; and if #{P ∈ X°(ℚ̄) ∩ Γ : ĥ_L(P) ≤ η max{1, c_NT(A), h₁(A)}} is bounded as in (7.5) for all η ≥ 1, then #X°(ℚ̄) ∩ Γ ≤ (c″)^{rk Γ+1}·(that bound at η = c″) with c″ = c″(g, deg_L X).",
+      "locator": "§7.1, (7.3)–(7.6), pp.221–222, citing David–Philippon [9, Thm. 6.8 and (6.41)] and [15, (8.4), (8.7)]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/78",
+      "kind": "theorem",
+      "name": "Ball-packing lemma",
+      "statement": "In a Euclidean space of dimension ρ, any subset of a closed ball of radius R is covered by at most (1 + 2R/r)^ρ closed balls of radius r centred at points of the subset.",
+      "locator": "§7.1, p.221, and Appendix A.5, pp.230–232, citing Rémond [45, Lem. 6.1]",
+      "status": "missing",
+      "note": "Elementary; routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/79",
+      "kind": "theorem",
+      "name": "Theorem 7.1 (Rémond, under (Hyp pack))",
+      "statement": "Assume (Hyp pack) holds for all (A,L), X, Γ with X generating A (in dimensions up to that of the variety being counted). Then for every polarized (A,L) with L symmetric (and very ample in Appendix A), every irreducible X ⊆ A and every finite-rank Γ ⊆ A(ℚ̄): #X°(ℚ̄) ∩ Γ ≤ c(g, deg_L X, deg_L A)^{rk Γ+1}, with c increasing in all three arguments.",
+      "locator": "Theorem 7.1, p.220 (proof sketch pp.221–222); restated and proved Appendix A.5, pp.229–232 (misprints sourceIssues E9, E11)",
+      "status": "missing",
+      "note": "Appendix proof: dévissage to generating X via Lemma 2.5; Step 1 large points via Theorem A.1, Propositions A.2–A.3 and a cone covering; Step 2 removes h(X) via Lemma A.4 and the induction hypothesis; Step 3 a packing alternative; Step 4 concludes with (Hyp pack)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/80",
+      "kind": "theorem",
+      "name": "Proposition 7.2 ((Hyp pack) holds for L ⊗ [−1]*L)",
+      "statement": "For an abelian variety A of dimension g with ample L, (Hyp pack) holds with L replaced by L ⊗ [−1]*L for every irreducible X ⊆ A generating A and every finite-rank Γ ⊆ A(ℚ̄).",
+      "locator": "Proposition 7.2 and proof, pp.222–223 (constant misprinted, sourceIssues E10)",
+      "status": "missing",
+      "note": "Induction on dim X: Theorem 1.2 applied to X − P₀ puts the small points in X′ of bounded degree; each component X† lies in a translate A† + Q; the induction hypothesis (via Theorem 7.1) bounds (X† − Q)° ∩ Γ†, where Γ† = ⟨Γ, Q⟩."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/81",
+      "kind": "theorem",
+      "name": "Theorem 1.1′ over ℚ̄",
+      "statement": "Theorem 1.1′ holds for F = ℚ̄.",
+      "locator": "§7.2, pp.223–224",
+      "status": "missing",
+      "note": "Reduce to X generating A (Γ′ = ⟨Γ, Q⟩, degree of A bounded by Lemma 2.5), then Proposition 7.2 with Theorem 7.1."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/82",
+      "kind": "theorem",
+      "name": "Masser: specialization of finitely generated subgroups and endomorphisms",
+      "statement": "For an abelian scheme A → V over an irreducible variety over ℚ̄ with generic fibre A over the function field, and a finitely generated Γ ⊆ A, the set of v ∈ V(ℚ̄) where Γ → Γ_v is injective and End(A) → End(A_v) is an isomorphism is Zariski dense in V.",
+      "locator": "Proof of Lemma 7.3, p.224, citing Masser [35, Main Theorem, Scholium 1] and [36, Main Theorem]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/83",
+      "kind": "theorem",
+      "name": "Good models: the Ueno locus specializes",
+      "statement": "After shrinking V, a flat model 𝔛 → V of X can be chosen so that the Ueno locus of 𝔛_v is the specialization of the Ueno locus of X for every v ∈ V(ℚ̄); hence 𝔛_v° is the specialization of X°, and deg_L X = deg_{L_v} 𝔛_v by flatness.",
+      "locator": "Proof of Lemma 7.3, p.224, citing Mazur [39, pp.219–220] and Hindry [29, App. 1, Lemma A]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/84",
+      "kind": "theorem",
+      "name": "Lemma 7.3 (specialization from ℚ̄ to F)",
+      "statement": "If Theorem 1.1′ holds for F = ℚ̄, then it holds for every algebraically closed F of characteristic 0 when Γ is finitely generated, with the same function c.",
+      "locator": "Lemma 7.3 and proof, pp.223–224",
+      "status": "missing",
+      "note": "Spread out over a regular variety V/ℚ̄ and specialize at v ∈ Θ, the Masser-dense set."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/85",
+      "kind": "theorem",
+      "name": "Theorem 1.1′ over arbitrary F",
+      "statement": "Theorem 1.1′ holds for every algebraically closed field F of characteristic 0 and every finite-rank Γ ⊆ A(F).",
+      "locator": "§7.3, pp.224–225",
+      "status": "missing",
+      "note": "Γ ⊆ ⋃_n (1/n)Γ₀ with each (1/n)Γ₀ finitely generated of rank ρ and End(A)-stable; the bound (7.11) is uniform in n."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/86",
+      "kind": "theorem",
+      "name": "Bogomolov: bounded degree and number of maximal cosets",
+      "statement": "For X ⊆ A irreducible, every abelian subvariety B in the set Σ(X; A) of positive-dimensional B maximal with x + B ⊆ X for some x satisfies deg_L B ≤ c₃(dim A, deg_L X), and #Σ(X; A) ≤ c₄(dim A, deg_L X).",
+      "locator": "Proof of Lemma 7.4, p.225, citing Bogomolov [4, Thm. 1] and Rémond [45, Prop. 4.1]",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source (structure of the Ueno locus)."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/87",
+      "kind": "theorem",
+      "name": "Complement of bounded degree (Masser–Wüstholz)",
+      "statement": "For an abelian subvariety B ⊆ A there is B^⊥ with B ∩ B^⊥ finite, B + B^⊥ = A and deg_L B^⊥ ≤ c′₅(g, deg_L A, deg_L B).",
+      "locator": "Proof of Lemma 7.4, p.225, citing Masser–Wüstholz [37]",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/88",
+      "kind": "theorem",
+      "name": "Structure of the Ueno locus via maximal cosets",
+      "statement": "For each B ∈ Σ(X; A), X_B := ⋂_{b ∈ B(F)} (X − b) ∩ B^⊥ is a finite intersection of at most dim X members with deg_L X_B ≤ c₅(dim A, deg_L X); the Ueno locus of X is ⋃_{B ∈ Σ(X;A)} (X_B + B), and every coset x + B ⊆ X, B ∈ Σ(X; A), can be written with x ∈ X_B°(F), X_B° := ⋃_k X_{B,k}° over the components.",
+      "locator": "Proof of Lemma 7.4, p.225, citing Rémond [45, Lem. 4.6]",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/89",
+      "kind": "theorem",
+      "name": "Lemma 7.4 (Theorem 1.1′ implies Theorem 1.1)",
+      "statement": "If Theorem 1.1′ holds for all (A,L), X, Γ, then Theorem 1.1 holds.",
+      "locator": "Lemma 7.4 and proof, pp.225–226",
+      "status": "missing",
+      "note": "N ≤ c₄·c₆^{1+rk Γ} + #X°(F) ∩ Γ, bounding n_B by Theorem 1.1′ applied to the components of X_B."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/90",
+      "kind": "theorem",
+      "name": "Appendix A, Step 1: bound for large points",
+      "statement": "There is c₆ = c₆(g, deg_L X, deg_L A) > 0 with #{P ∈ X°(ℚ̄) ∩ Γ : ĥ_L(P) ≥ c₅ max{1, h(X), h_Fal(A)}} ≤ c₆^{rk Γ+1}.",
+      "locator": "(A.5) and proof, pp.230–231",
+      "status": "missing",
+      "note": "Cover Γ ⊗ ℝ by ⌊(1 + (8c₄)^{1/2})^{rk Γ}⌋ cones; within a cone, blocks of N′ consecutive points escape proper subvarieties of degree ≤ (deg X)^{2 dim X} by the induction hypothesis, Proposition A.3 gives isolated tuples, Proposition A.2 forces growth, and Theorem A.1 caps the number of growth steps at dim X."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/91",
+      "kind": "theorem",
+      "name": "Appendix A, Step 2: removing the dependence on h(X)",
+      "statement": "With c₇ := deg_L A·(deg_L X)²/g!·c(g, deg_L A·(deg_L X)²/g!, deg_L A) and N″ := c₇^{rk Γ+1} + 1, there are c₈, c₉, c₁₀ such that for pairwise distinct P₀,…,P_{N″} ∈ X°(ℚ̄) ∩ Γ: #{P ∈ X°(ℚ̄) ∩ Γ : ĥ_L(P − P₀) ≥ c₈² max_i ĥ_L(P_i − P₀) + c₉ max{1, h_Fal(A)}} ≤ c₁₀^{rk Γ+1}.",
+      "locator": "(A.9)–(A.10) and proof, p.231",
+      "status": "missing",
+      "note": "Lemma A.4 applied to X − P₀, whose hypothesis follows from the induction hypothesis and the choice of N″."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/92",
+      "kind": "theorem",
+      "name": "Appendix A, Step 3: packing alternative",
+      "statement": "Either #X°(ℚ̄) ∩ Γ ≤ N″(8c₈ + 1)^{rk Γ} + c₁₀^{rk Γ+1}, or there is Q ∈ X°(ℚ̄) ∩ Γ with #{P ∈ X°(ℚ̄) ∩ Γ : ĥ_L(P − Q) ≥ 2c₉ max{1, h_Fal(A)}} ≤ c₁₀^{rk Γ+1}.",
+      "locator": "Step 3, p.232 (misprinted (4c₈+1), sourceIssues E11)",
+      "status": "missing",
+      "note": "Minimal-radius argument with ball packing and pigeonhole."
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/93",
+      "kind": "theorem",
+      "name": "Uniform Bogomolov for arbitrary subvarieties (form proved in §8)",
+      "statement": "For g, d there are c₃, c₄ depending on g, d such that for every polarized (A,L) over ℚ̄ of dimension ≤ g and every irreducible X ⊆ A with deg_L X ≤ d (not necessarily generating A): #{P ∈ X°(ℚ̄) : ĥ_{L⊗[−1]*L}(P) ≤ c₃} < c₄.",
+      "locator": "§8, p.226, as repaired in sourceIssues E12",
+      "status": "missing",
+      "note": "Needed so that the induction applies to components of X′ that do not generate A: if P₁ ∈ X_i° is small, then X_i − P₁ ⊆ B_i := ⟨X_i − X_i⟩ generates B_i, deg B_i is bounded by Lemma 2.5, and ĥ(P − P₁) ≤ 2ĥ(P) + 2ĥ(P₁); apply Proposition 5.1 with min/max over l ≤ c d^{2g} and dim B_i ≤ g."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "V. Dimitrov, Z. Gao, P. Habegger, Uniformity in Mordell–Lang for curves, Ann. Math. 194 (2021), 237–298",
+      "link": "https://doi.org/10.4007/annals.2021.194.1.4",
+      "why": "Source of non-degenerate subvarieties (Def. 1.5, B.4), Prop. 2.2(iii) and the height inequality (Thm. 1.6, B.1) used in §§3–5; already queued as PAPER-DIMITROV-GAO-HABEGGER-21 but not yet extracted, so the atlas does not yet cover it."
+    },
+    {
+      "citation": "L. Kühne, Equidistribution in families of abelian varieties and uniformity, arXiv:2101.10272 (2021)",
+      "link": "https://arxiv.org/abs/2101.10272",
+      "why": "Thm. 1 (equidistribution for non-degenerate subvarieties of families), Lem. 11, 23, 24, 25 and the equilibrium-measure description used in §5.1; not in papers.json."
+    },
+    {
+      "citation": "Z. Gao, Generic rank of Betti map and unlikely intersections, Compos. Math. 156 (2020), 2469–2509",
+      "link": "https://doi.org/10.1112/S0010437X20007435",
+      "why": "Def. 1.6, Thm. 1.8 (degeneracy loci) and Thm. 10.1 (non-degeneracy criterion) behind Proposition 3.4; not in papers.json."
+    },
+    {
+      "citation": "Z. Gao, Recent developments of the Uniform Mordell–Lang Conjecture, arXiv:2104.03431",
+      "link": "https://arxiv.org/abs/2104.03431",
+      "why": "Formulation of the criterion (Thm. 6.5), Lem. 6.2, the height inequality (Thm. 7.1), the curve gap principle (Prop. 9.2) and the examples of §10.2."
+    },
+    {
+      "citation": "Z. Gao, Mixed Ax–Schanuel for the universal abelian varieties and some applications, Compos. Math. 156 (2020), 2263–2297",
+      "link": "https://doi.org/10.1112/S0010437X20007447",
+      "why": "Transcendence input to Gao's non-degeneracy criterion; needed by the Betti-map Part II."
+    },
+    {
+      "citation": "Z. Gao, P. Habegger, Heights in families of abelian varieties and the geometric Bogomolov conjecture, Ann. Math. 189 (2019)",
+      "link": "https://doi.org/10.4007/annals.2019.189.2.3",
+      "why": "Origin of non-degeneracy and heights in families; queued as PAPER-GAO-HABEGGER-19 but not yet extracted."
+    },
+    {
+      "citation": "G. Rémond, Décompte dans une conjecture de Lang, Invent. Math. 142 (2000), 513–545",
+      "link": "https://doi.org/10.1007/s002220000095",
+      "why": "Prop. 3.3, 3.4, 4.1, Lem. 3.1, 4.6, 6.1 and §3.b used in Theorem 7.1 and Appendix A."
+    },
+    {
+      "citation": "G. Rémond, Inégalité de Vojta en dimension supérieure, Ann. Sc. Norm. Super. Pisa 29 (2000), 101–151",
+      "link": "http://www.numdam.org/item/ASNSP_2000_4_29_1_101_0/",
+      "why": "Generalized Vojta inequality (Thm. 1.1/1.2), Theorem A.1."
+    },
+    {
+      "citation": "S. David, P. Philippon, Minorations des hauteurs normalisées des sous-variétés des puissances des courbes elliptiques, IMRP 2007, rpm006",
+      "link": "https://doi.org/10.1093/imrp/rpm006",
+      "why": "Thm. 6.8 and (6.41), the formulation of Rémond's count used in §7.1."
+    },
+    {
+      "citation": "D. W. Masser, Specializations of finitely generated subgroups of abelian varieties, Trans. AMS 311 (1989), 413–424; Specialization of endomorphism rings of abelian varieties, Bull. SMF 124 (1996), 457–476",
+      "link": "https://doi.org/10.1090/S0002-9947-1989-0974783-6",
+      "why": "Zariski density of good specializations in Lemma 7.3."
+    },
+    {
+      "citation": "D. W. Masser, G. Wüstholz, Periods and minimal abelian subvarieties, Ann. Math. 137 (1993), 407–458",
+      "link": "https://doi.org/10.2307/2946542",
+      "why": "Complement B^⊥ of bounded degree in Lemma 7.4."
+    },
+    {
+      "citation": "F. A. Bogomolov, Points of finite order on an abelian variety, Math. USSR Izv. 17 (1981), 55–72; Y. Kawamata, On Bloch's conjecture, Invent. Math. 57 (1980), 97–100",
+      "link": "https://doi.org/10.1070/IM1981v017n01ABEH001329",
+      "why": "Degree bound for maximal cosets and closedness of the Ueno locus."
+    },
+    {
+      "citation": "S. Zhang, Equidistribution of small points on abelian varieties, Ann. Math. 147 (1998), 159–165; E. Ullmo, Positivité et discrétion des points algébriques des courbes, Ann. Math. 147 (1998), 167–179",
+      "link": "https://doi.org/10.2307/120986",
+      "why": "Lem. 3.1 (difference map) and the Ullmo–Zhang strategy run in families in §5; RP.5 names them but they are not yet extracted."
+    },
+    {
+      "citation": "L. Moret-Bailly, Compactifications, hauteurs et finitude, Astérisque 127 (1985), 113–129; M. Raynaud, Hauteurs et isogénies, Astérisque 127 (1985), 199–234",
+      "link": "http://www.numdam.org/item/AST_1985__127__113_0/",
+      "why": "Comparison (4.11) and the isogeny bound (4.13); planned in R35.4–R35.5 but not yet extracted."
+    },
+    {
+      "citation": "J.-B. Bost, H. Gillet, C. Soulé, Heights of projective varieties and positive Green forms, J. AMS 7 (1994), 903–1027",
+      "link": "https://doi.org/10.1090/S0894-0347-1994-1260106-X",
+      "why": "The height h(X) of a subvariety used in Appendix A."
+    },
+    {
+      "citation": "A. Grothendieck, Techniques de construction … IV: Les schémas de Hilbert, Sém. Bourbaki exp. 221 (1960/61); M. Hindry, Autour d'une conjecture de Serge Lang, Invent. Math. 94 (1988), App. 1; B. Mazur, Abelian varieties and the Mordell–Lang conjecture (2000)",
+      "link": "http://www.numdam.org/item/SB_1960-1961__6__249_0/",
+      "why": "Hilbert-polynomial boundedness (Thm. 2.1(b), Lem. 2.4) and good models specializing the Ueno locus."
+    },
+    {
+      "citation": "T. Ge, Uniformity of quadratic points, Int. J. Number Theory 20 (2024), 1041–1071; G. A. Dill, Torsion points on isogenous abelian varieties, Compos. Math. 158 (2022), 1020–1051",
+      "link": "https://doi.org/10.1142/S1793042124500532",
+      "why": "Model for Lemma 3.3 ([25, §3, Prop. 3.4]) and the projection-degree bound [13, Lem. 2.4]."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/4",
+        "PAPER-GAO-GE-KUHNE-26/5",
+        "PAPER-GAO-GE-KUHNE-26/6",
+        "PAPER-GAO-GE-KUHNE-26/7",
+        "PAPER-GAO-GE-KUHNE-26/26",
+        "PAPER-GAO-GE-KUHNE-26/31",
+        "PAPER-GAO-GE-KUHNE-26/32",
+        "PAPER-GAO-GE-KUHNE-26/65",
+        "PAPER-GAO-GE-KUHNE-26/86",
+        "PAPER-GAO-GE-KUHNE-26/88"
+      ],
+      "reason": "RP.0 plans the Néron–Tate height and RP.5 plans subvarieties of abelian varieties, translates and stabilizers, Mordell–Lang, Manin–Mumford and a Bogomolov theorem via Ullmo/Zhang. The classical structure results the paper uses for subvarieties of abelian varieties belong inside those two layers, which this paper serves as a source: the Ueno locus and Kawamata's closedness theorem, generation by X − X, finite-rank groups, Hindry's degree bounds (Lemmas 2.4–2.5), Bogomolov's bound on maximal cosets with Rémond's decomposition of the Ueno locus, Zhang's difference-map lemma, and the c₁-invariance of the Néron–Tate height (Lemma 2.3). They are not uniformity results, so they do not go in the Part II."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A5"
+      ],
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/17",
+        "PAPER-GAO-GE-KUHNE-26/20",
+        "PAPER-GAO-GE-KUHNE-26/21",
+        "PAPER-GAO-GE-KUHNE-26/22",
+        "PAPER-GAO-GE-KUHNE-26/23",
+        "PAPER-GAO-GE-KUHNE-26/24",
+        "PAPER-GAO-GE-KUHNE-26/29",
+        "PAPER-GAO-GE-KUHNE-26/42"
+      ],
+      "reason": "A2 plans φ_L, polarizations and polarization types; A5 plans the complex-analytic Riemann relations. The paper needs the elementary divisor normal form and Pfaffian, Riemann–Roch for abelian varieties (h⁰ = Pf, deg_L A = g!·Pf), the behaviour of sections under isogeny pullback, the isogeny to a principally polarized variety of degree deg_L A/g!, the identity c₁(α*L⊠²) = 2c₁(L⊠²) and the existence of a symmetric relatively ample 𝔏_g on the universal family with c₁ = 2c₁(L). These are standard parts of the polarization theory those layers already own; the paper is a source for them."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/33",
+        "PAPER-GAO-GE-KUHNE-26/35"
+      ],
+      "reason": "R09.1 plans Hilbert polynomials and boundedness, and R09.2 plans Hilbert schemes with fixed Hilbert polynomial. The paper needs the FGA 221 boundedness statement that irreducible subvarieties of fixed dimension and degree have finitely many Hilbert polynomials, and the resulting finite-type parameter scheme H_{r,d}. Both belong in those layers; the restricted Hilbert scheme itself, being specific to the uniformity argument, goes in the Part II."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/36",
+        "PAPER-GAO-GE-KUHNE-26/46",
+        "PAPER-GAO-GE-KUHNE-26/28",
+        "PAPER-GAO-GE-KUHNE-26/30",
+        "PAPER-GAO-GE-KUHNE-26/59"
+      ],
+      "reason": "SF.0 owns properties of morphisms and SF.5 owns intersection theory and degrees. The paper uses EGA IV facts (openness of the geometrically integral locus in flat proper families, openness of flat morphisms, irreducibility of fibre powers with geometrically irreducible fibres, Chevalley semicontinuity) and degree facts (degree of products, images and Bézout). These are general tools, not specific to this paper."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesBettiMapsPartII",
+      "title": "Abelian Schemes And Arithmetic Moduli, Part II: Betti maps and non-degenerate subvarieties",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/47",
+        "PAPER-GAO-GE-KUHNE-26/48",
+        "PAPER-GAO-GE-KUHNE-26/49",
+        "PAPER-GAO-GE-KUHNE-26/50",
+        "PAPER-GAO-GE-KUHNE-26/66",
+        "PAPER-GAO-GE-KUHNE-26/67"
+      ],
+      "brief": "Build on the complex uniformization of polarized abelian schemes in AbelianSchemesAndArithmeticModuli A5, the analytic comparison of ComplexComparisonPartII (C0 coherent analytic modules, C4 Chow algebraization), Tau Ceti HodgeStructures (tauceti:TauCetiRoadmap/HodgeStructures) for weight-one variations, and the o-minimality and Ax–Schanuel suppliers of LogicAndDefinabilityInNumberTheory LD.6 and its proposed Part II LogicAndDefinabilityInNumberTheoryPartII (from PAPER-MOK-PILA-TSIMERMAN-19). Construct the Betti map of an abelian scheme A → S over a complex variety: on a simply connected open of S^an, the real-analytic trivialization A ≅ (ℝ/ℤ)^{2g} × S given by period coordinates, independent of choices up to GL_{2g}(ℤ), and the Betti form ω, the pullback of the standard translation-invariant form, closed and semipositive. Define non-degenerate subvarieties as in Dimitrov–Gao–Habegger (Ann. Math. 194 (2021), Def. 1.5 and B.4): X ⊆ A irreducible with (ω|_X)^{∧ dim X} not identically zero, equivalently generic Betti rank 2 dim X, extended to ℚ̄-subvarieties by base change. Prove DGH Prop. 2.2(iii): a non-degenerate X has a smooth point, over a smooth point of S, where the top power is non-zero. Define Gao's t-th degeneracy locus (Compos. Math. 156 (2020), Def. 1.6) and prove its Zariski closedness and field of definition (Thm. 1.8). Prove Gao's criterion (Thm. 10.1(i), in the formulation of Gao's survey arXiv:2104.03431, Thm. 6.5(i)): if X ⊆ A → S is irreducible, dominant, of relative dimension ≥ 1, every fibre generates, the generic fibre has finite stabilizer, m ≥ dim S and the moduli map on X^{[m]} is generically finite, then X^{[m]} is non-degenerate. Prove that non-degeneracy is preserved by the difference construction X^{[m]} ×_S D₀((X^{[m]})^{[M+1]}) (Kühne arXiv:2101.10272, Lem. 24; Gao survey Lem. 6.2). Acceptance: a constant family (S a point) is non-degenerate exactly when dim X ≤ dim A, so every subvariety of a single abelian variety is non-degenerate; the diagonal of a non-isotrivial elliptic surface over a curve is non-degenerate, while a torsion section is degenerate. Mixed Ax–Schanuel for the universal abelian variety (Gao, 2020) is the transcendence input and must be decomposed from its primary source, not assumed.",
+      "reason": "Nothing in the atlas constructs the Betti map, Betti form or non-degeneracy. A5 stops at complex uniformization of a single polarized family and LD.6 at o-minimal counting. This theory is general (it also drives the extractions of Dimitrov–Gao–Habegger 2021 and Gao–Habegger 2019 still in the queue, which should reuse this id), so it extends AbelianSchemesAndArithmeticModuli rather than living inside the uniformity Part II."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsAndObstructionsPartII",
+      "title": "Heights, rational points and obstructions, Part II: uniform Bogomolov and uniform Mordell–Lang",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-GE-KUHNE-26/11",
+        "PAPER-GAO-GE-KUHNE-26/12",
+        "PAPER-GAO-GE-KUHNE-26/13",
+        "PAPER-GAO-GE-KUHNE-26/14",
+        "PAPER-GAO-GE-KUHNE-26/37",
+        "PAPER-GAO-GE-KUHNE-26/38",
+        "PAPER-GAO-GE-KUHNE-26/39",
+        "PAPER-GAO-GE-KUHNE-26/40",
+        "PAPER-GAO-GE-KUHNE-26/44",
+        "PAPER-GAO-GE-KUHNE-26/45",
+        "PAPER-GAO-GE-KUHNE-26/51",
+        "PAPER-GAO-GE-KUHNE-26/52",
+        "PAPER-GAO-GE-KUHNE-26/53",
+        "PAPER-GAO-GE-KUHNE-26/56",
+        "PAPER-GAO-GE-KUHNE-26/57",
+        "PAPER-GAO-GE-KUHNE-26/58",
+        "PAPER-GAO-GE-KUHNE-26/61",
+        "PAPER-GAO-GE-KUHNE-26/63",
+        "PAPER-GAO-GE-KUHNE-26/64",
+        "PAPER-GAO-GE-KUHNE-26/68",
+        "PAPER-GAO-GE-KUHNE-26/69",
+        "PAPER-GAO-GE-KUHNE-26/70",
+        "PAPER-GAO-GE-KUHNE-26/71",
+        "PAPER-GAO-GE-KUHNE-26/72",
+        "PAPER-GAO-GE-KUHNE-26/73",
+        "PAPER-GAO-GE-KUHNE-26/74",
+        "PAPER-GAO-GE-KUHNE-26/75",
+        "PAPER-GAO-GE-KUHNE-26/76",
+        "PAPER-GAO-GE-KUHNE-26/77",
+        "PAPER-GAO-GE-KUHNE-26/78",
+        "PAPER-GAO-GE-KUHNE-26/79",
+        "PAPER-GAO-GE-KUHNE-26/80",
+        "PAPER-GAO-GE-KUHNE-26/81",
+        "PAPER-GAO-GE-KUHNE-26/82",
+        "PAPER-GAO-GE-KUHNE-26/83",
+        "PAPER-GAO-GE-KUHNE-26/84",
+        "PAPER-GAO-GE-KUHNE-26/85",
+        "PAPER-GAO-GE-KUHNE-26/87",
+        "PAPER-GAO-GE-KUHNE-26/89",
+        "PAPER-GAO-GE-KUHNE-26/90",
+        "PAPER-GAO-GE-KUHNE-26/91",
+        "PAPER-GAO-GE-KUHNE-26/92",
+        "PAPER-GAO-GE-KUHNE-26/93"
+      ],
+      "brief": "Import the height machine and Néron–Tate heights from HeightsRationalPointsAndObstructions RP.0, the Mordell–Lang, Manin–Mumford and Bogomolov theorems and the structure of the Ueno locus from RP.5, the Faltings height, its isogeny variation and the moduli-height comparison from ArakelovGeometryAndAbelianHeights R35.3–R35.5, Siegel moduli with level-4 structure and the universal abelian scheme from PELModuli M5–M6, the minimal compactification from ShimuraCompactifications C5, Hilbert schemes from AlgebraicModuliForArithmeticGeometry R09.1–R09.2, polarization theory from AbelianSchemesAndArithmeticModuli A2–A3, the equidistribution machinery for semipositive adelic metrics from ArithmeticDynamics DY.4 and TropicalAndBerkovichArithmetic TB.6, and Betti maps and non-degeneracy from AbelianSchemesBettiMapsPartII. This Part II also carries the pending PAPER-YUAN-26 route of the same id (uniform Bogomolov for curves via adelic bigness), whose brief stays binding for its own statements. State and prove, over an algebraically closed field F of characteristic 0: Theorem 1.1 (Gao–Ge–Kühne, Publ. Math. IHÉS 143 (2026)): there is c(g,d) such that for every abelian variety A of dimension g with ample L, every irreducible closed X ⊆ A with deg_L X = d and every finite-rank Γ ⊆ A(F), X(F) ∩ Γ is covered by at most c(g,d)^{1+rk Γ} cosets contained in X; Theorem 1.1′: #X°(F) ∩ Γ ≤ c(g,d)^{1+rk Γ}; Theorem 1.2 (new gap principle) over ℚ̄ for X generating A with deg_L X ≤ d: the points of X° with ĥ_{L⊗[−1]*L} ≤ c₁(g,d) max{1, h_Fal(A)} lie in a proper closed X′ of degree < c₂(g,d); Theorem 1.3 (uniform Bogomolov) in the form valid for all X (translation repair of the printed §8 proof). Cover: the restricted Hilbert scheme H°_{r,d}(𝔄_g/𝔸_g), Lemmas 3.1–3.3 and 3.5, Proposition 3.4; the Dimitrov–Gao–Habegger height inequality for non-degenerate subvarieties (Ann. Math. 194 (2021), Thm. 1.6 and B.1); Kühne's equidistribution in families (arXiv:2101.10272, Thm. 1, Lem. 23, equilibrium measure proportional to the top power of the Betti form); Lemma 4.3; Propositions 4.1, 4.2, 4.4, 5.1, 5.2, 6.1 with every constant dependence explicit; Rémond's generalized Vojta and Mumford inequalities (Pisa 2000, Thm. 1.1; Invent. 2000, Prop. 3.3–3.4, Lem. 3.1, 4.6, 6.1), Bost–Gillet–Soulé heights of subvarieties, the David–Philippon formulation (IMRP 2007, Thm. 6.8), Theorem 7.1 and its Appendix A proof, Proposition 7.2; Masser's specialization theorems (Trans. AMS 1989; Bull. SMF 1996) and good models (Hindry 1988 App. 1), Lemma 7.3, the finite-rank reduction, the Masser–Wüstholz complement bound and Lemma 7.4. Record the corrected constants of sourceIssues E2–E13. Acceptance: the generation hypothesis in Theorem 1.2 cannot be dropped and its exceptional set is not finite in general (Gao survey §10.2 examples); for a curve of genus ≥ 2 in its Jacobian, Theorem 1.1′ recovers the Dimitrov–Gao–Habegger–Kühne bound #C(F) ∩ Γ ≤ c(g)^{1+rk Γ}.",
+      "reason": "RP.5 plans only the qualitative Mordell–Lang and Bogomolov theorems. Uniformity in the ambient abelian variety is a new direction for that roadmap: the non-degenerate families over the restricted Hilbert scheme, the height inequality, equidistribution in families, the gap principle and Rémond's quantitative Vojta method. The pending YUAN-26 Part II of the same parent already proposes uniform Bogomolov for curves; this paper's Theorem 1.3 contains the number-field curve case, so the two coalesce under one id rather than duplicating the uniformity programme."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E1",
+      "kind": "misprint",
+      "locator": "Theorem 1.3, p.192 of the published version",
+      "printed": "\"there exist positive constants c3 = c3(g,d) and c3 = c3(g,d) with the following property\"",
+      "correction": "The second constant is c₄ = c₄(g,d), the constant bounding the count in (1.4).",
+      "reason": "(1.4) reads \"#{P ∈ X°(ℚ̄) : ĥ(P) ≤ c₃} < c₄\", and c₄ is not otherwise introduced.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E2",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.5, p.197",
+      "printed": "\"For k = 1, we apply (2.4) to Y = X and Y′ = −X and get degL(X − X) ≤ 8^r (degL X)^2 … ≤ 8^{kr} · degL((X − X) + ⋯ + (X − X) [(k−1) copies]) · degL(X − X)\"",
+      "correction": "Lemma 2.4 gives deg_L(X − X) ≤ 4^{2r}(deg_L X)² = 16^r(deg_L X)², and the k-th step factor is 4^{dim S_{k−1} + dim(X−X)} ≤ 16^{kr}. The displayed constants 8^{2kr}, 8^{(g+1)²r} change accordingly.",
+      "reason": "(2.4) has the factor 4^{dim Y + dim Y′}, and dim X = dim(−X) = r. The lemma asserts only deg_L A′ ≪_g deg_L(X)^{2g}, which the corrected constants still give.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E3",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 4.4, p.209, and §5.2, p.218",
+      "printed": "\"Notice that degL(X′) < degL|A(X′) because of 8c1(L) = c1(L|A)\"",
+      "correction": "deg_L(X′) ≤ deg_{𝓛|A}(X′), with equality for 0-dimensional components; the conclusion deg_L X′ < c′₂ is unaffected.",
+      "reason": "deg_{𝓛|A} = 8^{dim}·deg_L on each component, so the factor is 1 on points.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E4",
+      "kind": "error",
+      "locator": "Proof of Proposition 4.1, §4.3, p.210",
+      "printed": "\"degL X′ = c1(L)^{dim X′} · [X′] ≤ c1(u*L)^{dim X′} · [X′0] = deg_{u*L} X′0 ≤ c′2\" (and later \"Replacing c′1 with (l/g!)²c′1 and c′3 with …, we obtain the assertion\")",
+      "correction": "Proposition 4.4 bounds deg_{L₀} X′₀ ≤ c′₂, and u*L = [l/g!]*L₀, so deg_{u*L} X′₀ ≤ (l/g!)^{2(r−1)}c′₂. The constant c′₂ must also be replaced, by (l/g!)^{2(r−1)}c′₂.",
+      "reason": "c₁([n]*L₀) = n²c₁(L₀), so the u*L-degree of a component of dimension k is n^{2k} times its L₀-degree, and components of X′₀ have dimension ≤ r − 1. The corrected constant still depends only on g, l, r, d, so Proposition 4.1 holds.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E5",
+      "kind": "misprint",
+      "locator": "Proposition 5.2, p.212",
+      "printed": "\"There exist constants c″2 = c″2(r,d,S) > 0 and c′3 = c″3(r,d,S) > 0\"",
+      "correction": "The second constant is c″₃ = c″₃(r,d,S).",
+      "reason": "The constant appears as c″₃ in (5.3) and throughout the proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E6",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.2, Step 5, p.217",
+      "printed": "\"ĥ(D(x)) = Σ_{i=1}^{m} ĥ(x_i) + Σ_{i=2}^{M} Σ_{j=1}^{m} ĥ(x_{i·m+j} − x_{m+j})\"",
+      "correction": "The outer sum runs over i = 2,…,M+1, the M difference blocks of D(x) ∈ A^{m(M+1)}.",
+      "reason": "x has M+2 blocks of length m; D keeps block 0 and subtracts block 1 from blocks 2,…,M+1, so the last index is (M+1)m + j = m(M+2). The bound ≤ 4m(M+1)c″₃ < δ is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E7",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.2, Step 5(a), p.217",
+      "printed": "\"(a) degLs(X′) ≤ c(m(M + 2), r, d, deg_{L_s^{⊠m}} Z_s)\"",
+      "correction": "The degree of Z_s ⊆ X_s^{m(M+2)} is taken with respect to L_s^{⊠m(M+2)}, matching Lemma 4.3 with M = m(M+2).",
+      "reason": "Lemma 4.3 is applied to Z = Z_s ⊊ X_s^{m(M+2)}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E8",
+      "kind": "error",
+      "locator": "Proof of Proposition 6.1, p.219",
+      "printed": "\"Now set c1 := min{…} and c2 := max{c′2, c″2}. We will prove that these are the desired constants.\"",
+      "correction": "c₂ := c′₂ + c″₂.",
+      "reason": "The claim places each small point in the set (6.2) or the set (6.3). So the whole set lies in X′₁ ∪ X′₂, where deg X′₁ < c′₂ and deg X′₂ < c″₂, and the union can have degree up to c′₂ + c″₂. The union is still a proper closed subset of the irreducible X, so Proposition 6.1 holds with the corrected constant.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E9",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 7.1, (7.4)–(7.6), pp.221–222, and Appendix A.5 Step 4, (A.12), p.232",
+      "printed": "\"But each closed ball of radius r centered at some P − P0 in (7.1) contains at most c elements by (7.1). So (7.4) #{…} ≤ c0(1 + 2√(ηc′c0))^{rk Γ}\"",
+      "correction": "Each ball contains at most c₀^{rk Γ+1} elements by (7.1), so the right-hand side of (7.4)–(7.6) and (A.12) is c₀^{rk Γ+1}(1 + 2√(…))^{rk Γ}. The final constants change (e.g. c = 2 max{c₀(1 + 2√(2c₉c₀)), c₁₀}), keeping the form c^{rk Γ+1}.",
+      "reason": "(7.1) bounds the count by c₀^{rk Γ+1}, not c₀.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E10",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 7.2, (7.10), p.223",
+      "printed": "\"with c0 = max{c1, c3} > 0 which depends only on g and d\"",
+      "correction": "c₀ = max{c₁^{−1}, c₃}.",
+      "reason": "(Hyp pack) needs the height threshold c₀^{−1} max{1, h_Fal(A)} to be at most the gap-principle threshold c₁ max{1, h_Fal(A)}, that is c₀ ≥ c₁^{−1}. With c₀ = max{c₁, c₃} and c₁ < 1 this can fail.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E11",
+      "kind": "misprint",
+      "locator": "Appendix A.5, Step 3, p.232",
+      "printed": "\"Then #Ξ ≥ … > N″(4c8 + 1)^{rk Γ}\"",
+      "correction": "#Ξ > N″(8c₈ + 1)^{rk Γ}.",
+      "reason": "Not being in case (i) gives #X° ∩ Γ > N″(8c₈+1)^{rk Γ} + c₁₀^{rk Γ+1}. The pigeonhole over (8c₈+1)^{rk Γ} balls needs this bound to produce N″ + 1 points in one ball.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E12",
+      "kind": "gap",
+      "locator": "Proof of Theorem 1.3, §8, p.226",
+      "printed": "\"We can apply Proposition 5.1 to X and (A′, L|A′) … Hence the conclusion follows by applying the induction hypothesis to each irreducible component of X′ and appropriately adjusting c3 and c2.\"",
+      "correction": "Prove the statement for all irreducible X of degree ≤ d in abelian varieties of dimension ≤ g, not only generating ones. If some component X_i of X′ has a point P₁ ∈ X_i° with ĥ(P₁) ≤ c, apply the induction hypothesis to X_i − P₁ ⊆ B_i := ⟨X_i − X_i⟩. That subvariety generates B_i, its degree is bounded by Lemma 2.5, and ĥ(P − P₁) ≤ 2ĥ(P) + 2ĥ(P₁) ≤ 4c for P ∈ X_i° with ĥ(P) ≤ c. Take the Proposition 5.1 constants as min/max over l ≤ c(g)d^{2g} and dim B_i ≤ g, as in the proof of Theorem 1.2.",
+      "reason": "X lies in a translate A′ + Q, not in A′, and heights are not translation-invariant. The components of X′ need not generate A, while Theorem 1.3 and Proposition 5.1 assume generation. Proposition 5.1 also depends on the exact l = deg_L A′. The repair uses only the parallelogram law and Lemma 2.5, so Theorem 1.3 holds.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-GE-KUHNE-26/E13",
+      "kind": "misprint",
+      "locator": "Proposition A.3(ii), p.228",
+      "printed": "\"(ii) or Ξ is contained in a proper Zariski closed subset X′ ⊊ X with deg X′ < (degL X)^{2 dim X}\"",
+      "correction": "deg X′ ≤ (deg_L X)^{2 dim X}.",
+      "reason": "The proof takes X′ to be a union of s ≤ (deg X)^{dim X} sets, each of degree ≤ (deg X)^{dim X}, which gives only ≤. Step 1 (p.230) uses the non-strict form.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Centre Mersenne article page and Publ. Math. IHÉS volume 143 (open access, CC BY 4.0): no correction notice (checked 2026-09-22)",
+        "Crossref metadata for 10.5802/pmihes.26: no update or correction relation",
+        "arXiv 2105.15085 (v4, the latest) not collated line by line; the published version (revised March 2026) controls"
+      ]
+    }
+  ]
+}
