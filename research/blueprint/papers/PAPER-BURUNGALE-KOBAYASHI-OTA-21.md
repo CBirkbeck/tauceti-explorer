@@ -239,3 +239,15 @@ Independent review should especially inspect the AH extension, coefficient
 dictionary, staged analytic/local dependency and the shared pending
 elliptic-unit owner. These are explicit design obligations, not concealed
 claims of proof closure.
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21, `research/blueprint/reviews/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md`) accepted this extraction and all five routes. It corrected the JSON in place:
+
+- **Route 2:** the area is now "padic", and its brief now imports the elliptic formal logarithm and the height-2 statement.
+- **Lemma 5.2(ii):** the item now says that the printed conclusion "p ≥ 31" fails at p = 47, where Lemma 5.2(iii) applies instead.
+- **Statements:** several were completed (the root-number step, why δ kills V*,⁻, and the Hecke-lattice step π∘T_p = 0).
+- **Housekeeping:** locators and notes were fixed, and supplier citations were added.
+- **New items:** five were added.
+
+Where the text above counts items, the corrected JSON is authoritative. It has 115 items: 6 library, 10 planned and 99 missing.
