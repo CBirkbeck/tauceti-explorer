@@ -1,0 +1,696 @@
+{
+  "paper": "PAPER-GAMBURD-MAGEE-RONAN-19",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "An asymptotic formula for integer points on Markoff-Hurwitz varieties",
+    "authors": "Alex Gamburd, Michael Magee and Ryan Ronan",
+    "venue": "Annals of Mathematics 190 (2019), no. 3, 751–809",
+    "doi": "10.4007/annals.2019.190.3.2",
+    "arxiv": "1603.06267v3",
+    "url": "https://arxiv.org/abs/1603.06267v3",
+    "readSections": [
+      "The entire arXiv v3 (13 June 2018, 57 pages; §§1–5 and references), read 2026-09-22. PDF https://arxiv.org/pdf/1603.06267v3, SHA-256 965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a. The Annals version is paywalled and was not available; v3 is the last arXiv version, and locators are v3 pages."
+    ]
+  },
+  "summary": "Proves a true asymptotic formula |(V(ℤ) − E) ∩ B(R)| ∼ c(log R)^β for integer points on the Markoff–Hurwitz varieties x₁² + … + x_n² = a x₁⋯x_n + k (Theorem 3). This upgrades Baragar's (log R)^{β+o(1)} and answers Silverman's first question. Descent and the Markoff–Hurwitz moves reduce the count to orbits of a free polynomial semigroup Λ. Acceleration and a Zagier-type fit, with doubly exponential control of α(z), compare these orbits with a linear semigroup Γ′. Γ′ generalises continued fractions: it is the Gauss map for n = 3 and the Rauzy gasket for n = 4. For Γ′, a Ruelle–Perron–Frobenius theorem for transfer operators on C¹(∆), Pollicott's non-lattice bound and Lalley's renewal method give N(y, a) ∼ h(y)e^{βa} (Theorem 13) and characterise β by a conformal measure (Theorem 10). Both rest on an explicit uniform contraction estimate (Proposition 43, §5). The atlas has the Markoff descent (CA.4), the accepted Markoff-action Part II and the Gauss map (PM.4). It has no transfer-operator or renewal theory, so these form a new Part II. Nine source issues are recorded: a positivity gap for the constant, and misprints. §5's bounds and the growth exponent β(4) ≈ 2.44 were checked numerically.",
+  "items": [
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/1",
+      "kind": "definition",
+      "name": "The Markoff–Hurwitz equation, its tuples and moves",
+      "statement": "For integers n ≥ 3, a ≥ 1 and k, V = V_{n,a,k} ⊂ 𝔸ⁿ is x₁² + … + x_n² = a x₁x₂⋯x_n + k (1.1); its integer points are Markoff–Hurwitz tuples, counted in the ℓ^∞ ball B(R). The move m_j replaces x_j by the other root a∏_{i≠j}x_i − x_j of (1.1) viewed as a quadratic in x_j. For n = 3, a = 3, k = 0 the positive solutions are the Markoff triples.",
+      "locator": "§1, (1.1), pp.2, 4, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.4 as a source."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/2",
+      "kind": "definition",
+      "name": "Exceptional solutions (Definition 15, Remark 4)",
+      "statement": "x ∈ V(ℤ₊) is fundamental exceptional if, after ordering, either a = 1, x₁ = … = x_{n−3} = 1, x_{n−2} = 2 (then x ∈ V iff (x_{n−1} − x_n)² = k − n − 1), or a = 2, x₁ = … = x_{n−2} = 1 (then x ∈ V iff (x_{n−1} − x_n)² = k − n + 2). E is the Aut(V)-orbit of these. E ≠ ∅ only if a ∈ {1, 2} and k − n − 1, resp. k − n + 2, is a square, and then |E ∩ B(R)| ≥ cR for R ≥ R₀; being exceptional is Aut(V)-invariant.",
+      "locator": "Definition 15, Remark 4, pp.3, 11–12, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.4 as a source."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/3",
+      "kind": "theorem",
+      "name": "Passage from V(ℤ) to V(ℤ₊) (§2.1)",
+      "statement": "|(V(ℤ) − E) ∩ B(R)| = 2^{n−1}|(V(ℤ₊) − E) ∩ B(R)| + O_{n,k}(1): points with a zero coordinate are finite in number, the even sign-change group N acts freely on the rest, and orbits containing no all-positive representative are O_{n,k}(1) in number, since x̃₁² + … + x̃_n² + a x̃₁⋯x̃_n = k has finitely many positive solutions.",
+      "locator": "§2.1, pp.12–13, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.4 as a source."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/4",
+      "kind": "theorem",
+      "name": "Proposition 16 (behaviour of the moves outside a compact set)",
+      "statement": "There is an ℓ^∞ ball K₀ = K₀(n, a, k), which may be enlarged, such that for unexceptional x ∈ V(ℤ₊) − K₀: (1) the move at the largest coordinate strictly decreases the maximum; (2) the largest entry is unique; (3) a move at a non-largest coordinate makes it the largest; (4) such a move does not decrease the number of distinct entries; (5) every move maps V(ℤ₊) − K₀ into V(ℤ₊).",
+      "locator": "Proposition 16 and proof, pp.13–15, adapting Cassels [Cas57, p.27], arXiv:1603.06267v3 (error E3 in the scope of part 3)",
+      "status": "missing",
+      "note": "Statement as corrected in E3: part (3) holds outside K₀, not for all x ∈ V(ℤ₊). Routed to ClassicalArithmeticCompletion CA.4 as a source."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/5",
+      "kind": "theorem",
+      "name": "Corollary 17 (infinite descent)",
+      "statement": "Every unexceptional Markoff–Hurwitz tuple can be reduced algorithmically to one in K₀ by moves that strictly decrease the maximal entry. For n = a = 3, k = 0 every Markoff triple reduces to (1, 1, 1) (Markoff); for n = a > 3, k = 0 (Hurwitz) and more generally for k = 0, there are finitely many fundamental solutions, characterised by Baragar when a ≥ 2(n − 1)^{1/2}.",
+      "locator": "Corollary 17, p.15, citing [Mar80], [Hur07], [Bar94b], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.4 as a source."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/6",
+      "kind": "theorem",
+      "name": "Automorphisms of the Markoff–Hurwitz variety",
+      "statement": "Aut(V), the polynomial automorphisms of V(ℂ), is G ⋊ (N ⋊ S_n), where N is the group of even sign changes (|N| = 2^{n−1}), S_n permutes coordinates, and G is generated by the moves m_j (Horowitz [Hor75] for n = 3, Hu–Tan–Zhang [HPZ15, Theorem 1.1] for n ≥ 4). In particular V(ℤ) is Aut(V)-invariant.",
+      "locator": "§2.1, p.11, citing [Hor75], [HPZ15], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/7",
+      "kind": "theorem",
+      "name": "Theorem 1 (McShane–Rivin)",
+      "statement": "The number M(R) of Markoff triples (x, y, z) with x ≤ y ≤ z ≤ R is C(log R)² + O(log R log log R) with C > 0.",
+      "locator": "Theorem 1, p.2, citing [MR95] (after Gurwood, Zagier [Zag82], Belyi), arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Cited, the n = 3 endpoint; equivalently a count of simple closed geodesics on the modular torus. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/8",
+      "kind": "theorem",
+      "name": "Theorem 2 (Baragar) and the exponent β(n)",
+      "statement": "There is β = β(n) such that for k = 0, if V(ℤ) − {0} ≠ ∅, then for every ε > 0, Ω((log R)^{β−ε}) ≤ |V(ℤ) ∩ B(R)| ≤ O((log R)^{β+ε}); in fact |V(ℤ) ∩ B(R)| = (log R)^{β+o(1)} [Bar98], with β(3) = 2, β(4) ∈ (2.430, 2.477), β(5) ∈ (2.730, 2.798), β(6) ∈ (2.963, 3.048) and log(n − 1)/log 2 < β(n) < log(n − 1)/log 2 + o(n^{−0.58}).",
+      "locator": "Theorem 2, (1.2)–(1.3), pp.2–3, citing [Bar94a], [Bar98], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Cited. Used in §4.3 to identify the pole β₀ of the resolvent with Baragar's β. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/9",
+      "kind": "theorem",
+      "name": "Theorem 3 (asymptotic formula for Markoff–Hurwitz tuples)",
+      "statement": "For each (n, a, k) with V(ℤ) − E infinite there is c = c(n, a, k) > 0 such that |(V(ℤ) − E) ∩ B(R)| = c(log R)^β + o((log R)^β), with β = β(n) as in Theorem 2.",
+      "locator": "Theorem 3, p.3; proof §3.1, pp.21–22, given Proposition 21, arXiv:1603.06267v3 (misprints E2; positivity gap E1)",
+      "status": "missing",
+      "note": "The exponent depends only on n. Sanity check made in this extraction: counting the orbit of (1,1,1,1) for n = a = 4, k = 0 up to R = 10^640 gives local slopes d log N/d log log R ≈ 2.44, inside Baragar's interval. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/10",
+      "kind": "construction",
+      "name": "Normalisation and the polynomial semigroup Λ",
+      "statement": "z = a^{1/(n−2)}x satisfies z₁² + … + z_n² = z₁⋯z_n + k′ with k′ = ka^{2/(n−2)} (2.4). M is the set of ordered such tuples in a^{1/(n−2)}ℤ₊ⁿ, K = a^{1/(n−2)}K₀ (2.5), and λ_j(z) = (z₁, …, ẑ_j, …, z_n, ∏_{i≠j}z_i − z_j) for 1 ≤ j ≤ n − 1 (2.6), which preserve M − K. Λ = Λ(n) is the semigroup of piecewise polynomial maps generated by the λ_j, and α(z) = ∏_{j≤n−2}z_j.",
+      "locator": "§2.2, (2.4)–(2.6), pp.15–16, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/11",
+      "kind": "theorem",
+      "name": "Lemma 18 (freeness of Λ)",
+      "statement": "If z₀ ∈ M − K has distinct entries then λ ↦ λ(z₀) is injective on Λ; hence Λ is free on {λ_j} (as a semigroup of polynomial maps), using the infinite orbit of (1, …, 1) for a = n, k = 0.",
+      "locator": "Lemma 18 and proof, pp.16–17, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/12",
+      "kind": "theorem",
+      "name": "Lemmas 19–20 (admissible sequences, multiplicities, reduction to (2.8))",
+      "statement": "For x ∈ V(ℤ₊) − K₀, the map φ_x from finite admissible move sequences (no move at the current largest coordinate) to V(ℤ₊) is injective, and images of φ_x, φ_{x′} are disjoint unless one base lies in the other's image (Lemma 19). There is a bijection Θ_x : Σ*(x) → Λ intertwining φ_x with z(x′) = order(a^{1/(n−2)}x′) (Lemma 20). Hence V(ℤ₊) − E − K₀ is a finite disjoint union of orbits φ_{x⁽⁰⁾}(Σ*(x⁽⁰⁾)), and Theorem 3 reduces to the asymptotics of Σ_{λ ∈ Λ} 1{(λ.z⁽⁰⁾)_n ≤ R} (2.8) for finitely many unexceptional base points z⁽⁰⁾.",
+      "locator": "§2.3, Lemmas 19–20, (2.8), pp.17–18, arXiv:1603.06267v3 (misprints E4)",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/13",
+      "kind": "construction",
+      "name": "§2.4: enlarging K",
+      "statement": "K is enlarged so that for all z ∈ M − K: z_{n−1} ≥ ½z_n^{1/(n−1)} (2.9); ((n−1)log(1 − 2z_n^{−1/(n−1)}) − (n−1)log 2)/log z_n ≥ −1/2 (2.11); z_n ≥ 10 (2.12); z_{n−1} > 2 (2.13); z₁² + … + z_{n−1}² − k′ ≥ 0 (2.14).",
+      "locator": "§2.4, (2.9)–(2.14), p.19, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/14",
+      "kind": "construction",
+      "name": "Acceleration, the counts M₀ and M, and the renewal equation",
+      "statement": "S_Λ = {λ_{n−1}^Aλ_j : A ≥ 0, 1 ≤ j ≤ n − 2} freely generates Λ′ = ∪_{j ≤ n−2} Λ.λ_j; Λ.z⁽⁰⁾ = ∪_{A₀ ≥ 0} Λ′.λ_{n−1}^{A₀}z⁽⁰⁾ (3.2). M₀(z, a) = Σ_{λ ∈ Λ∪{e}} 1{log log(λ.z)_n − log log z_n ≤ a} (3.3), and M(z, a) is the same sum over Λ′ ∪ {e} (3.4). The shift s deletes the leftmost S_Λ-letter, τ⋆(λ) = log log(λ.z⁽⁰⁾)_n − log log(s(λ).z⁽⁰⁾)_n, τ⋆^N is its N-fold cocycle (3.6), and M(λz⁽⁰⁾, a) = Σ_{λ′ ∈ S_Λ} M(λ′λz⁽⁰⁾, a − τ⋆(λ′λ)) + 1{0 ≤ a} (3.7), iterated L times in (3.8).",
+      "locator": "§§3.1–3.3, (3.2)–(3.8), pp.19–23, arXiv:1603.06267v3 (misprint E4)",
+      "status": "missing",
+      "note": "The acceleration imitates Zorich's acceleration of Rauzy–Veech induction. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/15",
+      "kind": "theorem",
+      "name": "Lemma 22 (growth along λ_{n−1})",
+      "statement": "For unexceptional z ∈ M − K, (λ_{n−1}^Az)_n ≥ 2^Az_n; more precisely λ_{n−1} acts on the last two entries by [[0, 1], [−1, α(z)]] with α(z) = a x₁⋯x_{n−2} ∈ ℤ₊, α = 1 is impossible, α = 2 forces z exceptional, and for α ≥ 3 the Z_A = (λ^A_{n−1}z)_n satisfy Z_{A+1} = αZ_A − Z_{A−1} ≥ 2Z_A. Likewise (λ^A_{n−1}z)_n ≥ (α(z) − 1)^Az_n.",
+      "locator": "Lemma 22 and proof, pp.20–21; proof of Lemma 23, p.24, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/16",
+      "kind": "theorem",
+      "name": "Proposition 21 (asymptotics of the accelerated count)",
+      "statement": "For every unexceptional z ∈ M − K there is c⋆(z) > 0 with M(z, a) = e^{βa}(c⋆(z) + o(1)) as a → ∞, the rate of decay independent of z and the c⋆(z) uniformly bounded in terms of n. Consequently M₀(z⁽⁰⁾, a) ∼ (log z_n⁽⁰⁾)^β c_∞(z⁽⁰⁾)e^{βa}, which gives Theorem 3.",
+      "locator": "Proposition 21, p.21; proof §§3.2–3.5, pp.22–33, arXiv:1603.06267v3 (gap E1: positivity of c⋆ is not argued)",
+      "status": "missing",
+      "note": "Statement with the positivity supplied as in E1. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/17",
+      "kind": "theorem",
+      "name": "Lemma 23 (counting words of bounded distortion)",
+      "statement": "There are c₀, c₁ depending only on n with Σ_{λ′ : s^L(λ′) = λ} 1{τ⋆^L(λ′) ≤ x} ≤ c₁^L(c₀ + x)^Le^x for all L ∈ ℕ, x ≥ 0 (3.9), with c₁ = 2(n − 2)(n − 1), using τ⋆(λ^A_{n−1}λ_jλ̃) ≥ log(1 + A/(2(n − 1))) (3.12). For δ > 0 and L = ⌈ca/log a⌉ with c = c(δ), the intermediate sums in (3.8) are O(e^{(1+δ)a}) (3.10) and c₁^L(c₀ + x)^L ≤ e^{δx} for x ≥ a/2 (3.11).",
+      "locator": "Lemma 23 and proof, pp.23–25, arXiv:1603.06267v3 (misprint E5)",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/18",
+      "kind": "theorem",
+      "name": "Lemma 24 (doubly exponential growth)",
+      "statement": "There is C > 0 with α(λ′z⁽⁰⁾) ≥ ½exp(Cφ^L) (3.15) and (λ′z⁽⁰⁾)_n ≥ exp(Cφ^L) (3.16) whenever s^L(λ′) = λ, where φ = (1 + √5)/2; the proof uses the two-step recursion Z_p ≥ (Z_{p−1} − 1)Z_{p−2}.",
+      "locator": "Lemma 24 and proof, pp.25–26, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/19",
+      "kind": "theorem",
+      "name": "Lemma 25 (fitting log z to the hyperplane H)",
+      "statement": "With f(z) = (log z₁, …, log z_{n−1}, Σ_{j≤n−1}log z_j), there are C₁, C₂ depending only on n such that for z ∈ M − K with α(z) > C₁, log z ≤ f(z) ≤ log z + C₂α(z)^{−2}(0, …, 0, 1) (3.20), using z_n = (A(z)/2)(1 + √(1 − 4(C(z) − k′)/A(z)²)).",
+      "locator": "Lemma 25 and proof, p.27, after [Zag82, Lemma 2], arXiv:1603.06267v3 (misprint E6)",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/20",
+      "kind": "theorem",
+      "name": "Lemmas 26–27 (the fit is preserved by the moves)",
+      "statement": "For ε > 0, z ∈ M − K with α(z) > max(C₁, 2C₂^{1/2}ε^{−1/2}) and y⁽¹⁾, y⁽²⁾ ∈ H: y⁽¹⁾ + ε(0, …, 0, ½, ½, 1) < f(z) ≤ y⁽²⁾ implies γ_jy⁽¹⁾ + ε(0, …, 0, ½, ½, 1) < f(λ_jz) ≤ γ_jy⁽²⁾ for 1 ≤ j ≤ n − 1 (Lemma 26). With ε = 16C₂exp(−2Cφ^{ca/log a}) (3.23) and y(λ′) = f(λ′z⁽⁰⁾), (1 − ε)y(λ′) + ε(0, …, 0, ½, ½, 1) < y(λ′) (Lemma 27).",
+      "locator": "Lemmas 26–27 and proofs, pp.28–29, after [Zag82, proof of Lemma 3], arXiv:1603.06267v3 (error E7 in the proof of Lemma 27)",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/21",
+      "kind": "theorem",
+      "name": "Lemma 28 and (3.25) (comparison with the linear count)",
+      "statement": "Matching λ⁽²⁾ = λ^{A_N}_{n−1}λ_{j_N}⋯λ^{A_1}_{n−1}λ_{j_1} ∈ S^{(N)} with γ⁽²⁾ = γ^{A_N}_{n−1}γ_{j_N}⋯γ^{A_1}_{n−1}γ_{j_1} ∈ Γ′ (a bijection, both being free) gives log log(λ⁽²⁾λ′z⁽⁰⁾)_n ≤ log(γ⁽²⁾.y(λ′))_n ≤ log log(λ⁽²⁾λ′z⁽⁰⁾)_n + 2ε (3.25), hence N(y(λ′), a − τ⋆^L(λ′) − ε) ≤ M(λ′z⁽⁰⁾, a − τ⋆^L(λ′)) ≤ N(y(λ′), a − τ⋆^L(λ′) + ε).",
+      "locator": "(3.19), (3.24)–(3.25), Lemma 28, pp.26–30, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/22",
+      "kind": "theorem",
+      "name": "Lemma 29 and Proposition 30 (assembling the count)",
+      "statement": "M(λz⁽⁰⁾, a) = (1 + o(1))e^{βa}Σ_{λ′ : s^L(λ′) = λ} e^{−βτ⋆^L(λ′)}h(y′) + O(exp(βaδ + (1 + δ)a)) uniformly in λ (Lemma 29, via Theorem 13). a_L(λz⁽⁰⁾) = Σ_{λ′ : s^L(λ′) = λ} h(y(λ′))e^{−βτ⋆^L(λ′)} converges as L → ∞ to c⋆(λz⁽⁰⁾), uniformly in λ, with |a_{L+1} − a_L| ≪ exp(C₄L^{1+η} − 2Cφ^L) by the recursion (1.8), and the limits are uniformly bounded (Proposition 30).",
+      "locator": "Lemma 29, Proposition 30 and proofs, pp.30–33, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/23",
+      "kind": "theorem",
+      "name": "Connections to simple closed geodesics (§1.1)",
+      "statement": "Theorem 1 counts simple closed geodesics of length ≤ log R on the modular torus (McShane–Rivin for all hyperbolic once-punctured tori; Mirzakhani for general surfaces). For n = a = 4, k = 0, V(ℝ₊) parametrises the Teichmüller space of RP² minus three points, and the number n_J^{(1)}(L) of one-sided simple closed geodesics of length ≤ L satisfies log n_J^{(1)}(L)/log L → β(4) (Huang–Norbury), with n_J^{(1)}(L) ∼ cL^{β(4)} (Magee [Mag17]). Hu–Tan–Zhang describe regions where Aut(V) acts properly discontinuously and prove a McShane identity.",
+      "locator": "§1.1, pp.9–10, citing [MR95], [Mir08], [Mir16], [HN13], [Mag17], [HPZ15], [Gol03], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Context, not used in the proofs. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22)."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/24",
+      "kind": "construction",
+      "name": "The linear semigroups Γ, Γ′, the hyperplane H and ∆",
+      "statement": "γ_j(y) = (y₁, …, ŷ_j, …, y_n, Σ_{i≠j}y_i) for 1 ≤ j ≤ n − 1 (1.4); Γ = ⟨γ₁, …, γ_{n−1}⟩₊ and Γ′ = ⟨T_Γ⟩₊ with T_Γ = {γ^A_{n−1}γ_j : A ≥ 0, 1 ≤ j ≤ n − 2}, both free. They preserve H = {y ∈ ℝⁿ_{≥0} : y₁ ≤ … ≤ y_n, Σ_{j≤n−1}y_j = y_n} (1.5), which has basis e_j = (0, …, 1_j, …, 0, 1), and ∆ = H/ℝ₊. For n = 3, Γ′ is generated by [[0, 1], [1, A + 1]] (continued fractions, Example 8) and σ(a, b, a + b) = order(b − a, a, b) inverts both γ_j (the Euclidean algorithm, Example 7). For n = 4 the projective action of Γ is, up to permutations, the Rauzy gasket IFS (Example 9), and for n ≥ 4, ∆ ≠ ∪_jγ_j(∆).",
+      "locator": "§1, (1.4)–(1.5), Examples 7–9, Figures 1–2, pp.4–8, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/25",
+      "kind": "definition",
+      "name": "The linear orbit count N(y, a)",
+      "statement": "N(y, a) = Σ_{γ ∈ Γ′∪{e}} 1{log(γ.y)_n − log y_n ≤ a} for y ∈ H − 0, a ≥ 0 (1.7); it is invariant under y ↦ ty, t > 0, so descends to ∆.",
+      "locator": "(1.7), p.9, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/26",
+      "kind": "theorem",
+      "name": "Theorem 13 (linear semigroup count)",
+      "statement": "There is a positive bounded C¹ function h on H, invariant under ℝ₊, such that N(y, a) = h(y)e^{βa}(1 + o(1)) as a → ∞ uniformly in y ∈ H − 0; h satisfies Σ_{γ ∈ T_Γ}((γ.y)_n/y_n)^{−β}h(γ.y) = h(y) (1.8). β is Baragar's exponent.",
+      "locator": "Theorem 13, p.9; proof §§4.1–4.5 given Proposition 43, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/27",
+      "kind": "theorem",
+      "name": "Theorem 10 and Lemma 42 (β as a conformal exponent)",
+      "statement": "β is the unique s ∈ (1, ∞) for which there is a probability measure ν_s on ∆ with ∫f dν_s = Σ_{γ ∈ T_Γ}∫f(γ.w)|Jac_w(γ)|^{s/(n−1)}dν_s(w) for all f ∈ C⁰(∆) (a conformal measure). This rests on (γ.w)_n/w_n = |Jac_w(γ)|^{−1/(n−1)} for γ ∈ Γ (Lemma 42), so the condition is L*_βν = ν. By analogy with Patterson–Sullivan theory (Remark 11), but β is not evidently a Hausdorff dimension of the limit set; for n = 4, ν_β is essentially the Avila–Hubert–Skripchenko measure on the Rauzy gasket (Remark 12).",
+      "locator": "Theorem 10, Remarks 11–12, p.7; Lemma 42, p.40, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/28",
+      "kind": "theorem",
+      "name": "Remark 14 (monotonicity of β)",
+      "statement": "The (n − 1)-dimensional H embeds in the n-dimensional one compatibly with the semigroups, so Theorem 13 gives β(n) ≥ β(n − 1); in particular β(n) ≥ 2 for all n ≥ 3.",
+      "locator": "Remark 14, p.9, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/29",
+      "kind": "construction",
+      "name": "Renewal equation and transfer operator L_s",
+      "statement": "N(y, a) = Σ_{γ ∈ T_Γ}N(γ.y, a − log(γ.y)_n + log y_n) + 1{0 ≤ a} (4.1). On ∆, with coordinates w = (w₁, …, w_{n−1}, 1), w₁ ≤ … ≤ w_{n−1}, Σw_j = 1, the Laplace transform N̂(w, s) = ∫e^{−sx}N(w, x)dx satisfies N̂ = s^{−1}(1 − L_s)^{−1}1 (4.2), (4.4), where L_s[f](w) = Σ_{γ ∈ T_Γ}(w_n/(γ.w)_n)^s f(γ.w) (4.3). Explicitly γ^A_{n−1}γ_j[w₁, …, w_{n−1}, 1] = [w₁, …, ŵ_j, …, w_{n−1}, 1 + A(1 − w_j), 1 + (A + 1)(1 − w_j)] (4.5), so (γ.w)_n = 1 + (A + 1)(1 − w_j) (4.6) and L_s[f](w) = Σ_{j ≤ n−2}Σ_{A ≥ 0}(1 + (A + 1)(1 − w_j))^{−s}f(γ^A_{n−1}γ_j.w) (4.7).",
+      "locator": "§4.1, (4.1)–(4.7), Lemma 31, pp.34–35, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Lemma 31 re-derived in this extraction. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/30",
+      "kind": "theorem",
+      "name": "Examples 32 and 35: the case n = 3 is the Gauss map",
+      "statement": "For n = 3 the branches γ^A_2γ₁ act in x = w₁/w₂ as x ↦ 1/(x + A + 1), the inverse branches of the Gauss map x ↦ {1/x}. L_s is conjugate by multiplication by (x + 1)^s to the Gauss transfer operator Σ_A (x + A + 1)^{−s}f(1/(x + A + 1)), which for s = 2 is the Perron–Frobenius operator with invariant density 1/(1 + x) (Gauss, Kuzmin); so L₂ has leading eigenvalue 1 with eigenfunction 1/w₂, consistent with β(3) = 2. Wirsing proved the analogue of Theorem 37 for the Gauss map.",
+      "locator": "Examples 32, 35, pp.35–36, citing [Gau], [Kuz32], [Wir74], arXiv:1603.06267v3",
+      "status": "planned",
+      "planned": [
+        "ProbabilisticAndMetricNumberTheory:PM.4"
+      ],
+      "note": "PM.4 plans the Gauss map and its invariant measure, ergodicity and mixing."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/31",
+      "kind": "theorem",
+      "name": "Convergence of the p-series",
+      "statement": "Σ_{n ≥ 1} 1/n^p converges iff p > 1 (real p).",
+      "locator": "Proof of Lemma 33, pp.35–36; §4.5, p.42, arXiv:1603.06267v3",
+      "status": "library",
+      "library": [
+        "mathlib:Real.summable_one_div_nat_rpow"
+      ],
+      "note": "Mathlib/Analysis/PSeries.lean:317 at 082e2d3."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/32",
+      "kind": "theorem",
+      "name": "Lemma 33 and Corollary 34 (L_s on C⁰ and its eigenmeasures)",
+      "statement": "For ℜ(s) > 1 the series (4.3) converges absolutely and uniformly on ∆ (using w_j ≤ 1/2 for j ≤ n − 2), so L_s : C⁰(∆) → C⁰(∆) is bounded. For each real s > 1 there are λ_s > 0 and a probability measure ν_s with L*_sν_s = λ_sν_s (by the Schauder–Tychonoff theorem).",
+      "locator": "Lemma 33, Corollary 34, pp.35–36, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/33",
+      "kind": "theorem",
+      "name": "Schauder–Tychonoff fixed point theorem",
+      "statement": "A continuous self-map of a nonempty compact convex subset of a locally convex topological vector space has a fixed point; applied to ν ↦ L*_sν/(L*_sν)(1) on probability measures on ∆ with the weak-* topology.",
+      "locator": "Corollary 34, p.36, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Imported; neither pinned library has it, and no atlas layer plans it. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/34",
+      "kind": "theorem",
+      "name": "Lemma 36 and Lemma 44 (C¹ theory and the Ionescu-Tulcea–Marinescu inequality)",
+      "statement": "For ℜ(s) > 1, s ↦ L_s is a holomorphic family of bounded operators on C¹(∆) (norm ‖f‖_∞ + ‖∇f‖_∞), shown by truncating the A-sum and controlling the tail in C¹. There is C > 0 with ‖∇L_s^Q[f](w)‖₂ ≤ C|s|L_s^Q[|f|](w) + Dρ^QL_s^Q[‖∇f‖₂](w) for all Q ∈ ℕ, ℜ(s) > 1, w ∈ ∆ (Lemma 44, from Proposition 43 and the chain rule).",
+      "locator": "Lemma 36, p.36; Lemma 44 and proof of Lemma 36, pp.41–42, citing [ITM50], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/35",
+      "kind": "theorem",
+      "name": "Theorem 37 (Ruelle–Perron–Frobenius for L_s)",
+      "statement": "For real s ∈ (1, ∞) and L_s : C¹(∆) → C¹(∆): (1) λ_s is a simple eigenvalue and the rest of the spectrum lies in a disc of radius R(s) < λ_s, with λ_s − R(s) ≥ ε(I) > 0 uniformly for s in each compact I ⊂ (1, ∞); (2) ν_s is the unique probability measure with L*_sν_s = λ_sν_s; (3) the eigenfunction h_s with ν_s(h_s) = 1 is positive.",
+      "locator": "Theorem 37, pp.36–37; proof sketched in §4.4, p.42, via [Liv95] or [Pol, Lemma 2.3], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "The paper sketches the proof (Birkhoff cones or Pollicott's method with Lemma 44); the design must write it out for countably many branches on C¹(∆). Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/36",
+      "kind": "construction",
+      "name": "The limit set K(Γ′)",
+      "statement": "Since the elements of T_Γ uniformly contract ∆ (Proposition 43), (γ⁽¹⁾, γ⁽²⁾, …) ↦ lim_j γ⁽¹⁾⋯γ⁽ʲ⁾.w₀ is well defined and independent of w₀; its image K(Γ′), the attractor of the iterated function system T_Γ, is a compact Γ′-invariant subset of ∆.",
+      "locator": "§4.2, p.37, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/37",
+      "kind": "theorem",
+      "name": "Definition 38 and Theorem 39 (Wielandt's theorem after Pollicott)",
+      "statement": "f = u + iv on T_Γ × ∆ is regular if no r ∈ ℝ and bounded G : K(Γ′) → ℝ satisfy v(γ, w) − G(γ.w) + G(w) − r ∈ 2πℤ on T_Γ × K(Γ′). If F_s(γ, w) = −s log((γ.w)_n/w_n) is regular, ℑ(s) ≠ 0 and ℜ(s) > 1, then the spectral radius of L_s on C¹(∆) is strictly less than λ_{ℜ(s)}.",
+      "locator": "Definition 38, Theorem 39, pp.37–38, citing Pollicott [Pol84, Theorem 2] and Wielandt [Wie50], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Pollicott proved it for subshifts of finite type; the paper asserts the proof carries over. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/38",
+      "kind": "theorem",
+      "name": "Proposition 40 (non-lattice property)",
+      "statement": "For all s ∈ ℂ − ℝ the function (4.8) is regular. Proof: at fixed points of γ^A_{n−1}γ_{n−2} (eigenvector v₊ = (0, …, 0, 1, T₊, T₊(T₊ − A)) ∈ H with T₊ = (A + 1 + √((A + 1)² + 4))/2 from det(γ − T) = (1 − T)^{n−3}(−T)(T² − (A + 1)T − 1)), the cocycle takes the values log T₊(A), whose successive gaps are nonzero and tend to 0, so no translate of a discrete subgroup contains them.",
+      "locator": "Proposition 40 and proof, pp.38–39, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/39",
+      "kind": "theorem",
+      "name": "Proposition 41 (the leading eigenvalue)",
+      "statement": "s ↦ λ_s is real analytic and strictly decreasing on (1, ∞), with λ_s → 0 as s → ∞; hence at most one β₀ ∈ (1, ∞) has λ_{β₀} = 1. Proof: λ_s ≤ 2^s(n − 2)Σ_{A ≥ 0}(3 + A)^{−s}, log λ_s = N^{−1}log L_s^N[1](w) + o(1) uniformly, and log((γ.w)_n/w_n) ≥ N log(3/2) for γ ∈ (T_Γ)^N.",
+      "locator": "Proposition 41, p.39; proof §4.5, pp.42–43, arXiv:1603.06267v3 (misprint E8)",
+      "status": "missing",
+      "note": "Statement unchanged; E8 corrects the displayed bound. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/40",
+      "kind": "theorem",
+      "name": "Analytic perturbation of an isolated simple eigenvalue (Kato)",
+      "statement": "If s ↦ L_s is a holomorphic family of bounded operators and L_{s₀} has an isolated simple eigenvalue λ_{s₀}, then near s₀ there are holomorphic λ_s, h_s, ν_s with L_sh_s = λ_sh_s, L*_sν_s = λ_sν_s, ν_s(h_s) = 1, and a holomorphic complementary part; in particular (1 − L_s)^{−1}g = (1 − λ_s)^{−1}ν_s(g)h_s + (1 − L′_s)^{−1}g near s₀.",
+      "locator": "§4.3, item 1, p.40, citing [Kat76, §§4.3, 7.1] and [Lal89, Proposition 7.2], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "Imported functional analysis; no atlas layer owns it. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/41",
+      "kind": "theorem",
+      "name": "§4.3: Lalley's renewal method and the identification of β",
+      "statement": "If no β₀ > 1 has λ_{β₀} = 1, then (1 − L_s)^{−1} is holomorphic on ℜ(s) > 1 and contour shifting in (4.4) gives N(w, a) = O(e^{(1+η)a}) for every η > 0, contradicting Baragar (via §3 and the infinite orbit of (1, …, 1) for a = n, k = 0). Otherwise the simple pole at s = β₀ (Kato), holomorphy elsewhere on ℜ(s) = β₀ (Theorem 39 with Proposition 40), and Lalley's Fourier analysis [Lal89, §§7–8] give N(w, a) = h_{β₀}(w)e^{β₀a} + o(e^{β₀a}) uniformly in w; §3 then gives Theorem 3 with β₀, so β₀ = β by Theorem 2. Theorem 10 follows with Lemma 42.",
+      "locator": "§4.3, pp.39–40, citing Lalley [Lal88], [Lal89], arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "A sketch in the paper. Existence of β₀ also follows directly: L_s[1](w) ≥ Σ_A (1 + (A + 1))^{−s} → ∞ as s ↓ 1, so λ_s → ∞. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/42",
+      "kind": "theorem",
+      "name": "Proposition 43 (uniform contraction)",
+      "statement": "There are D > 0 and ρ < 1 such that ‖d_w[γ⁽¹⁾γ⁽²⁾⋯γ⁽ᴺ⁾]‖_op ≤ Dρ^N for all γ⁽ⁱ⁾ ∈ T_Γ and w ∈ ∆ (Euclidean metric on ∆); ℓ² may be replaced by ℓ¹ (Remark 45).",
+      "locator": "Proposition 43, Remark 45, pp.41, 44; proof §5, arXiv:1603.06267v3",
+      "status": "missing",
+      "note": "For n = 4 outlined by Arnoux–Starosta [AS13, Lemma 2] and Avila–Hubert–Skripchenko [AHS16b, Lemma 13] for the Rauzy gasket. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/43",
+      "kind": "theorem",
+      "name": "§5: the core/cusp decomposition, bounds (5.1)–(5.10) and Lemma 46",
+      "statement": "In coordinates (w₁, …, w_{n−2}) with β(w) = Σ_{k≤n−2}w_k, let ∆_core = {0 ≤ w_{n−1} − β(w) ≤ w_{n−2}}, ∆_cusp = {w_{n−1} − β(w) ≥ w_{n−2}} and ∆₀ = ∆_core ∪ ∆_cusp; γ_i(∆) ⊂ ∆_core for i ≤ n − 2 and γ_{n−1}(∆) ⊂ ∆_cusp. Explicit ℓ¹ operator norm bounds (maximum absolute column sums) hold: ‖dγ_i‖ ≤ 6/5 on ∆_cusp and 4/3 on ∆_core (5.1); ‖dγ_{n−1}‖ ≤ 1 on ∆₀ (5.2); ‖d(γ_i ∘ γ_j)‖ ≤ 4/5 on ∆₀ for i, j ≤ n − 2 (5.3)–(5.5); ‖d(γ_{n−1} ∘ γ_i)‖ ≤ 10/13 on ∆_cusp and 4/5 on ∆_core for i ≤ n − 3 (5.6), and 6/7 and 1 for i = n − 2 (5.7); ‖d(γ_i ∘ γ_{n−1} ∘ γ_{n−2})‖ ≤ 4/7 for i ≤ n − 3 (5.8) and 32/49 for i = n − 2 (5.9); ‖d(γ²_{n−1} ∘ γ_{n−2})‖ ≤ 2/3 on ∆_cusp and 4/5 on ∆_core (5.10). Hence ‖d(γ^L_{n−1} ∘ γ_i ∘ γ^K_{n−1} ∘ γ_j)|_{∆₀}‖₁ ≤ 24/25 for all L, K ∈ ℕ and i, j ≤ n − 2 (Lemma 46).",
+      "locator": "§§5.1–5.3, (5.1)–(5.10), Lemma 46, pp.43–53, arXiv:1603.06267v3 (misprints E9)",
+      "status": "missing",
+      "note": "All ten bounds and Lemma 46 (L, K ≤ 5) were checked numerically in this extraction on random points of ∆_core and ∆_cusp for n = 4, 5, 6, 7; the largest observed norm in Lemma 46 was 0.64. Routed to the new Part II ProbabilisticAndMetricNumberTheoryPartIITransferOperators."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "A. Baragar, Asymptotic growth of Markoff–Hurwitz numbers, Compositio Math. 94 (1994), 1–18; The exponent for the Markoff–Hurwitz equations, Pacific J. Math. 182 (1998), 1–21",
+      "link": "https://doi.org/10.2140/pjm.1998.182.1",
+      "why": "Theorem 2, the exponent β(n) and its bounds; used to identify β₀ = β."
+    },
+    {
+      "citation": "A. Baragar, Integral solutions of Markoff–Hurwitz equations, J. Number Theory 49 (1994), 27–44",
+      "link": "https://doi.org/10.1006/jnth.1994.1078",
+      "why": "Fundamental solutions for k = 0 (Corollary 17)."
+    },
+    {
+      "citation": "D. Zagier, On the number of Markoff numbers below a given bound, Math. Comp. 39 (1982), 709–723",
+      "link": "https://doi.org/10.1090/S0025-5718-1982-0669663-7",
+      "why": "The linearisation strategy of Lemmas 25–26."
+    },
+    {
+      "citation": "G. McShane, I. Rivin, A norm on homology of surfaces and counting simple geodesics, Int. Math. Res. Not. 1995, 61–69",
+      "link": "https://doi.org/10.1155/S1073792895000055",
+      "why": "Theorem 1."
+    },
+    {
+      "citation": "S. P. Lalley, Renewal theorems in symbolic dynamics, with applications to geodesic flows, non-Euclidean tessellations and their fractal limits, Acta Math. 163 (1989), 1–55",
+      "link": "https://doi.org/10.1007/BF02392732",
+      "why": "The renewal method and the perturbation/Fourier analysis of §4.3."
+    },
+    {
+      "citation": "M. Pollicott, A complex Ruelle–Perron–Frobenius theorem and two counterexamples, Ergodic Theory Dynam. Systems 4 (1984), 135–146",
+      "link": "https://doi.org/10.1017/S0143385700002327",
+      "why": "Theorem 39."
+    },
+    {
+      "citation": "C. Liverani, Decay of correlations, Ann. of Math. 142 (1995), 239–301",
+      "link": "https://doi.org/10.2307/2118636",
+      "why": "Birkhoff cones for Theorem 37."
+    },
+    {
+      "citation": "T. Kato, Perturbation theory for linear operators, 2nd ed., Springer (1976)",
+      "link": "https://doi.org/10.1007/978-3-642-66282-9",
+      "why": "Analytic perturbation of the leading eigenvalue."
+    },
+    {
+      "citation": "A. Avila, P. Hubert, A. Skripchenko, Diffusion for chaotic plane sections of 3-periodic surfaces, Invent. Math. 206 (2016), 109–146; On the Hausdorff dimension of the Rauzy gasket, Bull. Soc. Math. France 144 (2016), 539–568",
+      "link": "https://doi.org/10.1007/s00222-016-0650-z",
+      "why": "The n = 4 (Rauzy gasket) versions of Theorem 37 and Proposition 43."
+    },
+    {
+      "citation": "P. Arnoux, Š. Starosta, The Rauzy gasket, in Further developments in fractals and related fields, Birkhäuser (2013), 1–23",
+      "link": "https://doi.org/10.1007/978-0-8176-8400-6_1",
+      "why": "The Rauzy gasket and its acceleration."
+    },
+    {
+      "citation": "H. Hu, S. P. Tan, Y. Zhang, Polynomial automorphisms of Cⁿ preserving the Markoff–Hurwitz polynomial, Geom. Dedicata 192 (2018), 207–243 (arXiv:1501.06955)",
+      "link": "https://doi.org/10.1007/s10711-017-0235-z",
+      "why": "Aut(V) for n ≥ 4."
+    },
+    {
+      "citation": "R. D. Horowitz, Induced automorphisms on Fricke characters of free groups, Trans. Amer. Math. Soc. 208 (1975), 41–50",
+      "link": "https://doi.org/10.1090/S0002-9947-1975-0369540-8",
+      "why": "Aut(V) for n = 3."
+    },
+    {
+      "citation": "E. Wirsing, On the theorem of Gauss–Kusmin–Lévy and a Frobenius-type theorem for function spaces, Acta Arith. 24 (1974), 507–528",
+      "link": "https://doi.org/10.4064/aa-24-5-507-528",
+      "why": "The Gauss-map case of Theorem 37."
+    },
+    {
+      "citation": "M. Magee, Counting one-sided simple closed geodesics on Fuchsian thrice punctured projective planes, Int. Math. Res. Not. IMRN 2020, 3886–3901 (arXiv:1705.09377)",
+      "link": "https://doi.org/10.1093/imrn/rny112",
+      "why": "Application of the method to geodesic counting (§1.1)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "stages": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "items": [
+        "PAPER-GAMBURD-MAGEE-RONAN-19/1",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/2",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/3",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/4",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/5"
+      ],
+      "reason": "CA.4 owns classical Diophantine equations and elementary descent. The Markoff equation and its descent are already sourced there by PAPER-MARTIN-25 (accepted) and PAPER-GHOSH-SARNAK-22. This paper supplies the n-variable Markoff–Hurwitz equation x₁² + … + x_n² = a x₁⋯x_n + k with its moves, its exceptional families, the passage from V(ℤ) to V(ℤ₊), the Cassels-style estimates of Proposition 16 and the infinite descent of Corollary 17 (Markoff, Hurwitz, Baragar). All of it is elementary, and none of it is in either pinned library."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ArithmeticDynamics",
+      "roadmap": "ArithmeticDynamicsPartIIMarkoff",
+      "title": "Arithmetic dynamics, Part II: Markoff actions and strong approximation",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAMBURD-MAGEE-RONAN-19/6",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/7",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/8",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/9",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/10",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/11",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/12",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/13",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/14",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/15",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/16",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/17",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/18",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/19",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/20",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/21",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/22",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/23"
+      ],
+      "reason": "This Part II was proposed by PAPER-MARTIN-25 and accepted; DESIGN-ArithmeticDynamicsPartIIMarkoff is pending, and PAPER-GHOSH-SARNAK-22 added integral level sets to it. It extends ArithmeticDynamics by the actions of Vieta-type moves on Markoff surfaces, which DY.0–DY.6 do not treat. Counting integer points on Markoff–Hurwitz varieties is the orbit-counting problem for exactly those moves. It needs Aut(V), the free polynomial semigroup Λ of moves on ordered tuples, multiplicities, acceleration, the renewal equation for Λ and its linearisation to the semigroup Γ′, ending in Theorem 3. These are arithmetic-dynamical statements about the moves. So they coalesce with the existing Part II, importing the transfer-operator theorem from the new Part II below; none duplicates an item of PAPER-MARTIN-25 or PAPER-GHOSH-SARNAK-22.",
+      "brief": "Coalesces with the briefs of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22. This adds orbit counting for Markoff–Hurwitz moves in n ≥ 3 variables.\n\nImport from ClassicalArithmeticCompletion CA.4: the Markoff–Hurwitz equation x₁² + … + x_n² = a x₁⋯x_n + k, the moves m_j, the exceptional families, the reduction |(V(ℤ) − E) ∩ B(R)| = 2^{n−1}|(V(ℤ₊) − E) ∩ B(R)| + O(1), Proposition 16 and infinite descent. Import from ProbabilisticAndMetricNumberTheoryPartIITransferOperators: the linear semigroup Γ′ = ⟨γ^A_{n−1}γ_j⟩₊ on H, the count N(y, a), and Theorem 13, N(y, a) = h(y)e^{βa}(1 + o(1)) uniformly, with the recursion (1.8) and h positive, bounded and C¹.\n\nFinal theorem. Theorem 3: for each (n, a, k) with V(ℤ) − E infinite there is c(n, a, k) > 0 with |(V(ℤ) − E) ∩ B(R)| = c(log R)^β + o((log R)^β). Also record as imported statements: Aut(V) = G ⋊ (N ⋊ S_n) (Horowitz, Hu–Tan–Zhang), McShane–Rivin (the n = 3 case), and Baragar's exponent theorem, which is used to identify the pole with β.\n\nWhat to cover. The normalisation z = a^{1/(n−2)}x and the moves λ_j on ordered tuples. Freeness of Λ (Lemma 18). Admissible sequences and the intertwiner Θ_x (Lemmas 19–20), reducing to Σ_{λ ∈ Λ} 1{(λ.z⁽⁰⁾)_n ≤ R}. The regularisation (2.9)–(2.14). Acceleration by S_Λ = {λ^A_{n−1}λ_j}, the shift, the distortion cocycle τ⋆ and the renewal equation (3.7). The growth Lemmas 22–24, including doubly exponential growth of α along accelerated words. The fitting Lemmas 25–28, which compare log log of the nonlinear orbit with the linear count up to ε(a) = 16C₂exp(−2Cφ^{ca/log a}). Lemma 29, Proposition 30 and Proposition 21, and the summation over λ^{A₀}_{n−1} (starting at A₀ = 0).\n\nThe design must prove c⋆ > 0 explicitly (source issue E1): run Lemmas 26–28 with a fixed small ε at a point with α(z) large, so M(z, a) ≥ N(f(z), a − 2ε) ≫ e^{βa} because min h > 0.\n\nMandatory regressions:\n- n = 3, a = 1, k = 4, x = (1, 1, 2) is unexceptional and m₂(x) = x, so part (3) of Proposition 16 fails inside K₀ (E3);\n- λ^A_{n−1} fixes the first n − 2 coordinates, so Lemma 27 needs the accelerated words (E7);\n- the orbit of (1, 1, 1, 1) for n = a = 4, k = 0 has local growth exponent ≈ 2.44, inside Baragar's interval (2.430, 2.477);\n- the n = 3 case reproduces the (log R)² growth of Markoff triples."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ProbabilisticAndMetricNumberTheory",
+      "roadmap": "ProbabilisticAndMetricNumberTheoryPartIITransferOperators",
+      "title": "Probabilistic, metric and ergodic number theory, Part II: transfer operators, renewal and multidimensional continued fractions",
+      "area": "analytic",
+      "items": [
+        "PAPER-GAMBURD-MAGEE-RONAN-19/24",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/25",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/26",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/27",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/28",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/29",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/32",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/33",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/34",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/35",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/36",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/37",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/38",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/39",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/40",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/41",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/42",
+        "PAPER-GAMBURD-MAGEE-RONAN-19/43"
+      ],
+      "reason": "PM.4 owns the Gauss map, its invariant measure and ergodic methods for continued fractions. It stops at the one-dimensional map and has no transfer-operator spectral theory. No stage anywhere in the atlas mentions transfer operators, Ruelle–Perron–Frobenius theory, renewal theorems or iterated function systems, and no other extraction has proposed them. The paper's analytic core needs all of them. It uses the accelerated multidimensional continued-fraction semigroup Γ′ (the Rauzy gasket for n = 4), its uniform contraction, and transfer operators L_s on C¹ with the Ionescu-Tulcea–Marinescu inequality, a Ruelle–Perron–Frobenius theorem, Pollicott's non-lattice spectral bound and analytic perturbation. Lalley's renewal method turns these into the orbit count of Theorem 13 and the conformal-measure characterisation of Theorem 10. This extends PM.4's direction, so it is a Part II of ProbabilisticAndMetricNumberTheory; the n = 3 case is exactly PM.4's Gauss map.",
+      "brief": "Extend Probabilistic, metric and ergodic number theory (ProbabilisticAndMetricNumberTheory) beyond PM.4's Gauss map. The new layers are transfer operators for uniformly contracting iterated function systems with countably many branches on a simplex, and the renewal method for counting in semigroup orbits. Import from PM.4 the Gauss map, its invariant density 1/(1 + x) and continued fractions. Import from Mathlib Banach spaces of C¹ functions, holomorphic maps into bounded operators, the spectral radius, the Laplace transform and p-series. Supply in this Part II the Schauder–Tychonoff theorem, Kato's perturbation theory for an isolated simple eigenvalue, and the Ionescu-Tulcea–Marinescu method, unless an owner appears first.\n\nFinal theorems, for n ≥ 3 and Γ′ = ⟨T_Γ⟩₊, T_Γ = {γ^A_{n−1}γ_j : A ≥ 0, 1 ≤ j ≤ n − 2}, acting on ∆ = H/ℝ₊:\n(1) Uniform contraction: ‖d[γ⁽¹⁾⋯γ⁽ᴺ⁾]‖ ≤ Dρ^N (Proposition 43), via ∆_core, ∆_cusp, the ten explicit ℓ¹ bounds (5.1)–(5.10) and the two-step bound 24/25 (Lemma 46).\n(2) For real s > 1, L_s[f](w) = Σ_{j,A}(1 + (A + 1)(1 − w_j))^{−s}f(γ^A_{n−1}γ_j.w) on C¹(∆) has a simple leading eigenvalue λ_s with a uniform spectral gap on compacta, a unique eigenprobability ν_s and a positive eigenfunction h_s (Theorem 37).\n(3) For ℑ(s) ≠ 0 the spectral radius is < λ_{ℜ(s)}, by Pollicott's Wielandt theorem and the non-lattice property from the fixed points of γ^A_{n−1}γ_{n−2} (Theorem 39, Proposition 40).\n(4) s ↦ λ_s is real analytic and strictly decreasing, → ∞ as s ↓ 1 and → 0 as s → ∞, so there is a unique β with λ_β = 1 (Proposition 41).\n(5) Theorem 13: N(y, a) = h(y)e^{βa}(1 + o(1)) uniformly, with Σ_{γ ∈ T_Γ}((γ.y)_n/y_n)^{−β}h(γ.y) = h(y).\n(6) Theorem 10: β is the unique s > 1 with a conformal probability measure, using (γ.w)_n/w_n = |Jac_w(γ)|^{−1/(n−1)}.\n\nPrinciples. Prove existence of β directly (item (4)) rather than through Baragar's theorem. The identification with Baragar's β(n) belongs to the Markoff Part II. Write out in full the Ruelle–Perron–Frobenius theorem and Lalley's contour argument, which the paper only sketches, for countably many branches.\n\nMandatory examples:\n- n = 3: L_s is conjugate to the Gauss transfer operator, and λ₂ = 1 with h = 1/w₂;\n- n = 4: the Rauzy gasket;\n- a numerical check that λ_s = 1 near s ≈ 2.44 for n = 4;\n- the displayed bound λ_s ≤ 2^s(n − 2)Σ(3 + A)^{−s} (not 2(n − 2)Σ…, source issue E8)."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E1",
+      "kind": "gap",
+      "locator": "Proposition 21, Proposition 30 and Theorem 3, pp.3, 21, 32–33 (arXiv v3)",
+      "printed": "\"Proposition 21. For all unexceptional z ∈ M − K there is a positive constant c⋆ such that as a → ∞, M(z, a) = e^{βa}(c⋆(z) + o(1))\" … \"Proposition 30. For fixed λ and z⁽⁰⁾ there is a constant c⋆(λz⁽⁰⁾) such that a_L(λz⁽⁰⁾) = … = c⋆(λz⁽⁰⁾) + o(1)\" … \"Putting Proposition 30 and Lemma 29 together proves Proposition 21\"",
+      "correction": "Add an argument for c⋆ > 0. Fix a small ε₀ > 0 and a point z of the orbit with α(z) > max(C₁, 2C₂^{1/2}ε₀^{−1/2}). Iterating Lemma 26 with ε₀ as in the proof of (3.25) gives log log(λz)_n ≥ log(γ(λ).f(z))_n − 2ε₀ for all λ ∈ Λ′. So M(z, a) ≥ N(f(z), a − 2ε₀) ≥ ½ min_∆ h · e^{β(a−2ε₀)} for large a, since h > 0 is continuous on the compact ∆ (Theorems 13 and 37). Hence c⋆(z) > 0, and then c > 0 in Theorem 3.",
+      "reason": "Proposition 30 only proves that a_L converges and that its limits are bounded. Neither Lemma 29 nor Proposition 30 bounds c⋆ below. Baragar's estimate (log R)^{β+o(1)} does not exclude c = 0 either, since it allows, say, (log R)^β/log log R. Theorem 3 asserts c > 0, and the constant is Σ over base points of (log z_n⁽⁰⁾)^β c_∞(z⁽⁰⁾), so positivity needs this missing step. The step is routine with the paper's own lemmas.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E2",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 3 given Proposition 21, (3.5) and the following display, pp.21–22 (arXiv v3)",
+      "printed": "\"M₀(z⁽⁰⁾, a) = Σ_{A₀=1}^∞ M(λ^{A₀}_{n−1}z⁽⁰⁾, a − log log(λ^{A₀}_{n−1}z⁽⁰⁾)_n + log log z_n⁽⁰⁾)\" … \"log z_n⁽⁰⁾e^{βa} Σ … c⋆(λ^{A₀}_{n−1}z⁽⁰⁾)/(log(λ^{A₀}_{n−1}z⁽⁰⁾)_n)^β\" … \"≤ Σ_{A₀} c⋆(λ^{A₀}_{n−1}z⁽⁰⁾)/(A₀ log 2)^β\" … \"log z_n⁽⁰⁾c_∞(z⁽⁰⁾)e^{βa}(1 + o(1))\"",
+      "correction": "The sum starts at A₀ = 0, as in (3.2), since Λ ∪ {e} = ⊔_{A₀≥0}(Λ′ ∪ {e})λ^{A₀}_{n−1}. The prefactor is (log z_n⁽⁰⁾)^β in both displays. The comparison sum is Σ_{A₀≥0} c⋆/(log z_n⁽⁰⁾ + A₀ log 2)^β.",
+      "reason": "Proposition 21 applied at level a − log log Z + log log z_n gives e^{βa}(log z_n/log Z)^β c⋆, so the factor is (log z_n)^β. The A₀ = 0 term is M(z⁽⁰⁾, a), of the same order e^{βa}. Lemma 22 gives log(λ^{A₀}z)_n ≥ A₀ log 2 + log z_n, and the printed (A₀ log 2)^β is infinite at A₀ = 0. The constant c is not made explicit, so nothing else changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E3",
+      "kind": "error",
+      "locator": "Proposition 16(3), p.13, and its proof, p.15 (arXiv v3)",
+      "printed": "\"3. If x_j is not the largest coordinate of x then it becomes the largest after the move m_j, that is, (m_j(x))_j > (m_j(x))_i for all i ≠ j. (This property holds for all x ∈ V(ℤ₊).)\"",
+      "correction": "Delete the parenthesis: part (3) holds for x ∈ V(ℤ₊) − K₀. The proof itself adds the finitely many solutions with a = 1, x₁ = … = x_{n−2} = 1 to the compact set.",
+      "reason": "For n = 3, a = 1, k = 4, x = (1, 1, 2) ∈ V(ℤ₊) (1 + 1 + 4 = 1·1·2 + 4) is unexceptional: the a = 1 family needs x_{n−2} = x₁ = 2. m₂(x) = (1, 1·2 − 1, 2) = x, so x₂ does not become the largest. The proof's own last paragraph treats exactly this case by enlarging K₀, and the proposition's other uses are outside K₀.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E4",
+      "kind": "misprint",
+      "locator": "§2.3, p.17; proof of Lemma 20, p.18; §3.1, p.20 (arXiv v3)",
+      "printed": "\"a sequence is admissible if and only if j₁ is not the largest coordinate and j_l ≠ j_{l−1} for any l ≤ 2\" … \"the admissible sequences (j) of length 1 and {λ_j : 1 ≤ j ≤ n − 2}\" … \"we replace the generators {λ_j : 1 ≤ j ≤ n} of Λ\"",
+      "correction": "\"for any l ≥ 2\"; \"{λ_j : 1 ≤ j ≤ n − 1}\"; \"{λ_j : 1 ≤ j ≤ n − 1}\".",
+      "reason": "Consecutive moves at the same coordinate backtrack, so the condition is needed for every l ≥ 2. There are n − 1 admissible first moves and n − 1 generators λ_j (2.6), since the move at the largest coordinate is never used.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E5",
+      "kind": "misprint",
+      "locator": "Proof of the Claim in Lemma 23, p.25 (arXiv v3)",
+      "printed": "\"Σ_{A₁=1}^{⌊2(n−1)e^x⌋} (2(n−1))^{L−1}(c₀ + x − log(1 + A₁/(2(n−1))))^{L−1}e^x/(1 + A₁/(2(n−1))) ≤ (2(n−1))^L(c₀ + x)e^x Σ_{A₁=1}^{⌊2(n−1)e^x⌋} 1/(2(n−1) + A₁)\"",
+      "correction": "The sums run over A₁ ≥ 0, and the right side is (2(n−1))^L(c₀ + x)^{L−1}e^x Σ_{A₁=0}^{⌊2(n−1)e^x⌋} 1/(2(n−1) + A₁). With the final sum ≤ c₀ + x this gives the Claim's (2(n−1)(c₀ + x))^Le^x.",
+      "reason": "A₁ = 0 is allowed in the set (3.13). The exponent L − 1 on (c₀ + x) carries through from the inductive hypothesis; without it the induction would give (c₀ + x)², not (c₀ + x)^L.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E6",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 25, p.27 (arXiv v3)",
+      "printed": "\"where A(z) = ∏_{i=1}^{n−1}z_i, C(z) = Σ_{i=1}^{n−1}z_i² and k′ ≥ 0 is the constant from (2.4).\"",
+      "correction": "k′ = ka^{2/(n−2)} has the sign of k, which may be negative. The first inequality uses only (2.14), and the second estimate becomes (C(z) − k′)/A(z)² ≤ (n − 1)α(z)^{−2} + |k′|A(z)^{−2} = O_n(α(z)^{−2}) (enlarging C₁ as needed). The conclusion is unchanged.",
+      "reason": "The paper allows every k ∈ ℤ (Theorem 3); k < 0 gives k′ < 0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E7",
+      "kind": "error",
+      "locator": "Proof of Lemma 27, pp.28–29 (arXiv v3)",
+      "printed": "\"For any nonidentity map λ′ ∈ Λ, (λ′z⁽⁰⁾)_{n−2} ≥ (z⁽⁰⁾)_{n−1} > 2, using (2.13).\"",
+      "correction": "This holds for the λ′ that occur, namely λ′ = λ″λ with λ″ ∈ S^{(L)}, L ≥ 1. There the last letter of λ″ applied, before the final power of λ_{n−1}, is some λ_j with j ≤ n − 2, which puts the previous (n − 1)-th entry in position n − 2. It does not hold for every nonidentity λ′.",
+      "reason": "λ_{n−1} changes only the last two coordinates, so (λ^A_{n−1}z)_{n−2} = z_{n−2}, which is smaller than z_{n−1} whenever z_{n−2} < z_{n−1}. The lemma is applied only to the λ′ of (3.14), so nothing breaks.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E8",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 41, §4.5, p.42 (arXiv v3)",
+      "printed": "\"≤ (n − 2)‖f‖_∞ Σ_{A∈ℕ} 1/(1 + ½(A + 1))^s ≤ 2(n − 2)‖f‖_∞ Σ_{A∈ℕ} 1/(3 + A)^s\" … \"λ_s ≤ 2(n − 2)Σ_{A∈ℕ} 1/(3 + A)^s\" … \"(γ′.w)_n/w_n = 1 + (A + 1)(1 − w_j) ≥ c. This is true with c = 3/2\"",
+      "correction": "The factor is 2^s: (1 + (A + 1)/2)^{−s} = 2^s(3 + A)^{−s}, so λ_s ≤ 2^s(n − 2)Σ_{A≥0}(3 + A)^{−s}. This still tends to 0 as s → ∞, being (n − 2)Σ_{A≥0}(2/(3 + A))^s. In the Claim, the ratio bound 3/2 gives log((γ.w)_n/w_n) ≥ N log(3/2), so c = log(3/2).",
+      "reason": "The printed inequality fails for s ≥ 2: the A = 0 terms are (3/2)^{−s} and 2·3^{−s}. The conclusion λ_s → 0 and the monotonicity argument are unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E9",
+      "kind": "misprint",
+      "locator": "§5.3, proofs of (5.1), (5.9) and (5.10), pp.46–47, 53 (arXiv v3)",
+      "printed": "\"C_i ≤ C_k, k ≠ i ⇔ 1 + 2β(w) − 2w_i < 4 − 2w_i ⇔ β(w) < 2/3\" … \"Hence, C_j ≤ C_k for each k ≠ j.\" … \"we have ‖d(γ_{n−1} ∘ γ_{n−1} ∘ γ_{n−2})‖₁ = 4/5\"",
+      "correction": "\"⇔ β(w) ≤ 3/2\" (since C_i ≤ C_k iff 1 + 2β − 2w_i ≤ 2(2 − w_i) = 4 − 2w_i); \"C_{n−2} ≤ C_k for each k ≤ n − 3\"; \"≤ 4/5\".",
+      "reason": "Both β ≤ 2/3 and β ≤ 3/2 hold on ∆₀ (β ≤ 1/2), so the bound in (5.1) is unaffected. In (5.9) the columns compared are k ≤ n − 3 and n − 2. The bounds (5.1)–(5.10) and Lemma 46 were checked numerically.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1603.06267 versions v1 (March 2016), v2 and v3 (13 June 2018); v3 is the last arXiv version",
+        "Annals of Mathematics 190 (2019), 751–809 (10.4007/annals.2019.190.3.2): the published PDF is not open access and was not available; no erratum is listed on the journal's issue page",
+        "Crossref metadata for 10.4007/annals.2019.190.3.2: no update or correction relation"
+      ]
+    }
+  ]
+}
