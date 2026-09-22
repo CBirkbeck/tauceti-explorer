@@ -4270,7 +4270,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GHOSH-SARNAK-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1272"
   },
   {
    "id": "REV-PAPER-GHOSH-SARNAK-22",
@@ -5364,8 +5365,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1334"
+   "state": "pending",
+   "note": "released on GitHub issue #1334"
   },
   {
    "id": "REV-PAPER-SHENDE-TSIMERMAN-17",
