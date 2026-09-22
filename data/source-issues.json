@@ -3544,6 +3544,132 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-RICHARD-YAFAEV-25/E1",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.7, number field case, p.263 (published version)",
+   "printed": "\"It follows that, when ℓ > max{M_A; M(A, K, d)} the map Ẑ[U′] → Z → Z_ℓ = 𝔽_ℓ[U′(ℓ)] is surjective.\"",
+   "correction": "ℓ > max{M_A; M′(A, K, d)}.",
+   "reason": "M(A, K, d) is the constant being defined, as a product over ℓ ≤ max{M_A; M′(A, K, d)}. The step uses the Masser–Wüstholz constant M′, as in assertion (2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.3, p.259 (published version)",
+   "printed": "\"Let U′ ≤ U(p) be of index [U′ : U(p)] ≤ D.\"",
+   "correction": "[U(p) : U′] ≤ D.",
+   "reason": "U′ is a subgroup of U(p), and Definition 2.1(2) bounds the index of U′ in U(p).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25/E3",
+   "kind": "misprint",
+   "locator": "§5.3.1, (22), p.273 (published version)",
+   "printed": "\"and its inverse image in U_p by U_p† := π_p^{-1}(U_p).\"",
+   "correction": "U_p† := π_p^{-1}(U(p)†) ⊆ U_p.",
+   "reason": "The sentence defines the inverse image of U(p)†. π_p^{-1}(U_p) is not meaningful since π_p is defined on U_p. The proof of Proposition 5.5 uses x_i ∈ U_p with π_p(x_i) ∈ U(p)† and ker π_p ⊆ U_p†.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25/E4",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 5.8 and definition of H_Y, p.280 (published version)",
+   "printed": "\"because H_{v′}(φ) ∈ p^ℤ, we have H_{v′}(φ) ≥ p² as soon as H_p(φ) ∉ {1; p}. It follows H_v(φ) ≥ H_{v′}(φ)/p ≥ H_{v′}(φ)^{1/2} ≥ H_p(φ)^{1/(2·c(ρ))}.\" … \"H_Y(φ) = max{1/p; ‖φ(Y₁)‖; …; ‖φ(Y_k)‖}\"",
+   "correction": "\"as soon as H_{v′}(φ) ∉ {1; p}\", and the final exponent is c(ρ)/2, as in the statement. In H_Y the last index is l.",
+   "reason": "The hypothesis of Corollary 5.8 is on H_{v′}. With (37), H_{v′} ≥ H_p^{c(ρ)}, one gets H_{v′}^{1/2} ≥ H_p^{c(ρ)/2}. The Y-tuple is Y₁,…,Y_l (Proposition 5.5).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.5, claim (30), p.275 (published version)",
+   "printed": "\"We use that f := supp Z(M^der)(𝔽̄_p) < +∞.\"",
+   "correction": "f := sup_p #Z(M^der)(𝔽̄_p) < +∞.",
+   "reason": "f is a uniform bound on the order of the finite group Z(M^der)(𝔽̄_p), used to raise to the power f!.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-RICHARD-YAFAEV-25/E6",
+   "kind": "gap",
+   "locator": "Lemma 5.12 and its proof, pp.285–287 (published version)",
+   "printed": "\"Let m ∈ M(𝔽̄_p) such that m̂ := ad_M(m) belongs to Z_{M^ad}(ad_M(U)). … Since #F | e, by construction of U[e], we have φ_m(U[e]) = {1}. Equivalently m ∈ Z_M(U[e]). This proves the Lemma with U′ = U[e] and c(N) = e^{k(N)}.\"",
+   "correction": "The argument proves the inclusion Z_{M^ad}(ad_M(U)) ⊆ Z_M(U[e])/Z(M). This is what the applications use, and it suffices there. In Lemma 5.11 the Tate hypothesis gives Z_M(V[e]) = Z(M), hence Z_{M^ad}(ad_M(V)) = 1 and so Z_{M^ad}(Û) = 1. Either restate Lemma 5.12 as this inclusion, or supply a separate argument for the equality on U′.",
+   "reason": "The lemma asserts Z_{M^ad}(ad_M(U′)) = Z_M(U′)/Z(M) for U′ = U[e]. That needs, for every m with ad_M(m) centralising ad_M(U[e]), that m centralises U[e]. The proof takes m centralising the image of the larger group U. Then φ_m is a homomorphism U → F killed by U[e]. For m only centralising ad_M(U[e]), φ_m is a homomorphism U[e] → F, and U[e] need not lie in its kernel, because homomorphisms of U[e] to F need not extend to U. The inclusion needed for the stated equality is therefore not established.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2111.11216 versions (v4, 20 October 2023)",
+    "Publications Mathématiques de l'IHÉS 141 (2025), 249–331 (open access): no correction notice",
+    "Crossref metadata for 10.1007/s10240-025-00154-4: no update or correction relation"
+   ],
+   "owner": "PAPER-RICHARD-YAFAEV-25",
+   "file": "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+   "citation": "Richard–Yafaev, \"Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type\", Publications Mathématiques de l'IHÉS (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-WOOD-19/E1",
    "kind": "gap",
    "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
