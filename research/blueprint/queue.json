@@ -5147,8 +5147,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1316"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1316",
+   "finishedAt": "2026-09-22T22:25:49Z"
   },
   {
    "id": "REV-PAPER-FRESAN-SABBAH-YU-22",
@@ -6299,7 +6300,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1382"
   },
   {
    "id": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
