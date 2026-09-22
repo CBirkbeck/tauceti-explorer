@@ -2,6 +2,116 @@
  "purpose": "Mistakes found in published sources by the atlas's workers (research/blueprint/PROTOCOL.md section 18).",
  "issues": [
   {
+   "id": "PAPER-ABE-25/E1",
+   "kind": "error",
+   "locator": "Published §3.3 p.621; same formula in arXiv v2",
+   "printed": "disc(q)+disc(g)=disc(f)",
+   "correction": "For local different/discriminant exponents at algebraically closed residue points, use disc(f)=disc(q)+e(q)disc(g), hence μf−aG(1)=e(q)disc(g). The consequence when g is étale is unchanged.",
+   "reason": "In characteristic 5 take q:x↦u=x² with G=C2, g:u↦t=u³, f:x↦t=x6. The local different exponents are 1,2,5, and aG(1)=1. Thus 1+2≠5 and μf−aG(1)=4≠2, while 1+2·2=5. All maps are separable and f is smooth off 0. The different tower formula multiplies the pulled-back lower different by e(q).",
+   "affects": "a stated result",
+   "known": "new (candidate awaiting independent review; novelty search incomplete at the author-page boundary)",
+   "searched": [
+    "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+    "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+    "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+    "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ABE-25/E2",
+   "kind": "misprint",
+   "locator": "Published §3.1 p.621, zero-stalk identification and first displayed virtual-representation equality; same signs in arXiv v2",
+   "printed": "H¹(P¹,M0′)≅C0′; Ψid,0′←η′(C)=H¹(P¹,M0′)+[Λ[G]]",
+   "correction": "With C=Rpr′*M unshifted, the H¹ model contributes Sw[−1] and negative K0 class. Subject to the cited concentration/comparison, use −[Ψ(C)]=[Sw]+[Λ[G]], equivalently the nearby class is the negative total-dimension class; the vanishing contribution at 0′ has negative regular class.",
+   "reason": "Laumon Proposition 2.4.2.2 places the local Fourier transform in degree 1. A degree-one representation contributes its negative Euler class. For G=1 the Swan module is zero and the rank-one local transform has class −1, whereas the printed formula gives +1. This agrees with the minus sign already present in Abe Proposition 2.5. The full Katz comparison still has an external supplier gate.",
+   "affects": "a stated result",
+   "known": "new (candidate awaiting independent review)",
+   "searched": [
+    "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+    "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+    "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+    "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ABE-25/E3",
+   "kind": "error",
+   "locator": "Published Theorem 1.6 proof p.613, fixed-scheme base-change chain; page image checked",
+   "printed": "(Xi)^σ≅(Xi)^σ×Si{si}",
+   "correction": "Remove the identification with the closed fiber. Preserve length by étale/strict-henselian base change of the finite-length local fixed algebra with unchanged residue field.",
+   "reason": "Over algebraically closed k of characteristic 2, X=Spec k[t,z]/(z²+t²z−t), σ(z)=z+t² and σ(t)=t. The map to A¹t is finite flat, X is smooth because ∂F/∂t=1, f is étale off t=0 since ∂F/∂z=t², and σ is an involution. The fixed scheme is k[t,z]/(t²,z²−t)≅k[z]/z4, length 4, supported at the origin. Its closed fiber is k[z]/z², length 2. Thus set-theoretic support at the point does not justify the displayed isomorphism. The needed length-invariance statement survives the proposed henselian repair.",
+   "affects": "the proof",
+   "known": "new (candidate awaiting independent review)",
+   "searched": [
+    "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+    "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+    "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+    "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ABE-25/E4",
+   "kind": "gap",
+   "locator": "Published §1.3 p.609, invocation of Lu–Zheng Theorem 2.16 and displayed Theorem",
+   "printed": "Λ is a torsion ring",
+   "correction": "For the cited theorem retain that Λ is Noetherian and commutative, or supply an additional argument for the broader coefficient claim. This extraction uses the finite/Noetherian coefficient case actually needed later.",
+   "reason": "The inspected Lu–Zheng Theorem 2.16 explicitly assumes a Noetherian commutative coefficient ring. Abe's recalled setup states a torsion ring killed by an integer prime to p without that finiteness condition. This is a citation-scope gap, not a counterexample to the broader theorem and not an obstruction for the finite rings in the main proof.",
+   "affects": "the proof",
+   "known": "new (candidate citation-scope gap, not a proved false theorem)",
+   "searched": [
+    "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+    "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+    "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+    "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ABE-25/E5",
+   "kind": "misprint",
+   "locator": "Published §3.2 p.621, second sentence",
+   "printed": "If fact",
+   "correction": "In fact",
+   "reason": "Typographical substitution in an introductory phrase; the mathematical statement is unchanged.",
+   "affects": "nothing",
+   "known": "new (minor candidate awaiting independent review)",
+   "searched": [
+    "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+    "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+    "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+    "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+   ],
+   "owner": "PAPER-ABE-25",
+   "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
+   "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/E1",
    "kind": "misprint",
    "locator": "Proof of Proposition 2.7, arXiv v1 p. 5",
