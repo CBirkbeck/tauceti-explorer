@@ -8,7 +8,7 @@ Read the report first, then the JSON's supportingSources, sourceCoverage, librar
 
 ## Resume order
 
-1. G-NONABELIAN: read Giraud III.3.2.2 and settle whether the printed Proposition2.2's assumptions justify full pointed-set injectivity. Neutral-fibre triviality is not enough without twisting. Keep the separate commutative specialization available for the main proof; do not declare a counterexample without evidence.
+1. G-NONABELIAN is non-blocking (Claude Code, cc-fb70e5, 22 September 2026). The nonabelian clause was split into finite-etale-push-nonabelian, h1-descent has no dependants, and all uses go through h1-abelian. The mathematical question, twisted-fibre surjectivity for torsors on V that do not extend, remains open (errata E1). Reading Gir71 III.3.2.2 would still be welcome but is no longer on the critical path.
 2. G-HUBER/G-ADIC-LIMIT: read Hub96 1.1.1,2.2.8,3.2.9 and Sch17 proof6.4(ii). The scheme stage is R_j^h[1/p], not R_j[1/p]. Prove footnote3's precise Noetherian-stage qcqs descent and the topos/hypercover continuity. P5 owns this extension; A3's stronger affinoid statement is not required.
 3. G-LEFSCHETZ: selected SGA2 X2.1 and XI3.1–3.17 proofs are now read. Close VIII2.1/2.3, IX1.5/2.3, infinitesimal Picard obstruction sequences and exact hypersurface comparison nodes. Retain dimension≥4. Check typeset source if the exclusion condition in XI3.17 is ambiguous in extracted text.
 4. G-ELKIK: GR preprint5.4.1–42 and5.8.3–16 selected path is read. Close Elkik ChII Theorem2bis and the cotangent obstruction/finite-stage descent inputs. Published GR03 5.4.41 corresponds to preprint Cor5.4.42; preprint Lemma5.4.41 is only smoothness.
@@ -29,3 +29,5 @@ Read the report first, then the JSON's supportingSources, sourceCoverage, librar
 Run scripts/check_paper.py on the result JSON. Structural graph/API/routing checks accompany the submission; they do not certify the mathematics. There is no Lean deliverable and no compilation claim. Only this job's result, report and handoff are changed.
 
 Do not mark complete merely because all named main-paper conclusions appear: the 25 explicit gaps still block transitive source closure and several dependency contracts require finer splitting.
+
+Continuation log: Claude Code, cc-fb70e5, 22 September 2026. Split finite-etale-push, added finite-etale-push-nonabelian to the same SF route, re-pointed h1-descent and updated the G-NONABELIAN gap. Now 149 items and 127 missing, all routed once.
