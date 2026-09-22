@@ -1,0 +1,51 @@
+{
+  "paper": "PAPER-CIUBOTARU-HARRIS-26",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E1",
+      "kind": "misprint",
+      "locator": "Theorem 1.11 and the paragraph before it, p.5, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
+      "printed": "\"The Conjectures 9.1 and 9.3 cited in the statement of our main theorem asserts that this is possible\" and \"Theorem 1.11. Let π ⊂ A_disc(G, Q̄) with m_U(π) ≠ 0. Assume Conjectures 9.1 and 9.3; alternatively, assume π admits a parametrization as in [Laf18].\"",
+      "correction": "\"Conjectures 9.1 and 9.5\".",
+      "reason": "(9.3) is a displayed decomposition, introduced with \"for the moment we assume there is such an action, and that it gives rise to a decomposition\". The numbered conjecture is Conjecture 9.5 (Lafforgue), whose part (1) asserts \"There is a decomposition as in (9.3)\". Noted by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2311.15300: v1 (26 November 2023) is the only version",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E2",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 8.5, case (2) (G^∨ = Sp(2n)), p.29, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
+      "printed": "\"We can use the standard representation of G^∨ to conclude that ν_i = 0 for all i odd. The remaining nonzero points are ν_j = ½ω^j_{⌊r_j/2⌋}, when j is odd and r_j ≥ 3, and all of these points are half-integral for G^∨.\"",
+      "correction": "\"… when j is even and r_j ≥ 3 …\"",
+      "reason": "The theorem's statement (1) lists ℜ(s) = ½h^∨ + ½Σ_{j even, r_j≥3} ε_j ω^j_{⌊r_j/2⌋}. The centralizer is Z(O^∨) = ∏_{i odd} Sp(r_i) × ∏_{j even} O(r_j), so the so(r_j) factors that carry the points are those with j even. The preceding sentence has just shown ν_i = 0 for i odd. Noted by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2311.15300: v1 (26 November 2023) is the only version",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E3",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 10.3, the list of explicit values, p.34, in arXiv 2311.15300v1 (26 November 2023, the only arXiv version; PDF SHA-256 7261083b…c103); the published text, Annals of Mathematics 204 (2026), 545–601 (revision of 8 October 2025), was not collated and may differ",
+      "printed": "\"(3) … (a) O^∨ = B_3: … n_v(9) = n_v(9) = 0, n_v(8) = 2 > 1 = n_u(8). … (4) G^∨ = E_7: … n_v(10) = n_u(10) = 1, n_v(9) = 1 > 0 = n_v(9). (5) G^∨ = E_8: (a) O^∨ = D_6: … n_v(17) = n_u(17) = 0, n_v(16) = 2 > 1 = n_v(16).\"",
+      "correction": "n_v(9) = n_u(9) = 0 in (3)(a); n_v(9) = 1 > 0 = n_u(9) in (4); n_v(16) = 2 > 1 = n_u(16) in (5)(a).",
+      "reason": "Each item exhibits a weight i_0 where Property A fails, that is, n_u(i) = n_v(i) for i > i_0 but n_u(i_0) < n_v(i_0). The other items state exactly this with n_u on the right. As printed, \"n_v(9) = 1 > 0 = n_v(9)\" and \"n_v(16) = 2 > 1 = n_v(16)\" are self-contradictory, and \"n_v(9) = n_v(9)\" is vacuous. Checked on the page image. Noted by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2026.204.2.3, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2311.15300: v1 (26 November 2023) is the only version",
+        "web search for an erratum or correction, 22 September 2026: none found"
+      ]
+    }
+  ]
+}
