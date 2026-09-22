@@ -3295,8 +3295,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABDURRAHMAN-VENKATESH-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1209"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1209",
+   "finishedAt": "2026-09-22T21:26:58Z"
   },
   {
    "id": "REV-PAPER-ABDURRAHMAN-VENKATESH-25",
