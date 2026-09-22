@@ -488,8 +488,8 @@
    "avoidAccountOf": "PAPER-BURUNGALE-TIAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-TIAN-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1049",
-   "finishedAt": "2026-09-22T07:21:23Z"
+   "finishedAt": "2026-09-22T07:21:23Z",
+   "note": "deliverables arrived from an external worker on issue #1049"
   },
   {
    "id": "PAPER-YUAN-26",
@@ -1535,8 +1535,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DIMITROV-GAO-HABEGGER-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1109",
-   "finishedAt": "2026-09-22T11:14:10Z"
+   "finishedAt": "2026-09-22T11:14:10Z",
+   "note": "deliverables arrived from an external worker on issue #1109"
   },
   {
    "id": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -1861,8 +1861,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DEMARCO-KRIEGER-YE-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1127",
-   "finishedAt": "2026-09-22T11:50:12Z"
+   "finishedAt": "2026-09-22T11:50:12Z",
+   "note": "deliverables arrived from an external worker on issue #1127"
   },
   {
    "id": "REV-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -2007,8 +2007,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAO-HABEGGER-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1135",
-   "finishedAt": "2026-09-22T11:40:50Z"
+   "finishedAt": "2026-09-22T11:40:50Z",
+   "note": "deliverables arrived from an external worker on issue #1135"
   },
   {
    "id": "REV-PAPER-GAO-HABEGGER-19",
@@ -2115,8 +2115,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSIMERMAN-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1141",
-   "finishedAt": "2026-09-22T12:28:00Z"
+   "finishedAt": "2026-09-22T12:28:00Z",
+   "note": "deliverables arrived from an external worker on issue #1141"
   },
   {
    "id": "REV-PAPER-TSIMERMAN-18",
@@ -4960,8 +4960,8 @@
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1311",
-   "finishedAt": "2026-09-22T08:23:46Z"
+   "finishedAt": "2026-09-22T08:23:46Z",
+   "note": "deliverables arrived from an external worker on issue #1311"
   },
   {
    "id": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
@@ -5437,8 +5437,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DEMARCO-MAVRAKI-YE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1338",
-   "finishedAt": "2026-09-22T11:58:48Z"
+   "finishedAt": "2026-09-22T11:58:48Z",
+   "note": "deliverables arrived from an external worker on issue #1338"
   },
   {
    "id": "REV-PAPER-DEMARCO-MAVRAKI-YE-26",
@@ -6247,8 +6247,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BINYAMINI-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1387",
-   "finishedAt": "2026-09-22T12:09:34Z"
+   "finishedAt": "2026-09-22T12:09:34Z",
+   "note": "deliverables arrived from an external worker on issue #1387"
   },
   {
    "id": "REV-PAPER-BINYAMINI-22",
@@ -7132,8 +7132,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAO-GE-KUHNE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1438",
-   "finishedAt": "2026-09-22T11:04:38Z"
+   "finishedAt": "2026-09-22T11:04:38Z",
+   "note": "deliverables arrived from an external worker on issue #1438"
   },
   {
    "id": "REV-PAPER-GAO-GE-KUHNE-26",
@@ -7204,8 +7204,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-RICHARD-YAFAEV-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1442",
-   "finishedAt": "2026-09-22T12:17:45Z"
+   "finishedAt": "2026-09-22T12:17:45Z",
+   "note": "deliverables arrived from an external worker on issue #1442"
   },
   {
    "id": "REV-PAPER-RICHARD-YAFAEV-25",
@@ -8014,10 +8014,96 @@
    "state": "pending"
   },
   {
-   "id": "DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
+   "id": "DESIGN-CMAllPrimeMainConjectures",
    "kind": "design",
    "priority": 1,
    "order": 8,
+   "roadmapIds": [
+    "CMAllPrimeMainConjectures"
+   ],
+   "name": "Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures",
+   "outputs": [
+    "research/blueprint/roadmaps/CMAllPrimeMainConjectures.json",
+    "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+    "research/blueprint/readmes/CMAllPrimeMainConjectures.md",
+    "research/blueprint/suggested/CMAllPrimeMainConjectures.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-CMAllPrimeMainConjectures.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-CMAllPrimeMainConjectures",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "CMAllPrimeMainConjectures"
+   ],
+   "name": "Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-CMAllPrimeMainConjectures.md",
+    "research/blueprint/roadmaps/CMAllPrimeMainConjectures.json",
+    "research/blueprint/packets/CMAllPrimeMainConjectures.json",
+    "research/blueprint/suggested/CMAllPrimeMainConjectures.lean"
+   ],
+   "after": [
+    "DESIGN-CMAllPrimeMainConjectures"
+   ],
+   "avoidAccountOf": "DESIGN-CMAllPrimeMainConjectures",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-CMAllPrimeMainConjectures.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-CMRankZeroConverse",
+   "kind": "design",
+   "priority": 1,
+   "order": 9,
+   "roadmapIds": [
+    "CMRankZeroConverse"
+   ],
+   "name": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing",
+   "outputs": [
+    "research/blueprint/roadmaps/CMRankZeroConverse.json",
+    "research/blueprint/packets/CMRankZeroConverse.json",
+    "research/blueprint/readmes/CMRankZeroConverse.md",
+    "research/blueprint/suggested/CMRankZeroConverse.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-CMRankZeroConverse.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-CMRankZeroConverse",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "CMRankZeroConverse"
+   ],
+   "name": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: CM rank-zero converses and twist nonvanishing",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-CMRankZeroConverse.md",
+    "research/blueprint/roadmaps/CMRankZeroConverse.json",
+    "research/blueprint/packets/CMRankZeroConverse.json",
+    "research/blueprint/suggested/CMRankZeroConverse.lean"
+   ],
+   "after": [
+    "DESIGN-CMRankZeroConverse"
+   ],
+   "avoidAccountOf": "DESIGN-CMRankZeroConverse",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-CMRankZeroConverse.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-LubinTateFormalModulesAndQuasiCanonicalLifts",
+   "kind": "design",
+   "priority": 1,
+   "order": 10,
    "roadmapIds": [
     "LubinTateFormalModulesAndQuasiCanonicalLifts"
    ],
@@ -8060,7 +8146,7 @@
    "id": "DESIGN-AnticyclotomicLocalUnits",
    "kind": "design",
    "priority": 1,
-   "order": 9,
+   "order": 11,
    "roadmapIds": [
     "AnticyclotomicLocalUnits"
    ],
@@ -8103,7 +8189,7 @@
    "id": "DESIGN-NonordinaryCMSpecialValues",
    "kind": "design",
    "priority": 1,
-   "order": 10,
+   "order": 12,
    "roadmapIds": [
     "NonordinaryCMSpecialValues"
    ],
@@ -8146,7 +8232,7 @@
    "id": "DESIGN-InertAnticyclotomicCMMainConjecture",
    "kind": "design",
    "priority": 1,
-   "order": 11,
+   "order": 13,
    "roadmapIds": [
     "InertAnticyclotomicCMMainConjecture"
    ],
@@ -8189,7 +8275,7 @@
    "id": "DESIGN-EllipticModularityEffectiveComparisons",
    "kind": "design",
    "priority": 1,
-   "order": 12,
+   "order": 14,
    "roadmapIds": [
     "EllipticModularityEffectiveComparisons"
    ],
@@ -8232,7 +8318,7 @@
    "id": "DESIGN-EllipticLegendreCharacterInterfaces",
    "kind": "design",
    "priority": 1,
-   "order": 13,
+   "order": 15,
    "roadmapIds": [
     "EllipticLegendreCharacterInterfaces"
    ],
@@ -8275,7 +8361,7 @@
    "id": "DESIGN-ErdosProgressionPowers",
    "kind": "design",
    "priority": 1,
-   "order": 14,
+   "order": 16,
    "roadmapIds": [
     "ErdosProgressionPowers"
    ],
@@ -8318,7 +8404,7 @@
    "id": "DESIGN-GenericDoublePointInterpolation",
    "kind": "design",
    "priority": 1,
-   "order": 15,
+   "order": 17,
    "roadmapIds": [
     "GenericDoublePointInterpolation"
    ],
@@ -8361,7 +8447,7 @@
    "id": "DESIGN-EffectiveBoundsCompactModels",
    "kind": "design",
    "priority": 1,
-   "order": 16,
+   "order": 18,
    "roadmapIds": [
     "EffectiveBoundsCompactModels"
    ],
@@ -8404,7 +8490,7 @@
    "id": "DESIGN-HyperbolicCurveVolumesAndGonality",
    "kind": "design",
    "priority": 1,
-   "order": 17,
+   "order": 19,
    "roadmapIds": [
     "HyperbolicCurveVolumesAndGonality"
    ],
@@ -8447,7 +8533,7 @@
    "id": "DESIGN-GeometricFreyMazur",
    "kind": "design",
    "priority": 1,
-   "order": 18,
+   "order": 20,
    "roadmapIds": [
     "GeometricFreyMazur"
    ],
@@ -8490,7 +8576,7 @@
    "id": "DESIGN-CongruenceSpectralGap",
    "kind": "design",
    "priority": 1,
-   "order": 19,
+   "order": 21,
    "roadmapIds": [
     "CongruenceSpectralGap"
    ],
@@ -8533,7 +8619,7 @@
    "id": "DESIGN-ArithmeticDynamicsPartIIMarkoff",
    "kind": "design",
    "priority": 1,
-   "order": 20,
+   "order": 22,
    "roadmapIds": [
     "ArithmeticDynamicsPartIIMarkoff"
    ],
@@ -8570,6 +8656,92 @@
    "avoidAccountOf": "DESIGN-ArithmeticDynamicsPartIIMarkoff",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ArithmeticDynamicsPartIIMarkoff.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-ProfiniteCohomologyPartIIMasseyGalois",
+   "kind": "design",
+   "priority": 1,
+   "order": 23,
+   "roadmapIds": [
+    "ProfiniteCohomologyPartIIMasseyGalois"
+   ],
+   "name": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
+   "outputs": [
+    "research/blueprint/roadmaps/ProfiniteCohomologyPartIIMasseyGalois.json",
+    "research/blueprint/packets/ProfiniteCohomologyPartIIMasseyGalois.json",
+    "research/blueprint/readmes/ProfiniteCohomologyPartIIMasseyGalois.md",
+    "research/blueprint/suggested/ProfiniteCohomologyPartIIMasseyGalois.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-ProfiniteCohomologyPartIIMasseyGalois.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-ProfiniteCohomologyPartIIMasseyGalois",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "ProfiniteCohomologyPartIIMasseyGalois"
+   ],
+   "name": "Continuous cohomology of profinite groups, Part II: Massey products and Galois lifting",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-ProfiniteCohomologyPartIIMasseyGalois.md",
+    "research/blueprint/roadmaps/ProfiniteCohomologyPartIIMasseyGalois.json",
+    "research/blueprint/packets/ProfiniteCohomologyPartIIMasseyGalois.json",
+    "research/blueprint/suggested/ProfiniteCohomologyPartIIMasseyGalois.lean"
+   ],
+   "after": [
+    "DESIGN-ProfiniteCohomologyPartIIMasseyGalois"
+   ],
+   "avoidAccountOf": "DESIGN-ProfiniteCohomologyPartIIMasseyGalois",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-ProfiniteCohomologyPartIIMasseyGalois.md",
+   "state": "pending"
+  },
+  {
+   "id": "DESIGN-HeightsRationalPointsPartIIHomogeneousMassey",
+   "kind": "design",
+   "priority": 1,
+   "order": 24,
+   "roadmapIds": [
+    "HeightsRationalPointsPartIIHomogeneousMassey"
+   ],
+   "name": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
+   "outputs": [
+    "research/blueprint/roadmaps/HeightsRationalPointsPartIIHomogeneousMassey.json",
+    "research/blueprint/packets/HeightsRationalPointsPartIIHomogeneousMassey.json",
+    "research/blueprint/readmes/HeightsRationalPointsPartIIHomogeneousMassey.md",
+    "research/blueprint/suggested/HeightsRationalPointsPartIIHomogeneousMassey.lean"
+   ],
+   "after": [],
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/DESIGN-HeightsRationalPointsPartIIHomogeneousMassey.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-DESIGN-HeightsRationalPointsPartIIHomogeneousMassey",
+   "kind": "review",
+   "priority": 2,
+   "order": 1,
+   "roadmapIds": [
+    "HeightsRationalPointsPartIIHomogeneousMassey"
+   ],
+   "name": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
+   "outputs": [
+    "research/blueprint/reviews/REV-DESIGN-HeightsRationalPointsPartIIHomogeneousMassey.md",
+    "research/blueprint/roadmaps/HeightsRationalPointsPartIIHomogeneousMassey.json",
+    "research/blueprint/packets/HeightsRationalPointsPartIIHomogeneousMassey.json",
+    "research/blueprint/suggested/HeightsRationalPointsPartIIHomogeneousMassey.lean"
+   ],
+   "after": [
+    "DESIGN-HeightsRationalPointsPartIIHomogeneousMassey"
+   ],
+   "avoidAccountOf": "DESIGN-HeightsRationalPointsPartIIHomogeneousMassey",
+   "timeout": 28800,
+   "prompt": "research/blueprint/prompts/REV-DESIGN-HeightsRationalPointsPartIIHomogeneousMassey.md",
    "state": "pending"
   },
   {
@@ -24273,6 +24445,49 @@
    "note": "Planets are now chosen by the workers who blueprint each roadmap (PROTOCOL.md section 14)."
   },
   {
+   "id": "RT-PAPER-BURUNGALE-TIAN-26",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 201,
+   "name": "paper extraction PAPER-BURUNGALE-TIAN-26: Burungale–Tian (2026): A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+   "target": "PAPER-BURUNGALE-TIAN-26",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/redteam/RT-PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "PAPER-BURUNGALE-TIAN-26",
+    "REV-PAPER-BURUNGALE-TIAN-26"
+   ],
+   "prompt": "research/blueprint/prompts/RT-PAPER-BURUNGALE-TIAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-PAPER-BURUNGALE-TIAN-26",
+   "kind": "review",
+   "priority": 2,
+   "order": 201,
+   "name": "paper extraction PAPER-BURUNGALE-TIAN-26: Burungale–Tian (2026): A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-BURUNGALE-TIAN-26.review.json",
+    "research/blueprint/reviews/REV-RT-PAPER-BURUNGALE-TIAN-26.md"
+   ],
+   "after": [
+    "RT-PAPER-BURUNGALE-TIAN-26"
+   ],
+   "avoidAccountOf": "RT-PAPER-BURUNGALE-TIAN-26",
+   "independentOf": [
+    "RT-PAPER-BURUNGALE-TIAN-26",
+    "PAPER-BURUNGALE-TIAN-26",
+    "REV-PAPER-BURUNGALE-TIAN-26"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-TIAN-26.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "kind": "redteam",
    "priority": 2,
@@ -24488,10 +24703,53 @@
    "state": "pending"
   },
   {
+   "id": "RT-PAPER-HARPAZ-WITTENBERG-23",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 327,
+   "name": "paper extraction PAPER-HARPAZ-WITTENBERG-23: Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
+   "target": "PAPER-HARPAZ-WITTENBERG-23",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-HARPAZ-WITTENBERG-23.result.json",
+    "research/blueprint/redteam/RT-PAPER-HARPAZ-WITTENBERG-23.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "PAPER-HARPAZ-WITTENBERG-23",
+    "REV-PAPER-HARPAZ-WITTENBERG-23"
+   ],
+   "prompt": "research/blueprint/prompts/RT-PAPER-HARPAZ-WITTENBERG-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-PAPER-HARPAZ-WITTENBERG-23",
+   "kind": "review",
+   "priority": 2,
+   "order": 327,
+   "name": "paper extraction PAPER-HARPAZ-WITTENBERG-23: Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-HARPAZ-WITTENBERG-23.review.json",
+    "research/blueprint/reviews/REV-RT-PAPER-HARPAZ-WITTENBERG-23.md"
+   ],
+   "after": [
+    "RT-PAPER-HARPAZ-WITTENBERG-23"
+   ],
+   "avoidAccountOf": "RT-PAPER-HARPAZ-WITTENBERG-23",
+   "independentOf": [
+    "RT-PAPER-HARPAZ-WITTENBERG-23",
+    "PAPER-HARPAZ-WITTENBERG-23",
+    "REV-PAPER-HARPAZ-WITTENBERG-23"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-PAPER-HARPAZ-WITTENBERG-23.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "kind": "redteam",
    "priority": 2,
-   "order": 427,
+   "order": 431,
    "name": "link map LINK-tauceti_TauCetiRoadmap_EllipticCurves: Elliptic curves",
    "target": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "roadmapIds": [
@@ -24513,7 +24771,7 @@
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "kind": "review",
    "priority": 2,
-   "order": 427,
+   "order": 431,
    "name": "link map LINK-tauceti_TauCetiRoadmap_EllipticCurves: Elliptic curves",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/EllipticCurves"
@@ -24538,7 +24796,7 @@
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "kind": "redteam",
    "priority": 2,
-   "order": 428,
+   "order": 432,
    "name": "link map LINK-tauceti_TauCetiRoadmap_AdicSpaces: Foundations of adic spaces",
    "target": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "roadmapIds": [
@@ -24560,7 +24818,7 @@
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "kind": "review",
    "priority": 2,
-   "order": 428,
+   "order": 432,
    "name": "link map LINK-tauceti_TauCetiRoadmap_AdicSpaces: Foundations of adic spaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/AdicSpaces"
@@ -24585,7 +24843,7 @@
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "kind": "redteam",
    "priority": 2,
-   "order": 464,
+   "order": 468,
    "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
    "target": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "roadmapIds": [
@@ -24607,7 +24865,7 @@
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "kind": "review",
    "priority": 2,
-   "order": 464,
+   "order": 468,
    "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/Multiquadratic"
@@ -24632,7 +24890,7 @@
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "kind": "redteam",
    "priority": 2,
-   "order": 477,
+   "order": 481,
    "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems: Root systems, Weyl groups, and the Cartan-Killing classification",
    "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "roadmapIds": [
@@ -24654,7 +24912,7 @@
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "kind": "review",
    "priority": 2,
-   "order": 477,
+   "order": 481,
    "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems: Root systems, Weyl groups, and the Cartan-Killing classification",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
@@ -24679,7 +24937,7 @@
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "kind": "redteam",
    "priority": 2,
-   "order": 480,
+   "order": 484,
    "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations: Clifford algebras, the Pin and Spin groups, and spin representations",
    "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "roadmapIds": [
@@ -24701,7 +24959,7 @@
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "kind": "review",
    "priority": 2,
-   "order": 480,
+   "order": 484,
    "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations: Clifford algebras, the Pin and Spin groups, and spin representations",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
@@ -24726,7 +24984,7 @@
    "id": "RT-RS-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 494,
+   "order": 498,
    "name": "restructuring proposal RS-07: Analytic number theory and arithmetic statistics",
    "target": "RS-07",
    "roadmapIds": [
@@ -24750,7 +25008,7 @@
    "id": "REV-RT-RS-07",
    "kind": "review",
    "priority": 2,
-   "order": 494,
+   "order": 498,
    "name": "restructuring proposal RS-07: Analytic number theory and arithmetic statistics",
    "roadmapIds": [
     "AnalyticNumberTheory",
@@ -24777,7 +25035,7 @@
    "id": "RT-RS-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 503,
+   "order": 507,
    "name": "restructuring proposal RS-15: Isocrystals, Banach–Colmez spaces and B(G)",
    "target": "RS-15",
    "roadmapIds": [
@@ -24800,7 +25058,7 @@
    "id": "REV-RT-RS-15",
    "kind": "review",
    "priority": 2,
-   "order": 503,
+   "order": 507,
    "name": "restructuring proposal RS-15: Isocrystals, Banach–Colmez spaces and B(G)",
    "roadmapIds": [
     "BunGAndNewtonStrata",
@@ -24826,7 +25084,7 @@
    "id": "RT-RS-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 515,
+   "order": 519,
    "name": "restructuring proposal RS-26: (φ,Γ)-modules, p-adic regulators and p-adic local Langlands",
    "target": "RS-26",
    "roadmapIds": [
@@ -24850,7 +25108,7 @@
    "id": "REV-RT-RS-26",
    "kind": "review",
    "priority": 2,
-   "order": 515,
+   "order": 519,
    "name": "restructuring proposal RS-26: (φ,Γ)-modules, p-adic regulators and p-adic local Langlands",
    "roadmapIds": [
     "PadicHodgeRegulators",
@@ -24877,7 +25135,7 @@
    "id": "RT-RS-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 517,
+   "order": 521,
    "name": "restructuring proposal RS-28: Higher local fields, building on Class field theory",
    "target": "RS-28",
    "roadmapIds": [
@@ -24899,7 +25157,7 @@
    "id": "REV-RT-RS-28",
    "kind": "review",
    "priority": 2,
-   "order": 517,
+   "order": 521,
    "name": "restructuring proposal RS-28: Higher local fields, building on Class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory"
@@ -24924,7 +25182,7 @@
    "id": "RT-RS-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 518,
+   "order": 522,
    "name": "restructuring proposal RS-29: Inverse Galois theory, building on Belyi maps",
    "target": "RS-29",
    "roadmapIds": [
@@ -24946,7 +25204,7 @@
    "id": "REV-RT-RS-29",
    "kind": "review",
    "priority": 2,
-   "order": 518,
+   "order": 522,
    "name": "restructuring proposal RS-29: Inverse Galois theory, building on Belyi maps",
    "roadmapIds": [
     "InverseGaloisAndArithmeticFundamentalGroups"
@@ -24971,7 +25229,7 @@
    "id": "RT-RS-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 519,
+   "order": 523,
    "name": "restructuring proposal RS-30: Birch–Swinnerton-Dyer in rank 0 and 1, building on Elliptic curves",
    "target": "RS-30",
    "roadmapIds": [
@@ -24993,7 +25251,7 @@
    "id": "REV-RT-RS-30",
    "kind": "review",
    "priority": 2,
-   "order": 519,
+   "order": 523,
    "name": "restructuring proposal RS-30: Birch–Swinnerton-Dyer in rank 0 and 1, building on Elliptic curves",
    "roadmapIds": [
     "RankZeroOneBSD"
@@ -25018,7 +25276,7 @@
    "id": "RT-RS-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 520,
+   "order": 524,
    "name": "restructuring proposal RS-31: Reductive groups, building on Reductive algebraic groups",
    "target": "RS-31",
    "roadmapIds": [
@@ -25040,7 +25298,7 @@
    "id": "REV-RT-RS-31",
    "kind": "review",
    "priority": 2,
-   "order": 520,
+   "order": 524,
    "name": "restructuring proposal RS-31: Reductive groups, building on Reductive algebraic groups",
    "roadmapIds": [
     "ReductiveGroupsPartII"
@@ -25065,7 +25323,7 @@
    "id": "RT-RS-32",
    "kind": "redteam",
    "priority": 2,
-   "order": 521,
+   "order": 525,
    "name": "restructuring proposal RS-32: Toroidal compactifications, building on Analytic toric geometry",
    "target": "RS-32",
    "roadmapIds": [
@@ -25087,7 +25345,7 @@
    "id": "REV-RT-RS-32",
    "kind": "review",
    "priority": 2,
-   "order": 521,
+   "order": 525,
    "name": "restructuring proposal RS-32: Toroidal compactifications, building on Analytic toric geometry",
    "roadmapIds": [
     "ShimuraCompactifications"
@@ -25112,7 +25370,7 @@
    "id": "RT-AUDIT-01",
    "kind": "redteam",
    "priority": 2,
-   "order": 836,
+   "order": 840,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "target": "AUDIT-01",
    "roadmapIds": [
@@ -25138,7 +25396,7 @@
    "id": "REV-RT-AUDIT-01",
    "kind": "review",
    "priority": 2,
-   "order": 836,
+   "order": 840,
    "name": "library audit AUDIT-01: Algebraic moduli and representability for arithmetic geometry",
    "roadmapIds": [
     "AlgebraicModuliForArithmeticGeometry",
@@ -25167,7 +25425,7 @@
    "id": "RT-AUDIT-02",
    "kind": "redteam",
    "priority": 2,
-   "order": 837,
+   "order": 841,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "target": "AUDIT-02",
    "roadmapIds": [
@@ -25193,7 +25451,7 @@
    "id": "REV-RT-AUDIT-02",
    "kind": "review",
    "priority": 2,
-   "order": 837,
+   "order": 841,
    "name": "library audit AUDIT-02: Hodge structures (pure, mixed, and polarized)",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/HodgeStructures",
@@ -25222,7 +25480,7 @@
    "id": "RT-AUDIT-03",
    "kind": "redteam",
    "priority": 2,
-   "order": 838,
+   "order": 842,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "target": "AUDIT-03",
    "roadmapIds": [
@@ -25248,7 +25506,7 @@
    "id": "REV-RT-AUDIT-03",
    "kind": "review",
    "priority": 2,
-   "order": 838,
+   "order": 842,
    "name": "library audit AUDIT-03: Higher local fields and higher class field theory",
    "roadmapIds": [
     "HigherLocalFieldsAndHigherClassFieldTheory",
@@ -25277,7 +25535,7 @@
    "id": "RT-AUDIT-04",
    "kind": "redteam",
    "priority": 2,
-   "order": 839,
+   "order": 843,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "target": "AUDIT-04",
    "roadmapIds": [
@@ -25303,7 +25561,7 @@
    "id": "REV-RT-AUDIT-04",
    "kind": "review",
    "priority": 2,
-   "order": 839,
+   "order": 843,
    "name": "library audit AUDIT-04: Global number fields, ray classes, adeles, and Hecke characters",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/GlobalNumberFields",
@@ -25332,7 +25590,7 @@
    "id": "RT-AUDIT-05",
    "kind": "redteam",
    "priority": 2,
-   "order": 840,
+   "order": 844,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "target": "AUDIT-05",
    "roadmapIds": [
@@ -25358,7 +25616,7 @@
    "id": "REV-RT-AUDIT-05",
    "kind": "review",
    "priority": 2,
-   "order": 840,
+   "order": 844,
    "name": "library audit AUDIT-05: Galois groups of polynomials",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
@@ -25387,7 +25645,7 @@
    "id": "RT-AUDIT-06",
    "kind": "redteam",
    "priority": 2,
-   "order": 841,
+   "order": 845,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "target": "AUDIT-06",
    "roadmapIds": [
@@ -25412,7 +25670,7 @@
    "id": "REV-RT-AUDIT-06",
    "kind": "review",
    "priority": 2,
-   "order": 841,
+   "order": 845,
    "name": "library audit AUDIT-06: Fuchsian groups and orbifold Riemann surfaces",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
@@ -25440,7 +25698,7 @@
    "id": "RT-AUDIT-07",
    "kind": "redteam",
    "priority": 2,
-   "order": 842,
+   "order": 846,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "target": "AUDIT-07",
    "roadmapIds": [
@@ -25466,7 +25724,7 @@
    "id": "REV-RT-AUDIT-07",
    "kind": "review",
    "priority": 2,
-   "order": 842,
+   "order": 846,
    "name": "library audit AUDIT-07: Arithmetic statistics, counting fields and Selmer distributions",
    "roadmapIds": [
     "ArithmeticStatistics",
@@ -25495,7 +25753,7 @@
    "id": "RT-AUDIT-08",
    "kind": "redteam",
    "priority": 2,
-   "order": 843,
+   "order": 847,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "target": "AUDIT-08",
    "roadmapIds": [
@@ -25521,7 +25779,7 @@
    "id": "REV-RT-AUDIT-08",
    "kind": "review",
    "priority": 2,
-   "order": 843,
+   "order": 847,
    "name": "library audit AUDIT-08: Arithmetic Dirichlet series and Tauberian methods",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
@@ -25550,7 +25808,7 @@
    "id": "RT-AUDIT-09",
    "kind": "redteam",
    "priority": 2,
-   "order": 844,
+   "order": 848,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "target": "AUDIT-09",
    "roadmapIds": [
@@ -25576,7 +25834,7 @@
    "id": "REV-RT-AUDIT-09",
    "kind": "review",
    "priority": 2,
-   "order": 844,
+   "order": 848,
    "name": "library audit AUDIT-09: Complex multiplication and explicit reciprocity",
    "roadmapIds": [
     "ComplexMultiplicationAndExplicitReciprocity",
@@ -25605,7 +25863,7 @@
    "id": "RT-AUDIT-10",
    "kind": "redteam",
    "priority": 2,
-   "order": 845,
+   "order": 849,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "target": "AUDIT-10",
    "roadmapIds": [
@@ -25631,7 +25889,7 @@
    "id": "REV-RT-AUDIT-10",
    "kind": "review",
    "priority": 2,
-   "order": 845,
+   "order": 849,
    "name": "library audit AUDIT-10: Modular Curves PartII",
    "roadmapIds": [
     "ModularCurvesPartII",
@@ -25660,7 +25918,7 @@
    "id": "RT-AUDIT-11",
    "kind": "redteam",
    "priority": 2,
-   "order": 846,
+   "order": 850,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "target": "AUDIT-11",
    "roadmapIds": [
@@ -25685,7 +25943,7 @@
    "id": "REV-RT-AUDIT-11",
    "kind": "review",
    "priority": 2,
-   "order": 846,
+   "order": 850,
    "name": "library audit AUDIT-11: Complex Shimura varieties and canonical models",
    "roadmapIds": [
     "ShimuraVarieties",
@@ -25713,7 +25971,7 @@
    "id": "RT-AUDIT-12",
    "kind": "redteam",
    "priority": 2,
-   "order": 847,
+   "order": 851,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "target": "AUDIT-12",
    "roadmapIds": [
@@ -25735,7 +25993,7 @@
    "id": "REV-RT-AUDIT-12",
    "kind": "review",
    "priority": 2,
-   "order": 847,
+   "order": 851,
    "name": "library audit AUDIT-12: Modular curves, following Katz–Mazur",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularCurves"
@@ -25760,7 +26018,7 @@
    "id": "RT-AUDIT-13",
    "kind": "redteam",
    "priority": 2,
-   "order": 848,
+   "order": 852,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "target": "AUDIT-13",
    "roadmapIds": [
@@ -25786,7 +26044,7 @@
    "id": "REV-RT-AUDIT-13",
    "kind": "review",
    "priority": 2,
-   "order": 848,
+   "order": 852,
    "name": "library audit AUDIT-13: Adelic algebraic groups and arithmetic quotients",
    "roadmapIds": [
     "AdelicAlgebraicGroups",
@@ -25815,7 +26073,7 @@
    "id": "RT-AUDIT-14",
    "kind": "redteam",
    "priority": 2,
-   "order": 849,
+   "order": 853,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "target": "AUDIT-14",
    "roadmapIds": [
@@ -25841,7 +26099,7 @@
    "id": "REV-RT-AUDIT-14",
    "kind": "review",
    "priority": 2,
-   "order": 849,
+   "order": 853,
    "name": "library audit AUDIT-14: Automorphic L-functions and local factors",
    "roadmapIds": [
     "AutomorphicLFunctionsAndLocalFactors",
@@ -25870,7 +26128,7 @@
    "id": "RT-AUDIT-15",
    "kind": "redteam",
    "priority": 2,
-   "order": 850,
+   "order": 854,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "target": "AUDIT-15",
    "roadmapIds": [
@@ -25896,7 +26154,7 @@
    "id": "REV-RT-AUDIT-15",
    "kind": "review",
    "priority": 2,
-   "order": 850,
+   "order": 854,
    "name": "library audit AUDIT-15: Hilbert Modular Varieties And Shimura Curves",
    "roadmapIds": [
     "HilbertModularVarietiesAndShimuraCurves",
@@ -25925,7 +26183,7 @@
    "id": "RT-AUDIT-16",
    "kind": "redteam",
    "priority": 2,
-   "order": 851,
+   "order": 855,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "target": "AUDIT-16",
    "roadmapIds": [
@@ -25950,7 +26208,7 @@
    "id": "REV-RT-AUDIT-16",
    "kind": "review",
    "priority": 2,
-   "order": 851,
+   "order": 855,
    "name": "library audit AUDIT-16: Modular forms — Hecke theory, newforms, and L-functions",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ModularForms",
@@ -25978,7 +26236,7 @@
    "id": "RT-AUDIT-17",
    "kind": "redteam",
    "priority": 2,
-   "order": 852,
+   "order": 856,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "target": "AUDIT-17",
    "roadmapIds": [
@@ -26004,7 +26262,7 @@
    "id": "REV-RT-AUDIT-17",
    "kind": "review",
    "priority": 2,
-   "order": 852,
+   "order": 856,
    "name": "library audit AUDIT-17: Commutative algebra for deformation theory and patching",
    "roadmapIds": [
     "DeformationAndDerivedPatchingAlgebra",
@@ -26033,7 +26291,7 @@
    "id": "RT-AUDIT-18",
    "kind": "redteam",
    "priority": 2,
-   "order": 853,
+   "order": 857,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "target": "AUDIT-18",
    "roadmapIds": [
@@ -26059,7 +26317,7 @@
    "id": "REV-RT-AUDIT-18",
    "kind": "review",
    "priority": 2,
-   "order": 853,
+   "order": 857,
    "name": "library audit AUDIT-18: Classical arithmetic, sequences, polynomials and reciprocity",
    "roadmapIds": [
     "ClassicalArithmeticCompletion",
@@ -26088,7 +26346,7 @@
    "id": "RT-AUDIT-19",
    "kind": "redteam",
    "priority": 2,
-   "order": 854,
+   "order": 858,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "target": "AUDIT-19",
    "roadmapIds": [
@@ -26114,7 +26372,7 @@
    "id": "REV-RT-AUDIT-19",
    "kind": "review",
    "priority": 2,
-   "order": 854,
+   "order": 858,
    "name": "library audit AUDIT-19: Q-Hodge filtrations and Habiro cohomology",
    "roadmapIds": [
     "HabiroCohomologyFoundations",
@@ -26143,7 +26401,7 @@
    "id": "RT-AUDIT-20",
    "kind": "redteam",
    "priority": 2,
-   "order": 855,
+   "order": 859,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "target": "AUDIT-20",
    "roadmapIds": [
@@ -26169,7 +26427,7 @@
    "id": "REV-RT-AUDIT-20",
    "kind": "review",
    "priority": 2,
-   "order": 855,
+   "order": 859,
    "name": "library audit AUDIT-20: Drinfeld modules, t-motives and characteristic-p special values",
    "roadmapIds": [
     "DrinfeldModulesAndTModules",
@@ -26198,7 +26456,7 @@
    "id": "RT-AUDIT-21",
    "kind": "redteam",
    "priority": 2,
-   "order": 856,
+   "order": 860,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "target": "AUDIT-21",
    "roadmapIds": [
@@ -26224,7 +26482,7 @@
    "id": "REV-RT-AUDIT-21",
    "kind": "review",
    "priority": 2,
-   "order": 856,
+   "order": 860,
    "name": "library audit AUDIT-21: Geometric Satake over the Fargues–Fontaine curve",
    "roadmapIds": [
     "GeometricSatakeAndFusion",
@@ -26253,7 +26511,7 @@
    "id": "RT-AUDIT-22",
    "kind": "redteam",
    "priority": 2,
-   "order": 857,
+   "order": 861,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "target": "AUDIT-22",
    "roadmapIds": [
@@ -26278,7 +26536,7 @@
    "id": "REV-RT-AUDIT-22",
    "kind": "review",
    "priority": 2,
-   "order": 857,
+   "order": 861,
    "name": "library audit AUDIT-22: Profinite and pro-p groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
@@ -26306,7 +26564,7 @@
    "id": "RT-AUDIT-23",
    "kind": "redteam",
    "priority": 2,
-   "order": 858,
+   "order": 862,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "target": "AUDIT-23",
    "roadmapIds": [
@@ -26332,7 +26590,7 @@
    "id": "REV-RT-AUDIT-23",
    "kind": "review",
    "priority": 2,
-   "order": 858,
+   "order": 862,
    "name": "library audit AUDIT-23: Continuous cohomology of profinite groups",
    "roadmapIds": [
     "tauceti:TauCetiRoadmap/ProfiniteCohomology",
@@ -26361,7 +26619,7 @@
    "id": "RT-AUDIT-24",
    "kind": "redteam",
    "priority": 2,
-   "order": 859,
+   "order": 863,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "target": "AUDIT-24",
    "roadmapIds": [
@@ -26387,7 +26645,7 @@
    "id": "REV-RT-AUDIT-24",
    "kind": "review",
    "priority": 2,
-   "order": 859,
+   "order": 863,
    "name": "library audit AUDIT-24: Coleman power series, local units, and cyclotomic-unit quotients",
    "roadmapIds": [
     "ColemanPowerSeries",
@@ -26416,7 +26674,7 @@
    "id": "RT-AUDIT-25",
    "kind": "redteam",
    "priority": 2,
-   "order": 860,
+   "order": 864,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "target": "AUDIT-25",
    "roadmapIds": [
@@ -26442,7 +26700,7 @@
    "id": "REV-RT-AUDIT-25",
    "kind": "review",
    "priority": 2,
-   "order": 860,
+   "order": 864,
    "name": "library audit AUDIT-25: Gross–Zagier formulas and arithmetic heights",
    "roadmapIds": [
     "GrossZagierAndArithmeticHeights",
@@ -26471,7 +26729,7 @@
    "id": "RT-AUDIT-26",
    "kind": "redteam",
    "priority": 2,
-   "order": 861,
+   "order": 865,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "target": "AUDIT-26",
    "roadmapIds": [
@@ -26497,7 +26755,7 @@
    "id": "REV-RT-AUDIT-26",
    "kind": "review",
    "priority": 2,
-   "order": 861,
+   "order": 865,
    "name": "library audit AUDIT-26: Main conjectures for modular forms and their families",
    "roadmapIds": [
     "ModularIwasawaMainConjectures",
@@ -26526,7 +26784,7 @@
    "id": "RT-AUDIT-27",
    "kind": "redteam",
    "priority": 2,
-   "order": 862,
+   "order": 866,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "target": "AUDIT-27",
    "roadmapIds": [
@@ -26552,7 +26810,7 @@
    "id": "REV-RT-AUDIT-27",
    "kind": "review",
    "priority": 2,
-   "order": 862,
+   "order": 866,
    "name": "library audit AUDIT-27: Periods, motivic L-values and special-value conjectures",
    "roadmapIds": [
     "PeriodsAndSpecialValues",
@@ -26581,7 +26839,7 @@
    "id": "RT-AUDIT-28",
    "kind": "redteam",
    "priority": 2,
-   "order": 863,
+   "order": 867,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "target": "AUDIT-28",
    "roadmapIds": [
@@ -26607,7 +26865,7 @@
    "id": "REV-RT-AUDIT-28",
    "kind": "review",
    "priority": 2,
-   "order": 863,
+   "order": 867,
    "name": "library audit AUDIT-28: Stable arithmetic cohomology and Borel regulators",
    "roadmapIds": [
     "BorelRegulators",
@@ -26636,7 +26894,7 @@
    "id": "RT-AUDIT-29",
    "kind": "redteam",
    "priority": 2,
-   "order": 864,
+   "order": 868,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "target": "AUDIT-29",
    "roadmapIds": [
@@ -26661,7 +26919,7 @@
    "id": "REV-RT-AUDIT-29",
    "kind": "review",
    "priority": 2,
-   "order": 864,
+   "order": 868,
    "name": "library audit AUDIT-29: Explicit K₂: symbols, residues and reciprocity",
    "roadmapIds": [
     "K2SymbolsBrauer",
@@ -26689,7 +26947,7 @@
    "id": "RT-AUDIT-30",
    "kind": "redteam",
    "priority": 2,
-   "order": 865,
+   "order": 869,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "target": "AUDIT-30",
    "roadmapIds": [
@@ -26715,7 +26973,7 @@
    "id": "REV-RT-AUDIT-30",
    "kind": "review",
    "priority": 2,
-   "order": 865,
+   "order": 869,
    "name": "library audit AUDIT-30: Motivic and étale methods for arithmetic K-theory",
    "roadmapIds": [
     "MotivicEtaleKTheory",
@@ -26744,7 +27002,7 @@
    "id": "RT-AUDIT-31",
    "kind": "redteam",
    "priority": 2,
-   "order": 866,
+   "order": 870,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "target": "AUDIT-31",
    "roadmapIds": [
@@ -26770,7 +27028,7 @@
    "id": "REV-RT-AUDIT-31",
    "kind": "review",
    "priority": 2,
-   "order": 866,
+   "order": 870,
    "name": "library audit AUDIT-31: Arithmetic Galois representations and conductors",
    "roadmapIds": [
     "ArithmeticGaloisRepresentations",
@@ -28832,8 +29090,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BURUNGALE-TIAN-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1701",
-   "finishedAt": "2026-09-22T07:34:54Z"
+   "finishedAt": "2026-09-22T07:34:54Z",
+   "note": "deliverables arrived from an external worker on issue #1701"
   },
   {
    "id": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
@@ -28869,8 +29127,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-YUAN-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1750",
-   "finishedAt": "2026-09-22T12:52:56Z"
+   "finishedAt": "2026-09-22T12:52:56Z",
+   "note": "deliverables arrived from an external worker on issue #1750"
   },
   {
    "id": "REV-ERRATA-PAPER-YUAN-26",
@@ -28906,8 +29164,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-NEWTON-THORNE-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1764",
-   "finishedAt": "2026-09-22T12:52:58Z"
+   "finishedAt": "2026-09-22T12:52:58Z",
+   "note": "deliverables arrived from an external worker on issue #1764"
   },
   {
    "id": "REV-ERRATA-PAPER-NEWTON-THORNE-26",
@@ -28943,8 +29201,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1766",
-   "finishedAt": "2026-09-22T12:52:59Z"
+   "finishedAt": "2026-09-22T12:52:59Z",
+   "note": "deliverables arrived from an external worker on issue #1766"
   },
   {
    "id": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
@@ -28980,8 +29238,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-ZHOU-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1768",
-   "finishedAt": "2026-09-22T12:53:01Z"
+   "finishedAt": "2026-09-22T12:53:01Z",
+   "note": "deliverables arrived from an external worker on issue #1768"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-ZHOU-25",
@@ -29017,8 +29275,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SMITH-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1770",
-   "finishedAt": "2026-09-22T12:53:02Z"
+   "finishedAt": "2026-09-22T12:53:02Z",
+   "note": "deliverables arrived from an external worker on issue #1770"
   },
   {
    "id": "REV-ERRATA-PAPER-SMITH-24",
@@ -29054,8 +29312,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-FU-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1772",
-   "finishedAt": "2026-09-22T12:53:04Z"
+   "finishedAt": "2026-09-22T12:53:04Z",
+   "note": "deliverables arrived from an external worker on issue #1772"
   },
   {
    "id": "REV-ERRATA-PAPER-FU-24",
@@ -29091,8 +29349,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SCHROER-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1774",
-   "finishedAt": "2026-09-22T12:53:05Z"
+   "finishedAt": "2026-09-22T12:53:05Z",
+   "note": "deliverables arrived from an external worker on issue #1774"
   },
   {
    "id": "REV-ERRATA-PAPER-SCHROER-23",
@@ -29128,8 +29386,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1703",
-   "finishedAt": "2026-09-22T07:53:28Z"
+   "finishedAt": "2026-09-22T07:53:28Z",
+   "note": "deliverables arrived from an external worker on issue #1703"
   },
   {
    "id": "REV-ERRATA-PAPER-DASGUPTA-KAKDE-23",
@@ -29165,8 +29423,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DITTMANN-POP-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1777",
-   "finishedAt": "2026-09-22T12:53:07Z"
+   "finishedAt": "2026-09-22T12:53:07Z",
+   "note": "deliverables arrived from an external worker on issue #1777"
   },
   {
    "id": "REV-ERRATA-PAPER-DITTMANN-POP-23",
@@ -29202,8 +29460,8 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-WITASZEK-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1779",
-   "finishedAt": "2026-09-22T12:53:08Z"
+   "finishedAt": "2026-09-22T12:53:08Z",
+   "note": "deliverables arrived from an external worker on issue #1779"
   },
   {
    "id": "REV-ERRATA-PAPER-WITASZEK-22",
@@ -29228,7 +29486,7 @@
    "id": "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "kind": "errata",
    "priority": 1,
-   "order": 512,
+   "order": 514,
    "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
    "roadmapIds": [],
    "outputs": [
@@ -29239,14 +29497,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1705",
-   "finishedAt": "2026-09-22T07:41:52Z"
+   "finishedAt": "2026-09-22T07:41:52Z",
+   "note": "deliverables arrived from an external worker on issue #1705"
   },
   {
    "id": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "kind": "review",
    "priority": 1,
-   "order": 512,
+   "order": 514,
    "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
    "roadmapIds": [],
    "outputs": [
@@ -29265,7 +29523,7 @@
    "id": "ERRATA-PAPER-BENNETT-SIKSEK-20",
    "kind": "errata",
    "priority": 1,
-   "order": 513,
+   "order": 515,
    "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
    "roadmapIds": [],
    "outputs": [
@@ -29276,14 +29534,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENNETT-SIKSEK-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1707",
-   "finishedAt": "2026-09-22T07:36:38Z"
+   "finishedAt": "2026-09-22T07:36:38Z",
+   "note": "deliverables arrived from an external worker on issue #1707"
   },
   {
    "id": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20",
    "kind": "review",
    "priority": 1,
-   "order": 513,
+   "order": 515,
    "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
    "roadmapIds": [],
    "outputs": [
@@ -29302,7 +29560,7 @@
    "id": "ERRATA-PAPER-COUVEIGNES-20",
    "kind": "errata",
    "priority": 1,
-   "order": 514,
+   "order": 517,
    "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
    "roadmapIds": [],
    "outputs": [
@@ -29313,14 +29571,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-COUVEIGNES-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1709",
-   "finishedAt": "2026-09-22T07:50:53Z"
+   "finishedAt": "2026-09-22T07:50:53Z",
+   "note": "deliverables arrived from an external worker on issue #1709"
   },
   {
    "id": "REV-ERRATA-PAPER-COUVEIGNES-20",
    "kind": "review",
    "priority": 1,
-   "order": 514,
+   "order": 517,
    "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
    "roadmapIds": [],
    "outputs": [
@@ -29339,7 +29597,7 @@
    "id": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
    "kind": "errata",
    "priority": 1,
-   "order": 515,
+   "order": 519,
    "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29350,14 +29608,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1781",
-   "finishedAt": "2026-09-22T12:53:10Z"
+   "finishedAt": "2026-09-22T12:53:10Z",
+   "note": "deliverables arrived from an external worker on issue #1781"
   },
   {
    "id": "REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
    "kind": "review",
    "priority": 1,
-   "order": 515,
+   "order": 519,
    "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29376,7 +29634,7 @@
    "id": "ERRATA-PAPER-TSIMERMAN-18",
    "kind": "errata",
    "priority": 1,
-   "order": 516,
+   "order": 520,
    "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
    "roadmapIds": [],
    "outputs": [
@@ -29387,14 +29645,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-TSIMERMAN-18.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1783",
-   "finishedAt": "2026-09-22T12:53:12Z"
+   "finishedAt": "2026-09-22T12:53:12Z",
+   "note": "deliverables arrived from an external worker on issue #1783"
   },
   {
    "id": "REV-ERRATA-PAPER-TSIMERMAN-18",
    "kind": "review",
    "priority": 1,
-   "order": 516,
+   "order": 520,
    "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
    "roadmapIds": [],
    "outputs": [
@@ -29413,7 +29671,7 @@
    "id": "ERRATA-PAPER-BAKKER-TSIMERMAN-16",
    "kind": "errata",
    "priority": 1,
-   "order": 517,
+   "order": 521,
    "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
    "roadmapIds": [],
    "outputs": [
@@ -29424,14 +29682,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BAKKER-TSIMERMAN-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1711",
-   "finishedAt": "2026-09-22T07:49:09Z"
+   "finishedAt": "2026-09-22T07:49:09Z",
+   "note": "deliverables arrived from an external worker on issue #1711"
   },
   {
    "id": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
    "kind": "review",
    "priority": 1,
-   "order": 517,
+   "order": 521,
    "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
    "roadmapIds": [],
    "outputs": [
@@ -29450,7 +29708,7 @@
    "id": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
    "kind": "errata",
    "priority": 1,
-   "order": 518,
+   "order": 522,
    "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
    "roadmapIds": [],
    "outputs": [
@@ -29461,14 +29719,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1785",
-   "finishedAt": "2026-09-22T12:53:13Z"
+   "finishedAt": "2026-09-22T12:53:13Z",
+   "note": "deliverables arrived from an external worker on issue #1785"
   },
   {
    "id": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
    "kind": "review",
    "priority": 1,
-   "order": 518,
+   "order": 522,
    "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
    "roadmapIds": [],
    "outputs": [
@@ -29487,7 +29745,7 @@
    "id": "ERRATA-PAPER-CHARLES-16",
    "kind": "errata",
    "priority": 1,
-   "order": 519,
+   "order": 524,
    "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
    "roadmapIds": [],
    "outputs": [
@@ -29498,14 +29756,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CHARLES-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1787",
-   "finishedAt": "2026-09-22T12:53:15Z"
+   "finishedAt": "2026-09-22T12:53:15Z",
+   "note": "deliverables arrived from an external worker on issue #1787"
   },
   {
    "id": "REV-ERRATA-PAPER-CHARLES-16",
    "kind": "review",
    "priority": 1,
-   "order": 519,
+   "order": 524,
    "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
    "roadmapIds": [],
    "outputs": [
@@ -29524,7 +29782,7 @@
    "id": "ERRATA-PAPER-GILLE-PARIMALA-26",
    "kind": "errata",
    "priority": 1,
-   "order": 520,
+   "order": 525,
    "name": "Gille–Parimala (2026): A local-global principle for twisted flag varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29535,14 +29793,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-GILLE-PARIMALA-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1789",
-   "finishedAt": "2026-09-22T12:53:16Z"
+   "finishedAt": "2026-09-22T12:53:16Z",
+   "note": "deliverables arrived from an external worker on issue #1789"
   },
   {
    "id": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
    "kind": "review",
    "priority": 1,
-   "order": 520,
+   "order": 525,
    "name": "Gille–Parimala (2026): A local-global principle for twisted flag varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29561,7 +29819,7 @@
    "id": "ERRATA-PAPER-MARTIN-25",
    "kind": "errata",
    "priority": 1,
-   "order": 521,
+   "order": 526,
    "name": "Martin (2025): A new proof of Chen's theorem for Markoff graphs",
    "roadmapIds": [],
    "outputs": [
@@ -29572,14 +29830,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MARTIN-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1713",
-   "finishedAt": "2026-09-22T07:44:10Z"
+   "finishedAt": "2026-09-22T07:44:10Z",
+   "note": "deliverables arrived from an external worker on issue #1713"
   },
   {
    "id": "REV-ERRATA-PAPER-MARTIN-25",
    "kind": "review",
    "priority": 1,
-   "order": 521,
+   "order": 526,
    "name": "Martin (2025): A new proof of Chen's theorem for Markoff graphs",
    "roadmapIds": [],
    "outputs": [
@@ -29598,7 +29856,7 @@
    "id": "ERRATA-PAPER-BRESCIANI-24",
    "kind": "errata",
    "priority": 1,
-   "order": 522,
+   "order": 527,
    "name": "Bresciani (2024): On the birational section conjecture with strong birationality assumptions",
    "roadmapIds": [],
    "outputs": [
@@ -29609,14 +29867,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BRESCIANI-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1791",
-   "finishedAt": "2026-09-22T12:53:18Z"
+   "finishedAt": "2026-09-22T12:53:18Z",
+   "note": "deliverables arrived from an external worker on issue #1791"
   },
   {
    "id": "REV-ERRATA-PAPER-BRESCIANI-24",
    "kind": "review",
    "priority": 1,
-   "order": 522,
+   "order": 527,
    "name": "Bresciani (2024): On the birational section conjecture with strong birationality assumptions",
    "roadmapIds": [],
    "outputs": [
@@ -29635,7 +29893,7 @@
    "id": "ERRATA-PAPER-CARO-PASTEN-23",
    "kind": "errata",
    "priority": 1,
-   "order": 523,
+   "order": 528,
    "name": "Caro–Pasten (2023): A Chabauty–Coleman bound for surfaces",
    "roadmapIds": [],
    "outputs": [
@@ -29646,14 +29904,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CARO-PASTEN-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1793",
-   "finishedAt": "2026-09-22T12:53:20Z"
+   "finishedAt": "2026-09-22T12:53:20Z",
+   "note": "deliverables arrived from an external worker on issue #1793"
   },
   {
    "id": "REV-ERRATA-PAPER-CARO-PASTEN-23",
    "kind": "review",
    "priority": 1,
-   "order": 523,
+   "order": 528,
    "name": "Caro–Pasten (2023): A Chabauty–Coleman bound for surfaces",
    "roadmapIds": [],
    "outputs": [
@@ -29672,7 +29930,7 @@
    "id": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
    "kind": "errata",
    "priority": 1,
-   "order": 524,
+   "order": 529,
    "name": "Benoist–Wittenberg (2020): On the integral Hodge conjecture for real varieties, I",
    "roadmapIds": [],
    "outputs": [
@@ -29683,14 +29941,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1795",
-   "finishedAt": "2026-09-22T12:53:21Z"
+   "finishedAt": "2026-09-22T12:53:21Z",
+   "note": "deliverables arrived from an external worker on issue #1795"
   },
   {
    "id": "REV-ERRATA-PAPER-BENOIST-WITTENBERG-20",
    "kind": "review",
    "priority": 1,
-   "order": 524,
+   "order": 529,
    "name": "Benoist–Wittenberg (2020): On the integral Hodge conjecture for real varieties, I",
    "roadmapIds": [],
    "outputs": [
@@ -29709,7 +29967,7 @@
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "kind": "errata",
    "priority": 1,
-   "order": 525,
+   "order": 530,
    "name": "Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
    "roadmapIds": [],
    "outputs": [
@@ -29720,14 +29978,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1715",
-   "finishedAt": "2026-09-22T08:26:56Z"
+   "finishedAt": "2026-09-22T08:26:56Z",
+   "note": "deliverables arrived from an external worker on issue #1715"
   },
   {
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "kind": "review",
    "priority": 1,
-   "order": 525,
+   "order": 530,
    "name": "Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
    "roadmapIds": [],
    "outputs": [
@@ -29746,7 +30004,7 @@
    "id": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "kind": "errata",
    "priority": 1,
-   "order": 526,
+   "order": 531,
    "name": "Kisin–Madapusi Pera–Shin (2022): Honda-Tate theory for Shimura varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29757,14 +30015,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1797",
-   "finishedAt": "2026-09-22T12:53:23Z"
+   "finishedAt": "2026-09-22T12:53:23Z",
+   "note": "deliverables arrived from an external worker on issue #1797"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "kind": "review",
    "priority": 1,
-   "order": 526,
+   "order": 531,
    "name": "Kisin–Madapusi Pera–Shin (2022): Honda-Tate theory for Shimura varieties",
    "roadmapIds": [],
    "outputs": [
@@ -29783,7 +30041,7 @@
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
    "kind": "errata",
    "priority": 1,
-   "order": 527,
+   "order": 532,
    "name": "Česnavičius (2019): Purity for the Brauer group",
    "roadmapIds": [],
    "outputs": [
@@ -29794,14 +30052,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1799",
-   "finishedAt": "2026-09-22T12:53:25Z"
+   "finishedAt": "2026-09-22T12:53:25Z",
+   "note": "deliverables arrived from an external worker on issue #1799"
   },
   {
    "id": "REV-ERRATA-PAPER-CESNAVICIUS-19",
    "kind": "review",
    "priority": 1,
-   "order": 527,
+   "order": 532,
    "name": "Česnavičius (2019): Purity for the Brauer group",
    "roadmapIds": [],
    "outputs": [
@@ -29820,7 +30078,7 @@
    "id": "ERRATA-PAPER-WOOD-19",
    "kind": "errata",
    "priority": 1,
-   "order": 528,
+   "order": 533,
    "name": "Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
    "roadmapIds": [],
    "outputs": [
@@ -29831,14 +30089,14 @@
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-WOOD-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1802",
-   "finishedAt": "2026-09-22T12:53:26Z"
+   "finishedAt": "2026-09-22T12:53:26Z",
+   "note": "deliverables arrived from an external worker on issue #1802"
   },
   {
    "id": "REV-ERRATA-PAPER-WOOD-19",
    "kind": "review",
    "priority": 1,
-   "order": 528,
+   "order": 533,
    "name": "Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
    "roadmapIds": [],
    "outputs": [
@@ -29857,7 +30115,7 @@
    "id": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
    "kind": "errata",
    "priority": 1,
-   "order": 529,
+   "order": 534,
    "name": "Lipnowski–Tsimerman (2018): How large is A_g(F_q)?",
    "roadmapIds": [],
    "outputs": [
@@ -29873,7 +30131,7 @@
    "id": "REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
    "kind": "review",
    "priority": 1,
-   "order": 529,
+   "order": 534,
    "name": "Lipnowski–Tsimerman (2018): How large is A_g(F_q)?",
    "roadmapIds": [],
    "outputs": [
@@ -29892,7 +30150,7 @@
    "id": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
    "kind": "errata",
    "priority": 1,
-   "order": 530,
+   "order": 535,
    "name": "Shende–Tsimerman (2017): Equidistribution in Bun_2(P^1)",
    "roadmapIds": [],
    "outputs": [
@@ -29908,7 +30166,7 @@
    "id": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
    "kind": "review",
    "priority": 1,
-   "order": 530,
+   "order": 535,
    "name": "Shende–Tsimerman (2017): Equidistribution in Bun_2(P^1)",
    "roadmapIds": [],
    "outputs": [
@@ -29927,7 +30185,7 @@
    "id": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
    "kind": "errata",
    "priority": 1,
-   "order": 531,
+   "order": 537,
    "name": "Kisin–Pappas–Zhou (2026): Integral models of Shimura varieties with parahoric level structure, II",
    "roadmapIds": [],
    "outputs": [
@@ -29943,7 +30201,7 @@
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
    "kind": "review",
    "priority": 1,
-   "order": 531,
+   "order": 537,
    "name": "Kisin–Pappas–Zhou (2026): Integral models of Shimura varieties with parahoric level structure, II",
    "roadmapIds": [],
    "outputs": [
@@ -29962,7 +30220,7 @@
    "id": "ERRATA-PAPER-HACON-WITASZEK-23",
    "kind": "errata",
    "priority": 1,
-   "order": 532,
+   "order": 538,
    "name": "Hacon–Witaszek (2023): On the relative minimal model program for fourfolds in positive and mixed characteristic",
    "roadmapIds": [],
    "outputs": [
@@ -29978,7 +30236,7 @@
    "id": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
    "kind": "review",
    "priority": 1,
-   "order": 532,
+   "order": 538,
    "name": "Hacon–Witaszek (2023): On the relative minimal model program for fourfolds in positive and mixed characteristic",
    "roadmapIds": [],
    "outputs": [
@@ -29997,7 +30255,7 @@
    "id": "ERRATA-PAPER-CESNAVICIUS-22",
    "kind": "errata",
    "priority": 1,
-   "order": 533,
+   "order": 540,
    "name": "Česnavičius (2022): Grothendieck–Serre in the quasi-split unramified case",
    "roadmapIds": [],
    "outputs": [
@@ -30013,7 +30271,7 @@
    "id": "REV-ERRATA-PAPER-CESNAVICIUS-22",
    "kind": "review",
    "priority": 1,
-   "order": 533,
+   "order": 540,
    "name": "Česnavičius (2022): Grothendieck–Serre in the quasi-split unramified case",
    "roadmapIds": [],
    "outputs": [
@@ -30032,7 +30290,7 @@
    "id": "ERRATA-PAPER-HE-21",
    "kind": "errata",
    "priority": 1,
-   "order": 534,
+   "order": 542,
    "name": "He (2021): Cordial elements and dimensions of affine Deligne–Lusztig varieties",
    "roadmapIds": [],
    "outputs": [
@@ -30048,7 +30306,7 @@
    "id": "REV-ERRATA-PAPER-HE-21",
    "kind": "review",
    "priority": 1,
-   "order": 534,
+   "order": 542,
    "name": "He (2021): Cordial elements and dimensions of affine Deligne–Lusztig varieties",
    "roadmapIds": [],
    "outputs": [
@@ -30067,7 +30325,7 @@
    "id": "ERRATA-PAPER-MERKURJEV-SCAVIA-26",
    "kind": "errata",
    "priority": 1,
-   "order": 535,
+   "order": 544,
    "name": "Merkurjev–Scavia (2026): Galois representations modulo p that do not lift modulo p^2",
    "roadmapIds": [],
    "outputs": [
@@ -30083,7 +30341,7 @@
    "id": "REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26",
    "kind": "review",
    "priority": 1,
-   "order": 535,
+   "order": 544,
    "name": "Merkurjev–Scavia (2026): Galois representations modulo p that do not lift modulo p^2",
    "roadmapIds": [],
    "outputs": [
@@ -30102,7 +30360,7 @@
    "id": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "kind": "errata",
    "priority": 1,
-   "order": 536,
+   "order": 545,
    "name": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
    "roadmapIds": [],
    "outputs": [
@@ -30118,7 +30376,7 @@
    "id": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "kind": "review",
    "priority": 1,
-   "order": 536,
+   "order": 545,
    "name": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
    "roadmapIds": [],
    "outputs": [
@@ -30137,7 +30395,7 @@
    "id": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "kind": "errata",
    "priority": 1,
-   "order": 537,
+   "order": 546,
    "name": "Bakker–Klingler–Tsimerman (2020): Tame topology of arithmetic quotients and algebraicity of Hodge loci",
    "roadmapIds": [],
    "outputs": [
@@ -30153,7 +30411,7 @@
    "id": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
    "kind": "review",
    "priority": 1,
-   "order": 537,
+   "order": 546,
    "name": "Bakker–Klingler–Tsimerman (2020): Tame topology of arithmetic quotients and algebraicity of Hodge loci",
    "roadmapIds": [],
    "outputs": [
@@ -30172,7 +30430,7 @@
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
    "kind": "errata",
    "priority": 1,
-   "order": 538,
+   "order": 547,
    "name": "Harpaz–Wittenberg (2020): Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
    "roadmapIds": [],
    "outputs": [
@@ -30188,7 +30446,7 @@
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
    "kind": "review",
    "priority": 1,
-   "order": 538,
+   "order": 547,
    "name": "Harpaz–Wittenberg (2020): Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
    "roadmapIds": [],
    "outputs": [
@@ -30207,7 +30465,7 @@
    "id": "ERRATA-PAPER-BHATT-ETAL-23",
    "kind": "errata",
    "priority": 1,
-   "order": 539,
+   "order": 550,
    "name": "Bhatt et al. (2023): Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
    "roadmapIds": [],
    "outputs": [
@@ -30223,7 +30481,7 @@
    "id": "REV-ERRATA-PAPER-BHATT-ETAL-23",
    "kind": "review",
    "priority": 1,
-   "order": 539,
+   "order": 550,
    "name": "Bhatt et al. (2023): Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
    "roadmapIds": [],
    "outputs": [
@@ -30242,7 +30500,7 @@
    "id": "ERRATA-PAPER-BENOIST-19",
    "kind": "errata",
    "priority": 1,
-   "order": 540,
+   "order": 551,
    "name": "Benoist (2019): The period-index problem for real surfaces",
    "roadmapIds": [],
    "outputs": [
@@ -30258,7 +30516,7 @@
    "id": "REV-ERRATA-PAPER-BENOIST-19",
    "kind": "review",
    "priority": 1,
-   "order": 540,
+   "order": 551,
    "name": "Benoist (2019): The period-index problem for real surfaces",
    "roadmapIds": [],
    "outputs": [
@@ -30277,7 +30535,7 @@
    "id": "ERRATA-PAPER-KISIN-PAPPAS-18",
    "kind": "errata",
    "priority": 1,
-   "order": 541,
+   "order": 552,
    "name": "Kisin–Pappas (2018): Integral models of Shimura varieties with parahoric level structure",
    "roadmapIds": [],
    "outputs": [
@@ -30293,7 +30551,7 @@
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
    "kind": "review",
    "priority": 1,
-   "order": 541,
+   "order": 552,
    "name": "Kisin–Pappas (2018): Integral models of Shimura varieties with parahoric level structure",
    "roadmapIds": [],
    "outputs": [
@@ -30312,7 +30570,7 @@
    "id": "ERRATA-PAPER-ANDRE-18",
    "kind": "errata",
    "priority": 1,
-   "order": 542,
+   "order": 553,
    "name": "André (2018): Le lemme d'Abhyankar perfectoïde",
    "roadmapIds": [],
    "outputs": [
@@ -30328,7 +30586,7 @@
    "id": "REV-ERRATA-PAPER-ANDRE-18",
    "kind": "review",
    "priority": 1,
-   "order": 542,
+   "order": 553,
    "name": "André (2018): Le lemme d'Abhyankar perfectoïde",
    "roadmapIds": [],
    "outputs": [
@@ -30347,7 +30605,7 @@
    "id": "ERRATA-DESIGN-LV",
    "kind": "errata",
    "priority": 1,
-   "order": 543,
+   "order": 554,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
@@ -30363,7 +30621,7 @@
    "id": "REV-ERRATA-DESIGN-LV",
    "kind": "review",
    "priority": 1,
-   "order": 543,
+   "order": 554,
    "name": "MordellLawrenceVenkatesh",
    "roadmapIds": [],
    "outputs": [
