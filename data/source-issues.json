@@ -13780,6 +13780,195 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LI-23/E1",
+   "kind": "error",
+   "locator": "Lemma 2.8, p. 394",
+   "printed": "\"Let θ1, …, θN ∈ R be Q-linearly independent irrational numbers, M ∈ N and b an integer with 0 ≤ b ≤ M − 1. For any α1, …, αN ∈ R, there exists an infinite subsequence {ni} ⊂ N such that lim e((Mni + b)θj) = e(αj) for all 1 ≤ j ≤ N.\"",
+   "correction": "Assume that 1, θ1, …, θN are Q-linearly independent.",
+   "reason": "As printed the lemma is false. θ1 = √2 and θ2 = 1 − √2 are irrational and Q-linearly independent, but e(nθ1)e(nθ2) = 1 for every n, so (e(1/2), e(0)) is never approached. The proof cites Kronecker's theorem (Apostol, Thm. 7.10), which needs the stronger hypothesis. The only application, in the proof of Lemma 2.9, chooses θj with 1, θ1, …, θN linearly independent, so nothing downstream is affected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E2",
+   "kind": "error",
+   "locator": "Lemma 2.9, p. 394",
+   "printed": "\"Suppose αi, ci ∈ C for i ∈ N satisfy the condition that the series defining φ(s) := Σ αi ci^s converges absolutely for s = s0 ∈ R and equals to 0 for all but finitely many s ∈ Z_{>s0}. Then we have Σ_{ci = c} αi = 0 for any c ∈ C^×.\"",
+   "correction": "Add the hypothesis that for every ε > 0 only finitely many i have |ci| ≥ ε (equivalently, the moduli |ci| can be listed in decreasing order with finite multiplicities). The proof, which starts by arranging |c1| = |cm| > |c_{m+1}| ≥ …, then works.",
+   "reason": "Without the hypothesis the lemma is false. Let F(x) = ∏_{k≥1}(1 − x/2^k), an entire function with Taylor coefficients αi, and let ci = 2^i and s0 = 0. Then Σ|αi| < ∞ and φ(s) = F(2^s) = 0 for every s ≥ 1, yet α0 = 1 with c0 = 1 unique (checked numerically). The applications are unaffected: in Corollary 2.11 with s0 > 0 the hypothesis follows from absolute convergence, and in Lemmas 3.2–3.3 the ci are values c(β, τ0)^{−𝔯}, which tend to 0 because the Eisenstein series converge.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E3",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.2, p. 400",
+   "printed": "\"By Remark 2.10, we have ∏_{i=0}^{N} c(βi, giτ0) = 0 for all β1, …, βN ∈ P¹(F), which is clearly a contradiction since ∏_{i=0}^{N} c(∞, giτ0) = 1.\"",
+   "correction": "Remark 2.10, applied with αi = 1 and the numbers (∏_{i=0}^N c(βi, giτ0))^{−𝔯}, would force (∏_i c(βi, giτ0))^{−𝔯} = 0 for all β0, …, βN ∈ P¹(F). That is absurd, for example for βi = ∞.",
+   "reason": "The quantities to which Remark 2.10 is applied are the reciprocal powers (∏ c)^{−𝔯}, which appear as ci^ℓ in f_ℓ(τ0), not the products ∏ c themselves. β0 is also omitted from the quantifier.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.3, p. 400",
+   "printed": "\"EP(τ0) = cK Σ_{h∈H(Q)\\H(Q̂)/K} θP(τ0, h) = θP(τ0) cK Σ_{h} 1 = θP(τ0).\"",
+   "correction": "EP(τ0) = cK^{−1} Σ_h θP(τ0, h) = θP(τ0) cK^{−1} Σ_h 1 = θP(τ0).",
+   "reason": "By (3.10), EP = cK^{−1} Σ_h θP(·, h) with cK = Σ_h 1, so the last equality holds only with cK^{−1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E5",
+   "kind": "misprint",
+   "locator": "Theorem 4.3(2), equation (4.5), p. 405",
+   "printed": "\"Lτ1 δ̂(τ) = (θP2(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))\"",
+   "correction": "Lτ1 δ̂(τ) = (θP1(τ) − θP2(τ))^ℓ (θN(τ) − θN(τ, h))",
+   "reason": "As printed the right-hand side is identically 0. Part (3) of the same theorem, the proof, and its use in (4.19) and Proposition 4.8 all have (θP1 − θP2)^ℓ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E6",
+   "kind": "gap",
+   "locator": "Proof of Theorem 4.1, p. 404",
+   "printed": "\"By the discussion and Lemma 31.32.4(3) in [Stacks, Tag 01OF] and Lemma 29.38.2 in [Tag 01VL], we know that O_X̃(−E) = O_X̃(1) is π-relatively ample.\"",
+   "correction": "Replace the boundary divisor E by the exceptional Cartier divisor D = V(I·O_X̃) of the (normalized) blow-up. D is supported on E but in general has multiplicities aσ ≥ 1, given by the polarization function of the admissible decomposition. Then O(−D) ⊗ π*L^k is ample, and Theorem 4.1 holds with L̃_k(−D). In Proposition 4.2 take ℓ0 ≥ n0·k·max aσ, so that g^{ℓ0}, which vanishes to order ≥ ℓ0 along every boundary component, gives a section twisted by −n0k′D.",
+   "reason": "The Stacks lemma gives O(1) = I·O_X̃ = O(−D) for the exceptional divisor of the ideal I of AMRT IV Thm. 2.2, not for the reduced boundary E. On a Hirzebruch cusp resolution (d = 2), −E is not π-ample whenever some boundary curve has self-intersection −2, since (−E)·Eσ = bσ − 2 = 0. The conclusion survives with D in place of E.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E7",
+   "kind": "misprint",
+   "locator": "Theorem 1.7, p. 379; also the proof of Theorem 1.3, last paragraph, p. 415",
+   "printed": "\"Conjecture 1.6 holds when F is a real quadratic field, r is even, n = 4, and Z(WQ) is defined over Q …\"; and \"When d = 2 = n/2, we already have L = N0 …\"",
+   "correction": "n = 2, i.e. n + 2 = 2d = 4, in both places.",
+   "reason": "L = N0 = Res_{F/Q} N has Q-rank 2d = 4, so L = N0 forces n + 2 = 4. The proof of Theorem 1.7 uses Theorem 1.3's special case 'n + 2 = 2d = 4' (λ2 = 0) and the weight-(1, 1) incoherent Eisenstein series. Remark 1.8 deduces the even-r case of Theorem 1.1 on X_0(1)², a Shimura variety for M_2(Q) of signature (2, 2), i.e. n = 2. With n = 4 the proof does not apply and Remark 1.8 would not follow.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E8",
+   "kind": "gap",
+   "locator": "Proof of Theorem 1.1 (§5.3), p. 416, and Example 2.7, p. 392",
+   "printed": "\"When r is even, this follows from the discussion in Example 2.7 and Theorem 1.7. When r is odd and d1 is fundamental, Theorem 7.13 of [BEY21] gives the algebraicity … Using this and proceeding with the rest of the argument in the proof of Theorem 1.7 gives Theorem 1.1.\"",
+   "correction": "Treat separately the case where d1d2 is a perfect square, i.e. E1 = E2. Then (z1, z2) is a small CM point (F = Q, Remark 1.4), and Conjecture 1.6 for F = Q is Bruinier–Ehlen–Yang, Theorem 5.5 (see §1.2). This gives (1.3)–(1.4) with α in the ring class field. The case E1 = E2 is also Viazovska's theorem (arXiv:1110.4654), as the introduction says (p. 377).",
+   "reason": "Example 2.7 and Theorems 1.3 and 1.7 require F = Q(√(d1d2)) to be a real quadratic field, while Theorem 1.1 is stated for all negative discriminants. A comment in the arXiv TeX ('it is enough to treat the case that d1d2 is not a perfect square') shows the case was known to be covered by the literature, but the published proof does not say so.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-23/E9",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.10, definition of Q(z, h), p. 413",
+   "printed": "\"Q(z, h) := ∏_{0≤i≤ℓ} ∏_{h0∈SW} (R_{Li}(z, h, f)/R_{Li}(z, h(h0, 1), f))^{(−1)^i C(ℓ, i)}\"",
+   "correction": "exponent (−1)^{ℓ−i} C(ℓ, i), matching the alternating sum Σ (−1)^{ℓ−i} C(ℓ, i)(…) two lines above.",
+   "reason": "With (−1)^i the displayed identity holds only up to the global sign (−1)^ℓ. Theorem 4.10 is unaffected, since the sign can be absorbed into λ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published article, Invent. Math. 234 (2023), 375–418 (doi 10.1007/s00222-023-01205-5, CC BY 4.0), read in full",
+    "arXiv 2106.13653 v1 (June 2021) and v2 (June 2023, 'final version'); a word-level diff of v2 against the published text shows only layout changes",
+    "Crossref metadata for 10.1007/s00222-023-01205-5, which records no correction or erratum"
+   ],
+   "owner": "PAPER-LI-23",
+   "file": "research/blueprint/papers/PAPER-LI-23.result.json",
+   "citation": "Yingkun Li, \"Algebraicity of higher Green functions at a CM point\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LI-LIU-21/E1",
    "kind": "error",
    "locator": "Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs",
