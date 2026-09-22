@@ -15647,7 +15647,7 @@
     "arXiv listing for 1407.2346, which has only v1 (9 July 2014) and no later version",
     "the Annals of Mathematics page for volume 183 issue 1 article 4 (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
     "the Annals of Mathematics errata and corrigenda listing",
-    "the published text itself, which could not be read: no PDF text extractor is available in this environment (pdftotext, mutool, gs, qpdf, pypdf, PyPDF2, fitz, pdfminer and pdfplumber are all absent) and the Annals article page serves only a PDF, so the finding is recorded against the preprint and makes no claim about the printed version"
+    "the published text itself, which could not be read: the Annals PDF downloads freely but is encrypted with the standard security handler (/Filter /Standard /V 2 /Length 128), so its content streams cannot be decompressed; no PDF text-extraction tool is installed here either, although a text extractor written for the purpose does read unencrypted PDFs and was checked on the arXiv PDF of this paper. The finding is therefore recorded against the preprint and makes no claim about the printed version"
    ],
    "owner": "PAPER-TREUMANN-VENKATESH-16",
    "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
@@ -15668,7 +15668,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ],
    "owner": "PAPER-TREUMANN-VENKATESH-16",
    "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
@@ -15689,7 +15689,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ],
    "owner": "PAPER-TREUMANN-VENKATESH-16",
    "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
@@ -15710,7 +15710,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ],
    "owner": "PAPER-TREUMANN-VENKATESH-16",
    "file": "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
