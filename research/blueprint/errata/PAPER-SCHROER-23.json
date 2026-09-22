@@ -1,0 +1,156 @@
+{
+  "paper": "PAPER-SCHROER-23",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-SCHROER-23/E1",
+      "kind": "misprint",
+      "locator": "Lemma 1.1, p.5, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"Lemma 1.1. The group scheme Num_{X/k} is constant if and only if there is an integer d ≥ 0 with the following property: For every invertible sheaf L on X̄ there is a numerically trivial invertible sheaf N on X̄ such that L^{⊗d} ⊗ N is the pullback of some invertible sheaf on X.\"",
+      "correction": "\"an integer d ≥ 1\".",
+      "reason": "With d = 0 the property holds trivially (take N = O), so the \"if\" direction would fail: P¹_C, viewed as a proper R-scheme, has X̄ = P¹_C ⊔ P¹_C with Num = Z² and complex conjugation exchanging the two factors, so Num_{X/R} is not constant. Noted by the extraction (item 2).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E2",
+      "kind": "error",
+      "locator": "Proposition 3.1, pp.10–11, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"Proposition 3.1. Suppose the ground field k = F_q is finite and that the group scheme Num_{S/k} is constant. Then Γ(S_ā) → Γ(S_a) is a graph isomorphism respecting edge labels, and the implications (i)⇒(ii)⇔(iii) hold among the following three conditions: (i) The geometric fiber S_ā is reducible. (ii) The closed point a ∈ B is a rational point. (iii) The irreducible components of the schematic fiber S_a are birational to P¹.\"",
+      "correction": "(ii)⇔(iii) requires the geometric fiber to be singular (as in the applications, e.g. Proposition 3.2, which assumes C_red singular).",
+      "reason": "For S = E × P¹ → P¹ over F_q with E an elliptic curve, Num_{S/k} is constant, but the fiber over a rational point a is the smooth elliptic curve E, which is not birational to P¹: (ii) holds and (iii) fails. Noted by the extraction (item 14).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E3",
+      "kind": "misprint",
+      "locator": "§5, the group schemes of rank two, p.14, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"Each triple (L, a, b) where L is an invertible R-module and a ∈ L, b ∈ L^{⊗−1} are elements with a ⊗ b = 2R yields a finite flat group scheme G^L_{a,b}, characterized by G^L_{a,b}(A) = {f ∈ L ⊗_R A | f^{⊗2} = a ⊗ f}, with group law f_1 ⋆ f_2 = f_1 + f_2 + b ⊗ f_1 ⊗ f_2.\"",
+      "correction": "f_1 ⋆ f_2 = f_1 + f_2 − b ⊗ f_1 ⊗ f_2, as in Oort–Tate.",
+      "reason": "With L = R = Z, a = 1, b = 2 (the constant group Z/2Z, as the text says next) and f_1 = f_2 = 1, the printed law gives 4, and 4² ≠ 1·4, so it is not in G; the minus sign gives 0, the group law of {0, 1}. For a = 2, b = 1 (μ₂) the minus sign matches (1 − f)(1 − g) = 1 − (f + g − fg). Noted by the extraction (item 51).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E4",
+      "kind": "gap",
+      "locator": "Proof of Proposition 5.5, p.16, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"One the other hand, using Hensel's Lemma, any F_2^alg-valued point for Y → S can be extended to an A-valued point. Again with Proposition 5.4 we conclude that a family of canonical covering X ⊗ A → Y ⊗ A exists, whence X_F has good reduction over A, contradiction.\" (Here X_F is the generic fiber of the canonical covering constructed over Z[1/2], and A = W(F_2^sep), F = Frac A.)",
+      "correction": "Compare the two covers: over F they are canonical covers of the same Enriques surface and may differ by a twist by a class in H¹(F, μ₂) = F^×/F^{×2}. One way to close the gap: construct the local cover over Z₂ (using a Z₂-point, which exists since #Y(F₂) = 25 by Corollary 7.3), write the difference over Q₂ as (−1)^e 2^a 5^b, remove (−1)^e 2^a by twisting the Z[1/2]-cover by the étale torsor s² = (−1)^e 2^a, and 5^b by twisting the local cover by the unramified torsor Z₂[z]/(z² − z − 1); then both covers agree over Q₂ and give a smooth proper model everywhere, contradicting Fontaine.",
+      "reason": "Canonical coverings are unique only up to such twists, so good reduction of the local cover over A does not by itself give good reduction of X_F. The extraction supplies the four-twist repair sketched in the correction (report, \"Four-twist repair\"). The main theorem is not in doubt.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E5",
+      "kind": "misprint",
+      "locator": "Corollary 7.2, p.21, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"Suppose that X is a surface with b_1 = 0 and b_2 = ρ. If the local system Num_{X/k} is constant, we have Card X(F_p) = 1 + b_2 q + q².\"",
+      "correction": "\"Card X(F_q) = 1 + b_2 q + q²\".",
+      "reason": "The ground field is F_q (as in Proposition 7.1, which the proof applies); the count is of F_q-points. Noted by the extraction (item 79).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E6",
+      "kind": "gap",
+      "locator": "Proof of Proposition 9.2, p.24, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"If r ≥ 2, we actually have C_i ≃ P¹, and the canonical map Γ(C̄) → Γ(C) is a graph isomorphism respecting edge labels, again by Proposition 3.1. Choose a component C_i corresponding to a terminal vertex of Γ(C). Then there is exactly one component C_j intersecting C_i, which has (C_i · C_j) ≤ 2. In turn, from the three rational points in C_i = P¹ at least one is contained in the regular locus of C_red.\"",
+      "correction": "For multiplicative fibers I_r with r ≥ 3 the dual graph is a cycle and has no terminal vertex; take any rational component, which meets the others in two points, and use the third point of P¹(F₂). For additive fibers, whose dual graph is a tree, choose a terminal component of multiplicity one.",
+      "reason": "The argument as written applies a terminal-vertex choice to every fiber type, which fails for cycles. The conclusion still holds by the modified choice. Noted by the extraction (report §\"Source precision\", item 11).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E7",
+      "kind": "error",
+      "locator": "Proof of Proposition 9.3(v), p.25, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"According to the definition of Mordell–Weil groups we have MW(J/P¹) = J(F) = Pic⁰_{Y_F/F}(F) = Pic⁰(Y_F), where F is the function field of the projective line. The latter equality holds because Br(F) = 0, by Tsen's Theorem.\"",
+      "correction": "Here k = F₂, so F = F₂(t) and Br(F) ≠ 0: Tsen's theorem applies to function fields over algebraically closed fields. The equality Pic⁰_{Y_F/F}(F) = Pic⁰(Y_F) needs another argument, for instance passing to F_2^alg(t), where Tsen applies, and taking Galois invariants of the geometric Picard group.",
+      "reason": "A concrete nonzero class: the cyclic algebra (F₄(t)/F₂(t), t), since norms from F₄(t) have even valuation at t = 0, so t is not a norm. Noted by the extraction (item 94), which proposes the repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E8",
+      "kind": "error",
+      "locator": "§10, p.29 (the argument that there is only one unstable fiber), in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"Indeed, a fiber J_x is unstable if and only if c_4 ∈ F₂[T] vanishes at the point x ([14], Proposition 5.1), and in our situation c_4 = a_1^4 with deg(a_1) ≤ 1.\"",
+      "correction": "A fiber is unstable (additive) if and only if Δ and c_4 both vanish at x; c_4(x) = 0 alone also holds for a smooth supersingular fiber.",
+      "reason": "In characteristic 2, c_4 = a_1^4 vanishes at x exactly when the reduction is supersingular or additive. The argument only uses \"unstable ⇒ c_4(x) = 0\", which is true, to conclude that there is at most one unstable fiber, so nothing downstream changes. Noted by the extraction (report item 8).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E9",
+      "kind": "misprint",
+      "locator": "§10, p.31, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"If the semistable fiber is twisted, we have r_c ≤ 2 and n_c = 2r_c + 2. Now (11) becomes r_a + i + r_c = 11 and thus r_c ≥ 11 − i − r_a ≥ 7, and the argument is similar.\"",
+      "correction": "\"… and thus r_a ≥ 11 − i − r_c ≥ 7\".",
+      "reason": "Since r_c ≤ 2 and i ≤ 2, the equation r_a + i + r_c = 11 bounds r_a from below, not r_c (which is at most 2). Noted by the extraction (report item 8).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-SCHROER-23/E10",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 12.3, p.43, in arXiv 2004.07025v3 (9 August 2022, SHA-256 ae6481f2…6d61), whose text after the first page agrees with the author's third revised version of 19 July 2022 (the journal's revision date); the typeset Annals text (197 (2023), 1–63) was not obtained",
+      "printed": "\"As in the preceding proof, the two-section F′ gives a splitting Pic(Y_K) = Pic⁰(Y_K) ⊕ 2Z, we get an identification Pic(Y_K) = Num(Y)/S, …\"",
+      "correction": "\"… an identification Pic⁰(Y_K) = Num(Y)/S\", as in the proof of Proposition 12.2 (p.42).",
+      "reason": "After the splitting, the quotient of Num(Y) by the vertical classes and the degree-two class is the degree-zero part; the full Pic(Y_K) has degree image 2Z. The parallel sentence in the proof of Proposition 12.2 has Pic⁰(Y_K). Noted by the extraction (report item 9).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2023/197-1/p01, checked 22 September 2026: no erratum is linked",
+        "arXiv 2004.07025: v1 (15 April 2020), v2 (20 May 2020), v3 (9 August 2022, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    }
+  ]
+}
