@@ -1,0 +1,1321 @@
+{
+  "paper": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields",
+    "authors": "Ananth N. Shankar, Arul Shankar, Yunqing Tang and Salim Tayou",
+    "venue": "Forum of Mathematics, Pi 10 (2022), e21, 49 pp.",
+    "doi": "10.1017/fmp.2022.14",
+    "arxiv": "1909.07473",
+    "url": "https://doi.org/10.1017/fmp.2022.14",
+    "readSections": [
+      "The entire published article (Forum Math. Pi 10 (2022), e21; 49 pages; §§1–9 and references), read 2026-09-22 from the Cambridge Core open-access PDF, SHA-256 11fbb97a4f7a9e651ea90e249974493aacabf6472daecc0737463c4f64e06d28. Locators are journal pages.",
+      "Bruinier–Kühn, arXiv:math/0204100v2, Theorem 4.11 and its proof (pp.27–28), read to check Lemma 5.3."
+    ]
+  },
+  "summary": "Proves that a K3 surface over a number field with everywhere potentially good reduction has infinitely many reductions whose geometric Picard rank jumps (Theorem 1.1). Consequences:\n- such an X_K̄ has infinitely many rational curves, unless X has infinitely many supersingular reductions (Corollary 1.3);\n- abelian surfaces over O_K have infinitely many geometrically nonsimple reductions (Theorem 1.4);\n- the same holds for the Kuga–Satake factors of Assumption 1.5 (Theorem 1.6) and for unitary (r, 1) abelian varieties, which acquire CM elliptic isogeny factors (Corollary 1.7).\n\nAll of these follow from Theorem 1.8. For a GSpin Shimura variety of a maximal lattice of signature (b, 2), b ≥ 3, a Hodge-generic O_K-point meets special divisors Z(m) at infinitely many primes; Theorem 2.4 does this with m ∈ D·□.\n\nThe proof compares two sides of the arithmetic height h_Ẑ(m)(Y):\n- Howard–Madapusi Pera modularity gives h ≍ m^{b/2} (Proposition 3.2);\n- Bruinier's explicit Green function gives an archimedean term ≍ −m^{b/2} log m outside a sparse set of m (Theorems 5.7, 6.1), using local densities, Heath-Brown's and Niedermowwe's circle method, and the diophantine bound of Theorem 5.8;\n- the finite contribution at a fixed prime is o(X^{(b+1)/2} log X) on average over m ∈ D·□ (Theorem 7.1), from deformation-theoretic lattices of special endomorphisms and successive minima.\n\nThe libraries supply lattices, the discriminant form and the overlattice correspondence (Tau Ceti), and Clifford algebras, ₂F₁ and Gamma (Mathlib). The atlas plans the PEL moduli M(r, 1), Serre–Tate, Néron models and the Hodge index theorem.\n\nRoutes:\n- the GSpin integral-model material goes to the orthogonal Part II of ShimuraVarieties proposed by PAPER-CHARLES-16;\n- the heights, Green functions and counting argument go to a new Part II of GrossZagierAndArithmeticHeights;\n- the K3 applications go to the K3 roadmap proposed by PAPER-CHARLES-16;\n- general inputs go to GN.1/GN.3/GN.4, ES.3/ES.4, QM.3, R28.4 and AN.2 as sources.\n\nSix source issues are recorded:\n- for b odd, Lemma 5.3 and Proposition 5.2 are proved only for m ∈ D·□, while Theorems 5.7–5.8 are stated and used for all m (a repair is given);\n- the §7.3 example's approximation gaps are too short;\n- dim B = 2^n should be 2^{n−1};\n- three groups of misprints and slips.",
+  "items": [
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/1",
+      "kind": "definition",
+      "name": "Even quadratic lattices, the dual lattice and the discriminant group",
+      "statement": "(L, Q) is an integral even quadratic lattice with bilinear form (x.y) = Q(x + y) − Q(x) − Q(y), V = L ⊗ Q, L^∨ = {x ∈ V : (x.y) ∈ Z for all y ∈ L} and the discriminant group L^∨/L; det(L) is the Gram determinant. Throughout, (L, Q) has signature (b, 2) with b ≥ 3 (b ≥ 1 in §2) and rank r = b + 2.",
+      "locator": "§2, p.7; §4.1, p.15",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice",
+        "tauceti:TauCeti.IntegralLattice.dualCarrier",
+        "tauceti:TauCeti.IntegralLattice.DiscriminantGroup",
+        "tauceti:TauCeti.IntegralLattice.IsEven",
+        "tauceti:TauCeti.IntegralLattice.signature"
+      ],
+      "note": "Tau Ceti f790474: TauCeti/LinearAlgebra/IntegralLattice/Basic.lean:61, Dual/Basic.lean:75, Discriminant/Group.lean:109, Even.lean:65, Signature.lean:81. Tau Ceti works with the bilinear form; IsEven (all norms (x.x) even) is the paper's \"Q is Z-valued\"."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/2",
+      "kind": "theorem",
+      "name": "Maximal lattices and isotropic subgroups of the discriminant form",
+      "statement": "L is maximal among lattices in V on which Q is Z-valued if and only if L^∨/L has no nonzero subgroup isotropic for the discriminant quadratic form; hence each L_p = L ⊗ Z_p is maximal in V ⊗ Q_p.",
+      "locator": "§4.1, p.15",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup",
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.isEven_iff_isIsotropic_discriminantSubgroup"
+      ],
+      "note": "Tau Ceti f790474: TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean:254 and :343, the order isomorphism between even overlattices and isotropic subgroups of the discriminant quadratic module. The passage to L_p (the p-part of L^∨/L is L_p^∨/L_p) is a one-line consequence left to the consumer."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/3",
+      "kind": "construction",
+      "name": "The Clifford algebra and its Z/2-grading",
+      "statement": "For a ring R, C(L_R) is the quotient of the tensor algebra of L_R by the ideal generated by x ⊗ x − Q(x), with the grading C(L_R) = C^+(L_R) ⊕ C^−(L_R) induced by the tensor degree mod 2; C(L) is a lattice in C(V).",
+      "locator": "§2.1, p.7",
+      "status": "library",
+      "library": [
+        "mathlib:CliffordAlgebra",
+        "mathlib:CliffordAlgebra.evenOdd",
+        "mathlib:CliffordAlgebra.gradedAlgebra",
+        "mathlib:CliffordAlgebra.even"
+      ],
+      "note": "Mathlib 082e2d3: LinearAlgebra/CliffordAlgebra/Basic.lean:74, Grading.lean:32 and :111, Even.lean:54."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/4",
+      "kind": "definition",
+      "name": "The Gauss hypergeometric function and the Gamma function",
+      "statement": "H(a, b, c; z) = Σ_{n≥0} (a)_n(b)_n/(c)_n · z^n/n! for |z| < 1, with (a)_n = Γ(a + n)/Γ(a) [AS64, Ch. 15].",
+      "locator": "§5.1, p.24",
+      "status": "library",
+      "library": [
+        "mathlib:ordinaryHypergeometric",
+        "mathlib:ordinaryHypergeometricSeries",
+        "mathlib:ascPochhammer",
+        "mathlib:Complex.Gamma"
+      ],
+      "note": "Mathlib 082e2d3: Analysis/SpecialFunctions/OrdinaryHypergeometric.lean:71 and :81 (coefficients via ascPochhammer), Gamma/Basic.lean:287."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/5",
+      "kind": "construction",
+      "name": "GSpin(V), the spinor similitude and the Shimura datum",
+      "statement": "G = GSpin(V) with G(R) = {g ∈ C^+(V_R)^× : gV_Rg^{−1} = V_R}, spinor similitude ν : G → G_m [Bas74, §3], and the exact sequence 1 → G_m → G → SO(V) → 1 (g ↦ g • v = gvg^{−1}). The period domain D_L = {[z] ∈ P(V_C) : (z.z) = 0, (z.z̄) < 0}; for z = u + iw with u, w orthogonal and Q(u) = Q(w) = −1, h_[z](i) = uw gives the Hodge decomposition V^{1,−1} = Cz, V^{−1,1} = Cz̄, V^{0,0} = (Cz ⊕ Cz̄)^⊥. (G, D_L) is a Shimura datum with reflex field Q [And96, App. 1]; [z] gives the negative definite plane P_x = span_R{u, w}.",
+      "locator": "§2.1, pp.7–8; footnote 25, p.24",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/6",
+      "kind": "construction",
+      "name": "The GSpin Shimura variety M and its level",
+      "statement": "K = G(A_f) ∩ C(L̂)^×, whose image in SO(L̂) is the subgroup acting trivially on L^∨/L [MP16, Lemma 2.6]. By canonical models, M is a b-dimensional Deligne–Mumford stack over Q with M(C) = G(Q)\\D_L × G(A_f)/K.",
+      "locator": "§2.1, p.8",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/7",
+      "kind": "construction",
+      "name": "The Kuga–Satake abelian scheme and the K3-type motive",
+      "statement": "The functor (N, N_Z) ↦ (N_B, F^•N_dR) from Q-representations of G with a K-stable lattice to variations of Z-Hodge structures on M(C). Applied to (V, L) it gives the weight-0 polarized VHS (V_B, F^•V_dR); applied to H = C(V) with left multiplication and H_Z = C(L) it gives a VHS of type (−1, 0), (0, −1), the homology of the Kuga–Satake abelian scheme A^univ → M of relative dimension 2^{b+1}, with right C(L)-action and grading A^univ = A^univ,+ × A^univ,− [MP16, 3.5–3.10]. H_dR, H_ℓ,ét descend to M; via absolute Hodge cycles [MP16, 3.4, 3.10–3.13] so do V_dR and V_ℓ,ét, embedded in End_{C(V)}(H_?) compatibly with filtration, connection and Galois action, with canonical quadratic form v ∘ v = Q(v)·Id.",
+      "locator": "§2.2, pp.8–9",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/8",
+      "kind": "definition",
+      "name": "Hodge-generic points",
+      "statement": "x ∈ M(K) is Hodge-generic if for one (equivalently any) σ : K ↪ C, x^σ ∈ M(C) lies on no special divisor Z(m)(C). Equivalently λ_x ≠ 0 for every nonzero λ ∈ L (the projection to the negative plane of a lift of x). One may always pass to the smallest GSpin sub-Shimura variety containing Y_K, since each Z(m)_K is a union of GSpin Shimura varieties of signature (b − 1, 2); the Mumford–Tate group is not assumed maximal.",
+      "locator": "§1.4 and footnote 3, p.4; §5.3, p.27",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/9",
+      "kind": "construction",
+      "name": "Special divisors over C and over Q",
+      "statement": "For β ∈ L^∨/L and m ∈ Q(β) + Z, m > 0: Z(β, m)(C) = ⊔_{g ∈ G(Q)\\G(A_f)/K} Γ_g \\ (⋃_{λ ∈ β_g + L_g, Q(λ) = m} λ^⊥), with Γ_g = G(Q) ∩ gKg^{−1}, L_g = g • L. It is a union of Shimura varieties of signature (b − 1, 2) with a canonical model over Q for b ≥ 2; Z(β, m) → M is finite unramified and étale locally a closed immersion cut out by one equation, and its scheme-theoretic image is an effective Cartier divisor.",
+      "locator": "§2.3, p.9",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/10",
+      "kind": "theorem",
+      "name": "Proposition 2.1 (the integral model M)",
+      "statement": "There is a flat normal Deligne–Mumford Z-stack M with: (1) M_{Z(p)} smooth over Z_(p) when L is almost self-dual at p (self-dual, or p = 2, dim V odd and 4 ∤ |L^∨/L|); (2) A^univ extends to an abelian scheme over M with its C(L)-action; (3) F¹V_dR extends to a line bundle ω; (4) for E/Q_p finite and t ∈ M(E) with A^univ_t of potentially good reduction over O_E, t extends to Spec(O_E) → M [AGHMP18, Prop. 4.4.1, Thm. 4.4.6; HM17, Rem. 6.3.1].",
+      "locator": "Proposition 2.1, p.10",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/11",
+      "kind": "construction",
+      "name": "The integral realizations V_dR, V_ℓ,ét and V_cris at self-dual primes",
+      "statement": "For L self-dual at p: H_dR, H_ℓ,ét extend over M_{Z(p)} as relative de Rham homology and Tate module of A^univ, and H_cris is the relative crystalline homology over M_{F_p}; V_ℓ,ét ↪ End_{C(L)}(H_ℓ,ét) extends [AGHMP18, Rem. 4.2.3]; V_dR (with integrable connection) and an F-crystal V_cris embed as local direct summands of End_{C(L)}(H_dR), End_{C(L)}(H_cris), compatibly with the crystalline–de Rham comparison [AGHMP18, Props. 4.2.4, 4.2.5].",
+      "locator": "§2.4, p.10",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/12",
+      "kind": "definition",
+      "name": "Definition 2.2 (special endomorphisms) and their quadratic form",
+      "statement": "For an M-scheme S, v ∈ End_{C(L)}(A_S) is special if (1) at primes p where L is self-dual, all homological realizations of v lie in the image of V_? ↪ End_{C(L)}(H_?) (? = B, dR, cris, (ℓ, ét), dropping B if S_Q = ∅; only B when p is invertible on S); (2) at p where L is not self-dual, after an isometric embedding L ↪ L^⋄ into a maximal lattice of signature (b^⋄, 2) self-dual at p, the image of v in End_{C(L^⋄)}(A^⋄_S) satisfies (1), independently of L^⋄ [AGHMP18, Props. 4.4.7, 4.5.1]. V(A_S) is the Z-module of special endomorphisms; it carries a positive definite Z-valued quadratic form with v ∘ v = Q(v)·Id [AGHMP18, Prop. 4.5.4].",
+      "locator": "Definition 2.2 and footnotes 10–12, pp.10–11",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/13",
+      "kind": "definition",
+      "name": "Definition 2.3 (special endomorphisms of the p-divisible group)",
+      "statement": "For S an M_{Z(p)}-scheme, v ∈ End_{C(L)}(A_S[p^∞]) is special if its crystalline realization (respectively the image under End_{C(L)}(A_S[p^∞]) ↪ End_{C(L^⋄)}(A^⋄_S[p^∞])) lies in V_cris (respectively V^⋄_cris) when L is (respectively is not) self-dual at p. The p-adic étale condition of [AGHMP18, §4.5] follows from the crystalline one by the proof of [MP16, Lemma 5.13].",
+      "locator": "Definition 2.3 and footnote 13, p.11",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/14",
+      "kind": "theorem",
+      "name": "Special endomorphisms as Tate classes (Madapusi Pera)",
+      "statement": "For p odd with L self-dual at p and x ∈ M(F_{p^r}): V(A^univ_x) ⊗ Q_ℓ ≅ lim_n V_ℓ,ét,x^{Frob_x^n = 1} for ℓ ≠ p, and V(A^univ_x) ⊗ Q_p ≅ lim_n (Q_{p^{rn}} ⊗ V_cris,x)^{φ_x = 1}, as isometries [MP15, Thm. 6.4; Kis17, Cor. 2.3.1].",
+      "locator": "§2.5 and footnote 14, p.11",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/15",
+      "kind": "construction",
+      "name": "The integral special divisors Z(m) and Z(β, m)",
+      "statement": "For m > 0, Z(m) is the Deligne–Mumford stack over M with Z(m)(S) = {v ∈ V(A_S) : Q(v) = m}; more generally Z(β, m) parametrizes special quasi-endomorphisms [AGHMP18, §4.5], with Z(m) = Z(0, m). Its generic fibre is the divisor Z(β, m) over Q [AGHMP18, Prop. 4.5.8], and étale locally on the source it is an effective Cartier divisor on M.",
+      "locator": "§2.5, p.11",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/16",
+      "kind": "theorem",
+      "name": "Lemma 7.2 (local intersection numbers as lattice counts)",
+      "statement": "Let Y ∈ M(O_K) with Y_K Hodge-generic, 𝔓 a prime of O_K, O^nr_𝔓 the integers of the maximal unramified extension of K_𝔓, and L_n = V(A_{O^nr_𝔓/𝔓^n}) the lattice of special endomorphisms mod 𝔓^n (L_{n+1} ⊂ L_n, ⋂ L_n = 0, positive definite Q). Then (Y.Z(m))_𝔓 = Σ_{n≥1} #{v ∈ L_n : Q(v) = m}, a finite sum. The étale local ring of Y ×_M Z(m) at v pro-represents lifts of v, so its length is the largest n such that v lifts mod 𝔓^n.",
+      "locator": "Lemma 7.2 and proof, p.37",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/17",
+      "kind": "theorem",
+      "name": "Proposition 7.3 (the lattices L_n)",
+      "statement": "Let Λ be the Z_p-lattice of special endomorphisms of A[p^∞] over O^nr_𝔓 and e the ramification index of 𝔓. Then rank_Z L_n ≤ b + 2 and rank_{Z_p} Λ ≤ b. There is n_0 such that L_{n_0′ + ke} = (Λ + p^k L_{n_0′} ⊗ Z_p) ∩ L_{n_0} for all n_0′ ≥ n_0 and k ≥ 1; in particular r = rank L_n is independent of n. Proof via [AGHMP18, Lemma 4.5.2] (reduction to the self-dual case), Dieudonné theory, Grothendieck–Messing (Λ ⊆ F⁰V_dR ∩ V_cris^{φ=1}, with equality of rank b + 1 excluded by weak admissibility), Serre–Tate (⋂(L_n ⊗ Z_p) = Λ) and [MP16, Lemma 5.9] with the Néron mapping property, following [ST19, Thm. 4.1.1, Lems. 4.1.3, 4.3.2].",
+      "locator": "Proposition 7.3, pp.37–38",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/18",
+      "kind": "theorem",
+      "name": "rank L_n = b + 2 exactly at supersingular reduction",
+      "statement": "rank L_n = b + 2 if and only if Frobenius is isoclinic on V_cris,Y_𝔓, i.e. Y_𝔓 lies in the basic (supersingular) locus of M_𝔓.",
+      "locator": "§7.2 and footnote 31, p.39",
+      "status": "missing",
+      "note": "Stated without proof and not used in the proof of Theorem 7.1. Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/19",
+      "kind": "theorem",
+      "name": "Lemma 7.10 (lifts with prescribed p-adic special endomorphisms)",
+      "statement": "Let y ∈ M(F_q) be the reduction of a CM point Y at an ordinary prime p not dividing the discriminant of its lattice L of special endomorphisms, with Y the canonical lift. For a self-dual Z_p-submodule Λ ⊂ L ⊗ Z_p there is a lift Y_Λ ∈ M(W(F_q)) of y with Z_p-lattice of special endomorphisms Λ, and the lattice of special endomorphisms of Y_Λ mod p^{n+1} is (Λ + p^nL ⊗ Z_p) ∩ L [Serre–Tate; MP16, Cors. 5.17, 5.19].",
+      "locator": "Lemma 7.10, p.42",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/20",
+      "kind": "theorem",
+      "name": "Siegel threefolds as GSpin Shimura varieties (b = 3)",
+      "statement": "Via GSp_4 ≅ GSpin(V) with b = 3 [KR00], the moduli space S_2 of principally polarized abelian surfaces is a GSpin Shimura variety; for a principally polarized abelian surface B the special endomorphisms are the s ∈ End(B) with s^† = s and tr s = 0. At [B] ∈ S_2 the Kuga–Satake variety A = A^+ × A^− has dimension 2^{2+3−1} = 16, C^+(V) ≅ M_4(Q), A^+ is isogenous to B^4, and a special endomorphism induces s_B ∈ End(B) ⊗ Q with s_B^† = s_B, tr s_B = 0 [KR00, §1, Def. 2.1].",
+      "locator": "§9.2, p.45; footnote 34",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/21",
+      "kind": "definition",
+      "name": "Assumption 1.5 and the splitting A^+ ~ B^{2^n}",
+      "statement": "Assume b ≥ 3, b ≡ 3 mod 4 and C^+(V, Q) ≅ M_{2^n}(Q) with n = (b + 1)/2. Then every Kuga–Satake abelian variety A = A^+ × A^− parametrized by M has A^+ isogenous to B^{2^n} for an abelian variety B.",
+      "locator": "Assumption 1.5, p.3; §9.2, p.45",
+      "status": "missing",
+      "note": "§9.2 prints dim B = 2^n; it is 2^{n−1} (sourceIssues E3). Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/22",
+      "kind": "theorem",
+      "name": "Endomorphisms at a Hodge-generic point (van Geemen)",
+      "statement": "Under Assumption 1.5, if [A] is Hodge-generic in M then End(A^+_K̄) ⊗ Q = C^+(V); in particular End(B_K̄) = Z and B is geometrically simple [vG08, §5.2].",
+      "locator": "§9.2, p.45",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/23",
+      "kind": "construction",
+      "name": "From special endomorphisms of A to endomorphisms of B",
+      "statement": "With an orthogonal basis e_1, …, e_{b+2} of L, Q = Σ d_ix_i², and b ≡ 3 mod 4, δ_0 = e_1⋯e_{b+2} ∈ Z(C(L)) ∩ C(L)^− satisfies δ_0^* = δ_0 and δ_0² = Π d_i. For a special v : A^+ → A^−, s = δ_0 ∘ v ∈ End_{C^+(L)}(A^+) is not a scalar, and gives a non-scalar s_B ∈ End(B) ⊗ Q.",
+      "locator": "§9.2, p.45",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/24",
+      "kind": "theorem",
+      "name": "An example with C^+(V) ≅ M_{2^n}(Q)",
+      "statement": "If b ≡ 3 mod 8, the form Q(x) = −x_1² − x_2² + Σ_{i=3}^{b+1} x_i² + d x_{b+2}² has C^+(V) ≅ M_{2^n}(Q) [algorithm of vG00, Thm. 7.7].",
+      "locator": "§9.2, p.45",
+      "status": "missing",
+      "note": "d is not specified in the source. Hilbert-symbol computation (PARI) of the class of C^+(V) = C(−d·⟨−1, −1, 1, …, 1⟩) at ∞, 2 and the primes dividing d: trivial for b = 3, 11 and every d tested (±1, 2, 3, 5, 6, 7, 10, 11, 13, 15, −3), and nontrivial for the controls b = 5, 7. Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/25",
+      "kind": "construction",
+      "name": "From unitary Shimura varieties to GSpin Shimura varieties",
+      "statement": "For an imaginary quadratic E, auxiliary A_0 ∈ M(1, 0) (CM by O_E) and A ∈ M(r, 1): the Hermitian forms ψ_0, ψ of signatures (1, 0), (r, 1) on W_0 = H_1(A_0(C), Q), W = H_1(A(C), Q) induce a Hermitian form of signature (r, 1) on Hom_{O_E}(W_0, W), and V = Hom_{O_E}(H¹_B(A_0), H¹_B(A)) with tr_{E/Q} of it has signature (2r, 2). With G′ ⊂ GU(W_0) × GU(W) the pairs of equal similitude, G′ → SO(V) is a morphism of Shimura data [BHK+17, §§2.1, 6.2; Hof14, §4], Sh(G′) ⊂ M(1, 0) × M(r, 1) [BHK+17, Prop. 2.2.1], and after a Hecke translate there is Y ∈ M(Q) with V_B,Y ⊗ Q ≅ Hom_{O_E}(H_1,B(A_0), H_1,B(A)). By Deligne's theorem on absolute Hodge cycles, after a finite extension of K, V_ℓ,ét,Y ≅ Hom_{O_E}(H_1,ét(A_0, Q_ℓ), H_1,ét(A, Q_ℓ)) as Galois modules (9.1).",
+      "locator": "§9.3, pp.45–46, (9.1)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/26",
+      "kind": "definition",
+      "name": "The moduli stacks M(r, 1) and M(1, 0)",
+      "statement": "M(r, 1) over O_E: triples (B, ι, λ) of an abelian scheme B/S, ι : O_E ↪ End_S(B) with ι(a)^† = ι(a^σ), and a principal polarization λ, such that ι(a) acts on Lie with characteristic polynomial (T − φ(a))^r(T − φ(a)^σ); a Deligne–Mumford stack whose generic fibre is a disjoint union of GU(r, 1) Shimura varieties [KR14, Props. 2.19, 4.4]. M(1, 0) likewise.",
+      "locator": "§9.3, pp.45–46",
+      "status": "planned",
+      "planned": [
+        "PELModuli:M1",
+        "PELModuli:M5"
+      ],
+      "note": "M1 plans PEL moduli functors with the determinant (Kottwitz) condition; M5 plans a unitary PEL example with specified signatures."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/27",
+      "kind": "theorem",
+      "name": "Serre–Tate and Grothendieck–Messing deformation theory",
+      "statement": "Deformations of an abelian scheme (with endomorphisms) over a nilpotent thickening are deformations of its p-divisible group, and over PD-thickenings they are lifts of the Hodge filtration.",
+      "locator": "Proofs of Proposition 7.3 and Lemma 7.10, pp.37–38, 42",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A4"
+      ],
+      "note": "A4 plans the Serre–Tate equivalence with endomorphism structures and imports Grothendieck–Messing from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/28",
+      "kind": "theorem",
+      "name": "The Néron mapping property",
+      "statement": "Used, with [MP16, Lemma 5.9] and [AGHMP18, Lemma 4.5.2], to show that an endomorphism of A over O^nr_𝔓/𝔓^n is special iff its reduction is.",
+      "locator": "Proof of Proposition 7.3, p.38",
+      "status": "planned",
+      "planned": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.1"
+      ],
+      "note": "R11.1 plans Néron models and the mapping property."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/29",
+      "kind": "definition",
+      "name": "The Weil representation ρ_L and vector-valued modular forms",
+      "statement": "ρ_L : Mp_2(Z) → Aut_C(C[L^∨/L]) is the unitary Weil representation on the basis (𝔢_β) [Bru02, §1.1]; M_{1+b/2}(ρ_L) is the space of C[L^∨/L]-valued holomorphic modular forms of weight k = 1 + b/2 [Bru02, Def. 1.2]. The paper's Q is −1 times that of [Bru02, BK03], so their Weil representation is replaced by its dual.",
+      "locator": "§3, p.12; §3.2, p.13",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/30",
+      "kind": "definition",
+      "name": "Harmonic weak Maass forms and Hejhal–Poincaré series",
+      "statement": "H_{2−k}(ρ_L^∨) is the space of vector-valued harmonic weak Maass forms of weight 2 − k for ρ_L^∨ [BY09, 3.1]. For β ∈ L^∨/L, m ∈ Z + Q(β), m > 0, F_{β,m} ∈ H_{2−k}(ρ_L^∨) is the Hejhal–Poincaré series F_{β,−m}(τ, 1/2 + b/4) of [Bru02, Def. 1.8].",
+      "locator": "§3.1, p.12",
+      "status": "missing",
+      "note": "Routed to QSeriesPartitionsAndMockModularForms QM.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/31",
+      "kind": "construction",
+      "name": "Borcherds–Bruinier Green functions and arithmetic special divisors",
+      "statement": "Φ_{β,m} is the regularized theta lift of F_{β,m} in the sense of Borcherds [Bru02, (2.16); BF04, §5.2]; it is a Green function for Z(β, m) [Bor98, §6, Thm. 13.3; Bru02, §2.2, (3.40), Thm. 3.16], descending from D_L to M(C). Ẑ(β, m) = (Z(β, m), Φ_{β,m}); Φ_m = Φ_{0,m} and Ẑ(m) = Ẑ(0, m).",
+      "locator": "§3.1 and footnote 16, p.12",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/32",
+      "kind": "definition",
+      "name": "Arithmetic Chow groups, the metrized ω and heights of O_K-points",
+      "statement": "CĤ¹(M)_Q is the Gillet–Soulé arithmetic Chow group [GS90] as in [AGHMP17, §4.1], and Pic^(M)_Q ⊗ Q ≅ CĤ¹(M)_Q since M is a normal Deligne–Mumford stack [Sou92, III.4]; Ẑ(β, m) ∈ Pic^(M)_Q. ω carries the Petersson metric ‖z‖² = −(z.z̄)/(4πe^γ), γ = −Γ′(1). For Y = Spec O_K → M, the height h_Ẑ(Y) (respectively h_ω(Y)) is the image of Ẑ (respectively ω) under CĤ¹(M)_Q ≅ Pic^(M)_Q → Pic^(Y)_Q →(deg^) R [AGHMP17, §§5.1–5.2; AGHMP18, 6.4].",
+      "locator": "§3.1, p.12",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/33",
+      "kind": "theorem",
+      "name": "The decomposition (3.1) of h_Ẑ(m)(Y)",
+      "statement": "If Y_K is Hodge-generic, then Y ×_M Z(m)(S) = {v ∈ V(A_S) : v ∘ v = [m]} and h_Ẑ(m)(Y) = Σ_{σ : K ↪ C} Φ_m(Y^σ) + Σ_𝔓 (Y.Z(m))_𝔓 log|O_K/𝔓|, where (Y.Z(m))_𝔓 = Σ_{v ∈ Y ×_M Z(m)(F̄_𝔓)} length(O_{Y ×_M Z(m), v}) (3.2).",
+      "locator": "§3.1, (3.1)–(3.2), p.13; (8.1), p.43",
+      "status": "missing",
+      "note": "(8.2) weights the archimedean terms by 1/|Aut(Y^σ)|, which (3.1) and (8.1) omit. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/34",
+      "kind": "theorem",
+      "name": "Theorem 3.1 (Howard–Madapusi Pera modularity)",
+      "statement": "Assume b ≥ 3. The formal generating series Φ_L = ω̂^∨𝔢_0 + Σ_{β ∈ L^∨/L} Σ_{m > 0, m ∈ Q(β)+Z} Ẑ(β, m) q^m 𝔢_β lies in M_{1+b/2}(ρ_L) ⊗ Pic^(M)_Q: for every Q-linear α : Pic^(M)_Q → C, α(Φ_L) ∈ M_{1+b/2}(ρ_L) [HM17, Thm. 9.4.1].",
+      "locator": "Theorem 3.1, p.13",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/35",
+      "kind": "construction",
+      "name": "The Eisenstein series E_0(τ, s) and its coefficients c(β, m)",
+      "statement": "E_0(τ, s) is the Eisenstein series of [BK03, (1.4), (3.1)] with β = 0, κ = 1 + b/2; it converges normally for Re(s) > 1 − k/2 and is Mp_2(Z)-invariant. Its Fourier expansion is Σ_β Σ_{m ∈ Q(β)+Z} c_0(β, m, s, y) e^{2πimx}𝔢_β with c_0(β, m, s, y) = C(β, m, s) W_s(4πmy) for m ≠ 0 [BK03, Props. 3.1, 3.2, (3.22), (3.2)]. E_0(τ) = E_0(τ, 0) = 2𝔢_0 + Σ_{m > 0} c(β, m)q^m𝔢_β ∈ M_{1+b/2}(ρ_L), with C(β, m, 0) = c(β, m); C(m, s) = C(0, m, s), c(m) = c(0, m).",
+      "locator": "§3.3, pp.13–14",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/36",
+      "kind": "theorem",
+      "name": "Signs, size and explicit formula of c(m)",
+      "statement": "c(β, m) encodes deg Z(β, m)(C) [BK03, Prop. 4.8]; c(β, m) < 0 if m ∈ Q(L + β) and c(β, m) = 0 otherwise [BK01, Prop. 14]; for m ∈ Q(L + β), |c(β, m)| ≍ m^{b/2} [Tay20a, Ex. 2.3] (3.4). Explicitly c(m) = −2(2π)^{b/2+1} m^{b/2} / (√|L^∨/L| Γ(b/2 + 1)) · Π_p μ_p(Q, m) [BK01, (19), (22), (23)].",
+      "locator": "§3.3, (3.4), p.14; proof of Proposition 4.13, p.23",
+      "status": "missing",
+      "note": "The factor 2 matches the constant term 2𝔢_0 of E_0: for L = U² ⊕ E_8 (b = 10, unimodular) the formula gives c(m) = −1008σ_5(m), which is 2 × (−504σ_5(m)) from E_6. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/37",
+      "kind": "theorem",
+      "name": "Coefficient bound for vector-valued cusp forms",
+      "statement": "For a cusp form g ∈ M_{1+b/2}(ρ_L), the m-th coefficient of its 𝔢_0-component satisfies |g(m)| ≤ C_{ε,g} m^{(2+b)/4+ε} [Sar90, Prop. 1.5.5].",
+      "locator": "Proof of Proposition 3.2, p.15",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/38",
+      "kind": "theorem",
+      "name": "Proposition 3.2 (asymptotics of the global height)",
+      "statement": "For every ε > 0 and m ∈ Z_{>0}: h_Ẑ(m)(Y) = −(c(m)/2) h_ω(Y) + O_ε(m^{(2+b)/4+ε}); in particular h_Ẑ(m)(Y) = O(m^{b/2}). Proof: by Theorem 3.1 and [Bru02, p.27], −h_ω(Y)𝔢_0 + Σ h_Ẑ(β,m)(Y)q^m𝔢_β = −(h_ω(Y)/2)E_0 + g with g a cusp form.",
+      "locator": "Proposition 3.2 and proof, pp.14–15",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/39",
+      "kind": "definition",
+      "name": "Local counts N_m(p^n), densities μ_p(m, n) and w_p(m)",
+      "statement": "N_m(p^n) = #{v ∈ L/p^nL : Q(v) ≡ m mod p^n}, μ_p(m, n) = p^{−n(r−1)} N_m(p^n) (4.1); w_p(m) = 1 + val_p(m) for p ≠ 2 and w_2(m) = 1 + 2val_2(2m). The local density is μ_p(Q, m) = lim_k μ_p(m, k), which stabilizes for k ≫ 1.",
+      "locator": "§4.1, (4.1), p.15; footnote 22, p.20",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/40",
+      "kind": "construction",
+      "name": "Jordan splitting of a maximal L_p and Hanke's solution types",
+      "statement": "(L_p, Q) = ⊕_j (L_j, p^{ν_j}Q_j) with (L_j, Q_j) unimodular of rank 1 or 2 (rank 1 if p ≠ 2) [Han04, (2.3), Lemma 2.1]; maximality of L_p forces ν_j ≤ 1. S_i = {j : ν_j = i}, s_i = #S_i. A solution v ∈ N_m(p^n) is of zero type if v ≡ 0 mod p, of good type if v_j ≢ 0 mod p for some j with ν_j = 0, and of bad type otherwise; μ^good, μ^bad, μ^zero are the corresponding densities; Q′ replaces each ν_j by 1 − ν_j. N_m = N_m^good when p ∤ m; N_m^zero(p^n) = ∅ when p² ∤ m and n ≥ 2; N_m^bad = ∅ when p ∤ 2det(L) [Han04, Def. 3.1, Rem. 3.4.1].",
+      "locator": "§4.1, (4.2), pp.15–16",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/41",
+      "kind": "theorem",
+      "name": "Lemma 4.2 (Hanke's reduction maps)",
+      "statement": "Let δ = 2val_2(p) + 1. (1) For n ≥ δ and all m, μ_p^good(m, n) = μ_p^good(m, δ). (2) If p | m (L maximal): N^bad_{m,Q}(p^{n+1}) = p^{r−s_0} N^good_{m/p,Q′}(p^n), i.e. μ^bad_{p,Q}(m, n + 1) = p^{1−s_0} μ^good_{p,Q′}(m/p, n). (3) If p² | m: N^zero_m(p^{n+2}) = p^r N_{m/p²}(p^n), i.e. μ^zero_p(m, n + 2) = p^{2−r} μ_p(m/p², n) [Han04, Lemma 3.2, pp.359–360].",
+      "locator": "Lemma 4.2, p.16",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/42",
+      "kind": "theorem",
+      "name": "Corollary 4.3 (closed formulas for μ_p(m, n), p odd)",
+      "statement": "For p ≠ 2, with δ_{p,det(L)} = 1 if p | det(L) and 0 otherwise: (1) if n ≥ val_p(m) + 1, μ_{p,Q}(m, n) = Σ_{u=0}^{⌊val_p(m)/2⌋} p^{(2−r)u} μ^good_{p,Q}(m/p^{2u}, 1) + δ_{p,det(L)} p^{1−s_0} Σ_{u=0}^{⌊(val_p(m)−1)/2⌋} p^{(2−r)u} μ^good_{p,Q′}(m/p^{2u+1}, 1); (2) if 1 ≤ n ≤ val_p(m) with n odd, μ_{p,Q}(m, n) = p^{(2−r)(n−1)/2} μ_{p,Q}(mp^{1−n}, 1) + Σ_{u=0}^{(n−3)/2} p^{(2−r)u} μ^good_{p,Q}(m/p^{2u}, 1) + δ_{p,det(L)} p^{1−s_0} Σ_{u=0}^{(n−3)/2} p^{(2−r)u} μ^good_{p,Q′}(m/p^{2u+1}, 1); (3) the analogous formula for n even.",
+      "locator": "Corollary 4.3, pp.16–17",
+      "status": "missing",
+      "note": "Part (1) was checked by brute force for Q = x_1x_2 + x_3x_4 + 3x_5² (p = 3, n = 3, all m < 27): no mismatch. Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/43",
+      "kind": "theorem",
+      "name": "Lemma 4.4 (stabilization of μ_p(m, n))",
+      "statement": "For every prime p, integer m and n ∈ {2 + val_2(p), …, w_p(m) − 1}: |μ_p(m, n) − μ_p(m, w_p(m))| ≪ p^{−(3⌊n/2⌋ − 2)}, with an absolute implied constant.",
+      "locator": "Lemma 4.4, p.17",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/44",
+      "kind": "theorem",
+      "name": "Lemma 4.5 (densities at good primes are close to 1)",
+      "statement": "There is C_2 > 0 such that for all m, n > 0 and all primes p ∤ 2det(L): |μ_p(m, n) − 1| ≤ C_2/p. (Via Corollary 4.3, Lemma 4.4 and the Weil bound for the smooth quadric Q ≡ 0 or m mod p [Wei49; Del74, Thm. 8.1].)",
+      "locator": "Lemma 4.5, p.18",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/45",
+      "kind": "theorem",
+      "name": "Lemma 4.6 (a uniform lower bound)",
+      "statement": "Since r ≥ 5 and L is maximal, μ_p(m, n) ≥ 1/2 for all m, n > 0 and all primes p: in some basis of L_p, Q = x_1x_2 + Q_1(x_3, …, x_r) [Ger08, Lemma 6.36], so μ_p^good(m, δ′) ≥ (p − 1)/p for 1 ≤ δ′ ≤ δ.",
+      "locator": "Lemma 4.6, pp.18–19",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/46",
+      "kind": "theorem",
+      "name": "Proposition 4.1 (the local term in the Bruinier–Kühn formula)",
+      "statement": "If m is representable by Q over Z, then |w_p(m) − Σ_{n=0}^{w_p(m)−1} μ_p(m, n)/μ_p(m, w_p(m))| ≪ 1/p, with the implied constant independent of p and m.",
+      "locator": "Proposition 4.1, p.15; proof, p.19",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/47",
+      "kind": "theorem",
+      "name": "Lemma 7.9 (a discriminant-sensitive bound on local densities)",
+      "statement": "For an integral positive definite quadratic form Q of rank r ≥ 5, m ≥ 1 and a prime p: μ_∞(Q, 1)μ_p(Q, m) ≪_r p^r / |Disc(Q)|^{3/20}. Proof: μ_∞(Q, 1) ≍_r Disc(Q)^{−1/2}; Hanke's decomposition μ_p = μ^good + μ^bad1 + μ^bad2 + μ^zero [Han04, §3, pp.359–360] with μ^good ≤ p³, μ^bad1 ≤ p⁴, μ^bad2/Disc(Q)^{1/2} ≤ p^{2−r}μ″_p(m/p², n − 2)/Disc(Q″)^{1/2}, μ^zero ≤ p^{2−r}μ_p(m/p², n − 2), Disc(Q″) ≥ Disc(Q)/p^{2r}, and induction on n.",
+      "locator": "Lemma 7.9 and proof, pp.41–42",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/48",
+      "kind": "definition",
+      "name": "Singular integral, Siegel masses and the singular series",
+      "statement": "For an integral quadratic form F in n ≥ 5 variables with nonzero discriminant and a weight ω: μ_∞(F, ω) = lim_{ε→0} (1/2ε)∫_{|F(x)−1|≤ε} ω(x)dx (the limit exists for ω ∈ C(S) [HB96, pp.154–155]); μ_p(F, m) = lim_k p^{−(n−1)k} #{x mod p^k : F(x) ≡ m}; μ(F, m) = Π_p μ_p(F, m), absolutely convergent for n ≥ 5 [Iwa97, §11.5].",
+      "locator": "§4.2 and footnotes 21–22, p.20",
+      "status": "missing",
+      "note": "Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/49",
+      "kind": "definition",
+      "name": "Heath-Brown's weight classes C(S) (Remark 4.8)",
+      "statement": "Smooth compactly supported weights ω : R^n → C and the classes C(S) of [HB96, §2]. (1) There is ω_0^{(n)} ∈ C(n) with values in [0, 2], support in [−1, 1]^n and ω_0^{(n)} ≥ 2 on [−1/2, 1/2]^n (rescaling [HB96, (2.1), (2.2)]). (2) If M is invertible with the entries of M and M^{−1} bounded by K and ω ∈ C(S), then ω(Mx) ∈ C(S, K) [HB96, p.162]. N(F, m, ω) = Σ_{x ∈ Z^n, F(x) = m} ω(x/√m).",
+      "locator": "Remark 4.8, p.20",
+      "status": "missing",
+      "note": "Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/50",
+      "kind": "theorem",
+      "name": "Theorem 4.9 (Heath-Brown)",
+      "statement": "For F an integral quadratic form in n ≥ 5 variables with nonzero discriminant, m ≠ 0 and ω ∈ C(S): N(F, m, ω) = μ_∞(F, ω)μ(F, m)m^{n/2−1} + O_{F,S,ε}(m^{(n−1)/4+ε}); the error depends only on F and S [HB96, Thm. 4].",
+      "locator": "Theorem 4.9, p.20",
+      "status": "missing",
+      "note": "Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/51",
+      "kind": "theorem",
+      "name": "Corollary 4.10 (Heath-Brown, positive definite forms)",
+      "statement": "If moreover F is positive definite: #{x ∈ Z^n : F(x) = m} = μ_∞(F, 1)μ(F, m)m^{n/2−1} + O_{F,ε}(m^{(n−1)/4+ε}) [HB96, Cor. 1].",
+      "locator": "Corollary 4.10, p.21",
+      "status": "missing",
+      "note": "Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/52",
+      "kind": "theorem",
+      "name": "Corollary 4.7 (every large m is represented)",
+      "statement": "Every sufficiently large m ∈ Z_{>0} is represented by (L, Q): choose ω ≥ 0 with μ_∞(Q, ω) > 0; Lemma 4.6 gives μ(Q, m) > 0, so N(Q, m, ω) > 0 for m large by Theorem 4.9.",
+      "locator": "Corollary 4.7, p.19",
+      "status": "missing",
+      "note": "Positivity of N needs μ(Q, m) ≫ m^{−(b−1)/4+ε}, which follows from Lemma 4.6 at the primes dividing 2m·det(L) and μ_p(m, 1) = 1 + O(p^{−2}) elsewhere; the proof only says \"by the Proposition above\". Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/53",
+      "kind": "theorem",
+      "name": "Niedermowwe's count in expanding regions",
+      "statement": "For a nondegenerate integral quadratic form in n ≥ 5 variables, the number of representations of m by lattice points in homogeneously expanding rectangular regions equals singular integral × singular series × m^{n/2−1} plus an error with explicit dependence on the expansion parameter [Nie10, Thm. 3.6]; the singular series agree with [HB96], and for smooth weights Nie10's I_ω(m) = m^{b/2}μ_∞(Q, ω) (footnote 24).",
+      "locator": "§4.3.2 and footnote 24, p.23",
+      "status": "missing",
+      "note": "Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/54",
+      "kind": "definition",
+      "name": "The measure μ_∞ on L_{R,1}, the regions Ω_{≤T} and the weights a(m), h_s",
+      "statement": "L_{R,1} = {λ ∈ L_R : Q(λ) = 1} with μ_∞(W ∩ L_{R,1}) = lim_{ε→0} (1/2ε) μ_L({λ ∈ W : |Q(λ) − 1| < ε}) (4.5), μ_L the Lebesgue measure giving L covolume 1. For x ∈ D_L with negative plane P and projections λ_x, λ_{x⊥}: Ω_{≤T} = {λ ∈ L_{R,1} : −Q(λ_x) ∈ [0, T]}. a(m) = −c(m)Γ(k)√|L^∨/L| / (2(2π)^k) ≍ m^{b/2} (4.6), and h_s(λ) = (1 − Q(λ_x))^{−(k−1+s)}.",
+      "locator": "§4.3, (4.5)–(4.6), pp.21–23",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/55",
+      "kind": "theorem",
+      "name": "Lemma 4.11 (volume of Ω_{≤T})",
+      "statement": "For T > 0: μ_∞(Ω_{≤T}) = (2π)^k ((1 + T)^{b/2} − 1) / (√|L^∨/L| Γ(k)), k = 1 + b/2.",
+      "locator": "Lemma 4.11 and proof, pp.21–22",
+      "status": "missing",
+      "note": "Rederived: the change of variables factor 2^{1+b/2}/√|L^∨/L| and the shell integral give 2ε((1 + T)^{b/2} − 1) times the prefactor. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/56",
+      "kind": "theorem",
+      "name": "Corollary 4.12 (upper bound for T ≤ 1)",
+      "statement": "For m ∈ Z_{>0} and 0 < T ≤ 1: #{λ ∈ L : Q(λ) = m, λ/√m ∈ Ω_{≤T}} = O_Q(m^{b/2}T) + O_{Q,T,ε}(m^{(b+1)/4+ε}) (Theorem 4.9 with ω = ω_P(λ_x)ω_{P⊥}(λ_{x⊥}) ∈ C(b, T) and μ(Q, m) = O(1)).",
+      "locator": "Corollary 4.12, p.22",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/57",
+      "kind": "theorem",
+      "name": "Proposition 4.13 (asymptotic for T ≥ 1)",
+      "statement": "Let A > 1. For m ∈ Z_{>0} and T ≥ 1: #{λ ∈ L : Q(λ) = m, λ/√m ∈ Ω_{≤T}} = a(m)μ_∞(Ω_{≤T}) + O(m^{b/2}T^{b/2}(log mT)^{−A}). Niedermowwe's proof [Nie10, Thm. 3.6] \"carries over without change\" to these regions; then use the formula for c(m).",
+      "locator": "Proposition 4.13 and proof, p.23",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/58",
+      "kind": "theorem",
+      "name": "Lemma 4.14 (integral of h_s)",
+      "statement": "For s > 0: ∫_{L_{R,1}} h_s dμ_∞ = (b/4)·|c(m)|/(s·a(m)) = (2π)^k/(Γ(b/2)√|L^∨/L| s).",
+      "locator": "Lemma 4.14 and proof, p.23",
+      "status": "missing",
+      "note": "Rederived. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/59",
+      "kind": "construction",
+      "name": "Bruinier's explicit series φ_m(x, s) and its regularization φ_m(x)",
+      "statement": "For Re(s) > k/2 and a lift x ∈ D_L: F(s, z) = H(s − 1 + k/2, s + 1 − k/2, 2s; z) and φ_m(x, s) = (2Γ(s − 1 + k/2)/Γ(2s)) Σ_{λ ∈ L, Q(λ) = m} (m/(m − Q(λ_x)))^{s−1+k/2} F(s, m/(m − Q(λ_x))) (5.3) [Bru02, (2.15), with a different regularization]. It continues meromorphically to Re(s) > 1 with a simple pole at s = k/2 of residue −c(m) [Bru02, Prop. 2.8, Thm. 2.14; BK03, Prop. 4.3]; φ_m(x) = lim_{s→k/2}(φ_m(x, s) + c(m)/(s − k/2)) is its constant term (5.4) [BK03, Prop. 4.2].",
+      "locator": "§5.1, (5.3)–(5.4), pp.24–25",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/60",
+      "kind": "definition",
+      "name": "The function b_m(s)",
+      "statement": "For Re(s) > 1, b_m(s) = −C(m, s − k/2)(s − 1 + k/2)/((2s − 1)Γ(s + 1 − k/2)) (5.5), holomorphic for Re(s) > 1 [Bru02, Thm. 1.9]; it is b(0, 0, s) of [BK03, (4.12), (4.20)]. b_m(k/2) = −c(m) = |c(m)|.",
+      "locator": "§5.1, (5.5) and footnote 27, p.25",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/61",
+      "kind": "theorem",
+      "name": "Proposition 5.1 (Bruinier)",
+      "statement": "For x ∈ D_L: Φ_m(x) = φ_m(x) − b′_m(k/2) [Bru02, Prop. 2.11]; in particular φ_m is also a Green function for Z(m).",
+      "locator": "Proposition 5.1, p.25",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/62",
+      "kind": "theorem",
+      "name": "Lemma 5.3 (Bruinier–Kühn)",
+      "statement": "Let D be the fixed integer of Theorem 2.4, d = (−1)^{r/2}det(L) if r is even and 2(−1)^{(r+1)/2}D det(L) if r is odd, d_0 the fundamental discriminant of Q(√d), and L^{(p)}_m(t) = N_m(p^{w_p})t^{w_p} + (1 − p^{r−1}t)Σ_{n=0}^{w_p−1} N_m(p^n)t^n. For all m representable by (L, Q) with m/D a square: b′_m(k/2)/b_m(k/2) = log(m) + 2σ′_m(k)/σ_m(k) + O(1), where σ_m(s) = Π_{p | 2m det(L)} L^{(p)}_m(p^{1−r/2−s})/(1 − χ_{d_0}(p)p^{−s}) for r even and Π_{p | 2m det(L)} (1 − χ_{d_0}(p)p^{1/2−s})/(1 − p^{1−2s}) · L^{(p)}_m(p^{1−r/2−s}) for r odd (5.6) [BK03, Thm. 4.11, (4.73), (4.74)].",
+      "locator": "Lemma 5.3 and footnote 28, p.26",
+      "status": "missing",
+      "note": "The published proof takes logarithmic derivatives in (5.5) and uses that d_0 and k do not depend on m. For b odd and m/D not a square, d_0 varies with m; see sourceIssues E1. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/63",
+      "kind": "theorem",
+      "name": "Mertens's first theorem and Σ_{p | N} log p/p = O(log log N)",
+      "statement": "Σ_{p<X} log p/p = log X + O(1); hence for N ≥ 2, Σ_{p | N} log p/p ≤ log log N + O(1) (split at X = log N).",
+      "locator": "Proof of Proposition 5.2, p.27",
+      "status": "missing",
+      "note": "Routed to AnalyticNumberTheory AN.2 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/64",
+      "kind": "theorem",
+      "name": "Proposition 5.2 (b′_m(k/2))",
+      "statement": "Let m ∈ Z_{>0} with Z(m) ≠ ∅, and if b is odd assume m/D is a square (D fixed as in Theorem 2.4). As m → ∞, b′_m(k/2) = |c(m)| log m + o(c(m) log m); in particular b′_m(k/2) ≍ m^{b/2} log m. Proof: Lemma 5.3, the χ_{d_0}-terms are bounded (k ≥ 5/2), and the L^{(p)}_m-terms are ≤ C/p by Proposition 4.1, giving σ′_m(k)/σ_m(k) = O(log log m).",
+      "locator": "Proposition 5.2 and proof, pp.25–27",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/65",
+      "kind": "definition",
+      "name": "The singular quantity A(m, x)",
+      "statement": "For Hodge-generic x ∈ M(C) with a lift to D_L: A(m, x) = −2 Σ_{√mλ ∈ L, Q(λ) = 1, |Q(λ_x)| ≤ 1} log|Q(λ_x)| = 2 Σ_{λ ∈ L, Q(λ) = m, |Q(λ_x)| ≤ m} log(m/|Q(λ_x)|) (5.7). It is independent of the lift, a finite sum (the region is compact and λ_x ≠ 0 by Hodge-genericity), and non-negative.",
+      "locator": "§5.3, (5.7), p.27; §6, p.32",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/66",
+      "kind": "construction",
+      "name": "The decomposition φ_m(x) = φ̃_m(x, 0) + R_x(0, m)",
+      "statement": "With F(s, z) = zG(s, z) + 1: φ̃_m(x, s) = (4/b) Σ_{√mλ ∈ L, Q(λ) = 1} (1 − Q(λ_x))^{−(k+s)} G(k/2 + s, 1/(1 − Q(λ_x))) and R_x(s, m) = c(m)/s + (4/b) Σ_{√mλ ∈ L, Q(λ) = 1} (1 − Q(λ_x))^{−(k−1+s)}. φ̃_m(x, s) is holomorphic near s = 0, R_x(s, m) continues holomorphically to s = 0, and φ_m(x) = φ̃_m(x, 0) + R_x(0, m) (5.8)–(5.9); the Gamma ratio of (5.3) tends to 2/b. By Lemma 4.14, R_x(s, m) = (4/b)Σ h_s(λ) − (4a(m)/b)∫ h_s dμ_∞ for s > 0.",
+      "locator": "§5.3, (5.8)–(5.9), pp.28–29",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/67",
+      "kind": "theorem",
+      "name": "Proposition 5.5 (bounding R_x(0, m))",
+      "statement": "For Hodge-generic x ∈ D_L: R_x(0, m) = lim_{s ∈ R_{>0}, s→0} R_x(s, m) = O(m^{b/2}). Proof: sum over shells Θ_N = Ω_{≤N+1} \\ Ω_{≤N}, where h_s = (N + 1)^{−(s+k−1)} + O((N + 1)^{−(s+k)}), and use Proposition 4.13 and Lemma 4.11 with partial summation.",
+      "locator": "Proposition 5.5 and proof, p.29",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/68",
+      "kind": "theorem",
+      "name": "Proposition 5.6 (φ̃_m(x, 0))",
+      "statement": "φ̃_m(x, 0) = A(m, x) + O(m^{b/2}). Proof: G(s + k/2, z) is bounded for |s| ≤ ε ≤ 1/2, |z| ≤ 1/2, handling |Q(λ_x)| > 1 as in (5.10); for z ∈ [1/2, 1), |z^kG(k/2, z) + (b/2)log(1 − z)| ≤ C since G(k/2, z) = Σ_{n≥1} (k − 1)/(n + k − 1) z^{n−1}; and #{√mλ ∈ L : |Q(λ_x)| ≤ 1} = O(m^{b/2}).",
+      "locator": "Proposition 5.6 and §5.3.2, pp.30–31",
+      "status": "missing",
+      "note": "Checked numerically (mpmath) that z^kG(k/2, z) + (b/2)log(1 − z) stays bounded on [1/2, 1) for b = 3, 4, 7, 10. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/69",
+      "kind": "theorem",
+      "name": "Proposition 5.4",
+      "statement": "For m ∈ Z_{>0}: φ_m(x) = A(m, x) + O(m^{b/2}). (From (5.9) and Propositions 5.5–5.6.)",
+      "locator": "Proposition 5.4, pp.28, 31",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/70",
+      "kind": "theorem",
+      "name": "Theorem 5.7 (archimedean asymptotic)",
+      "statement": "For every m representable by (L, Q): Φ_m(Y^σ) = c(m) log m + A(m, Y^σ) + o(|c(m)| log m). (Propositions 5.1, 5.2 and 5.4.)",
+      "locator": "Theorem 5.7, p.31; restated in §8, p.43",
+      "status": "missing",
+      "note": "As proved, only for m/D a square when b is odd (sourceIssues E1). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/71",
+      "kind": "theorem",
+      "name": "Theorem 5.8 (uniform diophantine bounds)",
+      "statement": "For every positive integer m: (i) 0 ≤ A(m, Y^σ) ≪ m^{b/2} log m; (ii) (Y.Z(m))_𝔓 log|O_K/𝔓| ≪ m^{b/2} log m; (iii) Σ_{σ : K ↪ C} Φ_m(Y^σ)/|Aut(Y^σ)| = O(m^{b/2} log m). Proof: (3.1), Proposition 3.2 and Proposition 5.2 give Σ_𝔓 (Y.Z(m))_𝔓 log|O_K/𝔓| + Σ_σ φ_m(Y^σ) ≍ m^{b/2} log m, and every term is ≥ −O(m^{b/2}).",
+      "locator": "Theorem 5.8 and proof, p.31",
+      "status": "missing",
+      "note": "Used in Proposition 6.4 for arbitrary M = Q(λ) and in Lemma 7.6 for m = a_1(n)²; the proof covers only m/D a square when b is odd (sourceIssues E1). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/72",
+      "kind": "definition",
+      "name": "Logarithmic asymptotic density",
+      "statement": "For S ⊂ Z_{>0}, the logarithmic asymptotic density of S is limsup_{X→∞} log|S_X|/log X, where S_X = {a ∈ S : X ≤ a < 2X}.",
+      "locator": "§6, p.32",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/73",
+      "kind": "theorem",
+      "name": "Proposition 6.2 (main term via the circle method)",
+      "statement": "Write A(m) = A_mt(m) + A_er(m), the sums over 1 ≤ |Q(λ_x)| ≤ m and 0 < |Q(λ_x)| < 1. Then lim_{m→∞} A_mt(m)/(m^{b/2} log m) = 0. Proof: split at |Q(λ_x)| = m/T and apply Corollary 4.12 to both pieces: A_mt(m) ≪ m^{b/2} log T + m^{b/2}(log m)/T + O_T(m^{(b+2)/4} log m).",
+      "locator": "Proposition 6.2 and proof, pp.32–33",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/74",
+      "kind": "theorem",
+      "name": "Lemma 6.3 (a pigeonhole lemma for the negative plane)",
+      "statement": "Let C > 2, X > 1 and N ≥ 2. If S ⊂ L_R has N vectors with C ≤ Q(v) ≪ X and |Q(v_x)| < e^{−C}, then there are v ≠ v′ in S with w = v − v′ satisfying (1) −log|Q(w_x)| ≫ min(−log|Q(v_x)|, −log|Q(v′_x)|) and (2) Q(w_{x⊥}) ≪ X/N^{2/b}, with absolute implied constants.",
+      "locator": "Lemma 6.3 and proof, pp.33–34",
+      "status": "missing",
+      "note": "The proof's last step prints Q(v_{x⊥} − v′_{x⊥}) ≤ T² where 2T is the minimal distance; it should be (2T)² (sourceIssues E5, harmless). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/75",
+      "kind": "theorem",
+      "name": "Proposition 6.4 (the error term outside a sparse set)",
+      "statement": "The set S_bad of m with A_er(m) > m^{b/2} (6.3) has logarithmic asymptotic density zero. Proof: for ε ∈ ]0, 1[, S_bad ∩ ]X, 2X] ⊂ B_{1,X} ∪ B_{2,X} ∪ B_{3,X} (many λ with |Q(λ_x)| < 1; one λ with −log|Q(λ_x)| ≥ X^{b/2}; many λ in a dyadic range ]Z_i, 2Z_i]), and |B_{1,X}| = O(X^ε) by geometry of numbers, |B_{2,X}| ≪ log X and |B_{3,X}| ≪ X^ε log X by Lemma 6.3 with Theorem 5.8(i).",
+      "locator": "Proposition 6.4 and proof, pp.34–36",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/76",
+      "kind": "theorem",
+      "name": "Theorem 6.1",
+      "statement": "There is S_bad ⊂ Z_{>0} of logarithmic asymptotic density zero with A(m) = o(m^{b/2} log m) for every m ∉ S_bad (Propositions 6.2 and 6.4).",
+      "locator": "Theorem 6.1, p.32; restated in §8, p.43",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/77",
+      "kind": "definition",
+      "name": "Successive minima (Definition 7.4)",
+      "statement": "For a lattice L_n of rank r with positive definite Q and 1 ≤ i ≤ r: μ_i(n) = inf{y > 0 : there are linearly independent v_1, …, v_i ∈ L_n with Q(v_j) ≤ y²}; a_i(n) = Π_{j≤i} μ_j(n), a_0(n) = 1 [EK95].",
+      "locator": "Definition 7.4, p.38",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/78",
+      "kind": "theorem",
+      "name": "Successive minima and the discriminant",
+      "statement": "For a positive definite lattice of rank r, a_r ≍_r Disc^{1/2} [EK95, (5), (6)] (Minkowski's second theorem).",
+      "locator": "Proof of Corollary 7.5, p.38",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/79",
+      "kind": "theorem",
+      "name": "Counting lattice points by successive minima",
+      "statement": "For a positive definite lattice of rank r: #{v ≠ 0 : Q(v) < X} ≪_r Σ_{i=0}^r X^{i/2}/a_i [EK95, Lemma 2.4, (5), (6); Sch68].",
+      "locator": "Proof of Proposition 7.7, p.40 and footnote 32",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.1/GN.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/80",
+      "kind": "theorem",
+      "name": "Corollary 7.5 (successive minima of L_n)",
+      "statement": "Every successive minimum satisfies μ_j(n) ≪ p^{n/e}. If r = b + 2 then a_{b+1}(n) ≫ p^{n/e} and a_{b+2}(n) ≫ p^{2n/e}. Proof: L_n = (Λ + p^{(n−n_0)/e}L_{n_0} ⊗ Z_p) ∩ L_{n_0} with n_0 bounded and n_0 ≡ n mod e, so [L_1 : L_n] ≫ p^{2k}, k = (n − n_0)/e.",
+      "locator": "Corollary 7.5 and proof, p.38",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/81",
+      "kind": "theorem",
+      "name": "Lemma 7.6 (lower bound from the diophantine bound)",
+      "statement": "For every ε > 0: a_1(n) ≫_ε n^{1/(b+ε)} and a_i(n) ≫_ε n^{i/(b+ε)}. Proof: a vector w_0 ∈ L_n with Q(w_0) = a_1(n)² lies in L_k for all k ≤ n, so n ≤ (Y.Z(a_1(n)²))_𝔓 ≪_ε a_1(n)^{b+ε} by Lemma 7.2 and Theorem 5.8(ii).",
+      "locator": "Lemma 7.6 and proof, pp.38–39",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/82",
+      "kind": "theorem",
+      "name": "Proposition 7.7",
+      "statement": "(1) If r = rank L_n ≤ b + 1, then Σ_{n≥1} #{v ∈ L_n \\ {0} : Q(v) < X} = O(X^{(b+1)/2}). (2) If r = b + 2, then Σ_{n ≥ ⌈(e/4) log_p X⌉} #{v ∈ L_n \\ {0} : Q(v) < X} = O(X^{(b+1)/2}). (Lemma 7.6 cuts the sum at n ≍ X^{(b+ε)/2}; the counting lemma; Corollary 7.5 for the i = b + 2 term.)",
+      "locator": "Proposition 7.7 and proof, pp.39–40",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/83",
+      "kind": "theorem",
+      "name": "Theorem 7.1 (finite places on average)",
+      "statement": "Let D ∈ Z_{≥1} and S_{D,X} = {m ∈ Z_{>0} : X ≤ m < 2X, m/D ∈ Z ∩ (Q^×)²}. For a fixed prime 𝔓 of O_K: Σ_{m ∈ S_{D,X}} (Y.Z(m))_𝔓 = o(X^{(b+1)/2} log X). Proof: Proposition 7.7; for n ≤ (e/4)log_p X split at n = eT and apply Corollary 4.10 to L_1 and L_{eT} with Lemma 7.9 (μ_∞(Q_T, 1)μ(Q_T, m) ≪ p^{−3T/5}). Remark 7.8: for Theorem 1.8 one may sum over all m.",
+      "locator": "Theorem 7.1, p.36; proof, pp.40–41; Remark 7.8, p.40; restated in §8, p.43",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/84",
+      "kind": "theorem",
+      "name": "Lemma 7.11 (a criterion for exponential intersection numbers)",
+      "statement": "Suppose a self-dual Z_p-sublattice Λ ⊂ L ⊗ Z_p of rank r ≥ 5 satisfies (1) Λ ∩ L = {0}, and (2) there are rank r sublattices L_i ⊂ L with discriminants D_i and Λ ≡ L_i mod p^{N_i} with N_i ≥ e^{e^{D_i}}. Then there are perfect squares m_i → ∞ with (Y_Λ.Z(m_i))_p exponential in m_i: L_i represents a square m_i < e^{D_i}, and (Y_Λ.Z(m_i))_p > N_i by Lemmas 7.2 and 7.10.",
+      "locator": "Lemma 7.11 and proof, p.42",
+      "status": "missing",
+      "note": "(2) is printed with L_{n_i} for L_i (sourceIssues E4). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/85",
+      "kind": "theorem",
+      "name": "A transcendental point with exponential intersection numbers",
+      "statement": "For a lattice of even rank ≥ 12 and a prime p, there is Y′ ∈ M(W(F_q)), not defined over a number field, with (Y′.Z(m))_p exponential in m for infinitely many perfect squares m (similarly for m ∈ D·(Q^×)²). Construction: Λ = span_{Z_p}{e_i + μf_i} for an orthogonal basis e_1, f_1, …, e_c, f_c of L (c = b/2 ≥ 5) and an irrational μ ∈ Z_p very well approximated by integers.",
+      "locator": "§7.3, pp.42–43",
+      "status": "missing",
+      "note": "Illustrative; not used for the main results. The printed choice of μ does not give property (2) of Lemma 7.11 (sourceIssues E2). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/86",
+      "kind": "theorem",
+      "name": "Theorem 2.4 (main theorem with a fixed D)",
+      "statement": "Assume b ≥ 3. Let K be a number field, D ∈ Z_{>0} represented by (L, Q), and Y ∈ M(O_K) with Y_K Hodge-generic. Then there are infinitely many places 𝔓 of K such that Y_𝔓 lies in the image of Z(Dm²) → M for some m ∈ Z_{>0} (m may depend on 𝔓). Equivalently, if A over O_K is a Kuga–Satake abelian scheme parametrized by M with A_K having no special endomorphisms, infinitely many A_𝔓 have a special endomorphism v with v ∘ v = [Dm²]. Proof (§8): otherwise sum (8.1) over m ∈ S_{D,X} \\ S_bad (≍ X^{1/2} values): the archimedean part is ≍ −X^{(b+1)/2} log X by Theorems 5.7 and 6.1, the finite part o(X^{(b+1)/2} log X) by Theorem 7.1, contradicting Proposition 3.2.",
+      "locator": "Theorem 2.4, p.11; §8, pp.43–44",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/87",
+      "kind": "theorem",
+      "name": "Theorem 1.8 (main theorem)",
+      "statement": "Let K be a number field and Y ∈ M(O_K) with Y_K ∈ M(K) Hodge-generic (b ≥ 3). Then for infinitely many finite places 𝔓 of K, Y_𝔓 lies in the image of Z(m) → M for some m ∈ Z_{>0} depending on 𝔓. It follows from Theorem 2.4.",
+      "locator": "Theorem 1.8, p.4; §2.6, p.11",
+      "status": "missing",
+      "note": "The cases b = 1, 2 are [Cha18, ST19] (footnote 1). The assumption that Y extends over O_K is removed in [Tay22] (published as Algebra Number Theory 19 (2025), 77). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/88",
+      "kind": "theorem",
+      "name": "Theorem 1.4 (abelian surfaces)",
+      "statement": "Every 2-dimensional abelian scheme over O_K has infinitely many places of geometrically nonsimple reduction.",
+      "locator": "Theorem 1.4, p.3; proof, §9.2, p.45",
+      "status": "missing",
+      "note": "§9.2 writes the argument for End(B_K̄) = Z (a Hodge-generic point of S_2, b = 3). A principal polarization may be assumed after an isogeny (footnote 34). Surfaces with extra endomorphisms lie on smaller GSpin sub-Shimura varieties (§1.4); b ≤ 2 is [Cha18, ST19]. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/89",
+      "kind": "theorem",
+      "name": "Theorem 1.6 (Kuga–Satake factors)",
+      "statement": "Under Assumption 1.5, if B extends to an abelian scheme over O_K (so A does too), then B_𝔓 is geometrically nonsimple for infinitely many finite places 𝔓. Proof: take D = Π d_i, multiplied by a square to be represented (Corollary 4.7). A special v with v ∘ v = [Dm²] gives s_B = δ_0 ∘ v with s_B ∘ s_B = [D²m²], not a scalar, so ker(s_B − [Dm]) is a proper nonzero abelian subvariety; conclude by Theorem 2.4.",
+      "locator": "Theorem 1.6, p.4; proof, §9.2, p.45",
+      "status": "missing",
+      "note": "The proof calls ker(s_B − [Dm]) \"a nontrivial simple factor\"; it need not be simple (sourceIssues E3). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/90",
+      "kind": "theorem",
+      "name": "Corollary 1.7 (unitary Shimura varieties)",
+      "statement": "Let E be imaginary quadratic and A a principally polarized abelian scheme over O_K with O_E ⊂ End(A) compatible with the polarization, acting on Lie A_K with signature (r, 1). Then for infinitely many finite places 𝔓 of K, A_𝔓 has a geometric isogeny factor that is an elliptic curve with CM by E. Proof: the K-point Y of M from §9.3 has potentially good reduction everywhere ([And96, Lemma 9.3.1] and (9.1)), so extends by Proposition 2.1(4); by Theorem 1.8, V_ℓ,ét,Y_𝔓 has a Tate class for infinitely many 𝔓, so Hom_{O_E}(H_1,ét(A_0), H_1,ét(A))^{Frob^n = 1} ≠ 0 and A_{0,𝔓} is an isogeny factor of A_𝔓 by Tate's theorem.",
+      "locator": "Corollary 1.7, p.4; proof, §9.3, pp.46–47",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/91",
+      "kind": "theorem",
+      "name": "Tate's isogeny theorem over finite fields",
+      "statement": "For abelian varieties A, B over a finite field F_q and ℓ ∤ q: Hom(A, B) ⊗ Q_ℓ ≅ Hom_{Gal}(V_ℓA, V_ℓB).",
+      "locator": "Proof of Corollary 1.7, p.47",
+      "status": "missing",
+      "note": "Routed to FaltingsFinitenessAndIsogenyTheorems R28.4 as a source."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/92",
+      "kind": "construction",
+      "name": "The transcendental GSpin datum of a K3 surface",
+      "statement": "For a K3 surface X over a number field K with Pic(X_K̄) = Pic(X) and σ : K ↪ C: H²(X^an_σ, Z) with the cup-product form is even unimodular of signature (3, 19); c_1 : Pic(X) → H² is a primitive embedding; by the Hodge index theorem Pic(X) has signature (1, ρ(X) − 1). With (L, Q) a maximal lattice orthogonal to Pic(X) in H²(X^an_σ, Q), (L, −Q) is even of signature (b, 2), b = 20 − ρ(X), with genus independent of σ and L; M is the GSpin Shimura variety of (L, −Q). The resulting point is Hodge-generic by the Lefschetz (1, 1) theorem.",
+      "locator": "§9.1, p.44",
+      "status": "missing",
+      "note": "Routed to the new roadmap K3SurfacesAndSymplecticBoundedness."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/93",
+      "kind": "theorem",
+      "name": "The Hodge index theorem for surfaces",
+      "statement": "On a smooth projective surface the intersection form on Pic has signature (1, ρ − 1).",
+      "locator": "§9.1, p.44",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "SF.5 plans the Hodge index theorem for smooth projective surfaces."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/94",
+      "kind": "theorem",
+      "name": "André's Kuga–Satake results for K3 surfaces",
+      "statement": "(a) Up to extending K, the Kuga–Satake abelian variety A of X is defined over K and gives x ∈ M(K) [And96, Main Lemma 1.7.1]. (b) If X has everywhere good reduction then, up to extending K, A has potentially good reduction everywhere [And96, Lemma 9.3.1], so x extends to Y ∈ M(O_K) by Proposition 2.1(4). (c) A special endomorphism s of A_𝔓 with s ∘ s = [m] corresponds to a line bundle on X_𝔓 of self-intersection −m orthogonal to the image of Pic(X) under specialization [And96, Main Lemma 1.7.1(ii)].",
+      "locator": "§9.1, pp.44–45",
+      "status": "missing",
+      "note": "Routed to the new roadmap K3SurfacesAndSymplecticBoundedness."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/95",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (Picard rank jumps)",
+      "statement": "Let X be a K3 surface over a number field K admitting, after a finite extension of K, a smooth projective model X → Spec(O_K). Then ρ(X_𝔓̄) > ρ(X_K̄) for infinitely many finite places 𝔓 of K.",
+      "locator": "Theorem 1.1, p.2; proof, §9.1, pp.44–45",
+      "status": "missing",
+      "note": "Proof by Theorem 1.8 with b = 20 − ρ(X); b ≤ 2 is [Cha18, ST19] (footnote 1). [Tay22] removes the good-reduction hypothesis. Routed to the new roadmap K3SurfacesAndSymplecticBoundedness."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/96",
+      "kind": "theorem",
+      "name": "Li–Liedtke's criterion for infinitely many rational curves",
+      "statement": "If a K3 surface over a number field has infinitely many specializations whose geometric Picard rank jumps and only finitely many unirational specializations, the hypotheses of [LL12, Prop. 4.2] hold and the proof of [LL12, Thm. 4.3] gives infinitely many rational curves on X_K̄.",
+      "locator": "Proof of Corollary 1.3, p.45",
+      "status": "missing",
+      "note": "Routed to the new roadmap K3SurfacesAndSymplecticBoundedness."
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/97",
+      "kind": "theorem",
+      "name": "Corollary 1.3 (rational curves)",
+      "statement": "Let X be a K3 surface over a number field K with potentially good reduction everywhere. Then either X_K̄ contains infinitely many rational curves, or X has infinitely many unirational, hence supersingular, specializations.",
+      "locator": "Corollary 1.3, p.3; proof, §9.1, p.45",
+      "status": "missing",
+      "note": "The rational-curve conjecture (Conjecture 1.2) is proved in characteristic 0 in [CGL19, Thm. A]. Routed to the new roadmap K3SurfacesAndSymplecticBoundedness."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "F. Andreatta, E. Z. Goren, B. Howard, K. Madapusi Pera, Faltings heights of abelian varieties with complex multiplication, Ann. of Math. (2) 187 (2018), 391–531",
+      "link": "https://doi.org/10.4007/annals.2018.187.2.3",
+      "why": "§4.4–4.5: the integral model M over Z, special endomorphisms, V(A_S) with its positive form, and the special cycles Z(β, m) (Proposition 2.1, Definitions 2.2–2.3). Queued as its own paper job (#1143)."
+    },
+    {
+      "citation": "F. Andreatta, E. Z. Goren, B. Howard, K. Madapusi Pera, Height pairings on orthogonal Shimura varieties, Compos. Math. 153 (2017), 474–534",
+      "link": "https://doi.org/10.1112/S0010437X1600779X",
+      "why": "Arithmetic Chow groups and heights on M (§§4.1, 5.1–5.2)."
+    },
+    {
+      "citation": "B. Howard, K. Madapusi Pera, Arithmetic of Borcherds products, Astérisque 421 (2020), 187–297 (arXiv 1710.00347, cited as [HM17])",
+      "link": "https://doi.org/10.24033/ast.1128",
+      "why": "Theorem 9.4.1, the modularity of the arithmetic generating series (Theorem 3.1); Remark 6.3.1."
+    },
+    {
+      "citation": "J. H. Bruinier, Borcherds products on O(2, l) and Chern classes of Heegner divisors, Lecture Notes in Math. 1780, Springer (2002)",
+      "link": "https://doi.org/10.1007/b83278",
+      "why": "Hejhal–Poincaré series, the Green functions Φ_m, the explicit series φ_m(x, s) and Proposition 2.11 (Proposition 5.1)."
+    },
+    {
+      "citation": "J. H. Bruinier, U. Kühn, Integrals of automorphic Green's functions associated to Heegner divisors, Int. Math. Res. Not. 2003, no. 31, 1687–1729",
+      "link": "arXiv:math/0204100",
+      "why": "The Eisenstein series E_0(τ, s), its coefficients C(β, m, s), and Theorem 4.11 (Lemma 5.3)."
+    },
+    {
+      "citation": "J. H. Bruinier, M. Kuss, Eisenstein series attached to lattices and modular forms on orthogonal groups, Manuscripta Math. 106 (2001), 443–459",
+      "link": "https://doi.org/10.1007/s229-001-8027-1",
+      "why": "The explicit formula for c(m) via local densities and its sign (Proposition 14)."
+    },
+    {
+      "citation": "R. E. Borcherds, Automorphic forms with singularities on Grassmannians, Invent. Math. 132 (1998), 491–562",
+      "link": "https://doi.org/10.1007/s002220050232",
+      "why": "Regularized theta lifts and Theorem 13.3 (Green functions)."
+    },
+    {
+      "citation": "J. H. Bruinier, T. Yang, Faltings heights of CM cycles and derivatives of L-functions, Invent. Math. 177 (2009), 631–681",
+      "link": "https://doi.org/10.1007/s00222-009-0192-8",
+      "why": "§3.1: the space H_{2−k}(ρ_L^∨) of harmonic weak Maass forms."
+    },
+    {
+      "citation": "K. Madapusi Pera, Integral canonical models for Spin Shimura varieties, Compos. Math. 152 (2016), 769–824",
+      "link": "https://doi.org/10.1112/S0010437X1500740X",
+      "why": "The Kuga–Satake construction and realizations (§3), Lemma 2.6, Lemmas 5.9, 5.13 and Corollaries 5.17, 5.19."
+    },
+    {
+      "citation": "K. Madapusi Pera, The Tate conjecture for K3 surfaces in odd characteristic, Invent. Math. 201 (2015), 625–668",
+      "link": "https://doi.org/10.1007/s00222-014-0557-5",
+      "why": "Theorem 6.4: special endomorphisms as Tate classes."
+    },
+    {
+      "citation": "M. Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010), 967–1012",
+      "link": "https://doi.org/10.1090/S0894-0347-10-00667-3",
+      "why": "Smooth integral canonical models at hyperspecial level, underlying Proposition 2.1(1)."
+    },
+    {
+      "citation": "D. R. Heath-Brown, A new form of the circle method, and its application to quadratic forms, J. reine angew. Math. 481 (1996), 149–206",
+      "link": "https://doi.org/10.1515/crll.1996.481.149",
+      "why": "Theorem 4 and Corollary 1 (Theorem 4.9, Corollary 4.10), weight classes C(S)."
+    },
+    {
+      "citation": "N. Niedermowwe, The circle method with weights for the representation of integers by quadratic forms, Zap. Nauchn. Sem. POMI 377 (2010), 91–110; J. Math. Sci. 171 (2010), 753–764",
+      "link": "https://doi.org/10.1007/s10958-010-0180-y",
+      "why": "Theorem 3.6, the count in expanding regions behind Proposition 4.13."
+    },
+    {
+      "citation": "J. Hanke, Local densities and explicit bounds for representability by a quadratic form, Duke Math. J. 124 (2004), 351–388",
+      "link": "https://doi.org/10.1215/S0012-7094-04-12424-8",
+      "why": "The reduction maps for local densities (Lemma 4.2, Lemma 7.9)."
+    },
+    {
+      "citation": "A. Eskin, Y. R. Katznelson, Singular symmetric matrices, Duke Math. J. 79 (1995), 515–547; W. M. Schmidt, Asymptotic formulae for point lattices of bounded determinant and subspaces of bounded height, Duke Math. J. 35 (1968), 327–339",
+      "link": "https://doi.org/10.1215/S0012-7094-95-07913-7",
+      "why": "Successive minima and the lattice-point count of Proposition 7.7."
+    },
+    {
+      "citation": "A. N. Shankar, Y. Tang, Exceptional splitting of reductions of abelian surfaces, Duke Math. J. 169 (2020), no. 3",
+      "link": "https://doi.org/10.1215/00127094-2019-0046",
+      "why": "The b = 2 case and Theorem 4.1.1, Lemmas 4.1.3, 4.3.2 (Proposition 7.3)."
+    },
+    {
+      "citation": "F. Charles, Exceptional isogenies between reductions of pairs of elliptic curves, Duke Math. J. 167 (2018), 2039–2072",
+      "link": "https://doi.org/10.1215/00127094-2018-0011",
+      "why": "The case of products of modular curves, and the strategy the paper generalizes."
+    },
+    {
+      "citation": "S. Tayou, On the equidistribution of some Hodge loci, J. reine angew. Math. 762 (2020), 167–194",
+      "link": "https://doi.org/10.1515/crelle-2018-0026",
+      "why": "Example 2.3 (|c(m)| ≍ m^{b/2}) and Proposition 2.5 (the model for Proposition 3.2)."
+    },
+    {
+      "citation": "Y. André, On the Shafarevich and Tate conjectures for hyper-Kähler varieties, Math. Ann. 305 (1996), 205–248",
+      "link": "https://doi.org/10.1007/BF01444219",
+      "why": "Main Lemma 1.7.1 and Lemma 9.3.1 (§9.1, Corollary 1.7)."
+    },
+    {
+      "citation": "J. Li, C. Liedtke, Rational curves on K3 surfaces, Invent. Math. 188 (2012), 713–727",
+      "link": "https://doi.org/10.1007/s00222-011-0359-y",
+      "why": "Proposition 4.2 and Theorem 4.3 (Corollary 1.3)."
+    },
+    {
+      "citation": "S. S. Kudla, M. Rapoport, Cycles on Siegel threefolds and derivatives of Eisenstein series, Ann. Sci. ÉNS 33 (2000), 695–756",
+      "link": "https://doi.org/10.1016/S0012-9593(00)01051-X",
+      "why": "S_2 as a GSpin Shimura variety and its special endomorphisms (Theorem 1.4)."
+    },
+    {
+      "citation": "B. van Geemen, Real multiplication on K3 surfaces and Kuga–Satake varieties, Michigan Math. J. 56 (2008), 375–399; Kuga–Satake varieties and the Hodge conjecture, NATO Sci. Ser. C 548 (2000), 51–82",
+      "link": "https://doi.org/10.1307/mmj/1224783519",
+      "why": "§5.2 (endomorphisms at a Hodge-generic point) and Theorem 7.7 (the example with C^+(V) split)."
+    },
+    {
+      "citation": "J. Bruinier, B. Howard, S. Kudla, M. Rapoport, T. Yang, Modularity of generating series of divisors on unitary Shimura varieties, Astérisque 421 (2020), 7–125; S. Kudla, M. Rapoport, Special cycles on unitary Shimura varieties II, J. reine angew. Math. 697 (2014), 91–157",
+      "link": "https://doi.org/10.24033/ast.1126",
+      "why": "The unitary moduli M(r, 1) and the map to SO(V) (§9.3)."
+    },
+    {
+      "citation": "P. Sarnak, Some applications of modular forms, Cambridge Tracts in Math. 99 (1990)",
+      "why": "Proposition 1.5.5, the coefficient bound used in Proposition 3.2."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "ShimuraVarieties",
+      "roadmap": "OrthogonalIntegralModelsAndKugaSatake",
+      "title": "Complex Shimura varieties and canonical models, Part II: orthogonal integral models, Kuga–Satake and special divisors",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/5",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/6",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/7",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/8",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/9",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/10",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/11",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/12",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/13",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/14",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/15",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/16",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/17",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/18",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/19",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/20",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/21",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/22",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/23",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/24",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/25"
+      ],
+      "brief": "This reuses the candidate id proposed by PAPER-CHARLES-16, whose brief covers the good-prime (p ≥ 5) orthogonal model and the Kuga–Satake map for K3 families. This paper needs more: the all-prime integral model of a GSpin Shimura variety and its special cycles. Start beyond Complex Shimura varieties and canonical models (ShimuraVarieties V0–V6), importing its analytic quotients and generic-fibre Hodge-type canonical models, Shimura data (ShimuraData D2–D5), Mathlib's CliffordAlgebra with its grading, even part and spinGroup, Tau Ceti's IntegralLattice (dual lattice, discriminant form and the even-overlattice/isotropic-subgroup correspondence), Abelian schemes and arithmetic moduli (AbelianSchemesAndArithmeticModuli A4 for Serre–Tate and Grothendieck–Messing, A5 for complex uniformization), Siegel and PEL moduli problems (PELModuli M1–M5), finite flat groups and Dieudonné theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.2, R07.6), Néron models (NeronModelsAndSemistableAbelianVarieties R11.1), and the integral Hodge-type models of the candidate Shimura varieties, Part II: integral models and reduction (ShimuraVarietiesHondaTatePartII) for Kisin's hyperspecial models.\n\nConstruct, for a maximal even lattice (L, Q) of signature (b, 2):\n- GSpin(V), the spinor similitude, the datum (G, D_L) with reflex field Q, the level K = G(A_f) ∩ C(L̂)^× and M(C) = G(Q)\\D_L × G(A_f)/K;\n- the Kuga–Satake abelian scheme of relative dimension 2^{b+1} with its C(L)-action and grading, and the realizations V_B, V_dR, V_ℓ,ét, V_cris embedded in End_{C(L)}(H_?) with v ∘ v = Q(v);\n- special divisors Z(β, m) over C and over Q, and Hodge-genericity.\n\nThe final theorems are:\n- Proposition 2.1 exactly as stated: a flat normal Deligne–Mumford Z-stack, smooth at almost self-dual primes (self-dual, or p = 2 with dim V odd and 4 ∤ |L^∨/L|), carrying the extended Kuga–Satake scheme and ω, with the potentially-good-reduction extension property (AGHMP18 Prop. 4.4.1, Thm. 4.4.6);\n- Definitions 2.2–2.3 with the auxiliary self-dual L^⋄ at bad primes and independence of L^⋄;\n- the positive definite form on V(A_S);\n- Madapusi Pera's isometries of V(A_x) ⊗ Q_ℓ and ⊗ Q_p with Tate classes (MP15 Thm. 6.4);\n- the stacks Z(m), Z(β, m) with generic fibre Z(β, m) and étale-local Cartier property (AGHMP18 §4.5);\n- Lemma 7.2: local intersection numbers are Σ_n #{v ∈ L_n : Q(v) = m};\n- Proposition 7.3: rank bounds b + 2 and b, and L_{n_0′+ke} = (Λ + p^kL_{n_0′} ⊗ Z_p) ∩ L_{n_0};\n- the supersingular characterization of rank L_n = b + 2, recorded as stated without proof;\n- Lemma 7.10 on lifts Y_Λ of a canonical lift with prescribed Z_p-lattice Λ.\n\nThe application interfaces are:\n- GSp_4 ≅ GSpin for b = 3 with the Kudla–Rapoport special endomorphisms s^† = s, tr s = 0;\n- Assumption 1.5 and A^+ ~ B^{2^n}, where dim B = 2^{n−1}, not the printed 2^n;\n- van Geemen's End(A^+_K̄) ⊗ Q = C^+(V) at Hodge-generic points;\n- δ_0 = e_1⋯e_{b+2} and s = δ_0 ∘ v;\n- the split example −x_1² − x_2² + Σx_i² + dx_{b+2}², b ≡ 3 mod 8;\n- the unitary-to-orthogonal morphism G′ → SO(V) with (9.1).\n\nRead AGHMP18 §4, MP16, MP15 §6, Kisin 2010, KR00, BHK+17 §2 and van Geemen before closing these nodes. Tests: a lattice not self-dual at 2 with dim V odd and 4 ∤ |L^∨/L| (smooth), one with 4 | |L^∨/L| (not claimed smooth); a point on Z(m) versus a Hodge-generic one; rank L_n ≤ b + 1 versus b + 2.",
+      "reason": "ShimuraVarieties stops at generic-fibre canonical models, and ShimuraData D5's examples do not include the GSpin datum. The candidate integral-model Part II (ShimuraVarietiesHondaTatePartII) is general Hodge/abelian type and has no Kuga–Satake, special endomorphisms or special cycles. PAPER-CHARLES-16 already proposed this orthogonal Part II; these items add AGHMP's all-prime normal model, special cycles and deformation-theoretic lattices in the same direction."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "GSpinSpecialDivisorHeights",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: heights of GSpin special divisors and exceptional reductions",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/29",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/31",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/32",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/33",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/34",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/35",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/36",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/37",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/38",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/54",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/55",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/56",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/57",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/58",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/59",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/60",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/61",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/62",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/64",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/65",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/66",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/67",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/68",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/69",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/70",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/71",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/72",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/73",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/74",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/75",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/76",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/80",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/81",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/82",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/83",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/84",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/85",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/86",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/87",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/88",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/89",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/90"
+      ],
+      "brief": "Start beyond Gross–Zagier formulas and arithmetic heights (GrossZagierAndArithmeticHeights). GZ.6 plans modularity of Chow-valued generating series on Shimura curves; this Part II does the same for GSpin Shimura varieties of signature (b, 2), b ≥ 3, and applies it to exceptional reductions.\n\nImport:\n- the orthogonal Part II (OrthogonalIntegralModelsAndKugaSatake) for M, the Kuga–Satake scheme, special endomorphisms, Z(m), Lemma 7.2 and Proposition 7.3;\n- Arakelov geometry (ArakelovGeometryAndAbelianHeights R35.1) for hermitian line bundles and arithmetic degree;\n- the Weil representation (MetaplecticAutomorphicForms MP.4) and harmonic Maass forms with Poincaré series (QSeriesPartitionsAndMockModularForms QM.3);\n- local densities (GeometryOfNumbersAndQuadraticArithmetic GN.3), successive minima and lattice counts (GN.1, GN.4);\n- Heath-Brown's and Niedermowwe's circle method (ExponentialSumsAndCircleMethod ES.3–ES.4);\n- Mertens (AnalyticNumberTheory AN.2), Tate's isogeny theorem (FaltingsFinitenessAndIsogenyTheorems R28.4), and Mathlib's ₂F₁ and Gamma.\n\nConstruct:\n- ρ_L and M_{1+b/2}(ρ_L);\n- Borcherds–Bruinier Green functions Φ_{β,m} and the arithmetic divisors Ẑ(β, m) in the Gillet–Soulé group of the normal stack M;\n- the Petersson-metrized ω and heights of O_K-points, with the decomposition (3.1)–(3.2);\n- E_0(τ, s) with constant term 2𝔢_0, C(β, m, s) and c(β, m) with c(m) = −2(2π)^k m^{b/2} Π μ_p/(√|L^∨/L| Γ(k)), c < 0 exactly on represented m and |c(m)| ≍ m^{b/2};\n- Bruinier's φ_m(x, s), its residue −c(m) at k/2, φ_m(x), b_m(s) and A(m, x).\n\nThe final theorems, stated exactly as in the paper:\n- Theorem 3.1 (Howard–Madapusi Pera);\n- Proposition 3.2;\n- Lemmas 4.11 and 4.14, Corollary 4.12, Proposition 4.13;\n- Propositions 5.1–5.6 and Lemma 5.3;\n- Theorems 5.7–5.8, Theorem 6.1 with Propositions 6.2, 6.4 and Lemma 6.3;\n- Corollary 7.5, Lemma 7.6, Proposition 7.7, Theorem 7.1;\n- Theorem 2.4 and Theorem 1.8;\n- the applications Theorem 1.4 (abelian surfaces), Theorem 1.6 (Assumption 1.5) and Corollary 1.7 (unitary signature (r, 1));\n- the illustrative §7.3 (Lemma 7.11), kept separate from the main line.\n\nThree corrections apply (sourceIssues E1–E3):\n- For b odd, prove Lemma 5.3 and Proposition 5.2 for every m with Z(m) ≠ ∅, not only m ∈ D·□. Theorems 5.7–5.8 are stated, and used in Proposition 6.4 and Lemma 7.6, for all m. With d_0 varying, the functional equation of L(s, χ_{d_0}) cancels the log|d_0| terms of BK03 Thm. 4.11.\n- Give the §7.3 approximation gaps length ≥ exp(exp(C·p^{2c(n+1)})), not exp(exp(p^n)), so that N_i ≥ e^{e^{D_i}} holds.\n- dim B = 2^{n−1}.\n\nFurther requirements:\n- Keep the normalization of E_0 (constant term 2) and of (3.1) against (8.2) (the 1/|Aut| weights) explicit.\n- The b ≤ 2 cases of Theorem 1.8 are [Cha18, ST19] and remain imports. Do not claim Theorem 1.4 beyond what §9.2 proves plus those imports.\n- Read HM17 §9, Bru02 Chs. 1–2, BK03 §§3–4, BK01, Nie10 and Tay20a Ex. 2.3 before closing.\n\nTests:\n- the unimodular L = U² ⊕ E_8, where c(m) = −1008σ_5(m) = 2 × the E_6 coefficient;\n- Lemma 4.11 for small b by direct integration;\n- the boundedness of z^kG(k/2, z) + (b/2)log(1 − z) on [1/2, 1).",
+      "reason": "GZ.6–GZ.7 plan arithmetic generating series, Green functions and local intersection identities only for CM cycles on Shimura curves. No atlas stage plans arithmetic special divisors on higher-dimensional orthogonal Shimura varieties, their Borcherds–Bruinier Green functions, the Howard–Madapusi Pera modularity theorem, or the height-counting argument for exceptional special reductions. These extend GZ's arithmetic-heights direction. The general quadratic-form, circle-method, harmonic-Maass and prime-sum inputs go to their existing owners as separate source routes."
+    },
+    {
+      "route": "new",
+      "roadmap": "K3SurfacesAndSymplecticBoundedness",
+      "title": "K3 surfaces, Mukai moduli and holomorphic symplectic boundedness",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/92",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/94",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/95",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/96",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/97"
+      ],
+      "brief": "This reuses the new-roadmap candidate proposed by PAPER-CHARLES-16 for K3 geometry, adding an arithmetic endpoint. Import:\n- Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures) and Tau Ceti's IntegralLattice (unimodular even lattices, orthogonal complements, signature);\n- intersection theory and the Hodge index theorem (SchemeAndStackFoundations SF.5);\n- the orthogonal Part II (OrthogonalIntegralModelsAndKugaSatake) for M, the Kuga–Satake scheme, special endomorphisms and the extension property;\n- the heights Part II (GSpinSpecialDivisorHeights) for Theorem 1.8.\n\nConstruct:\n- the transcendental datum of a K3 surface over a number field: H² even unimodular of signature (3, 19), Pic ↪ H² primitive of signature (1, ρ − 1), and (L, −Q) of signature (b, 2) with b = 20 − ρ, with Hodge-genericity from Lefschetz (1, 1);\n- André's results: the Kuga–Satake variety over K and its K-point (And96 Main Lemma 1.7.1), potentially good reduction from good reduction (Lemma 9.3.1), and special endomorphisms of A_𝔓 ↔ line bundles on X_𝔓 of self-intersection −m orthogonal to Pic(X) (Main Lemma 1.7.1(ii)).\n\nThe final theorems are:\n- Theorem 1.1: a K3 surface over a number field with a smooth projective model over O_K after finite extension has ρ(X_𝔓̄) > ρ(X_K̄) for infinitely many 𝔓. The cases ρ ≥ 18 (b ≤ 2) come from Charles 2018 and Shankar–Tang, as the paper's footnote 1 says.\n- Corollary 1.3: with potentially good reduction everywhere, either infinitely many rational curves on X_K̄ or infinitely many unirational (supersingular) specializations, via Li–Liedtke Prop. 4.2 and Thm. 4.3.\n\nRead André 1996 §§1, 9 and Li–Liedtke 2012 §4 before closing. Tayou 2022 (Algebra Number Theory 19 (2025)) removes the good-reduction hypothesis and is a later extension, not part of this endpoint.",
+      "reason": "No atlas stage plans K3 surfaces (K3BlochGroups is algebraic K₃). PAPER-CHARLES-16 proposed this new K3 roadmap; the Picard-rank-jump endpoint and its André inputs belong there, consuming the orthogonal and heights Part IIs rather than duplicating them."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/39",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/40",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/41",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/42",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/43",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/44",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/45",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/46",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/47"
+      ],
+      "reason": "GN.3 constructs local representation densities. This paper supplies explicit, uniform estimates for maximal lattices of rank ≥ 5:\n- Hanke's Jordan splitting with ν_j ≤ 1 and solution types;\n- the reduction maps (Lemma 4.2) and the closed formulas of Corollary 4.3;\n- the stabilization and closeness-to-1 bounds (Lemmas 4.4–4.5), the lower bound 1/2 (Lemma 4.6), and the Bruinier–Kühn local term bound (Proposition 4.1);\n- the discriminant-sensitive bound of Lemma 7.9.\nThey are general lattice statements, not specific to Shimura varieties."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/77",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/78",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/79"
+      ],
+      "reason": "GN.1 owns successive minima and Minkowski's second theorem (a_r ≍ Disc^{1/2}). GN.4 owns lattice-point estimates, where the count #{v : Q(v) < X} ≪ Σ X^{i/2}/a_i of Eskin–Katznelson and Schmidt belongs."
+    },
+    {
+      "route": "source",
+      "roadmap": "ExponentialSumsAndCircleMethod",
+      "stages": [
+        "ExponentialSumsAndCircleMethod:ES.3",
+        "ExponentialSumsAndCircleMethod:ES.4"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/48",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/49",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/50",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/51",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/52",
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/53"
+      ],
+      "reason": "ES.3 constructs singular integrals and p-adic local densities. ES.4 owns forms-in-many-variables theorems in their exact variable ranges and names Heath-Brown. That covers Heath-Brown's weight classes, Theorem 4 and Corollary 1 for n ≥ 5, Niedermowwe's count in expanding regions, and the consequence that every large integer is represented by a maximal indefinite lattice of rank ≥ 5 (Corollary 4.7)."
+    },
+    {
+      "route": "source",
+      "roadmap": "QSeriesPartitionsAndMockModularForms",
+      "stages": [
+        "QSeriesPartitionsAndMockModularForms:QM.3"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/30"
+      ],
+      "reason": "QM.3 defines harmonic Maass forms and constructs Poincaré series from Bruinier–Funke. The vector-valued space H_{2−k}(ρ_L^∨) and Bruinier's Hejhal–Poincaré series F_{β,m} are the instances the Green functions need."
+    },
+    {
+      "route": "source",
+      "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
+      "stages": [
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/91"
+      ],
+      "reason": "R28.4 plans the Tate isogeny comparison Hom ⊗ Q_ℓ ≅ Hom_Gal(V_ℓA, V_ℓB) by the finite-isogeny-class argument. Tate's original theorem over finite fields is the same argument, and Corollary 1.7 uses it."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "items": [
+        "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/63"
+      ],
+      "reason": "AN.2 tracks Chebyshev functions and prime-sum asymptotics. Mertens's first theorem, and the resulting bound Σ_{p | N} log p/p ≤ log log N + O(1) used in Proposition 5.2, belong there."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E1",
+      "kind": "gap",
+      "locator": "Lemma 5.3, Proposition 5.2, Theorems 5.7 and 5.8, pp.25–31",
+      "printed": "Proposition 5.2: \"Let m ∈ Z_{>0} such that Z(m) ≠ ∅; and if b is odd, we further assume that for a fixed D, √(m/D) ∈ Z, as in Theorem 2.4.\" Lemma 5.3 likewise, with the proof \"we conclude by [BK03, Theorem 4.11, (4.73), (4.74)], since both d_0 and k are independent of m.\" But: \"Theorem 5.7. For every m representable by (L, Q) …\" and \"Theorem 5.8. For every positive integer m, we have the following bounds …\", proved from Proposition 5.2.",
+      "correction": "For b odd and m/D not a square, add this to the proof of Lemma 5.3. In [BK03, Thm. 4.11(ii)] (r odd), the m-dependence through d_0 = d_0(m) enters as log|4m/D_0²| − 2L′(χ_{D_0}, 3/2 − κ)/L(χ_{D_0}, 3/2 − κ). By the functional equation of L(s, χ_{D_0}), this is log m + 2L′(χ_{D_0}, κ − 1/2)/L(χ_{D_0}, κ − 1/2) + O(1): the log|D_0| terms cancel. The logarithmic derivative at κ − 1/2 ≥ 2 is bounded by |ζ′/ζ(2)|, and the χ_{d_0}-factors of σ_m(s) are bounded uniformly as in the proof of Proposition 5.2. So Lemma 5.3 (with O(1) uniform in m) and Proposition 5.2 hold for every m with Z(m) ≠ ∅. That is what Theorems 5.7–5.8 assert, and what Proposition 6.4 and Lemma 7.6 use.",
+      "reason": "Theorem 5.8 is proved from equation (3.1), Proposition 3.2 and Proposition 5.2, so for b odd its proof covers only m ∈ D·(Q^×)². It is then applied to arbitrary integers:\n- in Proposition 6.4 to M = Q(λ) for a difference λ of two lattice vectors (\"Theorem 5.8(i) implies X^{b/2} ≪ −log|Q(λ_x)| ≪ A(M) ≪ M^{b/2} log M\");\n- in Lemma 7.6 to m = a_1(n)², a square but not in general D times a square.\nBoth feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b ≥ 3. For b even, d = (−1)^{r/2}det(L) does not depend on m and there is no gap. BK03 Theorem 4.11 was read in arXiv:math/0204100v2 (p.27): its r-odd formula contains log|4m/D_0²| and −2L′(χ_{D_0}, 3/2 − κ)/L(χ_{D_0}, 3/2 − κ).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E2",
+      "kind": "error",
+      "locator": "§7.3, construction of μ, p.43",
+      "printed": "\"We define the a_i as follows: suppose that a_n ≠ 0; we define a_i = 0 for n + 1 ≤ i ≤ e^{e^{p^n}}, and we then define a_i = 1 for i = ⌈e^{e^{p^n}}⌉. This implies that Σ_{i≤n} a_ip^i ≡ μ mod p^N with N ≥ e^{e^{p^n}} – that is, there is an integer x_n of size O(p^n) that approximates μ mod p^N, with N double-exponential in the size of x_n. … the lattice Λ created this way must also have property 2.\"",
+      "correction": "Make the gaps double-exponential in the discriminant rather than in x_n: after a_n ≠ 0, set a_i = 0 for n < i < exp(exp(C·p^{2c(n+1)})) with C depending only on L (so that exp(C·p^{2c(n+1)}) exceeds the discriminant of L_n below). Then property (2) of Lemma 7.11 holds with L_n = span_Z{e_j + x_nf_j}, and the example stands.",
+      "reason": "Property (2) of Lemma 7.11 needs N_i ≥ e^{e^{D_i}}, where D_i is the discriminant of the approximating sublattice L_i. Here L_i = span_Z{e_j + x_nf_j : 1 ≤ j ≤ c}, with e_j, f_j orthogonal and Q positive definite. So D_i ≍ Π_j (Q(e_j) + x_n²Q(f_j)) ≥ x_n^{2c} ≥ p^{2cn}, because a_n ≠ 0 forces x_n ≥ p^n. The printed choice gives only N ≈ e^{e^{p^n}}, which is far below e^{e^{D_i}}, so the proof of Lemma 7.11 (m_i < e^{D_i} and (Y_Λ.Z(m_i)) > N_i ≥ e^{e^{D_i}} > e^{m_i}) does not apply. \"Double-exponential in the size of x_n\" is not double-exponential in D_i ≍ x_n^{2c}. The example is illustrative and not used for the main results.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E3",
+      "kind": "misprint",
+      "locator": "§9.2, pp.45",
+      "printed": "\"… A^+ is isogenous to B^{2^n}, where B is an abelian variety with dim B = 2^n.\" and, in the proof of Theorems 1.4 and 1.6, \"Since s_B is not a scalar multiplication, ker(s_B − [Dm]) is a nontrivial simple factor of B_𝔓, and hence B_𝔓 is nonsimple.\"",
+      "correction": "\"dim B = 2^{n−1}\"; \"ker(s_B − [Dm]) contains a nonzero proper abelian subvariety of B_𝔓\".",
+      "reason": "dim A = 2^{b+1} (the paper's own 2^{2+3−1} = 16 for b = 3), so dim A^+ = 2^b = 2^{2n−1}, and A^+ ~ B^{2^n} forces dim B = 2^{n−1}. For b = 3, n = 2, B is the abelian surface (A^+ ~ B^4 of dimension 8), not a 4-fold. The PDF text layer shows the superscript n on 2 in both M_{2^n}(Q) and dim B = 2^n. The kernel of the non-scalar s_B − [Dm] (with (s_B − Dm)(s_B + Dm) = 0) has identity component a proper nonzero abelian subvariety, which need not be simple; nonsimplicity is all that is used.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.2, p.37; statement of Lemma 7.11, p.42; proof of Theorem 7.1, p.41",
+      "printed": "The display ending the proof of Lemma 7.2 reads \"… = Σ_{n=1}^∞ Σ_{v ∈ L_n, v∘v=[m]} 1.here\". Lemma 7.11(2): \"Λ ≡ L_{n_i} mod p^{N_i}\". Proof of Theorem 7.1: three displays read \"N_D(1, ⌊e log_p X⌋, X)\".",
+      "correction": "Delete \".here\"; read L_i for L_{n_i}; read ⌊(e/4) log_p X⌋ in the three displays, as in (7.3) and the reduction before it.",
+      "reason": "The sublattices of Lemma 7.11 are indexed L_i (with discriminants D_i), and the proof uses \"L_i + p^{N_i}L\". The proof of Theorem 7.1 reduces to N_D(1, ⌊(e/4) log_p X⌋, X) and bounds that range in (7.3)–(7.4). The argument would also cover ⌊e log_p X⌋, so nothing is affected. All three readings were checked in the PDF text layer.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E5",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.5, p.29; proof of Lemma 6.3, p.34; proof of Proposition 6.4, p.35",
+      "printed": "Proposition 5.5: \"≪ Σ_{N=1}^∞ N^{−(s+k)}·N^{b/2}m^{b/2}(log mN)^{−A} ≤ m^{b/2} Σ_{N=1}^∞ N^{−1}(log N)^{−A} ≪ m^{b/2}\". Lemma 6.3: \"Let 2T be the smallest distance … there exist two points v and v′ in S such that Q(v_{x⊥} − v′_{x⊥}) ≤ T² ≪ X/N^{2/b}\". Proposition 6.4: \"≤ 2X^{b/2−ε} log(2X) + 8X^{b/2−ε} + 4Σ_i (X^{b/2−ε}/Z_i)·Z_i ≤ 14X^{b/2−ε} log(2X)\".",
+      "correction": "Keep (log mN)^{−A} ≤ (log m)^{−A} for the N = 1 term (the printed sum has log 1 = 0 in a denominator); (2T)² in place of T²; and a constant depending on b in place of 14 (e.g. (2 + 3b)X^{b/2−ε} log(2X) for large X).",
+      "reason": "The first two are harmless slips inside ≪. For the third, the dyadic intervals covering ]C, X^{b/2}] number |I| ≈ (b/2) log_2 X. The printed bound needs 4|I| + 8 ≤ 12 log(2X), which fails for b ≥ 5. Any constant times X^{b/2−ε} log X is eventually below X^{b/2}, so the conclusion holds.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    },
+    {
+      "id": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/E6",
+      "kind": "misprint",
+      "locator": "Reference [MST22], p.48",
+      "printed": "\"[MST22] Davesh Maulik, Ananth N. Shankar, and Yunqing Tang. Picard ranks of K3 surfaces and the Hecke orbit conjecture. Invent. Math., 228(3): 1075–1143, 2022.\"",
+      "correction": "\"Picard ranks of K3 surfaces over function fields and the Hecke orbit conjecture\".",
+      "reason": "Crossref for DOI 10.1007/s00222-022-01097-x gives the published title with \"over function fields\" (Invent. Math. 228 (2022), 1075–1143).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum Math. Pi 10 (2022), e21, DOI 10.1017/fmp.2022.14: Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice",
+        "arXiv 1909.07473: v3 of 29 August 2022 (\"Final version. To appear in Forum of Mathematics, Pi\") is the latest version; the published text was read"
+      ]
+    }
+  ]
+}
