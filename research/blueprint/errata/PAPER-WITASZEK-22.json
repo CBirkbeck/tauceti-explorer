@@ -1,0 +1,66 @@
+{
+  "paper": "PAPER-WITASZEK-22",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-WITASZEK-22/E1",
+      "kind": "misprint",
+      "locator": "Introduction, the paragraph after Corollary 1.3, p.2, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
+      "printed": "\"A field is locally finite if it is a subfield of F̄_p for some prime number p > 0. When the residue fields of S are not locally finite, we prove that L is EWM.\"",
+      "correction": "\"When the residue fields of S are perfect but not necessarily locally finite, we prove that L is EWM.\"",
+      "reason": "Corollary 6.7, which this sentence summarizes, assumes that S is a mixed characteristic Dedekind scheme \"with perfect residue fields of closed points\" for the EWM conclusion, and proves semiampleness when those residue fields are moreover locally finite. Noted by the extraction (diagnostic 3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
+        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
+      ]
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E2",
+      "kind": "error",
+      "locator": "Lemma 2.1 and its proof, pp.7–8, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
+      "printed": "\"Lemma 2.1. Let f : X → Y be a finite map of integral proper schemes over a Noetherian base scheme S. Let L be a relatively nef line bundle on Y. Then L is relatively big over S if and only if f*L is relatively big over S. Proof. … Since (f*L)^{dim X} = (deg f)L^{dim Y}, the lemma follows.\"",
+      "correction": "Assume that f is surjective, that is finite surjective, so that dim X = dim Y. The proof then applies.",
+      "reason": "The formula (f*L)^{dim X} = (deg f)L^{dim Y} presupposes dim X = dim Y. Without surjectivity the \"if\" direction fails. Let S = Spec k, let Y = P¹_k, let X ⊂ Y be a closed point with f the inclusion (finite), and let L = O_Y. Then L is nef and not big, while f*L = O_X on the zero-dimensional X is big. The lemma is used in the proof of Proposition 5.2 for a component surjecting onto its image (\"a surjective-onto-V integral component V′ ⊆ π^{−1}(V)\"), where the corrected lemma suffices. Noted by the extraction (diagnostic 2, item finite-big).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
+        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
+      ]
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E3",
+      "kind": "misprint",
+      "locator": "Definition of EWM, p.8, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
+      "printed": "\"… we say that L is relatively EWM (endowed with a map) if there exists a proper S-morphism f : X → Y to an algebraic space Y proper over S such that an integral closed subscheme V ⊆ X is contracted (that is, dim V < dim f(V)) if and only if L|V is not relatively big.\"",
+      "correction": "\"… is contracted (that is, dim f(V) < dim V) …\"",
+      "reason": "A subvariety is contracted when its image has smaller dimension, and dim f(V) ≤ dim V always holds, so the printed inequality dim V < dim f(V) never holds. Read literally, the condition would force L|V to be relatively big for every integral V. The definition follows Keel [Kee99] (cf. [CT17, p.7]), where a contracted V has dim f(V) < dim V. Checked on the page image by the extraction. Noted by the extraction (diagnostic 1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
+        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
+      ]
+    },
+    {
+      "id": "PAPER-WITASZEK-22/E4",
+      "kind": "error",
+      "locator": "Lemma 6.8, p.43, in arXiv 2002.11915v2 (23 January 2022, the accepted author version and the latest arXiv version; PDF SHA-256 5ab79212…a842); the published text, Annals of Mathematics 195 (2022), 655–705, was not collated (the public deposit timed out)",
+      "printed": "\"Lemma 6.8. Let π_i : D_i → Z_i be the map associated to the semiample line bundle L|D_i and let F be the generic fibre of π_i. Further, let C_i ⊂ D_i be the the reduction of the conductor of the normalisation p_i : D̄_i → D_i. Then C_i|F is a geometrically connected zero-dimensional scheme.\" The proof ends: \"Hence, we get deg C_i|F ≤ deg Δ_{D_i}|F < 2.\"",
+      "correction": "C_i|F is either empty or a single point of degree one over L = H⁰(F, O_F), in particular geometrically a single point. The application, that the relevant fibre meets the gluing locus in at most one point, needs only this.",
+      "reason": "The degree bound deg C_i|F < 2 gives at most one point of degree one, but not that the scheme is nonempty. When D_i is normal the conductor is empty, and the empty scheme is not connected. The following argument, applying Proposition 5.3, uses only that the generic fibre meets the gluing locus in at most one point. Noted by the extraction (diagnostic 4).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2022.195.2.4, checked 22 September 2026: no erratum or update registered",
+        "arXiv 2002.11915: v1 (27 February 2020) and v2 (23 January 2022, the latest)",
+        "the author's publication list (checked by the extraction) and a web search, 22 September 2026: no erratum found"
+      ]
+    }
+  ]
+}
