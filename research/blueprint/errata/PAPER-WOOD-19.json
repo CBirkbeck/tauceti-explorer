@@ -1,0 +1,134 @@
+{
+  "paper": "PAPER-WOOD-19",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-WOOD-19/E1",
+      "kind": "gap",
+      "locator": "Theorem 1.2, p.3, and the last assertion of Theorem 4.8, p.23, with its proof, pp.24–25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "Theorem 1.2: \"for n sufficiently large we have lim_{q→∞, (q,|G′|)=1} E^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[|μ_{F_q(t)}|]| … ≫ n^{N_{G′}−1} otherwise\". Theorem 4.8: \"If G′ is not good, then there is a constant w_G such that for n sufficiently large we have lim_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[|μ_{F_q(t)}|]| ≥ w_G n^{N_{G′}−1}\". The proof ends: \"Dividing both sides by |H_2(G′,c)[q−1]|, and then letting q→∞, the second part of the theorem follows\".",
+      "correction": "For G′ not good, replace lim by liminf: liminf_{q→∞, (q,|G′|)=1} Ẽ^±_{F_q(t),q^{2n}}(G,G′)/|H_2(G′,c)[q−1]| ≥ w_G n^{N_{G′}−1}, and likewise with E^± and a smaller constant in Theorem 1.2.",
+      "reason": "The proof bounds the ratio from below for each large q. It keeps only the multidegrees n in a set 𝒞 (all n_i large, with prescribed parities) on which the number of Frobenius-fixed components is |H_2(G′,c)[q−1]|, and discards the other components as nonnegative. That gives a lower bound for the liminf. It does not show the limit exists: the discarded components with small n_i and their Frobenius-fixed counts may depend on q, and nothing in the argument controls them. The good cases, where the limits are computed exactly, are unaffected. In Theorem 1.2 the passage from Ẽ to E divides by the positive constants of §2.1, |Aut_{G′}(G)| and A(G,G′), so the lower bound transfers with a smaller constant. The proof's remark that \"the second statements of both theorems are the same\" should be read that way. Noted by the extraction (items 97, 141 and 143).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E2",
+      "kind": "error",
+      "locator": "Definition 3.12 (from [EVW12, §8.4]), p.13; used again in the proof of Theorem 3.13, p.14, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"Let Γ be the tame quotient of G_{F̄_p(t)} corresponding to extensions only ramified at S. Then Γ is free pro-prime-to-p, on generators δ_1, …, δ_k, with each generator generating the tame inertia subgroup at a point of S∖∞.\"",
+      "correction": "Let Γ be the maximal prime-to-p quotient of that tame quotient. This Γ is free pro-prime-to-p on δ_1, …, δ_k with δ_1⋯δ_kδ_∞ = 1. Since |F| is prime to p, φ factors through it.",
+      "reason": "In characteristic p the tame fundamental group of P¹ minus a finite set S is not pro-prime-to-p. Grothendieck's comparison (SGA 1, XIII, 2.12, which the paper cites) describes only its maximal prime-to-p quotient as the prime-to-p completion of the topological fundamental group. For example, for p ≥ 5 the tame fundamental group of P¹ ∖ {0, 1728, ∞} has as quotients the groups PSL₂(F_ℓ), ℓ ≠ p, of modular covers X(ℓ) → X(1), ramified with indices 2, 3, ℓ, and these orders are divisible by p for suitable ℓ. The definition and the proof of Theorem 3.13 only use homomorphisms to F and its lift F̃_c, whose orders are prime to p. These factor through the prime-to-p quotient, so nothing changes. Noted by the extraction (item 56).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E3",
+      "kind": "error",
+      "locator": "Proposition 4.4, pp.19–20, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"Let Q be a global field with a choice of place ∞. Let G be a finite group and G′ a subgroup of G ≀ S_2. Let c be the order 2 elements of G′ with non-trivial image in S_2. Let φ: Gal(Q̄_∞/Q_∞) → G′ be a ramified homomorphism with image ⟨(1,σ)⟩. There is a bijection between {(K,ρ) | … ρ ∈ Sur(G_K^{un,∞}, G) | ρ is type G′} and {isomorphism classes of marked (G′,c) extensions (L,π,m) of Q with infinity type φ}.\" The proof builds ρ from a marked extension \"by projection onto the first factor\" and says \"It is straightforward to check that these constructions are inverses to each other\".",
+      "correction": "Assume that G′ is admissible, or at least that ker(G′ → S_2) projects onto the first factor G. Only then does the projection give a surjection ρ, and both bijections hold. The paper applies the proposition only to admissible G′ (Theorem 4.8 and §7).",
+      "reason": "Without this hypothesis the first bijection fails. Take G = C_3, G′ = ⟨(1,σ)⟩ ≅ C_2 and c = {(1,σ)}, and let Q = ℚ with ∞ the real place. A marked (G′,c)-extension with the ramified infinity type φ is an imaginary quadratic field such as ℚ(√−3) with its marking, so the right side is nonempty. The left side is empty: type G′ requires Gal(L̃/ℚ) ≅ G′, of order 2, while L/K is a C_3-extension. The projection onto the first factor of G′ ∩ (G × G) = 1 is not onto G. Noted by the extraction (items 73 and 142).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E4",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 1.2 from Theorem 4.8, p.23, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"If we restrict to q such that |H_2(G′,c)[q−1]| is fixed, then we have lim_{q→∞, (q,|G′|)=1, |H_2(G′,c)[q−1]|=d} Ẽ^±_{F_q(t),q^n}(G,G′) = d\"",
+      "correction": "Ẽ^±_{F_q(t),q^{2n}}(G,G′).",
+      "reason": "Theorems 1.2 and 4.8 concern the discriminant slice q^{2n}, and the sum over component invariants in Theorem 4.8 is taken over IQ_{=q^{2n}} and RQ_{=q^{2n}}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E5",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.8, the imaginary case with G′ not good, p.24, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"#{(K,ρ) | K ∈ IQ_{=q^{2n}}, … type G′} = Σ_{n: Σ n_i = 2n−1} #CHur^{c,(1,1,σ)}_{G,n}(F_q)\" and \"Σ #CHur^{c,(1,1,σ)}_{G,n}(F_q) ≥ Σ_{n∈𝒞} |H_2(G,c)[q−1]| q^n + O_n(q^{n−1/2}) ≥ v_{G′} n^{#c/G′−1} |H_2(G′,c)[q−1]| q^n + O_n(q^{n−1/2})\"",
+      "correction": "CHur^{c,(1,1,σ)}_{G′,n}, H_2(G′,c)[q−1], and q^{2n−1} + O_n(q^{2n−3/2}) in place of q^n + O_n(q^{n−1/2}).",
+      "reason": "The Hurwitz schemes parametrize G′-covers, and H_2(·, c) is defined for the group G′ that contains c. By Theorem 4.7 each Frobenius-fixed component of dimension Σ n_i = 2n − 1 has q^{2n−1} + O(q^{2n−3/2}) points. The next display of the proof indeed uses q^{2n−1} and O_n(q^{2n−3/2}).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E6",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.8, the real quadratic case, p.25, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"Note that trivial infinity type φ is exactly what makes the associated quadratic extension real quadratic (this was the definition of real quadratic). In particular these extensions have Nm Disc(M) = q^{(Σ_i n_i+1)|G′|/2}, and thus associated quadratic extension with discriminant norm q^{Σ_i n_i+1},\"",
+      "correction": "Nm Disc(M) = q^{(Σ_i n_i)|G′|/2}, and the associated quadratic extension has discriminant norm q^{Σ_i n_i}.",
+      "reason": "With trivial infinity type, the place at infinity is unramified and contributes nothing to the discriminant. The paper's own convention before Theorem 4.8 is Σ n_i = 2n − ε, with ε = 0 when K is unramified at infinity. The count that follows is q^{2n} + O_n(q^{2n−1/2}) over RQ_{=q^{2n}}, consistent with Σ n_i = 2n. The sentence was copied from the imaginary case, where the \"+1\" is correct. Noted by the extraction (item 91).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E7",
+      "kind": "error",
+      "locator": "Conjecture 5.1, p.26, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"Let h ∈ H_2(G′,c){|μ_Q|}. Let u ∈ μ_{Q(μ_{4|G̃′_c|})}. If G′ is good, then lim_{X→∞} (Σ_{K∈IQ^t_X} #{ρ ∈ Sur(G_K^{un,∞}, G) | ρ is type G′, I_{G′,π,Q}(ρ,u) = h}) / (Σ_{K∈IQ^t_X} 1) = 1, and\" the same for real quadratic fields.",
+      "correction": "Let u be a generator of μ_{Q(μ_{4|G̃′_c|})} (and h ∈ H_2(G′,c)[|μ_Q|]). Equivalently, stratify by the Hom-valued invariant u ↦ I(ρ,u). This matches Theorem 4.8, which takes u_q ∈ Ẑ(1)^×.",
+      "reason": "By Lemma 3.11, u ↦ I_{F,π,K}(φ,u) is a homomorphism from μ_L to H_2(F,c)[|μ_K|], so I(ρ,1) = 1 for every ρ. With u = 1 and h ≠ 1 the count in the numerator is zero for every X, so the limit is 0, not 1, whenever H_2(G′,c)[|μ_Q|] ≠ 1. The paper has such cases. For Q = ℚ, where |μ_Q| = 2, its table in §8.2 lists the good pair G = A_4, G′ = ((C_2⁴) ⋊ C_3) ⋊ C_2 [227] with H_2(G′,c) = C_2, and G = A_5, G′ = A_5 ≀ C_2 with H_2(G′,c) = C_2. More generally, for u of order d the invariant only sees h in the image of μ_d. For a generator u, evaluation at u identifies the homomorphisms μ_L → H_2(G′,c)[|μ_Q|] with H_2(G′,c)[|μ_Q|], since |μ_Q| divides |μ_L|, which is the intended stratification. The braces in \"H_2(G′,c){|μ_Q|}\" are a misprint for the torsion subgroup H_2(G′,c)[|μ_Q|]. Noted by the extraction (items 99 and 144).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    },
+    {
+      "id": "PAPER-WOOD-19/E8",
+      "kind": "misprint",
+      "locator": "Appendix A, \"Description of the computation: theoretical\", p.36, in arXiv 1702.04644v2 (13 July 2018, the latest version; its source file is Duke_Final_Revision.tex; PDF SHA-256 2eacf07f…e1bd); the published text, Duke Math. J. 168 (2019), 377–427, was not collated",
+      "printed": "\"The non-trivial action gives Gal(L/K) ≃ A_4, and the trivial action gives Gal(L/K) ≃ C_3 × C_3 × C_2. However Gal(L/K) ≃ C_3 × C_3 × C_2, implies, by class field theory, that L/ℚ is Galois.\"",
+      "correction": "C_2 × C_2 × C_3, in both places.",
+      "reason": "The group is (C_2 × C_2) ⋊ C_3 with trivial action, of order 12. The printed C_3 × C_3 × C_2 has order 18. The argument, that an abelian unramified Gal(L/K) forces L/ℚ to be Galois, is unaffected. Noted by the extraction (items 125 and 145).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Duke Mathematical Journal: Crossref record of DOI 10.1215/00127094-2018-0037, checked 22 September 2026: no erratum or other update is registered; the Project Euclid page https://projecteuclid.org/euclid.dmj/1548730815 did not load",
+        "arXiv 1702.04644: v1 (15 February 2017) and v2 (13 July 2018, the latest; source Duke_Final_Revision.tex)",
+        "the author's publication page https://people.math.harvard.edu/~mmwood/Publications/, checked 22 September 2026: it links ERRATA for several other papers but none for this one",
+        "web search for an erratum or correction, 22 September 2026: none found; the later papers of Y. Liu (arXiv 2202.09471v2) and Liu–Willyard (arXiv 2507.21558) were searched for comments on this paper and make none"
+      ]
+    }
+  ]
+}
