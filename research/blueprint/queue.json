@@ -478,7 +478,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-BURUNGALE-TIAN-26.md"
+    "research/blueprint/reviews/REV-PAPER-BURUNGALE-TIAN-26.md",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
+    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.md"
    ],
    "after": [
     "PAPER-BURUNGALE-TIAN-26"
@@ -512,7 +514,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YUAN-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-YUAN-26.md"
+    "research/blueprint/reviews/REV-PAPER-YUAN-26.md",
+    "research/blueprint/papers/PAPER-YUAN-26.result.json",
+    "research/blueprint/papers/PAPER-YUAN-26.md"
    ],
    "after": [
     "PAPER-YUAN-26"
@@ -546,7 +550,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-NEWTON-THORNE-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-26.md"
+    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-26.md",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-26.result.json",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-26.md"
    ],
    "after": [
     "PAPER-NEWTON-THORNE-26"
@@ -579,7 +585,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CALMES-ETAL-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-CALMES-ETAL-26.md"
+    "research/blueprint/reviews/REV-PAPER-CALMES-ETAL-26.md",
+    "research/blueprint/papers/PAPER-CALMES-ETAL-26.result.json",
+    "research/blueprint/papers/PAPER-CALMES-ETAL-26.md"
    ],
    "after": [
     "PAPER-CALMES-ETAL-26"
@@ -613,7 +621,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-CIUBOTARU-HARRIS-26.md"
+    "research/blueprint/reviews/REV-PAPER-CIUBOTARU-HARRIS-26.md",
+    "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.result.json",
+    "research/blueprint/papers/PAPER-CIUBOTARU-HARRIS-26.md"
    ],
    "after": [
     "PAPER-CIUBOTARU-HARRIS-26"
@@ -647,7 +657,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHARGAVA-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHARGAVA-25.md"
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-25.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-25.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-25.md"
    ],
    "after": [
     "PAPER-BHARGAVA-25"
@@ -680,7 +692,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LESLIE-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-LESLIE-25.md"
+    "research/blueprint/reviews/REV-PAPER-LESLIE-25.md",
+    "research/blueprint/papers/PAPER-LESLIE-25.result.json",
+    "research/blueprint/papers/PAPER-LESLIE-25.md"
    ],
    "after": [
     "PAPER-LESLIE-25"
@@ -713,7 +727,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ZAVYALOV-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-ZAVYALOV-25.md"
+    "research/blueprint/reviews/REV-PAPER-ZAVYALOV-25.md",
+    "research/blueprint/papers/PAPER-ZAVYALOV-25.result.json",
+    "research/blueprint/papers/PAPER-ZAVYALOV-25.md"
    ],
    "after": [
     "PAPER-ZAVYALOV-25"
@@ -746,7 +762,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KINGS-SPRANG-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-KINGS-SPRANG-25.md"
+    "research/blueprint/reviews/REV-PAPER-KINGS-SPRANG-25.md",
+    "research/blueprint/papers/PAPER-KINGS-SPRANG-25.result.json",
+    "research/blueprint/papers/PAPER-KINGS-SPRANG-25.md"
    ],
    "after": [
     "PAPER-KINGS-SPRANG-25"
@@ -779,7 +797,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-LAWRENCE-SAWIN-25.md"
+    "research/blueprint/reviews/REV-PAPER-LAWRENCE-SAWIN-25.md",
+    "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.result.json",
+    "research/blueprint/papers/PAPER-LAWRENCE-SAWIN-25.md"
    ],
    "after": [
     "PAPER-LAWRENCE-SAWIN-25"
@@ -813,7 +833,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KISIN-ZHOU-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-KISIN-ZHOU-25.md"
+    "research/blueprint/reviews/REV-PAPER-KISIN-ZHOU-25.md",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.md"
    ],
    "after": [
     "PAPER-KISIN-ZHOU-25"
@@ -846,7 +868,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md"
+    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-SCHOLZE-24.md",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.result.json",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-SCHOLZE-24.md"
    ],
    "after": [
     "PAPER-CESNAVICIUS-SCHOLZE-24"
@@ -879,7 +903,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CHEN-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-CHEN-24.md"
+    "research/blueprint/reviews/REV-PAPER-CHEN-24.md",
+    "research/blueprint/papers/PAPER-CHEN-24.result.json",
+    "research/blueprint/papers/PAPER-CHEN-24.md"
    ],
    "after": [
     "PAPER-CHEN-24"
@@ -912,7 +938,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-24.md"
+    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-24.md",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.result.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-24.md"
    ],
    "after": [
     "PAPER-CARAIANI-SCHOLZE-24"
@@ -945,7 +973,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-LANDESMAN-LITT-24.md"
+    "research/blueprint/reviews/REV-PAPER-LANDESMAN-LITT-24.md",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+    "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.md"
    ],
    "after": [
     "PAPER-LANDESMAN-LITT-24"
@@ -979,7 +1009,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-BERGSTROM-FABER-PAYNE-24.md"
+    "research/blueprint/reviews/REV-PAPER-BERGSTROM-FABER-PAYNE-24.md",
+    "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.result.json",
+    "research/blueprint/papers/PAPER-BERGSTROM-FABER-PAYNE-24.md"
    ],
    "after": [
     "PAPER-BERGSTROM-FABER-PAYNE-24"
@@ -1013,7 +1045,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SMITH-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-SMITH-24.md"
+    "research/blueprint/reviews/REV-PAPER-SMITH-24.md",
+    "research/blueprint/papers/PAPER-SMITH-24.result.json",
+    "research/blueprint/papers/PAPER-SMITH-24.md"
    ],
    "after": [
     "PAPER-SMITH-24"
@@ -1047,7 +1081,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FU-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-FU-24.md"
+    "research/blueprint/reviews/REV-PAPER-FU-24.md",
+    "research/blueprint/papers/PAPER-FU-24.result.json",
+    "research/blueprint/papers/PAPER-FU-24.md"
    ],
    "after": [
     "PAPER-FU-24"
@@ -1080,7 +1116,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md"
+    "research/blueprint/reviews/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md",
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.result.json",
+    "research/blueprint/papers/PAPER-CAI-FRIEDBERG-KAPLAN-24.md"
    ],
    "after": [
     "PAPER-CAI-FRIEDBERG-KAPLAN-24"
@@ -1114,7 +1152,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SCHROER-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-SCHROER-23.md"
+    "research/blueprint/reviews/REV-PAPER-SCHROER-23.md",
+    "research/blueprint/papers/PAPER-SCHROER-23.result.json",
+    "research/blueprint/papers/PAPER-SCHROER-23.md"
    ],
    "after": [
     "PAPER-SCHROER-23"
@@ -1137,8 +1177,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DASGUPTA-KAKDE-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1089",
-   "finishedAt": "2026-09-21T21:38:00Z"
+   "finishedAt": "2026-09-21T21:38:00Z",
+   "note": "deliverables arrived from an external worker on issue #1089"
   },
   {
    "id": "REV-PAPER-DASGUPTA-KAKDE-23",
@@ -1149,7 +1189,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-23.md"
+    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-23.md",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.result.json",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.md"
    ],
    "after": [
     "PAPER-DASGUPTA-KAKDE-23"
@@ -1182,7 +1224,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YU-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-YU-23.md"
+    "research/blueprint/reviews/REV-PAPER-YU-23.md",
+    "research/blueprint/papers/PAPER-YU-23.result.json",
+    "research/blueprint/papers/PAPER-YU-23.md"
    ],
    "after": [
     "PAPER-YU-23"
@@ -1215,7 +1259,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ALLEN-ETAL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-ALLEN-ETAL-23.md"
+    "research/blueprint/reviews/REV-PAPER-ALLEN-ETAL-23.md",
+    "research/blueprint/papers/PAPER-ALLEN-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-ALLEN-ETAL-23.md"
    ],
    "after": [
     "PAPER-ALLEN-ETAL-23"
@@ -1248,7 +1294,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md"
+    "research/blueprint/reviews/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
+    "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.result.json",
+    "research/blueprint/papers/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md"
    ],
    "after": [
     "PAPER-BROWNING-LEBOUDEC-SAWIN-23"
@@ -1282,7 +1330,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DADDEZIO-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-DADDEZIO-23.md"
+    "research/blueprint/reviews/REV-PAPER-DADDEZIO-23.md",
+    "research/blueprint/papers/PAPER-DADDEZIO-23.result.json",
+    "research/blueprint/papers/PAPER-DADDEZIO-23.md"
    ],
    "after": [
     "PAPER-DADDEZIO-23"
@@ -1316,7 +1366,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DITTMANN-POP-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-DITTMANN-POP-23.md"
+    "research/blueprint/reviews/REV-PAPER-DITTMANN-POP-23.md",
+    "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+    "research/blueprint/papers/PAPER-DITTMANN-POP-23.md"
    ],
    "after": [
     "PAPER-DITTMANN-POP-23"
@@ -1350,7 +1402,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-WITASZEK-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-WITASZEK-22.md"
+    "research/blueprint/reviews/REV-PAPER-WITASZEK-22.md",
+    "research/blueprint/papers/PAPER-WITASZEK-22.result.json",
+    "research/blueprint/papers/PAPER-WITASZEK-22.md"
    ],
    "after": [
     "PAPER-WITASZEK-22"
@@ -1383,7 +1437,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-22.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-22.md",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.md"
    ],
    "after": [
     "PAPER-BHATT-SCHOLZE-22"
@@ -1416,7 +1472,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FINTZEN-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-FINTZEN-21.md"
+    "research/blueprint/reviews/REV-PAPER-FINTZEN-21.md",
+    "research/blueprint/papers/PAPER-FINTZEN-21.result.json",
+    "research/blueprint/papers/PAPER-FINTZEN-21.md"
    ],
    "after": [
     "PAPER-FINTZEN-21"
@@ -1449,7 +1507,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ZHANG-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-ZHANG-21.md"
+    "research/blueprint/reviews/REV-PAPER-ZHANG-21.md",
+    "research/blueprint/papers/PAPER-ZHANG-21.result.json",
+    "research/blueprint/papers/PAPER-ZHANG-21.md"
    ],
    "after": [
     "PAPER-ZHANG-21"
@@ -1482,7 +1542,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md"
+    "research/blueprint/reviews/REV-PAPER-DIMITROV-GAO-HABEGGER-21.md",
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+    "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.md"
    ],
    "after": [
     "PAPER-DIMITROV-GAO-HABEGGER-21"
@@ -1515,7 +1577,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-NGODAC-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-NGODAC-21.md"
+    "research/blueprint/reviews/REV-PAPER-NGODAC-21.md",
+    "research/blueprint/papers/PAPER-NGODAC-21.result.json",
+    "research/blueprint/papers/PAPER-NGODAC-21.md"
    ],
    "after": [
     "PAPER-NGODAC-21"
@@ -1548,7 +1612,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md"
+    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.result.json",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md"
    ],
    "after": [
     "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21"
@@ -1581,7 +1647,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LI-LIU-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-LI-LIU-21.md"
+    "research/blueprint/reviews/REV-PAPER-LI-LIU-21.md",
+    "research/blueprint/papers/PAPER-LI-LIU-21.result.json",
+    "research/blueprint/papers/PAPER-LI-LIU-21.md"
    ],
    "after": [
     "PAPER-LI-LIU-21"
@@ -1616,7 +1684,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
+    "research/blueprint/reviews/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
+    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
+    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
    ],
    "after": [
     "PAPER-BURUNGALE-KOBAYASHI-OTA-21"
@@ -1640,8 +1710,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENNETT-SIKSEK-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1119",
-   "finishedAt": "2026-09-21T19:31:57Z"
+   "finishedAt": "2026-09-21T19:31:57Z",
+   "note": "deliverables arrived from an external worker on issue #1119"
   },
   {
    "id": "REV-PAPER-BENNETT-SIKSEK-20",
@@ -1652,7 +1722,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md"
+    "research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md",
+    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
+    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.md"
    ],
    "after": [
     "PAPER-BENNETT-SIKSEK-20"
@@ -1687,7 +1759,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-MASSER-ZANNIER-20.md"
+    "research/blueprint/reviews/REV-PAPER-MASSER-ZANNIER-20.md",
+    "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.result.json",
+    "research/blueprint/papers/PAPER-MASSER-ZANNIER-20.md"
    ],
    "after": [
     "PAPER-MASSER-ZANNIER-20"
@@ -1720,7 +1794,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-JIANG-ZHANG-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-JIANG-ZHANG-20.md"
+    "research/blueprint/reviews/REV-PAPER-JIANG-ZHANG-20.md",
+    "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+    "research/blueprint/papers/PAPER-JIANG-ZHANG-20.md"
    ],
    "after": [
     "PAPER-JIANG-ZHANG-20"
@@ -1753,7 +1829,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-BROWNING-SAWIN-20.md"
+    "research/blueprint/reviews/REV-PAPER-BROWNING-SAWIN-20.md",
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json",
+    "research/blueprint/papers/PAPER-BROWNING-SAWIN-20.md"
    ],
    "after": [
     "PAPER-BROWNING-SAWIN-20"
@@ -1786,7 +1864,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-DEMARCO-KRIEGER-YE-20.md"
+    "research/blueprint/reviews/REV-PAPER-DEMARCO-KRIEGER-YE-20.md",
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.result.json",
+    "research/blueprint/papers/PAPER-DEMARCO-KRIEGER-YE-20.md"
    ],
    "after": [
     "PAPER-DEMARCO-KRIEGER-YE-20"
@@ -1809,8 +1889,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COUVEIGNES-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1129",
-   "finishedAt": "2026-09-21T18:22:46Z"
+   "finishedAt": "2026-09-21T18:22:46Z",
+   "note": "deliverables arrived from an external worker on issue #1129"
   },
   {
    "id": "REV-PAPER-COUVEIGNES-20",
@@ -1821,7 +1901,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COUVEIGNES-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-COUVEIGNES-20.md"
+    "research/blueprint/reviews/REV-PAPER-COUVEIGNES-20.md",
+    "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
+    "research/blueprint/papers/PAPER-COUVEIGNES-20.md"
    ],
    "after": [
     "PAPER-COUVEIGNES-20"
@@ -1855,7 +1937,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KHAYUTIN-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-KHAYUTIN-19.md"
+    "research/blueprint/reviews/REV-PAPER-KHAYUTIN-19.md",
+    "research/blueprint/papers/PAPER-KHAYUTIN-19.result.json",
+    "research/blueprint/papers/PAPER-KHAYUTIN-19.md"
    ],
    "after": [
     "PAPER-KHAYUTIN-19"
@@ -1888,7 +1972,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YUN-ZHANG-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-19.md"
+    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-19.md",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.md"
    ],
    "after": [
     "PAPER-YUN-ZHANG-19"
@@ -1921,7 +2007,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAO-HABEGGER-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAO-HABEGGER-19.md"
+    "research/blueprint/reviews/REV-PAPER-GAO-HABEGGER-19.md",
+    "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+    "research/blueprint/papers/PAPER-GAO-HABEGGER-19.md"
    ],
    "after": [
     "PAPER-GAO-HABEGGER-19"
@@ -1955,7 +2043,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-MOK-PILA-TSIMERMAN-19.md"
+    "research/blueprint/reviews/REV-PAPER-MOK-PILA-TSIMERMAN-19.md",
+    "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json",
+    "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.md"
    ],
    "after": [
     "PAPER-MOK-PILA-TSIMERMAN-19"
@@ -1988,7 +2078,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAMBURD-MAGEE-RONAN-19.md"
+    "research/blueprint/reviews/REV-PAPER-GAMBURD-MAGEE-RONAN-19.md",
+    "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json",
+    "research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.md"
    ],
    "after": [
     "PAPER-GAMBURD-MAGEE-RONAN-19"
@@ -2022,7 +2114,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-TSIMERMAN-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-TSIMERMAN-18.md"
+    "research/blueprint/reviews/REV-PAPER-TSIMERMAN-18.md",
+    "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
+    "research/blueprint/papers/PAPER-TSIMERMAN-18.md"
    ],
    "after": [
     "PAPER-TSIMERMAN-18"
@@ -2055,7 +2149,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md"
+    "research/blueprint/reviews/REV-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md",
+    "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json",
+    "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.md"
    ],
    "after": [
     "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18"
@@ -2088,7 +2184,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YUAN-ZHANG-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-YUAN-ZHANG-18.md"
+    "research/blueprint/reviews/REV-PAPER-YUAN-ZHANG-18.md",
+    "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json",
+    "research/blueprint/papers/PAPER-YUAN-ZHANG-18.md"
    ],
    "after": [
     "PAPER-YUAN-ZHANG-18"
@@ -2121,7 +2219,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md"
+    "research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json",
+    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.md"
    ],
    "after": [
     "PAPER-DASGUPTA-KAKDE-VENTULLO-18"
@@ -2154,7 +2254,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAN-ICHINO-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAN-ICHINO-18.md"
+    "research/blueprint/reviews/REV-PAPER-GAN-ICHINO-18.md",
+    "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+    "research/blueprint/papers/PAPER-GAN-ICHINO-18.md"
    ],
    "after": [
     "PAPER-GAN-ICHINO-18"
@@ -2187,7 +2289,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ZHU-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-ZHU-17.md"
+    "research/blueprint/reviews/REV-PAPER-ZHU-17.md",
+    "research/blueprint/papers/PAPER-ZHU-17.result.json",
+    "research/blueprint/papers/PAPER-ZHU-17.md"
    ],
    "after": [
     "PAPER-ZHU-17"
@@ -2220,7 +2324,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-BUSHNELL-HENNIART-17.md"
+    "research/blueprint/reviews/REV-PAPER-BUSHNELL-HENNIART-17.md",
+    "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.result.json",
+    "research/blueprint/papers/PAPER-BUSHNELL-HENNIART-17.md"
    ],
    "after": [
     "PAPER-BUSHNELL-HENNIART-17"
@@ -2254,7 +2360,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-TEMKIN-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-TEMKIN-17.md"
+    "research/blueprint/reviews/REV-PAPER-TEMKIN-17.md",
+    "research/blueprint/papers/PAPER-TEMKIN-17.result.json",
+    "research/blueprint/papers/PAPER-TEMKIN-17.md"
    ],
    "after": [
     "PAPER-TEMKIN-17"
@@ -2287,7 +2395,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md"
+    "research/blueprint/reviews/REV-PAPER-CADORET-HUI-TAMAGAWA-17.md",
+    "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+    "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.md"
    ],
    "after": [
     "PAPER-CADORET-HUI-TAMAGAWA-17"
@@ -2320,7 +2430,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-DOSPINESCU-LEBRAS-17.md"
+    "research/blueprint/reviews/REV-PAPER-DOSPINESCU-LEBRAS-17.md",
+    "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.result.json",
+    "research/blueprint/papers/PAPER-DOSPINESCU-LEBRAS-17.md"
    ],
    "after": [
     "PAPER-DOSPINESCU-LEBRAS-17"
@@ -2353,7 +2465,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-17.md"
+    "research/blueprint/reviews/REV-PAPER-CARAIANI-SCHOLZE-17.md",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.result.json",
+    "research/blueprint/papers/PAPER-CARAIANI-SCHOLZE-17.md"
    ],
    "after": [
     "PAPER-CARAIANI-SCHOLZE-17"
@@ -2386,7 +2500,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YUN-ZHANG-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-17.md"
+    "research/blueprint/reviews/REV-PAPER-YUN-ZHANG-17.md",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.md"
    ],
    "after": [
     "PAPER-YUN-ZHANG-17"
@@ -2409,8 +2525,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-TSIMERMAN-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1165",
-   "finishedAt": "2026-09-21T17:57:12Z"
+   "finishedAt": "2026-09-21T17:57:12Z",
+   "note": "deliverables arrived from an external worker on issue #1165"
   },
   {
    "id": "REV-PAPER-BAKKER-TSIMERMAN-16",
@@ -2421,7 +2537,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-BAKKER-TSIMERMAN-16.md"
+    "research/blueprint/reviews/REV-PAPER-BAKKER-TSIMERMAN-16.md",
+    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.result.json",
+    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.md"
    ],
    "after": [
     "PAPER-BAKKER-TSIMERMAN-16"
@@ -2455,7 +2573,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-SCHMIDT-STIX-16.md"
+    "research/blueprint/reviews/REV-PAPER-SCHMIDT-STIX-16.md",
+    "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.result.json",
+    "research/blueprint/papers/PAPER-SCHMIDT-STIX-16.md"
    ],
    "after": [
     "PAPER-SCHMIDT-STIX-16"
@@ -2489,7 +2609,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md"
+    "research/blueprint/reviews/REV-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+    "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
+    "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.md"
    ],
    "after": [
     "PAPER-DUKE-IMAMOGLU-TOTH-16"
@@ -2522,7 +2644,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-JANNSEN-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-JANNSEN-16.md"
+    "research/blueprint/reviews/REV-PAPER-JANNSEN-16.md",
+    "research/blueprint/papers/PAPER-JANNSEN-16.result.json",
+    "research/blueprint/papers/PAPER-JANNSEN-16.md"
    ],
    "after": [
     "PAPER-JANNSEN-16"
@@ -2556,7 +2680,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KOENIGSMANN-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-KOENIGSMANN-16.md"
+    "research/blueprint/reviews/REV-PAPER-KOENIGSMANN-16.md",
+    "research/blueprint/papers/PAPER-KOENIGSMANN-16.result.json",
+    "research/blueprint/papers/PAPER-KOENIGSMANN-16.md"
    ],
    "after": [
     "PAPER-KOENIGSMANN-16"
@@ -2589,7 +2715,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-TREUMANN-VENKATESH-16.md"
+    "research/blueprint/reviews/REV-PAPER-TREUMANN-VENKATESH-16.md",
+    "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.result.json",
+    "research/blueprint/papers/PAPER-TREUMANN-VENKATESH-16.md"
    ],
    "after": [
     "PAPER-TREUMANN-VENKATESH-16"
@@ -2622,7 +2750,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-16.md"
+    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-16.md",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.result.json",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-16.md"
    ],
    "after": [
     "PAPER-HARPAZ-WITTENBERG-16"
@@ -2655,7 +2785,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SCHIFFMANN-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-SCHIFFMANN-16.md"
+    "research/blueprint/reviews/REV-PAPER-SCHIFFMANN-16.md",
+    "research/blueprint/papers/PAPER-SCHIFFMANN-16.result.json",
+    "research/blueprint/papers/PAPER-SCHIFFMANN-16.md"
    ],
    "after": [
     "PAPER-SCHIFFMANN-16"
@@ -2688,7 +2820,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md"
+    "research/blueprint/reviews/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
+    "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.result.json",
+    "research/blueprint/papers/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md"
    ],
    "after": [
     "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
@@ -2722,7 +2856,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md"
+    "research/blueprint/reviews/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.json",
+    "research/blueprint/papers/PAPER-BIJAKOWSKI-PILLONI-STROH-16.md"
    ],
    "after": [
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16"
@@ -2756,7 +2892,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CHARLES-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-CHARLES-16.md"
+    "research/blueprint/reviews/REV-PAPER-CHARLES-16.md",
+    "research/blueprint/papers/PAPER-CHARLES-16.result.json",
+    "research/blueprint/papers/PAPER-CHARLES-16.md"
    ],
    "after": [
     "PAPER-CHARLES-16"
@@ -2789,7 +2927,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KALETHA-16.review.json",
-    "research/blueprint/reviews/REV-PAPER-KALETHA-16.md"
+    "research/blueprint/reviews/REV-PAPER-KALETHA-16.md",
+    "research/blueprint/papers/PAPER-KALETHA-16.result.json",
+    "research/blueprint/papers/PAPER-KALETHA-16.md"
    ],
    "after": [
     "PAPER-KALETHA-16"
@@ -2822,7 +2962,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-WEI-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-WEI-26.md"
+    "research/blueprint/reviews/REV-PAPER-WEI-26.md",
+    "research/blueprint/papers/PAPER-WEI-26.result.json",
+    "research/blueprint/papers/PAPER-WEI-26.md"
    ],
    "after": [
     "PAPER-WEI-26"
@@ -2855,7 +2997,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-HOWE-KLEVDAL-26.md"
+    "research/blueprint/reviews/REV-PAPER-HOWE-KLEVDAL-26.md",
+    "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.result.json",
+    "research/blueprint/papers/PAPER-HOWE-KLEVDAL-26.md"
    ],
    "after": [
     "PAPER-HOWE-KLEVDAL-26"
@@ -2889,7 +3033,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-GILLE-PARIMALA-26.md"
+    "research/blueprint/reviews/REV-PAPER-GILLE-PARIMALA-26.md",
+    "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.result.json",
+    "research/blueprint/papers/PAPER-GILLE-PARIMALA-26.md"
    ],
    "after": [
     "PAPER-GILLE-PARIMALA-26"
@@ -2922,7 +3068,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BOXER-PILLONI-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-BOXER-PILLONI-26.md"
+    "research/blueprint/reviews/REV-PAPER-BOXER-PILLONI-26.md",
+    "research/blueprint/papers/PAPER-BOXER-PILLONI-26.result.json",
+    "research/blueprint/papers/PAPER-BOXER-PILLONI-26.md"
    ],
    "after": [
     "PAPER-BOXER-PILLONI-26"
@@ -2955,7 +3103,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-MAO-WAN-ZHANG-26.md"
+    "research/blueprint/reviews/REV-PAPER-MAO-WAN-ZHANG-26.md",
+    "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.result.json",
+    "research/blueprint/papers/PAPER-MAO-WAN-ZHANG-26.md"
    ],
    "after": [
     "PAPER-MAO-WAN-ZHANG-26"
@@ -2988,7 +3138,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md"
+    "research/blueprint/reviews/REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md",
+    "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
+    "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md"
    ],
    "after": [
     "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26"
@@ -3021,7 +3173,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GLEASON-LIM-XU-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-GLEASON-LIM-XU-26.md"
+    "research/blueprint/reviews/REV-PAPER-GLEASON-LIM-XU-26.md",
+    "research/blueprint/papers/PAPER-GLEASON-LIM-XU-26.result.json",
+    "research/blueprint/papers/PAPER-GLEASON-LIM-XU-26.md"
    ],
    "after": [
     "PAPER-GLEASON-LIM-XU-26"
@@ -3054,7 +3208,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-KLEVDAL-PATRIKIS-25.md"
+    "research/blueprint/reviews/REV-PAPER-KLEVDAL-PATRIKIS-25.md",
+    "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json",
+    "research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.md"
    ],
    "after": [
     "PAPER-KLEVDAL-PATRIKIS-25"
@@ -3087,7 +3243,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-ABDURRAHMAN-VENKATESH-25.md"
+    "research/blueprint/reviews/REV-PAPER-ABDURRAHMAN-VENKATESH-25.md",
+    "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.result.json",
+    "research/blueprint/papers/PAPER-ABDURRAHMAN-VENKATESH-25.md"
    ],
    "after": [
     "PAPER-ABDURRAHMAN-VENKATESH-25"
@@ -3120,7 +3278,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BINDA-KATO-VEZZANI-25.md"
+    "research/blueprint/reviews/REV-PAPER-BINDA-KATO-VEZZANI-25.md",
+    "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.result.json",
+    "research/blueprint/papers/PAPER-BINDA-KATO-VEZZANI-25.md"
    ],
    "after": [
     "PAPER-BINDA-KATO-VEZZANI-25"
@@ -3153,7 +3313,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ABE-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-ABE-25.md"
+    "research/blueprint/reviews/REV-PAPER-ABE-25.md",
+    "research/blueprint/papers/PAPER-ABE-25.result.json",
+    "research/blueprint/papers/PAPER-ABE-25.md"
    ],
    "after": [
     "PAPER-ABE-25"
@@ -3176,8 +3338,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MARTIN-25.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1216",
-   "finishedAt": "2026-09-21T18:01:32Z"
+   "finishedAt": "2026-09-21T18:01:32Z",
+   "note": "deliverables arrived from an external worker on issue #1216"
   },
   {
    "id": "REV-PAPER-MARTIN-25",
@@ -3188,7 +3350,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MARTIN-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-MARTIN-25.md"
+    "research/blueprint/reviews/REV-PAPER-MARTIN-25.md",
+    "research/blueprint/papers/PAPER-MARTIN-25.result.json",
+    "research/blueprint/papers/PAPER-MARTIN-25.md"
    ],
    "after": [
     "PAPER-MARTIN-25"
@@ -3222,7 +3386,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-YANG-ZHAO-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-YANG-ZHAO-25.md"
+    "research/blueprint/reviews/REV-PAPER-YANG-ZHAO-25.md",
+    "research/blueprint/papers/PAPER-YANG-ZHAO-25.result.json",
+    "research/blueprint/papers/PAPER-YANG-ZHAO-25.md"
    ],
    "after": [
     "PAPER-YANG-ZHAO-25"
@@ -3255,7 +3421,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HEUER-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-HEUER-25.md"
+    "research/blueprint/reviews/REV-PAPER-HEUER-25.md",
+    "research/blueprint/papers/PAPER-HEUER-25.result.json",
+    "research/blueprint/papers/PAPER-HEUER-25.md"
    ],
    "after": [
     "PAPER-HEUER-25"
@@ -3288,7 +3456,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-IYENGAR-KHARE-MANNING-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-IYENGAR-KHARE-MANNING-24.md"
+    "research/blueprint/reviews/REV-PAPER-IYENGAR-KHARE-MANNING-24.md",
+    "research/blueprint/papers/PAPER-IYENGAR-KHARE-MANNING-24.result.json",
+    "research/blueprint/papers/PAPER-IYENGAR-KHARE-MANNING-24.md"
    ],
    "after": [
     "PAPER-IYENGAR-KHARE-MANNING-24"
@@ -3321,7 +3491,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-LIU-WOOD-ZUREICKBROWN-24.md"
+    "research/blueprint/reviews/REV-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
+    "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+    "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.md"
    ],
    "after": [
     "PAPER-LIU-WOOD-ZUREICKBROWN-24"
@@ -3354,7 +3526,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GUO-REINECKE-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-GUO-REINECKE-24.md"
+    "research/blueprint/reviews/REV-PAPER-GUO-REINECKE-24.md",
+    "research/blueprint/papers/PAPER-GUO-REINECKE-24.result.json",
+    "research/blueprint/papers/PAPER-GUO-REINECKE-24.md"
    ],
    "after": [
     "PAPER-GUO-REINECKE-24"
@@ -3387,7 +3561,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DISEGNI-LIU-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-DISEGNI-LIU-24.md"
+    "research/blueprint/reviews/REV-PAPER-DISEGNI-LIU-24.md",
+    "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+    "research/blueprint/papers/PAPER-DISEGNI-LIU-24.md"
    ],
    "after": [
     "PAPER-DISEGNI-LIU-24"
@@ -3420,7 +3596,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-FENG-YUN-ZHANG-24.md"
+    "research/blueprint/reviews/REV-PAPER-FENG-YUN-ZHANG-24.md",
+    "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json",
+    "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.md"
    ],
    "after": [
     "PAPER-FENG-YUN-ZHANG-24"
@@ -3454,7 +3632,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BRESCIANI-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-BRESCIANI-24.md"
+    "research/blueprint/reviews/REV-PAPER-BRESCIANI-24.md",
+    "research/blueprint/papers/PAPER-BRESCIANI-24.result.json",
+    "research/blueprint/papers/PAPER-BRESCIANI-24.md"
    ],
    "after": [
     "PAPER-BRESCIANI-24"
@@ -3488,7 +3668,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CARO-PASTEN-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-CARO-PASTEN-23.md"
+    "research/blueprint/reviews/REV-PAPER-CARO-PASTEN-23.md",
+    "research/blueprint/papers/PAPER-CARO-PASTEN-23.result.json",
+    "research/blueprint/papers/PAPER-CARO-PASTEN-23.md"
    ],
    "after": [
     "PAPER-CARO-PASTEN-23"
@@ -3521,7 +3703,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-HE-LI-SHI-ETAL-23.md"
+    "research/blueprint/reviews/REV-PAPER-HE-LI-SHI-ETAL-23.md",
+    "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.md"
    ],
    "after": [
     "PAPER-HE-LI-SHI-ETAL-23"
@@ -3554,7 +3738,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BRIGHT-NEWTON-23.md"
+    "research/blueprint/reviews/REV-PAPER-BRIGHT-NEWTON-23.md",
+    "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.result.json",
+    "research/blueprint/papers/PAPER-BRIGHT-NEWTON-23.md"
    ],
    "after": [
     "PAPER-BRIGHT-NEWTON-23"
@@ -3587,7 +3773,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BREUIL-ETAL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BREUIL-ETAL-23.md"
+    "research/blueprint/reviews/REV-PAPER-BREUIL-ETAL-23.md",
+    "research/blueprint/papers/PAPER-BREUIL-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-BREUIL-ETAL-23.md"
    ],
    "after": [
     "PAPER-BREUIL-ETAL-23"
@@ -3620,7 +3808,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-NAKAMURA-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-NAKAMURA-23.md"
+    "research/blueprint/reviews/REV-PAPER-NAKAMURA-23.md",
+    "research/blueprint/papers/PAPER-NAKAMURA-23.result.json",
+    "research/blueprint/papers/PAPER-NAKAMURA-23.md"
    ],
    "after": [
     "PAPER-NAKAMURA-23"
@@ -3653,7 +3843,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LI-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-LI-23.md"
+    "research/blueprint/reviews/REV-PAPER-LI-23.md",
+    "research/blueprint/papers/PAPER-LI-23.result.json",
+    "research/blueprint/papers/PAPER-LI-23.md"
    ],
    "after": [
     "PAPER-LI-23"
@@ -3686,7 +3878,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md"
+    "research/blueprint/reviews/REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
+    "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.result.json",
+    "research/blueprint/papers/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md"
    ],
    "after": [
     "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23"
@@ -3719,7 +3913,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAN-SAVIN-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23.md"
+    "research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23.md",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23.md"
    ],
    "after": [
     "PAPER-GAN-SAVIN-23"
@@ -3752,7 +3948,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-QIAN-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-QIAN-23.md"
+    "research/blueprint/reviews/REV-PAPER-QIAN-23.md",
+    "research/blueprint/papers/PAPER-QIAN-23.result.json",
+    "research/blueprint/papers/PAPER-QIAN-23.md"
    ],
    "after": [
     "PAPER-QIAN-23"
@@ -3785,7 +3983,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23.md"
+    "research/blueprint/reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
+    "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md"
    ],
    "after": [
     "PAPER-LE-LEHUNG-LEVIN-ETAL-23"
@@ -3818,7 +4018,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-SKOROBOGATOV-SOFOS-23.md"
+    "research/blueprint/reviews/REV-PAPER-SKOROBOGATOV-SOFOS-23.md",
+    "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+    "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.md"
    ],
    "after": [
     "PAPER-SKOROBOGATOV-SOFOS-23"
@@ -3851,7 +4053,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-TSUZUKI-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-TSUZUKI-23.md"
+    "research/blueprint/reviews/REV-PAPER-TSUZUKI-23.md",
+    "research/blueprint/papers/PAPER-TSUZUKI-23.result.json",
+    "research/blueprint/papers/PAPER-TSUZUKI-23.md"
    ],
    "after": [
     "PAPER-TSUZUKI-23"
@@ -3884,7 +4088,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DISEGNI-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-DISEGNI-22.md"
+    "research/blueprint/reviews/REV-PAPER-DISEGNI-22.md",
+    "research/blueprint/papers/PAPER-DISEGNI-22.result.json",
+    "research/blueprint/papers/PAPER-DISEGNI-22.md"
    ],
    "after": [
     "PAPER-DISEGNI-22"
@@ -3917,7 +4123,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LIU-WANG-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-LIU-WANG-22.md"
+    "research/blueprint/reviews/REV-PAPER-LIU-WANG-22.md",
+    "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+    "research/blueprint/papers/PAPER-LIU-WANG-22.md"
    ],
    "after": [
     "PAPER-LIU-WANG-22"
@@ -3950,7 +4158,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-FENG-GALATIUS-VENKATESH-22.md"
+    "research/blueprint/reviews/REV-PAPER-FENG-GALATIUS-VENKATESH-22.md",
+    "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.result.json",
+    "research/blueprint/papers/PAPER-FENG-GALATIUS-VENKATESH-22.md"
    ],
    "after": [
     "PAPER-FENG-GALATIUS-VENKATESH-22"
@@ -3983,7 +4193,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md"
+    "research/blueprint/reviews/REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
+    "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.result.json",
+    "research/blueprint/papers/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md"
    ],
    "after": [
     "PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22"
@@ -4017,7 +4229,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-XIE-YUAN-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-XIE-YUAN-22.md"
+    "research/blueprint/reviews/REV-PAPER-XIE-YUAN-22.md",
+    "research/blueprint/papers/PAPER-XIE-YUAN-22.result.json",
+    "research/blueprint/papers/PAPER-XIE-YUAN-22.md"
    ],
    "after": [
     "PAPER-XIE-YUAN-22"
@@ -4050,7 +4264,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-GHOSH-SARNAK-22.md"
+    "research/blueprint/reviews/REV-PAPER-GHOSH-SARNAK-22.md",
+    "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.result.json",
+    "research/blueprint/papers/PAPER-GHOSH-SARNAK-22.md"
    ],
    "after": [
     "PAPER-GHOSH-SARNAK-22"
@@ -4083,7 +4299,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-22.md"
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-22.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-22.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-22.md"
    ],
    "after": [
     "PAPER-BHARGAVA-SHANKAR-WANG-22"
@@ -4116,7 +4334,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-MAULIK-SHANKAR-TANG-22.md"
+    "research/blueprint/reviews/REV-PAPER-MAULIK-SHANKAR-TANG-22.md",
+    "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.result.json",
+    "research/blueprint/papers/PAPER-MAULIK-SHANKAR-TANG-22.md"
    ],
    "after": [
     "PAPER-MAULIK-SHANKAR-TANG-22"
@@ -4149,7 +4369,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LI-ZHANG-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-LI-ZHANG-22.md"
+    "research/blueprint/reviews/REV-PAPER-LI-ZHANG-22.md",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22.md"
    ],
    "after": [
     "PAPER-LI-ZHANG-22"
@@ -4182,7 +4404,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LIU-ETAL-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-LIU-ETAL-22.md"
+    "research/blueprint/reviews/REV-PAPER-LIU-ETAL-22.md",
+    "research/blueprint/papers/PAPER-LIU-ETAL-22.result.json",
+    "research/blueprint/papers/PAPER-LIU-ETAL-22.md"
    ],
    "after": [
     "PAPER-LIU-ETAL-22"
@@ -4215,7 +4439,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md"
+    "research/blueprint/reviews/REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md",
+    "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.result.json",
+    "research/blueprint/papers/PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22.md"
    ],
    "after": [
     "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22"
@@ -4248,7 +4474,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-XU-ZHU-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-XU-ZHU-22.md"
+    "research/blueprint/reviews/REV-PAPER-XU-ZHU-22.md",
+    "research/blueprint/papers/PAPER-XU-ZHU-22.result.json",
+    "research/blueprint/papers/PAPER-XU-ZHU-22.md"
    ],
    "after": [
     "PAPER-XU-ZHU-22"
@@ -4281,7 +4509,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-CASTELLA-ETAL-22.md"
+    "research/blueprint/reviews/REV-PAPER-CASTELLA-ETAL-22.md",
+    "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+    "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.md"
    ],
    "after": [
     "PAPER-CASTELLA-ETAL-22"
@@ -4314,7 +4544,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BRUINIER-EHLEN-YANG-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-BRUINIER-EHLEN-YANG-21.md"
+    "research/blueprint/reviews/REV-PAPER-BRUINIER-EHLEN-YANG-21.md",
+    "research/blueprint/papers/PAPER-BRUINIER-EHLEN-YANG-21.result.json",
+    "research/blueprint/papers/PAPER-BRUINIER-EHLEN-YANG-21.md"
    ],
    "after": [
     "PAPER-BRUINIER-EHLEN-YANG-21"
@@ -4347,7 +4579,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-CLAUSEN-MATHEW-21.md"
+    "research/blueprint/reviews/REV-PAPER-CLAUSEN-MATHEW-21.md",
+    "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+    "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.md"
    ],
    "after": [
     "PAPER-CLAUSEN-MATHEW-21"
@@ -4380,7 +4614,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md"
+    "research/blueprint/reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
+    "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.result.json",
+    "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20.md"
    ],
    "after": [
     "PAPER-GROECHENIG-WYSS-ZIEGLER-20"
@@ -4413,7 +4649,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md"
    ],
    "after": [
     "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20"
@@ -4447,7 +4685,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-BENOIST-WITTENBERG-20.md"
+    "research/blueprint/reviews/REV-PAPER-BENOIST-WITTENBERG-20.md",
+    "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.result.json",
+    "research/blueprint/papers/PAPER-BENOIST-WITTENBERG-20.md"
    ],
    "after": [
     "PAPER-BENOIST-WITTENBERG-20"
@@ -4480,7 +4720,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-18.md"
+    "research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-18.md",
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.result.json",
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-18.md"
    ],
    "after": [
     "PAPER-CALEGARI-GERAGHTY-18"
@@ -4513,7 +4755,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-SCHOLZE-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-17.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-SCHOLZE-17.md",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-17.result.json",
+    "research/blueprint/papers/PAPER-BHATT-SCHOLZE-17.md"
    ],
    "after": [
     "PAPER-BHATT-SCHOLZE-17"
@@ -4546,7 +4790,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LIU-ZHU-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-LIU-ZHU-17.md"
+    "research/blueprint/reviews/REV-PAPER-LIU-ZHU-17.md",
+    "research/blueprint/papers/PAPER-LIU-ZHU-17.result.json",
+    "research/blueprint/papers/PAPER-LIU-ZHU-17.md"
    ],
    "after": [
     "PAPER-LIU-ZHU-17"
@@ -4579,7 +4825,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-NIZIOL-17.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-NIZIOL-17.md",
+    "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-17.md"
    ],
    "after": [
     "PAPER-COLMEZ-NIZIOL-17"
@@ -4612,7 +4860,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-NIZIOL-25.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-NIZIOL-25.md",
+    "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.md"
    ],
    "after": [
     "PAPER-COLMEZ-NIZIOL-25"
@@ -4645,7 +4895,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-FARB-KISIN-WOLFSON-24.md"
+    "research/blueprint/reviews/REV-PAPER-FARB-KISIN-WOLFSON-24.md",
+    "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+    "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.md"
    ],
    "after": [
     "PAPER-FARB-KISIN-WOLFSON-24"
@@ -4668,8 +4920,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1310",
-   "finishedAt": "2026-09-21T23:39:31Z"
+   "finishedAt": "2026-09-21T23:39:31Z",
+   "note": "deliverables arrived from an external worker on issue #1310"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-23",
@@ -4680,7 +4932,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-23.md"
+    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-23.md",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.result.json",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.md"
    ],
    "after": [
     "PAPER-HARPAZ-WITTENBERG-23"
@@ -4713,7 +4967,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md"
+    "research/blueprint/reviews/REV-PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md",
+    "research/blueprint/papers/PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.result.json",
+    "research/blueprint/papers/PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md"
    ],
    "after": [
     "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22"
@@ -4747,7 +5003,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md"
+    "research/blueprint/reviews/REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
+    "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+    "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md"
    ],
    "after": [
     "PAPER-KISIN-MADAPUSIPERA-SHIN-22"
@@ -4780,7 +5038,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-FRESAN-SABBAH-YU-22.md"
+    "research/blueprint/reviews/REV-PAPER-FRESAN-SABBAH-YU-22.md",
+    "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+    "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.md"
    ],
    "after": [
     "PAPER-FRESAN-SABBAH-YU-22"
@@ -4813,7 +5073,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-KOYMANS-MILOVIC-21.md"
+    "research/blueprint/reviews/REV-PAPER-KOYMANS-MILOVIC-21.md",
+    "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+    "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.md"
    ],
    "after": [
     "PAPER-KOYMANS-MILOVIC-21"
@@ -4846,7 +5108,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-MATHEW-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-MATHEW-21.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-MATHEW-21.md",
+    "research/blueprint/papers/PAPER-BHATT-MATHEW-21.result.json",
+    "research/blueprint/papers/PAPER-BHATT-MATHEW-21.md"
    ],
    "after": [
     "PAPER-BHATT-MATHEW-21"
@@ -4879,7 +5143,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md"
    ],
    "after": [
     "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21"
@@ -4912,7 +5178,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-20.md"
+    "research/blueprint/reviews/REV-PAPER-CALEGARI-GERAGHTY-20.md",
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.result.json",
+    "research/blueprint/papers/PAPER-CALEGARI-GERAGHTY-20.md"
    ],
    "after": [
     "PAPER-CALEGARI-GERAGHTY-20"
@@ -4945,7 +5213,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-PILLONI-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-PILLONI-20.md"
+    "research/blueprint/reviews/REV-PAPER-PILLONI-20.md",
+    "research/blueprint/papers/PAPER-PILLONI-20.result.json",
+    "research/blueprint/papers/PAPER-PILLONI-20.md"
    ],
    "after": [
     "PAPER-PILLONI-20"
@@ -4979,7 +5249,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CESNAVICIUS-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-19.md"
+    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-19.md",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-19.result.json",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-19.md"
    ],
    "after": [
     "PAPER-CESNAVICIUS-19"
@@ -5013,7 +5285,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-WOOD-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-WOOD-19.md"
+    "research/blueprint/reviews/REV-PAPER-WOOD-19.md",
+    "research/blueprint/papers/PAPER-WOOD-19.result.json",
+    "research/blueprint/papers/PAPER-WOOD-19.md"
    ],
    "after": [
     "PAPER-WOOD-19"
@@ -5047,7 +5321,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md"
+    "research/blueprint/reviews/REV-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
+    "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.result.json",
+    "research/blueprint/papers/PAPER-LIPNOWSKI-TSIMERMAN-18.md"
    ],
    "after": [
     "PAPER-LIPNOWSKI-TSIMERMAN-18"
@@ -5081,7 +5357,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-SHENDE-TSIMERMAN-17.md"
+    "research/blueprint/reviews/REV-PAPER-SHENDE-TSIMERMAN-17.md",
+    "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.result.json",
+    "research/blueprint/papers/PAPER-SHENDE-TSIMERMAN-17.md"
    ],
    "after": [
     "PAPER-SHENDE-TSIMERMAN-17"
@@ -5114,7 +5392,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-CLOZEL-THORNE-17.md"
+    "research/blueprint/reviews/REV-PAPER-CLOZEL-THORNE-17.md",
+    "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.result.json",
+    "research/blueprint/papers/PAPER-CLOZEL-THORNE-17.md"
    ],
    "after": [
     "PAPER-CLOZEL-THORNE-17"
@@ -5147,7 +5427,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-DEMARCO-MAVRAKI-YE-26.md"
+    "research/blueprint/reviews/REV-PAPER-DEMARCO-MAVRAKI-YE-26.md",
+    "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+    "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.md"
    ],
    "after": [
     "PAPER-DEMARCO-MAVRAKI-YE-26"
@@ -5181,7 +5463,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HANSEN-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-HANSEN-26.md"
+    "research/blueprint/reviews/REV-PAPER-HANSEN-26.md",
+    "research/blueprint/papers/PAPER-HANSEN-26.result.json",
+    "research/blueprint/papers/PAPER-HANSEN-26.md"
    ],
    "after": [
     "PAPER-HANSEN-26"
@@ -5215,7 +5499,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KISIN-PAPPAS-ZHOU-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-ZHOU-26.md"
+    "research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-ZHOU-26.md",
+    "research/blueprint/papers/PAPER-KISIN-PAPPAS-ZHOU-26.result.json",
+    "research/blueprint/papers/PAPER-KISIN-PAPPAS-ZHOU-26.md"
    ],
    "after": [
     "PAPER-KISIN-PAPPAS-ZHOU-26"
@@ -5248,7 +5534,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-PASKUNAS-QUAST-26.md"
+    "research/blueprint/reviews/REV-PAPER-PASKUNAS-QUAST-26.md",
+    "research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.result.json",
+    "research/blueprint/papers/PAPER-PASKUNAS-QUAST-26.md"
    ],
    "after": [
     "PAPER-PASKUNAS-QUAST-26"
@@ -5281,7 +5569,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25.md"
+    "research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25.md",
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json",
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.md"
    ],
    "after": [
     "PAPER-BOXER-CALEGARI-GEE-ETAL-25"
@@ -5314,7 +5604,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.md"
+    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.md",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.result.json",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-25.md"
    ],
    "after": [
     "PAPER-BEUZARTPLESSIS-CHAUDOUARD-25"
@@ -5347,7 +5639,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-25.md"
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-25.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-25.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-25.md"
    ],
    "after": [
     "PAPER-BHARGAVA-SHANKAR-WANG-25"
@@ -5380,7 +5674,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-LEMKEOLIVER-WANG-WOOD-25.md"
+    "research/blueprint/reviews/REV-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
+    "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json",
+    "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.md"
    ],
    "after": [
     "PAPER-LEMKEOLIVER-WANG-WOOD-25"
@@ -5413,7 +5709,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-FENG-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-FENG-24.md"
+    "research/blueprint/reviews/REV-PAPER-FENG-24.md",
+    "research/blueprint/papers/PAPER-FENG-24.result.json",
+    "research/blueprint/papers/PAPER-FENG-24.md"
    ],
    "after": [
     "PAPER-FENG-24"
@@ -5446,7 +5744,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24.md"
+    "research/blueprint/reviews/REV-PAPER-GAN-HARRIS-SAWIN-ETAL-24.md",
+    "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.result.json",
+    "research/blueprint/papers/PAPER-GAN-HARRIS-SAWIN-ETAL-24.md"
    ],
    "after": [
     "PAPER-GAN-HARRIS-SAWIN-ETAL-24"
@@ -5479,7 +5779,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-IM-KIM-LE-ETAL-24.md"
+    "research/blueprint/reviews/REV-PAPER-IM-KIM-LE-ETAL-24.md",
+    "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.result.json",
+    "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.md"
    ],
    "after": [
     "PAPER-IM-KIM-LE-ETAL-24"
@@ -5512,7 +5814,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-VANHOFTEN-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-VANHOFTEN-24.md"
+    "research/blueprint/reviews/REV-PAPER-VANHOFTEN-24.md",
+    "research/blueprint/papers/PAPER-VANHOFTEN-24.result.json",
+    "research/blueprint/papers/PAPER-VANHOFTEN-24.md"
    ],
    "after": [
     "PAPER-VANHOFTEN-24"
@@ -5545,7 +5849,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.review.json",
-    "research/blueprint/reviews/REV-PAPER-CANNING-LARSON-PAYNE-24.md"
+    "research/blueprint/reviews/REV-PAPER-CANNING-LARSON-PAYNE-24.md",
+    "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json",
+    "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.md"
    ],
    "after": [
     "PAPER-CANNING-LARSON-PAYNE-24"
@@ -5578,7 +5884,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-MATHEW-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-MATHEW-23.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-MATHEW-23.md",
+    "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+    "research/blueprint/papers/PAPER-BHATT-MATHEW-23.md"
    ],
    "after": [
     "PAPER-BHATT-MATHEW-23"
@@ -5611,7 +5919,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-ANSCHUTZ-LEBRAS-23.md"
+    "research/blueprint/reviews/REV-PAPER-ANSCHUTZ-LEBRAS-23.md",
+    "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
+    "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.md"
    ],
    "after": [
     "PAPER-ANSCHUTZ-LEBRAS-23"
@@ -5645,7 +5955,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HACON-WITASZEK-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-HACON-WITASZEK-23.md"
+    "research/blueprint/reviews/REV-PAPER-HACON-WITASZEK-23.md",
+    "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+    "research/blueprint/papers/PAPER-HACON-WITASZEK-23.md"
    ],
    "after": [
     "PAPER-HACON-WITASZEK-23"
@@ -5678,7 +5990,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md"
    ],
    "after": [
     "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23"
@@ -5711,7 +6025,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DOR-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-DOR-23.md"
+    "research/blueprint/reviews/REV-PAPER-DOR-23.md",
+    "research/blueprint/papers/PAPER-DOR-23.result.json",
+    "research/blueprint/papers/PAPER-DOR-23.md"
    ],
    "after": [
     "PAPER-DOR-23"
@@ -5744,7 +6060,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-ICHINO-PRASANNA-23.md"
+    "research/blueprint/reviews/REV-PAPER-ICHINO-PRASANNA-23.md",
+    "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+    "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.md"
    ],
    "after": [
     "PAPER-ICHINO-PRASANNA-23"
@@ -5777,7 +6095,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23-B.md"
+    "research/blueprint/reviews/REV-PAPER-GAN-SAVIN-23-B.md",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.result.json",
+    "research/blueprint/papers/PAPER-GAN-SAVIN-23-B.md"
    ],
    "after": [
     "PAPER-GAN-SAVIN-23-B"
@@ -5810,7 +6130,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md"
+    "research/blueprint/reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md",
+    "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
+    "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.md"
    ],
    "after": [
     "PAPER-CHANG-CHEN-MISHIBA-23"
@@ -5843,7 +6165,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md"
+    "research/blueprint/reviews/REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
+    "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.result.json",
+    "research/blueprint/papers/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md"
    ],
    "after": [
     "PAPER-BOCKLE-IYENGAR-PASKUNAS-23"
@@ -5876,7 +6200,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LI-LIU-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-LI-LIU-22.md"
+    "research/blueprint/reviews/REV-PAPER-LI-LIU-22.md",
+    "research/blueprint/papers/PAPER-LI-LIU-22.result.json",
+    "research/blueprint/papers/PAPER-LI-LIU-22.md"
    ],
    "after": [
     "PAPER-LI-LIU-22"
@@ -5909,7 +6235,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BINYAMINI-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-BINYAMINI-22.md"
+    "research/blueprint/reviews/REV-PAPER-BINYAMINI-22.md",
+    "research/blueprint/papers/PAPER-BINYAMINI-22.result.json",
+    "research/blueprint/papers/PAPER-BINYAMINI-22.md"
    ],
    "after": [
     "PAPER-BINYAMINI-22"
@@ -5942,7 +6270,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CESNAVICIUS-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-22.md"
+    "research/blueprint/reviews/REV-PAPER-CESNAVICIUS-22.md",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-22.result.json",
+    "research/blueprint/papers/PAPER-CESNAVICIUS-22.md"
    ],
    "after": [
     "PAPER-CESNAVICIUS-22"
@@ -5975,7 +6305,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md"
+    "research/blueprint/reviews/REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
+    "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.result.json",
+    "research/blueprint/papers/PAPER-HANSEN-KALETHA-WEINSTEIN-22.md"
    ],
    "after": [
     "PAPER-HANSEN-KALETHA-WEINSTEIN-22"
@@ -6008,7 +6340,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md"
+    "research/blueprint/reviews/REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
+    "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.result.json",
+    "research/blueprint/papers/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md"
    ],
    "after": [
     "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22"
@@ -6041,7 +6375,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md"
+    "research/blueprint/reviews/REV-PAPER-ATOBE-KONDO-YASUDA-22.md",
+    "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
+    "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.md"
    ],
    "after": [
     "PAPER-ATOBE-KONDO-YASUDA-22"
@@ -6075,7 +6411,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HE-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-HE-21.md"
+    "research/blueprint/reviews/REV-PAPER-HE-21.md",
+    "research/blueprint/papers/PAPER-HE-21.result.json",
+    "research/blueprint/papers/PAPER-HE-21.md"
    ],
    "after": [
     "PAPER-HE-21"
@@ -6108,7 +6446,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-EISCHEN-HARRIS-LI-ETAL-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md"
+    "research/blueprint/reviews/REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
+    "research/blueprint/papers/PAPER-EISCHEN-HARRIS-LI-ETAL-20.result.json",
+    "research/blueprint/papers/PAPER-EISCHEN-HARRIS-LI-ETAL-20.md"
    ],
    "after": [
     "PAPER-EISCHEN-HARRIS-LI-ETAL-20"
@@ -6141,7 +6481,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md"
+    "research/blueprint/reviews/REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
+    "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.result.json",
+    "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md"
    ],
    "after": [
     "PAPER-LE-LEHUNG-LEVIN-ETAL-20"
@@ -6174,7 +6516,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-VENKATESH-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-VENKATESH-19.md"
+    "research/blueprint/reviews/REV-PAPER-VENKATESH-19.md",
+    "research/blueprint/papers/PAPER-VENKATESH-19.result.json",
+    "research/blueprint/papers/PAPER-VENKATESH-19.md"
    ],
    "after": [
     "PAPER-VENKATESH-19"
@@ -6207,7 +6551,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HE-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-HE-18.md"
+    "research/blueprint/reviews/REV-PAPER-HE-18.md",
+    "research/blueprint/papers/PAPER-HE-18.result.json",
+    "research/blueprint/papers/PAPER-HE-18.md"
    ],
    "after": [
     "PAPER-HE-18"
@@ -6241,7 +6587,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-MERKURJEV-SCAVIA-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-MERKURJEV-SCAVIA-26.md"
+    "research/blueprint/reviews/REV-PAPER-MERKURJEV-SCAVIA-26.md",
+    "research/blueprint/papers/PAPER-MERKURJEV-SCAVIA-26.result.json",
+    "research/blueprint/papers/PAPER-MERKURJEV-SCAVIA-26.md"
    ],
    "after": [
     "PAPER-MERKURJEV-SCAVIA-26"
@@ -6274,7 +6622,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-SCHOLZE-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-SCHOLZE-26.md"
+    "research/blueprint/reviews/REV-PAPER-SCHOLZE-26.md",
+    "research/blueprint/papers/PAPER-SCHOLZE-26.result.json",
+    "research/blueprint/papers/PAPER-SCHOLZE-26.md"
    ],
    "after": [
     "PAPER-SCHOLZE-26"
@@ -6307,7 +6657,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-25.md"
+    "research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-25.md",
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-25.result.json",
+    "research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-25.md"
    ],
    "after": [
     "PAPER-BOXER-CALEGARI-GEE-25"
@@ -6340,7 +6692,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-CALEGARI-DIMITROV-TANG-25.md"
+    "research/blueprint/reviews/REV-PAPER-CALEGARI-DIMITROV-TANG-25.md",
+    "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.result.json",
+    "research/blueprint/papers/PAPER-CALEGARI-DIMITROV-TANG-25.md"
    ],
    "after": [
     "PAPER-CALEGARI-DIMITROV-TANG-25"
@@ -6373,7 +6727,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LI-ZHANG-22-B.review.json",
-    "research/blueprint/reviews/REV-PAPER-LI-ZHANG-22-B.md"
+    "research/blueprint/reviews/REV-PAPER-LI-ZHANG-22-B.md",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+    "research/blueprint/papers/PAPER-LI-ZHANG-22-B.md"
    ],
    "after": [
     "PAPER-LI-ZHANG-22-B"
@@ -6406,7 +6762,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md"
+    "research/blueprint/reviews/REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
+    "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.result.json",
+    "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-MORROW-21.md"
    ],
    "after": [
     "PAPER-CLAUSEN-MATHEW-MORROW-21"
@@ -6440,7 +6798,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md"
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md"
    ],
    "after": [
     "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20"
@@ -6474,7 +6834,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md"
+    "research/blueprint/reviews/REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
+    "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+    "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md"
    ],
    "after": [
     "PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
@@ -6507,7 +6869,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.review.json",
-    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md"
+    "research/blueprint/reviews/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.result.json",
+    "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md"
    ],
    "after": [
     "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B"
@@ -6541,7 +6905,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-20.md"
+    "research/blueprint/reviews/REV-PAPER-HARPAZ-WITTENBERG-20.md",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-20.result.json",
+    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-20.md"
    ],
    "after": [
     "PAPER-HARPAZ-WITTENBERG-20"
@@ -6574,7 +6940,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.review.json",
-    "research/blueprint/reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md"
+    "research/blueprint/reviews/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md",
+    "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+    "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md"
    ],
    "after": [
     "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B"
@@ -6607,7 +6975,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ABE-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-ABE-18.md"
+    "research/blueprint/reviews/REV-PAPER-ABE-18.md",
+    "research/blueprint/papers/PAPER-ABE-18.result.json",
+    "research/blueprint/papers/PAPER-ABE-18.md"
    ],
    "after": [
     "PAPER-ABE-18"
@@ -6640,7 +7010,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-LAFFORGUE-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-LAFFORGUE-18.md"
+    "research/blueprint/reviews/REV-PAPER-LAFFORGUE-18.md",
+    "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
+    "research/blueprint/papers/PAPER-LAFFORGUE-18.md"
    ],
    "after": [
     "PAPER-LAFFORGUE-18"
@@ -6674,7 +7046,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KISIN-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-KISIN-17.md"
+    "research/blueprint/reviews/REV-PAPER-KISIN-17.md",
+    "research/blueprint/papers/PAPER-KISIN-17.result.json",
+    "research/blueprint/papers/PAPER-KISIN-17.md"
    ],
    "after": [
     "PAPER-KISIN-17"
@@ -6707,7 +7081,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHARGAVA-GROSS-WANG-17.md"
+    "research/blueprint/reviews/REV-PAPER-BHARGAVA-GROSS-WANG-17.md",
+    "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+    "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.md"
    ],
    "after": [
     "PAPER-BHARGAVA-GROSS-WANG-17"
@@ -6740,7 +7116,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.review.json",
-    "research/blueprint/reviews/REV-PAPER-GAO-GE-KUHNE-26.md"
+    "research/blueprint/reviews/REV-PAPER-GAO-GE-KUHNE-26.md",
+    "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.result.json",
+    "research/blueprint/papers/PAPER-GAO-GE-KUHNE-26.md"
    ],
    "after": [
     "PAPER-GAO-GE-KUHNE-26"
@@ -6773,7 +7151,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-DING-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-DING-25.md"
+    "research/blueprint/reviews/REV-PAPER-DING-25.md",
+    "research/blueprint/papers/PAPER-DING-25.result.json",
+    "research/blueprint/papers/PAPER-DING-25.md"
    ],
    "after": [
     "PAPER-DING-25"
@@ -6806,7 +7186,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.review.json",
-    "research/blueprint/reviews/REV-PAPER-RICHARD-YAFAEV-25.md"
+    "research/blueprint/reviews/REV-PAPER-RICHARD-YAFAEV-25.md",
+    "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json",
+    "research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.md"
    ],
    "after": [
     "PAPER-RICHARD-YAFAEV-25"
@@ -6840,7 +7222,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-ETAL-23.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-ETAL-23.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-ETAL-23.md",
+    "research/blueprint/papers/PAPER-BHATT-ETAL-23.result.json",
+    "research/blueprint/papers/PAPER-BHATT-ETAL-23.md"
    ],
    "after": [
     "PAPER-BHATT-ETAL-23"
@@ -6873,7 +7257,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.review.json",
-    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md"
+    "research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.result.json",
+    "research/blueprint/papers/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md"
    ],
    "after": [
     "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22"
@@ -6906,7 +7292,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-NEWTON-THORNE-21.review.json",
-    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21.md"
+    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21.md",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-21.result.json",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-21.md"
    ],
    "after": [
     "PAPER-NEWTON-THORNE-21"
@@ -6939,7 +7327,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.review.json",
-    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21-B.md"
+    "research/blueprint/reviews/REV-PAPER-NEWTON-THORNE-21-B.md",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.result.json",
+    "research/blueprint/papers/PAPER-NEWTON-THORNE-21-B.md"
    ],
    "after": [
     "PAPER-NEWTON-THORNE-21-B"
@@ -6972,7 +7362,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-CHENEVIER-TAIBI-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-CHENEVIER-TAIBI-20.md"
+    "research/blueprint/reviews/REV-PAPER-CHENEVIER-TAIBI-20.md",
+    "research/blueprint/papers/PAPER-CHENEVIER-TAIBI-20.result.json",
+    "research/blueprint/papers/PAPER-CHENEVIER-TAIBI-20.md"
    ],
    "after": [
     "PAPER-CHENEVIER-TAIBI-20"
@@ -7006,7 +7398,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BENOIST-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-BENOIST-19.md"
+    "research/blueprint/reviews/REV-PAPER-BENOIST-19.md",
+    "research/blueprint/papers/PAPER-BENOIST-19.result.json",
+    "research/blueprint/papers/PAPER-BENOIST-19.md"
    ],
    "after": [
     "PAPER-BENOIST-19"
@@ -7039,7 +7433,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md"
+    "research/blueprint/reviews/REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
+    "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.result.json",
+    "research/blueprint/papers/PAPER-BREUIL-HELLMANN-SCHRAEN-19.md"
    ],
    "after": [
     "PAPER-BREUIL-HELLMANN-SCHRAEN-19"
@@ -7072,7 +7468,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-19.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-19.md",
+    "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.result.json",
+    "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-19.md"
    ],
    "after": [
     "PAPER-BHATT-MORROW-SCHOLZE-19"
@@ -7105,7 +7503,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-18.md"
+    "research/blueprint/reviews/REV-PAPER-KISIN-PAPPAS-18.md",
+    "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.result.json",
+    "research/blueprint/papers/PAPER-KISIN-PAPPAS-18.md"
    ],
    "after": [
     "PAPER-KISIN-PAPPAS-18"
@@ -7138,7 +7538,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-18.md"
+    "research/blueprint/reviews/REV-PAPER-BHATT-MORROW-SCHOLZE-18.md",
+    "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.result.json",
+    "research/blueprint/papers/PAPER-BHATT-MORROW-SCHOLZE-18.md"
    ],
    "after": [
     "PAPER-BHATT-MORROW-SCHOLZE-18"
@@ -7172,7 +7574,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ANDRE-18.review.json",
-    "research/blueprint/reviews/REV-PAPER-ANDRE-18.md"
+    "research/blueprint/reviews/REV-PAPER-ANDRE-18.md",
+    "research/blueprint/papers/PAPER-ANDRE-18.result.json",
+    "research/blueprint/papers/PAPER-ANDRE-18.md"
    ],
    "after": [
     "PAPER-ANDRE-18"
@@ -7205,7 +7609,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.review.json",
-    "research/blueprint/reviews/REV-PAPER-ESNAULT-GROECHENIG-20.md"
+    "research/blueprint/reviews/REV-PAPER-ESNAULT-GROECHENIG-20.md",
+    "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.result.json",
+    "research/blueprint/papers/PAPER-ESNAULT-GROECHENIG-20.md"
    ],
    "after": [
     "PAPER-ESNAULT-GROECHENIG-20"
@@ -7238,7 +7644,9 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.review.json",
-    "research/blueprint/reviews/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md"
+    "research/blueprint/reviews/REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
+    "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.result.json",
+    "research/blueprint/papers/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md"
    ],
    "after": [
     "PAPER-BOCKLE-HARRIS-KHARE-ETAL-19"
@@ -7693,8 +8101,8 @@
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #81",
-   "finishedAt": "2026-09-21T18:04:39Z"
+   "finishedAt": "2026-09-21T18:04:39Z",
+   "note": "deliverables arrived from an external worker on issue #81"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -7737,8 +8145,8 @@
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #82",
-   "finishedAt": "2026-09-21T18:04:42Z"
+   "finishedAt": "2026-09-21T18:04:42Z",
+   "note": "deliverables arrived from an external worker on issue #82"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -9042,8 +9450,8 @@
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #118",
-   "finishedAt": "2026-09-21T18:04:45Z"
+   "finishedAt": "2026-09-21T18:04:45Z",
+   "note": "deliverables arrived from an external worker on issue #118"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -9504,8 +9912,8 @@
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #131",
-   "finishedAt": "2026-09-21T18:04:48Z"
+   "finishedAt": "2026-09-21T18:04:48Z",
+   "note": "deliverables arrived from an external worker on issue #131"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
@@ -9614,8 +10022,8 @@
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #134",
-   "finishedAt": "2026-09-21T18:04:52Z"
+   "finishedAt": "2026-09-21T18:04:52Z",
+   "note": "deliverables arrived from an external worker on issue #134"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -10575,8 +10983,8 @@
    ],
    "prompt": "research/blueprint/prompts/RS-12~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1615",
-   "finishedAt": "2026-09-21T18:01:34Z"
+   "finishedAt": "2026-09-21T18:01:34Z",
+   "note": "deliverables arrived from an external worker on issue #1615"
   },
   {
    "id": "REV-RS-12~2",
@@ -10973,8 +11381,8 @@
    ],
    "prompt": "research/blueprint/prompts/RS-20~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1617",
-   "finishedAt": "2026-09-21T18:01:37Z"
+   "finishedAt": "2026-09-21T18:01:37Z",
+   "note": "deliverables arrived from an external worker on issue #1617"
   },
   {
    "id": "REV-RS-20~2",
@@ -23274,6 +23682,241 @@
    "after": [],
    "state": "superseded",
    "note": "Planets are now chosen by the workers who blueprint each roadmap (PROTOCOL.md section 14)."
+  },
+  {
+   "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 414,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_EllipticCurves: Elliptic curves",
+   "target": "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.result.json",
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+    "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
+   ],
+   "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "kind": "review",
+   "priority": 2,
+   "order": 414,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_EllipticCurves: Elliptic curves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.review.json",
+    "research/blueprint/reviews/REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md"
+   ],
+   "after": [
+    "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
+   ],
+   "avoidAccountOf": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "independentOf": [
+    "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+    "LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+    "REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 415,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AdicSpaces: Foundations of adic spaces",
+   "target": "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.result.json",
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+    "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
+   ],
+   "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+   "kind": "review",
+   "priority": 2,
+   "order": 415,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AdicSpaces: Foundations of adic spaces",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AdicSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.review.json",
+    "research/blueprint/reviews/REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md"
+   ],
+   "after": [
+    "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
+   ],
+   "avoidAccountOf": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+   "independentOf": [
+    "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+    "LINK-tauceti_TauCetiRoadmap_AdicSpaces",
+    "REV-LINK-tauceti_TauCetiRoadmap_AdicSpaces"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 451,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
+   "target": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.result.json",
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+    "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "kind": "review",
+   "priority": 2,
+   "order": 451,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.review.json",
+    "research/blueprint/reviews/REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md"
+   ],
+   "after": [
+    "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "avoidAccountOf": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "independentOf": [
+    "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+    "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+    "REV-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 464,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems: Root systems, Weyl groups, and the Cartan-Killing classification",
+   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.result.json",
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+    "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+   ],
+   "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+   "kind": "review",
+   "priority": 2,
+   "order": 464,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems: Root systems, Weyl groups, and the Cartan-Killing classification",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.review.json",
+    "research/blueprint/reviews/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md"
+   ],
+   "after": [
+    "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+   ],
+   "avoidAccountOf": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+   "independentOf": [
+    "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+    "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
+    "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.md",
+   "state": "pending"
+  },
+  {
+   "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+   "kind": "redteam",
+   "priority": 2,
+   "order": 467,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations: Clifford algebras, the Pin and Spin groups, and spin representations",
+   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.result.json",
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md"
+   ],
+   "after": [],
+   "independentOf": [
+    "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+    "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
+   ],
+   "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+   "kind": "review",
+   "priority": 2,
+   "order": 467,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations: Clifford algebras, the Pin and Spin groups, and spin representations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.review.json",
+    "research/blueprint/reviews/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md"
+   ],
+   "after": [
+    "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
+   ],
+   "avoidAccountOf": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+   "independentOf": [
+    "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+    "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
+    "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations"
+   ],
+   "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-07",
