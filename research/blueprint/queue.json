@@ -1222,8 +1222,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1091"
+   "state": "pending",
+   "note": "released on GitHub issue #1091"
   },
   {
    "id": "REV-PAPER-YU-23",
@@ -2209,7 +2209,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUAN-ZHANG-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1145"
   },
   {
    "id": "REV-PAPER-YUAN-ZHANG-18",
@@ -4789,8 +4790,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1296"
+   "state": "pending",
+   "note": "released on GitHub issue #1296"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
@@ -6095,8 +6096,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HACON-WITASZEK-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1369"
+   "state": "external",
+   "note": "claimed on GitHub issue #1369"
   },
   {
    "id": "REV-PAPER-HACON-WITASZEK-23",
