@@ -1860,7 +1860,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1127"
   },
   {
    "id": "REV-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -2004,8 +2005,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAO-HABEGGER-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1135"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1135",
+   "finishedAt": "2026-09-22T11:40:50Z"
   },
   {
    "id": "REV-PAPER-GAO-HABEGGER-19",
@@ -2819,8 +2821,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1184"
+   "state": "pending",
+   "note": "released on GitHub issue #1184"
   },
   {
    "id": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
@@ -5324,8 +5326,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1332"
+   "state": "external",
+   "note": "claimed on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6803,8 +6805,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1420"
+   "state": "pending",
+   "note": "released on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
