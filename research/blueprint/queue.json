@@ -29197,7 +29197,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1705"
   },
   {
    "id": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -29232,8 +29233,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENNETT-SIKSEK-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1707"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1707",
+   "finishedAt": "2026-09-22T07:36:38Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20",
