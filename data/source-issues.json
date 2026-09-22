@@ -7384,6 +7384,153 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-FENG-24/E1",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), §6.2.1 (Assumptions)",
+   "printed": "Let $E_v/F_v$ be a finite Galois assumption such that $\\operatorname{Gal}(E_v/F_v)$ has order coprime to $\\ell$.",
+   "correction": "\"a finite Galois extension\".",
+   "reason": "A slip of the pen: what is being assumed of E_v/F_v is that it is a finite Galois extension whose group has order prime to ℓ. The word \"assumption\" makes the sentence ungrammatical and the intended meaning is unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
+    "the Cambridge Core article page, which lists no erratum, corrigendum or related correction",
+    "arXiv:2009.14236, whose latest version is v6 of 29 November 2023 and which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E2",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), §6.2.3 (Maps of double coset spaces), the sentence defining Z_F",
+   "printed": "Let $S_F$ be a maximal $F_v$-split torus of $H$ contained in $S_G$, $Z_F = Z_H(S_H)$, and $\\mathcal{Z}_F \\subset Z_F(F_v)$ as in (6.2).",
+   "correction": "$Z_F = Z_H(S_F)$.",
+   "reason": "The symbol S_H is never defined anywhere in the paper; the torus just introduced is S_F, and the parallel definition one clause earlier is Z_E := Z_G(S_G), so the centraliser meant is that of S_F in H. The generic notation of §6.2.2 is likewise Z = Z_H(S) for S a maximal F_v-split torus of H.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E3",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), the proof of Proposition 6.3, case r = 0",
+   "printed": "Since $U_0 \\supset H(F_v)_{x,0}$, the Cartan decomposition implies that double cosets $U_0 \\backslash G_v / U_0$ are represented by $z \\in \\mathcal{Z}_F$.",
+   "correction": "double cosets $U_0 \\backslash H_v / U_0$.",
+   "reason": "U_0 is a subgroup of H_v = H(F_v) and the Cartan decomposition being applied, from §6.2.2, is H(F_v) = H(F_v)_{x,0}·ℤ·H(F_v)_{x,0} with representatives in ℤ_F ⊂ Z_F(F_v) ⊂ H(F_v); the double cosets it describes are therefore those of H_v, and U_0 \\ G_v / U_0 is not even the source of the map whose injectivity Proposition 6.3 asserts, which is U_r \\ H_v / U_r → K_r \\ G_v / K_r. The rest of the paragraph treats z_1, z_2 as elements of H(F_v) and concludes U_0 z_1 U_0 = U_0 z_2 U_0, consistently with the corrected reading.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E4",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), the proof of Proposition 6.3, case r > 0 (two occurrences in one sentence)",
+   "printed": "Note that $\\operatorname{Gal}(E_r/F_r)$ is of order prime-to-$\\ell$, while $K_r$ is pro-$\\ell$ thanks to the assumption $r>0$, so then $H^1(\\operatorname{Gal}(E_r/F_r); K^b_r) = 0$.",
+   "correction": "$\\operatorname{Gal}(E_v/F_v)$ in both places.",
+   "reason": "There are no fields E_r and F_r in the paper; the Galois group whose order is prime to ℓ by the standing assumption of §6.2.1, and which acts on K_r = G(F_v)_{x,r} with σ as a generator, is Gal(E_v/F_v). The subscript r has been copied from K_r.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands in both places",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E5",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), §6.3.3 (Treumann-Venkatesh homomorphism), immediately after (6.5)",
+   "printed": "It is evident from the definition that $Z(\\operatorname{Br})$ through the quotient $Z(\\mathcal{H}(G, K_r)^{\\sigma}) / N \\cdot \\mathfrak{Z}(G, K_r)$.",
+   "correction": "\"that $Z(\\operatorname{Br})$ factors through the quotient\".",
+   "reason": "The verb is missing. The statement intended, and the one used immediately afterwards when Z(Br) is composed with the Tate diagonal, is that Z(Br) factors through that quotient, which is what the vanishing of Br on N·H(G,K_r) gives.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E6",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), Definition 5.5, second paragraph",
+   "printed": "We say will be called automorphic if it arises via Proposition 2.4 from $C_c^{\\infty}(\\mathrm{Bun}_{G,D}(\\mathbf{F}_\\ell); k)$ for some $D$.",
+   "correction": "\"An $L$-parameter $\\rho$ will be called automorphic if ...\", or \"We say that $\\rho$ is automorphic if ...\".",
+   "reason": "The sentence has no subject: two ways of phrasing the definition have been conflated. The first paragraph of the same definition, which does have a subject, fixes the meaning.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where the misprint stands",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FENG-24/E7",
+   "kind": "misprint",
+   "locator": "Forum of Mathematics, Pi 12 (2024), Appendix B, §B.3 (Drinfeld's lemma), two occurrences",
+   "printed": "Then using Proposition B.3, we may eliminate all powers of partial Frobenius with exponent $\\geq \\dim W$ ... Therefore, the Eichler-Shimura relation from Proposition B.3 is also satisfied in the right column.",
+   "correction": "Lemma B.3 in both places.",
+   "reason": "B.3 is stated as a Lemma, both in the published version and in the preprint; the Proposition in the appendix is B.1, which is the same Eichler-Shimura relation for ordinary cohomology quoted from Xue. Since the argument in §B.3 is about Tate cohomology, the statement wanted is the Lemma B.3, so only the word is wrong. Found by a mechanical audit comparing the word before each cross-reference with the environment carrying that label; it is the only such mismatch in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published open-access full text on Cambridge Core (doi 10.1017/fmp.2023.32), where both occurrences stand and where B.3 is again a Lemma",
+    "the Cambridge Core article page, which lists no erratum or corrigendum",
+    "arXiv:2009.14236v6, which has the same text"
+   ],
+   "owner": "PAPER-FENG-24",
+   "file": "research/blueprint/papers/PAPER-FENG-24.result.json",
+   "citation": "Feng, \"Smith theory and cyclic base change functoriality\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-FENG-YUN-ZHANG-24/E1",
    "kind": "misprint",
    "locator": "Definition 6.6(1)–(2), p. 616 (published; also arXiv v4)",
