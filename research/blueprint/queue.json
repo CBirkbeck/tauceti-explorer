@@ -1534,7 +1534,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DIMITROV-GAO-HABEGGER-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1109"
   },
   {
    "id": "REV-PAPER-DIMITROV-GAO-HABEGGER-21",
@@ -7119,7 +7120,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAO-GE-KUHNE-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1438",
+   "finishedAt": "2026-09-22T11:04:38Z"
   },
   {
    "id": "REV-PAPER-GAO-GE-KUHNE-26",
