@@ -1836,7 +1836,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-SAWIN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1125"
   },
   {
    "id": "REV-PAPER-BROWNING-SAWIN-20",
@@ -3651,8 +3652,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRESCIANI-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1233"
+   "state": "external",
+   "note": "claimed on GitHub issue #1233"
   },
   {
    "id": "REV-PAPER-BRESCIANI-24",
@@ -5139,7 +5140,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MATHEW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1320"
   },
   {
    "id": "REV-PAPER-BHATT-MATHEW-21",
@@ -6380,8 +6382,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1393",
+   "finishedAt": "2026-09-22T15:50:44Z"
   },
   {
    "id": "REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
@@ -6452,8 +6455,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1397"
+   "state": "external",
+   "note": "claimed on GitHub issue #1397"
   },
   {
    "id": "REV-PAPER-HE-21",
