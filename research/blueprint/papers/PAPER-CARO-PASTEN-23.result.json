@@ -856,7 +856,42 @@
       "statement": "Over the characteristic-zero field K, the completed commutative smooth group has inverse formal maps Log_F and Exp_F with identity linear term, intertwining F and addition. Integral invariant derivations give factorial denominator bounds.",
       "locator": "§7.2, corrected construction contract",
       "status": "missing",
-      "note": "G4: the printed construction is invalid. A proof route via integral commuting invariant derivations is specified in the report; Bourbaki original must still be checked. API: Construct via commuting invariant derivations or a checked original source; prove inverse/composition identities and uniqueness before analytic evaluation. Tests: (1) additive F gives identity maps; (2) multiplicative F gives log(1+x) and exp(x)−1; (3) multiplication [m] alone is not the finite-difference operator."
+      "note": "G4: the printed construction is invalid. A proof route via integral commuting invariant derivations is specified in the report; Bourbaki original must still be checked. API: Construct via commuting invariant derivations or a checked original source; prove inverse/composition identities and uniqueness before analytic evaluation. Tests: (1) additive F gives identity maps; (2) multiplicative F gives log(1+x) and exp(x)−1; (3) multiplication [m] alone is not the finite-difference operator. Continuation (cc-fb70e5): the paper's own series construction is valid once Ψ^[m] is read as the finite difference Δ^m and the logarithm sign is (−1)^{m−1}; see formal-finite-difference-vanishing. Existence of Log/Exp over K is classical for commutative formal groups over Q-algebras (Bourbaki LIE III §5.4, cited by the paper)."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/formal-finite-difference",
+      "kind": "construction",
+      "name": "Finite differences of the multiplication maps",
+      "statement": "For a smooth commutative formal group F of dimension n over R, with multiplication series [i](X)∈R[[X]]ⁿ, set Δ^m(X)=Σ_{i=0}^m(−1)^{m−i}C(m,i)[i](X)∈R[[X]]ⁿ. These are the series of Bourbaki III.5.3 that the paper's Ψ^[m] should denote. The paper instead defines Ψ^[m] as [m] (errata E7).",
+      "locator": "§7.1–7.2, corrected reading of Ψ^[m]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-n"
+      ],
+      "note": "Added by the continuation of Claude Code (cc-fb70e5). Integral by construction: an integer combination of the [i]. API: Δ^m as n-tuples of series over R; Δ¹=[1]=Id. Tests: for F=X+Y, Δ¹=X and Δ^m=0 for m≥2; for the multiplicative law in dimension 1, Δ^m=X^m."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/formal-finite-difference-vanishing",
+      "kind": "theorem",
+      "name": "Finite differences vanish below degree m; top-degree identity",
+      "statement": "Over the characteristic-zero fraction field K, let Exp and Log be the normalized formal exponential and logarithm of F, with Exp(x)=Σ_α c_α x^α and Log(X)=Σ_α b_α X^α. For each multi-index α, the coefficient of X^α in [i](X) is a polynomial p_α(i)∈K[i] of degree ≤|α|, whose i^{|α|} coefficient is c_α. Consequently: (a) Δ^m has no terms of degree <m (the corrected Lemma 7.4); (b) the degree-m homogeneous part of Δ^m is m!·(degree-m part of Exp), so Exp(x)=Σ_m(1/m!)·(degree-m part of Δ^m)(x); (c) Log(X)=Σ_{m≥1}((−1)^{m−1}/m)Δ^m(X), converging coefficientwise.",
+      "locator": "Lemmas 7.4–7.6 and §7.2, corrected",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-finite-difference",
+        "PAPER-CARO-PASTEN-23/formal-exp"
+      ],
+      "proofSteps": [
+        "[i](X)=Exp(i·Log X) over K. Expanding, the coefficient of X^α is Σ_{|β|≤|α|}c_β·i^{|β|}·[X^α](Log X)^β, a polynomial in i of degree ≤|α|. Since Log X=X+(higher), [X^α](Log X)^β=δ_{αβ} when |β|=|α|, so the i^{|α|} coefficient is c_α.",
+        "The m-th finite difference in i of a polynomial of degree <m is 0, and of a polynomial of degree m with leading coefficient c is m!·c. This gives (a) and (b).",
+        "Newton interpolation gives [i]=Σ_m C(i,m)Δ^m coefficientwise, a finite sum in each degree by (a). Differentiating in i at i=0, and using Exp(i Log X)=X+i·Log X+O(i²), gives Log X=Σ_m(d/di C(i,m)|_{i=0})Δ^m=Σ_m((−1)^{m−1}/m)Δ^m. This is (c).",
+        "Exact check: for the one-dimensional law with logarithm t+at²+bt³, (b) and (c) reproduce f^{−1} and f through degree 4, while the printed series (with [m] and sign (−1)^m) give 6a²−4b in place of 2a²−b and −f (errata E7)."
+      ],
+      "note": "Proof supplied by the continuation of Claude Code (cc-fb70e5). Uses only the existence of Log/Exp over a Q-algebra (formal-exp) and polynomial interpolation. This replaces the invariant-derivation route for the factorial bounds; that route remains a valid alternative."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/multiplication-linear",
@@ -889,10 +924,17 @@
       "id": "PAPER-CARO-PASTEN-23/formal-denominators",
       "kind": "theorem",
       "name": "Factorial and logarithmic denominator bounds",
-      "statement": "For the normalized formal exponential of a smooth commutative formal group over R, each degree-m coefficient c_α satisfies m!c_α∈R. For the normalized logarithm, degree-m coefficients have m c_α∈R.",
+      "statement": "For the normalized formal exponential of a smooth commutative formal group over R, each degree-m coefficient c_α satisfies m!c_α∈R. For the normalized logarithm, each degree-M coefficient b_α satisfies |b_α|≤max_{m≤M}|m^{−1}|.",
       "locator": "Lemmas 7.5–7.6, repaired supplier",
       "status": "missing",
-      "note": "Proof tasks: invariant R-derivations commute; exponential coefficient is D^α(t_j)(0)/α!, with α! dividing m!; closed integral invariant forms integrate homogeneously using Euler contraction. Do not use Lemma 7.4 as printed."
+      "note": "Proved via finite differences in the cc-fb70e5 continuation. The earlier statement \"m·c_α∈R for the logarithm\" is not what Lemma 7.5 uses, and is not proved here.",
+      "proofSteps": [
+        "Exponential: by formal-finite-difference-vanishing (b), m!·c_α is a coefficient of Δ^m, which lies in R[[X]]. So m!·c_α∈R for |α|=m.",
+        "Logarithm: by (c), the coefficient b_α with |α|=M is Σ_{m≤M}((−1)^{m−1}/m)·(coefficient of X^α in Δ^m), a combination of elements of R with denominators m≤M. So |b_α|≤max_{m≤M}|1/m|, the bound used in Lemma 7.5. The stronger claim M·b_α∈R is not needed for Lemmas 7.5–7.7."
+      ],
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-finite-difference-vanishing"
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-log-radius",
@@ -901,7 +943,13 @@
       "statement": "Under the preceding corrected logarithm construction, each component of Log_F has convergence radius at least one.",
       "locator": "Lemma 7.5",
       "status": "missing",
-      "note": ""
+      "note": "",
+      "proofSteps": [
+        "From formal-denominators, |b_α|≤max_{m≤|α|}|1/m|≤|α|^{[K:Q_p]}, which grows at most polynomially in |α|. So the radius of convergence is at least 1 (Lemma 7.5)."
+      ],
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-denominators"
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-exp-bound",
@@ -910,7 +958,13 @@
       "statement": "For a degree-m exponential coefficient with m≥1, |c_α|≤p^([K:Q_p](m−1)/(p−1)); its radius is at least p^−([K:Q_p]/(p−1)).",
       "locator": "Lemma 7.6",
       "status": "missing",
-      "note": ""
+      "note": "",
+      "proofSteps": [
+        "From formal-denominators, |c_α|≤|1/m!|=p^{[K:Q_p]v_p(m!)}≤p^{[K:Q_p](m−1)/(p−1)}, since v_p(m!)=(m−s_p(m))/(p−1)≤(m−1)/(p−1). The radius bound follows (Lemma 7.6)."
+      ],
+      "prerequisites": [
+        "PAPER-CARO-PASTEN-23/formal-denominators"
+      ]
     },
     {
       "id": "PAPER-CARO-PASTEN-23/analytic-exp",
@@ -1709,6 +1763,8 @@
         "PAPER-CARO-PASTEN-23/local-conventions",
         "PAPER-CARO-PASTEN-23/formal-n",
         "PAPER-CARO-PASTEN-23/formal-exp",
+        "PAPER-CARO-PASTEN-23/formal-finite-difference-vanishing",
+        "PAPER-CARO-PASTEN-23/formal-finite-difference",
         "PAPER-CARO-PASTEN-23/multiplication-linear",
         "PAPER-CARO-PASTEN-23/formal-denominators",
         "PAPER-CARO-PASTEN-23/formal-log-radius",
@@ -1787,6 +1843,14 @@
       ],
       "reason": "ED.4 treats curves; surfaces require simultaneous integral jets, geometric nonvanishing and a rank-one formal direction. These are new layers in the same direction, not nonabelian Chabauty or a new rational-point programme.",
       "brief": "Import Effective Diophantine Methods (EffectiveDiophantineMethods) ED.4 for zero bounds; Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1–A4/A6 and its proposed Formal Lie Theory Part II; Scheme and Stack Foundations (SchemeAndStackFoundations) SF.0/4/5; Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) C/D/F; Weil Conjectures (WeilConjectures) WC.1/5; and Heights, Rational Points and Obstructions (HeightsRationalPointsAndObstructions) RP.1. Prove CP Theorem 4.4 exactly as item overdetermined, in arbitrary characteristic, with closed immersed jets, geometric branches and infinite-order conventions. Develop Morikawa-based curve restriction, surface one-form injectivity and Lemma 5.7 two-form nonvanishing; correct Lemma 5.5(i) to the sufficient p>max(s,2s²/9). Close original Nakai, positivity, singularity and general-type suppliers rather than assume them. For the exact common local hypotheses recorded in main-local-source, construct two independently reducing annihilating forms using a saturated kernel, D=div(u₁∧u₂), one global combination nonzero on every component and m(x)≤3s≤p−3. First final target is Proposition 9.14: #Γ∩X(K)∩U_x≤1+m(x)/(1−e/(p−1)); summation gives the explicit finite jet-sum bound. The historical preprint target is #Γ∩X(K)≤#X(F_q)+(1−e/(p−1))⁻¹(q+4√q+3)s, but this is a BLOCKED source endpoint: Lemma 3.15 is false and the 54-page publication must be acquired and matched before this or its Q/number-field/symmetric-square corollaries becomes an accepted theorem target. Do not silently replace +3 by the +5 quoted in Balakrishnan–Caro. The present route excludes those endpoint items. For nonhyperelliptic C, construct C^(2)≃W₂, its canonical and theta intersections, descent of H≡2Θ and thresholds (8g−10)^g and p≥521 in genus three. Hyperelliptic genus-three C^(2) has nonample K and cannot be imported as an ample example. Keep density-one simple reduction and hyperbolicity originals as explicit unclosed G6 inputs. Give consumer-derived APIs and ≥3 tests per definition, including nonsplit nodes, ramification and boundary jets; no Lean implementation is claimed."
+    }
+  ],
+  "continuationLog": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-fb70e5",
+      "date": "2026-09-22",
+      "work": "Closed the G4 formal-group construction by finite differences: added formal-finite-difference and formal-finite-difference-vanishing, and gave proofs for formal-denominators, formal-log-radius and formal-exp-bound."
     }
   ]
 }
