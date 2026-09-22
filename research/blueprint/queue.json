@@ -5633,8 +5633,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1369"
+   "state": "pending",
+   "note": "released on GitHub issue #1369"
   },
   {
    "id": "REV-PAPER-HACON-WITASZEK-23",
