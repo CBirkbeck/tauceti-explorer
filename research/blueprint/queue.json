@@ -2530,7 +2530,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YUN-ZHANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1163"
   },
   {
    "id": "REV-PAPER-YUN-ZHANG-17",
