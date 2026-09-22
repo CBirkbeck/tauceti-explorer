@@ -4784,8 +4784,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1300"
+   "state": "pending",
+   "note": "released on GitHub issue #1300"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-17",
@@ -6244,7 +6244,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-LIU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1384"
   },
   {
    "id": "REV-PAPER-LI-LIU-22",
