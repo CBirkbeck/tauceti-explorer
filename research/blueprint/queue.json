@@ -1473,8 +1473,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FINTZEN-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1105"
+   "state": "external",
+   "note": "claimed on GitHub issue #1105"
   },
   {
    "id": "REV-PAPER-FINTZEN-21",
@@ -2053,8 +2053,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1137"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1137",
+   "finishedAt": "2026-09-22T15:04:25Z"
   },
   {
    "id": "REV-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -7124,7 +7125,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1436"
   },
   {
    "id": "REV-PAPER-BHARGAVA-GROSS-WANG-17",
