@@ -13,12 +13,13 @@
     "sha256": "f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f",
     "accessed": "2026-09-22",
     "readSections": [
-      "Full author-version PDF pp.1–19, §§1–5 and references reread by codex-c83e7a on 2026-09-22."
+      "Full author-version PDF pp.1–19, §§1–5 and references reread by codex-c83e7a on 2026-09-22.",
+      "Full author-version PDF pp.1–19 reread by codex-hjdg0j on 2026-09-22; pp.7 and 11 also visually inspected. Same SHA-256."
     ],
     "publicationMatch": "Title, authors, DOI, venue and conclusions agree with publisher metadata; arXiv labels v2 final version, posted after acceptance. Publisher-format PDF not acquired: guessed annals-v198-n3-p04-p.pdf returned 404. No line-by-line publication collation claimed.",
-    "previousCheckpoint": "codex-a71f92; PR #1662; all prior item and API IDs preserved."
+    "previousCheckpoint": "codex-a71f92 PR #1662 and codex-c83e7a PR #1668; all 129 inherited item IDs and all 120 API/test IDs preserved."
   },
-  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. Continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem.",
+  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. The preceding continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem. This continuation adds eight exact Mathlib suppliers and six separate proof inputs, proves the selected-family valuation adapter at the mathematical level, exposes a direct height-one intersection proof, and corrects its owner to the already planned AutomorphicCongruences:L4. Fourteen source findings are structured without claiming independent review.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -182,6 +183,88 @@
         ],
         "note": "Actual pinned declaration and surrounding assumptions read on 2026-09-22; theorem hypotheses are retained in the item.",
         "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Minpoly/IsIntegrallyClosed.lean#L56"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Valuation/LocalSubring.lean",
+        "line": 250,
+        "names": [
+          "IsLocalRing.exists_factor_valuationRing"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Valuation/LocalSubring.lean#L250"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Valuation/LocalSubring.lean",
+        "line": 82,
+        "names": [
+          "ValuationSubring.isMax_toLocalSubring"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Valuation/LocalSubring.lean#L82"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
+        "line": 865,
+        "names": [
+          "ValuationSubring.mem_comap",
+          "ValuationSubring.comap_comap"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Valuation/ValuationSubring.lean#L865"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
+        "line": 92,
+        "names": [
+          "isIntegral_of_smul_mem_submodule"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean#L92"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean",
+        "line": 136,
+        "names": [
+          "exists_le_isAssociatedPrime_of_isNoetherianRing",
+          "isAssociatedPrime_iff"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean#L136"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean",
+        "line": 108,
+        "names": [
+          "Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean#L108"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean",
+        "line": 210,
+        "names": [
+          "IsDiscreteValuationRing.TFAE"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean#L210"
+      },
+      {
+        "library": "mathlib",
+        "file": "Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean",
+        "line": 70,
+        "names": [
+          "Module.associatedPrimes.mem_associatedPrimes_atPrime_of_mem_associatedPrimes"
+        ],
+        "note": "Statement and surrounding hypotheses read by codex-hjdg0j on 2026-09-22.",
+        "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean#L70"
       }
     ],
     "searchScope": "Both full pinned Mathlib/Mathlib and TauCeti/TauCeti trees, with targeted Pfister, Henselization, biinterpretability, Kronecker-dimension, patch, normalization, valuation-place, high-degree pole, approximation and cohomology searches. Absence of an exact hit is recorded as an audit result, not a theorem about every possible library encoding."
@@ -1803,7 +1886,7 @@
       "statement": "In a non-dyadic henselian field (F,w), let ε be a unit tuple and π_s,…,π_1∈F× have linearly independent images in wF/2wF. Then residue isotropy of q_ε, isotropy of q_ε over F, and isotropy of q_{π,ε} over F are equivalent.",
       "locator": "Proposition3.2(2)",
       "status": "missing",
-      "note": "",
+      "note": "In odd characteristic the tensor expansion carries (−1)^{|χ|}; these signs have value zero and do not change the distinct-value proof. Each block has N+1 coordinates; see E10.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/unit-reduction-isotropy"
       ],
@@ -1864,10 +1947,13 @@
       "note": "Includes the coefficient-field and continuity inputs, not established by a name search.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/valuation-dimension-drop",
-        "PAPER-DITTMANN-POP-23/pfister-invariant-zero"
+        "PAPER-DITTMANN-POP-23/pfister-invariant-zero",
+        "PAPER-DITTMANN-POP-23/equichar-zero-coefficient-field",
+        "PAPER-DITTMANN-POP-23/nonreal-local-cd-bound"
       ],
       "proofSteps": [
         "Lift residue coefficients through an equicharacteristic-zero coefficient field in the henselization.",
+        "For each nonreal constant place use nonreal-local-cd-bound directly; the printed finite bound on cd(E′) is false for formally real E′ (E6).",
         "Descend coefficients and finitely many cohomology relations to a finitely generated subfield.",
         "Use compactness of the inverse system of real-place bad sets to obtain one finite stage working at every real place."
       ],
@@ -2114,7 +2200,7 @@
       "statement": "For H_d(K), geometric w, and global k_1 plus algebraically independent t such that w is trivial on k_1(t) and Kw/k_1(t) is finite separable, there is a Zariski open dense U⊂(k_1×)^{d−2} such that for each ε∈U a k_1-nice tail can be chosen so that every a_d with w(a_d) odd yields an anisotropic k_1,t-test form over K_w.",
       "locator": "Proposition3.8",
       "status": "missing",
-      "note": "One tail per epsilon works for all odd-valuation a_d; requires finite normalization, its étale locus and the local power-series embedding.",
+      "note": "One tail per epsilon works for all odd-valuation a_d; requires finite normalization, its étale locus and the local power-series embedding. The corrected finite set contains all nonunit places of the coordinates ε_i, contrary to the printed Σ-unit condition; see E5.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/test-form",
         "PAPER-DITTMANN-POP-23/global-nice-tail",
@@ -3908,16 +3994,24 @@
       "kind": "theorem",
       "name": "Normal noetherian domains are intersections of height-one localizations",
       "statement": "For a normal noetherian integral domain A with fraction field F, A equals the intersection inside F of A_p over height-one primes p. Those localizations are DVRs; for a field A the empty intersection is F=A.",
-      "locator": "Proposition5.1; Matsumura Theorem11.5(ii)",
-      "status": "missing",
-      "note": "",
-      "prerequisites": [],
+      "locator": "Proposition 5.1; Stacks 031T(1)–(2), 0311; direct proof below",
+      "status": "planned",
+      "note": "The reviewed AUDIT-23 target at L4 explicitly plans the general normal-noetherian height-one descent. Import its early commutative-algebra theorem, not the later automorphic conclusions. Removed from the A0-extension route to avoid duplicate ownership.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/principal-associated-height-one",
+        "PAPER-DITTMANN-POP-23/associated-localization-detection",
+        "PAPER-DITTMANN-POP-23/normal-local-dvr"
+      ],
       "proofSteps": [
-        "Apply the Krull-domain characterization and DVR property of normal one-dimensional noetherian local rings.",
-        "Original-source proof and exact pinned coverage of this general statement remain an explicit audit gap."
+        "Write x=b/a in Frac(A), a≠0. If x lies in every height-one localization, b mod a vanishes at each associated prime of A/aA by principal-associated-height-one.",
+        "Associated-localization-detection gives b∈aA, hence x∈A. The reverse inclusion is immediate.",
+        "At a height-one prime, localization is a noetherian normal local domain with a unique nonzero prime; import normal-local-dvr. If A is a field the intersection is empty and is Frac(A)=A."
       ],
       "implementationStatus": "unchecked",
-      "routingGroup": "G"
+      "routingGroup": "H",
+      "planned": [
+        "AutomorphicCongruences:L4"
+      ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/pfister-roundness",
@@ -4059,17 +4153,19 @@
       "statement": "Let E/F be a finite field extension and B an intersection of valuation rings O_v in F. The integral closure of B in E equals the intersection of every valuation ring of E prolonging one of these v.",
       "locator": "Lemma5.3, reduction to K=κ(T)",
       "status": "missing",
-      "note": "",
+      "note": "The empty selected family gives B=F and intersection E, consistent with finite algebraicity. No assumption Frac(B)=F is needed. All prolongations are essential; preserve the split-prime negative example in the report.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/valuative-integrality-built",
         "PAPER-DITTMANN-POP-23/integral-minpoly-coefficient-descent",
-        "PAPER-DITTMANN-POP-23/normal-envelope-finite"
+        "PAPER-DITTMANN-POP-23/normal-envelope-finite",
+        "PAPER-DITTMANN-POP-23/valuation-extension-exact",
+        "PAPER-DITTMANN-POP-23/root-coefficient-descent"
       ],
       "proofSteps": [
         "Integral over B implies integral over every selected O_v and hence membership in every prolonged valuation ring, which is integrally closed.",
         "For the converse fix a selected v and prolong it to a finite normal envelope of E/F. Every F-embedding of E into that envelope pulls the prolongation back to one of the quantified prolongations on E, so every conjugate of x has nonnegative valuation.",
-        "Write the monic minimal polynomial as the product of its conjugate roots WITH their inseparable multiplicities. Its coefficients are sums of products of nonnegative-valuation elements, hence lie in O_v∩F.",
-        "Intersect over v to put all coefficients in B; the monic polynomial proves integrality. Valuation extension to the normal envelope and the conjugate/multiplicity interfaces remain to be matched and source-audited; the universal valuative criterion alone does not supply this selected-family statement."
+        "Write the monic minimal polynomial as the product of its conjugate roots WITH their inseparable multiplicities. Its coefficients belong to the prolonged valuation ring as sums of products of elements of that ring. They also belong to F, so exact contraction puts them in O_v.",
+        "Intersect the minimal-polynomial coefficient bounds over the chosen v; all coefficients lie in B and the monic equation proves integrality. Exact prolongation and coefficient descent are now separate items with proofs; their Lean adapters remain unimplemented."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "G"
@@ -4388,6 +4484,272 @@
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/valuation-local-factor",
+      "kind": "theorem",
+      "name": "A local ring map factors through a dominating valuation ring",
+      "statement": "For a commutative local ring R, field K and ring homomorphism f:R→K, there is a valuation subring V of K containing f(R) such that the induced map R→V is local. Injectivity and an algebraic field extension are not hypotheses of this declaration.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Valuation/LocalSubring.lean:250",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:IsLocalRing.exists_factor_valuationRing"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/valuation-domination-maximal",
+      "kind": "theorem",
+      "name": "Valuation subrings are maximal for domination",
+      "statement": "For a field F and valuation subring V⊂F, its associated local subring is maximal in the domination order: a local overring in F dominating V equals V.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Valuation/LocalSubring.lean:82",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:ValuationSubring.isMax_toLocalSubring"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/valuation-pullback",
+      "kind": "theorem",
+      "name": "Membership and composition for valuation pullbacks",
+      "statement": "For field maps f:F→E, g:E→N and valuation subring W of N, x belongs to the pullback along g∘f exactly when g(f(x)) belongs to W; iterated pullback agrees with pullback along the composite. No extension or finiteness hypothesis is needed.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Valuation/ValuationSubring.lean:865",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:ValuationSubring.mem_comap",
+        "mathlib:ValuationSubring.comap_comap"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/determinant-integrality",
+      "kind": "theorem",
+      "name": "Integrality from preservation of a finite nonzero module",
+      "statement": "Let A be a domain over a commutative ring R and M an A-module torsion-free over A, with compatible R-action. If a nonzero finitely generated R-submodule N of M is stable under multiplication by x∈A, then x is integral over R.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean:92",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:isIntegral_of_smul_mem_submodule"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/associated-prime-witness",
+      "kind": "theorem",
+      "name": "A nonzero module element detects an associated prime",
+      "statement": "For a module M over a commutative noetherian ring R and nonzero x∈M, there is an associated prime P of M containing Ann_R(x). The module need not be finite.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Ideal/AssociatedPrime/Basic.lean:136",
+      "status": "library",
+      "note": "The pinned definition uses radical annihilators; isAssociatedPrime_iff removes the radical over a noetherian base. Both declarations were read.",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:exists_le_isAssociatedPrime_of_isNoetherianRing",
+        "mathlib:isAssociatedPrime_iff"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/principal-height-bound",
+      "kind": "theorem",
+      "name": "Height bound for a principal ideal",
+      "statement": "In a commutative noetherian ring R, a prime ideal minimal over a principal ideal has height at most one.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean:108",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/normal-local-dvr",
+      "kind": "theorem",
+      "name": "Normal local dimension-one criterion for a DVR",
+      "statement": "For a noetherian local domain R which is not a field, R is a DVR if and only if it is integrally closed and has exactly one nonzero prime ideal. This is the corresponding pair of entries in the pinned TFAE; converting a height-one localization into these hypotheses remains an adapter.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean:210",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:IsDiscreteValuationRing.TFAE"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/associated-prime-localization",
+      "kind": "theorem",
+      "name": "An associated prime localizes to an associated maximal ideal",
+      "statement": "For a commutative ring R, R-module M and prime p associated to M in the pinned radical-annihilator convention, the maximal ideal of R_p is associated to M_p in that convention. Over a noetherian base, isAssociatedPrime_iff converts both sides to ordinary associated primes.",
+      "locator": "Pinned Mathlib Mathlib/RingTheory/Ideal/AssociatedPrime/Localization.lean:70",
+      "status": "library",
+      "note": "",
+      "prerequisites": [],
+      "proofSteps": [
+        "Reuse the pinned declaration with its actual typeclass hypotheses; no new implementation is claimed."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [
+        "mathlib:Module.associatedPrimes.mem_associatedPrimes_atPrime_of_mem_associatedPrimes"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/valuation-extension-exact",
+      "kind": "theorem",
+      "name": "Existence of an exact valuation prolongation",
+      "statement": "For any extension of fields E/F and valuation subring V⊂F, there exists a valuation subring W⊂E with W∩F=V, and V→W is local. Value groups may enlarge; equality means equality of valuation rings after contraction, not numerical equality of independently normalized valuations.",
+      "locator": "Stacks 00IA; direct assembly of pinned valuation-local-factor, domination-maximal and pullback",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/valuation-local-factor",
+        "PAPER-DITTMANN-POP-23/valuation-domination-maximal",
+        "PAPER-DITTMANN-POP-23/valuation-pullback"
+      ],
+      "proofSteps": [
+        "Apply the local factorization theorem to V→E, obtaining a local injection V→W.",
+        "W∩F is a valuation subring of F; the map V→W∩F is local because any inverse in the smaller ring is also an inverse in W.",
+        "Maximality of V under domination forces W∩F=V. This works for arbitrary rank, the trivial valuation, and inseparable extensions."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "L"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/root-coefficient-descent",
+      "kind": "theorem",
+      "name": "All conjugates control the coefficients of a minimal polynomial",
+      "statement": "Let E/F be finite, N/F a finite normal extension containing E, V⊂F a valuation ring and W⊂N an exact prolongation of V. If σ(x)∈W for every F-embedding σ:E→N, then every coefficient of the monic minimal polynomial of x over F belongs to V. Repeated roots in inseparable characteristic are counted with multiplicity.",
+      "locator": "Lemma 5.3 valuation-intersection step; direct coefficient argument in this report",
+      "status": "missing",
+      "note": "Acceptance: a split quadratic with two different valuations; a purely inseparable polynomial X^p−a with its repeated root; the trivial extension. Embedding extension and splitting APIs still need exact Lean adapters.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/normal-envelope-finite",
+        "PAPER-DITTMANN-POP-23/valuation-extension-exact",
+        "PAPER-DITTMANN-POP-23/valuation-pullback"
+      ],
+      "proofSteps": [
+        "Every root of minpoly_F(x) in N is the image of x under an F-embedding E→N: extend the embedding of F(x), using normality of N/F.",
+        "Factor the polynomial into linear factors with repetitions. Its coefficients lie in W because all roots lie there and W is a subring.",
+        "The coefficients are also in F, so W∩F=V puts them in V. No separability assumption removes multiplicities."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/principal-associated-height-one",
+      "kind": "theorem",
+      "name": "Associated primes of a nonzero principal quotient have height one",
+      "statement": "For a noetherian integrally closed domain A and nonzero a∈A, every associated prime of A/aA has height one. If a is a unit, the module is zero and the assertion is vacuous.",
+      "locator": "Stacks 031T(1); direct determinant proof supplied in this continuation",
+      "status": "missing",
+      "note": "Use the noetherian isAssociatedPrime_iff recorded in associated-prime-witness to pass from the pinned radical-annihilator carrier to an exact annihilator. Localization normality, quotient comparison and fraction-field coercions remain Lean adapters.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/associated-prime-localization",
+        "PAPER-DITTMANN-POP-23/determinant-integrality",
+        "PAPER-DITTMANN-POP-23/principal-height-bound",
+        "PAPER-DITTMANN-POP-23/associated-prime-witness"
+      ],
+      "proofSteps": [
+        "Localize at an associated prime p. In the normal local domain R=A_p choose b mod a with annihilator its maximal ideal m, and put x=b/a∉R. Then xm⊂R.",
+        "If xm⊂m, apply determinant-integrality to the nonzero finite R-submodule m⊂Frac(R). Normality would give x∈R, a contradiction.",
+        "Otherwise choose t∈m with xt a unit. For y∈m, y/t=(xy)/(xt)∈R; hence m=(t). Principal-height-bound gives dim R≤1, and a≠0 in p gives dim R≥1."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "H"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/associated-localization-detection",
+      "kind": "theorem",
+      "name": "Associated-prime localizations detect a module element",
+      "statement": "Over a commutative noetherian ring A, the map M→∏_{p∈Ass_A(M)} M_p is injective for any A-module M, without a finite-generation hypothesis on M.",
+      "locator": "Stacks 0311, full proof read; pinned associated-prime witness supplies the nonzero test",
+      "status": "missing",
+      "note": "",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/associated-prime-witness"
+      ],
+      "proofSteps": [
+        "For a nonzero x choose p∈Ass(M) with Ann(x)⊂p.",
+        "If x vanished in M_p, some s∉p would annihilate x, contradicting Ann(x)⊂p. Thus a nonzero element cannot vanish at every associated-prime localization."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "H"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/equichar-zero-coefficient-field",
+      "kind": "theorem",
+      "name": "A coefficient field in a henselian equicharacteristic-zero valuation ring",
+      "statement": "Let V be a henselian valuation ring of equicharacteristic zero, F=Frac(V), and κ=V/m. There exists a subfield E⊂V on which reduction is an isomorphism E≃κ. This E is relatively algebraically closed in F.",
+      "locator": "Proposition 3.2(3), Case 2, p.7; Milne LEC, Lemma 15.3 and proof, p.106",
+      "status": "missing",
+      "note": "No completeness, rank-one or finitely generated residue-field assumption. Milne proves existence for a henselian local ring with separable residue over a contained field; the final relative-algebraic-closure assertion here uses the valuation-ring hypothesis.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/henselization"
+      ],
+      "proofSteps": [
+        "Lift a transcendence basis of κ/Q. Every nonzero rational function in the lifts has nonzero residue, so the generated field lies in V.",
+        "Take a maximal such subfield. Any missing residue element is separable algebraic; lift its minimal polynomial and use Hensel to lift its simple root, contradicting maximality.",
+        "If z∈F is algebraic over E and z≠0, its valuation is zero: in a polynomial relation a positive or negative value would yield a unique term of least value. Reduce z, lift its residue to e∈E, and apply the same observation to z−e; positivity forces z=e."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "L"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/nonreal-local-cd-bound",
+      "kind": "theorem",
+      "name": "Cohomological dimension over nonreal local constants",
+      "statement": "Let k be a number field, v a finite or complex place, and k_v its henselization at a finite place or algebraic closure at a complex place. If L/k_v is finitely generated of transcendence degree n, then cd_2(L)≤n+2. At a complex place the sharper bound is n. In particular, L=E′k_v in Proposition 3.2(3) has cd_2(L)≤dim(E′)+1.",
+      "locator": "Proposition 3.2(3), p.7 Claim, corrected nonreal-place step; Milne LEC Theorem 15.2, p.105",
+      "status": "missing",
+      "note": "The transcendence-degree statement was read in Milne, whose proof refers to Shatz rather than supplying the full induction. Exact local-field and henselization comparison proofs remain in DP23-G3. This is a corrected planned proof input, not a newly verified proof of those general theorems.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/cohomology-restriction"
+      ],
+      "proofSteps": [
+        "Use the finite-local-field bound cd_2(k_v)=2 and its henselization/completion comparison; at a complex place k_v is algebraically closed.",
+        "Apply the transcendence-degree inequality cd_2(L)≤cd_2(k_v)+n.",
+        "Do not insert cd_2(E′) between these quantities: a formally real E′ has infinite 2-cohomological dimension."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "C"
     }
   ],
   "prerequisites": [
@@ -4420,6 +4782,16 @@
       "citation": "Suwa, A note on Gersten's conjecture for logarithmic Hodge–Witt sheaves, K-Theory 9 (1995), 245–271.",
       "link": "https://arxiv.org/pdf/2012.01307v2#page=19",
       "why": "Bibliography locator only: acquire the original for the characteristic-two finite-coefficient Gersten comparison. Generic de Rham–Witt ownership alone does not supply this theorem."
+    },
+    {
+      "citation": "Stacks Project, 031T, 0311, 00IA and related valuation-ring/normal-domain lemmas.",
+      "link": "https://stacks.math.columbia.edu/tag/031T",
+      "why": "Primary alternative source for the height-one intersection proof and valuation extensions; explicit direct proof leaves and exact library suppliers now replace the broad unread reference. Deeper general Serre-depth theory is not needed by the supplied determinant proof."
+    },
+    {
+      "citation": "Milne, Lectures on Étale Cohomology, Theorem 15.2 and Lemma 15.3, pp.105–106.",
+      "link": "https://www.jmilne.org/math/CourseNotes/LECc.pdf",
+      "why": "The coefficient-field proof was read completely. The transcendence-degree cohomology inequality is stated with a reference-only proof; that proof and the local/henselian comparison remain to be read in the supplier task."
     }
   ],
   "routes": [
@@ -4456,7 +4828,9 @@
         "PAPER-DITTMANN-POP-23/henselian-crt-generator",
         "PAPER-DITTMANN-POP-23/henselian-crt-primitivity",
         "PAPER-DITTMANN-POP-23/henselian-simple-reduction",
-        "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood"
+        "PAPER-DITTMANN-POP-23/henselian-generator-neighborhood",
+        "PAPER-DITTMANN-POP-23/valuation-extension-exact",
+        "PAPER-DITTMANN-POP-23/equichar-zero-coefficient-field"
       ],
       "reason": "LD.0 already owns interpretation and explicit semantics; LD.1 owns henselianity and residue/value sorts. Supply quotient/composition, valuation coarsening and field-patch adapters here, importing actual library carriers. No Ax–Kochen–Ershov or Denef–Pas theorem is used to assert the new global-field definability result."
     },
@@ -4479,7 +4853,8 @@
         "PAPER-DITTMANN-POP-23/kato-complex",
         "PAPER-DITTMANN-POP-23/lgp-good-model",
         "PAPER-DITTMANN-POP-23/lgp-characteristic-two",
-        "PAPER-DITTMANN-POP-23/odd-degree-injectivity"
+        "PAPER-DITTMANN-POP-23/odd-degree-injectivity",
+        "PAPER-DITTMANN-POP-23/nonreal-local-cd-bound"
       ],
       "reason": "HL.2 already owns continuous Galois cohomology/twists and HL.6 Kato complexes and cohomological Hasse principles. Supply the exact tame/wild signatures and resolution assumptions needed here. Generic Milnor K and norm-residue comparisons remain with K2SymbolsBrauer and MotivicEtaleKTheory:M.5d; logarithmic Witt carriers remain with CrystallineCohomology:CR.4."
     },
@@ -4490,11 +4865,11 @@
         "AlgebraicModuliForArithmeticGeometry:A0-extension"
       ],
       "items": [
-        "PAPER-DITTMANN-POP-23/krull-intersection",
         "PAPER-DITTMANN-POP-23/valuation-prolongation-integrality",
-        "PAPER-DITTMANN-POP-23/finite-normalization-generic"
+        "PAPER-DITTMANN-POP-23/finite-normalization-generic",
+        "PAPER-DITTMANN-POP-23/root-coefficient-descent"
       ],
-      "reason": "A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add normal-domain intersection and the selected-family valuation-prolongation adapter in the same owner."
+      "reason": "A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add the selected-family valuation-prolongation adapter in this owner. The height-one intersection theorem imports AutomorphicCongruences:L4; only normalization and selected-family integral-closure adapters remain here."
     },
     {
       "route": "part-ii",
@@ -4556,7 +4931,7 @@
         "PAPER-DITTMANN-POP-23/low-dimensional-biinterpretability"
       ],
       "reason": "LD.0–LD.6 cover interpretation, valued-field elimination and motivic/local arithmetic, but no layer proves uniform definability of all geometric prime divisors of finitely generated fields or their single-sentence characterization.",
-      "brief": "Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief."
+      "brief": "Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Import the general height-one intersection theorem from the early algebraic portion of Automorphic congruences and reverse main-conjecture divisibilities (AutomorphicCongruences:L4), without depending on its later automorphic conclusions. Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief."
     },
     {
       "route": "part-ii",
@@ -4595,6 +4970,19 @@
       ],
       "reason": "The reviewed L5 decomposition deliberately allows alteration degree divisible by the coefficient prime. Dittmann–Pop needs the Gabber odd-degree strengthening so restriction on mod-two cohomology stays injective; arbitrary de Jong alterations do not supply it.",
       "brief": "Add the prime-to-l degree-control theorem to Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons), importing L5's existing alteration, model, boundary and normalization infrastructure rather than rebuilding it. Audit ILO Exposé X Theorem 2.4 in its exact excellent-base setting and export the specialized proper regular alteration of the projective models over a global field's henselian finite-place DVR used in Dittmann–Pop Proposition 3.4. The residue characteristic is not two and the function-field extension must have finite odd degree; record all permitted base extensions and the separability or purely inseparable comparison required by the cohomology consumer. Import Scheme and stack foundations (SchemeAndStackFoundations) for models and Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory) for restriction/corestriction. Test that arbitrary even-degree alterations are rejected by this interface. This is a source-audit-dependent proposal, not a claimed proof of general resolution of singularities."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicCongruences",
+      "stages": [
+        "AutomorphicCongruences:L4"
+      ],
+      "items": [
+        "PAPER-DITTMANN-POP-23/krull-intersection",
+        "PAPER-DITTMANN-POP-23/principal-associated-height-one",
+        "PAPER-DITTMANN-POP-23/associated-localization-detection"
+      ],
+      "reason": "The reviewed L4 audit explicitly identifies the general normal-noetherian height-one intersection/descent theorem. Supply its early pure commutative-algebra proof leaves once, using existing determinant, associated-prime and DVR APIs. DP imports this theorem before any automorphic application; it does not require a zeta morphism, L3, or the main-conjecture endpoint."
     }
   ],
   "gaps": [
@@ -4626,7 +5014,7 @@
         "henselian-generator-input",
         "henselian-prime-orbit"
       ],
-      "remaining": "Audit coefficient fields in equicharacteristic-zero henselian fields, cohomology continuity and compact real-place descent; EKM subform/cancellation inputs; Kato’s graded quadratic-Witt comparison. Kuhlmann–Novacoski Theorem1.2 proof is now read and decomposed; finish its decomposition-field, conjugate-prime and integral-closure localization foundations (including their cited Raynaud inputs) before calling that branch closed."
+      "remaining": "The equicharacteristic-zero coefficient-field argument is now sourced and separated. Finish the exact nonreal local-field cd_2 bound and henselization/completion comparison, the transcendence-degree proof referred to by Milne, cohomology continuity and real-place descent; retain EKM subform/cancellation and Kato graded quadratic-Witt tasks. Kuhlmann–Novacoski decomposition-field and integral-closure localization foundations remain open. Do not restore the false cd(E′) bound in E6."
     },
     {
       "id": "DP23-G4",
@@ -4650,7 +5038,7 @@
         "krull-intersection",
         "valuation-prolongation-integrality"
       ],
-      "remaining": "Finish exact off-a-finite-place number-field approximation, general divisorial criterion, Krull intersection and selected-family valuation-prolongation interfaces. The inseparable polynomial normalization theorem and normal fixed-field step are already in Tau Ceti; the arithmetic polynomial proof is now an explicit assembly using them, the separable theorem and transfer/descent. Check the algebra/fraction-field tower adapters; do not recreate the pinned results or infer generic excellent-scheme finiteness."
+      "remaining": "The selected-family integrality and height-one intersection arguments now have detailed mathematical proofs with separate exact library imports. Remaining: exact number-field approximation off a finite place, general divisorial discreteness, normalization algebra/fraction-field towers, and Lean adapters for extension, root multiplicities, associated-prime localization and height-one DVR hypotheses. General excellence is not inferred. The height-one theorem belongs to AutomorphicCongruences:L4, not a second A0-extension construction."
     },
     {
       "id": "DP23-G6",
@@ -4664,7 +5052,7 @@
     {
       "id": "DP23-G7",
       "items": [],
-      "remaining": "Acquire the publisher-format DP paper if possible and collate the three noted source ambiguities against the final author version. Complete current-owner signature audit for new Part II routes before marking this checkpoint complete."
+      "remaining": "Acquire the publisher-format DP paper and collate the structured source findings against v2. Preserve E1–E4 IDs shared with the separate errata file, without self-review. Complete the inherited Part II signature audit and remaining full-source proof tasks before marking complete."
     }
   ],
   "sourceArchives": [
@@ -4738,7 +5126,8 @@
       "url": "https://arxiv.org/pdf/1311.6155",
       "sha256": "19bcd00d932899fdd8ba63b56aff45cee048fa8d6667de154206d23c63058a62",
       "readSections": [
-        "PDF pp.1–3,5,7–13: setting(1), Theorems1.2–1.3, Definition3.1, Lemmas2.5,3.2,3.3 and full proof of Theorem1.2; selected adjacent proof material."
+        "PDF pp.1–3,5,7–13: setting(1), Theorems1.2–1.3, Definition3.1, Lemmas2.5,3.2,3.3 and full proof of Theorem1.2; selected adjacent proof material.",
+        "codex-hjdg0j reread PDF pp.7,9–13, including Theorem 1.2 proof and identity-index slip; no claim to reread the other selections."
       ],
       "notRead": "Raynaud local-rings inputs cited in Lemma3.2, full proofs of the remaining valuation/Galois background, and the rest of the paper. Lemma2.5 is stated by reference, not proved there.",
       "accessed": "2026-09-22",
@@ -4751,7 +5140,8 @@
       "id": "Stacks-032N",
       "readSections": [
         "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
-      ]
+      ],
+      "provenanceSession": "inherited from the preceding checkpoint; not claimed as newly read by codex-hjdg0j"
     },
     {
       "url": "https://stacks.math.columbia.edu/tag/030M",
@@ -4760,7 +5150,8 @@
       "id": "Stacks-030M",
       "readSections": [
         "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
-      ]
+      ],
+      "provenanceSession": "inherited from the preceding checkpoint; not claimed as newly read by codex-hjdg0j"
     },
     {
       "url": "https://stacks.math.columbia.edu/tag/032L",
@@ -4769,7 +5160,8 @@
       "id": "Stacks-032L",
       "readSections": [
         "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
-      ]
+      ],
+      "provenanceSession": "inherited from the preceding checkpoint; not claimed as newly read by codex-hjdg0j"
     },
     {
       "url": "https://stacks.math.columbia.edu/tag/032O",
@@ -4778,25 +5170,328 @@
       "id": "Stacks-032O",
       "readSections": [
         "Full lemma statement and supplied proof; 030M itself omits proof details, checked against pinned Tau Ceti proof."
-      ]
+      ],
+      "provenanceSession": "inherited from the preceding checkpoint; not claimed as newly read by codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-031T",
+      "url": "https://stacks.math.columbia.edu/tag/031T",
+      "sha256": "60ca68ba7864eb7885f7d8525b4f2071ec88f04d8e2c2bcb310ab7c23c9f46dc",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-031S",
+      "url": "https://stacks.math.columbia.edu/tag/031S",
+      "sha256": "05a6f4daf4e0ce0e22731a953dc355b411931313c9e549bbec1f7b9d0a1105c9",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-0311",
+      "url": "https://stacks.math.columbia.edu/tag/0311",
+      "sha256": "bbfeb5589665e35301bf03ddb87900212ee9f675ec598491e146c89d0712a484",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-031Q",
+      "url": "https://stacks.math.columbia.edu/tag/031Q",
+      "sha256": "2ea1d6254bd264b9ba91b59f39ea5131dd5aa9321ae0dccd51f809aa356bff46",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-00KV",
+      "url": "https://stacks.math.columbia.edu/tag/00KV",
+      "sha256": "66c7246a7535b3a8fb210d84d1d0f30d7f77ad36e3e318b4c01b6f055bb5fab5",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-00IA",
+      "url": "https://stacks.math.columbia.edu/tag/00IA",
+      "sha256": "907597decfd295ba0cab7f6622d76d2a4ee8bbb8e4e3de11cd59a18a54b3024d",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-00I8",
+      "url": "https://stacks.math.columbia.edu/tag/00I8",
+      "sha256": "040cdede3303a892a71f1eb53d4dbeaff99233b2514b20ee4090d4eef4c29d5a",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Stacks-0ASF",
+      "url": "https://stacks.math.columbia.edu/tag/0ASF",
+      "sha256": "cc51e90bab70302226089bd5f14b6dc3a171fce08163f8425edd0b2fb6326d43",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "Statement and supplied proof read; for 00I8 the valuation-ring section was read. These readings do not claim the full proof chain of every cited lemma."
+      ],
+      "provenanceSession": "codex-hjdg0j"
+    },
+    {
+      "id": "Milne-LEC",
+      "url": "https://www.jmilne.org/math/CourseNotes/LECc.pdf",
+      "sha256": "718182f1a55d3af6b71f0d2faa5836851fb8611f1d7276896e3d5affdf28697b",
+      "accessed": "2026-09-22",
+      "readSections": [
+        "pp.105–106: cohomological-dimension convention, Theorem 15.2 and its reference-only proof; Lemma 15.3 with its complete coefficient-field proof; adjacent 15.4–15.5."
+      ],
+      "notRead": "The referenced Shatz proof, local-field cohomological dimension and the remainder of Milne’s notes.",
+      "provenanceSession": "codex-hjdg0j"
     }
   ],
   "atlasAudit": {
-    "checkedMain": "8c1784e9ccdc6dfef9fef5207ee3cdc02a5977b3",
-    "previousStructuralComparison": "595136204f9d0c4b6d70132502491870fe90b929",
+    "checkedMain": "0281c2b28ca28203dba72b8fabd661918e1da5eb",
+    "previousStructuralComparison": "8c1784e9ccdc6dfef9fef5207ee3cdc02a5977b3",
     "reviewedLayers": [
       "HL.0–HL.7 (AUDIT-03)",
       "QuadraticFormInvariants Layers1,4,7a (AUDIT-05)",
       "AdicCoefficientsAndComparisons:L5 (AUDIT-18)",
       "AlgebraicModuliForArithmeticGeometry:A0-extension",
       "AlgebraicCurves Layer12 (AUDIT-01)",
-      "MotivicEtaleKTheory:M.5d (AUDIT-30)"
+      "MotivicEtaleKTheory:M.5d (AUDIT-30)",
+      "AutomorphicCongruences:L4 (AUDIT-23)"
     ],
     "absentReviewedLayers": [
       "LogicAndDefinabilityInNumberTheory",
       "CrystallineCohomology:CR.4"
     ],
-    "ownership": "Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer4, AlgebraicCurves Layer12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields.",
-    "continuation": "Fresh eleven-owner extracts and documents, reviewed library audit, new-roadmap/packet files and reserved IDs fetched. A0-extension audit explicitly identifies the previously omitted purely inseparable polynomial theorem. LD.0/LD.1 and A0-extension signatures reread; full 211-roadmap portfolio rechecked for competing owners. Existing Part II names and routing retained."
-  }
+    "ownership": "Inherited codex-a71f92/codex-c83e7a audit: Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer4, AlgebraicCurves Layer12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields.",
+    "continuation": "Preceding codex-c83e7a continuation: Fresh eleven-owner extracts and documents, reviewed library audit, new-roadmap/packet files and reserved IDs fetched. A0-extension audit explicitly identifies the previously omitted purely inseparable polynomial theorem. LD.0/LD.1 and A0-extension signatures reread; full 211-roadmap portfolio rechecked for competing owners. Existing Part II names and routing retained. codex-hjdg0j read LD, A0-extension and AutomorphicCongruences owner documents; checked current A0-extension and L4 reviewed audits, searched full pinned trees and current roadmap/packet/decomposition metadata. L4 explicitly already plans the generic height-one intersection, so it is now a planned import with its proof leaves routed there. Other inherited supplier reading is not claimed as reread."
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-DITTMANN-POP-23/E1",
+      "kind": "misprint",
+      "locator": "§3, definition of Pfister forms, p.6, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "⟨⟨a_i⟩⟩ ⊗ … ⟨⟨a_1⟩⟩ ⊗ ⟨⟨a_0]]",
+      "correction": "In characteristic 2 the factors ⟨⟨a_j⟩⟩ (j ≥ 1) are the bilinear Pfister forms ⟨1, −a_j⟩_b of [EKM, 9.B], and q_a is their product with the quadratic form ⟨⟨a_0]]: a nonsingular quadratic form of dimension 2^{i+1}.",
+      "reason": "With ⟨⟨a⟩⟩ read as the quadratic form x_1² − a x_2² just defined, the tensor product in characteristic 2 is not defined (quadratic forms do not multiply there), and that form is totally singular, being (x_1 + √a x_2)². The reference [EKM, 9.B] has the bilinear factors. Noted by the extraction (item pfister-two).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E2",
+      "kind": "misprint",
+      "locator": "Proof of Claim 1 in the proof of Proposition 3.10, p.12, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "a′_i = 1 − 1/u_i + ε_i/u_i²",
+      "correction": "a′_i = 1 − 1/u_i − ε_i/u_i².",
+      "reason": "Dividing u_i² − u_i − ε_i by u_i² gives the minus sign. Either way a′_i is a principal w̃-unit (w̃(u_i) < 0 and w̃(ε_i) = 0), so the argument is unaffected. Noted by the extraction (item detecting-nonnegative).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E3",
+      "kind": "misprint",
+      "locator": "§5, proof of Proposition 5.1, Case 2 (char K = 0), pp.16–17, and the proof of Lemma 5.3, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "w ∈ W_T",
+      "correction": "In Case 2 and Lemma 5.3, W_T should denote {w ∈ D^e_{K|κ} : T ⊂ O_w}, the full-rank geometric flags containing T, not the rank-one divisors of p.16.",
+      "reason": "For a rank-one geometric prime divisor w the residue field κw has transcendence degree e − 1 over κ, so it is not a number field and the finite primes P_fin(κw) used next do not apply; the construction needs the rank-e flags just introduced. The symbol is reused for two different sets. Noted by the extraction (items maximal-geometric-flags, arithmetic-flags).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E4",
+      "kind": "gap",
+      "locator": "Proof of Lemma 5.3, Claim, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "printed": "Then ζ is an e-tuple of roots of unity",
+      "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
+      "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E5",
+      "kind": "error",
+      "locator": "arXiv v2, Proposition 3.8 proof, p.11",
+      "printed": "Σ-units",
+      "correction": "Choose Σ containing every finite place where at least one ε_i is not a unit. Lemma 3.5 then makes a_1 a unit at every such place.",
+      "reason": "The test-form condition requires every place with v(a_1)>0 to be a place where every ε_i is a unit. The printed choice of Σ among unit places gives no control at the nonunit places. The corrected complement is finite by the global-field finite-support property. The previous extraction already used this correction silently.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E6",
+      "kind": "error",
+      "locator": "arXiv v2, Proposition 3.2(3), Case 2 Claim, p.7",
+      "printed": "cd(E′) ⩽ dim(E′) + 1",
+      "correction": "Bound the nonreal base change E′k′_v directly by cd_2(k′_v)+trdeg(E′/k′)≤dim(E′)+1, using the nonreal local-field theorem and the transcendence-degree inequality.",
+      "reason": "E′ can be formally real, for example Q. Its absolute Galois group has an order-two subgroup and cd_2(E′)=∞, so the printed intermediate bound is false. The intended vanishing after nonreal base change has the corrected proof input nonreal-local-cd-bound; its general source proof remains explicitly open.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E7",
+      "kind": "gap",
+      "locator": "arXiv v2, final deduction, p.18",
+      "printed": "[AKNS, Proposition 2.28]",
+      "correction": "Apply the finite-language QFA theorem after adjoining total inversion to the field language, and then eliminate that definable function. Retain the existing inverse-language-bridge item.",
+      "reason": "A finitely generated field need not be a finitely generated ring: Q is not. In the finite field language with total inversion, it is finitely generated as a structure; the inverse graph has a unique value for every element. The prior extraction identified this omitted bridge. The AKNS original reading is inherited, not newly reread.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E8",
+      "kind": "misprint",
+      "locator": "Kuhlmann–Novacoski, arXiv:1311.6155 PDF p.11, Theorem 1.2 proof",
+      "printed": "σ_iη ≠ η for 1 ≤ i ≤ n",
+      "correction": "Exclude the identity embedding from both nonfixing ranges (choose σ_1=id and use 2≤i≤n, and 2≤i≤k for the residue embeddings).",
+      "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1311.6155, publisher https://doi.org/10.1016/j.jalgebra.2014.07.004 and title/author correction searches, 2026-09-22; no correction located. Finding scoped to the downloaded author PDF; published text not collated."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E9",
+      "kind": "misprint",
+      "locator": "arXiv v2, Lemma 3.9(2) proof, p.11",
+      "printed": "q_a",
+      "correction": "The open set V_{E|F} is a neighborhood of the valuation w, not of the quadratic form q_a.",
+      "reason": "V_{E|F} is a subset of Val_F, and the chosen point is w∈V_a. The immediately preceding argument supplies that neighborhood.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E10",
+      "kind": "misprint",
+      "locator": "arXiv v2, Proposition 3.2(2) proof, p.7",
+      "printed": "q_{π,ε}(y) = ∑_χ π^χ q_ε(x_χ)",
+      "correction": "In characteristic different from two insert (−1)^{|χ|} in each summand for the paper’s convention ⟨⟨π_i⟩⟩=⟨1,−π_i⟩. Every block has N+1 coordinates; replace the subsequent F^N by F^{N+1}.",
+      "reason": "For one outer factor the tensor is q_ε(x_0)−π_1q_ε(x_1). Signs are valuation units, so the distinct-value anisotropy proof is unchanged. The source defines N=2^{r+1}−1 while q_ε has 2^{r+1} variables.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E11",
+      "kind": "misprint",
+      "locator": "arXiv v2, Proposition 3.10 proof, final sentence p.12",
+      "printed": "w̃ = w̃_N",
+      "correction": "Use the restriction w̃_N|L in V_{a,N}.",
+      "reason": "The constructed valuation is on L(α), whereas V_{a,N} consists of valuations on L. Its restriction preserves the inequalities, and anisotropy over the larger henselization implies anisotropy over the restricted one.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E12",
+      "kind": "misprint",
+      "locator": "arXiv v2, bibliography p.18",
+      "printed": "808–923",
+      "correction": "[Du] ends at p.823, not p.923.",
+      "reason": "Checked the original journal’s article metadata: https://doi.org/10.2307/2275432",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E13",
+      "kind": "misprint",
+      "locator": "arXiv v2, bibliography p.18",
+      "printed": "493–51",
+      "correction": "[Ka] ends at p.510.",
+      "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/BF01389226",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E14",
+      "kind": "misprint",
+      "locator": "arXiv v2, bibliography p.18",
+      "printed": "385–308",
+      "correction": "[P1] ends at p.408.",
+      "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/s00222-002-0238-7",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+      ]
+    }
+  ]
 }

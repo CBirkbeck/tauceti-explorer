@@ -1,7 +1,7 @@
 # PAPER-DITTMANN-POP-23 — extraction and routing checkpoint
 
-Codex, session `codex-c83e7a`; issue #1099; 22 September 2026.
-Continuation of codex-a71f92’s merged PR #1662; all previous item and API IDs retained.
+Codex, session `codex-hjdg0j`; issue #1099; 22 September 2026.
+Continuation of PRs #1662 and #1668; all 129 inherited item IDs and all API/test IDs retained.
 Status: **partial**. The whole main paper was read, but the original-source
 proof audits listed below are unfinished. This is not a claim of formalisation
 or a closed blueprint.
@@ -23,17 +23,17 @@ empty set, including for inadmissible parameter tuples. Neither uniformity in
 all dimensions nor a parameter-free definition of each individual valuation
 ring is claimed.
 
-The companion JSON has 129 items: 18 exact library inputs, 5 planned imports
-and 106 missing items. Each missing item has exactly one route. Forty
+The companion JSON has 143 items: 26 exact library inputs, 6 planned imports
+and 111 missing items. Each missing item has exactly one route. Forty
 definitions/constructions have 120 API contracts and 120 mathematical test
-contracts, now each with a concrete downstream use. The item dependency graph and the six-route import graph are
+contracts, now each with a concrete downstream use. The item dependency graph and the seven-route import graph are
 acyclic. Proof outlines distinguish actual source arguments from outstanding
 proof leaves.
 
 ## What was read
 
 The main source is the [final author version, arXiv v2](https://arxiv.org/pdf/2012.01307v2),
-dated 27 April 2023, 19 PDF pages. All of §§1–5 and the references were reread for this continuation.
+dated 27 April 2023, 19 PDF pages. All of §§1–5 and the references were reread by codex-hjdg0j for this continuation; pp.7 and 11 were also visually checked.
 Its SHA-256 is
 `f9f26f7d8d6b5cb6bf86d04bf97f8f99069d8d676623cebe706e90ea8dcb2c1f`.
 The [publisher record](https://annals.math.princeton.edu/2023/198-3/p04)
@@ -42,10 +42,10 @@ The author-version date is after acceptance and arXiv labels it final.
 The guessed publisher PDF returned 404; a line-by-line comparison with the
 25-page typeset publication was **not** performed.
 
-The prior checkpoint acquired the following selected inputs, with URL, hash,
+The preceding checkpoints acquired the following selected inputs, with URL, hash,
 access date and read/not-read boundaries in `sourceArchives`. The AKNS,
 Poonen, Jannsen, Kerz–Saito and EKM readings below are inherited evidence;
-this continuation does not claim to have reread them:
+codex-hjdg0j does not claim to have reread them:
 
 - AKNS: interpretation/bi-interpretation, localization, Proposition 2.28 with
   its proof, Theorem 3.1 and the §3.2 proof. Earlier coding and §3.1 leaves
@@ -59,7 +59,7 @@ this continuation does not claim to have reread them:
 - EKM: quadratic Pfister definitions, roundness and hyperbolicity,
   Fact 16.2 and the Arason–Pfister bound with its proof. The original
   Kato/Voevodsky and subform-theorem proofs are not thereby audited.
-- Kuhlmann–Novacoski: this continuation reacquired the identical 20-page
+- Kuhlmann–Novacoski: codex-c83e7a reacquired the identical 20-page
   author PDF and read selected pp.1–3,5,7–13, including Definition 3.1,
   Lemmas 2.5,3.2,3.3 and the **full proof of Theorem 1.2**. The cited
   Raynaud/decomposition-theoretic foundations remain a source gap.
@@ -67,7 +67,7 @@ this continuation does not claim to have reread them:
   [030M](https://stacks.math.columbia.edu/tag/030M),
   [032L](https://stacks.math.columbia.edu/tag/032L) and
   [032O](https://stacks.math.columbia.edu/tag/032O): lemma statements and
-  supplied proofs read, with fresh HTML hashes in `sourceArchives`. Tag
+  supplied proofs read, with the preceding worker’s HTML hashes in `sourceArchives`. Tag
   030M omits proof details; the pinned Tau Ceti fixed-field proof was read.
 
 Jannsen already has PAPER-JANNSEN-16 in the live batch. The prerequisite list
@@ -150,8 +150,11 @@ are different requirements.
 ## Library and ownership audit
 
 The pinned baselines are Mathlib `082e2d3` and Tau Ceti `f790474`.
-Exact file links and declarations are in `baseline.declarations`; their
-statements and hypotheses were read, rather than accepted from search hits.
+Exact file links and declarations are in `baseline.declarations`. The prior
+workers checked the eighteen inherited library items. This continuation
+read the eight added supplier statements, their surrounding hypotheses,
+and the inherited minimal-polynomial comparison; it does not claim a fresh
+reading of the other inherited signatures.
 
 Existing ring-language and parameter-definability carriers are reused.
 Tau Ceti supplies compactness of the valuation spectrum's patch topology;
@@ -164,7 +167,7 @@ No general replacement of those theorems is proposed.
 The reviewed A0-extension audit explicitly identifies Tau Ceti’s finite
 normalization theorem for purely inseparable extensions of multivariate
 polynomial fraction fields. The previous checkpoint omitted that import.
-The corrected plan now uses eight additional library items, each checked
+The preceding continuation added eight library items, each checked
 against the actual pinned signature:
 
 - Purely inseparable polynomial normalization, for an arbitrary coefficient
@@ -199,15 +202,16 @@ the normalization owner and Motivic–étale K-theory M.5d. No accepted audit
 entry for the Logic roadmap or CR.4 was found; their absence is not called
 an accepted negative audit. Their stage descriptions were read directly.
 
-The live atlas's eleven referenced supplier/owner stages were compared
-structurally with the local inputs and agreed. The current new-roadmap,
+The preceding continuation compared eleven live supplier/owner stages
+structurally with its local inputs and recorded agreement. Its new-roadmap,
 packet, integrated L5 decomposition and reserved-ID screens found no
-competing owner for these extensions. Legacy references to retired
+competing owner for the proposed extensions. This continuation checked the
+current owners and screens for its additions, as detailed below. Legacy references to retired
 FoundationsAndLibraryIntegration are not adopted as suppliers.
 
 ## Henselian-generator proof now exposed
 
-The five new missing lemmas all remain in the existing LD.1 source route.
+The preceding continuation's five missing lemmas all remain in the existing LD.1 source route.
 For finite E/F inside a chosen henselization, use decomposition theory and
 immediacy to identify the finite primes above the base valuation, with
 residue degree one at the selected prime. Chinese remainders produces η
@@ -241,7 +245,8 @@ this selected-family adapter or its valuation-extension source gap.
 | --- | --- | --- |
 | Source | LogicAndDefinabilityInNumberTheory, LD.0–LD.1 | Interpretation semantics, henselian and valuation adapters |
 | Source | HigherLocalFieldsAndHigherClassFieldTheory, HL.2 and HL.6 | Exact coefficients, Kato complexes and Hasse inputs |
-| Source | AlgebraicModuliForArithmeticGeometry, A0-extension | Normalization and valuative integrality interfaces |
+| Source | AlgebraicModuliForArithmeticGeometry, A0-extension | Normalization and selected-family integral-closure interfaces |
+| Source | AutomorphicCongruences, L4 | Existing height-one intersection theorem and its early algebraic proof leaves |
 | Part II | FinitelyGeneratedFieldDefinability | The new global definability, bi-interpretability and single-axiom results |
 | Part II | HigherPfisterForms | All-characteristic, arbitrary-fold quadratic forms and their detection criteria |
 | Part II | PrimeToDegreeAlterations | Gabber's degree control absent from arbitrary-degree de Jong alterations |
@@ -274,15 +279,15 @@ re-planned.
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json`
 and the intake deliverable-path check pass. Additional scratch checks verify
-all 129 item IDs, the acyclic dependency graph, preservation of prior IDs,
+all 143 item IDs, the acyclic dependency graph, preservation of prior IDs,
 120 unique API names and 120 unique test names, downstream use references,
-valid stage/parent/galaxy IDs, and exactly one route for each of the 106
-missing items. Existing source routes also retain two planned adapters.
+valid stage/parent/galaxy IDs, and exactly one route for each of the 111
+missing items. Existing source routes also retain planned adapters, including the newly matched height-one theorem.
 
-Fresh finite regressions check simple-root reduction including n=1 and
+The preceding continuation’s finite regressions checked simple-root reduction including n=1 and
 characteristics dividing n, the two prolongations over 5 above, Frobenius
 monomial exponent division, total inverse uniqueness, and the corrected
-principal-unit sign. All pass. These are mathematical examples and data
+principal-unit sign. Those were reported passing by the preceding worker. These are mathematical examples and data
 checks, **not Lean elaboration or theorem proofs**. The 120 JSON tests are
 still unexecuted Lean planning contracts. No Lean file is a deliverable of
 this paper job and none was compiled.
@@ -292,6 +297,158 @@ longer unread, and the inseparable polynomial theorem is no longer a
 missing library input. Still open are its valuation/decomposition
 foundations, original wild Hasse/Gersten and resolution chains,
 low-dimensional/AKNS coding leaves, number-field strong approximation,
-Krull intersection and prolonged-valuation adapters, independent review of
+Lean adapters for the now-exposed intersection and prolongation proofs, independent review of
 the full-rank flags and inverse-language bridge, and publisher-format
 collation. These substantive tasks prevent a complete status.
+
+
+## Continuation: valuation and height-one interfaces
+
+This section records the fresh work of `codex-hjdg0j`. The eight new library
+items are ordinary imports. The six new missing theorem items are exact
+assemblies or proof inputs; their presence does not claim Lean implementation.
+The existing forty definition/construction APIs and 120 test contracts are
+unchanged.
+
+### Exact prolongations and the selected-family intersection
+
+Let E/F be an arbitrary field extension and V a valuation subring of F.
+Mathlib’s `IsLocalRing.exists_factor_valuationRing` factors V→E through a
+valuation subring W of E with V→W local. The contraction W∩F is another
+valuation ring dominating V. The existing
+`ValuationSubring.isMax_toLocalSubring` therefore gives W∩F=V. This proves
+`valuation-extension-exact` for arbitrary rank, inseparable extensions and
+the trivial valuation. It does not equate independently normalized numerical
+valuations. `mem_comap` and `comap_comap` supply the pullback laws.
+
+Now let E/F be finite, let B=∩_v O_v for any selected family, and choose a
+finite normal envelope N/F containing E. Fix v and prolong it exactly to W
+on N. If x∈E lies in **every** prolongation of v to E, then each F-embedding
+σ:E→N pulls W back to one of the quantified rings, so σ(x)∈W. Every root
+of minpoly_F(x) is obtained this way: extend its F(x)-embedding to E and
+use normality of N/F. Factor the polynomial with all inseparable
+multiplicities retained. Its coefficients are sums of products of roots,
+so they belong to W∩F=O_v. Intersecting the coefficient bounds places the
+whole monic polynomial in B[X], proving x integral over B.
+
+Conversely, an element integral over B is integral over each O_v and lies
+in every valuation ring prolonging it, since those rings are integrally
+closed. Thus the selected-family equality follows. Frac(B)=F is not
+required. For an empty family B=F and the intersection in E is E, as it
+should be for a finite algebraic extension. The split-prime example already
+in this report remains a negative test for replacing all prolongations by
+one. Exact Lean embedding-extension, polynomial-splitting and multiplicity
+adapters remain to be implemented.
+
+### Height-one intersection without a duplicate owner
+
+The reviewed `AutomorphicCongruences:L4` audit explicitly includes the
+general height-one intersection theorem for normal noetherian domains.
+It is now a `planned` import from that stage, removed from A0-extension’s
+route. The source route supplies only the early commutative-algebra proof
+leaves below. Importing them does not require constructing a universal zeta
+element or proving the automorphic theorems of that roadmap.
+
+Here is a direct proof of the principal-quotient ingredient. Let A be a
+normal noetherian domain, a≠0, and p∈Ass(A/aA). Localize at p. In R=A_p,
+choose b mod a with annihilator the maximal ideal m, and put x=b/a∉R.
+Then xm⊂R. If xm⊂m, the existing determinant-integrality theorem applied
+to the nonzero finite R-module m⊂Frac(R) makes x integral over R,
+contradicting normality. Otherwise xt is a unit for some t∈m. For every
+y∈m, y/t=(xy)/(xt) belongs to R, so m=(t). The existing principal ideal
+theorem gives dim(R)≤1. Since a≠0 lies in p, equality holds. This proves
+that every associated prime of A/aA has height one, including the vacuous
+case where a is a unit. It is a direct replacement for importing the full
+Serre-depth proof of [Stacks 031T](https://stacks.math.columbia.edu/tag/031T).
+
+For any A-module M over a noetherian ring, the existing associated-prime
+witness lemma supplies, for x≠0, an associated prime containing Ann(x).
+The element x cannot vanish in M_p, since that would give an annihilator
+outside p. Thus M→∏_{p∈Ass(M)}M_p is injective, as also proved in
+[Stacks 0311](https://stacks.math.columbia.edu/tag/0311). Apply this to
+M=A/aA: if b/a belongs to every height-one localization, b mod a vanishes
+at every associated prime, hence b∈aA. This proves the intersection formula.
+At height one the localized ring is a noetherian normal local domain with
+one nonzero prime, so the existing `IsDiscreteValuationRing.TFAE` supplies
+the DVR conclusion. A field has no height-one primes and the empty
+intersection is its fraction field, equal to itself.
+
+Mathlib’s associated-prime carrier uses **radical** annihilators in general.
+The checked `isAssociatedPrime_iff` removes the radical over a noetherian
+base before the argument above chooses an exact annihilator. This
+conversion must survive the Lean translation.
+
+### Coefficient fields and the corrected nonreal-place bound
+
+Milne’s *Lectures on Étale Cohomology*, Lemma 15.3, p.106, gives the needed
+coefficient-field proof. Lift a residue transcendence basis, take a maximal
+subfield of the henselian ring containing those lifts, and lift any missing
+separable algebraic residue element by Hensel’s lemma. In equicharacteristic
+zero every algebraic residue extension is separable. For a valuation ring
+this field E is also relatively algebraically closed in its fraction field:
+a nonzero element algebraic over E cannot have nonzero value, by the unique
+least-value term argument. If its residue lifts to e∈E, the same argument
+applied to the difference forces equality. No completeness or rank-one
+assumption was introduced.
+
+The printed cohomological-dimension estimate in Proposition 3.2(3) cannot
+bound cd(E′) for formally real E′. For example Q has infinite
+2-cohomological dimension. The corrected step bounds E′k′_v directly using
+the nonreal local constant field and its transcendence degree. Milne’s
+Theorem 15.2 states the required transcendence-degree inequality but refers
+to Shatz for the proof. The local-field theorem, henselization/completion
+comparison and that referenced proof remain explicit tasks in DP23-G3;
+this continuation does not certify them merely from their names.
+
+### Structured source findings and provenance
+
+`sourceIssues` now records fourteen findings. E1–E4 retain the IDs in the
+separate errata file: bilinear characteristic-two factors, the sign in
+Proposition 3.10, the full-rank flag notation, and the nonzero torus choice.
+The separate errata job and its review are untouched. E5 records the
+finite-place correction already used silently by the extraction: choose
+Σ to contain every nonunit place of ε, so v(a_1)>0 forces ε to be a unit.
+E6 records the false intermediate cohomological-dimension bound. E7 records
+the inherited total-inversion bridge to the finite-language QFA theorem.
+E8 is the identity-embedding index slip in Kuhlmann–Novacoski, limited to
+the author PDF inspected. E9–E11 record the neighborhood variable, tensor
+sign/block-size slips, and the restriction of a valuation to L. E12–E14
+correct three bibliography page ranges against the original journals’
+metadata. None is assigned an independent review verdict here.
+
+The Annals page, latest arXiv record, Dittmann’s publication list and
+title/author correction searches were checked on 22 September 2026. No
+correction was found there. The publisher page did not expose a usable
+article PDF, so no collation with the typeset publication is claimed.
+The main author PDF has the same recorded hash. The Kuhlmann–Novacoski PDF
+was reacquired with the same hash; pp.7 and 9–13 were reread. The complete
+paper is not claimed as newly read.
+
+New primary Stacks pages were archived with URL, date and hash in
+`sourceArchives`: 031T, 031S, 0311, 031Q, 00KV, 00IA, 00I8 and 0ASF.
+The supplied statements and proofs were inspected; downstream references
+were not all recursively read. Milne’s notes were read on pp.105–106,
+SHA-256 `718182f1a55d3af6b71f0d2faa5836851fb8611f1d7276896e3d5affdf28697b`.
+The full notes and the referenced Shatz proof remain unread. An attempted
+ADT scan yielded unusable text and is not treated as an inspected source.
+
+The current owner documents, A0-extension and L4 reviewed audit entries,
+full pinned-library trees, and new-roadmap/packet/decomposition screens
+were checked for the fresh additions. The eight new library signatures
+and the inherited minimal-polynomial coefficient comparison were read at
+the pinned commit. The remaining inherited signatures rely on the prior
+workers' audit.
+
+Fresh verification covers the paper checker, intake paths, preserved
+IDs/API/test names, acyclic item dependencies, exact missing-item routing,
+and 3,055 finite regression checks: 125 finite-place implications and one
+counterexample to the printed condition; 2,552 tensor coefficients and
+356 rejections of the unsigned formula over F₃, F₅ and F₇ in ranks 1–3;
+17 repeated-root factorizations over F₂, F₃, F₅ and F₇; and four checks of
+the two square roots of 6 modulo 25 and the resulting integral/nonintegral
+branches of (√6−1)/5. The finite-place enumeration uses all length-three
+valuation vectors in {−1,0,1}, with a zero at every nonunit place of ε.
+The repeated-root examples check every r∈F_p in (X−r)^p=X^p−r^p.
+These checks illustrate the contracts and do not prove the general results. No Lean
+file is requested or compiled. The seven gap records and handoff remain
+the continuation boundary.
