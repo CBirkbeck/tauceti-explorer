@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-0 new mistakes confirmed · 414 awaiting review · 51 already corrected in print · 0 rejected on review · 7 extractions and packets not yet checked.
+0 new mistakes confirmed · 414 awaiting review · 54 already corrected in print · 0 rejected on review · 7 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -633,6 +633,9 @@ By Theorem 11.2, any g with u = q ∘ g ∘ w is z ↦ γ(z/2) with γ ∈ Γ. F
 - He, "Cordial elements and dimensions of affine Deligne–Lusztig varieties", Forum of Mathematics, Pi (2021) (`PAPER-HE-21`), He14 published Proposition11.6 proof, p.399, after x′=x1*δ(u): corrected in Later reformulation: He–Zhou–Zhu, arXiv2109.02594v1, Proposition3.4.2 proof (not an official erratum).
 - He, "Cordial elements and dimensions of affine Deligne–Lusztig varieties", Forum of Mathematics, Pi (2021) (`PAPER-HE-21`), GHN15 published Proposition2.2.1(1)–(2), §2.2: corrected in GHN 2017 erratum Proposition0.0.1: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.
 - He, "Cordial elements and dimensions of affine Deligne–Lusztig varieties", Forum of Mathematics, Pi (2021) (`PAPER-HE-21`), GHN15 published Proposition3.5.1 and Remark3.6.2: corrected in GHN 2017 erratum Proposition0.0.2: https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf.
+- Landesman–Litt, "Canonical representations of surface groups", Annals of Mathematics 199 (2024), no. 2 (`PAPER-LANDESMAN-LITT-24`), Notation 7.1.1, p. 35, the sentence immediately after the display defining the ρ-isotypic component: corrected in No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352, whose only comment on v4 is 'Updated to fix improperly rendered figure', and none is listed in the Crossref record for DOI 10.4007/annals.2024.199.2.6. The text is unchanged in v4, the latest version..
+- Landesman–Litt, "Canonical representations of surface groups", Annals of Mathematics 199 (2024), no. 2 (`PAPER-LANDESMAN-LITT-24`), proof of Theorem 7.2.1, §7.3, p. 37, two occurrences: corrected in No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352 or in the Crossref record for DOI 10.4007/annals.2024.199.2.6; the text is unchanged in v4, the latest version..
+- Landesman–Litt, "Canonical representations of surface groups", Annals of Mathematics 199 (2024), no. 2 (`PAPER-LANDESMAN-LITT-24`), §1.3, p. 4, the sentence recalling versality before Corollary 1.3.1: corrected in No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352 or in the Crossref record for DOI 10.4007/annals.2024.199.2.6; the binding definition in Notation 1.10.1 is correct, and the text is unchanged in v4, the latest version..
 
 ## Rejected on review
 

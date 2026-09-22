@@ -4829,6 +4829,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LANDESMAN-LITT-24/E1",
+   "kind": "misprint",
+   "locator": "Notation 7.1.1, p. 35, the sentence immediately after the display defining the ρ-isotypic component",
+   "printed": "We obtain an action of Γ on K^ab ⊗ ℂ = H₁(Σ_{g′,b′,p′}, ℂ) and hence on the characteristic subrepresentation H¹(Σ_{g′,b′,p′}, ℂ)_ρ.",
+   "correction": "… and hence on the characteristic subrepresentation H₁(Σ_{g′,b′,p′}, ℂ)_ρ. The cohomological isotypic component H¹(Σ_{g′,b′,p′}, ℂ)_ρ that appears in Theorem 7.2.1 should be defined in the same way, as ρ ⊗ Hom_H(ρ, H¹(Σ_{g′,b′,p′}, ℂ)).",
+   "reason": "The display two lines earlier defines H₁(Σ_{g′,b′,p′}, ℂ)_ρ := ρ ⊗ Hom_H(ρ, H₁(Σ_{g′,b′,p′}, ℂ)), a subobject of homology, and the sentence is describing the action of Γ on that object, obtained from its action on K^ab ⊗ ℂ = H₁. The superscript 1 makes the sentence refer to an object that has not been defined. Theorem 7.2.1 then states its conclusion for H¹(Σ_{g′,b′,p′}, ℂ)_ρ and adds that the same holds for H₁(Σ_{g′}, ℂ)_ρ, so both isotypic components are genuinely used and the cohomological one is never introduced.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352, whose only comment on v4 is 'Updated to fix improperly rendered figure', and none is listed in the Crossref record for DOI 10.4007/annals.2024.199.2.6. The text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 2205.15352",
+    "the Crossref record for DOI 10.4007/annals.2024.199.2.6",
+    "the rest of §7 of the paper, where both H₁(…)_ρ and H¹(…)_ρ are used"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E2",
+   "kind": "misprint",
+   "locator": "proof of Theorem 7.2.1, §7.3, p. 37, two occurrences",
+   "printed": "We next verify the first part of Theorem 7.2.1, about H¹(Σ_{g′,0,p′}, ℚ)_ρ. … To prove the first part of Theorem 7.2.1, about H¹(Σ_{g′,0,p′}, ℚ)_ρ, it thus suffices to show …",
+   "correction": "Both occurrences should read H¹(Σ_{g′,0,p′}, ℂ)_ρ.",
+   "reason": "Theorem 7.2.1 is stated for H¹(Σ_{g′,b′,p′}, ℂ)_ρ, Notation 7.1.1 fixes ℂ coefficients throughout, and Remark 7.1.4 says explicitly that the paper uses ℂ coefficients rather than the ℚ coefficients of [PW13]. The isotypic component for an irreducible complex representation ρ of H is not defined over ℚ, and the proof itself works with the complex local systems U_ρ of the decomposition f_*ℂ = ⊕_ρ U_ρ ⊗ (π°)^*W_ρ and identifies R¹π°_*(U_ρ ⊗ (π°)^*W_ρ)_m with H¹(X°_m, ℂ)_ρ.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352 or in the Crossref record for DOI 10.4007/annals.2024.199.2.6; the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 2205.15352",
+    "the Crossref record for DOI 10.4007/annals.2024.199.2.6",
+    "Notation 7.1.1, Remark 7.1.4 and the statement of Theorem 7.2.1"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/E3",
+   "kind": "misprint",
+   "locator": "§1.3, p. 4, the sentence recalling versality before Corollary 1.3.1",
+   "printed": "As in Notation 1.10.1, we say a family π : C → M of smooth proper genus g curves with geometrically connected fibers, equipped with n disjoint sections s_i : M → C, is versal if the corresponding map M → M_{g,n} is dominant.",
+   "correction": "… is versal if the corresponding map M → M_{g,n} is dominant and étale.",
+   "reason": "Notation 1.10.1 on p. 10, which this sentence explicitly defers to, requires the induced map M → M_{g,n} to be dominant and étale, and étaleness is used essentially: Lemma 2.1.4 deduces that the image of π₁(M) in PMod_{g,n} has finite index from it, and Theorem 1.7.1 states the hypothesis as 'the associated map M → M_{g,n} is dominant étale'. Dominance alone would not suffice for Corollary 1.3.1, which is deduced from Theorem 1.2.1 through Proposition 2.1.3.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 2205.15352 or in the Crossref record for DOI 10.4007/annals.2024.199.2.6; the binding definition in Notation 1.10.1 is correct, and the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 2205.15352",
+    "the Crossref record for DOI 10.4007/annals.2024.199.2.6",
+    "Notation 1.10.1 on p. 10, Lemma 2.1.4 on p. 13 and the statement of Theorem 1.7.1 on p. 6"
+   ],
+   "owner": "PAPER-LANDESMAN-LITT-24",
+   "file": "research/blueprint/papers/PAPER-LANDESMAN-LITT-24.result.json",
+   "citation": "Landesman–Litt, \"Canonical representations of surface groups\", Annals of Mathematics 199 (2024), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E1",
    "kind": "gap",
    "locator": "Proof of Lemma 2.1, p.9 (published version)",
