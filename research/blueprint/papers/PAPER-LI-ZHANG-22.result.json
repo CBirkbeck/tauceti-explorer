@@ -1,0 +1,706 @@
+{
+  "paper": "PAPER-LI-ZHANG-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "On the arithmetic Siegel–Weil formula for GSpin Shimura varieties",
+    "authors": "Chao Li and Wei Zhang",
+    "venue": "Inventiones Mathematicae 228 (2022), no. 3, 1353–1460",
+    "doi": "10.1007/s00222-022-01106-z",
+    "arxiv": "2106.15038",
+    "url": "https://doi.org/10.1007/s00222-022-01106-z",
+    "readSections": [
+      "The whole paper (§§1–12 and references) in the authors' final version, https://www.math.columbia.edu/~chaoli/KRO.pdf, dated 2 March 2022, 80 pp., SHA-256 c02a94d47eee2634fda148a162b54bb9aa90855eb140fb809959ab195cabfbdd, fetched 2026-09-22. Locators are pages of this version.",
+      "arXiv 2106.15038v1 (29 June 2021, 80 pp.), SHA-256 e7bcfc430c8be5a416ab7bf340b582c8b4fd7f04e72f07486b035d5abfc0fb5c, compared word by word: apart from renumbered equations and wording, the differences are the corrections listed in sourceIssues E5. The Springer PDF blocks scripted downloads and was not read."
+    ]
+  },
+  "summary": "Li and Zhang formulate and prove a local arithmetic Siegel–Weil formula for GSpin Rapoport–Zink spaces, the orthogonal analogue of the unitary Kudla–Rapoport conjecture (Theorem 1.2.1). For F = Q_p (p odd) and every lattice L of rank n in the space V^ε_m of special quasi-endomorphisms (m = n + 1 ≥ 3, ε = ±1), Int^ε(L) = ∂Den^ε(L). By p-adic uniformization of Kisin's models this gives the semi-global formula at a good prime (Theorem 1.3.1).\n\nThe proof follows the unitary strategy along a rank n − 1 lattice L^♭. The new point is that W = (L^♭_F)^⊥ is two-dimensional, so the vertical parts have singularities when W is isotropic.\n- **Horizontal side.** The horizontal part is a sum of primitive quasi-canonical and Gross–Keating cycles indexed by horizontal lattices (Theorem 5.3.1), and the horizontal identity reduces to Gross–Keating (Theorem 7.2.2).\n- **Geometric vertical side.** The vertical part lives on the Deligne–Lusztig strata (Proposition 6.1.1, via specialization on a torus). The Tate conjecture for these strata (Theorem 6.3.2, via Lusztig) reduces it to Deligne–Lusztig curves, whose intersection function 1 − q, 1, 0 is Fourier self-dual up to γ_V = −1 (Theorem 7.4.1, Corollaries 7.5.3, 7.6.10).\n- **Analytic vertical side.** New explicit formulas for orthogonal local densities in both ε cases (§3) and weighted counting identities (§8.2) give recurrences for the partial Fourier transform (Proposition 8.1.2).\n- **Conclusion.** A classification of O(W)-invariant distributions via the SL₂ Weil representation and newforms (Proposition 9.1.3) gives the matching geometric recurrences (Proposition 9.2.3), and an induction on val(L^♭) concludes (Theorem 9.3.2).\n\nThe libraries have none of this. The atlas plans the local quadratic invariants (GN.2), Fourier analysis (AL.0) and the global Weil representation (MP.4).\n\nRoutes:\n- the cycle theory and both arithmetic Siegel–Weil formulas to GSpinSpecialDivisorHeights, and the GSpin Rapoport–Zink spaces and integral models to OrthogonalIntegralModelsAndKugaSatake (both candidates of earlier extractions);\n- sources: local densities to GN.3, the invariant-distribution classification to MP.3, and Tate's theorem to R07.1.\n\nSeven source issues are recorded: five groups of misprints (one of them corrected in the final version), an edge case in which the simplified counting formulas of Lemmas 3.2.1 and 3.2.2 fail, and a gap in the argument of Remark 4.11.5 (the lift of an isometry to J(F) preserving the component N), which supplies the O(W)-invariance used in Lemma 9.2.2. The main identities were rechecked numerically where possible.",
+  "items": [
+    {
+      "id": "PAPER-LI-ZHANG-22/1",
+      "kind": "theorem",
+      "name": "Theorem 1.2.1 = Theorem 4.15.1 (local arithmetic Siegel–Weil formula for GSpin Rapoport–Zink spaces)",
+      "statement": "Let F = Q_p, p odd, m = n + 1 ≥ 3, ε ∈ {±1}, N = N^ε_n the connected GSpin Rapoport–Zink space attached to the self-dual lattice H^ε_m, and V = V^ε_m its space of special quasi-endomorphisms (χ(V) = ε, Hasse invariant −1). For every O_F-lattice L ⊆ V of rank n: Int^ε(L) = ∂Den^ε(L), where Int^ε(L) = χ(N, O_{Z(x_1)} ⊗^L ⋯ ⊗^L O_{Z(x_n)}) (1.2.0.1) and ∂Den^ε(L) = −(d/dX)|_{X=1}Den^ε(X, L), Den^ε(p^{−k}, L) = Den(H^ε_{m+2k}, L)/Den(H^ε_{m+2k}, H^ε_n), with Den^ε(X, L) = −X^{val(L)}Den^ε(1/X, L).",
+      "locator": "§1.2, (1.2.0.1), Theorem 1.2.1, pp.2–4; Theorem 4.15.1, p.31; proof §9.3, pp.65–67, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The orthogonal analogue of the Kudla–Rapoport conjecture; m = 4 was known (Gross–Keating/Wedhorn for ε = +1, Terstiege for ε = −1). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/2",
+      "kind": "theorem",
+      "name": "Theorem 1.3.1 = Theorem 12.9.1 (semi-global arithmetic Siegel–Weil formula)",
+      "statement": "For F = Q, V of signature (n − 1, 2) with m = n + 1 ≥ 3, p > 2 with K_p = GSpin(Λ_p) hyperspecial, V the incoherent positive definite nearby space, ϕ_K ∈ S(V^n_f) p-admissible (K-invariant, ϕ_{K,p} = 1_{(Λ_p)^n}) and T ∈ Sym_n(Q)_{>0}: Int_{T,p}(ϕ_K)q^T = c_K·∂Eis_{T,p}(z, ϕ_K), with q^T = ψ_∞(½ tr Tz) = e^{πi tr Tz} and c_K = (−1)^n/vol(K). Proof: p-adic uniformization reduces Int_{T,p} to Theorem 4.15.1 and Remark 3.4.9, the prime-to-p orbital integrals give Π_{v≠p,∞} W_{T,v}(1, 0, ϕ_{K,v}) [Kud97b, Prop. 1.2], and q^T = c_∞W_{T,∞} [BY21, Prop. 4.3(ii)]; the sign is γ^n_V = (−1)^n.",
+      "locator": "Theorem 1.3.1, p.5; Theorem 12.9.1 and proof, pp.76–77, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Remark 1.3.2: a global version (all T, all places) is harder for GSpin than for unitary groups (no split places, p = 2). Remark 1.3.3: F = Q_p is needed for [HP17, Kim18a]. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/3",
+      "kind": "definition",
+      "name": "Quadratic lattices and spaces over a p-adic field (§2.1)",
+      "statement": "For a non-degenerate quadratic O_F-lattice L: L^∨, integrality, fundamental invariants (a_1 ≤ ⋯ ≤ a_n) with L^∨/L ≅ ⊕ O_F/ϖ^{a_i}, val(L) = Σa_i, type t(L), standard orthogonal bases, self-dual and vertex (minuscule) lattices (L ⊆_t L^∨ ⊆ ϖ^{−1}L), det, disc(L) = (−1)^{C(n,2)}det(L), χ(L) = χ(disc L) ∈ {±1, 0}, Hasse invariant ϵ(W) = Π_{i<j}(u_i, u_j)_F, the classification of quadratic spaces by (dim, disc, ϵ) with the excluded cases in dimensions 1 and 2, W^{≥k}, W^{=k}, W° (integral cone), W°° (positive cone), W^an, Vert^t(W), H^ε_m (self-dual, χ = ε) and V^ε_m (χ = ε, ϵ = −1).",
+      "locator": "§2.1, pp.7–8, authors' final version (2 March 2022)",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "note": "GN.2 plans local quadratic theory: invariants, Jordan splittings and classification."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/4",
+      "kind": "definition",
+      "name": "Fourier transform and distributions on a quadratic space (§2.2)",
+      "statement": "For unramified ψ, f̂(x) = ∫_W f(y)ψ((x, y))dy with the self-dual measure (so f̂̂(x) = f(−x)); 1̂_Λ = vol(Λ)1_{Λ^∨} with vol(Λ) = q^{−val(Λ)/2} (2.2.0.2); S(W), D(W), supports of distributions, and L¹_loc(Ω) for Ω open dense.",
+      "locator": "§2.2, (2.2.0.2), p.9, authors' final version (2 March 2022)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "note": "AL.0 plans local Schwartz–Bruhat spaces, Fourier transforms and self-dual measures."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/5",
+      "kind": "definition",
+      "name": "Definition 3.1.1 (local density of integral representations)",
+      "statement": "Rep_{M,L}(R) = QHom(L ⊗ R, M ⊗ R), Den(M, L) = lim_N #Rep_{M,L}(O_F/ϖ^N)/q^{N·dim(Rep_{M,L})_F}, with dim(Rep_{M,L})_F = n(2m − n − 1)/2 (3.1.1.2).",
+      "locator": "Definition 3.1.1, (3.1.1.1)–(3.1.1.2), p.10, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/6",
+      "kind": "theorem",
+      "name": "§3.2 (quadratic spaces over F_q): #O(V), Lemmas 3.2.1–3.2.2 and Corollary 3.2.3",
+      "statement": "#O(V)(κ) = 2q^{C(m,2)}(1 − sgn(V)q^{−m/2})Π_{1≤i<m/2}(1 − q^{−2i}) (3.2.0.3); sgn, sgn′, sgn_m of possibly degenerate U = U_0 ⊥ U_1 ((3.2.0.5)–(3.2.0.8)). Lemma 3.2.1 (generalizing [Kit93, §5.6 Ex. 4]): for U of dimension n with radical of dimension t and V non-degenerate of dimension m ≥ n, #O(U, V) = q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 − χ(V)sgn_m(U)q^{−(m−n−t)/2})^{−1}Π_{(m−n−t)/2≤i<m/2}(1 − q^{−2i}). Lemma 3.2.2: the number S_b(V) of totally isotropic b-dimensional subspaces; Corollary 3.2.3: isotropic lines and vectors.",
+      "locator": "§3.2, (3.2.0.3)–(3.2.0.8), Lemmas 3.2.1–3.2.2, Corollary 3.2.3, pp.11–13, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The simplified (\"Namely\") form of Lemma 3.2.1 was checked by brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3): it holds in 160 of the 166 configurations, the six exceptions being U = 0 with m even (sourceIssues E1). Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/7",
+      "kind": "theorem",
+      "name": "Lemmas 3.3.2–3.3.3 (Cho–Yamauchi weighted lattice counting; induction formula)",
+      "statement": "Den(H^ε_m, L) = Σ_{L ⊆ L′ ⊆ L′^∨} q^{(n+1−m)ℓ(L′/L)}(1 − sgn(H^ε_m)q^{−m/2})(1 + ε sgn_m(L′)q^{−(m−n−t(L′))/2})Π_{(m−n−t(L′))/2<i<m/2}(1 − q^{−2i}) (3.3.2.1) (from [CY20, (3.4)] and Lemma 3.2.1). For L = L^♭ + ⟨x⟩, L̃ = L^♭ + ⟨ϖ^{−1}x⟩, x ⊥ L^♭ with val(x) > a_{n−1}: Den(H^ε_m, L) = q^{n+1−m}Den(H^ε_m, L̃) + (1 − εq^{−m/2})(1 + εq^{−(m−2)/2})Den(H^ε_{m−2}, L^♭) for m even, and with factor (1 − q^{−(m−1)}) for m odd (generalizing [CY20, Cor. 4.10], [Kat99, Thm. 2.6]).",
+      "locator": "Definition 3.3.1, Lemmas 3.3.2–3.3.3, pp.14–15, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/8",
+      "kind": "theorem",
+      "name": "§3.4 (odd corank): normalized local Siegel series, weight polynomials, Theorems 3.4.5–3.4.6, Corollary 3.4.7, Remarks 3.4.8–3.4.9",
+      "statement": "Nor^ε(X, L) = (1 − sgn(H^ε_{n+1})q^{−(n+1)/2}X)Π_{1≤i<(n+1)/2}(1 − q^{−2i}X²) and Den^ε(X, L) ∈ Z[X] with Den^ε(q^{−k}, L) = Den(H^ε_{n+1+2k}, L)/Den(H^ε_{n+1+2k}, H^ε_n); weight polynomials m(t, s; X) = (1 + s q^{(t−1)/2}X)Π_{0≤i<(t−1)/2}(1 − q^{2i}X²), m^ε(t, s; X) = m(t, s; εX), weight factors m^ε(t, s) = −(d/dX)m^ε|_{X=1}. Theorem 3.4.5: Den^ε(X, L) = Σ_{L ⊆ L′ ⊆ L′^∨} X^{2ℓ(L′/L)}m^ε(t(L′), sgn_{n+1}(L′); X) (generalizing [CY20, Cor. 3.16]). Theorem 3.4.6 (Ikeda): Den^ε(X, L) = w^ε(L)X^{val(L)}Den^ε(1/X, L), w^ε(L) = (det L, −(−1)^{C(n+1,2)}u)_Fϵ(L_F) ([Ike17, Thm. 4.1(2)] for n odd and ε = +1; the same proof works in general). Corollary 3.4.7: if w^ε(L) = −1, ∂Den^ε(L) = Σ_{L′} m^ε(t(L′), sgn_{n+1}(L′)). Remark 3.4.8: ∂Den^ε(L^♭ ⊥ M) = ∂Den^{ε′}(L^♭) for M self-dual. Remark 3.4.9: W_T(1, k, 1_{Λ^n}) = Den(Λ ⊥ H^+_{2k}, L) [Kud97b, Prop. A.6], so W′_T(1, 0, ϕ_0) = ∂Den^ε(L)·Nor^ε(1, L)·log q (3.4.9.2).",
+      "locator": "§3.4, (3.4.1.1)–(3.4.9.2), pp.16–18, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Example 4.15.3 (m = 4, invariants (1, 1, 1)) was recomputed from Theorem 3.4.5 and Corollary 3.4.7: Den^−(X, L) = 1 − qX + qX² − X³ and ∂Den^−(L) = 3 − q. Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/9",
+      "kind": "theorem",
+      "name": "§3.5 (even corank): Den^♭, Theorems 3.5.4–3.5.5 and Corollary 3.5.6",
+      "statement": "Nor^♭ε(X, L) = (1 − sgn(H^ε_n)q^{−n/2}X)(1 − εχ(L)X)^{−1}Π_{0≤i<n/2}(1 − q^{−2i}X²) and Den^♭ε(q^{−k}, L) = Den(H^ε_{n+2k}, L)/Nor^♭ε(q^{−k}, L); m^♭(t, s, χ; X) = (1 + s q^{t/2}X)(1 − χX)Π_{0<i<t/2}(1 − q^{2i}X²). Theorem 3.5.4: Den^♭ε(X, L) = Σ_{L′}(q^{1/2}X)^{2ℓ(L′/L)}m^♭ε(t(L′), sgn_n(L′), χ(L); X). Theorem 3.5.5 (Ikeda): Den^♭ε(X, L) = (q^{1/2}X)^{2⌊val(L)/2⌋}Den^♭ε(1/(qX), L). Corollary 3.5.6: Den^♭ε(1, L) = Σ_{L′ of type ≤ 2} q^{⌊val(L′)/2⌋}·(1, (1 − εχ(L)q^{−1}), (1 + ε sgn_n(L′))(1 − εχ(L)q^{−1})) for t(L′) = 0, 1, 2.",
+      "locator": "§3.5, Definitions 3.5.1–3.5.3, Theorems 3.5.4–3.5.5, Corollary 3.5.6, pp.18–19, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The proof of Theorem 3.5.4 writes H^ε_{n+1+2k} for H^ε_{n+2k} (sourceIssues E2). Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/10",
+      "kind": "theorem",
+      "name": "Theorem 3.6.1 and Corollary 3.6.2 (induction formula for the local Siegel series)",
+      "statement": "In the situation of Lemma 3.3.3, Den^ε(X, L) = X²Den^ε(X, L̃) + (1 − εχ(L^♭)X)^{−1}(1 − X²)Den^♭ε(X, L^♭) (3.6.1.1); if w^ε(L) = −1, ∂Den^ε(L) − ∂Den^ε(L̃) = −εχ(L^♭)Den^♭ε(1, L^♭) if χ(L^♭) ≠ 0 and 2Den^♭ε(1, L^♭) if χ(L^♭) = 0.",
+      "locator": "§3.6, (3.6.1.1), Theorem 3.6.1, Corollary 3.6.2, p.20, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/11",
+      "kind": "theorem",
+      "name": "Lemmas 3.7.1–3.7.2 (orthogonal sums; the sign of the functional equation)",
+      "statement": "For W = W_1 ⊥ W_2: det, disc (with (−1)^{m_1m_2}) and ϵ(W) = ϵ(W_1)ϵ(W_2)(det W_1, det W_2)_F. For m = n + 1: w^ε(L) = −1 for L ⊆ V^ε_m of rank n and +1 for L ⊆ H^ε_{m,F}, so no rank-n lattice embeds in both; a rank n − 1 lattice embedding in both has χ(L^♭) ∈ {0, −ε}.",
+      "locator": "Lemmas 3.7.1–3.7.2, pp.20–21, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/12",
+      "kind": "definition",
+      "name": "Definitions 3.8.1–3.8.2, Corollary 3.8.3 and Lemma 3.8.4 (horizontal lattices)",
+      "statement": "L^♭ ⊆ V^ε_m of rank n − 1 is co-isotropic iff (L^♭_F)^⊥ is isotropic iff χ(L^♭) = ε, and horizontal if integral with t(L^♭) ≤ 1, or t(L^♭) = 2 and ε sgn_{n−1}(L^♭) = +1; Hor^ε(L^♭) = {horizontal M^♭ ⊇ L^♭}. Corollary 3.8.3: co-isotropic L^♭ has Den^♭ε(1, L^♭) = 0 and Hor^ε(L^♭) = ∅; for co-anisotropic L^♭, ∂Den^ε(L) − ∂Den^ε(L̃) = Σ_{M^♭ ∈ Hor^ε(L^♭)} q^{⌊val(M^♭)/2⌋}·(1, (1 + q^{−1}), 2(1 + q^{−1})) by type (χ(L^♭) ≠ 0), with the analogous formula for χ(L^♭) = 0. Lemma 3.8.4: a rank n − 1 lattice embedding in V^ε_m and H^ε_m with M^♭ = M^♭_F ∩ H^ε_m is horizontal.",
+      "locator": "§3.8, Definitions 3.8.1–3.8.2, Corollary 3.8.3, Lemma 3.8.4, pp.21–23, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/13",
+      "kind": "theorem",
+      "name": "§8.2 (weighted counting identities for full-type lattices)",
+      "statement": "For L of rank t and type t > 1: μ_+(L) = #(ϖL^∨)°°/L, μ_0(L) = #((ϖL^∨)° \\ (ϖL^∨)°°)/L, μ_−(L) = #((L^∨)° \\ (ϖL^∨)°)/L, and μ_{0,s} by χ(⟨x⟩_F) (χ(L) = 0) or χ(⟨x⟩^⊥_F) (χ(L) ≠ 0); μ_?(L, M) = μ_?(L) − [M : L]μ_?(M) for L ⊆ M ⊆ ϖ^{−1}L. Lemma 8.2.3: μ_+(L, M) + μ_0(L, M) + μ_−(L, M) = q^{t−1}μ_+(L, M). Lemmas 8.2.4, 8.2.6: choices of M ⊇_1 L with μ_{0,+}(L, M) = μ_{0,−}(L, M) (t odd, χ(L) ≠ 0), resp. μ_+(L, M) + μ_0(L, M) = qμ_+(L, M) (t even). Proposition 8.2.5 (t odd): (1 − q^{t−1})μ_+ + (1 − sq^{(t−1)/2})μ_{0,+} + (1 + sq^{(t−1)/2})μ_{0,−} + μ_− = 0 for χ(L) = 0 and s = ±1, or χ(L) ≠ 0 and s = +1. Proposition 8.2.7 (t even): (1 − sq^{t/2})(1 + sq^{t/2−1})μ_+ + (1 + sq^{t/2−1})μ_0 + μ_− = 0 for χ(L) = 0 and s = ±1, or χ(L) = s.",
+      "locator": "§8.2, Definitions 8.2.1–8.2.2, Lemmas 8.2.3, 8.2.4, 8.2.6, Propositions 8.2.5, 8.2.7, pp.54–60, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The base cases of Propositions 8.2.5 and 8.2.7 were rechecked; the proof of Proposition 8.2.7 prints μ_−(L) = q^t − q for q^{t−1} − q and flips the sign of s in the inductive identity (sourceIssues E6). Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/14",
+      "kind": "theorem",
+      "name": "Lemma 9.3.1 (reducing L^♭)",
+      "statement": "For integral L^♭ of rank n − 1 with invariants (a_1, …, a_{n−1}) and x ∈ Ω(L^♭): (i) if x ∉ L^♭ ⊥ W^{≥a_{n−1}}, then L^♭ + ⟨x⟩ = L′^♭ + ⟨x′⟩ with val(L′^♭) < val(L^♭) (Smith normal form of the fundamental matrix); (ii) if x ∈ L^♭ ⊥ W^{=a_{n−1}} and L^♭ is co-isotropic, then L^♭ + ⟨x⟩ = L′^♭ + ⟨x′⟩ with L′^♭ co-anisotropic and val(L′^♭) = val(L^♭).",
+      "locator": "Lemma 9.3.1 and proof, pp.65–66, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/15",
+      "kind": "construction",
+      "name": "GSpin Rapoport–Zink spaces RZ_G and N^ε_n (§§4.1, 4.4–4.5)",
+      "statement": "For the local unramified Shimura–Hodge datum (G, b, μ, C) of V = H^ε_m ([HP17, Def. 2.2.4, Prop. 4.2.6]): G = GSpin(V), b basic, C = C(V), the framing p-divisible group 𝕏 with D(𝕏)(O_F̆) = D_{O_F̆} and F = b ∘ σ, crystalline Tate tensors t_{α,0}; RZ_G = RZ(G, b, μ, C) represents (X, (t_α), ρ) with crystalline Tate tensors and a tensor-preserving framing [HP17, §4.3; Kim18a], formally locally of finite type and formally smooth of relative dimension n − 1 [HP17, Thm. B]. J = J_b = GSpin(V) acts; RZ_G = ⊔_ℓ RZ^{(ℓ)}_G by val(c(ρ)) [HP17, Thm. D(i)], and N = N^ε_n := RZ^{(0)}_G (Definition 4.5.1). N^+_n ≅ N^−_n for m odd (Remark 4.5.2); exceptional isomorphisms for m ≤ 5 with Lubin–Tate spaces, their products, the Hilbert–Blumenthal space M^HB of [Ter11] and the Siegel threefold space (Example 4.5.3).",
+      "locator": "§§4.1, 4.4–4.5, Definition 4.5.1, Remark 4.5.2, Example 4.5.3, pp.23–26, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/16",
+      "kind": "construction",
+      "name": "Special quasi-endomorphisms, the projector π_crys and the crystal V_crys (§§4.2–4.3)",
+      "statement": "V ⊆ C^op ⊆ End(D) gives V_F̆ ⊆ End(D_F̆) with Φ = b̄ ∘ σ, b̄ ∈ SO(V)(F̆); the Φ-fixed vectors are the special quasi-endomorphisms V ≅ V^ε_m ⊆ End°(𝕏) with x ∘ x = (x, x)·id [HP17, §4.3.1]. The idempotent π(f) = Σ_i ((f, e_i)/(e_i, e_i))e_i on End(C), with (f_1, f_2) = 2^{−m}tr(f_1 ∘ f_2), is among the tensors; it gives π_crys,0 and, by [Kim18a, Thm. 4.9.1], a universal projector π_crys with image V_crys, a crystal of rank m with a symmetric form and an isotropic Hodge line Fil¹V_crys,z(S).",
+      "locator": "§§4.2–4.3, pp.24–25, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/17",
+      "kind": "theorem",
+      "name": "Lemma 4.6.2 (Grothendieck–Messing for N and Z(L))",
+      "statement": "For R → S in Alg_{O_F̆} with nilpotent divided powers, z_0 ∈ N(κ̄) and z ∈ N(S) (resp. Z(L)(S)): lifts of z to N̂_{z_0}(R) (resp. Ẑ(L)_{z_0}(R)) correspond to isotropic R-lines Fil¹V_crys,z(R) lifting Fil¹V_crys,z(S) (resp. also orthogonal to L_crys,z(R)) (as [MP16, Prop. 5.16], [AGHMP18, Prop. 4.3.2]).",
+      "locator": "Lemma 4.6.2, pp.26–27, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/18",
+      "kind": "theorem",
+      "name": "Étale tensors, special endomorphisms and Lemma 5.5.2 (§§5.4–5.5)",
+      "statement": "For a formally smooth base, a crystalline Tate tensor has a unique integral étale Tate tensor matching it under the crystalline comparison [Kim18a, Thm. 7.1.6]; applied to π_crys this gives π_ét with image V_ét, and for z ∈ N(O_K) a self-dual lattice V_ét,z̄ ≅ V inside End(T_pX). SEnd°(X) = {f : i_K(f) ∈ V_F} = {f : i_κ̄(f) ∈ V} (Definition 5.5.1), SEnd(X) = SEnd°(X) ∩ End(X); Lemma 5.5.2: SEnd(X) = i_K^{−1}(V) (via Tate's theorem); Corollary 5.5.3: z ∈ Z(M)(O_K) iff M ⊆ i_κ̄(i_K^{−1}(V)), giving an embedding M → V of quadratic modules.",
+      "locator": "§§5.4–5.5, (5.4.0.1), Definition 5.5.1, Lemma 5.5.2, Corollary 5.5.3, pp.34–36, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/19",
+      "kind": "construction",
+      "name": "GSpin Shimura data and Shimura varieties (§12.1)",
+      "statement": "For V totally positive definite incoherent over A_F of rank m ≥ 3 and an archimedean v_0, the nearby space V of signature (m − 2, 2) at v_0 and (m, 0) elsewhere, G = Res_{F/Q}GSpin(V), h_G from a negative 2-plane via C → C^+(V_{v_0}), D the oriented negative 2-planes; (G, D) is of Hodge type (F = Q) or abelian type, and Sh_K is a smooth Deligne–Mumford stack over F with Sh_K(C) = G(Q)\\[D × G(A_f)/K], proper when V is anisotropic.",
+      "locator": "§12.1, pp.71–72, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/20",
+      "kind": "construction",
+      "name": "Integral canonical models, the Kuga–Satake abelian scheme and special endomorphisms (§§12.3–12.4)",
+      "statement": "For K_v hyperspecial at v | p, the smooth integral canonical model M_K of Sh_K over O_{F,(ν)} [Kis10] (p = 2: [KMP16]), gluing by [Lov17]; for F = Q, p > 2, K_p = GSpin(Λ_p): the embedding into GSp(C(V)), the Kuga–Satake morphism, M the normalization of the Zariski closure in the Siegel model [MP16, Thm. 4.4] (normalization redundant by [Xu20]), the Kuga–Satake (A, λ, η^p) and the positive definite O_{F,(p)}-lattice V(A_S) of special endomorphisms with f ∘ f = (f, f)·id [MP16, Def. 5.11, Lemma 5.12].",
+      "locator": "§§12.3–12.4, pp.73–74, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/21",
+      "kind": "construction",
+      "name": "Special cycles on Sh_K and semi-global special cycles on M (§§12.2, 12.5)",
+      "statement": "For x ∈ V^r with T(x) ∈ Sym_r(F)_{>0} (1 ≤ r ≤ m − 2) and g ∈ G(A_f), Z(x, g)_K is the image of Sh_{gKg^{−1}∩G_x(A_f)}(G_x, D_x) → Sh_K, and Z(T, ϕ_K) = Σ ϕ_K(g^{−1}x)Z(x, g)_K. For p-admissible ϕ_K = (1_{Ω_i}), the semi-global Z(T, ϕ_K)(S) = {x ∈ V(A_S)^r : T(x) = T, η^p ∘ x^*_i ∘ (η^p)^{−1} ∈ Ω^{(p)}_i} is finite unramified over M ([KR99, Prop. 1.3], [MP16, Prop. 6.13]), nonempty only for T ∈ Sym_r(O_{F,(p)})_{>0}, with generic fibre the cycle above when r ≤ m − 2 and supported in the supersingular locus when r = n [Soy17, Props. 3.6–3.7].",
+      "locator": "§§12.2, 12.5, (12.5.0.3), pp.72–74, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/22",
+      "kind": "theorem",
+      "name": "p-adic uniformization of M^ss and of special cycles ((12.6.0.4), Proposition 12.7.1)",
+      "statement": "Θ : G′(Q)\\[RZ_{G_p} × G(A^p_f)/K^p] ≅ M̂^ss over Spf O_F̆ [HP17, Thm. 7.2.4; Kim18b], G′ = GSpin(V′) for the nearby V′ at p; and for p-admissible ϕ_K and T ∈ Sym_r(O_{F,(p)})_{>0}, Ẑ^ss(T, ϕ_K) = Σ_{x ∈ G′(Q)\\V′^r, T(x) = T} Σ_{g ∈ G′_x(Q)\\G′(A^p_f)/K^p} ϕ_K(g^{−1}x)·Θ(Z(x), g) in K′_0(M̂^ss)_C (12.7.1.1), using [HP17, Prop. 7.2.3, Rem. 7.2.5] and [RZ96, §6.14]; moreover G′(Q)\\[RZ_{G_p} × ⋯] ≅ G′(Q)^0\\[N × G(A^p_f)/K^p] [HP17, §7.2.6].",
+      "locator": "§§12.6–12.7, (12.6.0.4), Proposition 12.7.1, pp.74–76, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II OrthogonalIntegralModelsAndKugaSatake (parent ShimuraVarieties), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/23",
+      "kind": "theorem",
+      "name": "Definition 4.6.1 and Proposition 4.10.1 (special cycles Z(L); special divisors are flat Cartier divisors)",
+      "statement": "Z(L) ⊆ N is cut out by ρ_univ ∘ x ∘ ρ_univ^{−1} ∈ End(X_univ) for x ∈ L; it depends on the O_F-span and is nonempty only for integral spans. For nonzero integral x, Z(x) is a Cartier divisor flat over Spf O_F̆: by Lemma 4.6.2 it is cut out by one equation, not divisible by ϖ because Z(x)_κ̄ ≠ N_κ̄ (maximal vertex lattices Λ(k) avoiding x when t_max > 2; ordinarity of the generic point in the Lubin–Tate cases).",
+      "locator": "Definition 4.6.1, §4.10, Proposition 4.10.1, pp.26, 28–29, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/24",
+      "kind": "theorem",
+      "name": "Deligne–Lusztig varieties Y_W, minuscule cycles V(Λ) and the Bruhat–Tits stratification (§§4.7–4.9)",
+      "statement": "For the non-split quadratic space W of dimension 2(d + 1) over F_q, Y_W is a connected component of the locus in OGr_{d+1}(W) with dim(U + σ(U)) = d + 2, smooth projective of dimension d, stratified by generalized Deligne–Lusztig varieties X_{P_i}(w_i) with open stratum of Coxeter type [HP14, Prop. 3.8; HLZ19, Prop. 2.5.1] (Y_W ≅ P¹ for d = 1). For a vertex lattice Λ ⊆ V, t(Λ) is even with 2 ≤ t(Λ) ≤ t_max = m − 2, m − 1, m for (m even, ε = +1), m odd, (m even, ε = −1) (4.8.0.1) [HP17, 5.1.2], and V(Λ) = Z(Λ) (reduced [LZ18, Thm. B]) ≅ Y_{W_Λ,κ̄}, W_Λ = Λ^∨/Λ. N^red = ⋃ V(Λ), V(Λ) ⊆ V(Λ′) iff Λ ⊇ Λ′, V(Λ) ∩ V(Λ′) = V(Λ + Λ′) or ∅, strata V(Λ)° ≅ Y°_{W_Λ} [HP17, §6.5, Thm. D(iii)], and Z(L)^red = ⋃_{L ⊆ Λ} V(Λ) (4.9.0.2) [Soy17, Prop. 4.2].",
+      "locator": "§§4.7–4.9, (4.8.0.1), (4.9.0.2), pp.27–28, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/25",
+      "kind": "construction",
+      "name": "Lemma 4.11.1, Corollary 4.11.2, Definitions 4.11.3–4.11.4 and Remark 4.11.5 (derived special cycles and Int)",
+      "statement": "Tor_i(O_{Z(x)}, O_{Z(y)}) = 0 for i ≥ 1 and x, y linearly independent, so O_{Z(x_1)} ⊗^L ⋯ ⊗^L O_{Z(x_r)} ∈ F^rK^{Z(L)}_0(N) is independent of the basis (as [Ter11, Lemma 4.1, Prop. 4.2]); ^𝕃Z(L) is its image in Gr^r and Int(L) = χ(N, ^𝕃Z(L)) for rank n (0 for non-integral L), an isometry invariant via J(F) (Remark 4.11.5). K-groups with supports on locally noetherian formal schemes, their codimension filtration and the Euler characteristic follow [Zha21, App. B, (B.1)–(B.3)].",
+      "locator": "§2.3, §4.11, Lemma 4.11.1, Corollary 4.11.2, Definitions 4.11.3–4.11.4, Remark 4.11.5, pp.9–10, 29–30, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Footnote 3: the globalization-free proof of [LZ, Lemma 2.8.1] would also work given the orthogonal analogue of [Ter13b]. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/26",
+      "kind": "theorem",
+      "name": "Definition 4.12.1, Lemmas 4.12.2 and 4.13.1 (horizontal and vertical parts; properness)",
+      "statement": "Z_H is cut out by O_Z[ϖ^∞] and, for noetherian Z, Z_V by ϖ^N O_Z; for L of rank n, or of rank n − 1 and co-anisotropic, Z(L) is noetherian (finitely many vertex lattices contain L); for L of rank n, or of rank n − 1 and co-isotropic, Z(L)_H = ∅. For rank n, Z(L) is a proper scheme over Spf O_F̆, so Int(L) is finite.",
+      "locator": "§§4.12–4.13, Definition 4.12.1, Lemmas 4.12.2, 4.13.1, pp.29–31, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/27",
+      "kind": "theorem",
+      "name": "The geometric cancellation law (§4.14)",
+      "statement": "For M ⊆ V self-dual of rank r with V = M_F ⊥ V^{ε′}_{m−r}: a closed embedding δ_M : N^{ε′}_{n−r} → N^ε_n identifying N^{ε′}_{n−r} with Z(M) (as [LZ18, Lemma 3.2.2]); for u with u^♭ ≠ 0, N^{ε′}_{n−r} ∩^L Z(u) = Z(u^♭) (4.14.0.3); hence Int^ε(L^♭ ⊥ M) = Int^{ε′}(L^♭) (4.14.0.4).",
+      "locator": "§4.14, (4.14.0.1)–(4.14.0.4), p.31, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/28",
+      "kind": "theorem",
+      "name": "Quasi-canonical and Gross–Keating cycles, horizontal cycles and Theorem 5.3.1 (§§5.1–5.3, 5.6)",
+      "statement": "On N_2 ≅ Lubin–Tate space, the quasi-canonical lifting divisors Z_{K,s} ≅ Spf O_{K̆,s} [Gro86, Prop. 5.3] of degree 1, q^s(1 + q^{−1}), 2, 2q^s (5.1.0.1), with Z(M^♭) = Σ_{s ≤ ⌊val(M^♭)/2⌋} Z_{K(M^♭),s} [GK93, (5.10)] and primitive part Z(M^♭)°; on N^+_3 ≅ N_2 × N_2 the Gross–Keating cycles and their primitive parts [GK93, p.239]; for horizontal M^♭ the primitive horizontal cycle Z(M^♭)° via Z(M_{n−2}) ≅ N_2 or Z(M_{n−3}) ≅ N^+_3. Theorem 5.3.1: Z(L^♭)_H = ⋃_{M^♭ ∈ Hor(L^♭)} Z(M^♭)° and O_{Z(L^♭)_H} = Σ O_{Z(M^♭)°} in Gr^{n−1}K (Lemma 5.3.2: no common components), proved via Corollary 5.5.3, Lemma 3.8.4 and uniqueness of first-order lifts by Breuil's theorem.",
+      "locator": "§§5.1–5.3, 5.6, (5.1.0.1), Theorem 5.3.1, Lemma 5.3.2, pp.32–37, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/29",
+      "kind": "theorem",
+      "name": "Lemma 5.7.1, Corollary 5.8.1 and Remark 5.8.2 (degrees of horizontal cycles)",
+      "statement": "For horizontal M^♭: deg Z(M^♭)° = q^{⌊val(M^♭)/2⌋}·(1, 1 + q^{−1}, 2(1 + q^{−1})) by type if χ(M^♭) ≠ 0, and 2q^{⌊val/2⌋}·(1, 2) for types 1, 2 if χ(M^♭) = 0 (induction on val via [CY20, Thm. 6.8] and Corollary 3.8.3). Corollary 5.8.1: deg Z(L^♭)_H = Den^♭(1, L^♭) (χ(L^♭) ≠ 0) or 2Den^♭(1, L^♭) (χ(L^♭) = 0). Remark 5.8.2: with p-adic uniformization this should reprove [Kud97a, Thm. 10.6] (not proved here).",
+      "locator": "Lemma 5.7.1, Corollary 5.8.1, Remark 5.8.2, pp.37–38, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/30",
+      "kind": "theorem",
+      "name": "Proposition 6.1.1, Remark 6.1.2 and Definition 6.2.1 (the vertical part lives on N^red)",
+      "statement": "For L^♭ of rank n − 1, Z(L^♭)_V is supported on N^red: a formal curve through a unique closed point would specialize a non-basic isocrystal to a basic one, but its (L^♭_F)^⊥-component lies in B(T) for the torus T = SO(W), where specialization is trivial [RR96, §1.7, Thm. 3.6]. Hence Gr^{n−1}K^{Z(L^♭)}_0 = Gr^{n−1}K^{Z(L^♭)_H}_0 ⊕ Gr^{n−1}K^{Z(L^♭)_V}_0 (6.2.0.1) and ^𝕃Z(L^♭) = Z(L^♭)_H + ^𝕃Z(L^♭)_V canonically (6.2.1.1). The torus argument also reproves [LZ, Lemma 5.1.1] (Remark 6.1.2).",
+      "locator": "Proposition 6.1.1, Remark 6.1.2, §6.2, (6.2.0.1)–(6.2.1.1), pp.38–39, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/31",
+      "kind": "theorem",
+      "name": "Lemma 6.3.1 and Theorem 6.3.2 (the Tate conjecture for the Deligne–Lusztig varieties Y_d)",
+      "statement": "For Y_d = Y_W (dim W = 2(d + 1), non-split) with strata X°_i and closures X_i: the Frobenius F = F_{q²} acts semisimply on H^{2j}(Y°_d)(j), H^{2j}(X°_i)(j), H^{2j}(Y_d − X_i)(j) with no invariants for j ≥ 1 ([Lus76, 7.3 case ²D_n, 6.1]); hence H^{2i}(Y_d)(i)^{F^s=1} is spanned by the classes of the irreducible components of X_{d−i} (the Tate conjecture holds for Y_d) and equals the generalized 1-eigenspace (as [LZ, Thm. 5.2.2]).",
+      "locator": "§6.3, Lemma 6.3.1, Theorem 6.3.2, pp.39–40, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/32",
+      "kind": "definition",
+      "name": "Definitions 7.1.1–7.1.3 (Ω(L^♭) and the horizontal/vertical decompositions of Int_{L^♭} and ∂Den_{L^♭})",
+      "statement": "Ω(L^♭) = L^♭_F × W^an (W = (L^♭_F)^⊥, dimension 2); Int_{L^♭}(x) = Int(L^♭ + ⟨x⟩) = Int_{L^♭,H}(x) + Int_{L^♭,V}(x) via Z(L^♭)_H and ^𝕃Z(L^♭)_V ((7.1.2.1)–(7.1.2.3)); ∂Den_{L^♭}(x) = Σ_{L^♭ ⊂ L′ ⊂ L′^∨} m(t(L′), sgn_{n+1}(L′))1_{L′}(x) (7.1.3.1), split as ∂Den_{L^♭,H} (L′^♭ = L′ ∩ L^♭_F ∈ Hor(L^♭)) and ∂Den_{L^♭,V} (otherwise).",
+      "locator": "§7.1, Definitions 7.1.1–7.1.3, (7.1.2.1)–(7.1.3.4), pp.40–41, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/33",
+      "kind": "theorem",
+      "name": "Lemma 7.2.1 and Theorem 7.2.2 (the horizontal identity)",
+      "statement": "For horizontal L^♭, χ(N, Z(x) ∩^L Z(L^♭)°) = Σ_{L′^♭ = L^♭} m(t(L′), sgn_{n+1}(L′))1_{L′}(x) (reduction to the Gross–Keating case m = 4, ε = +1 and induction on val(L^♭), using Remark 4.15.2); hence Int_{L^♭,H} = ∂Den_{L^♭,H} on Ω(L^♭) for every L^♭ of rank n − 1.",
+      "locator": "Lemma 7.2.1, Theorem 7.2.2, pp.41–42, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/34",
+      "kind": "theorem",
+      "name": "Lemma 7.3.1 and Corollary 7.3.2 (the vertical part as a combination of Deligne–Lusztig curves)",
+      "statement": "^𝕃Z(L^♭)_V = Σ_i mult_{C_i}[O_{C_i}] in Gr^{n−1}K^{N^red}_0(N) for countably many curves (finitely many if L^♭ is co-anisotropic), locally finite on components; by Theorem 6.3.2 one may take C_i = V(Λ) ≅ P¹ with Λ ∈ Vert⁴(V), so Int_{L^♭,V}(x) = Σ_i mult_{C_i}χ(N, C_i ∩^L Z(x)) (as [LZ, Cor. 5.3.3]).",
+      "locator": "Lemma 7.3.1, Corollary 7.3.2, p.42, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/35",
+      "kind": "theorem",
+      "name": "Theorem 7.4.1, Lemma 7.4.2, Remarks 7.4.3–7.4.4 and Corollaries 7.4.5–7.4.6 (intersections with Deligne–Lusztig curves)",
+      "statement": "For Λ ∈ Vert⁴(V): Int_{V(Λ)}(x) = 1 − q for x ∈ Λ, 1 for x ∈ Λ^∨ \\ Λ with val(x) ≥ 0, and 0 otherwise (reduction to V^−_4, where Z(x) ≅ Drinfeld's space for val(x) = 1, giving (q + 1) + (−2q)); I/I² ≅ O(2q) and the self-intersection of V(Λ) in N_κ̄ is −2q (Lemma 7.4.2, via the tangent sheaf O(2) ⊕ O(−2q) on M^HB [Ter11, KR99]); Int_{V(Λ)} = −q(1 + q)1_Λ + Σ_{Λ ⊂ Λ′ ∈ Vert²(V)} 1_{Λ′} (Corollary 7.4.5); Int_{L^♭,V} ∈ L¹_loc(Ω(L^♭)) extends to D(V), and to S(V) if L^♭ is co-anisotropic (Corollary 7.4.6). Remark 7.4.3: the same method gives 1 − q² in the unitary case of [LZ, Lemma 6.2.1]; Remark 7.4.4: −2q matches [TX19].",
+      "locator": "§7.4, Theorem 7.4.1, Lemma 7.4.2, Remarks 7.4.3–7.4.4, Corollaries 7.4.5–7.4.6, pp.43–46, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Corollary 7.4.5 was rechecked (q² + 1 type-2 lattices over Λ; −q(1 + q) + q² + 1 = 1 − q). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/36",
+      "kind": "theorem",
+      "name": "Lemma 7.5.1, Remark 7.5.2, Corollary 7.5.3 and §7.6 (local modularity: Int_{L^♭,V}^ = γ_V Int_{L^♭,V})",
+      "statement": "For Λ ∈ Vert⁴(V), Int_{V(Λ)}^ = γ_V Int_{V(Λ)} with γ_V = −1 (Lemma 7.5.1; SL₂(O_F)-invariance under the Weil representation, Remark 7.5.2), hence Int_{L^♭,V}^ = γ_V Int_{L^♭,V} in D(V) (Corollary 7.5.3). For Λ of type 2d + 2: c_{1,V(Λ)}(x) = c_1(O(−Z(x))|_{V(Λ)}) and c_{V(Λ)} = c_1^d are Λ-invariant (Lemma 7.6.4); c_{1,V(Λ)}(x) = −(1 + q^{d+1})^{−1}Σ_{y ∈ W_Λ \\ 0, (y,y)=0} c_{1,V(Λ)}(y) for x ∈ Λ (Lemma 7.6.5); c_{V(Λ)} = c(d)·(1 − q^d, 1, 0) with c(d) = Π_{i<d}(1 − q^i) (Lemma 7.6.6); c_{V(Λ)} = (c(d)/c′(d))Σ_{Λ′ ∈ Vert⁴, Λ′ ⊇ Λ} Int_{V(Λ′)}, c′(d) = Π_{i=2}^d(1 + q^{i+1}) (Lemma 7.6.7); hence ĉ_{V(Λ)} = γ_V c_{V(Λ)} (Corollary 7.6.8), K-theoretic local modularity (Theorem 7.6.9) and Int_{V(Λ)}^ = γ_V Int_{V(Λ)} for all types (Corollary 7.6.10), giving a proof of Corollary 7.5.3 without [Zha21, (B.3)] for formal schemes (Remark 7.6.11).",
+      "locator": "§§7.5–7.6, Lemma 7.5.1, Remark 7.5.2, Corollary 7.5.3, Lemmas 7.6.4–7.6.7, Corollary 7.6.8, Theorem 7.6.9, Corollary 7.6.10, Remark 7.6.11, pp.46–51, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The Fourier values in Lemma 7.5.1 (q − 1, −1, 0, 0) and the counting identities of Lemmas 7.6.5–7.6.7 were rechecked (the latter symbolically for d ≤ 7). Corollary 7.6.8 cites itself for Lemma 7.6.7 (sourceIssues E4). Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/37",
+      "kind": "theorem",
+      "name": "Definition 8.1.1 and Proposition 8.1.2 (recurrences for the analytic partial Fourier transform)",
+      "statement": "For x ∈ W^an, ∂Den^⊥_{L^♭,V}(x) = ∫_{L^♭_F} ∂Den_{L^♭,V}(y + x)dy; (i) if L^♭ is co-anisotropic, ∂Den^⊥_{L^♭,V}(x) = ∂Den^⊥_{L^♭,V}(ϖ^{−1}x) for x ∈ W°° ∩ W^an; (ii) if L^♭ is co-isotropic, ∂Den^⊥_{L^♭,V}(x) − ∂Den^⊥_{L^♭,V}(ϖ^{−1}x) is constant on W°° ∩ W^an. Proof: the difference is Σ_{L′^♭} vol(L′^♭)Σ_{u^♭ ∈ (L′^♭)^∨/L′^♭, val ≥ 0} m(t(L′), sgn_{n+1}(L′)), the type of L′ moves by +1, 0, −1 according to u_1 ∈ (ϖL_1^∨)°°, (ϖL_1^∨)° \\ (ϖL_1^∨)°°, (L_1^∨)° \\ (ϖL_1^∨)° (8.1.2.1), and Propositions 8.2.5, 8.2.7 give the vanishing. Valid for any non-archimedean F with odd residue characteristic.",
+      "locator": "§8.1, Definition 8.1.1, Proposition 8.1.2, (8.1.2.1), pp.52–54, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The weight factors in cases (i)–(ii) of the proof were rechecked against Definition 3.4.4 and match the coefficients of Propositions 8.2.5 and 8.2.7. Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/38",
+      "kind": "theorem",
+      "name": "Definition 9.2.1, Lemma 9.2.2 and Proposition 9.2.3 (recurrences for the geometric partial Fourier transform)",
+      "statement": "Int^⊥_{L^♭,V} ∈ L¹_loc(W^an) (in S(W) if L^♭ is co-anisotropic) lies in D(W)_k for some k: it is O(W)(F)-invariant (Remark 4.11.5 and Theorem 7.2.2), O_F^×-invariant, supported in W^{≥−k}, and its Fourier transform γ_V Int_{L^♭,V}|_W is supported on W° (Corollary 7.5.3). Hence (i) for co-anisotropic L^♭ it is constant on W° (translation invariance by (W°)^∨ ⊇ W°), and (ii) for co-isotropic L^♭, Int^⊥(x) − Int^⊥(ϖ^{−1}x) is constant on W°° ∩ W^an (Corollary 9.1.4).",
+      "locator": "§9.2, Definition 9.2.1, Lemma 9.2.2, Proposition 9.2.3, pp.64–65, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/39",
+      "kind": "theorem",
+      "name": "Theorem 9.3.2 (Int_{L^♭} = ∂Den_{L^♭} on Ω(L^♭)) and the proof of Theorem 4.15.1",
+      "statement": "For L^♭ of rank n − 1, Int_{L^♭} = ∂Den_{L^♭} on Ω(L^♭). Proof: non-integral L^♭ gives 0 = 0; a_1 = 0 reduces to smaller n by the cancellation laws (4.14.0.4), (3.4.8.1); otherwise induct on val(L^♭): by Lemma 9.3.1 the difference is 1_{L^♭} ⊗ φ^⊥ with supp φ^⊥ ⊆ W^{≥a_{n−1}} (co-anisotropic) or W^{≥a_{n−1}+1} (co-isotropic, using the co-anisotropic case); the partial Fourier transforms of the vertical parts agree near W^{=−1} ∪ W^{=0} (∪ W^{=1}), and the recurrences of Propositions 8.1.2 and 9.2.3 propagate the vanishing. Theorem 4.15.1 follows by writing L = L^♭ + ⟨x⟩.",
+      "locator": "Theorem 9.3.2 and proof, pp.66–67, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/40",
+      "kind": "definition",
+      "name": "Incoherent quadratic spaces over A (§10)",
+      "statement": "For V over A_F of rank m: det(V), disc(V), ϵ(V) = Π_v ϵ(V_v), χ_V((a_v)) = Π_v(a_v, disc V_v)_{F_v}; when disc(V) ∈ F^×, V is coherent (ϵ = +1, V ≅ V ⊗ A) or incoherent (ϵ = −1), and then for each place v_0 there is a nearby global space V with χ_V = χ_V and ϵ(V_v) = ϵ(V_v) for v ≠ v_0.",
+      "locator": "§10, p.68, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/41",
+      "kind": "construction",
+      "name": "The Weil representation ω_{χ,ψ} of G_n(A) × O(V) (§11.3)",
+      "statement": "On S(V^n): ω(m(a))ϕ(x) = χ(m(a))|det a|^{m/2}ϕ(x·a), ω(n(b))ϕ(x) = ψ(tr ½T(x)b)ϕ(x), ω(w_n)ϕ = γ^n_V ϕ̂, ω(h)ϕ(x) = ϕ(h^{−1}x), ω(1, t) = t for n even, with the Weil constant γ_V = γ(det V, ψ)^{−1}γ(ψ)^{−m}ϵ(V) [Kud97b, p.642]; G_n(A) = Sp(W)(A) for n odd and the metaplectic Mp(W_A) (global Rao cocycle, canonical splittings over Sp(W)(F) and N(A)) for n even.",
+      "locator": "§§11.1, 11.3, pp.68–70, authors' final version (2 March 2022)",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.4"
+      ],
+      "note": "MP.4 plans the adelic metaplectic cover and the global Weil representation."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/42",
+      "kind": "construction",
+      "name": "Siegel Eisenstein series, Whittaker factorization and incoherent Eisenstein series (§§11.1–11.4)",
+      "statement": "I_n(s, χ) = Ind_{P_n(A)}^{G_n(A)}(χ·|·|^{s+(n+1)/2}) with χ extended to M_n(A) via the Weil index for n even; E(g, s, Φ) = Σ_{P(F)\\Sp(W)(F)} Φ(γg, s) with meromorphic continuation; E_T = Π_v W_{T,v} for nonsingular T with W_{T,v}(g, s, Φ_v) = ∫ Φ_v(w_n^{−1}n(b)g, s)ψ(−tr ½Tb)dn(b) and E′_T = Σ_v E′_{T,v} ((11.2.0.2)–(11.2.0.3)); the standard Siegel–Weil section Φ_ϕ(g) = ω(g)ϕ(0); for incoherent V the central value vanishes and ∂Eis, ∂Eis_T, ∂Eis_{T,v} are defined; W_{T,v}(g, 0, ϕ_v) ≠ 0 only if v ∉ Diff(T, V) [Kud97b, Props. 1.3–1.4], so ∂Eis_{T,v} ≠ 0 only if Diff(T, V) = {v} (Remark 11.3.1); the classical E(z, s, ϕ) on H_n with Gaussian ϕ_∞(x) = e^{−π tr T(x)} and its Fourier expansion (11.4.0.2).",
+      "locator": "§11, (11.2.0.2)–(11.4.0.2), Remark 11.3.1, pp.68–71, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/43",
+      "kind": "definition",
+      "name": "The semi-global arithmetic intersection number Int_{T,p}(ϕ_K) (§12.8)",
+      "statement": "For T ∈ Sym_n(F)_{>0} with diagonal t_1, …, t_n and special ϕ_K: Int_{T,p}(ϕ_K) = χ(Z(T, ϕ_K), O_{Z(t_1,ϕ_1)} ⊗^L ⋯ ⊗^L O_{Z(t_n,ϕ_n)})·log p (12.8.0.3), extended C-linearly.",
+      "locator": "§12.8, (12.8.0.3), p.76, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to the Part II GSpinSpecialDivisorHeights (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/44",
+      "kind": "theorem",
+      "name": "Definition 9.1.1, Lemma 9.1.2, Proposition 9.1.3 and Corollary 9.1.4 (invariant distributions on an isotropic plane)",
+      "statement": "For a 2-dimensional quadratic space W over F (odd residue characteristic), D(W)_k consists of distributions that are O(W)(F)- and O_F^×-invariant, supported in W^{≥−k}, with Fourier transform supported in W°. K_0(ϖ^k) = N^−(ϖ^kO_F)A(O_F)N(O_F) for k ≥ 1 (Lemma 9.1.2). If W is isotropic: dim D(W)_k = 2k for k ≥ 1, via the Weil representation of SL₂, D(W)_k = D(W)^{O(W)(F) × K_0(ϖ^k)^t}, the isomorphism S(W)_{O(W)(F)} ≅ I(1) of [Kud97b, Prop. 1.1] and newforms for SL₂ [LR07, Prop. 3.2.4]; an explicit basis φ_0 (val(x) + 1 on W°), φ_1 = 1_{W^{≥−1}} and φ_{2i−2}, φ_{2i−1} (i ≥ 2, split by the square class of ϖ^i(x, x)), realized as O(W)-orbital integrals (Proposition 9.1.3); every T ∈ D(W)_k is represented by φ with φ(x) − φ(ϖ^{−1}x) constant on W°° ∩ W^an (Corollary 9.1.4).",
+      "locator": "§9.1, Definition 9.1.1, Lemma 9.1.2, Proposition 9.1.3, Corollary 9.1.4, pp.61–64, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "The count 2k agrees with the double cosets B(F)\\SL₂(F)/K_0(ϖ^k) (two A(O_F)-orbits for each intermediate cusp). Routed to MetaplecticAutomorphicForms MP.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/45",
+      "kind": "theorem",
+      "name": "Tate's theorem for p-divisible groups over O_K",
+      "statement": "For p-divisible groups over O_K (K/F̆ finite), End(X) ≅ End_{O_F[Γ_K]}(T_pX) [Tat67, Thm. 4, Cor. 1]; used in Lemma 5.5.2.",
+      "locator": "Proof of Lemma 5.5.2, p.36, authors' final version (2 March 2022)",
+      "status": "missing",
+      "note": "Routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 as a source, as in PAPER-LI-ZHANG-22-B."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "B. Howard, G. Pappas, Rapoport–Zink spaces for spinor groups, Compos. Math. 153 (2017), 1050–1118",
+      "link": "https://doi.org/10.1112/S0010437X17007011",
+      "why": "GSpin Rapoport–Zink spaces, special quasi-endomorphisms, vertex lattices, the Bruhat–Tits stratification and p-adic uniformization (Def. 2.2.4, Prop. 4.2.6, Thms. B, D, §§4.3, 5.1.2, 6.5, Thm. 7.2.4, Prop. 7.2.3)."
+    },
+    {
+      "citation": "W. Kim, Rapoport–Zink spaces of Hodge type, Forum Math. Sigma 6 (2018), e8 (DOI 10.1017/fms.2018.6); Rapoport–Zink uniformization of Hodge-type Shimura varieties, Forum Math. Sigma 6 (2018), e16 (DOI 10.1017/fms.2018.18)",
+      "link": "https://doi.org/10.1017/fms.2018.6",
+      "why": "The universal crystalline Tate tensors (Thm. 4.9.1), integral étale Tate tensors (Thm. 7.1.6) and uniformization."
+    },
+    {
+      "citation": "K. Madapusi Pera, Integral canonical models for spin Shimura varieties, Compos. Math. 152 (2016), 769–824; M. Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010), 967–1012 (DOI 10.1090/S0894-0347-10-00667-3)",
+      "link": "https://doi.org/10.1112/S0010437X1500740X",
+      "why": "Kisin's integral canonical models, the Kuga–Satake embedding and special endomorphisms (MP16 §§3.5, 3.9, Thm. 4.4, Def. 5.11, Lemma 5.12, Props. 5.16, 6.13)."
+    },
+    {
+      "citation": "C. Li, Y. Zhu, Arithmetic intersection on GSpin Rapoport–Zink spaces, Compos. Math. 154 (2018), 1407–1440",
+      "link": "https://doi.org/10.1112/S0010437X18007108",
+      "why": "Reducedness of minuscule cycles (Thm. B) and the embedding of Lemma 3.2.2 behind the cancellation law."
+    },
+    {
+      "citation": "C. Li, W. Zhang, Kudla–Rapoport cycles and derivatives of local densities, J. Amer. Math. Soc. 35 (2022), 705–797",
+      "link": "https://doi.org/10.1090/jams/988",
+      "why": "The unitary companion whose proofs are reused (Lemmas 5.1.1, 5.2.1, 6.2.1, 6.4.4, 7.2.1–7.2.2, Thms. 5.2.2, 6.4.9, Cors. 5.3.3, 6.4.10). Extracted as PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "citation": "S. Cho, T. Yamauchi, A reformulation of the Siegel series and intersection numbers, Math. Ann. 377 (2020), 1757–1826; T. Ikeda, On the functional equation of the Siegel series, J. Number Theory 172 (2017), 44–62 (DOI 10.1016/j.jnt.2016.08.002); H. Katsurada, An explicit formula for Siegel series, Amer. J. Math. 121 (1999), 415–452",
+      "link": "https://doi.org/10.1007/s00208-020-01999-2",
+      "why": "The weighted lattice-count formula, induction formula and functional equations extended in §3."
+    },
+    {
+      "citation": "B. H. Gross, K. Keating, On the intersection of modular correspondences, Invent. Math. 112 (1993), 225–245; B. H. Gross, On canonical and quasi-canonical liftings, Invent. Math. 84 (1986), 321–326 (DOI 10.1007/BF01388810)",
+      "link": "https://doi.org/10.1007/BF01232433",
+      "why": "Quasi-canonical lifting and Gross–Keating cycles, the base of the horizontal part."
+    },
+    {
+      "citation": "U. Terstiege, Intersections of arithmetic Hirzebruch–Zagier cycles, Math. Ann. 349 (2011), 161–213; Antispecial cycles on the Drinfeld upper half plane and degenerate Hirzebruch–Zagier cycles, Manuscripta Math. 125 (2008), 191–223",
+      "link": "https://doi.org/10.1007/s00208-010-0520-8",
+      "why": "The m = 4, ε = −1 case, linear invariance (Lemma 4.1, Prop. 4.2) and the moduli M^HB used in Lemma 7.4.2."
+    },
+    {
+      "citation": "B. Howard, G. Pappas, On the supersingular locus of the GU(2, 2) Shimura variety, Algebra Number Theory 8 (2014), 1659–1699; X. He, C. Li, Y. Zhu, Fine Deligne–Lusztig varieties and arithmetic fundamental lemmas, Forum Math. Sigma 7 (2019), e47",
+      "link": "https://doi.org/10.2140/ant.2014.8.1659",
+      "why": "The varieties Y_W and their stratification (Prop. 3.8; Prop. 2.5.1)."
+    },
+    {
+      "citation": "G. Lusztig, Coxeter orbits and eigenspaces of Frobenius, Invent. Math. 38 (1976), 101–159",
+      "link": "https://doi.org/10.1007/BF01408569",
+      "why": "Frobenius eigenvalues on Coxeter varieties of type ²D_n (7.3, 6.1), used in Lemma 6.3.1."
+    },
+    {
+      "citation": "M. Rapoport, M. Richartz, On the classification and specialization of F-isocrystals with additional structure, Compositio Math. 103 (1996), 153–181",
+      "why": "B(H) and the specialization theorem (Lemma 1.3, §§1.7, 2.3, Thm. 3.6), used in Proposition 6.1.1."
+    },
+    {
+      "citation": "S. S. Kudla, Central derivatives of Eisenstein series and height pairings, Ann. of Math. (2) 146 (1997), 545–646",
+      "link": "https://doi.org/10.2307/2952456",
+      "why": "The Weil representation conventions, Props. 1.1–1.4 and A.6, used in §§3.4, 9.1, 11–12."
+    },
+    {
+      "citation": "J. M. Lansky, A. Raghuram, Conductors and newforms for SL(2), Pacific J. Math. 231 (2007), 127–153",
+      "link": "https://doi.org/10.2140/pjm.2007.231.127",
+      "why": "Proposition 3.2.4: dimensions of K_0(ϖ^k)-fixed vectors, used in Proposition 9.1.3."
+    },
+    {
+      "citation": "J. H. Bruinier, T. Yang, Arithmetic degrees of special cycles and derivatives of Siegel Eisenstein series, J. Eur. Math. Soc. 23 (2021), 1613–1674",
+      "link": "https://doi.org/10.4171/JEMS/1040",
+      "why": "Proposition 4.3(ii), the archimedean Whittaker function in Theorem 12.9.1."
+    },
+    {
+      "citation": "W. Zhang, Weil representation and arithmetic fundamental lemma, Ann. of Math. (2) 193 (2021), 863–978",
+      "link": "https://doi.org/10.4007/annals.2021.193.3.5",
+      "why": "K-groups with supports on formal schemes and (B.1)–(B.3) (Appendix B)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "GSpinSpecialDivisorHeights",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: heights of GSpin special divisors and exceptional reductions",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LI-ZHANG-22/1",
+        "PAPER-LI-ZHANG-22/2",
+        "PAPER-LI-ZHANG-22/23",
+        "PAPER-LI-ZHANG-22/24",
+        "PAPER-LI-ZHANG-22/25",
+        "PAPER-LI-ZHANG-22/26",
+        "PAPER-LI-ZHANG-22/27",
+        "PAPER-LI-ZHANG-22/28",
+        "PAPER-LI-ZHANG-22/29",
+        "PAPER-LI-ZHANG-22/30",
+        "PAPER-LI-ZHANG-22/31",
+        "PAPER-LI-ZHANG-22/32",
+        "PAPER-LI-ZHANG-22/33",
+        "PAPER-LI-ZHANG-22/34",
+        "PAPER-LI-ZHANG-22/35",
+        "PAPER-LI-ZHANG-22/36",
+        "PAPER-LI-ZHANG-22/37",
+        "PAPER-LI-ZHANG-22/38",
+        "PAPER-LI-ZHANG-22/39",
+        "PAPER-LI-ZHANG-22/40",
+        "PAPER-LI-ZHANG-22/42",
+        "PAPER-LI-ZHANG-22/43"
+      ],
+      "brief": "This reuses the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22, which plans heights of GSpin special divisors (modularity of generating series, Borcherds–Bruinier Green functions, arithmetic intersections on the integral models). Li–Zhang, Invent. Math. 228 (2022), 1353–1460, add intersections of n special divisors, in the direction of the unitary UnitaryKudlaRapoportCycles (PAPER-LI-ZHANG-22-B). Plan the orthogonal local theory in parallel with the unitary one, with the same statement shapes, and do not duplicate it.\n\nImport:\n- the GSpin Rapoport–Zink spaces, crystals, étale tensors, integral models and uniformization from OrthogonalIntegralModelsAndKugaSatake;\n- the local densities of §3 and §8 from GeometryOfNumbersAndQuadraticArithmetic GN.3;\n- Fourier analysis from AutomorphicLFunctionsAndLocalFactors AL.0, and the global Weil representation from MetaplecticAutomorphicForms MP.4;\n- the invariant-distribution classification (§9.1) from MP.3;\n- K-theory with supports (SchemeKTheoryOperations S.6–S.7, with Zhang 2021 Appendix B for formal schemes).\n\nConstruct:\n- special cycles Z(L) and the flatness of Z(x) (Proposition 4.10.1);\n- the Deligne–Lusztig varieties Y_W, the minuscule cycles V(Λ) ≅ Y_{W_Λ} and the Bruhat–Tits stratification;\n- derived cycles and Int(L), properness, horizontal and vertical parts, and the cancellation law;\n- quasi-canonical, Gross–Keating and primitive horizontal cycles, with their degrees.\n\nThe final theorems:\n- Theorem 5.3.1 (the horizontal part) and Proposition 6.1.1 (the vertical part lies on N^red);\n- Theorem 6.3.2 (the Tate conjecture for Y_d, via Lusztig);\n- the horizontal identity (Theorem 7.2.2);\n- the Deligne–Lusztig curve computations (Theorem 7.4.1, self-intersection −2q) and local modularity (Corollaries 7.5.3, 7.6.10);\n- the analytic and geometric recurrences (Propositions 8.1.2, 9.2.3) and Theorem 9.3.2, hence Theorem 4.15.1;\n- globally, incoherent Siegel Eisenstein series on Sp/Mp, Int_{T,p} and the semi-global Theorem 12.9.1.\n\nKeep F = Q_p (p odd) for the geometric side; §§3, 8 and 9.1 hold for general F with odd residue characteristic. Keep the isotropic/anisotropic dichotomy of W explicit.\n\nTests:\n- m = 4 against Gross–Keating (ε = +1) and Terstiege (ε = −1), including Example 4.15.3: ∂Den^−(L) = 3 − q;\n- the values 1 − q, 1, 0 of Int_{V(Λ)};\n- deg Z(M^♭)° for n = 2.",
+      "reason": "The local arithmetic Siegel–Weil formula on GSpin Rapoport–Zink spaces and its semi-global consequence are arithmetic intersections of GSpin special cycles, the direction of the GSpin heights Part II proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22. GZ.6–GZ.7 plan CM divisors, arithmetic generating series and local identities on quaternionic Shimura curves only, and GZ's stated geometric scope is curves and the abelian varieties they parametrize."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ShimuraVarieties",
+      "roadmap": "OrthogonalIntegralModelsAndKugaSatake",
+      "title": "Complex Shimura varieties and canonical models, Part II: orthogonal integral models, Kuga–Satake and special divisors",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LI-ZHANG-22/15",
+        "PAPER-LI-ZHANG-22/16",
+        "PAPER-LI-ZHANG-22/17",
+        "PAPER-LI-ZHANG-22/18",
+        "PAPER-LI-ZHANG-22/19",
+        "PAPER-LI-ZHANG-22/20",
+        "PAPER-LI-ZHANG-22/21",
+        "PAPER-LI-ZHANG-22/22"
+      ],
+      "brief": "This reuses the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22, which covers the GSpin Shimura datum, Kisin's models, Kuga–Satake and special endomorphisms. Li–Zhang, Invent. Math. 228 (2022), add the local basic-locus counterpart.\n\nConstruct:\n- the GSpin Rapoport–Zink space RZ_G of Hodge type (Howard–Pappas 2017; Kim 2018): local unramified Shimura–Hodge data, the framing object with crystalline Tate tensors, formal smoothness of relative dimension n − 1, the J_b-action, the connected components and the connected space N^ε_n;\n- the exceptional isomorphisms for m ≤ 5 (Example 4.5.3);\n- the special quasi-endomorphisms V ≅ V^ε_m, the projector π_crys and the crystal V_crys with its Hodge line (Kim Thm. 4.9.1), and Grothendieck–Messing for N and Z(L) (Lemma 4.6.2);\n- integral étale Tate tensors (Kim Thm. 7.1.6), special endomorphisms over O_K and Lemma 5.5.2 (using Tate's theorem from R07.1);\n- globally, the special cycles Z(x, g)_K and the semi-global Z(T, ϕ_K) on Kisin's model (finite unramified, supersingular support for r = n), and the p-adic uniformization Θ with Proposition 12.7.1 (Howard–Pappas Thm. 7.2.4, Kim 2018b).\n\nKeep p > 2 and F = Q_p, as the source does; Remark 1.3.3 leaves relative GSpin RZ spaces over general p-adic fields open.\n\nTests:\n- m = 3 (Lubin–Tate) and m = 4 (a product of Lubin–Tate spaces, and M^HB).",
+      "reason": "GSpin Rapoport–Zink spaces, their crystals and étale tensors, and the uniformization of Kisin's models are moduli-theoretic objects in the direction of the orthogonal-integral-model Part II proposed by PAPER-CHARLES-16 and PAPER-SHANKAR-SHANKAR-TANG-ETAL-22; ShimuraVarieties plans only complex uniformization and canonical models."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-LI-ZHANG-22/5",
+        "PAPER-LI-ZHANG-22/6",
+        "PAPER-LI-ZHANG-22/7",
+        "PAPER-LI-ZHANG-22/8",
+        "PAPER-LI-ZHANG-22/9",
+        "PAPER-LI-ZHANG-22/10",
+        "PAPER-LI-ZHANG-22/11",
+        "PAPER-LI-ZHANG-22/12",
+        "PAPER-LI-ZHANG-22/13",
+        "PAPER-LI-ZHANG-22/14"
+      ],
+      "reason": "GN.3 constructs local representation densities. This source adds the quadratic (orthogonal) local-density package:\n- densities against H^ε_m for both ε, via Cho–Yamauchi weighted lattice counting (Lemma 3.3.2) and the finite-field isometry counts behind it (Lemma 3.2.1);\n- the normalized local Siegel series in odd and even corank, with Ikeda's functional equations and the induction formula;\n- horizontal lattices;\n- the weighted counting identities for full-type lattices (§8.2) and the valuation-reduction Lemma 9.3.1."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.3"
+      ],
+      "items": [
+        "PAPER-LI-ZHANG-22/44"
+      ],
+      "reason": "MP.3 plans local theta modules for dual pairs. Proposition 9.1.3 classifies O(W)-invariant distributions on an isotropic plane with support conditions, through the Weil representation of SL₂, the coinvariants S(W)_{O(W)} ≅ I(1) (Kudla, Prop. 1.1) and SL₂ newforms (Lansky–Raghuram). It is local theta-module material for the pair (SL₂, O(W))."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+      "stages": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "items": [
+        "PAPER-LI-ZHANG-22/45"
+      ],
+      "reason": "R07.1 owns p-divisible groups and their Tate modules; Tate's full-faithfulness over O_K belongs there, as PAPER-LI-ZHANG-22-B routes it."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LI-ZHANG-22/E1",
+      "kind": "error",
+      "locator": "Lemma 3.2.2, p.13, and the simplified (\"Namely\") form of Lemma 3.2.1, p.12 (final version; also arXiv v1); used in the proof of Lemma 7.6.7 (ii) at d = 2, p.51",
+      "printed": "Lemma 3.2.2: \"S_b(V) = (q^{m/2} − χ(V))(q^{m/2−b} + χ(V))Π_{i=1}^{b−1}(q^{m−2i} − 1)/Π_{i=1}^{b}(q^i − 1), m even\", stated for all b ≥ 0; the simplified form of Lemma 3.2.1, \"#O(U, V) = q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 + χ(V)sgn(U)q^{−(m−n−t)/2})Π_{1≤i<(n+t)/2}(1 − q^{2i−m}) for m even\", stated for all U.",
+      "correction": "Both hold for b ≥ 1, resp. n + t > 0. For b = 0 (U = 0) with m even they give q^m − 1 and 1 − q^{−m}, while S_0(V) = 1 and #O(0, V) = 1.",
+      "reason": "The simplification replaces (1 − x)^{−1}(1 − x²) by (1 + x) for x = q^{−(m−n−t)/2}; the factor (1 − x²) is the i = (m − n − t)/2 term of the product, which is present only when (m − n − t)/2 < m/2, i.e. n + t > 0. Brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3) confirms the simplified form in 160 of 166 configurations, the six exceptions being exactly U = 0 with m even. The first (unsimplified) form of Lemma 3.2.1 is correct there, but is indeterminate (0/0) in the other edge case n + t = m when U does embed in V. The edge case matters in the proof of Lemma 7.6.7 (ii) at d = 2, where the displayed evaluation substitutes the printed closed formula for S_{d−2}(W_{Λ+⟨x⟩}) = S_0 = 1 and so reads (q^4 − 1)(1 − q) + (q^2 + 1)q in place of (1 − q) + (q^2 + 1)q = 1 + q^3; with the correct value S_0 = 1 the identity of Lemma 7.6.7 holds (checked symbolically for 2 ≤ d ≤ 7), so the lemma itself is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E2",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 3.5.4, p.19 (final version; also arXiv v1)",
+      "printed": "\"Taking the ratio we obtain Den(H^ε_{n+1+2k}, L)/Nor^♭ε(q^{−k}, L) = …\"",
+      "correction": "Den(H^ε_{n+2k}, L)/Nor^♭ε(q^{−k}, L).",
+      "reason": "In the even corank case Den^♭ε(q^{−k}, L) is defined with H^ε_{n+2k} (Definition 3.5.2), and the preceding display of the proof takes m = n + 2k in Lemma 3.3.2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E3",
+      "kind": "gap",
+      "locator": "Remark 4.11.5, p.30 (final version; also arXiv v1); used in the proof of Lemma 9.2.2 (i), p.64",
+      "printed": "\"If L, L′ ⊆ V are isometric O_F-lattices of rank n, then we may find g ∈ SO(V)(F) such that L = gL′. We may further lift g to g̃ ∈ GSpin(V)(F) = J(F) such that η(g) = 1. Then the automorphism g̃ of N (see §4.4, 4.5) carries ^𝕃Z(L′) to ^𝕃Z(L). In particular, Int(L) only depends on the isometry class of L.\"",
+      "correction": "A lift g̃ ∈ J(F) of g ∈ SO(V)(F) has spinor norm η(g̃) = sn(g) in F^×/(F^×)², so η(g̃) = 1 forces sn(g) = 1. What the argument needs is only val η(g̃) = 0, since g̃ carries RZ^{(ℓ)}_G to RZ^{(ℓ + val η(g̃))}_G (§4.5) and N = RZ^{(0)}_G; that is available exactly when some isometry carrying L′ to L has spinor norm of even valuation, which the remark does not establish.",
+      "reason": "There are isometric pairs for which every isometry has spinor norm of odd valuation. Take m even and ε = −1: for m even and U unimodular, ϵ(ϖU) = χ(U), so V^−_m ≅ ϖ·H^−_{m,F}. Write H^−_m = M ⊥ ⟨w⟩ with M self-dual of rank n = m − 1, and let L ⊆ V be M with the scaled form, so that all its fundamental invariants are 1 and val(w) = 1. An element of SO(V)(F) stabilizing L preserves L_F and the line L^⊥_F, hence is a product of an even number of reflections in vectors of L or of L^⊥_F (for p odd the orthogonal group of a unimodular lattice is generated by the reflections in its vectors of unit norm, O'Meara 92:4); each such reflection has spinor norm of valuation 1, so the stabilizer has spinor norms of even valuation. Since V is isotropic, sn : SO(V)(F) → F^×/(F^×)² is surjective; choosing h with val sn(h) odd and L′ = hL gives isometric lattices such that every g ∈ SO(V)(F) with gL′ = L has val sn(g) odd. Remark 4.11.5 is the invariance input for Lemma 9.2.2 (i) (the O(W)(F)-invariance of Int^⊥_{L^♭,V}), hence for Proposition 9.2.3 and Theorem 9.3.2. The conclusion is presumably true — Theorem 4.15.1 asserts it, and for m = 4, ε = −1 it follows from Terstiege's explicit formulas (Remark 4.15.2) — and an automorphism of RZ_G outside J(F) shifting the components would supply it; but no such argument is given here, and this extraction did not settle it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E4",
+      "kind": "misprint",
+      "locator": "Wrong cross-references: proof of Lemma 4.13.1, p.31; proof of Theorem 6.3.2, p.40; §7.6, p.47; proof of Corollary 7.6.8, p.51 (final version; also arXiv v1)",
+      "printed": "\"The vertical part Z(L)_V is a scheme by Lemma 6.1.1 below.\" — \"The same proof of [LZ, Theorem 5.2.2] works verbatim using Lemma 6.3.1 in place of [LZ, Lemma 5.2.1].\" — \"we generalize Lemmas 7.4.5 and 7.5.1\" — \"Proof. It follows immediately from Lemmas 7.6.8 and 7.5.1.\"",
+      "correction": "Proposition 6.1.1; [LZ, Theorem 5.3.2] and [LZ, Lemma 5.3.1]; Corollary 7.4.5 and Lemma 7.5.1; Lemmas 7.6.7 and 7.5.1.",
+      "reason": "There is no Lemma 6.1.1, no Lemma 7.4.5 and no Lemma 7.6.8; Corollary 7.6.8 cites itself, and the input it needs is Lemma 7.6.7, which writes c_{V(Λ)} as a combination of the Int_{V(Λ′)} for Λ′ of type 4, to which Lemma 7.5.1 applies. In Li–Zhang, Kudla–Rapoport cycles and derivatives of local densities (J. Amer. Math. Soc. 35 (2022), 705–797), the Tate-conjecture results are Lemma 5.3.1 and Theorem 5.3.2 — the numbering Corollary 7.3.2 of this paper uses — while 5.2.1 and 5.2.2 are the horizontal/vertical splitting. (The unitary companion has the same self-citation in its Corollary 6.4.8; see PAPER-LI-ZHANG-22-B/E3.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E5",
+      "kind": "misprint",
+      "locator": "Introduction, p.5; §5.3, p.34; proof of Corollary 7.4.5, p.46 (final version; also arXiv v1)",
+      "printed": "\"∂Eis(z, ϕ_K) = Σ_{T ∈ Herm_n(F)} ∂Eis_T(z, ϕ_K)\" — \"we can identify the cycle Z(M^♭) ⊆ Z(M_{n−2}) with the cycle Z(M_2) ⊆ N^+_3\" — \"(iii) If x ∉ Λ^∨ or val(x) ≤ 0, then Λ + ⟨x⟩ is not integral\"",
+      "correction": "Sym_n(F); Z(M^♭) ⊆ Z(M_{n−3}); val(x) < 0.",
+      "reason": "This is the orthogonal case, and the Fourier expansion (11.4.0.2) is indexed by Sym_n(F). In the case t(M^♭) = 2 the self-dual lattice used is M_{n−3}, with Z(M_{n−3}) ≅ N^+_3 by (4.14.0.2). In Corollary 7.4.5 the case val(x) = 0 with x ∈ Λ^∨ \\ Λ is already case (ii), where Λ + ⟨x⟩ is integral and the value is 1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E6",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 8.2.7, base case (2) and the inductive identity, p.60 (final version; also arXiv v1)",
+      "printed": "\"So µ_−(L) = q^t − q, µ_0(L) = q − 1, µ_+(L) = 1.\" and \"(1 + sq^{t/2})(1 − sq^{t/2−1})µ_+(L, M) + (1 − sq^{t/2−1})µ_0(L, M) + µ_−(L, M) = 0 for any s ∈ {±1}.\"",
+      "correction": "µ_−(L) = q^{t−1} − q; and the inductive identity with the coefficients of the statement, (1 − sq^{t/2})(1 + sq^{t/2−1}) and (1 + sq^{t/2−1}).",
+      "reason": "The preceding lines compute #(L^∨)°/L = q^{t−1} and #(ϖL^∨)° = q, so µ_− = q^{t−1} − q; the displayed identity (1 − sq^{t/2})(1 + sq^{t/2−1}) + (1 + sq^{t/2−1})(q − 1) + (q^{t−1} − q) = 0 (rechecked) needs q^{t−1} − q, while q^t − q would not give 0. The flipped signs of s in the inductive identity are harmless, since it is claimed for both values of s.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    },
+    {
+      "id": "PAPER-LI-ZHANG-22/E7",
+      "kind": "misprint",
+      "locator": "arXiv v1 (2106.15038v1): Theorem 1.3.1 and §11.4; Definition 8.2.2; proofs of Propositions 8.2.5 and 8.2.7",
+      "printed": "v1: \"q^T := ψ_∞(tr Tz) = e^{2πi tr Tz}\"; \"µ_?(L, M) := µ_?(L) − [L : M]µ_?(M)\"; \"L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, e_t⟩\" (twice); \"E(z, s, ϕ) := χ_∞(m(a))^{−1}|det(m(a))|^{−m/2}_F · E(g_z, s, ϕ)\"; \"Notice that E(z, s, Φ) does not depend on the choice of χ.\"",
+      "correction": "q^T := ψ_∞(½ tr Tz) = e^{πi tr Tz}; [M : L]; L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, ϖ^{−2}e_t⟩; |det(a)|^{−m/2}_F; and the last sentence deleted (the final version says instead, in §11.1, that E(g, s, Φ) does depend on the choice of χ).",
+      "reason": "The Fourier coefficients are taken against ψ(−tr ½Tb) (§11.2), so the classical variable is q^T = ψ_∞(½ tr Tz); [M : L] is the index of L in M ⊇ L, as Lemma 8.2.3 uses; for fundamental invariants (1, …, 1, 2) the dual of ⟨e_t⟩ is ⟨ϖ^{−2}e_t⟩, as the next line of both proofs (x = … + λ_tϖ^{−2}e_t) already assumes.",
+      "affects": "nothing",
+      "known": "Corrected in the authors' final version (Chao Li's homepage, KRO.pdf, dated 2 March 2022); arXiv has only v1",
+      "searched": [
+        "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+        "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+      ]
+    }
+  ]
+}
