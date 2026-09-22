@@ -13,7 +13,8 @@
       "Published paper: all §§1–6 and references, pp.1–35",
       "Published pages5,6,12,13 checked as images",
       "ArXiv v2: only the difficulty and Lemma2.16 passage collated",
-      "Continuation 2026-09-22 (Claude Code cc-fb70e5): pp.5, 11–13 and 16 reread; Lemma 2.2, Lemma 2.16 and the difficulty definition image-checked and collated with arXiv v2 and AHK07"
+      "Continuation 2026-09-22 (Claude Code cc-fb70e5): pp.5, 11–13 and 16 reread; Lemma 2.2, Lemma 2.16 and the difficulty definition image-checked and collated with arXiv v2 and AHK07",
+      "Third checkpoint Codex codex-c83e7a: all35 published pages read, every proof and reference; pp.13,17,20,29,30,33 visually inspected. Published bytes copied from the prior public-source acquisition and hash checked; the new direct Cambridge request returned non-PDF bytes and was rejected."
     ],
     "sha256": "d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b",
     "acquired": "2026-09-22"
@@ -39,11 +40,13 @@
       "mathlib:frobenius",
       "mathlib:iterateFrobenius",
       "mathlib:ModuleCat.exists_isRegular_tfae",
-      "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot"
+      "mathlib:Submodule.eq_bot_of_le_smul_of_le_jacobson_bot",
+      "mathlib:AlgebraicGeometry.Scheme.Hom.isClosedMap"
     ],
     "atlasSnapshot": "1c16a3cd24b5b8e55dee3f5ef2fef8dd054bee96",
-    "liveOwnershipRefresh": "fbc1f2dc26a49dd78e582e589f3ecb3265e8f73f",
-    "session": "codex-a71f92"
+    "liveOwnershipRefresh": "6488244af073abd91f39e4969f06eeda8b980d3d",
+    "session": "codex-a71f92",
+    "continuationSession": "codex-c83e7a"
   },
   "items": [
     {
@@ -267,14 +270,16 @@
         }
       ],
       "library": [
-        "mathlib:AlgebraicGeometry.IsProper"
+        "mathlib:AlgebraicGeometry.IsProper",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.isClosedMap"
       ],
       "sourceEvidence": {
         "sourceIds": [
           "main"
         ],
         "reading": "Pinned declaration read in this worker's Witaszek22 audit; same baseline.",
-        "locator": "§2 conventions"
+        "locator": "§2 conventions",
+        "continuation": "Read Mathlib/AlgebraicGeometry/Morphisms/Proper.lean lines39–43 and UniversallyClosed.lean lines39–47 at pinned082e2d3. Universal closedness supplies the closed-image theorem used below."
       },
       "gaps": []
     },
@@ -7329,10 +7334,12 @@
       "prerequisites": [
         "PAPER-HACON-WITASZEK-23/picard-lift",
         "PAPER-HACON-WITASZEK-23/numerical",
-        "PAPER-HACON-WITASZEK-23/nef-big-semiample"
+        "PAPER-HACON-WITASZEK-23/nef-big-semiample",
+        "PAPER-HACON-WITASZEK-23/special-ample-transfer"
       ],
       "proofSteps": [
-        "Use openness/fibrewise ampleness over the local base and properness; the Stacks0D3A proof is still an unread leaf."
+        "Apply special-ample-transfer to the already constructed extension; its proof is independent of how the line bundle was lifted.",
+        "The Picard surjectivity conclusion still uses picard-lift and its actual completeness/H² premises."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -7369,7 +7376,8 @@
         "PAPER-HACON-WITASZEK-23/divisors"
       ],
       "proofSteps": [
-        "Apply punctured local-cohomology/Nakayama extension. dFH states its setting over C; its proof transfer is an obligation, not an automatic citation."
+        "Apply punctured local-cohomology/Nakayama extension. dFH states its setting over C; its proof transfer is an obligation, not an automatic citation.",
+        "Do not use Nakayama on R¹j_*O_U(D) without proving finite generation or a valid local-cohomology vanishing replacement. Surjective multiplication on a non-finite local-cohomology module need not force zero. This proof leaf remains open, rather than being declared characteristic-free by inspection."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -7395,16 +7403,17 @@
       "id": "PAPER-HACON-WITASZEK-23/qcartier-global",
       "kind": "theorem",
       "name": "Properness guard for global Q-Cartier deformation",
-      "statement": "Main Lem6.6 claims a global conclusion for an arbitrary normal scheme over a DVR. A source-faithful safe target is first a neighborhood result; in projective applications, prove openness of the Q-Cartier locus and use properness over the local base to eliminate a nonempty closed bad locus disjoint from the special fibre.",
+      "statement": "Let T→Spec R be proper, with T a Noetherian normal scheme and R a DVR. For a fixed Weil divisor D, if every point of the special fibre has an open neighborhood on which D is Q-Cartier, then D is Q-Cartier everywhere. On quasi-compact T a common positive Cartier multiple can be chosen. This conditional globalization does not assert the local deformation theorem.",
       "locator": "Lem6.6 scope diagnostic",
       "status": "missing",
       "ownerRoute": "sf4",
       "prerequisites": [
-        "PAPER-HACON-WITASZEK-23/qcartier-local",
-        "PAPER-HACON-WITASZEK-23/proper-morphism"
+        "PAPER-HACON-WITASZEK-23/proper-neighborhood-exhausts"
       ],
       "proofSteps": [
-        "Do not export the printed unrestricted global statement. Prove finite presentation/coherence needed for the bad locus to be closed, then apply the proper-image argument."
+        "Union the open neighborhoods with the Q-Cartier property and apply proper-neighborhood-exhausts.",
+        "Choose a finite open cover and take a common multiple of its Cartier indices if a global uniform multiple is required.",
+        "The omitted properness in the printed unrestricted Lemma6.6 is essential: node-ruling-family supplies an integral flat counterexample."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -7415,9 +7424,7 @@
         "locator": "Lem6.6 scope diagnostic",
         "reading": "Published statement and proof read; cited-leaf closure is bounded by readingLog."
       },
-      "gaps": [
-        "PAPER-HACON-WITASZEK-23/gap-qcartier"
-      ],
+      "gaps": [],
       "uses": [
         {
           "where": "Cor6.7(1), canonical clause",
@@ -7434,7 +7441,8 @@
           "item": "PAPER-HACON-WITASZEK-23/lifted-step-type",
           "how": "Supplies Properness guard for global Q-Cartier deformation to Divisorial and flipping steps restrict correctly with the explicit hypotheses and open gaps retained."
         }
-      ]
+      ],
+      "sourceIssue": "PAPER-HACON-WITASZEK-23/E6"
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/total-cm",
@@ -7487,7 +7495,8 @@
       "ownerRoute": "birational",
       "prerequisites": [
         "PAPER-HACON-WITASZEK-23/qcartier-global",
-        "PAPER-HACON-WITASZEK-23/total-cm"
+        "PAPER-HACON-WITASZEK-23/total-cm",
+        "PAPER-HACON-WITASZEK-23/qcartier-local"
       ],
       "proofSteps": [
         "Use K_total|X=K_X with canonical restriction conventions and clear a Cartier multiple; do not claim Cartier index1."
@@ -7516,13 +7525,14 @@
       "id": "PAPER-HACON-WITASZEK-23/total-qfactorial",
       "kind": "theorem",
       "name": "Q-factorial deformation of the lifting",
-      "statement": "If the terminal special fibre is also Q-factorial, Cor6.7(1)'s divisorial restriction argument yields Q-factoriality near the fibre, and globally in the projective lifting application once the properness guard is proved.",
+      "statement": "In a flat proper Noetherian normal DVR family with three-dimensional Q-factorial terminal special fibre in the source p>5 setting, apply the local deformation theorem separately to each Weil divisor and then the proper-neighborhood lemma to obtain global Q-factoriality. The unrestricted nonproper version printed in Corollary6.7(1) is false by E6. The local deformation input remains gap-qcartier.",
       "locator": "Cor6.7(1), Q-factorial clause",
       "status": "missing",
       "ownerRoute": "birational",
       "prerequisites": [
         "PAPER-HACON-WITASZEK-23/qcartier-global",
-        "PAPER-HACON-WITASZEK-23/total-cm"
+        "PAPER-HACON-WITASZEK-23/total-cm",
+        "PAPER-HACON-WITASZEK-23/qcartier-local"
       ],
       "proofSteps": [
         "Remove the Cartier fibre component from a Weil divisor, restrict to X, clear a multiple and extend; keep the locality issue visible."
@@ -7818,7 +7828,8 @@
       "prerequisites": [
         "PAPER-HACON-WITASZEK-23/special-contraction-normal",
         "PAPER-HACON-WITASZEK-23/qcartier-global",
-        "PAPER-HACON-WITASZEK-23/mmp-step"
+        "PAPER-HACON-WITASZEK-23/mmp-step",
+        "PAPER-HACON-WITASZEK-23/qcartier-local"
       ],
       "proofSteps": [
         "Rule out the wrong step type by the Q-Cartier restriction contradiction; use finite-generation/Proj uniqueness for a flip."
@@ -7953,17 +7964,17 @@
     {
       "id": "PAPER-HACON-WITASZEK-23/numerical-lift-repair",
       "kind": "theorem",
-      "name": "Numerical lifting does not imply Picard lifting",
-      "statement": "The proof of Thm6.1(2b) asks for Cartier divisors restricting to prescribed A,H from surjectivity on N¹. That hypothesis only supplies rational numerical classes, possibly after multiples. A repaired flop-lifting proof must use numerical representatives plus amplitude/perturbation, or state an extra Picard hypothesis.",
+      "name": "Numerical representatives suffice for the effective perturbation step",
+      "statement": "For Theorem6.1(2b), replace the unsupported literal Cartier restrictions by rational numerical representatives. The numerical-flop-boundary construction proves existence of a suitable effective perturbation without Picard surjectivity. Identifying the prescribed special flop and preserving N¹ surjectivity for this perturbed pair remain explicit boundary-step proof obligations.",
       "locator": "Proof6.1(2b) diagnostic",
       "status": "missing",
       "ownerRoute": "numerical",
       "prerequisites": [
-        "PAPER-HACON-WITASZEK-23/numerical",
-        "PAPER-HACON-WITASZEK-23/cone-specialization"
+        "PAPER-HACON-WITASZEK-23/numerical-flop-boundary"
       ],
       "proofSteps": [
-        "Track exactly which linear systems and restrictions are used; prove numerical equivalence suffices for the desired contraction and singularity construction. Do not silently apply Lem6.5 unless completeness and H² vanishing hold."
+        "Use the numerical boundary construction instead of the equalities printed on p.33.",
+        "Extend the proof of(2a) to the perturbed pair and check special canonical-model uniqueness plus numerical descent; these are the remaining obligations, not a consequence of merely having effective representatives."
       ],
       "implementationStatus": "unchecked",
       "note": "Planning contract, not a formalization claim; unresolved source frontiers remain explicit.",
@@ -7983,7 +7994,8 @@
           "item": "PAPER-HACON-WITASZEK-23/all-minimal-lift",
           "how": "Supplies Numerical lifting does not imply Picard lifting to All Q-factorial minimal models lift with the explicit hypotheses and open gaps retained."
         }
-      ]
+      ],
+      "sourceIssue": "PAPER-HACON-WITASZEK-23/E7"
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/all-minimal-lift",
@@ -8089,6 +8101,341 @@
           "how": "Export the stated result or guard to the design job; no implementation is claimed."
         }
       ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/proper-neighborhood-exhausts",
+      "kind": "theorem",
+      "name": "A proper family over a local base has no closed subset away from its closed fibre",
+      "statement": "Let f:T→Spec A be a proper morphism, where A is local with closed point s. Every open subset U⊂T containing the whole fibre T_s equals T. Equivalently, every nonempty closed subset of T meets T_s.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "sf4",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/proper-morphism"
+      ],
+      "proofSteps": [
+        "The image of T∖U is closed by properness. If nonempty, a closed subset of Spec A contains its closed point: a proper ideal lies in the maximal ideal. This contradicts disjointness from T_s.",
+        "Apply this to a union of neighborhoods on which a fixed Weil divisor is Q-Cartier. There is no need to assert that one uniform local index exists before taking that union."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "uses": [
+        {
+          "where": "Lem6.6 scope diagnostic",
+          "item": "PAPER-HACON-WITASZEK-23/qcartier-global",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/node-ruling-family",
+      "kind": "construction",
+      "name": "A punctured node family with smooth special fibre and singular generic vertex",
+      "statement": "Take R=Z_p for a prime p>5, K=Q_p, k=F_p and V=Spec R[x,y,z,w]/(xy−zw). Let T=V∖{(p,x,y,z,w)}, let S=T_k, let Z=V(x,y,z,w)∩T and let D=V(x,z)∩T. Then T is integral, flat, excellent and normal, S is a smooth integral threefold, Z≅Spec K is closed and disjoint from S, and D is Cartier on T∖Z.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "sf4",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/divisors",
+        "PAPER-HACON-WITASZEK-23/base"
+      ],
+      "proofSteps": [
+        "The determinantal hypersurface is a domain and is R-flat; its hypersurface local rings are Cohen–Macaulay. Its singular locus is the vertex section, of codimension3, so R1 and S2 imply normality.",
+        "Deleting only the special vertex leaves the punctured smooth special fibre and retains the generic vertex. Away from the vertex, one of x,y,z,w is invertible and the hypersurface is a polynomial chart.",
+        "D is a prime Weil divisor. On the regular complement it is Cartier. The remaining vertex section is closed in the indicated open T."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "api": [
+        {
+          "name": "RelativeFourfold.noderulingfamily.api1",
+          "role": "construction",
+          "statement": "Form the explicit open family, closed generic vertex and ruling divisor; the family is not proper."
+        },
+        {
+          "name": "RelativeFourfold.noderulingfamily.api2",
+          "role": "compatibility",
+          "statement": "Specialization removes the special vertex, while base change to K leaves the full threefold node."
+        },
+        {
+          "name": "RelativeFourfold.noderulingfamily.api3",
+          "role": "characterisation",
+          "statement": "The bad locus Z has empty special intersection, despite being nonempty and closed in T."
+        }
+      ],
+      "tests": [
+        {
+          "name": "node-ruling-family.test1",
+          "kind": "mathematical contract",
+          "statement": "S is smooth, hence normal and S3; the Lemma6.6 special-fibre condition holds.",
+          "execution": "Not executed in Lean."
+        },
+        {
+          "name": "node-ruling-family.test2",
+          "kind": "mathematical contract",
+          "statement": "The central fibre is nonempty and the total space integral, so this is not a disjoint-component example.",
+          "execution": "Not executed in Lean."
+        },
+        {
+          "name": "node-ruling-family.test3",
+          "kind": "mathematical contract",
+          "statement": "Z maps onto the nonclosed singleton {generic point}; properness therefore fails.",
+          "execution": "Not executed in Lean."
+        }
+      ],
+      "uses": [
+        {
+          "where": "§6 continuation: extracting-worker proof in report",
+          "item": "PAPER-HACON-WITASZEK-23/node-ruling-nonqcartier",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/node-ruling-nonqcartier",
+      "kind": "theorem",
+      "name": "The node ruling has no Cartier multiple at its vertex",
+      "statement": "For N=Spec K[x,y,z,w]/(xy−zw), the prime divisor D_K=V(x,z) is not Q-Cartier at the vertex. Consequently the T,D of node-ruling-family satisfy all the displayed hypotheses of Lemma6.6 but not its global conclusion; S is also smooth Q-factorial while T is not Q-factorial, contradicting the unrestricted global Q-factorial clause of Corollary6.7(1).",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "sf4",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/node-ruling-family",
+        "PAPER-HACON-WITASZEK-23/divisors",
+        "PAPER-HACON-WITASZEK-23/line-bundle"
+      ],
+      "proofSteps": [
+        "Use the small resolution in N×P¹ given by xt=zs and wt=ys. Its two charts are A³_(x,w,u), z=ux,y=uw, and A³_(z,y,v), x=vz,w=vy, with v=1/u.",
+        "It is an isomorphism away from the vertex, with exceptional P¹ and no exceptional divisor. The strict transform of D_K has local equations x and z, with z=ux on the overlap.",
+        "Its divisor line bundle restricts to O_P¹(−1), since the ideal generators transform by u. If mD_K were Cartier near the vertex, its pullback would equal m times the strict transform (there is no exceptional divisor), and its restriction to the exceptional fibre would be trivial. This contradicts degree−m for every positive m."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "uses": [
+        {
+          "where": "Lemma6.6; Corollary6.7(1)",
+          "item": "PAPER-HACON-WITASZEK-23/qcartier-global",
+          "how": "Shows that the properness guard cannot be dropped."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/special-ample-transfer",
+      "kind": "theorem",
+      "name": "Special-fibre ampleness implies relative ampleness over a local base",
+      "statement": "For f:T→Spec A proper with A Noetherian local and L invertible, if the closed fibre is a scheme and L restricted to it is ample, then L is f-ample. This statement does not assume completeness, H² vanishing, flatness or surjectivity on Picard groups.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "sf4",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/proper-morphism",
+        "PAPER-HACON-WITASZEK-23/line-bundle"
+      ],
+      "proofSteps": [
+        "Apply Stacks0D3A to get an open neighborhood of the closed point on which L is relatively ample. Every such neighborhood of Spec A is all of Spec A."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-formal"
+      ],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "uses": [
+        {
+          "where": "Lem6.5 final assertions; Stacks0D3A",
+          "item": "PAPER-HACON-WITASZEK-23/ample-lift",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        },
+        {
+          "where": "§6 continuation: extracting-worker proof in report",
+          "item": "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
+      "kind": "theorem",
+      "name": "Numerical nefness and bigness of a lifted class on the generic fibre",
+      "statement": "Let T→Spec R be flat projective with integral three-dimensional special and generic fibres, R a DVR, and H a Q-Cartier divisor whose restriction H_s is nef and big. Then H_eta is nef and big. Replacing H_s by a numerically equivalent divisor has no effect on this conclusion.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "numerical",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/special-ample-transfer",
+        "PAPER-HACON-WITASZEK-23/flat-intersection",
+        "PAPER-HACON-WITASZEK-23/nef-big-semiample"
+      ],
+      "proofSteps": [
+        "Choose a relatively ample A. For each rational δ>0, H_s+δA_s is ample; special-ample-transfer makes H_eta+δA_eta ample, proving nefness in the limit.",
+        "Flat intersection constancy gives H_eta³=H_s³>0; the nef top-intersection criterion gives bigness.",
+        "Numerical invariance of ampleness/bigness for nef divisors and the top-intersection criterion are explicit foundation imports, not supplied by a line-bundle carrier."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-picard"
+      ],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "uses": [
+        {
+          "where": "§6 continuation: extracting-worker proof in report",
+          "item": "PAPER-HACON-WITASZEK-23/numerical-flop-boundary",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/primitive-effective-section",
+      "kind": "theorem",
+      "name": "A primitive section avoids the entire special fibre",
+      "statement": "Let T be integral and flat projective over a Noetherian DVR R with integral special fibre S, and let L be invertible. If H⁰(T_eta,L_eta)≠0, then there exists a section of L whose nonzero effective Cartier zero divisor does not contain S, or the zero divisor if that section is nowhere vanishing.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "sf4",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/coherent-basechange",
+        "PAPER-HACON-WITASZEK-23/line-bundle",
+        "PAPER-HACON-WITASZEK-23/lifting"
+      ],
+      "proofSteps": [
+        "M=H⁰(T,L) is finite over R by proper coherent finiteness, torsion-free by flatness and invertibility, and nonzero by localization compatibility. Thus M is a nonzero finite free R-module.",
+        "Choose s∉πM. From 0→L --π→L→L|S→0, the kernel of restriction on H⁰ is exactly πM. Hence s|S≠0.",
+        "On integral T a nonzero section of an invertible sheaf cuts out an effective Cartier divisor; the nonzero special restriction means that S is not a component. No completeness or H² premise occurs."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-formal"
+      ],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "uses": [
+        {
+          "where": "§6 continuation: extracting-worker proof in report",
+          "item": "PAPER-HACON-WITASZEK-23/numerical-flop-boundary",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/numerical-flop-boundary",
+      "kind": "construction",
+      "name": "Effective perturbations from numerical representatives",
+      "statement": "In the projective lifting setting of Theorem6.1(2b), let f:X→Z be the prescribed flop contraction, H=f*H_Z for H_Z ample, and A the Q-Cartier strict transform of an ample divisor on its chosen flop. N¹_Q surjectivity supplies Q-Cartier representatives Hcal,Acal with Hcal|X≡H and Acal|X≡A. For m sufficiently large, some divisible multiple of mHcal+Acal has a section whose divisor does not contain X. Dividing by that multiple gives an effective Q-divisor Dcal with Dcal|X≡mH+A, hence Dcal is negative on the chosen flopping ray. This is a perturbation construction, not yet the full lifted-step theorem.",
+      "locator": "§6 continuation: extracting-worker proof in report",
+      "status": "missing",
+      "ownerRoute": "numerical",
+      "prerequisites": [
+        "PAPER-HACON-WITASZEK-23/numerical",
+        "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
+        "PAPER-HACON-WITASZEK-23/primitive-effective-section",
+        "PAPER-HACON-WITASZEK-23/cone-specialization"
+      ],
+      "proofSteps": [
+        "Lift rational numerical classes and clear denominators where sections are needed; do not claim equality with the prescribed line bundles.",
+        "H is nef and big because f is birational and H_Z ample. The generic lift is nef and big; for large m, mHcal_eta+Acal_eta is big and has sections after a positive multiple.",
+        "Use primitive-effective-section so that the divisor meets the special fibre properly. Restriction has the required numerical class. On the selected ray H has degree0 and A has negative degree.",
+        "With the standing strong resolution hypothesis, choose sufficiently small ε so (total,X+εDcal) is plt and (X,εDcal|X) is terminal by checking the finitely many coefficients on a fixed common log resolution.",
+        "Completion and H²=0 are not needed for this construction. Proving that the perturbed total MMP step has exactly the prescribed special flop still requires the boundary version of the lifted-step argument and numerical descent."
+      ],
+      "implementationStatus": "unchecked",
+      "gaps": [
+        "PAPER-HACON-WITASZEK-23/gap-picard"
+      ],
+      "sourceEvidence": {
+        "sourceIds": [
+          "main"
+        ],
+        "locator": "Lemma6.6/Corollary6.7 or Theorem6.1(2b), as specified in statement",
+        "reading": "Published source read; this is an explicit repair/adapter, not a verbatim source theorem."
+      },
+      "note": "Specialized adapter built on existing owners; mathematical proof is not a formalization claim.",
+      "api": [
+        {
+          "name": "RelativeFourfold.numericalflopboundary.api1",
+          "role": "construction",
+          "statement": "Choose rational numerical representatives, clear multiples and choose a primitive effective section."
+        },
+        {
+          "name": "RelativeFourfold.numericalflopboundary.api2",
+          "role": "compatibility",
+          "statement": "The special restriction is numerically equivalent to mH+A and has the prescribed sign on the flopping ray."
+        },
+        {
+          "name": "RelativeFourfold.numericalflopboundary.api3",
+          "role": "functoriality",
+          "statement": "Record all positive multiples and ε; changing representatives by numerically trivial classes preserves intersection signs."
+        }
+      ],
+      "tests": [
+        {
+          "name": "numerical-flop-boundary.test1",
+          "kind": "mathematical contract",
+          "statement": "A nontrivial numerically trivial twist is allowed; no equality in Pic is asserted.",
+          "execution": "Not executed in Lean."
+        },
+        {
+          "name": "numerical-flop-boundary.test2",
+          "kind": "mathematical contract",
+          "statement": "The chosen section is nonzero modulo π and therefore the boundary omits the entire special fibre.",
+          "execution": "Not executed in Lean."
+        },
+        {
+          "name": "numerical-flop-boundary.test3",
+          "kind": "mathematical contract",
+          "statement": "The construction does not invoke completeness or H²=0; it does not by itself identify the special output of a total MMP.",
+          "execution": "Not executed in Lean."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Proof6.1(2b) diagnostic",
+          "item": "PAPER-HACON-WITASZEK-23/numerical-lift-repair",
+          "how": "Supplies the stated adapter with its explicit scope and remaining foundation gaps."
+        }
+      ]
     }
   ],
   "routes": [
@@ -8112,7 +8459,7 @@
       "stages": [
         "SchemeAndStackFoundations:SF.4"
       ],
-      "reason": "Formal lifting, coherent algebraization adapters, obstruction theory and local Q-Cartier deformation lie in the existing deformation/algebraization direction. Import formal existence from Adic F0 rather than rebuilding it.",
+      "reason": "Formal lifting, coherent algebraization adapters, obstruction theory and local Q-Cartier deformation lie in the existing deformation/algebraization direction. Import formal existence from Adic F0 rather than rebuilding it. New local/global adapters include an integral node counterexample, the proper closed-image proof, special ampleness and primitive sections; import the existing properness carrier.",
       "items": [
         "PAPER-HACON-WITASZEK-23/resolution",
         "PAPER-HACON-WITASZEK-23/finite-algebraization",
@@ -8124,7 +8471,12 @@
         "PAPER-HACON-WITASZEK-23/picard-lift",
         "PAPER-HACON-WITASZEK-23/ample-lift",
         "PAPER-HACON-WITASZEK-23/qcartier-local",
-        "PAPER-HACON-WITASZEK-23/qcartier-global"
+        "PAPER-HACON-WITASZEK-23/qcartier-global",
+        "PAPER-HACON-WITASZEK-23/proper-neighborhood-exhausts",
+        "PAPER-HACON-WITASZEK-23/node-ruling-family",
+        "PAPER-HACON-WITASZEK-23/node-ruling-nonqcartier",
+        "PAPER-HACON-WITASZEK-23/special-ample-transfer",
+        "PAPER-HACON-WITASZEK-23/primitive-effective-section"
       ]
     },
     {
@@ -8329,10 +8681,12 @@
         "PAPER-HACON-WITASZEK-23/n1-generation",
         "PAPER-HACON-WITASZEK-23/cone-specialization",
         "PAPER-HACON-WITASZEK-23/n1-persists",
-        "PAPER-HACON-WITASZEK-23/numerical-lift-repair"
+        "PAPER-HACON-WITASZEK-23/numerical-lift-repair",
+        "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
+        "PAPER-HACON-WITASZEK-23/numerical-flop-boundary"
       ],
       "reason": "Reuse the pending NumericalPicardAndContractionDescent proposal from PAPER-SCHROER-23, also used by PAPER-WITASZEK-22. The relative N¹, modified rank, special adjoint descent and numerical-lift bridge extend that single owner; they are not already accepted stages.",
-      "brief": "Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory. Add the killed-by-two numerical-class lift /183 as a sheaf-quotient construction. Import rigidified Picard descent from A0-extension and relative ampleness from R09.1/R09.3; the Enriques consumer owns the local-projectivity application. For Hacon–Witaszek23 add relative rational/real N¹ specialization, the AHK modified rank, the source-guarded Prop5.4 numerical descent and Cartier-index preservation. Separate numerical surjectivity from actual Picard lifting, and close the missing numerical perturbation argument in Thm6.1(2b). No arbitrary numerically trivial divisor is declared pulled back."
+      "brief": "Start from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), especially A0-extension, and Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1,SF.2,SF.5). Construct Pic^τ and Num for arbitrary proper schemes over a field, including nonreduced and disconnected schemes; expose geometric base change, Galois action, numerical equivalence, torsion obstructions and norm maps. Prove the positive-power descent criterion with a numerically trivial twist, then Theorem1.3: constant Num descends geometric contractions with projective target; treat purely inseparable descent separately without the constantness assumption. Prove Theorem2.1 for contractions of smooth proper surfaces: component-graph descent, the geometrically-reduced edge-label assertion, and pure inseparability of residue fields of reducible fibers. Import surface intersections, not their reconstruction. Give each definition an API and at least three tests; include P¹_C/R with permuted numerical components, d=0 as a forbidden criterion, and projectivity versus arbitrary proper targets. The Enriques roadmap consumes these general theorems; it must not own a duplicate Picard theory. Add the killed-by-two numerical-class lift /183 as a sheaf-quotient construction. Import rigidified Picard descent from A0-extension and relative ampleness from R09.1/R09.3; the Enriques consumer owns the local-projectivity application. For Hacon–Witaszek23 add relative rational/real N¹ specialization, the AHK modified rank, the source-guarded Prop5.4 numerical descent and Cartier-index preservation. Separate numerical surjectivity from actual Picard lifting, and close the missing numerical perturbation argument in Thm6.1(2b). No arbitrary numerically trivial divisor is declared pulled back. The Hacon–Witaszek continuation adds numerical representative perturbations: special nef/big transfer and primitive-section construction. Do not infer equality in Picard groups from N¹ surjectivity. The perturbed lifted-step identification remains an explicit proof frontier."
     }
   ],
   "prerequisites": [
@@ -8555,10 +8909,9 @@
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-qcartier",
-      "detail": "Transfer dFH11's local proof from its characteristic-zero setting, retain the neighborhood conclusion, prove the properness/globalization guard; audit related global claims in Cor6.7.",
+      "detail": "Globalization is now proved under properness, and E6 gives an integral flat nonproper counterexample. Still establish the local mixed-characteristic deformation theorem, including a valid finiteness/vanishing premise for the local-cohomology Nakayama step. Preserve local-vs-global guards in Corollary6.7.",
       "items": [
         "PAPER-HACON-WITASZEK-23/qcartier-local",
-        "PAPER-HACON-WITASZEK-23/qcartier-global",
         "PAPER-HACON-WITASZEK-23/total-cm",
         "PAPER-HACON-WITASZEK-23/total-qgorenstein",
         "PAPER-HACON-WITASZEK-23/total-qfactorial",
@@ -8568,10 +8921,12 @@
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-picard",
-      "detail": "Repair Thm6.1(2b)'s use of actual Cartier lifts from only N¹ surjectivity; use numerical representatives only after proving every needed linear-system/singularity bridge.",
+      "detail": "Actual Picard lifts are not required for constructing the numerical perturbation: representatives, generic nef/big transfer and a primitive section are now explicit. Still source-close numerical positivity imports and prove the boundary-pair variant of lifted-step identification, numerical descent under the flop and persistence of N¹ surjectivity. Do not mark Theorem6.1(2b) proved merely from this construction.",
       "items": [
         "PAPER-HACON-WITASZEK-23/numerical-lift-repair",
-        "PAPER-HACON-WITASZEK-23/all-minimal-lift"
+        "PAPER-HACON-WITASZEK-23/all-minimal-lift",
+        "PAPER-HACON-WITASZEK-23/special-nef-big-transfer",
+        "PAPER-HACON-WITASZEK-23/numerical-flop-boundary"
       ],
       "status": "open"
     },
@@ -8587,14 +8942,16 @@
     },
     {
       "id": "PAPER-HACON-WITASZEK-23/gap-formal",
-      "detail": "Close Hartshorne obstruction, ABL22 CM/rationality, proper formal existence and faithful-flat completion proofs; verify local freeness/flatness after algebraization.",
+      "detail": "Close Hartshorne obstruction, ABL22 CM/rationality, proper formal existence and faithful-flat completion proofs; verify local freeness/flatness after algebraization. Stacks0D3A is now read and gives the ampleness adapter. Its transitive cohomology/finite-morphism leaves and proper coherent finiteness/localization for primitive sections remain imports to close.",
       "items": [
         "PAPER-HACON-WITASZEK-23/picard-obstruction",
         "PAPER-HACON-WITASZEK-23/formal-gaga",
         "PAPER-HACON-WITASZEK-23/finite-algebraization",
         "PAPER-HACON-WITASZEK-23/punctured-normalization",
         "PAPER-HACON-WITASZEK-23/klt-threefold-cm",
-        "PAPER-HACON-WITASZEK-23/ample-lift"
+        "PAPER-HACON-WITASZEK-23/ample-lift",
+        "PAPER-HACON-WITASZEK-23/special-ample-transfer",
+        "PAPER-HACON-WITASZEK-23/primitive-effective-section"
       ],
       "status": "open"
     },
@@ -8642,7 +8999,8 @@
     "Theorem6.1's N¹ is a Q-vector space; real cones require scalar extension. Numerical equivalence does not imply Picard equivalence.",
     "All §5 results retain the standing strong-resolution condition and the equal-characteristic spread hypothesis. Conjecture5.7 is not a theorem.",
     "Pending Part II proposals are reused by ID but remain missing, not planned, until accepted atlas stages exist.",
-    "No local filenames, temporary PDFs or scratch builders are deliverables."
+    "No local filenames, temporary PDFs or scratch builders are deliverables.",
+    "Q-Cartier globalization over a DVR requires properness or an equivalent specialization guard. A neighborhood conclusion cannot control a closed bad locus living only over the generic point. N¹ representatives need not be actual Picard lifts."
   ],
   "ownershipAudit": {
     "snapshot": "fbc1f2dc26a49dd78e582e589f3ecb3265e8f73f",
@@ -8679,7 +9037,15 @@
       "PAPER-SCHROER-23: NumericalPicardAndContractionDescent"
     ],
     "screening": "All 38 current paper-result route sets screened for MMP, Matlis, Witt-rationality, positivity and numerical-Picard overlap; two large results rechecked with bounded extraction. No direct fourfold-MMP or singular-Witt supplier found.",
-    "baselineSearch": "Whole pinned Mathlib and Tau trees searched for Matlis, dualizing complex, absolute integral closure, strong F-regularity, Kawamata/log terminal, minimal model program and Witt-rational names. Actual local-cohomology, derived-category, Witt-vector, Frobenius, Rees/regular-sequence and Nakayama declarations opened. Name absence is a lead, not a proof of mathematical absence."
+    "baselineSearch": "Whole pinned Mathlib and Tau trees searched for Matlis, dualizing complex, absolute integral closure, strong F-regularity, Kawamata/log terminal, minimal model program and Witt-rational names. Actual local-cohomology, derived-category, Witt-vector, Frobenius, Rees/regular-sequence and Nakayama declarations opened. Name absence is a lead, not a proof of mathematical absence.",
+    "continuation": {
+      "snapshot": "6488244af073abd91f39e4969f06eeda8b980d3d",
+      "inputFiles": 491,
+      "reads": [
+        "Full SchemeAndStackFoundations README; reviewed SF.4/SF.5 targets; NumericalPicardAndContractionDescent brief in PAPER-SCHROER-23."
+      ],
+      "decision": "Reuse the nine existing routes. New deformation scope/counterexample adapters belong to SF.4; numerical representative adapters belong to the existing pending numerical-Picard Part II. No new generic divisor, properness or Picard carrier."
+    }
   },
   "readingLog": [
     {
@@ -8789,6 +9155,29 @@
       "read": "Published pp.5 (Lemma 2.2 and proof), 11–13 (Prop 2.15 proof, difficulty, Lemma 2.16 and proof), 16 (Lemma 4.2); arXiv v2 (sha 161c6308…) pp.6, 14–15 at the same statements; AHK07 v2 Definitions 2.2–2.3.",
       "notEstablished": "No other part of the paper reread; [Kol13] §3.3 not reread.",
       "readDate": "2026-09-22"
+    },
+    {
+      "id": "continuation-codex-c83e7a",
+      "url": "https://doi.org/10.1017/fmp.2023.6",
+      "sha256": "d7ba34ecde6764ca39071e14e79854e3c8e8db0750343c0dcc1729b84eda328b",
+      "read": "Whole published paper pp.1–35; visual checks pp.13,17,20,29,30,33.",
+      "readDate": "2026-09-22",
+      "notEstablished": "Generic mixed-characteristic local Picard/deformation theorem and the remaining transitive inputs are not closed."
+    },
+    {
+      "id": "dfh-continuation",
+      "url": "https://arxiv.org/pdf/0901.0389v3",
+      "sha256": "28e597c5113ffec80d773ebfe60538b3be38b33141b0ef9df7a474e6d5bd3c34",
+      "read": "Pages4–7, including the complex-field convention, full Proposition3.1 proof, Corollary3.2 and neighboring deformation statements/proofs.",
+      "readDate": "2026-09-22",
+      "notEstablished": "The local-cohomology module used with Nakayama needs a finiteness/vanishing justification before transferring the proof to mixed characteristic; not inferred from surjective multiplication alone."
+    },
+    {
+      "id": "stacks-ample-lift",
+      "url": "https://stacks.math.columbia.edu/tag/0D3A",
+      "read": "Full Lemma71.15.3 statement and proof, including the proper closed-image step and finite morphism argument.",
+      "readDate": "2026-09-22",
+      "notEstablished": "Referenced transitive cohomology and finite-morphism lemmas are not all re-extracted."
     }
   ],
   "sourceDiagnostics": [
@@ -8818,21 +9207,21 @@
       "severity": "high",
       "claim": "dFH cited proof is local near the central Cartier divisor and set over C.",
       "evidence": "dFH11 Prop3.1 full proof versus main Lem6.6 global formulation.",
-      "action": "Transfer the argument and add neighborhood/properness guards."
+      "action": "E6 now records an explicit counterexample; proper globalization is proved. Mixed-characteristic local deformation remains open."
     },
     {
       "item": "PAPER-HACON-WITASZEK-23/numerical-lift-repair",
       "severity": "high",
       "claim": "N¹ surjectivity is used as if it supplied actual Cartier restrictions.",
       "evidence": "Thm6.1(2b) proof versus precise N¹ definition; Lem6.5 has additional completeness/H² hypotheses.",
-      "action": "Prove a numerical representative/perturbation repair."
+      "action": "E7 records the gap. Effective numerical perturbations are now constructed; boundary-step identification remains open."
     },
     {
       "item": "PAPER-HACON-WITASZEK-23/point-count",
       "severity": "medium",
       "claim": "Trace display labels singular X where the smooth resolution Y is used; all-slopes≥1 must exclude H⁰.",
       "evidence": "Published p20 proof.",
-      "action": "Type the trace on Y and separate its degree-zero contribution."
+      "action": "Recorded under E10/E11; item keeps the corrected resolution and positive-degree statements."
     }
   ],
   "sourceIssues": [
@@ -8840,10 +9229,10 @@
       "id": "PAPER-HACON-WITASZEK-23/E1",
       "kind": "error",
       "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
-      "printed": "\"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X + S)|_S = K_S + (1 − 1/m)P.\"",
+      "printed": "index of K_X",
       "correction": "m should be the Cartier index of K_X + S at P, the log index. For the plt surface germ obtained by localising at P, this equals the order of the local class group, and the conclusions then hold.",
       "reason": "Counterexample. Take X = Spec k[x,y,z]/(xy − z²), the A1 surface singularity with char k > 5, S = V(x, z), Δ = S and P the vertex. Then X is Q-factorial, (X, S) is plt and hence dlt, and P is a codimension-one point of the curve S. The minimal resolution (charts (x,z,y) = (u,uv,uv²) and (st²,st,s)) is crepant, so K_X is Cartier and m = 1. But div(x) = 2S and the ideal (x, z) is not principal at P, so S is not Cartier. Since f*S = S′ + E/2, adjunction gives (K_X + S)|_S = K_S + ½P, not K_S. With m = index(K_X + S) = 2 every clause holds. For a threefold example, multiply by A¹. The only other use is Lemma 4.2 (p.16), which needs only that the different of a plt pair with standard coefficients has standard coefficients; that is unaffected. Checked on the page image. Noted by the extraction (gap-index, item adjunction-index-diagnostic).",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
@@ -8855,7 +9244,7 @@
       "id": "PAPER-HACON-WITASZEK-23/E2",
       "kind": "error",
       "locator": "Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14)",
-      "printed": "\"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S, B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\"",
+      "printed": "all these discrepancies",
       "correction": "Also fix a finite set I ⊂ [0, 1) and require the coefficients of B to lie in I. Then, over the minimal resolution, the exceptional discrepancies take finitely many values. This is what the proof of Proposition 2.15 needs, since the boundaries B_n of a flip sequence all have the coefficients of B.",
       "reason": "Counterexample. On the A1 surface S = {xy = z²} with C = V(x, z) and B = bC, 0 < b < 1/2, the minimal resolution is one (−2)-curve E, and K_{S′} + bC′ + (b/2)E = f*(K_S + bC). The pair is ½-lc for every such b (log discrepancies 1 − b/2 and 1 − b on an snc model with coefficients < 1/2), and there is one exceptional discrepancy, −b/2, so m = 1. That value varies infinitely. The proof fails because the right-hand sides B_{S′}·C_i of its linear system contain f^{-1}_*B·C_i, which varies with B. With coefficients in I the right-hand sides lie in a finite set, since f^{-1}_*B·C_i = 2r_i + a_iC_i² − Σ_{j≠i}(1 − a_j)C_j·C_i < 2r_i ≤ 8. Proposition 2.15 is unaffected. Noted by the extraction (gap-surface, item surface-finiteness-diagnostic); the corrected statement is proved in fixed-boundary-surface by this continuation.",
       "affects": "a stated result",
@@ -8870,7 +9259,7 @@
       "id": "PAPER-HACON-WITASZEK-23/E3",
       "kind": "misprint",
       "locator": "Proof of Lemma 2.16, p.13 of the published version (arXiv v2 p.15)",
-      "printed": "\"a_iC_i² = (K_{S′} + B_{S′} + a_iC_i)·C_i ≥ −2r_i, and so −c_i ≤ 2/a_i is bounded.\"",
+      "printed": "−c_i ≤ 2/a_i",
       "correction": "c_i ≤ 2/a_i ≤ 2/ε.",
       "reason": "The proof writes C_i² = −r_ic_i, so c_i > 0 and −c_i ≤ 2/a_i is vacuous. The displayed inequality −a_ir_ic_i ≥ −2r_i gives c_i ≤ 2/a_i, which is the bound the proof then uses (\"and so −C_i² is bounded\"). Checked on the page image. Noted by the extraction (item fixed-boundary-surface, 'correct the printed c_i signs').",
       "affects": "nothing",
@@ -8885,7 +9274,7 @@
       "id": "PAPER-HACON-WITASZEK-23/E4",
       "kind": "misprint",
       "locator": "Proof of Proposition 2.15, definition of the difficulty d⁺_α, p.12 of the published version (arXiv v2, same passage)",
-      "printed": "\"d⁺_α(Y, B_Y) = Σ_{b_i ≤ 0} W⁺_α(b_i)ρ(B̃_i) + Σ_v w⁺_α(a_v) − Σ_{C̃_{i,j}} W⁺_α(b_i)\"",
+      "printed": "b_i ≤ 0",
       "correction": "The first sum is over b_i ≥ 0, which is AHK07 Definition 2.3's index a(B_i) ≤ 0 with a(B_i) = −b_i.",
       "reason": "W⁺_α(b) = Σ_{k≥1} w⁺_α(k(1 − b)), and for b ≤ 0 every argument k(1 − b) ≥ 1 > α, so W⁺_α(b) = 0. The printed first sum is therefore identically zero, and the difficulty would lose its boundary term, which is exactly what drops when a flip changes ρ. AHK07 Definition 2.3 indexes the sum by a(B_j) ≤ 0. Checked on the page image and against AHK07 (arXiv math/0605137v2). Noted by the extraction (gap-difficulty).",
       "affects": "nothing",
@@ -8901,7 +9290,7 @@
       "id": "PAPER-HACON-WITASZEK-23/E5",
       "kind": "misprint",
       "locator": "Proof of Proposition 2.15, p.12 of the published version",
-      "printed": "\"Define the following functions w⁻_α, w⁺_α, W⁻_α, W⁺_α: (−∞, 1) → R_{≥0}\"",
+      "printed": "(−∞,1)",
       "correction": "W^±_α is defined on (−∞, 1). The weights w^±_α must be defined on all of R, or at least on (−1, ∞), with value 0 at arguments above α, as in AHK07 Definition 2.2.",
       "reason": "w^±_α is evaluated at k(1 − b) ∈ (0, ∞) in W^±_α and at discrepancies a_v ∈ (−1, ∞), both of which can be ≥ 1. The printed domain excludes these, while the formula's 'otherwise' clause shows the intended value 0 there. Checked on the page image. Noted by the extraction (gap-difficulty).",
       "affects": "nothing",
@@ -8911,6 +9300,116 @@
         "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
         "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
       ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E6",
+      "kind": "error",
+      "locator": "Published version, Lemma6.6 pp.28–29 and global Q-factorial clause of Corollary6.7(1) p.29",
+      "printed": "also Q-Cartier",
+      "correction": "Retain a neighborhood of the special fibre in the local deformation lemma; add properness for its global application. The unrestricted global statements fail.",
+      "reason": "For R=Z_p, p>5, remove only the closed special vertex from Spec R[x,y,z,w]/(xy−zw). This is an integral flat normal excellent scheme with smooth special fibre. The closed remaining generic vertex Z is disjoint from that fibre. The ruling D=V(x,z) is Cartier away from Z and restricts to a Cartier divisor on the smooth special fibre, but it is not Q-Cartier at the generic node. On the explicit small resolution xt=zs,wt=ys, its strict-transform divisor line bundle has degree−1 on the exceptional P¹. A Cartier multiple would pull back trivially on that fibre, contradicting degree−m. The report provides the charts. Properness repairs globalization by the closed-image argument, conditional on the local theorem.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E7",
+      "kind": "gap",
+      "locator": "Published version, Theorem6.1(2b) proof p.33, choice of Acal,Hcal",
+      "printed": "A|_X=A",
+      "correction": "Use Q-Cartier numerical representatives, with restrictions numerically equivalent after rational scaling; construct the needed effective boundary separately.",
+      "reason": "The hypothesis is surjectivity of Pic⊗Q modulo numerical equivalence, which does not supply prescribed line bundles. The representative/nef-big/primitive-section argument in this checkpoint supplies the effective perturbation and its intersection signs without completeness or H² vanishing. The boundary version of special-step identification remains an explicit proof task.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E8",
+      "kind": "misprint",
+      "locator": "Published version, Lemma2.16 proof p.13, equality case in the convexity paragraph",
+      "printed": "c_2=−2",
+      "correction": "c_2=2, equivalently C_2²=−2r_2.",
+      "reason": "The same proof defines C_i²=−r_i c_i with r_i>0. An exceptional curve on the minimal resolution has negative self-intersection. The printed c_2=−2 would instead give positive self-intersection. This is a second sign slip, distinct from E3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E9",
+      "kind": "misprint",
+      "locator": "Published version, Theorem4.3 proof p.17, last paragraph",
+      "printed": "codimension two",
+      "correction": "The flip is an isomorphism in codimension one, equivalently off subsets of codimension at least two.",
+      "reason": "Lemma2.7 used at this step assumes equality on opens containing all codimension-one points. A small fourfold flip may change a codimension-two surface, so it need not be an isomorphism at codimension-two points. The weaker standard property suffices.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E10",
+      "kind": "misprint",
+      "locator": "Published version, Corollary1.3 proof p.20, crystalline trace display",
+      "printed": "H^i_crys(X/K)",
+      "correction": "Use H^i_crys(Y/K) for the smooth proper resolution Y whose point count appears on the left.",
+      "reason": "The argument has already compared point counts of X and Y modulo q; its next trace formula computes |Y(F_q)|. The resolution supplies the smooth proper crystalline cohomology in that formula.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
+    },
+    {
+      "id": "PAPER-HACON-WITASZEK-23/E11",
+      "kind": "misprint",
+      "locator": "Published version, Corollary1.3 proof p.20, sentence after the trace display",
+      "printed": "all the slopes",
+      "correction": "The slope≥1 assertion is for positive cohomological degrees. Degree zero supplies the contribution1.",
+      "reason": "For geometrically connected smooth proper Y, H⁰ has Frobenius eigenvalue1 and slope0. Including it in a slope≥1 assertion would remove the very contribution needed for the congruence1 modulo q.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published pp.1–35, with pp.13,17,20,29,30,33 inspected as images; arXiv history checked: v2 remains the latest listed version.",
+        "Cambridge article/DOI page and Jakub Witaszek publication page https://sites.math.northwestern.edu/lro1793/publications.html checked2026-09-22.",
+        "Bounded title/DOI searches with erratum, correction and Q-Cartier deformation; no matching published correction located. This is not proof that none exists."
+      ]
     }
-  ]
+  ],
+  "continuationChecks": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "diagnostics": {
+      "status": "pass",
+      "exactCases": 2061,
+      "scope": "Two node small-resolution charts and transition; proper closed-image possibilities; rational Cartier-index gap. No geometry or Lean tests executed."
+    },
+    "lean": "No Lean file authorized or compiled; planning tests unexecuted."
+  },
+  "checkpointProvenance": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "priorPullRequests": [
+      1682,
+      1838
+    ],
+    "mainInputs": "6488244af073abd91f39e4969f06eeda8b980d3d",
+    "scope": "Whole-paper reread, nonproper counterexample and proper globalization, numerical-boundary construction, six new source findings. Local deformation and boundary-step identification remain open."
+  }
 }
