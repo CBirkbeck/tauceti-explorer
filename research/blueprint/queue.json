@@ -788,7 +788,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1067"
   },
   {
    "id": "REV-PAPER-LAWRENCE-SAWIN-25",
@@ -5088,8 +5089,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1318"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1318",
+   "finishedAt": "2026-09-22T13:44:05Z"
   },
   {
    "id": "REV-PAPER-KOYMANS-MILOVIC-21",
