@@ -5570,6 +5570,146 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DISEGNI-LIU-24/E1",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 3.6, p. 248 (published; also arXiv v3)",
+   "printed": "\"For every v ∈ V^{(v)}_F, by [42, Theorem 1.2 & Theorem 1.3], I□_{r,v}(χ_v) is an irreducible representation of G_{2r}(F_v) unless χ²_v = 1\" and, six lines below, \"⨂_{v ∈ V^{(v)}_F \\ V} I□_{r,v}(χ_v)\".",
+   "correction": "V^{(w)}_F in both places.",
+   "reason": "The lemma fixes a rational place w ≠ p and studies I□_{r,w}(χ_w) = ⨂_{v ∈ V^{(w)}_F}I□_{r,v}(χ_v); v is the index of that product, so V^{(v)}_F is meaningless. The set V introduced two lines later is {v ∈ V^{(w)}_F : χ²_v = 1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E2",
+   "kind": "misprint",
+   "locator": "Definition 3.21, p. 258 (published; also arXiv v3)",
+   "printed": "\"Definition 3.21. We say that the (unramified) representation π_v of G_r(F_v) is Panchishkin if β_{u,r} ∈ O^×_L for every u ∈ P_v under the notation in Lemma 3.19.\"",
+   "correction": "\"… is Panchishkin unramified if …\".",
+   "reason": "The property defined in the introduction (Definition 1.2) and used everywhere else — Lemma 3.22 immediately below (\"π_v is Panchishkin unramified\"), Notation 3.24, Proposition 3.25, Assumption 1.6(4) and Lemma 4.14 — is \"Panchishkin unramified\"; Definition 3.21 is its restatement in the body.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E3",
+   "kind": "misprint",
+   "locator": "§4.8, p. 304 (published; also arXiv v3)",
+   "printed": "\"… for every T□ ∈ Herm°_{2r}(F)^+_V (Notation 4.33), and …\"",
+   "correction": "(Notation 4.32).",
+   "reason": "Herm°_{2r}(F)^+_V and the place v_{T□} are defined in Notation 4.32; 4.33 is the Proposition computing the local heights away from p. A mechanical check of every internal cross-reference in the paper found no other mismatch of this kind.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma A.5, pp. 323–324 (published; also arXiv v3)",
+   "printed": "\"H^q_G(S, C_L)_0 = H^q((C^•_L)^G)^0 = [Ker((E^q_L)^G →^d (C^{q+1}_L)^G) ∩ Im(C^{q−1}_L →^d E^q_L)]/Im((C^{q−1}_L)^G →^d (E^q_L)^G)\"; \"It is easy to check that the 1-cocycle does not depend on the choice of x.\"; \"Since ν^q(y^q) induces an element in H^q((C^•_L)^G)^0, we may choose an element c^{q−1} ∈ C^{q−1}_L …\".",
+   "correction": "C^q_L in all three places of the display; \"the choice of a\"; \"Since ν^q(b^q) induces …\".",
+   "reason": "No object E occurs in Appendix A outside the bi-extensions E_c, E^c_{c′} of §A.3, which are not complexes; the displayed description of H^q((C^•_L)^G)^0 is the usual one with C^q_L. The element whose independence is checked is the a ∈ H^q(S, A_L) with μ(a) = β(b) of the statement, and b^q ∈ (B^q_L)^G is the closed element representing b introduced one line earlier; y^q is never defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E5",
+   "kind": "misprint",
+   "locator": "§A.3, p. 325 (published; also arXiv v3)",
+   "printed": "\"The element c′ gives rise to a map κ_{c′} : H^{2d−2}(Z′_K̄, L(d−1)) → L that vanishes on the image of the map H^{2d−2}(X_K̄, L(d)) → H^{2d−2}(Z′_K̄, L(d)).\"",
+   "correction": "H^{2d−2}(X_K̄, L(d−1)) → H^{2d−2}(Z′_K̄, L(d−1)) (or else the sentence should be stated for κ_{c′}(1), which is what is applied to (A.2)).",
+   "reason": "The source of κ_{c′} is the L(d−1)-cohomology of Z′; the two groups in the vanishing clause must be the same ones, and the twist L(d) is the one carried by the diagram (A.2), to which κ_{c′}(1) — not κ_{c′} — is applied.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E6",
+   "kind": "misprint",
+   "locator": "Proof of Theorem A.8, third application of Proposition B.11, p. 347 (published; also arXiv v3)",
+   "printed": "\"Then for every t_2 ∈ I^{4n−5}, the class res_{K_U}(β_{t^*_2t^*_1c}) = res_{K_U}(t^*_2β_{t^*_1c}) belongs to H¹_f(K_U, H^{2d−1}_c(Ū_t, L(d))), where t := t_1t_2\", and in the next sentence the pushout map \"H¹(K, H^{2d−1}_c(Ū_t, L(d))) → H¹(K, E_{t′^*c′})\".",
+   "correction": "H^{2d−1}_c(Ū, L(d)) in both places, for U = X∖(supp 𝒞′)_{t′}.",
+   "reason": "Proposition B.11 concludes that res_{K_U}(t^*β_c) lies in H¹_f(K_U, H^{2d−1}_c(Ū, L(d))) — the correspondence t^* moves the class from H^{2d−1}_c(Ū_t) to H^{2d−1}_c(Ū) — and the extension E_{t′^*c′} is built from the cohomology of that same U; the subscript t also clashes with the t := t_1t_2 defined in the same sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DISEGNI-LIU-24/E7",
+   "kind": "misprint",
+   "locator": "Appendices, pp. 322, 348, 350, 357, 362, 363, 367 (published; also arXiv v3)",
+   "printed": "Lemma A.4 is stated for \"C ∈ D^+_G(S, Z_{p•})\"; p. 348: \"let P_l be the R_l-ring wit a discrete action by G_K\"; p. 357, Lemma B.20: \"H^q_rig(V(h), W°) ≃ H^q(X_ét, C_{𝒱(h)/W°,K_0})\"; pp. 350 and 362: \"factors though\"; p. 363: \"the corresponding edges maps\"; p. 367: \"H^q_K(X_ét, C̄_{𝒱(−1)/W^triv,K_0})_0\".",
+   "correction": "D^+_G(S, W_•) in Lemma A.4; \"with\"; H^q_rig(V(h)/W°); \"factors through\"; \"edge maps\"; H^q_{G_K}(X_ét, −)_0.",
+   "reason": "Definition A.3 (admissibility) and Lemma A.5 are stated over W_•, and Lemma A.4 is applied on p. 363 to C̄_{𝒱(h)/W^triv} ∈ D^+_{G_K}(X_ét, W_•) (admissible by Lemma B.21(5)), so its hypothesis as printed is narrower than its use; the proof works verbatim over W_•. The notation for log rigid cohomology is H^•_rig(−/W°) throughout, and the equivariant cohomology of §A.2 is written H^q_G(S, −), so H^q_K is undefined. The rest are typographical.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+    "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+   ],
+   "owner": "PAPER-DISEGNI-LIU-24",
+   "file": "research/blueprint/papers/PAPER-DISEGNI-LIU-24.result.json",
+   "citation": "Disegni–Liu, \"A p-adic arithmetic inner product formula\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DITTMANN-POP-23/E1",
    "kind": "misprint",
    "locator": "§3, definition of Pfister forms, p.6, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
