@@ -1,0 +1,2669 @@
+{
+  "paper": "PAPER-BROWNING-SAWIN-20",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "agent": "Codex — codex-a71f92",
+  "source": {
+    "title": "A geometric version of the circle method",
+    "authors": "Tim Browning and Will Sawin",
+    "venue": "Annals of Mathematics 191 (2020), 893–948",
+    "doi": "10.4007/annals.2020.191.3.4",
+    "arxiv": "1711.10451v3",
+    "url": "https://arxiv.org/pdf/1711.10451v3",
+    "version": "v3, 19 February 2020, 49 pages; author-labelled Final version",
+    "sha256": "4518f88842e2bc19d2b2e0634f1df54c96d36164331e88fc30ef892f3c879072",
+    "accessed": "2026-09-22",
+    "readSections": [
+      "§1 pp.1–8",
+      "§2 pp.8–14",
+      "§3 pp.14–26",
+      "§4 pp.26–31",
+      "§5 pp.31–38",
+      "§6 pp.38–43",
+      "§7 pp.43–48",
+      "References pp.48–49"
+    ],
+    "versionCheck": "The entire 49-page arXiv v3 author-labelled Final version was read. Subsequently obtained the official 56-page journal PDF and checked the main statements and critical rounding/topology locators against it; those findings persist in publication. Numbering is preserved, but reference numbers 15/16 and 24/25 exchange positions. A token comparison highlights typesetting/reference changes and is not itself a mathematical equivalence proof. Full publication-wide proof reconciliation remains explicitly incomplete.",
+    "publishedSource": {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
+      "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
+      "pages": 56,
+      "accessed": "2026-09-22",
+      "readExtent": "Main statements pp.893–895, minor-arc proof pp.934–935, topology pp.943–946; additional source-finding locators checked below. Not claiming a second full line-by-line read."
+    }
+  },
+  "summary": "Full-read extraction checkpoint for a cohomological circle method: Hankel-rank major arcs, Artin–Schreier cancellation, configuration-space E1 terms, monodromy parity, geometric Weyl differencing, function-field lattice shrinking, and a conditional comparison with double loop spaces. A rounding inequality and an odd-kd stratification error leave the sharp published-range proof unclosed; a conservative replacement range is derived below. Generic étale operations are imported, not replanned. No theorem is claimed formalised.",
+  "conventions": {
+    "geometry": "K a field; n≥2, k≥3; f∈K[x1,…,xn] has degree k, X={f=0} smooth affine, and its leading form f0 defines a smooth projective hypersurface Z⊂P^{n−1}. Fix a NONZERO vector x∈K^n with f0(x)=0, representing P∈Z. A chosen representative, not only the projective class, fixes the leading coefficients.",
+    "ranges": "D=d(n−k), L=kd, K0=k−1, t=floor(d/K0), δ=n/2^k−k+1. Main range d≥K0≥2 and δ>0. Integer cohomological indices; thresholds are rational strict inequalities. Acyclic cohomological degree and dimension of an empty differencing locus are −∞, with extended arithmetic.",
+    "coefficients": "Étale cohomology is geometric compact-support cohomology unless explicitly ordinary. In characteristic p assume p>k; choose ℓ≠p of even multiplicative order modulo p when using sign-conjugacy/minor arcs. Rank-one Artin–Schreier sheaves use E=Q_ℓ(μ_p); retain the coefficient-extension/descent debt before asserting all constructions over Q_ℓ. Frobenius convention gives E(−a) eigenvalue q^a. In characteristic zero spread out the full pair (f,x), not f alone.",
+    "derived": "Cohomological shift: H^i(C[a])=H^{i+a}(C). Thus RΓ_c(A^r,E)=E[−2r](−r). Reduced compact cohomology means the homotopy fibre of the trace, not unreduced cohomology with an informal top-degree deletion. S_m acts with Koszul signs on derived tensor powers.",
+    "planning": "All APIs, tests, modules, dependencies and proofs below are plans. No Lean file or Lean compilation is supplied. The corrected conservative range is a mathematical deduction from the paper's intermediate bounds, not an independently formalised proof. Original sharp claims are retained as explicitly gated targets, never silently certified."
+  },
+  "items": [
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/mapping",
+      "kind": "definition",
+      "name": "Polynomial mapping scheme with a fixed leading vector",
+      "statement": "Mor_{d,x} represents g_j=x_j T^d+Σ_{i<d}a_{i,j}T^i with f(g_1,…,g_n)=0. It is an affine scheme in nd coefficients cut out by the kd non-leading coefficients; f0(x)=0 kills degree kd. Individual g_j have degree ≤d; their joint degree is d. No quotient by reparametrization is taken.",
+      "locator": "arXiv v3, §1 pp.1–2",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "functor_of_points; coefficient_equations",
+        "change_field; leading_vector_nonzero",
+        "closed_immersion_affine_space"
+      ],
+      "unitTests": [
+        "x_j=0 allows deg(g_j)<d",
+        "g↦g(aT+b) changes the fixed leading vector by a^d"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/dimensionlower",
+      "kind": "theorem",
+      "name": "Expected dimension lower bound",
+      "statement": "Every nonempty irreducible component of Mor_{d,x} over an algebraic closure has dimension at least nd−kd=D, since there are kd defining equations.",
+      "locator": "arXiv v3, §2 Cor.2.9 proof p.14",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configuration",
+      "kind": "definition",
+      "name": "Ordered and unordered configurations of the affine line",
+      "statement": "PConf_m={ (a_1,…,a_m)∈A^m : a_i≠a_j for i≠j }; its S_m quotient is Conf_m, the open space of squarefree monic degree-m polynomials. The quotient map is a finite étale S_m-torsor, including m=0 as a point.",
+      "locator": "arXiv v3, §1 p.2; §3 Lem.3.9 p.24",
+      "status": "missing",
+      "owner": "TOP",
+      "api": [
+        "coordinate_permutation_action; quotient_roots",
+        "finite_etale_torsor; base_change",
+        "pconf_zero; pconf_one"
+      ],
+      "unitTests": [
+        "PConf_0=Spec K, PConf_1=A1",
+        "char K dividing m! does not prevent the constant S_m torsor from being étale"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/hypersurfmiddle",
+      "kind": "definition",
+      "name": "Middle compact cohomology and parity-twisted tensors",
+      "statement": "V=H_c^{n−1}(X,E); define W_m=(RΓ_c(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}. The sign factor comes from placing each V in cohomological degree n−1.",
+      "locator": "arXiv v3, §1 Thm.1.1; Cor.3.12",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "tensor_zero; permutation_koszul_sign",
+        "exact_invariants_char_zero; change_coefficients"
+      ],
+      "unitTests": [
+        "m=0 gives E in degree 0",
+        "transposition gives a minus sign exactly when n−1 is odd"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/reduced"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/phase",
+      "kind": "definition",
+      "name": "Residue-coefficient phase",
+      "statement": "For a∈A^{dn}, b∈A^L set e(a,b)=[T^{−1}](Σ_{r=1}^L b_rT^{−r})f(g_1(T),…,g_n(T)). This is a polynomial map A^{dn}×A^L→A1, linear in b and of degree ≤k in a.",
+      "locator": "arXiv v3, §2 p.8",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "phase_eq_pairing_coefficients; linear_in_b",
+        "phase_degree_le; base_change"
+      ],
+      "unitTests": [
+        "b=0 gives 0",
+        "adding a constant c to f changes e by c*b1"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/schreier",
+      "kind": "definition",
+      "name": "Artin–Schreier rank-one coefficient sheaf",
+      "statement": "For nontrivial ψ:(F_p,+)→E× and E containing μ_p, L_ψ is the ψ-isotypical summand of the pushforward of E along u↦u^p−u. It is lisse rank one, additive under pullback, and L_ψ(−z)=L_{ψ^{-1}}(z).",
+      "locator": "arXiv v3, §2 p.8; Lem.5.3",
+      "status": "missing",
+      "owner": "FF",
+      "api": [
+        "additive_tensor; dual_neg; coefficient_extension",
+        "linear_nontrivial_acyclic; trivial_phase"
+      ],
+      "unitTests": [
+        "ψ=1 yields the constant sheaf, not an acyclic one",
+        "a nontrivial rank-one ψ need not exist over Q_ℓ itself"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/libchar",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fouriercomplex",
+      "kind": "definition",
+      "name": "Geometric exponential-sum complex",
+      "statement": "For p2:A^{dn}×A^L→A^L set S_{d,f}=Rp2! e*L_ψ. Its geometric stalk at b is RΓ_c(A^{dn},L_ψ(e(−,b))).",
+      "locator": "arXiv v3, §2 p.8",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "stalk_base_change; coefficient_extension",
+        "finite_amplitude; base_change_f_x"
+      ],
+      "unitTests": [
+        "b=0 stalk E[−2dn](−dn)",
+        "do not replace ! by ordinary pushforward"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/phase",
+        "PAPER-BROWNING-SAWIN-20/schreier",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/orthogonality",
+      "kind": "theorem",
+      "name": "Cohomological Fourier orthogonality",
+      "statement": "H_c^i(Mor_{d,x},E)≅H_c^{i+2kd}(A^{kd},S_{d,f})(kd), compatibly with Frobenius over F_q. Integrating the L linear phase variables gives zero off the coefficient-zero locus and E[−2L](−L) on it.",
+      "locator": "arXiv v3, Lem.2.1 pp.8–9",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fouriercomplex",
+        "PAPER-BROWNING-SAWIN-20/sixoperations",
+        "PAPER-BROWNING-SAWIN-20/trace",
+        "PAPER-BROWNING-SAWIN-20/liborthog"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/hankel",
+      "kind": "definition",
+      "name": "Hankel-rank geometric major arcs",
+      "statement": "For 0≤m≤L, A_m^L⊂A^L is cut out by rank((b_{i+j−1})_{1≤i≤L−m,1≤j≤m+1})≤m. Set A_{−1}=∅ and A_m=A^L for m>L. Distinguish closed subschemes from their underlying reduced strata when using dimensions.",
+      "locator": "arXiv v3, Def.2.3 p.10",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "matrix_entry; determinantal_closed",
+        "rank_base_change; large_index_full"
+      ],
+      "unitTests": [
+        "m=0 gives b=0",
+        "L=9,m=4,b5=1 gives an invertible 5×5 matrix"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/arcsclosed",
+      "kind": "theorem",
+      "name": "Closedness and nesting of major arcs",
+      "statement": "A_m^L is closed and A_m^L⊂A_{m+1}^L for every nonnegative m; A_0={0}.",
+      "locator": "arXiv v3, Lem.2.4(1),(2) pp.10–11",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/hankel"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/arcsfull",
+      "kind": "theorem",
+      "name": "Exact automatic-full range",
+      "statement": "A_m^L=A^L for m≥ceil(L/2). For odd L the preceding A_floor(L/2)^L need not be full.",
+      "locator": "arXiv v3, Lem.2.4(3); corrected use p.38",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/hankel"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/padeexist",
+      "kind": "theorem",
+      "name": "Hankel rank and Padé approximation",
+      "statement": "For m≤L and b∈A^L, b∈A_m iff there are 0≤m'≤m, monic h2 of degree m', and h1 of degree <m', such that Σ_{r≤L}b_rT^{−r}=h1/h2+O(T^{−L−1+m−m'}). Here O means all exponents at most the indicated exponent.",
+      "locator": "arXiv v3, Lem.2.4(4) pp.10–11",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/hankel",
+        "PAPER-BROWNING-SAWIN-20/liblaurent"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/padeunique",
+      "kind": "theorem",
+      "name": "Unique reduced approximation on a rank stratum",
+      "statement": "If 0≤m≤L/2 and b∈A_m\\A_{m−1}, the triple (m',h1,h2) in padeexist is unique, h1,h2 are coprime, and if m'<m the coefficient at T^{−L−1+m−m'} in the error is nonzero.",
+      "locator": "arXiv v3, Lem.2.4(5) p.11",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/padeexist"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/goodarc",
+      "kind": "definition",
+      "name": "Exact-denominator major-arc open",
+      "statement": "For 0≤m≤L/2 define U_m^L⊂A_m\\A_{m−1} by the existence of coprime h1,h2 with h2 monic of exact degree m and b=h1/h2+O(T^{−L−1}). This fixes all L Laurent coefficients.",
+      "locator": "arXiv v3, §3 pp.14–15",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "membership_pade; denominator_unique",
+        "coefficient_map_regular; inverse_regular"
+      ],
+      "unitTests": [
+        "m=0: h1=0,h2=1,b=0",
+        "a lower-degree denominator belongs to the boundary, not U_m"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/padeunique"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/goodarciso",
+      "kind": "theorem",
+      "name": "Polynomial-pair model of the good arc",
+      "statement": "U_m^L is open in A_m^L and isomorphic to {(h1,h2):deg h1<m, h2 monic degree m, gcd(h1,h2)=1}. In particular dim U_m=2m; the Padé rank-stratum description gives dim A_m≤2m when 2m≤L.",
+      "locator": "arXiv v3, Lem.3.1 pp.15–16; use p.38",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/goodarc"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/translationcancel",
+      "kind": "theorem",
+      "name": "Cancellation along a nontrivial additive orbit",
+      "statement": "Let Y be a variety over a separably closed field of characteristic p, φ:Y→A1, u∈O(Y)×, and a:G_a×Y→Y an action with φ(a(λ,y))=φ(y)+u(y)λ. Then RΓ_c(Y,φ*L_ψ)=0. Prove u is orbit-invariant and normalize the orbit coordinate by u.",
+      "locator": "arXiv v3, Lem.3.2 pp.16–17",
+      "status": "missing",
+      "owner": "FF",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/schreier",
+        "PAPER-BROWNING-SAWIN-20/sixoperations",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/boundarycancel",
+      "kind": "theorem",
+      "name": "Lower-denominator boundary cancellation",
+      "statement": "For 0≤m≤d the stalks of S_{d,f} vanish on (A_m^L\\A_{m−1}^L)\\U_m^L. Hence its compact cohomology on the stratum equals that on U_m.",
+      "locator": "arXiv v3, Lem.3.3 pp.17–18",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/goodarciso",
+        "PAPER-BROWNING-SAWIN-20/translationcancel",
+        "PAPER-BROWNING-SAWIN-20/fouriercomplex"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/remainder",
+      "kind": "construction",
+      "name": "Remainder fibration on the good arc",
+      "statement": "For 0≤m≤d the polynomial remainder map ρ:A^{dn}×U_m→A^{mn}×U_m, g↦g mod h2, is an affine-space bundle of dimension n(d−m). The phase factors as e=ebar∘ρ.",
+      "locator": "arXiv v3, §3 pp.18–19",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "monic_remainder_regular; affine_fibre",
+        "phase_factors; quotient_remainder_inverse"
+      ],
+      "unitTests": [
+        "m=d gives relative dimension zero",
+        "m>d is excluded"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/goodarc",
+        "PAPER-BROWNING-SAWIN-20/phase"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/smallcomplex",
+      "kind": "definition",
+      "name": "Residue-class exponential complex",
+      "statement": "Let p2':A^{mn}×U_m→U_m and π2:U_m→A^m, (h1,h2)↦h2. Set Sbar_{m,f}=Rπ2! Rp2'! ebar*L_ψ on the space of monic degree-m polynomials.",
+      "locator": "arXiv v3, §3 p.19",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "base_space_is_monic_polynomials; stalk_formula",
+        "independent_of_d_when_m_le_d"
+      ],
+      "unitTests": [
+        "Sbar_0=E",
+        "Rπ2! cannot be treated as a sheaf on U_m"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/remainder",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/remaindershift",
+      "kind": "theorem",
+      "name": "Affine-fibre shift and twist",
+      "statement": "Rρ!E=E[−2n(d−m)](−n(d−m)); H_c^i(U_m,S)=H_c^{i−2n(d−m)}(A^m,Sbar_m)(−n(d−m)) for m≤d.",
+      "locator": "arXiv v3, Lem.3.4 pp.19–20",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/remainder",
+        "PAPER-BROWNING-SAWIN-20/smallcomplex",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/crtproduct",
+      "kind": "theorem",
+      "name": "Coprime multiplicativity",
+      "statement": "Over pairs of coprime monic l1,l2 of degrees m1,m2, pullback of Sbar_{m1+m2} along multiplication is Sbar_{m1}⊠Sbar_{m2}. The isomorphism uses g modulo l1,l2 and h1=h11*l2+h12*l1; it is symmetric under swapping the two factors with the derived Koszul symmetry.",
+      "locator": "arXiv v3, Lem.3.5 pp.20–21",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/smallcomplex",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/repeatedcancel",
+      "kind": "theorem",
+      "name": "Nonsquarefree-modulus cancellation",
+      "statement": "If X is smooth and h2 is monic nonsquarefree, the stalk of Sbar_m at h2 is zero. Reduce to h2=(T−a)^r, r≥2, and distinguish f(g(a))=0 (use a nonzero gradient) from f(g(a))≠0 (translate h1).",
+      "locator": "arXiv v3, Lem.3.6 pp.21–22",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/crtproduct",
+        "PAPER-BROWNING-SAWIN-20/translationcancel"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/reduced",
+      "kind": "definition",
+      "name": "Reduced compact cohomology via trace fibre",
+      "statement": "For smooth geometrically irreducible X of dimension n−1 define RΓ_c,red(X,E)=fib(RΓ_c(X,E)→E[−2(n−1)](−(n−1))). The map is the smooth trace and induces an isomorphism in top degree.",
+      "locator": "arXiv v3, §3 p.23",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "fibre_triangle; lower_cohomology_unchanged",
+        "top_cohomology_removed; relative_base_change"
+      ],
+      "unitTests": [
+        "X=A^{n−1} gives an acyclic fibre",
+        "non-geometrically-irreducible X needs a componentwise trace target"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/singleexponential",
+      "kind": "theorem",
+      "name": "One-parameter exponential cohomology",
+      "statement": "For the smooth X in the standing hypotheses, RΓ_c(G_m×A^n,L_ψ(h f(a)))≅RΓ_c,red(X,E)[−2](−1). The proof uses the zero locus in the G_a-parameter calculation and surjectivity of the relevant trace map.",
+      "locator": "arXiv v3, Lem.3.7 pp.23–24",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/reduced",
+        "PAPER-BROWNING-SAWIN-20/fourierinput",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/singlecomplex",
+      "kind": "theorem",
+      "name": "Linear-modulus constant complex",
+      "statement": "Sbar_{1,f} on A1 is the constant complex with value RΓ_c,red(X,E)[−2](−1). Translation of the unique root gives the canonical model.",
+      "locator": "arXiv v3, Lem.3.8 p.24",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/singleexponential",
+        "PAPER-BROWNING-SAWIN-20/smallcomplex"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configdescent",
+      "kind": "theorem",
+      "name": "Configuration-space descent for all moduli",
+      "statement": "RΓ_c(A^m,Sbar_m)≅(RΓ_c(PConf_m,E)⊗RΓ_c,red(X,E)^{⊗m})^{S_m}[−2m](−m). Use repeated-modulus vanishing, CRT and the finite étale root-ordering torsor; invariants are exact over E.",
+      "locator": "arXiv v3, Lem.3.9 p.24",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/repeatedcancel",
+        "PAPER-BROWNING-SAWIN-20/singlecomplex",
+        "PAPER-BROWNING-SAWIN-20/crtproduct"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/stratumcomplex",
+      "kind": "theorem",
+      "name": "Major-arc stratum complex",
+      "statement": "For 0≤m≤d, RΓ_c(A_m\\A_{m−1},S)≅(RΓ_c(PConf_m)⊗RΓ_c,red(X)^{⊗m})^{S_m}[−2m−2n(d−m)](−m−n(d−m)). The m≤d condition is essential.",
+      "locator": "arXiv v3, Cor.3.10 pp.24–25",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configdescent",
+        "PAPER-BROWNING-SAWIN-20/boundarycancel",
+        "PAPER-BROWNING-SAWIN-20/remaindershift"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/middleconcentrated",
+      "kind": "theorem",
+      "name": "Reduced cohomology concentrated in the middle",
+      "statement": "Under smoothness of X and of its degree-k projective boundary, H_c,red^i(X,E)=0 for i≠n−1, and H_c,red^{n−1}=H_c^{n−1}. Use affine vanishing and weak Lefschetz on Xbar and Z.",
+      "locator": "arXiv v3, Lem.3.11 pp.25–26",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/weaklefschetz",
+        "PAPER-BROWNING-SAWIN-20/affinevanishing",
+        "PAPER-BROWNING-SAWIN-20/reduced"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/stratumformula",
+      "kind": "theorem",
+      "name": "Explicit cohomology of each major-arc stratum",
+      "statement": "For 0≤m≤d, H_c^i(A_m\\A_{m−1},S)≅(H_c^{i+m(n−1)−2nd}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}(−m−n(d−m)).",
+      "locator": "arXiv v3, Cor.3.12 p.26",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/middleconcentrated",
+        "PAPER-BROWNING-SAWIN-20/stratumcomplex",
+        "PAPER-BROWNING-SAWIN-20/hypersurfmiddle"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/universalpair",
+      "kind": "definition",
+      "name": "Universal smooth polynomial and boundary-point family",
+      "statement": "M_{n,k} parametrizes (f,x) with f degree k, X and Z smooth, x≠0 and f0(x)=0. Let pr_{M,X}:𝓧→M be the universal affine hypersurface; h_n and h_{n−1} send (f,x) to the projective homogenization and leading-form hypersurfaces.",
+      "locator": "arXiv v3, §4 pp.26–27",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "open_smooth_locus; universal_fibre",
+        "homogenization_map; leading_form_map",
+        "include_coefficient_scaling_and_nonzero_vector_fibres"
+      ],
+      "unitTests": [
+        "rescaling f preserves X but changes the parameter point",
+        "projectivizing x forgets a G_m fibre"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/primitive",
+      "kind": "definition",
+      "name": "Primitive universal hypersurface local system",
+      "statement": "For the parameter space H_{r,k} of smooth degree-k hypersurfaces in P^r, Prim_{r,k} is the primitive part of R^{r−1}π!E. In even cohomological degree split off the ambient hyperplane-class Tate line using its nonzero self-intersection.",
+      "locator": "arXiv v3, §4 p.27",
+      "status": "missing",
+      "owner": "MON",
+      "api": [
+        "primitive_pairing; hyperplane_orthogonal",
+        "rank_formula; smooth_proper_base_change"
+      ],
+      "unitTests": [
+        "r=2 gives a symplectic H1",
+        "quadrics have primitive rank 0 or 1 depending on parity"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/trace",
+        "PAPER-BROWNING-SAWIN-20/weaklefschetz",
+        "PAPER-BROWNING-SAWIN-20/constructibility"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/universalcohom",
+      "kind": "theorem",
+      "name": "Universal affine compact-cohomology support",
+      "statement": "R^i pr_{M,X}!E vanishes except in degrees n−1 and 2(n−1), is lisse in those degrees, and R^{2(n−1)}=E(−(n−1)).",
+      "locator": "arXiv v3, Lem.4.2 first assertions pp.27–28",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/universalpair",
+        "PAPER-BROWNING-SAWIN-20/middleconcentrated",
+        "PAPER-BROWNING-SAWIN-20/constructibility"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/primitiveextension",
+      "kind": "theorem",
+      "name": "Extension by boundary and projective primitives",
+      "statement": "There is an exact sequence 0→h_{n−1}*Prim_{n−1,k}→R^{n−1}pr_{M,X}!E→h_n*Prim_{n,k}→0. Prove via localization and hyperplane classes, separately for the parity of n.",
+      "locator": "arXiv v3, Lem.4.2 final assertion pp.27–28",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/primitive",
+        "PAPER-BROWNING-SAWIN-20/universalcohom"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/universalmonodromy",
+      "kind": "theorem",
+      "name": "Full universal hypersurface monodromy",
+      "statement": "For hypersurface dimension r−1≥1 and k≥3, excluding (r−1,k)=(2,3), Katz–Sarnak 11.4.9 gives geometric monodromy Sp on primitive middle cohomology for r−1 odd and the full O for r−1 even, over every geometric characteristic ≠ℓ. Degree-two primitives are handled directly. This is Zariski monodromy, not an E-point openness assertion.",
+      "locator": "arXiv v3, §4 p.29 citing [17] 11.4.9; original §§11.4.4–9 pp.332–334",
+      "status": "missing",
+      "owner": "MON",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/primitive"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fundamentalsurject",
+      "kind": "theorem",
+      "name": "Monodromy pullback along the universal pair maps",
+      "statement": "For n≥3, h_n and h_{n−1} are smooth with geometrically connected generic fibres, and their normal targets give surjections on geometric étale fundamental groups. Include the scalar and nonzero-vector factors omitted from the informal description when constructing the maps.",
+      "locator": "arXiv v3, Lem.4.3 proof p.29",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/universalpair"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/algebraicgoursat",
+      "kind": "theorem",
+      "name": "Orthogonal–symplectic product criterion",
+      "statement": "Over an algebraically closed characteristic-zero coefficient field, a closed subgroup of O_a×Sp_b projecting onto both factors is the full product when a≥6 and the orthogonal and symplectic simple quotients have no exceptional isomorphism. Handle b=0 and disconnected O separately; use algebraic-group Goursat, not only abstract-group Goursat.",
+      "locator": "arXiv v3, Lem.4.3 proof p.29",
+      "status": "missing",
+      "owner": "MON",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/libgoursat"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minusone",
+      "kind": "theorem",
+      "name": "A monodromy element with only eigenvalue minus one",
+      "statement": "For k≥2,n≥3,(k,n)≠(3,3),(3,4), geometric monodromy of R^{n−1}pr_{M,X}!E contains an element all of whose eigenvalues are −1. It need not be the scalar −Id on the nonsplit extension; generalized eigenspaces suffice.",
+      "locator": "arXiv v3, Lem.4.3 pp.28–29",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/universalmonodromy",
+        "PAPER-BROWNING-SAWIN-20/fundamentalsurject",
+        "PAPER-BROWNING-SAWIN-20/algebraicgoursat",
+        "PAPER-BROWNING-SAWIN-20/primitiveextension"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/relativestratum",
+      "kind": "theorem",
+      "name": "Relative stratum formula and lissity",
+      "statement": "For 0≤m≤d, R^i pr_{M,m}!S≅(H_c^{i+m(n−1)−2nd}(PConf_m,E)⊗(R^{n−1}pr_{M,X}!E)^{⊗m}⊗sgn^{n−1})^{S_m}(−m−n(d−m)); all these sheaves are lisse.",
+      "locator": "arXiv v3, Lem.4.4 pp.29–31",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/stratumformula",
+        "PAPER-BROWNING-SAWIN-20/universalpair"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/oddpages",
+      "kind": "theorem",
+      "name": "Odd-page differential vanishing in the verified parameter range",
+      "statement": "For n≥3,k≥2,(k,n)≠(3,3),(3,4), the finite major-arc spectral sequence has d_r=0 for every odd r: a universal monodromy element has eigenvalue (−1)^m on column m and the opposite eigenvalue on column m+r. Restrict the standalone proposition to these hypotheses until its omitted exceptional cases are supplied; all main-theorem parameters satisfy them.",
+      "locator": "arXiv v3, Prop.4.1; Prop.2.5(3)",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/minusone",
+        "PAPER-BROWNING-SAWIN-20/relativestratum",
+        "PAPER-BROWNING-SAWIN-20/finitefiltration"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/finitefiltration",
+      "kind": "theorem",
+      "name": "Finite closed-filtration spectral sequence with convergence",
+      "statement": "For a bounded constructible complex F on Y filtered by finitely many closed Y_{−1}=∅⊂Y0⊂⋯⊂Yd=Y, construct E1^{m,s}=H_c^{m+s}(Y_m\\Y_{m−1},F), d_r:(m,s)↦(m+r,s−r+1), and the exhaustive finite filtration on H_c^{m+s}(Y,F). Page/homology data alone do not prove convergence.",
+      "locator": "arXiv v3, Prop.2.5(1); §2 pp.11–12",
+      "status": "planned",
+      "planned": [
+        "FoundationsAndLibraryIntegration:LI.3"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/libspectral",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/majorE1",
+      "kind": "theorem",
+      "name": "Major-arc first page before the global shift",
+      "statement": "For 0≤m≤d, E1^{m,s}=(H_c^{s+mn−2nd}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}(−m−n(d−m)); outside this column range it is zero. It converges to H_c^{m+s}(A_d,S).",
+      "locator": "arXiv v3, Prop.2.5(1),(2) p.12",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/finitefiltration",
+        "PAPER-BROWNING-SAWIN-20/stratumformula"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/difference",
+      "kind": "definition",
+      "name": "Finite-difference constancy locus with an explicit order",
+      "statement": "For polynomial G:A^N→A1 and integer k≥1 with deg G≤k, let V_k(G)⊂(A^N)^{k−1} consist of tuples y for which Δ_{y1}⋯Δ_{y{k−1}}G(x) is independent of x. Define dd_k(G)=dim V_k(G), allowing −∞. The parameter k is part of the data even when deg G<k.",
+      "locator": "arXiv v3, Def.5.1 pp.31–32",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "iterated_difference_commutes; coefficient_zero_locus",
+        "depends_on_degree_k_part; empty_dimension"
+      ],
+      "unitTests": [
+        "k=1 and nonconstant affine G gives V empty",
+        "if deg G<k then V is the whole parameter space"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/cohdegree",
+      "kind": "definition",
+      "name": "Exponential compact-cohomological degree",
+      "statement": "cd_ψ(G)=sup{i∈Z:H_c^i(A^N,L_ψ(G))≠0}, with value −∞ for an acyclic complex. The value is unchanged by coefficient-field extension and polynomial coordinate isomorphisms.",
+      "locator": "arXiv v3, Def.5.2 p.32 and proof of Prop.5.5",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "cd_acyclic; cd_constant; coordinate_invariance",
+        "scalar_extension_invariance"
+      ],
+      "unitTests": [
+        "constant phase has cd=2N",
+        "nonconstant affine-linear phase has cd=−∞"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fouriercomplex"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/signconjugacy",
+      "kind": "theorem",
+      "name": "Sign reversal by coefficient conjugation",
+      "statement": "If ℓ has even order modulo p, cd_ψ(G)=cd_ψ(−G). A power of the unramified coefficient-field Frobenius on Q_ℓ(μ_p) sends μ_p to its inverse, giving semilinear cohomology isomorphisms.",
+      "locator": "arXiv v3, Lem.5.3 p.33",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cohdegree",
+        "PAPER-BROWNING-SAWIN-20/schreier"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/differencekun",
+      "kind": "theorem",
+      "name": "Tensor-product and difference identities for cohomological degree",
+      "statement": "cd(G)+cd(−G)=cd(G(x)−G(y))=cd(G(x)−G(x+y)); use the compact-support Künneth formula and an invertible triangular coordinate change. Interpret all identities in Z∪{−∞}.",
+      "locator": "arXiv v3, Lem.5.4 p.33",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cohdegree",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/cohweyl",
+      "kind": "theorem",
+      "name": "Geometric Weyl-differencing bound",
+      "statement": "For G in N variables of degree ≤k over F_q, p>k and ℓ of even order modulo p, cd(G)≤[dd_k(G)+N(2^{k−1}−(k−1))]/2^{k−2}. Include k=1 and all acyclic fibres; prove by differencing, projection, support dimension and induction.",
+      "locator": "arXiv v3, Prop.5.5 pp.34–35",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/difference",
+        "PAPER-BROWNING-SAWIN-20/signconjugacy",
+        "PAPER-BROWNING-SAWIN-20/differencekun",
+        "PAPER-BROWNING-SAWIN-20/affinevanishing"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/polarization",
+      "kind": "construction",
+      "name": "Top-degree multilinear polarization",
+      "statement": "In p>k write G_k(x)=Σ c_{i1,…,ik}x_i1⋯x_ik with symmetric c. The coefficients of x in the (k−1)-fold difference are k! times the corresponding symmetric multilinear forms. Thus V_k(G)=V_k(G_k) is cut out by N multilinear equations.",
+      "locator": "arXiv v3, §5 pp.35–36",
+      "status": "missing",
+      "owner": "ES",
+      "api": [
+        "symmetric_coefficients_from_monomials; factorial_unit",
+        "linear_coefficient_difference; lower_degree_invariance"
+      ],
+      "unitTests": [
+        "p dividing k! is excluded",
+        "adding lower-degree terms does not change V_k"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/difference"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/extensiondimension",
+      "kind": "theorem",
+      "name": "All-extension point bounds detect dimension",
+      "statement": "Let V be finite type over F_q. If one constant C satisfies #V(F_{q^r})≤C q^{rD} for every r≥1, then dim V≤D. Apply Lang–Weil on an irreducible component after its finite field of definition; a bound only over F_q is insufficient.",
+      "locator": "arXiv v3, Lem.5.6 p.36",
+      "status": "missing",
+      "owner": "FF",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/langweil"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/langweil",
+      "kind": "theorem",
+      "name": "Lang–Weil lower asymptotic needed by differencing",
+      "statement": "For geometrically irreducible finite-type V/F_Q of dimension e, #V(F_{Q^r})=Q^{re}+O_V(Q^{r(e−1/2)}) as r→∞ (with the zero-dimensional case separate). An irreducible geometric component descends to a finite extension. Only this input, not smooth-projective RH alone, proves extensiondimension.",
+      "locator": "arXiv v3, Lem.5.6 citing [18]",
+      "status": "missing",
+      "owner": "FF",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/ddminor",
+      "kind": "theorem",
+      "name": "Differencing-dimension bound outside a rank arc",
+      "statement": "For d≥k−1, d≤m≤kd/2 and b∉A_m^{kd}, the degree-≤k polynomial G_b(a)=e(a,b) in dn variables satisfies dd_k(G_b)≤dn(k−1)−n floor(m/(k−1)), assuming smooth f0 and p>k.",
+      "locator": "arXiv v3, Prop.5.7 p.37",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/extensiondimension",
+        "PAPER-BROWNING-SAWIN-20/Nidentity",
+        "PAPER-BROWNING-SAWIN-20/Nbound"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/stalkminor",
+      "kind": "theorem",
+      "name": "Stalk cohomology supported on a major arc",
+      "statement": "Under the same range and the even-order coefficient-prime hypothesis, the cohomology sheaf H^i(S_{d,f}) is supported on A_m whenever i>n(2d−floor(m/(k−1))/2^{k−2}).",
+      "locator": "arXiv v3, Prop.5.8 p.37",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cohweyl",
+        "PAPER-BROWNING-SAWIN-20/ddminor"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minorcover",
+      "kind": "theorem",
+      "name": "Correct finite stratification of the minor arcs",
+      "statement": "A^L\\A_d=⊔_{m=d}^{ceil(L/2)−1}(A_{m+1}\\A_m). The top index is a ceiling minus one; replacing it by floor(L/2)−1 misses the last stratum when L is odd.",
+      "locator": "arXiv v3, Proof of Prop.2.6 p.38, corrected",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/arcsfull",
+        "PAPER-BROWNING-SAWIN-20/arcsclosed"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minorsafe",
+      "kind": "theorem",
+      "name": "Conservative minor-arc vanishing with rounding retained",
+      "statement": "Under the main hypotheses, H_c^j(A^L\\A_d,S)=0 for j>2dn+4(k−1)−4tδ. Indeed each stratum has upper cohomological bound B(m)=2dn−n floor(m/(k−1))/2^{k−2}+4(m+1); writing m=(k−1)q+r yields B(m)=2dn−4qδ+4(r+1)≤2dn−4tδ+4(k−1). This is the proved arithmetic correction to the displayed method, conditional on its geometric intermediate inputs.",
+      "locator": "arXiv v3, Prop.2.6 and proof p.38, conservative repair",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/stalkminor",
+        "PAPER-BROWNING-SAWIN-20/minorcover",
+        "PAPER-BROWNING-SAWIN-20/goodarciso"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minorsharpgate",
+      "kind": "theorem",
+      "name": "Unclosed sharp minor-arc target",
+      "statement": "Target stated in Prop.2.6: under the main hypotheses, H_c^j(A^L\\A_d,S)=0 for j>2dn+4−4tδ. The proof printed on p.38 does not establish it. No unconditional certification is made: a new estimate improving the rounding remainder is required. Use minorsafe until that input exists.",
+      "locator": "arXiv v3, Prop.2.6 p.12; proof p.38",
+      "status": "missing",
+      "owner": "GCM",
+      "proofStatus": "unresolved-source-claim",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/stalkminor",
+        "PAPER-BROWNING-SAWIN-20/minorcover"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/shiftE1",
+      "kind": "theorem",
+      "name": "Shifted finite-field E1 formula",
+      "statement": "Shift the major-arc complex by 2dn and twist by kd. For 0≤m≤d, E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), zero otherwise; d_r has bidegree (r,1−r) and odd r vanish in the main range.",
+      "locator": "arXiv v3, Thm.2.7(1),(2) p.12",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/majorE1",
+        "PAPER-BROWNING-SAWIN-20/oddpages"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/comparisonsafe",
+      "kind": "theorem",
+      "name": "Conservative cohomology comparison range",
+      "statement": "The shifted major-arc spectral sequence converges to a complex whose degree-i cohomology is H_c^{i+2D}(Mor_{d,x},E), Frobenius-equivariantly over F_q, for i>−4(tδ−(k−1)). Use minorsafe, the localization triangle, and orthogonality. Over general K it is a noncanonical vector-space comparison after spreading out the full pair.",
+      "locator": "arXiv v3, Thm.2.7(3); Thm.1.1, conservative repaired range",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/shiftE1",
+        "PAPER-BROWNING-SAWIN-20/minorsafe",
+        "PAPER-BROWNING-SAWIN-20/orthogonality",
+        "PAPER-BROWNING-SAWIN-20/spread"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/comparisonsharpgate",
+      "kind": "theorem",
+      "name": "Original sharp comparison target, explicitly gated",
+      "statement": "Theorems 1.1 and 2.7 claim the preceding comparison for i>−4(tδ−1). Retain that exact target only as conditional on minorsharpgate and coefficient descent/spreading closure; it is not established by this checkpoint.",
+      "locator": "arXiv v3, Thm.1.1 p.2; Thm.2.7(3) p.12",
+      "status": "missing",
+      "owner": "GCM",
+      "proofStatus": "unresolved-source-claim",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/shiftE1",
+        "PAPER-BROWNING-SAWIN-20/minorsharpgate",
+        "PAPER-BROWNING-SAWIN-20/orthogonality",
+        "PAPER-BROWNING-SAWIN-20/spread"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/spread",
+      "kind": "construction",
+      "name": "Spreading out the pair and cohomology",
+      "statement": "Choose a finitely generated subring R⊂K containing coefficients of f AND coordinates x, invert suitable elements for x≠0, degrees and both smoothness conditions, and stratify compact-cohomology pushforwards to obtain a common lisse open for finitely many nonzero degrees. Transport ranks to a closed finite-field point; in characteristic zero also choose p>k with ℓ of even order mod p.",
+      "locator": "arXiv v3, Proof of Thm.1.1 p.13",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "model_pair; finite_amplitude_common_open",
+        "closed_point_good_characteristic; noncanonical_transport"
+      ],
+      "unitTests": [
+        "x need not lie in the ring generated by f's coefficients",
+        "Spec K need not equal Spec Frac R"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/constructibility"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configsupport",
+      "kind": "theorem",
+      "name": "Configuration compact-cohomology support",
+      "statement": "For m≥1, H_c^a(PConf_m,E)=0 unless m+1≤a≤2m. Translation gives PConf_m≅A1×(PConf_m/G_a), with the quotient affine smooth of dimension m−1; use affine vanishing, duality and the A1 shift. For m=0 only a=0 survives.",
+      "locator": "arXiv v3, Lem.2.8 proof p.14",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/affinevanishing",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E1support",
+      "kind": "theorem",
+      "name": "E1 support region",
+      "statement": "E1^{m,s} can be nonzero only at (m,s)=(0,0), or 1≤m≤d with −m(n−1)+1≤s≤−m(n−2).",
+      "locator": "arXiv v3, Lem.2.8 p.14",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/shiftE1",
+        "PAPER-BROWNING-SAWIN-20/configsupport"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/cohsupport",
+      "kind": "theorem",
+      "name": "Compact cohomology vanishing bands",
+      "statement": "Within the conservative comparison range i>−4(tδ−(k−1)), H_c^{i+2D}(Mor)=0 unless i=0 or 1−m(n−2)≤i≤−m(n−3) for some 1≤m≤d. The original Cor.1.2 asserts this in the sharper gated range.",
+      "locator": "arXiv v3, Cor.1.2 p.3, repaired range",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/comparisonsafe",
+        "PAPER-BROWNING-SAWIN-20/E1support"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/topdegeneration",
+      "kind": "theorem",
+      "name": "Automatic E1 degeneration near the top",
+      "statement": "For m+s>1−2(n−2)(n−3), E∞^{m,s}=E1^{m,s}. A potentially nonzero r≥2 differential forces m≥r(n−3)+2≥2n−4. To identify these terms with Mor cohomology also impose the applicable comparison range.",
+      "locator": "arXiv v3, §1 p.5 after Conj.1.3",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/E1support",
+        "PAPER-BROWNING-SAWIN-20/oddpages"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/irreduciblesafe",
+      "kind": "theorem",
+      "name": "Conservative irreducibility and expected dimension",
+      "statement": "If d≥k−1≥2, p=0 or p>k, and tδ>k−1, then the corrected comparison reaches i=0; Mor_{d,x} is geometrically irreducible of dimension D. Combine top compact cohomology of rank one with the componentwise dimension lower bound. The source's weaker endpoint condition tδ≥1 is not certified.",
+      "locator": "arXiv v3, Cor.1.4/2.9 pp.6,14, conservative sufficient hypothesis",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/cohsupport",
+        "PAPER-BROWNING-SAWIN-20/dimensionlower",
+        "PAPER-BROWNING-SAWIN-20/comparisonsafe",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/smallcounter",
+      "kind": "theorem",
+      "name": "Small-degree excess-dimension example",
+      "statement": "For 1≤d<k−1, f=x1^{k−1}x2+x2^k+⋯+xn^k+1, P=(1:0:⋯:0), p=0 or p>k, the x2=0 mapping locus has dimension at least D−d+k−1>D over an algebraically closed field. It is nonempty by a constant solution in the remaining coordinates.",
+      "locator": "arXiv v3, Remark1.5 p.6",
+      "status": "missing",
+      "owner": "GCM",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/dimensionlower"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/degenerationconjecture",
+      "kind": "definition",
+      "name": "Unproved E1-degeneration proposition",
+      "statement": "Define, do not assert, the proposition that H_c^{i+2D}(Mor,E)≅⊕_{m≥0}(H_c^{i+m(n−1)}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m} for i>−4(tδ−1), under the main geometric and characteristic hypotheses. Terms beyond m=d vanish in the stated stable range. This is Conjecture1.3, not a theorem.",
+      "locator": "arXiv v3, Conj.1.3 p.5",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "conjecture_is_Prop; range_restriction",
+        "degeneration_implies_dimension_identity"
+      ],
+      "unitTests": [
+        "odd-page vanishing alone does not imply d2=0"
+      ],
+      "proofStatus": "conjecture",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/hypersurfmiddle"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/infinitynorm",
+      "kind": "definition",
+      "name": "Function-field norm and fractional part",
+      "statement": "On F_q((T^{−1})), |Σ_{i≤r}c_iT^i|=q^r for c_r≠0, |0|=0. The fractional part keeps negative powers; ||α|| is its norm. Vector norms are maxima. Strict |u|<q^h for u∈F_q[T] means deg u<h.",
+      "locator": "arXiv v3, §6 p.39",
+      "status": "missing",
+      "owner": "LAT",
+      "api": [
+        "norm_mul; ultrametric; fractional_part_add",
+        "polynomial_box_cardinality; strict_inequality_degree"
+      ],
+      "unitTests": [
+        "|T|=q while the formal-series variable X=T^{-1} has norm q^{-1}",
+        "|0|=0"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/liblaurent"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/polarlocus",
+      "kind": "definition",
+      "name": "Polar forms of the leading hypersurface",
+      "statement": "For symmetric coefficients c of f0, set Ψ_j(u^(1),…,u^(k−1))=k!Σ_{j1,…,j{k−1}}c_{j1,…,j{k−1},j}∏_r u_{j_r}^{(r)}. On the diagonal Ψ_j(u,…,u)=(k−1)!∂_j f0(u).",
+      "locator": "arXiv v3, §6 pp.38–39",
+      "status": "missing",
+      "owner": "ES",
+      "api": [
+        "multilinear_each_slot; symmetric_slots",
+        "diagonal_gradient; degree_each_block"
+      ],
+      "unitTests": [
+        "p>k makes the factorial invertible",
+        "smooth Z makes the common diagonal zero locus {0}"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/polarization"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/topphase",
+      "kind": "theorem",
+      "name": "Degree-k part of the residue phase",
+      "statement": "The degree-k homogeneous part of G_b(a) equals Σ_{j1,…,jk}Σ_{0≤i1,…,ik<d}c_{j1,…,jk} b_{i1+⋯+ik+1}∏_r a_{i_r,j_r}. The full G_b may have lower-degree terms, but V_k(G_b)=V_k((G_b)_k).",
+      "locator": "arXiv v3, §6 pp.38–39, corrected full-polynomial identity",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/phase",
+        "PAPER-BROWNING-SAWIN-20/polarization"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/Nalpha",
+      "kind": "definition",
+      "name": "Function-field differencing count",
+      "statement": "N(α)=#{u=(u^(1),…,u^(k−1))∈F_q[T]^{n(k−1)}: |u^(r)|<q^d and ||α Ψ_j(u)||<q^{−d} for all j}. For 0≤s≤d define N_s by replacing the box q^d by q^{d−s} and the fractional threshold q^{−d} by q^{−d−(k−1)s}.",
+      "locator": "arXiv v3, §6 pp.39–42",
+      "status": "missing",
+      "owner": "ES",
+      "api": [
+        "finite_count; N_zero_shrink; threshold_coefficients",
+        "base_field_extension; box_inclusion"
+      ],
+      "unitTests": [
+        "N_s≥1 from the zero tuple",
+        "strict thresholds include neither degree boundary"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/polarlocus",
+        "PAPER-BROWNING-SAWIN-20/infinitynorm"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/Nidentity",
+      "kind": "theorem",
+      "name": "Differencing points equal the arithmetic count",
+      "statement": "For α=Σ_{r=1}^{kd}b_rT^{−r}, #V_k(G_b)(F_q)=N(α). Matching coefficients turns each polarization equation into the vanishing of the first d negative coefficients of αΨ_j.",
+      "locator": "arXiv v3, Lem.6.1 pp.39–40",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/Nalpha",
+        "PAPER-BROWNING-SAWIN-20/topphase"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/Nbound",
+      "kind": "theorem",
+      "name": "Uniform minor-arc differencing count",
+      "statement": "For d≥k−1, d≤m≤kd/2 and b∉A_m^{kd}, N(α)≪_{d,k,n}q^{dn(k−1)−n floor(m/(k−1))}. The implied constant is independent of q and of extension degree; p>k and smoothness of f0 are required.",
+      "locator": "arXiv v3, Prop.6.2 p.40",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/itershrink",
+        "PAPER-BROWNING-SAWIN-20/shortzero",
+        "PAPER-BROWNING-SAWIN-20/polardimension",
+        "PAPER-BROWNING-SAWIN-20/polynomialbox"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/lattice",
+      "kind": "definition",
+      "name": "Polynomial lattices over the Laurent local field",
+      "statement": "For invertible M∈GL_N(F_q((T^{-1}))), the lattice is M F_q[T]^N. Its adjoint is (M^{-1})^t F_q[T]^N relative to the standard dot pairing. Define successive minima R_i as the least radii with i independent lattice vectors; keep strict/open-ball counting conventions distinct.",
+      "locator": "arXiv v3, §6 after Prop.6.2 pp.40–41",
+      "status": "missing",
+      "owner": "LAT",
+      "api": [
+        "basis_change_GL_polynomial; adjoint_involution",
+        "successive_minima_monotone; norm_discrete"
+      ],
+      "unitTests": [
+        "rank one T^a F_q[T] has first minimum q^a",
+        "replacing M by a singular matrix is invalid"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/infinitynorm"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minimacount",
+      "kind": "theorem",
+      "name": "Ultrametric reduced basis and exact box count",
+      "statement": "A full polynomial lattice has a norm-orthogonal reduced basis with norms R_i. Its number of vectors of norm <q^h is ∏_i max(q^h/R_i,1) when h is integral. The product formula uses the discrete value group and polynomial coefficient counts.",
+      "locator": "arXiv v3, §6 Lem.6.4 proof pp.41–42; [5] §4",
+      "status": "missing",
+      "owner": "LAT",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/lattice"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/minimadual",
+      "kind": "theorem",
+      "name": "Adjoint successive-minima duality",
+      "statement": "For a lattice Λ and its adjoint Λ*, ordered minima satisfy R_i(Λ)R_{N+1−i}(Λ*)=1. Prove the nonarchimedean reduced-basis theorem rather than importing Euclidean Minkowski bounds.",
+      "locator": "arXiv v3, §6 p.40 citing [5] §4",
+      "status": "missing",
+      "owner": "LAT",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/minimacount"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/Nlinear",
+      "kind": "definition",
+      "name": "Symmetric simultaneous-approximation counting function",
+      "statement": "For symmetric γ∈M_n(F_q((T^{-1}))) and integers a,c with c>0, N_{γ,a,c}=#{u∈F_q[T]^n: |u|<q^a, ||γu||<q^{−c}}. The auxiliary polynomial vector eliminating the integer part is unique because c>0.",
+      "locator": "arXiv v3, Lem.6.4 setup p.40",
+      "status": "missing",
+      "owner": "LAT",
+      "api": [
+        "unique_integer_part; block_lattice_equiv",
+        "symmetry_required; count_finite"
+      ],
+      "unitTests": [
+        "γ=0 gives q^{n max(a,0)}",
+        "a≤0 leaves only u=0"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/infinitynorm"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/specialminima",
+      "kind": "theorem",
+      "name": "Duality for the symmetric block lattice",
+      "statement": "For Λ represented by [[T^{−a}I,0],[T^cγ,T^c I]], γ symmetric, the adjoint is isometric to T^{a−c}Λ after sign changes and swapping blocks. Hence R_iR_{2n+1−i}=q^{c−a}.",
+      "locator": "arXiv v3, Lem.6.4 proof p.41",
+      "status": "missing",
+      "owner": "LAT",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/minimadual",
+        "PAPER-BROWNING-SAWIN-20/Nlinear"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/shrink",
+      "kind": "theorem",
+      "name": "Exact symmetric-lattice shrinking inequality",
+      "statement": "For a,c,s∈Z, c>0,s≥0 and γ symmetric, N_{γ,a,c}/N_{γ,a−s,c+s}≤q^{ns+n max(floor((a−c)/2),0)}. Equivalently clear the positive denominator. Derive by separating minima pairs across the unit radius.",
+      "locator": "arXiv v3, Lem.6.4 pp.40–42",
+      "status": "missing",
+      "owner": "LAT",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/specialminima",
+        "PAPER-BROWNING-SAWIN-20/minimacount"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/itershrink",
+      "kind": "theorem",
+      "name": "Iterated multilinear shrinking",
+      "statement": "In the setting of Nalpha, for integer 0≤s≤d, N(α)≤q^{(k−1)ns}N_s(α). Shrink one vector block at a time; polarization symmetry makes each coefficient matrix symmetric and the floor correction zero.",
+      "locator": "arXiv v3, Proof of Prop.6.2 p.42",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/Nalpha",
+        "PAPER-BROWNING-SAWIN-20/shrink",
+        "PAPER-BROWNING-SAWIN-20/polarlocus"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/shortzero",
+      "kind": "theorem",
+      "name": "Minor-arc exclusion forces the shrunken polar values to vanish",
+      "statement": "Take s=d−floor(m/(k−1)). If b∉A_m and u is counted by N_s, then every Ψ_j(u)=0. A nonzero Ψ_j would give a rational approximation to α with denominator degree at most m and the error required by Lem.2.4, contradicting b∉A_m.",
+      "locator": "arXiv v3, Proof of Prop.6.2 pp.42–43",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/Nalpha",
+        "PAPER-BROWNING-SAWIN-20/padeexist"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/polardimension",
+      "kind": "theorem",
+      "name": "Dimension bound for the common polar-zero variety",
+      "statement": "For smooth f0 and p>k, W={Ψ_1=⋯=Ψ_n=0}⊂A^{n(k−1)} has dim W≤n(k−2): its intersection with the diagonal A^n is only 0, and the affine dimension inequality gives the bound.",
+      "locator": "arXiv v3, Proof of Prop.6.2 p.43",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/polarlocus"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/polynomialbox",
+      "kind": "theorem",
+      "name": "Degree-uniform polynomial point bound",
+      "statement": "For affine V⊂A^N over F_q(T), defined over F_q[T], of dimension e and degree Δ, the number of polynomial points with |u|<q^h is O_{Δ,N}(q^{he}) for integral h≥1, uniformly in q. The application is to W of bounded degree depending only on n,k; dimension zero and h=0 need separate elementary handling.",
+      "locator": "arXiv v3, Proof of Prop.6.2 citing [4] Lem.2.8; original author PDF p.12",
+      "status": "missing",
+      "owner": "ES",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/localgerm",
+      "kind": "definition",
+      "name": "Continuous mapping space with prescribed infinity germ",
+      "statement": "For K=C define Hom_{d,P} using continuous maps P1(C)→Xbar, sending ∞ to P, finite points into X, and with local homogeneous coordinates (x1+O(|z|),…,xn+O(|z|),z^d+O(|z|^{d+1})) near z=0. A formal construction must specify the topology and uniformity of germ bounds in families before claiming homotopy equivalences.",
+      "locator": "arXiv v3, §7 pp.43–44",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "polynomial_map_inclusion; germ_coordinate_independence",
+        "based_boundary_data; continuous_family_control"
+      ],
+      "unitTests": [
+        "a family of shrinking neighbourhoods is not automatically a uniform homotopy",
+        "not the full unrestricted continuous mapping space"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/tracepairingconjecture",
+      "kind": "definition",
+      "name": "Unproved algebraic-to-continuous trace comparison",
+      "statement": "For X as above over C define the assertion that the cup-product/trace pairing H_c^{2D−j}(Mor,Q)⊗H^j(Hom_{d,P},Q)→Q is perfect for 0≤j<4(tδ−1). This is Conjecture7.1. It is not a claim that Mor is smooth or proper, nor a proved comparison theorem.",
+      "locator": "arXiv v3, Conj.7.1 p.43",
+      "status": "missing",
+      "owner": "GCM",
+      "api": [
+        "pullback_continuous_class; compact_support_cup",
+        "trace_in_degree_2D; perfect_pairing_Prop"
+      ],
+      "unitTests": [
+        "a conjecture is not registered as an instance or axiom",
+        "finite-dimensional duality requires the range and irreducibility inputs"
+      ],
+      "proofStatus": "conjecture",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/localgerm",
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/homloops",
+      "kind": "theorem",
+      "name": "Continuous mapping space versus the double loop space",
+      "statement": "When Hom_{d,P} is nonempty, Lem.7.2 claims a homotopy equivalence Hom_{d,P}≃Ω²X. Fix a reference map with the same infinity germ, straighten the germ and glue two discs. Supply uniform-family continuity and the chosen mapping-space topology; this checkpoint has not closed that construction.",
+      "locator": "arXiv v3, Lem.7.2 pp.43–44",
+      "status": "missing",
+      "owner": "GCM",
+      "proofStatus": "construction-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/localgerm",
+        "PAPER-BROWNING-SAWIN-20/libloop"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/eulerexponents",
+      "kind": "definition",
+      "name": "Signed Witt–Euler exponents",
+      "statement": "For N≥0 and a fixed parity n, define integers e_r(N) by ∏_{r≥1}(1−T^r)^{−e_r(N)}=1+(−1)^{n−1}NT in Z[[T]]. Coefficients are defined degreewise using only finitely many factors.",
+      "locator": "arXiv v3, Def.7.3 p.44",
+      "status": "missing",
+      "owner": "TOP",
+      "api": [
+        "recursive_integer_definition; product_unique",
+        "finite_truncation; N_zero"
+      ],
+      "unitTests": [
+        "N=0 gives every e_r=0",
+        "n odd,N=1 gives e1=1,e2=−1,e_r=0 for r>2"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/mobiusEuler",
+      "kind": "theorem",
+      "name": "Möbius formula for the Euler exponents",
+      "statement": "For r≥1, e_r(N)=−(1/r)Σ_{a|r}μ(a)((−1)^n N)^{r/a}. Use a formal logarithmic derivative and Möbius inversion; show integrality via the defining integer Euler product rather than division in Z without a proof.",
+      "locator": "arXiv v3, Eq.(7.2) p.44",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/eulerexponents",
+        "PAPER-BROWNING-SAWIN-20/libmobius"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configtrace",
+      "kind": "theorem",
+      "name": "Twisted configuration trace formula",
+      "statement": "For a characteristic-zero S_m character χ, Σ_{f monic squarefree,deg f=m}χ(Frob_f)=Σ_a(−1)^a q^{m−a}〈χ,H^a(PConf_m,E)〉=Σ_i(−1)^{m−i}q^i〈χ,H_c^{m+i}(PConf_m,E)〉. The first cohomology is ORDINARY, not compactly supported.",
+      "locator": "arXiv v3, Lem.7.4 proof p.45; [6] Thm.3.7",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/arrangementpure",
+        "PAPER-BROWNING-SAWIN-20/trace"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/arrangementpure",
+      "kind": "theorem",
+      "name": "Split hyperplane-complement cohomology",
+      "statement": "For a finite set of hyperplanes defined over F_q in A^m and ℓ≠p, ordinary étale cohomology of their complement is generated by the degree-one hyperplane classes; H^a is a direct sum of E(−a), so Frobenius acts by q^a. Apply to PConf_m and compare with complex cohomology.",
+      "locator": "arXiv v3, Lem.7.4 input [6] Prop.3.3 and Thm.3.7",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/betti"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configEuler",
+      "kind": "theorem",
+      "name": "Twisted configuration multiplicities by Euler products",
+      "statement": "For V of dimension N, dim(H_c^{m+i}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}=(−1)^{mn+i}[q^i U^m]∏_{r≥1}(1−qU^r)^{−e_r(N)}. The character of V^{⊗m} is N^{number of cycles}; the sign twist changes it by (−1)^{(n−1)(m−cycles)}.",
+      "locator": "arXiv v3, Lem.7.4 pp.44–45",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configtrace",
+        "PAPER-BROWNING-SAWIN-20/mobiusEuler"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/configdiagonal",
+      "kind": "theorem",
+      "name": "Stable diagonal coefficient identity",
+      "statement": "For integers j,d,N≥0,n>3 and d(n−3)≥j, Σ_{m=0}^d dim(H_c^{mn−m−j}(PConf_m,E)⊗V^{⊗m}⊗sgn^{n−1})^{S_m}=[q^{−j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{−e_r(N)}. Extract the relevant weighted diagonal of the two-variable series; it is not the entire series.",
+      "locator": "arXiv v3, Cor.7.5 p.46, corrected coefficient-extraction proof",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/configEuler"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/tameness",
+      "kind": "definition",
+      "name": "Tame polynomial at infinity",
+      "statement": "For a complex polynomial f, use Broughton's gradient criterion: outside a compact subset of C^n the gradient norm is bounded below by a positive constant. A smooth homogeneous leading form implies the stronger growth ||∇f(z)||≥c||z||^{k−1} for sufficiently large ||z|| by compactness of the unit sphere.",
+      "locator": "arXiv v3, Lem.7.6 proof p.46 citing [3]",
+      "status": "missing",
+      "owner": "TOP",
+      "api": [
+        "leading_gradient_no_common_zero; sphere_minimum",
+        "lower_terms_negligible; tame_from_smooth_leading"
+      ],
+      "unitTests": [
+        "nonisolated leading-gradient zeros prevent this argument",
+        "the noncompact fibre need not be projective"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/bouquet",
+      "kind": "theorem",
+      "name": "Smooth tame fibre has the homotopy type of a sphere bouquet",
+      "statement": "For a regular fibre X of a tame complex polynomial in n variables, the source uses Broughton Theorem2 to conclude X≃∨_N S^{n−1}, where N=dim H^{n−1}(X,Q). Exact original-source hypotheses and proof remain to be verified; retain this as an explicit prerequisite gate.",
+      "locator": "arXiv v3, Lem.7.6 proof p.46; [3] Thm.2",
+      "status": "missing",
+      "owner": "TOP",
+      "proofStatus": "original-source-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/tameness"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/hilton",
+      "kind": "theorem",
+      "name": "Hilton decomposition for an equal-dimensional wedge",
+      "statement": "For n≥3, π_i(∨_N S^{n−1}) decomposes into the finite-degree relevant factors π_i(S^{w(n−2)+1}), with multiplicity (1/w)Σ_{a|w}μ(a)N^{w/a}. The original [14] Cor.4.10 and its wedge/product conventions require verification before implementation.",
+      "locator": "arXiv v3, Lem.7.6 proof pp.46–47; [14] Cor.4.10",
+      "status": "missing",
+      "owner": "TOP",
+      "proofStatus": "original-source-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/spheresrational",
+      "kind": "theorem",
+      "name": "Rational homotopy of simply connected spheres",
+      "statement": "For m≥2, π_i(S^m)⊗Q has rank 1 at i=m, and also at i=2m−1 if m is even, and is zero otherwise. Do not extend the statement blindly to S1 and nonconnected iterated loops.",
+      "locator": "arXiv v3, Lem.7.6 pp.46–47",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/wedgehomotopy",
+      "kind": "theorem",
+      "name": "Rational homotopy ranks in signed Euler notation",
+      "statement": "For n≥3 and X≃∨_N S^{n−1}, dim_Q π_{r(n−2)+1}(X)⊗Q=(−1)^{r(n−2)−1}e_r(N); all other positive rational homotopy groups vanish. For odd n, include the second rational homotopy class of even spheres in the Möbius calculation.",
+      "locator": "arXiv v3, Lem.7.6 proof pp.46–47",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/hilton",
+        "PAPER-BROWNING-SAWIN-20/spheresrational",
+        "PAPER-BROWNING-SAWIN-20/mobiusEuler"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/rationalHspace",
+      "kind": "theorem",
+      "name": "Rational cohomology of the connected double-loop H-space",
+      "statement": "For n≥4 and X≃∨_N S^{n−1}, Ω²X is connected and of finite rational type degreewise. Its rational cohomology is a free graded-commutative algebra on the dual rational homotopy generators shifted down two degrees, with ranks given by wedgehomotopy. Verify Sullivan p.311's hypotheses before treating this as closed.",
+      "locator": "arXiv v3, Lem.7.6 proof p.47; [25] p.311",
+      "status": "missing",
+      "owner": "TOP",
+      "proofStatus": "original-source-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/wedgehomotopy",
+        "PAPER-BROWNING-SAWIN-20/libloopshift"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/loopbetti",
+      "kind": "theorem",
+      "name": "Double-loop Betti series in the connected range",
+      "statement": "For n≥4 and smooth affine X⊂C^n with smooth degree-k leading form, dim H^j(Ω²X,Q)=[q^{−j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{−e_r(N)}, where N=dim H^{n−1}(X,Q). This corrects the printed n≥2: at n=3 the full Ω²X can have infinitely many components. The coefficientwise product is well-defined for n≥4.",
+      "locator": "arXiv v3, Lem.7.6 pp.46–47, corrected range",
+      "status": "missing",
+      "owner": "TOP",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/rationalHspace",
+        "PAPER-BROWNING-SAWIN-20/bouquet"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/conditionaldegeneration",
+      "kind": "theorem",
+      "name": "Conditional implication from the comparison conjecture",
+      "statement": "Over C in the main parameter range, Conjecture7.1 implies Conjecture1.3 PROVIDED the sharp spectral-sequence comparison, the mapping-space equivalence and the rational-homotopy prerequisites are established. Compare dimensions of H_c^{i+2D}(Mor), not ordinary cohomology, with the E1 diagonal via configdiagonal and loopbetti; dimensions force all differentials touching that diagonal to vanish.",
+      "locator": "arXiv v3, Thm.7.7 pp.47–48, dependencies exposed",
+      "status": "missing",
+      "owner": "GCM",
+      "proofStatus": "conditional",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/tracepairingconjecture",
+        "PAPER-BROWNING-SAWIN-20/homloops",
+        "PAPER-BROWNING-SAWIN-20/loopbetti",
+        "PAPER-BROWNING-SAWIN-20/configdiagonal",
+        "PAPER-BROWNING-SAWIN-20/comparisonsharpgate",
+        "PAPER-BROWNING-SAWIN-20/betti"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/sixoperations",
+      "kind": "construction",
+      "name": "Shared constructible compact-support operations",
+      "statement": "Use the single bounded constructible ℓ-adic category with Rf!, geometric stalk base change, localization triangles, projection formula, Künneth and coefficient extension. Verify separation/finite type and finite cohomological dimension in each application; no arbitrary six-functor-valued assumptions.",
+      "locator": "§§2–5; SGA4 XVII–XVIII",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "api": [
+        "Rf_comp; stalk_base_change; localization_triangle",
+        "kunnëth; coefficient_extension"
+      ],
+      "unitTests": [
+        "RΓ_c(A1)=E[−2](−1)",
+        "open–closed exact sequence has the correct arrow direction"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/trace",
+      "kind": "theorem",
+      "name": "Smooth trace and duality",
+      "statement": "For smooth pure r-dimensional Y over a separably closed field, RΓ_c(Y,E)⊗RΓ(Y,E)→E[−2r](−r) is the Poincaré pairing. For geometrically connected Y, H_c^{2r}=E(−r). Retain the negative Tate twist.",
+      "locator": "Lemmas3.2,3.7,4.2,4.4 and §7",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.2"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/weaklefschetz",
+      "kind": "theorem",
+      "name": "Weak Lefschetz for the projective closure and boundary",
+      "statement": "For a smooth ample divisor Z in a smooth projective r-fold Xbar, H^i(Xbar,E)→H^i(Z,E) is an isomorphism for i<r−1 and injective for i=r−1; combine with the dual Gysin map and affine Artin vanishing.",
+      "locator": "Lem.3.11; Lem.4.2",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.4"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/trace",
+        "PAPER-BROWNING-SAWIN-20/affinevanishing"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/betti",
+      "kind": "theorem",
+      "name": "Étale–singular comparison with compact supports",
+      "statement": "For complex finite-type separated varieties and admissible coefficients, compare geometric étale and singular cohomology with compact supports, compatibly with traces, products and finite-group actions. Do not replace H_c by H in the nonproper mapping scheme.",
+      "locator": "§7 Thm.7.7 proof",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.6"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/sixoperations",
+        "PAPER-BROWNING-SAWIN-20/ordinarytopology"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/constructibility",
+      "kind": "theorem",
+      "name": "Constructibility and smooth/proper base change",
+      "statement": "Finite-type compact-support pushforwards are constructible with finite amplitude in the stated coefficient setting; smooth proper higher pushforwards are lisse. For nonproper morphisms use constructibility and an explicitly selected stratum, not global smooth-proper base change.",
+      "locator": "Proof of Thm.1.1; Lem.4.2",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/ordinarytopology",
+      "kind": "construction",
+      "name": "Shared singular and relative topology infrastructure",
+      "statement": "Import relative singular chains, cohomology products, excision and manifold duality from the existing Tau Ceti AlgebraicTopology roadmap; mapping spaces and rational homotopy add only the missing interfaces.",
+      "locator": "§7 pp.43–48",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ],
+      "api": [
+        "cup_compact_support; homotopy_invariance",
+        "trace_orientation; finite_cover_transfer"
+      ],
+      "unitTests": [
+        "homotopy-equivalent noncompact spaces need not have isomorphic compact-support cohomology"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libchar",
+      "kind": "definition",
+      "name": "Additive character carrier",
+      "statement": "AddChar A M stores a map from an additive monoid A to a multiplicative monoid M with ψ(0)=1 and ψ(a+b)=ψ(a)ψ(b).",
+      "locator": "Mathlib/Algebra/Group/AddChar.lean:70",
+      "status": "library",
+      "library": [
+        "mathlib:AddChar"
+      ],
+      "api": [
+        "map_zero_eq_one; map_add_eq_mul; ext"
+      ],
+      "unitTests": [
+        "the trivial character is constant one"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/liborthog",
+      "kind": "theorem",
+      "name": "Finite character orthogonality",
+      "statement": "For a finite additive group A and a domain commutative semiring R, the sum of ψ:AddChar A R is |A| for the trivial character and zero otherwise.",
+      "locator": "Mathlib/Algebra/Group/AddChar.lean:329",
+      "status": "library",
+      "library": [
+        "mathlib:AddChar.sum_eq_ite"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/liblaurent",
+      "kind": "definition",
+      "name": "Laurent-series carrier",
+      "statement": "LaurentSeries R is HahnSeries Z R. Use its formal variable as T^{-1}; this carrier alone is not the q-adic norm, polynomial lattice or fractional-part counting API.",
+      "locator": "Mathlib/RingTheory/LaurentSeries.lean:102",
+      "status": "library",
+      "library": [
+        "mathlib:LaurentSeries"
+      ],
+      "api": [
+        "reuse_HahnSeries_operations; variable_convention"
+      ],
+      "unitTests": [
+        "T corresponds to the inverse of the formal series variable"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libspectral",
+      "kind": "definition",
+      "name": "Cohomological spectral-sequence carrier",
+      "statement": "CategoryTheory.CohomologicalSpectralSequence is SpectralSequence with complex-shape differential (r,1−r), including successive-page homology isomorphisms. It does not include the finite-filtration construction or convergence theorem.",
+      "locator": "Mathlib/Algebra/Homology/SpectralSequence/Basic.lean:110",
+      "status": "library",
+      "library": [
+        "mathlib:CategoryTheory.SpectralSequence",
+        "mathlib:CategoryTheory.CohomologicalSpectralSequence"
+      ],
+      "api": [
+        "pageFunctor; pageHomologyNatIso"
+      ],
+      "unitTests": [
+        "a sequence of pages is not an abutment filtration"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libgoursat",
+      "kind": "theorem",
+      "name": "Abstract group Goursat ingredient",
+      "statement": "A subgroup of G×H projecting surjectively to both factors is described by a graph between quotient groups as in Subgroup.goursat_surjective. This is only the abstract group ingredient; closed algebraic-group quotients and Lie-type exclusions remain missing.",
+      "locator": "Mathlib/GroupTheory/Goursat.lean",
+      "status": "library",
+      "library": [
+        "mathlib:Subgroup.goursat_surjective"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libloop",
+      "kind": "definition",
+      "name": "Generalized based loop carrier",
+      "statement": "GenLoop is the subtype of continuous maps I^N→X sending Cube.boundary N to the basepoint. Taking N=Fin 2 supplies a double-loop carrier, not the paper's germ mapping-space equivalence.",
+      "locator": "Mathlib/Topology/Homotopy/HomotopyGroup.lean:97",
+      "status": "library",
+      "library": [
+        "mathlib:GenLoop"
+      ],
+      "api": [
+        "boundary_condition; based_constant_map"
+      ],
+      "unitTests": [
+        "N=Fin 2 has an entire square boundary fixed"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libloopshift",
+      "kind": "theorem",
+      "name": "Iterated-loop homotopy shifts",
+      "statement": "Tau Ceti supplies zerothHomotopyEquiv identifying components of generalized loops with the corresponding homotopy group, and piLoopSpaceMulEquiv shifting positive homotopy groups of iterated loops. These do not supply rational sphere or bouquet calculations.",
+      "locator": "TauCeti/Topology/Homotopy/HomotopyGroup/LoopSpace.lean:211,329",
+      "status": "library",
+      "library": [
+        "tauceti:HomotopyGroup.zerothHomotopyEquiv",
+        "tauceti:HomotopyGroup.piLoopSpaceMulEquiv"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/libmobius",
+      "kind": "theorem",
+      "name": "Ring-valued divisor Möbius inversion",
+      "statement": "For functions f,g:N→R with R a nonassociative ring, the identities Σ_{i|n} f(i)=g(n) for n>0 are equivalent to Σ_{(a,b):ab=n}μ(a)g(b)=f(n).",
+      "locator": "Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean:236",
+      "status": "library",
+      "library": [
+        "mathlib:ArithmeticFunction.sum_eq_iff_sum_mul_moebius_eq"
+      ],
+      "note": "Declaration statement opened at the pinned commit; only the stated carrier/lemma is credited, not the paper-level theorem.",
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fourierdeligne",
+      "kind": "construction",
+      "name": "One-dimensional Fourier–Deligne transform",
+      "statement": "For K∈D_c^b(A1,E), define FT_ψ(K)=Rpr2!(pr1*K⊗L_ψ(xy))[1]. Establish inversion, shifts, and the middle-extension behaviour needed below; this is not the finite numerical Fourier transform.",
+      "locator": "arXiv v3, Lem.3.7 p.23, author [16] §8.2.5(2), journal [15]",
+      "status": "missing",
+      "owner": "FF",
+      "api": [
+        "transform_definition; inversion_shift_twist",
+        "middle_extension_comparison; coefficient_extension"
+      ],
+      "unitTests": [
+        "constant sheaf transforms to a point-supported object with the prescribed shift"
+      ],
+      "proofStatus": "original-source-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/schreier",
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/fourierinput",
+      "kind": "theorem",
+      "name": "Fourier input for the one-modulus trace map",
+      "statement": "For a nonconstant one-variable polynomial f of degree <p, the exponential family on G_m has the cohomological support used in Lem.3.7: RΓ_c(G_m×A1,L_ψ(hf(a))) is concentrated in degrees ≤2. The cited Fourier middle-extension/no-constant-quotient argument must be checked against Katz §8.2.5(2), with all exclusions explicit.",
+      "locator": "arXiv v3, Lem.3.7 p.23 citing Katz [16]; journal [15]",
+      "status": "missing",
+      "owner": "FF",
+      "proofStatus": "original-source-gap",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/fourierdeligne"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/affinevanishing",
+      "kind": "theorem",
+      "name": "Affine étale cohomological dimension",
+      "statement": "For an affine variety of dimension r over a separably closed field and a constructible torsion sheaf of order invertible in the field, H^i=0 for i>r; pass to the admissible ℓ-adic setting and use duality for lisse compact-support bounds. For arbitrary constructible compact supports use the 2r upper bound, not the affine r bound.",
+      "locator": "Lem.2.8; Lem.3.11; Prop.5.5; SGA4 XIV Cor.3.2",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "EDC.4 explicitly imports the affine Artin-vanishing supplier; SF.2 is the shared scheme-cohomology interface.",
+      "dependsOn": [
+        "PAPER-BROWNING-SAWIN-20/sixoperations"
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ExponentialSumsAndCircleMethod",
+      "stages": [
+        "ExponentialSumsAndCircleMethod:ES.0",
+        "ExponentialSumsAndCircleMethod:ES.1"
+      ],
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/polarization",
+        "PAPER-BROWNING-SAWIN-20/polarlocus",
+        "PAPER-BROWNING-SAWIN-20/topphase",
+        "PAPER-BROWNING-SAWIN-20/Nalpha",
+        "PAPER-BROWNING-SAWIN-20/Nidentity",
+        "PAPER-BROWNING-SAWIN-20/Nbound",
+        "PAPER-BROWNING-SAWIN-20/itershrink",
+        "PAPER-BROWNING-SAWIN-20/shortzero",
+        "PAPER-BROWNING-SAWIN-20/polardimension",
+        "PAPER-BROWNING-SAWIN-20/polynomialbox"
+      ],
+      "reason": "Polarization, coefficient-count identities, iterative shrinking and the uniform arithmetic minor-arc count are concrete function-field Weyl/counting interfaces inside ES.0–1. Import the nonarchimedean lattice theorem from the dedicated Part II below; do not reprove its general lattice API here."
+    },
+    {
+      "route": "source",
+      "roadmap": "FiniteFieldsAndCharacterSums",
+      "stages": [
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ],
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/schreier",
+        "PAPER-BROWNING-SAWIN-20/translationcancel",
+        "PAPER-BROWNING-SAWIN-20/extensiondimension",
+        "PAPER-BROWNING-SAWIN-20/langweil",
+        "PAPER-BROWNING-SAWIN-20/fourierdeligne",
+        "PAPER-BROWNING-SAWIN-20/fourierinput"
+      ],
+      "reason": "Artin–Schreier coefficient objects and cancellation, the one-dimensional Fourier input, and Lang–Weil all-extension dimension detection are reusable geometric character-sum inputs. FF.2 already calls for ℓ-adic trace functions; these items supply its precise sheaf interfaces. Import EDC/SF operations and existing weight-theorem owners rather than creating a private six-functor or Weil-conjectures theory."
+    },
+    {
+      "route": "source",
+      "roadmap": "FoundationsAndLibraryIntegration",
+      "stages": [
+        "FoundationsAndLibraryIntegration:LI.3"
+      ],
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/finitefiltration"
+      ],
+      "reason": "Use the existing spectral-sequence carrier and LI.3's planned spectral-sequence theory. The exact finite-closed-filtration convergence interface is a supplier requirement, not a new page carrier."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ExponentialSumsAndCircleMethod",
+      "roadmap": "GeometricCircleMethodAndMappingSpaces",
+      "title": "Exponential sums, decoupling and the circle method, Part II: geometric arcs and mapping-space cohomology",
+      "area": "functionfields",
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/mapping",
+        "PAPER-BROWNING-SAWIN-20/dimensionlower",
+        "PAPER-BROWNING-SAWIN-20/hypersurfmiddle",
+        "PAPER-BROWNING-SAWIN-20/phase",
+        "PAPER-BROWNING-SAWIN-20/fouriercomplex",
+        "PAPER-BROWNING-SAWIN-20/orthogonality",
+        "PAPER-BROWNING-SAWIN-20/hankel",
+        "PAPER-BROWNING-SAWIN-20/arcsclosed",
+        "PAPER-BROWNING-SAWIN-20/arcsfull",
+        "PAPER-BROWNING-SAWIN-20/padeexist",
+        "PAPER-BROWNING-SAWIN-20/padeunique",
+        "PAPER-BROWNING-SAWIN-20/goodarc",
+        "PAPER-BROWNING-SAWIN-20/goodarciso",
+        "PAPER-BROWNING-SAWIN-20/boundarycancel",
+        "PAPER-BROWNING-SAWIN-20/remainder",
+        "PAPER-BROWNING-SAWIN-20/smallcomplex",
+        "PAPER-BROWNING-SAWIN-20/remaindershift",
+        "PAPER-BROWNING-SAWIN-20/crtproduct",
+        "PAPER-BROWNING-SAWIN-20/repeatedcancel",
+        "PAPER-BROWNING-SAWIN-20/reduced",
+        "PAPER-BROWNING-SAWIN-20/singleexponential",
+        "PAPER-BROWNING-SAWIN-20/singlecomplex",
+        "PAPER-BROWNING-SAWIN-20/configdescent",
+        "PAPER-BROWNING-SAWIN-20/stratumcomplex",
+        "PAPER-BROWNING-SAWIN-20/middleconcentrated",
+        "PAPER-BROWNING-SAWIN-20/stratumformula",
+        "PAPER-BROWNING-SAWIN-20/universalpair",
+        "PAPER-BROWNING-SAWIN-20/universalcohom",
+        "PAPER-BROWNING-SAWIN-20/primitiveextension",
+        "PAPER-BROWNING-SAWIN-20/fundamentalsurject",
+        "PAPER-BROWNING-SAWIN-20/minusone",
+        "PAPER-BROWNING-SAWIN-20/relativestratum",
+        "PAPER-BROWNING-SAWIN-20/oddpages",
+        "PAPER-BROWNING-SAWIN-20/majorE1",
+        "PAPER-BROWNING-SAWIN-20/difference",
+        "PAPER-BROWNING-SAWIN-20/cohdegree",
+        "PAPER-BROWNING-SAWIN-20/signconjugacy",
+        "PAPER-BROWNING-SAWIN-20/differencekun",
+        "PAPER-BROWNING-SAWIN-20/cohweyl",
+        "PAPER-BROWNING-SAWIN-20/ddminor",
+        "PAPER-BROWNING-SAWIN-20/stalkminor",
+        "PAPER-BROWNING-SAWIN-20/minorcover",
+        "PAPER-BROWNING-SAWIN-20/minorsafe",
+        "PAPER-BROWNING-SAWIN-20/minorsharpgate",
+        "PAPER-BROWNING-SAWIN-20/shiftE1",
+        "PAPER-BROWNING-SAWIN-20/comparisonsafe",
+        "PAPER-BROWNING-SAWIN-20/comparisonsharpgate",
+        "PAPER-BROWNING-SAWIN-20/spread",
+        "PAPER-BROWNING-SAWIN-20/E1support",
+        "PAPER-BROWNING-SAWIN-20/cohsupport",
+        "PAPER-BROWNING-SAWIN-20/topdegeneration",
+        "PAPER-BROWNING-SAWIN-20/irreduciblesafe",
+        "PAPER-BROWNING-SAWIN-20/smallcounter",
+        "PAPER-BROWNING-SAWIN-20/degenerationconjecture",
+        "PAPER-BROWNING-SAWIN-20/localgerm",
+        "PAPER-BROWNING-SAWIN-20/tracepairingconjecture",
+        "PAPER-BROWNING-SAWIN-20/homloops",
+        "PAPER-BROWNING-SAWIN-20/conditionaldegeneration"
+      ],
+      "reason": "ES.0–5 develops numerical oscillatory/counting estimates, not compact-support complexes, configuration-space E1 pages, odd-page monodromy or mapping-space comparison. These are genuinely new layers in the same circle-method direction.",
+      "brief": "Construct Mor_{d,x}, the phase e, S_{d,f}, the rank-Hankel arcs and their Padé strata, then prove Lemmas2.1 and3.1–3.12 with every affine shift, Tate twist and symmetric-group sign. The first endpoint is the Frobenius-equivariant E1^{m,s}=(H_c^{s+mn}(PConf_m,E)⊗H_c^{n−1}(X,E)^{⊗m}⊗sgn^{n−1})^{S_m}(kd−m−n(d−m)), 0≤m≤d, with d_r degree(r,1−r) and odd r zero. State d≥k−1≥2,n>2^k(k−1), smooth X and leading boundary, p>k and even order of ℓ modulo p; over general fields explicitly spread the pair. Import SchemeAndStackFoundations SF.2 and EtaleDualityAndPerverseSheaves EDC.0,2,4,6, not a private cohomology theory; import finite-filtration convergence from FoundationsAndLibraryIntegration LI.3, arithmetic shrinking from ExponentialSumsAndCircleMethod ES.0–1, coefficient sheaves from FiniteFieldsAndCharacterSums FF.2, monodromy and configuration/rational topology from the two companion Part IIs. Prove geometric Weyl differencing and conservative vanishing j>2dn+4(k−1)−4tδ. Its comparison endpoint is i>−4(tδ−(k−1)) for H_c^{i+2D}(Mor), and tδ>k−1 suffices for irreducibility and dimension D. The paper's exact targets use +4 rather than +4(k−1), i>−4(tδ−1), and tδ≥1; keep these as gated original targets until E1–E3 are resolved, not as axioms. Construct the germ mapping space and trace pairing, and prove only the conditional Theorem7.7. Conjectures1.3 and7.1 remain unproved propositions. Suggested modules: TauCeti/NumberTheory/CircleMethod/Geometric/{MappingScheme,MajorArcs,MonodromyParity,CohomologicalWeyl,Comparison}. Test the zero column, m=1, odd kd, nontrivial coefficient extension, and strict threshold equality."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GeometryOfNumbersAndQuadraticArithmetic",
+      "roadmap": "FunctionFieldLatticesAndShrinking",
+      "title": "Geometry of numbers, quadratic forms and homogeneous arithmetic, Part II: polynomial lattices and ultrametric shrinking",
+      "area": "functionfields",
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/infinitynorm",
+        "PAPER-BROWNING-SAWIN-20/lattice",
+        "PAPER-BROWNING-SAWIN-20/minimacount",
+        "PAPER-BROWNING-SAWIN-20/minimadual",
+        "PAPER-BROWNING-SAWIN-20/Nlinear",
+        "PAPER-BROWNING-SAWIN-20/specialminima",
+        "PAPER-BROWNING-SAWIN-20/shrink"
+      ],
+      "reason": "GN.0 explicitly fixes real finite-dimensional lattices and GN.1 builds Euclidean convex geometry. F_q[T]-lattices in F_q((T^{-1})) and exact ultrametric successive-minima identities are not those carriers or the same proof.",
+      "brief": "Import the existing LaurentSeries carrier and shared valuation/linear-algebra infrastructure; do not redefine formal Laurent series or Euclidean covolume. Construct polynomial lattices M F_q[T]^N, the inverse-transpose adjoint, orthogonal reduced bases, discrete successive minima, strict-ball counting and adjoint duality. Read Browning–Vishe2017 §4, its Lee thesis inputs and the cited nonarchimedean orthogonalization correction before claiming closure. The final theorem is Lemma6.4: for symmetric γ, integral a,c,s with c>0,s≥0, N_{γ,a,c}≤q^{ns+n max(floor((a−c)/2),0)}N_{γ,a−s,c+s}. Prove the special block lattice has R_iR_{2n+1−i}=q^{c−a}; handle a≤0, boundary radii, and uniqueness of polynomial integer parts. Export to ExponentialSumsAndCircleMethod ES.0 without importing the mapping-space application back. Suggested file TauCeti/NumberTheory/FunctionField/LatticeShrinking.lean. Tests include γ=0, n=1, s=0, odd a−c and arbitrary finite extensions; no implied constant may depend on q."
+    },
+    {
+      "route": "part-ii",
+      "parent": "LefschetzPencilsAndVanishingCycles",
+      "roadmap": "UniversalHypersurfaceMonodromy",
+      "title": "Lefschetz pencils, nearby cycles and vanishing cycles, Part II: universal hypersurface monodromy",
+      "area": "etale",
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/primitive",
+        "PAPER-BROWNING-SAWIN-20/universalmonodromy",
+        "PAPER-BROWNING-SAWIN-20/algebraicgoursat"
+      ],
+      "reason": "LPV.5 explicitly proves odd-dimensional symplectic open image and does not assert even-dimensional universal orthogonal monodromy. Katz–Sarnak's full O/Sp theorem and the simultaneous-product argument add this missing direction.",
+      "brief": "Import LefschetzPencilsAndVanishingCycles LPV.0–5, the shared scheme fundamental groups, and EDC.2–4. Construct the universal smooth degree-k projective hypersurface family and its primitive middle local system with the hyperplane-class splitting and pairing. The exact target is Katz–Sarnak11.4.9: for hypersurface dimension s≥1 and k≥3, excluding (s,k)=(2,3), geometric Zariski monodromy is Sp for odd s and full O for even s in every characteristic distinct from ℓ. Treat quadratic primitives separately and do not replace this with E-point openness. Decompose the even case's finite-monodromy exclusion, including its ordinary-hypersurface/Newton-polygon and Hodge-number inputs. Extend the existing abstract Goursat lemma to closed algebraic subgroups and prove the O_a×Sp_b product criterion with disconnected O, central quotients and the correct small-rank exceptional pairs (3,2),(5,4). The circle-method consumer specializes this supplier to two adjacent primitive systems and an extension; only eigenvalue −1 is needed, not a scalar splitting. Suggested files TauCeti/AlgebraicGeometry/Etale/UniversalHypersurface/{Primitive,Monodromy,Product}.lean. Test cubic surfaces as an excluded case and rank-zero symplectic factors."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/AlgebraicTopology",
+      "roadmap": "ConfigurationSpacesAndRationalLoops",
+      "title": "Algebraic topology of spaces and manifolds, Part II: configurations and rational double loops",
+      "area": "topology",
+      "items": [
+        "PAPER-BROWNING-SAWIN-20/configuration",
+        "PAPER-BROWNING-SAWIN-20/configsupport",
+        "PAPER-BROWNING-SAWIN-20/eulerexponents",
+        "PAPER-BROWNING-SAWIN-20/mobiusEuler",
+        "PAPER-BROWNING-SAWIN-20/configtrace",
+        "PAPER-BROWNING-SAWIN-20/arrangementpure",
+        "PAPER-BROWNING-SAWIN-20/configEuler",
+        "PAPER-BROWNING-SAWIN-20/configdiagonal",
+        "PAPER-BROWNING-SAWIN-20/tameness",
+        "PAPER-BROWNING-SAWIN-20/bouquet",
+        "PAPER-BROWNING-SAWIN-20/hilton",
+        "PAPER-BROWNING-SAWIN-20/spheresrational",
+        "PAPER-BROWNING-SAWIN-20/wedgehomotopy",
+        "PAPER-BROWNING-SAWIN-20/rationalHspace",
+        "PAPER-BROWNING-SAWIN-20/loopbetti"
+      ],
+      "reason": "Upstream AlgebraicTopology owns singular homology, products, duality, CW and ordinary homotopy; it does not provide configuration-representation Euler products, tame-fibre bouquets, Hilton decomposition or Sullivan rational H-space calculations. Extend it; do not source-route a replan of upstream stages.",
+      "brief": "Import all ordinary topology from tauceti:TauCetiRoadmap/AlgebraicTopology, including its products, duality and homotopy stages, and use Mathlib GenLoop plus Tau Ceti homotopy-shift equivalences. Construct ordered/unordered configurations, their finite-cover symmetric-group action and compact-cohomology support. Import EDC.6 for complex/étale comparison and FF.2/WeilConjectures for the trace supplier. Establish CEF3.3/3.7 and the signed Euler exponents e_r=−r^{-1}Σ_{a|r}μ(a)((−1)^n N)^{r/a}, reusing ArithmeticFunction Möbius inversion. Prove Lemma7.4 and the weighted-diagonal Corollary7.5, retaining d(n−3)≥j. Separately read and decompose Broughton Thm2, Hilton Cor4.10 and Sullivan p.311 to construct tame-fibre bouquets, rational sphere homotopy, wedge decompositions and connected H-space cohomology. The final Betti endpoint is dim H^j(Ω²X,Q)=[q^{-j}]∏_{r≥1}(1−(−q)^{1−r(n−2)})^{-e_r(N)} for n≥4, X smooth with smooth leading form, N=dim H^{n−1}(X,Q). Do not assert the printed n≥2 full-loop formula: n=3 has a component obstruction. Generic rational topology stays here; the special infinity-germ mapping equivalence and conjectural algebraic trace comparison stay in GeometricCircleMethodAndMappingSpaces. Suggested files TauCeti/Topology/{ConfigurationSpace/Cohomology,RationalHomotopy/Bouquet,DoubleLoop/Betti}.lean. Tests: m=0,1,2, N=0,1, both parities, and rejection of n=3."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Browning–Vishe, Rational curves on smooth hypersurfaces of low degree (2017), §4 Lemmas4.1–4.2 and §5",
+      "link": "https://msp.org/ant/2017/11-7/ant-v11-n7-p06-s.pdf",
+      "why": "Original uniform shrinking context read, including its explicit warning about nonarchimedean Gram–Schmidt in Lee's proof. Needed by the lattice supplier; no full-paper extraction is claimed.",
+      "readStatus": "§4 pp.1663–1665 and beginning §5 read.",
+      "sha256": "7e330a2a428507a381783172f9824a330ed439d0ddaa19b6663e75669281898f"
+    },
+    {
+      "citation": "Browning–Vishe, Rational points on cubic hypersurfaces over F_q(t) (2015), Lemma2.8",
+      "link": "https://www.maths.dur.ac.uk/users/pankaj.vishe/fqt.pdf",
+      "why": "Degree-uniform polynomial-point box bound used for W={Ψ=0}; need a full original proof audit of projection/height uniformity.",
+      "readStatus": "Author PDF §2.5 statement and beginning proof pp.12–13 read; proof closure incomplete.",
+      "sha256": "e9d68606875a5cff6dba50ab2956641c8ab60d1497f455bd97e6936a760d8de4"
+    },
+    {
+      "citation": "Katz–Sarnak, Random Matrices, Frobenius Eigenvalues, and Monodromy (1999), §11.4",
+      "link": "https://web.math.princeton.edu/~nmk/RMFEM.pdf",
+      "why": "Full universal O/Sp monodromy theorem beyond LPV.5. The theorem and its proof were read; subsidiary Deligne–Illusie ordinarity, Hodge computation and SGA7 inputs remain to be decomposed.",
+      "readStatus": "§§11.4.4–11.4.9, pp.332–334 read, through QED.",
+      "sha256": "39beb011e5fab2737bb131611f054221108128fbebbb7f62ba2de9a56f755dd5"
+    },
+    {
+      "citation": "Church–Ellenberg–Farb, Representation stability in cohomology and asymptotics for families of varieties over finite fields (2014)",
+      "link": "https://arxiv.org/abs/1309.6038",
+      "why": "Configuration-space purity and twisted trace formula, not full FI-module stability, supply Lemma7.4. The ordinary/compact distinction confirms E6.",
+      "readStatus": "Prop.3.3 and Thm.3.7 with proof read; Kim/Lehrer hyperplane-arrangement input not yet read.",
+      "sha256": "21b6b742b31d936939a019ee018cae88a44a4a965f43453828b94a9d56ec43db"
+    },
+    {
+      "citation": "Katz, Gauss sums, Kloosterman sums, and monodromy groups (1988), §8.2.5(2)",
+      "link": "https://doi.org/10.1515/9781400882120",
+      "why": "Precise Fourier–Deligne middle-extension/no-constant-quotient step in Lemma3.7. Author reference [16], journal [15]. Not discharged by finite character orthogonality.",
+      "readStatus": "Cited use read; original section not yet read."
+    },
+    {
+      "citation": "Broughton, On the topology of polynomial hypersurfaces (1983), Theorem2",
+      "link": "https://doi.org/10.1090/pspum/040.1",
+      "why": "Tame regular fibre bouquet theorem needed in Lemma7.6; distinguish this from Broughton's later 1988 paper.",
+      "readStatus": "Cited use read; original theorem and proof not yet read."
+    },
+    {
+      "citation": "Hilton, On the homotopy groups of the union of spheres (1955), Corollary4.10",
+      "link": "https://doi.org/10.1112/jlms/s1-30.2.154",
+      "why": "Equal-sphere wedge homotopy decomposition with Witt multiplicities; generic rational homotopy supplier, not built by the existing loop carrier.",
+      "readStatus": "Cited formula read; original proof not yet read."
+    },
+    {
+      "citation": "Sullivan, Infinitesimal computations in topology, IHES47 (1977), 269–331, p.311",
+      "link": "https://doi.org/10.1007/BF02684341",
+      "why": "Rational H-space cohomology theorem with connectedness/nilpotence/finite-type hypotheses. Author reference [25], journal [24]; the published bibliography corrects the terminal page to331.",
+      "readStatus": "Cited use read; original p.311 and hypotheses not yet read."
+    },
+    {
+      "citation": "Lang–Weil, Number of points of varieties in finite fields (1954)",
+      "link": "https://doi.org/10.2307/2372655",
+      "why": "All-extension dimension detection for possibly singular affine differencing loci. Reviewed WC.5 smooth-projective endpoint alone does not match.",
+      "readStatus": "Main paper's application read; original theorem/proof and degree-uniform refinements remain."
+    },
+    {
+      "citation": "Lee, On the applications of the circle method to function fields, and related topics (2013); Usher–Zhang (2016), Theorem2.16",
+      "link": "https://msp.org/ant/2017/11-7/ant-v11-n7-p06-s.pdf",
+      "why": "Browning–Vishe2017 §4 cites Lee3.3.3–3.3.6 and explicitly supplies Usher–Zhang orthogonalization to repair a missing justification. Acquire and audit both originals before certifying lattice duality.",
+      "readStatus": "Identified through original BV17 discussion; these two originals not read."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E1",
+      "kind": "error",
+      "locator": "Proof of Prop.2.6, v3 p.38; journal p.934 (both images checked)",
+      "printed": "m0=⌊kd/2⌋−1",
+      "correction": "Use m0=ceil(kd/2)−1 in the disjoint minor-arc stratification.",
+      "reason": "L=9: b5=1 and other b_r=0 makes the m=4 Hankel matrix the 5×5 anti-identity, rank 5. Thus A4 is not all A9, and a union ending at A4 misses points. Choose k=d=3; this is within the main parameter range once n>16.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E2",
+      "kind": "gap",
+      "locator": "Proof of Prop.2.6, v3 p.38; journal p.934 (both images checked)",
+      "printed": "i>B(m)≥2dn+4−4⌊m/(k−1)⌋δ",
+      "correction": "The displayed lower bound on B(m) cannot be used as its upper bound. Retaining the remainder gives B(m)≤2dn+4(k−1)−4tδ. The sharper Proposition2.6 requires an additional estimate not present in this step.",
+      "reason": "With k=3,d=4,n=24, δ=1, the claimed cutoff is 188, while the actual bound for the included stratum m=5 is B(5)=192. More generally m=(k−1)q+r gives B=2dn−4qδ+4(r+1). This disproves the inference, not the actual sharp geometric vanishing theorem.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E3",
+      "kind": "gap",
+      "locator": "Cor.1.4/2.9 v3 pp.6,14; journal main condition p.894 and Cor.1.4 p.898",
+      "printed": "tδ≥1; i>−4(tδ−1)",
+      "correction": "Even granting the sharp theorem, invoking it at i=0 requires tδ>1, not ≥1. With the conservative repaired range a sufficient hypothesis is tδ>k−1. The equality endpoint needs an independent argument.",
+      "reason": "k=3,d=2,n=24 gives tδ=1. The theorem compares only for i>0, but the irreducibility proof needs H_c^{2D}, i=0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E4",
+      "kind": "error",
+      "locator": "Lemma7.6 v3 p.46; journal p.944 (both images checked)",
+      "printed": "n≥2",
+      "correction": "Restrict this full-double-loop Betti formula to n≥4, or supply a different componentwise formulation for n=2,3.",
+      "reason": "At n=3 take the cubic Fermat fibre X={z1³+z2³+z3³=1}. Its standard tame/Milnor-fibre calculation is X≃∨_8 S² (Jacobian number (3−1)^3=8), also the bouquet input used in the paper's own proof. Hence π0(Ω²X)=π2(X)=Z^8 and H^0 is infinite-dimensional. N=8 and e1=8 make the proposed product contain (1−1)^{−8}. The simpler quadratic fibre retracts to S² and gives the same obstruction if the lemma's own unrestricted-degree wording is used. Main-theorem n is already much larger.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E5",
+      "kind": "error",
+      "locator": "Eq.(7.3) v3 p.46; journal pp.943–944",
+      "printed": "∏(1−qU^r)^{−e_r}=Σ_m c_m q^{m(n−2)−j}U^m",
+      "correction": "The right side is only the weighted-diagonal component for a fixed j. Define c_m=[q^{m(n−2)−j}U^m] of the full series, then extract [q^{−j}] after U=q^{2−n}.",
+      "reason": "For n=4,N=1,j=0 the left side is 1−qU, whereas the prescribed diagonal includes only 1. The coefficient-extraction argument repairs the corollary without changing its result.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E6",
+      "kind": "misprint",
+      "locator": "Lemma7.4 proof v3 p.45; journal p.942",
+      "printed": "Σ_i(−1)^i q^{m−i}〈χ,H_c^i〉=Σ_i(−1)^{m−i}q^i〈χ,H_c^{m−i}〉",
+      "correction": "Use ordinary H^i in the first sum and ordinary H^{m−i} in the intermediate sum; duality then gives the final H_c^{m+i} sum printed correctly.",
+      "reason": "For m=1 and trivial χ the squarefree linear-polynomial count is q. The printed first compact-support expression gives q^{−1}, since only H_c²(A1) survives. CEF original Thm3.7 explicitly uses ordinary cohomology.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E7",
+      "kind": "misprint",
+      "locator": "Lemma7.4 last line v3 p.45; journal p.943",
+      "printed": "∏_{r≥1}(1−qU^r)",
+      "correction": "Restore the exponent −e_r(N) on every factor.",
+      "reason": "The preceding displayed product and the lemma statement both retain those exponents; otherwise the answer loses its dependence on N.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E8",
+      "kind": "misprint",
+      "locator": "Theorem7.7 proof v3 p.47; journal p.945",
+      "printed": "dim H^{i+2D}(Mor,Q)",
+      "correction": "Use dim H_c^{i+2D}(Mor,Q), and begin the next comparison with this compact-support dimension rather than already asserting the desired E1-diagonal equality.",
+      "reason": "Mor is not proper. Conjecture7.1 concerns H_c; ordinary cohomology is not the abutment. The intended dimension argument can be arranged without the circular intermediate assertion.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E9",
+      "kind": "misprint",
+      "locator": "Lemma2.4 proof v3 p.10; publication not separately checked",
+      "printed": "Σ_{i=1}^{m} c_i b_{i+j−1}=0",
+      "correction": "The upper index is m+1, the number of kernel-vector coordinates.",
+      "reason": "The matrix has m+1 columns and the subsequent h2(T)=Σ_{i=1}^{m+1}c_iT^{i−1} uses every coordinate.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E10",
+      "kind": "misprint",
+      "locator": "Lemma2.8 final sentence v3 p.14; publication not separately checked",
+      "printed": "dim(PConf_m)=m−1",
+      "correction": "Replace PConf_m in that sentence by PConf_m/G_a.",
+      "reason": "PConf_m is open in A^m and has dimension m; the quotient after translation normalization has dimension m−1, as correctly used earlier in the proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E11",
+      "kind": "misprint",
+      "locator": "Lemma3.2 proof v3 p.17; publication not separately checked",
+      "printed": "H_c^i(Y,F)=H_c^{i−2}(Y×A1,F⊠E)",
+      "correction": "The product degree should be i+2 (and include the Tate twist before suppressing it over a separably closed field).",
+      "reason": "Künneth and H_c²(A1)=E(−1) put H_c^i(Y) in degree i+2 of the product. A point with i=0 is a direct check. The vanishing conclusion survives.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E12",
+      "kind": "misprint",
+      "locator": "Lemma3.4 proof v3 p.19, first two affine-pushforward displays; publication not separately checked",
+      "printed": "Rρ!E=E[2n(d−m)](−n(d−m))",
+      "correction": "Use E[−2n(d−m)](−n(d−m)).",
+      "reason": "An affine r-space fibre has compact cohomology in degree +2r, hence cohomological shift −2r. The stated lemma and later resulting cohomology formula use the correct shift.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E13",
+      "kind": "misprint",
+      "locator": "Lemma3.5 last paragraph v3 p.21; publication not separately checked",
+      "printed": "h1 ↔ h2",
+      "correction": "The involution swaps the coprime factors l1,l2 and their associated residue data, not the numerator h1 with the denominator h2.",
+      "reason": "Numerator and monic denominator have different degree conditions; CRT symmetry exchanges the two factor slots.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E14",
+      "kind": "misprint",
+      "locator": "Lemma3.6 nonzero-f case v3 p.22; publication not separately checked",
+      "printed": "λ f(g(T))/(T−x)=λ f(g(x))",
+      "correction": "Modulo polynomials, the right side is λ f(g(x))/(T−x). Its coefficient of T^{−1} is λ f(g(x)).",
+      "reason": "Polynomial division leaves exactly that simple pole; the printed constant has no negative Laurent coefficient.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E15",
+      "kind": "misprint",
+      "locator": "Lemma3.7 proof v3 p.23, twice; publication not separately checked",
+      "printed": "a2,…,a_{n−1}",
+      "correction": "Use a2,…,an for the generic/fixed coordinates while a1 varies.",
+      "reason": "The subsequent base is A^{n−1}; dropping an leaves only n−2 parameters.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E16",
+      "kind": "gap",
+      "locator": "Cor.3.10 arXiv v3 p.24 and journal p.919 (both statements read)",
+      "printed": "char(F_q)>k",
+      "correction": "Add 0≤m≤d to the stated hypotheses.",
+      "reason": "The proof invokes Lemmas3.3 and3.4, which require m≤d; its asserted affine fibre of dimension n(d−m) does not exist for negative d−m. Cor.3.12 already has the restriction.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E17",
+      "kind": "misprint",
+      "locator": "Figure2 v3 p.26; publication not separately checked",
+      "printed": "H_c(U_m,Rπ2! Rp2'! ebar*L_ψ)",
+      "correction": "On U_m use Rp2'! ebar*L_ψ; apply Rπ2! only after moving the base to A^m.",
+      "reason": "Rπ2! of that complex lives on A^m, not on U_m. The comparison isomorphism is the composition-of-pushforwards identity.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E18",
+      "kind": "misprint",
+      "locator": "Lemma4.3 proof v3 p.29; publication not separately checked",
+      "printed": "(N1,N2)=(2,3) or (4,5)",
+      "correction": "For (orthogonal dimension, symplectic dimension), the exceptional pairs are (3,2) and (5,4).",
+      "reason": "so3≅sp2 and so5≅sp4; symplectic dimensions must be even. The subsequent N1≥6 exclusion is still valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E19",
+      "kind": "misprint",
+      "locator": "Lemma4.4 relative trace v3 p.30; publication not separately checked",
+      "printed": "E[−2(n−1)](n−1)",
+      "correction": "The trace target is E[−2(n−1)](−(n−1)).",
+      "reason": "Smooth trace and H_c^{2(n−1)} of an affine fibre have negative Tate twist; the absolute definition on p.23 has the correct sign.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E20",
+      "kind": "error",
+      "locator": "§6 first full-phase equality v3 p.38; journal p.935",
+      "printed": "G_b=Σ c_j b_{i1+⋯+ik+1}∏ a_{i_r,j_r}=F(a)",
+      "correction": "The displayed expression uses only f0. It equals the phase for f0, not for general f. Use the degree-k homogeneous part of G_b and V_k(G_b)=V_k((G_b)_k).",
+      "reason": "Replacing f0 by f0+1 changes G_b by b1, while the printed leading-form expression is unchanged. Allowing fixed a_d=x includes lower degrees coming from f0 but still cannot restore omitted lower terms of f.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E21",
+      "kind": "misprint",
+      "locator": "Prop.6.2 v3 p.40; publication not separately checked",
+      "printed": "(b1,…,bkd)∈A^N\\A_m^{kd}",
+      "correction": "Replace A^N by A^{kd}; N=dn is reserved for the a-variable dimension.",
+      "reason": "The tuple has kd coordinates, and A_m^{kd} is a subvariety of A^{kd}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E22",
+      "kind": "misprint",
+      "locator": "Lemma6.4 proof v3 p.41; publication not separately checked",
+      "printed": "N_{γ,a−s,c−s}",
+      "correction": "The shrunken quantity is N_{γ,a−s,c+s}.",
+      "reason": "The correct statement and lattice product formula shrink the fractional-part tolerance to q^{−c−s}; c−s would enlarge it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E23",
+      "kind": "gap",
+      "locator": "Prop.2.5(3)/Prop.4.1 versus Lem.4.3, v3 pp.12,27–29; publication not separately checked",
+      "printed": "d_r=0 (r odd)",
+      "correction": "For the proof supplied, restrict to n≥3,(k,n)≠(3,3),(3,4), or supply proofs for omitted exceptional cases.",
+      "reason": "Lemma4.3 provides the required monodromy element only under those restrictions. The main theorem's n>2^k(k−1) is safely inside the proved range; the wider standalone proposition is not closed by this proof.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E24",
+      "kind": "gap",
+      "locator": "Spreading-out paragraph v3 p.13; publication p.906 not separately checked",
+      "printed": "R=Z[coefficients(f)]",
+      "correction": "Adjoin the chosen coordinates x_j as well, spread all data, and say Spec K lies over the generic point rather than equals it. Use a common lisse open for the finite collection of nonzero cohomology sheaves.",
+      "reason": "The family Mor_{d,x} uses x_j as fixed coefficients; they need not belong to Z[coefficients(f)]. Extending the ring repairs the construction; no new theorem is needed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E25",
+      "kind": "misprint",
+      "locator": "Cor.2.9 proof v3 p.14; publication not separately checked",
+      "printed": "#π0(U)=#Irr(M)",
+      "correction": "Here #π0(U) counts only the top-dimensional irreducible components of M.",
+      "reason": "For a line disjoint from a point, the maximal smooth 1-dimensional open has one component while M has two irreducible components. The paragraph's conclusion correctly says top-dimensional, and the later componentwise lower bound completes the intended argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E26",
+      "kind": "misprint",
+      "locator": "Definition of a polynomial lattice, v3 p.40; publication not separately checked",
+      "printed": "u∈F_q[T]^n",
+      "correction": "For an N×N lattice matrix use u∈F_q[T]^N.",
+      "reason": "The matrix/vector dimensions must agree; the subsequent special case has N=2n.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E27",
+      "kind": "misprint",
+      "locator": "Def.2.3 v3 p.10; publication not separately checked",
+      "printed": "m≥0; (kd−m)×(m+1)",
+      "correction": "Define the matrix only for 0≤m≤kd and set A_m=A^{kd} for larger m.",
+      "reason": "Negative row counts are not matrix dimensions; all substantive uses are within m≤kd.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed finding. 'new' means no existing correction located in the listed search, not a priority claim."
+    },
+    {
+      "id": "PAPER-BROWNING-SAWIN-20/E28",
+      "kind": "gap",
+      "locator": "Lemma7.2 and definition of Hom_{d,P}, arXiv v3 pp.43–44; published topology not separately reconciled",
+      "printed": "Hom_{d,P}(C,X)≃Ω²X",
+      "correction": "Specify the topology on the germ-constrained continuous mapping space and prove that germ-straightening and disc gluing are continuous in parameter families. Alternatively construct a uniform-collar model and compare it with the stated model.",
+      "reason": "Pointwise O(|z|) bounds and individually chosen shrinking neighbourhoods do not give a uniform neighbourhood for an arbitrary continuous family. The proof sketches the deformation but does not supply this family-level input. This is an unclosed construction, not a counterexample to the intended homotopy equivalence.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals article https://annals.math.princeton.edu/2020/191-3/p04 and its linked official PDF, accessed 2026-09-22; no linked correction found.",
+        "arXiv https://arxiv.org/abs/1711.10451 lists v1 (2017), v2 (2019), v3 (2020, Final version); no later version found.",
+        "Browning publications https://tdbrowning.github.io/pubs.html, entry for this paper, and Sawin https://williamsawin.com/papers.js entry 1711.10451; no correction attached.",
+        "Web title-and-author searches with erratum/correction on 2026-09-22 found no correction. This is a search result, not proof of priority or author confirmation."
+      ],
+      "reviewStatus": "Unreviewed; reviewer should decide whether the intended mapping-space convention supplies the missing uniformity."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "needs": [
+        "minorsharpgate",
+        "comparisonsharpgate",
+        "irreduciblesafe",
+        "conditionaldegeneration"
+      ],
+      "missing": "Close the sharp minor-arc rounding bound and equality endpoint, or confirm a corrected theorem with an independent reviewer. Finite arithmetic checks do not prove geometric vanishing.",
+      "resume": "Start with E1–E3, journal p.934. The conservative remainder argument is supplied explicitly."
+    },
+    {
+      "id": "G2",
+      "needs": [
+        "homloops",
+        "conditionaldegeneration"
+      ],
+      "missing": "Construct the topology/uniform germ deformation in Lemma7.2 and the nonempty reference mapping space.",
+      "resume": "Specify a uniform-collar model and prove comparison with the source's O-germ model."
+    },
+    {
+      "id": "G3",
+      "needs": [
+        "singleexponential",
+        "fourierinput"
+      ],
+      "missing": "Read Katz §8.2.5(2) completely and verify its middle-extension/nonconstant polynomial hypotheses and shifts.",
+      "resume": "Author [16] is journal [15]; do not confuse it with Katz's Betti-number paper."
+    },
+    {
+      "id": "G4",
+      "needs": [
+        "bouquet",
+        "hilton",
+        "rationalHspace",
+        "loopbetti"
+      ],
+      "missing": "Read original Broughton1983, Hilton1955 and Sullivan1977 statements/proofs, including connectedness and finite-type restrictions.",
+      "resume": "Use n≥4 for the full-loop endpoint; independently check the cubic n=3 counterexample."
+    },
+    {
+      "id": "G5",
+      "needs": [
+        "minimacount",
+        "minimadual",
+        "shrink",
+        "polynomialbox"
+      ],
+      "missing": "Close nonarchimedean orthogonalization/duality and the original uniform polynomial-box proof, keeping constants independent of q.",
+      "resume": "BV17 explicitly points to a Lee gap and Usher–Zhang repair; BV15 proof needs more than its statement."
+    },
+    {
+      "id": "G6",
+      "needs": [
+        "universalmonodromy",
+        "algebraicgoursat",
+        "minusone"
+      ],
+      "missing": "Decompose original monodromy auxiliary inputs and algebraic-group quotient classification; do not substitute abstract Goursat for closed group-scheme Goursat.",
+      "resume": "Katz–Sarnak11.4.9 was read through its proof; audit the subsidiary SGA7, Deligne–Illusie and Lie-group inputs."
+    },
+    {
+      "id": "G7",
+      "needs": [
+        "fouriercomplex",
+        "spread",
+        "comparisonsharpgate"
+      ],
+      "missing": "Make E=Q_ℓ(μ_p) versus Q_ℓ descent, full-pair spreading and good characteristic choice explicit; verify remaining generic cohomology source statements.",
+      "resume": "SF.2/EDC.0 are planned suppliers, not implemented theorems."
+    },
+    {
+      "id": "G8",
+      "needs": [
+        "configtrace",
+        "arrangementpure",
+        "langweil"
+      ],
+      "missing": "Read the underlying hyperplane-arrangement and Lang–Weil originals; CEF's trace proof was read but its imported cohomology presentation remains a source debt.",
+      "resume": "Separate arrangement purity from general Weil bounds and all-extension counts from one-field counts."
+    },
+    {
+      "id": "G9",
+      "needs": [
+        "all"
+      ],
+      "missing": "Finish publication-wide formula-by-formula reconciliation and independent source-finding verification. Only the full author version and selected journal sections have been read.",
+      "resume": "Both public PDF hashes and checked publication locators are recorded; secondary-reference renumbering is explicit."
+    },
+    {
+      "id": "G10",
+      "needs": [
+        "all"
+      ],
+      "missing": "Expand the remaining elementary proof dependencies into declaration-level closure and exact APIs before any blueprint is certified complete; no Lean implementation or compilation was done.",
+      "resume": "Use the inventory, route briefs, explicit dependency spine and reproducible certificate. This is a paper extraction checkpoint, not a finished blueprint."
+    }
+  ],
+  "libraryAudit": {
+    "pins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "reviewedSources": [
+      "data/library-coverage.json: AUDIT-07 ES.0,1,4,5",
+      "AUDIT-19 FF.1,2, LPV.5 and WC.5",
+      "AUDIT-18 EDC.0,2,4,6",
+      "AUDIT-01 SF.2",
+      "AUDIT-22 EnhancedDerivedSheaves:E5"
+    ],
+    "method": "Read full relevant atlas layer descriptions and reviewed audit entries, then searched both pinned trees and opened each credited declaration. Searched roadmaps, packets, links, reserved ids and integrated decompositions for this title, Browning/Sawin, Hilton, configurations and nonarchimedean lattices. Existing surface-configuration fibrations in MordellLawrenceVenkatesh are not the S_m representation/rational-loop supplier here.",
+    "notFound": "No matching geometric exponential-sum complex, Artin–Schreier ℓ-adic sheaf, compact-support mapping-space spectral sequence, function-field lattice-shrinking theorem, or Hilton/Sullivan rational-loop theorem found in the pins. This scoped search is not a universal theorem of absence.",
+    "boundaries": "The spectral-sequence carrier is built but convergence is a separate planned LI.3 obligation. LaurentSeries is built but its variable convention and lattice norm need a bridge. Abstract Goursat is built but algebraic-group monodromy is not. Generalized loops and homotopy shifts are built but rational sphere and wedge homotopy are not."
+  },
+  "dependencyAudit": {
+    "scope": "Concrete dependency spine for the extracted interfaces, not a declaration-level closure certificate. External source obligations remain G1–G10.",
+    "cycles": "Mechanical DFS: 115 items, every dependency resolves, no cycle.",
+    "notes": [
+      "The basic topology route does not depend on the circle-method application.",
+      "The E1 calculation and odd differentials are independent of the minor-arc sharp-range gate.",
+      "The topology conjecture is consumed only by the final conditional theorem; it is never used to prove the spectral-sequence construction.",
+      "The coefficient prime condition enters signconjugacy and minor estimates, not finite-group invariant exactness over E."
+    ]
+  },
+  "checks": {
+    "structural": "115 unique items; 99 missing items routed exactly once; 8 library and 8 planned. Every definition/construction has an API outline and unit tests. Dependency DFS passes.",
+    "finiteCertificate": "17,280 floor-remainder cases, rank-five odd-length Hankel example, strict equality endpoint, signed Euler-product truncations through degree12, and 120 directly enumerated squarefree-polynomial character sums: PASS.",
+    "limits": "No Lean compilation, no proof assistant validation of the mathematics, no independent review. Script contents are included in the report; they use Python standard library only.",
+    "repository": [
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BROWNING-SAWIN-20.result.json: ok",
+      "python3 research/blueprint/intake.py check-files <three deliverables>: 3 files, 0 problems",
+      "python3 -m unittest tests.test_check_paper: 9 tests, OK"
+    ]
+  }
+}
