@@ -1,0 +1,27 @@
+{
+  "paper": "PAPER-COUVEIGNES-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "GeometryOfNumbersAndQuadraticArithmetic GN.0 (\"lattices and covolumes ... covolumes transform by the absolute determinant\") and GN.1 (\"Minkowski first/second theorems ... export actual inequalities and existence witnesses\") own the four routed lattice facts: equal covolume of a primitive sublattice and its orthogonal in a unimodular lattice (Martinet 1.3.5), the ordered-product consequence of Minkowski's second theorem, the cube-in-ball volume bound, and the Gram-determinant (Hadamard) bound. Pinned Mathlib has none of them: its Matrix.det_le is a crude entrywise bound, and InnerProductSpace.volume_ball gives the exact Gamma-function volume but not this estimate."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations SF.0 names étale and smooth morphisms as properties of named morphisms, and SF.5 owns Fulton-style intersection theory. The Jacobian-open component extraction and the isolated-point Bézout bound (number of isolated points at most the product of the degrees, without assuming proper intersection) are generic inputs of those layers. Pinned Mathlib supplies the abstract étale classification and the submersive-presentation criterion (both cited as library), not these statements."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "A catalogue-wide search finds no layer on multivariate Hermite interpolation, fat points, Alexander–Hirschowitz or secant varieties of Veronese varieties, so a new roadmap is justified. It is a reusable theorem of classical algebraic geometry, independent of number fields. The brief states the exception-free d>=5 theorem exactly as used and names the imports. Item grid-nonvanishing was removed because pinned Mathlib has it (MvPolynomial.eq_zero_of_eval_zero_at_prod_finset), and the brief now says so."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Part II of the Tau Ceti roadmap tauceti:Completed/EffectiveBounds, whose stated summit is \"an explicit upper bound on the number of number fields of bounded discriminant\". Couveignes's Theorem 2 is a sharper theorem in exactly that direction, and his Theorem 1 small models are its engine. A Tau Ceti roadmap is extended, never re-planned, so a Part II is the correct mechanism. ArithmeticStatistics ST.0 supplies the count carrier and ST.3 is a consumer of selected asymptotics, so there is no duplication. Item integer-gauge-lower-bound was removed from the route because pinned Mathlib has it (NumberField.one_le_house_of_isIntegral)."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5); the extraction is by Codex codex-a71f92. The published Annals PDF (SHA-256 8d63bd3a…104, as recorded) was read in full, and compared with the arXiv source of 1907.13617 (dated 30 August 2019): the published version (revised 10 August 2020) states the bounds with the root discriminant δ_K, and the extraction correctly follows it. All ten library citations were confirmed at Mathlib 082e2d3. Two missing items are in pinned Mathlib and were corrected in place: grid-nonvanishing (MvPolynomial.eq_zero_of_eval_zero_at_prod_finset) and integer-gauge-lower-bound (NumberField.one_le_house_of_isIntegral with house_eq_sup'). Both planned items were confirmed (GN.1 plans Minkowski's second theorem; ST.0, kept by RS-07, plans unweighted counts and bounded-height finiteness). No cited layer is dropped by an accepted restructure. python3 scripts/check_paper.py reports ok."
+}

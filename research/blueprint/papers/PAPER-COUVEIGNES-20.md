@@ -185,3 +185,12 @@ No Lean file is required by a paper-v1 job and none was written or compiled. Onl
 [F] William Fulton, *Intersection Theory*, second edition (1998), Chapter 13, pp. 210–234. [Publisher's chapter opening](https://link.springer.com/chapter/10.1007/978-1-4612-1700-8_13). The p. 210 refined-Bézout statement was read, not the full subscription chapter.
 
 [S] C. L. Siegel, *Lectures on the Geometry of Numbers*, Lecture III, §4, Theorem 16. [DOI](https://doi.org/10.1007/978-3-662-08287-4). Already-planned GN.1 supplier; original proof not independently read.
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-COUVEIGNES-20, `research/blueprint/reviews/REV-PAPER-COUVEIGNES-20.md`) accepted this extraction and all four routes. It corrected two statuses in the JSON:
+
+- `grid-nonvanishing` is in pinned Mathlib as `MvPolynomial.eq_zero_of_eval_zero_at_prod_finset`.
+- `integer-gauge-lower-bound` is in pinned Mathlib as `NumberField.one_le_house_of_isIntegral`.
+
+Both are now `library` and have left routes 3 and 4. The corrected file has 12 library, 2 planned and 35 missing items.

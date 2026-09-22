@@ -26,7 +26,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Complete extraction/routing of the published paper, continuing the merged partial checkpoint while preserving all 42 original item IDs. The 49 items distinguish 10 pinned-library inputs, 2 existing planned interfaces and 37 missing consumer/generic statements routed exactly once. The source proves independent delta^2-short integers, explicit small Jacobian-open component models, logarithmic equation/variable bounds and N_n(H)<=n^(Q*n*log(n)^3)*H^(Q*log(n)^3). Existing root discriminants, degree-bounded polynomials, product-measure covolumes, lattice indices, Schwartz–Zippel and abstract etale classification are imports. The four routes are two source additions, generic double-point interpolation, and a Part II of EffectiveBounds. Complete denotes extraction and ownership, not a closed blueprint, an accepted route, or a Lean implementation.",
+  "summary": "Complete extraction/routing of the published paper, continuing the merged partial checkpoint while preserving all 42 original item IDs. The 49 items distinguish 10 pinned-library inputs, 2 existing planned interfaces and 37 missing consumer/generic statements routed exactly once. The source proves independent delta^2-short integers, explicit small Jacobian-open component models, logarithmic equation/variable bounds and N_n(H)<=n^(Q*n*log(n)^3)*H^(Q*log(n)^3). Existing root discriminants, degree-bounded polynomials, product-measure covolumes, lattice indices, Schwartz–Zippel and abstract etale classification are imports. The four routes are two source additions, generic double-point interpolation, and a Part II of EffectiveBounds. Complete denotes extraction and ownership, not a closed blueprint, an accepted route, or a Lean implementation. Independent review (REV-PAPER-COUVEIGNES-20) corrected two statuses in place: grid-nonvanishing and integer-gauge-lower-bound are in pinned Mathlib (MvPolynomial.eq_zero_of_eval_zero_at_prod_finset; NumberField.one_le_house_of_isIntegral), giving 12 library, 2 planned and 35 missing items.",
   "items": [
     {
       "id": "PAPER-COUVEIGNES-20/signed-discriminant",
@@ -107,8 +107,12 @@
       "name": "A nonzero algebraic integer has sup gauge at least one",
       "statement": "For x in O_K, x != 0 implies max_tau |tau(x)| >= 1: its field norm is a nonzero rational integer, whereas all conjugates of modulus less than one would give norm of modulus less than one.",
       "locator": "Section 2, p. 489",
-      "status": "missing",
-      "note": "Consumer consequence of norm-product, integrality of the algebra norm and Int.one_le_abs; searches in both canonical-embedding and discriminant APIs did not locate the exact sup-gauge bound. A hypothetical gauge<1 makes every factor in the nonzero norm product <1. Do not assert every individual conjugate has modulus >=1 (units give counterexamples)."
+      "status": "library",
+      "note": "Reviewer correction (REV-PAPER-COUVEIGNES-20): pinned Mathlib has this bound. NumberField.house α = ‖canonicalEmbedding K α‖ (Mathlib/NumberTheory/NumberField/House.lean:39), house_eq_sup' identifies it with the maximum of |φ α| over all complex embeddings φ, and one_le_house_of_isIntegral (line 88) proves 1 ≤ house α for α integral over ℤ and nonzero. The paper's gauge on K_R is the maximum over the r+s places of the absolute values, which equals the maximum over all n embeddings since conjugate embeddings have equal modulus.",
+      "library": [
+        "mathlib:NumberField.one_le_house_of_isIntegral",
+        "mathlib:NumberField.house_eq_sup'"
+      ]
     },
     {
       "id": "PAPER-COUVEIGNES-20/minkowski-second",
@@ -200,8 +204,11 @@
       "name": "Integer-grid nonvanishing",
       "statement": "Let F be a characteristic-zero field. A nonzero polynomial in N variables with degree in each variable at most D does not vanish on all of {0,...,D}^N subset F^N.",
       "locator": "Section 3, p. 492, passage from a nonzero minor to bounded u_ij",
-      "status": "missing",
-      "note": "This exact per-variable statement follows by induction from the univariate root bound; no exact finite-box declaration was found in the inspected MvPolynomial APIs. The paper's application can avoid introducing it: its determinant has TOTAL degree <=d*n*(r+1), so baseline-total-degree-grid gives a nonzero integer point directly. Preserve this source statement, but implement only the needed existing-lemma specialization unless another consumer requires the stronger box theorem. Generic real coefficients cannot be rounded to obtain the result."
+      "status": "library",
+      "note": "Reviewer correction (REV-PAPER-COUVEIGNES-20): pinned Mathlib has this per-variable box lemma. MvPolynomial.eq_zero_of_eval_zero_at_prod_finset (Mathlib/Combinatorics/Nullstellensatz.lean:67): over an integral domain, a polynomial P in finitely many variables with degreeOf i P < #(S i) for every variable, vanishing at every point of the product of the finsets S i, is zero. Take S i = {0,...,D} in F; in characteristic zero it has D+1 elements. The paper states the degree bound per variable, so this is the lemma it uses; the total-degree route through schwartz_zippel_totalDegree remains an alternative.",
+      "library": [
+        "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset"
+      ]
     },
     {
       "id": "PAPER-COUVEIGNES-20/parameterized-generators",
@@ -574,11 +581,10 @@
         "PAPER-COUVEIGNES-20/bounded-polynomials",
         "PAPER-COUVEIGNES-20/double-points",
         "PAPER-COUVEIGNES-20/first-jet-matrix",
-        "PAPER-COUVEIGNES-20/generic-hermite",
-        "PAPER-COUVEIGNES-20/grid-nonvanishing"
+        "PAPER-COUVEIGNES-20/generic-hermite"
       ],
       "reason": "The catalogue-wide screen found no owner of generic double-point interpolation or the Alexander–Hirschowitz theorem. R09.1/2 own projective/Hilbert/Quot foundations, not the Hilbert function of generic fat-point configurations; SF.0 owns schemes, not this interpolation theorem. The separate interpolation project has a reusable endpoint independent of number-field enumeration.",
-      "brief": "Prove the characteristic-zero, exception-free Alexander–Hirschowitz interface used by Couveignes: for an algebraically closed field k, r>=1, d>=5, n>=1 and n(r+1)<=binom(d+r,d), a nonempty Zariski-open set of ordered distinct n-tuples in (A^r_k)^n has surjective value-and-first-derivative evaluation on degree-<=d polynomials. Import SchemeAndStackFoundations (Scheme, stack, cohomology and intersection foundations), especially SF.0, and AlgebraicModuliForArithmeticGeometry (Algebraic moduli and representability for arithmetic geometry), R09.1/R09.2 only for the projective parameter/Hilbert-family interfaces actually used. Reuse Mathlib MvPolynomial.restrictTotalDegree and its restricted monomial basis; construct the binomial dimension, fixed-degree homogenization/H^0 comparison, length-n(r+1) double-point quotient and first-jet matrix. Follow Brambilla–Ottaviani Sections 2–6: residual/trace sequences, restriction-dimension inequalities, curvilinear reduction, semicontinuity and differential-Horace degeneration, cubic cases and quartic base cases with exact rank certificates where the source invokes computer calculations. The induction needs low-degree inputs even though the exported theorem assumes d>=5. Supply the affine-chart/open-minor comparison and integer-parameter specialization, using the existing total-degree Schwartz–Zippel theorem whenever possible; the stronger per-variable box lemma is a small API consequence, not a new polynomial foundation. EffectiveBoundsCompactModels consumes this result. Tests must reject special collinear configurations, recover univariate Hermite interpolation, and separate double points from reduced points and higher jets. Do not export positive-characteristic or low-degree exception-free claims."
+      "brief": "Prove the characteristic-zero, exception-free Alexander–Hirschowitz interface used by Couveignes: for an algebraically closed field k, r>=1, d>=5, n>=1 and n(r+1)<=binom(d+r,d), a nonempty Zariski-open set of ordered distinct n-tuples in (A^r_k)^n has surjective value-and-first-derivative evaluation on degree-<=d polynomials. Import SchemeAndStackFoundations (Scheme, stack, cohomology and intersection foundations), especially SF.0, and AlgebraicModuliForArithmeticGeometry (Algebraic moduli and representability for arithmetic geometry), R09.1/R09.2 only for the projective parameter/Hilbert-family interfaces actually used. Reuse Mathlib MvPolynomial.restrictTotalDegree and its restricted monomial basis; construct the binomial dimension, fixed-degree homogenization/H^0 comparison, length-n(r+1) double-point quotient and first-jet matrix. Follow Brambilla–Ottaviani Sections 2–6: residual/trace sequences, restriction-dimension inequalities, curvilinear reduction, semicontinuity and differential-Horace degeneration, cubic cases and quartic base cases with exact rank certificates where the source invokes computer calculations. The induction needs low-degree inputs even though the exported theorem assumes d>=5. Supply the affine-chart/open-minor comparison and integer-parameter specialization, using the existing per-variable box lemma MvPolynomial.eq_zero_of_eval_zero_at_prod_finset (Combinatorial Nullstellensatz) or the total-degree Schwartz–Zippel theorem; neither is re-proved here. EffectiveBoundsCompactModels consumes this result. Tests must reject special collinear configurations, recover univariate Hermite interpolation, and separate double points from reduced points and higher jets. Do not export positive-characteristic or low-degree exception-free claims."
     },
     {
       "route": "part-ii",
@@ -589,7 +595,6 @@
       "items": [
         "PAPER-COUVEIGNES-20/measure-normalization",
         "PAPER-COUVEIGNES-20/discriminant-covolume",
-        "PAPER-COUVEIGNES-20/integer-gauge-lower-bound",
         "PAPER-COUVEIGNES-20/half-small-integers",
         "PAPER-COUVEIGNES-20/product-span",
         "PAPER-COUVEIGNES-20/short-integers",
