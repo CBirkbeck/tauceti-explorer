@@ -6407,8 +6407,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1397"
+   "state": "pending",
+   "note": "released on GitHub issue #1397"
   },
   {
    "id": "REV-PAPER-HE-21",
