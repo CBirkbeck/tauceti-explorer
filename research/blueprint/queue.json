@@ -2353,8 +2353,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BUSHNELL-HENNIART-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1153"
+   "state": "pending",
+   "note": "released on GitHub issue #1153"
   },
   {
    "id": "REV-PAPER-BUSHNELL-HENNIART-17",
@@ -7697,8 +7697,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1462"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1462",
+   "finishedAt": "2026-09-22T21:30:25Z"
   },
   {
    "id": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
