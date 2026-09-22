@@ -68,3 +68,18 @@ Reviewed coverage entries and the relevant roadmap stage descriptions were read 
 The repository paper checker passes. Additional scratch checks verify counts, unique missing-item routing, existing stage references, exact Part II parent titles/first prerequisites, new-id uniqueness, source hashes and absence of private machine paths. No suggested Lean file is required by this paper job; no Lean compilation or formalization is claimed.
 
 Independent review should particularly test the source's compressed elliptic comparison, the regular-prime-to-rational equality, the contained-field dyadic descent, and the exact stronger statistical inputs. The JSON includes their proof obligations and prerequisite sources so a design job cannot treat an abbreviated citation as an already-built theorem.
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-BURUNGALE-TIAN-26, `research/blueprint/reviews/REV-PAPER-BURUNGALE-TIAN-26.md`) accepted this extraction and all eight routes. It corrected the JSON in place:
+
+- **Theorem 2.1:** `equivariant-main` and `regular-prime-equality` now carry the Euler factors at the primes of f prime to p. The printed equality omits them, because z uses only the modulus-p^n f elliptic units and h² is H² over O[1/p], not over O[1/pf]. The new item `h2-euler-comparison` records the comparison. The printed form holds on the ψ-components that Theorem 2.6 uses.
+- **Theorem 2.6:** Kato §15 proves only the inequality (Prop. 15.17). The new item `equality-descent` records the step to equality.
+- **Statuses:** `ray-tower`, `ray-group-structure` (AutomorphicPadicLFunctions L0), `congruent-curve` (EllipticCurves Layer 5) and `number-field-twist-height` (ArithmeticStatistics ST.0) are planned. Five items gained supplier citations, and `module-localization` gained `LocalizedModule.AtPrime`.
+- **Kato checks:** statements or locators were corrected in `cm-descent`, `cm-zeta-bridge`, `conjugate-dual`, `cm-newform`, `modular-representation`, `units-torsionfree`, `selmer-zero-h2`, `lattice-independence` and `congruent-root-number`.
+- **Routes:**
+  - Route 5 carries only `congruent-root-number`.
+  - Route 7's brief states the corrected Theorem 2.1 and the equality step, imports the ray-class and Siegel-unit suppliers, and asks for a single owner of the elliptic-unit foundations shared with the Burungale–Kobayashi–Ota designs.
+  - Route 8's area is now "iwasawa". Its brief asks for a single owner of `p-converse-property`, shared with Skinner's RankOneConverse design.
+
+Where the text above counts items, the corrected JSON is authoritative. It has 92 items: 3 library, 48 planned and 41 missing.
