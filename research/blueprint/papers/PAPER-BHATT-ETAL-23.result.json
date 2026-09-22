@@ -12,13 +12,14 @@
     "readSections": [
       "Entire published paper §§1–10 and references, pp69–227",
       "Selected arXiv v3 passages collated; not full version comparison",
-      "Published pp85,88,101,128,154,216 image-checked"
+      "Published pp85,88,101,128,154,216 image-checked",
+      "Continuation 2026-09-22 (Claude Code cc-fb70e5): image-checked published pp.101, 128, 154, 206, 216 again and collated Lemma 2.56, Proposition 6.28, Lemma 4.28, Theorem 9.28 and Theorem 10.6/K against arXiv v1, v2 and v3"
     ],
     "sha256": "a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6",
     "acquired": "2026-09-22",
     "license": "Published source CC BY 4.0, acknowledged p220; https://creativecommons.org/licenses/by/4.0/. This extraction paraphrases and adds explicitly labelled diagnostics/candidate repairs; it is not an author-approved erratum."
   },
-  "summary": "Mixed-characteristic absolute-closure vanishing, B⁰/adjoint trace spaces, BCM/test-module comparison, Fujita generation, ordinary/pure +-regularity, section lifting and threefold flips/MMP, with stable-surface moduli and finite-generation/F-regularity applications. Full primary-paper reading with a 271-item partial proof graph; 21 explicit source, scope, diagnostic and transitive-closure gaps prevent a completeness claim.",
+  "summary": "Mixed-characteristic absolute-closure vanishing, B⁰/adjoint trace spaces, BCM/test-module comparison, Fujita generation, ordinary/pure +-regularity, section lifting and threefold flips/MMP, with stable-surface moduli and finite-generation/F-regularity applications. Full primary-paper reading with a 271-item partial proof graph; 15 open source, scope and transitive-closure gaps prevent a completeness claim. Six diagnostic gaps are resolved, and seven verified source mistakes are recorded in sourceIssues.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1661,7 +1662,7 @@
         "PAPER-BHATT-ETAL-23/divisors"
       ],
       "implementationStatus": "unchecked",
-      "note": "Not found at the audited pinned baseline or as an exact existing layer theorem. Routed as missing; a pending paper proposal is not an accepted planned layer.",
+      "note": "Not found at the audited pinned baseline or as an exact existing layer theorem. Routed as missing; a pending paper proposal is not an accepted planned layer. The nonemptiness guard is harmless for the paper (E7): every Mob/Fix in §8 is taken on a scheme projective and birational over an affine base, where every Cartier divisor has a nonzero section.",
       "sourceEvidence": {
         "sourceIds": [
           "main"
@@ -1725,7 +1726,6 @@
         "State base-ideal principalization conditions before commuting Mob with pullback."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-library-api"
       ]
     },
@@ -4327,7 +4327,6 @@
         "Construct a common refinement for two finite compatibility lists."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
       ]
@@ -4404,7 +4403,6 @@
         "Compare pullbacks from the fixed model without interchanging limits over changing models."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
       ]
@@ -6341,7 +6339,7 @@
       ],
       "proofSteps": [
         "Read CP19/CJS20 for the exact embedded pair-resolution statement.",
-        "Do not permit T=X, and do not identify this theorem with smooth-centre strong resolution."
+        "Do not permit T = X, or T containing a component (E6: g^{-1}(T) is then not a divisor). Every application in the paper uses a nowhere-dense T. Do not identify this theorem with smooth-centre strong resolution."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
@@ -7318,9 +7316,9 @@
     {
       "id": "PAPER-BHATT-ETAL-23/seshadri-lower",
       "kind": "theorem",
-      "name": "Seshadri multiplicity lower bound",
-      "statement": "Under Lem2.56's regular birational surface, effective nonexceptional relatively ample M and point x hypotheses, the source proof supplies the multiplicity lower bound; for its small perturbations retain the lower-limit bound ≥mult_x M, not the printed equality of limits.",
-      "locator": "Lemma2.56; diagnostic G03",
+      "name": "Seshadri multiplicity lower bound (corrected Lemma 2.56)",
+      "statement": "Let f: Y → X be projective birational, Y a two-dimensional regular integral scheme, X affine and klt, and the reduced exceptional divisor F of positive characteristic. (1) If M is an effective semiample Cartier divisor with no f-exceptional curve in its support and x ∈ M ∩ F has multiplicity k in M, then ε_sa(M; x) = ε(M; x) ≥ k. (2) Fix a divisor D on Y. For every rational 0 < γ < k there is δ₀ = δ₀(f, D, γ) > 0 such that, for all 0 < δ < δ₀, all semiample Q-Cartier A ∼_Q M + Λ with M effective Cartier without exceptional components and −δD ≤ Λ ≤ δD, and all x ∈ F ∩ M of multiplicity k in M, ε_sa(A; x) = ε(A; x) ≥ k − γ. This replaces the printed 'converges to k', which is false (sourceIssues E1): no upper bound holds.",
+      "locator": "Lemma 2.56 (p.101), corrected; sourceIssues E1",
       "status": "missing",
       "ownerRoute": "POS",
       "prerequisites": [
@@ -7333,7 +7331,7 @@
           "main"
         ],
         "reading": "Main-paper proof read; source-specific reading limits and unresolved frontiers appear in readingLog and gaps.",
-        "locator": "Lemma2.56; diagnostic G03"
+        "locator": "Lemma 2.56 (p.101), corrected; sourceIssues E1"
       },
       "uses": [
         {
@@ -7348,14 +7346,17 @@
         }
       ],
       "proofSteps": [
-        "Intersect with strict transforms to establish the lower inequality.",
-        "For perturbations use an arbitrary γ>0 and a sufficiently small δ; this is the corrected candidate, pending independent review."
+        "Let F_1, …, F_r be the f-exceptional prime curves (finitely many, since f is projective and birational). Measure intersection numbers on curves over a closed point of X as degrees over its residue field κ, and set c = max_j |D·F_j|. Take δ₀ = γ/c, or δ₀ = ∞ if c = 0.",
+        "Let π: W → Y be the blow-up of x with exceptional curve E. Since mult_x M = k, π*M = M_W + kE, where M_W is the strict transform. Hence π*A − (k − γ)E ∼_Q M_W + γE + π*Λ.",
+        "The curves on W contracted to points of X are E and the strict transforms F_j′. For C = E: (π*A − (k−γ)E)·E = −(k−γ)E² > 0. For C = F_j′ with x ∉ F_j: E·C = 0, so the degree is A·F_j ≥ 0 because A is nef.",
+        "For C = F_j′ with x ∈ F_j: M_W·C ≥ 0 because C ⊄ Supp M_W, as M has no exceptional component. Also E·C ≥ [κ(x):κ] ≥ 1, and π*Λ·C = Λ·F_j ≥ −δ|D·F_j| ≥ −δc. So the degree is at least γ − δc ≥ 0 for δ < δ₀. Hence π*A − (k−γ)E is nef over X and ε(A; x) ≥ k − γ. The bound is uniform in A, M, Λ and x.",
+        "Apply Lemma 2.55 on the regular surface W → X, whose exceptional locus F′ ∪ E still lies over the positive-characteristic points: nef Q-Cartier divisors are semiample over X. So ε_sa(A; x) = ε(A; x). Assertion (1) is the case Λ = 0, where no γ is needed.",
+        "Sharpness: for X = A²_k, the blow-up Y of the origin, M = the sum of the strict transforms of the axes (M ∼ −2E) and x on one strict transform, k = 1 but ε_sa(M; x) = ε(M; x) = 2 (E1). So the constant family Λ = 0 does not converge to k."
       ],
       "acceptance": [
-        "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
+        "State and use only the lower bound (1)/(2); never the printed limit equality. Consumers: Proposition 8.15 uses (1) with k ≥ 1, and Claim 8.21 uses (2) with k ≥ 3 to get > 2."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
@@ -9022,13 +9023,12 @@
       ],
       "proofSteps": [
         "Separate components birationally and apply negative-twist vanishing to the ideal-sheaf triangle.",
-        "The printed positive L⁺ sign must be corrected in the dual cohomology argument and independently reviewed."
+        "Twist by the pullback of O_Y(f*(K_X + S + B − M)), the inverse of the big and semiample bundle; the printed positive sign is a misprint (E3). Corollary 3.7 with b = −1 gives the left zeros, the five lemma gives injectivity, and duality turns H^d_m(O(−S_{W⁺}) ⊗ L⁺) into H⁰(O_Y(K_Y + S_Y + f*(M − K_X − S − B))). This matches the displayed statement."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-adjoint-sign",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
@@ -10279,9 +10279,9 @@
     {
       "id": "PAPER-BHATT-ETAL-23/pure-birational-repair",
       "kind": "theorem",
-      "name": "Pure-preserving crepant birational comparison, repair target",
-      "statement": "Under Proposition6.28's effective crepant proper birational hypotheses, retain ordinary or pure regularity in its own branch, with complete/pure qualifiers and strict transforms. The printed completely-pure-to-ordinary conclusion is false.",
-      "locator": "Proposition6.28; diagnostic G06",
+      "name": "Crepant proper birational pullback preserves (completely purely) global +-regularity (corrected Proposition 6.28)",
+      "statement": "Let X → Spec R be proper and f: Y → X a proper birational morphism of normal integral schemes. Let Δ ≥ 0 with K_X + Δ Q-Cartier, K_Y + Δ_Y = f*(K_X + Δ) and Δ_Y ≥ 0. (i) If (X, Δ) is globally +-regular, so is (Y, Δ_Y). (ii) If Δ = S + B with S reduced and (X, S + B) is completely purely globally +-regular over R, then (Y, S_Y + B_Y) is completely purely globally +-regular over R, where S_Y = f^{-1}_*S and B_Y = Δ_Y − S_Y. The printed resp. conclusion 'globally +-regular' is false (sourceIssues E2); this is arXiv v2's wording.",
+      "locator": "Proposition 6.28 (p.154), corrected; sourceIssues E2",
       "status": "missing",
       "ownerRoute": "BCM",
       "prerequisites": [
@@ -10296,7 +10296,7 @@
           "main"
         ],
         "reading": "Main-paper proof read; source-specific reading limits and unresolved frontiers appear in readingLog and gaps.",
-        "locator": "Proposition6.28; diagnostic G06"
+        "locator": "Proposition 6.28 (p.154), corrected; sourceIssues E2"
       },
       "uses": [
         {
@@ -10306,14 +10306,17 @@
         }
       ],
       "proofSteps": [
-        "Derive the fixed-complete-base pure statement directly from Proposition4.27.",
-        "A general pure/completely-pure equivalence is not available; verify exactly what Theorem7.14 needs."
+        "(i): by Corollary 6.9 reduce to R local and complete. Then Proposition 6.8 and Lemma 4.19 with B′ = Δ_Y give B⁰(X, Δ; O_X) = B⁰(Y, Δ_Y; O_Y) inside H⁰(X, O_X) = H⁰(Y, O_Y); here f_*O_Y = O_X because f is proper birational and X is normal.",
+        "(ii), base change: fix a closed point m of R and put R̂ = the m-adic completion. Since R is excellent, R → R̂ is regular, so X̂ and Ŷ are normal and f̂ is proper and birational on each connected component. Canonical divisors, pullbacks and strict transforms commute with this flat base change. By definition of 'completely', (X̂, Ŝ + B̂) is purely globally +-regular, componentwise.",
+        "Work on one connected component X′ of X̂, with Y′ = f̂^{-1}(X′) and R′ = H⁰(X′, O). R′ is a normal domain finite over the complete ring R̂, hence complete local, and X′, Y′ are proper over R′ with H⁰(Y′, O) = R′.",
+        "Proposition 6.26 ('in particular' clause, R′ complete) gives B⁰_{S′}(X′, S′ + B′; O) = H⁰(X′, O). Lemma 4.27 with L = 0 and B′ = B_{Y′} ≥ 0 gives the equality B⁰_{S′}(X′, S′ + B′; O_{X′}) = B⁰_{S_{Y′}}(Y′, S_{Y′} + B_{Y′}; O_{Y′}) inside H⁰(X′, O) = H⁰(Y′, O). Hence the right side is H⁰(Y′, O), and Proposition 6.26 applied to Y′ → Spec R′ shows that (Y′, S_{Y′} + B_{Y′}) is purely globally +-regular.",
+        "Doing this for every component and every closed point m gives (ii). No comparison between pure and completely pure regularity over a non-complete base is used; Remark 4.30 leaves that open.",
+        "Negative control: R = k[[t]], X = Y = Spec R, f = id and Δ = S = V(t). The hypothesis of (ii) holds, but (X, S) is not globally +-regular, because O → O(S) does not split (E2)."
       ],
       "acceptance": [
-        "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
+        "Consumers must use (ii) with the pure qualifier. Theorem 7.14 applies it over its complete base R, where 'completely purely' and 'purely' agree, to h: Y → W with S_Y = C (D_W avoids C_W, so C keeps coefficient 1), and then drops the effective difference from condition (d)."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
@@ -10874,13 +10877,12 @@
       ],
       "proofSteps": [
         "Use global F-regularity of the resulting standard-boundary P¹ pair and the inseparability bound.",
-        "The proof explicitly needs the pure-preserving correction of Proposition6.28."
+        "Pass from W to Y by the corrected Proposition 6.28(ii) (pure-birational-repair) over the complete base R, then use Lemmas 6.7 and 6.27 and Proposition 6.19. The misprinted resp. clause (E2) is not needed."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -10935,7 +10937,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -10978,7 +10979,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -11020,7 +11020,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -11062,7 +11061,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
@@ -11330,7 +11328,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
       ]
@@ -11370,7 +11367,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
@@ -11422,7 +11418,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11473,7 +11468,7 @@
       "kind": "theorem",
       "name": "Restricted mobile divisors descend to the fixed terminal surface",
       "statement": "Under Setup8.5, each compatible restricted mobile part descends to the fixed terminal surface and is independent of the compatible resolution.",
-      "locator": "Lemma8.15",
+      "locator": "Proposition 8.15 (p.172–173)",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -11489,7 +11484,7 @@
           "main"
         ],
         "reading": "Main-paper proof read; source-specific reading limits and unresolved frontiers appear in readingLog and gaps.",
-        "locator": "Lemma8.15"
+        "locator": "Proposition 8.15 (p.172–173)"
       },
       "uses": [
         {
@@ -11500,14 +11495,12 @@
       ],
       "proofSteps": [
         "Lifting forces fixed vanishing along the rounded discrepancy divisor.",
-        "A section generated at a chosen point contradicts positive exceptional coefficients; only the lower bound from Lem2.56 is used."
+        "A section generated at a chosen point contradicts positive exceptional coefficients. In (8.15.4) the last inequality ε_sa(M; x) ≥ 1 is assertion (1) of seshadri-lower, the correct first assertion of Lemma 2.56. The false limit clause (E1) is not used."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11561,8 +11554,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11623,7 +11614,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter"
       ]
@@ -11706,8 +11696,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11755,8 +11743,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11798,14 +11784,13 @@
         }
       ],
       "proofSteps": [
-        "Apply the perturbative lower bound for a triply very ample divisor to obtain threshold>2.",
+        "Apply assertion (2) of seshadri-lower to M = 3C, whose multiplicity at y ∈ C is 3·mult_y C ≥ 3, and to Λ = jD_{i,S} − N with ‖jD_{i,S} − N‖ ≪ 1. This gives ε_sa((jD_{i,S} − N) + 3C; y) ≥ 3 − γ > 2, which is all the claim needs. Only the lower bound is used, not the false limit clause (E1).",
         "A section generated along a nonexceptional component contradicts the putative positive support."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
@@ -11813,7 +11798,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter"
       ]
@@ -11855,8 +11839,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11909,8 +11891,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -11958,8 +11938,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12007,8 +11985,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12018,7 +11994,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -12058,8 +12033,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12188,8 +12161,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12199,7 +12170,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -12522,8 +12492,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12532,7 +12500,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -12587,8 +12554,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12597,7 +12562,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -12639,8 +12603,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12687,8 +12649,6 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12835,8 +12795,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -12881,8 +12839,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -12943,8 +12899,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -12953,7 +12907,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13016,8 +12969,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -13026,7 +12977,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13078,8 +13028,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -13088,7 +13036,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13128,8 +13075,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -13138,7 +13083,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13179,8 +13123,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -13189,7 +13131,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13236,8 +13177,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -13246,7 +13185,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13534,8 +13472,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13543,7 +13479,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13592,8 +13527,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13601,7 +13534,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13643,8 +13575,6 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13652,7 +13582,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13660,8 +13589,8 @@
       "id": "PAPER-BHATT-ETAL-23/cone-length",
       "kind": "theorem",
       "name": "Relative cone length bound with degree index",
-      "statement": "The proof of Theorem9.28 and introductory Theorem I supply 0<−(K+Δ)·C≤4d_C. The internal theorem prints a strict upper bound; that stronger form is left as an explicit gap.",
-      "locator": "Theorem9.28 length; diagnostic G07",
+      "statement": "For every (K_X + Δ)-negative extremal ray there is a curve C in it with 0 < −(K_X + Δ)·C ≤ 4d_C, where d_C divides L·C for every Cartier L. This is Theorem I(c) and what the proof of Theorem 9.28 gives. The strict '<' printed in Theorem 9.28(c) is a misprint (sourceIssues E4).",
+      "locator": "Theorem 9.28(c) (p.206), Theorem I(c) (p.74), proof p.210; sourceIssues E4",
       "status": "missing",
       "ownerRoute": "MMP",
       "prerequisites": [
@@ -13675,7 +13604,7 @@
           "main"
         ],
         "reading": "Main-paper proof read; source-specific reading limits and unresolved frontiers appear in readingLog and gaps.",
-        "locator": "Theorem9.28 length; diagnostic G07"
+        "locator": "Theorem 9.28(c) (p.206), Theorem I(c) (p.74), proof p.210; sourceIssues E4"
       },
       "uses": [
         {
@@ -13686,19 +13615,16 @@
       ],
       "proofSteps": [
         "Track the surface inequality and inseparable degree factor.",
-        "Do not silently strengthen a non-strict bound to strict."
+        "Lemma 9.29 gives −4d ≤ (K_X + B)·Γ < 0 for klt Q-boundaries. Approximating Δ by klt Q-boundaries Δ_n and choosing an extremal curve C in the ray gives −4d_C ≤ (K_X + Δ)·C < 0. The bound is non-strict throughout."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13706,7 +13632,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13746,13 +13671,10 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13760,7 +13682,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13800,12 +13721,9 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13813,7 +13731,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13854,11 +13771,8 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13866,7 +13780,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13906,11 +13819,8 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13918,7 +13828,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -13963,11 +13872,8 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
@@ -13975,7 +13881,6 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -14018,18 +13923,14 @@
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -14074,17 +13975,13 @@
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -14132,17 +14029,13 @@
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -14184,8 +14077,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -14194,9 +14085,7 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum"
       ]
     },
@@ -14238,8 +14127,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -14248,10 +14135,8 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum"
       ]
     },
@@ -14293,8 +14178,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -14303,9 +14186,7 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
-        "PAPER-BHATT-ETAL-23/gap-cone-length",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum"
       ]
     },
@@ -14349,8 +14230,6 @@
         "PAPER-BHATT-ETAL-23/gap-kollar-family",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -14359,7 +14238,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement"
       ]
     },
@@ -14411,15 +14289,12 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier"
       ]
@@ -14469,15 +14344,12 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier"
       ]
@@ -14523,15 +14395,12 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier"
       ]
@@ -14575,15 +14444,12 @@
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier"
       ]
@@ -14743,13 +14609,12 @@
       ],
       "proofSteps": [
         "Expand Liedtke/Ekedahl prerequisites and verify the arithmetic.",
-        "The internal theorem nevertheless prints393 at v=1; maintain the discrepancy separately."
+        "Theorem 10.6 prints β(1) = 393. That is a misprint for Theorem K's 373 (E5): the conditions p ≥ 110 + 4 and p > deg D, with deg D ≤ 373, are the only uses of β(1), and both hold for every p > 373."
       ],
       "acceptance": [
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-moduli-bound",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
@@ -14793,7 +14658,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-moduli-bound",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure"
       ]
     },
@@ -14846,7 +14710,7 @@
       "id": "PAPER-BHATT-ETAL-23/stable-limits",
       "kind": "theorem",
       "name": "Stable limits of smooth stable surfaces in the explicit prime range",
-      "statement": "For a smooth canonically polarized surface of integer volume v over the fraction field of the relevant DVR with residue characteristic p>β(v), β(1)=393 and β(v)=213v+48 for v≥2, the source constructs a stable limit after finite extension.",
+      "statement": "For a smooth canonically polarized surface of integer volume v over the fraction field of the relevant DVR with residue characteristic p>β(v), β(1)=373 (Theorem K; Theorem10.6's printed393 is a misprint, E5) and β(v)=213v+48 for v≥2, the source constructs a stable limit after finite extension.",
       "locator": "Theorem10.6 existence proof",
       "status": "missing",
       "ownerRoute": "MOD",
@@ -14884,18 +14748,14 @@
         "PAPER-BHATT-ETAL-23/gap-kollar-family",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
         "PAPER-BHATT-ETAL-23/gap-library-api",
-        "PAPER-BHATT-ETAL-23/gap-moduli-bound",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -14905,7 +14765,7 @@
       "id": "PAPER-BHATT-ETAL-23/smooth-closure-proper",
       "kind": "theorem",
       "name": "Proper smooth-locus closure",
-      "statement": "Let v be a positive integer and d the product of primes≤β(v), using the conservative printed β(1)=393 and β(v)=213v+48 for v≥2. The closure of the smooth locus in the volume-v stable-surface stack is proper over Z[1/d].",
+      "statement": "Let v be a positive integer and d the product of the primes ≤ β(v), where β(1) = 373 (Theorem K; Theorem 10.6's printed 393 is a misprint, E5) and β(v) = 213v + 48 for v ≥ 2. Then the closure of the smooth locus in the volume-v stable-surface stack is proper over Z[1/d].",
       "locator": "Theorem10.6 properness; Theorem K weaker comparison",
       "status": "missing",
       "ownerRoute": "MOD",
@@ -14938,21 +14798,17 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-moduli-bound",
         "PAPER-BHATT-ETAL-23/gap-kollar-family",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -15038,21 +14894,17 @@
         "Apply the theorem only with the complete quantified source hypotheses in its statement and locator; retain all linked source gaps."
       ],
       "blockingGaps": [
-        "PAPER-BHATT-ETAL-23/gap-moduli-bound",
         "PAPER-BHATT-ETAL-23/gap-stable-moduli-frontier",
         "PAPER-BHATT-ETAL-23/gap-kollar-family",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -15239,8 +15091,6 @@
       ],
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -15249,7 +15099,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -15292,8 +15141,6 @@
       "blockingGaps": [
         "PAPER-BHATT-ETAL-23/gap-ap-version",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
@@ -15302,7 +15149,6 @@
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -15348,15 +15194,12 @@
         "PAPER-BHATT-ETAL-23/gap-bcm-tight-closure-frontier",
         "PAPER-BHATT-ETAL-23/gap-atomic-closure",
         "PAPER-BHATT-ETAL-23/gap-lower-mmp-frontier",
-        "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-        "PAPER-BHATT-ETAL-23/gap-empty-system",
         "PAPER-BHATT-ETAL-23/gap-resolution-centres",
         "PAPER-BHATT-ETAL-23/gap-library-api",
         "PAPER-BHATT-ETAL-23/gap-weil-adapter",
         "PAPER-BHATT-ETAL-23/gap-adjoint-version",
         "PAPER-BHATT-ETAL-23/gap-bhatt-rh-frontier",
         "PAPER-BHATT-ETAL-23/gap-positivity-descent-frontier",
-        "PAPER-BHATT-ETAL-23/gap-pure-birational",
         "PAPER-BHATT-ETAL-23/gap-limits-enhancement",
         "PAPER-BHATT-ETAL-23/gap-ct-erratum",
         "PAPER-BHATT-ETAL-23/gap-section-nine-scope"
@@ -15792,7 +15635,7 @@
         "PAPER-BHATT-ETAL-23/hulls-boundedness"
       ],
       "reason": "R09 supplies parameter schemes, stacks and restricted coarse spaces, but no inspected layer owns the stable-surface boundedness/hulls, stable-limit and determinant-positivity theorems. Curve stable reduction is not stable-surface moduli.",
-      "brief": "Start after Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry R09.2–R09.5), importing actual Hilbert/Quot, polarized Isom, algebraic-stack and finite-inertia coarse-space constructions. Import coherent base change from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, J-C), relative Proj/polarized descent from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), singular duality from AnalyticStacks:AS.1 and intersection theory from SchemeAndStackFoundations:SF.5. Import second-Veronese Lefschetz pencils from LefschetzPencilsAndVanishingCycles:LPV.3, not a duplicate pencil package. Use the pending SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry extension for threefold MMP, lc inversion and canonical singularities; Saito's log-smooth extension belongs to SF.4. Construct Patakfalvi's exact stable-surface groupoid: flat projective families with geometric slc canonically polarized volume-v fibres and EVERY reflexive canonical power compatible with EVERY base change. A naive Q-Gorenstein family over a normal base need not satisfy it. Prove Theorem10.2 separately: Artin finite type, separated finite diagonal, and a separated finite-type coarse algebraic space over Z[1/30] for rational v>0. Build HK19 boundedness, Kollár hull strata, the explicit Hilbert/Isom atlas and the inversion-of-adjunction deformation input, including the central fibre in the normalized pair. Prove Cor10.3's stable lift over an open number ring for finite fields of sufficiently large characteristic. For integer v>0 and d the product of primes≤β(v), with β(1)=393 as printed internally and β(v)=213v+48 for v≥2, prove properness of the CLOSURE OF THE SMOOTH LOCUS over Z[1/d] by Lefschetz pencils, the Saito extension and threefold canonical models; use BK21/Kollár21 CM to verify the central fibre and Kollár conditions. Prove projectivity of its coarse space by the full Pat18 determinant-line argument, finite scheme cover, descent of a power, generic CM-line positivity and the finite bad-prime argument. Neither properness nor finite diagonal alone gives projectivity. Record the introduction/proof value373 versus internal393 mismatch for volume1; do not silently claim the stronger threshold. The entire stable stack over Z[1/30] is not asserted proper. Close the uninspected positivity, boundedness, semistable-extension and canonical-model source proofs before approval."
+      "brief": "Start after Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry R09.2–R09.5), importing actual Hilbert/Quot, polarized Isom, algebraic-stack and finite-inertia coarse-space constructions. Import coherent base change from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, J-C), relative Proj/polarized descent from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), singular duality from AnalyticStacks:AS.1 and intersection theory from SchemeAndStackFoundations:SF.5. Import second-Veronese Lefschetz pencils from LefschetzPencilsAndVanishingCycles:LPV.3, not a duplicate pencil package. Use the pending SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry extension for threefold MMP, lc inversion and canonical singularities; Saito's log-smooth extension belongs to SF.4. Construct Patakfalvi's exact stable-surface groupoid: flat projective families with geometric slc canonically polarized volume-v fibres and EVERY reflexive canonical power compatible with EVERY base change. A naive Q-Gorenstein family over a normal base need not satisfy it. Prove Theorem10.2 separately: Artin finite type, separated finite diagonal, and a separated finite-type coarse algebraic space over Z[1/30] for rational v>0. Build HK19 boundedness, Kollár hull strata, the explicit Hilbert/Isom atlas and the inversion-of-adjunction deformation input, including the central fibre in the normalized pair. Prove Cor10.3's stable lift over an open number ring for finite fields of sufficiently large characteristic. For integer v>0 and d the product of primes≤β(v), with β(1)=373 (Theorem K and the proof; Theorem10.6's printed393 is a misprint, sourceIssues E5) and β(v)=213v+48 for v≥2, prove properness of the CLOSURE OF THE SMOOTH LOCUS over Z[1/d] by Lefschetz pencils, the Saito extension and threefold canonical models; use BK21/Kollár21 CM to verify the central fibre and Kollár conditions. Prove projectivity of its coarse space by the full Pat18 determinant-line argument, finite scheme cover, descent of a power, generic CM-line positivity and the finite bad-prime argument. Neither properness nor finite diagonal alone gives projectivity. Theorem10.6's393 for volume1 is a misprint for373 (E5): the proof's conditions p≥114 and p>deg D, with deg D≤373, hold for every p>373. The entire stable stack over Z[1/30] is not asserted proper. Close the uninspected positivity, boundedness, semistable-extension and canonical-model source proofs before approval."
     }
   ],
   "prerequisites": [
@@ -15896,17 +15739,17 @@
   "gaps": [
     {
       "id": "PAPER-BHATT-ETAL-23/gap-empty-system",
-      "detail": "Definition2.19 does not guard the minimum defining Mob/ Fix against an empty linear system (e.g. O(-1) on P¹). Require nonemptiness and check every consumer; §8's effective adjoint choices provide the intended scope.",
+      "detail": "Definition2.19 does not guard the minimum defining Mob/ Fix against an empty linear system (e.g. O(-1) on P¹). Require nonemptiness and check every consumer; §8's effective adjoint choices provide the intended scope. Resolved by this continuation (E7). Definition 2.19 needs |D| ≠ ∅; the mobile-fixed item carries that guard, and every use in §8 is on a scheme projective and birational over an affine base, where |D| ≠ ∅ for all Cartier D.",
       "items": [
         "PAPER-BHATT-ETAL-23/mobile-fixed",
         "PAPER-BHATT-ETAL-23/mobile-pullback",
         "PAPER-BHATT-ETAL-23/mobile-limit"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-resolution-centres",
-      "detail": "Theorem2.13 and Proposition2.14 say closed T without excluding T=X. Requiring the full inverse image to be an SNC divisor then fails. Verify the original CP/CJS/KW hypotheses; use a nowhere-dense closed centre avoiding components. Do not add preservation of the preexisting SNC locus to the stronger ample-exceptional resolution without proof.",
+      "detail": "Theorem2.13 and Proposition2.14 say closed T without excluding T=X. Requiring the full inverse image to be an SNC divisor then fails. Verify the original CP/CJS/KW hypotheses; use a nowhere-dense closed centre avoiding components. Do not add preservation of the preexisting SNC locus to the stronger ample-exceptional resolution without proof. Continuation: the T = X defect is recorded as E6, and every application in the paper uses a nowhere-dense T. What remains open is reading the original CP19/CJS20/KW21 hypotheses and the SNC-locus question.",
       "items": [
         "PAPER-BHATT-ETAL-23/resolution-three",
         "PAPER-BHATT-ETAL-23/ample-exceptional-resolution",
@@ -15916,21 +15759,21 @@
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-seshadri-limit",
-      "detail": "Lemma2.56's printed equality lim ε=k has a two-blowup counterexample with k=1 and constant ε=2, detailed in the report. The proof suggests only liminf ε≥k; §8 consumers seem to need only this lower bound. Independently verify the example and prove the weaker sufficient statement before closing those consumers.",
+      "detail": "Lemma2.56's printed equality lim ε=k has a two-blowup counterexample with k=1 and constant ε=2, detailed in the report. The proof suggests only liminf ε≥k; §8 consumers seem to need only this lower bound. Independently verify the example and prove the weaker sufficient statement before closing those consumers. Resolved by this continuation. The counterexample is verified (E1), the uniform lower bound is proved in seshadri-lower, and Proposition 8.15 and Claim 8.21 use only that bound.",
       "items": [
         "PAPER-BHATT-ETAL-23/seshadri-lower",
         "PAPER-BHATT-ETAL-23/mobile-descent",
         "PAPER-BHATT-ETAL-23/exceptional-ceiling"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-adjoint-sign",
-      "detail": "Lemma4.28's displayed positive L=M-(K_X+S+B) disagrees with the Cor3.7 negative-twist input and its own dual expression. Keep the asserted result provisional and check the candidate replacement L=(K_X+S+B)-M in every step; no author-approved erratum located.",
+      "detail": "Lemma4.28's displayed positive L=M-(K_X+S+B) disagrees with the Cor3.7 negative-twist input and its own dual expression. Keep the asserted result provisional and check the candidate replacement L=(K_X+S+B)-M in every step; no author-approved erratum located. Resolved by this continuation. The positive twist is a misprint in the proof (E3); with the inverse twist, Corollary 3.7 applies and the dual expression matches the statement. The lemma is not used elsewhere.",
       "items": [
         "PAPER-BHATT-ETAL-23/adjoint-single-complex"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-weil-adapter",
@@ -15943,20 +15786,20 @@
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-pure-birational",
-      "detail": "Proposition6.28's ordinary globally +-regular conclusion from pure global +-regularity fails already for the identity of a DVR with its reduced closed divisor. Candidate conclusion preserves 'purely'; Theorem7.14's consumer uses that form. Verify its fixed-complete-base proof from Proposition4.27 without assuming general adjoint completion, which Remark4.30 leaves open.",
+      "detail": "Proposition6.28's ordinary globally +-regular conclusion from pure global +-regularity fails already for the identity of a DVR with its reduced closed divisor. Candidate conclusion preserves 'purely'; Theorem7.14's consumer uses that form. Verify its fixed-complete-base proof from Proposition4.27 without assuming general adjoint completion, which Remark4.30 leaves open. Resolved by this continuation. The published resp. conclusion drops 'completely purely' (E2; arXiv v2 has it), and the corrected statement (ii) is proved in pure-birational-repair from Proposition 6.26 and Lemma 4.27, componentwise after completion. No general adjoint-completion comparison is used. Theorem 7.14 is covered.",
       "items": [
         "PAPER-BHATT-ETAL-23/pure-birational-repair",
         "PAPER-BHATT-ETAL-23/surface-plus-perturb"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-cone-length",
-      "detail": "Theorem9.28's internal strict length bound conflicts with its proof and introductory non-strict bound. Retain only ≤4d_C until the strict endpoint is independently justified.",
+      "detail": "Theorem9.28's internal strict length bound conflicts with its proof and introductory non-strict bound. Retain only ≤4d_C until the strict endpoint is independently justified. Resolved by this continuation. The strict inequality in Theorem 9.28(c) is a misprint (E4). Theorem I(c), Lemma 9.29 and the proof all give the non-strict ≤ 4d_C, which is what the item states.",
       "items": [
         "PAPER-BHATT-ETAL-23/cone-length"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-section-nine-scope",
@@ -15974,13 +15817,13 @@
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-moduli-bound",
-      "detail": "Theorem K gives 373 for v=1 whereas printed Theorem10.6 gives 393; the proof computes 373. Use the conservative 393 checkpoint and retain β(v)=213v+48 for v≥2, pending version/author clarification. Do not replace the closure of the smooth locus by the entire stable-surface moduli stack.",
+      "detail": "Theorem K gives 373 for v=1 whereas printed Theorem10.6 gives 393; the proof computes 373. Use the conservative 393 checkpoint and retain β(v)=213v+48 for v≥2, pending version/author clarification. Do not replace the closure of the smooth locus by the entire stable-surface moduli stack. Resolved by this continuation. Theorem 10.6's β(1) = 393 is a misprint for Theorem K's 373 (E5): the proof uses β(1) only through p ≥ 114 and p > deg D, with deg D ≤ 373. The scope warning stays in the items: only the closure of the smooth locus, not the whole stack.",
       "items": [
         "PAPER-BHATT-ETAL-23/discriminant-bound",
         "PAPER-BHATT-ETAL-23/smooth-closure-proper",
         "PAPER-BHATT-ETAL-23/smooth-coarse-projective"
       ],
-      "status": "open"
+      "status": "resolved"
     },
     {
       "id": "PAPER-BHATT-ETAL-23/gap-kollar-family",
@@ -16171,6 +16014,11 @@
       "check": "Lean",
       "result": "not run",
       "scope": "No Lean deliverable for this paper job; all API and test statements are unexecuted mathematical planning obligations."
+    },
+    {
+      "check": "Continuation source verification (Claude Code cc-fb70e5)",
+      "result": "passed",
+      "scope": "Seven source mistakes E1–E7 checked at their locators in the published PDF (sha a07fcb79…), with page images for E1–E5, and collated with arXiv v1/v2/v3. For E1, an exact-arithmetic and sympy script re-verified the nef interval [0,2] for 41 rational t and the chart exponents c²d and f². Corrected statements proved in seshadri-lower and pure-birational-repair. python3 scripts/check_paper.py passes. These are mathematical arguments, not Lean proofs."
     }
   ],
   "implementationStatus": "No Lean implementation or source-closure certification.",
@@ -16235,7 +16083,7 @@
       "id": "main",
       "url": "https://link.springer.com/content/pdf/10.1007/s10240-023-00140-8.pdf",
       "sha256": "a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6",
-      "read": "Entire published 159-page paper, pp69–227, §§1–10 and references; continuous extracted text through line8125. Pages85,88,101,128,154,216 also checked as images.",
+      "read": "Entire published 159-page paper, pp69–227, §§1–10 and references; continuous extracted text through line8125. Pages85,88,101,128,154,216 also checked as images. Continuation (cc-fb70e5): pp.74–76, 85, 88, 96, 101, 107, 120–128, 146–156, 165, 169–178, 188, 194, 205–213, 216–219 reread for the diagnostics; pp.101, 128, 154, 206, 216 image-checked.",
       "notEstablished": "Full primary-paper reading, not full transitive prerequisite closure.",
       "readDate": "2026-09-22"
     },
@@ -16243,7 +16091,7 @@
       "id": "main-v3",
       "url": "https://arxiv.org/pdf/2012.15801v3",
       "sha256": "533218825ca5045a9e8e04da1f78ef51e05c90dd83ca4ecb7cd6e8c68dff3d80",
-      "read": "Selected algebra, vanishing, adjoint and MMP passages compared with the published version; earlier Hacon–Witaszek audit supplies the detailed partial log.",
+      "read": "Selected algebra, vanishing, adjoint and MMP passages compared with the published version; earlier Hacon–Witaszek audit supplies the detailed partial log. Continuation (cc-fb70e5): Lemma 2.56 (p.29), Proposition 6.28 (p.71, page image: resp. conclusion garbled as '( ly globally'), Lemma 4.28 proof, Theorem 9.28(c) and Theorem K/10.6 collated.",
       "notEstablished": "Not a full132-page version comparison. Published version controls this extraction.",
       "readDate": "2026-09-22"
     },
@@ -16324,6 +16172,22 @@
       "read": "Relevant exact stage descriptions, reviewed coverage entries, new roadmap and packet/decomposition/reservation overlap screens; all40 current paper route sets checked.",
       "notEstablished": "Pending Part II proposals remain missing suppliers, not accepted stages.",
       "readDate": "2026-09-22"
+    },
+    {
+      "id": "main-v1",
+      "url": "https://arxiv.org/pdf/2012.15801v1",
+      "sha256": "984fd3f1636ceda5ad014eaab75eb11d44063aeab994bafc64efe4898da5cd92",
+      "read": "Lemma 2.37 (p.20; the later Lemma 2.56) and Proposition 6.22 (p.48; the later Proposition 6.28, printed 'purely ... purely').",
+      "notEstablished": "Only these passages collated.",
+      "readDate": "2026-09-22"
+    },
+    {
+      "id": "main-v2",
+      "url": "https://arxiv.org/pdf/2012.15801v2",
+      "sha256": "8393a40ab0ced4f6d74d4dc7a7fab13586a5c35796daec08b5cd09d77bfdb878",
+      "read": "Lemma 2.50 (p.26; the later Lemma 2.56), Proposition 6.28 (p.64, printed 'completely purely ... completely purely'), Lemma 4.28 proof and Theorem 9.28(c).",
+      "notEstablished": "Only these passages collated.",
+      "readDate": "2026-09-22"
     }
   ],
   "sourceDiagnostics": [
@@ -16334,7 +16198,7 @@
         "PAPER-BHATT-ETAL-23/mobile-pullback",
         "PAPER-BHATT-ETAL-23/mobile-limit"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation (E7). Definition 2.19 needs |D| ≠ ∅; the mobile-fixed item carries that guard, and every use in §8 is on a scheme projective and birational over an affine base, where |D| ≠ ∅ for all Cartier D.",
       "detail": "Definition2.19 does not guard the minimum defining Mob/ Fix against an empty linear system (e.g. O(-1) on P¹). Require nonemptiness and check every consumer; §8's effective adjoint choices provide the intended scope."
     },
     {
@@ -16344,7 +16208,7 @@
         "PAPER-BHATT-ETAL-23/ample-exceptional-resolution",
         "PAPER-BHATT-ETAL-23/compatible-resolution"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Partly verified by the continuation: E6 is recorded and consumers use nowhere-dense T; the original-source hypotheses remain open",
       "detail": "Theorem2.13 and Proposition2.14 say closed T without excluding T=X. Requiring the full inverse image to be an SNC divisor then fails. Verify the original CP/CJS/KW hypotheses; use a nowhere-dense closed centre avoiding components. Do not add preservation of the preexisting SNC locus to the stronger ample-exceptional resolution without proof."
     },
     {
@@ -16354,7 +16218,7 @@
         "PAPER-BHATT-ETAL-23/mobile-descent",
         "PAPER-BHATT-ETAL-23/exceptional-ceiling"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation. The counterexample is verified (E1), the uniform lower bound is proved in seshadri-lower, and Proposition 8.15 and Claim 8.21 use only that bound.",
       "detail": "Lemma2.56's printed equality lim ε=k has a two-blowup counterexample with k=1 and constant ε=2, detailed in the report. The proof suggests only liminf ε≥k; §8 consumers seem to need only this lower bound. Independently verify the example and prove the weaker sufficient statement before closing those consumers."
     },
     {
@@ -16362,7 +16226,7 @@
       "items": [
         "PAPER-BHATT-ETAL-23/adjoint-single-complex"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation. The positive twist is a misprint in the proof (E3); with the inverse twist, Corollary 3.7 applies and the dual expression matches the statement. The lemma is not used elsewhere.",
       "detail": "Lemma4.28's displayed positive L=M-(K_X+S+B) disagrees with the Cor3.7 negative-twist input and its own dual expression. Keep the asserted result provisional and check the candidate replacement L=(K_X+S+B)-M in every step; no author-approved erratum located."
     },
     {
@@ -16380,7 +16244,7 @@
         "PAPER-BHATT-ETAL-23/pure-birational-repair",
         "PAPER-BHATT-ETAL-23/surface-plus-perturb"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation. The published resp. conclusion drops 'completely purely' (E2; arXiv v2 has it), and the corrected statement (ii) is proved in pure-birational-repair from Proposition 6.26 and Lemma 4.27, componentwise after completion. No general adjoint-completion comparison is used. Theorem 7.14 is covered.",
       "detail": "Proposition6.28's ordinary globally +-regular conclusion from pure global +-regularity fails already for the identity of a DVR with its reduced closed divisor. Candidate conclusion preserves 'purely'; Theorem7.14's consumer uses that form. Verify its fixed-complete-base proof from Proposition4.27 without assuming general adjoint completion, which Remark4.30 leaves open."
     },
     {
@@ -16388,7 +16252,7 @@
       "items": [
         "PAPER-BHATT-ETAL-23/cone-length"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation. The strict inequality in Theorem 9.28(c) is a misprint (E4). Theorem I(c), Lemma 9.29 and the proof all give the non-strict ≤ 4d_C, which is what the item states.",
       "detail": "Theorem9.28's internal strict length bound conflicts with its proof and introductory non-strict bound. Retain only ≤4d_C until the strict endpoint is independently justified."
     },
     {
@@ -16412,7 +16276,7 @@
         "PAPER-BHATT-ETAL-23/smooth-closure-proper",
         "PAPER-BHATT-ETAL-23/smooth-coarse-projective"
       ],
-      "status": "Requires independent mathematical/source verification",
+      "status": "Verified by the continuation (Claude Code cc-fb70e5): Resolved by this continuation. Theorem 10.6's β(1) = 393 is a misprint for Theorem K's 373 (E5): the proof uses β(1) only through p ≥ 114 and p > deg D, with deg D ≤ 373. The scope warning stays in the items: only the closure of the smooth locus, not the whole stack.",
       "detail": "Theorem K gives 373 for v=1 whereas printed Theorem10.6 gives 393; the proof computes 373. Use the conservative 393 checkpoint and retain β(v)=213v+48 for v≥2, pending version/author clarification. Do not replace the closure of the smooth locus by the entire stable-surface moduli stack."
     },
     {
@@ -16458,6 +16322,120 @@
       ],
       "status": "Requires independent mathematical/source verification",
       "detail": "Prove the complete-base finite-module inverse-limit exactness in an enhanced category. Ordinary triangulated categories do not supply these colimits, and dropping completeness gives completion under Matlis biduality, not the original module."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHATT-ETAL-23/E1",
+      "kind": "error",
+      "locator": "Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29)",
+      "printed": "\"More generally, let D be a fixed divisor and let A be a semiample Q-Cartier Q-divisor such that A ∼_Q M + Λ, where M is an effective Cartier divisor with no exceptional curve of Y → X in its support, and −δD ≤ Λ ≤ δD for δ > 0. Take x ∈ F ∩ M of multiplicity k ∈ Z_{>0} in M. Then ε_sa(A; x) converges to k when δ → 0.\"",
+      "correction": "Only a lower bound holds. For every rational γ with 0 < γ < k there is δ₀ > 0, depending only on f, D and γ, such that ε_sa(A; x) = ε(A; x) ≥ k − γ for all δ < δ₀ and all such A, M, Λ and x. Equivalently, liminf_{δ→0} ε_sa(A; x) ≥ k, uniformly. This is exactly what the printed proof establishes; there is no upper bound.",
+      "reason": "Counterexample with Λ = 0. Let k be a field of characteristic p > 0, X = A²_k, and f: Y → X the blow-up of the origin with exceptional curve E = F. Let M be the sum of the strict transforms of the two axes. Then M ∼ −2E, so M is effective, Cartier, globally generated over X (O_Y(−E) = m·O_Y) and has no exceptional component. Let x = E ∩ (strict transform of the y-axis), so mult_x M = 1 = k. Blow up x, with exceptional curve G and strict transform E′. Then E′² = −2, G² = −1, E′·G = 1 and π*M − tG ∼ −2E′ − (2+t)G, which has degree 2 − t on E′ and t on G. Hence ε(M; x) = 2. At t = 2 the ideal (x, y²) pulls back to O(−E′ − 2G) (charts x = ab, y = b, then a = c, b = cd, giving c²d, and a = ef, b = f, giving f²). So π*M − 2G ∼ −2E′ − 4G is globally generated and ε_sa(M; x) = 2. Taking A = M and Λ = 0 (any D), ε_sa(A; x) = 2 for every δ, not converging to k = 1. The proof only shows that π*A − (k − γ)E is nef. The consumers need only the lower bound: Proposition 8.15 (p.173) uses the first assertion ε_sa(M; x) ≥ 1, which is correct, and Claim 8.21 (p.178) needs ε_sa > 2 for k = 3. So the paper's results are unaffected. Checked on the page image and by exact arithmetic. Noted by the extraction (diagnostic A, gap-seshadri-limit); verified and proved in the corrected form by this continuation.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E2",
+      "kind": "misprint",
+      "locator": "Proposition 6.28, p.154 of the published version (and arXiv v3 Proposition 6.28, p.71)",
+      "printed": "\"Let Δ ≥ 0 be a Q-divisor on X such that (X, Δ) is globally +-regular (completely purely globally +-regular over R, resp.). Suppose that Δ_Y ≥ 0, where K_Y + Δ_Y = f*(K_X + Δ). Then (Y, Δ_Y) is globally +-regular (globally +-regular, resp.).\"",
+      "correction": "The conclusion in the resp. case is \"completely purely globally +-regular over R\", with the pure boundary S_Y the strict transform of S and B_Y = Δ_Y − S_Y. This is what arXiv v2 (Proposition 6.28, p.64) prints, and arXiv v1 (Proposition 6.22, p.48) prints \"purely ... purely\".",
+      "reason": "The printed resp. conclusion is false. Take R = k[[t]] with k of characteristic p, X = Y = Spec R, f = id and Δ = S = V(t). Then (X, S) is purely globally +-regular. For a finite normal R′ ⊇ R with uniformizer s and ramification e, the map R → s^{1−e}R′ splits because R′ is R-free and 1 ∉ t·s^{1−e}R′ = sR′. But (X, S) is not globally +-regular: already for the identity cover, a splitting of O_X → O_X(S) = t^{−1}R would send 1 = t·t^{−1} into tR. The cited proof (Proposition 6.26, which applies because R is complete, together with Lemma 4.27 with B′ = B_Y) proves the pure conclusion. The consumer in Theorem 7.14 (p.165) uses the pure conclusion. In arXiv v3 the qualifier is visibly garbled as \"( ly globally +-regular, resp.)\", so the published wording is a typesetting slip. Checked on the page images of v3 p.71 and published p.154. Noted by the extraction (diagnostic B, gap-pure-birational); the version history was established by this continuation.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E3",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 4.28, p.128 of the published version (also arXiv v2 and v3)",
+      "printed": "\"Twisting by the pullback L⁺ to W⁺ of the line bundle O_Y(f*(M − (K_X + S + B))) (for some finite cover f: Y → W), and taking local cohomology, we obtain: ... The left zeros are due to Corollary 3.7 and the fact that L⁺ is the pullback of a big and semiample line bundle.\"",
+      "correction": "Twist by the pullback of O_Y(f*(K_X + S + B − M)), the inverse of the big and semiample bundle f*(M − (K_X + S + B)). Corollary 3.7 then applies with b = −1 and kills H^{d−1}_m of it.",
+      "reason": "Corollary 3.7 (p.107) gives H^i(RΓ_x RΓ(X⁺, L^b)) = 0 only for b < 0 and i < dim X, where L is big and semiample, so it gives nothing for the positive twist that is printed. With the inverse twist, H^d_m of O(−S_{W⁺}) twisted by f*(K_X + S + B − M) is dual to H⁰(O_Y(K_Y + S_Y + f*(M − K_X − S − B))), which is the expression in the statement of the lemma. The same line bundle L := O_{X⁺}(π*(K_X + S + B − M)) appears in the proof of Theorem 7.2 (p.156). The lemma is marked \"a fact we will not use\". Checked on the page image. Noted by the extraction (diagnostic C, gap-adjoint-sign).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E4",
+      "kind": "misprint",
+      "locator": "Theorem 9.28(c), p.206 of the published version (also arXiv v2 and v3)",
+      "printed": "\"(c) For each Γ_i, −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0\"",
+      "correction": "−4d_{Γ_i} ≤ (K_X + Δ)·Γ_i < 0, as in the introduction's statement of the same theorem (Theorem I(c), p.74: 0 < −(K_X + Δ)·_k C_i ≤ 4d_{C_i}).",
+      "reason": "The proof of Theorem 9.28 (p.210) concludes −4d_C ≤ (K_X + Δ)·C < 0 from Lemma 9.29, whose bound is also non-strict (−4d ≤ (K_X + B)·Γ < 0). Every other statement of the length bound in the paper (pp.74, 96, 188, 194, 206–209) is non-strict, and no consumer uses strictness. Checked on the page image. Noted by the extraction (gap-cone-length).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E5",
+      "kind": "misprint",
+      "locator": "Theorem 10.6, definition of β(1), p.216 of the published version (also arXiv v3); compare Theorem K, p.76, and the proof, pp.218–219",
+      "printed": "\"β(v) = 393 if v = 1, 213v + 48 if v ≥ 2\"",
+      "correction": "β(1) = 373, as in Theorem K (\"f(v) = 373 if v = 1\"). The printed 393 gives a weaker statement, which the corrected one implies.",
+      "reason": "The proof uses β(v) only through conditions (b), p ≥ d + 4, and (c), p > deg D, for primes p > β(v). For v = 1 it computes the fibre canonical degree (K + 10K)·10K = 110 ≤ 373 − 4. It computes the discriminant degree 3L² + 2L·K + c₂ with L = 10K as 319K² + 12χ ≤ 325K² + 48 = 373, using c₂ = 12χ − K² and the Noether bound χ ≤ (K² + 6)/2 + 1. Both conditions hold for every prime p > 373. Checked on the page images. Noted by the extraction (gap-moduli-bound).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E6",
+      "kind": "error",
+      "locator": "Theorem 2.13 and Proposition 2.14, p.85 of the published version",
+      "printed": "\"... and let T be a subscheme of X. Then there exists a proper birational morphism g: Y → X from a regular scheme Y such that both g^{−1}(T) and Ex(g) are divisors and Supp(g^{−1}(T) ∪ Ex(g)) is simple normal crossing.\"",
+      "correction": "T must be a closed subscheme containing no irreducible component of X, that is, nowhere dense.",
+      "reason": "For T = X, or for T containing a component of X, g^{−1}(T) contains a component of Y and is not a divisor. Every application in the paper uses a nowhere-dense T: log resolutions of pairs (T the support of the boundary), and inside the proof of Proposition 2.14 the union of the nowhere-dense blow-up centre Z with g′^{−1}(T) ∪ Ex(g′). Noted by the extraction (gap-resolution-centres).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-ETAL-23/E7",
+      "kind": "error",
+      "locator": "Definition 2.19, p.88 of the published version",
+      "printed": "\"coeff_E Fix(D) = min_{D′ ∈ |D|} coeff_E D′. Note that as D is Cartier the above coefficients are integers and hence the minimum exists.\"",
+      "correction": "The minimum exists only when |D| ≠ ∅, so the definition needs that hypothesis.",
+      "reason": "For D = O(−1) on P¹, |D| = ∅ and the minimum is over the empty set. Every use of Mob and Fix is in §8, on schemes Y and S′ that are projective and birational over the affine base Z = Spec R or over f(S). There H⁰(O(D)) = H⁰(g_*O(D)) ≠ 0 for every Cartier D, since g_*O(D) is a nonzero torsion-free coherent sheaf on an affine integral scheme. In addition, Setting 8.5 chooses K_X + S + B effective. Noted by the extraction (gap-empty-system).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref metadata for 10.1007/s10240-023-00140-8: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+        "Springer article page and Publ. Math. IHÉS: no correction notice located; a web search for an erratum or corrigendum found none",
+        "arXiv 2012.15801 v1 (2020-12-31), v2 and v3 (2022-12-05, the latest version)",
+        "Karl Schwede's papers page (no separate corrigendum)"
+      ]
     }
   ]
 }
