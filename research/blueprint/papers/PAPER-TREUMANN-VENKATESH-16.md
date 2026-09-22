@@ -8,10 +8,15 @@ Mathematics **183** (2016), no. 1, 177–228 (doi
 [arXiv:1407.2346v1](https://arxiv.org/abs/1407.2346) (9 July 2014, the only version; `TV_submit.tex`, 5733
 lines, source archive sha256 `28e20b81…`).
 
-**On the published version.** No PDF text extraction is available in this environment (`pdftotext`, `mutool`,
-`gs`, `qpdf`, `pypdf`, `PyPDF2`, `fitz`, `pdfminer`, `pdfplumber` are all absent) and the Annals article page
-serves the text only as a PDF, so the published version **could not be read**. Every locator below is a
-preprint locator, and the four source issues are recorded against the preprint with **no claim about print**.
+**On the published version.** The published version **could not be read**. The Annals article page serves
+the text only as a PDF; that PDF (`annals-v183-n1-p04-p.pdf`) downloads freely but is **encrypted** with the
+standard security handler (`/Filter /Standard /V 2 /Length 128`), so its content streams cannot be
+decompressed. No PDF text-extraction tool is installed in this environment either (`pdftotext`, `mutool`,
+`gs`, `qpdf`, `pypdf`, `PyPDF2`, `fitz`, `pdfminer`, `pdfplumber` are all absent) — but that is not the
+obstacle: a text extractor written for the purpose does read unencrypted PDFs, and was checked on the arXiv
+PDF of this paper, which it reads in full. The encryption of the published PDF is the reason the printed text
+is not cited here. Every locator below is a preprint locator, and the four source issues are recorded against
+the preprint with **no claim about print**.
 
 **On numbering.** The preprint declares `\newtheorem{theorem}[subsection]{Theorem}`, so theorems, propositions,
 lemmas, corollaries and definitions **share the subsection counter**: numbered statements interleave with
