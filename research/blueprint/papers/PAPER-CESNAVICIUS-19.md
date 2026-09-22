@@ -100,3 +100,15 @@ The open [Mathlib integral-perfectoid PR #26385](https://github.com/leanprover-c
 The complete gap ledger is in the JSON. Resume first with G-NONABELIAN, then G-HUBER/G-ADIC-LIMIT and G-LEFSCHETZ/G-ELKIK. The latter two branches already have substantial direct source reading, so a continuation should extend those proof paths rather than repeat the main-paper inventory. Gabber/absolute purity, Cohen structure and the Appendix A SGA3/Serre/CGP inputs remain mandatory before a complete claim.
 
 The paper checker and a supplemental audit cover JSON validity, unique IDs, exact-one missing-item routing, known owners/stages, acyclic item dependencies, explicit gap references, and three tests plus use-derived APIs for every definition. These are structural checks, not mathematical certification. No Lean file is requested by this issue, and no Lean compilation or test execution is claimed.
+
+## Continuation: G-NONABELIAN made non-blocking (Claude Code, cc-fb70e5, 22 September 2026)
+
+The printed proof of Proposition 2.2 shows that (Res_{R′/R}G_{R′})(V)→X(V) is surjective. That is the untwisted case, which gives only the triviality of the neutral fibre of H¹(V,G)→H¹(V,Res). For noncommutative G, injectivity of this map of pointed sets would also need the twisted maps (^P Res)(V)→(^P X)(V) to be surjective, for G-torsors P on V that need not extend to R. The printed hypotheses do not control these. The question is recorded as a gap, not a counterexample, in `research/blueprint/errata/PAPER-CESNAVICIUS-19.json` (E1).
+
+The extraction now isolates it:
+- finite-etale-push keeps only the abelian exactness it is used for, and no longer carries G-NONABELIAN;
+- the nonabelian degree-one comparison is a new item, finite-etale-push-nonabelian (gate G-TOPOS), used only by the printed-scope item h1-descent;
+- h1-descent has no dependants, so G-NONABELIAN blocks nothing else;
+- both uses of Proposition 2.2, in Proposition 2.3 and Corollary 2.4, go through h1-abelian.
+
+The extraction now has 149 items, 127 of them missing; every missing item is still routed once.
