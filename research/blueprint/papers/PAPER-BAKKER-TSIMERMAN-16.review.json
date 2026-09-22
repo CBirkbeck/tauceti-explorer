@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-BAKKER-TSIMERMAN-16",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ModularCurvesPartII R12.2–R12.4, R12.6, R13.1–R13.3, R13.4a and R14.1 own the level-structure comparison, cusps and compactification, conjugation compatibility, Néron polygons and generalised elliptic curves, and algebraic Hecke correspondences. The projectively framed Y(p), its branch data over the j-line, the polygon automorphisms, the Hecke action on level data and the degree scaling are applications inside those layers. The review added items 17 (complex conjugation on the projectively framed curve) and 120 (cusp and genus counts of X(p)) and the stages R12.6 and R12.3."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "No layer owns volumes of analytic curves in products of hyperbolic curves (Hwang–To), positive currents, plurisubharmonic potentials or Lelong numbers, the Li–Yau conformal-area estimate, or gonality: a catalogue-wide search finds none. The Tau Ceti FuchsianOrbifolds roadmap owns quotient charts, polygons, cusps and Riemann–Hurwitz, so a Part II in its direction is right. Gonality's definition and algebraic bounds are algebraic-curve theory and sit here beside the Li–Yau bound that uses them; the design should keep them in a self-contained layer so they can move to an Algebraic curves Part II at the next restructuring. The review added items 09 (the factor-two disc-distance bridge, which the brief already requires), 116 (Kobayashi-metric facts) and 117 (the Proposition 23 potential identity)."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "A second Part II of the Tau Ceti ModularCurves roadmap is justified: ModularCurvesPartII develops uniformisation, compactification and Hecke correspondences, while this roadmap owns the diagonal quotient surface Z(p), its CM points and bicusps, hyperbolic repulsion, the multiplicity estimates and the bounded-gonality Frey–Mazur theorem, none of which any layer plans. It imports ModularCurvesPartII rather than re-planning it. The brief states the final theorem exactly (algebraically closed characteristic zero, threshold depending only on gonality) and records the erratum's corrections. The review added items 113–115, 118 and 119."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations SF.4 owns birational geometry and resolution \"in a named proved setting\"; the resolution of cyclic quotient surface singularities and the contraction to a minimal surface used in Corollary 32 belong there. Neither pinned library has them."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "No layer owns a bound towards Selberg's eigenvalue conjecture: AutomorphicSpectralTheory AS.0–AS.6 construct the spectral decomposition and trace formula, and the catalogue has no hit for Luo–Rudnick–Sarnak, Kim–Sarnak, 3/16 or the symmetric-square lift. The congruence spectral gap λ′₁ ≥ 21/100 is a reusable deep theorem, so a Part II in the spectral direction is justified, although it is a single-theorem roadmap. The brief correctly records the Gelbart–Jacquet symmetric-square lift as an unowned prerequisite to be routed to the transfer owner."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-fb70e5). This session did no part of the extraction. The published Annals PDF and the author erratum were fetched on 21 September 2026; both SHA-256 values match those recorded. The whole paper and erratum were read, with formula-heavy pages rendered, and all 112 items compared with the text: fidelity is high, the erratum is applied correctly throughout, and the extraction's own corrections of printed slips (σ₁ versus ψ, Lemma 15's order-three case, the Riemann–Hurwitz step of Theorem 29, the inverted ratio on erratum p.3) were confirmed. Corrected in place: items 09 (library → missing: Tau Ceti's disc distance is half the curvature −1 distance) and 17 (planned → missing); statements of items 13 and 30 (the printed cusped injectivity-radius definition omits a factor ½), 38–41 (printed hypotheses restored) and 109 (area formula repaired); citations of 109 and 110; locators of items 10, 31, 33–35 and 37; notes on 37, 45, 82, 83, 98 and 103; eight supporting items added (113–120). Six library citations were confirmed at the pinned commits. python3 scripts/check_paper.py reports ok."
+}
