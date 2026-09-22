@@ -3005,7 +3005,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WEI-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1193"
   },
   {
    "id": "REV-PAPER-WEI-26",
@@ -4759,8 +4760,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1296"
+   "state": "pending",
+   "note": "released on GitHub issue #1296"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
@@ -5985,7 +5986,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MATHEW-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1365"
   },
   {
    "id": "REV-PAPER-BHATT-MATHEW-23",
