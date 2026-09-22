@@ -1,0 +1,74 @@
+{
+  "paper": "PAPER-YUAN-26",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-YUAN-26/E1",
+      "kind": "error",
+      "locator": "Theorem 4.19, function-field case, p.101 (with the definition of maximal variation, §1.6, p.16); the same statement is Theorem 4.19 in arXiv v4, p.100, in the author manuscript dated 21 August 2024 (126 pp., the journal's revision date; SHA-256 b36f4860…813e)",
+      "printed": "\"Theorem 4.19. Let K be either a number field or a function field of one variable. Let S be a quasi-projective variety over K. Let π : X → S be a smooth relative curve over S of genus g > 1 with maximal variation. Let α be a line bundle on X of positive degree on fibers of π. Then the following morphisms satisfy the relative Bogomolov conjecture: (1) the S-morphism i_α^m : X^m_{/S} → J^m_{/S} for any m ≥ dim S + 1 …\", where (§1.6) maximal variation means that the moduli morphism S → M_{g,R} is generically finite.",
+      "correction": "For a function field K of a curve over k, the hypothesis must be maximal variation of a model over k (equivalently, as the proof says, bigness of the relevant adelic line bundles over k rather than over K), which excludes isotrivial families. With that hypothesis, or for K a number field, the statement stands.",
+      "reason": "Counterexample to the function-field case: k algebraically closed of characteristic 0, K = k(t), S = Spec K, X = C₀ ×_k K for a smooth projective curve C₀/k of genus > 1, and α of degree 1. The moduli morphism Spec K → M_{g,K} is a point, hence generically finite, so X → S has maximal variation in the sense of §1.6. But every point of C₀(k) has canonical height 0 in the constant Jacobian, and these points are Zariski dense in X, so part (1) fails for m = 1 = dim S + 1; constant products give the same failure for the other parts. The proof itself notes that \"we need the bigness of the adelic line bundles over k instead of over K\", which a constant family does not have. The main uniform Bogomolov theorem excludes isotrivial families and is unaffected. Found by the extraction (items 185–189, 262–266).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p02, checked 22 September 2026: no erratum is linked",
+        "arXiv 2108.05625: v1 (2021) to v4 (30 April 2024), all earlier than the manuscript read; no later version",
+        "X. Yuan's homepage http://faculty.bicmr.pku.edu.cn/~yxy/ (which links the manuscript): no correction listed",
+        "web search for an erratum or corrigendum, 22 September 2026: none found",
+        "the final typeset Annals text could not be accessed and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-YUAN-26/E2",
+      "kind": "error",
+      "locator": "§4.6.3, statement of the relative Bogomolov conjecture, p.100, in the author manuscript dated 21 August 2024 (126 pp., the journal's revision date; SHA-256 b36f4860…813e)",
+      "printed": "\"Let k be either Z or a field. Let K be a global field over k. Namely, K is a number field if k = Z; K is a function field of one variable over k if k is a field. … Recall that the relative Bogomolov conjecture of [DGH2, Conj. 1.2] asserts that, if dim Y < g, then there is a constant ε > 0 such that Y(L, ε) = {y ∈ Y(K̄) : ĥ_L(ι(y)) ≤ ε} is not Zariski dense in Y.\"",
+      "correction": "Over function fields the statement needs the usual exclusion of the constant part (for instance, that A has trivial trace or that Y is not constant); [DGH2] formulates the conjecture over number fields.",
+      "reason": "For a constant abelian scheme A = A₀ ×_k S and a constant subvariety Y generating it with dim Y < g (for example a constant curve of genus > 1 in its Jacobian), the constant points have canonical height 0 and are Zariski dense, so the conjecture as stated fails for function fields. No result depends on the conjecture itself; its function-field instances in Theorem 4.19 are E1. Found by the extraction (item 182).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p02, checked 22 September 2026: no erratum is linked",
+        "arXiv 2108.05625: v1 (2021) to v4 (30 April 2024), all earlier than the manuscript read; no later version",
+        "X. Yuan's homepage http://faculty.bicmr.pku.edu.cn/~yxy/ (which links the manuscript): no correction listed",
+        "web search for an erratum or corrigendum, 22 September 2026: none found",
+        "the final typeset Annals text could not be accessed and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-YUAN-26/E3",
+      "kind": "misprint",
+      "locator": "§A.1, definition of admissible Green functions, p.102, in the author manuscript dated 21 August 2024 (126 pp., the journal's revision date; SHA-256 b36f4860…813e)",
+      "printed": "\"The smooth Green's function g_D is called admissible if the hermitian metric on O(D) defined by ‖1‖ = exp(−g_D) is admissible. The condition is equivalent to (i/π) ∂∂̄ g_D = dµ_Ar − δ_D as currents on C.\"",
+      "correction": "(i/π) ∂∂̄ g_D = deg(D) dµ_Ar − δ_D.",
+      "reason": "Admissibility of a metric on O(D) is defined just above as c₁(O(D), ‖·‖) = deg(D) dµ_Ar, and c₁ of ‖1‖ = exp(−g_D) is (i/π)∂∂̄ g_D + δ_D. The printed equation is the case deg D = 1, for instance D a point. Found by the extraction (item 192).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p02, checked 22 September 2026: no erratum is linked",
+        "arXiv 2108.05625: v1 (2021) to v4 (30 April 2024), all earlier than the manuscript read; no later version",
+        "X. Yuan's homepage http://faculty.bicmr.pku.edu.cn/~yxy/ (which links the manuscript): no correction listed",
+        "web search for an erratum or corrigendum, 22 September 2026: none found",
+        "the final typeset Annals text could not be accessed and was not compared"
+      ]
+    },
+    {
+      "id": "PAPER-YUAN-26/E4",
+      "kind": "error",
+      "locator": "§1.6, definition of stable curves, p.16, in the author manuscript dated 21 August 2024 (126 pp., the journal's revision date; SHA-256 b36f4860…813e)",
+      "printed": "\"The curve is called stable if it is semistable with arithmetic genus g > 1, and any rational irreducible component of C_k̄ intersects other irreducible components at three or more points.\"",
+      "correction": "Count special points on the normalization: every rational component must have at least three points of its normalization lying over nodes, counting both branches of a self-node (the Deligne–Mumford condition). Equivalently, a smooth rational component meets the other components in at least three points, and a rational component with a self-node meets them in at least one.",
+      "reason": "The printed condition ignores self-nodes. For example, a rational curve with one node attached at one point to a smooth genus-one curve is a stable curve of genus 2 in the usual sense, but its nodal rational component meets the other component in only one point. The paper uses stable reduction and the moduli of stable curves from the literature, so the intended (standard) notion is clear. Found by the extraction (item 1 and report §8).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2026/203-1/p02, checked 22 September 2026: no erratum is linked",
+        "arXiv 2108.05625: v1 (2021) to v4 (30 April 2024), all earlier than the manuscript read; no later version",
+        "X. Yuan's homepage http://faculty.bicmr.pku.edu.cn/~yxy/ (which links the manuscript): no correction listed",
+        "web search for an erratum or corrigendum, 22 September 2026: none found",
+        "the final typeset Annals text could not be accessed and was not compared"
+      ]
+    }
+  ]
+}
