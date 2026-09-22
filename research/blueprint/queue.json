@@ -7216,8 +7216,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1444"
+   "state": "pending",
+   "note": "released on GitHub issue #1444"
   },
   {
    "id": "REV-PAPER-BHATT-ETAL-23",
