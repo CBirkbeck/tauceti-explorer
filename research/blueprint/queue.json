@@ -1292,8 +1292,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1095"
+   "state": "pending",
+   "note": "released on GitHub issue #1095"
   },
   {
    "id": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
