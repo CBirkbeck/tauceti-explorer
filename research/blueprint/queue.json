@@ -3201,8 +3201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1205"
+   "state": "external",
+   "note": "claimed on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -5980,8 +5980,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANSCHUTZ-LEBRAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1367"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1367",
+   "finishedAt": "2026-09-22T17:24:06Z"
   },
   {
    "id": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
