@@ -885,6 +885,29 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CARO-PASTEN-23/E1",
+   "kind": "error",
+   "locator": "arXiv:2102.01055v2, Lemma 3.15 pp.10–11 and (9.8) p.35; PDF SHA-256 d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7. Final publication not read.",
+   "printed": "A_D(F_q) ≤ (q+1)r + 2√q Σ_j g_g(C_j).",
+   "correction": "Lemma 3.15 is false as a general curve statement. For a geometrically integral curve add 2(p_a−g). In the special smooth-surface application, use W1–W8 to recover Σm≤(q+4√q+3)K² from componentwise adjunction and Frobenius-intersection accounting, without the false lemma. This is a derived replacement proof, not a claim about the final publication.",
+   "reason": "For the nonsplit F_3 node y²=x²(x−1), normalization P¹ has four rational points but six geometric branches over the five rational image points. The original roots-of-unity norm argument loses cancelling factors. The repair uses extra geometric hypotheses (nef effective canonical divisor, component genera ≥2 and nonzero normalization differentials), so does not assert the false general lemma. Full derived proof and finite regressions are in the report.",
+   "affects": "a stated result",
+   "known": "Already recorded in research/blueprint/errata/PAPER-CARO-PASTEN-23.json, E1; this continuation adds a replacement proof for the restricted surface application. Published correction status remains unverified; a later +5 citation alone is not proof.",
+   "searched": [
+    "arXiv 2102.01055 version history, 2026-09-22: v2 remains latest",
+    "Springer official article and canonical PDF URL, 2026-09-22: subscription preview/access page, not final text",
+    "Pasten author-page search result links arXiv; live page timed out",
+    "Search for Caro/Pasten Lemma 3.15 correction and branch erratum, 2026-09-22: no relevant public correction found in this limited search",
+    "Existing atlas errata E1–E13 read; no independent review added, and its files are outside this claim's edit scope"
+   ],
+   "owner": "PAPER-CARO-PASTEN-23",
+   "file": "research/blueprint/papers/PAPER-CARO-PASTEN-23.result.json",
+   "citation": "Caro–Pasten, \"A Chabauty–Coleman bound for surfaces\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DEMARCO-KRIEGER-YE-20/E1",
    "kind": "misprint",
    "locator": "§§2.1–2.2, pp.6–7 (arXiv v2; published Annals version not collated)",
