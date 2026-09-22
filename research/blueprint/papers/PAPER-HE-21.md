@@ -1,12 +1,17 @@
 # He (2021): cordial elements and affine Deligne–Lusztig dimensions
 
-Codex — `codex-a71f92`; issue [#1397](https://github.com/CBirkbeck/tauceti-explorer/issues/1397). **Partial follow-up**, retaining the initial extraction by `codex-c83e7a` and all stable /1–105 identifiers.
+Codex — `codex-7e92bd`; issue [#1397](https://github.com/CBirkbeck/tauceti-explorer/issues/1397). **Partial continuation**, preserving the two earlier workers' /1–129 identifiers and adding /130–134.
 
-There are now **129 items: 7 library, 10 planned and 112 missing**. All missing items are routed exactly once. Eight source routes and three Part II briefs share existing owners. The internal dependency graph has 373 edges; all 44 definitions/constructions have structured API and test entries (138 API entries, 132 specified tests). These structural properties do **not** certify mathematical proof closure. Ten explicit gap records retain the unfinished source and implementation obligations. No Lean formalization or compilation is claimed.
+The extraction contains **134 items: 9 library, 10 planned and 115 missing**. Every missing item is routed exactly once through the existing eight source routes and three Part II briefs. The internal graph has 376 edges and is acyclic; all 44 definitions/constructions retain their structured APIs and 132 specified tests. No Lean implementation or compilation is claimed.
 
-The main advance is a source-backed replacement for the problematic shrunken basic-seed citation, in a carefully restricted scope. The broader seed transport is still open. The bounded-convolution gap now has an explicit local finite-type argument and named producers, and the three previously unrouted interfaces /61, /69 and /92 now have owners.
+This continuation resolves the abstract finite-type dimension inequality, writes the two cartesian endpoint squares, and identifies the precise compatible-model theorem for perfect schemes. It also finds a stronger obstruction to the previous proposed lattice repair: an auxiliary γ need not lift at all. The final geometric descent remains a named gap. Status stays partial because the actual bounded flag models and G1/G3–G10 source frontiers are still unfinished.
 
 ## Source and reading record
+
+**Current continuation.** All 15 published He21 pages were reread on 2026-09-22 (PDF SHA-256 `89a5bfd91946d5c27d3e347b938d139af3c8901d90a61f40c29d8a26a176d0ec`). GHN §§2.1–2.2 and its complete erratum were reread. Selected Zhu17 §§1.1/1.4 and Appendix A were read, including complete proofs of A.3, A.15 and A.17; SHA-256 `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`. Exact scopes and all acquisition hashes are in `source.continuationReading`. Stacks 00P0, 00P3, 05F7 and the fibre-dimension section were inspected. None is represented as a full recursive prerequisite-paper extraction. Both upstream RootSystems and ReductiveGroups documents were read completely before writing.
+
+**Inherited source history.** The following paragraphs record the two previous checkpoints; they are not fresh rereading claims by this session.
+
 
 Xuhua He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*, Forum of Mathematics, Pi 9 (2021), e9, 1–15, [DOI 10.1017/fmp.2021.10](https://doi.org/10.1017/fmp.2021.10). All fifteen pages of the [published PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf), including every proof and the references, were reread on 2026-09-22. The title page gives CC BY 4.0. The new PDF SHA-256 is `8039273c5ae75cc868ac3343ae8b841d482b309b682a22949d29478b9799cc30`. Cambridge's dynamic download footer can change the bytes; this does not establish a changed mathematical version. The previous acquisition record is retained in the JSON.
 
@@ -85,41 +90,93 @@ Published p.399 was inspected as an image, not just extracted text. Proposition 
 
 The later [He–Zhou–Zhu proof](https://arxiv.org/abs/2109.02594v1), Proposition 3.4.2, explicitly uses the outside-parabolic descent and σ-support. This is a later reformulation, not an official erratum. Its geometric framework is a concrete next lead for /122. The full corrected twisted induction remains a proof-verification obligation. In the nontrivially twisted HY12 conclusion, J is the saturated support of a twisted Coxeter word, not necessarily its ordinary support.
 
-## G2: local finite-type dimension argument
+## G2: dimension argument and the two cartesian squares
 
-The paper's exclusion of a union of proper closed subsets requires a finite-type/noetherian setting. The follow-up replaces a global finiteness assumption by a local argument:
+The finite-type inequality /68 has the following direct proof. Let f:X→Y be surjective between nonempty finite-type k-schemes, with all geometric fibres of dimension at least d. Replace Y by a reduced component Z of maximal dimension and X by its inverse image. At the generic point η of Z, the fibre has dimension at least d, by field-extension invariance. Choose a component C of that generic fibre of dimension at least d and let V be its reduced closure in X×_Y Z. Then V dominates Z, its generic fibre is C, and
 
-- Choose a maximal-dimensional irreducible target component and a nonempty finite-type affine open U in it.
-- Prove that the relevant forgetful map over U is finite type, by exhibiting it as the appropriate universal bounded convolution projection after base change and locally closed restriction.
-- Apply the finite-type fibre lower-bound theorem there. This already gives the required lower bound for the total source dimension.
+`dim V = dim Z + trdeg_{k(Z)} k(V) = dim Z + dim C`.
 
-Item /123 owns the bounded convolution producer: after locally trivializing the first flag, the intermediate flag lies in a bounded Schubert variety; exact relative positions are locally closed conditions. **Finite-level action and descent must still be proved.** Items /78 and /80 supply the two endpoint maps; /125 requires the actual cartesian diagrams including Frobenius. A dimension bound on point fibres alone does not certify a finite-type morphism.
+The function-field identity follows on affine charts from [Stacks 00P0](https://stacks.math.columbia.edu/tag/00P0). This gives `dim X ≥ dim Y + d` without taking an arbitrary union of exceptional closed subsets. The geometric-fibre assumption includes the geometric generic point. If the preceding calculation proves bounds only for closed fibres, [Stacks 05F7](https://stacks.math.columbia.edu/tag/05F7) supplies a nonempty open where the fibre dimension equals the generic value.
 
-SF.0 owns the general finite-type theorem /68 and its local refinement /124. GS0 owns /123, /125 and the compatible perfect-model comparison /126. In mixed characteristic one must deperfect the **map compatibly**, not independently choose finite-type models for its source and target. Perfection preserves the underlying topology and dimensions once the proper comparison is constructed; it does not make a perfect scheme finite type.
+The affine field-extension input already exists at the pin: `TauCeti.ringKrullDim_tensorProduct_field_of_finiteType`, /130, agrees with [Stacks 00P3](https://stacks.math.columbia.edu/tag/00P3). The nontrivial finite-type algebra finiteness lemma is also present (/131). The remaining generic-fibre scheme bridge /132 is routed to SF.0. No scheme theorem is claimed merely from the affine result.
 
-The GH10 Proposition 2.5.2 induction was fully reread: in the descent case, the ordinary-product estimate uses the A1 branch and the Demazure estimate the Gm branch. The corresponding length changes differ. Item /128 isolates that rank-one geometry instead of treating the fibre estimates as unexplained formulas.
+For /124, choose a nonempty affine open U in a maximal-dimensional reduced component of the locally finite-type target. It has the same dimension as that component. If f is finite type, X×_Y U is finite type over k, so /68 applies there. This removes any requirement that the entire ADLV have finitely many components.
 
-G2 is now precisely routed and decomposed, but is not declared closed.
+Here are the exact base changes behind /125. Write
 
-## G1 and other corrections retained
+`C(u,v;q) = {(A,B,C): pos(A,B)=u, pos(B,C)=v, pos(A,C)=q}`
 
-For SL2, ρ∨ for its single node is α∨/2 and is not an original cocharacter. The auxiliary full-coweight construction does not permit an original-group translation by this vector. Item /127 assigns the integral-lattice, Weyl/σ, dominant-representative, double-flat and κ comparisons to RG2.1. Item /61 assigns the geometry/dimension descent to the shared GS flag owner.
+with projection to `O_q` forgetting B. Use He21's symbols and set
 
-The GHN erratum supplies a **componentwise** equal-characteristic flag isomorphism when char(k) does not divide |π1(G_ad)|; a global immersion also needs injectivity on components. It does not license a dimension claim from an unrestricted point bijection. G1 remains open outside that qualified branch.
+`r=(y′)⁻¹z, u=t^{ρ∨_J}y, v=σ(w1), q=uv=σ(x′y′t^γ), h=σ(x′y′), k=σ(t^γ)`.
 
-Other inherited corrections are preserved:
+The first square is
 
-- Use the normal-form **left factor x** in the Levi support obstruction: `x⁻¹wσ(x)=t^λσ(ησ(w))`.
-- Keep every closure bar in §4.3; raw disjoint Iwahori cosets cannot satisfy those containments.
-- Use nonnegative simple **coroot** coefficients in Proposition 5.1, including zero. Supply feasible-set nonemptiness and leastness, not only lower-directedness.
-- In A1, `0−domω∨=ω∨`; truncation to zero violates coroot congruence.
-- Distinguish I-normalized Newton-stratum dimension from ADLV dimension by the subtraction of ⟨2ρ,ν⟩.
-- Levi-class uniqueness requires basic b. In GL2, diag(t,1) and diag(1,t) have the same G-class but different diagonal-torus classes.
-- In the negative-alcove convention, the rank-one alcove s·a=(0,1) is shrunken. The valid diagnostic is the A2 example above.
+```text
+X2  ───────────────────────→ C(u,v;q)
+│                             │
+│ forget g2                   │ forget middle flag
+↓                             ↓
+X3  ── (g1,g3)↦(g3,bσ(g1)) → O_q.
+```
+
+A test point of the fibre product inserts exactly g2 between g3 and bσ(g1), with positions u,v. This is the definition of X2. The length-additive factorization q=hk identifies X3 with its expanded description involving g4.
+
+The second square is
+
+```text
+X4  ───────────────────────→ C(r,h;σ(a))
+│                             │
+│ forget g3                   │ forget middle flag
+↓                             ↓
+X5  ── (g1,g4)↦(g1,g4) ───→ O_σ(a).
+```
+
+Here X5 already imposes `pos(g4,bσ(g1))=k`; the fibre product inserts precisely g3. The first convolution uses the ordinary product q=uv. The second uses the Demazure product σ(a)=r*h. These are identities of moduli functors, with the Frobenius endpoint retained, rather than identities only on geometric points.
+
+For the perfect-scheme branch, [Zhu17](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf), Corollary A.3 and Remark A.4, show that perfection preserves fibre products and is a universal homeomorphism. Proposition A.17 supplies a model of the **morphism**: choose a target model, then descend the map to a sufficiently high Frobenius twist of a source model. Over an algebraically closed field Ω, the geometric fibre of the perfected map is the perfection of the model's Ω-fibre. Thus fibre dimensions, total dimensions and surjectivity transfer, giving /126 from /68. Scheme models are available when the perfect objects are schemes (A.4/A.15).
+
+**Remaining G2 boundary.** The two squares transfer finite-type/pfp properties only after /123 constructs them on the actual bounded convolution projection. Zhu §1.4.2 supplies pfp affine-flag Schubert spaces and their relative-position strata, and Appendix A supplies compatible deperfection. The finite-level Iwahori-action argument and actual local boundedness still need their full supplier proofs. If the models are algebraic spaces rather than schemes, supply the dimension theorem for spaces or a justified étale reduction. None of these hypotheses follows just from a dimension bound on point fibres.
+
+The earlier restricted GH10 rank-one argument is retained: the ordinary-product estimate uses the A1 branch, and the Demazure estimate uses the Gm branch, with different length changes. Its full all-characteristic geometric implementation remains G9.
+
+## G1: a twisted example rules out the requested integral lift
+
+The SL2 half-coroot example already shows that ρ∨_J need not be an original cocharacter. There is a stronger obstruction: even **the final γ** can fail to be an original cocharacter. Thus the previous handoff's demand to prove an unrestricted γ-lifting theorem must be removed.
+
+Consider the unramified quasi-split simply connected group of type ²A2. In fundamental-coweight coordinates,
+
+`P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a)`.
+
+The original cocharacter lattice is Q∨. Use simple reflections
+
+`s1(a,b)=(-a,a+b), s2(a,b)=(a+b,-b)`.
+
+Take `λ=(3,3), x=1, y=s1`, so `w=t^λs1` belongs to the original Iwahori–Weyl group. With the negative base alcove, w maps `(u,v)` to `(-u-3,u+v-3)`. The open intervals for the three positive roots are `(−3,−2), (−4,−3), (−7,−6)`, so w is shrunken. The normal form is valid because λ is regular dominant.
+
+The construction gives `J={s1}, J′=∅, x′=s2, z=1` and `ρ∨_J=(1,0)`. Since `−σ⁻¹ρ∨_J=−ω2∨` has dominant representative ω1∨, also `η∨_J=(1,0)`. Therefore
+
+`λbb=λ−dom(2ω1∨)=(1,3)`
+
+because λ−2ω1∨ is already dominant. Meanwhile
+
+`β=λ−ω1∨+s2ω2∨=(3,2)=γ`,
+
+so `y′=1` and `a=s2`. Neither λbb nor γ is in Q∨. Moreover, **no** γ in Q∨ can satisfy γ≥_Zλbb, because adding integral coroots preserves λbb's nonzero class in P∨/Q∨. This is a counterexample to the literal original-lattice reading of Theorem 5.5 once double-flat is interpreted in P∨. Without that interpretation its ρ∨_J is already undefined. It is not a counterexample to the final geometric Theorem 6.1 after a valid adjoint reduction.
+
+The correct auxiliary Kottwitz computation is
+
+`β−λ = ((x′)⁻¹σ⁻¹ρ∨_J−σ⁻¹ρ∨_J) + (σ⁻¹ρ∨_J−ρ∨_J)`.
+
+The first term is a coroot, the second a σ-coboundary in P∨, and dominant conjugation adds a coroot. Hence the classes of γ and λ agree in `(P∨/Q∨)_σ`. In this example σ acts by −1 on Z/3, so those coinvariants are zero; this equality cannot imply γ∈Q∨. For a split datum σ=1, the coboundary term vanishes and the integral-lifting conclusion does hold. Item /127 now states precisely that boundary.
+
+Items /61, /84 and /91 and source finding E6 have been updated consistently. Run the construction in the working adjoint/full-coweight group, and then transfer its **final geometric conclusions**. The remaining theorem must control which components lift, their dimensions, κ/Newton/defect comparisons, and ramified local-root conventions. The GHN erratum only gives a characteristic-qualified componentwise equal-characteristic isomorphism; its mixed-characteristic point bijection does not establish dimension equality. An original lift of every intermediate factor is not a target.
+
+Other inherited corrections remain: use x in the Levi conjugation; retain all closure bars; use nonnegative coroot coefficients and an actual feasible-set existence argument; keep the known lower endpoint in cordial saturation; require basic b for Levi-class uniqueness. The earlier split A2 seed example and the twisted lattice example here address different problems.
 
 ## Library and owner audit
 
-Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The seven existing library items retain exact declarations:
+Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The inherited seven library items retain exact declarations; /130–131 add two exact dimension statements:
 
 | Items | Reused declarations |
 |---|---|
@@ -127,12 +184,13 @@ Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf
 | /8 | CoxeterSystem.BruhatStep, BruhatLE, bruhatPartialOrder |
 | /24–25 | TauCeti.dominantChamber, openDominantChamber, existsUnique_mem_orbit_inter_dominantChamber, stabilizer_eq_closure_wallReflections |
 | /26–27 | TauCeti.posRootCone, mem_posRootCone, finite_setOf_dominant_sub_mem_posRootCone, dualized with exact integrality/root-system hypotheses |
+| /130–131 | TauCeti.ringKrullDim_tensorProduct_field_of_finiteType, finiteRingKrullDim_of_finiteType |
 
-Those statements and signatures were reopened. They do not identify a local group's Weyl group with the abstract root-pairing carrier, nor construct ADLV geometry.
+Those statements and signatures were reopened by `codex-7e92bd`. The six inherited Lean files and the new FiniteType file were compared byte-for-byte with exact pinned GitHub sources. They do not identify a local group's Weyl group with the abstract root-pairing carrier, nor construct ADLV geometry.
 
 Pinned searches found no matching generic class-polynomial, twisted-cocenter, Demazure-product or twisted-Coxeter implementation. The inspected double-coset Hecke module in Tau Ceti is a different carrier from a generic Z[v,v⁻¹] affine Hecke deformation. The comparison is a theorem to prove, not a renaming.
 
-Ownership was refreshed at explorer `6a3c7756d3446bd54797604ac7089df94a7f8551`. Relevant exact stage descriptions, upstream RootSystems/ReductiveGroups, the reviewed SF/BG/GS/HS audit and changed peer-paper routes were read. The coverage blob is `5e708cfc74a51b10e62149113872fe4e00eb5846`; the local copy's blob hash was checked. No separate RG2/root/SR.1 entry occurs in that file, so actual supplier/source inspection is recorded instead of inventing an audit.
+The inherited owner audit was at explorer `6a3c7756d3446bd54797604ac7089df94a7f8551`; the relevant RG2.1/SF.0/GS0 stages and reviewed coverage were reread at `b5db06f75311f98ee8754aab201b93c99bebd3a2`. Relevant exact stage descriptions, upstream RootSystems/ReductiveGroups, the reviewed SF/BG/GS/HS audit and changed peer-paper routes were read. The coverage blob is `5e708cfc74a51b10e62149113872fe4e00eb5846`; the local copy's blob hash was checked. No separate RG2/root/SR.1 entry occurs in that file, so actual supplier/source inspection is recorded instead of inventing an audit.
 
 The eight source routes remain RG2.0, RG2.1, RG2.2–3, RG2.4, BG0, BG1, GS0 loop/Witt geometry and SF.0. The new obligations use those same owners.
 
@@ -146,11 +204,11 @@ Pending briefs are not represented as reviewed implementations. Source and candi
 
 ## Structured source findings
 
-The revised protocol was reread at final preflight commit `93ad2ae65555b960e1ce47ae8b144d2173522ab4`. The JSON now records 14 source findings under `sourceIssues`, each with a short printed fragment, locator, correction, reason and correction-search record. They cover the He21 citation/notation/proof interfaces, He14 and HY12 support/descent wording, and both already-published GHN corrections. These are findings awaiting independent review, not self-confirmed errata. Searches did not locate an official He21/He14 correction; that is not a claim that none exists. HY12's finding is confined to the inspected arXiv version. No authors were contacted.
+The previous checkpoint reread the revised protocol at `93ad2ae65555b960e1ce47ae8b144d2173522ab4`; this continuation reread it at its initial snapshot. The publication preflight at `9742505baca49ba909a0dc9844681502827efd0a` checked the latest worker-instruction change and screened the five changed peer-paper route sets. The atlas, reviewed coverage and owner stages were unchanged. The JSON now records 14 source findings under `sourceIssues`, each with a short printed fragment, locator, correction, reason and correction-search record. They cover the He21 citation/notation/proof interfaces, He14 and HY12 support/descent wording, and both already-published GHN corrections. These are findings awaiting independent review, not self-confirmed errata. E6 now records the stronger ²A2 original-lattice counterexample above and distinguishes the affected intermediate theorem from the final geometric statement. Searches did not locate an official He21/He14 correction; that is not a claim that none exists. HY12's finding is confined to the inspected arXiv version. No authors were contacted.
 
 ## Validation and remaining work
 
-Fresh finite diagnostics check:
+The prior `codex-a71f92` checkpoint recorded these finite diagnostics (not rerun in this continuation):
 
 - all 36 A2 generic Hecke basis products, including the ordinary-product coefficient and Demazure leading coefficient in N[h];
 - all 216 A2 Hecke associativity triples and all 216 Demazure associativity triples;
@@ -161,6 +219,6 @@ For reproduction, use s1=[[-1,0],[1,1]], s2=[[1,1],[0,−1]] on coweight coordin
 
 The previous worker's 729 A2/512 A1 subtraction cases and 570 shrunken-input reductions are retained as historical evidence, **not** claimed as rerun in this follow-up.
 
-The paper validator passes. Additional checks verify all 129 stable IDs, exact-once routing for all 112 missing items, all 373 internal edges and acyclicity, and API/test coverage for every definition/construction. The three exact deliverable paths are checked by intake, with existence checked separately. No Lean file is required by this paper job.
+The current paper validator passes. Additional checks verify all 134 stable IDs, exact-once routing for all 115 missing items, all 376 internal edges and acyclicity, and API/test coverage for every definition/construction. Fresh exact rational checks verify the twisted A2 coordinates and alcove intervals, 400 nonnegative-coroot translates, and all nine residue pairs for the σ-action on P∨/Q∨. The universal non-lifting conclusion follows from the congruence proof, not the finite sample. The three exact deliverable paths are checked by intake, with existence checked separately. No Lean file is required by this paper job.
 
 G1–G3 remain substantive gates. G4–G10 identify the HN/minimal-geometry, MV purity, Viehmann closure, upper-bound/Mazur, Levi, Lang/rank-one and residual Coxeter/root proof frontiers. The dependency graph is an itemized **partial plan**, not a closed Lean proof graph. Do not upgrade it merely because structural checks pass.
