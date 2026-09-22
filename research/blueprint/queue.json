@@ -4433,8 +4433,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1296"
+   "state": "pending",
+   "note": "released on GitHub issue #1296"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
@@ -4964,7 +4964,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1328"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
