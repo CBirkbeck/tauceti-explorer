@@ -1,0 +1,941 @@
+{
+  "paper": "PAPER-DISEGNI-LIU-24",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "A p-adic arithmetic inner product formula",
+    "authors": "Daniel Disegni and Yifeng Liu",
+    "venue": "Inventiones Mathematicae 236 (2024), no. 1, 219–371",
+    "doi": "10.1007/s00222-024-01243-7",
+    "arxiv": "2204.09239",
+    "url": "https://doi.org/10.1007/s00222-024-01243-7",
+    "readSections": [
+      "The whole published article (§§1–4, Appendices A–B and the references), open access under CC BY 4.0 from link.springer.com, 153 pp., SHA-256 e8c4e026fab0fe89fd7dcbc724009af7b867ad910937ffb9fa7e72289f0f1ef8, fetched and read 2026-09-22. Locators are its journal pages.",
+      "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version, consulted throughout for passages whose extraction was unclear and checked at every recorded misprint: it agrees with the published text."
+    ]
+  },
+  "summary": "Disegni and Liu prove the p-adic analogue of the arithmetic inner product formula of Li–Liu — equivalently, the first p-adic Gross–Zagier formula in genuinely higher dimension. Let E/F be a CM extension in which every p-adic place splits, and π a relevant representation of the quasi-split unitary group G_r = U(W_r) of rank n = 2r, Panchishkin unramified (ordinary for the Siegel parabolic) above p.\n\n- **The p-adic L-function (§§2–3, Theorem 1.4).** A cyclotomic p-adic L-function L^♦_p(π) on the character space of Γ_{F,p} is constructed by the doubling method, from a family of explicit big-cell sections f^{[e]}_{χ_p} on which the U_p-operators act by translation. The rationality is proved on Siegel hermitian varieties over Q_p compared with PEL moduli, so the interpolation holds along every isomorphism Q_p ≃ C.\n- **Selmer theta lifts (§4).** The θ_π-part V_{π,L} of H^{2r−1}_ét(X_L) and the canonical map ℘_π give Kudla's generating series a Selmer-group avatar; under the Modularity Hypothesis its convolution with a form in π̂ is a Selmer theta lift in H^1_f(E, V_{π,L}).\n- **The formula (Theorems 1.7, 1.8).** If ord_{χ=1}L^♦_p(π) = 1 then the generating function is modular, and the Nekovář p-adic height of two Selmer theta lifts equals ∂L^♦_p(π) times explicit gamma factors and local doubling zeta integrals. Corollaries 1.9 and 1.12 give H^1_f(E, ρ_π(r)) ≠ 0, in particular for symmetric powers of ordinary modular elliptic curves.\n- **Method.** The local heights away from p are the Beilinson local indices of Li–Liu (through Scholl's comparison); above p they are shown to tend to 0 p-adically along the U_p-iteration, which needs a new crystalline property of bi-extensions (Theorem A.8) proved in Appendix B through log syntomic cohomology, rigid de Rham–Witt complexes, log rigid cohomology with proper support and de Jong's alterations.\n\nThe libraries have none of this. The atlas plans the surrounding theory — Selmer structures (SelmerIwasawaCohomology), period rings and comparisons (PadicHodgeTheory, CohomologyComparisons, CrystallineCohomology, rigid cohomology), the doubling p-adic L-function for ordinary unitary groups (AutomorphicPadicLFunctions L4), the Weil representation (MP.2–MP.3), cycle classes (EDC.3) and continuous cohomology (D7) — but not p-adic heights.\n\nRoutes: two new Part IIs, PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights) for the Selmer theta lifts and the formula itself, and SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology) for Nekovář's height pairing, bi-extensions and Theorem A.8; and sources for AutomorphicPadicLFunctions L4–L5, MetaplecticAutomorphicForms MP.2–MP.3, PadicDifferentialEquationsAndRigidCohomology RD.4, CrystallineCohomology CR.4–CR.6 and PadicHodgeTheory R06.1.\n\nSeven groups of misprints are recorded; no mathematical error or gap was found. The paper's own §4.10 records two errata for Li–Liu I and II, which are noted here and in those extractions.",
+  "items": [
+    {
+      "id": "PAPER-DISEGNI-LIU-24/1",
+      "kind": "theorem",
+      "name": "Theorem 1.4 = Theorem 3.37 (the cyclotomic p-adic L-function of π)",
+      "statement": "Let E/F be a CM extension of number fields in which every p-adic place of F splits, n = 2r, G_r = U(W_r) quasi-split, and π a relevant L-representation of G_r(A^∞_F) (Definition 1.1) with π_v Panchishkin unramified for every v | p. For every finite set ♦ of places of Q containing {∞, p} outside which π is unramified there is a unique bounded analytic function L^♦_p(π) on X_{F,p} ⊗_{Q_p} L (equivalently, an L-valued p-adic measure on Γ_{F,p}) such that for every finite character χ : Γ_{F,p} → Q_p^× and every embedding ι : Q_p → C, ιL^♦_p(π)(χ) = (1/P^ι_π)·(Z_r^{[F:Q]}/b^♦_{2r}(1))·Π_{v|p}Π_{u ∈ P_v} γ((1+r)/2, ι(π_u ⊗ χ_v), ψ_{F,v})^{−1}·L(1/2, BC(ιπ^♦) ⊗ (ιχ^♦ ∘ Nm_{E/F})), where P^ι_π is the period of Notation 3.15, Z_r = (−1)^r 2^{−r²−r}π^{r²}Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)) is the archimedean doubling zeta integral, and b^♦_{2r}(1) = Π_{i=1}^{2r} L^♦(i, η^i_{E/F}).",
+      "locator": "Theorem 1.4 and Remark 1.5, pp. 223–224; Theorem 3.37 and proof, pp. 268–271, published version",
+      "status": "missing",
+      "note": "Remark 1.5: the periods are well defined up to L^×, the vanishing order at 1 is independent of ♦, L^♦_p(π) = L^♦_p(π̂), and the interpolation is along all isomorphisms Q_p ≃ C (a stronger rationality than in [17] = Eischen–Harris–Li–Skinner, whose ordinary construction it overlaps). Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/2",
+      "kind": "theorem",
+      "name": "Theorem 1.7 = Theorem 4.20 (modularity of the π-Selmer generating function)",
+      "statement": "In the situation of Assumption 1.6 with n < p: if the vanishing order of L^♦_p(π) at 1 is one, then Hypothesis 4.16 holds for π, that is, for every φ ∈ S(V^r ⊗_F A^∞_F)^{K^◆_r × L} there is a (unique) holomorphic automorphic form Z^π_{φ,L} on G_r(A_F) valued in the Bloch–Kato Selmer group H^1_f(E, V_{π,L}) whose q-expansion at g is Kudla's generating series Σ_T ℘_π(Z^ét_T(ω_r(g)φ)_L)q^T.",
+      "locator": "Theorem 1.7, p. 225; Theorem 4.20, p. 284; proof, pp. 313–314, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/3",
+      "kind": "theorem",
+      "name": "Theorem 1.8 = Theorem 4.21 (the p-adic arithmetic inner product formula)",
+      "statement": "In the situation of Assumption 1.6 with n < p: (1) if ord_{χ=1}L^♦_p(π) = 1, then for ϕ_1 ∈ V_{π̂}, ϕ_2 ∈ V_π fixed by K^♦_r with ⟨ϕ_{1,v}, ϕ_{2,v}⟩_{π_v} = 1 outside ♦, and φ_1, φ_2 with φ^♦_1 = φ^♦_2 good, ⟨Θ^{Sel}_{φ_1}(ϕ_1), Θ^{Sel}_{φ_2}(ϕ_2)⟩^♮_{π,F} = ∂L^♦_p(π)·Π_{v|p}Π_{u ∈ P_v} γ((1+r)/2, π_u, ψ_{F,v})·Π_{v ∈ V^{(♦\\{∞})}_F} Z(ϕ^†_{1,v} ⊗ ϕ_{2,v}, f^{SW}_{φ_{1,v} ⊗ φ_{2,v}}) in Γ_{F,p} ⊗_{Z_p} L ⊗_Q M; (2) if the vanishing order is not one, then Nm_{E/F}⟨℘_π(Z^ét_{T_1}(φ_1)_L), ℘_{π̂}(Z^ét_{T_2}(φ_2)_L)⟩_{(V_{π,L}, V_{π̂,L}),E} = 0 for all φ_1, φ_2 and all T_1, T_2 (a form that does not presuppose the Modularity Hypothesis).",
+      "locator": "Theorem 1.8, p. 226; Theorem 4.21 and Remark 4.22, pp. 285–287; proof, pp. 317–319, published version",
+      "status": "missing",
+      "note": "Remark 4.22: the identity is nontrivial only when r[F : Q] + |S_π| is odd, and both sides vanish unless V is π-coherent. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/4",
+      "kind": "theorem",
+      "name": "Corollary 1.9 and Corollary 1.12 (evidence for the p-adic Beilinson–Bloch–Kato conjecture; symmetric powers)",
+      "statement": "Corollary 1.9: in the situation of Assumption 1.6 with n < p, if ord_{χ=1}L^♦_p(π) = 1 then dim_{Q_p} H^1_f(E, ρ_π(r)) ≥ 1. Corollary 1.12: for a modular elliptic curve A over F without CM, ordinary at every p-adic place, with π = π(Sym^{n−1}A_E) the transfer of Π(Sym^{n−1}A) (automorphy of symmetric powers of Hilbert modular forms, [59]), and under n < p, [F : Q] > 1, r[F : Q] odd, every prime of V^{ram}_F unramified over Q, and V^A_F ∪ V^{(2)}_F ⊆ V^{spl}_F: L^♦_p(π)(1) = 0, and if ∂L^♦_p(π)(1) ≠ 0 then dim_{Q_p} H^1_f(E, Sym^{n−1}H^1_ét(A_E, Q_p)(r)) ≥ 1.",
+      "locator": "Corollary 1.9, p. 227; §1.4 and Corollary 1.12, pp. 227–228; deduction after Remark 4.22, p. 287, published version",
+      "status": "missing",
+      "note": "Remark 1.11: these rely on Hypothesis 4.11 on the tempered part of the cohomology of unitary Shimura varieties, expected from a sequel to Kisin–Shin–Zhu [36]. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/5",
+      "kind": "definition",
+      "name": "Definition 1.1, Assumption 1.6 and Assumption 4.23 (relevant representations and the running hypotheses)",
+      "statement": "Definition 1.1: a relevant L-representation of G_r(A^∞_F) is π with coefficients in L such that for every ι : L → C, (⊗_{v|∞}π^{[r]}_v) ⊗ ιπ is a tempered cuspidal automorphic representation of G_r(A_F), π^{[r]}_v being the holomorphic discrete series with Harish–Chandra parameter ((n−1)/2, …, 1/2; −1/2, …, −(n−1)/2). Assumption 1.6: F ≠ Q; V^{spl}_F contains all 2-adic and p-adic places; every prime of V^{ram}_F is unramified over Q; π_v is spherical for v ∈ V^{ram}_F, unramified or almost unramified for v ∈ V^{int}_F (almost unramified only at v unramified over Q), R_π ∪ S_π ⊆ V^♥_F, and π_v is Panchishkin unramified for every v | p. Assumption 4.23: the set of primes of E above R is nonempty and generates the relative class group of E/F.",
+      "locator": "Definition 1.1, p. 222; Assumption 1.6, p. 225; Assumption 4.23, p. 287, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/6",
+      "kind": "construction",
+      "name": "The CM moduli problem Σ^δ(K_T) and the unitary moduli problem Σ^δ_m(K, K_T) (§2.2)",
+      "statement": "T ⊆ Res_{E/Q}G is the inverse image of G_Q under Nm_{E/F}. For δ ∈ E^{c=−1} nonzero and a neat K_T, Σ^δ(K_T) classifies (A_0, i_0, λ_0, η_0) with A_0 of relative dimension [F : Q], an E-action with tr(i_0(x)|Lie A_0) = Σ_{u ∈ P_CM} Tr_{E_u/Q_p}(x), a quasi-polarization whose Rosati involution is c, and a K_T-level structure; it is finite étale over Q_p with a simply transitive action of T(A^∞)/T(Q)K_T on each orbit, and Σ^δ_0(K_T) is a fixed orbit. Σ^δ_m(K, K_T) classifies octuples (A_0, i_0, λ_0, η_0; A, i, λ, η) with A of relative dimension 2m[F : Q], tr(i(x)|Lie A) = m Tr_{E/Q}(x), and η : W^δ_m ⊗_E A^∞_E ≅ Hom_{A^∞_E}(H^ét_1(A_0, A^∞), H^ét_1(A, A^∞)) a K-level structure.",
+      "locator": "§2.2, pp. 233–235, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/7",
+      "kind": "construction",
+      "name": "Lemma 2.1 and Definition 2.2 (the Siegel hermitian variety Σ_m(K) over Q_p)",
+      "statement": "The presheaf Σ^δ_m(K, K_T)^♭ (the quotient by T(A^∞)/T(Q)K_T) is a scheme over Q_p independent of K_T, δ and the chosen orbit, and for every ι : Q_p → C there is a canonical isomorphism Σ^δ_m(K, K_T)^♭ ⊗_{Q_p,ι} C ≅ Σ^{Φ_ι}_m(K) with the Shimura variety of (Res_{F/Q}G_m, h^{Φ_ι}_m), where Φ_ι is the CM type determined by P_CM. Σ_m(K) := Σ^δ_m(K, K_T)^♭ is the Siegel hermitian variety of genus m and level K; it depends on P_CM.",
+      "locator": "Lemma 2.1 and Definition 2.2, pp. 236–237, published version",
+      "status": "missing",
+      "note": "The device that makes the p-adic L-function rational over the p-adic field of definition rather than after a fixed Q_p ≃ C. Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/8",
+      "kind": "construction",
+      "name": "Line bundles of automorphy, Definition 2.3 and Remark 2.4 (H^{[w]} and arithmetic holomorphic forms)",
+      "statement": "ω^δ_m := det_O(det_{O ⊗_Q E}Lie(A)^∨) descends to ω_m on Σ_m(K); H^w_{m_1,…,m_s}(K_1 × ⋯ × K_s) := H^0(Σ_{m_1,…,m_s}, ω^{⊗w}_{m_1,…,m_s}). For every ι : Q_p → C there is an injection h^ι : A^{[w]}_{m_1,…,m_s,hol} → H^w ⊗_{Q_p,ι} C, and H^{[w]}_{m_1,…,m_s} is the maximal subspace whose image under every (equivalently, one) ι lies in the image of h^ι; ϕ ↦ ϕ^ι is the corresponding automorphic form. Remark 2.4: the inclusion H^{[w]} ⊆ H^w is proper (no growth condition), H^{[w]} is G(A^∞_F)-stable, and exterior product gives H^{[w]}_{m_1} ⊗ ⋯ ⊗ H^{[w]}_{m_s} ≅ H^{[w]}_{m_1,…,m_s}.",
+      "locator": "§2.2, Definition 2.3 and Remark 2.4, pp. 237–238, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/9",
+      "kind": "definition",
+      "name": "Definitions 2.5–2.6 (Siegel–Fourier expansions SF_{m_1,…,m_s} and the equivariant version)",
+      "statement": "SF_{m_1,…,m_s}(R) consists of formal series Σ a_{T_1,…,T_s}q^{T_1,…,T_s} over totally semi-positive definite hermitian matrices whose entries lie in a fractional ideal, with the restriction map ϱ_{m_1,…,m_s} : SF_m(R) → SF_{m_1,…,m_s}(R) summing over T with ∂_{m_1,…,m_s}T = (T_1, …, T_s) (a finite sum); q^{an}_{m_1,…,m_s} sends a holomorphic automorphic form to its Siegel–Fourier coefficients a_{T_1,…,T_s}(ϕ) = ∫ ϕ(n(b_1), …, n(b_s))ψ_F(tr T_1b_1)^{−1}⋯dB (Tamagawa measures), compatibly with restriction to G_{m_1,…,m_s}. 𝐒𝐅_{m_1,…,m_s}(R) := Map(G_{m_1,…,m_s}(A^∞_F), SF_{m_1,…,m_s}(R)) with the right translation action and q^∞_{m_1,…,m_s}(ϕ)(g) = q^{an}(g·ϕ).",
+      "locator": "Definitions 2.5–2.6, pp. 238–239, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/10",
+      "kind": "construction",
+      "name": "§2.3 (PEL type moduli spaces, algebraic q-expansions and the comparison ζ_{m_1,…,m_s})",
+      "statement": "For the similitude groups G̃_m of W̃_m = E^{2m} with the Q-valued pairing Tr_{E/Q}∘⟨ , ⟩, the PEL moduli problem Σ̃_{m_1,…,m_s}(K̃) over Q classifies tuples of (A_j, i_j, λ_j, η̃_j) with common similitude factors; it carries the line bundle of automorphy ω̃_m, the maps σ̃_{m_1,…,m_s} and τ_{m_1,…,m_s}, and the algebraic q-expansion at the cusp at infinity. Remark 2.7 gives ζ_{m_1,…,m_s} : Res_{F/Q}G_{m_1,…,m_s} × T → G̃_{m_1,…,m_s}, and the induced finite étale morphism Σ^δ_{m_1,…,m_s}(K_1 × ⋯ × K_s, K_T) → Σ̃_{m_1,…,m_s}(K̃) ⊗_Q Q_p, which fits into the commutative diagram (2.6) relating the two q-expansions. Definition 2.9 (integral models G_m, G̃_m from W_m = O^m_E ⊕ (D^{−1}_E)^m), Notation 2.10 (the level subgroups K̃_{m_1,…,m_s}(Δ, Δ′)), Lemma 2.11 (the algebraic q-expansion map is Aut(C/Q⟨Δ′⟩)-equivariant, since the cusp at infinity is defined over Q⟨Δ′⟩ [43 = Lan]), Remark 2.12 (connected fibres over the abelianization).",
+      "locator": "§2.3, Remarks 2.7 and 2.12, Definitions 2.8–2.9, Notation 2.10, Lemma 2.11, pp. 239–243, published version",
+      "status": "missing",
+      "note": "The theory of algebraic q-expansions exists only for PEL type Shimura varieties in Kottwitz's sense, hence the passage to Σ̃. Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/11",
+      "kind": "construction",
+      "name": "§3.1 (the doubling space, degenerate principal series and Whittaker functionals)",
+      "statement": "W□_r := W_r ⊕ W̄_r with G□_r = U(W□_r) ≅ G_{2r} and the doubling embedding ı : G_r × G_r ↪ G□_r given by (3.2) up to the involution id × † (Remark 3.1); δ□_r : P□_r → G_F through the Levi, determinant and norm; the degenerate principal series I□_{r,v}(χ_v) = Ind^{G□_r(F_v)}_{P□_r(F_v)}(χ_v ∘ δ□_{r,v}) with the regularized functional W_{T□}(f) = ∫_{Herm_{2r}(F_v)}f(w□_rn(b))ψ_{F,v}(tr T□b)^{−1}db defined by analytic continuation ([73 = Wallach, Thm. 8.1], [33 = Karel, Cor. 3.6.1]); the extension of I□_{r,w}(χ_w) to a representation of G̃_{2r}(Q_w) along Res_{F/Q}P□_r × s(G_Q) ≅ P̃_{2r}.",
+      "locator": "§3.1, (3.1)–(3.3), Remark 3.1, pp. 243–245, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/12",
+      "kind": "theorem",
+      "name": "Lemmas 3.2, 3.3, 3.5 and 3.6 and Notation 3.4 (Whittaker functionals: archimedean value, equivariance, rationality, big-cell vectors)",
+      "statement": "Lemma 3.2: for the archimedean section f^{[r]}_∞ of weight r, W_{T□}(f^{[r]}_∞) = W_{2r}·b^∞_{2r}(1)·exp(−2π Tr_{F/Q}tr T□) for a constant W_{2r} ∈ Q_{>0} (using [49, Prop. 4.5(2)] and Siegel's rationality of Π L_∞(1−i, η^i)). Lemma 3.3: W_{T□}(n(b)f) = ψ_{F,v}(tr T□b)W_{T□}(f), W_{T□}(m(a)f) = χ_v(Nm det a)^{−1}|det a|^r_{E_v}W_{{}^ta^cT□a}(f) and W_{T□}(s(c)f) = χ_w(c)^{−2r}|c|^{2r²}W_{cT□}(f). Notation 3.4: I□_{r,v}(χ_v)° (sections supported on the big cell) with the bijection S(Herm_{2r}(F_v)) ≅ I□_{r,v}(χ_v)°, f ↦ f_{χ_v}, and the spherical section f^{sph}_{χ_v}. Lemma 3.5: away from p the spherical Whittaker values are polynomials W^{sph}_{T□,v} ∈ Z[X] in χ_v(ϖ_v) after multiplying by b_{2r,v}(χ) (via [48 = Li–Zhang, Thm. 3.5.1]), and Galois equivariance W_{T□}(σf) = σW_{T□}(f) holds for σ ∈ Aut(C/Q⟨w⟩), and for σ ∈ Aut(C/Q) on P̃_{2r}(Z_w)-fixed big-cell sections. Lemma 3.6: I□_{r,w}(χ_w) is semisimple of finite length over G̃_{2r}(Q_w), and away from p every irreducible summand contains a nonzero P̃_{2r}(Z_w)-fixed vector in I□_{r,w}(χ_w)° (using the Kudla–Sweet classification [42] and the Siegel–Weil sections I(V_v)).",
+      "locator": "Lemmas 3.2–3.3, Notation 3.4, Lemmas 3.5–3.6, pp. 245–249, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/13",
+      "kind": "construction",
+      "name": "Notation 3.7, Construction 3.8, Example 3.9 and Lemmas 3.10–3.11 (the sections f^{[e]}_{χ_p} and the U_u-operators)",
+      "statement": "For v | p and u ∈ P_v, U_u := Σ_{b ∈ Herm_r(O_{F_v}/ϖ_v)}[(1_r, ϖ^{−d_v}_vb^♯; 0, 1_r)(ϖ^{1_u}_v1_r, ϖ^{−1_{u^c}}_v1_r)] ∈ Z[G_r(F_v)], and U^e_v := Π_u U^{e_u}_u. For e ∈ Z^{P_v}, T^{[e]}_v ⊆ Herm_{2r}(F_v) consists of T□ with T□_{11}, T□_{22} ∈ Herm_r(O_{F_v}) and T□_{12} ∈ ϖ^{−e}_v GL_r(O_{E_v}), and f^{[e]}_{χ_v}(T□) := χ_v(Nm det T□_{12})1_{T^{[e]}_v}(T□) defines a big-cell section (f^{[e]}_{χ_v})_{χ_v}. Lemma 3.10: (f^{[e]}_{χ_p})_{χ_p} is P̃_{r,r}(Z_p)-invariant. Lemma 3.11: (U^{e_1}_p × U^{e_2}_p)(f^{[e]}_{χ_p})_{χ_p} = (f^{[e+e^c_1+e_2]}_{χ_p})_{χ_p}.",
+      "locator": "Notation 3.7, Construction 3.8, Example 3.9, Lemmas 3.10–3.11, pp. 249–252, published version",
+      "status": "missing",
+      "note": "The whole p-adic interpolation runs through these sections: no explicit Schwartz functions or Weil representations at p are needed. Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/14",
+      "kind": "construction",
+      "name": "§3.2 (Siegel hermitian Eisenstein series and the rationality of their diagonal pullbacks)",
+      "statement": "E(g, f_χ) = Σ_{P_{2r}(F)\\G_{2r}(F)}f_χ(γg) and its similitude version Ẽ(g, f_χ), defined by analytic continuation; the family Ẽ^{[e]}_♦(−, χ, f) := b^♦_{2r}(1)^{−1}b^♦_{2r}(χ)·Ẽ(−, f^{[r]}_∞ ⊗ (f^{[e]}_{χ_p})_{χ_p} ⊗ f) ∈ Ã^{[r]}_{2r,hol}, with W^♦_{2r} := W_{2r}b_{2r,♦\\{∞}}(1). Lemma 3.12 computes its algebraic q-expansion q_{2r}h̃_{2r}(Ẽ^{[e]}_♦) when ‖e‖ > 0, and Proposition 3.13 shows that the pullback D̃^{[e]}_♦(−, χ, f) to the diagonal block satisfies h̃_{r,r}(D̃^{[e]}_♦(−, σχ, σf)) = σh̃_{r,r}(D̃^{[e]}_♦(−, χ, f)) for every σ ∈ Aut(C/Q).",
+      "locator": "§3.2, (3.6)–(3.7), Lemma 3.12, Proposition 3.13, pp. 252–255, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/15",
+      "kind": "theorem",
+      "name": "Lemma 3.14, Notation 3.15, Remark 3.16 and Lemma 3.17 (the dual relevant representation, the period P^ι_π and the projector pr_π)",
+      "statement": "Lemma 3.14: π̂ := (π^∨)^† is again relevant, and Hom_{G_r(A^∞_F)}(π, H^{[r]}_r ⊗_{Q_p}L) is one-dimensional. Notation 3.15: fixing a G_r(A^∞_F)-invariant pairing ⟨ , ⟩_π : V^†_{π̂} × V_π → L, there is for every ι : L → C a unique P^ι_π ∈ C^× with ∫_{G_r(F)\\G_r(A_F)}ϕ^ι_1(g^†)ϕ^ι_2(g)dg = P^ι_π⟨ϕ^†_1, ϕ_2⟩_π; Remark 3.16 gives P^ι_{π̂} = P^ι_π. Lemma 3.17: there is a unique L-linear pr_π : H^{[r]}_r ⊗_{Q_p}L → V_π with ∫ϕ^ι(g^†)Z^ι(g)dg = P^ι_π·ι⟨ϕ^†, pr_π(Z)⟩_π.",
+      "locator": "Lemma 3.14, Notation 3.15, Remark 3.16, Lemma 3.17, pp. 255–257, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/16",
+      "kind": "theorem",
+      "name": "Definitions 3.18, 3.21 and Lemmas 3.19–3.25 (Panchishkin unramified representations)",
+      "statement": "For u ∈ P_v the Satake polynomial P_{π_u}(T) = Π_j(T − α_{u,j}√q_v^{n−1}) has the form T^n + Σ_s β_{u,s}q^{s(s−1)/2}_vT^{n−s} with β_{u,s} ∈ O_L (Lemma 3.19), the multiset A(π_u, m) := {(Π_{j ∈ J}α_{u,j})√q_v^{m(n−m)} : J ⊆ {1, …, n}, |J| = m} lies in Z_p and meets Z^×_p in at most one element, which happens iff β_{u,m} ∈ O^×_L. π_v is Panchishkin unramified if β_{u,r} ∈ O^×_L for u ∈ P_v (Definition 3.21); this holds for π_v iff it holds for π̂_v (Lemma 3.22), and is equivalent to ordinarity at v for the Siegel parabolic in Hida's sense (Remark 1.3). Lemma 3.20 identifies the generalized eigenvalues of the operators T^±_u on π^{I_v}_v with A(π_u, r) and A(π_{u^c}, r); Lemma 3.23 and Notation 3.24 produce the canonical lines π^±_v and the units α(π_u); Proposition 3.25 produces the unique divisor Q_{π_u}(T) = T^r + γ_{u,1}T^{r−1} + γ_{u,2}q_vT^{r−2} + ⋯ + γ_{u,r}q^{r(r−1)/2}_v of P_{π_u}(T) with γ_{u,r} ∈ O^×_L, hence the unramified principal series π_u of GL_r(F_v), together with the locally constant function ξ_{π_v} on G_r(F_v) used in the p-adic zeta integral.",
+      "locator": "§3.3, Definitions 3.18, 3.21, Lemmas 3.19–3.20, 3.22–3.23, Notation 3.24, Proposition 3.25, pp. 257–261, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/17",
+      "kind": "theorem",
+      "name": "§3.4 (local doubling zeta integrals: Lemma 3.26, Definition 3.27, Lemmas 3.29–3.31 and Proposition 3.32)",
+      "statement": "Lemma 3.26 (from [46]): with ς(a, u_1, u_2) := (1_r, u_2; 0, 1_r)(−a, 0; 0, −{}^ta^{c,−1})w_r(1_r, u_1; 0, 1_r) mapping into the big Bruhat cell, the doubling zeta integral Z^ι(ϕ^∨_v ⊗ ϕ_v, f) is an integral over (Res_{E/F}GL_r) × Herm × Herm of the Fourier transform of f against matrix coefficients. Definition 3.27 defines (ϕ^∨_v, ϕ_v)-typical elements f ∈ S(Herm_{2r}(F_v)) by conditions on f̂ (rationality, support in the standard set and a normalized integral), which exist whenever ⟨π^∨_v(w_r)ϕ^∨_v, ϕ_v⟩ ∈ Q^× (Remark 3.28); for such f and unramified χ_v, Z^ι(ϕ^∨_v ⊗ ϕ_v, f_{χ_v}) = 1 (Lemma 3.29). Lemma 3.30: for a Q-valued section f the zeta integral is a single element Z(ϕ^∨_v ⊗ ϕ_v, f) ∈ L interpolating all Z^ι. Lemma 3.31 (Piatetski-Shapiro–Rallis): for v ∤ p unramified, Z^ι(ϕ^∨_v ⊗ ϕ_v, f^{sph}_{χ_v}) = L(1/2, BC(ιπ_v) ⊗ (χ_v ∘ Nm))/b_{2r,v}(χ). Proposition 3.32: for v | p with π_v Panchishkin unramified, ∫_{G_r(F_v)}ιξ_{π_v}(g)(f^{[0]}_{χ_v})_{χ_v}(w_r(g, 1_{2r}))dg = q^{d_vr²}_vΠ_{u ∈ P_v}γ((1+r)/2, ιπ_u ⊗ χ_v, ψ_{F,v})^{−1}.",
+      "locator": "§3.4, Lemma 3.26, Definition 3.27, Remark 3.28, Lemmas 3.29–3.31, Proposition 3.32, pp. 262–265, published version",
+      "status": "missing",
+      "note": "Proposition 3.32 is where the gamma factors of Theorem 1.4 appear; the proof needs no explicit section at p, only the Fourier transform. Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/18",
+      "kind": "construction",
+      "name": "§3.5 (Lemmas 3.33–3.34, Notation 3.35, Definition 3.36 and Lemma 3.38: the construction of L^♦_p(π))",
+      "statement": "For ‖e‖ > 0 the pullbacks h̃_{r,r}(D̃^{[e]}_♦(−, Ω)) lie in the limit of H̃^{[r]}_{r,r}(K̃_{r,r}(p^dΔ, Δ′)) (Lemma 3.33) and descend to elements D^{[e]}_♦(−, Ω) over Q_p (Lemma 3.34); with pr_{π,π̂} = pr_π ⊗ pr_{π̂} and the pairing ⟨ϕ_1 ⊗ ϕ_2, Ψ⟩_{π,π̂} (Notation 3.35), Definition 3.36 sets L^♦_p(π)(Ω) := (Π_{u ∈ P}α(π_u))^{−1}⟨ϕ_1 ⊗ ϕ_2, D^{[1]}_♦(−, Ω)⟩_{π,π̂} for open compact Ω ⊆ Γ_{F,p}. Lemma 3.38: for each finite χ there is e_χ with (f^{[e]}_{χ_p})_{χ_p} invariant under the relevant Iwahori-type subgroups once e_u ≥ e_χ.",
+      "locator": "§3.5, Lemmas 3.33–3.34, Notation 3.35, Definition 3.36, Lemma 3.38, pp. 265–268, 271, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/19",
+      "kind": "theorem",
+      "name": "Proposition 3.39 and Remark 3.40 (parity of the vanishing order)",
+      "statement": "The vanishing order of L^♦_p(π) at 1 has the same parity as r[F : Q] + (1 − ϵ(π))/2, where ϵ(π) is the global root number; the proof factors the complex L-function into the local factors L_p(π_v) for v ∈ V^{(♦\\{∞,p})}_F and compares with the functional equation. Remark 3.40 expects the resulting L_p(π) to again be a p-adic measure.",
+      "locator": "Proposition 3.39 and Remark 3.40, pp. 271–272, published version",
+      "status": "missing",
+      "note": "Routed to AutomorphicPadicLFunctions L4–L5 as a source."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/20",
+      "kind": "definition",
+      "name": "§3.6 (derivatives of p-adic measures: ∂_λμ, Definition 3.41 and Lemma 3.42)",
+      "statement": "For an L-valued p-adic measure μ on Γ_{F,p}, μ(χ) = ∫χdμ = lim_d Σ_{x ∈ Γ_d}χ(x)vol(xU_d, μ); the derivative along λ ∈ Hom_{Z_p}(Γ_{F,p}, Z_p) is ∂_λμ = lim_d Σ_x λ(x)vol(xU_d, μ), and ∂μ ∈ Γ^{fr}_{F,p} ⊗ L collects them. μ is integral if vol(Ω, μ) ∈ O_L for every Ω (Definition 3.41), and then ∂_λμ − Σ_{x ∈ Γ_d}λ(x)vol(xU_d, μ) ∈ p^dO_L for every d (Lemma 3.42).",
+      "locator": "§3.6, (3.18), Definition 3.41, Lemma 3.42, pp. 272–274, published version",
+      "status": "planned",
+      "planned": [
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "note": "Planned: PadicMeasuresIwasawaAlgebras plans p-adic measures on Z_p^d-extensions, completed group algebras and evaluation."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/21",
+      "kind": "construction",
+      "name": "§4.1(H1)–(H9) (hermitian spaces, Weil representations, Siegel–Weil sections and the Siegel–Weil measure)",
+      "statement": "For a hermitian space V over E of rank n with signature (n−1, 1) at v_0 and (n, 0) elsewhere, H = U(V), with moment map T(x) = ((x_i, x_j))_{i,j}, the regular locus (V^m_v)^{reg}, good lattices (index q^{1−ϵ_v}_v in the dual) and good level subgroups and Schwartz functions; the Weil representation ω_{m,v} of G_m(F_v) × H(F_v) on S(V^m_v, M) with ω(m(a))φ(x) = |det a|^r_{E_v}φ(xa), ω(n(b))φ(x) = ψ_{F,v}(tr bT(x))φ(x), ω(w_m)φ = γ^m_{V_v,ψ}φ̂ and ω(h)φ(x) = φ(h^{−1}x); the Siegel–Weil section f^{SW}_Φ(g) = (ω_{2r,v}(g)Φ)(0) ∈ I□_{r,v}(1); and the Siegel–Weil measure dh_v, the unique Q-valued Haar measure with I_{T□}(Φ) = ∫_{H(F_v)}Φ(h^{−1}x)dh_v = b_{2r,v}(1)·W_{T□}(f^{SW}_Φ) for x in (V^{2r}_v)_{T□}, giving hyperspecial subgroups volume 1 at unramified places. (H6) fixes the spherical Hecke algebras T^♦ and their split-supported subrings S^♦.",
+      "locator": "§4.1(H1)–(H9), pp. 274–276, published version",
+      "status": "missing",
+      "note": "Routed to MetaplecticAutomorphicForms MP.2–MP.3 as a source, as PAPER-LI-LIU-22 routes the same material."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/22",
+      "kind": "theorem",
+      "name": "Lemma 4.1, Definition 4.2, Remark 4.3 and Lemma 4.5 (local theta dichotomy, π-coherence and rationality of theta lifts)",
+      "statement": "Lemma 4.1: for every v there is a unique hermitian space V_{π_v} of rank n with θ(ιπ_v) ≠ 0 exactly when V_v ≅ V_{π_v}, in which case θ(ιπ_v) is tempered irreducible and Hom_{H(F_v)}(S(V^r_{π_v}), θ(ιπ_v)) ≅ ιπ_v (local theta dichotomy [20 = Gong–Grenié], [25 = Harris–Kudla–Sweet], [18 = Gan–Ichino], [24 = Harris]). Definition 4.2: V is π-coherent if V_v ≅ V_{π_v} for all finite v; Remark 4.3: such V exists iff Π_v η_{E/F}((−1)^r det V_{π_v}) = −(−1)^{r[F:Q]} (4.1), and then L^♦_p(π) vanishes at 1. Lemma 4.5: θ(σιπ_v) ≅ σθ(ιπ_v) for σ ∈ Aut(C/Q_π), where Q_π is the field of (4.2) generated by quadratic data at the ramified places (Remark 4.4: Q_π = Q under Assumption 1.6, and p is unramified in Q_π).",
+      "locator": "§4.1, Lemma 4.1, Definition 4.2, Remarks 4.3–4.4, Lemma 4.5, pp. 276–278, published version",
+      "status": "missing",
+      "note": "Routed to MetaplecticAutomorphicForms MP.3 as a source, as PAPER-LI-LIU-21 routes the local theta dichotomy there."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/23",
+      "kind": "theorem",
+      "name": "Lemmas 4.6–4.8 (the θ_π-isotypic part V_{π,L} and the canonical map ℘_π)",
+      "statement": "Lemma 4.6: H^{2r−1}_ét(X_L, L_π(r)) decomposes canonically as the θ_π-part V_{π,L} plus the θ̂_π-part, compatibly with all ι (Matsushima). Lemma 4.7: there is a unique map ℘_π : H^{2r}_ét(X_L, L_π(r)) → H^1(E, V_{π,L}) vanishing on F²H^{2r} and inducing the inclusion on the H^1-graded piece of the Hochschild–Serre filtration; its existence uses an element s ∈ S^♦_L annihilating H^{2r} and acting as the identity on the θ_π-part ([46, Prop. 6.9(1)]). Lemma 4.8: for good L^♦ and s ∈ S^♦_{π,L}, s^* = χ^♦_{π̂}(s)·℘_π, and the restriction of χ^♦_{π̂} to S^♦_{π,L} is surjective under the stated hypotheses.",
+      "locator": "Lemmas 4.6–4.8, pp. 278–280, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/24",
+      "kind": "theorem",
+      "name": "Lemmas 4.9–4.10, Hypothesis 4.11 and Lemmas 4.13–4.14 (the Galois representation ρ_π and the local conditions)",
+      "statement": "Lemma 4.9: V_{π,L} is crystalline at every place above an unramified v | p (via a finite étale cover with smooth reduction, [63 = Rapoport–Smithling–Zhang, Thm. 4.5]). Lemma 4.10: there is a unique semisimple ρ_π of Gal(E̅/E) of dimension n with the Satake characteristic polynomials at split places outside ♦, and ρ_{π̂} ≅ ρ^c_π ≅ ρ^∨_π(1−n) (using the endoscopic classification [54 = Mok] and [10 = Chenevier–Harris]). Hypothesis 4.11: every irreducible subquotient of V_{π,L} ⊗_{L_π,ι}Q_p is a direct summand of ρ_π(r) (expected from a sequel to [36 = Kisin–Shin–Zhu]). Lemma 4.13: H^i(E_u, V_{π,L}) = 0 for u ∤ p, by purity of WD(ρ_π(r)|_{E_u}) ([8, 9 = Caraiani], [70 = Taylor–Yoshida], [58 = Nekovář]). Lemma 4.14: for v | p with π_v Panchishkin unramified, V_{π,L}|_{E_u} and V_{π̂,L}|_{E_u} satisfy the Panchishkin condition of Definition A.12 and are pure of weight −1.",
+      "locator": "Lemmas 4.9–4.10, Hypothesis 4.11, Remark 4.12, Lemmas 4.13–4.14, pp. 280–282, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/25",
+      "kind": "construction",
+      "name": "The p-adic height pairing (4.4) on the θ_π-parts",
+      "statement": "If π_v is Panchishkin unramified for every v | p, then the hypotheses (V1)–(V3) of §A.7 hold for K = E, X = X_L, d = d′ = r, V = V_{π,L} and V′ = V_{π̂,L}, so Nekovář's theory gives a canonical p-adic height pairing ⟨ , ⟩_{(V_{π,L},V_{π̂,L}),E} : H^1_f(E, V_{π,L}) × H^1_f(E, V_{π̂,L}) → Γ_{E,p} ⊗_{Z_p}L_π, defined through the canonical Hodge splittings at the p-adic places.",
+      "locator": "§4.2, (4.4), p. 282, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/26",
+      "kind": "construction",
+      "name": "§4.3 (Kudla's special cycles, Z_T(φ)_L and the étale classes)",
+      "statement": "For x ∈ V^m ⊗_F A^∞_F, Kudla's special cycle Z(x)_L ∈ Z^m(X_L) (when T(x) ∈ Herm°_m(F)^+, and in CH^m(X_L)_Q in general); for a Schwartz function φ, Z_T(φ)_L = Σ_{x ∈ L\\V^m⊗A^∞, T(x)=T}φ(x)Z(x)_L, with image Z^ét_T(φ)_L ∈ H^{2m}_ét(X_L, Q_p(m)) ⊗ M under the absolute cycle class map.",
+      "locator": "§4.3, p. 282, published version",
+      "status": "missing",
+      "note": "Remark 4.51 gives a corrected argument for the Hecke-equivariance of these cycles ([46, Lemma 4.4]), after the preprint [67 = Shah] found two of its displayed formulae wrong. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/27",
+      "kind": "definition",
+      "name": "Definition 4.15, Hypothesis 4.16, Remark 4.17 and Proposition 4.18 (Selmer generating functions and their rationality)",
+      "statement": "Definition 4.15: the π-Selmer generating function is Z^π_φ(g)_L := Σ_{T ∈ Herm_r(F)^+}℘_π(Z^ét_T(ω_r(g)φ)_L)q^T ∈ H^1(E, V_{π,L}) ⊗ SF_r(L ⊗_Q C). Hypothesis 4.16 (Modularity): for every φ there exists Z^π_{φ,L} ∈ H^1_f(E, V_{π,L}) ⊗_{Q_π}A^{[r]}_{r,hol} with (1 ⊗ q^{an}_r)(g·Z^π_{φ,L}) = Z^π_φ(g)_L for every g; it is implied by [46, Hypothesis 4.5] and is stronger than its ι-by-ι version (Remark 4.17). Proposition 4.18: under Hypothesis 4.16 the form is defined over the coefficient field, i.e. there is a unique Z^π_{φ,L} ∈ H^1_f(E, V_{π,L}) ⊗_{L_π}(V_π ⊗_Q M) inducing all (Z^π_{φ,L})^ι.",
+      "locator": "Definition 4.15, Hypothesis 4.16, Remark 4.17, Proposition 4.18, pp. 282–284, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/28",
+      "kind": "definition",
+      "name": "Definition 4.19 and §4.4 (Selmer theta lifts and the canonical height)",
+      "statement": "Θ^{Sel}_φ(ϕ)_L := ⟨ϕ^†, Z^π_{φ,L}⟩_π ∈ H^1_f(E, V_{π,L}) ⊗_{Q_π}M is the Selmer theta lift, compatible under pullback in L; it is the Selmer-group analogue of the arithmetic theta lift of [46, 49]. With the canonical volume vol^♮(L) of [46, Definition 3.8] (the product of W_{2r} and the Siegel–Weil volume of L), the height vol^♮(L)⟨Θ^{Sel}_{φ_1}(ϕ_1)_L, Θ^{Sel}_{φ_2}(ϕ_2)_L⟩_{(V_{π,L},V_{π̂,L}),E} is independent of L and is written ⟨Θ^{Sel}_{φ_1}(ϕ_1), Θ^{Sel}_{φ_2}(ϕ_2)⟩^♮_{π,E}.",
+      "locator": "Definition 4.19, p. 284; §4.4, pp. 284–285, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/29",
+      "kind": "theorem",
+      "name": "§4.5 (Lemmas 4.24, 4.26, 4.27 and Definition 4.25: reducing modularity to a height identity)",
+      "statement": "Lemma 4.24: if π_v is unramified for every v | p, the image of CH^r(X_L) → H^{2r}_ét(X_L, Q_p(r)) → H^1(E, V_{π,L}) lies in H^1_f ([58, Thm. 3.1]). Definition 4.25: ϕ ∈ L ⊗_Q A^{[r]}_{r,hol} is strongly nonzero if ιϕ ≠ 0 for every ι. Lemma 4.26: if for some L, φ_1, ζ ∈ H^1_f(E, V_{π̂,L}), λ ∈ Hom_{Z_p}(Γ_{E,p}, Z_p) and a strongly nonzero ϕ_1 one has (1 × q^{an}_r)(g·ϕ_1) = Σ_T λ⟨℘_π(Z^ét_T(ω_r(g)φ_1)_L), ζ⟩_E q^T for all g ∈ G_r(A^∞_F), then Hypothesis 4.16 holds for every φ. Lemma 4.27: an identity of this shape for all g ∈ M_r(F_R) already propagates to all g ∈ G_r(A^∞_F), by a strengthening of Kudla's formal modularity ([49, Theorem 3.5]) using Assumption 4.23.",
+      "locator": "§4.5, Lemmas 4.24, 4.26–4.27, Definition 4.25, pp. 287–291, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/30",
+      "kind": "construction",
+      "name": "Notation 4.28 and §4.5(S1)–(S4) (the pool of Schwartz functions and Lemma 4.29)",
+      "statement": "For v ∈ R a regular pair (φ_{v,1}, φ_{v,2}) with support in (V^{2r}_v)^{reg}; for v ∈ T the characteristic functions of a good lattice; for v | p a polarization Λ_v = Λ_{v,1} ⊕ p^{−d_v}_vΛ_{v,2} into isotropic O_{E_v}-submodules and, for e ∈ N^{P_v}, the subsets Λ^{[e]}_{v,1}, Λ^{[e]}_{v,2} of (ϖ^{−e−ε_v}_vΛ_{v,1} ⊕ ϖ^{−e+ε^c_v}_vΛ_{v,2})^r, resp. (ϖ^{−e}_vΛ_v)^r, with integral moment matrix and prescribed generation, giving φ^{[e]}_{v,i}. Lemma 4.29: U^{e′}_vφ^{[e]}_{v,i} = φ^{[e+e′]}_{v,i}; φ^{[e]}_{v,i} is L_v-fixed; the support of φ^{[e_1]}_{v,1} ⊗ φ^{[e_2]}_{v,2} is regular and f^{SW}_{φ^{[e_1]}_{v,1} ⊗ φ^{[e_2]}_{v,2}} = b_{2r,v}(1)^{−1}vol(L_v, dh_v)(f^{[e^c_1+ε^c_v+e_2]}_{1_v})_{1_v} (4.7), matching the sections of Construction 3.8.",
+      "locator": "Notation 4.28, §4.5(S1)–(S4), Lemma 4.29, pp. 291–293, published version",
+      "status": "missing",
+      "note": "This identity is the bridge between the geometric U_p-operators on special cycles and the analytic sections of the Eisenstein family. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/31",
+      "kind": "theorem",
+      "name": "The decomposition (4.8) of the global height into local heights",
+      "statement": "For cycles with disjoint support (guaranteed by the regularity in §4.5(S1)), the p-adic height pairing of their classes decomposes as ⟨Z^ét_{T_1}(s_1φ^{[e_1]}_1)_L, Z^ét_{T_2}(s_2φ^{[e_2]}_2)_L⟩_E = Σ_{u ∤ ∞}⟨Z_{T_1}(s_1φ^{[e_1]}_1)_L, Z_{T_2}(s_2φ^{[e_2]}_2)_L⟩_{E_u} in Γ_{E,p} ⊗_{Z_p}L, by the theory of §A.7.",
+      "locator": "§4.5, (4.8), p. 293, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/32",
+      "kind": "theorem",
+      "name": "§4.6 (Lemma 4.31, Notation 4.32 and Proposition 4.33: local heights away from p)",
+      "statement": "Lemma 4.31: for v ∈ T the Whittaker values of the standard Siegel–Weil section are a polynomial W_{T□,v} ∈ Z[X] in χ_v(ϖ_v) after multiplying by b_{2r,v}(χ) ([47, Rem. 2.18, Lemma 2.19], [48, §9]). Notation 4.32: Diff(T□, V) = {v : (V^{2r}_v)_{T□} = ∅} is finite of odd cardinality, and Herm°_{2r}(F)^+_V is where it is a singleton v_{T□}. Proposition 4.33: there exists (t_1, t_2) with χ^♦_{π̂}(t_1)χ^♦_π(t_2) ≠ 0 such that Nm_{E/F}(vol^♮(L)Σ_{u ∤ ∞p}⟨Z_{T_1}(t_1s_1φ^{[e_1]}_1)_L, Z_{T_2}(t_2s_2φ^{[e_2]}_2)_L⟩_{E_u}) equals W_{2r}Σ_{T□ ∈ Herm°_{2r}(F)^+_V, ∂_{r,r}T□=(T_1,T_2)}W′_{T□,v_{T□}}(1)I_{T□}(⋯)[v_{T□}] plus the analogous sum over v ∈ S_π with factor 2/(q^{2r}_v − 1) and W^{sph}_{T□,v}(1); the proof splits into the split, unramified, almost unramified and ramified cases, using Proposition A.7 (local p-adic height = Beilinson's local index), [47, Prop. 4.20], [46, Prop. 8.1] and [47, Thm. 1.1].",
+      "locator": "§4.6, Lemma 4.31, Notation 4.32, Proposition 4.33, pp. 293–296, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/33",
+      "kind": "theorem",
+      "name": "§4.7 (Lemmas 4.34, 4.36, 4.37 and Proposition 4.35: local heights above p decay p-adically)",
+      "statement": "Lemma 4.34: for n < p there is (t_1, t_2) with χ^♦_{π̂}(t_1)χ^♦_π(t_2) ≠ 0 such that all local heights at u | p lie in (O^×_{E_u})^{fr} ⊗_{Z_p}L; the proof builds a projective strictly semistable model X over O_K of an auxiliary Shimura variety with Drinfeld level (using [53 = LTXZZ]) whose strata X(1) = X_1 ⊔ X_2 and X(2) = X_1 ∩ X_2, and applies Theorem A.8 (the crystalline property of bi-extensions) with the Hecke ideals m = ker χ^♦_{π̂}, m′ = ker χ^♦_π. Lemma 4.36: cycles built from φ^{[e]}_{v,2} lie in the subgroup Z^r_{[|e|]}(X_L) of cycles supported on the level-[|e|] part. Lemma 4.37: there is M ≥ 0 with p^M annihilating H^1_f(K_d, T_{π,L})/N_∞H^1_f(K_d, T_{π,L}) for all d (universal norms, via [56, Theorem 6.9] and the Lubin–Tate argument of [68, §8]). Proposition 4.35: consequently the local heights at u | p lie in (O^×_{E_u})^{fr} ⊗ p^{|e_{2,v}|−M}O_L, so they tend to 0 p-adically as the U_p-iterations grow.",
+      "locator": "§4.7, Lemmas 4.34, 4.36–4.37, Proposition 4.35, pp. 296–302, published version",
+      "status": "missing",
+      "note": "This is the p-adic replacement for the vanishing of the archimedean and p-adic contributions in the complex arithmetic inner product formula. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/34",
+      "kind": "theorem",
+      "name": "§4.8 (Remark 4.38, Lemmas 4.39–4.44 and Proposition 4.45: the limit of the height generating series)",
+      "statement": "The height generating series is compared with a family of measures: Lemma 4.39 produces integral measures (E^{[e]}_{(g_1,g_2)})_{T□} on Γ_{F,p} interpolating p^MW^♦_{2r}b^♦_{2r}(ιχ)W_{T□}((g_1, g_2)·ι(ŝ_1t̂_1, ŝ_2t̂_2)f^{[e]}_{ιχ^{∞p}}) (4.15) and their S_π-analogues; Lemma 4.40 identifies their q-expansions with those of the Eisenstein families; Definition 4.41 and Lemma 4.42 set up the rational spaces A^K_M of automorphic forms with M-rational q-expansions; Lemma 4.43 produces the pullbacks D^{[e]}_χ and their convergence along e = N!; Lemma 4.44 shows that the classes Z^ét_{T_2}(t_2s_2g_2φ^{[N!]}_2)_L converge in H^1_f(E, V_{π̂,L}); and Proposition 4.45 shows that the sequence I_{λ,d} converges to I_λ ∈ L ⊗ A^{K^†}_O whose q-expansion is vol^♮(L)Σ_{T_1,T_2}λ_E⟨Z^ét_{T_1}(t_1s_1g_1φ_1)_L, ζ_{g_2,T_2}⟩_E q^{T_1,T_2}, with I_λ ∈ O_L ⊗ A^K_{Z_{(p)}}.",
+      "locator": "§4.8, Remark 4.38, Lemmas 4.39–4.44, Proposition 4.45, pp. 302–313, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/35",
+      "kind": "theorem",
+      "name": "Proposition 4.46 and the proof of Theorem 4.20; Remark 4.47",
+      "statement": "Proposition 4.46: if n < p, ∂L^♦_p(π) ≠ 0 and the local zeta integrals at v ∈ R can be made nonzero, then there is λ with I_λ ≠ 0. Given this, Theorem 4.20 follows: a nonzero q^{T_2}-coefficient of (1, g_2)·I_λ is a strongly nonzero automorphic form to which Lemma 4.26 applies. Remark 4.47: the same strategy cannot give an unconditional construction of arithmetic theta lifts in Chow groups, because the semisimplicity and automorphy used for H^1(E, H^{2r−1}) are unknown for CH^r(X_L).",
+      "locator": "Proposition 4.46, p. 313; proof of Theorem 4.20, pp. 313–314; Remark 4.47, p. 314, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/36",
+      "kind": "theorem",
+      "name": "§4.9 (Proposition 4.48 and Lemma 4.49: the p-adic doubling formula and the proof of Theorem 4.21)",
+      "statement": "Proposition 4.48: for n < p and λ ∈ Hom_{Z_p}(Γ_{F,p}, Z_p), ⟨ϕ_1 ⊗ ϕ_2, I_λ⟩_{π,π̂} = p^M χ^♦_{π̂}(t_1s_1)χ^♦_π(t_2s_2)·∂_λL^♦_p(π)·Π_{v ∈ V^{(♦\\{∞,p})}_F}Z(ϕ^†_{1,v} ⊗ ϕ_{2,v}, f^{1_v}), proved by running the doubling computation of §3.5 with the vectors (T2)–(T4) chosen so that the p-adic zeta integrals are the gamma factors of Proposition 3.32. Lemma 4.49: those zeta integrals are nonzero away from R, being C_v·L(1/2, BC(π_v))/b_{2r,v}(1) ([52 = Liu, almost unramified], [47, Prop. 3.6], Lemma 3.31). Combining Proposition 4.48 with Propositions 4.33, 4.35 and 4.45 proves Theorem 4.21, and Proposition 4.46 follows.",
+      "locator": "§4.9, Proposition 4.48, Lemma 4.49, pp. 314–319, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/37",
+      "kind": "theorem",
+      "name": "§4.10 (Remarks 4.50–4.51: errata for Li–Liu 2021 and 2022)",
+      "statement": "Remark 4.50: in [46] and [47] the Hecke character χ^R_{π^∨} was mistakenly identified with (χ^R_π)^c — they agree only on T^R_{Q^{ac}} ∩ R — so [46, Proposition 6.10(1)] should read χ^R_{π^∨}(s) in place of χ^R_π(s)^c, and the two elements required in S^R_{Q^{ac}} \\ m^R_π should be taken in S^R_{Q^{ac}} \\ m^R_{π^∨}; the proofs are unaffected. Remark 4.51: the preprint [67 = Shah, arXiv:2310.01677] shows that two formulae claimed in the proof of [46, Lemma 4.4] about Hecke correspondences of special cycles and Schwartz functions are incorrect in general; the lemma is reproved here by showing that φ^∞ ↦ Z_T(φ^∞)_{L′} defines a map of smooth H(A^∞_F)-representations into the limit of the Chow groups, which factors through CH^m(X_L)_C on L-invariants.",
+      "locator": "§4.10, Remarks 4.50–4.51, pp. 319–320, published version",
+      "status": "missing",
+      "note": "These are corrections to PAPER-LI-LIU-21 and PAPER-LI-LIU-22, recorded there as well. Routed to the new Part II PadicArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/38",
+      "kind": "definition",
+      "name": "The cyclotomic Iwasawa objects Γ_{K,p} and the character space X_{K,p}",
+      "statement": "For a number field K, Γ_{K,p} is the p-completion of K^×\\A^{∞,×}_K/(O_K ⊗ Π_{w ∤ p}Z_w)^×, a finitely generated Z_p-module, and X_{K,p} is the rigid analytic space over Q_p with X_{K,p}(R) the continuous characters Γ_{K,p} → R^×; bounded analytic functions on X_{F,p} ⊗ L are the same as L-valued p-adic measures on Γ_{F,p}, i.e. elements of Z_p[[Γ_{F,p}]] ⊗_{Z_p}L.",
+      "locator": "§1, p. 221–222; Remark 1.5(1), p. 223, published version",
+      "status": "planned",
+      "planned": [
+        "PadicMeasuresIwasawaAlgebras:L0a",
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "note": "L0a plans rigid character and weight spaces, L1 the completed group rings; the ray-class group here is the standard cyclotomic one."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/39",
+      "kind": "construction",
+      "name": "The unitary Shimura varieties X_L for H = U(V)",
+      "statement": "For V of signature (n−1, 1) at one archimedean place and (n, 0) elsewhere and H = U(V), the system {X_L} indexed by neat open compact L ⊆ H(A^∞_F) consists of smooth projective schemes over E of dimension n − 1, with the usual complex uniformization; they carry Kudla's special cycles and the Hecke action of S^♦.",
+      "locator": "§1.2, p. 224; §4.1, §4.3, pp. 274–282, published version",
+      "status": "planned",
+      "planned": [
+        "ShimuraVarieties:V6"
+      ],
+      "note": "V6 plans canonical models for Hodge and abelian type data, which covers the existence of X_L; their integral models are imported from the unitary Part IIs of earlier extractions."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/40",
+      "kind": "construction",
+      "name": "The Hochschild–Serre filtration and the absolute cycle class map",
+      "statement": "The absolute cycle class map CH^m(X_L) → H^{2m}_ét(X_L, Q_p(m)) and the Hochschild–Serre filtration F^i with F^iH^{2r}/F^{i+1}H^{2r} a subquotient of H^i(E, H^{2r−i}_ét(X_L, Q_p(r))) (degeneration as in [31 = Jannsen]) are the input for the map ℘_π and for Nekovář's p-adic Abel–Jacobi theory.",
+      "locator": "§4.2, pp. 278–280, published version",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.3",
+        "ArithmeticGaloisDuality:R02.2"
+      ],
+      "note": "EDC.3 plans cycle classes in étale cohomology and R02.2 the Hochschild–Serre spectral sequence, as PAPER-LI-LIU-21 routes the same inputs."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/41",
+      "kind": "definition",
+      "name": "Bloch–Kato Selmer groups H^1_f(E, V)",
+      "statement": "The Bloch–Kato Selmer group H^1_f(E, V) ⊆ H^1(E, V) of [5 = Bloch–Kato], cut out by the unramified condition away from p and by the crystalline condition at p, in which the Selmer theta lifts live and on which the p-adic height pairing is defined.",
+      "locator": "§1.2, p. 225; §4.2, p. 282, published version",
+      "status": "planned",
+      "planned": [
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L4"
+      ],
+      "note": "L2 plans Selmer structures and complexes and L4 adds the finite Bloch–Kato conditions once the period rings are available."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/42",
+      "kind": "definition",
+      "name": "§A.1 (étale correspondences and rings of correspondences)",
+      "statement": "An étale correspondence on a scheme X is a diagram t : X ←^f X′ →^g X with f and g finite étale; these form a monoidal category ÉtCor(X), and EC(X) is the unital Z-algebra generated by the isomorphism classes of its objects. An R-ring of étale correspondences on X is an R-ring T with a unital R-linear map T → EC(X)_R ([51 = Liu, Definition 2.11]). Notation A.1: for S ⊆ X and t as above, S_t := f(g^{−1}(S)), extended to finite linear combinations by unions.",
+      "locator": "§A.1, Notation A.1, pp. 320–321, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/43",
+      "kind": "construction",
+      "name": "§A.2 (continuous étale cohomology, equivariant sheaves and the functor C ↦ C_L)",
+      "statement": "For a site S and a diagram of rings R_• one has M(S, R_•), C^+(S, R_•) and D^+(S, R_•); the case R_• = W_• : ⋯ → W/p³ → W/p² → W/p gives systems F_• with p^lF_l = 0, with lim← and the exact restrictions (−)_l. Example A.2: L(r)_X := (R lim←(μ^{⊗r}_{p•})_X) ⊗_{Z_p}L computes Jannsen's continuous étale cohomology H^q(X, L(r)) [30], and H^q(S_ét, Rπ_!L(r)_X) its variant with proper support. For a profinite G acting on S one has M_G(S, R_•), H^q_G(S, −), the forgetful map to H^q(S, −) with kernel H^q_G(S, −)_0, and C_L := (R lim← C) ⊗_W L (A.1).",
+      "locator": "§A.2, Example A.2, (A.1), pp. 321–322, published version",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisDuality:R02.2"
+      ],
+      "note": "D7 is the sole generic owner of continuous derived cohomology with compact coefficients, derived inverse limits and continuous Hochschild–Serre; R02.2 owns the Hochschild–Serre spectral sequence."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/44",
+      "kind": "theorem",
+      "name": "Definition A.3 and Lemmas A.4–A.5 (admissible objects, the Hochschild–Serre edge map and its cocycle)",
+      "statement": "Definition A.3: C ∈ D^+_G(S, W_•) is admissible if every H^q(S, C_l) is a discrete G-module and R¹lim←_l H^q(S, C_l) has finite exponent; then H^q(S, C_L) ≅ (lim←_l H^q(S, C_l)) ⊗_W L as topological G-modules. Lemma A.4: for admissible C there is a spectral sequence H^p_cont(G, H^q(S, C_L)) ⇒ H^{p+q}_G(S, C_L), hence an edge map H^q_G(S, C_L)_0 → H¹_cont(G, H^{q−1}(S, C_L)) (generalizing [30, Cor. 3.4] rationally). Lemma A.5: for a distinguished triangle A → B → C of admissible objects and b ∈ H^q_G(S, B_L) whose image in H^q(S, C_L) vanishes, the image of ν(b) in H¹_cont(G, H^{q−1}(S, C_L)/H^{q−1}(S, B_L)) is represented by the cocycle g ↦ ga − a for any a ∈ H^q(S, A_L) with μ(a) = β(b).",
+      "locator": "Definition A.3, Lemmas A.4–A.5, pp. 322–324, published version",
+      "status": "missing",
+      "note": "Lemma A.5 is used only in §B.6, to compare the crystalline and étale edge maps. The proof of Lemma A.5 contains three misprints (sourceIssues E4), and Lemma A.4 is stated over Z_{p•} although it is applied to W_•-objects (sourceIssues E5). Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/45",
+      "kind": "construction",
+      "name": "§A.3 (homologically trivial cycles, the localisation diagram (A.2) and the maps κ_c, κ_{c′})",
+      "statement": "For X projective smooth over K of pure dimension n − 1, Z^d(X)^0_L := Ker(Z^d(X)_L → H^{2d}(X_K̄, L(d))). For c ∈ Z^d(X)^0_L and c′ ∈ Z^{d′}(X)^0_L with d + d′ = n and disjoint supports, choosing disjoint closed Z, Z′ of pure codimensions d, d′ containing them gives the diagram (A.2) of localisation sequences for U = X∖Z and U′ = X∖Z′; c gives κ_c : L → H^{2d}(Z_K̄, i^!L(d)) landing in the kernel to H^{2d}(X_K̄, L(d)), and c′ gives κ_{c′} : H^{2d−2}(Z′_K̄, L(d−1)) → L vanishing on the image of H^{2d−2}(X_K̄, L(d−1)).",
+      "locator": "§A.3, (A.2), pp. 324–325, published version",
+      "status": "missing",
+      "note": "The printed twists in the last clause read L(d) (sourceIssues E6). The refined cycle classes and Gysin maps used here are planned in EtaleDualityAndPerverseSheaves EDC.3. Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/46",
+      "kind": "construction",
+      "name": "§A.3 (the bi-extension of two cycles and the classes [E_c], [E^{c′}], [E^c_{c′}])",
+      "statement": "Pulling (A.2) back along κ_c and pushing it out along κ_{c′}(1) gives a diagram in M_K(L) with exact rows 0 → L(1) → E_{c′} → H^{2d−1}(X_K̄, L(d)) → 0 and 0 → L(1) → E^c_{c′} → E_c → 0 and columns E_{c′} → E^c_{c′} → L and H^{2d−1}(X_K̄, L(d)) → E_c → L, independent of the choice of Z and Z′; it yields [E_c] ∈ H¹(K, H^{2d−1}(X_K̄, L(d))), [E^∨_{c′}(1)] = [E^{c′}] ∈ H¹(K, H^{2d′−1}(X_K̄, L(d′))) and [E^c_{c′}] ∈ H¹(K, E_{c′}).",
+      "locator": "§A.3, pp. 325–326, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/47",
+      "kind": "theorem",
+      "name": "§A.4 (Nekovář's and Beilinson's local indices, Remark A.6 and Proposition A.7)",
+      "statement": "For K non-archimedean with residue characteristic ≠ p and vanishing cycle classes, [E^c_{c′}] comes from H¹(K, L(1)) = K̂^× ⊗_Ẑ L, and its preimage is Nekovář's local index ⟨c, c′⟩^N_{X,K} [56]. Beilinson's local index ⟨c, c′⟩^B_{X,K} is the image of γ ∪ γ′ under the Mayer–Vietoris coboundary H^{2n−2}(U ∩ U′, L(n)) → H^{2n−1}(X, L(n)) and the trace map, for lifts γ, γ′ of the refined cycle classes [1 = Beilinson, §2], [46, App. B]. Remark A.6: under the canonical identification H¹(Spec K, Q_p(1)) ≃ Q_p used in [1] and [46], a uniformizer of K goes to −1, not 1 ([23, 2.1.3], [57, II.(2.16.1)]). Proposition A.7: ⟨c, c′⟩^N_{X,K} = ⟨c, c′⟩^B_{X,K}, which is [66 = Scholl, Theorem 5.3].",
+      "locator": "§A.4, Remark A.6, Proposition A.7, p. 326, published version",
+      "status": "missing",
+      "note": "Proposition A.7 is what lets §4.6 quote the complex-case local index computations of Li–Liu for the p-adic height. Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/48",
+      "kind": "theorem",
+      "name": "Theorem A.8 and Remark A.9 (the crystalline property of bi-extensions)",
+      "statement": "Let 𝒳 be a proper strictly semistable model of X over O_K with special fibre X and strata X^{(h)}, and n < p. Let T be an L-ring of étale correspondences on 𝒳 and m, m′ maximal ideals of T with ⨁_{h>1,q≥0}(H^q_cris(X^{(h)}/W) ⊗ L)_m = ⨁_{h>1,q≥0}(H^q_cris(X^{(h)}/W) ⊗ L)_{m′} = 0 (A.3). Then there are t ∈ T∖m and t′ ∈ T∖m′, depending only on 𝒳, such that for all c ∈ Z^d(X)^0_L and c′ ∈ Z^{d′}(X)^0_L with d + d′ = n satisfying (1) (supp 𝒞)_t ∩ (supp 𝒞′)_{t′} = ∅ for all correspondences and (2) codim_{X^{(h)}}(supp 𝒞′) ≥ d′ for every h ≥ 1, the three classes [E_{t^*c}], [E^∨_{t′^*c′}(1)] and [E^{t^*c}_{t′^*c′}] are crystalline (lie in H¹_f). Remark A.9: for T = L and a proper smooth model this says that E^c_{c′} is crystalline whenever the closures of the supports are disjoint, confirming the conjecture after [68, Theorem 8.7] for n < p; the statement fails for strictly semistable models without the Hecke localisation.",
+      "locator": "Theorem A.8, Remark A.9, p. 327; strategy, pp. 327–328, published version",
+      "status": "missing",
+      "note": "The strategy follows Sato [65]: compare the syntomic Abel–Jacobi map with one defined through log rigid cohomology (Proposition B.9) and kill the cycle class after localisation at m′. Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/49",
+      "kind": "definition",
+      "name": "§A.6 (de Rham and crystalline representations, Weil–Deligne representations, Remark A.10 and Definition A.11)",
+      "statement": "For K/Q_p finite and V a de Rham L-representation of G_K one has D_dR(V) with its filtration and, for each τ : K → Q̄_p, Fontaine's Weil–Deligne representation WD(V)_τ on D_dR(V) ⊗_{L ⊗ K,1⊗τ}Q̄_p, whose isomorphism class is independent of τ; V is crystalline if D_cris(V) is free of the right rank. Remark A.10: for crystalline V the geometric Frobenius characteristic polynomial on WD(V)_τ is that of φ on D_cris(V). Definition A.11: V is pure of weight μ if the geometric Frobenius eigenvalues on gr^iWD(V)_τ are Weil |κ|^{μ+i}-numbers for every i.",
+      "locator": "§A.6, Remark A.10, Definition A.11, pp. 328–329, published version",
+      "status": "planned",
+      "planned": [
+        "PadicHodgeTheory:R06.1",
+        "PadicHodgeTheory:R06.2"
+      ],
+      "note": "R06.1 constructs B_dR, B_cris, B_st and R06.2 the period functors and admissibility; the Weil–Deligne functor is the one of [70, §1]."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/50",
+      "kind": "theorem",
+      "name": "Definition A.12 and Lemmas A.13–A.14 (the Panchishkin condition)",
+      "statement": "Definition A.12 (after [56, 6.7]): V satisfies the Panchishkin condition if there is a (necessarily unique) subrepresentation V⁺ ⊆ V with F⁰D_dR(V⁺) = 0 and D_dR(V/V⁺)/F⁰D_dR(V/V⁺) = 0. Lemma A.13: for crystalline V this is equivalent to: the negative-slope part D⁺_cris(V) is weakly admissible and (D⁺_cris(V) ⊗_{K_0}K) ⊕ F⁰D_dR(V) ≅ D_dR(V) (A.4) splits the Hodge filtration (using Colmez–Fontaine [11]). Lemma A.14: purity of a given nonzero weight and the Panchishkin condition are both stable under extensions of crystalline representations.",
+      "locator": "Definition A.12, Lemmas A.13–A.14, p. 329, published version",
+      "status": "missing",
+      "note": "(A.4) is the Hodge splitting that Nekovář's height pairing needs at the p-adic places; Lemma 4.14 verifies it for V_{π,L}. Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/51",
+      "kind": "construction",
+      "name": "§A.7 (the p-adic height pairing of cycles, its local decomposition and Remark A.15)",
+      "statement": "For K a number field, X proper smooth of pure dimension n − 1, and L[G_K]-submodules V ⊆ H^{2d−1}(X_K̄, L(d)), V′ ⊆ H^{2d′−1}(X_K̄, L(d′)) satisfying (V1) H^i(K_u, V) = H^i(K_u, V′) = 0 for u ∤ p∞, (V2) semistability and purity of weight −1 at u | p, and (V3) the Panchishkin condition at u | p, Nekovář's theory gives ⟨ , ⟩_{(V,V′),K} : H¹_f(K, V) × H¹_f(K, V′) → Γ_{K,p} ⊗_{Z_p}L; with the Abel–Jacobi maps Z^d_V(X)^0_L → H¹_f(K, V) (using [58, Theorem 3.1] and (V2)) this gives a pairing of cycles (A.5). For cycles with disjoint supports it decomposes as Σ_{u ∤ ∞}⟨c, c′⟩_{(V,V′),K_u} with ⟨c, c′⟩_{(V,V′),K_u} = ⟨c, c′⟩^N_{X_u,K_u} away from p [56, §4]. Remark A.15: for u | p, [E^c_{c′}] ∈ H¹_f(K_u, E_{c′}) if and only if ⟨c, c′⟩_{(V,V′),K_u} ∈ O^×_{K_u} ⊗_{Z_p}L.",
+      "locator": "§A.7, (A.5), Remark A.15, pp. 330–331, published version",
+      "status": "missing",
+      "note": "Remark A.15 is how Theorem A.8 enters the main argument (Lemma 4.34). Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/52",
+      "kind": "construction",
+      "name": "§B.1 (tubular neighbourhoods, the functor f^!_{(U,X)}, log structures and admissible embedding systems)",
+      "statement": "For 𝒵 of finite type over O_{K′} one has the formal completion, the Berkovich generic fibre 𝒵_η, the tubular neighbourhood ]X[_{𝒵_η} of a subscheme, the quasi-étale site [2, §3] and the specialization map s_{(X,𝒵)} : ]X[_{𝒵_η,qét} → X_ét (using [3, Prop. 2.1]). Definition B.1: f^!_{(U,X)} is the kernel of id → g_*g^* for g the open immersion ]X∖U[ → ]X[; Remark B.2: it is exact, and in general no functor on X_ét is compatible with it under Rs_*. Lemma B.3: there is a canonical transformation F_!F^*Rs_{(X,𝒵)*} → Rs_{(X,𝒵)*}f^!_{(U,X)}. Log conventions: L^Y_X, W^triv, W[t]°, W°, κ° and O^can_{K′}; embedding systems {(X^⋆, M^⋆) ↪ (Z^⋆, N^⋆)} and admissible ones in the strictly semistable case, following [22, §§2.1, 5.1].",
+      "locator": "§B.1, Definition B.1, Remark B.2, Lemma B.3, pp. 331–333, published version",
+      "status": "missing",
+      "note": "Routed to PadicDifferentialEquationsAndRigidCohomology RD.4 as a source; the log-geometric objects are planned in CrystallineCohomology CR.5."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/53",
+      "kind": "construction",
+      "name": "§B.2 (rigid de Rham–Witt complexes ω_X, ω̃_X, their proper-support versions and the comparison with Wω^•_X)",
+      "statement": "For a fine log-scheme (X, L) over κ° one defines ω_X := Ru_*Rs^⋆_*(Ω^•_{(Y^⋆,M^⋆)/W°} ⊗ O_{]X^⋆[}) and ω̃_X with (Z^⋆, N^⋆) over W^triv, independent of the embedding system, giving the monodromy triangle ω_X[−1] → ω̃_X → ω_X →^N ω_X (B.1); the versions ω_{(U,X)}, ω̃_{(U,X)} with f^!_{(U,X)} give (B.2) and the triangle of triangles (B.3). The log crystalline complexes C_{(X,L)/W°} = Wω^•_X and C̃_{(X,L)/W°} = Wω̃^•_X of Hyodo–Kato give (B.4), and [4, (1.9.2)] gives the equivalences ω_X ≅ Wω^•_{X,K_0}, ω̃_X ≅ Wω̃^•_{X,K_0} (B.5) matching (B.1) with (B.4), hence the map F_!F^*Wω̃^•_{X,K_0} → ω̃_{(U,X)} (B.6). The cohomological variant Ξ^•_{Z^⋆} gives ω⁺_X ≃ WΞ^•_{X,K_0} (Sato [65, Def. 8.3, Prop. 8.4]) with the maps (B.9)–(B.10).",
+      "locator": "§B.2, (B.1)–(B.10), pp. 333–337, published version",
+      "status": "missing",
+      "note": "Routed to CrystallineCohomology CR.4–CR.6 as a source: the relative and log de Rham–Witt complexes are planned there, the rigid-analytic (convergent) model and the proper-support versions are not."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/54",
+      "kind": "theorem",
+      "name": "§B.3 (log rigid cohomology with proper support, Definition B.4, and the weight spectral sequences with Lemmas B.5–B.6)",
+      "statement": "For X proper strictly semistable over κ°, H^q(X_ét, ω_X) = H^q_conv(X/W°) ≅ H^q_rig(X/W°) [22, Thm. 5.3(ii)]. Definition B.4 introduces, ad hoc, H^q_rig((U, X)/W°) := H^q(X_ét, ω_{(U,X)}) with pushforwards in U and the long exact sequence (B.11). The filtration P_• on Ω^•_{(Z^⋆,N^⋆)/W^triv} gives weight spectral sequences E(X), E(U), E(X∖U) (B.12) and E(U, X) (B.13) = E_c(U) with E_1-terms ⨁_j H^{q−2j−k}_{c,rig}(U^{(2j+k+1)}/K_0) converging to H^q_rig((U, X)/W°). Lemma B.5: if dim(X^{(h)}∖U^{(h)}) ≤ d − h for all h then H^q_rig((U, X)/W°) → H^q_rig(X/W°) is an isomorphism for q ≥ 2d, and the corresponding E_1-terms agree for q ≥ 2d − |k| and in the stated summand for (0, 2d−1). Lemma B.6: a spectral sequence E⁺_c(U)^{−k,q+k}_1 = H^{q−k}_{c,rig}(U^{(k+1)}/K_0) (k ≥ 0) abutting to H^q(X_ét, ω⁺_{(U,X)}), compatible with the projections.",
+      "locator": "§B.3, Definition B.4, (B.11)–(B.13), Lemmas B.5–B.6, pp. 337–339, published version",
+      "status": "missing",
+      "note": "Routed to PadicDifferentialEquationsAndRigidCohomology RD.4 as a source: RD.4 plans rigid cohomology with compact support, not its logarithmic version with proper support nor its weight spectral sequence."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/55",
+      "kind": "construction",
+      "name": "§B.4 (log syntomic complexes, the Abel–Jacobi map α_q, Definition B.7 and Lemma B.8)",
+      "statement": "For 0 ≤ d < p − 1, Kato's log syntomic complexes S(d)_𝒳 satisfy S(d)_𝒳 ≅ τ_{≤d}i^*Rj_*(μ^{⊗d}_{p•})_X ([34], [72]) and give the map RΓ(X_ét, F_!F^*S(d)_{𝒳,Q_p}) → RΓ_c(U, Q_p(d)) (B.14) and, through the Hochschild–Serre edge map, α_q : H^q(X_ét, F_!F^*S(d)_{𝒳,Q_p})^♡ → H¹(K, H^{q−1}_c(Ū, Q_p) ⊗ B_cris) (B.15). The comparison (B.16) with the crystalline complexes C_{𝒳/W^triv}, C_{𝒳/W[t]°} gives F_!F^*S(d)_{𝒳,Q_p} → ω̃_{(U,X)} (B.17). Definition B.7: U is d-dense if dim(X^{(h)}∖U^{(h)}) ≤ d − h for every h ≥ 1. Lemma B.8: for d-dense U the composite to H^{2d}_rig((U, X)/W°) kills the ♡-part (using [65, Prop. A.3.1, Lemma 9.5]), whence the map ρ_{2d} to H^{2d−1}_rig((U, X)/W°)/N (B.18).",
+      "locator": "§B.4, (B.14)–(B.18), Definition B.7, Lemma B.8, pp. 340–343, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/56",
+      "kind": "theorem",
+      "name": "Proposition B.9 (the kernel comparison)",
+      "statement": "Suppose n < p, 1 ≤ d < p − 1 and U d-dense. Then there is a finite extension K_U/K in K̄, with K_𝒳 = K, such that Ker(ρ_{2d}) ⊆ Ker(res_{K_U} ∘ α_{2d}): a class in the syntomic cohomology with proper support that dies in log rigid cohomology has vanishing p-adic Abel–Jacobi image after restriction to K_U.",
+      "locator": "Proposition B.9, p. 343; proof, §B.6, pp. 350–351, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/57",
+      "kind": "theorem",
+      "name": "Lemma B.10, Proposition B.11 and the proof of Theorem A.8 (§B.4)",
+      "statement": "For t ∈ T put 𝒰_t := 𝒳∖((𝒳∖𝒰)_{t^∨}), and let I ⊆ T be the annihilator of ⨁_{h>1,q}H^q_rig(X^{(h)}/K_0)_L. Lemma B.10: for d-dense U and t ∈ I^{4n−5}, t^* annihilates the kernel of H^{2d−1}_rig((U_t, X)/W°)_L/N → H^{2d−1}(X_ét, ω⁺_{(U_t,X)})_L, because the weight-graded pieces of that kernel are subquotients of the cohomology of the deeper strata. Proposition B.11: for n < p, d-dense 𝒰 and t ∈ I^{4n−5}, every c ∈ Z^d(X)^0_L whose closure of support lies in 𝒰_t satisfies res_{K_U}(t^*β_c) ∈ H¹_f(K_U, H^{2d−1}_c(Ū, L(d))), where β_c is the Abel–Jacobi image of the cycle class; the proof uses Sato's p-adic étale Tate twists T(d)_𝒳 and refined cycle classes ([64, Defs. 4.2.4, 5.1.2], [65, Prop. 9.10]), the triangle (B.20), Lemma B.10 and Proposition B.9. Theorem A.8 follows by applying Proposition B.11 three times, using the purity of H^{2d′−1}(X_K̄, L(d′))_{m′} (C_st and Mokrane's weight spectral sequence) and [56, Prop. 1.25] for the exactness property (∗), the ideal J′, the subgroup H¹_♯ and the pushout (B.21).",
+      "locator": "§B.4, Lemma B.10, Proposition B.11, (B.20)–(B.21), pp. 343–347, published version",
+      "status": "missing",
+      "note": "The proof of Theorem A.8 prints H^{2d−1}_c(Ū_t, L(d)) where Proposition B.11 gives H^{2d−1}_c(Ū, L(d)) (sourceIssues E7). Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/58",
+      "kind": "construction",
+      "name": "§B.5 ((φ,N)-modules, successive homotopy fibres, the rings 𝒦 and B̂⁺_st, and Lemmas B.13–B.14)",
+      "statement": "A (φ,N)-module in a W-linear category is an object with a semi-linear φ and a linear N satisfying Nφ = pφN. Definition B.12: the successive homotopy fibre of a finite complex C^0 → ⋯ → C^m in a triangulated category, which inherits a (φ,N)-structure. With R_l the PD envelope of O_K/p^l in W[t]/p^l and P_l the ring of [34, (3.2)], [71, §1.6], one puts 𝒦 := (lim←R_l) ⊗_W K_0 and B̂⁺_st := (lim←P_l) ⊗_W K_0. Lemma B.13: B⁺_st ≅ (B̂⁺_st)^{N-nilp}, B̂⁺_st is flat over 𝒦, and N is surjective on B̂⁺_st. Hence for a nilpotent (φ,N)-module D over K_0 one has two edge maps from D/ND and from (D ⊗ 𝒦)/N(D ⊗ 𝒦) to H¹(K, (D ⊗ B⁺_st)^{N=0}) (using (B̂⁺_st)^{G_K} = 𝒦, [7, Cor. 4.1.3]). Lemma B.14: on the φ = p^r part the second factors through the first via the specialization 𝒦 → K_0 at t = 0 (as in [44, Lemma 2.6]); Remark B.15 notes this fails without the Frobenius restriction and records the open question about Ker(𝒦 → K_0) ⊆ N(B̂_st)^{G_K}.",
+      "locator": "§B.5, Definition B.12, Lemmas B.13–B.14, Remark B.15, pp. 347–350, published version",
+      "status": "missing",
+      "note": "Routed to PadicHodgeTheory R06.1 as a source: R06.1 constructs B_cris, B_st and B_dR, not Breuil's 𝒦 = S^min and B̂⁺_st or their monodromy surjectivity."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/59",
+      "kind": "theorem",
+      "name": "§B.6 (the strict semistable alteration and Lemmas B.16–B.17)",
+      "statement": "By de Jong [12, Thm. 6.5] there are a finite K′/K, a projective strictly semistable 𝒳′ over O_{K′} and a generically finite alteration A : 𝒳′ → 𝒳 making (𝒳′, A^{−1}𝒰) a strict semistable pair; 𝒰′ ⊆ 𝒳′ is the open subscheme with U′ = A^{−1}U and 𝒳′∖𝒰′ flat. Lemma B.16: for n < p the syntomic-to-rigid composite kills the ♡-part in every degree q for the alteration, giving ρ′_q (B.22) — this does not follow from Lemma B.8, since U′ need not be d-dense. Lemma B.17: Ker(ρ′_q) ⊆ Ker(α′_q) for every q. Proposition B.9 follows with K_U = K′, because H^q_c(Ū, Q_p) → H^q_c(Ū′, Q_p) admits a section by Poincaré duality.",
+      "locator": "§B.6, Lemmas B.16–B.17, pp. 350–351, published version",
+      "status": "missing",
+      "note": "Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/60",
+      "kind": "construction",
+      "name": "§B.6 (the strata 𝒱(h), Galois embedding systems, the barred syntomic and crystalline complexes, and Lemmas B.18–B.25)",
+      "statement": "With 𝒱 = 𝒳∖𝒰, 𝒱(h) the h-fold intersections (𝒱(0) = 𝒳, 𝒱(−1) = (𝒰,𝒳)), Lemma B.18 identifies the pullback of the log structure with L^{V(h)}_{𝒱(h)}, and Remark B.19 resolves F_!(μ^{⊗r}_{p•})_Ū by the strata, so that all objects for h = −1 are successive homotopy fibres. Using a Galois embedding system for O^can_{K̄}/W[t]° one builds the G_K-equivariant complexes B̄(r)_{𝒱(h)} (B.24)–(B.25), C̄_{𝒱(h)/W^triv}, C̄_{𝒱(h)/W[t]°} with the triangle (B.26), the syntomic S̄(r)_{𝒱(h)} and the period map π_r (B.29), and their unbarred versions with (B.30)–(B.32). Lemma B.20: ω_{𝒱(h)} ≅ C_{𝒱(h)/W°,K_0}, so H^q_rig(V(h)/W°) ≅ H^q(X_ét, C_{𝒱(h)/W°,K_0}) compatibly with N. Lemma B.21: admissibility of C_{𝒱(h)/W[t]°}, C̄_{𝒱(h)/W[t]°} and C̄_{𝒱(h)/W^triv}, the base changes H^q(C_{𝒱(h)/W[t]°,K_0}) ≅ H^q(C_{𝒱(h)/W°,K_0}) ⊗_{K_0}𝒦 and H^q(C_{𝒱(h)/W[t]°,K_0}) ⊗_𝒦 B̂⁺_st ≅ H^q(C̄_{𝒱(h)/W[t]°,K_0}), and H^q(C̄_{𝒱(h)/W^triv,K_0}) ≅ (H^q(C_{𝒱(h)/W°,K_0}) ⊗ B⁺_st)^{N=0}. Lemma B.22: the C_st-comparison for all strata including h = −1 ([71, Thm. 4.10.2], [75 = Yamashita] for h = −1), Lemma B.23 its compatibility with ξ_r and π_r, Lemma B.24 the factorisation of (B.14) and (B.17) through S(d)_{𝒱(−1)}, and Lemma B.25 the Abel–Jacobi version of Lemma B.23; the proof of Lemma B.17 then combines Lemma A.5, Lemma B.14 and Lemma B.21 in the diagram (B.40).",
+      "locator": "§B.6, Lemmas B.18, B.20–B.25, Remark B.19, (B.22)–(B.40), pp. 351–368, published version",
+      "status": "missing",
+      "note": "The proof of Lemma B.17 writes H^q_K(X_ét, −)_0 for H^q_{G_K}(X_ét, −)_0 (sourceIssues E5). Routed to the new Part II SelmerComplexesAndPadicHeights (parent SelmerIwasawaCohomology)."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/61",
+      "kind": "theorem",
+      "name": "Tsuji's C_st comparison and the Hyodo–Kato complexes",
+      "statement": "The semistable comparison theorem H^q_ét(X_K̄, Q_p) ⊗ B_st ≅ H^q_{log-cris}(X/W°) ⊗ B_st with its Frobenius, monodromy and Galois structures [71, Thm. 4.10.2, Cors. 4.8.8, 4.9.2], the log crystalline (Hyodo–Kato) complexes Wω^•_X of [27], [28], and Mokrane's weight spectral sequence [55], are the inputs of Lemma B.22 and of the purity step in the proof of Theorem A.8.",
+      "locator": "§§B.2, B.6 and the proof of Theorem A.8, pp. 334, 346, 360–361, published version",
+      "status": "planned",
+      "planned": [
+        "CrystallineCohomology:CR.6",
+        "CohomologyComparisons:CP.4"
+      ],
+      "note": "CR.6 plans the Hyodo–Kato complex with N and φ, and CP.4 its assembly into the B_st comparison."
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/62",
+      "kind": "theorem",
+      "name": "de Jong's alteration theorem",
+      "statement": "Every variety over a discretely valued field admits, after a finite extension, a generically finite alteration by a projective strictly semistable scheme, and a pair (X, U) admits a strict semistable alteration [12, Theorem 6.5, §6.3].",
+      "locator": "§B.6, p. 350, published version",
+      "status": "planned",
+      "planned": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "note": "L5 plans exactly de Jong Theorems 4.1 and 6.5 as a required proof branch."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "C. Li, Y. Liu, Chow groups and L-derivatives of automorphic motives for unitary groups, Ann. of Math. (2) 194 (2021), 817–901; II, Forum Math. Pi 10 (2022), e5",
+      "link": "https://doi.org/10.4007/annals.2021.194.3.6",
+      "why": "The complex arithmetic inner product formula and its machinery: special cycles and arithmetic theta lifts, the Hecke-character formalism S^♦_π, the local indices at non-split places (Prop. 8.1, Prop. 4.20, Thm. 1.1) and Hypothesis 4.5 on modularity. Extracted as PAPER-LI-LIU-21 and PAPER-LI-LIU-22; §4.10 of this paper corrects two points of theirs."
+    },
+    {
+      "citation": "J. Nekovář, On p-adic height pairings, Séminaire de Théorie des Nombres, Paris 1990–91, Progr. Math. 108 (1993), 127–202; On the p-adic height of Heegner cycles, Math. Ann. 302 (1995), 609–686; p-adic Abel–Jacobi maps and p-adic heights, CRM Proc. Lecture Notes 24 (2000), 367–379",
+      "link": "https://doi.org/10.1007/BF01444511",
+      "why": "The p-adic height pairing on Selmer groups with its local decomposition, the universal-norm theorem 6.9, and the p-adic Abel–Jacobi/crystalline results (Theorem 3.1, Proposition 2.5) that Appendix A extends to bi-extensions of cycles."
+    },
+    {
+      "citation": "E. Eischen, M. Harris, J. Li, C. Skinner, p-adic L-functions for unitary groups, Forum Math. Pi 8 (2020), e9",
+      "link": "https://doi.org/10.1017/fmp.2020.4",
+      "why": "The ordinary doubling construction of p-adic L-functions for unitary groups that this paper reproves in a self-contained and more rational form; AutomorphicPadicLFunctions L4 is planned from it."
+    },
+    {
+      "citation": "S. S. Kudla, W. J. Sweet Jr., Degenerate principal series representations for U(n,n), Israel J. Math. 98 (1997), 253–306; V. Tan, Poles of Siegel Eisenstein series on U(n,n), Canad. J. Math. 51 (1999), 164–175",
+      "link": "https://doi.org/10.1007/BF02937337",
+      "why": "The structure (irreducibility, Siegel–Weil summands I(V_v)) of the doubling degenerate principal series used in Lemma 3.6 and throughout §3."
+    },
+    {
+      "citation": "N. R. Wallach, Lie algebra cohomology and holomorphic continuation of generalized Jacquet integrals, Adv. Stud. Pure Math. 14 (1988), 123–151; M. L. Karel, Functional equations of Whittaker functions on p-adic groups, Amer. J. Math. 101 (1979), 1303–1325",
+      "link": "https://doi.org/10.2307/2374142",
+      "why": "Convergence, analytic continuation and rationality of the regularized Whittaker functionals W_{T□} (3.3)."
+    },
+    {
+      "citation": "C. Li, W. Zhang, Kudla–Rapoport cycles and derivatives of local densities, J. Amer. Math. Soc. 35 (2022), 705–797",
+      "link": "https://doi.org/10.1090/jams/988",
+      "why": "Theorem 3.5.1 and §9: the polynomiality in χ_v(ϖ_v) of local Whittaker values, used in Lemma 3.5 and Lemma 4.31. Extracted as PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "citation": "Y. Liu, Arithmetic theta lifting and L-derivatives for unitary groups, I and II, Algebra Number Theory 5 (2011), 849–921 and 923–1000; Theta correspondence for almost unramified representations of unitary groups, J. Number Theory 230 (2022), 196–224",
+      "link": "https://doi.org/10.2140/ant.2011.5.849",
+      "why": "Kudla's generating functions and their formal modularity (Thm. 3.5), the archimedean Whittaker value (Prop. 4.5(2)), the Hecke-equivariance (Cor. A.6, Prop. A.5) and the almost unramified doubling zeta integrals (Prop. 5.6)."
+    },
+    {
+      "citation": "M. Harris, S. S. Kudla, W. J. Sweet, Theta dichotomy for unitary groups, J. Amer. Math. Soc. 9 (1996), 941–1004; W. T. Gan, A. Ichino, The Gross–Prasad conjecture and local theta correspondence, Invent. Math. 206 (2016), 705–799; Z. Gong, L. Grenié, An inequality for local unitary theta correspondence, Ann. Fac. Sci. Toulouse 20 (2011), 167–202",
+      "link": "https://doi.org/10.1090/S0894-0347-96-00198-1",
+      "why": "Local theta dichotomy and temperedness of local theta lifts (Lemma 4.1)."
+    },
+    {
+      "citation": "C. P. Mok, Endoscopic classification of representations of quasi-split unitary groups, Mem. Amer. Math. Soc. 235 (2015), no. 1108; T. Kaletha, A. Minguez, S. W. Shin, P.-J. White, Endoscopic classification of representations: inner forms of unitary groups, arXiv:1409.3731",
+      "link": "https://doi.org/10.1090/memo/1108",
+      "why": "Base change and the isobaric decomposition behind ρ_π (Lemma 4.10) and the transfer π(Sym^{n−1}A_E) of §1.4."
+    },
+    {
+      "citation": "A. Caraiani, Local-global compatibility and the action of monodromy on nearby cycles, Duke Math. J. 161 (2012), 2311–2413; Monodromy and local-global compatibility for l = p, Algebra Number Theory 8 (2014), 1597–1646; R. Taylor, T. Yoshida, Compatibility of local and global Langlands correspondences, J. Amer. Math. Soc. 20 (2007), 467–493",
+      "link": "https://doi.org/10.2140/ant.2014.8.1597",
+      "why": "Purity and crystallinity of ρ_π(r) at the places used in Lemmas 4.13 and 4.14."
+    },
+    {
+      "citation": "M. Kisin, S. W. Shin, Y. Zhu, The stable trace formula for Shimura varieties of abelian type, arXiv:2110.05381",
+      "why": "The expected source of Hypothesis 4.11 on the tempered part of the cohomology of the unitary Shimura varieties, on which Theorem 1.8 and its corollaries rest."
+    },
+    {
+      "citation": "Y. Liu, Y. Tian, L. Xiao, W. Zhang, X. Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Invent. Math. 228 (2022), 107–375",
+      "link": "https://doi.org/10.1007/s00222-021-01088-4",
+      "why": "The CM moduli and level structures of §2.2, the notion of relevant representation, and the semistable models with Drinfeld level used in Lemma 4.34."
+    },
+    {
+      "citation": "M. Rapoport, B. Smithling, W. Zhang, Arithmetic diagonal cycles on unitary Shimura varieties, Compos. Math. 156 (2020), 1745–1824",
+      "link": "https://doi.org/10.1112/s0010437x20007289",
+      "why": "Theorem 4.5: the finite étale covers with smooth reduction behind the crystallinity of V_{π,L} (Lemma 4.9)."
+    },
+    {
+      "citation": "A. J. Scholl, Height pairings and special values of L-functions, Proc. Sympos. Pure Math. 55.1 (1994), 571–598; A. Beilinson, Height pairing between algebraic cycles, Contemp. Math. 67 (1987), 1–24",
+      "link": "https://doi.org/10.1090/pspum/055.1/1265545",
+      "why": "Beilinson's local index and Scholl's comparison of it with local p-adic heights, used in Proposition A.7 and §4.6."
+    },
+    {
+      "citation": "A. Shnidman, p-adic heights of generalized Heegner cycles, Ann. Inst. Fourier 66 (2016), 1117–1174",
+      "why": "The Lubin–Tate and universal-norm arguments (§8) adapted in Lemma 4.37."
+    },
+    {
+      "citation": "K.-W. Lan, Comparison between analytic and algebraic constructions of toroidal compactifications of PEL-type Shimura varieties, J. Reine Angew. Math. 664 (2012), 163–228",
+      "link": "https://doi.org/10.1515/crelle.2011.099",
+      "why": "The field of definition of the cusp at infinity and the algebraic q-expansion principle used in Lemma 2.11."
+    },
+    {
+      "citation": "J. Newton, J. A. Thorne, Symmetric power functoriality for Hilbert modular forms, arXiv:2212.03595",
+      "why": "Automorphy of all symmetric powers of Hilbert modular forms, the input of §1.4 and Corollary 1.12."
+    },
+    {
+      "citation": "D. Disegni, The p-adic Gross–Zagier formula on Shimura curves, Compos. Math. 153 (2017), 1987–2074; The universal p-adic Gross–Zagier formula, Invent. Math. 230 (2022), 509–649 (Correction: Invent. Math. 243 (2025), 243–244); The p-adic Gross–Zagier formula on Shimura curves, II, J. Inst. Math. Jussieu 22 (2023), 2199–2240",
+      "link": "https://doi.org/10.1007/s00222-022-01133-w",
+      "why": "The rank-one p-adic Gross–Zagier formulas of which this is the higher-dimensional analogue; the universal formula carries a published correction."
+    },
+    {
+      "citation": "B. Perrin-Riou, Points de Heegner et dérivées de fonctions L p-adiques, Invent. Math. 89 (1987), 455–510",
+      "link": "https://doi.org/10.1007/BF01388982",
+      "why": "The original p-adic Gross–Zagier formula that Theorem 1.8 generalizes."
+    },
+    {
+      "citation": "S. W. A. Shah, Explicit Hecke descent for special cycles, arXiv:2310.01677",
+      "why": "Identifies the two incorrect formulae in the proof of [LL21, Lemma 4.4] that §4.10 of this paper repairs."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "PadicArithmeticInnerProductFormula",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: Selmer theta lifts and the p-adic arithmetic inner product formula",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-DISEGNI-LIU-24/2",
+        "PAPER-DISEGNI-LIU-24/3",
+        "PAPER-DISEGNI-LIU-24/4",
+        "PAPER-DISEGNI-LIU-24/5",
+        "PAPER-DISEGNI-LIU-24/23",
+        "PAPER-DISEGNI-LIU-24/24",
+        "PAPER-DISEGNI-LIU-24/25",
+        "PAPER-DISEGNI-LIU-24/26",
+        "PAPER-DISEGNI-LIU-24/27",
+        "PAPER-DISEGNI-LIU-24/28",
+        "PAPER-DISEGNI-LIU-24/29",
+        "PAPER-DISEGNI-LIU-24/30",
+        "PAPER-DISEGNI-LIU-24/32",
+        "PAPER-DISEGNI-LIU-24/33",
+        "PAPER-DISEGNI-LIU-24/34",
+        "PAPER-DISEGNI-LIU-24/35",
+        "PAPER-DISEGNI-LIU-24/36",
+        "PAPER-DISEGNI-LIU-24/37"
+      ],
+      "brief": "Disegni–Liu, Invent. Math. 236 (2024), 219–371, is the p-adic avatar of the arithmetic inner product formula and the first p-adic Gross–Zagier formula in genuinely higher dimension. GZ plans the rank-one p-adic formula only (GZ.9: the BDP/Brooks p-adic L-function and the p-adic Waldspurger identity on Shimura curves), so this is new work in that roadmap's direction.\n\nImport, never re-plan:\n- UnitaryArithmeticInnerProductFormula (PAPER-LI-LIU-21, PAPER-LI-LIU-22): the unitary Shimura varieties X_L, Kudla's special cycles Z(x)_L and generating functions, the Hecke formalism S^♦ with the characters χ^♦_π, the arithmetic theta lifts and the local index computations at the non-split places (Li–Liu Propositions 8.1 and 4.20, Theorem 1.1) — this Part II uses them verbatim, with p-adic heights in place of Beilinson's;\n- SelmerComplexesAndPadicHeights (proposed by this same extraction): Nekovář's p-adic height pairing, the local decomposition, and the crystalline property of bi-extensions (Theorem A.8);\n- AutomorphicPadicLFunctions L4–L5: the cyclotomic p-adic L-function L^♦_p(π) constructed in §3 of this paper;\n- MetaplecticAutomorphicForms MP.2–MP.3 for the Weil representation and local theta lifts, ModularityAndLanglandsExtensions ML.4 and AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5 for base change and ρ_π, SelmerIwasawaCohomology L2/L4 for the Bloch–Kato conditions, EtaleDualityAndPerverseSheaves EDC.3 and ArithmeticGaloisDuality R02.2 for cycle classes and Hochschild–Serre.\n\nConstruct:\n- the θ_π-isotypic part V_{π,L} of H^{2r−1}_ét(X_L) and the canonical map ℘_π to H^1(E, V_{π,L}) (Lemmas 4.6–4.8), with the crystallinity and Panchishkin conditions at p (Lemmas 4.9, 4.13, 4.14) and the height pairing (4.4);\n- the π-Selmer generating function (Definition 4.15) and the Modularity Hypothesis 4.16, with its rationality (Proposition 4.18), and the Selmer theta lifts (Definition 4.19);\n- the pool of Schwartz functions of §4.5 with the U_p-operators and the Siegel–Weil identity (4.7), and the reduction of modularity to a height identity (Lemmas 4.24, 4.26, 4.27).\n\nThe final theorems:\n- the local heights away from p (Proposition 4.33), which quote the complex local indices through Proposition A.7;\n- the local heights above p (Lemma 4.34, Proposition 4.35), which need Theorem A.8 and the universal-norm Lemma 4.37;\n- the limit formalism of §4.8 (Lemmas 4.39–4.44, Proposition 4.45) and the p-adic doubling formula (Proposition 4.48);\n- Theorem 4.20 (modularity in the Selmer group when ord L^♦_p(π) = 1), Theorem 4.21 (the p-adic arithmetic inner product formula) and Corollaries 1.9 and 1.12.\n\nKeep every hypothesis visible: Assumption 1.6 (F ≠ Q, all 2-adic and p-adic places split, unramified V^ram, spherical/almost unramified components, Panchishkin unramified at p), n < p, Assumption 4.23, and above all Hypothesis 4.11 on the tempered part of the cohomology — Theorem 4.21 and both corollaries are conditional on it until a sequel of Kisin–Shin–Zhu supplies it. Record §4.10 (Remarks 4.50–4.51) as corrections to the Li–Liu papers.\n\nTests:\n- n = 2 against Perrin-Riou's p-adic Gross–Zagier formula and its totally real generalization (Disegni, Compos. Math. 153 (2017));\n- the parity constraint of Remark 4.22(3): the formula is nontrivial only when r[F : Q] + |S_π| is odd;\n- Corollary 1.12 for a modular elliptic curve, where the Satake polynomial of π_u is Π_{j=r}^{n−1}(T − α^j_{v,1}α^{n−1−j}_{v,2}).",
+      "reason": "The subject is the p-adic height of Selmer classes built from special cycles on higher-dimensional unitary Shimura varieties and their identity with the derivative of a p-adic L-function: a Gross–Zagier/arithmetic-inner-product theorem, hence GrossZagierAndArithmeticHeights's direction, but beyond its plan, which covers curves and the abelian varieties they parametrize (GZ.1–GZ.8) and one rank-one p-adic formula (GZ.9). It is a sibling of the complex UnitaryArithmeticInnerProductFormula Part II rather than part of it: the objects (Selmer theta lifts instead of arithmetic theta lifts in Chow groups) and the machinery (Nekovář heights, p-adic L-functions) are different, and the paper itself notes (Remark 4.47) that its method cannot construct the Chow-group lifts."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SelmerIwasawaCohomology",
+      "roadmap": "SelmerComplexesAndPadicHeights",
+      "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: p-adic height pairings and bi-extensions of cycles",
+      "area": "iwasawa",
+      "items": [
+        "PAPER-DISEGNI-LIU-24/42",
+        "PAPER-DISEGNI-LIU-24/44",
+        "PAPER-DISEGNI-LIU-24/45",
+        "PAPER-DISEGNI-LIU-24/46",
+        "PAPER-DISEGNI-LIU-24/47",
+        "PAPER-DISEGNI-LIU-24/48",
+        "PAPER-DISEGNI-LIU-24/50",
+        "PAPER-DISEGNI-LIU-24/51",
+        "PAPER-DISEGNI-LIU-24/31",
+        "PAPER-DISEGNI-LIU-24/55",
+        "PAPER-DISEGNI-LIU-24/56",
+        "PAPER-DISEGNI-LIU-24/57",
+        "PAPER-DISEGNI-LIU-24/59",
+        "PAPER-DISEGNI-LIU-24/60"
+      ],
+      "brief": "SelmerIwasawaCohomology constructs Selmer structures, Selmer complexes and Iwasawa cohomology (L0–L4) but plans no height pairing; the atlas has p-adic heights only for curves (AnabelianGeometryAndNonabelianChabauty NC.5, GrossZagierAndArithmeticHeights GZ.9). This Part II plans Nekovář's p-adic height pairing and its refinement for algebraic cycles, following Appendices A and B of Disegni–Liu, Invent. Math. 236 (2024), 219–371.\n\nImport, never re-plan:\n- SelmerIwasawaCohomology L1–L4 for local conditions, Selmer complexes and the Bloch–Kato conditions;\n- PadicHodgeTheory R06.1–R06.2 (period rings, D_dR, D_cris, weak admissibility, Colmez–Fontaine) and R06.5/CohomologyComparisons CP.2, CP.4 for the crystalline and semistable comparisons;\n- CrystallineCohomology CR.4–CR.6 for the de Rham–Witt and Hyodo–Kato complexes, PadicDifferentialEquationsAndRigidCohomology RD.4 for rigid cohomology with compact support, AdicCoefficientsAndComparisons L5 for de Jong's alterations, ArithmeticGaloisDuality D7/R02.2 for continuous cohomology and Hochschild–Serre, EtaleDualityAndPerverseSheaves EDC.3 for refined cycle classes and Gysin maps.\n\nConstruct:\n- admissible objects, the continuous Hochschild–Serre spectral sequence and the explicit cocycle for its edge map (Definition A.3, Lemmas A.4–A.5);\n- for homologically trivial cycles c, c′ of complementary codimension with disjoint supports, the localisation diagram (A.2) and the bi-extension E^c_{c′} with its three classes;\n- Nekovář's local index and Beilinson's, with the normalisation of Remark A.6 (a uniformizer goes to −1) and their agreement (Proposition A.7 = Scholl);\n- the Panchishkin condition (Definition A.12), its crystalline characterisation and the Hodge splitting (A.4), and stability under extensions (Lemmas A.13–A.14);\n- under (V1)–(V3), the height pairing on H^1_f and on cycles (A.5) with its decomposition into local terms, and the criterion of Remark A.15 identifying crystalline bi-extensions with unit local heights.\n\nThe central theorem is Theorem A.8: on a proper strictly semistable model with n < p, after localising the ring of étale correspondences away from the cohomology of the deeper strata (A.3), the bi-extension of two cycles with disjoint closures is crystalline. Its proof is the whole of Appendix B and should be planned with it:\n- log syntomic complexes and the syntomic Abel–Jacobi map (§B.4);\n- rigid de Rham–Witt complexes, log rigid cohomology with proper support and its weight spectral sequence (§§B.1–B.3), planned as sources of CrystallineCohomology and RD.4;\n- the period rings 𝒦, B̂⁺_st and Lemma B.14 (§B.5), planned as a source of R06.1;\n- Proposition B.9 through de Jong's alteration and the C_st comparison for all strata (§B.6).\n\nKeep the hypotheses visible: n < p throughout; Theorem A.8 needs the Hecke localisation (A.3), not merely disjoint supports (Remark A.9 and its footnote: the smooth case needs no localisation, the semistable case does).\n\nTests:\n- for X a curve (n = 2) and divisors of degree 0, recover Nekovář's height pairing on Selmer groups of the Jacobian;\n- the sign in Remark A.6 against the Beilinson local index used in the complex theory;\n- a proper smooth model with disjoint closures: Remark A.9's unconditional crystallinity.",
+      "reason": "Nekovář's p-adic height pairing, the bi-extension of two cycles and the crystalline property of that bi-extension are Selmer-group theory: they live on H^1_f, are defined by local conditions at every place, and their proof runs through crystalline and log rigid cohomology. SelmerIwasawaCohomology owns Selmer structures and complexes and explicitly defers the finite Bloch–Kato conditions to L4, but plans no heights; this is new work in exactly its direction. The alternative homes are wrong: GrossZagierAndArithmeticHeights owns heights of points and Arakelov pairings on curves, and the p-adic Hodge theory roadmaps own the period rings this uses, not the Selmer-theoretic construction."
+    },
+    {
+      "route": "source",
+      "roadmap": "AutomorphicPadicLFunctions",
+      "stages": [
+        "AutomorphicPadicLFunctions:L4",
+        "AutomorphicPadicLFunctions:L5"
+      ],
+      "items": [
+        "PAPER-DISEGNI-LIU-24/1",
+        "PAPER-DISEGNI-LIU-24/6",
+        "PAPER-DISEGNI-LIU-24/7",
+        "PAPER-DISEGNI-LIU-24/8",
+        "PAPER-DISEGNI-LIU-24/9",
+        "PAPER-DISEGNI-LIU-24/10",
+        "PAPER-DISEGNI-LIU-24/11",
+        "PAPER-DISEGNI-LIU-24/12",
+        "PAPER-DISEGNI-LIU-24/13",
+        "PAPER-DISEGNI-LIU-24/14",
+        "PAPER-DISEGNI-LIU-24/15",
+        "PAPER-DISEGNI-LIU-24/16",
+        "PAPER-DISEGNI-LIU-24/17",
+        "PAPER-DISEGNI-LIU-24/18",
+        "PAPER-DISEGNI-LIU-24/19"
+      ],
+      "reason": "L4 plans the doubling method for ordinary unitary groups in the setting of Eischen–Harris–Li–Skinner, and L5 the Coates–Perrin-Riou/Panchishkin existence statement. This source adds Disegni–Liu's self-contained construction of the cyclotomic p-adic L-function of a relevant representation of a quasi-split unitary group, which is technically different and in one respect stronger:\n- the Siegel hermitian varieties Σ_m(K) over Q_p with their line bundles of automorphy and the comparison with PEL moduli, giving rationality over the p-adic field of definition and interpolation along all isomorphisms Q_p ≃ C rather than a fixed one;\n- the doubling degenerate principal series with the regularized Whittaker functionals, their rationality and the big-cell sections f^{[e]}_{χ_p} on which the U_p-operators act by translation (Lemmas 3.10–3.11);\n- Siegel hermitian Eisenstein series, the analytic family Ẽ^{[e]}_♦ and the rationality of its diagonal pullback (Proposition 3.13);\n- Panchishkin unramified representations: the Satake polynomial, the divisor Q_{π_u}(T), the eigenlines π^±_v and the function ξ_{π_v} (Lemmas 3.19–3.25), which is the precise local condition L5 plans to state in general;\n- the local doubling zeta integrals, including the p-adic computation giving the gamma factors (Proposition 3.32) and the unramified computation of Piatetski-Shapiro–Rallis;\n- Theorem 3.37 (the measure and its interpolation) and the parity of its vanishing order (Proposition 3.39).\nThe construction needs no Weil representation and no explicit Schwartz function at p, so it is a genuinely different route to the same object as EHLS."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.3"
+      ],
+      "items": [
+        "PAPER-DISEGNI-LIU-24/21",
+        "PAPER-DISEGNI-LIU-24/22"
+      ],
+      "reason": "MP.2 owns the explicit Weil-representation operator formulas and MP.3 the dual pairs and local theta modules, as PAPER-LI-LIU-21 and PAPER-LI-LIU-22 route the same material. This source adds the unitary Weil representation ω_{m,v} in the normalization of §4.1(H7), the Siegel–Weil section map and the Siegel–Weil measure with the identity I_{T□}(Φ) = b_{2r,v}(1)W_{T□}(f^{SW}_Φ), and the rationality of local theta lifts: the dichotomy space V_{π_v} (Lemma 4.1), π-coherence with the global criterion (4.1), and the Galois equivariance θ(σιπ_v) ≅ σθ(ιπ_v) over Q_π (Lemma 4.5)."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "stages": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4"
+      ],
+      "items": [
+        "PAPER-DISEGNI-LIU-24/52",
+        "PAPER-DISEGNI-LIU-24/54"
+      ],
+      "reason": "RD.4 constructs rigid cohomology with compact support for frames, with localization triangles and Frobenius. This source adds its logarithmic and proper-support refinement, which Appendix B needs and which nothing in the atlas plans: tubular neighbourhoods on the quasi-étale site with the specialization map, the functor f^!_{(U,X)} of Definition B.1 with Lemma B.3, admissible embedding systems for strictly semistable log schemes, log rigid cohomology with proper support H^q_rig((U,X)/W°) (Definition B.4) with its long exact sequence, and the weight spectral sequences E_c(U) and E⁺_c(U) with the vanishing estimates of Lemmas B.5–B.6."
+    },
+    {
+      "route": "source",
+      "roadmap": "CrystallineCohomology",
+      "stages": [
+        "CrystallineCohomology:CR.4",
+        "CrystallineCohomology:CR.5",
+        "CrystallineCohomology:CR.6"
+      ],
+      "items": [
+        "PAPER-DISEGNI-LIU-24/53"
+      ],
+      "reason": "CR.4 plans the de Rham–Witt complexes and the relative Langer–Zink theory, CR.5 log-crystalline cohomology and CR.6 the Hyodo–Kato complex with its monodromy. This source adds the rigid (convergent) de Rham–Witt complexes ω_X, ω̃_X of a fine log scheme over κ° with the monodromy triangle, their versions with proper support along an open subscheme, the comparison with Wω^•_X after inverting p (B.5) and the cohomological variant ω⁺ ≃ WΞ^•_X of Sato; these are the complexes through which Appendix B computes, and CR.4–CR.6 plan only their crystalline models."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicHodgeTheory",
+      "stages": [
+        "PadicHodgeTheory:R06.1"
+      ],
+      "items": [
+        "PAPER-DISEGNI-LIU-24/58"
+      ],
+      "reason": "R06.1 constructs B_dR, B_cris and B_st with their Frobenius, filtration and Galois structures. This source adds Breuil's rings 𝒦 = S^min and B̂⁺_st obtained from the PD envelopes R_l, P_l, the identification B⁺_st ≅ (B̂⁺_st)^{N-nilp} with flatness and surjectivity of N (Lemma B.13), and the resulting comparison of the two monodromy edge maps on the Frobenius-isotypic part (Lemma B.14); Remark B.15 records the open question on Ker(𝒦 → K_0) ⊆ N(B̂_st)^{G_K}."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E1",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.6, p. 248 (published; also arXiv v3)",
+      "printed": "\"For every v ∈ V^{(v)}_F, by [42, Theorem 1.2 & Theorem 1.3], I□_{r,v}(χ_v) is an irreducible representation of G_{2r}(F_v) unless χ²_v = 1\" and, six lines below, \"⨂_{v ∈ V^{(v)}_F \\ V} I□_{r,v}(χ_v)\".",
+      "correction": "V^{(w)}_F in both places.",
+      "reason": "The lemma fixes a rational place w ≠ p and studies I□_{r,w}(χ_w) = ⨂_{v ∈ V^{(w)}_F}I□_{r,v}(χ_v); v is the index of that product, so V^{(v)}_F is meaningless. The set V introduced two lines later is {v ∈ V^{(w)}_F : χ²_v = 1}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E2",
+      "kind": "misprint",
+      "locator": "Definition 3.21, p. 258 (published; also arXiv v3)",
+      "printed": "\"Definition 3.21. We say that the (unramified) representation π_v of G_r(F_v) is Panchishkin if β_{u,r} ∈ O^×_L for every u ∈ P_v under the notation in Lemma 3.19.\"",
+      "correction": "\"… is Panchishkin unramified if …\".",
+      "reason": "The property defined in the introduction (Definition 1.2) and used everywhere else — Lemma 3.22 immediately below (\"π_v is Panchishkin unramified\"), Notation 3.24, Proposition 3.25, Assumption 1.6(4) and Lemma 4.14 — is \"Panchishkin unramified\"; Definition 3.21 is its restatement in the body.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E3",
+      "kind": "misprint",
+      "locator": "§4.8, p. 304 (published; also arXiv v3)",
+      "printed": "\"… for every T□ ∈ Herm°_{2r}(F)^+_V (Notation 4.33), and …\"",
+      "correction": "(Notation 4.32).",
+      "reason": "Herm°_{2r}(F)^+_V and the place v_{T□} are defined in Notation 4.32; 4.33 is the Proposition computing the local heights away from p. A mechanical check of every internal cross-reference in the paper found no other mismatch of this kind.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma A.5, pp. 323–324 (published; also arXiv v3)",
+      "printed": "\"H^q_G(S, C_L)_0 = H^q((C^•_L)^G)^0 = [Ker((E^q_L)^G →^d (C^{q+1}_L)^G) ∩ Im(C^{q−1}_L →^d E^q_L)]/Im((C^{q−1}_L)^G →^d (E^q_L)^G)\"; \"It is easy to check that the 1-cocycle does not depend on the choice of x.\"; \"Since ν^q(y^q) induces an element in H^q((C^•_L)^G)^0, we may choose an element c^{q−1} ∈ C^{q−1}_L …\".",
+      "correction": "C^q_L in all three places of the display; \"the choice of a\"; \"Since ν^q(b^q) induces …\".",
+      "reason": "No object E occurs in Appendix A outside the bi-extensions E_c, E^c_{c′} of §A.3, which are not complexes; the displayed description of H^q((C^•_L)^G)^0 is the usual one with C^q_L. The element whose independence is checked is the a ∈ H^q(S, A_L) with μ(a) = β(b) of the statement, and b^q ∈ (B^q_L)^G is the closed element representing b introduced one line earlier; y^q is never defined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E5",
+      "kind": "misprint",
+      "locator": "§A.3, p. 325 (published; also arXiv v3)",
+      "printed": "\"The element c′ gives rise to a map κ_{c′} : H^{2d−2}(Z′_K̄, L(d−1)) → L that vanishes on the image of the map H^{2d−2}(X_K̄, L(d)) → H^{2d−2}(Z′_K̄, L(d)).\"",
+      "correction": "H^{2d−2}(X_K̄, L(d−1)) → H^{2d−2}(Z′_K̄, L(d−1)) (or else the sentence should be stated for κ_{c′}(1), which is what is applied to (A.2)).",
+      "reason": "The source of κ_{c′} is the L(d−1)-cohomology of Z′; the two groups in the vanishing clause must be the same ones, and the twist L(d) is the one carried by the diagram (A.2), to which κ_{c′}(1) — not κ_{c′} — is applied.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E6",
+      "kind": "misprint",
+      "locator": "Proof of Theorem A.8, third application of Proposition B.11, p. 347 (published; also arXiv v3)",
+      "printed": "\"Then for every t_2 ∈ I^{4n−5}, the class res_{K_U}(β_{t^*_2t^*_1c}) = res_{K_U}(t^*_2β_{t^*_1c}) belongs to H¹_f(K_U, H^{2d−1}_c(Ū_t, L(d))), where t := t_1t_2\", and in the next sentence the pushout map \"H¹(K, H^{2d−1}_c(Ū_t, L(d))) → H¹(K, E_{t′^*c′})\".",
+      "correction": "H^{2d−1}_c(Ū, L(d)) in both places, for U = X∖(supp 𝒞′)_{t′}.",
+      "reason": "Proposition B.11 concludes that res_{K_U}(t^*β_c) lies in H¹_f(K_U, H^{2d−1}_c(Ū, L(d))) — the correspondence t^* moves the class from H^{2d−1}_c(Ū_t) to H^{2d−1}_c(Ū) — and the extension E_{t′^*c′} is built from the cohomology of that same U; the subscript t also clashes with the t := t_1t_2 defined in the same sentence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    },
+    {
+      "id": "PAPER-DISEGNI-LIU-24/E7",
+      "kind": "misprint",
+      "locator": "Appendices, pp. 322, 348, 350, 357, 362, 363, 367 (published; also arXiv v3)",
+      "printed": "Lemma A.4 is stated for \"C ∈ D^+_G(S, Z_{p•})\"; p. 348: \"let P_l be the R_l-ring wit a discrete action by G_K\"; p. 357, Lemma B.20: \"H^q_rig(V(h), W°) ≃ H^q(X_ét, C_{𝒱(h)/W°,K_0})\"; pp. 350 and 362: \"factors though\"; p. 363: \"the corresponding edges maps\"; p. 367: \"H^q_K(X_ét, C̄_{𝒱(−1)/W^triv,K_0})_0\".",
+      "correction": "D^+_G(S, W_•) in Lemma A.4; \"with\"; H^q_rig(V(h)/W°); \"factors through\"; \"edge maps\"; H^q_{G_K}(X_ét, −)_0.",
+      "reason": "Definition A.3 (admissibility) and Lemma A.5 are stated over W_•, and Lemma A.4 is applied on p. 363 to C̄_{𝒱(h)/W^triv} ∈ D^+_{G_K}(X_ét, W_•) (admissible by Lemma B.21(5)), so its hypothesis as printed is narrower than its use; the proof works verbatim over W_•. The notation for log rigid cohomology is H^•_rig(−/W°) throughout, and the equivariant cohomology of §A.2 is written H^q_G(S, −), so H^q_K is undefined. The rest are typographical.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 236 (2024), 219–371, DOI 10.1007/s00222-024-01243-7: Crossref (checked 2026-09-22) records no correction notice or update relation",
+        "arXiv 2204.09239v3 (23 February 2024, \"to appear in Invent. Math\"), the last arXiv version: every item below was checked there too and reads the same"
+      ]
+    }
+  ]
+}
