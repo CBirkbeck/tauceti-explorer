@@ -1,33 +1,33 @@
 # PAPER-WOOD-19 handoff — codex-a71f92
 
-Partial continuation of PR #1550. Do not mark complete merely because the two remaining unrouted items could be assigned a broad statistics owner.
+Partial continuation, 22 September 2026. Claim 5774728858; bot confirmation 5774731090. Do not mark complete because routing is now complete.
 
 ## Saved work
 
-- Reread the entire 40-page Wood v2 preprint, all proofs, appendix, references, both tables and the figure. Published typeset PDF was not obtained; retain the version qualification.
-- Preserved all 249 inherited identifiers and added /250–/297. Totals: 297 items, 5 library, 13 planned, 279 missing, 277 routed once. Only /99 and /143 remain unrouted.
-- Closed trace-formula ownership through SF.2's explicit integration of the canonical upstream supplier: TauCetiProject/TauCetiRoadmap PR196, head 4bd72379658126cbe9be935656396f0c9dac4de0, TraceFormula Layer12. Open roadmap PR, not built code.
-- Read all of Wood's 2021 algebraic lifting-invariant paper. Added the fiber-product abelianization, weaker homology composite, marking-discrepancy inverse and stable-cancellation interfaces. Preserve the stronger EVW homology-image theorem /132 as a separate statement.
-- Read EVW16 Lemma7.6/Proposition7.7 and their proofs, plus the relevant EVW12 tangential/specialization/odd-order passages. Coefficient-tower and ramified-infinity distinctions are explicit.
-- Split number-field versus function-field duality and reciprocity. Ordinary ideal-class-group correspondence /130 is number-field-only. Milne's exact Grunwald–Wang character statement now verifies the claimed μ4 scope, but its original proof was not acquired.
-- Supplied all prime-2 factors and the fixed-swap imaginary projector. Selecting merely an outside infinity image overcounts by 2^k. Derived the continuation, positive common leading coefficient, Delange interface and proper-image subtraction, with a separate rank-zero boundary.
-- Added a generic higher-pole Tauberian Part II after upstream ArithmeticDirichletSeries Layer9; Delange1954 is a sourced alternative, not an assertion about unread Narkiewicz p.121.
-- Split Bhargava's twelve n=3,4,5 sign/type cases and Alberts's four Q8/D8 sign cases. Do not conflate Alberts's D4 notation or normal-over-Q subfamily with arbitrary wreath types.
-- Derived A4 rigid weights: 24 per embedded eligible kernel, 4 per quotient epimorphism, 48 per S3 orbit. Inclusive cubic cutoff repaired. No extra factor3 for conjugate cubic subfields.
-- 563 exact finite regression assertions pass. The complete standalone test is embedded in the report, with its SHA-256. It is not a field-table reproduction or a formal proof.
+All 299 inherited item IDs and all 72 source-table rows are retained, including Claude Code cc-fb70e5's /298 generator-form correction and /299 generator/Hom equivalence. There are now 319 items: 7 library, 13 planned, 299 missing, each missing item routed exactly once.
+
+- /300–305 derive the full stable-fiber square-class obstruction, its exact 2-primary threshold and parity composition count.
+- /306–310 introduce the whole fixed-degree component profile, a vanishing-error comparison, the ordinary-limit iff eventual-constancy criterion, recurrent-value liminf/limsup, and the separate boundary remainder.
+- /311–312 reuse pinned Mathlib finite-discrete topology and pure-filter convergence.
+- /313 sums all compatible stable parities. /314 bounds all components by the finite-étale Hurwitz rank, avoiding an extra H⁰ comparison assumption.
+- /315–319 extract Seguin's characteristic-zero product-one bounded-core Galois reduction. The imaginary/distinguished-infinity and finite-field specialization comparisons remain open.
+- /143 is a routed unproved proposition, not a theorem. /97 and /141 remain the proved liminf interfaces. No actual admissible bad-type counterexample or universal constancy proof is claimed.
+- Ten unreviewed source issues are carried in the result; existing E1–E8 provenance is preserved, and Wood21 marking/inverse-word issues are explicit. No errata file was edited.
+- The result adds 16 API contracts and 24 planned tests for the new definition/construction interfaces and /143. No retroactive claim that all inherited definitions have complete blueprint APIs.
+- The report preserves all earlier Euler-factor, A4 weighting and source-scope work and both standalone regression programs.
 
 ## Resume here
 
-1. DONE (Claude Code, cc-fb70e5, 22 September 2026). /99 is kept as the printed proposition, refuted by /144. /298 is the generator-form conjecture, and /299 proves the generator/Hom equivalence and independence of the generator. All three are routed to ST.3. See the report section "Resolving /99".
-2. Resolve /143: analyze every remaining fixed-component fiber and its q-dependence for the bad-type assertion. The current argument establishes a liminf lower bound. Do not call this an ordinary-limit proof or claim a counterexample without one.
-3. Acquire the final published Wood PDF if possible; compare the disputed passages, not only the title and DOI. The preprint is author-linked but explicitly labelled old on the author's page.
-4. Read the remaining original inputs: Romagny–Wewers moduli/specialization, Fried–Völklein Appendix Lemma3, Artin–Tate X.5, exact SGA comparison/vanishing-cycle interfaces, and Alberts's Lemmermeyer/Goldfeld–Hoffstein dependencies. The JSON records precisely what was and was not read.
-5. Certify the Appendix computation: source implementation/data version, complete cubic list, no-total-ramification filter including 2, class-group precision, kernel/orbit convention and sampling. The new weighting theorem specifies a correct algorithm, not what the original program actually did.
-6. Supply reduced-multiplier certificates for the source-reported group tables. The five library entries were rechecked at the pins, but the paper's GAP outputs are still reports, not checked proofs.
-7. Recheck live owners before extending the two Part II briefs; integrate any subsequently accepted design rather than proposing it twice. Current ownership screen reached explorer main d76643df4405140aed1dfade7a21b9159db80017.
+1. Study the full profile P_n(q), not only Proposition4.1's selected parity vectors. The exact stable obstruction is β=b mod A²; survival is v₂(q−1)≥t_A(b)+1. Certify its values for actual admissible reduced covers. Abstract C2 diagnostics are not paper counterexamples.
+2. Determine the boundary-component Galois action. Seguin Proposition6.1 reduces the characteristic-zero product-one action to degree ≤ψ(F), but the small-component action itself remains to be computed. Read the original Cau2012 equivariance theorem. Do not assume the resulting finite quotient is cyclotomic or trivial.
+3. Prove the integral/tame-specialization bridge for that action. The imaginary case needs a distinguished ramified infinity point; appending a branch point then taking an unrestricted braid quotient loses data. Eventual constancy of the entire normalized profile is the precise remaining ordinary-limit obligation.
+4. Obtain the final published Wood PDF and collate disputed passages. The author links an explicitly old preprint; publisher access and NSF requests did not provide a usable published copy. Full v2 reading is inherited, not a published-version collation.
+5. Close original-source debts: Romagny–Wewers, Fried–Völklein Appendix Lemma3, Artin–Tate X.5, SGA comparison/vanishing cycles, and Alberts's Lemmermeyer/Goldfeld–Hoffstein inputs. Seguin was read only in §§1–2, §§3.1–3.2 and §6; Proposition6.2's §4/Seg24 prerequisites were not closed.
+6. Certify the Appendix computation: original implementation/data version, complete cubic list, prime-2 filtering, class-group precision, weights and sampling. The source-reported 41 type rows and 31 multiplier/center rows still lack reproduction/certificates.
+7. Recheck current owners before extending either Part II brief. Latest ownership screen used main ceda11730ddb903b696ad2d41e4e5ce17bf4d537, coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846, current Statistics and Inverse-Galois READMEs and stage descriptions.
 
 ## Verification and submission
 
-Run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-WOOD-19.result.json`. It passes in this continuation. Independently check ID uniqueness, stage/galaxy existence, exact-once routing and the two declared omissions. The report contains executable finite regression code; its expected result is 563 assertions. No Lean file was required or compiled. Submit only the result JSON, report and this handoff; opening the PR ends the claim. Never `/unclaim` submitted work.
+The current paper/schema/source-issue checker passes. Structural checks cover unique IDs, inherited-ID retention, exact-once routing, prerequisite validity/acyclicity, stage/galaxy ownership and new definition API/test coverage. The two report-embedded standalone regressions pass: 563 and 6,588 exact assertions. The latter covers 2,233 abstract obstruction fibers and 1,530 parity compositions; neither certifies actual Hurwitz or number-field data.
 
-Continuation log: Claude Code, cc-fb70e5, 22 September 2026. Added /298 and /299 and routed /99, /298 and /299 to ST.3. Now 299 items; only /143 is unrouted. No other item changed.
+No Lean file was required, authored or compiled. Nothing is claimed formalised. Submit only this handoff, the report and the result JSON. Opening the PR ends the claim; never /unclaim submitted work.

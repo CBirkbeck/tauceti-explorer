@@ -1,12 +1,12 @@
 # PAPER-WOOD-19 — Nonabelian Cohen–Lenstra moments
 
-Partial checkpoint, not a completed extraction or formalisation. There are **299 items: 5 library, 13 planned, 281 missing**. Of the missing items, 280 have exactly one route; **only /143 remains deliberately unrouted**. The continuation by Claude Code (cc-fb70e5, 22 September 2026) resolved /99; see "Resolving /99" below. All 249 inherited identifiers and all 72 table rows are preserved. This continuation adds 48 items and closes five of the seven inherited routing gaps.
+Partial checkpoint, not a completed extraction or formalisation. There are **319 items: 7 library, 13 planned, 299 missing**; every missing item has exactly one route. All 299 inherited identifiers and all 72 source-table rows are preserved. This continuation adds /300–/319 and routes /143 as an **unproved proposition**, not as an established theorem. Routing completeness does not establish mathematical or source closure.
 
-Agent: Codex, session codex-a71f92, issue #1330. Continues codex-c83e7a's checkpoint PR #1550. Claim comment 5766309278 was confirmed by bot comment 5766311283; the whole issue was reread after confirmation.
+Agent: Codex, session codex-a71f92, issue #1330. Current claim comment 5774728858 was confirmed by bot comment 5774731090 on 22 September 2026; the whole issue was reread after confirmation. This preserves the earlier PR #1550 continuation and Claude Code cc-fb70e5's /298–/299 correction.
 
 ## Sources and what was actually read
 
-Main source: Melanie Matchett Wood, with Appendix A jointly with Philip Matchett Wood, *Duke Mathematical Journal* 168(3) (2019), 377–427, [DOI](https://doi.org/10.1215/00127094-2018-0037). The [author's page](https://people.math.harvard.edu/~mmwood/Publications/) links the older [arXiv v2 preprint](https://arxiv.org/pdf/1702.04644v2), dated 13 July 2018. This worker read all 40 pages, every proof, Appendix A and references, and visually inspected tables pp.33–34 and Figure 1 p.37.
+Main source: Melanie Matchett Wood, with Appendix A jointly with Philip Matchett Wood, *Duke Mathematical Journal* 168(3) (2019), 377–427, [DOI](https://doi.org/10.1215/00127094-2018-0037). The [author's page](https://people.math.harvard.edu/~mmwood/Publications/) links the older [arXiv v2 preprint](https://arxiv.org/pdf/1702.04644v2), dated 13 July 2018. The earlier continuation read all 40 pages, every proof, Appendix A and references, and visually inspected tables pp.33–34 and Figure 1 p.37.
 
 The bibliographic record matches, but final typeset wording is not certified: the publisher endpoint returned HTML and the NSF published-copy endpoint timed out. The prior checkpoint inspected Duke_Final_Revision.tex; this continuation did not re-download that archive. No claim is made that access to the preprint establishes sentence-level equivalence with the published article.
 
@@ -19,7 +19,11 @@ Additional reading:
 - [Delange (1954)](https://www.numdam.org/item/ASENS_1954_3_71_3_213_0.pdf): standing hypotheses p.213, §5.2.1 Theorem III and its proof pp.235–238, not the whole article.
 - [Bhargava](https://arxiv.org/pdf/1402.0031): Theorem 1.4 and context pp.3–4, full proof §4.4 pp.23–25. [Alberts, published JTNB version](https://www.numdam.org/item/JTNB_2020__32_3_631_0.pdf): Corollary 4.10 and Theorem 4.11 with proofs pp.656–657.
 
-Retrieved 21 September 2026:
+Additional reading on 22 September: Wood19 §§4.1–4.4, including the complete fixed-point and counting proofs; EVW12 §§8.6.2–8.7.3; Wood21's marking correction and a visual check of the Lemma 2.1 displayed word. The NSF published-copy request again timed out.
+
+For the remaining component action, [Seguin, *Fields of Definition of Components of Hurwitz Spaces*](https://beranger-seguin.fr/assets/pdf/articles/fielddef.pdf), author-hosted 26-page version, was read in §§1–2, §§3.1–3.2 and §6, including every proof there. This is selected supplementary reading, not a full-paper read. Its SHA-256 is bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c. The original Cau theorem used in §3 and the §4/Seg24 dependencies of Proposition 6.2 are not source-closed.
+
+Retrieved 21 September 2026 (retained artifacts):
 
 | Artifact | SHA-256 |
 | --- | --- |
@@ -45,7 +49,7 @@ Section 7 proves elementary-two divergence with exponent 2^k−1. The continuati
 
 ## Ownership and pinned-library decisions
 
-Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The five inherited library classifications were rechecked by opening their declarations:
+Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The five inherited library classifications were rechecked in the earlier continuation; this continuation additionally read the two finite-topology/filter interfaces at the same pins:
 
 | Item | Declaration and limited scope |
 | --- | --- |
@@ -54,6 +58,8 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf
 | /36 | TauCeti.FactorSet.cohomologyClassEquiv and nonempty_splitting_iff_cohomologyClass_eq_zero: abstract extensions; continuous Galois bridge separate. |
 | /123 | Subgroup.exists_right_complement'_of_coprime: complement existence, not a canonical complement. |
 | /129 | NumberField.finite_of_discr_bdd: fixed-ambient-field Hermite finiteness. |
+| /311 | Finite.instDiscreteTopology and Set.Finite.isDiscrete: finite subsets of T1 spaces are discrete. |
+| /312 | Filter.tendsto_pure: convergence to a pure filter is eventual equality. |
 
 TauCeti.schurMultiplier is H²(G,k×), not Wood's H₂(G,ℤ). Existing ordinary Schur covers belong to upstream InductionRestriction Layer 7. Full upstream ClassFieldTheory, InductionRestriction and ArithmeticDirichletSeries READMEs were read. Reviewed AUDIT-07/AUDIT-09 statistics/inverse-Galois entries, AUDIT-02 duality, AUDIT-20 FA.4 and AUDIT-01 SF.2 were read with the relevant roadmap stages. Nearby analytic and library searches were also checked. These audits are ownership/evidence records, not proofs of the paper's results.
 
@@ -62,15 +68,17 @@ The ownership screen covered the atlas, additional roadmaps, packets, accepted r
 | Route | Items | Boundary |
 | --- | ---: | --- |
 | ArithmeticStatistics ST.0 | 16 | Families, types, infinity and weights. |
-| ArithmeticStatistics ST.3 | 145 | Number-field moments, known cases, Euler factors, finite data and appendix algorithm. |
-| ArithmeticStatistics ST.5 | 11 | Function-field consequences and convergence modes. |
+| ArithmeticStatistics ST.3 | 148 | Number-field moments, known cases, Euler factors, finite data and appendix algorithm. |
+| ArithmeticStatistics ST.5 | 19 | Function-field consequences and convergence modes. |
 | InverseGalois IG.1 | 5 | Prime-to-p and tangential peripheral interfaces. |
 | InverseGalois IG.3 | 7 | Braid components and invariant comparison. |
 | InverseGalois IG.4 | 21 | Central tame lifts and arithmetic invariants. |
-| InverseGalois IG.5 | 12 | Marked Hurwitz families and fixed-degree uniform estimates. |
-| InductionRestriction, Part II | 56 | Reduced Schur covers, universal marked extensions, discrete actions and finite examples. |
+| InverseGalois IG.5 | 18 | Marked Hurwitz families and fixed-degree uniform estimates. |
+| InductionRestriction, Part II | 61 | Reduced Schur covers, universal marked extensions, discrete actions and finite examples. |
 | ArithmeticGaloisDuality R02.4 | 1 | Explicit function-field prime-to-p extension of the current number-field-emphasized scope. |
 | ArithmeticDirichletSeries, Part II | 3 | Generic higher-pole Laplace/Dirichlet Tauberian theorem. |
+
+The live ownership recheck reached main ceda11730ddb903b696ad2d41e4e5ce17bf4d537 and coverage blob 5e708cfc74a51b10e62149113872fe4e00eb5846. The complete Statistics and Inverse-Galois READMEs, current ST.0–5 descriptions and reviewed ST.5/IG.5 audits were read. The two proposed Part II IDs were still absent from the roadmap filenames. All new function-field consumers stay in ST.5, specialized reduced-cover algebra extends the inherited Schur Part II, and the bounded-core Hurwitz input belongs to IG.5.
 
 There are two Part II briefs, no unrelated new roadmap. The generic analytic continuation starts precisely after the parent's simple-pole Layer 9; its polynomial-logarithmic growth is not already a shifted-abscissa version of Wiener–Ikehara. Statistics owns the application, not a duplicate Tauberian theorem.
 
@@ -127,19 +135,148 @@ Cubic input is by isomorphism classes; do not multiply by three for conjugate cu
 
 ## Unresolved work and source qualifications
 
-Only /143 remains unrouted, but routing counts alone do not establish completion.
+All missing items are now routed, including the unproved proposition /143. The following mathematical and source obligations remain.
 
-- Conjecture 5.1 permits arbitrary u. For u=1 the invariant is always 1, so a nonidentity h has zero count. A primitive-generator or Hom-valued correction needs an explicit decision; it is not silently substituted.
-- The bad-type proof immediately establishes a liminf bound, not the ordinary q-limit as printed. The remaining component fibers and their q-dependence need analysis. No counterexample to the ordinary limit is asserted.
+- The printed arbitrary-u Conjecture 5.1 remains /99 as a false proposition. The inherited /298 generator-form replacement and /299 generator/Hom equivalence are retained, explicitly distinguished from the source; see “Resolving /99” below.
+- The bad-type proof establishes a liminf bound. The new /308 criterion reduces the printed ordinary q-limit to eventual constancy of the whole fixed-degree normalized component profile. Neither that constancy for every bad type nor a genuine admissible-type counterexample is proved. Stable square-class obstructions and boundary components both need attention.
 - The original Romagny–Wewers, Fried–Völklein, Artin–Tate and several SGA proofs remain source debts. Alberts's Lemmermeyer and Goldfeld–Hoffstein inputs have not been independently decomposed.
 - No published computation code, exact cubic data version, class-group certificate, prime-2 filtering test or sampling reconstruction was acquired. The synthetic finite-module test below does not reproduce Figure 1.
 - All 41 type rows and 31 multiplier/center rows remain source-reported computations; no GAP reproduction or reduced-multiplier certificate is claimed.
 
 Earlier source corrections are preserved: Proposition 4.4 requires admissibility and the kernel projection; bare swap C2 inside C3≀C2 is a rejection test. The peripheral presentation is for the maximal prime-to-p quotient, not the whole tame fundamental group. Split real infinity contributes zero discriminant degree, and the dimension normalizations are 2n or 2n−1 as appropriate. Appendix A's trivial-action group is C2²×C3 of order 12, not the printed order-18 group.
 
+## 22 September: complete stable fibers and the whole component profile
+
+Items /300–/305 remove a restriction that the lower-bound proof deliberately imposed. Write F=G′, A=H₂(F,c), choose compatible lifts ĝ_i of the involution classes, and fix the boundary lift ĝ (1 in the real case). For multidegree m, first require the separate abelianization condition Σm_i[c_i]=[g]. Define
+
+    b(g,m) = ĝ² ∏i (ĝ_i²)^(−m_i),    β(g,m) = b(g,m) mod A².
+
+Changing lifts changes b only by a square; β depends only on the parities of m_i. For odd q coprime to |F|, put r=(q−1)/2. Wood's equation (6) becomes h^(q−1)=b^(−r). Its solution set has size either zero or |A[q−1]|. It is nonempty precisely when
+
+    b^r ∈ A^(2r)  ⇔  b ∈ A² A[r].
+
+In additive notation this is the elementary equivalence rb=2ra iff b−2a is r-torsion. Define t_A(b)=min{t≥0:b∈A²A[2^t]}. The odd-primary part is all squares; in a cyclic 2-primary decomposition the threshold is the largest exponent among factors where b has odd coordinate. The fiber survives iff v₂(q−1)≥t_A(b)+1. Proposition 4.1's chosen parities have threshold zero, but no such assertion has been justified for every compatible parity.
+
+For each parity vector ε and threshold N0, let a_i be the least integer at least N0 with parity ε_i. Stable multidegrees of total d are counted exactly by binomial(L+N−1,N−1), where L=(d−Σa_i)/2 is a nonnegative integer; otherwise the count is zero. Item /313 sums this count over **all** abelianization-compatible, surviving parities. This gives the complete normalized stable count, not the discarded boundary.
+
+For fixed n≥2, use d=2n−1 in the imaginary case and d=2n in the real case. Let C_n(q) count **all** Frobenius-fixed geometric components, across all multidegrees of total d, and set P_n(q)=C_n(q)/M(q), M(q)=|A[q−1]|. Item /314 bounds all geometric components uniformly by the rank D_d of the finite-étale parent Hurwitz cover over Conf_d. Each nonempty geometric component surjects onto the connected configuration space and consumes at least one unit of fiber degree. This avoids adding an unsupported H⁰ comparison.
+
+Summing Theorem 4.7 over the fixed components and using the exact denominator q^d(1−q⁻¹) gives
+
+    |Ẽ_n(q)/M(q) − P_n(q)|
+        ≤ D_d (K_d q^(−1/2) + q⁻¹)/(1−q⁻¹).
+
+The profile lies in the finite rational set {a/b:0≤a≤D_d,1≤b≤|A|}; distinct values are separated by at least |A|⁻². Therefore /308 proves that the ordinary q-limit exists **iff P_n(q) is eventually constant**. Its liminf and limsup are respectively the smallest and largest profile values occurring for unbounded q. The boundary remainder /310 is nonnegative, but not assumed negligible when n is fixed.
+
+This is an exact criterion and a finite stable-range algorithm, **not** a proof of eventual constancy. The abstract diagnostic A=C2, b nontrivial gives an empty fiber at q=3 and a nonempty one at q=5; no actual admissible Wood type with that obstruction has been certified, so it is not a counterexample to Wood's theorem.
+
+### Bounded-core follow-up, with a scope barrier
+
+Items /315–/319 extract Seguin's product-one component monoid and bounded-core action. For ψ(F)=Σg ord(g), a product-one component x factors into blocks (g repeated ord(g) times) and a core y of degree ≤ψ(F), with the same monodromy subgroup. Nested-monodromy gluing is Galois-equivariant. Thus the full action is determined by the bounded-core permutation action and the cyclotomic character modulo exp(F). For involution-only tuples, every removed block is (g,g) and is Q-defined, leaving only the bounded-core action.
+
+This yields one finite Galois quotient controlling **all degrees of the characteristic-zero product-one problem**. It does not say that the quotient is trivial or cyclotomic. Applying it to finite-field profiles requires the integral moduli/specialization comparison and the actual small-component action. Seguin's marking is unramified at infinity; appending Wood's imaginary boundary involution and forgetting that it is distinguished would change the braid quotient. That comparison is deliberately not asserted.
+
+The original Cau equivariance theorem is an explicit unread prerequisite. Proposition 6.2 was read as a possible finite-certification lead, not imported with its unread §4/Seg24 dependencies silently assumed.
+
+### Source-issue ledger and definition tests
+
+The result JSON includes ten unreviewed source issues. E1–E8 preserve the existing errata IDs/provenance; E1 now distinguishes the proven liminf statement from the finite-profile constancy task. E9 records the inverse needed in Wood21's marking correction, already used by /254. E10 records the incorrect indices/signs in its Lemma 2.1 conjugation word, visually checked against PDF page 2. The author/publisher checks did not locate a published correction; this does not establish novelty. No separate errata file was edited.
+
+The continuation adds 16 API contracts and 24 planned tests for /143, /300, /303, /306, /310, /313, /315 and /318. These are planning interfaces, not executed Lean tests. Older definitions retain their inherited extraction; no new claim is made that every inherited definition has a fully completed blueprint API.
+
+### Reproducible obstruction/profile regression
+
+The inherited 563-assertion regression below was rerun successfully. The following additional standalone Python program passed **6,588 exact assertions**, covering 2,233 finite obstruction fibers, 1,530 parity-composition cases, lift-change invariance and finite-profile separation. It enumerates abstract finite abelian groups and includes odd q that need not be prime powers, which is valid for the algebraic test. It does not compute actual reduced covers, Hurwitz components or number fields.
+
+SHA-256: 2a3c135675e915a7849d14ecb61cfe517bfd53a5f07a8b71b5c478234fec1b8a.
+
+```python
+"""Exact algebra/profile diagnostics; not certified Hurwitz or field computations."""
+from fractions import Fraction
+from itertools import product
+from math import comb, gcd, prod
+
+checks = 0
+def check(condition):
+    global checks
+    assert condition
+    checks += 1
+
+groups = [(1,), (2,), (3,), (4,), (6,), (8,), (12,), (2,2), (2,4), (4,4), (8,3)]
+fiber_cases = 0
+for factors in groups:
+    A = list(product(*(range(a) for a in factors)))
+    zero = tuple(0 for _ in factors)
+    def scale(m, x):
+        return tuple(m*y % a for a,y in zip(factors,x))
+    def add(x,y):
+        return tuple((u+v) % a for a,u,v in zip(factors,x,y))
+    squares = {scale(2,x) for x in A}
+    order = prod(factors)
+    e = max((a & -a).bit_length()-1 for a in factors)
+    for b in A:
+        threshold = next(t for t in range(e+1)
+                         if b in {add(x,y) for x in squares for y in A
+                                  if scale(2**t,y) == zero})
+        # Changing any chosen lift changes b only by a square.
+        for square in squares:
+            b2 = add(b,square)
+            t2 = next(t for t in range(e+1)
+                      if b2 in {add(x,y) for x in squares for y in A
+                               if scale(2**t,y) == zero})
+            check(t2 == threshold)
+        for q in range(3, 64, 2):
+            if gcd(q,order) != 1:
+                continue
+            m = (q-1)//2
+            direct = sum(scale(q-1,h) == scale(-m,b) for h in A)
+            torsion = sum(scale(q-1,h) == zero for h in A)
+            power_test = scale(m,b) in {scale(q-1,h) for h in A}
+            quotient_test = b in {add(x,y) for x in squares for y in A
+                                 if scale(m,y) == zero}
+            v2 = ((q-1) & -(q-1)).bit_length()-1
+            check(power_test == quotient_test == (v2 >= threshold+1))
+            check(direct == (torsion if quotient_test else 0))
+            fiber_cases += 1
+
+# Enumerate stable parity multidegrees and compare to stars and bars.
+composition_cases = 0
+for N in range(1,5):
+    for lower in range(3):
+        for epsilon in product(range(2), repeat=N):
+            a = tuple(lower + ((x-lower) % 2) for x in epsilon)
+            for d in range(17):
+                def tuples_sum(total, length):
+                    if length == 1:
+                        yield (total,)
+                    else:
+                        for x in range(total+1):
+                            for tail in tuples_sum(total-x,length-1):
+                                yield (x,)+tail
+                actual = sum(all(x >= lower and x % 2 == parity
+                                 for x,parity in zip(n,epsilon))
+                             for n in tuples_sum(d,N))
+                remainder = d-sum(a)
+                expected = (comb(remainder//2+N-1,N-1)
+                            if remainder >= 0 and remainder % 2 == 0 else 0)
+                check(actual == expected)
+                composition_cases += 1
+
+profile = sorted({Fraction(a,b) for a in range(11) for b in range(1,13)})
+for x,y in zip(profile, profile[1:]):
+    check(y-x >= Fraction(1,12**2))
+
+# Abstract diagnostic only: a bounded finite profile need not be constant.
+alternating_profile = [Fraction(2 if j % 2 else 4,2) for j in range(1,25)]
+check(set(alternating_profile) == {1,2})
+check(min(alternating_profile) == 1 and max(alternating_profile) == 2)
+print(f"PASS: {checks} assertions; {fiber_cases} finite obstruction fibers; "
+      f"{composition_cases} parity-composition cases; finite-profile separation")
+```
+
 ## Verification and reproducible finite tests
 
-The paper schema checker passes. Structural checks verify all 297 distinct IDs, existing stage IDs, valid galaxy IDs, one route for each of the routed missing items, and exactly /143 omitted. Those counts were 277 items and /99,/143 omitted before the /99 continuation; they are now 280 and /143. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
+The current paper schema/source-issue checker passes. Additional structural checks verify 319 distinct IDs, 299 exact-once missing-item routes, all explicit prerequisite targets and an acyclic dependency graph, inherited-ID preservation and API/test coverage for the newly added definitions/constructions. Ten source issues are recorded as unreviewed, not as accepted errata. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
 
 The following standalone Python regression was run: **563 exact assertions passed**. It tests the new finite calculations, not analytic continuation, field-table correctness or formal proof. Its SHA-256 is b112a738e1bcc8798db254070cc2ca7235eb109f8de5afea13a1e3d6191d569d.
 
@@ -264,16 +401,18 @@ print(f"PASS: {checks} exact assertions; k=1..5 local factors and rigid infinity
 ## Resolving /99 (continuation, Claude Code, cc-fb70e5)
 
 Conjecture 5.1 as printed quantifies over **every** root of unity u ∈ μ_L, L = Q(μ_{4|G̃′_c|}). By Lemma 3.11, I(φ,u^λ) = I(φ,u)^λ, so I(φ,1) = 1 for every φ, and for u = 1 and h ≠ 1 the count is identically zero (/144). This happens whenever H₂(G′,c)[|μ_Q|] ≠ 1. Wood's own §8.2 table gives such good pairs over ℚ:
+
 - A₄ with G′ = ((C₂⁴)⋊C₃)⋊C₂, SmallGroup(96,227);
 - A₅ with G′ = A₅≀C₂.
 
 Both have H₂(G′,c) = C₂.
 
 The extraction now separates three things:
+
 - **/99:** the printed statement, a proposition kept only as the target of the refutation /144 and never used as a hypothesis.
 - **/298:** the corrected conjecture, with u a **generator** of μ_L. This is the analogue of u_q ∈ Ẑ(1)^× in Theorem 4.8.
 - **/299:** the justification. μ_L is cyclic and |μ_Q| divides |μ_L|, so evaluation at a generator identifies Hom(μ_L, H₂(G′,c)[|μ_Q|]) with H₂(G′,c)[|μ_Q|]. Changing the generator permutes the strata by h ↦ h^λ, so the corrected conjecture does not depend on the choice.
 
 All three go to ArithmeticStatistics ST.3 with the other conjectures (/29–/31); /144 stays with IG.4. The correction is also recorded in `research/blueprint/errata/PAPER-WOOD-19.json` (E7). It is the extraction's correction, not Wood's statement.
 
-**/143 remains open.** The component argument gives only a liminf. For multidegrees with some small n_i, the number of Frobenius-fixed components can depend on q through the cyclotomic action on braid orbits, as can the normalizing |H₂(G′,c)[q−1]|. So existence of the ordinary limit, rather than limits along residue classes of q, is not established. No counterexample is claimed. See errata E1.
+**/143 remains mathematically open, now routed as an unproved proposition.** The original component argument gives a liminf. The present continuation analyzes all stable fibers and identifies eventual constancy of the whole normalized component profile as the exact remaining condition. Boundary components need their full Galois action; it has not been proved to be only cyclotomic. Neither ordinary-limit existence for every bad type nor a genuine counterexample is established. See the new /300–/319 analysis and source issue E1.
