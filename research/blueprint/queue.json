@@ -4949,8 +4949,9 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1311"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1311",
+   "finishedAt": "2026-09-22T08:23:46Z"
   },
   {
    "id": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
@@ -6373,7 +6374,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -29665,7 +29667,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1715"
   },
   {
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
