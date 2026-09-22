@@ -1,0 +1,866 @@
+{
+ "paper": "PAPER-VENKATESH-19",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Derived Hecke algebra and cohomology of arithmetic groups",
+  "authors": "Akshay Venkatesh",
+  "venue": "Forum of Mathematics, Pi 7 (2019)",
+  "doi": "10.1017/fmp.2019.6",
+  "arxiv": "1608.07234v3",
+  "url": "https://arxiv.org/abs/1608.07234v3",
+  "read": "arXiv v3 (29 January 2019), the version whose comment records the revisions after the referee report, including the corrections around graded commutativity of the global derived Hecke algebra. Read in the LaTeX source of that version (arXiv e-print of 1608.07234v3, file derivedHecke.tex, sha256 of the source archive 0d71793dc6d6a85c00a71aa66d531e126fa14db7d623038af1b6aca920714b9c), fetched 22 September 2026; the file contains draft material after \\end{document} and several \\begin{comment} blocks, which were excluded. Statement numbers are computed from the source, where the theorem environments share the subsection counter (\\newtheorem{theorem}[subsection]{Theorem}), and were checked against the numbers appearing in the ar5iv rendering of the same version (Definition 2.2, Corollary 6.7, Definition 8.11 and Definition 8.22 all agree). Page numbers are not quoted.",
+  "readSections": [
+   "1 Introduction (1.1 Derived Hecke algebra, 1.2 Motivic cohomology, 1.3 The derived Hecke algebra and Galois cohomology, 1.5 Explication, Koszul duality, Taylor–Wiles, 1.6 Relationship to Galois cohomology, 1.8 Notation)",
+   "2 Derived Hecke algebra (definition, invariant-function and double-coset models, derived invariants, arithmetic manifolds, the explicit action, change of coefficients, the global and strict global algebras)",
+   "3 Torus localization and Satake isomorphism",
+   "4 Iwahori–Hecke algebra",
+   "5 The trivial representation",
+   "6 Setup for patching",
+   "7 Patching and the derived Hecke algebra",
+   "8 The reciprocity law",
+   "9 Evidence from tori and the trivial representation",
+   "Appendix A (Remedial algebra) and Appendix B (Koszul algebra; other odds and ends)",
+   "References"
+  ]
+ },
+ "summary": "Venkatesh constructs a graded extension of the Hecke algebra — the derived Hecke algebra, the Ext-algebra Ext^*_{S[G_v]}(S[G_v/K_v], S[G_v/K_v]) of the smooth induction — which acts on the cohomology of an arithmetic manifold Y(K) with the Ext-degree raising cohomological degree. The higher Ext-groups are almost annihilated by q_v − 1, so the theory is used at primes with q_v ≡ 1 mod p^n; at such primes he proves a derived Satake isomorphism identifying the local algebra with the Weyl invariants of the corresponding torus algebra, hence graded commutative. Globally he asks whether the cohomology is generated over this algebra by its minimal degree, and proves it in two cases: for the Hecke-trivial part, where the algebra acts rationally by cup product (Theorem 5.2, via Quillen's computation of the cohomology of finite groups of Lie type and a Chebotarev argument), and under Taylor–Wiles hypotheses (Theorem 7.6, via patched complexes). The main result, the reciprocity law of Theorem 8.5, produces an action of the dual of the Bloch–Kato Selmer group H^1_f(Z[1/Σ], Ad^*ρ(1)) — a free Z_p-module of rank δ — by degree-one endomorphisms, characterised by agreeing with derived Hecke operators at all Taylor–Wiles primes, so that the derived Hecke algebra contains, and under a mild hypothesis equals, the exterior algebra on that Selmer group. Conjecture 8.8 then asserts that the motivic Q-lattice inside the Selmer group — Scholl's integral motivic cohomology H^1_mot((M_coad)_Z, Q(1)) of the coadjoint motive — preserves rational cohomology: a hidden action of motivic cohomology on H^*(Y(K), Q), computable p-adically by derived Hecke operators. The atlas plans the setting but not the object: ArithmeticLocallySymmetricSpaces builds symmetric spaces, local systems, chain complexes and Hecke correspondences; SmoothRepresentationsOfLocalGroups builds smooth representations, Hecke algebras over rings and the classical Satake; DeformationAndDerivedPatchingAlgebra builds the patching of complexes with cohomology in several degrees; and the motivic side is planned in MotivesAndAlgebraicCycles and PeriodsAndSpecialValues. Searches return no hit anywhere for 'derived Hecke' or 'derived deformation'.",
+ "items": [
+  {
+   "id": "PAPER-VENKATESH-19/1",
+   "kind": "definition",
+   "name": "Arithmetic manifolds",
+   "statement": "For a semisimple Q-group G and a compact open K ⊂ G(A_f), Y(K) is the associated arithmetic manifold G(Q) \\ (X × G(A_f)/K) with X the symmetric space, a finite union of quotients of X by arithmetic groups; δ = rank G(R) − rank K_∞ and q are defined by 2q + δ = dim Y(K).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1 and Section 2.6",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.0",
+    "ArithmeticLocallySymmetricSpaces:ALS.1"
+   ],
+   "note": "ALS.0 constructs symmetric spaces with their arithmetic components and ALS.1 the local systems and chain complexes on them; the invariants δ and q are the standard ones of Borel–Wallach."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/2",
+   "kind": "theorem",
+   "name": "The shape of the tempered cohomology",
+   "statement": "For a tempered cuspidal character χ of the Hecke algebra one has dim H^{q+i}(Y(K), Q)_χ = C(δ, i) · dim H^q(Y(K), Q)_χ, so the same Hecke eigensystem occurs in the δ + 1 consecutive degrees q, …, q + δ.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.2, equation (1.2.3) (Borel–Wallach III.5.1, Borel)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The numerical phenomenon the whole paper explains. It is a statement about (g, K)-cohomology of tempered representations; the atlas plans locally symmetric spaces and their cohomology in ArithmeticLocallySymmetricSpaces but not this computation."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/3",
+   "kind": "definition",
+   "name": "The usual Hecke algebra and its action",
+   "statement": "For a good place v the spherical Hecke algebra is Hom_{S[G_v]}(S[G_v/K_v], S[G_v/K_v]); T denotes the subalgebra of End H^*(Y(K), Z_p) generated by all Hecke operators at good places, acting through Hecke correspondences.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.1 and Section 2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "ArithmeticLocallySymmetricSpaces:ALS.3"
+   ],
+   "note": "SR.1 constructs Hecke algebras over rings with their convolution and idempotents, and ALS.3 the Hecke correspondences on chain complexes of arithmetic locally symmetric spaces."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/4",
+   "kind": "definition",
+   "name": "The local derived Hecke algebra",
+   "statement": "For a p-adic group G and a compact open U, the derived Hecke algebra with coefficients in S is the graded algebra ℋ(G, U)_S := Ext^*_{S[G]}(S[G/U], S[G/U]), the Ext being taken in the category of smooth G-modules; for G_v with maximal compact K_v it is written ℋ_{v,S} = ⊕_i Ext^i_{S G_v}(S[G_v/K_v], S[G_v/K_v]).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Definition 2.2 with Section 1.1, equation (1.1.1)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The central new object. Schneider considered the same construction when S has characteristic v; here v is invertible on S, the opposite case. SR.0:derived-extension plans the derived extension of the smooth category and SR.1 the ordinary Hecke algebras, so the definition belongs in that direction."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/5",
+   "kind": "theorem",
+   "name": "The higher Ext groups are almost killed by q_v − 1",
+   "statement": "For elementary reasons the higher Ext-groups in the derived Hecke algebra at v are 'almost' killed by q_v − 1, where q_v is the size of the residue field; the algebra is therefore of interest exactly when q_v = 1 in S, which is why the primes used are those with q_v ≡ 1 mod p^n.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The observation that selects the 'nice primes' at which the whole theory operates."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/6",
+   "kind": "construction",
+   "name": "The global derived Hecke algebra and the strict one",
+   "statement": "⊗_v ℋ_{v,Z/p^n} acts on H^*(Y(K), Z/p^n); passing to the limit in n gives the global derived Hecke algebra 𝓗 ⊂ End H^*(Y(K), Z_p), whose degree-zero part is the usual Hecke algebra T. Restricting to a set of places at which the local algebras are graded commutative gives the strict global derived Hecke algebra, which is the one used in the theorems.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 1.1, 2.12 and 2.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The paper does not know that 𝓗 is graded commutative in general; this is the reason for the strict variant, and one of the corrections made in the published version."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/7",
+   "kind": "theorem",
+   "name": "The graded action on cohomology",
+   "statement": "ℋ_{v,S} acts on H^*(Y(K), S) in a graded fashion: the Ext^i-component shifts cohomological degree by +i.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 1.1, 2.6 and 2.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The action is what makes the algebra relevant to the multiple-degree phenomenon; it is constructed abstractly in Section 2.6 and explicitly in Lemma 2.10."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/8",
+   "kind": "theorem",
+   "name": "The generation question",
+   "statement": "For a character χ : T → F_p of the usual Hecke algebra, one asks whether the map 𝓗 ⊗ H^{q}(Y(K), Z_p)_χ → H^*(Y(K), Z_p)_χ is surjective, i.e. whether the cohomology is generated over the derived Hecke algebra by its minimal degree q.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.1, equation (1.1.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is proved in two cases: Theorem 5.2 (the trivial representation) and Theorem 7.6 (under Taylor–Wiles hypotheses)."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/9",
+   "kind": "theorem",
+   "name": "Galois representations attached to cohomological characters",
+   "statement": "To a tempered cuspidal χ there is conjecturally attached, for each p, a Galois representation ρ_χ : Gal(Q̄/Q) → ^LG(Q_p), crystalline at p for good p; this is known in several cases (Scholze).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.3"
+   ],
+   "note": "The construction of Galois representations attached to the cohomology of locally symmetric spaces, including the torsion case, is planned in AutomorphicGaloisRepresentationsPartII AG2.3."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/10",
+   "kind": "definition",
+   "name": "The coadjoint motive",
+   "statement": "Composing ρ_χ with the coadjoint representation ^LG → Aut(ĝ^*) gives Ad^*ρ_χ; it is conjectured to be motivic, i.e. there is a weight-zero motive M_coad over Q with H^*_ét(M_coad ×_Q Q̄, Q_p) ≅ Ad^*ρ_χ in degree 0. For simplicity M_coad is taken to be a Chow motive with coefficient field Q.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.2, equation (1.2.5)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "MC.1 plans pure motives and Tate objects, so the category is planned; the coadjoint motive of an automorphic Galois representation is not."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/11",
+   "kind": "definition",
+   "name": "Motivic cohomology and Scholl's integral subspace",
+   "statement": "For a Chow motive M one has the bigraded motivic cohomology H^a_mot(M, Q(q)) after Voevodsky, with a comparison map to absolute étale cohomology; Scholl's theorem defines a natural subspace H^a_mot(M_Z, Q(q)) of classes that extend to a good model over Z. The case of interest is a = q = 1, giving H^1_mot((M_coad)_Z, Q(1)) → H^1_f(G_Q, Ad^*ρ_χ(1)).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "MotivesAndAlgebraicCycles:MC.4",
+    "PeriodsAndSpecialValues:PS.3"
+   ],
+   "note": "MC.4 plans geometric mixed motives and motivic cohomology, and PS.3 the regulators and leading terms; Scholl's integral subspace and the comparison with Bloch–Kato f-cohomology are the specific inputs used here."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/12",
+   "kind": "theorem",
+   "name": "The Bloch–Kato and Beilinson expectations",
+   "statement": "Conjecturally the map H^1_mot((M_coad)_Z, Q(1)) ⊗ Q_p → H^1_f(G_Q, Ad^*ρ_χ(1)) is an isomorphism (Bloch–Kato 5.3(ii)), and Beilinson's conjecture makes dim_Q of the source equal to the order of vanishing of L(s, Ad^*ρ_χ) at s = 0, which a Γ-factor computation shows is δ.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PeriodsAndSpecialValues:PS.3",
+    "PeriodsAndSpecialValues:PS.6"
+   ],
+   "note": "The Bloch–Kato assembly and the special-value conjectures are planned in PeriodsAndSpecialValues (PS.3 and PS.6); the numerical coincidence with δ is what makes the paper's conjecture plausible."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/13",
+   "kind": "definition",
+   "name": "The motivic Q-lattice L and its dual",
+   "statement": "L := H^1_mot((M_coad)_Z, Q(1)) is conjecturally a δ-dimensional Q-vector space with L ⊗ Q_p ≅ H^1_f(G_Q, Ad^*ρ_χ(1)); its Q-linear dual L^* then acts, after extension to Q_p, on the cohomology of Y(K) through the derived Hecke algebra.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 1.2 and 1.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The object whose hidden rational action is the subject of the central conjecture."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/14",
+   "kind": "theorem",
+   "name": "The reciprocity law: derived Hecke operators indexed by Galois cohomology",
+   "statement": "In the setting of Section 8 one constructs an isomorphism 𝓗 ⊗ Q_p ≅ T ⊗_{Q_p} ⋀^* H^1_f(G_Q, Ad^*ρ_χ(1))^*, an indexing of derived Hecke operators by Galois cohomology; under the paper's assumptions (where T = Z_p) it even holds integrally.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.3, equation (1.3.1), proved in Section 8.24",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The 'reciprocity law' of the title of Section 8: it relates the derived Hecke action to the Galois representation directly."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/15",
+   "kind": "theorem",
+   "name": "The central conjecture",
+   "statement": "Let ⋀^* L^*_{Q_p} act on H^*(Y(K), Q_p) through the reciprocity law. Then ⋀^* L^* ⊂ ⋀^* L^*_{Q_p} preserves the rational cohomology H^*(Y(K), Q) ⊂ H^*(Y(K), Q_p); equivalently, in the notation of Section 8, the action of V_Q preserves H^*(Y(1), Q)_Π.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.3 and Conjecture 8.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The point of the paper: a hidden action of the motivic lattice on rational cohomology, computable p-adically through derived Hecke operators. Evidence: the coherent-cohomology analogue with Harris (numerically tested for weight-one forms), the archimedean analogue with Prasanna, the computations of Section 5, and the case of tori in Section 9."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/16",
+   "kind": "construction",
+   "name": "The explicit hyperbolic three-manifold picture",
+   "statement": "For G = Res_{F/Q} PGL_2 with F imaginary quadratic of odd class number, Y(K) is a hyperbolic 3-orbifold; for a prime q of O prime to p and a homomorphism α : F_q^× → Z/p^n one builds, from the degeneracy maps between level 1 and level Γ_0(q) and the class of α, an explicit endomorphism of H^*(Y(K), Z/p^n) of degree +1, which is the derived Hecke operator, and the relationship with the Taylor–Wiles method and with Koszul duality is explained in these terms.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 1.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The concrete model of the whole theory, and the natural first target for any formalisation."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/17",
+   "kind": "construction",
+   "name": "The invariant-function model of the derived Hecke algebra",
+   "statement": "ℋ(G, U)_S is described as the algebra of G-invariant functions h on G/U × G/U with h(x, y) ∈ H^*(U_x ∩ U_y, S), finitely supported modulo G, with the convolution product (hh')(x, z) = Σ_{y ∈ G/U} res(h(x,y)) ∪ res(h'(y,z)); when a compact Δ stabilises every point of G/U one may restrict to h_Δ : G/U × G/U → H^*(Δ, S), and the product becomes the familiar cup-product convolution.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 2.3 with the remark in Section 2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The model in which every later computation is made; it is the derived analogue of the description of the Hecke algebra by invariant functions."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/18",
+   "kind": "construction",
+   "name": "The double-coset model",
+   "statement": "Equivalently ℋ(G, U)_S is ⊕_{z ∈ U \\ G / U} H^*(U ∩ Ad(g_z)U, S), the sum over double cosets of the cohomology of the corresponding intersections; the generators are written h_{z,α} for α in the cohomology of U ∩ Ad(g_z)U.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 2.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The basis in which derived Hecke operators are exhibited and in which the action on cohomology is computed."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/19",
+   "kind": "construction",
+   "name": "Derived invariants and the action on them",
+   "statement": "For a smooth G-module M, the derived invariants are H^*(U, M); the derived Hecke algebra ℋ(G, U) acts on H^*(U, M) in a graded fashion, which is the abstract source of the action on the cohomology of arithmetic manifolds.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 2.5 and Appendix A.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "SR.0:derived-extension plans the derived extension of the smooth category, where this action belongs."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/20",
+   "kind": "construction",
+   "name": "The action on the cohomology of an arithmetic manifold",
+   "statement": "For an arithmetic manifold Y(K) with K = ∏ K_v and a place v not dividing the level, H^*(Y(K), S) is computed by derived invariants of a smooth G_v-module, so ℋ_{v,S} acts on it with the Ext^i-part raising degree by i; the action is a right action, written on the left, and the pullback from a congruence quotient H^*(K_v, S) → H^*(Y(K), S) is used throughout.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 2.6 and 2.7 with the remark in Section 2.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The construction that makes the algebra act on the objects of interest."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/21",
+   "kind": "definition",
+   "name": "Hecke-trivial classes",
+   "statement": "A class h ∈ H^*(Y(K), S) is Hecke-trivial if for every place v not dividing the level of K with residue characteristic invertible on S and every Hecke operator T supported at v, (T − deg T)^n h = 0 for some n = n(T).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Definition 2.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The trivial summand of the cohomology, whose derived Hecke module structure is the subject of Section 5."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/22",
+   "kind": "theorem",
+   "name": "Explicit form of the action of a derived Hecke operator",
+   "statement": "With K_z = K ∩ Ad(g_z)K and ⟨α⟩ the image of α under H^*(K_v ∩ Ad(g_z)K_v) → H^*(Y(K_z), S), the action of the generator h_{z,α} on H^*(Y(K), S) is the composite of the pullback [g_z]^* : H^*(Y(K)) → H^*(Y(K_z)), cup product with ⟨α⟩, and the pushforward H^*(Y(K_z)) → H^*(Y(K)).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 2.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The formula 'pull back, cup with a cohomology class of the level group, push forward' that makes derived Hecke operators computable; it is the statement a formalisation would target first."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/23",
+   "kind": "construction",
+   "name": "Change of coefficients and the passage to the p-adic limit",
+   "statement": "The derived Hecke algebras for the coefficient rings Z/p^n are compatible under change of coefficients; passing to the limit over n gives a ring of endomorphisms of H^*(Y(K), Z_p), the global derived Hecke algebra, and restricting the places used gives the strict version.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 2.11, 2.12 and 2.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The limit process that turns mod-p^n operators into p-adic ones."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/24",
+   "kind": "construction",
+   "name": "Torus localisation setting",
+   "statement": "With S = Z/ℓ^r, ℓ^r | q_v − 1 and ℓ not dividing the order of the Weyl group, one compares the derived Hecke algebra of (G_v, K_v) with that of the maximal split torus (A_v, A_v ∩ K_v) by restriction, after localising the ordinary Hecke algebra.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 3.1–3.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The setting of the derived Satake isomorphism."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/25",
+   "kind": "theorem",
+   "name": "The derived Satake isomorphism",
+   "statement": "Let S = Z/ℓ^r with ℓ^r | q_v − 1 and ℓ not dividing |W|. Then restriction defines an isomorphism from the derived Hecke algebra of (G_v, K_v) onto the W-invariants of the derived Hecke algebra of (A_v, A_v ∩ K_v); in particular the former is graded commutative.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Theorem 3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The main local theorem: it produces the 'nice primes' at which the global algebra is under control. SR.4 plans the classical Satake isomorphism for spherical representations, which is the degree-zero part of this statement."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/26",
+   "kind": "theorem",
+   "name": "Roots are non-trivial on the relevant subgroups",
+   "statement": "Any non-trivial root α of the maximal split torus A on G is non-trivial on the relevant compact subgroup, with the consequences used to control the localisation.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 3.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "One of the structural lemmas behind Theorem 3.3."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/27",
+   "kind": "theorem",
+   "name": "Finite-field lemmas for the localisation",
+   "statement": "Two lemmas about the cohomology of finite groups of Lie type and their tori (Lemmas 3.7 and 3.8), used to compare the derived Hecke algebra with its torus analogue after localisation at the relevant maximal ideal.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemmas 3.7 and 3.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The computations with H^*(G(F_q)) and H^*(T(F_q)) on which the localisation argument rests."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/28",
+   "kind": "theorem",
+   "name": "Double centraliser and splitness lemmas",
+   "statement": "A double-centraliser statement (Lemma 3.9) and a splitness statement (Lemma 3.10) for the relevant modules, completing the proof of the derived Satake isomorphism in Section 3.11.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemmas 3.9 and 3.10 with Section 3.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The algebraic input that makes the restriction map an isomorphism onto the W-invariants."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/29",
+   "kind": "construction",
+   "name": "The Iwahori–Hecke algebra and its centre",
+   "statement": "For the Iwahori subgroup I one has the Iwahori–Hecke algebra H_I with its Bernstein presentation, the central subalgebra Z ≅ S[X_*]^W, the discriminant element, and the bimodules H_{IK}, H_{KI} relating Iwahori and hyperspecial level.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 4.2–4.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The classical structure theory used to compare level 1 and level Γ_0(q) cohomology, and to localise the derived Iwahori–Hecke algebra."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/30",
+   "kind": "theorem",
+   "name": "Morita equivalence after étale localisation",
+   "statement": "Let m be a maximal ideal of Z over which Z → S[X_*] is étale and Z' the localisation. Then the bimodules H_{IK}' and H_{KI}' implement an equivalence between the module categories of H_K' and of H_I', so that the localised Iwahori and spherical Hecke module categories agree.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 4.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Morita statement that transports cohomology at Iwahori level to cohomology at level 1; it is used in Section 6.5."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/31",
+   "kind": "theorem",
+   "name": "Compatibility of the localisation maps",
+   "statement": "The map (4.4.1) is an algebra morphism, and the map (4.4.2) is compatible with it and with the products ℋ_{II} × ℋ_{IK} → ℋ_{IK} and similarly for ℋ_{KI}.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 4.7 with Section 4.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The derived version of the localisation, needed to move derived Hecke operators between Iwahori and spherical level."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/32",
+   "kind": "theorem",
+   "name": "The trivial representation is cyclic over the derived Hecke algebra",
+   "statement": "For all but finitely many primes ℓ, the action of the global derived Hecke algebra on H^*(Y(K), Z_ℓ) preserves the trivial summand, and: (i) H^*(Y(K), Z_ℓ)_triv is cyclic over 𝓗, generated by the trivial class; (ii) the image 𝓗_triv in End H^*(Y(K), Z_ℓ)_triv is graded commutative, and 𝓗_triv ⊗ Q_ℓ coincides with the Q_ℓ-algebra generated by H^*(Y(K), Q)_triv acting on itself by cup product.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Theorem 5.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The first case in which generation in minimal degree is proved, and the one that suggests the rational form of the conjecture: the derived Hecke action is, rationally, cup product with classes of the arithmetic manifold."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/33",
+   "kind": "theorem",
+   "name": "Surjectivity of pullback from congruence quotients",
+   "statement": "For G arising from a division algebra over an imaginary quadratic field F and all sufficiently large ℓ: for each n there are infinitely many places v of F with q_v ≡ 1 mod ℓ^n at which the division algebra is split, such that the pullback H^*(G(F_v), Z/ℓ) → H^*(Y(K), Z/ℓ)_triv is surjective.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 5.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric heart of Theorem 5.2; the proof uses Quillen's computation of the cohomology of finite groups of Lie type together with a Chebotarev argument."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/34",
+   "kind": "theorem",
+   "name": "The inputs to Lemma 5.3",
+   "statement": "The proof rests on: the constraints on ℓ (Section 5.6); Quillen's computation of the mod-ℓ cohomology of GL_n(F_q) and of the classifying spaces involved, with the Borel/Friedlander comparison for the stable cohomology of arithmetic groups (Section 5.5); the verification of four conditions (a)–(d) of Section 5.8, the last of which is a Chebotarev density argument (Section 5.11).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 5.4–5.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quillen's computation of the K-theory and cohomology of finite fields is an input the atlas touches only through ArithmeticKTheory's use of it for finite generation."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/35",
+   "kind": "construction",
+   "name": "The global assumptions",
+   "statement": "Section 6.1 fixes: G semisimple over Q with Y(K) as above; a tempered cuspidal Π contributing to H^*(Y(1)) in degrees [q, q + δ]; a residual representation ρ̄ with a maximal ideal m of the Hecke algebra; conditions (a)–(g) including that the cohomology localised at m is concentrated in degrees [q, q + δ], that there are no congruences with other eigensystems, and a largeness condition (7c) on the image, with a proof of (7c) for inner forms of SL_n with Y(K) compact and p large.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 6.1 with its remark",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The standing hypotheses of Theorems 7.6 and 8.5. They are the Calegari–Geraghty-type assumptions; the atlas plans the corresponding commutative algebra but not this package."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/36",
+   "kind": "construction",
+   "name": "Galois-theoretic assumptions and the deformation ring",
+   "statement": "Section 6.2 assumes the existence of Galois representations attached to the relevant Hecke eigensystems with local-global compatibility, fixes the global deformation problem with its deformation ring R, and imposes the minimal-level conditions used later.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 6.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GlobalGaloisDeformations:R04.5",
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "note": "Global deformation rings with their tangent spaces and Taylor–Wiles data are planned in GlobalGaloisDeformations R04.5 and in DeformationAndDerivedPatchingAlgebra R03.2; the specific assumption package is the paper's own."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/37",
+   "kind": "definition",
+   "name": "Taylor–Wiles primes and auxiliary level structures",
+   "statement": "A Taylor–Wiles datum of level n is a set Q_n of primes q ≡ 1 mod p^n at which ρ̄(Frob_q) is conjugate to a strongly regular element of T^∨(k), together with the auxiliary level structures Y_0(q), Y_1(q, n) and Y_1^*(Q_n) built from them.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 6.3",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "note": "Taylor–Wiles primes and the auxiliary level structures are planned at GlobalGaloisDeformations R04.5; what is new here is the use of their derived Hecke operators."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/38",
+   "kind": "construction",
+   "name": "Rings of diamond operators",
+   "statement": "The diamond operators at level Q_n give a ring S_n, a finite quotient of Z_p[Δ_n] with Δ_n = ∏_q (F_q^×)(p), and in the limit S_∞ = Z_p[[x_1, …, x_R]]; the relevant Ext-algebras of these group rings are computed in the limit.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 6.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DeformationAndDerivedPatchingAlgebra:P8"
+   ],
+   "note": "P8 plans exactly this: patching from systems (R_N, S_N, C_N) with S_N a finite quotient of O[Δ_N], and the construction of S_∞."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/39",
+   "kind": "theorem",
+   "name": "Passing to the limit in the Ext-algebras of the diamond rings",
+   "statement": "The change-of-rings map Ext^*_{S_n}(Z/p^n, Z/p^n) → Ext^*_{S_∞/p^n}(Z/p^n, Z/p^n) is surjective, and the map Ext^*_{S_∞/p^n}(Z/p^n, Z/p^n) → Ext^*_{S_∞}(Z_p, Z/p^n) is an isomorphism.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma (unnumbered) in Section 6.4, labelled 'toinfinity'",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The algebraic step that lets the derived Hecke action at finite level be compared with the exterior algebra appearing in the limit."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/40",
+   "kind": "theorem",
+   "name": "Comparison of level 1 and level Γ_0(q) cohomology",
+   "statement": "Assuming local-global compatibility and that ρ̄(Frob_q) is conjugate to a strongly regular element of T^∨(k), the degeneracy maps induce, after localisation at m, an isomorphism H^*(Y_0(q), Z/p^n)_m ≅ H^*(Y(1), Z/p^n)_m ⊗_{H_K} H_{KI}.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 6.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Morita-style comparison of Lemma 4.5 applied to arithmetic manifolds; it is what allows derived Hecke operators at q to be computed at level 1."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/41",
+   "kind": "theorem",
+   "name": "Eigenvalues at Iwahori level and the doubling projection",
+   "statement": "For q part of a Taylor–Wiles datum, all generalised eigenvalues of k[X_*^+] on H^*(Y_0(q), k)_m are of the form χ_{Frob^T} with Frob^T ∈ T^∨(k) conjugate to Frobenius at q (Corollary 6.7); moreover the χ_{Frob^T}-eigenspace of H^*(Y_0(q), Z/p^n)_m is isomorphic to H^*(Y(1), Z/p^n)_m, with pushforward and (projected) pullback as mutually inverse maps.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Corollary 6.7 with the remark after it",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The explicit identification used to transport classes between the two levels."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/42",
+   "kind": "theorem",
+   "name": "Cohomological vanishing at auxiliary level",
+   "statement": "For q part of a Taylor–Wiles datum of level n and under the standing assumptions, the homology H_j(Y_1(q, n), Z_p)_m vanishes outside the expected range [q, q + δ] (Lemma 6.9); and every generalised eigenvalue of k[𝒳̃_*^+] on H_*(Y_1(q,n), k)_m is one of the eigenvalues on H_*(Y_0(q), k)_m (Lemma 6.10).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemmas 6.9 and 6.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The vanishing that makes the patched complex have amplitude δ, which is the technical heart of the Calegari–Geraghty method."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/43",
+   "kind": "theorem",
+   "name": "Deformations at Taylor–Wiles primes are toral",
+   "statement": "Let q be a Taylor–Wiles prime of level n and assume ρ̄|G_{Q_q} is unramified with image in T^∨. Then any deformation of ρ̄|G_{Q_q} can be conjugated into T^∨, and in particular factors through the abelianisation G_{Q_q}^{ab}.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 6.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local deformation computation that produces the diamond operators and identifies the tangent space at q."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/44",
+   "kind": "construction",
+   "name": "Chain complexes at level Q_n and the patched limit",
+   "statement": "At level Q_n one has deformation rings R_{Q_n} acting on complexes C_n computing H_*(Y_1^*(Q_n), Z_p)_m over S_n, with H_j vanishing outside [q, q + δ] (Lemma 7.2); patching produces S_∞ → R_∞ acting on C_∞ with C_∞ ⊗^L_{S_∞} Z_p ≅ C, and the relation dim S_∞ = dim R_∞ + δ.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 7.1 and 7.3 with Lemma 7.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DeformationAndDerivedPatchingAlgebra:P8",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "DeformationAndDerivedPatchingAlgebra:R03.5"
+   ],
+   "note": "This is exactly the construction P8 plans — patching complexes with cohomology in several degrees, the ultrapatching limit, the augmentation isomorphism and the comparison of finite-level Hecke actions — together with P7's perfect complexes and derived coefficient change and R03.5's patching modules."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/45",
+   "kind": "theorem",
+   "name": "Straightening the map S_∞ → R_∞",
+   "statement": "One can choose generators so that S_∞ = Z_p[[x_1, …, x_R]] and R_∞ = Z_p[[y_1, …, y_{R−δ}]], with the x_i and y_j in the kernels of the compatible augmentations to Z_p, and the map S_∞ → R_∞ given by x_i ↦ y_i for i ≤ R − δ and x_i ↦ 0 otherwise.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 7.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The normal form that exhibits the patched complex as a Koszul complex on δ variables, from which the exterior algebra action comes."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/46",
+   "kind": "theorem",
+   "name": "Generation in minimal degree",
+   "statement": "Under the assumptions of Sections 6.1 and 6.2, the cohomology H^*(Y(1), Z_p)_m is generated, as a module over the strict global derived Hecke algebra, by its minimal degree component H^{q}(Y(1), Z_p)_m.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Theorem 7.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The second, and main, case of the generation statement; it says that the derived Hecke algebra accounts for the whole of the cohomology in the Taylor–Wiles setting."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/47",
+   "kind": "definition",
+   "name": "The coadjoint representation and the Selmer group",
+   "statement": "Ad^*ρ is the coadjoint representation of the Galois representation attached to m; H^1_f(Z[1/Σ], Ad^*ρ(1)) denotes the Bloch–Kato Selmer group with the crystalline condition at p and unramified conditions away from the ramified set Σ, and V is its Z_p-dual arising from the patching construction.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 8.1–8.3 with equation (8.3.1)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+   ],
+   "note": "Selmer groups with local conditions are planned in several roadmaps (for instance AnabelianGeometryAndNonabelianChabauty NC.6 and SelmerIwasawaCohomology); the coadjoint Selmer group of an automorphic Galois representation, with the Bloch–Kato conditions used here, is the specific object."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/48",
+   "kind": "theorem",
+   "name": "Both sides are free of rank δ",
+   "statement": "Both H^1_f(Z[1/Σ], Ad^*ρ(1)) and V are free Z_p-modules of rank δ.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 8.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The numerical match between the Galois side and the degree range of the cohomology; it is what makes the exterior algebra act with the right size."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/49",
+   "kind": "theorem",
+   "name": "The reciprocity law",
+   "statement": "Under the assumptions of Section 6 there is a function a : Z_{≥1} → Z_{≥1} and an action of V_∞ on H^*(Y(1), Z_p)_m by endomorphisms of degree +1 such that for every n ≥ 1 and every prime q ≡ 1 mod p^{a(n)} equipped with a strongly regular element of T^∨(k) conjugate to ρ̄(Frob_q), the two actions of H^1(T_q, Z/p^n) on H^*(Y(1), Z/p^n)_m — one through the patching map f_{q,n}, one through the derived Hecke operators ι_{q,n} — coincide. This property characterises the action uniquely. In particular the strict global derived Hecke algebra contains V, and the induced map ⋀^*V → End H^*(Y(1), Z_p)_m is injective.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Theorem 8.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The main theorem of the paper: derived Hecke operators at Taylor–Wiles primes are indexed by Galois cohomology, compatibly for all such primes at once."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/50",
+   "kind": "theorem",
+   "name": "When the derived Hecke algebra is exactly an exterior algebra",
+   "statement": "If H^{q}(Y(1), Z_p)_m = Z_p, then the image of the full global derived Hecke algebra in End H^*(Y(1), Z_p)_m coincides with the exterior algebra generated by V; in particular that image is graded commutative. The same conclusion holds more generally when there is a semisimple Q_p-algebra of degree-preserving endomorphisms of H^*(Y(1), Q_p) with the stated properties.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Proposition 8.6 with the remark after it",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The statement that identifies 𝓗 with ⋀^*V, i.e. the integral form of the reciprocity law (1.3.1); it is also where graded commutativity is obtained in the cases of interest."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/51",
+   "kind": "definition",
+   "name": "Convergent Taylor–Wiles data",
+   "statement": "A sequence of Taylor–Wiles data Q_n of level n is convergent if the Q_n have the cohomological properties of Section 8.10(b) and one can pass to the limit in the sense of Section 7.3, i.e. the patched data R_∞, S_∞, C_∞, f_n, g_n exist with all the properties listed there.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Definition 8.11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The hypothesis under which the construction of the V-action is carried out."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/52",
+   "kind": "theorem",
+   "name": "Tangent spaces and the Galois-cohomological description of V_n",
+   "statement": "The map R_{Q_n} → R̃_n induces an isomorphism on Hom_*(−, Z/p^n[ε]/ε²) (Lemma 8.14); the tangent space of S_n is reinterpreted through the diamond operators (Section 8.15); and V_n is identified with a Galois cohomology group, namely the dual of a Selmer group for Ad^*ρ(1) (Section 8.16).",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 8.14 with Sections 8.12, 8.13, 8.15 and 8.16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The chain of identifications that converts the patching variables into Galois cohomology."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/53",
+   "kind": "theorem",
+   "name": "The injection of local Galois cohomology into the derived Hecke algebra",
+   "statement": "For q a Taylor–Wiles prime there is an injection H^1(T_q, Z/p^n) ↪ ℋ_q^{(1)} of the cohomology of the torus at q into the degree-one part of the local derived Hecke algebra, given explicitly (Lemma 8.18), and its composition with the patching maps factors as described in Lemma 8.20.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 8.17–8.20 with Lemmas 8.18 and 8.20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The concrete link between Galois cohomology at q and derived Hecke operators at q."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/54",
+   "kind": "definition",
+   "name": "Strict sequences of Taylor–Wiles data and their properties",
+   "statement": "A sequence of Taylor–Wiles data is strict when the associated actions are compatible in the sense of Definition 8.22; a convergent sequence is strict (Lemma 8.23), and two such constructions agree (Lemma 8.25), which is what makes the V-action independent of choices.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Definitions and Lemmas 8.21–8.25",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bookkeeping that shows the action produced by patching does not depend on the chosen Taylor–Wiles data; Section 8.24 discusses the residual dependence on choices."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/55",
+   "kind": "theorem",
+   "name": "The reciprocity law in the form of an indexing of derived Hecke operators",
+   "statement": "The construction identifies, after inverting p, the strict global derived Hecke algebra with T ⊗ ⋀^* H^1_f(G_Q, Ad^*ρ(1))^*, and the Hecke operators act in the way described in Section 8.28; this is Lemma 8.29, the 'reciprocity law' proper.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Lemma 8.29 with Sections 8.26–8.28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The final assembly of the main theorem and the precise statement of the indexing (1.3.1)."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/56",
+   "kind": "theorem",
+   "name": "Evidence from tori and the trivial representation",
+   "statement": "For G a torus the conjecture can be verified directly, and the computations of Section 5 for the trivial representation support a modified form of it; these are the two pieces of internal evidence offered in the paper.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Section 9 with Sections 1.3(iii)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The paper's own evidence; the stronger evidence is external (the coherent-cohomology analogue with Harris, and the archimedean conjecture with Prasanna)."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/57",
+   "kind": "construction",
+   "name": "Models of the derived Hecke algebra and their identifications",
+   "statement": "Appendix A ('Remedial algebra') constructs, in detail, the category of smooth modules with enough projectives, the modules S[G/U], induction and compact induction with Frobenius reciprocity, restriction of induced representations, the derived Hecke algebra in the Ext-model, the invariant-function model and the double-coset model, the action on derived invariants, and the multiplication rule in each model, proving that the identifications are compatible.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Appendix A, Sections A.1–A.11 (including Lemma A.10)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The careful foundations; SR.0:derived-extension and SR.1 are the layers where this belongs, and it is what a formalisation would have to do first."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/58",
+   "kind": "theorem",
+   "name": "Koszul-algebra computations",
+   "statement": "Appendix B computes the relevant Ext-algebras: Lemma B.1 is the Koszul Ext-computation identifying Ext^*_{S_∞}(Z_p, Z_p) with an exterior algebra on δ generators in the straightened coordinates of Lemma 7.5, with the further statements of Lemmas B.3 and B.5 used in Sections 7 and 8.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Appendix B, Lemmas B.1, B.3 and B.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Koszul duality that turns the patched Koszul complex into an exterior algebra action; it is the algebraic explanation for the shape of the answer."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/59",
+   "kind": "theorem",
+   "name": "A topological lemma",
+   "statement": "Appendix B.4 proves the topological statement needed to compare the pullback map from a congruence quotient with the cohomology of the level group, used in Sections 2.7 and 5.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Appendix B, Section B.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The link between group cohomology of the level subgroup and cohomology of the arithmetic manifold."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/60",
+   "kind": "definition",
+   "name": "Ext-groups in an abelian category",
+   "statement": "For objects X, Y of an abelian category, Ext^i(X, Y) is defined (by derived functors of Hom, or in the derived category), with the Yoneda product Ext^i(Y, Z) × Ext^j(X, Y) → Ext^{i+j}(X, Z) making ⊕_i Ext^i(X, X) a graded algebra.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Definition 2.2 (the ambient notion)",
+   "status": "library",
+   "library": [
+    "mathlib:CategoryTheory.Abelian.Ext",
+    "mathlib:Ext"
+   ],
+   "planned": [],
+   "note": "Mathlib has Ext in an abelian category, both the classical construction and the derived-category one; what is missing is the abelian category of smooth representations of a p-adic group in which these Ext-groups are taken."
+  },
+  {
+   "id": "PAPER-VENKATESH-19/61",
+   "kind": "definition",
+   "name": "Group cohomology and cup products",
+   "statement": "For a group Γ and a Γ-module M, H^*(Γ, M) is the cohomology of the inhomogeneous cochain complex, with cup products; the classes α ∈ H^*(K_v ∩ Ad(g)K_v, S) appearing in the double-coset model of the derived Hecke algebra and the class ⟨α⟩ of Lemma 2.10 live in such groups.",
+   "locator": "arXiv:1608.07234v3 (29 January 2019), Sections 2.3, 2.4 and Lemma 2.10",
+   "status": "library",
+   "library": [
+    "mathlib:groupCohomology",
+    "mathlib:groupCohomology.cocycles"
+   ],
+   "planned": [],
+   "note": "Mathlib has group cohomology through inhomogeneous cochains with the low-degree API; the cohomology of the compact open subgroups appearing here, and the transfer/pushforward maps relating it to the cohomology of arithmetic manifolds, are not in the libraries."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Kartik Prasanna, Akshay Venkatesh, Automorphic cohomology, motivic cohomology, and the adjoint L-function, Astérisque 428 (2021)",
+   "link": "arXiv:1609.06370",
+   "why": "The archimedean counterpart of the conjecture: the action of the motivic cohomology group on the cohomology of the arithmetic manifold over the reals, with the period and analytic-torsion evidence referred to throughout Section 1.2."
+  },
+  {
+   "citation": "Michael Harris, Akshay Venkatesh, Derived Hecke algebra for weight one forms, Exp. Math. 29 (2020)",
+   "link": "arXiv:1810.00920",
+   "why": "The coherent-cohomology analogue of the derived Hecke algebra and the numerical verification of the analogue of Conjecture 8.8 for classical weight-one forms — the most direct evidence cited in Section 1.3."
+  },
+  {
+   "citation": "Søren Galatius, Akshay Venkatesh, Derived Galois deformation rings, Adv. Math. 327 (2018), 470–623",
+   "link": "arXiv:1608.07236",
+   "why": "The companion paper constructing derived deformation rings, mentioned in Remark 1.4 as the object expected to have better integral properties than the derived Hecke algebra."
+  },
+  {
+   "citation": "Peter Schneider, Smooth representations and Hecke modules in characteristic p, Pacific J. Math. 279 (2015), 447–464",
+   "link": "https://doi.org/10.2140/pjm.2015.279.447",
+   "why": "The same Ext-algebra construction in the characteristic-p setting; this paper works in the opposite case, where the residue characteristic is invertible."
+  },
+  {
+   "citation": "Frank Calegari, David Geraghty, Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 211 (2018), 297–433",
+   "link": "arXiv:1207.4224",
+   "why": "The patching method for complexes with cohomology in several degrees that Sections 6 and 7 use, including the vanishing hypotheses and the numerical relation dim S_∞ = dim R_∞ + δ."
+  },
+  {
+   "citation": "Peter Scholze, On torsion in the cohomology of locally symmetric varieties, Ann. of Math. 182 (2015), 945–1066",
+   "link": "arXiv:1306.2070",
+   "why": "The construction of Galois representations attached to the cohomology of locally symmetric spaces, assumed in Section 6.2 and quoted in Section 1.2."
+  },
+  {
+   "citation": "Daniel Quillen, On the cohomology and K-theory of the general linear groups over a finite field, Ann. of Math. 96 (1972), 552–586",
+   "link": "https://doi.org/10.2307/1970825",
+   "why": "The computation of the mod-ℓ cohomology of finite groups of Lie type used throughout Section 5, together with the stable comparison for arithmetic groups."
+  },
+  {
+   "citation": "Armand Borel, Nolan Wallach, Continuous cohomology, discrete subgroups, and representations of reductive groups, Ann. of Math. Studies 94 (1980)",
+   "link": "https://doi.org/10.1515/9781400881833",
+   "why": "Theorem III.5.1 of loc. cit. gives the shape of the tempered cohomology, dim H^{q+i}_χ = C(δ, i) dim H^q_χ, the phenomenon the paper explains."
+  },
+  {
+   "citation": "Spencer Bloch, Kazuya Kato, L-functions and Tamagawa numbers of motives, in The Grothendieck Festschrift I (1990), 333–400",
+   "link": "https://doi.org/10.1007/978-0-8176-4574-8_9",
+   "why": "The f-cohomology and the conjecture 5.3(ii) comparing motivic cohomology with it, which is what identifies the motivic lattice with the Selmer group."
+  },
+  {
+   "citation": "Anthony J. Scholl, Integral elements in K-theory and products of modular curves, in The arithmetic and geometry of algebraic cycles (2000), 467–489",
+   "link": "https://doi.org/10.1007/978-94-011-4098-0_17",
+   "why": "Theorem 1.1.6 of loc. cit. defines the subspace of motivic cohomology of classes extending to a good model over Z, which is the lattice in Conjecture 8.8."
+  },
+  {
+   "citation": "Jack Thorne, Chandrashekhar Khare, Potential automorphy and the Leopoldt conjecture / automorphy lifting for residually reducible representations (the Taylor–Wiles primes formalism used in Section 6.3)",
+   "link": "arXiv:1609.03491",
+   "why": "The form of the Taylor–Wiles argument with strongly regular Frobenius elements and diamond operators that Sections 6.3–6.11 follow."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "ArithmeticLocallySymmetricSpaces",
+   "roadmap": "ArithmeticLocallySymmetricSpacesPartII",
+   "title": "Arithmetic locally symmetric spaces and their cohomology, Part II: the derived Hecke algebra and the reciprocity law",
+   "area": "automorphic",
+   "items": [
+    "PAPER-VENKATESH-19/2",
+    "PAPER-VENKATESH-19/6",
+    "PAPER-VENKATESH-19/7",
+    "PAPER-VENKATESH-19/8",
+    "PAPER-VENKATESH-19/10",
+    "PAPER-VENKATESH-19/13",
+    "PAPER-VENKATESH-19/14",
+    "PAPER-VENKATESH-19/15",
+    "PAPER-VENKATESH-19/16",
+    "PAPER-VENKATESH-19/20",
+    "PAPER-VENKATESH-19/21",
+    "PAPER-VENKATESH-19/22",
+    "PAPER-VENKATESH-19/23",
+    "PAPER-VENKATESH-19/32",
+    "PAPER-VENKATESH-19/33",
+    "PAPER-VENKATESH-19/34",
+    "PAPER-VENKATESH-19/35",
+    "PAPER-VENKATESH-19/39",
+    "PAPER-VENKATESH-19/40",
+    "PAPER-VENKATESH-19/41",
+    "PAPER-VENKATESH-19/42",
+    "PAPER-VENKATESH-19/43",
+    "PAPER-VENKATESH-19/45",
+    "PAPER-VENKATESH-19/46",
+    "PAPER-VENKATESH-19/48",
+    "PAPER-VENKATESH-19/49",
+    "PAPER-VENKATESH-19/50",
+    "PAPER-VENKATESH-19/51",
+    "PAPER-VENKATESH-19/52",
+    "PAPER-VENKATESH-19/53",
+    "PAPER-VENKATESH-19/54",
+    "PAPER-VENKATESH-19/55",
+    "PAPER-VENKATESH-19/56",
+    "PAPER-VENKATESH-19/58",
+    "PAPER-VENKATESH-19/59"
+   ],
+   "brief": "Plan the derived Hecke algebra of Venkatesh and the reciprocity law relating it to Galois cohomology. The final theorems are: (1) his Theorem 7.6: under the assumptions of Sections 6.1 and 6.2 — a tempered cuspidal Π whose Hecke eigensystem m has cohomology concentrated in degrees [q, q + δ], with Galois representations and local-global compatibility, minimal level and a largeness assumption on the residual image — the cohomology H^*(Y(1), Z_p)_m is generated over the strict global derived Hecke algebra by its minimal degree component H^q(Y(1), Z_p)_m; (2) his Theorem 8.5, the reciprocity law: there is an action of V, the Z_p-dual of the Bloch–Kato Selmer group H^1_f(Z[1/Σ], Ad^*ρ(1)), on H^*(Y(1), Z_p)_m by degree +1 endomorphisms, uniquely characterised by agreeing with the derived Hecke operators at every Taylor–Wiles prime q ≡ 1 mod p^{a(n)}, so that the strict global derived Hecke algebra contains the exterior algebra ⋀^*V, freely; (3) his Proposition 8.6: when H^q(Y(1), Z_p)_m = Z_p the image of the global derived Hecke algebra is exactly ⋀^*V, so that 𝓗 ⊗ Q_p ≅ T ⊗ ⋀^* H^1_f(G_Q, Ad^*ρ(1))^*; (4) his Theorem 5.2: for all but finitely many ℓ, the trivial part of H^*(Y(K), Z_ℓ) is cyclic over the global derived Hecke algebra, whose image there is graded commutative and rationally given by cup product; and (5) Conjecture 8.8, the central conjecture: the motivic lattice V_Q ⊂ V_{Q_p} preserves rational cohomology H^*(Y(1), Q)_Π. The roadmap must cover: the global derived Hecke algebra — the product over places of the local algebras, its action on the cohomology of an arithmetic manifold raising degree by the Ext-degree, the explicit form of that action as pullback, cup product with a class of the level subgroup and pushforward (his Lemma 2.10), change of coefficients, the passage from mod p^n to p-adic coefficients, and the strict variant obtained by restricting to places where the local algebra is graded commutative; the Hecke-trivial part of cohomology and the theorem that it is cyclic, with the input from Quillen's computation of the cohomology of finite groups of Lie type and a Chebotarev argument; the Taylor–Wiles package as used here — the assumption list, Taylor–Wiles primes with strongly regular Frobenius, the auxiliary levels Y_0(q), Y_1(q, n), Y_1^*(Q_n), the comparison of level 1 and Iwahori level cohomology and the vanishing results — and the patched complex with the straightening lemma exhibiting S_∞ → R_∞ as a quotient by δ variables; the Koszul-duality computation identifying the resulting Ext-algebra with an exterior algebra on δ generators; the identification of the patching variables with Galois cohomology, the injection of H^1(T_q) into the degree-one part of the local derived Hecke algebra, strictness and independence of choices; and finally the motivic side — the coadjoint motive, Scholl's integral motivic cohomology, the Bloch–Kato comparison and Beilinson's conjecture — needed to state Conjecture 8.8. Import, and do not re-plan: symmetric spaces, arithmetic components, local systems and chain complexes from the parent roadmap (stages ALS.0 and ALS.1) and Hecke correspondences on complexes from ALS.3; smooth representations of p-adic groups, Hecke algebras over rings and the classical Satake isomorphism from Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), stages SR.0, SR.1 and SR.4, to which this paper is also routed as a source for the derived versions; Galois representations attached to the cohomology of locally symmetric spaces from Automorphic Galois representations, Part II (AutomorphicGaloisRepresentationsPartII), stage AG2.3; global deformation rings and Taylor–Wiles data from Global Galois deformations (GlobalGaloisDeformations), stage R04.5; the commutative algebra of patching — perfect complexes and derived coefficient change, patching complexes with cohomology in several degrees, patching modules and support — from Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), stages P7, P8, P9, R03.2 and R03.5; motivic cohomology from Motives and algebraic cycles (MotivesAndAlgebraicCycles), stage MC.4, with regulators and special values from Periods, motivic L-values and special-value conjectures (PeriodsAndSpecialValues), stages PS.3 and PS.6. Two inputs the paper uses without proof deserve their own layers: the Borel–Wallach computation giving dim H^{q+i}(Y(K), Q)_χ = C(δ, i) dim H^q(Y(K), Q)_χ for tempered χ, and Quillen's computation of the mod-ℓ cohomology of finite groups of Lie type with the Borel–Friedlander stable comparison.",
+   "reason": "The parent roadmap plans exactly the setting of this paper — symmetric spaces and their arithmetic quotients (ALS.0), local systems and chain complexes (ALS.1), Hecke correspondences on those complexes with their coherence data in the derived category (ALS.3), Borel–Serre and duality — and stops at the ordinary Hecke action. The graded extension of that action, the theorems that it generates the cohomology from minimal degree, and its identification with an exterior algebra on a Selmer group are new layers in precisely that direction, so this is a Part II rather than a new roadmap. It imports the patching commutative algebra from DeformationAndDerivedPatchingAlgebra (P7–P9, R03.2, R03.5), the deformation-theoretic input from GlobalGaloisDeformations R04.5 and AutomorphicGaloisRepresentationsPartII AG2.3, and the motivic side from MotivesAndAlgebraicCycles and PeriodsAndSpecialValues."
+  },
+  {
+   "route": "source",
+   "roadmap": "SmoothRepresentationsOfLocalGroups",
+   "stages": [
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.4"
+   ],
+   "items": [
+    "PAPER-VENKATESH-19/4",
+    "PAPER-VENKATESH-19/5",
+    "PAPER-VENKATESH-19/17",
+    "PAPER-VENKATESH-19/18",
+    "PAPER-VENKATESH-19/19",
+    "PAPER-VENKATESH-19/24",
+    "PAPER-VENKATESH-19/25",
+    "PAPER-VENKATESH-19/26",
+    "PAPER-VENKATESH-19/27",
+    "PAPER-VENKATESH-19/28",
+    "PAPER-VENKATESH-19/29",
+    "PAPER-VENKATESH-19/30",
+    "PAPER-VENKATESH-19/31",
+    "PAPER-VENKATESH-19/57"
+   ],
+   "reason": "Sections 2.1–2.5, 3, 4 and Appendix A are local representation theory: the derived Hecke algebra Ext^*_{S[G]}(S[G/U], S[G/U]) with its invariant-function and double-coset models and its action on derived invariants; the fact that the higher Ext-groups are almost killed by q_v − 1; the derived Satake isomorphism onto the Weyl invariants of the torus algebra when q_v ≡ 1; and the Iwahori-level structure with the Morita equivalence after étale localisation. SR.0:derived-extension plans the derived extension of the smooth category, SR.1 the Hecke algebras over rings with their idempotents and module-category comparison, and SR.4 spherical representations and the Satake isomorphism — the degree-zero parts of exactly these statements. The paper is a good source for the graded versions, and the Part II then imports them rather than developing local representation theory. A reviewer who prefers to keep the derived Satake with the rest of the paper can move these fourteen items into the Part II without changing anything else."
+  }
+ ],
+ "sourceIssues": []
+}
