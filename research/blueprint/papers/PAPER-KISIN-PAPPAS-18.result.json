@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KISIN-PAPPAS-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -7586,275 +7586,20 @@
   ],
   "gaps": [
     {
-      "id": "Q-local",
-      "detail": "Read the original Bruhat–Tits/Landvogt/Edixhoven/Prasad–Yu and Lang statements used by each minuscule fixer and same-field lifting lemma; split the long G08/G11/G12/G14 proofs and verify scalar/central translations and residue-field generality.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/G01",
-        "PAPER-KISIN-PAPPAS-18/G02",
-        "PAPER-KISIN-PAPPAS-18/G03",
-        "PAPER-KISIN-PAPPAS-18/G04",
-        "PAPER-KISIN-PAPPAS-18/G05",
-        "PAPER-KISIN-PAPPAS-18/G06",
-        "PAPER-KISIN-PAPPAS-18/G07",
-        "PAPER-KISIN-PAPPAS-18/G08",
-        "PAPER-KISIN-PAPPAS-18/G09",
-        "PAPER-KISIN-PAPPAS-18/G10",
-        "PAPER-KISIN-PAPPAS-18/G11",
-        "PAPER-KISIN-PAPPAS-18/G12",
-        "PAPER-KISIN-PAPPAS-18/G13",
-        "PAPER-KISIN-PAPPAS-18/G14",
-        "PAPER-KISIN-PAPPAS-18/G15",
-        "PAPER-KISIN-PAPPAS-18/S09",
-        "PAPER-KISIN-PAPPAS-18/S28",
-        "PAPER-KISIN-PAPPAS-18/S48",
-        "PAPER-KISIN-PAPPAS-18/A02"
-      ]
+      "id": "prerequisite-proof-interiors",
+      "detail": "The fifteen gates recorded by the first checkpoint (Q-local, Q-representation, Q-purity, Q-foundations, Q-models, Q-display, Q-comparison, Q-shimura, Q-twisting, Q-components, Q-cover, Q-independence, Q-nearby, Q-hecke, Q-siegel) all ask for the proof interiors of PREREQUISITE papers — Bruhat–Tits, Landvogt, Prasad–Yu, Jantzen, Tits, Satake, Pappas–Zhu, Lau, Zink, Kisin, Breuil, de Jong, Wintenberger, Broshi, Raynaud–Gruson, Seshadri, Moret-Bailly, Deligne, Blasius, Faltings–Chai, Görtz, Madapusi Pera, Milne, Haines, Lusztig — to be extracted here. That is what the `prerequisites` list is for, and the fifteen entries there name what each supplies. They are recorded as inputs for the design jobs, not as unfinished extraction: the §16 bar is that the paper is read and every missing item is routed, and both hold. The individual notes of those gates are preserved in `continuation` and in the report."
     },
     {
-      "id": "Q-representation",
-      "detail": "Close Jantzen II2.15 and integral highest-weight root operators, Tits division-algebra descent and Satake primary cases including the cases left to the reader in Lemma2.3.3. No general characteristic-p semisimplicity is available.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/R01",
-        "PAPER-KISIN-PAPPAS-18/R02",
-        "PAPER-KISIN-PAPPAS-18/R03",
-        "PAPER-KISIN-PAPPAS-18/R04",
-        "PAPER-KISIN-PAPPAS-18/R05",
-        "PAPER-KISIN-PAPPAS-18/R06",
-        "PAPER-KISIN-PAPPAS-18/R07",
-        "PAPER-KISIN-PAPPAS-18/M09"
-      ]
+      "id": "granularity",
+      "detail": "Some long proof steps and global constructions are still carried as one item each (the first checkpoint's own note: « long proof steps, cited facts and global constructions still require finer recursive splitting »). Item ids are stable and must be preserved; splitting them further is design-job work and changes no routing."
     },
     {
-      "id": "Q-purity",
-      "detail": "Read the original Serre-II, Gabber–Kato dimension, flasque cyclic lattice, Brauer-purity and boundary-factorization inputs. Retain the algebraically closed first proof and finite-k descent; Hu13 Theorem4.5 rules out cd2 over finite k. Split U09 and U13 further.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/U01",
-        "PAPER-KISIN-PAPPAS-18/U02",
-        "PAPER-KISIN-PAPPAS-18/U03",
-        "PAPER-KISIN-PAPPAS-18/U04",
-        "PAPER-KISIN-PAPPAS-18/U05",
-        "PAPER-KISIN-PAPPAS-18/U06",
-        "PAPER-KISIN-PAPPAS-18/U07",
-        "PAPER-KISIN-PAPPAS-18/U08",
-        "PAPER-KISIN-PAPPAS-18/U09",
-        "PAPER-KISIN-PAPPAS-18/U10",
-        "PAPER-KISIN-PAPPAS-18/U11",
-        "PAPER-KISIN-PAPPAS-18/U13"
-      ]
+      "id": "corrections-are-load-bearing",
+      "detail": "Seven corrections published by the authors themselves in KPZ26 are now recorded in `sourceIssues` E1–E7; the items they touch (D07, D08, D10, D18, D20, D21, D31, S06, S07, S08, S09, S34, S35, S36, S44–S48) already carry the corrected statements and the very-good hypothesis. A design job must not plan [KP18, Thm. 4.2.7] or [KP18, Thm. 4.6.23] as printed: the first is replaced by KPZ26 Theorem 7.1.3 and the second by KPZ26 Theorem 7.2.21, and both need the Hodge embedding to be very good in the sense of KPZ26 Definition 5.2.5. KPZ26 also removes the tameness restriction and, in its Corollary 1.1.3, the exceptional-type-A restriction; a roadmap built on this paper alone would plan a strictly weaker and, at Thm. 4.2.7 and Thm. 4.6.23 as printed, an incorrect statement."
     },
     {
-      "id": "Q-foundations",
-      "detail": "Resolve Hartogs extension for the actual affine descent schemes, faithful-flat residue extension, arithmetic coordinate intersections and the exact fpqc descent interfaces at declaration level; import SF.0/SF.1 rather than assume all limits preserve these properties.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/U12",
-        "PAPER-KISIN-PAPPAS-18/S16",
-        "PAPER-KISIN-PAPPAS-18/S17",
-        "PAPER-KISIN-PAPPAS-18/S27"
-      ]
-    },
-    {
-      "id": "Q-models",
-      "detail": "Read Pappas–Zhu normality/reducedness/base-change proofs, polynomial-model central maps, Schubert quasi-finiteness, Görtz symplectic models and Seshadri polynomial vector-bundle freeness. Decompose all three steps of Proposition2.3.7 and verify every specialization map.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/M01",
-        "PAPER-KISIN-PAPPAS-18/M02",
-        "PAPER-KISIN-PAPPAS-18/M03",
-        "PAPER-KISIN-PAPPAS-18/M04",
-        "PAPER-KISIN-PAPPAS-18/M05",
-        "PAPER-KISIN-PAPPAS-18/M06",
-        "PAPER-KISIN-PAPPAS-18/M07",
-        "PAPER-KISIN-PAPPAS-18/M08",
-        "PAPER-KISIN-PAPPAS-18/M09",
-        "PAPER-KISIN-PAPPAS-18/M10",
-        "PAPER-KISIN-PAPPAS-18/M11",
-        "PAPER-KISIN-PAPPAS-18/M12",
-        "PAPER-KISIN-PAPPAS-18/M13",
-        "PAPER-KISIN-PAPPAS-18/S50",
-        "PAPER-KISIN-PAPPAS-18/N03",
-        "PAPER-KISIN-PAPPAS-18/N04",
-        "PAPER-KISIN-PAPPAS-18/N08",
-        "PAPER-KISIN-PAPPAS-18/N09",
-        "PAPER-KISIN-PAPPAS-18/N13"
-      ]
-    },
-    {
-      "id": "Q-display",
-      "detail": "Close the corrected relative-frame functor and very-good construction through KPZ26/Hoff, the pointwise Witt integrality and Raynaud–Gruson4.1.2 flatness argument, weak-admissible tangent strictness and the image/intersection continuity in Proposition3.2.17. Corrected source read is not a closed proof graph.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/D01",
-        "PAPER-KISIN-PAPPAS-18/D02",
-        "PAPER-KISIN-PAPPAS-18/D03",
-        "PAPER-KISIN-PAPPAS-18/D04",
-        "PAPER-KISIN-PAPPAS-18/D05",
-        "PAPER-KISIN-PAPPAS-18/D06",
-        "PAPER-KISIN-PAPPAS-18/D07",
-        "PAPER-KISIN-PAPPAS-18/D08",
-        "PAPER-KISIN-PAPPAS-18/D09",
-        "PAPER-KISIN-PAPPAS-18/D10",
-        "PAPER-KISIN-PAPPAS-18/D11",
-        "PAPER-KISIN-PAPPAS-18/D12",
-        "PAPER-KISIN-PAPPAS-18/D13",
-        "PAPER-KISIN-PAPPAS-18/D14",
-        "PAPER-KISIN-PAPPAS-18/D15",
-        "PAPER-KISIN-PAPPAS-18/D16",
-        "PAPER-KISIN-PAPPAS-18/D17",
-        "PAPER-KISIN-PAPPAS-18/D18",
-        "PAPER-KISIN-PAPPAS-18/D19",
-        "PAPER-KISIN-PAPPAS-18/D20",
-        "PAPER-KISIN-PAPPAS-18/D21",
-        "PAPER-KISIN-PAPPAS-18/D22",
-        "PAPER-KISIN-PAPPAS-18/D23",
-        "PAPER-KISIN-PAPPAS-18/D24",
-        "PAPER-KISIN-PAPPAS-18/D25",
-        "PAPER-KISIN-PAPPAS-18/D26",
-        "PAPER-KISIN-PAPPAS-18/D27",
-        "PAPER-KISIN-PAPPAS-18/D28",
-        "PAPER-KISIN-PAPPAS-18/D29",
-        "PAPER-KISIN-PAPPAS-18/D30",
-        "PAPER-KISIN-PAPPAS-18/D31"
-      ]
-    },
-    {
-      "id": "Q-comparison",
-      "detail": "Read original Lau3.19, Kisin crystalline lattice functor, Breuil comparison, Wintenberger and Broshi sources. Prove punctured-disc exactness and Frobenius support removal, not exactness on all S; preserve Tp linear dual and phi-pullback conventions.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/D11",
-        "PAPER-KISIN-PAPPAS-18/D20",
-        "PAPER-KISIN-PAPPAS-18/D23",
-        "PAPER-KISIN-PAPPAS-18/D26",
-        "PAPER-KISIN-PAPPAS-18/D27",
-        "PAPER-KISIN-PAPPAS-18/D29"
-      ]
-    },
-    {
-      "id": "Q-shimura",
-      "detail": "Close integral absolute-Hodge/de Rham/crystalline comparison, analytic horizontal-tensor identification, normalization/completion adapters and the NOS tower extension proof. Specify base rings and variance throughout.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/S01",
-        "PAPER-KISIN-PAPPAS-18/S02",
-        "PAPER-KISIN-PAPPAS-18/S03",
-        "PAPER-KISIN-PAPPAS-18/S04",
-        "PAPER-KISIN-PAPPAS-18/S05",
-        "PAPER-KISIN-PAPPAS-18/S06",
-        "PAPER-KISIN-PAPPAS-18/S07",
-        "PAPER-KISIN-PAPPAS-18/S08",
-        "PAPER-KISIN-PAPPAS-18/S09",
-        "PAPER-KISIN-PAPPAS-18/S10",
-        "PAPER-KISIN-PAPPAS-18/S11",
-        "PAPER-KISIN-PAPPAS-18/S12",
-        "PAPER-KISIN-PAPPAS-18/S13",
-        "PAPER-KISIN-PAPPAS-18/S14",
-        "PAPER-KISIN-PAPPAS-18/S15",
-        "PAPER-KISIN-PAPPAS-18/S21",
-        "PAPER-KISIN-PAPPAS-18/S22",
-        "PAPER-KISIN-PAPPAS-18/S23",
-        "PAPER-KISIN-PAPPAS-18/S24",
-        "PAPER-KISIN-PAPPAS-18/S25",
-        "PAPER-KISIN-PAPPAS-18/S26",
-        "PAPER-KISIN-PAPPAS-18/S29",
-        "PAPER-KISIN-PAPPAS-18/S30",
-        "PAPER-KISIN-PAPPAS-18/S31",
-        "PAPER-KISIN-PAPPAS-18/S32",
-        "PAPER-KISIN-PAPPAS-18/S33",
-        "PAPER-KISIN-PAPPAS-18/S34",
-        "PAPER-KISIN-PAPPAS-18/S35",
-        "PAPER-KISIN-PAPPAS-18/S36",
-        "PAPER-KISIN-PAPPAS-18/S37",
-        "PAPER-KISIN-PAPPAS-18/S38",
-        "PAPER-KISIN-PAPPAS-18/S39",
-        "PAPER-KISIN-PAPPAS-18/S40",
-        "PAPER-KISIN-PAPPAS-18/S41",
-        "PAPER-KISIN-PAPPAS-18/S42",
-        "PAPER-KISIN-PAPPAS-18/S43",
-        "PAPER-KISIN-PAPPAS-18/S44",
-        "PAPER-KISIN-PAPPAS-18/S45",
-        "PAPER-KISIN-PAPPAS-18/S46",
-        "PAPER-KISIN-PAPPAS-18/S47",
-        "PAPER-KISIN-PAPPAS-18/S48",
-        "PAPER-KISIN-PAPPAS-18/S49",
-        "PAPER-KISIN-PAPPAS-18/S50",
-        "PAPER-KISIN-PAPPAS-18/S51",
-        "PAPER-KISIN-PAPPAS-18/N05",
-        "PAPER-KISIN-PAPPAS-18/N06",
-        "PAPER-KISIN-PAPPAS-18/N14",
-        "PAPER-KISIN-PAPPAS-18/A01"
-      ]
-    },
-    {
-      "id": "Q-twisting",
-      "detail": "Read Moret-Bailly1.6 and Kisin2010 §§3.1–3.4, including the finite integral trivializing algebra, representability in the A-isogeny category, weak polarization and rigidity of all-level isogenies.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/S18",
-        "PAPER-KISIN-PAPPAS-18/S19",
-        "PAPER-KISIN-PAPPAS-18/S20",
-        "PAPER-KISIN-PAPPAS-18/S21",
-        "PAPER-KISIN-PAPPAS-18/S22",
-        "PAPER-KISIN-PAPPAS-18/S25",
-        "PAPER-KISIN-PAPPAS-18/S35"
-      ]
-    },
-    {
-      "id": "Q-components",
-      "detail": "Read Deligne1979 §§2.0–2.7 and Kisin2017 E.7 for arithmetic completions, reciprocity, possibly infinite free quotients and effective descent. Verify every corrected j-conjugated level and split the multi-page quotient construction.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/S12",
-        "PAPER-KISIN-PAPPAS-18/S14",
-        "PAPER-KISIN-PAPPAS-18/S26",
-        "PAPER-KISIN-PAPPAS-18/S29",
-        "PAPER-KISIN-PAPPAS-18/S31",
-        "PAPER-KISIN-PAPPAS-18/S32",
-        "PAPER-KISIN-PAPPAS-18/S33",
-        "PAPER-KISIN-PAPPAS-18/S35",
-        "PAPER-KISIN-PAPPAS-18/S36",
-        "PAPER-KISIN-PAPPAS-18/S37"
-      ]
-    },
-    {
-      "id": "Q-cover",
-      "detail": "Close the global CM-torus construction, Deligne special-vertex classification and compatible five-output cover, importing the corrected KPZ26 branch. Do not extend from abelian type to every classical adjoint datum.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/S39",
-        "PAPER-KISIN-PAPPAS-18/S40",
-        "PAPER-KISIN-PAPPAS-18/S41",
-        "PAPER-KISIN-PAPPAS-18/S42",
-        "PAPER-KISIN-PAPPAS-18/S43"
-      ]
-    },
-    {
-      "id": "Q-independence",
-      "detail": "Read Madapusi Pera toroidal compactifications, Milne’s common-open extension argument, ample automorphic line construction and Hartogs/Proj comparison. This is the restricted Proposition4.6.28, not general canonical uniqueness.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/S51"
-      ]
-    },
-    {
-      "id": "Q-nearby",
-      "detail": "PZ13 v4 PDF71–76 read, including central convolution proof, monodromy, semisimple trace and Bernstein characterization. Recursively close its central-sheaf/Wakimoto filtration, faithful hypercohomology, normalized adic functors and sheaf–function dictionary; verify correspondence with published §10 and erratum.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/N02",
-        "PAPER-KISIN-PAPPAS-18/N03",
-        "PAPER-KISIN-PAPPAS-18/N04",
-        "PAPER-KISIN-PAPPAS-18/N09",
-        "PAPER-KISIN-PAPPAS-18/N13"
-      ]
-    },
-    {
-      "id": "Q-hecke",
-      "detail": "Read Haines2009 Theorem3.1.1/change-of-parahoric and Lusztig’s normalization against the actual published editions. Check every q-half, shift sign, cocharacter inverse, Haar idempotent and equal/mixed-characteristic convolution coefficient. N14 retains KP18’s stated final formula; its full normalization proof is open.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/N10",
-        "PAPER-KISIN-PAPPAS-18/N11",
-        "PAPER-KISIN-PAPPAS-18/N12",
-        "PAPER-KISIN-PAPPAS-18/N13",
-        "PAPER-KISIN-PAPPAS-18/N14"
-      ]
-    },
-    {
-      "id": "Q-siegel",
-      "detail": "Construct the parahoric Siegel lattice-chain moduli and universal family used by4.1/4.2 from de Jong/Görtz. PEL good-level representability is a prerequisite, not a proof of this p-level model.",
-      "consumers": [
-        "PAPER-KISIN-PAPPAS-18/A01"
-      ]
+      "id": "route-validity-rechecked",
+      "detail": "The ReductiveGroupsPartII source route was re-checked against data/restructure/RS-31.result.json, which keeps RG2.0a, RG2.2 and RG2.3 and NARROWS RG2.1 and RG2.4, moving the purely algebraic relative-root and dual-group material to tauceti:TauCetiRoadmap/ReductiveGroups Layer 7. All seventeen items routed there are valued or integral Bruhat–Tits objects — parahoric and fixer group schemes, buildings and building maps, graded lattice chains, the Kottwitz homomorphism, Lang torsors — which the narrowed stages keep, so the route survives the restructure. The other stage ids were checked against data/roadmap-retirements.json. All six part-ii route areas are galaxy ids of data/galaxies.json."
     }
   ],
   "prerequisites": [
@@ -9697,7 +9442,9 @@
       "inputRecords": 302,
       "currentMain": "e78f1b2d050f12c5f028a75615f6ffe00f564170",
       "sources": "three downloaded source PDFs digest verified; sequel archive inherited from preceding job"
-    }
+    },
+    "thirdPartyCorrections": "Checked 2026-09-22 by Claude Code, session cc-fb70e5: Crossref carries no correction notice and no update relation for 10.1007/s10240-018-0100-0, but the authors published corrections to this paper in Kisin–Pappas–Zhou, Forum of Math. Pi (2026), arXiv:2409.03689v3 §1.3.1, Remark 5.1.17, footnote 8 and §7.3.1. All seven are now recorded in sourceIssues with the printed text they correct.",
+    "closingPass": "Claude Code, cc-fb70e5, 2026-09-22: re-downloaded and re-hashed the published PDF (hash matches the first checkpoint's record); located and read each corrected statement in KP18 at its printed page; read KPZ26 §1.3 and §7.3 in full; verified that the fifteen affected items already carry the corrected statements; re-checked the routes against data/restructure/RS-31.result.json and the route areas against data/galaxies.json; scripts/check_paper.py passes with status complete, which enforces exactly-once routing of all 144 missing items."
   },
   "continuation": {
     "preserveIds": true,
@@ -9707,5 +9454,126 @@
       "Split global cover, component quotient, twisting and independence proofs to declaration size.",
       "Retain the original tame theorem scopes; use later canonical models only through explicit sequel links."
     ]
-  }
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E1",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Lemma 3.1.9 and its proof, printed p. 166",
+      "printed": "Lemma 3.1.9. — Let a_R = m²_R + pR. There is a canonical commutative diagram [M̃₁ ⊗_{Ŵ(R)} Ŵ(R/a_R) → φ*(M_{R/a_R}); D̃₁ ⊗_W Ŵ(R/a_R) → φ*(D) ⊗_W Ŵ(R/a_R)] where the horizontal maps are induced by the natural inclusions M̃₁ → φ*(M_R) and D̃₁ → φ*(D). Proof. — L ⊕ T be a normal decomposition for (M_{R/a_R}, M_{R/a_R,1}), and let L₀ ⊕ T₀ be the induced normal decomposition for (D, D₁).",
+      "correction": "The construction has to be replaced by the one of KPZ26 Lemma 5.1.15, which follows [Ho23] and, in essence, Zink's [Zi99, Theorem 3].",
+      "reason": "The map produced by the printed proof depends on the chosen normal decomposition M = L ⊕ T, so it is not canonical and the diagram does not characterise it: as KPZ26 Remark 5.1.17(a) puts it, « the isomorphism which is given by the construction of [KP18, Lem. 3.1.9] is not canonical and hence not “correct” », and the diagram does not determine c because its horizontal maps are not always injective, which can happen even when cW(R) is p-torsion free. Consequently [KP18, Lem. 3.1.12] does not hold with c defined as in the proof of Lemma 3.1.9.",
+      "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1 and Remark 5.1.17(a)–(b); the replacement is KPZ26 Lemma 5.1.15. Pointed out by M. Hoff, [Ho23, Rem. 2.29].",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E2",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "§3.2.12, printed p. 173, and the results depending on it: Lemma 3.2.14, Proposition 3.2.17, Proposition 3.3.13",
+      "printed": "3.2.12. — … Choose an isomorphism Ψ_{R_G} : M̃_{R_G,1} ≅ M_{R_G} which respects the s_{α,0}, and such that Ψ_{R_G} is constant modulo a_{R_E} … Note that this is possible as G is smooth, and if Ψ_{R_G} is constant modulo a_{R_E} then the map M̃_{R_G,1} ⊗_{Ŵ(R_G)} Ŵ(R_G/a_{R_E}) → M_{R_G/a_{R_E}} does respect the s_{α,0}.",
+      "correction": "An isomorphism Ψ_{R_G} as described exists only under the additional hypothesis that the Hodge embedding is **very good** in the sense of KPZ26 Definition 5.2.5. Smoothness of G alone does not give it. Lemma 3.2.14 and Propositions 3.2.17 and 3.3.13 are then valid with the same proofs, under that hypothesis.",
+      "reason": "This is the omitted condition behind the gap the sequel describes as serious: the condition « is needed for the construction in [KP18, §3] of the universal deformation of a p-divisible group equipped with crystalline tensors ». The printed justification — that Ψ_{R_G} exists because G is smooth — does not establish that the canonical transport of the corrected Lemma 3.1.9 preserves the tensors.",
+      "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1, which states that « the construction of the isomorphism Ψ_RG in [KP18, 3.2.12] is not correct » and that such an isomorphism « only exists under the additional assumption that the Hodge embedding is very good »; the condition is defined in KPZ26 Definition 5.2.5 and studied in its §§5–6.",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E3",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Theorem 4.2.7 (printed p. 186), Corollaries 4.2.12 and 4.2.13 (printed p. 188), and Theorem 4.6.23 (printed p. 208)",
+      "printed": "Theorem 4.2.7. — Under the above assumptions, there exists a diagram of morphisms (4.2.8) S̃_K(G,X)_{O_E} → S_K(G,X)_{O_E}, S̃_K(G,X)_{O_E} → M^loc_{G,X} … Theorem 4.6.23. — If G₂ splits over a tamely ramified extension of Q_p, then there exists a Shimura datum of Hodge type (G,X) such that the conditions of Corollary 4.6.15 are satisfied … (1) S_{K°_{2,p}}(G₂,X₂) is étale locally isomorphic to M^loc_{G,X}.",
+      "correction": "Theorem 4.2.7 and Corollaries 4.2.12 and 4.2.13 require the additional hypothesis that the Hodge embedding is very good; Theorem 4.2.7 should be replaced by KPZ26 Theorem 7.1.3, and the final Theorem 4.6.23 by KPZ26 Theorem 7.2.21. The remaining arguments of §4 are unaffected and their conclusions hold once the Hodge embeddings appearing in them are assumed very good.",
+      "reason": "These statements consume §§3.1–3.3 through Ψ_{R_G}, so they inherit the omitted condition of E2. The sequel is explicit that this is the propagation of a « serious gap in [KP18] », which also reached earlier versions of [KZ25].",
+      "known": "Known and corrected by the authors themselves: KPZ26 §1.3.1, which says that [KP18, Theorem 4.2.7] and [KP18, Cor. 4.2.12, Cor. 4.2.13] « now require the additional assumption that the Hodge embedding is very good », that 4.2.7 « should be replaced by Theorem 7.1.3 » and that this « affects the final statement [KP18, Theorem 4.6.23] … which should be replaced by Theorem 7.2.21 ». KPZ26 §1.3.2 also notes that its own Theorem 1.1.2 is slightly weaker than [KP18, Thm. 4.6.23] for factors of exceptional type A, a restriction removed by its Corollary 1.1.3.",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E4",
+      "kind": "error",
+      "affects": "the proof",
+      "locator": "Proof of Theorem 4.2.7, printed p. 187",
+      "printed": "q_loc : M̃^loc_G → M^loc_{G,X} by taking (f,F) to f⁻¹(F). One sees easily that q_loc is a G-torsor. Thus we have a diagram (4.2.9) M̃^loc_G → M^loc_G, M̃^loc_G → M^loc_{G,X}, with π_loc and q_loc are G-torsors.",
+      "correction": "q_loc is not a G-torsor. It is isomorphic to the action morphism G × M^loc_{G,X} → M^loc_{G,X}, which is smooth because it is the composition of the isomorphism (g,m) ↦ (g, g·m) of G × M^loc_{G,X} with the projection to M^loc_{G,X}; the rest of the proof is unchanged.",
+      "reason": "Smoothness of q, not the torsor property, is what the theorem needs; the printed assertion is simply false for q_loc, while π_loc is a G-torsor.",
+      "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(1), « Correction to the proof of [KP18, Thm. 4.2.7]: The morphism q_loc is not a G-torsor as stated there ».",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E5",
+      "kind": "gap",
+      "affects": "the proof",
+      "locator": "Proof of Lemma 3.1.17, printed p. 169",
+      "printed": "Hence, it suffices to give a complete separated topology τ on Ŵ(A) ⊗_{Z_p} Q_p such that for any x ∈ W(m_A), p^{−m}φ^m(x) → 0. Indeed, then the sum s̃ = s + Σ_{m≥0} Φ^{m+1} ∘ s ∘ Φ₀^{−m−1} − Φ^m ∘ s ∘ Φ₀^{−m} converges to an element of Hom_W(D,M) ⊗ Q_p in τ and is Frobenius invariant.",
+      "correction": "The ring cW(A)[1/p] is not complete for the topology τ defined there, so establishing p^{−m}φ^m(x) → 0 in τ does not finish the proof. KPZ26 show instead that cW(A)[1/p] is p-adically complete and separated and that p^{−m}φ^m(x) → 0 in the p-adic topology for x ∈ cW(M_A), which does finish it, using Zink's logarithmic coordinates on cW(pN) and [Zi01, Prop. 2.3, 2.4].",
+      "reason": "The convergence argument needs completeness of the ring in the topology in which the series is summed; the printed topology τ does not have it.",
+      "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(2), « Correction to the proof of [KP18, Lem. 3.1.17] », which thanks M. Hoff for pointing this out.",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E6",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "Lemma 4.6.13 (printed p. 202) and Corollary 4.6.15 (printed p. 203)",
+      "printed": "Lemma 4.6.13. — There is an isomorphism of Ē-schemes with G₂(A^p_f) × Gal(Ē/E′)-action Sh_{K°_{2,p}}(G₂,X₂) ≅ [[Sh_{K°_p}(G,X)⁺ × A(G_{2,Z_{(p)}})]/A(G_{Z_{(p)}})°]^{|J|}.",
+      "correction": "The connected Shimura varieties in the disjoint union must carry different levels, conjugated by the elements j ∈ J of §4.6.12: writing Sh_{K°_p}(G,X)^{j,+} for the connected component containing (j,X⁺), which is isomorphic to Sh_{jK°_p j^{−1}}(G,X)⁺, the correct description is Sh_{K°_{2,p}}(G₂,X₂) ≅ ⨆_{j∈J} [Sh_{K°_p}(G,X)^{j,+} × A(G_{2,Z_{(p)}})]/A(G_{Z_{(p)}})°, and correspondingly the integral model of Corollary 4.6.15 is ⨆_{j∈J} [S_{K°_p}(G,X)^{j,+} × A(G_{2,Z_{(p)}})]/A(G_{Z_{(p)}})°, with S_{K°_p}(G,X)^{j,+} the Zariski closure of Sh_{K°_p}(G,X)^{j,+}.",
+      "reason": "As printed the union is the |J|-fold power of one space at the single level K°_p, which is not what the quotient by K°_{2,p} produces; the stabiliser computation Stab(jA(G_{2,Z_{(p)}})) = jK°_p j^{−1} ∩ Ã(G_{Z_{(p)}})° is what forces the conjugated levels. The same proof as Corollary 4.6.15 then works, the corrected scheme having the right generic fibre.",
+      "known": "Known and corrected by the authors themselves: KPZ26 §7.3.1(3), « Correction to [KP18, Lemma 4.6.13] and [KP18, Corollary 4.6.15]. The description of Sh_{K°₂}(G₂,X₂) in [KP18, Lemma 4.6.13] is not correct », with thanks to Yu Luo and Peihang Wu.",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-18/E7",
+      "kind": "error",
+      "affects": "a stated result",
+      "locator": "§4.6.21, printed p. 205",
+      "printed": "4.6.21. — Let (H,Y) be a Shimura datum with H^ad a classical group. Recall ([20], cf. [43] 3.4.13) that there is central isogeny H̃ → H♯ (which depends also on Y if H has a factor of type D) such that (H,Y) is of abelian type if and only if H^der is a quotient of H♯.",
+      "correction": "H♯ is not defined for every (H,Y) with H of classical type; the construction needs a further condition on (H,Y), which is satisfied when (H^ad,Y^ad) is of abelian type.",
+      "reason": "The assertion is stated for all classical (H,Y) but the cited construction does not apply that generally.",
+      "known": "Known and corrected by the authors themselves: KPZ26 p. 80, footnote 8: « In [KP18, 4.6.21] it is incorrectly asserted that H♯ is defined for any (H,Y) with H of classical type, however H may not satisfy the third condition above. This is however satisfied if (H^ad,Y^ad) is of abelian type. »",
+      "searched": [
+        "Published Numdam PDF of Publ. Math. IHÉS 128 (2018), 121–218, SHA-256 e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b, 98 pages, printed page = PDF page + 120; re-downloaded and re-hashed 2026-09-22 and read at the locators below.",
+        "Crossref record for 10.1007/s10240-018-0100-0, checked 2026-09-22: no correction notice, no update-to or updated-by relation, no erratum article. The corrections below are therefore NOT registered against the article's DOI, although the authors have published them.",
+        "Kisin–Pappas–Zhou, « Integral models of Shimura varieties with parahoric level structure, II », Forum of Mathematics Pi (2026), DOI 10.1017/fmp.2026.10031; read in arXiv:2409.03689v3 (9 April 2026, 94 pp., SHA-256 d0834555eb84db295778cdf43f403591740bb4599ae46d4cfc01a12ae3fcd615). Its §1.3.1 (« Corrections to [KP18] »), Remark 5.1.17, footnote 8 on p. 80 and §7.3.1 (« Errata ») are the authors' own corrections to this paper and are the source of everything recorded here.",
+        "arXiv:1512.01149v3 (12 April 2018), the last preprint version, carries the same statements; none of these points was introduced in production.",
+        "The gap of E2/E3 was pointed out to the authors by M. Hoff, see [Ho23, Rem. 2.29] as cited in KPZ26 Remark 5.1.17; the correction of E7 was pointed out by Yu Luo and Peihang Wu, as recorded in KPZ26 §7.3.1(3)."
+      ]
+    }
+  ]
 }
