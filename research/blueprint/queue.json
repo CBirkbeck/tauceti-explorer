@@ -4238,7 +4238,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1265"
   },
   {
    "id": "REV-PAPER-FENG-GALATIUS-VENKATESH-22",
