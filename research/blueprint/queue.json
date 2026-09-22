@@ -7694,7 +7694,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1462"
   },
   {
    "id": "REV-PAPER-BHATT-MORROW-SCHOLZE-18",
