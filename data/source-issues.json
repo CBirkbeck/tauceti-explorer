@@ -1365,6 +1365,90 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BHATT-SCHOLZE-22/E1",
+   "kind": "misprint",
+   "locator": "Corollary 15.4, p. 104",
+   "printed": "Corollary 15.4. For any bounded prism (A, I) and any smooth formal A/I-scheme X, there is a canonical isomorphism of E_∞-algebras in D(X_ét, A/I), ∆_{X/A} ⊗̂^L_{A,φ} A/I ≅ Ω^*_{R/(A/I)}.",
+   "correction": "The right-hand side should be Ω^*_{X/(A/I)}.",
+   "reason": "The statement quantifies over a smooth formal A/I-scheme X and produces an isomorphism of algebras in D(X_ét, A/I); no ring R is introduced anywhere in the statement or in the two-line proof. Theorem 6.4 on p. 53, of which Corollary 15.4 is the version without the technical hypothesis that W(A/I) be p-torsionfree, states the same isomorphism correctly as ∆_{X/A} ⊗̂^L_{A,φ} A/I ≅ Ω^*_{X/(A/I)}, and Theorem 1.8 (3) on p. 4 states it as RΓ_dR(X/(A/I)) ≅ RΓ_∆(X/A) ⊗̂^L_{A,φ_A} A/I. The likely origin is that the proof of Theorem 6.4 reduces to the affine case R.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229, whose only comment on v4 is 'v4: further updates', and none is listed in the Crossref record for DOI 10.4007/annals.2022.196.3.5. The text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Theorem 6.4 on p. 53 and Theorem 1.8 (3) on p. 4, which state the same comparison"
+   ],
+   "owner": "PAPER-BHATT-SCHOLZE-22",
+   "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+   "citation": "Bhatt–Scholze, \"Prisms and prismatic cohomology\", Annals of Mathematics 196 (2022), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E2",
+   "kind": "misprint",
+   "locator": "Example 7.12, p. 61",
+   "printed": "In particular, the natural map A/ItoD/IC factors over the p-completely étale A/I-algebra R_∞.",
+   "correction": "The sentence should read 'the natural map A/I → D/ID factors over …'; the arrow has been typeset as the italic product of the letters t and o, so the LaTeX source is missing a backslash in \\to.",
+   "reason": "'A/ItoD/IC' is not a mathematical expression: 'to' appears in italics between the two rings, which is what an unescaped 'to' inside math mode produces. The surrounding text has just constructed a faithfully flat map of prisms (C, IC) → (D, ID) via Proposition 7.11, so the target is the reduction D/ID of that prism. The example also writes D/IC twice for that reduction; that is consistent with the rigidity of Lemma 3.5, by which ID = (IC)D, but it is inconsistent with the notation (D, ID) introduced in the same sentence and makes the passage harder to read than it needs to be.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Lemma 3.5 on p. 29 and Proposition 7.11 on p. 60, which fix the notation"
+   ],
+   "owner": "PAPER-BHATT-SCHOLZE-22",
+   "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+   "citation": "Bhatt–Scholze, \"Prisms and prismatic cohomology\", Annals of Mathematics 196 (2022), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E3",
+   "kind": "misprint",
+   "locator": "Remark 2.37, p. 24",
+   "printed": "… and thus coincides with the ring ℤ_(p){x, φ(x)/p} ≃ D_{(x)}(ℤ_(p)) above.",
+   "correction": "The right-hand side should be D_{(x)}(ℤ_(p){x}), the divided power envelope of the ideal (x) in the free δ-ring ℤ_(p){x}.",
+   "reason": "Lemma 2.36, which the remark is commenting on, states that C := ℤ_(p){x, φ(x)/p} identifies with the pd-envelope D := D_{(x)}(ℤ_(p){x}). The expression D_{(x)}(ℤ_(p)) is meaningless as printed, since x is not an element of ℤ_(p); the generator x lives in the free δ-ring.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "Lemma 2.36 on p. 23, whose statement the remark repeats"
+   ],
+   "owner": "PAPER-BHATT-SCHOLZE-22",
+   "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+   "citation": "Bhatt–Scholze, \"Prisms and prismatic cohomology\", Annals of Mathematics 196 (2022), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-22/E4",
+   "kind": "misprint",
+   "locator": "Theorem 1.8 (3), p. 4",
+   "printed": "of commutative algberas in D(A). Moreover, it can be upgraded naturally to an isomorphism of commutative differential graded algebras.",
+   "correction": "'algberas' should be 'algebras'.",
+   "reason": "A transposition typo; the same sentence spells the word correctly one line later, and parts (1) and (3) of the same theorem write 'of commutative algebras in D(A)'.",
+   "affects": "nothing",
+   "known": "No erratum or corrigendum is listed on the arXiv abstract page for 1905.08229 or in the Crossref record for DOI 10.4007/annals.2022.196.3.5; the text is unchanged in v4, the latest version. It is recorded here only because PROTOCOL.md section 18 asks that every mistake found be listed.",
+   "searched": [
+    "the arXiv abstract page and version history for 1905.08229",
+    "the Crossref record for DOI 10.4007/annals.2022.196.3.5",
+    "the rest of Theorem 1.8 on pp. 4–5"
+   ],
+   "owner": "PAPER-BHATT-SCHOLZE-22",
+   "file": "research/blueprint/papers/PAPER-BHATT-SCHOLZE-22.result.json",
+   "citation": "Bhatt–Scholze, \"Prisms and prismatic cohomology\", Annals of Mathematics 196 (2022), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BINYAMINI-22/E1",
    "kind": "misprint",
    "locator": "Lemma 15 and proof, (34)–(35), p.11 (published version)",
