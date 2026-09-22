@@ -1,3 +1,10 @@
+> Seventh-checkpoint integration (Codex, codex-a71f92, 2026-09-22).
+> The current partial result has 129 items: 27 library, 8 planned, 94 missing.
+> BP1–BP6 and the four proposed source issues from #1817 are now integrated;
+> five exact Mathlib suppliers and their adapter boundaries are added below.
+> Historical item counts and “not yet integrated” notices remain attributed
+> to their checkpoints and are superseded by this notice and the final section.
+
 # BSTTTZ: torsion feedback, determinant methods and finite-field sections
 
 > **Fourth-checkpoint notice — 22 September 2026.** ChatGPT Pro, session
@@ -1014,3 +1021,632 @@ full-catalogue intake checks were **not run locally by this session**.
 This report and the handoff are the submitted checkpoint; the unchanged
 machine extraction must be synchronized and validated before these new
 entries can be regarded as integrated. No Lean file was compiled.
+
+
+---
+
+## Sixth checkpoint: integer parameters and singular-point coverage
+
+**Author:** ChatGPT Pro, `cgp-0922-d4f8c2`, 22 September 2026.
+**Status:** partial paper extraction; proposed proof repairs, not independently
+accepted or formalized. This continues merged checkpoints #1636, #1641,
+#1650, #1695 and #1760 on issue #1420. The five proposed items and their guarded integration patch are supplied in
+this handoff. The result JSON is not changed by this proof checkpoint. After
+integration the complete earlier report remains before this supplement, with
+its authorship and historical reading/validation claims preserved.
+
+### Source and ownership boundary
+
+The source is Bombieri–Pila, *The number of integral points on arcs and ovals*,
+[Oxford author preprint](https://people.maths.ox.ac.uk/pila/Ovals.pdf), especially
+§3, printed pp.10–17. The selected determinant foundations on pp.1–6 and the
+whole §3 proof chain were read in this session. Printed pp.3,14,17 were visually
+checked. The February 2017 [BSTTTZ author copy](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf)
+was read through its parsed pages, including references, and its printed p.4
+volume display was visually checked. The existing PDF byte hashes are preserved
+as earlier workers' measurements: no fresh hash is claimed. The final
+2019-revised/2020 publisher text was not obtained, so G0 remains. No complete
+new reading of all the other prerequisite papers is claimed.
+
+The arguments BP1–BP6 are our explicit expansions/replacements for the selected
+proof, not unnamed lemmas attributed verbatim to the source. In particular BP6
+bounds a cover of the **finite set of integral points** by `8d^3` pieces. It does
+not claim the source's stronger `O(d^2)` whole-curve decomposition, nor smoothness
+at singular endpoints. This weaker, explicit cover still gives the published
+constant 12 under its stated threshold.
+
+All five new theorems refine the already proposed
+`IntegralPointDeterminantMethods` direction. Generic proper intersection/Bézout
+remains an input from `SchemeAndStackFoundations:SF.5`; this is not a second
+intersection-theory roadmap. The complete completed-EffectiveBounds and
+AlgebraicCurves roadmaps, SchemeAndStackFoundations stage descriptions, and the
+accepted `REV-AUDIT-01` were read. The combined `data/library-coverage.json`
+reader returned empty content, not a usable full audit. The reviewed audit and
+roadmap documents do not prove that every generic lemma below is implemented;
+exact pinned declaration matching stays in G7. No library/planned item has been
+reclassified or newly asserted present. The old library pins remain unchanged.
+
+### BP1. Normalize by integer translations, and stop below lattice scale
+
+For a compact interval `I` of length at most `N`, let `g` be smooth on a
+neighbourhood of `I` with `|g'|≤1`. Its integral graph points have distinct integer
+abscissae, so there are at most `floor(N)+1` of them. Define `G_d(N)` as the
+maximum possible count over this class of graphs satisfying an absolutely
+irreducible real polynomial of total degree `d≥2`. Counts form a nonempty,
+bounded subset of the natural numbers, so this maximum is legitimate, without
+a compactness claim about the family of polynomials. Single-point restrictions
+of `y=x^d` show that the class is nonempty. For `0<N<1`, `G_d(N)≤1` directly.
+
+For `N≥1`, handle zero or one counted point separately. Otherwise restrict the
+domain to the compact interval between the least and greatest integer abscissae
+of **all** counted points. Translate the left endpoint to zero by an integer.
+The interval is now in `[0,N]`; its graph's oscillation is at most `N`. Choose
+an integer nearest the midpoint of the range of `g` and subtract it. The new
+absolute height is at most `N/2+1/2≤N`. Both translations preserve the integer
+lattice, total polynomial degree, the top homogeneous part and absolute
+irreducibility. An arbitrary real translation would not preserve the counted
+lattice and must not be used.
+
+Restrictions to derivative-partition intervals admit the same argument after
+choosing their integer-point hulls. Empty or singleton pieces can simply be
+charged to an upper bound at least one. Below `N=1`, do **not** reuse the
+height-normalization inequality: stop with the elementary one-abscissa bound.
+This gives the hypotheses needed for the recurrence's strict small-scale base
+case, even when original or partition endpoints are not integers.
+
+### BP2. The Taylor argument and its dimensionless parameter
+
+Let `k≥1` be an integer, `A,N>0`, `a≤b`, and `g∈C^k([a,b])`. Suppose
+
+```text
+|g^(i)(x)| ≤ i! A^(i/k) N^(1−i)     (0≤i<k),
+|g^(k)(x)| ≥ k! A N^(1−k).
+```
+
+The degenerate interval is immediate. Otherwise Taylor's theorem at the two
+endpoints, followed by the triangle inequality, gives, for `l=b−a`,
+
+```text
+l^k A N^(1−k) ≤ Σ_(i=1)^(k−1) l^i A^(i/k) N^(1−i) + 2N.
+```
+
+Set `t=l A^(1/k)/N`, with a **positive** exponent on `A`. After dividing by
+`N`, the inequality is `t^k≤Σ_(i=1)^(k−1)t^i+2`. The exact identity
+
+```text
+t^k − Σ_(i=1)^(k−1)t^i − 2 = (t−2) Σ_(i=0)^(k−1)t^i
+```
+
+has a strictly positive right-hand sum for `t≥0`, so `t≤2`. Consequently
+`l≤2A^(−1/k)N`, as required. This also handles `k=1`, where the first sum is
+empty. The negative exponent in the source's definition of its dimensionless
+parameter is a misprint, not a change to the stated interval estimate.
+
+### BP3. Iteration with an explicit stopping index
+
+Suppose `G:(0,∞)→[0,∞)`, `α>0`, `H≥0`, `K≥1`, and `0<λ<1`, with
+
+```text
+K λ^α = 1/2,
+G(x) ≤ H x^α + K G(λx)        for x≥1,
+G(x) ≤ 1                      for 0<x<1.
+```
+
+Fix `N≥1` and let `m≥1` be the least integer for which `λ^m N<1`. Then
+`λ^(m−1)N≥1`, so `λ^mN≥λ`. Iterating exactly `m` times gives
+
+```text
+G(N) ≤ H N^α Σ_(j=0)^(m−1) 2^(−j) + K^m.
+```
+
+The remainder is controlled without hiding a scale-dependent constant:
+
+```text
+K^m = 2^(−m) λ^(−mα)
+    ≤ 2^(−m) λ^(−α) N^α
+    = 2^(1−m) K N^α
+    ≤ K N^α.
+```
+
+Thus `G(N)≤(2H+K)N^α≤2(H+K)N^α`. The strict inequality in the stopping
+condition matters when an iterate equals exactly one.
+
+### BP4. All constants in the determinant recurrence
+
+For integers `d≥2`, `δ≥2d`, use the source's restricted monomials. Their number
+and total degree sum are
+
+```text
+D = d(δ−d+1),
+p = d(δ(δ+1)−d(d−1))/2,
+α = 2p/(D(D−1)) = (δ+d)/(dδ−d²+d−1).
+```
+
+These formulas give `1/d≤α≤1/d+4/δ≤2` and `D≤dδ`. If `q` is the sum of
+their `Y`-degrees, then `0≤q≤p`, term by term. The source prints the reverse
+inequality immediately before using `A^q≤A^p`.
+
+Choose
+
+```text
+K = 2d^4δ²,       B = 2K = 4d^4δ²,
+λ = B^(−1/α),    A = (2/λ)^(D−1),
+X = (D^p A^q)^(2/(D(D−1))),
+H = 4d^5δ³ X.
+```
+
+Here `Kλ^α=1/2`, `A>1` and `X≥1`. When taking a maximum over all defining
+polynomials, use the worst case `q=p`, so `H` is genuinely uniform in the
+leading monomial; no coefficient-dependent parameter is concealed.
+
+For clarity, the already extracted derivative-partition argument has the
+following interface. There are at most `2d²(D−1)²≤K` intervals. On a piece
+where the derivatives through order `D−1` satisfy the scaled bound `A`, the
+auxiliary-curve/determinant estimate gives at most
+`dδ(XN^α+1)≤2dδ XN^α` points for `N≥1`. On a remaining piece, take the
+first derivative order `k` crossing its threshold. BP2, applied with parameter
+`A^(k/(D−1))`, bounds its length by
+`2 A^(−1/(D−1))N=λN`. Summing gives
+`G_d(N)≤H N^α+K G_d(λN)`. Shared endpoints may be counted twice in this
+upper bound; singular endpoints are not part of these smooth graph inputs.
+BP1 handles integer normalization and the exceptional zero/one-point cases.
+
+The numerical estimate for `H+K` is as follows. Since `X≤(DA)^α` and
+`K≤d^5δ³X`,
+
+```text
+H+K ≤ 5d^5δ³(DA)^α
+    = 5d^5δ³ D^α 2^(α(D−1)) B^(D−1)
+    ≤ 5d³δ³ (4B)^D.
+```
+
+For the last step use `D^α≤(dδ)²` and `2^(α(D−1))≤4^(D−1)`; the ratio
+of the resulting left side to the displayed right side is at most
+`d²(dδ)²/(4B)=1/16`. Next,
+
+```text
+5d³δ³ (4B)^D
+ ≤ 5d³δ³ (16d^4δ²)^(dδ)
+ ≤ (d^4δ^5)^(dδ)
+ ≤ 2^(−4dδ) δ^(9dδ)
+ ≤ δ^(9dδ)/2.
+```
+
+The middle absorption is explicit: `δ≥4`, so `δ³/16≥δ`; also `dδ≥8`
+and `d≤δ/2`, whence
+`5d³δ³≤(5/8)δ^6≤δ^8≤δ^(dδ)≤(δ³/16)^(dδ)`.
+The penultimate inequality uses `d^4≤δ^4/16`. BP3 now gives
+
+```text
+G_d(N) ≤ N^(1/d) exp(4 log(N)/δ + 9dδ log δ)       (N≥1).
+```
+
+This is an inequality chain in real arithmetic; the finite regressions below
+are checks on it, not its proof. The source-level determinant, proper Bézout
+and derivative-level-set suppliers are still explicit inputs, not newly
+formalized theorems asserted by this calculation.
+
+### BP5. Round down without changing the constant eleven
+
+Assume `N≥exp(d^6)`. Set
+
+```text
+L = log N,       ell = log L,
+S = sqrt(d L ell),
+x = 2 sqrt(L/(d ell)),
+δ = floor x.
+```
+
+First verify admissibility. We have `L≥d^6≥64` and `ell≥6 log d`.
+The function `L/log L` increases for `L>e`. At `L=d^6`, the inequality
+`d^6/(6 log d)≥d³` follows from `d³≥6 log d`; the latter follows from
+`log d≤d/2` and `d²≥3`. Hence `x≥2d≥4`, so `δ≥2d` and
+`δ≥x−1≥3x/4`.
+
+We also need `δ≥L^(1/4)`. It suffices that `(3/4)x≥L^(1/4)`, equivalently
+`sqrt L≥(4/9)d log L`. The function `sqrt L/log L` increases for `L>e²`.
+At the lower endpoint this reduces to `d²≥(8/3)log d`, again following from
+`log d≤d/2` and `d≥2`. Thus `log δ≥ell/4`.
+
+Let `E(t)=4L/t+9dt log t`. For `δ≤t≤x`,
+
+```text
+E'(t) = −4L/t² + 9d(log t+1)
+      ≥ −(16/9)d ell + (9/4)d ell + 9d
+      = (17/36)d ell + 9d > 0.
+```
+
+Therefore rounding down cannot increase this objective:
+
+```text
+E(δ) ≤ E(x)
+     = S [11 + (9/ell) log(4/(d ell))]
+     ≤ 11S,
+```
+
+because `d ell≥12 log 2>4`. This supplies an **integer** monomial cutoff
+at the original threshold and preserves the exact constant 11. It is not an
+asymptotic claim about a negligible rounding error. Combining with BP4 proves
+the stated graph bound, conditional on its extracted proof suppliers.
+
+### BP6. Include singularities and boundaries without an endpoint shortcut
+
+Let `F∈R[X,Y]` be absolutely irreducible of total degree `d≥2`. Work in the
+closed square `[0,N]²`, `N>0`. The three polynomials
+
+```text
+F_Y,        F_X+F_Y,        F_X−F_Y
+```
+
+are nonzero and have degree at most `d−1`. Indeed, a zero constant-directional
+derivative in characteristic zero would make `F` a polynomial in a single
+linear coordinate; over `C` that is incompatible with absolute irreducibility
+and `d≥2`. Thus none shares a component with `F`. Proper Bézout bounds their
+union of intersections with `F` by `3d(d−1)` points. This set contains every
+singular point. Add the intersections with the two horizontal lines `Y=0,N`,
+at most `2d` points, since neither line can be a component.
+
+Write `Q=3d(d−1)+2d`. Cut the horizontal axis at the interior abscissae of
+these points and at `0,N`. There are at most `Q+1` open vertical strips. In
+a strip, all curve points inside the square have `F_Y≠0`. The real roots in
+`0<Y<N` are simple and cannot cross one another or the horizontal boundary.
+The implicit-function theorem, ordering the roots, and continuation therefore
+give at most `d` analytic root graphs across that strip. Continuation uses the
+bounded height interval: a branch cannot escape to infinity, and any finite
+limit either remains a simple interior root or hits an excluded critical or
+boundary abscissa. This explains the compactness step; it does not pretend a
+source declaration for it has already been matched at the pin.
+
+On each connected graph the slope cannot equal `1` or `−1`. Hence it is
+either always between `−1` and `1`, or is always greater than `1`, or always
+less than `−1`. In the latter two cases the graph is strictly monotone;
+exchange the axes and use the inverse-function theorem. Its inverse slope has
+absolute value less than one and the swapped polynomial retains degree and
+absolute irreducibility.
+
+Do **not** assert smooth extension at the open strip's endpoints. Instead,
+its integer points are finite. With at least two, restrict the chosen smooth
+graph to the closed interval from the first to last of these points in the
+chosen independent coordinate. This lies strictly inside the branch's domain,
+so the restricted function is smooth on a neighbourhood. A one-point branch
+is a singleton; an empty branch contributes nothing. The result covers the
+finite integral-point set, rather than all of the original real curve.
+
+At every critical or boundary vertical fiber, `F(t,Y)` is not the zero
+polynomial: otherwise `X−t` divides `F`. Each such fiber contributes at most
+`d` points. Thus a cover using graphs or singletons has size at most
+
+```text
+d(Q+1) + d(Q+2) = 6d³−2d²+3d ≤ 8d³.
+```
+
+For `N≥exp(d^6)`, `log(8d³)≤S`. One direct check is
+`log(8d³)=3log2+3log d≤3d≤d³≤S`; the last inequality follows from
+`S²≥6d^7 log d≥d^6`. Charge each singleton to the graph bound (which is at
+least one) and apply BP5 to every remaining piece. The total is at most
+
+```text
+8d³ N^(1/d) exp(11S) ≤ N^(1/d) exp(12S).
+```
+
+This includes singular integral points, points on critical fibers, and the
+square's boundary. The `8d³` count is an explicit replacement sufficient for
+this theorem, **not** verification of the stronger original `O(d²)` whole-curve
+claim, which remains separately identified in `bp-arc-decomposition`.
+
+### BP7. Four source-issue records, with version and verification limits
+
+The proposed result has `sourceIssues` E1–E4 with the protocol's fields. E1 is the
+incorrect exponent in the dimensionless Taylor parameter; E2 is the reversed
+comparison between monomial degree sums; E3 is the unprovided integer-rounding
+argument. These concern the Oxford Bombieri–Pila author preprint and affect
+the proof, not a changed statement of its final bound.
+
+E4 concerns the February 2017 BSTTTZ author copy, printed p.4. A complex disc
+of radius `R_v` contributes `pi R_v²`, not `sqrt(pi) R_v`. The displayed
+factor must be squared as a whole. For `K=Q(i)`, `I=O_K`, `alpha=1`, the
+radius is `sqrt(2)` and the actual area is `2pi`. The printed `sqrt(2pi)`
+is below the ordinary-lattice Minkowski threshold four, whereas the correct
+area is above it. For signature `(r,s)` the correct volume is
+`2^r pi^s sqrt(D_K)/N(I)`, already used in the inherited balanced-body item.
+No change to that item's route or theorem is needed.
+
+The recorded searches were for `Bombieri Pila "arcs and ovals" erratum`,
+`"Bombieri" "Pila" "Since p"`, and
+`"Bounds on 2-torsion in class groups" corrigendum`, alongside the actual
+source-page readings. They did not locate an existing correction. Attempted
+AMS final-text retrieval and author publication pages did not supply the final
+revision. Consequently `known: new` in the structured records denotes only
+this documented search outcome, **not** a claim of priority or a claim that
+the errors survive in every published version. The records themselves still
+need independent verification. No author was contacted, and the broader source
+issue inventory in G10 is not complete merely because four entries now exist.
+
+### BP8. Machine integration, checks and the remaining closure boundary
+
+Five theorem entries, all missing and routed only to the existing determinant
+candidate, are specified by the integration patch:
+
+```text
+bp-integer-normalization
+bp-contraction-iteration
+bp-recurrence-constants
+bp-integer-optimization
+bp-explicit-graph-cover
+```
+
+All 119 inherited IDs are retained. Only four inherited missing-item objects
+are changed: `bombieri-pila-explicit`, `bp-large-derivative-interval`,
+`bp-graph-count`, and `bp-arc-decomposition`. Every inherited library/planned
+item object is unchanged. The locally constructed proposed extraction has **124 items: 22 library, eight
+planned and 94 missing**. Six routes take **87 missing items exactly once**;
+seven explicit diagnostic items remain unrouted. The 33 definition/construction
+entries retain their API outlines and at least three tests. The previous
+verification object is preserved verbatim in `verificationHistory`, and
+original pins, prerequisites and source-file hashes remain unchanged.
+
+Both complete baseline files were reconstructed locally and verified by their
+Git blob hashes before editing: result
+`ceec6960b756d275354f00c58e429cf0e498c583`, report
+`48f7b052bab8574c85fc0ef4d6ddb467fa56edc1`. The integration script preserves the complete prior report as historical
+text and appends this supplement; its top notice distinguishes the new
+integration from the earlier 110-item/pending-synchronization notices.
+
+Local checks covered UTF-8/JSON parsing, ID preservation, the four-item change
+boundary, unchanged library/planned objects, source/pin/prerequisite and
+verification preservation, route uniqueness, explicitly unrouted diagnostics,
+definition API/tests, and the source-issue schema. The script below was actually
+run and passed: **19,720** exact restricted-monomial cases; Taylor identities for
+`k=1..30`; cover counts for `d=2..300`; **1,188** high-precision threshold and
+floor-jump tests; and **348** recurrence-constant chains. Its largest tested
+`E(delta)/S` was approximately `9.8990730442`, below 11. These regressions are
+not proofs of the universal inequalities or of any analytic/geometric input.
+
+The unmodified full-catalogue `scripts/check_paper.py` and intake `check-files`
+were **not run locally**: no complete clone/catalogue was available. The actual
+Swarm submission workflow runs both against the repository; its real result
+must be read and recorded in the PR discussion. Local tests are not a substitute
+for that workflow. No Lean file was requested, produced or compiled.
+
+After machine integration, G7 is narrowed to exact generic supplier matching,
+formal proof-interior closure and independent checking; the integer-parameter
+and constant arguments are supplied here, not left unwritten. G0 and G1–G6/G8–G10 retain their separate obligations.
+In particular this checkpoint does not complete the paper, acquire the final
+publisher text, verify every previous diagnostic, or prove the stronger
+whole-curve decomposition. Source reading, a written replacement argument,
+finite tests, successful structural CI and independent acceptance are different
+things and must remain so in the next handoff.
+
+#### Reproducible regression script
+
+```python
+"""Finite regression checks; not proofs or Lean elaboration."""
+from fractions import Fraction as Q
+import math
+import mpmath as mp
+mp.mp.dps = 80
+
+# Exact restricted-monomial combinatorics and exponent inequalities.
+count = 0
+for d in range(2, 31):
+    for delta in range(2*d, 2*d+40):
+        D = d * (delta-d+1)
+        p = Q(d * (delta*(delta+1)-d*(d-1)), 2)
+        alpha = 2*p/(D*(D-1))
+        assert p.denominator == 1
+        assert Q(1,d) <= alpha <= Q(1,d)+Q(4,delta) <= 2
+        assert D <= d*delta
+        for leading_y in range(d+1):
+            leading_x = d-leading_y
+            M = [(a,b) for a in range(delta+1) for b in range(delta+1-a)
+                 if d <= a+b and not (a >= leading_x and b >= leading_y)]
+            assert len(M) == D
+            assert sum(a+b for a,b in M) == p
+            q = sum(b for a,b in M)
+            assert 0 <= q <= p
+            count += 1
+
+# Exact Taylor polynomial identity and explicit curve-piece count.
+for k in range(1, 31):
+    for t in [Q(0), Q(1,3), Q(1), Q(2), Q(7,3), Q(10)]:
+        assert t**k-sum(t**i for i in range(1,k))-2 == (t-2)*sum(t**i for i in range(k))
+for d in range(2, 301):
+    qcrit = 3*d*(d-1)+2*d
+    pieces = d*(qcrit+1) + d*(qcrit+2)
+    assert pieces <= 8*d**3
+
+# High-precision tests at threshold and near floor jumps. Logarithmic domain avoids enormous N.
+rounding_tests=0
+largest_ratio=mp.mpf(0)
+for d in range(2,101):
+    logs=[mp.mpf(d)**6 * factor for factor in (1, mp.mpf('1.000001'), 2, 10, 100, 10**6)]
+    # Solve x(L)=j for the first few admissible j and test both sides of the jump.
+    L0=mp.mpf(d)**6
+    x0=2*mp.sqrt(L0/(d*mp.log(L0)))
+    for j in range(int(mp.floor(x0))+1, int(mp.floor(x0))+4):
+        target=mp.mpf(j)**2*d/4
+        L=mp.findroot(lambda z:z/mp.log(z)-target,(L0,2*L0))
+        assert L>=L0
+        logs.extend([L*(1-mp.mpf('1e-40')), L*(1+mp.mpf('1e-40'))])
+    for L in logs:
+        ell=mp.log(L); x=2*mp.sqrt(L/(d*ell)); delta=mp.floor(x)
+        S=mp.sqrt(d*L*ell)
+        E=lambda t:4*L/t+9*d*t*mp.log(t)
+        assert delta >= 2*d
+        assert delta >= mp.mpf(3)*x/4
+        assert delta >= mp.root(L,4)
+        assert E(delta) <= E(x)*(1+mp.mpf('1e-60'))
+        assert E(delta) <= 11*S
+        assert mp.log(8*d**3) <= S
+        largest_ratio=max(largest_ratio,E(delta)/S)
+        rounding_tests+=1
+
+# Evaluate all constant-chain steps in log coordinates, avoiding overflow.
+constant_tests=0
+for d in range(2,31):
+    for delta in (2*d,2*d+1,3*d,10*d):
+        D=d*(delta-d+1); p=mp.mpf(d)*(delta*(delta+1)-d*(d-1))/2
+        alpha=2*p/(D*(D-1)); B=mp.mpf(4)*d**4*delta**2
+        logA=(D-1)*(mp.log(2)+mp.log(B)/alpha)
+        K=2*d**4*delta**2
+        for q in (mp.mpf(0),p/2,p):
+            logH=mp.log(4*d**5*delta**3)+2*(p*mp.log(D)+q*logA)/(D*(D-1))
+            logHK=logH+mp.log1p(mp.exp(mp.log(K)-logH))
+            bounds=[mp.log(5*d**5*delta**3)+alpha*(mp.log(D)+logA),
+                    mp.log(5*d**3*delta**3)+D*mp.log(16*d**4*delta**2),
+                    d*delta*mp.log(d**4*delta**5),
+                    -mp.log(2)+9*d*delta*mp.log(delta)]
+            prev=logHK
+            for nxt in bounds:
+                assert prev <= nxt
+                prev=nxt
+            constant_tests+=1
+print(f'PASS: {count} exact monomial cases; Taylor identity k=1..30; arc count d=2..300')
+print(f'PASS: {rounding_tests} high-precision threshold/floor-jump tests; max E(delta)/S={mp.nstr(largest_ratio,12)} < 11')
+print(f'PASS: {constant_tests} high-precision H+K chains')
+
+```
+
+
+---
+
+## Seventh checkpoint: integrated proof supplement and exact generic suppliers
+
+Author: Codex, `codex-a71f92`, 22 September 2026. Continues issue #1420 and
+the handoff-only proof checkpoint #1817. This is partial, unreviewed extraction
+work. No Lean file was compiled.
+
+### What changed, and what did not
+
+The four replacement items and five new missing theorem nodes in #1817's
+guarded patch are now in the result JSON. All 119 earlier IDs, the 22 inherited
+library objects, eight planned objects, source hashes, pins and earlier
+verification records are retained. The entire earlier report is retained
+above, followed by the sixth-checkpoint supplement with its authorship. The
+five new library nodes are *generic suppliers*, not implementations of the
+Bombieri–Pila theorems.
+
+There are now 129 items (27 library, 8 planned, 94 missing), six routes,
+87 missing targets routed exactly once and seven deliberately unrouted
+diagnostic targets. All 33 definition/construction items retain their API and
+test notes. The selected G7 graph records 17 supplier/consumer edges; it is
+not a complete dependency graph of the entire paper. No new roadmap owner
+is proposed: determinant methods retains its inherited candidate;
+intersection theory remains with SF.5 and generic basis reduction with GN.5.
+
+### Fresh source checks
+
+The [Taniguchi author PDF](https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf)
+was downloaded afresh, read through all 13 pages including references, and
+p.4 was visually checked. SHA-256:
+`bba54fd02aadec75b51f2cdbb312c702c06f44384e45a7ec57832704e4e106ec`.
+
+The [Oxford Bombieri–Pila PDF](https://people.maths.ox.ac.uk/pila/Ovals.pdf)
+was downloaded afresh; pp.1–6 and all of §3, pp.10–17, were read, and pp.14,17
+were visually checked. SHA-256:
+`a46f75e55ddc055050f7924dbea2e5c5655aee32e5e15091eff74d3fc2bbe408`.
+These match the inherited records. The remaining BP sections were not read
+in this checkpoint.
+
+The displayed exponent in Lemma 7 and the direction of the p,q inequality
+are as recorded in E1,E2. E3 concerns the integer admissibility of the
+chosen cutoff, not a counterexample to Theorem 4. The missing square in the
+main p.4 complex-place volume display is also visible. E1–E4 and their
+limited novelty-search history originate with #1817; this worker checked
+the displayed formulas and correction arguments, but did not conduct an
+independent errata review or repeat all those searches. No `review` verdict
+is added.
+
+Public AMS final-PDF access again failed, and the public author pages did not
+supply a verified final revision. G0 remains: no claim here about the
+typography or mathematical agreement of the revised/published 2020 article.
+
+### Exact supplier interfaces at the prescribed Mathlib pin
+
+All five statements below were read in the source tree at
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. The generic endpoints are already
+implemented; the named consuming adapters are not claimed implemented.
+
+| JSON item suffix | Exact declaration(s) | Consumer and remaining adaptation |
+| --- | --- | --- |
+| `bp-taylor-supplier` | [`taylor_mean_remainder_lagrange_iteratedDeriv`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/Taylor.lean#L348) | BP2 uses n=k−1 on unequal endpoints. Convert the Taylor-within coefficients to ordinary derivatives under neighbourhood smoothness; handle equal endpoints separately. The generic remainder does not prove the scaled inequality. |
+| `bp-interpolation-supplier` | [`Lagrange.eval_interpolate_at_node`, `degree_interpolate_lt`, `eq_interpolate_iff`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Lagrange.lean#L320) | Interpolate at distinct abscissae. Existence/uniqueness does not itself give the repeated-Rolle derivative witnesses or factorial bounds in the derivative determinant estimate. |
+| `bp-vandermonde-supplier` | [`Matrix.det_vandermonde`, `det_vandermonde_ne_zero_iff`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Vandermonde.lean#L219) | Gives the product of differences and the distinct-node criterion, not the analytic bound on the evaluation determinant. |
+| `bp-finite-root-supplier` | [`Polynomial.eq_zero_of_natDegree_lt_card_of_eval_eq_zero`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Polynomial/Roots.lean#L740) | Contraposition bounds each finite set of roots of a *nonzero* specialization. Still prove F(a,Y)≠0 and natDegree≤d, and exclude identically constant derivative-level equations in polynomial branches. |
+| `bp-mean-value-supplier` | [`Convex.norm_image_sub_le_of_norm_deriv_le`](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Calculus/MeanValue.lean#L728) | BP1 specializes to real functions, C=1 and a compact interval. Neighbourhood smoothness supplies endpoint differentiability. Compact range extrema and nearest-integer translation are separate inputs. |
+
+These distinctions matter at the edge cases. Empty interpolation has
+polynomial degree bottom, not natural degree less than zero. Repeated
+abscissae violate the interpolation hypothesis. The zero polynomial vanishes
+everywhere even though its stored root multiset is empty. A complex or real
+mean-value norm bound requires actual differentiability at the endpoints
+in the cited version. No wrapper definition or duplicate generic roadmap is
+needed for any of these suppliers.
+
+### Proof audit boundaries
+
+BP1's interval must be restricted to the hull of integer abscissae and
+translated by integers. Its range diameter is at most N, and translating by
+the integer nearest the range midpoint bounds absolute height by
+N/2+1/2≤N for N≥1. This is why an arbitrary real translation is not harmless.
+
+In BP3 use the *least* m with λ^m N<1. Then λ^m N≥λ and
+K^m=2^(−m)λ^(−mα)≤2^(1−m)K N^α≤K N^α.
+The non-strict stopping condition would mishandle an endpoint at lattice scale.
+
+In BP4, q is the sum of Y-exponents and p the sum of total degrees, so q≤p.
+Taking q=p supplies constants uniform in the leading monomial. In BP5,
+δ=floor(x) is admissible and E is increasing on [δ,x]; the floor bound is
+proved in the preceding supplement, not extrapolated from numerical tests.
+
+BP6 covers finitely many integer points, not the stronger original O(d²)
+whole-curve decomposition. Bézout cuts, root simplicity, continuation within
+each open strip and inversion of steep branches remain real proof interfaces.
+In particular, no smooth extension through a singular endpoint is inferred
+from the local implicit function theorem: take the compact hull of the finite
+integer-point set inside each smooth branch. The degree-root supplier covers
+only the fiber count, not this continuation argument.
+
+The relevant SF.5 and GN.0/GN.1/GN.5 entries of the reviewed library coverage
+were read, together with the full SF, GN and completed EffectiveBounds
+roadmaps. The audit's partial intersection infrastructure is not an exact
+Bézout declaration. The inherited catalogue-wide ownership screen is not
+claimed freshly repeated for unrelated routes.
+
+### Validation
+
+The reproducible script in the sixth-checkpoint supplement was rerun with
+Python and mpmath 1.3.0 at 80 decimal digits. It passed:
+
+- 19,720 exact restricted-monomial cases.
+- Taylor identities for k=1,…,30 and the piece-count inequality for d=2,…,300.
+- 1,188 threshold/floor-jump cases; largest sampled E(δ)/S was 9.8990730442.
+- 348 H+K constant-chain cases.
+
+These tests are regression evidence, not proofs. The full-catalogue check
+was run against repository snapshot
+`a527ccdb2a6c6ae0a1971482ca9cfa4dd9b005f7`, using its complete
+`data/atlas.json` and proposed-roadmap catalogue, not empty lookup tables:
+
+```text
+python3 scripts/check_paper.py research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json
+research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json: ok
+
+python3 research/blueprint/intake.py check-files [the result, report and handoff]
+3 file(s), 0 problem(s)
+```
+
+Custom preservation checks also passed: both baseline blob hashes; all 119
+inherited IDs; exactly the four permitted replacements; all 30 inherited
+library/planned objects unchanged; original source files, pins and
+prerequisites unchanged; earlier verification retained; full historical
+report contiguous; counts 129 and 27/8/94; six routes with 87 missing targets
+routed once and seven diagnostics withheld; 33 unchanged definition/API/test
+notes; 17 selected edges with valid endpoints and no cycle; four source
+issues with no invented review verdict. The inherited prerequisite `why`
+text remains historical; the current G7 detail supersedes its earlier
+rounding-status sentence.
+
+No Lean elaboration or independent review is claimed. G0 and the unresolved
+parts of G1–G10 remain explicit. Passing repository checks does not establish
+mathematical completeness.
