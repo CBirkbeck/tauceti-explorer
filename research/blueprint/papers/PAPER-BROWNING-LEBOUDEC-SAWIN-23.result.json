@@ -1,0 +1,2503 @@
+{
+  "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "agent": "Codex — codex-a71f92",
+  "source": {
+    "title": "The Hasse principle for random Fano hypersurfaces",
+    "authors": "Tim Browning, Pierre Le Boudec and Will Sawin",
+    "venue": "Annals of Mathematics 197 (2023), 1115–1203",
+    "doi": "10.4007/annals.2023.197.3.3",
+    "arxiv": "2006.02356v1",
+    "url": "https://arxiv.org/pdf/2006.02356v1",
+    "version": "arXiv v1, 3 June 2020, 66 pages; not the 89-page published text",
+    "sha256": "210c746b6b69d466d19a0a90e8f00ca57bf2d4dfb1818b0a9955fe91ae061efb",
+    "accessed": "2026-09-22",
+    "readSections": [
+      "§1 pp.1–3",
+      "§2 pp.4–7",
+      "§3.1–3.5 pp.7–26",
+      "§4.1–4.6 pp.26–50",
+      "§5.1–5.3 pp.50–65",
+      "References pp.65–66"
+    ],
+    "versionCheck": "Journal landing page, ISTA record and all three author pages identify this title/authorship and main theorem. arXiv lists only v1. No published PDF was obtained; proof-by-proof equivalence with the revised 22 July 2022 text is NOT established. Source findings apply only to v1."
+  },
+  "summary": "Full-read preprint checkpoint: density-one Hasse principle except cubic surfaces and sharp typical least-point height, with the lattice, variance and local-factor proof interfaces. Reuse basic lattice/covolume and homogeneous-polynomial carriers; supply quantitative lattice estimates to GN, family/local-density interfaces to ST, and extend Heights by a Part II for random Fano hypersurfaces. Publication reconciliation and complete original-source/dependency closure remain open; this is not complete or formalised.",
+  "conventions": {
+    "parameters": "Unless an item gives different hypotheses, d,n are integers, 2≤d≤n; N=N(d,n)=binomial(n+d,d); all vector norms are Euclidean. V(A) is the projective coefficient family from family; local means at every place including infinity. Every asymptotic statement is for sufficiently large positive A/B and fixed d,n; implied constants depend on d,n unless explicitly stated otherwise.",
+    "lattices": "Covolumes are taken in the real span with its induced Euclidean measure, not ambient N-dimensional measure. Primitive integral lattice means saturated in Z^N; primitive vector means gcd of coordinates 1. Quotients of lattices in this extraction are orthogonal-projection lattices, not an unembedded abstract quotient.",
+    "symbols": "nu is the unweighted lexicographic monomial vector, Lambda_c its integer orthogonal kernel, G the positive gcd of maximal minors, d_r the minimum covolume of a containing rank-r integral lattice. V_R is the volume of the Euclidean unit ball. L(D)=log(2D) in corrected endpoint-uniform statements.",
+    "planning": "All api/unitTests and suggested Lean modules are proposals, not compiled declarations. Library declarations are named only when their statements were opened at the specified pins."
+  },
+  "items": [
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/family",
+      "kind": "definition",
+      "name": "Coefficient family and Euclidean height",
+      "statement": "N=binomial(n+d,d); V_{d,n}=P^{N-1}(Q). Each V has primitive integral coefficient vectors ±a_V; h(V)=||a_V||. For real A≥1 put V(A)={V:h(V)≤A}. This counts embedded equations up to scalar, not Q-isomorphism classes.",
+      "locator": "arXiv v1, §1 p.1",
+      "status": "missing",
+      "owner": "ST0",
+      "api": [
+        "primitive representatives differ by sign",
+        "height_neg",
+        "finite_height_ball"
+      ],
+      "unitTests": [
+        "A=1 gives N coordinate monomial equations",
+        "±a count once"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local",
+      "kind": "definition",
+      "name": "Everywhere locally soluble family",
+      "statement": "V^loc={V:V(A_Q)≠∅}, with V^loc(A)=V^loc∩V(A). For a projective hypersurface this is equivalent to nontrivial zeros over R and every Q_p.",
+      "locator": "arXiv v1, §1 p.2 (1.1)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "api": [
+        "rational_implies_local",
+        "sign_invariant",
+        "projective_local_equivalence"
+      ],
+      "unitTests": [
+        "x_0^2+...+x_n^2 has no real point",
+        "retain the real place"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/density",
+      "kind": "definition",
+      "name": "Global and local density ratios",
+      "statement": "rho(A)=#{V∈V(A):V(Q)≠∅}/#V(A); rho^loc=lim_{A→∞}#V^loc(A)/#V(A) when the limit exists. The denominator counts all coefficient classes.",
+      "locator": "arXiv v1, §1 pp.1–2",
+      "status": "missing",
+      "owner": "ST0",
+      "api": [
+        "denominator_pos",
+        "ratio_between_zero_one",
+        "finite_changes_preserve_limit"
+      ],
+      "unitTests": [
+        "local density zero does not justify dividing by #V^loc(A) asymptotically"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/height",
+      "kind": "definition",
+      "name": "Anticanonical point height",
+      "statement": "For x∈P^n(Q), choose primitive x_Z∈Z^{n+1}; H(x)=||x_Z||^{n+1-d}. This is well-defined because the two choices are ±x_Z and n+1-d≥1.",
+      "locator": "arXiv v1, §2 p.4 (2.1)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "height_neg",
+        "finite_sublevel",
+        "height_eq_norm_rpow"
+      ],
+      "unitTests": [
+        "H(e_0)=1",
+        "d=n leaves exponent 1"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/count",
+      "kind": "definition",
+      "name": "Rational point counting function",
+      "statement": "For B>0 let N_V(B)=#{x∈V(Q):H(x)≤B}. This is a finite nonnegative integer.",
+      "locator": "arXiv v1, §2 p.4 (2.2)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "count_mono",
+        "count_pos_iff",
+        "count_sign_quotient"
+      ],
+      "unitTests": [
+        "N_V(B)=0 for B<1",
+        "a known coordinate point contributes once"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/kernel",
+      "kind": "definition",
+      "name": "Integer orthogonal kernel",
+      "statement": "For N≥1 and c∈Z^N let Lambda_c={y∈Z^N:<c,y>=0}. It is a saturated integral lattice; for c≠0 its rank is N−1.",
+      "locator": "arXiv v1, §2 p.4 (2.3)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "mem_kernel",
+        "kernel_neg",
+        "saturated",
+        "rank_nonzero"
+      ],
+      "unitTests": [
+        "c=0 has rank N, not N−1",
+        "c=(2,0) has same kernel as (1,0)"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese",
+      "kind": "construction",
+      "name": "Unweighted monomial evaluation vector",
+      "statement": "For integers d,n≥1, nu_{d,n}:R^{n+1}→R^N lists every degree-d monomial once in lexicographic order, with no multinomial square-root weights. For a coefficient vector a, f_a(x)=<a,nu(x)>.",
+      "locator": "arXiv v1, Def.2.1 p.4; Def.3.10 p.12",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "eval_pairing",
+        "scale_degree",
+        "primitive_image",
+        "norm_comparison"
+      ],
+      "unitTests": [
+        "d=2,n=1 gives (x0²,x0*x1,x1²)",
+        "||nu(1,1)||²=3, not 4"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/xi",
+      "kind": "definition",
+      "name": "Primitive height ball",
+      "statement": "Xi_{d,n}(B)={x∈Z_prim^{n+1}:||x||≤B^{1/(n+1-d)}}.",
+      "locator": "arXiv v1, §2 p.4 (2.5)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "xi_finite",
+        "xi_neg",
+        "xi_height_equiv"
+      ],
+      "unitTests": [
+        "no zero vector",
+        "each projective point has two lifts"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/incidence",
+      "kind": "theorem",
+      "name": "Incidence double counting",
+      "statement": "For V∈V_{d,n} and B>0, N_V(B)=(1/2) sum_{x∈Xi(B), a_V∈Lambda_{nu(x)}}1.",
+      "locator": "arXiv v1, §2 p.4 (2.4)",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/cone",
+      "kind": "definition",
+      "name": "Homogeneous angular band",
+      "statement": "For N≥1, gamma>0 and v∈R^N, C_v^(gamma)={t:|<v,t>|≤||v|| ||t||/(2gamma)}.",
+      "locator": "arXiv v1, §2 p.4 (2.6)",
+      "status": "missing",
+      "owner": "GN4",
+      "api": [
+        "cone_scale_v",
+        "cone_scale_t",
+        "closed_measurable",
+        "gamma_antitone"
+      ],
+      "unitTests": [
+        "v=0 gives all R^N",
+        "gamma≤1/2 gives all R^N"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence",
+      "kind": "definition",
+      "name": "Congruence kernel lattice",
+      "statement": "For positive integer Q and c∈Z^N, Lambda_c^(Q)={y∈Z^N:<c,y>≡0 mod Q}. This has full rank, unlike Lambda_c for nonzero c.",
+      "locator": "arXiv v1, §2 p.4 (2.7)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "congruence_mem",
+        "Q_mul_subset",
+        "modulus_divisibility",
+        "Q_one"
+      ],
+      "unitTests": [
+        "Q=1 gives Z^N",
+        "do not claim this lattice saturated"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/alpha",
+      "kind": "definition",
+      "name": "Archimedean scale",
+      "statement": "For B sufficiently large define alpha(B)=log B>0.",
+      "locator": "arXiv v1, §2 p.4 (2.8)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "alpha_pos",
+        "alpha_tendsto"
+      ],
+      "unitTests": [
+        "restrict away from B≤1"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/w",
+      "kind": "definition",
+      "name": "Prime cutoff",
+      "statement": "For B sufficiently large define w(B)=log B/log log B.",
+      "locator": "arXiv v1, §2 p.4 (2.10)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "w_pos",
+        "w_tendsto"
+      ],
+      "unitTests": [
+        "do not evaluate at B=e"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W",
+      "kind": "definition",
+      "name": "Growing highly divisible modulus",
+      "statement": "For w=w(B)>1, W(B)=product_{p prime,p≤w} p^{ceil(log w/log p)+1}; rad(W)=product_{p≤w}p.",
+      "locator": "arXiv v1, §2 p.4 (2.9)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "valuation_W",
+        "squarefree_small_divides_W",
+        "not_dvd_implies_gt_w"
+      ],
+      "unitTests": [
+        "at w=p the exponent is 2",
+        "each squarefree ell≤w divides W"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W-bound",
+      "kind": "theorem",
+      "name": "Size of the smoothing modulus",
+      "statement": "As B→∞, log W(B)~3w(B), hence W(B)≪B^{4/log log B}. The prime number theorem is used.",
+      "locator": "arXiv v1, §2 p.5 (2.12)",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/localized",
+      "kind": "definition",
+      "name": "Localized point count",
+      "statement": "N_V^loc(B)=alpha(B)W(B)/(2||a_V||) times sum of 1/||nu(x)|| over x∈Xi(B) satisfying a_V∈Lambda_{nu(x)}^(W)∩C_{nu(x)}^(alpha).",
+      "locator": "arXiv v1, §2 p.5 (2.11)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "localized_nonneg",
+        "localized_sign_invariant",
+        "finite_weighted_sum",
+        "localized_conditions"
+      ],
+      "unitTests": [
+        "do not identify with the infinite singular series",
+        "rational counts and localized counts need not be equal"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minimum",
+      "kind": "definition",
+      "name": "Least rational-point height",
+      "statement": "M(V)=min_{x∈V(Q)}H(x) if V(Q)≠∅ and M(V)=+∞ otherwise, in the extended nonnegative reals.",
+      "locator": "arXiv v1, §2 p.5",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "minimum_attained_if_soluble",
+        "minimum_le_iff_count_pos",
+        "minimum_infty_iff"
+      ],
+      "unitTests": [
+        "empty rational locus has infinity, not zero"
+      ],
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/main-density",
+      "kind": "theorem",
+      "name": "Density-one Hasse principle",
+      "statement": "For d≥2, n≥d and (d,n)≠(3,3), lim_{A→∞}rho_{d,n}(A)=rho^loc_{d,n}. In particular the density of locally soluble but insoluble equations among all V(A) is zero.",
+      "locator": "arXiv v1, Thm.1.1 pp.2–3",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-upper",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hasse-minkowski"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "The least-height theorem gives the global lower density rho^loc; rational solubility is contained in local solubility, giving the upper bound. Conics are separately Hasse–Minkowski."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/positive",
+      "kind": "theorem",
+      "name": "Positive proportion with rational points",
+      "statement": "For d≥2, n≥d and (d,n)≠(2,2), liminf_{A→∞}rho_{d,n}(A)>0. This includes cubic surfaces but does not assert their density-one Hasse principle.",
+      "locator": "arXiv v1, Cor.1.2 p.3",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/main-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Outside cubic surfaces use positive local density and Thm.1.1. For cubic surfaces restrict to a coordinate plane and use Bhargava's positive-solubility proportion for plane cubics, with a coefficient-box/ball transfer. This external branch is not yet represented by a standalone item; G5."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-upper",
+      "kind": "theorem",
+      "name": "Almost sure least-point upper scale",
+      "statement": "For d≥2, n≥d, (d,n)≠(3,3), and any psi:R_{>0}→R_{>0} with psi(u)/u→∞, the ratio #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A) tends to rho^loc_{d,n}. No monotonicity of psi is assumed.",
+      "locator": "arXiv v1, Thm.2.2 p.5",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-apart",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-small",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Use dyadic coefficient shells and choose a slowly growing phi bounded by (log A)^(1/2) and by the tail infimum of psi(u)/u on each shell. Outside the discrepancy and small-local-count exceptions there is a rational point. Let the discarded bounded-height range vanish. This avoids an unjustified monotonicity assumption on psi."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-two-sided",
+      "kind": "theorem",
+      "name": "Optimal typical least-point scale",
+      "statement": "For d≥2, n≥d and (d,n) outside {(2,2),(3,3)}, any xi:R_{>0}→R_{>0} tending to infinity satisfies 1/xi(||a_V||)<M(V)/||a_V||≤xi(||a_V||) for density one of V^loc, ordered by ||a_V||. Uses Le Boudec Thm.1 as well as Thm.2.2.",
+      "locator": "arXiv v1, §2 p.5 after Thm.2.2",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-upper",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Intersect the density-one lower-scale result of Le Boudec with the upper-scale theorem, then divide by the positive local density. Exclude conics because their local density is zero."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-apart",
+      "kind": "theorem",
+      "name": "Global/localized discrepancy tail",
+      "statement": "For d≥2,n≥d excluding (2,2),(3,3), and phi:R_{>0}→R_{>1} with phi(A)≤(log A)^{1/2} for sufficiently large A, #{V∈V(A):|N_V(Aphi(A))−N_V^loc(Aphi(A))|>phi(A)^{2/3}}/#V(A)≪phi(A)^{−1/3}.",
+      "locator": "arXiv v1, Prop.2.3 p.6",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/variance"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Apply Chebyshev to Prop.4.1 with B=A phi(A) and threshold phi(A)^(2/3), giving phi/phi^(4/3)=phi^(−1/3)."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-small",
+      "kind": "theorem",
+      "name": "Localized count lower tail",
+      "statement": "For d≥2,n≥d excluding (2,2), and phi:R_{>0}→R_{>1} with phi(A)≤A^{3/n} for sufficiently large A, #{V∈V^loc(A):N_V^loc(Aphi(A))≤phi(A)^{2/3}}/#V^loc(A)≪phi(A)^{−1/(24n)}.",
+      "locator": "arXiv v1, Prop.2.4 p.6",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/factor-comparison",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/p-tail",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-tail"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Lemma 5.1 makes the product of finite and real factors small when the localized count is small. Split at phi^(−1/6), apply Propositions 5.2–5.3, and treat parameter ranges with constants. G2 is required for local-family normalization."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quantitative",
+      "kind": "theorem",
+      "name": "Logarithmic exceptional-set estimate",
+      "statement": "For d≥2,n≥d excluding (3,3), #{V∈V^loc(A):V(Q)=∅}/#V(A)≪(log A)^{−1/(48n)}. For (2,2), use Hasse–Minkowski; for the other cases choose phi(A)=(log A)^{1/2} in Propositions 2.3–2.4.",
+      "locator": "arXiv v1, §1 p.3 after Thm.1.1",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-apart",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-small",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hasse-minkowski"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/lattice",
+      "kind": "definition",
+      "name": "Discrete lattice in its span",
+      "statement": "A lattice Lambda⊂R^N is a discrete additive subgroup. Its rank R is dim_R span_R Lambda; regard Lambda as a full lattice in that span, including R=0.",
+      "locator": "arXiv v1, §3.1 p.7",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "span_lattice",
+        "rank_eq_basis_card",
+        "finite_ball"
+      ],
+      "unitTests": [
+        "Z*e0⊂R² has rank 1 and intrinsic covolume 1"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/covolume",
+      "kind": "definition",
+      "name": "Intrinsic covolume",
+      "statement": "For a rank-R lattice and any Z-basis with column matrix B∈M_{N,R}(R), det(Lambda)=sqrt(det(B^t B)), with empty determinant 1. This is intrinsic R-dimensional covolume.",
+      "locator": "arXiv v1, §3.1 p.7 (3.1)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "gram_formula",
+        "basis_independent",
+        "positive",
+        "orthogonal_invariance"
+      ],
+      "unitTests": [
+        "2Z*e0 has covolume 2 even in R^3",
+        "rank 0 convention is 1"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/projection-quotient",
+      "kind": "construction",
+      "name": "Orthogonal quotient lattice",
+      "statement": "If Gamma≤Lambda and span_R(Gamma)∩Lambda=Gamma, let Lambda/Gamma=pi(Lambda), where pi is orthogonal projection to span_R(Gamma)^perp. It is a lattice of rank rank(Lambda)−rank(Gamma), with covolume det(Lambda)/det(Gamma).",
+      "locator": "arXiv v1, §3.1 p.7 (3.2)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "projection_mem",
+        "quotient_lattice",
+        "rank_add",
+        "covolume_div"
+      ],
+      "unitTests": [
+        "nonprimitive Gamma must be rejected",
+        "Z²/Z*e0 projects to Z*e1"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-lattice",
+      "kind": "definition",
+      "name": "Primitive integral lattice",
+      "statement": "An integral lattice is a lattice Lambda⊂Z^N; it is primitive iff span_R(Lambda)∩Z^N=Lambda, equivalently it is not properly contained in another integral lattice of the same rank.",
+      "locator": "arXiv v1, §3.1 p.8",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "saturation_idempotent",
+        "primitive_iff_saturated",
+        "basis_extend"
+      ],
+      "unitTests": [
+        "2Z is integral but not primitive in Z"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/orthogonal-lattice",
+      "kind": "construction",
+      "name": "Integral orthogonal lattice",
+      "statement": "Lambda^perp={a∈Z^N:∀z∈Lambda,<a,z>=0}. It is primitive of rank N−rank Lambda. Double perpendicular is the saturation; for primitive Lambda it equals Lambda and det(Lambda^perp)=det(Lambda).",
+      "locator": "arXiv v1, §3.1 p.8 (3.3)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "perp_mem",
+        "perp_primitive",
+        "perp_rank",
+        "double_perp",
+        "perp_det"
+      ],
+      "unitTests": [
+        "2Z*e0 has double perp Z*e0"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dual",
+      "kind": "definition",
+      "name": "Euclidean dual lattice",
+      "statement": "For Lambda⊂R^N define Lambda*={a∈span_R Lambda:∀z∈Lambda,<a,z>∈Z}. It has the same rank and det(Lambda*)=det(Lambda)^{-1}. The ambient space restriction is essential.",
+      "locator": "arXiv v1, §3.1 p.8 (3.4)",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "dual_mem",
+        "dual_basis",
+        "dual_det",
+        "double_dual"
+      ],
+      "unitTests": [
+        "dual of 2Z in R is (1/2)Z",
+        "dual lies in span, not all of R^N"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-dual",
+      "kind": "theorem",
+      "name": "Dual of primitive perpendicular",
+      "statement": "For primitive Lambda⊂Z^N, (Lambda^perp)*=Z^N/Lambda, with the right side the orthogonal quotient lattice.",
+      "locator": "arXiv v1, Lemma 3.1 p.8",
+      "status": "missing",
+      "owner": "GN0",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minima",
+      "kind": "definition",
+      "name": "Successive Euclidean minima",
+      "statement": "For 1≤R≤N and rank-R Lambda⊂R^N, lambda_i(Lambda)=inf{u>0:dim_R span_R(Lambda∩B_N(u))≥i}, for 1≤i≤R.",
+      "locator": "arXiv v1, Def.3.2 p.8",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "api": [
+        "minima_pos",
+        "minima_mono",
+        "minima_attained",
+        "independent_witnesses"
+      ],
+      "unitTests": [
+        "diagonal lattice diag(2,3) has minima 2,3"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minkowski-second",
+      "kind": "theorem",
+      "name": "Product of successive minima",
+      "statement": "For rank-R Euclidean lattice, R≥1, det(Lambda)≤product_{i=1}^R lambda_i(Lambda)≪_R det(Lambda).",
+      "locator": "arXiv v1, §3.1 p.8 (3.5)",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/transference",
+      "kind": "theorem",
+      "name": "Banaszczyk transference",
+      "statement": "For 1≤R≤N, rank-R Euclidean lattice Lambda and 1≤i≤R, lambda_i(Lambda) lambda_{R−i+1}(Lambda*)≤R.",
+      "locator": "arXiv v1, Lemma 3.3 p.8; cited [1] Thm.2.1",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/band-count",
+      "kind": "theorem",
+      "name": "Counting in intersections of angular bands",
+      "statement": "Let N≥2,1≤R≤N,1≤I≤N−1, Lambda a rank-R lattice, v_1,...,v_I∈R^N, gamma>0, Y≥lambda_R(Lambda), and T≥Y. Set R_v(T,gamma)=B_N(T)∩intersection_i C_{v_i}^(gamma) and V_v=vol_R(span_R Lambda∩R_v(1,gamma)). Then #(Lambda∩R_v(T,gamma))=T^R/det(Lambda)*(V_v+O(Y/T)). The paper states O_R; dependence on family complexity I versus R still needs verification (gap G4); a fixed N,I specialization is supported by Barroero–Widmer.",
+      "locator": "arXiv v1, Lemma 3.4 pp.9–10",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minkowski-second"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count",
+      "kind": "theorem",
+      "name": "Successive-minima ball count",
+      "statement": "For rank-R Lambda⊂R^N,1≤R≤N,T≥1, #(Lambda∩B_N(T))≪_R sum_{i=0}^R T^{R−i}/product_{j=1}^{R−i}lambda_j(Lambda), with empty product 1.",
+      "locator": "arXiv v1, Lemma 3.5 pp.9–10, first part",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count-index",
+      "kind": "theorem",
+      "name": "Ball count using an intermediate minimum",
+      "statement": "For rank-R Lambda,1≤i0≤R and T≥lambda_{i0}(Lambda), #(Lambda∩B_N(T))≪_R T^R/(lambda_1...lambda_{i0−1}*lambda_{i0}^{R−i0+1}).",
+      "locator": "arXiv v1, Lemma 3.5 pp.9–10, second part",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/short-count",
+      "kind": "theorem",
+      "name": "Nonzero count below the last minimum scale",
+      "statement": "For rank-R Lambda⊂R^N, M>0 with M<lambda_1, Y≥lambda_R, 0≤R0≤R−1 and 0<T≤Y, #((Lambda\\{0})∩B_N(T))≪_R T^{R−R0}Y^{R0}/det(Lambda)+(T/M)^{R−R0−1}.",
+      "locator": "arXiv v1, Lemma 3.6 pp.10–11, first part",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/short-count-refined",
+      "kind": "theorem",
+      "name": "Two-threshold small-vector count",
+      "statement": "Under the preceding hypotheses, let 0≤j0≤R−1, J≥M with J<lambda_{j0+1}, and 0≤R0≤R−1−j0. For 0<T≤Y the nonzero count is ≪_R T^{R−R0}Y^{R0}/det(Lambda)+(T/M)^{j0}*((T/J)^{R−R0−1−j0}+1).",
+      "locator": "arXiv v1, Lemma 3.6 pp.10–11, second part",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minor-gcd",
+      "kind": "definition",
+      "name": "Gcd of maximal minors",
+      "statement": "For independent c1,...,ck∈Z^N,1≤k≤N, G(c1,...,ck) is the positive gcd of all k×k minors of their column matrix.",
+      "locator": "arXiv v1, Def.3.7 p.11",
+      "status": "missing",
+      "owner": "GN0",
+      "api": [
+        "gcd_positive",
+        "unimodular_invariant",
+        "saturation_index",
+        "rank_two_formula"
+      ],
+      "unitTests": [
+        "G(e0,e0+q*e1)=q",
+        "dependence is outside this definition"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/intersection-det",
+      "kind": "theorem",
+      "name": "Covolume of an integer equation lattice",
+      "statement": "For independent c1,...,ck∈Z^N,1≤k≤N−1, det(intersection_i Lambda_ci)=det(Zc1⊕...⊕Zck)/G(c1,...,ck). The intersection has rank N−k and is primitive.",
+      "locator": "arXiv v1, Lemma 3.8 p.11",
+      "status": "missing",
+      "owner": "GN0",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence-det",
+      "kind": "theorem",
+      "name": "Two congruence kernels",
+      "statement": "For N≥2,Q≥1 integral and independent primitive c,d∈Z^N, det(Lambda_c^(Q)∩Lambda_d^(Q))=Q²/gcd(G(c,d),Q).",
+      "locator": "arXiv v1, Lemma 3.9 pp.11–12, first part",
+      "status": "missing",
+      "owner": "GN0",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-det",
+      "kind": "theorem",
+      "name": "One exact and one congruence equation",
+      "statement": "For N≥2,Q≥1 integral and independent primitive c,d∈Z^N, det(Lambda_c∩Lambda_d^(Q))=||c||Q/gcd(G(c,d),Q).",
+      "locator": "arXiv v1, Lemma 3.9 pp.11–12, second part",
+      "status": "missing",
+      "owner": "GN0",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/homogeneous",
+      "kind": "definition",
+      "name": "Degree-d homogeneous polynomials",
+      "statement": "R[X_0,...,X_n]_(d) is the real vector subspace of polynomials whose supported monomials all have total degree d; zero is included.",
+      "locator": "arXiv v1, Def.3.10 p.12",
+      "status": "library",
+      "library": [
+        "mathlib:MvPolynomial.homogeneousSubmodule"
+      ],
+      "api": [
+        "mem_homogeneousSubmodule",
+        "zero_homogeneous",
+        "monomial_membership"
+      ],
+      "unitTests": [
+        "zero belongs in each degree"
+      ],
+      "note": "Read Mathlib/RingTheory/MvPolynomial/Homogeneous.lean:91–109 at 082e2d3."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/coefficient-map",
+      "kind": "construction",
+      "name": "Lexicographic coefficient isomorphism",
+      "statement": "For d,n≥1, M_{d,n} is the finite lexicographically ordered set of degree-d monomials; omega_d:R[X]_(d)≃_R R^N sends a form to its coefficients in that order.",
+      "locator": "arXiv v1, Def.3.10 p.12",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "omega_inverse",
+        "eval_dot",
+        "monomial_isometry"
+      ],
+      "unitTests": [
+        "multiplication by a single monomial preserves coefficient Euclidean norm"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+      "kind": "theorem",
+      "name": "Veronese preserves the two-column gcd",
+      "statement": "For d,n≥1 and independent primitive x,y∈Z^{n+1}, G(nu_{d,n}(x),nu_{d,n}(y))=G(x,y).",
+      "locator": "arXiv v1, Lemma 3.11 p.12",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-single",
+      "kind": "definition",
+      "name": "Minimal containing-lattice covolume",
+      "statement": "For n≥1, nonzero x∈Z^{n+1} and 2≤r≤n+1, d_r(x) is the minimum covolume of a rank-r integral lattice containing x.",
+      "locator": "arXiv v1, Def.3.12 p.13",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "minimum_exists",
+        "primitive_minimizer",
+        "dr_pos",
+        "dr_le_norm"
+      ],
+      "unitTests": [
+        "d_{n+1}(x)=1",
+        "nonzero hypothesis for d_r(x)≤||x||"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-pair",
+      "kind": "definition",
+      "name": "Minimal pair-containing covolume",
+      "statement": "For independent x,y∈Z^{n+1} and 2≤r≤n+1, d_r(x,y) is the minimum covolume of a rank-r integral lattice containing both.",
+      "locator": "arXiv v1, Def.3.12 p.13",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "pair_minimum_exists",
+        "symmetric",
+        "primitive_minimizer",
+        "dr_pair_le_product"
+      ],
+      "unitTests": [
+        "d_{n+1}(x,y)=1",
+        "exclude collinear vectors"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-lattice",
+      "kind": "construction",
+      "name": "Saturated plane lattice",
+      "statement": "For independent x,y∈Z^{n+1}, L(x,y)=(Rx⊕Ry)∩Z^{n+1}; it is the unique primitive rank-two containing lattice and det L(x,y)=d_2(x,y).",
+      "locator": "arXiv v1, §3.3 p.13 (3.8)–(3.9)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "saturated_plane",
+        "pair_lattice_basis",
+        "pair_det_min"
+      ],
+      "unitTests": [
+        "L(e0,e0+q*e1)=Ze0+Ze1"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-area",
+      "kind": "theorem",
+      "name": "Saturated plane determinant",
+      "statement": "For independent x,y∈Z^{n+1}, d_2(x,y)=sqrt(||x||²||y||²−<x,y>²)/G(x,y).",
+      "locator": "arXiv v1, Lemma 3.13 p.13",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/one-minimum",
+      "kind": "theorem",
+      "name": "Largest minimum of a Veronese kernel",
+      "statement": "For d,n≥1 and primitive x∈Z^{n+1}, lambda_{N−1}(Lambda_{nu(x)})≤n||x||/d_2(x).",
+      "locator": "arXiv v1, Lemma 3.14 pp.13–14",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/transference",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-dual",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/coefficient-map",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-single"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-minimum",
+      "kind": "theorem",
+      "name": "Largest minimum of a double Veronese kernel",
+      "statement": "For d,n≥2 and independent primitive x,y∈Z^{n+1}, lambda_{N−2}(Lambda_{nu(x)}∩Lambda_{nu(y)})≤3n² max{d_2(x,y)/d_3(x,y),||x||||y||/d_2(x,y)²}. Correct the degree-spanning proof using the degree-two ideal piece (E1); no change to the asserted bound.",
+      "locator": "arXiv v1, Lemma 3.15 pp.14–18",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quadratic-quotient-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/transference",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-point-ideal",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-pair"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Use the dual quotient to turn the last minimum into a lower bound for the first dual minimum. Split dual vectors inside/outside the quadratic Veronese three-space; take the minimum of the two case bounds (E12). Transfer a bounded independent quadratic family to degree d using monomial products and the corrected two-point ideal lemma (E1)."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quadratic-spans",
+      "kind": "construction",
+      "name": "Quadratic Veronese plane and three-space lattices",
+      "statement": "For n≥2 and independent primitive x,y, Q2=(Rnu_2(x)+Rnu_2(y))∩Z^{N_2}; Q3=(Rnu_2(x)+Rnu_2(y)+Rnu_2(x+y))∩Z^{N_2}. Their ranks are 2 and 3; Q3/Q2 is an orthogonal rank-one quotient.",
+      "locator": "arXiv v1, §3.3 p.14",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "q2_rank",
+        "q3_rank",
+        "q2_saturated_in_q3",
+        "quotient_rank_one"
+      ],
+      "unitTests": [
+        "x=e0,y=e1 gives three independent quadratic vectors"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quadratic-quotient-bound",
+      "kind": "theorem",
+      "name": "Quadratic quotient covolume lower bound",
+      "statement": "For n≥2 and independent primitive x,y, det(Q3(x,y)/Q2(x,y))≥d_2(x,y)²/(3||x||||y||).",
+      "locator": "arXiv v1, Lemma 3.16 pp.14–16",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-lattices",
+      "kind": "definition",
+      "name": "Primitive lattices with prescribed minima",
+      "statement": "For n≥2,1≤r≤n+1 and s_j≥1, S_{r,n}(s1,...,sr) is the set of primitive rank-r L⊂Z^{n+1} with s_j/2<lambda_j(L)≤s_j for every j.",
+      "locator": "arXiv v1, Def.3.17 p.19",
+      "status": "missing",
+      "owner": "GN4",
+      "api": [
+        "dyadic_set_finite",
+        "membership",
+        "empty_if_incompatible"
+      ],
+      "unitTests": [
+        "s_j=1 retains minimum 1",
+        "strict lower versus closed upper endpoint"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-bound",
+      "kind": "theorem",
+      "name": "Counting primitive lattices by minima",
+      "statement": "For n≥2,1≤r≤n+1 and all s_j≥1, #S_{r,n}(s1,...,sr)≪_n product_{j=1}^r s_j^{n+r+2−2j}.",
+      "locator": "arXiv v1, Lemma 3.18 p.19",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-single",
+      "kind": "definition",
+      "name": "Vectors in small-determinant lattices",
+      "statement": "ell_{r,n}(X;D)=#{x∈Z^{n+1}:0<||x||≤X,d_r(x)≤D}, for n≥2,2≤r≤n+1 and X,D≥1.",
+      "locator": "arXiv v1, §3.4 p.20 (3.21)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "ell_single_finite",
+        "ell_single_mono"
+      ],
+      "unitTests": [
+        "D=1,X=1 includes coordinate unit vectors"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair",
+      "kind": "definition",
+      "name": "Pairs in small-determinant lattices",
+      "statement": "ell_{r,n}(X,Y;D) counts independent pairs (x,y)∈Z^{n+1}×Z^{n+1} with ||x||≤X,||y||≤Y,d_r(x,y)≤D, for X,Y,D≥1 and 2≤r≤n+1.",
+      "locator": "arXiv v1, §3.4 p.20 (3.22)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "ell_pair_symm",
+        "ell_pair_mono",
+        "ell_pair_finite"
+      ],
+      "unitTests": [
+        "pairs ±x are excluded"
+      ],
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-single-bound",
+      "kind": "theorem",
+      "name": "Small containing lattice: one vector",
+      "statement": "For n≥2,2≤r≤n+1,X,D≥1, ell_{r,n}(X;D)≪_n X^r D^n log(2D). The printed log D fails at D=1.",
+      "locator": "arXiv v1, Lemma 3.19 p.20, endpoint correction E3",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair-bound",
+      "kind": "theorem",
+      "name": "Small containing lattice: independent pairs",
+      "statement": "For n≥2,2≤r≤n+1,X,Y,D≥1, ell_{r,n}(X,Y;D)≪_n X^r Y^r D^{n−1} (log(2D))^{2 min{r−2,1}}.",
+      "locator": "arXiv v1, Lemma 3.20 pp.20–21, endpoint correction E3",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-ell",
+      "kind": "definition",
+      "name": "Quartic-threefold short-kernel pairs",
+      "statement": "For Z,D,M≥1 and 1≤j≤68, ell^(j)(Z;D,M) counts independent x,y∈Z^5 with ||x||,||y||≤Z, d_3(x,y)≤D and lambda_j(Lambda_{nu_4,4(x)}∩Lambda_{nu_4,4(y)})≤M. N(4,4)=70.",
+      "locator": "arXiv v1, §3.5 p.21 (3.23)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "quartic_ell_mono",
+        "quartic_ell_finite",
+        "quartic_rank_68"
+      ],
+      "unitTests": [
+        "j=56 is valid; j=69 is not"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-first",
+      "kind": "theorem",
+      "name": "Rare short first minimum for quartic threefolds",
+      "statement": "For every epsilon>0 and Z,D,M≥1, ell^(1)(Z;D,M)≪_epsilon M^40 Z^4 D*(M^30 Z² D^epsilon+M^30 D^{8/3}+Z² D)*(log(2D))². Endpoint repaired by E3; original-source uniformity and polynomial-grid proof repair remain dependencies.",
+      "locator": "arXiv v1, Lemma 3.21 pp.22–23",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-interpolation",
+      "kind": "theorem",
+      "name": "Interpolated quartic first-minimum bound",
+      "statement": "For Z,D,M≥1, ell^(1)(Z;D,M)≪Z^{9/2}D²*(Z^{3/2}+D^{3/2})*(log(2D))²*min{D,M^53}, with an absolute constant; corrected logarithmic endpoint.",
+      "locator": "arXiv v1, Lemma 3.22 pp.23–24",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-span",
+      "kind": "construction",
+      "name": "Quartic Veronese lattice of a rank-three lattice",
+      "statement": "For rank-three integral L⊂Z^5, V(L)=span_Q(nu_4,4(L))∩Z^70 is a primitive rank-15 lattice.",
+      "locator": "arXiv v1, §3.5 p.24 (3.33)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "quartic_span_saturated",
+        "quartic_span_rank15",
+        "span_basis_coefficients"
+      ],
+      "unitTests": [
+        "rank 15=binomial(6,4)",
+        "its perpendicular has rank 55"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-det",
+      "kind": "theorem",
+      "name": "Rank-three quartic span covolume",
+      "statement": "For rank-three integral L⊂Z^5, det V(L)≪(det L)^20, with an absolute constant.",
+      "locator": "arXiv v1, Lemma 3.23 pp.24–25",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-56",
+      "kind": "theorem",
+      "name": "Rare small 56th minimum",
+      "statement": "For Z,D,J≥1, ell^(56)(Z;D,J)≪Z^4 D^24 J^15, with an absolute constant. The dual-lattice ball in the proof is B_70(J), not B_5(J) (E7).",
+      "locator": "arXiv v1, Lemma 3.24 pp.25–26",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-span",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-dual",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/variance",
+      "kind": "theorem",
+      "name": "Key variance bound",
+      "statement": "For d≥2,n≥d, excluding (2,2),(3,3), and B/(log B)^{1/2}≤A≤B², sum_{V∈V(A)}(N_V(B)−N_V^loc(B))²/#V(A)≪B/A.",
+      "locator": "arXiv v1, Prop.4.1 pp.26–27 and §4.6 pp.49–50",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/global-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/first-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Expand the square. The three off-diagonal terms have the identical leading term iota A^(N−2) E(B), which cancels. Control their remainders and all diagonal pieces, divide by #V(A) asymptotic to a positive multiple of A^N. The partial-summation lower-cutoff check is G9."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-volume",
+      "kind": "definition",
+      "name": "One-band intrinsic section volume",
+      "statement": "For independent w,z∈R^N, I(w,z)=vol_{N−1}{t∈(Rw)^perp:|<z,t>|≤||t||≤1}. Set delta(w,z)=||w||²||z||²−<w,z>²>0.",
+      "locator": "arXiv v1, §4.2 p.27 (4.1)",
+      "status": "missing",
+      "owner": "GN4",
+      "api": [
+        "I_measurable",
+        "I_orthogonal_invariant",
+        "gram_positive"
+      ],
+      "unitTests": [
+        "orthogonal coordinate vectors reduce to a one-variable integral"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-asymptotic",
+      "kind": "theorem",
+      "name": "One-band volume estimate",
+      "statement": "For N≥3 and independent w,z∈R^N, I(w,z)=2(N−2)/(N−1)*V_{N−2}*||w||/sqrt(delta)*(1+O_N(min{1,||w||²/delta})).",
+      "locator": "arXiv v1, Lemma 4.2 p.27",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-volume",
+      "kind": "definition",
+      "name": "Two-band ambient volume",
+      "statement": "J(w,z)=vol_N{t∈R^N:|<w,t>|≤||t||,|<z,t>|≤||t||≤1}.",
+      "locator": "arXiv v1, §4.2 p.27 (4.2)",
+      "status": "missing",
+      "owner": "GN4",
+      "api": [
+        "J_symmetric",
+        "J_measurable",
+        "J_orthogonal_invariant"
+      ],
+      "unitTests": [
+        "w=z=0 gives V_N; the asymptotic requires independence"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-asymptotic",
+      "kind": "theorem",
+      "name": "Two-band volume estimate",
+      "statement": "For N≥3 and independent w,z∈R^N, J(w,z)=4(N−2)/N*V_{N−2}/sqrt(delta)*(1+O_N(min{1,(||w||+||z||)²/delta})).",
+      "locator": "arXiv v1, Lemma 4.3 pp.28–29",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/det-bounds",
+      "kind": "theorem",
+      "name": "Double Veronese kernel covolume bounds",
+      "statement": "For d,n≥2 and independent primitive x,y∈Z^{n+1}, d_2(x,y)||x||^{d−1}||y||^{d−1}≪det(Lambda_{nu(x)}∩Lambda_{nu(y)})≪||x||^d||y||^d.",
+      "locator": "arXiv v1, Lemma 4.4 p.29",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/intersection-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-area",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-norm"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/omega",
+      "kind": "definition",
+      "name": "Off-diagonal primitive pairs",
+      "statement": "Omega(B)={(x,y)∈Xi(B)²:x≠y and x≠−y}. Primitive pairs in Omega are linearly independent over Q.",
+      "locator": "arXiv v1, §4.3 p.30 (4.7)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "omega_finite",
+        "omega_swap",
+        "omega_independent"
+      ],
+      "unitTests": [
+        "remove both signs, not only x=y"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-sum",
+      "kind": "definition",
+      "name": "Inverse-covolume second-moment main sum",
+      "statement": "E_{d,n}(B)=sum_{(x,y)∈Omega(B)}1/det(Lambda_{nu(x)}∩Lambda_{nu(y)}).",
+      "locator": "arXiv v1, §4.3 p.30 (4.6)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "E_nonneg",
+        "E_mono"
+      ],
+      "unitTests": [
+        "small B finite sum; asymptotic not an all-B identity"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-bound",
+      "kind": "theorem",
+      "name": "Inverse-covolume average",
+      "statement": "For d≥2,n≥d excluding (2,2), B²≪E_{d,n}(B)≪B².",
+      "locator": "arXiv v1, Lemma 4.5 p.30",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/angle-ratio",
+      "kind": "definition",
+      "name": "Veronese angular reciprocal",
+      "statement": "For independent x,y, Delta(x,y)=||nu(x)|| ||nu(y)||/sqrt(||nu(x)||²||nu(y)||²−<nu(x),nu(y)>²), so Delta≥1.",
+      "locator": "arXiv v1, §4.3 p.30 (4.9)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "angle_ratio_symmetric",
+        "angle_ratio_ge_one",
+        "angle_ratio_gram"
+      ],
+      "unitTests": [
+        "no division by zero: require independent nonzero vectors"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-sum",
+      "kind": "definition",
+      "name": "Weighted inverse-covolume error sum",
+      "statement": "For (x,y)∈Omega(B), e_{x,y}(B)=min{1,Delta(x,y)²/alpha²}+1_{G(x,y) does not divide W/rad(W)}. F(B)=sum_Omega e_{x,y}(B)/det(Lambda_{nu(x)}∩Lambda_{nu(y)}).",
+      "locator": "arXiv v1, §4.3 p.30 (4.10)–(4.11)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "error_weight_bounds",
+        "F_nonneg",
+        "F_le_two_E"
+      ],
+      "unitTests": [
+        "the divisibility test is W/rad(W), not W"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-bound",
+      "kind": "theorem",
+      "name": "Saving in the inverse-covolume error",
+      "statement": "For d≥2,n≥d excluding (2,2), F_{d,n}(B)≪B²/(log B)^{1/2}.",
+      "locator": "arXiv v1, Lemma 4.6 pp.31–32",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/det-bounds",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/first-moment",
+      "kind": "theorem",
+      "name": "Extended-range first moment",
+      "statement": "For d≥2,n≥d and A≥B^{4/5}, sum_{V∈V(A)}N_V(B)/#V(A)≪B/A.",
+      "locator": "arXiv v1, Lemma 4.7 pp.32–33",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-global",
+      "kind": "definition",
+      "name": "Off-diagonal global second moment",
+      "statement": "D(A,B)=sum_{V∈V(A)}(N_V(B)²−N_V(B)).",
+      "locator": "arXiv v1, §4.5 p.34",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "D_nonneg",
+        "D_ordered_distinct_points",
+        "D_lattice_factor_eighth"
+      ],
+      "unitTests": [
+        "one rational point gives zero contribution"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-mixed",
+      "kind": "definition",
+      "name": "Off-diagonal mixed moment",
+      "statement": "D^mix(A,B)=sum_V(N_V(B)N_V^loc(B)−Delta_V^mix(B)), where Delta_V^mix=alpha W/(2||a_V||)*sum_{x∈Xi(B),f_a(x)=0}1/||nu(x)||.",
+      "locator": "arXiv v1, §4.5 p.34 (4.20)–(4.21)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "mixed_diagonal_identity",
+        "mixed_lattice_sum",
+        "mixed_nonneg"
+      ],
+      "unitTests": [
+        "both sign lifts are included in the diagonal"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-local",
+      "kind": "definition",
+      "name": "Off-diagonal localized second moment",
+      "statement": "D^loc(A,B)=sum_V((N_V^loc(B))²−Delta_V^loc(B)), where Delta_V^loc=alpha²W²/(2||a_V||²)*sum over localized x∈Xi(B) of 1/||nu(x)||².",
+      "locator": "arXiv v1, §4.5 pp.34–35 (4.22)–(4.23)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "local_diagonal_identity",
+        "local_lattice_sum",
+        "local_nonneg"
+      ],
+      "unitTests": [
+        "squared weight on diagonal"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
+      "kind": "definition",
+      "name": "Primitive and unrestricted weighted lattice sums",
+      "statement": "For integral Lambda⊂Z^N, bounded region R and integer k≥0, S_k*(Lambda;R)=sum_{a∈Lambda∩Z_prim^N∩R}||a||^{−k}; S_k(Lambda;R)=sum_{a∈(Lambda\\{0})∩R}||a||^{−k}.",
+      "locator": "arXiv v1, §4.5 p.35 (4.24)–(4.25)",
+      "status": "missing",
+      "owner": "GN4",
+      "api": [
+        "finite_weighted_sum",
+        "mobius_primitive",
+        "partial_summation",
+        "zero_excluded"
+      ],
+      "unitTests": [
+        "k=0 counts",
+        "congruence modulus changes to W/gcd(ell,W) after division"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/iota",
+      "kind": "definition",
+      "name": "Common moment constant",
+      "statement": "iota_{d,n}=V_{N−2}/(8*zeta(N−2)).",
+      "locator": "arXiv v1, §4.5 p.35 (4.26)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "iota_pos",
+        "sign_quotient_factor"
+      ],
+      "unitTests": [
+        "factor 1/8 accounts for coefficient sign and two point signs"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/global-moment",
+      "kind": "theorem",
+      "name": "Global moment outside quartic threefolds",
+      "statement": "For d≥2,n≥d excluding (2,2),(3,3),(4,4), and A≥B/log B, D(A,B)=iota A^{N−2}E(B)*(1+O((log A)^{9/2}/A^{1/2})).",
+      "locator": "arXiv v1, Lemma 4.8 pp.35–39",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-minimum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-ball-input",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-moment",
+      "kind": "theorem",
+      "name": "Global moment for quartic threefolds",
+      "statement": "For (d,n)=(4,4) and A≥B/log B, D(A,B)=iota A^{68}E(B)*(1+O(A^{−1/21})).",
+      "locator": "arXiv v1, Lemma 4.9 pp.39–42",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-first",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-interpolation",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-56",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/short-count-refined",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-moment",
+      "kind": "theorem",
+      "name": "Mixed moment asymptotic",
+      "statement": "For d≥2,n≥d excluding (2,2), and B^{5/6}≤A≤B², D^mix(A,B)=iota A^{N−2}E(B)*(1+O((log A)^{−1/2})). Use reciprocal determinants directly to repair E6.",
+      "locator": "arXiv v1, Lemma 4.10 pp.42–47",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/reciprocal-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-asymptotic",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/band-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-moment",
+      "kind": "theorem",
+      "name": "Localized moment asymptotic",
+      "statement": "For d≥2,n≥d excluding (2,2), and B^{1/2}≤A≤B², D^loc(A,B)=iota A^{N−2}E(B)*(1+O((log A)^{−1/2})). Use the reciprocal-determinant form in E6.",
+      "locator": "arXiv v1, Lemma 4.11 pp.47–49",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/reciprocal-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-asymptotic",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/band-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-bound"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau",
+      "kind": "definition",
+      "name": "Finite-window real factor",
+      "statement": "For a∈R^N,gamma>0, tau(a;gamma)=gamma*vol_{n+1}{u∈B_{n+1}(1):|f_a(u)|≤||a|| ||nu(u)||/(2gamma)}.",
+      "locator": "arXiv v1, §5.1 p.50 (5.1)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "tau_nonneg",
+        "tau_scale_a",
+        "tau_measurable",
+        "tau_pos_if_real_zero"
+      ],
+      "unitTests": [
+        "a=0 gives gamma*V_{n+1}",
+        "no unproved singular-integral convergence"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-residue",
+      "kind": "definition",
+      "name": "Primitive residue vectors",
+      "statement": "For integers Q,m≥1, R_m(Q)={b∈(Z/QZ)^m:gcd(Q,b_1,...,b_m)=1}.",
+      "locator": "arXiv v1, §5.1 p.50 (5.2)",
+      "status": "missing",
+      "owner": "ST0",
+      "api": [
+        "primitive_residue_crt",
+        "unit_coordinate_prime_power",
+        "card_prime_power"
+      ],
+      "unitTests": [
+        "at Q=1 the singleton is primitive",
+        "primitive does not mean each coordinate a unit"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
+      "kind": "definition",
+      "name": "Finite-modulus local density",
+      "statement": "For a∈Z^N and Q≥1, sigma(a;Q)=Q^{−n}*#{b∈R_{n+1}(Q):f_a(b)=0 mod Q}. It depends only on a mod Q.",
+      "locator": "arXiv v1, §5.1 p.50 (5.3)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "sigma_nonneg",
+        "sigma_congruence_invariant",
+        "sigma_multiplicative",
+        "sigma_unit_scale"
+      ],
+      "unitTests": [
+        "normalization Q^n, not Q^{n+1}"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-factors",
+      "kind": "construction",
+      "name": "Smoothing factors for a hypersurface",
+      "statement": "J_V(B)=tau(a_V;alpha(B)); S_V(B)=sigma(a_V;W(B)). Both are independent of the sign of a_V. No limit to singular factors is used in the proof.",
+      "locator": "arXiv v1, §5.1 p.51 (5.4)–(5.5)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "J_sign",
+        "S_sign",
+        "factor_nonnegative"
+      ],
+      "unitTests": [
+        "finite-window factors must not be replaced by limiting ones"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/factor-comparison",
+      "kind": "theorem",
+      "name": "Localized count controls the product of factors",
+      "statement": "For d≥2,n≥d,V∈V(A) and B sufficiently large, S_V(B)J_V(B)≪(A/B)N_V^loc(B)+B^{−1/n}.",
+      "locator": "arXiv v1, Lemma 5.1 pp.51–52",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/localized",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/p-tail",
+      "kind": "theorem",
+      "name": "Finite-place factor lower tail",
+      "statement": "For integers d≥2,n≥3 (no n≥d restriction), C>0, phi:R_{>0}→R_{>1} with phi(A)≤A eventually, #{V∈V^loc(A):S_V(Aphi(A))<Cphi(A)^{−1/6}}/#V^loc(A)≪_{d,n,C}phi(A)^{−1/(24n)}.",
+      "locator": "arXiv v1, Prop.5.2 p.52",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-first",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-variance",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Pass coefficient classes to finite residue boxes by CRT; integrate a small negative moment of sigma. Bound ordinary classes by mean/variance and exceptional classes by gradient strata and lifting lower bounds. Keep the uniformity in prime-power exponent."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-tail",
+      "kind": "theorem",
+      "name": "Real factor lower tail",
+      "statement": "For integers d≥2,n≥3, C>0, and phi:R_{>0}→R_{>1} with phi(A)≤A eventually, #{V∈V^loc(A):J_V(Aphi(A))<Cphi(A)^{−1/6}}/#V^loc(A)≪_{d,n,C}phi(A)^{−1/(6n)}.",
+      "locator": "arXiv v1, Prop.5.3 p.52",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/boundary-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-strata-volume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/null-singular",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Compare lattice points with unit neighborhoods, discard the boundary term, rescale to the coefficient unit ball, and estimate a negative moment of tau using dyadic gradient strata. Add the singular-only null set explicitly (E2), use the corrected enlarged-scale cap argument (E10), then sum the geometric series."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-first",
+      "kind": "theorem",
+      "name": "First moment of a prime-power density",
+      "statement": "For d≥2,n≥3, prime p and integer r≥1, the average of sigma(a;p^r) over a∈R_N(p^r) equals (1−p^{−n−1})(1−p^{−N+1})/(1−p^{−N})=1+O_{d,n}(p^{−n−1}).",
+      "locator": "arXiv v1, Lemma 5.4 pp.53–54",
+      "status": "missing",
+      "owner": "ST5",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-residue"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-variance",
+      "kind": "theorem",
+      "name": "Variance of a prime-power density",
+      "statement": "For d≥2,n≥3, prime p and r≥1, average_{a∈R_N(p^r)}(sigma(a;p^r)−1)²≪_{d,n}p^{−n+1}, uniformly in r.",
+      "locator": "arXiv v1, Lemma 5.5 pp.54–55",
+      "status": "missing",
+      "owner": "ST5",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence-det"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/Floc",
+      "kind": "definition",
+      "name": "Finite-level locally soluble coefficient set",
+      "statement": "F^loc_{d,n}(Q)={a∈R_N(Q):for every p^r exactly dividing Q, some x∈R_{n+1}(p^r) satisfies f_a(x)=0 mod p^r}.",
+      "locator": "arXiv v1, §5.2 p.55 (5.16)",
+      "status": "missing",
+      "owner": "ST0",
+      "api": [
+        "Floc_crt",
+        "Floc_iff_sigma_pos",
+        "global_local_reduction"
+      ],
+      "unitTests": [
+        "finite-level solubility does not by itself imply everywhere local solubility"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-strata",
+      "kind": "definition",
+      "name": "Prime-power gradient strata",
+      "statement": "For prime p,r≥1 and 0≤e≤r, R_N^(e)(p^r) consists of a∈R_N(p^r) with a primitive zero x mod p^r and v_p(grad f_a(x))=e. Vector valuation is capped at r. F^loc(p^r)=union_{e=0}^r R_N^(e)(p^r); these sets may overlap.",
+      "locator": "arXiv v1, §5.2 p.55 (5.17)–(5.18)",
+      "status": "missing",
+      "owner": "ST5",
+      "api": [
+        "capped_vector_valuation",
+        "strata_cover",
+        "existential_strata_overlap"
+      ],
+      "unitTests": [
+        "zero gradient has valuation r",
+        "do not sum cardinalities as a disjoint partition"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-count",
+      "kind": "theorem",
+      "name": "Rare high-valuation gradient witness",
+      "statement": "For d≥2,n≥3, prime p,r≥1 and 1≤e≤r, #R_N^(e)(p^r)≤2p^{rN−e}.",
+      "locator": "arXiv v1, Lemma 5.6 pp.55–56",
+      "status": "missing",
+      "owner": "ST5",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower",
+      "kind": "theorem",
+      "name": "Density from a controlled-gradient zero",
+      "statement": "For d≥2,n≥3, prime p,r≥1,0≤e≤r and a∈R_N^(e)(p^r), sigma(a;p^r)≥p^{−(e+1)n}. The proof splits e=r, r≤2e+1, and the Hensel-lifting range r≥2e+2.",
+      "locator": "arXiv v1, Lemma 5.7 pp.56–57",
+      "status": "missing",
+      "owner": "ST5",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/Iloc",
+      "kind": "definition",
+      "name": "Real-soluble coefficient cone",
+      "statement": "I^loc_{d,n}={a∈R^N\\{0}:∃x∈S^n,f_a(x)=0}. It includes forms whose every real zero is singular.",
+      "locator": "arXiv v1, §5.3 p.60 (5.28)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "Iloc_scale",
+        "Iloc_measurable",
+        "regular_zero_subset"
+      ],
+      "unitTests": [
+        "f=X0^d lies in Iloc despite having no regular zero for d≥2"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/boundary-count-set",
+      "kind": "definition",
+      "name": "Lattice points near the real-solubility boundary",
+      "statement": "N(a)=a+B_N(1); U(A)={a∈Z^N∩B_N(A)∩I^loc:N(a) is not contained in I^loc}.",
+      "locator": "arXiv v1, §5.3 p.60",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "neighborhood_mem",
+        "U_finite",
+        "U_boundary_witness"
+      ],
+      "unitTests": [
+        "include boundary starting points; crossing time may be 0"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/boundary-count",
+      "kind": "theorem",
+      "name": "Real-solubility boundary estimate",
+      "statement": "For d≥2,n≥3, #U(A)≪_{d,n}A^{N−1}. Repair the crossing construction to include time zero as in E4.",
+      "locator": "arXiv v1, Lemma 5.8 pp.60–61",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-strata",
+      "kind": "definition",
+      "name": "Real regular-zero gradient strata",
+      "statement": "M_{d,n}=max_{||a||=||x||=1}||grad f_a(x)||. For lambda>0, B_N^(lambda)={a∈B_N(1):∃x∈S^n,f_a(x)=0 and lambda||a||<||grad f_a(x)||≤2lambda||a||}. The dyadic union equals the regular-real-zero locus in B_N(1), not all I^loc (E2).",
+      "locator": "arXiv v1, §5.3 p.61 (5.30)–(5.32)",
+      "status": "missing",
+      "owner": "RP",
+      "api": [
+        "M_finite_pos",
+        "strata_scaling",
+        "dyadic_regular_cover",
+        "singular_exception_null"
+      ],
+      "unitTests": [
+        "X0^d is excluded from every stratum",
+        "upper gradient endpoint included"
+      ],
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-strata-volume",
+      "kind": "theorem",
+      "name": "Volume of small-gradient real-zero stratum",
+      "statement": "For d≥2,n≥3 and 0<lambda<M_{d,n}, vol_N(B_N^(lambda))≪_{d,n}lambda². The neighborhood comparison must use an enlarged lambda scale (E10).",
+      "locator": "arXiv v1, Lemma 5.9 p.62",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau-lower",
+      "kind": "theorem",
+      "name": "Real factor from a regular zero",
+      "statement": "For d≥2,n≥3,gamma>0,0<lambda<M_{d,n} and a∈B_N^(lambda), tau(a;gamma)≫_{d,n}lambda^{n+1}min{gamma,lambda^{−2}}. Repair the unweighted Veronese norm constant as in E8.",
+      "locator": "arXiv v1, Lemma 5.10 pp.62–64",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/library-full-lattice",
+      "kind": "definition",
+      "name": "Existing full-lattice carrier",
+      "statement": "In a normed K-vector space E, for a discrete Z-submodule L, IsZLattice K L asserts span_K(L)=top. Apply it to span_R Lambda, not necessarily the original R^N.",
+      "locator": "arXiv v1, §3.1 p.7, reusable substrate",
+      "status": "library",
+      "library": [
+        "mathlib:IsZLattice"
+      ],
+      "note": "Mathlib/Algebra/Module/ZLattice/Basic.lean:432–436; statement read at 082e2d3.",
+      "api": [
+        "reuse named pinned carrier",
+        "specialize the stated ambient hypotheses"
+      ],
+      "unitTests": [
+        "type-check the exact carrier specialization; no parallel redefinition"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/library-covolume",
+      "kind": "definition",
+      "name": "Existing full-lattice covolume",
+      "statement": "ZLattice.covolume L mu is (addCovolume L E mu).toReal. For finite-dimensional real E, discrete full lattice L and additive Haar mu, it equals mu.real F for any additive fundamental domain F.",
+      "locator": "arXiv v1, §3.1 p.7, reusable substrate",
+      "status": "library",
+      "library": [
+        "mathlib:ZLattice.covolume",
+        "mathlib:ZLattice.covolume_eq_measure_fundamentalDomain"
+      ],
+      "note": "Mathlib/Algebra/Module/ZLattice/Covolume.lean:72–86; also covolume_eq_measure_fundamentalDomain.",
+      "api": [
+        "reuse named pinned carrier",
+        "specialize the stated ambient hypotheses"
+      ],
+      "unitTests": [
+        "type-check the exact carrier specialization; no parallel redefinition"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/library-index",
+      "kind": "theorem",
+      "name": "Existing covolume-index identity",
+      "statement": "For finite-dimensional real inner-product E and discrete full lattices L1≤L2, covolume(L1)/covolume(L2)=[L2:L1] (relative additive subgroup index).",
+      "locator": "arXiv v1, §3.2 pp.11–12, reusable substrate",
+      "status": "library",
+      "library": [
+        "mathlib:ZLattice.covolume_div_covolume_eq_relIndex'"
+      ],
+      "note": "Mathlib/Algebra/Module/ZLattice/Covolume.lean:174–189; all measurable/Borel instances and full-rank hypotheses retained."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/library-dual",
+      "kind": "definition",
+      "name": "Existing integral-pairing submodule",
+      "statement": "For a bilinear form B over field S, R-algebra S and compatible R/S-modules M, B.dualSubmodule N={x:∀y∈N,B(x,y)∈1_R}, where 1_R is the R-span of 1 in S. This supplies the integer-pairing carrier after restricting to the real span.",
+      "locator": "arXiv v1, §3.1 p.8, reusable substrate",
+      "status": "library",
+      "library": [
+        "mathlib:LinearMap.BilinForm.dualSubmodule"
+      ],
+      "note": "Mathlib/LinearAlgebra/BilinearForm/DualLattice.lean:37–47. TauCeti's stronger dualSubmoduleEquivDual was read but assumes a fraction-field setting; not claimed to apply directly to Z⊂R.",
+      "api": [
+        "reuse named pinned carrier",
+        "specialize the stated ambient hypotheses"
+      ],
+      "unitTests": [
+        "type-check the exact carrier specialization; no parallel redefinition"
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
+      "kind": "theorem",
+      "name": "Poonen–Voloch local-solubility density",
+      "statement": "For n,d≥2 excluding (n,d)=(2,2), counting all integral degree-d forms with coefficient sup norm≤H, Nloc(H)/(2 floor(H)+1)^N tends to product_v c_v>0. Each c_v is normalized local coefficient measure of forms with a nontrivial Q_v-zero. Primitive coefficient restriction preserves this limit. The Euclidean-ball version used here needs its own shape-transfer proof.",
+      "locator": "arXiv v1, §1 p.2 (1.3), input [16] Thm.3.6",
+      "status": "missing",
+      "owner": "ST2",
+      "note": "Original author PDF pp.1–3, Remark 2.1 and Thm.3.6, read 2026-09-22; Euclidean transfer is G2."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
+      "kind": "theorem",
+      "name": "Plane conics have local density zero",
+      "statement": "For Euclidean-height ordered plane conics, rho^loc_{2,2}=0. Source reports Serre's upper bound; original source and the height-shape transfer remain to acquire.",
+      "locator": "arXiv v1, §1 p.2 (1.2), input [18] Exemple 4",
+      "status": "missing",
+      "owner": "ST2",
+      "note": "Reported input, not independently source-closed."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-lower",
+      "kind": "theorem",
+      "name": "Le Boudec least-point lower scale",
+      "statement": "For d≥2,n≥d,(d,n)≠(2,2), and psi:R_{>0}→R_{>0} with psi(u)=o(u), #{V∈V(A):M(V)>psi(||a_V||)}/#V(A)→1.",
+      "locator": "arXiv v1, §2 p.5, input [14] Thm.1",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Original arXiv:2006.02288v1 Thm.1 pp.2–3 read."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-ball-input",
+      "kind": "theorem",
+      "name": "Primitive lattice points in a Euclidean ball",
+      "statement": "For N≥3,3≤R≤N, primitive integral rank-R Lambda, Y≥1 with R independent vectors in B_N(Y), and T≥Y, #(Lambda∩Z_prim^N∩B_N(T))=V_R T^R/(zeta(R)det Lambda)*(1+O_R(Y/T))+O_R(T log(2Y)). The replacement of log Y by log(2Y) keeps the endpoint harmless.",
+      "locator": "arXiv v1, §4.5 p.35, input [14] Lemma 3",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Le Boudec arXiv:2006.02288v1 p.7 statement and beginning of proof read; full proof not yet source-closed."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count",
+      "kind": "theorem",
+      "name": "Uniform definable-family lattice counting",
+      "statement": "For positive m,k and a definable family Z⊂R^{m+k} in a fixed o-minimal expansion containing semialgebraic sets, with bounded fibers Z_t, there exists C_Z depending only on Z such that for every full lattice Lambda⊂R^k and t, |#(Z_t∩Lambda)−vol(Z_t)/det Lambda|≤C_Z sum_{j=0}^{k−1} V_j(Z_t)/(lambda_1...lambda_j). V_j is the sum of j-dimensional coordinate-projection volumes; j=0 term is 1.",
+      "locator": "arXiv v1, §3.1 p.9; §5.1 p.51, input [2] Thm.1.3",
+      "status": "missing",
+      "owner": "GN4",
+      "note": "Barroero–Widmer arXiv:1210.5943v2 pp.1–5 read, including precise Thm.1.3. Proof closure remains open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/hasse-minkowski",
+      "kind": "theorem",
+      "name": "Hasse–Minkowski input for quadratic forms",
+      "statement": "For a finite-dimensional regular quadratic form over a number field K, global isotropy is equivalent to isotropy at every finite and real completion. Singular forms require handling their rational radical separately.",
+      "locator": "arXiv v1, §1 p.2, quadratic case",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
+      ],
+      "note": "Read complete atlas Layer 5 and reviewed RP.2 audit. Not built at the pinned libraries."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/brauer-trivial",
+      "kind": "theorem",
+      "name": "No Brauer obstruction for high-dimensional complete intersections",
+      "statement": "For characteristic-zero field k and smooth complete intersection X⊂P^n_k of dimension≥3, Br(k)→Br(X) is an isomorphism (cohomological Brauer groups). Over a number field its Brauer–Manin obstruction is consequently vacuous; this does not prove rational solubility.",
+      "locator": "arXiv v1, §1 p.2, input [16] Appendix A",
+      "status": "missing",
+      "owner": "RP2",
+      "note": "Poonen–Voloch author PDF Appendix A pp.4–5 read; original cohomological prerequisite closure open."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-point-ideal",
+      "kind": "theorem",
+      "name": "Corrected two-point homogeneous spanning lemma",
+      "statement": "For independent x,y∈R^{n+1}, n≥1, and d≥2, let I_d={Q homogeneous of degree d:Q(x)=Q(y)=0}. Then I_d is spanned by P Q with P a degree-(d−2) monomial and Q∈I_2. After a real linear coordinate change sending x,y to e0,e1, the ideal is (X2,...,Xn,X0X1), and every allowed degree-d monomial has a degree-two divisor in I_2.",
+      "locator": "arXiv v1, Lemma 3.15 p.18, repair E1",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Explicit repair proved in report; finite monomial tests are regression checks, not a Lean proof.",
+      "proofOutline": "In coordinates x=e0,y=e1, a degree-d form vanishes at both iff its pure X0^d and X1^d coefficients vanish. Each other monomial has a quadratic divisor vanishing at both: a mixed pair involving X_i for i≥2, or X0X1. Undo the invertible coordinate change. For the norm bound use a short quadratic basis in the original coordinates, not the norm-distorting coordinate change."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/null-singular",
+      "kind": "theorem",
+      "name": "Real singular-only exception is null",
+      "statement": "For d≥2,n≥3, forms having a real projective zero but no regular real projective zero form a Lebesgue-null subset of coefficient space. They lie in the vanishing locus of the nonzero homogeneous-form discriminant. Therefore the dyadic stratum cover suffices almost everywhere for the nonnegative integral on p.65.",
+      "locator": "arXiv v1, §5.3 p.61 (5.31), repair E2",
+      "status": "missing",
+      "owner": "RP",
+      "note": "Repair requires discriminant construction/nonzero and polynomial zero-set nullity (G6); alternatively prove nullity by the coefficient-incidence estimate in Lemma 5.9."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/reciprocal-det",
+      "kind": "theorem",
+      "name": "Uniform reciprocal congruence determinants",
+      "statement": "For independent primitive x,y, squarefree ell≥1 and Q=W/gcd(ell,W), set G=G(x,y), I=1_{G does not divide W/rad(W)}. Then det(Gamma_mix(Q))^{-1}=gcd(ell,W)G/(W||nu(x)||)*(1+O(I)); det(Gamma_loc(Q))^{-1}=gcd(ell,W)²G/W²*(1+O(I)), each with absolute O constant 1. Indeed gcd(G,Q)/G lies in (0,1] and equals 1 when I=0.",
+      "locator": "arXiv v1, §4.5 pp.44,49, repair E6",
+      "status": "missing",
+      "owner": "RP",
+      "note": "This repairs the inversion step without any lower bound for gcd(G,Q)/G on the bad set.",
+      "dependencies": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W"
+      ],
+      "dependencyScope": "Selected internal proof dependencies only; full original-source and item-level DAG is G10.",
+      "proofOutline": "Insert exact determinants from Lemma 3.9 and the Veronese gcd identity. Their reciprocals differ from the stated leading factors by gcd(G,Q)/G. This ratio is in (0,1] and is exactly 1 on the good divisibility set; its error is bounded in absolute value by the bad-set indicator."
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-norm",
+      "kind": "theorem",
+      "name": "Correct unweighted monomial norm comparison",
+      "statement": "For d≥1,n≥1 and u∈R^{n+1}, (n+1)^{−d/2}||u||^d≤||nu_{d,n}(u)||≤||u||^d. Lower bound: retain the pure dth power of a maximum coordinate. Upper bound: expand (sum u_i²)^d and note all multinomial coefficients are at least 1.",
+      "locator": "arXiv v1, §5.3 p.63, repair E8",
+      "status": "missing",
+      "owner": "RP",
+      "note": "The paper's unit-constant lower bound is false; dimensional constants suffice in Lemma 5.10.",
+      "proofOutline": "For the upper bound compare the unweighted sum of degree-2d monomials with the multinomial expansion of (sum u_i²)^d. For the lower bound choose a coordinate of maximum modulus and keep its pure dth power."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/kernel",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/covolume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/projection-quotient",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/orthogonal-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dual",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/schmidt-dual",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minor-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/intersection-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-det"
+      ],
+      "reason": "Intrinsic-span and saturation bridges, not reimplementation of the audited full-lattice/covolume carrier. Exact kernels and orthogonal quotients belong to the existing lattice layer."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/cone",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/transference",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/band-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ball-count-index",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/short-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/short-count-refined",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-lattices",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-volume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-asymptotic",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-volume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-asymptotic",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-ball-input",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/bw-count"
+      ],
+      "reason": "Provide the existing quantitative lattice-point/transference layer with a precise source. Fixed-family uniformity, intrinsic dimensions and primitive weighted counts must be proved; GN.1 supplies successive minima. Do not duplicate ST.2's use of these tools."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/family",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-residue",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/Floc"
+      ],
+      "reason": "Embedded coefficient families, sign quotients, Euclidean orderings and finite local conditions instantiate the existing families-and-measures layer. They are not isomorphism-weighted moduli counts."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.2"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density"
+      ],
+      "reason": "The local-density product and its tail/shape transfer belong to the existing infinite-local-condition uniformity owner."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.5"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-first",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-variance",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-strata",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/gradient-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma-lower"
+      ],
+      "reason": "Finite local density moments and gradient strata are source-scoped local statistics, already in this layer's direction."
+    },
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/brauer-trivial"
+      ],
+      "reason": "The optional Brauer-vacuity comparison belongs to the existing adelic/Brauer owner. It is motivation, not an assumption proving the main result."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIRandomFano",
+      "title": "Heights, rational points and obstructions, Part II: random Fano hypersurfaces and least-point heights",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/height",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/xi",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/incidence",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/alpha",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/w",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/W-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/localized",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minimum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/main-density",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/positive",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-upper",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-two-sided",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-apart",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-small",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quantitative",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/coefficient-map",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-single",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-pair",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-area",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/one-minimum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-minimum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quadratic-spans",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quadratic-quotient-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-single",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-single-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/ell-pair-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-ell",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-first",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-interpolation",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-span",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-56",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/variance",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/det-bounds",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/omega",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-sum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/angle-ratio",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-sum",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/F-bound",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/first-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-global",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-mixed",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/D-local",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/iota",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/global-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quartic-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-moment",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-factors",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/factor-comparison",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/p-tail",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-tail",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/Iloc",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/boundary-count-set",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/boundary-count",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-strata",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/real-strata-volume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-lower",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/two-point-ideal",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/null-singular",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/reciprocal-det",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-norm"
+      ],
+      "reason": "RP.0–RP.6 plan height/obstruction foundations, not density-one Hasse principles or the sharp typical least-point bound. This extends their direction. The separate SS23 random-fibration proposal uses prime-polynomial specialization, not these hypersurface incidence lattices; share ST/GN inputs but do not merge proof ownership by title alone.",
+      "brief": "Using the reconciled published Browning–Le Boudec–Sawin source, prove for integers d≥2,n≥d,(d,n)≠(3,3) that rho(A)→rho^loc, and for every positive psi with psi(u)/u→∞ that #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A)→rho^loc. Keep Euclidean coefficient height, primitive ± representatives and anticanonical point height ||x||^(n+1−d) exactly. Derive the O((log A)^(-1/(48n))) exceptional density and Cor.1.2 positivity excluding only conics; the cubic-surface positivity input is separate and does not prove density one. Cover unweighted Veronese coordinates, exact/congruence incidence, minimal containing-lattice determinants, one- and two-point successive-minimum estimates, every quartic-threefold lemma, all three off-diagonal moments with their diagonal terms, the variance and tail reductions, finite-modulus p-adic factors and real gradient strata. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.4; Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), ST.0/ST.2/ST.5; Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.0/RP.2; and Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms), Layer 5, rather than re-planning their carriers or Hasse–Minkowski. Read and close the listed original sources before scheduling proof execution. Resolve G1–G10, including the Euclidean local-density transfer and the thirteen preprint findings. Supply APIs and unit tests for every definition, exact coefficient/sign normalizations, an acyclic theorem dependency graph, suggested Lean files and upstream-density planets. Do not promote heuristics, infinite singular-factor convergence, cubic-surface density one, or incomplete source repairs to proved facts.",
+      "suggestedLeanFile": "TauCeti/NumberTheory/RandomFano/HassePrinciple.lean"
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Poonen–Voloch, Random Diophantine equations (2004), with Colliot-Thélène and Katz appendices",
+      "link": "https://math.mit.edu/~poonen/papers/random.pdf",
+      "why": "Original local-density theorem, primitive restriction, and optional Brauer comparison. Thm.3.6 and Appendix A read; full proof closure of their inputs remains. No dedicated paper extraction found in the atlas; generic ST.2/RP.2 planning is not proof coverage.",
+      "read": "pp.1–5 through Cor.A.2",
+      "sha256": "e4ec66ff04e6b6bf86f08bd66756e415c6e6be884cf1d49fa36d9428c4199045"
+    },
+    {
+      "citation": "Le Boudec, Height of rational points on random Fano hypersurfaces, ANT 15 (2021), 657–672",
+      "link": "https://arxiv.org/abs/2006.02288v1",
+      "why": "Least-height lower bound, primitive-ball counts and determinant formula. Read Thms.1,3, Lemmas 3–5 and selected proofs; not full source closure.",
+      "sha256": "cb782025395c1c755d133328654dfbc61846389689a8dda893354c05fea882b8"
+    },
+    {
+      "citation": "Barroero–Widmer, Counting lattice points and o-minimal structures, IMRN (2014), 4932–4957",
+      "link": "https://arxiv.org/abs/1210.5943v2",
+      "why": "Uniform lattice counting for changing angular bands and residue-class fibers. pp.1–5 incl. Thm.1.3 read; complete proof not yet decomposed.",
+      "sha256": "6e8dc86deab20529a74fd6a5a9b2019531167aac070620782af73c41f0304a2b"
+    },
+    {
+      "citation": "Banaszczyk, New bounds in some transference theorems in the geometry of numbers, Math. Ann. 296 (1993), 625–635, Thm.2.1",
+      "link": "https://arxiv.org/abs/2006.02356v1",
+      "why": "Original transference proof still to acquire. Link is the citing paper's reference [1], not a claim to have read the original."
+    },
+    {
+      "citation": "Schmidt, Asymptotic formulae for point lattices of bounded determinant and subspaces of bounded height, Duke Math. J. 35 (1968), 327–339",
+      "link": "https://arxiv.org/abs/2006.02356v1",
+      "why": "Reference [17], Lemmas 1,2,6 used for dual quotients, point counting, and primitive-lattice extensions. Original proof not read."
+    },
+    {
+      "citation": "Davenport, Cubic forms in sixteen variables, Proc. Roy. Soc. A 272 (1963), 285–303, Lemma 5",
+      "link": "https://arxiv.org/abs/2006.02356v1",
+      "why": "Reference [12], reduced basis and coordinate bounds for skew lattice boxes; original source acquisition required."
+    },
+    {
+      "citation": "Broberg–Salberger, Counting rational points on threefolds, Progress in Math. 226 (2004), 105–120, Thm.1",
+      "link": "https://arxiv.org/abs/2006.02356v1",
+      "why": "Reference [5], coefficient-uniform integral bound used in quartic-threefold case; hypotheses and affine/projective conversion require direct original-source verification."
+    },
+    {
+      "citation": "Browning–Matthiesen, Norm forms for arbitrary number fields as products of linear polynomials, Ann. Sci. ENS 50 (2017), Lemma 3.3",
+      "link": "https://arxiv.org/abs/1307.7641",
+      "why": "Hensel lifting with gradient valuation; exact original lemma and its input decomposition still required."
+    },
+    {
+      "citation": "Bhargava, A positive proportion of plane cubics fail the Hasse principle, Thm.2",
+      "link": "https://arxiv.org/abs/1402.1131v1",
+      "why": "Its positive-solubility result, not its title's insolubility result, supplies the cubic-surface branch of Cor.1.2 through a coordinate hyperplane. Source and norm-weight transfer not yet read."
+    },
+    {
+      "citation": "Serre, Spécialisation des éléments de Br_2(Q(T_1,...,T_n)), C. R. Acad. Sci. Paris 311 (1990), 397–402, Exemple 4",
+      "link": "https://arxiv.org/abs/2006.02356v1",
+      "why": "Reference [18], density-zero plane-conic input; original-source acquisition and Euclidean transfer remain."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E1",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, Lemma 3.15, p.18, degree-d spanning display; published version not compared",
+      "printed": "Span_R{P(X)L_(i,j,k)^(x,y)(X):P∈M_(d−2,n)}={Q∈R[X]_(d):Q(x)=Q(y)=0}",
+      "correction": "Replace the left generators by products P*Q2 with Q2 any quadratic form vanishing at x and y. Prove I_d=R[X]_(d−2) I_2; the coordinate normal form of the two-point ideal is (X2,...,Xn,X0X1).",
+      "reason": "The displayed L is linear, so the left side has degree d−1. Even replacing d−2 by d−1 would describe forms vanishing on the whole line, excluding X0^{d−1}X1 when x=e0,y=e1. The corrected quadratic ideal supplies the needed N−2 spanning vectors and retains their monomial-multiplication norm bound.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E2",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, §5.3, p.61, (5.31); used on p.65; published version not compared",
+      "printed": "B_N(1)∩I^loc=union_(ell≥1) B_N^(M/2^ell)",
+      "correction": "The equality holds for forms with at least one regular real zero. Add the null set of forms whose real zeros are all singular, and prove its nullity before the integral inequality.",
+      "reason": "The unit coefficient vector of f=X0^d, d≥2, has real projective zeros but every such zero has zero gradient; it belongs to no positive-gradient stratum. The discriminant/nullity repair is an explicit prerequisite, not an assumption that the exceptional set is empty.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E3",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, Lemmas 3.19,3.20 pp.20–21; (3.24), Lemmas 3.21,3.22 pp.21–24; published version not compared",
+      "printed": "log Delta",
+      "correction": "Use log(2Delta) in endpoint-uniform upper bounds for Delta≥1, or separately state and prove Delta in a fixed interval near 1. Propagate the replacement through the dyadic sums.",
+      "reason": "At Delta=1, coordinate vectors and independent coordinate pairs lie in determinant-one containing lattices, yet the printed logarithmic factors vanish (for Lemma 3.20 choose r≥3). For quartic pairs choose x=e0,y=e1 and a unit coefficient of a mixed monomial: lambda_1≤1 and d_3=1, so ell^(1)(1;1,1)>0. Changing log changes no large-parameter saving.",
+      "affects": "a stated result",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E4",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 5.8, p.60, definition of M_a; published version not compared",
+      "printed": "M_a=max{t∈(0,1]:a+t(b−a)∈I^loc}",
+      "correction": "Use the closed real-soluble coefficient cone, including the zero coefficient vector, and t∈[0,1]. If the crossing point is zero its gradient vanishes trivially; otherwise use the regular-zero openness argument.",
+      "reason": "Take d=2,n=3, f_a=X0²+X1²+X2² and f_b=f_a+epsilon X3² with 0<epsilon≤1. Then a∈U(A) for A≥sqrt(3), but every positive-time form is positive definite. The printed set is empty; a crossing at t=0 must be allowed.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E5",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 3.21, p.23, preceding (3.31); published version not compared",
+      "printed": "at most 4 values",
+      "correction": "The claimed fixed-coordinate fiber assertion needs replacement by a bounded-degree anisotropic grid-zero bound, proved by induction including fibers on which the polynomial vanishes identically. For ordered side lengths H1≥H2≥H3≥1, a nonzero quartic has O(H1 H2) zeros in the box.",
+      "reason": "The quartic t1²t2² is nonzero. For any chosen coordinate, setting the other coordinates appropriately to zero leaves an unrestricted fiber, so no single coordinate has at most four values on every fiber. An induction on the polynomial coefficients gives the needed grid bound without this assertion.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E6",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, §4.5 p.44 (4.57), p.49 second equality of (4.69); published version not compared",
+      "printed": "1+O(1_(G(x,y) does not divide W/rad(W)))",
+      "correction": "State these approximations for reciprocal determinants. Exact determinants are W||nu(x)||/[gcd(ell,W)gcd(G,Q)] and W²/[gcd(ell,W)²gcd(G,Q)], Q=W/gcd(ell,W). Their reciprocals have the claimed bounded relative indicator error because 0<gcd(G,Q)/G≤1.",
+      "reason": "Inverting (4.56) is invalid on the bad set: 1+O(1) may approach zero. For x=e0,y=e0+q e1 with prime q>w(B), q within the height ball, G=q and gcd(q,W)=1. With ell=1 the determinant divided by its printed leading factor is q, unbounded. The following moment calculation only requires the corrected reciprocals.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E7",
+      "kind": "misprint",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 3.24, p.26, (3.38)–(3.39); published version not compared",
+      "printed": "V(L)* ∩ B_5(J)",
+      "correction": "Replace B_5 by B_70, or by the induced Euclidean ball in the 15-dimensional real span.",
+      "reason": "V(L) and its Euclidean dual are lattices in R^70; rank is 15, while 5 belongs to the original point-coordinate space. The printed intersection is ill-typed.",
+      "affects": "nothing",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E8",
+      "kind": "error",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 5.10, p.63, immediately after the tau identity; published version not compared",
+      "printed": "||nu_(d,n)(u)||≥||u||^d",
+      "correction": "Use (n+1)^(−d/2)||u||^d≤||nu(u)||≤||u||^d and adjust the fixed d,n-dependent cutoff in the following volume lower bounds.",
+      "reason": "For d=2,u=(1,1,0,...), ||nu(u)||²=3 whereas ||u||^(2d)=4. The pure maximum-coordinate monomial gives the corrected lower bound, which is enough for the stated Vinogradov estimate.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E9",
+      "kind": "misprint",
+      "locator": "arXiv:2006.02356v1, Proofs of Lemmas 3.14 and 3.15, pp.14,18; published version not compared",
+      "printed": "Lambda_x=Ra1⊕...⊕Ra_n",
+      "correction": "Put span_R around the lattice on the left; likewise around the intersection of Veronese kernels on p.18.",
+      "reason": "A discrete lattice is not a real vector space. The chosen independent vectors span its real span; they are not asserted to be an integral basis. That real-span equality is all the subsequent argument needs.",
+      "affects": "nothing",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E10",
+      "kind": "gap",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 5.9, p.62, step before (5.33); published version not compared",
+      "printed": "x∈D_a(lambda/2)",
+      "correction": "Starting from the stratum witness in D_a(lambda), prove its spherical neighborhood lies in D_a(C lambda), for a fixed C>1; apply Fubini at that enlarged scale and absorb the constants.",
+      "reason": "Membership in B_N^(lambda) gives a zero with gradient at most 2lambda||a||, hence membership in D_a(lambda), not D_a(lambda/2). The printed neighborhood argument uses the latter without establishing it. Enlarging the scale retains the O(lambda²) conclusion.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E11",
+      "kind": "misprint",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 5.5, p.54, collinear/noncollinear case split; published version not compared",
+      "printed": "g∈(Z/pZ)^×",
+      "correction": "Use g∈(Z/p^r Z)^× and equality in (Z/p^r Z)^(n+1), or work throughout with determinantal ideals over Z/p^r Z and avoid this split.",
+      "reason": "The vectors b1,b2 live modulo p^r. There is no canonical scalar action of Z/pZ on Z/p^r Z for r>1. Collinearity only modulo p does not make the two modulo-p^r equations identical.",
+      "affects": "the proof",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E12",
+      "kind": "misprint",
+      "locator": "arXiv:2006.02356v1, Proof of Lemma 3.15, p.16 (3.16) and p.18 (3.18); published version not compared",
+      "printed": "lambda_1((Q2(x,y)^perp)*)",
+      "correction": "At these two intermediate casewise lines put ||a||, for the current nonzero dual vector a, on the left. Then take the minimum of the two lower bounds and infimum over all a to bound lambda_1.",
+      "reason": "The two arguments divide vectors into those inside span Q3 and outside it. A bound for vectors in one part cannot separately bound the minimum over the whole dual lattice. The combined minimum later in the proof is the valid inference.",
+      "affects": "nothing",
+      "known": "No correction located; whether the published revision already repairs this is unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    },
+    {
+      "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E13",
+      "kind": "error",
+      "locator": "arXiv v1, §5.1 p.51, first paragraph; published revision not compared",
+      "printed": "converges to the singular series",
+      "correction": "Qualify finite convergence by appropriate nondegeneracy hypotheses, or explicitly allow divergence to infinity; no such convergence is needed in the proof.",
+      "reason": "For the primitive form f=X0^d with d≥2, sigma(a;p^r)=p^{r−ceil(r/d)}(1−p^{−n}), which tends to infinity. Along W(B) the 2-adic factor alone diverges; for n≥2 the product of the factors (1−p^{−n}) stays bounded away from zero. Thus the claimed convergence is not generally finite on all V_{d,n}.",
+      "affects": "a stated result",
+      "known": "No correction located; published revision unknown.",
+      "searched": [
+        "https://annals.math.princeton.edu/2023/197-3/p03 (journal record; no correction linked, checked 2026-09-22)",
+        "https://arxiv.org/abs/2006.02356 (only v1 listed)",
+        "https://tdbrowning.github.io/pubs.html (entry 88, no corrigendum listed)",
+        "https://pierreleboudec.github.io/works.html",
+        "https://williamsawin.com/ and its papers.js (points to arXiv)",
+        "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "task": "Acquire the 89-page published/revised text and compare all statements, proofs, numbering and thirteen preprint source findings. Bibliographic/abstract agreement does not close this.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G2",
+      "task": "Prove Poonen–Voloch's box-to-Euclidean-ball, primitive/sign-quotient local-density transfer, keeping the real local measure shape-dependent. Norm equivalence alone proves positivity bounds, not the same limiting constant.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G3",
+      "task": "Acquire and read original Banaszczyk Thm.2.1, Schmidt Lemmas 1,2,6, Davenport Lemma 5, Broberg–Salberger Thm.1 and Browning–Matthiesen Lemma 3.3. Their uses are identified, but original theorem/proof closure is not claimed.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G4",
+      "task": "Check Lemma 3.4's O_R claim uniformly in ambient N and number I of bands. Barroero–Widmer gives a constant depending on the definable family. This checkpoint supports fixed N,I, not the stronger uniformity without a separate proof.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G5",
+      "task": "Finish Le Boudec's primitive-count proof and the original proofs behind least-height and Poonen–Voloch; acquire Serre's plane-conic result and Bhargava's positive-proportion plane cubics for Cor.1.2, including Euclidean family transfer.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G6",
+      "task": "Finish source-qualified construction of the nonzero discriminant/nullity or incidence-nullity argument used to repair the real dyadic cover; verify all measurability and singular-family conventions.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G7",
+      "task": "Expand unnamed proof quantities (mu, Q2/Q3 bilinear sigma and coordinate maps, quartic lattice subfamilies, coefficient-gradient fibers, dyadic error pieces) and split remaining composite constructions into separate API-bearing items. The primary numbered inventory is not complete definition closure.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G8",
+      "task": "Check the quartic-threefold reducible-form O(M^40) bound and coefficient-uniform threefold estimate in original sources, together with ordered-box grid-zero repair; audit every dyadic endpoint and implicit constant.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G9",
+      "task": "Audit the partial-summation diagonal estimate (4.71): Lemma 4.7 is restricted to coefficient cutoff ≥B^(4/5), so the lower cutoff portion needs an explicit independent bound. This is an unresolved proof check, not a certified source error.",
+      "blocksComplete": true
+    },
+    {
+      "id": "G10",
+      "task": "Complete item-by-item dependency DAG, consumers/API laws, regression suites and independent review. No Lean file was generated or compiled in this paper-only scope.",
+      "blocksComplete": true
+    }
+  ],
+  "libraryAudit": {
+    "repositoryCommit": "c6f6181bce51ae15717cd874543c76de34cee4b0",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "reviewed": [
+      "AUDIT-02: GN.0, GN.1, GN.4, GN.5",
+      "AUDIT-07: ST.0, ST.2, ST.5",
+      "AUDIT-09: RP.0, RP.2"
+    ],
+    "search": "Searched both full pinned Lean trees for covolume, dual lattice, successive minima, Veronese, Banaszczyk, Barroero, random hypersurface and Fano. Read Mathlib ZLattice Basic/Covolume, BilinearForm/DualLattice and MvPolynomial/Homogeneous; TauCeti BilinearForm/DualLattice. The broad Fano search also found unrelated quiver self-injective material, not Fano geometry. No dedicated paper estimates found.",
+    "nonDuplication": "Read full GN and ST stage records and RP stage descriptions, GN roadmap document, GlobalQuadraticForms Layer 5. Searched new roadmaps, packets, reserved ids, integrated decompositions and links for this paper/Veronese/quantitative minima. No existing random-Fano owner found. These are observed searches, not a global absence proof."
+  },
+  "coverage": {
+    "read": "All 66 pages of v1, including proofs and references, were read. Published text not obtained.",
+    "inventory": "All numbered primary results in v1 are represented, with Lemmas 3.5/3.6/3.9 split. This does not claim complete definition or external-input closure: remaining composite/unnamed definitions are G7 and some external theorem branches are G3/G5.",
+    "sourceIssueReview": "Thirteen unreviewed preprint findings. No independent-review verdict, no author notification, no claim of a flaw in the published main theorem.",
+    "lean": "No Lean file written, generated or compiled. Source extraction and Python arithmetic certificates only.",
+    "dependencyGraph": "Selected dependencies on 26 items; not a complete proof DAG (G10)."
+  }
+}
