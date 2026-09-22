@@ -1,0 +1,111 @@
+{
+  "paper": "PAPER-FU-24",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-FU-24/E1",
+      "kind": "gap",
+      "locator": "Equation (2) and the paragraph after it, p.2, and Corollary 1.3, p.3; compared with Marshall 2012, §2.1, equation (4), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "\"… the Eichler–Shimura isomorphism summarized as dim_C H_c^{r1+r2}(Y(K_f), W_k) = 2^{r1} dim_C S_k(K_f) (2) in [Mar12].\" \"This space corresponds to the first compactly supported cohomology …\" Corollary 1.3: \"dim_C H^n_c(Y(K_f), W_k) ∼_{K_f} k\" for n = 1, 2.",
+      "correction": "In [Mar12] H_c denotes cuspidal cohomology (inside ordinary cohomology), which is what (2) describes. For compactly supported cohomology, Corollary 1.3 needs a boundary estimate: for c cusps and n = 1, 2, |dim H^n_c − dim H^n| ≤ 3c (a cusp-torus Koszul computation with dimensions (1,2,1)), with the trivial coefficient system treated separately.",
+      "reason": "Fu attributes (2) to Marshall but reads Marshall's H_c as compactly supported cohomology. The difference is a boundary term bounded in terms of the number of cusps, so the two-sided growth in Corollary 1.3 survives, but the paper does not supply that step. Converted from the extraction's older-form finding S1 (\"source-convention mismatch; boundary proof required\"): finding: Marshall defines H_c as cuspidal cohomology inside ordinary cohomology, whereas Fu describes it as compactly supported. Marshall also states the displayed dimension identity for nontrivial coefficient systems. Resolution recorded there: Use the cuspidal injection for the upper bound. For the full compact-support interpretation retain an explicit boundary long-exact-sequence calculation and Poincare-Lefschetz comparison, treating the trivial coefficient separately. The two-sided Bianchi result uses the specified base-change lower-bound level class. The continuation gives a cusp-torus Koszul argument with dimensions(1,2,1) and resulting |dim H_c^i−dim H^i|<=3c for i=1,2 and c cusps; its geometric and chain-comparison imports remain explicit. Items: cuspidal-support-dictionary, bianchi-boundary-estimate, bianchi-cohomological-sharpness.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E2",
+      "kind": "error",
+      "locator": "§4, equation (16), p.13, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "\"We let D_r(G, K) := completion of D(G, K) with respect to the norm ‖·‖_r. As a K-Banach space, D_r(G, K) = {Σ_α λ_α b^α | λ_α ∈ K, sup_{α∈N^d} |λ_α| r^{|α|} < ∞}. (16)\"",
+      "correction": "The completion consists of the series with |λ_α| r^{|α|} → 0. The space with sup < ∞ is the larger Banach space (Schneider–Teitelbaum's D_{<r}-type space).",
+      "reason": "Example: r = p^{−1/p} and coefficients c_{pj} = p^{−j} give a bounded weighted sequence of norm 1 that does not tend to zero, so it is not in the completion. The Fréchet algebra D(G,K) = lim_r D_r(G,K) is the same with either description, so the later arguments are unaffected; the proof of Theorem 5.7 cites (16) for a density statement that holds for the completion. Converted from the extraction's older-form finding S2 (\"explicit definition correction\"): finding: The norm-completion description of D_r needs weighted coefficients tending to zero. Equation (16) gives only a boundedness condition; Schneider-Teitelbaum distinguishes the larger bounded space D_<r. Resolution recorded there: Keep D_r and D_<r separate. For example r=p^(-1/p) and coefficients c_(pj)=p^(-j) give a bounded weighted sequence of value 1 which does not tend to zero. At every radius simultaneously the two descriptions give the same Frechet space, but not at one fixed radius. Items: distribution-radius-completion, frechet-stein.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E3",
+      "kind": "error",
+      "locator": "Remark 5.8, p.21, and the relation between Theorem 1.5 (p.4) and Theorem 5.1 (p.19), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "Remark 5.8: \"The infinitesimal character λ is induced if and only if the valuation λ_0 is at least 2 since for any continuous character χ : T ≃ 1 + pZ_p → 1 + pZ_p, dχ(p²h²) ∈ p²Z_p.\" Theorem 1.5 is stated for any λ ∈ Z_p^r (\"the goal of §5 is to prove the following theorem\"), while Theorem 5.1 assumes λ induced.",
+      "correction": "Only \"induced ⇒ v(λ_0) ≥ 2\" holds. So §5 proves Theorem 1.5 for induced λ; for all integral λ it follows from Ardakov–Wadsley [AW14, Thms 4.6, 5.4], as the paper mentions, or by adjoining the needed roots in a finite coefficient extension and descending.",
+      "reason": "Not every integral Casimir parameter is induced by a Q_p-valued torus character: for p = 3 and λ = 1, the condition a(a+2)/2 = 1 forces (a+1)² = 3, impossible in Q_3 since v_3(3) is odd. The justification in Remark 5.8 only proves the \"only if\" direction. Converted from the extraction's older-form finding S3 (\"parameter-scope reconciliation; comparison lemmas required\"): finding: Integral Casimir parameters are not all induced by Q_p-valued torus characters. For p=3, lambda=1, a(a+2)/2=1 forces (a+1)^2=3, impossible in Q_3 by valuation parity. Resolution recorded there: Preserve the direct induced-character proof separately. For the all-integral theorem adjoin the roots in a finite coefficient extension and use the affinoid-Verma annihilator and faithfulness theorems, with explicit faithful scalar-extension comparisons. AW14 allows n=0; this was checked on its page image. The continuation spells out finite-free coefficient descent and the AW14 n=0 application in the central-scalar-descent proofSteps. Items: all-integral-central-injectivity, induced-central-injectivity, central-scalar-descent.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E4",
+      "kind": "error",
+      "locator": "§4, equation (17), p.14; compared with Ardakov–Wadsley 2013, §§10.3–10.4, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "\"Let m := ker(R[[G]] → k) be the unique maximal ideal of R[[G]]. Following [AW13, §10], we consider a microlocal Ore set S_0 := ⋃_{a≥0} p^a + m^{a+1} ⊆ R[[G]]. (17)\"",
+      "correction": "Take R unramified (p a uniformizer), as in AW13, prove the microlocalisation there, and then compare with a finite coefficient extension.",
+      "reason": "If the coefficient ring R is ramified, then p ∈ m², so p + m² contains 0 and S_0 cannot be inverted. AW13 works where p is a uniformizer. Converted from the extraction's older-form finding S4 (\"coefficient-hypothesis correction\"): finding: With the maximal ideal and ramified coefficient DVR, the displayed union p^a+m^(a+1) may contain zero because p belongs to m^2. AW13 uses the unramified setting where p is a uniformizer. Resolution recorded there: Prove the microlocal construction over Z_p or the admitted unramified coefficient ring, then prove the necessary finite coefficient-extension comparison. Do not reuse the displayed multiplicative set unchanged over every R. This continuation reads AW13 §10.1 and the full Theorem10.4 proof, corrects the target to the rational completion, and supplies separate finite completed-group-ring/PBW scalar-extension interfaces plus their flat composite. Items: microlocal-ore-set, lazard-microlocal-identification.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E5",
+      "kind": "gap",
+      "locator": "Theorem 5.7 and its proof, p.20; last paragraph of the proof of Theorem 5.1, p.21, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "The proof of Theorem 5.7 computes gr_{r'} D^λ_r(G,Q_p) ≃ gr_{r'} D_r(G,Q_p)/gr_{r'}(p²Δ + λ_0) and concludes from the graded ring being a domain; the proof of Theorem 5.1 leaves a topological PBW normal form to the reader.",
+      "correction": "Construct the quotient topology and prove that the quotient filtration is separated (and the weighted PBW normal form) before passing from the graded domain to the ring.",
+      "reason": "Deducing \"domain\" from a domain associated graded needs the filtration on the quotient to be separated, which is not automatic; the omitted hypothesis is essential to this type of argument, as the test ring Q_p⟨T/R⟩/(T(T−a)) shows. Converted from the extraction's older-form finding S5 (\"explicit proof-decomposition obligation\"): finding: The domain argument uses a weaker quotient filtration and the later proof leaves a topological PBW normal form to the reader. Quotient separation and coefficient decay are load-bearing, not automatic from an abstract graded-ring calculation. Resolution recorded there: Construct the quotient topology, prove separatedness and the weighted normal form, then use the domain graded ring and the map into the completed central enveloping algebra. No certification of this proof interior is claimed here. An explicit integral PBW division with bounded remainder/quotient operators now supplies a route for the U_r central normal form. Separation of the weaker filtration on D_r central quotients and the all-real-radius assertion remain unresolved. The continuation proves an attained normal-form quotient norm for B_rho and an isometric log/exp comparison for all real p^(-1)<=r<p^(-1/(p-1)), establishing the integral-parameter domain theorem on that interval. The larger-radius ideal-contraction condition is still open. The attached Q_p<T/R>/(T(T-a)) test proves that the omitted separation hypothesis is essential to this type of graded argument. Items: radius-central-domain, completed-pbw-radius-quotient, weighted-pbw-completion, bounded-central-division, weighted-central-closedness, weighted-central-radius-injection, weighted-central-domain, small-radius-log-exp, small-radius-central-domain.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E6",
+      "kind": "misprint",
+      "locator": "Theorem 1.2 and Corollary 1.3, pp.2–3 (with the notation on p.1), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "\"Let F be a number field of degree r = r1 + 2r2 … If k = (k_1, …, k_{r1+r2}) is an (r1 + r2)-tuple …\"; Theorem 1.2: \"dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(Δ(k))\"; Corollary 1.3: \"dim_C H^n_c(Y(K_f), W_k) ∼_{K_f} k\".",
+      "correction": "min over 1 ≤ i ≤ r1 + r2 (the places); and read ∼_{K_f} as a two-sided bound up to positive constants depending on K_f (≍), not an asymptotic with ratio tending to 1.",
+      "reason": "The minimum index runs to the field degree r, past the r1 + r2 entries of k whenever F has complex places. The proof of Corollary 1.3 gives upper and lower bounds by constant multiples of k, not a leading constant. Converted from the extraction's older-form finding S6 (\"index and asymptotic normalization\"): finding: The printed minimum uses the field-degree index although the weight tuple has r_1+r_2 entries. The subscripted asymptotic symbol in the Bianchi corollary is used as a two-sided growth bound. Resolution recorded there: Index the minimum by the actual places. State two positive constant multiples, not a ratio tending to one or a leading constant that the proof does not compute. Items: weight-size, bianchi-cohomological-sharpness.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/E7",
+      "kind": "error",
+      "locator": "Theorem 5.7 and its proof, p.20, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+      "printed": "\"Theorem 5.7. Let p be an odd prime. If 1/p < r < 1, D^λ_r(G, Q_p) is an integral domain.\" The proof: \"If the valuation of λ_0 is at most 1, gr_{r'}(p²Δ + λ_0) = gr_{r'}(λ_0) is a unit in gr_{r'} D_r(G, Q_p), making the quotient equal to zero.\"",
+      "correction": "For v(λ_0) ≥ 2 (in particular for induced λ, the case used in Theorem 5.1), D^λ_r(G, Q_p) is an integral domain; for v(λ_0) ≤ 1 it is zero.",
+      "reason": "The zero ring is not an integral domain, and the proof itself shows that the quotient is zero when v(λ_0) ≤ 1; for example λ_0 = 1, or, in the extraction's normalization, r = p^{−2/3} with Casimir value λ = p^{−1} (so λ_0 = −p²λ has valuation 1), give a zero central quotient. The integral/induced case used downstream is unaffected. Converted from the extraction's older-form finding S7 (\"nonzero-domain hypothesis correction\"): finding: The printed domain statement does not exclude nonintegral parameters or zero quotients. For r=p^(-2/3), lambda=p^(-1), the Casimir has norm at most p^(2/3)<|lambda|, so Delta-lambda is a unit and the central quotient is zero. Resolution recorded there: Record the source's unrestricted statement, the explicit zero-quotient theorem and the integral-parameter target separately. Do not infer separatedness from a zero associated graded. This correction leaves the integral-parameter main theorem untouched. Items: radius-central-domain, large-central-character-zero-quotient.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2024/200-1/p03, checked 22 September 2026: no erratum is linked",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024, the latest)",
+        "web search for an erratum or corrigendum, 22 September 2026: none found"
+      ]
+    }
+  ]
+}
