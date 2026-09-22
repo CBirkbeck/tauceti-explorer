@@ -4870,8 +4870,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1302"
+   "state": "pending",
+   "note": "released on GitHub issue #1302"
   },
   {
    "id": "REV-PAPER-LIU-ZHU-17",
