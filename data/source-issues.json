@@ -842,6 +842,112 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-HACON-WITASZEK-23/E1",
+   "kind": "error",
+   "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
+   "printed": "\"Let P ∈ S be any codimension 1 point on S and m the Cartier index of K_X at P. Then on a neighbourhood of P ∈ X, mD is Cartier for any divisor D, and S is normal, and (K_X + S)|_S = K_S + (1 − 1/m)P.\"",
+   "correction": "m should be the Cartier index of K_X + S at P, the log index. For the plt surface germ obtained by localising at P, this equals the order of the local class group, and the conclusions then hold.",
+   "reason": "Counterexample. Take X = Spec k[x,y,z]/(xy − z²), the A1 surface singularity with char k > 5, S = V(x, z), Δ = S and P the vertex. Then X is Q-factorial, (X, S) is plt and hence dlt, and P is a codimension-one point of the curve S. The minimal resolution (charts (x,z,y) = (u,uv,uv²) and (st²,st,s)) is crepant, so K_X is Cartier and m = 1. But div(x) = 2S and the ideal (x, z) is not principal at P, so S is not Cartier. Since f*S = S′ + E/2, adjunction gives (K_X + S)|_S = K_S + ½P, not K_S. With m = index(K_X + S) = 2 every clause holds. For a threefold example, multiply by A¹. The only other use is Lemma 4.2 (p.16), which needs only that the different of a plt pair with standard coefficients has standard coefficients; that is unaffected. Checked on the page image. Noted by the extraction (gap-index, item adjunction-index-diagnostic).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+   ],
+   "owner": "PAPER-HACON-WITASZEK-23",
+   "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/E2",
+   "kind": "error",
+   "locator": "Lemma 2.16, p.13 of the published version (arXiv v2 Lemma 2.16, p.14)",
+   "printed": "\"Fix m ∈ N and ε > 0. Consider all ε-lc excellent two-dimensional pairs (S, B) with the minimal log resolution having at most m distinct discrepancies. Then the set of all these discrepancies for such surfaces is finite.\"",
+   "correction": "Also fix a finite set I ⊂ [0, 1) and require the coefficients of B to lie in I. Then, over the minimal resolution, the exceptional discrepancies take finitely many values. This is what the proof of Proposition 2.15 needs, since the boundaries B_n of a flip sequence all have the coefficients of B.",
+   "reason": "Counterexample. On the A1 surface S = {xy = z²} with C = V(x, z) and B = bC, 0 < b < 1/2, the minimal resolution is one (−2)-curve E, and K_{S′} + bC′ + (b/2)E = f*(K_S + bC). The pair is ½-lc for every such b (log discrepancies 1 − b/2 and 1 − b on an snc model with coefficients < 1/2), and there is one exceptional discrepancy, −b/2, so m = 1. That value varies infinitely. The proof fails because the right-hand sides B_{S′}·C_i of its linear system contain f^{-1}_*B·C_i, which varies with B. With coefficients in I the right-hand sides lie in a finite set, since f^{-1}_*B·C_i = 2r_i + a_iC_i² − Σ_{j≠i}(1 − a_j)C_j·C_i < 2r_i ≤ 8. Proposition 2.15 is unaffected. Noted by the extraction (gap-surface, item surface-finiteness-diagnostic); the corrected statement is proved in fixed-boundary-surface by this continuation.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+   ],
+   "owner": "PAPER-HACON-WITASZEK-23",
+   "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/E3",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.16, p.13 of the published version (arXiv v2 p.15)",
+   "printed": "\"a_iC_i² = (K_{S′} + B_{S′} + a_iC_i)·C_i ≥ −2r_i, and so −c_i ≤ 2/a_i is bounded.\"",
+   "correction": "c_i ≤ 2/a_i ≤ 2/ε.",
+   "reason": "The proof writes C_i² = −r_ic_i, so c_i > 0 and −c_i ≤ 2/a_i is vacuous. The displayed inequality −a_ir_ic_i ≥ −2r_i gives c_i ≤ 2/a_i, which is the bound the proof then uses (\"and so −C_i² is bounded\"). Checked on the page image. Noted by the extraction (item fixed-boundary-surface, 'correct the printed c_i signs').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+   ],
+   "owner": "PAPER-HACON-WITASZEK-23",
+   "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.15, definition of the difficulty d⁺_α, p.12 of the published version (arXiv v2, same passage)",
+   "printed": "\"d⁺_α(Y, B_Y) = Σ_{b_i ≤ 0} W⁺_α(b_i)ρ(B̃_i) + Σ_v w⁺_α(a_v) − Σ_{C̃_{i,j}} W⁺_α(b_i)\"",
+   "correction": "The first sum is over b_i ≥ 0, which is AHK07 Definition 2.3's index a(B_i) ≤ 0 with a(B_i) = −b_i.",
+   "reason": "W⁺_α(b) = Σ_{k≥1} w⁺_α(k(1 − b)), and for b ≤ 0 every argument k(1 − b) ≥ 1 > α, so W⁺_α(b) = 0. The printed first sum is therefore identically zero, and the difficulty would lose its boundary term, which is exactly what drops when a flip changes ρ. AHK07 Definition 2.3 indexes the sum by a(B_j) ≤ 0. Checked on the page image and against AHK07 (arXiv math/0605137v2). Noted by the extraction (gap-difficulty).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below",
+    "AHK07 (arXiv math/0605137v2) Definition 2.3 compared"
+   ],
+   "owner": "PAPER-HACON-WITASZEK-23",
+   "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.15, p.12 of the published version",
+   "printed": "\"Define the following functions w⁻_α, w⁺_α, W⁻_α, W⁺_α: (−∞, 1) → R_{≥0}\"",
+   "correction": "W^±_α is defined on (−∞, 1). The weights w^±_α must be defined on all of R, or at least on (−1, ∞), with value 0 at arguments above α, as in AHK07 Definition 2.2.",
+   "reason": "w^±_α is evaluated at k(1 − b) ∈ (0, ∞) in W^±_α and at discrepancies a_v ∈ (−1, ∞), both of which can be ≥ 1. The printed domain excludes these, while the formula's 'otherwise' clause shows the intended value 0 there. Checked on the page image. Noted by the extraction (gap-difficulty).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref metadata for 10.1017/fmp.2023.6: no update, correction or erratum relation, and no work that updates this DOI (queried 2026-09-22)",
+    "Forum of Mathematics, Pi article page (open access, CC BY 4.0): no correction notice located",
+    "arXiv 2009.02631 v1 (2020-09-06) and v2 (2021-08-16, the latest version); v2 has the same wording at every locator below"
+   ],
+   "owner": "PAPER-HACON-WITASZEK-23",
+   "file": "research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json",
+   "citation": "Hacon–Witaszek, \"On the relative minimal model program for fourfolds in positive and mixed characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-HE-18/E1",
    "kind": "error",
    "locator": "§2.1(a) p.9; Corollary9 p.12; §5.2 p.20; Theorem23 pp.24–25",
@@ -5223,7 +5329,6 @@
   "PAPER-BENOIST-19",
   "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
   "PAPER-CESNAVICIUS-22",
-  "PAPER-HACON-WITASZEK-23",
   "PAPER-HARPAZ-WITTENBERG-20",
   "PAPER-KISIN-PAPPAS-18",
   "PAPER-KISIN-PAPPAS-ZHOU-26",
