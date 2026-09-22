@@ -2605,8 +2605,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHMIDT-STIX-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1167"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1167",
+   "finishedAt": "2026-09-22T19:28:33Z"
   },
   {
    "id": "REV-PAPER-SCHMIDT-STIX-16",
@@ -3908,7 +3909,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1245"
   },
   {
    "id": "REV-PAPER-LI-23",
