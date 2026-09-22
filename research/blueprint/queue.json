@@ -4949,7 +4949,8 @@
    ],
    "avoidAccountOf": "PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1311"
   },
   {
    "id": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
