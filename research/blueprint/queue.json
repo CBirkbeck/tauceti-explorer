@@ -1801,8 +1801,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-JIANG-ZHANG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1123"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1123",
+   "finishedAt": "2026-09-22T16:23:04Z"
   },
   {
    "id": "REV-PAPER-JIANG-ZHANG-20",
