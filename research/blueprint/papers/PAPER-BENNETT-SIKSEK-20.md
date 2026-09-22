@@ -214,3 +214,14 @@ Checks performed:
 - Relevant atlas inputs were compared against current main; no mathematical ownership change was found in the intervening commits.
 
 These tests are diagnostics, not proof certificates. No Lean file belongs to this paper job; Lean compilation is not applicable. The next independent review should particularly challenge the repairs, exact uniformity hypotheses, source-threshold distinction and boundaries of the three proposed continuations.
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-BENNETT-SIKSEK-20, `research/blueprint/reviews/REV-PAPER-BENNETT-SIKSEK-20.md`) accepted this extraction and corrected the JSON in place:
+
+- **Items:** item 86 split, with its conductor bound now new item 152; items 33 (Tau Ceti `WeierstrassCurve.Affine.μ`) and 73 (RankZeroOneBSD BSD.0) are no longer missing; item 61 is missing rather than planned; item 06 now cites R19.1.
+- **Route 2:** retargeted to AN.2, AN.3 and AN.5 after the accepted restructure RS-07.
+- **Route 8:** now a source of ExponentialSumsAndCircleMethod ES.0 instead of a Part II.
+- **Routes 10–12:** new source routes to ClassicalArithmeticCompletion, ComputationalNumberTheory and ArithmeticGaloisRepresentations R01.3.
+
+Where the text above counts items or routes, the corrected JSON is authoritative. It has 152 items (11 library, 12 planned, 129 missing), nine source routes, two Part II continuations and one new roadmap.
