@@ -4318,8 +4318,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-WANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1274"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1274",
+   "finishedAt": "2026-09-22T14:29:41Z"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
