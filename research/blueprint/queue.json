@@ -6798,8 +6798,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1420"
+   "state": "external",
+   "note": "claimed on GitHub issue #1420"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -29667,8 +29667,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1715"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1715",
+   "finishedAt": "2026-09-22T08:26:56Z"
   },
   {
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
