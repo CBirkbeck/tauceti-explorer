@@ -13957,6 +13957,94 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E1",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 4.12, p. 25 (arXiv v2)",
+   "printed": "\"… and thus is N if and only if its quotient mod M is R (by the definition of the fundamental exact sequence (7.1)).\"",
+   "correction": "\"(by the definition of the fundamental exact sequence (4.1))\"",
+   "reason": "(7.1) is the p-covering-group sequence of §7.2 (TeX label eq:fundshort), defined three sections later. The fundamental short exact sequence 1 → R → F → H → 1 with F = (𝓕_n)^𝒞/M, R = N/M, whose definition gives the claimed equivalence, is (4.1) (label eq:ses).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E2",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.4 (§10.2), three displays, p. 41 (arXiv v2)",
+   "printed": "\"Σ_{0≤n≤b} N(E, Γ, q^n, F_q(t)) / Σ_{0≤n≤b} |E_Γ(q^n, F_q(t))|\"",
+   "correction": "Σ_{0≤n≤b} N(H, Γ, q^n, F_q(t)) / Σ_{0≤n≤b} |E_Γ(q^n, F_q(t))|",
+   "reason": "N(H, Γ, D, Q) is the count of Lemma 9.3, for the finite admissible Γ-group H of the theorem; E_Γ is the set of fields, not a group. The first display of the same proof uses N(H, Γ, q^n, F_q(t)) correctly.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E3",
+   "kind": "misprint",
+   "locator": "§7.1 (Cohen–Lenstra–Martinet comparison), p. 34 (arXiv v2)",
+   "printed": "\"… because N_p is a projective Z_p[Γ]-module (since Z_p[Γ] is hereditary) and N_p ⊗ Q_p ≅ (𝓕_n)^𝒞_p ⊗ Q_p (since N_p is a submodule of (𝓕_n)^𝒞_p ≅ (Z_p[Γ])^n of finite index and is torsion-free).\"",
+   "correction": "(𝓕_n)^𝒞_p ≅ (Z_p[Γ]/(Σ_{g∈Γ} g))^n, the n-th power of the augmentation ideal.",
+   "reason": "For 𝒞 the abelian |Γ|′-Γ-groups, (𝓕_n)^𝒞 = 𝓕_n^ab, and Corollary 3.10 of the paper gives 𝓕_n^ab ≅ (Z[Γ]/(Σ_g g))^n with no Γ-invariants, whereas (Z_p[Γ])^n has invariants Z_p^n. The argument goes through unchanged: finite-index Γ-sublattices of a lattice over the hereditary order Z_p[Γ] are projective with the same rational span, hence isomorphic (Serre, Linear representations, §16, Theorem 34, Corollary 2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E4",
+   "kind": "gap",
+   "locator": "Statement of Theorem 5.12, p. 30, against Theorem 5.15 (p. 31), Lemma 6.1 and Theorem 6.2 (pp. 31–32) and Theorems 7.4–7.5 (pp. 35–36) (arXiv v2)",
+   "printed": "\"Theorem 5.12. Let u ≥ 0 be an integer. Then µ_u is countably additive on the algebra A generated by the basic open sets U_{C,H} …\"; later \"Theorem 5.15. … Let u be an integer. Then µ_u(V_{C,H}) = …\"; \"Theorem 6.2. Let X_u be a random Γ-group with distribution µ_u. For any integer u …\"",
+   "correction": "State Theorem 5.12 for every integer u. Its proof applies Lemma 5.10 to f_n(H, ℓ) = µ_{u,n}(U_{𝒞_ℓ,H}), g_n(H) = |Sur_Γ(𝓕_n, H)|/(|Aut_Γ(H)||Y(H)|^{n+u}) and g(H) = |Aut_Γ(H)|^{−1}|Y(H)|^{−u}. The inequality g_n ≤ g holds for every u, because |Sur_Γ(𝓕_n, H)| ≤ |Y(H)|^n by Corollary 3.8. Corollary 5.9 only needs u > −n, which holds for large n. So nothing in the argument uses u ≥ 0.",
+   "reason": "For u < 0, Theorems 5.15, 6.2 and 7.4–7.5 evaluate µ_u on Borel sets V_{𝒞,H} and integrate against µ_u. That requires µ_u to extend to a Borel measure, which is proved (Theorem 5.12, with Carathéodory extension) only for u ≥ 0 as printed. The main Theorems 1.2 and 1.4 use u = 1 and are unaffected. With the hypothesis dropped the statements hold. For example, at u = −1 and Γ = Z/2 the formula gives measure 0 to every finite abelianization, consistent with the free rank-one abelianization of 𝓕_n/(n−1 relations).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1907.05002: v1 (11 Jul 2019) and v2 (21 Jul 2022, 'contains minor corrections and updates'); v2 read in full from its TeX source",
+    "the published version, Invent. Math. 237 (2024), 49–116 (doi 10.1007/s00222-024-01257-1): paywalled and not accessible here; Melanie Wood's publication page links only the journal and arXiv",
+    "the Publisher Correction, Invent. Math. 237 (2024), 117–120 (doi 10.1007/s00222-024-01271-3), read in full: it only corrects the style of the reference list",
+    "Crossref metadata for 10.1007/s00222-024-01257-1: the only update relation is that publisher correction"
+   ],
+   "owner": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+   "file": "research/blueprint/papers/PAPER-LIU-WOOD-ZUREICKBROWN-24.result.json",
+   "citation": "Liu–Wood–Zureick-Brown, \"A predicted distribution for Galois groups of maximal unramified extensions\", Inventiones Mathematicae (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-MOK-PILA-TSIMERMAN-19/E1",
    "kind": "misprint",
    "locator": "§7.1 Setup, p. 11",
