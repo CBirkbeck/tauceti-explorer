@@ -5666,7 +5666,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-WANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1350"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
@@ -7081,8 +7082,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1434"
+   "state": "pending",
+   "note": "released on GitHub issue #1434"
   },
   {
    "id": "REV-PAPER-KISIN-17",
