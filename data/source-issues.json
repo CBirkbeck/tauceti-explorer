@@ -7704,6 +7704,27 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-IM-KIM-LE-ETAL-24/E1",
+   "kind": "misprint",
+   "locator": "Section 0.2.2, the definition of the alternating multiple zeta values (published: Section 1.2.2); present in arXiv v2 and in the published version",
+   "printed": "Letting 𝔰 = (s_1, …, s_r) ∈ N^n and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^n, we define ζ_A(𝛆; 𝔰) := Σ ε_1^{deg a_1} ⋯ ε_r^{deg a_r} / (a_1^{s_1} ⋯ a_r^{s_r})",
+   "correction": "𝔰 = (s_1, …, s_r) ∈ N^r and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^r",
+   "reason": "Both tuples are displayed with r entries and the sum runs over r-tuples (a_1, …, a_r) ∈ A_+^r, so the ambient sets are N^r and (F_q^×)^r; the letter n is not introduced at that point. The same objects are written correctly with exponent r later, for instance in the definition of the alternating Carlitz multiple polylogarithms in Section 0.3.2 ('for any tuple 𝔰 = (s_1, …, s_r) ∈ N^r and 𝛆 = (ε_1, …, ε_r) ∈ (F_q^×)^r'). Checked against the published text on Cambridge Core, which prints the same formula.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.07165, read 22 September 2026: v1 (14 May 2022) and v2 (10 June 2024), the version read, whose comment records that the details of proofs were added; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2024.18 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the finding below appears there in the same form",
+    "the sequel, arXiv:2402.11539 (Zagier–Hoffman's conjectures in positive characteristic II), which does not correct this point"
+   ],
+   "owner": "PAPER-IM-KIM-LE-ETAL-24",
+   "file": "research/blueprint/papers/PAPER-IM-KIM-LE-ETAL-24.result.json",
+   "citation": "Im–Kim–Le–Ngo Dac–Pham, \"Zagier–Hoffman's Conjectures in Positive Characteristic\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-JIANG-ZHANG-20/E1",
    "kind": "misprint",
    "locator": "Section 3.2, p. 26 (arXiv v4; the same in v1 and v3)",
