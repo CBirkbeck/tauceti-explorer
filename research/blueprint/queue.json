@@ -4241,8 +4241,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-GALATIUS-VENKATESH-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1265"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1265",
+   "finishedAt": "2026-09-22T22:10:48Z"
   },
   {
    "id": "REV-PAPER-FENG-GALATIUS-VENKATESH-22",
@@ -4711,7 +4712,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1292"
   },
   {
    "id": "REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20",
@@ -5145,8 +5147,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1316"
+   "state": "external",
+   "note": "claimed on GitHub issue #1316"
   },
   {
    "id": "REV-PAPER-FRESAN-SABBAH-YU-22",
