@@ -1,0 +1,2241 @@
+{
+ "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Geometric stabilisation via p-adic integration",
+  "authors": "Michael Groechenig, Dimitri Wyss, Paul Ziegler",
+  "venue": "Journal of the American Mathematical Society 33 (2020), no. 3",
+  "doi": "10.1090/jams/948",
+  "arxiv": "1810.06739v2",
+  "url": "https://arxiv.org/abs/1810.06739v2",
+  "read": "arXiv v2 (28 October 2019), 51 pages, fetched 22 September 2026, sha256 0139fc5ac0c4109e049b52c8bd298312954f84e63b29a4cb10b34cf66491a5f2; the published version at doi:10.1090/jams/948 could not be retrieved (the AMS site refused automated access), so every locator refers to arXiv v2",
+  "readSections": [
+   "1 Introduction (Theorems 1.1–1.5, Remark 1.2, structure of the proof)",
+   "2.1 Integrating p-adic differential forms",
+   "2.2 Examples of p-adic integration",
+   "2.3 The canonical measure for coarse moduli spaces of Deligne-Mumford stacks",
+   "2.4 Twisted inertia stacks and the specialisation map",
+   "2.5 Torsors over local fields",
+   "3 The Hasse invariant and inertia stacks (3.1 and 3.2 A stacky interpretation)",
+   "4.1 Quasi-split reductive group schemes",
+   "4.2 An overview of the Hitchin system",
+   "4.3 The abstract Prym",
+   "5 Endoscopy and inertia stacks of moduli spaces of Higgs bundles (5.1–5.5)",
+   "6 The proof of Geometric Stabilisation (6.1 The set-up, 6.2 Unramified twists of Hitchin systems, 6.3 A comparison of p-adic integrals, 6.4 Character sums, 6.5 Tate duality)",
+   "A Appendix (A.1 Co-descent, A.2 Langlands duality and the Prym varieties for quasi-split reductive groups)",
+   "References"
+  ]
+ },
+ "summary": "Groechenig, Wyss and Ziegler give a second proof of Ngô's Geometric Stabilisation Theorem — the statement relating the κ-isotypic cohomology of the Hitchin fibres of a quasi-split reductive group scheme G over a curve to the stable cohomology of the Hitchin fibres of its endoscopy groups, and hence the Fundamental Lemma — which uses neither the Decomposition Theorem nor Ngô's Support Theorem. Instead they develop p-adic integration on coarse moduli spaces of smooth tame Deligne–Mumford stacks: a canonical measure vol_M on M(O_F)^♮, a specialisation map to the twisted inertia stack I_µ̂M(k), and the formula vol_M(e^{-1}(x, α)) = q^{-w(x,α)}/|Aut(x, α)| that turns volumes into weighted point counts. Two geometric results carry the proof: the twisted inertia stack of the anisotropic Higgs stack is the disjoint union of the Higgs stacks of the coendoscopic groups (Theorems 5.14 and 5.23), and the Pryms of G and of its Langlands dual Ĝ are dual Beilinson 1-motives in the quasi-split case (Theorem 4.28, proved by co-descent in Appendix A). Comparing the two p-adic integrals fibrewise over the Hitchin base, using Tate duality for abelian varieties over a local field and the identification of the integrand with the Hasse invariant of a gerbe, gives a character-sum identity (Theorem 6.11) from which geometric stabilisation and Waldspurger's non-standard fundamental lemma follow by Fourier inversion. The atlas plans the two main theorems, but only along Ngô's route: ET.2b of Endoscopic transfer and unitary trace comparison plans the Hitchin geometry, the support theorem and the endoscopic comparison, and ET.3 derives the fundamental lemma from it. Nothing in the atlas plans p-adic integration on stacks, twisted inertia stacks, gerbes and the Hasse invariant on them, coendoscopic data, Beilinson 1-motives or duality of Pryms; nor does anything own Weil's canonical measure, Tate duality for abelian varieties over a local field, or the Grothendieck–Lefschetz trace formula for stacks.",
+ "items": [
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/1",
+   "kind": "theorem",
+   "name": "Geometric Stabilisation Theorem",
+   "statement": "Under the assumptions of Corollary 6.18 (k a finite field with q elements, X/k a smooth projective curve with a rational point ∞, G/X a quasi-split reductive group scheme obtained from a split pinned G/k and an Out(G)-torsor ρ, D a line bundle on X of even degree d ≥ 2g−2 with A^♦ ≠ ∅, |Θ ⋉ W| invertible on X, and E = (κ, ρ_κ, ρ_κ → ρ) a coendoscopic datum for the Langlands dual Ĝ whose torsor ρ_{κ,∞} splits): for every a ∈ Ã_H(k) one has #^{κ_a} M̄_{G,a}(k) = q^{r^G_H(D)} · #^stab M̄_{H,a}(k), where r^G_H(D) = ½(dim M̃_G − dim M̃_H) and #^κ Y(k) = Tr(Fr, H*_c(Y, Q̄_ℓ)^κ) is the κ-isotypic point count.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 1.1, p. 3 (proved as Corollary 6.18, p. 41)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "This is Ngô's Theorem 6.4.2 ([Ngô10]). ET.2b plans exactly this comparison of κ-isotypic direct images along Ngô's route (weak abelian fibrations, δ-stratification, the support theorem); the paper proves the same statement without the Decomposition or Support Theorem, which is why its machinery is routed to a Part II rather than into ET.2b."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/2",
+   "kind": "theorem",
+   "name": "Cohomology of a Higgs stack and of its rigidification agree",
+   "statement": "Since M_{G,a} is a gerbe over M̄_{G,a} banded by a finite étale group scheme, the Q̄_ℓ-adic cohomology groups of M_{G,a} and of M̄_{G,a} are canonically isomorphic; in particular the two stacks have the same number of k-rational points over a finite field k.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 1.2, p. 3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lets the theorem be stated for Ngô's stacks M_G and proved for the rigidifications M̄_G."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/3",
+   "kind": "theorem",
+   "name": "Geometric non-standard fundamental lemma for dual groups",
+   "statement": "For every a ∈ Ã_G(k) ≅ Ã_Ĝ(k) one has #^stab M̃_{G,a}(k) = #^stab M̃_{Ĝ,a}(k): the stable parts of the point counts of the Hitchin fibres of G and of its Langlands dual Ĝ agree.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 1.3, p. 3 (proved as Corollary 6.17, p. 40)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "This is Ngô's Theorem 8.8.2, the geometric form of Waldspurger's non-standard fundamental lemma [Wal08]. ET.3 plans the ordinary and the non-standard variant with their root-datum isogeny conditions; the geometric statement here is the input ET.3 consumes."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/4",
+   "kind": "theorem",
+   "name": "Weil's canonical measure and point counts",
+   "statement": "Let F be a non-archimedean local field with ring of integers O_F and residue field k = F_q, and let X/O_F be a smooth scheme of relative dimension d with specialisation map e : X(O_F) → X(k). There exists a canonical measure µ_can on X(O_F) such that for every k-rational point x ∈ X(k) one has vol(e^{-1}(x)) = q^{-d}; in particular vol(X(O_F)) = |X(k)| · q^{-d}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 1.4, p. 3 (Weil, [Wei12, Theorem 2.2.5])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The prototype of the whole method: a p-adic volume computes a point count. No layer of the atlas constructs Weil's measure; LD.2 plans p-adic definable measures and Igusa-type integrals, which is where this belongs."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/5",
+   "kind": "theorem",
+   "name": "Volume of the fibres of the specialisation map (stacky Weil formula)",
+   "statement": "Let M/O_F be a smooth tame Deligne–Mumford stack as in Situation 2.6(b), with coarse moduli space M, maximal open V ⊂ M over which M → M is an isomorphism, M(O_F)^♮ = M(O_F) ∩ V(F) and specialisation map e : M(O_F)^♮ → [I_µ̂M(k)]. For every x ∈ I_µ̂M(k) one has vol_M(e^{-1}(x)) = q^{-w(x)} / |Aut_{I_µ̂M(k)}(x)|, where w is the weight function of Definition 2.20; in particular vol(M(O_F)^♮) = #_w I_µ̂M(k), the weighted count taking both automorphisms and the weight into account.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 1.5, p. 4 (= Theorem 2.21, p. 13)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The engine of the paper. Known in motivic integration ([DL02], [Yas06]); the authors state explicitly that they do not know how to deduce it formally from those results."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/6",
+   "kind": "definition",
+   "name": "Measure attached to an r-fold top-degree form on an F-analytic manifold",
+   "statement": "Let X be an n-dimensional analytic manifold over a non-archimedean local field F with normalised Haar measure µ_{F^n} (µ_{F^n}(O_F^n) = 1), and let ω be a global section of (Ω^n_X)^{⊗r}. For a compact open chart U ↪ F^n and an analytic function f : U → F with ω|_U = f(x)(dx_1 ∧ … ∧ dx_n)^{⊗r}, set µ_ω(U) = ∫_U |f|^{1/r} dµ_{F^n}; this extends to a measure on X.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 2.1, p. 5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Analytic manifolds and differential forms over F are defined as over the reals, following [Igu00]; the extension to a measure follows [Yas17, 3.2]."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/7",
+   "kind": "theorem",
+   "name": "Haar measure on F^n",
+   "statement": "F^n is a locally compact abelian group, so it carries a left-invariant Haar measure, unique up to a positive scalar; µ_{F^n} is normalised by µ_{F^n}(O_F^n) = 1.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 2.1, p. 5",
+   "status": "library",
+   "library": [
+    "mathlib:MeasureTheory.Measure.haarMeasure",
+    "mathlib:MeasureTheory.Measure.haarMeasure_unique",
+    "mathlib:MeasureTheory.Measure.haarMeasure_self"
+   ],
+   "planned": [],
+   "note": "Mathlib constructs, for a positive compact K₀ of a locally compact group, a left-invariant measure haarMeasure K₀ normalised by haarMeasure K₀ K₀ = 1, and proves that every σ-finite left-invariant measure on a second-countable locally compact group is a scalar multiple of it; the additive forms used here (F^n with K₀ = O_F^n) are the `to_additive` images of the cited declarations. Local compactness of a complete discretely valued field with finite residue field is Mathlib's `Valued.integer` API in Topology/Algebra/Valued/LocallyCompact.lean."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/8",
+   "kind": "theorem",
+   "name": "Positive-codimension subspaces are null",
+   "statement": "For X a geometrically reduced algebraic space of finite type over O_F and a closed algebraic subspace Y ⊂ X of positive codimension, µ_ω(Y(O_F)) = 0.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 2.1(a), p. 6 ([Yas17, Lemma 4.3, Theorem 4.8])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used throughout to discard the non-generic loci: M(O_F) \\ M(O_F)^♮ and U_a(O) \\ U_a(O)^♭."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/9",
+   "kind": "theorem",
+   "name": "Change of variables under a generically free finite étale quotient",
+   "statement": "Let f : Y → X be a morphism of geometrically reduced algebraic spaces of finite type over O_F. Assume Y carries a generically stabiliser-free action of a finite étale group scheme Γ over O_F, that f is Γ-invariant and that the induced morphism Y/Γ → X is birational. Then for every open Γ-invariant A ⊂ Y(O_F) and every section ω of (Ω^top_X)^{⊗r} one has (1/|Γ(F)|) ∫_A |f^*ω|^{1/r} = ∫_{f(A)} |ω|^{1/r}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 2.1(b), p. 6 ([Yas17, Lemma 4.3, Theorem 4.8])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The authors note that the literature's assumption that X be a scheme is superfluous: the case of algebraic spaces is identical."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/10",
+   "kind": "theorem",
+   "name": "Isogeny invariance of the integral of a top form",
+   "statement": "Let A and B be dual abelian varieties over F and φ : A → B an isogeny of degree coprime to p. Then for every ω ∈ H^0(B, Ω^top_{B/F}) one has ∫_{A(F)} |φ^*ω| = ∫_{B(F)} |ω|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 2.2, p. 6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The one place where duality of abelian varieties enters the measure comparison; it is what makes the two Hitchin systems have equal volumes (Lemma 6.15)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/11",
+   "kind": "construction",
+   "name": "Relative top forms and the Fubini decomposition",
+   "statement": "For a smooth morphism π : M^♦ → A^♦ of smooth O_F-schemes the short exact sequence 0 → π^*Ω^1_{A^♦/O_F} → Ω^1_{M^♦/O_F} → Ω^1_{M^♦/A^♦} → 0 induces an isomorphism π^*Ω^top_{A^♦/O_F} ⊗ Ω^top_{M^♦/A^♦} ≅ Ω^top_{M^♦/O_F}, η ⊗ φ ↦ η ∧ φ, and hence a fibrewise (Fubini) expression of the measure attached to a top form as an integral over A(O_F)^♭ = A(O_F) ∩ A^♦(F) of the fibrewise integrals.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 2.2, pp. 6–7 (equations (6)–(8))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Fubini theorem used is [Igu00, Theorem 7.6.1] for smooth morphisms of p-adic manifolds."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/12",
+   "kind": "construction",
+   "name": "The double integral computing a singular fibre: π(x,y) = xy",
+   "statement": "For π : A^2_{O_F} → A^1_{O_F}, (x,y) ↦ xy, one has (A^1_{O_F})^♦ = G_{m,O_F}; for a ∈ A^1(O_F) ∩ G_m(F) = O_F \\ {0} projection to x gives an isomorphism of F-analytic manifolds π^{-1}(a)(O_F) ≅ {x ∈ O_F : |x| ≥ |a|}, under which (dx ∧ dy)/da = (dx ∧ dy)/(y dx + x dy) = dx/x; evaluating the resulting double integral recovers |π^{-1}(0)(k)| = 2q − 1.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Example 2.4, p. 7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The worked example that shows how a p-adic integral sees a singular special fibre; an acceptance test for any formalisation of the method."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/13",
+   "kind": "theorem",
+   "name": "Point counts agree for dual abelian fibrations (the toy comparison)",
+   "statement": "Let M_1, M_2 and A be smooth O_F-schemes with proper surjective morphisms π_i : M_i → A, and let M_i^reg be smooth group schemes over A with open immersions M_i^reg ↪ M_i, and A^♦ ⊂ A open dense, such that: (i) codim(M_i \\ M_i^reg ⊂ M_i) ≥ 2; (ii) there is an isogeny ρ : (M_1^reg)° → (M_2^reg)° between the relative identity components of degree prime to p; (iii) the preimages M_i^♦ = M_i ×_A A^♦ are contained in M_i^reg and are dual abelian schemes over A^♦ for the resulting group structures. Then |M_{1,a}(k)| = |M_{2,a}(k)| for every a ∈ A(k).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 2.5, p. 8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The scheme-level model of Theorem 6.11: dual abelian fibrations have equal special-fibre point counts. The Hitchin systems of G and Ĝ satisfy (i)–(iii) only after the stacky refinement of Sections 2.3–2.4."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/14",
+   "kind": "definition",
+   "name": "Coarse moduli space of a tame Deligne–Mumford stack over O_F",
+   "statement": "For a smooth and tame Deligne–Mumford stack M/O_F, M/O_F denotes a coarse moduli space with canonical map Q : M → M (Keel–Mori), and V ⊂ M the maximal open subscheme for which Q^{-1}(V) → V is an isomorphism.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Situation 2.6(a), p. 8 ([KM97], [Con05])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "R09.5 plans coarse spaces for the finite-inertia presentations of its own programme; the Keel–Mori statement for tame DM stacks over a discrete valuation ring, and the locus V where the map is an isomorphism, are what this paper needs."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/15",
+   "kind": "definition",
+   "name": "Zariski-locally a finite étale quotient stack",
+   "statement": "M is Zariski-locally a finite étale quotient stack if there is a finite covering by Zariski-open substacks M = ∪_{i∈I} M_i with equivalences M_i = [U_i/Γ_i], where Γ_i is a finite étale group O_F-scheme, U_i a smooth O_F-scheme, the action of Γ_i on U_i is generically free and every orbit lies in an affine subset.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Situation 2.6(b), p. 8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "By Kresch ([Kre09, Theorem 4.4 and Proposition 5.2]) a smooth tame DM stack over a field with quasi-projective coarse space is of this form, with the Γ_i constant; this is how the hypothesis is verified for M̄^ani_G in Situation 6.1."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/16",
+   "kind": "definition",
+   "name": "The p-adic manifold of generic O_F-points",
+   "statement": "In the notation of Situation 2.6, M(O_F)^♮ := M(O_F) ∩ V(F).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 2.7, p. 8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The set on which the measure lives: O_F-points of the coarse space whose generic fibre lies in the locus where the stack is an algebraic space."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/17",
+   "kind": "theorem",
+   "name": "The canonical measure on the coarse space of a tame DM stack",
+   "statement": "Let M/O_F be a smooth tame DM stack with coarse moduli space M/O_F which is Zariski-locally a finite étale quotient as in Situation 2.6. Then there is a unique Borel measure vol_M on M(O_F) such that (a) vol_M(M(O_F)) = vol_M(M(O_F)^♮), and (b) for an open subscheme W ⊂ M and a generating section ω of (Ω^top_M)^{⊗r}(Q^{-1}(W)) (that is, O_W · ω = (Ω^top_M)^{⊗r}), vol_M(A) = ∫_A |ω|^{1/r} for every Borel measurable A ⊂ W(O_F)^♮.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.8, p. 9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Its proof uses that ∫_A |ω|^{1/r} is independent of the chosen r-gauge form ω and of r, and that norms Nm_{U_i/M_i}(η_i) of generating top forms along the finite étale maps U_i → M_i provide the required gauge forms."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/18",
+   "kind": "construction",
+   "name": "r-gauge forms and their independence",
+   "statement": "If ω_1, ω_2 are generating sections of (Ω^top_M)^{⊗r_1}, (Ω^top_M)^{⊗r_2} on the same open, and r = d_1 r_1 = d_2 r_2, then ω_2^{⊗d_2} = f ω_1^{⊗d_1} for a unit f ∈ O_M(U)^×, so |f(x)| = 1 and |ω_1(x)|^{1/r_1} = |ω_2(x)|^{1/r_2} for all x ∈ U(O_F); and the norm Nm_{U_i/M_i}(η_i) of a generating top form along the finite étale π_i : U_i → M_i generates (Ω^top_{M_i})^{⊗ deg π_i}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.8, proof, p. 9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The technical heart of the existence of vol_M: gauge forms exist Zariski-locally on the coarse space only after passing to a tensor power."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/19",
+   "kind": "definition",
+   "name": "The twisted inertia stack",
+   "statement": "For a stack X over Spec(k), the twisted inertia stack is the X-stack I_µ̂X = colim_n Hom(Bµ_n, X) → X.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 2.9, p. 9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Twisting refers to the µ_n-gerbes Bµ_n rather than to the constant group Z/n: this is the form of the inertia stack that sees the tame ramification of a local field."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/20",
+   "kind": "theorem",
+   "name": "Rational points of a twisted inertia stack: the groupoid description",
+   "statement": "Let X/F_q be a stack whose diagonal is of finite presentation, and for a geometric point x ∈ X(F_q) let φ : Aut_{X(F̄_q)}(x) → Aut_{X(F̄_q)}(x) be the automorphism induced by the Frobenius φ ∈ Gal(F̄_q/F_q). Then there is an equivalence of groupoids I_µ̂X(F_q) ≃ {(x, α) : x ∈ X(F_q), α ∈ Hom_cts(µ̂(F̄_q), Aut_{X(F̄_q)}(x)), α ∘ φ = φ ∘ α}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(a), p. 9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Makes the twisted inertia stack computable over a finite field."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/21",
+   "kind": "theorem",
+   "name": "Rational points of a twisted inertia stack: after a choice of generator",
+   "statement": "With ξ a profinite generator of µ̂(F̄_q), sending (x, α) to (x, α(ξ)) gives an equivalence of groupoids [ξ] : I_µ̂X(F_q) ≃ {(x, α) ∈ IX(F̄_q) : x ∈ X(F_q) and φ^*α = α^q}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(b), p. 9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The comparison with the ordinary inertia stack; the q-th power condition is the twist."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/22",
+   "kind": "theorem",
+   "name": "Automorphisms of a point of the twisted inertia stack",
+   "statement": "For (x, α) ∈ I_µ̂X(F_q) as in Lemma 2.10(b) one has Aut_{I_µ̂X(F_q)}(x, α) = {β ∈ Aut_{X(F_q)}(x) : α ∘ β = β ∘ α}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.10(c), p. 9 (equation (10))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The centraliser that appears in the denominator of Theorem 2.21."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/23",
+   "kind": "construction",
+   "name": "The µ_N-action on Spec(O_L) and Spec(L) as a µ_N-torsor",
+   "statement": "Let L/F be a finite totally ramified extension of degree N with uniformiser π. For every O_F-algebra R and ζ ∈ µ_N(R) there is a unique automorphism of O_L ⊗_F R = R[π] fixing R and sending π to ζπ; this defines an action of µ_N on Spec(O_L) relative to Spec(O_F), independent of the choice of uniformiser, and endows Spec(L) with the structure of a µ_N-torsor over Spec(F).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 2.11, p. 10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tame totally ramified extensions of a local field are planned in the Tau Ceti roadmap LocalFieldsRamification (Layer 3), but their µ_N-torsor structure is not."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/24",
+   "kind": "theorem",
+   "name": "Normalisation of a tame DM stack over O_F with generic fibre Spec F",
+   "statement": "Let M be a tame DM stack over O_F such that (i) the diagonal M → M ×_{O_F} M is finite, (ii) M → Spec(O_F) is the coarse moduli space of M, and (iii) the generic fibre M_F equals Spec(F). Let M̃ be the normalisation of M. Then for some totally ramified finite extension F ⊂ L of degree N there is an isomorphism [Spec(O_L)/µ_N] ≅ M̃, unique up to isomorphism for a given L; the induced morphism [Spec(k_F)/µ_N] = [Spec(k_L)/µ_N] ≅ M̃_{k_F} on special fibres is independent of L up to isomorphism.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 2.12, p. 10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local classification that produces the point of the twisted inertia stack; normalisation of a stack is taken in the sense of [AB17, Appendix A]."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/25",
+   "kind": "construction",
+   "name": "The specialisation map e : M(O_F)^♮ → [I_µ̂M(k)]",
+   "statement": "For M a tame stack over Spec(O_F) with coarse moduli space M and x ∈ M(O_F)^♮, the pullback M_x = M ×_M Spec(O_F) satisfies conditions (ii) and (iii) of Proposition 2.12 (using that coarse moduli of tame stacks commute with base change, [AOV08, 3.3]); Proposition 2.12 then gives a morphism [Spec(k)/µ_N] → M̃_k → M_k and hence a point e(x) ∈ I_µ̂M(k), well defined up to isomorphism.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 2.13, p. 11",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the map whose fibres Theorem 2.21 measures."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/26",
+   "kind": "definition",
+   "name": "Torsors under a finite étale group scheme over a local field",
+   "statement": "For Γ a finite étale group O_F-scheme of order coprime to p, H^1(F, Γ) denotes the pointed set of isomorphism classes of left Γ-torsors; for Γ constant there is a bijection of pointed sets H^1(F, Γ) ≅ Hom(Gal^{tr}(F), Γ)/Γ, where Gal^{tr}(F) is the tame quotient, topologically generated by a Frobenius lift and a generator of tame inertia.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 2.5, p. 11 ([Ser07, Section I.5])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Non-abelian Galois cohomology of finite group schemes over a local field: no layer of the atlas owns it (NC.3 plans non-abelian cohomology only in the unipotent/Selmer setting)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/27",
+   "kind": "theorem",
+   "name": "Unramified and strongly ramified torsors",
+   "statement": "Let Q = Spec(∏_{i∈I} L_i) be a Γ-torsor. (i) [Q] = [x_β, 1] for some x_β ∈ Γ^un if and only if L_i/F is unramified for all i ∈ I (Q is then called unramified). (ii) [Q] = [1, x_γ] for some x_γ ∈ Γ^un if and only if L_i/F is totally ramified for at least one i; in that case any two totally ramified L_i, L_j are isomorphic and Γ(F) acts simply transitively on the corresponding connected components (Q is then called strongly ramified).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.14(i)–(ii), p. 12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The dichotomy that turns a local point into a point of the twisted inertia stack."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/28",
+   "kind": "theorem",
+   "name": "Every torsor becomes strongly ramified after an unramified twist",
+   "statement": "For every Γ-torsor Q there exists an unramified right Γ-torsor P such that the twist Q_P = P ×^Γ Q is a strongly ramified Γ_P-torsor, where Γ_P is the inner form of Γ defined by P.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.14(iii), p. 12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used to reduce Constructions 2.17–2.19 to the strongly ramified case."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/29",
+   "kind": "definition",
+   "name": "The inertia subgroup of a strongly ramified torsor",
+   "statement": "For Q a strongly ramified Γ-torsor and Spec(L) ⊂ Q a totally ramified connected component, I_Q ⊂ Γ denotes the stabiliser of Spec(L); it is well defined up to conjugation by Γ(F), and Spec(L) is an I_Q-torsor.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 2.15, p. 12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The group that becomes the automorphism group of the specialised point."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/30",
+   "kind": "theorem",
+   "name": "The inertia subgroup is canonically µ_N",
+   "statement": "For a strongly ramified Γ-torsor Q there is a canonical isomorphism µ_N ≅ I_Q, where N = [L : F].",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.16, p. 12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Canonicity here is what makes the specialisation map well defined."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/31",
+   "kind": "construction",
+   "name": "The stack X_{Γ,Q} = [Q_O/Γ] and the closed immersion Bµ_N ↪ X_{Γ,Q}",
+   "statement": "For a Γ-torsor Q over F let Q_O be the normalisation of Spec O_F in Q; by the valuative criterion the Γ-action extends uniquely, giving a smooth tame DM O_F-stack X_{Γ,Q} = [Q_O/Γ] containing j : Spec F = [Q/Γ] as a dense open. For every unramified right Γ-torsor P there is a canonical equivalence X_{Γ,Q} ≅ X_{Γ_P,Q_P}; choosing P with Q_P strongly ramified identifies the special fibre with B_k I_{Q_P} and yields a closed immersion B_kµ_N ↪ X_{Γ,Q}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 2.17, p. 12 (equation (14))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The closed immersion is not unique; Remark 3.8 shows that the induced map on Brauer groups is independent of the choice."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/32",
+   "kind": "construction",
+   "name": "The specialisation map for a finite étale quotient stack",
+   "statement": "For M = [U/Γ] a tame finite étale quotient stack with U a smooth O_F-scheme and x ∈ M(O_F)^♮, the pullback Spec(F) ×_M U is a Γ-torsor Q over F; applying the valuative criterion to U → U/Γ and the discrete valuation rings O_{L_i} with Q_O = Spec(∏_i O_{L_i}) gives a Γ-equivariant morphism Q_O → U, hence X_{Γ,Q} → M and, through (14), a morphism B_kµ_N → M whose class in [I_µ̂M(k)] is e(x).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 2.18, p. 13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The explicit form of Construction 2.13 used in every computation."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/33",
+   "kind": "construction",
+   "name": "The fibres of the specialisation map",
+   "statement": "For M = [U/Γ] and (x, α) ∈ I_µ̂M(k) as in Lemma 2.10(b), after twisting by a suitable unramified torsor one may assume x lies in the image of U(k) → M(k) and identify α with an element of Γ(k̄), giving an inclusion µ_N ↪ Γ with N = ord(α). With L = F(π^{1/N}) the tame totally ramified extension and U(O_L)^{µ_N}_x the set of µ_N-equivariant morphisms Spec(O_L) → U specialising to x, the quotient morphism induces a surjection U(O_L)^{µ_N}_x ↠ e^{-1}(x, α).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 2.19, p. 13 (equation (15)); after [DL02, Section 2]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This surjection is what reduces Theorem 2.21 to a computation on U."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/34",
+   "kind": "definition",
+   "name": "The weight of a µ̂-action and of a point of the twisted inertia stack",
+   "statement": "(a) For (χ_1, …, χ_r) ∈ (Q/Z)^r set w(χ_1, …, χ_r) = Σ_{i=1}^r c_i, where c_i ∈ Q is the unique rational representative of χ_i with 0 < c_i ≤ 1. (b) For a k-vector space V with an algebraic action a : µ̂ → µ_N → Aut(V) and character decomposition V_k̄ ≅ ⊕_i V_k̄(χ_i), w(a) = w(χ_1, …, χ_r). (c) For (x, a) ∈ I_µ̂M(k) with M a smooth DM stack over k, w(x, a) is the weight of the induced µ̂-action on the tangent space T_xM.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 2.20, p. 13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Agrees through Lemma 2.10 with the usual weight defined on the untwisted inertia stack after fixing a primitive root of unity ([GWZ17, Definition 2.2])."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/35",
+   "kind": "theorem",
+   "name": "The stacky Weil formula",
+   "statement": "Let M/O_F be a DM stack as in Situation 2.6(b). For (x, α) ∈ I_µ̂M(k) one has vol_M(e^{-1}(x, α)) = q^{-w(x,α)} / |Aut_{I_µ̂M(k)}(x, α)|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 2.21, p. 13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The generalisation of Weil's Theorem 1.4 to tame quotient singularities; every point count in the paper is read off from it."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/36",
+   "kind": "theorem",
+   "name": "The linear model computation",
+   "statement": "Let M = [A^n/µ_N] with µ_N acting linearly and non-trivially on A^n over O_F, let ξ ∈ µ_N(F) = µ_N(F_q) be a primitive N-th root of unity and 0 ∈ A^n the origin. Then (0, ξ) defines an element of I_µ̂M(F_q) and vol_M(e^{-1}(0, ξ)) = q^{-w(0,ξ)} / |µ_N(F)|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 2.22, p. 14",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local computation from which Theorem 2.21 is deduced; the natural acceptance test."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/37",
+   "kind": "definition",
+   "name": "Gerbes banded by an abelian group and their classification",
+   "statement": "For X a stack and A an abelian sheaf, an A-gerbe on X is a stack over X which is locally non-empty and locally connected with band A; by Giraud's theorem the set of equivalence classes of A-gerbes on X is in natural bijection with the Čech cohomology group Ȟ²_ét(X, A). Unless stated otherwise 'gerbe' means G_m-gerbe, classified by Ȟ²_ét(X, G_m).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 3.2 and the conventions around it, p. 16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "R09.4 plans algebraic stacks in the class this programme needs; Giraud's classification of gerbes by degree-two cohomology is the stack-theoretic input this paper adds to it."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/38",
+   "kind": "theorem",
+   "name": "Čech and derived degree-two cohomology agree",
+   "statement": "If X is a scheme quasi-projective over an affine scheme, then Ȟ²_ét(X, G_m) = H²_ét(X, G_m).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 3.1, p. 16 ([Mil80, Theorem 2.17])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "No roadmap owns the Čech-to-derived comparison for schemes; ClassicalAdicEtaleCohomology:H0 plans it only on analytic adic étale sites, which is a different statement."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/39",
+   "kind": "theorem",
+   "name": "The Hasse invariant of a local field",
+   "statement": "For a non-archimedean local field F there is an isomorphism inv : H²_ét(F, G_m) → Q/Z, the Hasse invariant.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 3.3, p. 16",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
+   ],
+   "note": "This is the local invariant map of local class field theory; the Tau Ceti ClassFieldTheory roadmap plans the Brauer group, the local invariant and local duality in its Layer 5."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/40",
+   "kind": "theorem",
+   "name": "Degree-two cohomology of Bµ_N over a field",
+   "statement": "Let k be a field and N invertible in k. Then there is an equivalence f : H²_ét(B_kµ_N, G_m) ≅ Z/NZ, and for N' = dN with d coprime to p the diagram relating H²_ét(B_kµ_N, G_m) ≅ Z/NZ and H²_ét(B_kµ_{dN}, G_m) ≅ Z/dNZ commutes, the map on the right being multiplication by d, i.e. the inclusion (1/N)Z/Z ⊂ (1/dN)Z/Z ⊂ Q/Z.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 3.4, p. 16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The compatibility is what makes Definition 3.6 independent of N and lands the invariant in Q/Z."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/41",
+   "kind": "theorem",
+   "name": "Vanishing over an algebraically closed field",
+   "statement": "H²_ét(B_k̄µ_N, G_m) = 0 for k̄ algebraically closed.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Claim 3.5, p. 16",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric input of Lemma 3.4: the whole of H²(B_kµ_N, G_m) is arithmetic."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/42",
+   "kind": "definition",
+   "name": "The invariant function f_α of a gerbe on a stack over a finite field",
+   "statement": "Let k be a finite field, M/Spec k an algebraic stack and α a G_m-gerbe on M. Define f_α : I_µ̂M(k) → Q/Z by sending a k-rational point y : B_kµ_N → M of I_µ̂M to the invariant of y^*α ∈ H²_ét(B_kµ_N, G_m) ≅ Z/NZ = (1/N)Z/Z ⊂ Q/Z of Lemma 3.4.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 3.6, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The combinatorial shadow of the Hasse invariant on the twisted inertia stack."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/43",
+   "kind": "theorem",
+   "name": "The Hasse invariant is computed by the specialisation map",
+   "statement": "Let F be a local field and M/O_F a smooth tame DM stack with coarse moduli space M/O_F as in Situation 2.6(b), and let α be a G_m-gerbe on M. For every x ∈ M(O_F)^♮ one has inv(x_F^*α) = f_α(e(x)), where x_F : Spec F → M is the induced map.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 3.7, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bridge between arithmetic (Brauer classes over F) and geometry (the twisted inertia stack over k); it is what makes the character χ_s in Theorem 6.11 a p-adic integrand."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/44",
+   "kind": "theorem",
+   "name": "Independence of the closed immersion on Brauer groups",
+   "statement": "For Q strongly ramified there is a (non-canonical) closed immersion of stacks i : B_kµ_N ↪ X_{Γ,Q} inducing on stabiliser groups the canonical inclusion µ_N ⊂ Γ, and the induced morphism Br(X_{Γ,Q}) → Br(B_kµ_N) is independent of the choices.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 3.8, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Makes Definition 3.9 well posed."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/45",
+   "kind": "definition",
+   "name": "The invariant f_{Γ,Q} of a Brauer class on X_{Γ,Q}",
+   "statement": "For Q strongly ramified, f_{Γ,Q} : H²_ét(X_{Γ,Q}, G_m) → Q/Z is the composition H²_ét(X_{Γ,Q}, G_m) →^{i^*} H²_ét(B_k I_Q, G_m) = H²_ét(B_kµ_N, G_m) = (1/N)Z/Z ⊂ Q/Z.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 3.9, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local avatar of f_α."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/46",
+   "kind": "theorem",
+   "name": "f_{Γ,Q} computes the Hasse invariant of the restriction to the generic point",
+   "statement": "For a strongly ramified Γ-torsor Q the diagram formed by j^* : H²_ét(X_{Γ,Q}, G_m) → H²_ét(F, G_m), the Hasse invariant inv and f_{Γ,Q} commutes.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 3.10, p. 17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The key step in the proof of Proposition 3.7."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/47",
+   "kind": "theorem",
+   "name": "The explicit cocycle for f_{Γ,Q}",
+   "statement": "The 1-cocycle (c_{ij}) constructed from a trivialisation of the gerbe on the special fibre represents f_{Γ,Q}(α) ∈ H^1(k, µ_N^∨).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Claim 3.11, p. 18",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The computation behind Lemma 3.10; an explicit Čech-cocycle description of the invariant."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/48",
+   "kind": "definition",
+   "name": "The gerbe attached to a finite-order line bundle",
+   "statement": "Let M/O_F be a proper DM stack over the ring of integers of a local field F and L ∈ Pic(M) a G_m-torsor of finite order. The gerbe α_L ∈ H²_ét(M, G_m) is the element induced by the class in H^1(π_1(O_F), H^1_ét(M_{O_F^{un}}, G_m)) corresponding to the morphism Ẑ → H^1_ét(M, G_m) sending 1 to L.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 3.12, p. 19",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The construction that turns the torsor T_G of Section 6.5 into a Brauer class."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/49",
+   "kind": "theorem",
+   "name": "The invariant of the gerbe of a character torsor",
+   "statement": "With the notation of Definition 3.12 and the identification H^1_ét(B_kµ_N, G_m) ≅ µ_N^∨ = Z/NZ, χ ↔ L_χ, one has f(α_{L_χ}) = χ ∈ Z/NZ ⊂ Q/Z, where f is the invariant of Lemma 3.4.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 3.13, p. 19",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Identifies the two ways of attaching a rational number to a point of the twisted inertia stack."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/50",
+   "kind": "theorem",
+   "name": "The Hasse invariant of α_L on generic O_F-points",
+   "statement": "Let M be a proper tame DM stack as in Situation 2.6(b) and L ∈ Pic(M). For every x ∈ M(O_F)^♮ one has inv(x_F^*α_L) = χ_L(e(x)), where χ_L : I_µ̂M(k) → Q/Z sends y : B_kµ_N → M to the character of µ_N corresponding to y^*L ∈ Pic(B_kµ_N).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 3.14, p. 19",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This identity, read as an identity of complex-valued functions through Q/Z ↪ C^×, is what is integrated in Section 6.3."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/51",
+   "kind": "definition",
+   "name": "The embedding Q/Z ↪ C^×",
+   "statement": "Q/Z is viewed inside C^× through λ ↦ e^{2πiλ}; all invariants are read as complex-valued functions through this embedding.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 3.14 and the paragraph after it, p. 19",
+   "status": "library",
+   "library": [
+    "mathlib:AddCircle.toCircle",
+    "mathlib:AddCircle.toCircle_add",
+    "mathlib:AddCircle.toCircle_apply_mk"
+   ],
+   "planned": [],
+   "note": "Mathlib has the homomorphism AddCircle.toCircle : R/TZ → Circle, x ↦ exp(2πix/T), a group homomorphism by AddCircle.toCircle_add; with T = 1 it is λ ↦ e^{2πiλ} on R/Z, and the embedding the paper uses is its restriction to Q/Z ⊂ R/Z."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/52",
+   "kind": "definition",
+   "name": "Pinning of a reductive group scheme",
+   "statement": "A pinning of a reductive group scheme G over a scheme S is a triple (T, B, s) with T a maximal torus over S, B a Borel subgroup over S containing T and s a section of Lie B over S such that over some étale covering S' of S the groups T, B, G become constant, B admits root subgroups U_α for the roots α ∈ Φ^+ appearing in Lie B, and s decomposes as s = Σ_{α∈Φ^+} s_α for nowhere vanishing sections s_α of Lie U_α over S'. A pinning is split if T is split.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.1(i)–(ii), pp. 19–20",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ"
+   ],
+   "note": "Pinned Chevalley–Demazure group schemes over Z are planned in the Tau Ceti ReductiveGroups roadmap (Layer 9); the relative version over a base scheme is the same definition."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/53",
+   "kind": "definition",
+   "name": "Compatible pinnings of a reductive subgroup",
+   "statement": "For H ⊂ G a closed reductive subgroup scheme, a pinning (T', B', s') of H is compatible with a pinning (T, B, s) of G if T' = T, B' ⊂ B, and over a suitable étale covering on which all groups become constant the summands satisfy s_α = s'_α for those roots α appearing in Lie B'.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.1(iii), p. 20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The compatibility used to endow every coendoscopic group H_κ with a canonical pinning."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/54",
+   "kind": "theorem",
+   "name": "The sheaf of pinnings is a torsor under the adjoint group",
+   "statement": "For a reductive group scheme G over S, the sheaf of pinnings of G is a torsor under G^ad.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 4.2, p. 20 (from [MD70b, XXIV.3.10])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ],
+   "note": "A statement of SGA 3 about pinned reductive group schemes; the Tau Ceti ReductiveGroups roadmap plans the structure theory (Layer 7) and the pinned Chevalley–Demazure theory (Layer 9) that own it."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/55",
+   "kind": "theorem",
+   "name": "A pinning splits the outer-automorphism sequence",
+   "statement": "For a reductive group scheme G over S with exact sequence of sheaves 1 → G^ad → Aut(G) → Out(G) → 1, the subsheaf of Aut(G) of automorphisms fixing a given pinning maps isomorphically onto Out(G); hence every pinning splits the sequence, and Out(G) is regarded as a subsheaf of Aut(G).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 4.3, p. 20",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ],
+   "note": "Also SGA 3 structure theory of pinned reductive group schemes, planned in ReductiveGroups Layers 7 and 9."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/56",
+   "kind": "theorem",
+   "name": "Existence and uniqueness of the compatible pinning of a subgroup",
+   "statement": "Let S be a scheme, G a reductive group scheme over S, H ⊂ G a closed reductive subgroup scheme, and (T, B, s) a pinning of G with T ⊂ H. Then there is a unique pinning (T', B', s') of H compatible with (T, B, s).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 4.4, p. 20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Applied to the connected centralisers H_κ ⊂ G, which is how coendoscopic groups acquire canonical pinnings (Section 5.2)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/57",
+   "kind": "definition",
+   "name": "Outer forms and quasi-split reductive group schemes",
+   "statement": "An outer form of a pinned reductive group scheme G over S is a group scheme G → S together with an Out(G)-torsor ρ_G on S and an isomorphism G ≅ ρ_G ×^{Out(G)}_S G, which induces a pinning on G. A reductive group scheme over S is quasi-split if it admits a pinning; and a quasi-split G over S with a chosen pinning is isomorphic, compatibly with pinnings, to G ×^{Out(G)} ρ for a split pinned G/S and an Out(G)-torsor ρ.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definitions 4.5, 4.6 and Lemma 4.7, p. 20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quasi-split group schemes over a curve are the standing generality of the paper; no layer of the atlas constructs them (ET.2b speaks of reductive group schemes with descent under outer twists but does not develop the theory)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/58",
+   "kind": "theorem",
+   "name": "An outer-form torsor is trivialised by a finite étale cover",
+   "statement": "Let X be a smooth projective curve over k and ρ an Out(G)-torsor on X. Then there exists a finite étale covering X' of X over which ρ becomes trivial.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 4.8, p. 20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what makes the co-descent argument of Appendix A applicable, and it also gives the reduction of ρ to a finite subgroup Θ ⊂ Out(G) over a field (Remark 4.11)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/59",
+   "kind": "definition",
+   "name": "The Langlands dual of a split reductive group scheme",
+   "statement": "For G/k reductive, Ĝ/k denotes the reductive group classified by the dual root datum.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.9, p. 20",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "GeometricSatakeAndFusion:GS4:integral-dual-group"
+   ],
+   "note": "The pinned dual group of a split reductive group scheme is planned in GeometricSatake's integral dual-group stage, which reconstructs it and identifies its root datum."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/60",
+   "kind": "definition",
+   "name": "The Langlands dual of a quasi-split outer form",
+   "statement": "There is a natural isomorphism Out(Ĝ) = Out(G); for an outer form G of G over a k-scheme S given by an Out(G)-torsor ρ, the Langlands dual Ĝ is the quasi-split outer form of Ĝ given by ρ regarded as an Out(Ĝ)-torsor.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.9, p. 20",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The duality of the paper is between the Hitchin systems of G and of this Ĝ; the outer-form version of the dual group is not planned anywhere."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/61",
+   "kind": "construction",
+   "name": "The standing situation for Hitchin systems",
+   "statement": "Situation 4.10: R a commutative ring; X_R/R a flat family of smooth projective curves with geometrically connected fibres; D a line bundle on X_R of even degree d; G a split reductive group scheme over Spec(R) with a split pinning (T, B, s) and G = G ×^{Out(G)} ρ a quasi-split form on X_R for an Out(G)-torsor ρ; g, g, t, t the Lie algebras of G, G, T, T; and a finite subgroup scheme Θ ↪ Out(G) such that |Θ ⋉ W| is invertible on X_R and ρ admits a Θ-reduction.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Situation 4.10 and Remark 4.11, pp. 20–21",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The invertibility of |Θ ⋉ W| is the paper's good-characteristic hypothesis; it replaces Ngô's p > 2·(Coxeter number) only for the statements proved here."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/62",
+   "kind": "definition",
+   "name": "G-Higgs bundles and their moduli stack",
+   "statement": "A G-Higgs bundle with coefficients in D is a pair (E, θ) with E a G-torsor on X_R and θ a global section of ad(E) ⊗ D, where ad(E) = E ×^G_{X_R} g; M_G = M_G(X, D) is the stack sending an affine R-scheme S to the groupoid of G-Higgs bundles on X_S/S.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.12(a)–(b), p. 21",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans the stack of G-bundles with Higgs fields twisted by a sufficiently positive divisor, with algebraicity and finite-type bounds."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/63",
+   "kind": "definition",
+   "name": "The generic stabiliser and the rigidified Higgs stack",
+   "statement": "The generic stabiliser group of M_G is the group scheme Z(X, G) obtained as the Weil restriction of Z(G) over X along the proper morphism X → Spec(R) (representable by [Ols06, Theorem 1.5]); M̄_G denotes the rigidification of M_G by this group scheme in the sense of [ACV03, Theorem 5.1.5].",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.12(c), p. 21",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Rigidification is exactly what makes M̄_G a DM stack to which the p-adic integration of Section 2 applies; R09.5 plans coarse spaces and rigidification of automorphisms in its own setting, but not the rigidification of a Higgs stack by a Weil restriction of centres."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/64",
+   "kind": "construction",
+   "name": "Higgs bundles as sections of [g_D/G]",
+   "statement": "Let g_D = g ×^{G_m}_X D be the principal Lie algebra bundle obtained by twisting g/X with D, with the induced relative adjoint action of G. The datum of a G-Higgs bundle (E, θ) with coefficients in D is equivalent to a section of the morphism of X-stacks [g_D/G] → X.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.13, p. 21 (after [Ngô10, 4.2.2])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "The stacky reformulation on which the Hitchin map and the endoscopic morphisms µ_E are built; ET.2b plans the Chevalley quotient and Higgs stack in this form."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/65",
+   "kind": "definition",
+   "name": "Chevalley base, Hitchin base and Hitchin map",
+   "statement": "c = g/G is the Chevalley base, with induced affine space bundle c/X and G_m-action, and c_D = c ×^{G_m}_X D; A = A_G(X, D) is the affine scheme corresponding to H^0(X, c_D); the Hitchin map χ : M_G → A sends an S-family (E, θ) to the section of c_D defined by the composite X → [g_D/G] → c_D. For split G/X, A ≅ ⊕_{i=1}^m H^0(X, D^{⊗e_i}) with e_1, …, e_m the exponents ([Ngô10, 4.13]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.14, pp. 21–22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans the Chevalley quotient, the Hitchin base and the Hitchin map."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/66",
+   "kind": "definition",
+   "name": "Cameral covers",
+   "statement": "For a ∈ A(S) the cameral cover C_a → X ×_R S is the finite W-equivariant morphism in the cartesian diagram C_a → t_D over X ×_R S →^a c_D; C → X ×_R A denotes the universal cameral cover.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.15, p. 22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans cameral and spectral covers."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/67",
+   "kind": "definition",
+   "name": "Strict Picard stacks",
+   "statement": "A stack P with a strict symmetric monoidal structure ⊗ : P × P → P is a strict Picard stack if the induced monoid structure on the sheafification π_0^{sh}(P) of isomorphism classes is a group structure.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.16, p. 22",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "ET.2b plans the Picard stack acting on Hitchin fibres, but not the 2-categorical theory of strict Picard stacks that the duality statements of this paper are formulated in."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/68",
+   "kind": "definition",
+   "name": "Regular centralisers and the abstract Prym",
+   "statement": "J/[c/G_m] denotes the sheaf of regular centralisers ([Ngô10, 2.1]); for a ∈ A(S) = H^0(X_S, c_D) the induced commutative group scheme a^*J over X_S is again written J, and P = P_{G,X_S,D} denotes the stack of J-torsors.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.17, p. 22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans the regular-centraliser group scheme with descent under outer twists and the Picard stack it defines."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/69",
+   "kind": "construction",
+   "name": "The action of the Prym on the Higgs stack",
+   "statement": "For a Higgs bundle (E, θ) over S with Hitchin image a ∈ A(S) there is a natural morphism J → Aut(E, θ); for a J-torsor M the twist M ⊗ E = E ×^J_X M carries a canonical section of ad(E ⊗ M) ⊗ D, giving the Higgs bundle M ⊗ (E, θ) and the action of P on M_G relative to A ([Ngô10, 4.3.2]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.18, p. 22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "The Picard-stack action on Hitchin fibres planned by ET.2b."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/70",
+   "kind": "definition",
+   "name": "Regular Higgs bundles",
+   "statement": "A Higgs bundle (E, θ) is regular if its classifying section X → [g_D/G] factors through the open dense substack [g^reg_D/G]; similarly for S-families, giving the open substack M^reg.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.19, p. 22",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "The regular locus of the Hitchin system, planned with the Kostant section in ET.2b."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/71",
+   "kind": "theorem",
+   "name": "Kostant section and the torsor structure on the regular locus",
+   "statement": "(i) To every square root D' of D (D'^{⊗2} ≅ D) one associates canonically a Kostant section ε^{D'} : A → M^reg; in particular M^reg is non-empty. (ii) The action of P on M^reg relative to A is a torsor structure, so every square root D' yields a trivialisation of torsors ε^{D'} : P ≅ M^reg.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 4.20, p. 22 ([Ngô10, 4.2.4, Proposition 4.3.3])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans the Kostant section and the Picard-torsor structure on the regular locus."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/72",
+   "kind": "definition",
+   "name": "Beilinson 1-motives",
+   "statement": "A strict Picard stack P → S on a scheme S is a Beilinson 1-motive if there is a surjective étale covering S' → S such that P ×_S S' is equivalent to a product C ×_{S'} A ×_{S'} B_{S'}K with C and K finite étale group schemes over S' and A → S' a connected abelian scheme. The 2-category of Beilinson 1-motives carries a duality simultaneously extending duality of abelian varieties and Cartier duality of finite étale group schemes.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.21 and the paragraph after it, p. 23",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The category in which the Langlands duality of Pryms is stated; nothing in the atlas plans it (AbelianSchemesAndArithmeticModuli plans duality of abelian schemes only)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/73",
+   "kind": "definition",
+   "name": "The smooth-cameral locus A^♦",
+   "statement": "A^♦ ⊂ A is the open subset of geometric points a : Spec k̄ → A whose cameral cover C_a is smooth; M^♦, P^♦ etc. denote the pullbacks of M, P etc. to A^♦. For deg D > 2g the locus A^♦ is non-empty ([Ngô10, Proposition 4.7.1]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.22, p. 23",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "Part of the Hitchin-base geometry planned in ET.2b; the paper's whole comparison happens over this locus, where the Prym is a family of abelian varieties."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/74",
+   "kind": "theorem",
+   "name": "The Prym over the smooth-cameral locus is a Beilinson 1-motive",
+   "statement": "M^♦ ⊂ M^reg, and P^♦ is a Beilinson 1-motive ([Ngô10, Proposition 4.7.7]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 4.23, p. 23",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what allows Tate duality and the measure comparison to be applied fibrewise."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/75",
+   "kind": "definition",
+   "name": "W-equivariant T-torsors with +-structure",
+   "statement": "For a ∈ A(S) with cameral cover C_a and the maximal torus T ⊂ G of the pinning, with the natural actions act_1 : W ×_X T → T and act_2 : W ×_X C_a → C_a, a W-equivariant T-torsor is an object of the stack Bun^W_T(C_a) obtained from the W-action w(E) = (act_2(w^{-1})^*E) ×^{T,w}_{X×_R S} T on T-torsors on the small étale site of C_a; a +-structure on E is a family of isomorphisms c_α : (E|_{C_a^{s_α}}) ×^T G_m ≅ C_a^{s_α} × G_m for étale-local roots α ∈ Φ(U), compatible with the canonical isomorphisms can_{α,α̌} induced by the W-equivariant structure for coroots α̌ ∈ Φ^∨(U').",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.25, p. 23 (following [CZ17, Section 3])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Donagi–Gaitsgory's description of J-torsors, extended from the split to the quasi-split case because it is étale-local on X."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/76",
+   "kind": "theorem",
+   "name": "Donagi–Gaitsgory: the Prym as W-equivariant T-torsors",
+   "statement": "There is a canonical equivalence of strict Picard stacks Bun^{W,+}_T(C_a) ≅ P_a.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 4.26, p. 23 ([DG02])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The concrete model of the Prym used to construct the Abel–Jacobi map and the duality."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/77",
+   "kind": "construction",
+   "name": "The Abel–Jacobi map",
+   "statement": "For S over Spec(R) let C_a^{sm} be the maximal open subset of C_a smooth over S. For an S-point (x, λ) ∈ C_a^{sm} ×_X X_*(T), the T-torsor O(λx) = O_{C_a}(x) ×^{λ,G_m} T carries a W-equivariant structure with +-structure (as in [CZ17, 3.4]); the resulting morphism C_a^{sm} ×_X X_*(T) → P_a ≅ Bun^{W,+}_T(C_a) is the Abel–Jacobi map.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.27, p. 24",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The source of all the explicit points of the Prym used in Sections 6.4–6.5."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/78",
+   "kind": "theorem",
+   "name": "Langlands duality of Pryms for quasi-split groups",
+   "statement": "Let X/k be a smooth projective curve over a field k and G/X a quasi-split reductive group scheme, i.e. an outer form of a split reductive G/k. If char(k) = 0 or |W| is not divisible by char(k), the morphism AJ^*_G : (P^♦_G)^∨ → P^♦_Ĝ is an equivalence of strict Picard stacks.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 4.28, p. 24 (= Corollary A.12; after [DP12], [CZ17])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved in Appendix A by co-descent from the split case; the assumption that k be algebraically closed in the cited sources is removed by faithfully flat descent. This is one of the two results the abstract of the paper advertises as new."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/79",
+   "kind": "definition",
+   "name": "The rigidified Prym",
+   "statement": "P̄ denotes the rigidification of P with respect to the abelian group Z(X, G) = H^0(X, Z(G)) ([ACV03, Theorem 5.1.5]); P̄ → A is an algebraic space with a relative group object structure, and its fibres are extensions of finite étale abelian group schemes by abelian varieties.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.29, p. 24",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The group that acts on the rigidified Higgs stack M̄_G and whose duality drives the comparison."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/80",
+   "kind": "construction",
+   "name": "The isogeny between the Pryms of G and of its dual",
+   "statement": "There is an isomorphism of neutral connected components J° ≅ Ĵ° ([Ngô10, Proposition 2.4.7]); choosing N a multiple of the orders of π_0(J) and π_0(Ĵ), the N-th power maps factor through the identity components and give φ_N : J → Ĵ, hence an isogeny ρ : P̄_G → P̄_Ĝ. Over a field k of characteristic p one may take N coprime to p, because |π_0(J)| divides |Z(X, G)| ([Ngô10, Corollaire 2.3.2]) and Z(X, G) embeds into a torus, so its order is coprime to p.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.30, p. 24",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The prime-to-p isogeny that Proposition 2.2 needs; the argument that N may be chosen coprime to p is exactly where the good-characteristic hypothesis is used."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/81",
+   "kind": "definition",
+   "name": "The anisotropic locus",
+   "statement": "A geometric point a ∈ A(k̄) is anisotropic if π_0(P̄_a) is finite and a lies in the open subset A^♥ of [Ngô10, 4.5] (reduced cameral cover); there is an open A^ani with this property ([Ngô10, 6.1]), and M^ani = M ×_A A^ani.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.31, p. 25",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans the proper anisotropic quotient of the Hitchin system."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/82",
+   "kind": "theorem",
+   "name": "The anisotropic locus only depends on the root datum up to isogeny",
+   "statement": "By [Ngô10, 4.10.5], a ∈ A^ani is equivalent to a ∈ A^♥ together with finiteness of T̂^{W_a}; hence A^ani_{G_1} = A^ani_{G_2} whenever G_1 and G_2 have isogenous root data, and in particular, under the identification A_G ≅ A_Ĝ, the open subsets A^ani_G and A^ani_Ĝ agree.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 4.31 and Remark 4.32, p. 25",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Needed for the two sides of Theorem 6.11 to be integrals over the same base."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/83",
+   "kind": "definition",
+   "name": "The étale cover Ã → A and the stacks M̃_G",
+   "statement": "For a fixed base point ∞ ∈ X(R), with c_{D,∞} the pullback of c_D along ∞ and ev_∞ : A → c_{D,∞} the evaluation map, Ã → A is the étale morphism defined by the cartesian square with t^{rs}_{D,∞} → c_{D,∞}; M̃_G = M_G ×_A Ã and M̃^ani_G = M^ani_G ×_A Ã ([Ngô10, 5.3.1]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definitions 4.34 and 4.35, p. 25",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The base change that rigidifies the Hitchin fibres at ∞; all point counts in Section 6 are over Ã."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/84",
+   "kind": "construction",
+   "name": "The embedding of automorphisms into the torus at infinity",
+   "statement": "For S an R-scheme and (E, θ, ∞̃) ∈ M̃^ani_G(S) there is a canonical injective homomorphism Aut(E, θ) → T_∞(S) (identified with T after a choice of ∞_ρ ∈ ρ_∞(R)), constructed from the commuting diagram defining ∞̃ : S → t^{rs}_{D,∞}; by [Ngô10, 4.11.4] every automorphism γ of a Higgs bundle over A^ani has finite order r coprime to p.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.36, pp. 25–26",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what turns a point of the twisted inertia stack into a homomorphism κ : µ̂ → T, i.e. into endoscopic data."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/85",
+   "kind": "construction",
+   "name": "From the Abel–Jacobi map to the component group",
+   "statement": "Composing Ã → A^∞ → X × A with the Abel–Jacobi map gives a canonical morphism Ã → C^{sm} and hence Ã × X_*(T) = Ã × X_*(T_∞) → C^{sm} ×_X X_*(T) → P̄_G, and therefore Ã × X_*(T) → Ã ×_A P̄_G = P̃_G.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 4.37, p. 26 (equation (19))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The explicit source of rational points of the Prym used to twist Hitchin fibres."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/86",
+   "kind": "theorem",
+   "name": "Surjectivity onto the component group of the Prym",
+   "statement": "The induced map X_*(T) × Ã^ani → π_0(P̃^ani_G) is a surjection; in particular for every a ∈ Ã^ani(k) the finite group scheme π_0(P̃^ani_{G,a}) is constant.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 4.38, p. 26 (combining [Ngô10, Lemme 4.10.2] and [Ngô06, Corollaire 6.7])",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+   ],
+   "note": "ET.2b plans exact component-group actions for the Picard stack acting on Hitchin fibres."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/87",
+   "kind": "construction",
+   "name": "Quotient stacks of twisted group actions",
+   "statement": "Let S be a base algebraic space, A and B smooth group algebraic spaces over S and X an algebraic space over S with actions of A and B, with A acting on B by group automorphisms so that B ×_S X → X is A-equivariant. For an A-torsor ρ over S the twists X̄ = X ×^A ρ and B̄ = B ×^A ρ carry an action B̄ ×_S X̄ → X̄, the actions of B and A on X × ρ combine to an action of B ⋊ A, and the quotient morphism induces an isomorphism of quotient stacks [(X × ρ)/(B ⋊ A)] ≅ [X̄/B̄].",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.1, p. 26",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A general fact about quotient stacks; it is the bookkeeping device for every outer twist in Section 5, so it belongs with the stack foundations of R09.4 rather than in the Higgs theory."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/88",
+   "kind": "construction",
+   "name": "Centralisers of a homomorphism µ̂ → T and their component groups",
+   "statement": "For a homomorphism κ : µ̂ → T over Spec(k), the centraliser (G ⋊ Out(G))_κ has connected-étale sequence 1 → H_κ → (G ⋊ Out(G))_κ → π_0(κ) → 1 with H_κ the connected centraliser of κ in G; H_κ carries the unique pinning (T, B ∩ H_κ, s') compatible with that of G (Lemma 4.4), and π_0(κ) acts on H_κ and G through the natural homomorphisms o_G : π_0(κ) → Out(G) and o_H : π_0(κ) → Out(H_κ).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 5.2, p. 26",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The group-theoretic source of coendoscopic data."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/89",
+   "kind": "construction",
+   "name": "The homomorphism ι_κ : H_κ ⋊ π_0(κ) → G ⋊ π_0(κ)",
+   "statement": "There is a canonical homomorphism ι_κ such that (i) its restriction to the normal subgroup H_κ is the inclusion H_κ ⊂ G, (ii) the induced morphism on the quotients π_0(κ) is the identity, and (iii) the inclusion H_κ ↪ G is equivariant with respect to ι_κ for the conjugation actions; it is constructed from ι̃_κ : H_κ ⋊ π̃_0(κ) → G ⋊ π̃_0(κ), hφ ↦ h g_φ φ, on the subgroup sheaf π̃_0(κ) ⊂ (G ⋊ Out(G))_κ of elements preserving the pinning of H_κ, which sits in 1 → Z(H_κ) → π̃_0(κ) → π_0(κ) → 1.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.2, pp. 26–27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The comparison homomorphism that produces the morphism of Higgs stacks µ_E."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/90",
+   "kind": "theorem",
+   "name": "ι_κ identifies H_κ ⋊ π_0(κ) with the full centraliser",
+   "statement": "The homomorphism ι_κ factors through (G ⋊ π_0(κ))_κ and, composed with (G ⋊ π_0(κ))_κ → (G ⋊ Out(G))_κ, gives an isomorphism H_κ ⋊ π_0(κ) → (G ⋊ Out(G))_κ whose restriction to π_0(κ) splits the quotient homomorphism (G ⋊ Out(G))_κ → π_0(κ).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 5.3, p. 27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The splitting that makes the coendoscopic group quasi-split."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/91",
+   "kind": "definition",
+   "name": "Coendoscopic data",
+   "statement": "A coendoscopic datum for G over k is a triple E = (κ, ρ_κ, ρ_κ → ρ) consisting of a homomorphism κ : µ̂ → T over Spec(k), a π_0(κ)-torsor ρ_κ over X and an o_G-equivariant morphism ρ_κ → ρ; κ is its type. One sets H_E = H_κ ×^{π_0(κ)} ρ_κ (π_0(κ) acting through o_H), a quasi-split group scheme, with maximal torus T_E = T ×^{π_0(κ)} ρ_κ, Lie algebra h_E, and the induced homomorphism γ_E : µ̂ → Z(H_E) over X.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 5.4, p. 27",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The paper's own notion: the objects that classify the twisted inertia of the Hitchin stack. ET.0 plans classical endoscopic data, which are the duals of these."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/92",
+   "kind": "definition",
+   "name": "Endoscopic data and endoscopy groups",
+   "statement": "The Langlands dual Ĥ_E of a coendoscopic group H_E is an endoscopy group for Ĝ.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 5.5, p. 27",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
+   ],
+   "note": "Endoscopic triples, ellipticity, relevant embeddings and endoscopic groups are planned in ET.0; Remark 5.5 is the dictionary between that notion and the coendoscopic data of this paper."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/93",
+   "kind": "construction",
+   "name": "The morphism of Higgs stacks attached to a coendoscopic datum",
+   "statement": "For E = (κ, ρ_κ, ρ_κ → ρ) there is a canonical morphism µ_E : [h_{E,D}/H_E] → [g_D/G], obtained from Construction 5.1's identifications [h_{E,D}/H_E] ≅ [(h_E × ρ_κ × D)/(H_κ ⋊ (π_0(κ) × G_m))] and [g_D/G] ≅ [(g × ρ_κ × D)/(G ⋊ (π_0(κ) × G_m))] and from ι_κ × id; passing to coarse moduli gives ν_E : c_E = h_{E,D}/H_E → c = g_D/G, which coincides with the morphism of [Ngô10, 1.9], and hence compatible morphisms ν_E : A_E → A and M_{H_E} → M_G.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.6, pp. 27–28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric transfer map along which the two sides of geometric stabilisation are compared."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/94",
+   "kind": "theorem",
+   "name": "The anisotropic locus is preserved by the endoscopic map",
+   "statement": "For a coendoscopic datum E for G over k, ν_E^{-1}(A^ani) = A^ani_E.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 5.7, p. 28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Keeps the whole comparison inside the anisotropic (proper) part of the Hitchin system."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/95",
+   "kind": "theorem",
+   "name": "Compatibility at the marked point",
+   "statement": "Let E = (κ, ρ_κ, ρ_κ → ρ) be a coendoscopic datum and ∞_{ρ_κ} ∈ ρ_κ(k) a point above ∞. Then ∞_{ρ_κ} induces identifications G_∞ ≅ G and H_{E,∞} ≅ H_κ compatible with the pinnings, and the induced isomorphism t_{E,∞} ≅ t ≅ t_∞ makes the square formed by t_{E,D,∞} ≅ t_{D,∞} and ν_E : c_{E,∞} → c_∞ commute.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 5.8, p. 28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Needed to lift ν_E to the étale covers Ã."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/96",
+   "kind": "construction",
+   "name": "The spaces Ã^{G-∞}_E and the lifted map ν̃_E",
+   "statement": "With A^∞ ⊂ A the locus of elements regular semisimple at ∞ and Ã the pullback of t^{rs}_{D,∞} → c_{D,∞} along A^∞ → c_{D,∞}, let A^{G-∞}_E be the preimage of A^∞ in A_E and Ã^{G-∞}_E its preimage in Ã_E; the point ∞_{ρ_κ} induces ν̃_E : Ã^{G-∞}_E → Ã compatible with ν_E : A_E → A.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.9, p. 28",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The base over which the twisted inertia stack is described."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/97",
+   "kind": "construction",
+   "name": "From an automorphism of a Higgs bundle to a coendoscopic datum",
+   "statement": "Given ∞_ρ ∈ ρ_∞(k), κ : µ̂ → T and an object (E, θ, ∞̃) of M̃^{∞,ani}_G(S) together with γ : µ̂ → Aut(E, θ) whose image under Construction 4.36 is κ: writing (E, θ) as a G ⋊ (π_0(κ) × G_m)-torsor Ẽ with equivariant θ̃ : Ẽ → g × ρ_κ × D, the automorphism γ becomes an automorphism of Ẽ stabilising θ̃; after fixing a section over an étale covering X' of X × S it is a homomorphism µ̂_{X'} → (G ⋊ (π_0(κ) × G_m))_{X'}, well defined up to conjugation, which factors through G because π_0(κ) × G_m acts without fixed points on g × ρ_κ × D.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.10, p. 29",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The inverse construction to µ_E, and the reason the inertia of M̃_G is endoscopic."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/98",
+   "kind": "theorem",
+   "name": "Local conjugacy of the two homomorphisms",
+   "statement": "The homomorphisms γ, κ : µ̂_{X'} → G_{X'} of Construction 5.10 are conjugate étale-locally over X'.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 5.11, p. 29",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what produces the torsor ρ_κ out of γ."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/99",
+   "kind": "theorem",
+   "name": "The datum attached to a point of the inertia stack is coendoscopic",
+   "statement": "For S = Spec(k) the datum (κ, ρ_κ, ρ_κ → ρ) of Construction 5.10 is a coendoscopic datum E for G over k, and the sheaf F̃ corresponds under Construction 5.1 to an H_E-Higgs bundle F over Spec(k) mapping to the point ((E, θ), γ) of IM(k) under µ_E.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 5.12, p. 30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The essential surjectivity half of Theorem 5.14."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/100",
+   "kind": "definition",
+   "name": "Coendoscopic data occurring on the twisted inertia stack",
+   "statement": "A coendoscopic datum E for G over k occurs on I_µ̂M̃^ani_G(k) if there is a point of I_µ̂M̃^ani_G(k) whose associated coendoscopic datum (Proposition 5.12) equals E.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 5.13, p. 30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Indexes the disjoint union in Theorem 5.14."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/101",
+   "kind": "theorem",
+   "name": "The twisted inertia stack of the anisotropic Hitchin stack is endoscopic",
+   "statement": "For ∞_ρ ∈ ρ_∞(k) and points ∞_{ρ_κ} ∈ ρ_{κ,∞}(k) mapping to ∞_ρ for every coendoscopic datum E for G over k occurring on I_µ̂M̃^ani_G(k), the resulting morphism of groupoids µ̃_E : ⊔_E M̃^{G-∞,ani}_{H_E}(k) → I_µ̂M̃^ani_G(k) is an equivalence.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 5.14, p. 30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The second result the abstract advertises: a description of the inertia stack of the anisotropic Higgs moduli stack in terms of endoscopic data. It is the geometric input that replaces the support theorem."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/102",
+   "kind": "theorem",
+   "name": "Finiteness of the occurring coendoscopic data",
+   "statement": "Only finitely many coendoscopic data for G over k̄ occur on I_µ̂M̃^ani_{G,k̄}; hence for k finite the points ∞_ρ and ∞_{ρ_κ} of Theorem 5.14 may always be chosen after replacing k by a finite extension.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 5.15, p. 30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses Construction 4.36, Construction 5.10 and finite type of I_µ̂M̃^ani_G."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/103",
+   "kind": "theorem",
+   "name": "Compatibility of µ_E with the evaluation at infinity",
+   "statement": "The diagram formed by X → [h_D/H] →^{µ_E} [g_D/G], the coarse maps h_D/H →^{ν_E} g_D/G and ∞̃_κ : Spec(k) → t^{rs}_{E,D,∞} commutes.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 5.16, p. 30",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bookkeeping needed to descend Theorem 5.14 to a single Hitchin fibre."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/104",
+   "kind": "theorem",
+   "name": "Fibrewise form of the endoscopic description",
+   "statement": "Assume the torsor ∞_{ρ_{E_a}}(k) is non-empty and choose ∞_{ρ_κ} ∈ ρ_{κ,∞}(k) mapping to ∞_ρ. Then the morphism of groupoids µ_{E_a} : M̃^{G-∞,ani}_{H_E,a}(k) → (I_µ̂M̃^ani_G(k))_{a,κ} is an equivalence.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 5.17, p. 31",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The version used for a fixed point a of the Hitchin base."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/105",
+   "kind": "construction",
+   "name": "The inclusion of centres Z(X, G) ↪ Z(X, H_E)",
+   "statement": "Since the actions of Out(G) on G and of Out(H_κ) on H_κ preserve the centres, Z(G) = Z(G) ×^{π_0(κ)} ρ_κ and Z(H_E) = Z(H_κ) ×^{π_0(κ)} ρ_κ; property (iii) of Construction 5.2 makes Z(G) ↪ Z(H_κ) equivariant, so twisting by ρ_κ gives Z(G) ↪ Z(H_E) over X and hence Z(X, G) ↪ Z(X, H_E) on Weil restrictions, through which Z(X, G) acts on every section of M̃^{G-∞,ani}_{H_E}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.18, p. 31",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The action by which the endoscopic side must be rigidified for the comparison to be an equivalence."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/106",
+   "kind": "definition",
+   "name": "The G-rigidified endoscopic Higgs stack and µ̄_E",
+   "statement": "M̄^{G-∞,ani,G-rig}_{H_E} is the rigidification of M̃^{G-∞,ani}_{H_E} by the action of Z(X, G) ([ACV03, Theorem 5.1.5]); the morphism µ̃_E of Construction 5.9 is Z(X, G)-equivariant and therefore induces µ̄_E : M̄^{G-∞,ani,G-rig}_{H_E} → I_µ̂M̄^ani_G.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 5.19, p. 31",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Rigidification by the *smaller* centre Z(X, G), not by Z(X, H_E): this asymmetry is what produces the factors |π_0| in Section 6.4."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/107",
+   "kind": "construction",
+   "name": "The action of Hom(µ̂, Z(X, G))(k) on coendoscopic data",
+   "statement": "On the set of pairs (E, ∞_{ρ_κ}) with E = (κ, ρ_κ, ρ_κ → ρ) a coendoscopic datum for G over k and ∞_{ρ_κ} ∈ ρ_κ(k) above ∞, the group Hom(µ̂, Z(X, G))(k) acts freely: the pair amounts to a homomorphism π_1^ét(X, ∞) → π_0(κ), whose image in Out(G) is Θ = image(π_1^ét(X, ∞) → Out(G)), giving a canonical reduction ρ_{κ,Θ} of ρ_κ to π_0(κ)_Θ = π_0(κ) ×_{Out(G)} Θ; for λ ∈ Hom(µ̂, Z(X, G))(k) = Hom(µ̂, Z(G))(k)^Θ one has π_0(λ·κ)_Θ = π_0(κ)_Θ, so ((λκ, ρ_{κ,Θ}, ρ_{κ,Θ} → ρ), ∞_{ρ_{κ,Θ}}) defines the translated datum, and H_E ≅ H_{λ·E}, giving M̄^{G-∞,ani,G-rig}_{H_E} ≅ M̄^{G-∞,ani,G-rig}_{H_{λ·E}}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.20, pp. 31–32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The redundancy in the indexing of Theorem 5.14 that must be quotiented out after rigidification."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/108",
+   "kind": "definition",
+   "name": "Compatible choices of points above infinity",
+   "statement": "A choice of points ∞_ρ ∈ ρ_∞(k) and ∞_{ρ_κ} ∈ ρ_{κ,∞}(k) for all coendoscopic data occurring on I_µ̂M̃^ani_G(k) is compatible if for every such E and every λ : µ̂ → Z(G, X) the image of (E, ∞_{ρ_κ}) under λ is again of the form (E', ∞_{ρ_{κ'}}); such a choice exists as soon as all the torsors ρ_{κ,∞} are trivial, since for a non-trivial λ the translated datum E' is necessarily different from E.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 5.21 and Remark 5.22, p. 32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The hypothesis under which Theorem 5.23 holds."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/109",
+   "kind": "theorem",
+   "name": "The twisted inertia stack of the rigidified Hitchin stack",
+   "statement": "For a compatible choice of points ∞_ρ and ∞_{ρ_κ} for every coendoscopic datum E for G over k occurring on I_µ̂M̃^ani_G(k), the resulting morphism of groupoids µ̄_E : ⊔_{{(E,∞_{ρ_κ})}/Hom(µ̂,Z(X,G))(k)} M̄^{G-∞,ani,G-rig}_{H_E}(k) → I_µ̂M̄^ani_G(k) is an equivalence.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 5.23, p. 32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The form of the endoscopic description that the p-adic integration of Section 6 uses."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/110",
+   "kind": "theorem",
+   "name": "Fibrewise form for the rigidification",
+   "statement": "Assume ∞_{ρ_{E_a}}(k) ≠ ∅ and choose ∞_{ρ_κ} above ∞_ρ. For a ∈ Ã_G(k) and a fixed type κ there is at most one coendoscopic datum E_a of type κ occurring in the Hitchin fibre (I_µ̂M_G)_a ([Ngô10, Proposition 6.3.3]), and µ_{E_a} : M̄^{G-∞,ani,G-rig}_{H_E,a}(k) → (I_µ̂M̄^ani_G(k))_{a,κ} is an equivalence.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 5.24, p. 32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The fibrewise statement used in Lemma 6.8."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/111",
+   "kind": "theorem",
+   "name": "The anisotropic Higgs stack is an algebraic space up to codimension two",
+   "statement": "The stack M̄^ani_G is an algebraic space up to codimension 2.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 5.25, p. 32",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Deduced from the description of the twisted inertia stack; it is the hypothesis that lets torsors and line bundles be extended across the non-generic locus in Section 6.5."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/112",
+   "kind": "construction",
+   "name": "The comparison of regular centralisers",
+   "statement": "For a coendoscopic datum E and c^{G-rs}_E ⊂ c_E the preimage of c^{rs} under ν_E, there is a canonical homomorphism ν_E^*J → J_E over c_E which is an isomorphism over c^{G-rs}_E; it is constructed from the descriptions J^1 = ∏_{ρ_κ×t/c}(ρ_κ × t × T)^{W⋊π_0(κ)} and J_E^1 = ∏_{ρ_κ×t/c_E}(ρ_κ × t × T)^{W_{H_κ}⋊π_0(κ)} and the morphism W ⋊ π_0(κ) → W ⋊ π_0(κ) induced by ι_κ (as in [Ngô10, Proposition 2.5.1]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.26 and Proposition (2.5.1-analogue), pp. 32–33 (equation (20))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Gives the morphism of Pryms ν_E^*P → P_E along which the two Hitchin systems are compared."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/113",
+   "kind": "theorem",
+   "name": "Compatibility of the endoscopic morphism with the Prym actions",
+   "statement": "Let E be a coendoscopic datum for G over k, S a scheme over A_E, F ∈ M_{H_E}(S) and M ∈ P(S), with E the image of F in M_G(S) and N the image of M in P_E(S). Then there is a canonical isomorphism between the image of F ⊗ N in M_G(S) and E ⊗ M.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proposition 5.27, p. 33",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The equivariance that makes the endoscopic description compatible with twisting."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/114",
+   "kind": "construction",
+   "name": "The rigidified endoscopic Pryms",
+   "statement": "For a coendoscopic datum E and ∞_{ρ_κ} ∈ ρ_κ(k) above ∞: (i) P̃^{G-∞,ani}_E is the pullback of P_E along Ã^{G-∞,ani}_E → A; (ii) Z(X, G) acts on its sections through Z(X, G) → Z(X, H_E) and P̃^{G-∞,ani,G-rig}_E is the resulting rigidification; (iii) the action of P_E on M_E induces an action of P̃^{G-∞,ani,G-rig}_E on M̄^{G-∞,ani,G-rig}_{H_E}; (iv) the morphism ν^*P → P_E is Z(X, G)-equivariant and induces ν̃_E^*P̃ → P̃^{G-∞,ani,G-rig}_E; (v) this morphism is compatible with µ̄_E as in Proposition 5.27.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction 5.28, p. 33 (equation (22))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The transfer of Prym actions across the endoscopic map after rigidification."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/115",
+   "kind": "theorem",
+   "name": "Surjectivity of the transfer of Pryms on fibres",
+   "statement": "For a coendoscopic datum E and ∞_{ρ_κ} ∈ ρ_κ(k) above ∞, and for every point a ∈ Ã^{G-∞,ani,G-rig}_E(k̄), the fibre map P̃_a → P̃_{E,a} of Construction 5.28(iv) is surjective; this follows, as in [Ngô10, 4.17.2], from the fact that J_a → J_{E,a} of Construction 5.26 is generically an isomorphism.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 5.29, p. 34",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used in Lemma 6.7 to compare the component groups of the two Pryms."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/116",
+   "kind": "construction",
+   "name": "The arithmetic set-up of the proof",
+   "statement": "k is a finite field with q elements, F = k((x)), O = k[[x]]; objects X_k, D_k, G_k, ρ_k, G_k satisfying Situation 4.10 over R = k are fixed together with ∞ ∈ X(k); Situation 6.1 assumes that ρ_∞ splits over Spec k and fixes ∞_ρ ∈ ρ_∞(k), inducing T_∞ ≅ T; X, D, G, ρ, G denote the base changes to O, so that A, M_G, P_G are defined over O with special fibre the original ones; d = deg D is even with d ≥ 2g − 2 (so M̃^ani_G is smooth by [Ngô10, 4.14.1]) and A^♦ ≠ ∅ (for which d > 2g suffices by [Ngô10, 4.7.1]); M̃^ani_G is constant over O and, by [Kre09, Theorem 4.4 and Proposition 5.2] applied to its special fibre, Zariski-locally a finite étale quotient stack, so Theorem 2.21 applies to it.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Situation 6.1 and Section 6, pp. 34–35",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The equal-characteristic local field F = k((x)) is what lets a p-adic integral compute point counts of a variety over k."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/117",
+   "kind": "construction",
+   "name": "The strong splitting hypothesis",
+   "statement": "Situation 6.2 assumes that all the torsors ρ_{κ,∞} for the coendoscopic data occurring on I_µ̂M̃^ani_G(k) (respectively I_µ̂M̃^ani_Ĝ(k)) split; by Remark 5.15 this can be achieved after a finite extension of k, and a compatible choice of splittings is then fixed. For the fundamental lemma this hypothesis is too strong, so in the Geometric Stabilisation Theorem, following Ngô, only the torsor ρ_{κ,∞} of one specific coendoscopic datum is assumed to split.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Situation 6.2 and the paragraph after it, p. 34",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Isolates the hypothesis of Corollary 6.18, which is precisely the one used in [Ngô10, 8.6.3]."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/118",
+   "kind": "definition",
+   "name": "The Π-spaces of the Hitchin system",
+   "statement": "Π ⊂ π_0(P̄_G) is the image of the subgroup X_*(T̂/Z(X, Ĝ)) under the surjection Ã × X_*(T̂) ↠ π_0(P̄_G) of Proposition 4.38, P^Π_G = P̄_G ×_{π_0(P̄_G)} Π, and, after fixing a square root D' of D with Kostant section ε : Ã → M̄_G, M^Π_G ⊂ M̄_G is the closure of the P^Π_G-translate of ε.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.1, p. 34",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remark 6.3: the point of the Π-spaces is that π_0(P̃^Π_G|_{A^♦}) = 0 ([Ngô10, Corollaire 4.10.4]), so over A^♦ the Π-Prym is a family of abelian varieties and Proposition 2.2 applies."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/119",
+   "kind": "definition",
+   "name": "The endoscopic Π-spaces",
+   "statement": "M̄^Π_{H_E} ⊂ M̄^G_{H_E} is the maximal open substack (a union of connected components) for which the square formed by M̄^Π_{H_E} → I_µ̂M̄_G, M̄^G_{H_E} →^{µ̄_E} I_µ̂M̄_G commutes; the square root D' induces a Kostant section Ã_E → M̃_{H_E}, and pulling M̄^Π_{H_E} back along P̃_{H_E} → M̄_{H_E} defines P^Π_{H_E}.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 6.4, p. 35",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The endoscopic counterpart of the Π-locus, on which the comparison of Corollary 6.12 takes place."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/120",
+   "kind": "theorem",
+   "name": "The two endoscopic Pryms differ by a character group",
+   "statement": "One has a natural inclusion P^Π_{H_E} ⊃ P̄_{H_E} whose quotient agrees with (Z(X, Ĥ_E)/Z(X, Ĝ))^∨, as follows from the commuting square relating X_*(T̂/Z(X, Ĥ_E)) ↪ X_*(T̂/Z(X, Ĝ)) with π_0(P̄_{H_E}) ↪ π_0(P^Π_{H_E}) and from the fact that the connected components of M̃_{H_E} are parametrised by Z(X, Ĥ_E)^∨ and those of M̃_G by Z(X, Ĝ)^∨ ([Ngô10, Corollaire 4.10.4] and [Ngô10, Proposition 4.16.1]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 6.5, p. 35",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Bookkeeping of the discrepancy between the two rigidifications, which reappears as the factor |π_0| in Section 6.4."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/121",
+   "kind": "definition",
+   "name": "Unramified twists of Hitchin fibres",
+   "statement": "For a base scheme S and t ∈ H^1_ét(S, P̃^Π_{G,a}) with corresponding P̃^Π_{G,a}-torsor T, the twist is the DM stack M̄^{Π,t}_{G,a} = M̄^Π_{G,a} ×^{P̃^Π_{G,a}}_S T = [(M̄^Π_{G,a} × T)/P̃^Π_{G,a}], étale-locally equivalent to M̄^Π_{G,a} → S. By Lang's theorem and Proposition 4.38, H^1(k, P̃^Π_{G,a}) = H^1(k, π_0(P̃^Π_{G,a})) ≅ π_0(P̃^Π_{G,a}), so every t ∈ X_*(T̂/Z(X, Ĝ)) defines such a twist.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.2, p. 35",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lang's theorem for connected algebraic groups over a finite field is used here and is not planned by any layer of the atlas."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/122",
+   "kind": "theorem",
+   "name": "Twists and the isotypic decomposition of the cohomology",
+   "statement": "The Fourier transform of the function π_0(P̃^Π_{G,a}) → Q̄_ℓ, t ↦ #M̄^{Π,t}_{G,a}(k) = Tr(Fr_t, H^*_c(M̄^Π_{G,a,k̄}, Q̄_ℓ)) is the function π_0(P̃^Π_{G,a})^* → Q̄_ℓ, χ ↦ Tr(Fr, H^*_c(M̄^Π_{G,a,k̄}, Q̄_ℓ)^χ); in particular the average (1/|π_0(P̃^Π_{G,a})|) Σ_t #M̄^{Π,t}_{G,a}(k) equals Tr(Fr, H^*_c(M̄^Π_{G,a,k̄}, Q̄_ℓ)^{id}), the stable part of the point count. The proof uses that base change to k̄ identifies the twist with M̄^Π_{G,a,k̄}, under which the geometric Frobenius becomes Fr_t = t · Fr, and Tr(Fr_t, H^*_c(·)^χ) = χ(t) · Tr(Fr, H^*_c(·)^χ).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.6, pp. 35–36",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is how a family of point counts of twists recovers the individual isotypic components: the discrete Fourier inversion that turns Theorem 6.11 into Corollaries 6.17 and 6.18."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/123",
+   "kind": "theorem",
+   "name": "Point counts of stacks over finite fields",
+   "statement": "For a Deligne–Mumford stack M of finite type over a finite field k, the (stacky) point count satisfies #M(k) = Σ_n (−1)^n tr(Frob_k, H^n_c(M, Q_ℓ)).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.3, p. 38 (after [Sun12])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Grothendieck–Lefschetz trace formula for Artin stacks. The scheme case is planned as part of the zeta-function API of WeilConjectures WC.1, but the stack case — which is what every count in this paper means — is not planned anywhere."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/124",
+   "kind": "theorem",
+   "name": "Comparison of the component groups of the two Pryms",
+   "statement": "There is a surjective map π_0(P̃^Π_G) ×_{Ã_G} Ã_{H_E} ↠ π_0(P̃^Π_{H_E}) making the square with X_*(T̂/Z(X, Ĝ)) × Ã_{H_E} ↠ π_0(P̃^Π_G) ×_{Ã_G} Ã_{H_E} and X_*(T̂/Z(X, Ĥ_E)) × Ã_{H_E} → π_0(P̃^Π_{H_E}) commute; surjectivity may be checked on geometric fibres, where it follows from the surjectivity of P̃_{G,a} → P̃_{H_E,a} of Lemma 5.29.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.7, p. 36 (equation (25))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lets a twist of the G-side be transported to a twist of the endoscopic side."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/125",
+   "kind": "theorem",
+   "name": "Twisted inertia of a twisted Hitchin fibre",
+   "statement": "For every a ∈ Ã_E(k) and every t ∈ π_0(P̃^Π_{G,a}) there is a natural equivalence (I_µ̂M̄^{Π,t}_{G,a}(k))_κ ≅ M̄^{Π,t}_{H_E,a}(k), where the twist on the right is taken along the map of Lemma 6.7; the equivalence is compatible with the automorphisms AJ_G(λ) of M̄_{G,a} and AJ_{H_E}(λ_H) of M̄_{H_E,a} induced by the Abel–Jacobi points of Construction 4.27.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.8, pp. 36–37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The twisted version of Corollary 5.24: it is what makes Theorem 6.11 equivalent to the endoscopic identity of Corollary 6.12."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/126",
+   "kind": "definition",
+   "name": "The characters χ_s on the twisted inertia stack",
+   "statement": "For s ∈ X_*(T/Z(X, G)) the function χ_s : [I_µ̂M̄^{Π,t}_{G,a}(k)] → Q/Z is defined by χ_s ≡ s(κ) on the part [I_µ̂M̄^{Π,t}_{G,a}(k)_κ] indexed by κ ∈ X_*(T̂) ⊗ (Q/Z)_0, and is composed with the specialisation map to give a function on M̄^{Π,t}_{G,U_a}(O)^♮ with values in Q/Z ⊂ C^×.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.3, p. 37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The integrand of the comparison: a character of the local Galois group read off from the twisted inertia stack."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/127",
+   "kind": "definition",
+   "name": "The henselian neighbourhood U_a and its generic points",
+   "statement": "O^h_a denotes the henselisation of O_Ã at a and U_a = Spec(O^h_a); the O-rational points of U_a are the O-points of Ã with special fibre a, and U_a(O)^♭ = U_a(O) ∩ Ã^♦(F); for a U_a-space Y, Y(O)^♭ = Y(O) ×_{U_a(O)} U_a(O)^♭.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.3, p. 37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local base over which the fibrewise integration is carried out."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/128",
+   "kind": "theorem",
+   "name": "The complement of the generic locus is null",
+   "statement": "U_a(O)^♭ = U_a(O) \\ (U_a \\ U_a^♦)(O_F), and (U_a \\ U_a^♦)(O_F) has measure zero for Weil's canonical measure, by Proposition 2.1(a); moreover H^1(O^h_a, P̃^Π_{G,U_a}) ≅ π_0(P̃^Π_{G,a}), so the twists M̄^{Π,t}_{G,U_a} and their twisted inertia stacks are defined over U_a and come with a specialisation map e : M̄^{Π,t}_{G,U_a}(O)^♮ → [I_µ̂M̄^{Π,t}_{G,a}(k)].",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 6.9 and equation (26), p. 37",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Reduces the identity of integrals to the generic locus, where the Prym is abelian."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/129",
+   "kind": "theorem",
+   "name": "The weight function is constant on isotypic parts",
+   "statement": "There is a function F : X_*(T) ⊗ (Q/Z)_0 → Q such that for every κ ∈ X_*(T) ⊗ (Q/Z)_0 one has w|[I_µ̂M̄_G(k)_κ] = F(κ).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.10, p. 38",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The weight of Definition 2.20 only depends on the endoscopic type; this is what turns the integral identity into a finite identity of weighted character sums."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/130",
+   "kind": "theorem",
+   "name": "The character-sum identity",
+   "statement": "For all a ∈ Ã(k), t ∈ X_*(T̂/Z(X, Ĝ)) and s ∈ X_*(T/Z(X, G)) one has Σ_{y ∈ [I_µ̂M̄^{Π,t}_{G,a}(k)]} χ_s(y) q^{-w(y)} / |Aut_{I_µ̂M̄^{Π,t}_{G,a}(k)}(y)| = Σ_{z ∈ [I_µ̂M̄^{Π,s}_{Ĝ,a}(k)]} χ_t(z) q^{-w(z)} / |Aut_{I_µ̂M̄^{Π,s}_{Ĝ,a}(k)}(z)|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem 6.11, p. 38 (equation (27))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The main technical theorem: a symmetric identity between G and Ĝ, deduced from the equality of the two p-adic integrals (29) and proved fibrewise over the Hitchin base."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/131",
+   "kind": "theorem",
+   "name": "Endoscopic form of the character-sum identity",
+   "statement": "In Situation 6.2, for all a ∈ Ã(k), t ∈ X_*(T̂/Z(X, Ĝ)) and s ∈ X_*(T/Z(X, G)), Σ_{(E,∞_{ρ_κ})/Hom(µ̂,Z(X,G))(k)} s(κ) q^{-F(κ)} #M̄^{Π,t}_{H_E,a}(k) = Σ_{(E',∞_{ρ_ν})/Hom(µ̂,Z(X,Ĝ))(k)} t(ν) q^{-F(ν)} #M̄^{Π,s}_{H'_{ν,ρ},a}(k), where E ranges over the coendoscopy data for G occurring on I_µ̂M̃^ani_G(k) and E' over those for Ĝ occurring on I_µ̂M̃^ani_Ĝ(k).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 6.12, p. 38 (equation (28))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Theorem 6.11 rewritten through the description of the twisted inertia stack (Theorem 5.23); this is the form from which geometric stabilisation is extracted."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/132",
+   "kind": "theorem",
+   "name": "Gauge forms on the Hitchin system and fibrewise integration",
+   "statement": "Let η_0 be a generating section of Ω^top_Ã. (a) The line bundle Ω^top_{M̄^{reg,t}_G/Ã} on M̄^{reg,t}_G is trivial (because M̄^{reg}_G is a P̄^{reg}_G-torsor, [Ngô10, Proposition 4.16.1]). (b) For a generating section η_1 of Ω^top_{M̄^{reg,t}_G/Ã} there is a unique generating section ω of Ω^top_{M̄^t_G} with ω|_{M̄^{reg,t}_G} = η_0 ∧ η_1 (Hartogs, using that the complement of M̄^{reg} has codimension ≥ 2). (c) For an integrable g : M̄^t_G(O) → C one has ∫_{M̄^t_G(O)} g · vol_{M̄^t_G} = ∫_{Ã(O)} |η_0| ∫_{M̄^t_{G,b}(F)} g · |η_1|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.13, pp. 38–39 (equation (30))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Fubini step that reduces Theorem 6.11 to an identity of fibrewise integrals; it uses [Igu00, Theorem 7.6.1] on the smooth locus and Proposition 2.1(a) to discard the rest."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/133",
+   "kind": "theorem",
+   "name": "Vanishing of the fibrewise integral when a fibre has no rational point",
+   "statement": "Let b ∈ U_a(O)^♭ be such that the fibre M̄^{Π,t}_{G,b} has no F-rational point. Then χ_t|_{M̄^{Π,s}_{Ĝ,b}(F)} is a non-trivial character (up to translation), and hence ∫_{M̄^{Π,s}_{Ĝ,b}(F)} χ_t · |η_1| = 0.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.14, p. 39",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proved from Tate duality: the twist corresponds to a gerbe whose Hasse invariant is the character χ_t, and a non-trivial torsor pairs non-trivially."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/134",
+   "kind": "theorem",
+   "name": "Equality of the fibrewise integrals when both fibres have rational points",
+   "statement": "Let b ∈ U_a(O)^♭ be such that both M̄^{Π,t}_{G,b} and M̄^{Π,s}_{Ĝ,b} have F-rational points. Then χ_t|_{M̄^{Π,s}_{Ĝ,b}} = 1 and χ_s|_{M̄^{Π,t}_{G,b}} = 1, and ∫_{M̄^{Π,t}_{G,b}(F)} |ρ^*η_1| = ∫_{M̄^{Π,s}_{Ĝ,b}(F)} |η_1|.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.15, p. 40",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Generalises [GWZ17, Lemma 6.15]; the equality of integrals is Proposition 2.2 applied to the prime-to-p isogeny P^{♦,Π}_G → P^{♦,Π}_Ĝ of Construction 4.30."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/135",
+   "kind": "theorem",
+   "name": "Proof of the character-sum identity",
+   "statement": "Theorem 6.11 is equivalent to ∫_{M̄^{Π,t}_{G,U_a}(O)} χ_s · vol_G = ∫_{M̄^{Π,s}_{Ĝ,U_a}(O)} χ_t · vol_Ĝ, and by Lemma 6.13 to the fibrewise identity ∫_{M̄^{Π,t}_{G,b}(F)} χ_s |ρ^*η_1| = ∫_{M̄^{Π,s}_{Ĝ,b}(F)} χ_t |η_1| for every b ∈ U_a(O)^♭; the case where one of the fibres has no F-rational point is Lemma 6.14 and the case where both have one is Lemma 6.15.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Proof of Theorem 6.11, pp. 39–40 (equations (29), (31))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The assembly of the p-adic argument; the identity of integrals is converted into the identity of weighted counts by Theorem 2.21."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/136",
+   "kind": "theorem",
+   "name": "Isotypic point counts and induction",
+   "statement": "Let a finite group Γ act on H^*_c(Y_k̄, Q̄_ℓ) for a k-variety Y, commuting with the Galois action, and write #^κ Y(k) = Tr(Fr, H^*_c(Y, Q̄_ℓ)^κ) for a character κ of Γ, with #^stab = #^{id}. If Y^Π ⊂ Y is a union of connected components whose cohomology is acted on by a subgroup Γ^Π ⊂ Γ with Γ · H^*_c(Y^Π, Q̄_ℓ) = H^*_c(Y, Q̄_ℓ) and dim H^*_c(Y^Π, Q̄_ℓ) = (|Γ|/|Γ^Π|)^{-1} dim H^*_c(Y, Q̄_ℓ), then Ind_{Γ^Π}^Γ H^*_c(Y^Π, Q̄_ℓ) = H^*_c(Y, Q̄_ℓ) and #^{κ|_{Γ^Π}} Y^Π(k) = #^κ Y(k) for every character κ ∈ Γ^*.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.16, p. 40",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The passage from the Π-spaces back to the full Hitchin fibres."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/137",
+   "kind": "theorem",
+   "name": "Equality of stable point counts for dual groups",
+   "statement": "For every a ∈ Ã(k) one has #^stab M̄_{G,a}(k) = #^stab M̄_{Ĝ,a}(k). The proof sums the identities (27) over all t ∈ π_0(P̃^Π_{G,a}) and s ∈ π_0(P̃^Π_{Ĝ,a}), using that s ↦ s(κ) is a non-trivial character for κ ≠ 1 and that F(1) = dim M̃_G, and then applies Lemma 6.6 and Lemma 6.16.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 6.17, p. 40",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is Theorem 1.3 and the geometric form of Waldspurger's non-standard fundamental lemma; its statement is planned in the atlas, its proof by p-adic integration is not."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/138",
+   "kind": "theorem",
+   "name": "Geometric stabilisation (the isotypic identity)",
+   "statement": "Let E = (λ, ρ_λ, ρ_λ → ρ) be a coendoscopic datum for Ĝ over k for which the torsor ρ_{λ,∞} splits, and write λ also for the image of λ in π_0(P̃_{G,a})^*. For every point a ∈ Ã_E(k) one has #^λ M̄_{G,a}(k) = q^{dim M̃_G − F(λ)} · #^stab M̄_{Ĥ_E,a}(k), where Ĥ_E is the Langlands dual of H_E, that is, an endoscopy group of G.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 6.18, p. 41",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Obtained by Fourier inversion (Lemma 6.6) from Corollary 6.12, together with the fact that M̄^G_{H_E} is a gerbe over M̄_{H_E} banded by Z(X, H_E)/Z(X, G) (Remark 1.2) and Lemma 6.16 and Corollary 6.17 applied to H_E."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/139",
+   "kind": "theorem",
+   "name": "The hypothesis matches Ngô's",
+   "statement": "The assumption of Corollary 6.18 is precisely the one used in [Ngô10, 8.6.3] to deduce the fundamental lemma from geometric stabilisation; in loc. cit. it is formulated for the endoscopy group Ĥ_E, which is equivalent to the assumption stated here for the Langlands dual group H_E.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 6.19, p. 42",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The interface with Ngô's deduction of the fundamental lemma, which is what ET.3 consumes."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/140",
+   "kind": "theorem",
+   "name": "The weight constant is the dimension defect",
+   "statement": "For a coendoscopy group H_E of G of type κ, with r^G_{H_E}(D) = ½(dim M̃_G − dim M̃_{H_E}), one has dim M̃_G − F(κ) = r^G_{H_E}(D).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.20, p. 42",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This identifies the exponent produced by the weight function with the exponent in Ngô's statement, and is the last step of the proof of Theorem 1.1."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/141",
+   "kind": "theorem",
+   "name": "Consequences for the direct images over the algebraic closure",
+   "statement": "Base changing to k̄ and using Chebotarev density, the purity of (Rf̃_*Q̄_ℓ)_k̄ (f̃ proper, M̃ and Ã smooth) and its semisimplicity (Decomposition Theorem), the point-count identities imply that the complexes (Rf̃_{G,*}Q̄_ℓ)^stab_k̄ and (Rf̃_{Ĝ,*}Q̄_ℓ)^stab_k̄ are equivalent, and similarly for the λ-isotypic parts in Corollary 6.18; for Waldspurger's non-standard fundamental lemma the point-count version suffices.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.4, pp. 40–41",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The only place where the Decomposition Theorem appears, and only to upgrade point counts to sheaves; the proof of the fundamental lemma does not use it."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/142",
+   "kind": "construction",
+   "name": "Torsors over a Beilinson 1-motive and degree-two extensions",
+   "statement": "For a Beilinson 1-motive P over a base scheme S, a torsor T over P^∨ gives a short exact sequence 0 → P^∨ → ⊔_{n∈Z} T^{⊗n} → Z → 0 whose dual is a short exact sequence of abelian group stacks 0 → BG_m → G → P → 0 (using P^{∨∨} ≅ P), i.e. an element of Ext²_S(P, G_m); dualising back gives the inverse construction, and the two are inverse bijections on isomorphism classes (indeed an equivalence of groupoids).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.5, p. 42 (equations (32), (33))",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The dictionary between twists and gerbes that lets the Hasse invariant detect a twist."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/143",
+   "kind": "theorem",
+   "name": "Tate duality for abelian varieties over a local field",
+   "statement": "For an abelian variety A over a non-archimedean local field F, the pairing A(F) × H^1(F, A^∨) → Q/Z sending (x, t) to the Hasse invariant of the gerbe x^*α_t, where α_t ∈ Ext²_F(A, G_m) ≅ Br(A) corresponds to the torsor t, is perfect ([Mil86, I.3.4]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section 6.5, p. 42",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A classical arithmetic duality theorem (Milne, Arithmetic Duality Theorems I.3.4). The atlas plans Poitou–Tate duality for finite modules but not the abelian-variety case that this argument needs."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/144",
+   "kind": "construction",
+   "name": "The torsor T_G on the Hitchin stack",
+   "statement": "There is a T-torsor on M̃_G(X_k) induced by the morphism M̃_G(X_k) → BT obtained from ev_∞ : M_G → [g/G] and the identification Ã = A ×_c t^{rs}, giving M̃_G → [t^{rs}/T] ≅ t^{rs} × B_kT → B_kT; in Situation 6.1 this torsor is denoted T_G → M̃_G, and quotienting by the centre Z(X, G) ⊂ T gives a T/Z(X, G)-torsor on M̄_G, also denoted T_G. For (E, θ, ∞̃) ∈ M̃^ani_G(X_k) the induced map Aut(E, θ) → T is the embedding of Construction 4.36.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Constructions 6.22, Definition 6.23 and Remark 6.24, p. 43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric origin of the gerbe whose Hasse invariant is the integrand χ_λ."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/145",
+   "kind": "definition",
+   "name": "The extension of abelian group stacks attached to T_G",
+   "statement": "A morphism of abelian group stacks H → BA gives an extension 1 → A → H̃ → H → 1 with H̃ = H ×_{BA} {1} (the description of morphisms in a derived category by Ext-groups, Hom_{D(C)}(B, A[1]) ≅ Ext_C(B, A)); applied to the morphism P̃_G → Bun_T(C/A) → B_kT coming from the marked point ∞̃ ∈ C^{sm}, this yields the extension 1 → T → T_P → P̃_G → 1.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition 6.25, p. 43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Prym-level avatar of T_G, which is what makes T_G translation invariant."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/146",
+   "kind": "theorem",
+   "name": "Translation invariance and descent of the torsor to twists",
+   "statement": "The action of the Prym P̂_G on M̂_G lifts to an action of T_P on T_G, so for y ∈ P̄_{G,a}(k) with induced automorphism ψ_y of M̄_{G,a} the torsor ψ_y^*T_G is non-canonically isomorphic to T_G; hence T_G descends to a T/Z(X, G)-torsor T^t_G on every unramified twist M̄^t_{G,a}, the obstruction lying in H²_ét(k, T/Z(X, G)) = Br(k) ⊗ X_*(T/Z(X, G)) = 0 and the descent datum being unique because H^1_ét(k, T/Z(X, G)) = H^1_ét(k, G_m) ⊗ X_*(T/Z(X, G)) = 0.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark 6.26, Corollary 6.27 and Definition 6.28, p. 43",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Uses the vanishing of the Brauer group and of H^1 with G_m-coefficients over a finite field."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/147",
+   "kind": "theorem",
+   "name": "The Brauer group of a finite field vanishes",
+   "statement": "Br(k) = 0 for a finite field k.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 6.27, p. 43",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.subsingleton_brauerGroup_of_finite"
+   ],
+   "planned": [],
+   "note": "Tau Ceti proves that the Brauer group of a finite field is trivial (by Wedderburn's little theorem); the identification of Br(k) with H²_ét(k, G_m) is not part of the cited declaration."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/148",
+   "kind": "theorem",
+   "name": "Hilbert 90 over a finite field",
+   "statement": "H^1_ét(k, G_m) = 0 for a field k, so H^1_ét(k, T/Z(X, G)) = H^1_ét(k, G_m) ⊗ X_*(T/Z(X, G)) = 0.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary 6.27, p. 43",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+   ],
+   "note": "Mathlib has Noether's Hilbert 90 for a finite Galois extension (groupCohomology.H1ofAutOnUnitsUnique); the profinite/étale statement used here is planned in the Tau Ceti ProfiniteCohomology roadmap, Layer 9."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/149",
+   "kind": "theorem",
+   "name": "The classifying map of T_G is the Abel–Jacobi map",
+   "statement": "Over A^♦ the equivalence Hom(P^♦_G, BG_m) ≅ P^♦_Ĝ of Theorem 4.28 turns the classifying map P̃^♦_G → BT of T_G into a section of P̃^♦_Ĝ ⊗ X_*(T̂) ≅ Hom(X_*(T̂), P̃^♦_Ĝ), and the resulting map X_*(T̂) → P̃^♦_Ĝ agrees with the map (19) of Construction 4.37. The proof computes (AJ^♦_G)^*T_P as the W-equivariantisation of O(λ∞̃) with its tautological +-structure, where ∞̃ ⊂ C̃ is the divisor given by the image of ∞̃ : Ã → C̃.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.29 with equation (34), pp. 43–44",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the identification that makes the gerbe correspond, under Tate duality, to the unramified twists."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/150",
+   "kind": "theorem",
+   "name": "Finiteness of the order of T_G on a Hitchin fibre",
+   "statement": "The restriction of the T/Z(X, G)-torsor T_G to a Hitchin fibre M̄_{G,a} is of finite order. This follows from the claim that there is a morphism P̃_Ĝ ⊗ X_*(T/Z(X, G)) → Pic^{T/Z(X,G)}(M̄_G/Ã) such that for a ∈ Ã(k) the torsor T_G|_{M̄_{G,a}} is the image of a k-rational point of P̃_{Ĝ,a}, together with the facts that π_0(P̃_{Ĝ,a}) is torsion and that the identity component is an abelian variety with finitely many k-rational points; the claim uses that M̄_G is a smooth DM stack which is an algebraic space up to codimension 2 (Corollary 5.25), so torsors extend across M̄^♦_G ⊂ M̄_G, and that the Hitchin map is flat ([Ngô10, Corollaire 4.16.4]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.30 and Claim 6.31, p. 44",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Finite order is what allows Definition 3.12 to convert T_G into a gerbe."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/151",
+   "kind": "definition",
+   "name": "The gerbes α_a and α_{U_a}",
+   "statement": "α'_a ∈ H²_ét(M̄^t_{G,a}, T/Z(X, G)) is the gerbe induced by the element of H^1_ét(k, H^1_ét(M̄^t_{G,a}, T/Z(X, G))) sending the topological generator 1 ∈ Ẑ ≅ Gal(k̄/k) to [T^t_G]; writing α'_a = α^0_a α^{00}_a with α^0_a of order coprime to p and α^{00}_a of p-power order, and using the proper base change isomorphism H²_ét(M̄_{G,U_a}, µ_N) ≅ H²_ét(M̄_{G,a}, µ_N) for N coprime to p ([AGV64, Exposé XVI]), α_{U_a} ∈ H²_ét(M̄^t_{G,U_a}, µ_N) is the element corresponding to α_a.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definitions 6.32 and 6.33, p. 45",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Brauer class over the henselian base whose Hasse invariant is integrated."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/152",
+   "kind": "theorem",
+   "name": "The Hasse invariant of the gerbe is the character on the inertia stack",
+   "statement": "For x ∈ M̄_{G,U_a}(O)^♮ and λ ∈ X_*(T/Z(X, G)) the Hasse invariant of λ(x_F^*α_{U_a}) ∈ Br(F) equals χ_λ(e(x)). The proof is Corollary 3.14 together with the claim that the function f_{λ(T_G)} : I_µ̂M̄_G(k) → C induced by the G_m-torsor λ(T_G)/M̄_G agrees with χ_λ: a k-point y of I_µ̂M̄_G gives Bµ̂ → M̄_G, whose composition with M̄_G → BG_m classifying λ(T_G) corresponds to the homomorphism µ̂ → G_m given by λ(κ) ∈ (Q/Z)_0, κ being the type attached to y by Theorem 5.23.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma 6.34, p. 45",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The statement that closes the circle: it identifies the p-adic integrand χ_s ∘ e with the Hasse invariant of a gerbe, so Tate duality can be applied to it."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/153",
+   "kind": "definition",
+   "name": "Restriction of Pryms along a finite étale cover and its simplicial diagram",
+   "statement": "For f : Y → X a finite étale morphism of smooth proper curves and G/X quasi-split (also written G/Y for its pullback): (a) Res_{Y/X} : P_{G,X} → P_{G,Y} is induced by pullback of J-torsors; (b) iterated base change of f along itself gives an augmented simplicial object Y_• of finite étale X-schemes; (c) pullback of J-torsors gives an augmented co-simplicial object P_X → P_Y ⇉ P_{Y×_XY} ⋯ of strict Picard stacks.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition A.1, p. 46",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The set-up for descent and co-descent of Pryms along the cover that splits the outer form."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/154",
+   "kind": "theorem",
+   "name": "Descent for Pryms",
+   "statement": "The augmented co-simplicial diagram of Definition A.1(c) induces an equivalence Res : P_X ≃ |P_{Y_•}|, by faithfully flat descent applied to the surjective étale morphism f : Y → X.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma A.2, p. 46",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The easy half; the content of the appendix is the dual statement, co-descent."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/155",
+   "kind": "theorem",
+   "name": "Finite étale covers are trivialised by a finite étale base change",
+   "statement": "Let f : Y → X be a surjective finite étale morphism of schemes of finite presentation over Z. Then there exists a finite étale morphism g : Z → X such that Y ×_X Z → Z is a trivial finite étale morphism, i.e. isomorphic to ⊔_{i∈F} Z → Z for a finite set F. The proof is induction on the degree, using that the diagonal Y → Y ×_X Y is open (f étale) and closed (f finite, hence separated), so U = Y ×_X Y \\ Y → Y has degree d − 1.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma A.3, p. 46",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The elementary input that makes norm maps for étale sheaves well defined."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/156",
+   "kind": "definition",
+   "name": "Norm maps for étale sheaves of abelian groups",
+   "statement": "Let J be a sheaf of abelian groups on the small étale site of X and f : Y → X a surjective finite étale morphism, and let J_Y = f_*f^{-1}J. (a) If f is trivial, say f ≅ ⊔_{i∈F} X → X, then Nm_{Y/X} : J_Y → J_X is the multiplication map J^F → J, (s_i)_{i∈F} ↦ ∏_{i∈F} s_i. (b) A morphism nm : J_Y → J_X is a norm map if g^*nm = Nm_{Y×_XZ/Z} for every g as in Lemma A.3.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Definition A.4, p. 46",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Norms of étale sheaves are the dual of restriction, and give the simplicial diagram (35)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/157",
+   "kind": "construction",
+   "name": "Existence and uniqueness of norm maps",
+   "statement": "For f : Y → X, J and J_Y as in Definition A.4 a norm map Nm_{Y/X} : J_Y → J exists and is unique: choose g : Z → X finite étale trivialising f (Lemma A.3); for an étale open h : U → X and s ∈ J_Y(U), the section g^*s ∈ J_Y(U ×_X Z) ≅ J_X(U ×_X Z)^F has components with p_1^*s_i = p_2^*s_i, so the product ∏_{i∈F} s_i satisfies the same descent condition and descends to Nm_{Y/X}(s) ∈ J(U), independently of g.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Construction A.5, p. 47",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Together with Definition A.4 this gives the augmented simplicial diagram (35) of étale sheaves."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/158",
+   "kind": "theorem",
+   "name": "Local co-descent",
+   "statement": "The augmented simplicial diagram J ← J_Y ⇇ J_{Y×_XY} ⋯ of (35) is a limit diagram in the category of sheaves of abelian groups on the small étale site of X, that is J ≃ |J_{Y_•}|; moreover this holds in the derived ∞-category of étale sheaves of abelian groups. The proof reduces étale-locally to a trivial covering ⊔_{i∈F} X → X and then, by the Dold–Kan correspondence, to the computation that the chain complex J^F_X ← J^{F×F}_X ← ⋯ with the alternating sum of the face maps ∂_{n,i}g(c_0,…,c_{n-1}) = ∏_{c∈F} g(c_0,…,c_{i-1},c,c_i,…) has vanishing homology in positive degrees and J_X in degree 0.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma A.6, p. 47",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The technical heart of the appendix."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/159",
+   "kind": "theorem",
+   "name": "The Dold–Kan correspondence",
+   "statement": "For an abelian category A the normalised chain complex functor is an equivalence SimplicialObject(A) ≃ ChainComplex(A, N).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Lemma A.6, proof, p. 47 ([Sta, Tag 019D])",
+   "status": "library",
+   "library": [
+    "mathlib:CategoryTheory.Abelian.DoldKan.equivalence",
+    "mathlib:CategoryTheory.Idempotents.DoldKan.equivalence"
+   ],
+   "planned": [],
+   "note": "Mathlib has the Dold–Kan equivalence for abelian categories (and for idempotent-complete preadditive ones)."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/160",
+   "kind": "theorem",
+   "name": "Deligne's description of strict Picard stacks",
+   "statement": "The homotopy category of strict Picard stacks, obtained by identifying 2-isomorphic 1-morphisms, is equivalent to the derived category of complexes of abelian sheaves concentrated in degrees [−1, 0] ([AGV64, XVIII.1.4]); with respect to this equivalence one has P ≃ RΓ(X_S, J[1]).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Section A.1 and Remark A.7, p. 48",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The derived-category model in which co-descent for the Prym is proved."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/161",
+   "kind": "theorem",
+   "name": "Global co-descent for Pryms",
+   "statement": "For a finite étale morphism Y → X of smooth proper curves the norm maps Nm_{Y/X} : P_Y → P_X give an augmented simplicial object of strict Picard stacks whose augmentation is an equivalence P_G(X)(S) ≃ |P_G(Y_•)(S)|. The proof uses Lemma A.6 together with the fact that Rπ_* commutes with the relevant small coproducts and colimits, reduced to uniformly bounded-below complexes by truncation.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary A.9 and Definition A.8, p. 48",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The dual of Lemma A.2, and the statement that makes the duality descend to outer forms."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/162",
+   "kind": "theorem",
+   "name": "Donagi–Pantev and Chen–Zhu duality in the split case",
+   "statement": "Let G/k be a split reductive group scheme with char(k) = 0 or |W| not divisible by char(k), and Ĝ its Langlands dual; for X/k a smooth projective curve there is an isomorphism A_G ≅ A_Ĝ mapping A^♦_G to A^♦_Ĝ, with respect to which the abelian group stacks P_G and P_Ĝ are dual: AJ^* : P_G ≅ P̂_G.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Theorem A.10, p. 49 ([DP12, Theorem A], [CZ17, Theorem 1.2.1])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The input to the quasi-split case; it is itself not planned anywhere in the atlas."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/163",
+   "kind": "theorem",
+   "name": "Restriction and norm are dual",
+   "statement": "For f : Y → X finite étale, Res^∨_{Y/X} = Nm_{Y/X} : P_{G,X} → P_{G,Y}, i.e. the square formed by AJ^* : P_{G,X} ≅ P^∨_{Ĝ,X}, Res_{Y/X} and Nm^∨_{Y/X} commutes. This follows from the commutativity of the square relating AJ_Y : C_Y × X_*(T̂) → P_{Ĝ,Y} and AJ_X : C_X × X_*(T̂) → P_{Ĝ,X}, since the norm of the W-equivariantisation of O_{C_Y}(λy) is the W-equivariantisation of O_{C_X}(λf(y)).",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Remark A.11, p. 49",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The compatibility that lets descent on one side be matched with co-descent on the other."
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/164",
+   "kind": "theorem",
+   "name": "Duality of Pryms for quasi-split group schemes",
+   "statement": "Let X/k be a smooth projective curve over a field k and G/X a quasi-split reductive group scheme, an outer form of a split reductive G/k, with char(k) = 0 or |W| not divisible by char(k). Then A_G ≅ A_Ĝ maps A^♦_G to A^♦_Ĝ and, with respect to this identification, the Beilinson 1-motives P_G and P_Ĝ are dual. The proof takes f : Y → X finite étale trivialising the outer form (Lemma 4.8), puts the co-descent diagram for P^∨ and the descent diagram for P̂ side by side, and uses that AJ^* is an equivalence at every level (Theorem A.10) together with Corollary A.9 and Lemma A.2.",
+   "locator": "arXiv:1810.06739v2 (28 October 2019), Corollary A.12, pp. 49–50",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The general form of Theorem 4.28; it is the duality that Lemmas 6.14–6.15 apply fibrewise."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Bao Châu Ngô, Le lemme fondamental pour les algèbres de Lie, Publ. Math. IHÉS 111 (2010), 1–169",
+   "link": "arXiv:0801.0446",
+   "why": "The source of everything the paper reproves and of most of what it cites: the Hitchin system for a quasi-split group scheme, the Chevalley base and cameral covers, regular centralisers and the Prym, the anisotropic locus, the étale cover Ã → A, geometric stabilisation (Theorem 6.4.2), its non-standard variant (Theorem 8.8.2) and the deduction of the fundamental lemma in Section 8."
+  },
+  {
+   "citation": "Bao Châu Ngô, Fibration de Hitchin et endoscopie, Invent. Math. 164 (2006), 399–453",
+   "link": "arXiv:math/0406599",
+   "why": "The earlier form of the Hitchin-fibration approach to endoscopy; Proposition 4.38 quotes its Corollaire 6.7 and Proposition 6.8 for the surjection onto the component group of the Prym."
+  },
+  {
+   "citation": "Michael Groechenig, Dimitri Wyss, Paul Ziegler, Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration, Invent. Math. 221 (2020)",
+   "link": "arXiv:1707.06417",
+   "why": "The authors' own p-adic proof of the Hausel–Thaddeus conjecture, of which this paper is the endoscopic sequel; Section 4 of that paper is the special case generalised in Section 2 here, and Lemmas 6.13 and 6.15 generalise its Lemmas 6.13 and 6.15."
+  },
+  {
+   "citation": "Ron Donagi, Dennis Gaitsgory, The gerbe of Higgs bundles, Transform. Groups 7 (2002), 109–153",
+   "link": "arXiv:math/0005132",
+   "why": "Theorem 4.26: the description of the Prym as W-equivariant T-torsors on the cameral cover with a +-structure, on which the Abel–Jacobi map and the duality are built."
+  },
+  {
+   "citation": "Ron Donagi, Tony Pantev, Langlands duality for Hitchin systems, Invent. Math. 189 (2012), 653–735",
+   "link": "arXiv:math/0604617",
+   "why": "Theorem A.10 in characteristic zero: the Pryms of a split reductive group and of its Langlands dual are dual abelian group stacks."
+  },
+  {
+   "citation": "Tsao-Hsien Chen, Xinwen Zhu, Geometric Langlands in prime characteristic, Compositio Math. 153 (2017), 395–452",
+   "link": "arXiv:1403.3981",
+   "why": "Theorem A.10 in prime characteristic (their Theorem 1.2.1), and Section 3 of loc. cit. is the exposition of Donagi–Gaitsgory that Definition 4.25 and Construction 4.27 follow."
+  },
+  {
+   "citation": "Takehiko Yasuda, The wild McKay correspondence and p-adic measures, J. Eur. Math. Soc. 19 (2017), 3709–3743",
+   "link": "arXiv:1412.5260",
+   "why": "Proposition 2.1 (measure zero of positive-codimension subspaces and the change of variables for finite étale quotients) is quoted from its Lemma 4.3 and Theorem 4.8, and the extension of µ_ω to a measure follows its Section 3.2."
+  },
+  {
+   "citation": "Jan Denef, François Loeser, Motivic integration, quotient singularities and the McKay correspondence, Compositio Math. 131 (2002), 267–290",
+   "link": "arXiv:math/9903187",
+   "why": "The motivic model of Theorem 2.21; Construction 2.19 follows its Section 2, and the authors state that they do not know how to deduce Theorem 2.21 formally from it."
+  },
+  {
+   "citation": "Takehiko Yasuda, Motivic integration over Deligne–Mumford stacks, Adv. Math. 207 (2006), 707–761",
+   "link": "arXiv:math/0312115",
+   "why": "The other motivic antecedent of the stacky measure and of the weight function of Definition 2.20."
+  },
+  {
+   "citation": "Dan Abramovich, Alessio Corti, Angelo Vistoli, Twisted bundles and admissible covers, Comm. Algebra 31 (2003), 3547–3618",
+   "link": "arXiv:math/0106211",
+   "why": "Theorem 5.1.5 of loc. cit. is the rigidification used for M̄_G, P̄ and the G-rigidified endoscopic stacks throughout Sections 4 and 5."
+  },
+  {
+   "citation": "Dan Abramovich, Martin Olsson, Angelo Vistoli, Tame stacks in positive characteristic, Ann. Inst. Fourier 58 (2008), 1057–1091",
+   "link": "arXiv:math/0703310",
+   "why": "The definition of a tame stack and the fact (3.3 of loc. cit.) that coarse moduli spaces of tame stacks commute with base change, used in Construction 2.13."
+  },
+  {
+   "citation": "Seán Keel, Shigefumi Mori, Quotients by groupoids, Ann. of Math. 145 (1997), 193–213",
+   "link": "arXiv:alg-geom/9508012",
+   "why": "Existence of coarse moduli spaces, the starting point of Situation 2.6(a)."
+  },
+  {
+   "citation": "Andrew Kresch, On the geometry of Deligne–Mumford stacks, in Algebraic geometry — Seattle 2005, Proc. Sympos. Pure Math. 80 (2009), 259–271",
+   "link": "https://www.math.uzh.ch/kresch/publications/",
+   "why": "Theorem 4.4 and Proposition 5.2 of loc. cit. give the Zariski-local finite étale quotient presentation of Situation 2.6(b), verified for M̄^ani_G in Situation 6.1."
+  },
+  {
+   "citation": "Shenghao Sun, L-series of Artin stacks over finite fields, Algebra Number Theory 6 (2012), 47–122",
+   "link": "arXiv:1008.3689",
+   "why": "The Grothendieck–Lefschetz trace formula for stacks over a finite field, which is what every point count #M(k) in Section 6 means."
+  },
+  {
+   "citation": "Jean-Loup Waldspurger, L'endoscopie tordue n'est pas si tordue, Mem. Amer. Math. Soc. 908 (2008)",
+   "link": "https://bookstore.ams.org/memo-194-908",
+   "why": "The non-standard fundamental lemma for dual groups whose geometric form is Theorem 1.3."
+  },
+  {
+   "citation": "Jean-Pierre Serre, Cohomologie galoisienne, Lecture Notes in Math. 5, Springer (5th edition, 1994)",
+   "link": "https://doi.org/10.1007/BFb0108758",
+   "why": "Section I.5 of loc. cit. is the non-abelian Galois cohomology of finite group schemes over a local field used in Section 2.5."
+  },
+  {
+   "citation": "Jun-ichi Igusa, An introduction to the theory of local zeta functions, AMS/IP Studies in Advanced Mathematics 14 (2000)",
+   "link": "https://bookstore.ams.org/amsip-14",
+   "why": "Analytic manifolds and differential forms over a local field (Section 2.1) and the Fubini theorem 7.6.1 used in Lemma 6.13(c)."
+  },
+  {
+   "citation": "J. S. Milne, Arithmetic duality theorems, Perspectives in Mathematics 1 (1986)",
+   "link": "https://www.jmilne.org/math/Books/ADTnot.pdf",
+   "why": "Theorem I.3.4: Tate duality for abelian varieties over a local field, the input of Lemma 6.14."
+  },
+  {
+   "citation": "André Weil, Adeles and algebraic groups, Progress in Mathematics 23, Birkhäuser (1982)",
+   "link": "https://doi.org/10.1007/978-1-4684-9156-2",
+   "why": "Theorem 2.2.5: the canonical measure on X(O_F) and the point-count formula quoted as Theorem 1.4."
+  },
+  {
+   "citation": "Martin Olsson, Hom-stacks and restriction of scalars, Duke Math. J. 134 (2006), 139–164",
+   "link": "https://doi.org/10.1215/S0012-7094-06-13415-4",
+   "why": "Theorem 1.5 of loc. cit. gives the representability of the Weil restriction Z(X, G) that defines the generic stabiliser of M_G (Definition 4.12(c))."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "EndoscopicTransferAndUnitaryTraceComparison",
+   "roadmap": "EndoscopicTransferAndUnitaryTraceComparisonPartII",
+   "title": "Endoscopic transfer and unitary trace comparison, Part II: geometric stabilisation via p-adic integration",
+   "area": "langlands",
+   "items": [
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/2",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/5",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/13",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/16",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/17",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/18",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/23",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/24",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/25",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/26",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/27",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/28",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/29",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/30",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/31",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/32",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/33",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/34",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/35",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/36",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/38",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/40",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/41",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/42",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/43",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/44",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/45",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/46",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/47",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/48",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/49",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/50",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/53",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/56",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/57",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/58",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/60",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/61",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/63",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/67",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/72",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/74",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/75",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/76",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/77",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/78",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/79",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/80",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/82",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/83",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/84",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/85",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/88",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/89",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/90",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/91",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/93",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/94",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/95",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/96",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/97",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/98",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/99",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/100",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/101",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/102",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/103",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/104",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/105",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/106",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/107",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/108",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/109",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/110",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/111",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/112",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/113",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/114",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/115",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/116",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/117",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/118",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/119",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/120",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/121",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/122",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/123",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/124",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/125",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/126",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/127",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/128",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/129",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/130",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/131",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/132",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/133",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/134",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/135",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/136",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/137",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/138",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/139",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/140",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/141",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/142",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/144",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/145",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/146",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/149",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/150",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/151",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/152",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/153",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/154",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/155",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/156",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/157",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/158",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/160",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/161",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/162",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/163",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/164"
+   ],
+   "brief": "Build the second proof of Ngô's Geometric Stabilisation Theorem, the one that replaces the Decomposition and Support Theorems by p-adic integration on coarse moduli spaces of Deligne–Mumford stacks. The final theorems are those of Groechenig–Wyss–Ziegler: (1) Geometric Stabilisation (their Theorem 1.1 = Corollary 6.18, Ngô's Theorem 6.4.2): for k a finite field with q elements, X/k a smooth projective curve with a rational point ∞, G/X a quasi-split reductive group scheme with |Θ ⋉ W| invertible, D of even degree d ≥ 2g − 2 with A^♦ ≠ ∅, and a coendoscopic datum E = (κ, ρ_κ, ρ_κ → ρ) for Ĝ whose torsor ρ_{κ,∞} splits, one has #^{κ_a} M̄_{G,a}(k) = q^{r^G_H(D)} #^stab M̄_{H,a}(k) for every a ∈ Ã_H(k), where r^G_H(D) = ½(dim M̃_G − dim M̃_H); (2) the geometric non-standard fundamental lemma (their Theorem 1.3 = Corollary 6.17, Ngô's Theorem 8.8.2): #^stab M̃_{G,a}(k) = #^stab M̃_{Ĝ,a}(k) for every a ∈ Ã_G(k) ≅ Ã_Ĝ(k). The roadmap must cover, in this order: p-adic integration of top-degree forms on F-analytic manifolds and Weil's point-count formula; the canonical measure vol_M on the coarse moduli space of a smooth tame Deligne–Mumford stack which is Zariski-locally a finite étale quotient, with the gauge forms its construction needs; twisted inertia stacks, the specialisation map e : M(O_F)^♮ → [I_µ̂M(k)], the weight function and the volume formula vol_M(e^{-1}(x, α)) = q^{-w(x,α)}/|Aut(x, α)| (their Theorem 2.21); torsors over local fields, the stacks X_{Γ,Q}, and the identification of the Hasse invariant with the invariant of a gerbe on the twisted inertia stack (their Proposition 3.7 and Corollary 3.14); quasi-split reductive group schemes over a curve, their outer forms and Langlands duals, the abstract Prym as W-equivariant T-torsors with +-structure, Beilinson 1-motives, and duality of the Pryms of G and Ĝ in the quasi-split case, proved by co-descent and norm maps for étale sheaves (their Appendix A); coendoscopic data and the description of the twisted inertia stack of the anisotropic Higgs stack and of its rigidification by them (their Theorems 5.14 and 5.23); and finally the comparison of the two p-adic integrals, the resulting character-sum identity (their Theorem 6.11), the Fourier inversion over the component group of the Prym, and the Tate-duality argument for Hitchin fibres of Section 6.5. Import, and do not re-plan: the Hitchin system itself — Chevalley quotient, Kostant section, regular centralisers, the stack of G-Higgs bundles, the Hitchin base and map, cameral covers, the Picard stack and its component groups, and the anisotropic locus — from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), stage ET.2b, whose sheaf-theoretic route (weak abelian fibrations, δ-stratification, the support theorem) this roadmap deliberately does not use; the deduction of the fundamental lemma from geometric stabilisation, and Waldspurger's non-standard variant, from ET.3 of the same roadmap; endoscopic data and endoscopy groups from ET.0; algebraic stacks, coarse spaces and rigidification from Algebraic moduli for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), stages R09.4 and R09.5; p-adic measures and integration from Logic and definability in number theory (LogicAndDefinabilityInNumberTheory), stage LD.2; the local invariant map and the Brauer group of a local field from the Tau Ceti roadmap Class field theory, Layer 5; Hilbert 90 and the Galois interface from the Tau Ceti roadmap Profinite cohomology, Layer 9; local duality for abelian varieties from Arithmetic Galois duality (ArithmeticGaloisDuality), stage R02.4; pinned reductive group schemes and their automorphisms from the Tau Ceti roadmap Reductive groups, Layers 7 and 9; and the pinned dual group from Geometric Satake and fusion (GeometricSatakeAndFusion), stage GS4:integral-dual-group. State separately, as its own layer, the Grothendieck–Lefschetz trace formula for Deligne–Mumford stacks over a finite field ([Sun12]), which no roadmap owns and which every point count in the proof presupposes.",
+   "reason": "The atlas already aims at exactly these two theorems: ET.2b plans the endoscopic comparison of κ-isotypic perverse direct images along Ngô's route, and ET.3 derives the ordinary and non-standard fundamental lemma from it. What this paper adds is a second, independent proof of the same statements which avoids the Decomposition and Support Theorems that ET.2a and ET.2b rest on, and it needs machinery that no layer of the atlas plans: p-adic integration on coarse moduli of tame Deligne–Mumford stacks, twisted inertia stacks and the specialisation map, gerbes and the Hasse invariant, coendoscopic data and the endoscopic description of the twisted inertia stack of the Higgs stack, and duality of Pryms for quasi-split group schemes. That is new layers in the direction of an existing roadmap, so it is a Part II rather than a new roadmap; it imports the Hitchin system from ET.2b instead of planning it a second time."
+  },
+  {
+   "route": "source",
+   "roadmap": "AlgebraicModuliForArithmeticGeometry",
+   "stages": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4",
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ],
+   "items": [
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/14",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/15",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/19",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/20",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/21",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/22",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/37",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/87"
+   ],
+   "reason": "These are general facts about algebraic stacks, not about Higgs bundles: coarse moduli spaces of tame Deligne–Mumford stacks over a discrete valuation ring and the locus where the coarse map is an isomorphism (Keel–Mori), Kresch's Zariski-local finite étale quotient presentation, inertia and twisted inertia stacks with their rational points over a finite field, Giraud's classification of gerbes by degree-two cohomology, and the quotient-stack identity for twisted group actions. R09.4 constructs algebraic stacks in the required class and distinguishes Deligne–Mumford, separated, proper and tame; R09.5 proves existence of coarse spaces and rigidification. The paper is a good source for those layers, and the Part II should import them rather than build them."
+  },
+  {
+   "route": "source",
+   "roadmap": "LogicAndDefinabilityInNumberTheory",
+   "stages": [
+    "LogicAndDefinabilityInNumberTheory:LD.2"
+   ],
+   "items": [
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/4",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/6",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/8",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/9",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/10",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/11",
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/12"
+   ],
+   "reason": "Sections 2.1 and 2.2 are p-adic integration in the classical sense: the measure attached to a section of (Ω^top)^{⊗r} on an F-analytic manifold, Weil's formula vol(X(O_F)) = |X(k)|/q^d, the vanishing of the measure of positive-codimension subspaces, the change-of-variables formula for generically free finite étale quotients, invariance under a prime-to-p isogeny of dual abelian varieties, and Fubini along a smooth morphism. LD.2 owns p-adic definable measures and Igusa-type local integrals from Denef–Pas and Cluckers–Loeser and is the layer these constructions belong to; Weil's measure is their common starting point. (AdelicAlgebraicGroups AA.2 plans Weil's integral formula and Tamagawa measures for adelic groups; that is the invariant-measure statement for group schemes, not the measure attached to an arbitrary gauge form on a variety, so these items are not routed there.)"
+  },
+  {
+   "route": "source",
+   "roadmap": "ArithmeticGaloisDuality",
+   "stages": [
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "items": [
+    "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/143"
+   ],
+   "reason": "Tate's local duality theorem for abelian varieties (Milne, Arithmetic Duality Theorems I.3.4) is the classical input that makes Lemma 6.14 work: a non-trivial torsor under the dual abelian variety pairs non-trivially, so the corresponding character integrates to zero. R02.4 proves the finite-module duality from the local invariant maps and global class field theory; the abelian-variety case belongs to the same layer and this paper is a source for it, giving the formulation through gerbes and Hasse invariants that the Part II needs."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E1",
+   "kind": "misprint",
+   "locator": "Construction 2.13, p. 11 (arXiv v2, the version read)",
+   "printed": "By the definition of M(O_F)♮, the stack M_x satisfies condition (iii) of Theorem 2.12.",
+   "correction": "condition (iii) of Proposition 2.12.",
+   "reason": "The result numbered 2.12 is stated on p. 10 as 'Proposition 2.12', and two sentences later the same construction refers to it correctly: 'Hence Proposition 2.12 gives us a morphism [Spec(k)/µ_N] → M̃_k → M_k'. The paper has no Theorem 2.12.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ]
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E2",
+   "kind": "misprint",
+   "locator": "Remark 6.19, p. 42 (arXiv v2, the version read)",
+   "printed": "In loc. cit. the assumption is formulated for the endoscopy group Ĥ_E, but this is equivalent to our assumption for the Langlands dual group H_E stated in Theorem 6.18.",
+   "correction": "stated in Corollary 6.18.",
+   "reason": "The statement numbered 6.18 is 'Corollary 6.18' (p. 41), and the same remark's first sentence calls it 'Corollary 6.18'; there is no Theorem 6.18.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ]
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E3",
+   "kind": "misprint",
+   "locator": "Remark 6.24, p. 43 (arXiv v2, the version read)",
+   "printed": "For (E, θ, ∞̃) ∈ M̃^ani_G(X_k) we have that the map Aut(E, θ) → T induced by M̃^ani_G(X_k) → B_kT is the embedding described in Lemma 4.36.",
+   "correction": "the embedding described in Construction 4.36.",
+   "reason": "The item numbered 4.36 is 'Construction 4.36' (pp. 25–26), and it is cited correctly as 'Construction 4.36' three times elsewhere (Construction 5.10 p. 29, Remark 5.15 p. 30, and p. 30 again); the paper has no Lemma 4.36.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ]
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E4",
+   "kind": "misprint",
+   "locator": "Goal 6.21(2), p. 42 (arXiv v2, the version read)",
+   "printed": "(2) Subsequently we will verify that λ(α) corresponds to the twist M̄^{Π,t}_G with respect to Tate duality. See Lemma 6.34.",
+   "correction": "The pointer should be to Lemma 6.29 together with the argument in the proof of Lemma 6.14, not to Lemma 6.34.",
+   "reason": "Goal 6.21(1) already ends 'See Lemma 6.34', and Lemma 6.34 states only that the Hasse invariant of λ(x_F^*α_{U_a}) equals χ_λ(e(x)), which is goal (1). The identification of λ(α) with the unramified twist is made in the proof of Lemma 6.14: 'It follows from Lemma 6.29 that α_{U_a} ∈ Ext²_ét(P̃^{♦,Π}_{Ĝ,b}, X_*(T/Z(X, G)) ⊗ G_m) = Ext¹_ét(X_*(T̂/Z(X, Ĝ)), P̃^{♦,Π}_{Ĝ,b}) corresponds to the unramified twists M̄^{Π,t}_{Ĝ,b}'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ]
+  }
+ ]
+}
