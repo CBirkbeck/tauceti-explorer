@@ -159,11 +159,12 @@ Edit only the files the findings name, the target's files, your report and your 
 """ + CHECK_INPUTS
 
 ERRATA_TEMPLATE = HEADER + """
-JOB: record the mistakes in a published paper that its extraction found (PROTOCOL.md section 18).
-Paper: {CITATION}. Its extraction, finished before mistakes were recorded: research/blueprint/papers/{PAPER}.result.json, with the report research/blueprint/papers/{PAPER}.md.
-Its worker read the paper line by line and noted mistakes in passing: in item statements and locators, gaps, notes and the report (misprints, false statements, steps that fail, gaps, published errata used). Read all of them, and the paper at each place they point to, and record every mistake in the paper under `sourceIssues` in the extraction, in the format of PROTOCOL.md section 18: each quoted at its locator, with the correction, the reason, how far it reaches, and whether a published erratum or later version already corrects it (look in the journal's errata listing, the arXiv versions and the authors' pages, and say where you looked). Corrections a published erratum already makes are recorded too, with the erratum as `known`. A list in an older form is converted, keeping everything it says. Add any other mistake you find while checking; if there are none, write an empty list. Add a section "Mistakes in the paper" to the report.
-Change nothing else in the extraction. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors.
-Edit only the extraction, its report, a handoff note research/blueprint/handoff/{JOB}.md if you stop early, and your scratch directory.
+JOB: record the mistakes in a published source that earlier work on it found (PROTOCOL.md section 18).
+Source: {CITATION}.
+Earlier work on it: {WORK}. Its worker read the source line by line and noted mistakes in passing: in statements and locators, gaps, notes and the report (misprints, false statements, steps that fail, gaps, published errata used). Read all of it, and the source at each place it points to.
+Write research/blueprint/errata/{OWNER}.json, {{"{KEY}": "{OWNER}", "protocol": "errata-v1", "sourceIssues": [...]}}, with every mistake in the source in the format of PROTOCOL.md section 18 (ids {OWNER}/E1, {OWNER}/E2, ...): each quoted at its locator, with the correction, the reason, how far it reaches, and whether a published erratum or later version already corrects it (look in the journal's errata listing, the arXiv versions and the authors' pages, and say where you looked). Corrections a published erratum already makes are recorded too, with the erratum as `known`. Findings the earlier work recorded in an older form are converted, keeping everything they say. Add any other mistake you find while checking; if there are none, write an empty list. Explain each finding for a mathematician in research/blueprint/errata/{OWNER}.md: what the source says, why it is wrong or incomplete, the correction, and whether it touches the main results.
+Do not edit the earlier work. Run `python3 scripts/check_errata.py research/blueprint/errata/{OWNER}.json` until it reports no errors.
+Edit only those two files, a handoff note research/blueprint/handoff/{JOB}.md if you stop early, and your scratch directory.
 Sources: {LIBRARY}/ (the maintainer's reference library); public versions may be fetched into your scratch directory with provenance (URL, SHA-256, date), never into the repository.
 """
 
@@ -171,9 +172,9 @@ ERRATA_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atl
 
 READ FIRST (binding): research/blueprint/PROTOCOL.md, section 18.
 
-VERIFY: the mistakes recorded under `sourceIssues` in research/blueprint/papers/{PAPER}.result.json, found in {CITATION}.
-For each, read the paper at its locator (the version it names, and the published one where they differ), check the reason and the correction yourself, and check whether a published erratum or later version already corrects it. Add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. A confirmed new mistake goes into the register of mistakes in published work (research/errata/REGISTER.md), so confirm only what you have checked yourself; fix an entry in place where its correction or reach is wrong, and say so in the reason. Add any mistake the list missed, with your own verdict.
-Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors, and write research/blueprint/reviews/{JOB}.md: what you checked and each verdict.
+VERIFY: the mistakes recorded in research/blueprint/errata/{OWNER}.json, explained in research/blueprint/errata/{OWNER}.md, found in {CITATION}.
+For each, read the source at its locator (the version it names, and the published one where they differ), check the reason and the correction yourself, and check whether a published erratum or later version already corrects it. Add to it "review": {{"verdict": "confirmed | rejected", "reason": "...", "by": "{JOB}"}}. A confirmed new mistake goes into the register of mistakes in published sources (research/errata/REGISTER.md), so confirm only what you have checked yourself; fix an entry in place where its correction or reach is wrong, and say so in the reason. Add any mistake the list missed, with your own verdict.
+Run `python3 scripts/check_errata.py research/blueprint/errata/{OWNER}.json` until it reports no errors, and write research/blueprint/reviews/{JOB}.md: what you checked and each verdict.
 Sources: {LIBRARY}/; public versions may be fetched into your scratch directory with provenance, never into the repository.
 """
 
@@ -1046,25 +1047,38 @@ def main():
             fields = dict(AREA=label, ROADMAPS=listed(part), PARTS=others, TARGET=f"the area {label}" + (f", part {k} of {len(parts)}" if len(parts) > 1 else ""))
             redteam(rt, target, "area", name, part, REDTEAM_AREA_TEMPLATE, fields, [], 300 + 10 * number + k)
 
-    # Mistakes in published sources (PROTOCOL.md section 18): extractions finished
-    # before findings were recorded are read again for them, and each finding is verified.
-    def without_findings(path):
+    # Mistakes in published sources (PROTOCOL.md section 18): every paper processed
+    # before findings were recorded, and every finished new roadmap's blueprint, gets an
+    # errata job that records in its own file what the earlier work found, and a review.
+    def recorded(path):
         try:
             issues = json.loads((REPO / path).read_text()).get("sourceIssues")
         except (OSError, ValueError, AttributeError):
             return False
-        return issues is None or any(not isinstance(item, dict) or "kind" not in item for item in issues)
-    for number, job in enumerate([j for j in jobs if j["kind"] == "paper"], 1):
-        result, report = f"research/blueprint/papers/{job['id']}.result.json", f"research/blueprint/papers/{job['id']}.md"
+        return isinstance(issues, list) and all(isinstance(item, dict) and "kind" in item for item in issues)
+    earlier = []
+    for job in jobs:
+        if job["kind"] == "paper" and (REPO / f"research/blueprint/papers/{job['id']}.result.json").exists():
+            paper = next((entry for entry in registry.get("papers", []) if entry["id"] == job["id"]), {})
+            earlier.append((job, job["id"], "paper", f"research/blueprint/papers/{job['id']}.result.json", paper.get("citation", job.get("name", job["id"])),
+                            f"the extraction research/blueprint/papers/{job['id']}.result.json and its report research/blueprint/papers/{job['id']}.md"))
+        elif job["kind"] == "design" and states.get(job["id"]) == "done":
+            rid = job["roadmapIds"][0]
+            packet = next((path for path in job["outputs"] if "/packets/" in path), None)
+            readme = next((path for path in job["outputs"] if "/readmes/" in path), None)
+            if packet and (REPO / packet).exists():
+                earlier.append((job, rid, "roadmapId", packet, f"the sources of the new roadmap {rid} (listed in its packet)",
+                                f"the blueprint packet {packet} and its document {readme}, including any section on corrections to the source"))
+    for number, (job, owner, key, work_file, citation, work) in enumerate(earlier, 1):
         errata = "ERRATA-" + job["id"]
-        if states.get(job["id"]) != "done" or (errata not in states and not without_findings(result)):
+        if errata not in states and recorded(work_file):
             continue
-        paper = next((entry for entry in registry.get("papers", []) if entry["id"] == job["id"]), {})
-        fields = dict(PAPER=job["id"], CITATION=paper.get("citation", job.get("name", job["id"])))
-        add({"id": errata, "kind": "errata", "priority": 1, "order": 500 + number, "name": job.get("name", job["id"]), "roadmapIds": [],
-             "outputs": [result, report], "after": [], "independentOf": []}, ERRATA_TEMPLATE.format(**fill, JOB=errata, **fields))
-        add({"id": "REV-" + errata, "kind": "review", "priority": 1, "order": 500 + number, "name": job.get("name", job["id"]), "roadmapIds": [],
-             "outputs": [f"research/blueprint/reviews/REV-{errata}.md", result, report], "after": [errata], "avoidAccountOf": errata},
+        files = [f"research/blueprint/errata/{owner}.json", f"research/blueprint/errata/{owner}.md"]
+        fields = dict(OWNER=owner, KEY=key, CITATION=citation, WORK=work)
+        add({"id": errata, "kind": "errata", "priority": 1, "order": 500 + number, "name": job.get("name", owner), "roadmapIds": [],
+             "outputs": files, "after": [], "independentOf": []}, ERRATA_TEMPLATE.format(**fill, JOB=errata, **fields))
+        add({"id": "REV-" + errata, "kind": "review", "priority": 1, "order": 500 + number, "name": job.get("name", owner), "roadmapIds": [],
+             "outputs": [f"research/blueprint/reviews/REV-{errata}.md"] + files, "after": [errata], "avoidAccountOf": errata},
             ERRATA_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + errata, **fields))
 
     queue_path = BP / "queue.json"

@@ -712,9 +712,14 @@ found in their sources under `sourceIssues`:
   `"review": {"verdict": "confirmed | rejected", "reason": "...", "by": "<its job id>"}`,
   and adds any mistake the work missed, with its own verdict. A verdict counts
   only from a finished review job that reviews a job which wrote the file.
-- Extractions finished before mistakes were recorded get an errata job
-  (`ERRATA-<paper id>`), which records the mistakes their workers noted in
-  passing, and its review (`REV-ERRATA-<paper id>`).
+- Every paper processed before mistakes were recorded, and every finished new
+  roadmap's blueprint, gets an errata job (`ERRATA-<job id>`). It records the
+  mistakes the earlier work noted in passing, in its own file
+  `research/blueprint/errata/<paper id or roadmap id>.json`
+  (`{"paper" or "roadmapId", "protocol": "errata-v1", "sourceIssues": [...]}`,
+  checked by `scripts/check_errata.py`), explains each for a mathematician in
+  the `.md` beside it, and leaves the earlier work unchanged. Its review
+  (`REV-ERRATA-<job id>`) adds the verdicts there.
 
 `scripts/errata.py` collects the findings into `research/errata/REGISTER.md`
 (new confirmed mistakes first, then those awaiting review, then those already
