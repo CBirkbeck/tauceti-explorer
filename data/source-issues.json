@@ -875,6 +875,106 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/E1",
+   "kind": "error",
+   "locator": "Proof of Theorem 28, p.19 (arXiv v2)",
+   "printed": "\"When z_0 ≠ 0, we have α = (x − T)(Q) = x_0 − β. Then x′ = Span{(1, 0, 0), (β, 0, 0), . . ., (β^{g−1}, 0, 0), (β^g, 1, −½(x_0 + f_1/f_0))} is isotropic with respect to both bilinear forms.\" and, for z_0 = 0, \"x′ = Span{(h_1(β) − h_1(x_0), 0, 0), (β − x_0, 0, 0), . . . , ((β − x_0)^{g−1}, 0, 0), ((β − x_0)^g, 1, −½((2g + 1)x_0 + f_1/f_0))}\"",
+   "correction": "For g ≥ 1 neither plane is isotropic for B′: the (g − 1)-st basis vector pairs with the last one to −1 in the first case (+1, or h_1(x_0), in the second). The fix is to give that vector the third coordinate that cancels the pairing through ab′ + a′b:\n- z_0 ≠ 0: replace (β^{g−1}, 0, 0) by (β^{g−1}, 0, 1);\n- z_0 = 0, g ≥ 2: replace ((β − x_0)^{g−1}, 0, 0) by ((β − x_0)^{g−1}, 0, 1);\n- z_0 = 0, g = 1: replace (h_1(β) − h_1(x_0), 0, 0) by (h_1(β) − h_1(x_0), 0, −h_1(x_0)).\nThe corrected planes are isotropic for A′ and B′ and avoid the radical of A′, so the solubility claim and Theorem 28 stand.",
+   "reason": "With ⟨λ, μ⟩_{B′} = [β^{n−1}](αβλμ) + ab′ + a′b and α = x_0 − β: ⟨(β^{g−1}, 0, 0), (β^g, 1, −c)⟩_{B′} = [β^{2g+1}]((x_0 − β)β^{2g}) = −1 ≠ 0. All the other pairings of the printed plane vanish. In the Weierstrass case, h_1(β)(β − x_0) = f(β, 1) = 0 in L gives the same pairing −[β^{2g+1}](β(β − x_0)^{2g}) = −1 for g ≥ 2. The Gram matrices were computed symbolically: the printed planes fail and the corrected ones are isotropic in random examples with g = 1, 2, 3 in both cases.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+   ],
+   "owner": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/E2",
+   "kind": "misprint",
+   "locator": "§8, second example, p.23 (arXiv v2)",
+   "printed": "\"… its Jacobian E, which is an elliptic curve with equation y² + xy = x³ − x² − 929x − 10595 and prime conductor 571.\"",
+   "correction": "y² + y = x³ − x² − 929x − 10595 (Cremona's 571b1).",
+   "reason": "With PARI: the printed curve [1, −1, 0, −929, −10595] has conductor 43792070 and analytic rank 1. The curve [0, −1, 1, −929, −10595] has conductor 571, rank 0, trivial torsion and analytic Ш of order 4 = |(Z/2)²|. It is isomorphic to the Jacobian y² = x³ − 27Ix − 27J of the quartic (minimal model computed from I, J). The other numbers of both examples check: Δ = −2⁸·571 and −3⁵·11²·37²; the field of discriminant −2⁴·571 with O_L = Z[θ]; N(θ³ − θ) = −36; F(1), F(0), F(−1) = −2, −3, −6; the first quartic's Jacobian is y² = x³ − 3⁶·1221; its analytic Ш has order 16.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+   ],
+   "owner": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/E3",
+   "kind": "gap",
+   "locator": "Theorem 44, pp.34–35 (arXiv v2)",
+   "printed": "\"Suppose F is a large congruence family … for which there exist two primes p, q neither of which is a quadratic residue modulo the other such that … 1. f, pf, qf, pqf all lie inside F and the hyperelliptic curves have points over Q_p and Q_q. 2. … J has split semistable reduction of toric dimension 1 at p and good reduction at q.\"",
+   "correction": "Add the conditions at 2 whenever 2 has a unique prime above it in Q(√p, √q). That happens exactly when one of p, q is ≡ 3 mod 4 and the other ≡ 5 mod 8, e.g. (p, q) = (5, 3). The condition needed is that J has good reduction at 2 and the four twists have Q_2-points. Alternatively, restrict to p ≡ q ≡ 1 mod 4, or to the prime ≡ 1 mod 4 being ≡ 1 mod 8.",
+   "reason": "The natural proof (none is written) applies Theorem A.3 with F = Q(√p, √q) and p_0 = p. Theorem A.3 requires good reduction and local points of all four twists at every prime with a unique prime above it in F. The primes p and q have this property, as the hypothesis makes each inert in the other's quadratic field. So does 2 when it ramifies in one quadratic subfield and is inert in another. For p = 5, q = 3: 2 is inert in Q(√5) and ramified in Q(√3). The hypotheses of Theorem 44 say nothing at 2.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+   ],
+   "owner": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/E4",
+   "kind": "misprint",
+   "locator": "Theorems 33, 40 and 41, pp.25, 31, 33 (arXiv v2)",
+   "printed": "\"Let f(x, y) be a binary form of degree n = 2g + 2 with coefficients in 16^nZ\" (Theorem 33), and \"suppose that the coefficients of every f(x, y) ∈ F lie in 16^nZ\" (Theorems 40–41).",
+   "correction": "\"coefficients in 16Z\", as in the proof (\"Given one such f … with coefficients in 16Z, then 2^{4i} | f_0^{i−1}f_i\") and in Theorem 15, which claims κ = 4 (κ² = 16).",
+   "reason": "16 | f_i for all i already gives 2^{4i} | f_0^{i−1}f_i, the hypothesis of Proposition 34, so the printed 16^n is an unnecessarily strong hypothesis. With 16^n, Theorem 33 would not give the κ = 4 stated in Theorem 15.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+   ],
+   "owner": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 34, p.26; proof of Lemma A.5(3), p.37; references [33], [34], pp.41–42 (arXiv v2)",
+   "printed": "\"Define g(x, y) = x^n + f_1x^{n−1}y + f_0f_2x^{n−2}y + · · · + f_0^{n−1}f_ny^n.\" \"By the Weil conjectures, the curve y² = l(x) has at least q + 1 − n√q > n rational points over F_q. So there is at least one whose x-coordinate is not a root of f.\" \"[33] A. Skorobogatov, Torsors and rational points, Cambridge Tracts in Mathematics 114, 2007.\" \"[34] M. Stoll, … Algebra and Number Theory 1 (1997), 349–391.\"",
+   "correction": "\"f_0f_2x^{n−2}y²\"; \"> 2n + 2 rational points\" (which q > 4n² also gives); \"Cambridge Tracts in Mathematics 144, 2001\"; \"Algebra and Number Theory 1 (2007)\".",
+   "reason": "g must be homogeneous of degree n for g(f_0x, y) = f_0^{n−1}f(x, y). The points whose x-coordinate is a root of f, or at infinity, number up to 2n + 2, so \"> n\" does not by itself yield a good point, though q + 1 − n√q > 2n² does. Crossref gives Skorobogatov's tract as no. 144 (2001, DOI 10.1017/CBO9780511549588), and Algebra & Number Theory began in 2007 (DOI 10.2140/ant.2007.1.349).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 30 (2017), 451–493, DOI 10.1090/jams/863 (online 27 July 2016): Crossref (checked 2026-09-22) records no update or correction relation; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1310.7692: v2 of 24 February 2017 (dated March 2, 2017) is the latest version and the one read"
+   ],
+   "owner": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-GROSS-WANG-17.result.json",
+   "citation": "Bhargava–Gross–Wang, \"A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E1",
    "kind": "misprint",
    "locator": "Bombieri–Pila, The number of integral points on arcs and ovals, Oxford author preprint, Lemma 7 proof, printed p.14 (PDF index 13).",
