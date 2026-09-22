@@ -36,6 +36,26 @@ The machine-readable reading log records URLs, hashes and bounded reading for:
 
 The source list also gives direct primary pointers for the still-unread ABL22, Ber21, Waldron, CR12, BBE07, NT20, GNH19 and Schwede proofs. Locating an abstract is not counted as reading its theorem or proof.
 
+## Source mistakes (sourceIssues E1–E5)
+
+A continuation on 2026-09-22 (Claude Code, session `cc-fb70e5`) checked the diagnostics below at their locators, on published page images (pp.5, 12, 13) and in arXiv v2 (2021-08-16, the latest version; same wording). It recorded five mistakes in the JSON's `sourceIssues`. Crossref lists no correction for the DOI, and none was found on the journal page. These are worker findings awaiting the independent review.
+
+| id | locator | kind | finding |
+|---|---|---|---|
+| E1 | Lemma 2.2, p.5 | error | "m the Cartier index of K_X" should be the index of K_X + S. On the A1 cone with S = V(x,z), m = 1, yet S has index 2 and the different is ½P. With index(K_X+S) = 2 every clause holds. The only consumer (Lemma 4.2) needs standard coefficients only. |
+| E2 | Lemma 2.16, p.13 | error | False without fixing the boundary coefficients: on the same A1 cone, B = bC (0 < b < ½) is ½-lc with one exceptional discrepancy −b/2, which takes infinitely many values. Correct with coefficients in a fixed finite set; proved in `fixed-boundary-surface`. Proposition 2.15 is unaffected. |
+| E3 | proof of Lemma 2.16, p.13 | misprint | "−c_i ≤ 2/a_i" should be c_i ≤ 2/a_i. |
+| E4 | proof of Proposition 2.15, p.12 | misprint | The difficulty's first sum over b_i ≤ 0 vanishes identically (W(b) = 0 for b ≤ 0). AHK07 Definition 2.3 sums over a(B_i) ≤ 0, that is b_i ≥ 0. |
+| E5 | proof of Proposition 2.15, p.12 | misprint | The weights w^±_α are given domain (−∞,1) but are evaluated at arguments ≥ 1. They should be defined on R, with value 0 above α (AHK07 Definition 2.2). |
+
+**Corrected Lemma 2.16 (proof in the JSON).** Fix m, ε and a finite coefficient set I ⊂ [0,1). The only new ingredient beyond the source's own [Kol13] inputs is a bound. From (K_{S′}+B_{S′})·C_i = 0 and adjunction on the conic C_i,
+
+f^{-1}_*B·C_i = 2r_i + a_iC_i² − Σ_{j≠i}(1−a_j)C_j·C_i < 2r_i ≤ 8,
+
+so these right-hand sides lie in the finite set F(I). Convexity along legs leaves at most one constant run per leg, so the collapsed linear system has bounded size and coefficients from a finite set, and a unique solution. Hence finitely many values.
+
+In Proposition 2.15's singular-locus case the germ's boundary coefficients are those of B. The minimal-resolution curves are among the finitely many places of discrepancy ≤ 0, which gives both m and ε. gap-surface is resolved. gap-index keeps only the general excellent-surface proof of the log-index version. gap-difficulty keeps only the transfer of AHK's proofs out of characteristic zero.
+
 ## Source diagnostics: do not silently repair
 
 ### 1. Lemma 2.2's canonical index
@@ -139,7 +159,7 @@ Pending proposals are deliberately marked **missing**, not planned. Reuse their 
 
 ## Proof frontier and next pass
 
-There are fourteen named gap records. The highest-priority mathematical repairs are the Lemma 2.2 index, the difficulty definition, the actual fixed-boundary surface lemma, the locality of Q-Cartier deformation and the numerical-lift proof. The main source's conclusions remain theorem targets, not certified consequences of defective lemmas.
+There are fourteen named gap records; gap-surface is resolved by the 2026-09-22 continuation, leaving thirteen open. The highest-priority remaining mathematical repairs are the general proof of the log-index Lemma 2.2, the characteristic-free transfer of AHK's difficulty proofs, the locality of Q-Cartier deformation and the numerical-lift proof. The main source's conclusions remain theorem targets, not certified consequences of defective lemmas.
 
 Next, decompose the exact Tanaka/DW/HNT/BMP lower-dimensional MMP inputs, ABL/Bernasconi descent and CM results, F-different/S₃/Bertini proofs, CT20/Wit21b/Keel gluing, CR12/BBE/NT20/GNH19 Witt inputs and formal obstruction/algebraization dependencies. The aggregate lower-threefold supplier is explicitly a frontier placeholder to split, not a claim that every theorem in those papers has been extracted.
 
@@ -150,6 +170,7 @@ Only after those repairs and transitive source/library audits should the job bec
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-HACON-WITASZEK-23.result.json`: passed.
 - Custom audit: unique IDs, all dependencies resolved, no cycles, exactly one route per missing item, valid gap references, and three tests plus APIs/uses for all definitions/constructions: passed.
 - A1-family bounded rational arithmetic: passed; not a Lean proof.
+- Continuation (cc-fb70e5): E1–E5 checked on page images and in arXiv v2 and AHK07; `check_paper.py` passed after the edits.
 - Lean: not run; this paper job has no Lean deliverable.
 
 Only the result, this report and the handoff are submitted.
