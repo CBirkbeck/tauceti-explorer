@@ -1,6 +1,6 @@
 # Geometric invariants for real quadratic fields — extraction checkpoint
 
-Codex, session `codex-c83e7a`; issue #1170; 22 September 2026. **Partial.** The publisher’s entire 42-page paper was read. The inventory has 158 items: 16 pinned-library imports, four imports from existing plans and 138 missing contracts, each assigned once. The 51 definitions/constructions have 153 proposed API statements, recorded uses and 153 proposed tests. Recursive proof closure remains open at the eight source gates below. No Lean code is submitted or claimed to compile.
+Codex, continuation session `codex-a71f92` (building on `codex-c83e7a` and `cc-fb70e5`); issue #1170; 22 September 2026. **Partial.** The publisher’s entire 42-page paper was read. The inventory has 169 items: 19 pinned-library imports, four imports from existing plans and 146 missing contracts, each assigned once. The 52 definitions/constructions have 156 proposed API statements, recorded uses and 156 proposed tests. Recursive proof closure remains open at the eight source gates below. No Lean code is submitted or claimed to compile.
 
 The source is Duke–Imamoḡlu–Tóth, *Geometric invariants for real quadratic fields*, Annals of Mathematics 184 (2016), 949–990, [publisher page](https://annals.math.princeton.edu/2016/184-3/p08) and [final PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf). All of §§1–10, Appendix A and the references were read, rather than only theorem statements. The PDF SHA-256 is `a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61`. Source archives, actual read scopes, pinned declaration statements and inspected input hashes are in the JSON. Page numbers below are printed page numbers.
 
@@ -104,7 +104,7 @@ c_0=\frac{2\pi e^{\pm i\pi\mu/2}\Gamma(s)}
  {\Gamma((s+1+\mu)/2)\Gamma((s+1-\mu)/2)}.
 \]
 
-A full proof still needs endpoint bounds for integration by parts, differentiated majorants on compact t-intervals, branch conventions and global continuation by ODE uniqueness. Those analytic steps are explicit in S8.
+The continuation below now supplies those analytic steps for Lemma 7 through an entire desingularization. The residual S8 suppliers (including W and infinity asymptotics) remain open.
 
 The Stokes conversion also needs the right convergence order. For E(z,1/2+it), the constant terms have size O(y^{1/2}) and their first derivatives O(y^{-1/2}), with a limiting argument at t=0. Thus the core cusp integral is integrable against y⁻²dx dy and the horizontal boundary term tends to zero. The raw core integral generally diverges in Re(s)>1. Continue the **compact geodesic Hecke period** to the critical line first, then apply truncated Stokes there. Item 140 deliberately does not claim a common initial convergence region for the unregularized surface integral and the defining Eisenstein series.
 
@@ -148,6 +148,7 @@ The normalizations are E(z,s)=Σ Im(γz)^s from (5.2), φ=2√yΣa(n)K_ir(2π|n|
 \]
 
 At s=1, three facts combine:
+
 - the Mellin integral equals 2^{s−3}Γ(s/2)²Γ(s/2+ir)Γ(s/2−ir)/Γ(s), which is π²/(4cosh πr) at s=1;
 - Σa(n)²n^{−s}=ζ(s)L(s,sym²φ)/ζ(2s) has residue 6L(1,sym²φ)/π²;
 - Res E=3/π.
@@ -163,11 +164,12 @@ and the exponential factors in the displayed Weyl bound cancel exactly for u_φ.
 *Checks.* The Mellin formula was verified by 40-digit quadrature at r=0.5, 2 and 5. The paper's example on p.966, with r=13.77975135 and ⟨φ,φ⟩=7.26300636×10^{−19}, gives L(1,sym²φ)=⟨φ,φ⟩cosh(πr)/2≈1.1477, which is the expected order of size.
 
 *S4b closed (second continuation, cc-fb70e5).* The polynomial bound needs no GL₃ theory. It follows from three elementary estimates:
+
 - a contour shift in K_{ir}(u)=½∫e^{−u cosh t+irt}dt to Im t=π/2−1/r, which gives |K_{ir}(u)|≤e^{1−πr/2}K₀(2u/(πr)), checked numerically;
 - the uniform Hecke bound |a(n)|≪n^{1/2+ε}, from ‖T_p‖≤p^{1/2}+p^{−1/2} and the Hecke recursion;
 - Parseval over y≥√3/2.
 
-Together they give ⟨φ,φ⟩≪r^{2+ε}e^{−πr}. Hence L(1,sym²φ)≪r^{2+ε} and ‖φ‖cosh²(πr/4)≪r^{1+ε}. Gate S4 is closed; items 151–153 and 68 carry no S4 gate.
+Together they give ⟨φ,φ⟩≪r^{2+ε}e^{−πr}. Hence L(1,sym²φ)≪r^{2+ε} and ‖φ‖cosh²(πr/4)≪r^{1+ε}. Only the norm-comparison subgate has a written proof; items 151–153 and 68 no longer carry that local gate. The noncompact resolvent, Sobolev and no-exceptional-spectrum components of S4 remain open. The continuation below repairs the prime-power Hecke estimate used here.
 
 Set u_φ=φ/||φ||. If c_φ=⟨f,φ⟩, then
 
@@ -207,7 +209,7 @@ The ownership screen included all 211 cached roadmap extracts, fourteen relevant
 | **GrossZagierAndArithmeticHeights:GZ.5** | Waldspurger central value formula | The existing period-identity owner imports MP’s normalization. |
 | **ExponentialSumsAndCircleMethod:ES.0** | Generic finite Kloosterman sums and Burgess input | Half-weight multiplier-specific sums stay in MP.7. |
 
-No standalone roadmap named after this paper is proposed. Each of the 138 missing inventory items occurs in exactly one route. The two Part II briefs contain target statements, required constructions, named imports and discriminating tests; they are reviewable proposals, not accepted atlas changes.
+No standalone roadmap named after this paper is proposed. Each of the 146 missing inventory items occurs in exactly one route. The two Part II briefs contain target statements, required constructions, named imports and discriminating tests; they are reviewable proposals, not accepted atlas changes.
 
 ## Source gates and continuation
 
@@ -216,18 +218,147 @@ The main paper has been read completely, but that is not recursive source closur
 - **S1, arithmetic:** source the full minus-reduction theorem, ideal/cycle equivalence and full-order unit proof in Zagier. Split the classification and orientation interfaces further.
 - **S2, geometry:** read Maskit’s polygon theorem with free-side hypotheses and close the limit-set/core equality, conformal rigidity, complementary-tile multiplicities and Stokes boundary proof. Import the upstream polygon plan.
 - **S3, Hecke/genus/Dirichlet:** source the exact narrow signs, ramified Euler factors, Hecke periods, Siegel and hybrid Burgess estimates. The original books and Burgess proof have not been read in full.
-- **S4, spectral:** acquire Fay’s actual paper and the required noncompact analytic statements. First resolve item 151’s exact norm comparison; also source no-exceptional level-one spectrum and Sobolev trace/integration conditions.
+- **S4, spectral:** acquire Fay’s actual paper and the required noncompact analytic statements. The norm comparison in item 151 now has a written proof; still source no-exceptional level-one spectrum and Sobolev trace/integration conditions.
 - **S5, half weight:** compare the operator order in DIT16’s `(2/3)WU+1/3` with DIT11’s `(2/3)(U₄∘W₄)+1/3` after conjugating by y^{1/4}. This changes the U scalar to √2; the order still requires an explicit comparison. DIT16 footnote 7 corrects DIT11 (2.19) to P_d⁺=(3/2)pr⁺P_d, so the projected seed has factor 2/3. Read the original Kohnen finite-sum identity and Chiera norm proof.
 - **S6, correspondence:** acquire Biró and Baruch–Mao for the automorphy, linear-independence, all-prime Hecke and normalized central-value arguments. Both requested PDFs returned HTTP 403. An author-page bot rejection and a metadata page do not count as proof reads.
 - **S7, coefficient bounds:** all eighteen pages of Duke88 were read. Its Proskurin/Kuznetsov and Iwaniec input sources remain unclosed. Preserve the spectral cosh factor while decomposing them.
-- **S8, Appendix:** finish the all-complex-parameter analytic proof of the corrected integral using endpoint bounds and Frobenius uniqueness. Finite specializations are not enough.
+- **S8, residual Appendix suppliers:** the continuation below completes the written all-parameter integral proof. Still close the W definition, infinity asymptotics, comparison and differentiated-seed suppliers in items 110–114 and 116. Finite diagnostics are not the proof.
 
 DIT11’s publisher PDF was read selectively at printed pp956–960 and 964–977, including the unfolding and Bessel calculations; the remaining pages were not claimed read. Its SHA-256 is `8f2b8ed3518fe69f08a72ef0ed3311d30523042335d4bd0e1ffd82d84459a010`. Duke88’s PDF SHA-256 is `3c468d0c0d79ec2ab29f96dcdda6094a4ceb6603a4caaae947c0bef443f9005f`. Fay HTML was obtained, but no Fay paper text was read.
 
-## Validation
+## Earlier-checkpoint validation (historical)
 
 The scratch checks use exact integers, rational numbers and pairs a+b√D. They test 121 cycles, including the published D=12 and D=28 examples and all non-all-2 words of lengths one through four on digits {2,3,4}. They check determinant/discriminant, attracting fixed point, strict digit endpoints, the unit multiplier, product of rotated reduced irrationals, projective involutions and the boundary word. Repeated cycles in this finite family test the matrix identities; they are not accepted as primitive representatives for the area theorem.
 
 Additional exact checks cover the signature-area coefficient, phase invariance and a missing-conjugation counterexample, four exponent computations, the residue substitution and normalization factors. The Appendix test checks 275 exact series coefficients for integer s=1,…,5 and the specified integral μ range, using rational Gamma recurrences with powers of π factored out. Three numerical quadratures at s=1, μ=0 are separate diagnostics for the integral identity; they are not exact or formal proofs.
 
 The repository’s `check_paper.py` passed; `intake.py check-files` reported three files and zero problems. The local checks passed for the acyclic 158-node dependency graph, exactly one route per missing item, API coverage and valid roles. There were 1814 exact mathematical assertions and three numerical quadratures. Inspected roadmap/audit/packet input hashes were unchanged on current main before publication. The validator accepts parent stages in `planned`; item 134 therefore records AN.4 there and preserves its finer reviewed supplier in `plannedNodes`. No compiled Lean test suite is asserted. The handoff preserves the stable item IDs and identifies where the next worker should resume.
+
+## Continuation: Appendix A written proof (codex-a71f92)
+
+The 22 September 2026 continuation preserves items 1–158 and adds 159–169. Items 159–161 import pinned regularized hypergeometric convergence, beta/gamma identities and dominated complex differentiation. Items 162–167 supply a complete written proof of the integral in Lemma 7 for every stated parameter. They are mathematical proof obligations for a future formalization, not compiled Lean. Residual S8 still includes the W function, infinity asymptotics, the differentiated seed and the separate positive-cycle comparison.
+
+### Series, branches and endpoint bounds
+
+Put \(\sigma=\Re s>0\) and
+\[
+ S(x)=\Gamma(2s)\,
+ \operatorname{regularizedHGFun}(\{s-\mu\},\{2s\},x).
+\]
+Mathlib's \(\#a\leq\#b\) infinite-radius theorem applies, including terminating numerator parameters. Since \(\Re(2s)>0\), the gamma/Pochhammer identity gives
+\[
+ S(x)=\sum_{n\geq0}\frac{(s-\mu)_n}{(2s)_n n!}x^n,\qquad
+ M_{\mu,s-1/2}(x)=x^se^{-x/2}S(x)\quad(x>0).
+\]
+All positive-base powers use the real logarithm. In particular, no quotient by \(\Gamma(s-\mu)\) is used when the numerator parameter is a nonpositive integer. The Bessel adapter is
+\[
+ J_\nu(x)=(x/2)^\nu
+ \operatorname{regularizedHGFun}(\varnothing,\{\nu+1\},-x^2/4);
+\]
+changing the last sign gives \(I_\nu\). These are adapters for existing series, not evidence that named Bessel/Whittaker APIs already exist.
+
+If \(S=\sum a_nx^n\), then
+\[
+ (n+1)(n+2s)a_{n+1}=(n+s-\mu)a_n.
+\]
+Termwise differentiation therefore gives \(xS''+(2s-x)S'-(s-\mu)S=0\), and substitution proves the M differential equation in item 163. With \(q=e^{-x/2}S\), the identities \(M=x^sq\) and \(M'=x^{s-1}(sq+xq')\) imply, uniformly for \(t\) in a compact subinterval of \((0,\infty)\),
+\[
+ M(2t\sin\theta)=O(\sin^\sigma\theta),\qquad
+ \partial_\theta M(2t\sin\theta)=O(\sin^{\sigma-1}\theta).
+\]
+All fixed-order \(t\)-derivatives of M retain the first bound: write
+\(M(2t\sin\theta)=(2\sin\theta)^st^sq(2t\sin\theta)\).
+The boundedness of every derivative of the entire function \(q\) on the relevant compact disk proves the claimed uniformity.
+
+### Remove the singular power before differentiating
+
+For \(\epsilon\in\{-1,1\}\), define on the whole complex plane
+\[
+ H_\epsilon(t)=2^s\int_0^\pi
+ \sin^{s-1}\theta\,
+ e^{\epsilon i(t\cos\theta+\mu\theta)-t\sin\theta}
+ S(2t\sin\theta)\,d\theta.
+\]
+For every compact complex \(t\)-disk and every derivative order \(j\), the differentiated integrand has a common bound \(C_j\sin^{\sigma-1}\theta\). The exponential factors and derivatives of \(S\) are uniformly bounded there; \(|e^{\epsilon i\mu\theta}|\leq e^{\pi|\Im\mu|}\). Near either endpoint the remaining bound is comparable to distance-to-endpoint raised to \(\sigma-1>-1\), hence integrable. Measurability follows from continuity off the null endpoints. The pinned dominated-differentiation theorem now applies at every complex \(t\), repeatedly. Thus \(H_\epsilon\) is entire, while for \(t>0\) the original integral is \(f_\epsilon(t)=t^sH_\epsilon(t)\). The latter is not asserted to be entire at zero.
+
+Let \(L_t=\partial_t^2+1-s(s-1)/t^2\). Direct substitution of the M equation gives
+\[
+ L_t\!\left(e^{\epsilon it\cos\theta}M(2t\sin\theta)\right)
+ =\left(2\sin^2\theta-\frac{2\mu\sin\theta}{t}\right)
+ e^{\epsilon it\cos\theta}M
+ +4\epsilon i\cos\theta\sin\theta\,e^{\epsilon it\cos\theta}M'.
+\]
+After multiplying by \(e^{\epsilon i\mu\theta}/\sin\theta\), the last term integrates to
+\[
+ \frac{2\epsilon i}{t}\int_0^\pi
+ e^{\epsilon i(t\cos\theta+\mu\theta)}\partial_\theta M\,d\theta.
+\]
+Perform integration by parts first on \([\delta,\pi-\delta]\).
+Its endpoint terms are \(O(\delta^\sigma)\); the differentiated terms are integrable by the bounds just proved. Passing to the limit gives
+\[
+ \int_0^\pi(-2\sin\theta+2\mu/t)
+ e^{\epsilon i(t\cos\theta+\mu\theta)}M\,d\theta,
+\]
+which cancels the other terms. This proves \(L_tf_\epsilon=0\) for both signs without assuming that complex-parameter M is real.
+
+### The sine integral from a beta contour
+
+For \(\Re\nu>0\), first put \(\gamma=(\beta-\nu+1)/2\) and assume \(0<\Re\gamma<1\). Substitute \(z=e^{2i\theta}\). Along the circle use
+\(\arg z=2\theta\in(0,2\pi)\) and
+\(\arg(z-1)=\theta+\pi/2\in(\pi/2,3\pi/2)\). Then
+\[
+ \int_0^\pi e^{i\beta\theta}\sin^{\nu-1}\theta\,d\theta
+ =(2i)^{-\nu}\oint z^{\gamma-1}(z-1)^{\nu-1}\,dz.
+\]
+Deform the positively oriented circle to a contour along both sides of \([0,1]\). On the disk slit along that interval, the chosen branches are holomorphic. Remove radius-\(\delta\) neighborhoods of both endpoints before applying Cauchy's theorem. The small arcs contribute respectively \(O(\delta^{\Re\gamma})\) and \(O(\delta^{\Re\nu})\), which vanish. The upper segment goes from 1 to 0, the lower from 0 to 1. The lower value of \(z^{\gamma-1}\) differs by \(e^{2\pi i\gamma}\); on both sides the other factor is \(e^{i\pi(\nu-1)}(1-z)^{\nu-1}\). Thus the contour is
+\[
+ (e^{2\pi i\gamma}-1)e^{i\pi(\nu-1)}B(\gamma,\nu).
+\]
+Multiplying by \((2i)^{-\nu}\) simplifies this to
+\(2^{1-\nu}e^{i\pi\beta/2}\sin(\pi\gamma)B(\gamma,\nu)\).
+The pinned beta and reflection formulas yield item 115 with denominator factors
+\(\Gamma(1-\gamma)\Gamma(\gamma+\nu)\).
+
+For each fixed \(\nu\), both sides are entire in \(\beta\). For the integral, every derivative contributes a bounded power of \(\theta\), with an integrable majorant \(C\sin^{\Re\nu-1}\theta\) on compact parameter sets. For the expression, use the entire reciprocal gamma theorem. The identity theorem therefore removes the strip restriction and includes zeros of either reciprocal gamma factor. This proves the corrected formula independently of an unread table proof. [DLMF 5.12.6](https://dlmf.nist.gov/5.12#E6) supplies a separate convention check; its cited Nielsen proof was not read.
+
+### Frobenius uniqueness, globally and at the repeated root
+
+Substituting \(f=t^sH\) gives \(tH''+2sH'+tH=0\) on positive reals. The left side is entire, so it vanishes on all of \(\mathbb C\). Its Taylor coefficients satisfy
+\[
+ 2sc_1=0,\qquad n(n+2s-1)c_n=-c_{n-2}\quad(n\geq2).
+\]
+All denominators are nonzero for \(\Re s>0\), including \(n^2\) at \(s=1/2\). Consequently
+\[
+ H(t)=c_0\sum_{k\geq0}\frac{(-1)^kt^{2k}}{4^kk!(s+1/2)_k}.
+\]
+No division by \(c_0\) occurs: if it vanishes, so does H. Since H is entire, its Taylor series is global; no extra ODE continuation across zero is needed.
+
+The sine integral gives
+\[
+ c_0=\frac{2\pi e^{\epsilon i\pi\mu/2}\Gamma(s)}
+ {\Gamma((s+1+\mu)/2)\Gamma((s+1-\mu)/2)}.
+\]
+The corrected J series and the pinned duplication formula give exactly the same leading coefficient and recurrence after multiplication by the printed \(G(s,\mu)\). This proves item 118 for every \(t>0,\mu\in\mathbb C,\Re s>0\), including exceptional numerator parameters and a zero leading coefficient. It closes the written integral proof, not all of S8 or the paper's recursive dependencies.
+
+### Other continuation corrections and boundaries
+
+Item 168 proves \(CU_4C^{-1}=U\), \(CW_4C^{-1}=W\) for \(C f=y^{1/4}f\). The imaginary parts are \(y/4\) and \(y/(4|z|^2)\); the latter also gives the stated principal-square-root phase. Conjugation preserves order, so \(C(U_4\circ W_4)C^{-1}=U\circ W\). It does **not** turn this into \(W\circ U\). S5 must still resolve the action convention or the equality on the precise automorphic subspace.
+
+Item 169 repairs an intermediate step in the earlier norm sketch. From real \(|a(p)|\leq\sqrt p+1/\sqrt p\), the roots \(\alpha,\beta\) of \(X^2-a(p)X+1\) both have modulus at most \(\sqrt p\): either they are unit conjugates, or the larger modulus R satisfies \(R+R^{-1}\leq\sqrt p+1/\sqrt p\). The recurrence solution is
+\(\sum_{j=0}^k\alpha^j\beta^{k-j}\), including repeated roots, so
+\(|a(p^k)|\leq(k+1)p^{k/2}\).
+Multiplicativity gives \(d(n)\sqrt n\), hence the required \(n^{1/2+\varepsilon}\). The earlier factor \(\prod(1+1/p)^k\) cannot simply be absorbed into \(n^\varepsilon\) for all epsilon. The statement of item 151 is preserved; only this proof step is repaired. Its Hecke-operator norm remains an input of the existing Hecke contract.
+
+The required structured `sourceIssues` list now includes the canonical E1–E10 IDs from the separate errata job, without renumbering or adding review verdicts. Historical source-read claims in those records remain attributed to that job. E5 concerns the unused upper-bound remark on p968: [Humphries–Nordentoft, Remark 3.22](https://arxiv.org/html/2211.05890v2#S3) explicitly distinguishes arithmetic and geometric codes. This continuation read that remark but did not independently close the errata job's infinite squarefree counterexample-family proof. E11 records the singular-point/Frobenius proof qualification above, and E12 records DIT16's already published correction of DIT11 (2.19). The operator-order discrepancy is not promoted to a confirmed error.
+
+Fresh novelty checks covered the Annals article page, Duke's publication list and linked preprint passages, the arXiv title search and exact-title correction searches. No additional published Appendix correction was found. The errata file is outside this issue's write scope and is unchanged; mirrored IDs let a reviewer reconcile the two records. Nothing was sent to authors.
+
+### Continuation validation and read scope
+
+This session freshly read all 42 publisher pages, checked images at pp961,965,983–985, reread DIT11's p959 definitions in pp958–960 context, and read the complete pinned regularized-hypergeometric file plus every newly cited declaration. The AS.0 reviewed audit and QM.2 Bessel near-miss were checked directly, as were the AS layer descriptions. Generic differentiation and hypergeometric convergence are imports; only the specific adapters and bounds are routed. No new standalone roadmap is proposed.
+
+The scratch diagnostics and repository validation below distinguish exact assertions, numerical comparisons and written proofs. Earlier workers' 1814 exact assertions and three quadratures remain historical results, not freshly rerun claims.
+
+Fresh scratch checks passed: 1466 exact rational assertions (632 nonzero denominators, 328 even and 320 odd Frobenius coefficients, 186 Satake recurrence identities); 31 numerical comparisons at 75-digit working precision (6 sine integrals, 16 Whittaker integrals and 9 conjugation checks), with maximum normalized discrepancy `5.1248381e-76` against a `1e-45` threshold. The integral cases include Re(s)=1/8, s=1/2, complex s and μ, both signs, terminating numerator parameters and zero reciprocal-gamma factors. These are diagnostics, not rigorous interval certificates.
+
+On publication base `153e5fbe48ffcf6c4f82ca14a6e2d291e9089e02`, `check_paper.py` passed and `research/blueprint/intake.py check-files` reported three files and zero problems. The 169-node graph is acyclic; every one of the 146 missing items has exactly one route. All 158 original IDs, kinds, statuses and statements are unchanged. The 52 definition/construction contracts have 156 API statements and 156 proposed tests. All 39 inherited inspected-input hashes and 23 pinned-module hashes matched; WORKERS/PROTOCOL/UPSTREAM/expansion rules were unchanged. No Lean compilation was run or claimed.
