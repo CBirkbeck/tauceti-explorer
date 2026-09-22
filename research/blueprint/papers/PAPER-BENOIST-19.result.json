@@ -24,9 +24,9 @@
       "§8 pp.104–108",
       "References pp.108–110"
     ],
-    "versionChecks": "Published pp.76,84,85 visually checked. Author and arXiv v2 retain the coefficient expressions in Proposition4.5. No claim that all versions are textually identical."
+    "versionChecks": "Published pages70,71,72,76,84,85,88,98,99,100,103,107 visually checked in this continuation; all48 published pages reread. The (0,1) labels on p.100 are diagonal projection labels, not labels of the horizontal reduction map. Author-copy comparisons are targeted, not an independent full reading."
   },
-  "summary": "A Hodge-theoretic proof of period=index for real-surface Brauer classes vanishing at every real point, and an exact topological obstruction for unramified classes on smooth projective real surfaces. Applications compute the Elman–Lam u-invariant in transcendence degree two, real Enriques cases and a non-archimedean real-closed counterexample. This is a full-main-paper reading checkpoint, not proof closure: source-typing gates in §§4 and 7 and unread prerequisite proof interiors remain.",
+  "summary": "Complete reading of the 48-page published paper, continuing PR1673. Adds a typed, conditional repair of the degree-two argument when Brauer evaluation is constant on the avoided real components, sufficient for both parity cases in the main period induction. Imports the already-built cyclic resolution, corrects the section-7 sign through the final trace calculation, and records source findings under section18. General nonconstant-component Propositions4.4–4.5 and transitive prerequisite proofs remain open; no theorem is claimed formalised.",
   "conventions": {
     "base": "R means the actual real numbers except where explicitly replaced by an arbitrary real closed field. A smooth connected projective R-surface need not be geometrically connected. H^i(Y) without coefficients means F2-cohomology.",
     "G": "G=Gal(C/R)=C2 with generator conjugation σ; H_G denotes Borel/Grothendieck equivariant sheaf cohomology, not merely invariants of ordinary cohomology.",
@@ -34,7 +34,7 @@
     "Brauer": "For smooth integral X use Br(X)=H²_et(X,G_m), torsion here by injection into Br(k(X)). Field algebraic/cohomological comparison is a separate imported theorem. Multiplicative Lean Brauer identity 1 corresponds to additive paper 0.",
     "status": "library describes only the precisely stated sub-item, planned only the named current layer's scope, missing is relative to the pinned baseline and catalogue snapshot. A route is a design proposal, not an implemented theorem."
   },
-  "catalogueSnapshot": "1c16a3cd24b5b8e55dee3f5ef2fef8dd054bee96",
+  "catalogueSnapshot": "38c5f2bb6aeb10e91ca02161f0dfdcbdaff5952d",
   "libraryBaseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
@@ -648,7 +648,12 @@
         "Do not assert literal degreewise splitting for an arbitrary equivariant sheaf"
       ],
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/152",
+        "PAPER-BENOIST-19/155"
+      ],
+      "note": "Import the built module resolution; only the sheafification and derived-sections comparison remain here. Coordinate this general adapter with PAPER-BENOIST-WITTENBERG-20."
     },
     {
       "id": "PAPER-BENOIST-19/48",
@@ -875,7 +880,7 @@
       "locator": "Proposition4.4 pp.81–84",
       "status": "missing",
       "proofGate": "G4a",
-      "note": "No route treats this proof as ready; discharge the precise component identity before enabling consumers.",
+      "note": "Routed as an explicit unsolved obligation; its general statement is not enabled. Item162 supplies the uniform-evaluation variant.",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
       "implementationStatus": "not-implemented-or-certified"
     },
@@ -888,7 +893,8 @@
       "status": "missing",
       "proofGate": "G4b",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "note": "General statement retains G4b. Item165 supplies a typed uniform-evaluation variant, conditional on its displayed inputs."
     },
     {
       "id": "PAPER-BENOIST-19/68",
@@ -1199,20 +1205,32 @@
       "statement": "Let α∈Br(R(S)) have period n on a smooth connected projective real surface S, U its unramified open, and Θ its nonzero real evaluation locus, assumed a union of components of S(R). If n is even require a Kummer lift ξ of (n/2)α with [ξ]1|Θ=0; if n is odd impose no ill-typed half-period premise. Then ind(α)=n.",
       "locator": "Proposition6.7 p.95, parity-explicit formulation",
       "status": "missing",
-      "proofGate": "G4b,G5",
+      "proofGate": "G1,G10,G11",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/16",
+        "PAPER-BENOIST-19/93",
+        "PAPER-BENOIST-19/07",
+        "PAPER-BENOIST-19/08"
+      ]
     },
     {
       "id": "PAPER-BENOIST-19/93",
       "kind": "theorem",
       "name": "Period induction after a quadratic splitting",
-      "statement": "For even n in item92, item85 applied to (n/2)α with Ψ=Θ gives an extension L/K of degree2 with per(α_L) dividing n/2 and zero real evaluations on its unramified locus. Induction yields ind(α_L)=per(α_L), and n|ind(α)|2ind(α_L), with 2ind(α_L)≤n, forces equality. The period drop is divisibility until this final argument.",
+      "statement": "For even n in item92, item166 applied to (n/2)α with Ψ=Θ gives an extension L/K of degree2 with per(α_L) dividing n/2 and zero real evaluations on its unramified locus. Induction yields ind(α_L)=per(α_L), and n|ind(α)|2ind(α_L), with 2ind(α_L)≤n, forces equality. The period drop is divisibility until this final argument.",
       "locator": "§6.3 p.95",
       "status": "missing",
-      "proofGate": "G5",
+      "proofGate": "G1,G10,G11",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/166",
+        "PAPER-BENOIST-19/167",
+        "PAPER-BENOIST-19/07",
+        "PAPER-BENOIST-19/08"
+      ]
     },
     {
       "id": "PAPER-BENOIST-19/94",
@@ -1360,9 +1378,14 @@
       "statement": "With item103's η,ζ and item100's ψ, p*α̃ equals the reduction modulo n of p*η−ψ(ζ). This follows from α̃=η−φζ and ψ mod n=p*φ. The printed plus sign in Lemma7.3 is inconsistent with those conventions; retain the corrected branch throughout §7.5 and verify its diagram-level naturality.",
       "locator": "Lemma7.3 pp.98–99",
       "status": "missing",
-      "proofGate": "G4",
+      "proofGate": "G11",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/103",
+        "PAPER-BENOIST-19/157",
+        "PAPER-BENOIST-19/159"
+      ]
     },
     {
       "id": "PAPER-BENOIST-19/105",
@@ -1390,7 +1413,12 @@
         "Do not identify reduction on both truncated degrees without checking n modulo4"
       ],
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/156",
+        "PAPER-BENOIST-19/99",
+        "PAPER-BENOIST-19/100"
+      ]
     },
     {
       "id": "PAPER-BENOIST-19/107",
@@ -1441,9 +1469,16 @@
       "statement": "Use item104's corrected lift, p_*p*=n, Trψ=0 and primitivity of the Picard image to identify the reduced real component with a line-bundle class on U0. Extend the line bundle to S and use injectivity of H¹(Θ)→H¹(Θ0) after removing finitely many points. If ind(α)=per(α)=n even, choose a degree-n splitting field and resolve its model to apply item98; subtract the resulting Picard class from a Kummer lift.",
       "locator": "§7.5 pp.103–104",
       "status": "missing",
-      "proofGate": "G4",
+      "proofGate": "G11",
       "auditRef": "Both pinned source trees; Current ownership; New definitions, packets, decompositions and reservations",
-      "implementationStatus": "not-implemented-or-certified"
+      "implementationStatus": "not-implemented-or-certified",
+      "dependencies": [
+        "PAPER-BENOIST-19/104",
+        "PAPER-BENOIST-19/105",
+        "PAPER-BENOIST-19/91",
+        "PAPER-BENOIST-19/150"
+      ],
+      "proof": "Replace the plus sign in(7.13) by minus. Since Tr psi=0, equations(7.14),(7.15) are unchanged. Primitivity is a cokernel property. Algebraicity from Proposition7.4 and the Picard correction finish the same argument; no circle-extension splitting is asserted."
     },
     {
       "id": "PAPER-BENOIST-19/111",
@@ -1981,6 +2016,377 @@
       ],
       "auditRef": "ShimuraData:D3 full stage/README and AUDIT-10",
       "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/152",
+      "kind": "construction",
+      "name": "Cyclic projective resolution already in Mathlib",
+      "statement": "For a commutative ring k, a finite commutative group G and a generator g with every x in zpowers(g), Rep.FiniteCyclicGroup.resolution is a projective resolution of the trivial representation k. Its differentials alternate rho(g)-1 and the norm N. homResolutionIso identifies its Hom complex with the periodic cochain complex on any A:Rep k G. This is a module construction; the equivariant sheaf/derived-sections comparison in item47 remains additional work.",
+      "locator": "Pinned Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean and Homological/GroupCohomology/FiniteCyclic.lean",
+      "status": "library",
+      "dependencies": [],
+      "library": [
+        "mathlib:Rep.FiniteCyclicGroup.resolution",
+        "mathlib:Rep.FiniteCyclicGroup.homResolutionIso",
+        "mathlib:Rep.FiniteCyclicGroup.moduleCatCochainComplex"
+      ],
+      "api": [
+        {
+          "name": "resolution",
+          "role": "existing constructor",
+          "statement": "Construct the projective resolution under the displayed cyclic-generation hypothesis."
+        },
+        {
+          "name": "homResolutionIso",
+          "role": "existing comparison",
+          "statement": "Identify Hom(resolution,A) with the periodic cochain complex, naturally in A."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Items47,155,156",
+          "how": "Reuse the built module resolution before adding sheaf coefficients or sign conventions."
+        }
+      ],
+      "unitTests": [
+        "At G=C2 the norm is 1+sigma.",
+        "At the sign representation the first differential is -2.",
+        "A module resolution alone does not identify equivariant sheaf hypercohomology."
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/153",
+      "kind": "theorem",
+      "name": "Odd cyclic cohomology already in Mathlib",
+      "statement": "Under item152 hypotheses, for every odd i, H^i(G,A) is the homology of A --(rho(g)-1)--> A --N--> A. Thus its cycles are ker N and its boundaries are im(rho(g)-1); the pinned projection lemmas describe equality and vanishing of represented classes.",
+      "locator": "Pinned Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
+      "status": "library",
+      "dependencies": [
+        "PAPER-BENOIST-19/152"
+      ],
+      "library": [
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoOdd",
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyπOdd_eq_zero_iff",
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyπOdd_eq_iff"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/154",
+      "kind": "theorem",
+      "name": "Positive even cyclic cohomology already in Mathlib",
+      "statement": "Under item152 hypotheses, for nonzero even i, H^i(G,A) is the homology of A --N--> A --(rho(g)-1)--> A. Its cycles are ker(rho(g)-1) and boundaries are im N. The nonzero-degree premise is essential; H^0 is the invariants themselves.",
+      "locator": "Pinned Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean",
+      "status": "library",
+      "dependencies": [
+        "PAPER-BENOIST-19/152"
+      ],
+      "library": [
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyIsoEven",
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyπEven_eq_zero_iff",
+        "mathlib:Rep.FiniteCyclicGroup.groupCohomologyπEven_eq_iff"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/155",
+      "kind": "construction",
+      "name": "Comparison of periodic differential conventions",
+      "statement": "For an integral C2-module, compare Mathlib differentials sigma-1,N with the paper differentials 1-sigma,N. Multiplication in cochain degree q by u_q=(-1)^(q(q+1)/2) defines a chain isomorphism from the former to the latter: u_(q+1)d_M=d_P u_q. It is its own inverse, natural in coefficient maps and the identity modulo2. Apply it before importing explicit integral coefficient maps.",
+      "locator": "Derived here from (2.6), p.73 and pinned item152",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/152"
+      ],
+      "api": [
+        {
+          "name": "periodicSignIso",
+          "role": "comparison",
+          "statement": "Use components u_q with u_0=1 and pattern 1,-1,-1,1 to intertwine the two differential conventions."
+        },
+        {
+          "name": "periodicSignIso_natural",
+          "role": "naturality",
+          "statement": "Every C2-linear coefficient homomorphism commutes with these scalar components."
+        },
+        {
+          "name": "periodicSignIso_modTwo",
+          "role": "reduction",
+          "statement": "All scalar components reduce to1 modulo2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Items47,156",
+          "how": "Avoid silently identifying opposite integral differential conventions."
+        }
+      ],
+      "unitTests": [
+        "Degrees0–4 have signs1,-1,-1,1,1.",
+        "For the sign action, u_1(-2)=2u_0.",
+        "The comparison is unchanged under reduction modulo2."
+      ],
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/156",
+      "kind": "theorem",
+      "name": "Reduction on the two twisted cyclic cohomology degrees",
+      "statement": "Let n>0 be even and A=Z/n with C2 acting by -1. Then H^1(C2,A)=A/2A and H^2(C2,A)=A[2]. Under their standard generators, reduction A→F2 induces identity on H^1 and multiplication by n/2 modulo2 on H^2. This proves the degree-one identity used in Lemma7.5; it does not assert that its circle extension splits.",
+      "locator": "Derived from items153–155; (7.7)–(7.9), pp.99–100",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/153",
+        "PAPER-BENOIST-19/154",
+        "PAPER-BENOIST-19/155"
+      ],
+      "proof": "The sign action gives the periodic complex with alternating -2 and0. Reduce a degree-one generator1 and the degree-two generator n/2. Chain naturality gives exactly the two stated maps. The projection labels on the printed diagrams are not erroneous reduction labels.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/157",
+      "kind": "theorem",
+      "name": "Equality after restriction uses the target sheaf",
+      "statement": "In the smooth-variety finite-cover setting of §7.1, let j:S*→S denote the etale locus and F=p_*(Z/n). Local connectedness of the complements of the branch divisor gives F≅j_*j*F. Consequently two morphisms Q→F equal over S* are equal over S. This proves psi modulo n=p*phi globally; the analogous injection for Q alone would not justify equality of maps into F.",
+      "locator": "Correction of the last sheaf argument in Lemma7.3, p.99, using §7.1 p.97",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/99",
+        "PAPER-BENOIST-19/100"
+      ],
+      "proof": "Put T*=p^(-1)(S*) and jprime:T*→T. On the smooth source, the complement of a proper complex analytic subset in a sufficiently small connected neighbourhood is connected; a locally constant Z/n section extends uniquely. Thus Z/n→jprime_*jprime*(Z/n) is an isomorphism. Apply p_* and use the identity p_*jprime_*=j_*pstar_*, where pstar:T*→S*. This proves the target extension property even when p has exceptional positive-dimensional fibres away from S*. Then cancel the target restriction monomorphism.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/158",
+      "kind": "theorem",
+      "name": "Trace-quotient lifting from vanishing Bockstein",
+      "statement": "Let p:T_V→V be the finite-flat restriction of the generically degree-n morphism between smooth real surfaces in §7.1, n>0. If a∈H²_G(V(C),Z/n(1)) has zero integral Bockstein after pullback to T_V, there exist eta∈H²_G(V(C),Z(1)) and zeta∈H²_G(V(C),Q(1)) such that a=eta modulo n-phi(zeta). Full vanishing of the pulled-back Brauer class is unnecessary.",
+      "locator": "Lemma7.2, p.98, with precisely the weaker hypothesis used by its proof",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/99",
+        "PAPER-BENOIST-19/55",
+        "PAPER-BENOIST-19/56"
+      ],
+      "proof": "Use the displayed morphism from the multiplication-by-n coefficient sequence to (7.2). Naturality identifies its obstruction with the pullback Bockstein. Finite-map Leray identifies cohomology of p_*Z(1) with cohomology upstairs. Exactness then supplies the pair. In the degree-two application an integral Brauer lift upstairs makes this Bockstein zero by (2.17).",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/159",
+      "kind": "construction",
+      "name": "Integral lift made from the trace quotient",
+      "statement": "For eta,zeta supplied by item158 define b=p*eta-psi(zeta) in H²_G(T_V(C),Z(1)). Its reduction modulo n is p*a and p_*b=n eta. Both statements use the fixed convention (1,-phi) in (7.2); the construction takes no integral lift of a on V as input.",
+      "locator": "Corrected Lemma7.3 and its trace consequence, pp.98–99",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/158",
+        "PAPER-BENOIST-19/157",
+        "PAPER-BENOIST-19/100"
+      ],
+      "api": [
+        {
+          "name": "traceQuotientIntegralLift",
+          "role": "constructor",
+          "statement": "Given a chosen pair (eta,zeta) mapping to a, return the integral class p*eta-psi(zeta)."
+        },
+        {
+          "name": "traceQuotientIntegralLift_reduce",
+          "role": "reduction",
+          "statement": "Its modulo-n reduction equals p*a."
+        },
+        {
+          "name": "traceQuotientIntegralLift_trace",
+          "role": "trace",
+          "statement": "Its trace is n eta because Tr psi=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Items163,165",
+          "how": "Replace the untyped integral expression in Proposition4.5."
+        },
+        {
+          "where": "Item110",
+          "how": "Carry the corrected sign into equation(7.13)."
+        }
+      ],
+      "unitTests": [
+        "For n=4 and sheet tuple(1,0,0,0), the minus sign gives reduction -1.",
+        "For n=2 both signs agree after reduction, but preserve the integral convention.",
+        "Adding a diagonal integer to a representative does not change psi."
+      ],
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/160",
+      "kind": "theorem",
+      "name": "Double-cover quotient and fixed-point action",
+      "statement": "For the degree-two cover over its etale locus, Q=Z²/Z_diag is its rank-one sign local system. On a clopen real subset Psi with no real point upstairs, conjugation exchanges the two sheets, so Q has stabilizer action -1 and Q(1) has stabilizer action +1. The ordinary local system on Psi may still have nontrivial sign monodromy. The map phi:Q(1)→F2 is its canonical modulo2 map.",
+      "locator": "§2.2, §7.1 and (2.11)–(2.12); specialized to the cover in §4",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/44",
+        "PAPER-BENOIST-19/45",
+        "PAPER-BENOIST-19/99",
+        "PAPER-BENOIST-19/52"
+      ],
+      "proof": "The difference of the two sheet coefficients identifies the quotient with Z; exchange negates it, while sum and difference agree modulo2. Tensoring the conjugation sign changes its stabilizer action, not the ordinary monodromy.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/161",
+      "kind": "theorem",
+      "name": "First component under constant real evaluation",
+      "statement": "In items158–160 with n=2 and V=U0, suppose a_1|Psi=0 and a_0|Psi=t for one constant t∈F2. Then eta_1|Psi=t[e]_1|Psi, where e is the double-cover class. If lambda∈Pic(S) extends the line bundle supplied by Lemma2.1 on S*, this is t cl_R(lambda)|Psi. The assertion also holds on Psi∩U0(R) and then extends over finitely many missing points when both sides extend.",
+      "locator": "Derived from (2.12), Lemma2.1 and the trace quotient; BW1 (1.33)",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/158",
+        "PAPER-BENOIST-19/160",
+        "PAPER-BENOIST-19/52",
+        "PAPER-BENOIST-19/54",
+        "PAPER-BENOIST-19/150"
+      ],
+      "proof": "An integral Z(1)-class in degree2 has component0 equal to0. Hence phi(zeta)_0=t. For the rank-one ordinary system F underlying Q(1)|Psi, formula(2.12) with k=2,j=0 says phi(zeta)_1=beta_F(t). Since t is constant, its ordinary Bockstein is0; twisted Bockstein gives beta_F(t)=t[e]_1. Now a_1=eta_1-phi(zeta)_1=0. This is precisely where constant t is used; a variable component indicator cannot be replaced by a scalar multiplying a global Picard class.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/162",
+      "kind": "theorem",
+      "name": "Topological obstruction vanishes for uniform evaluation",
+      "statement": "Under Assumptions3.1 and4.1, let a be the period-two Brauer class, aTilde its Kummer lift with component1 zero on Psi, and assume its component0 on Psi is one constant t∈F2. Conditional on the exact homological comparison item149 and the other cited inputs, the topological obstruction tau of p*a vanishes. This is the restricted form of Proposition4.4 needed by the main induction.",
+      "locator": "Repair of pp.81–84, especially (4.5)–(4.8)",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/60",
+        "PAPER-BENOIST-19/62",
+        "PAPER-BENOIST-19/63",
+        "PAPER-BENOIST-19/65",
+        "PAPER-BENOIST-19/149",
+        "PAPER-BENOIST-19/45",
+        "PAPER-BENOIST-19/49",
+        "PAPER-BENOIST-19/52",
+        "PAPER-BENOIST-19/54"
+      ],
+      "proofGate": "G10,G11",
+      "proof": "In (4.8) the degree-one Bockstein calculation is [zeta]_1=t[e]_1, not [e]_1 in general. In the replacement preceding(4.6), use delta-((eta+t cl(lambda)) cup omega). The two resulting t[e]_1 contributions cancel modulo2. Then Assumption4.1(ii) supplies the curve correction, Proposition3.3 supplies the integral pushforward, and the exact diagram(4.2) gives tau=0. The typed comparison(4.5) itself remains conditional on G10.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/163",
+      "kind": "construction",
+      "name": "Primitive Picard correction of the trace comparison",
+      "statement": "Let n=2, let beta∈H²_G(T(C),Z(1)) lift p*a in the Brauer sequence, and let b be item159 on T_U0. Write beta|=b+2 gamma0+cl(phi0), and p_*beta=2 delta+cl(theta1). Then there is mu∈Pic(S) such that delta|-eta-p_*gamma0=cl(mu|U0). This uses the torsion-free COKERNEL of Pic(U0)→H²_G(U0(C),Z(1)).",
+      "locator": "Typed replacement for Proposition4.5, pp.84–85; BW1 Proposition2.9",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/159",
+        "PAPER-BENOIST-19/56",
+        "PAPER-BENOIST-19/91",
+        "PAPER-BENOIST-19/150"
+      ],
+      "proof": "The two classes beta| and b have the same Brauer image, so (2.17) supplies gamma0,phi0. Trace p*a=2a=0 supplies delta,theta1. Subtracting after trace yields 2(delta|-eta-p_*gamma0)=cl(p_*phi0-theta1|). Primitivity supplies mu0 on U0; extension of line bundles supplies mu on S. All operations are now integral.",
+      "api": [
+        {
+          "name": "picardTraceCorrection",
+          "role": "existence with choices",
+          "statement": "Return delta,theta1,gamma0,phi0,mu satisfying the two integral identities and the primitive divided identity."
+        },
+        {
+          "name": "picardTraceCorrection_real",
+          "role": "restriction",
+          "statement": "On Psi with no real preimages, the first component of p_*gamma0 is zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Item165",
+          "how": "Reduce the trace discrepancy to the uniform evaluation component."
+        }
+      ],
+      "unitTests": [
+        "A nonprimitive Picard image would not allow division by2.",
+        "Only the restriction mu|U0 is prescribed; extension need not be unique.",
+        "The equation contains eta, never the mod2 class aTilde as an integral summand."
+      ],
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/164",
+      "kind": "theorem",
+      "name": "Curve adjustment before applying the pushforward criterion",
+      "statement": "Under Assumption4.1(ii), if d∈H²_G(S(C),Z(1)) has [d]_1|Psi=0, there is nu∈Pic(S), an integral linear combination of the allowed curves whose real loci avoid Psi, such that [d-cl(nu)]_1 is in p_*H¹(T(R),F2). If Proposition3.3 applies, d-cl(nu)=p_*gamma for an integral gamma upstairs.",
+      "locator": "Assumption4.1(ii), Proposition3.3 and the last step of Proposition4.5",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/63",
+        "PAPER-BENOIST-19/62",
+        "PAPER-BENOIST-19/43",
+        "PAPER-BENOIST-19/53"
+      ],
+      "proof": "Kernel generation is a sum of the pushforward subspace and curve classes. Lift its finite F2-linear combination of curves to a Picard class and subtract that class. Then apply the exact integral pushforward image statement; kernel membership alone does not give a pushforward.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/165",
+      "kind": "theorem",
+      "name": "Integral pushforward adjustment for uniform evaluation",
+      "statement": "Under item162 hypotheses, for any integral beta lifting p*a, there exist gamma∈H²_G(T(C),Z(1)) and theta∈Pic(S) such that p_*(beta-2gamma)=cl(theta). This restricted Proposition4.5 uses no integral lift of aTilde downstairs. Its existence of beta is conditional on item162; its trace adjustment follows from the explicit inputs below.",
+      "locator": "New conditional repair of Proposition4.5, pp.84–85",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/162",
+        "PAPER-BENOIST-19/163",
+        "PAPER-BENOIST-19/161",
+        "PAPER-BENOIST-19/164",
+        "PAPER-BENOIST-19/150"
+      ],
+      "proofGate": "G10,G11",
+      "proof": "Take the data from item163 and lambda from item161. The real first component of delta-cl(mu+t lambda) is zero on Psi∩U0, hence on Psi by finite-point removal. Apply item164 to obtain nu,gamma with p_*gamma=delta-cl(mu+t lambda+nu). Set theta=theta1+2mu+2t lambda+2nu. Substitution gives the conclusion. The extra nu is required by Assumption4.1(ii).",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/166",
+      "kind": "theorem",
+      "name": "Degree-two splitting under uniform evaluation",
+      "statement": "Under the hypotheses of item85, additionally require [aTilde]_0|Psi to be constant t∈F2. Conditional on the geometric/Hodge inputs and item149, there is a generically degree-two morphism p:T→S with T smooth connected projective, a_R(T)=0, and p(T(R)) disjoint from Psi. In this statement Psi may contain zero-evaluation components; t=0 is allowed.",
+      "locator": "Proposition6.6 with the additional uniformity hypothesis and repaired inputs",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/162",
+        "PAPER-BENOIST-19/165",
+        "PAPER-BENOIST-19/68",
+        "PAPER-BENOIST-19/69",
+        "PAPER-BENOIST-19/74",
+        "PAPER-BENOIST-19/80",
+        "PAPER-BENOIST-19/81",
+        "PAPER-BENOIST-19/82",
+        "PAPER-BENOIST-19/83",
+        "PAPER-BENOIST-19/84",
+        "PAPER-BENOIST-19/86",
+        "PAPER-BENOIST-19/87",
+        "PAPER-BENOIST-19/88",
+        "PAPER-BENOIST-19/89",
+        "PAPER-BENOIST-19/90",
+        "PAPER-BENOIST-19/38"
+      ],
+      "proofGate": "G1,G10,G11",
+      "proof": "The branch construction establishes Assumptions3.1 and4.1. Use items162,165 in place of the unrestricted Propositions4.4–4.5. The real Green cone and integral lattice correction then make beta-2gamma-2delta a real integral(1,1) class; divisor algebraicity and (2.17) split a. The deformation continues to avoid Psi. These latter geometric inputs are the original proof, not newly certified prerequisites.",
+      "implementationStatus": "not-implemented-or-certified"
+    },
+    {
+      "id": "PAPER-BENOIST-19/167",
+      "kind": "theorem",
+      "name": "Uniform evaluation of the half-period class",
+      "statement": "Let alpha have even period n and let Psi be its nonzero evaluation locus, contained in the unramified open. The period-two class a=(n/2)alpha has evaluation a_0=(n/2 mod2) on every point of Psi, and zero outside Psi. Consequently item166 applies with t=1 when n≡2 mod4, and with t=0 when n≡0 mod4. For the latter case Theta(a) is empty although Psi=Theta(alpha) need not be empty.",
+      "locator": "Corrected dependency analysis of Proposition6.7, p.95",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-BENOIST-19/11",
+        "PAPER-BENOIST-19/15",
+        "PAPER-BENOIST-19/55"
+      ],
+      "proof": "Evaluation is a group homomorphism to Br(R)=Z/2. On Psi, alpha evaluates to its unique nonzero element. Multiply it by n/2. Kummer component0 is this evaluation. No integral-lift premise on S is inferred.",
+      "implementationStatus": "not-implemented-or-certified"
     }
   ],
   "routes": [
@@ -2081,16 +2487,23 @@
         "PAPER-BENOIST-19/107",
         "PAPER-BENOIST-19/111",
         "PAPER-BENOIST-19/113",
-        "PAPER-BENOIST-19/119"
+        "PAPER-BENOIST-19/119",
+        "PAPER-BENOIST-19/155",
+        "PAPER-BENOIST-19/156",
+        "PAPER-BENOIST-19/157",
+        "PAPER-BENOIST-19/158",
+        "PAPER-BENOIST-19/159",
+        "PAPER-BENOIST-19/160",
+        "PAPER-BENOIST-19/149"
       ],
       "reason": "Ordinary local-coefficient cohomology, transfer and manifold duality already belong to upstream Stages5–6. No current accepted layer supplies the integral C2-equivariant, fixed-locus and sign-local-system machinery used here; a continuation preserves those ordinary owners.",
-      "brief": "Take Algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), especially Stages5–6, as first prerequisite; import ordinary cochains, transfer, local coefficients, cup products and orientation-local-system duality. Use the pinned derived-category and group-cohomology carriers to construct equivariant sheaf cohomology for involutions, the periodic resolution, parity twists, real-complex norm sequences, and sign local systems of double covers. Prove the mod2 and twisted-integral fixed-locus decompositions, component-product/Bockstein formulas, equivariant purity and proper Gysin with the dimension twist M(d'−d), not the degree twist printed in Benoist(2.1). Add tangent-bundle Stiefel–Whitney classes and the split localization/self-duality theorem of Benoist–Wittenberg, kept separate from quadratic-form Galois classes. The cover-specific interfaces include the ramified-cover triangle, trace quotient, trace-zero operator, circle extension and alternating-cover comparison data; prove choice independence where canonical and record κ as a choice otherwise. Prove equivariant Ehresmann transport and the finite-index integral-to-invariant lattice result. Its consumers are real period-index, real divisor cycle classes and real Hodge variation; scheme comparison stays in SF.2 and algebraic cycle maps in MC.2. Read the full BW1 and Greenblatt/Jannsen/Dimca prerequisites before closure. Item149 is explicitly withheld pending its typed diagram reconstruction, and the §7 truncation-sign gate must be resolved. Tests must include a point, a free involution, RP2, a disconnected real locus, integral2-torsion and an even cover of degree4."
+      "brief": "Take Algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), especially Stages5–6, as first prerequisite; import ordinary cochains, transfer, local coefficients, cup products and orientation-local-system duality. Use the pinned derived-category and group-cohomology carriers to construct equivariant sheaf cohomology for involutions, the periodic resolution, parity twists, real-complex norm sequences, and sign local systems of double covers. Prove the mod2 and twisted-integral fixed-locus decompositions, component-product/Bockstein formulas, equivariant purity and proper Gysin with the dimension twist M(d'−d), not the degree twist printed in Benoist(2.1). Add tangent-bundle Stiefel–Whitney classes and the split localization/self-duality theorem of Benoist–Wittenberg, kept separate from quadratic-form Galois classes. The cover-specific interfaces include the ramified-cover triangle, trace quotient, trace-zero operator, circle extension and alternating-cover comparison data; prove choice independence where canonical and record κ as a choice otherwise. Prove equivariant Ehresmann transport and the finite-index integral-to-invariant lattice result. Its consumers are real period-index, real divisor cycle classes and real Hodge variation; scheme comparison stays in SF.2 and algebraic cycle maps in MC.2. Read the full BW1 and Greenblatt/Jannsen/Dimca prerequisites before closure. Item149 is owned here as an unresolved, explicitly gated obligation; routing it does not certify its proof. Import the pinned cyclic projective resolution and odd/even cohomology formulas instead of rebuilding them. Add the sign-convention comparison, coefficient reduction, target-sheaf extension, weaker Bockstein lifting and integral trace-quotient API in items155–160. The prior suspicion about the projection labels in the section7 truncation diagram is withdrawn. Tests must include a point, a free involution, RP2, a disconnected real locus, integral2-torsion and an even cover of degree4. Coalesce with the SAME proposed owner in PAPER-BENOIST-WITTENBERG-20; its broader split-localization and cycle constraints remain shared prerequisites. Neither partial extraction is an accepted blueprint."
     },
     {
       "route": "part-ii",
       "roadmap": "DegeneratingHodgeStructures",
       "title": "Hodge structures (pure, mixed, and polarized), Part II: degeneration, period maps and Hodge loci",
-      "area": "motives",
+      "area": "arithmeticgeometry",
       "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
       "items": [
         "PAPER-BENOIST-19/37",
@@ -2106,7 +2519,7 @@
         "PAPER-BENOIST-19/134"
       ],
       "reason": "The existing Hodge roadmap and library build fiberwise linear algebra and period-domain points, not geometric Hodge structures, VHS or Green/Voisin deformation criteria. ComplexComparisonPartII:C5 already owns de Rham–Betti and Gauss–Manin comparison, which this continuation imports. The final-main recheck found PAPER-BAKKER-KLINGLER-TSIMERMAN-20's partial DegeneratingHodgeStructures proposal. Reuse that proposed ID and parent as a coordinated additional source tranche, not a second generic Hodge successor; neither proposal is accepted planning.",
-      "brief": "Begin with Hodge structures (pure, mixed, and polarized), tauceti:TauCetiRoadmap/HodgeStructures, as first prerequisite and reuse TauCeti.Hodge.HodgeStructureOn, not a parallel abstract lattice theory. Import ComplexComparisonPartII:C5's proper-smooth Betti/de Rham comparison and Gauss–Manin connection, the analytic-space carrier of ComplexComparison, ordinary topology and coherent geometry. Import the general VHS/local-system/filtered-bundle definition from ShimuraData:D3 before adding anything. Coordinate with the existing PAPER-BAKKER-KLINGLER-TSIMERMAN-20 proposal under this SAME proposed roadmap ID; preserve its degeneration/definability work without re-extracting or claiming it accepted. This tranche adds real infinitesimal Noether–Lefschetz criteria. Construct the geometric pure Hodge structure on compact Kähler/projective cohomology, the geometric weight-two variation on the shared D3 carrier, its real involution and Tate twist, orthogonal vanishing subvariations and Noether–Lefschetz loci of transported classes. Prove Griffiths' derivative formula, the curve-normal-boundary factorization and Green's real open-cone criterion with componentwise density. Prove integral weak Lefschetz and the precise Andreotti–Frankel affine-surface input at the geometric boundary, then Voisin's kernel-cone theorem for high hypersurfaces in a threefold mapping to a surface with rational generic fiber and H²K_X<0. Benoist's specialized double-cover codimension estimate is an acceptance application consuming, not owning, its algebraic family. Export the full-lattice coset argument and retain integral torsion before complexification. Divisor(1,1) algebraicity remains MC.7. The Charles K3/IHS and Lawrence–Venkatesh proposals are consumers of shared variation theory, not evidence that this real infinitesimal theorem already exists. Read Voisin's earlier propositions and residue machinery, not just the two §3 statements, before marking closed."
+      "brief": "Begin with Hodge structures (pure, mixed, and polarized), tauceti:TauCetiRoadmap/HodgeStructures, as first prerequisite and reuse TauCeti.Hodge.HodgeStructureOn, not a parallel abstract lattice theory. Import ComplexComparisonPartII:C5's proper-smooth Betti/de Rham comparison and Gauss–Manin connection, the analytic-space carrier of ComplexComparison, ordinary topology and coherent geometry. Import the general VHS/local-system/filtered-bundle definition from ShimuraData:D3 before adding anything. Coordinate with the existing PAPER-BAKKER-KLINGLER-TSIMERMAN-20 proposal under this SAME proposed roadmap ID; preserve its degeneration/definability work without re-extracting or claiming it accepted. This tranche adds real infinitesimal Noether–Lefschetz criteria. Construct the geometric pure Hodge structure on compact Kähler/projective cohomology, the geometric weight-two variation on the shared D3 carrier, its real involution and Tate twist, orthogonal vanishing subvariations and Noether–Lefschetz loci of transported classes. Prove Griffiths' derivative formula, the curve-normal-boundary factorization and Green's real open-cone criterion with componentwise density. Prove integral weak Lefschetz and the precise Andreotti–Frankel affine-surface input at the geometric boundary, then Voisin's kernel-cone theorem for high hypersurfaces in a threefold mapping to a surface with rational generic fiber and H²K_X<0. Benoist's specialized double-cover codimension estimate is an acceptance application consuming, not owning, its algebraic family. Export the full-lattice coset argument and retain integral torsion before complexification. Divisor(1,1) algebraicity remains MC.7. The Charles K3/IHS and Lawrence–Venkatesh proposals are consumers of shared variation theory, not evidence that this real infinitesimal theorem already exists. Read Voisin's earlier propositions and residue machinery, not just the two §3 statements, before marking closed. Also coalesce PAPER-GAO-HABEGGER-19 under this same proposed ID; import its generic monodromy/fixed-part interface where needed, without treating a paper route as an accepted stage. Use the common arithmeticgeometry area of those proposals."
     },
     {
       "route": "part-ii",
@@ -2129,7 +2542,7 @@
         "PAPER-BENOIST-19/143"
       ],
       "reason": "The parent's local-field u=4 endpoint is different, and its stated scope excludes the deep general torsion/Pfister theory used here. Reuse its quaternion, Witt and Brauer-cohomology layers; add only the ordering-sensitive function-field extension.",
-      "brief": "Use Quadratic forms and cohomological invariants (tauceti:TauCetiRoadmap/QuadraticFormInvariants) as first prerequisite, especially Layers2,4,5 and7B; import existing quadratic forms, anisotropy, regular-form classes, real signatures and quaternion algebra operations. Extend to signatures at every ordering, Harrison spaces and compactness, the Elman–Lam u-invariant, Tsen–Lang's C_i input, Witt's real-curve conic theorem, Springer's complete-DVR anisotropy theorem and Amer–Brumer's pair-of-forms theorem. Acquire Pfister1982 Proposition9 with all its hypotheses and prove the Brauer criterion for extensions of R of transcendence degree2. Then consume RealSurfacePeriodIndex's evaluation-zero theorem to prove u(K)≤4 for arbitrary, possibly infinitely generated such K, using a finitely generated descent field enlarged to contain a transcendence basis. Construct the sharp rank4 example at a smooth complex-residue point and verify the simultaneous parameter determinant, not just the two individual nonproportionality tests. Prove u(R(S))=4 and isotropy of all rank≥5 forms when S(R)=∅. The del Pezzo consequence belongs to the geometric consumer. Keep an acyclic order: early field/ordering/quaternion inputs → real-curve and surface period-index → late u-invariant applications; a coarse reciprocal roadmap edge must not create a proof cycle. Tests distinguish the Elman–Lam invariant from unrestricted anisotropic ranks over real fields, degree4 from degree5, and nonreal from formally real function fields."
+      "brief": "Use Quadratic forms and cohomological invariants (tauceti:TauCetiRoadmap/QuadraticFormInvariants) as first prerequisite, especially Layers2,4,5 and7B; import existing quadratic forms, anisotropy, regular-form classes, real signatures and quaternion algebra operations. Extend to signatures at every ordering, Harrison spaces and compactness, the Elman–Lam u-invariant, Tsen–Lang's C_i input, Witt's real-curve conic theorem, Springer's complete-DVR anisotropy theorem and Amer–Brumer's pair-of-forms theorem. Acquire Pfister1982 Proposition9 with all its hypotheses and prove the Brauer criterion for extensions of R of transcendence degree2. Then consume RealSurfacePeriodIndex's evaluation-zero theorem to prove u(K)≤4 for arbitrary, possibly infinitely generated such K, using a finitely generated descent field enlarged to contain a transcendence basis. Construct the sharp rank4 example at a smooth complex-residue point and verify the simultaneous parameter determinant, not just the two individual nonproportionality tests. Prove u(R(S))=4 and isotropy of all rank≥5 forms when S(R)=∅. The del Pezzo consequence belongs to the geometric consumer. Keep an acyclic order: early field/ordering/quaternion inputs → real-curve and surface period-index → late u-invariant applications; a coarse reciprocal roadmap edge must not create a proof cycle. Tests distinguish the Elman–Lam invariant from unrestricted anisotropic ranks over real fields, degree4 from degree5, and nonreal from formally real function fields. Coalesce the existing PAPER-JANNSEN-16 and PAPER-BENOIST-WITTENBERG-20 tranches under this same proposed ID; do not invent a second ordering-sensitive function-field owner."
     },
     {
       "route": "new",
@@ -2206,10 +2619,19 @@
         "PAPER-BENOIST-19/128",
         "PAPER-BENOIST-19/139",
         "PAPER-BENOIST-19/140",
-        "PAPER-BENOIST-19/150"
+        "PAPER-BENOIST-19/150",
+        "PAPER-BENOIST-19/161",
+        "PAPER-BENOIST-19/162",
+        "PAPER-BENOIST-19/163",
+        "PAPER-BENOIST-19/164",
+        "PAPER-BENOIST-19/165",
+        "PAPER-BENOIST-19/166",
+        "PAPER-BENOIST-19/167",
+        "PAPER-BENOIST-19/66",
+        "PAPER-BENOIST-19/67"
       ],
       "reason": "No accepted roadmap, packet or reservation owns Benoist's ramified-cover geometry, real-evaluation obstruction or Enriques/Puiseux applications. RP.2–RP.3 concern Brauer–Manin/descent, K2SymbolsBrauer concerns K2 norm symbols, and the Charles K3 proposal concerns different geometry. This is a new proof route with explicit shared imports.",
-      "brief": "Prove Benoist's 2019 real-surface theorems with all field and coefficient distinctions preserved. For a smooth connected real surface U and α∈Br(U) vanishing at every real point, prove period=index in R(U); derive the no-real-points result without requiring α unramified on a chosen projective model. For smooth connected projective S and unramified α of period n, prove equality for odd n; for even n prove equality exactly when SOME Kummer lift of(n/2)α has vanishing degree-one component on the nonzero evaluation locus Θ, and index2n otherwise. Do not strengthen R to an arbitrary real closed field. Include the complex unramified Hodge proof as an early acceptance application, but import de Jong's general theorem for arbitrary algebraically closed fields and ramified classes.\n\nBuild the rv²=sw² projective model, its partial-resolution/Stein-factor distinction, SNC branch strata and the resolved family in a fixed threefold. Prove the ordinary and equivariant pushforward image results, ramification killing, the topological obstruction and the integral pushforward adjustment only after gatesG4a/G4b/G10 are discharged. Items66,67,149 remain unassigned proof gaps in this checkpoint; a designer must not silently turn them into axioms or claim their consumers closed. For Proposition4.4 the additional Ψ issue is absent when Ψ=Θ (or Ψ empty), but that observation does not repair Proposition4.5. Construct the curve-bearing double covers, blow-ups enforcing the cohomological hypotheses, real branch-loop approximation and all three real-map conditions. Import DegeneratingHodgeStructures's real cone and MC.7's divisor algebraicity to finish the degree2 splitting argument. Split odd and even periods and use divisibility, not an unjustified exact period drop.\n\nFor necessity construct the alternating double cover, apply the shared trace-quotient and circle-extension machinery, prove the m_i modulo4 correction, and carry the corrected minus sign in Lemma7.3 through the final pushforward. Prove Proposition8.1's image description using EquivariantTopologyRealVarieties's self-duality; then the real Enriques halves/Picard-image cases, and the sextic Puiseux K3 counterexample with four sphere components and period2/index4. Import semialgebraic carriers/cell decomposition from the foundational LD.6 supplier where available; add only source-scoped Nash/Bröcker and real-closed Brauer interfaces. The proposed Charles K3 route is not an accepted prerequisite: reconcile its basic K3/resolution carrier at integration and do not duplicate its stable-sheaf or IHS theory.\n\nImport SchemeAndStackFoundations SF.2/SF.4/SF.5, AlgebraicModuliForArithmeticGeometry R09.1/A0-extension, MC.2/MC.7, ComplexComparisonPartII C5, the parent Brauer and QFI carriers, and the four continuations above. Early quadratic-field theorems feed this geometry; only later does it export to the u-invariant theorem. Final geometric acceptance includes degree4 del Pezzo points over a real curve with no real points. All objects have APIs and three tests in this extraction. Before execution extract every unread prerequisite proof in the ledger, verify coefficient/sign gates, and split all coarse stages into acyclic proof leaves. No Lean implementation or unconditional proof closure is claimed."
+      "brief": "Prove Benoist's 2019 real-surface theorems with all field and coefficient distinctions preserved. For a smooth connected real surface U and α∈Br(U) vanishing at every real point, prove period=index in R(U); derive the no-real-points result without requiring α unramified on a chosen projective model. For smooth connected projective S and unramified α of period n, prove equality for odd n; for even n prove equality exactly when SOME Kummer lift of(n/2)α has vanishing degree-one component on the nonzero evaluation locus Θ, and index2n otherwise. Do not strengthen R to an arbitrary real closed field. Include the complex unramified Hodge proof as an early acceptance application, but import de Jong's general theorem for arbitrary algebraically closed fields and ramified classes.\n\nBuild the rv²=sw² projective model, its partial-resolution/Stein-factor distinction, SNC branch strata and the resolved family in a fixed threefold. Prove the ordinary and equivariant pushforward image results, ramification killing, the topological obstruction and the integral pushforward adjustment only after gatesG4a/G4b/G10 are discharged. Items66,67 are assigned here as gated general propositions; item149 is assigned to the shared equivariant-topology continuation. They must not be silently turned into axioms. For the main induction use the separately stated uniform-evaluation repair below, retaining its explicit G10 and source-closure dependencies. Construct the curve-bearing double covers, blow-ups enforcing the cohomological hypotheses, real branch-loop approximation and all three real-map conditions. Import DegeneratingHodgeStructures's real cone and MC.7's divisor algebraicity to finish the degree2 splitting argument. Split odd and even periods and use divisibility, not an unjustified exact period drop.\n\nFor necessity construct the alternating double cover, apply the shared trace-quotient and circle-extension machinery, prove the m_i modulo4 correction, and carry the corrected minus sign in Lemma7.3 through the final pushforward. Prove Proposition8.1's image description using EquivariantTopologyRealVarieties's self-duality; then the real Enriques halves/Picard-image cases, and the sextic Puiseux K3 counterexample with four sphere components and period2/index4. Import semialgebraic carriers/cell decomposition from the foundational LD.6 supplier where available; add only source-scoped Nash/Bröcker and real-closed Brauer interfaces. The proposed Charles K3 route is not an accepted prerequisite: reconcile its basic K3/resolution carrier at integration and do not duplicate its stable-sheaf or IHS theory.\n\nImport SchemeAndStackFoundations SF.2/SF.4/SF.5, AlgebraicModuliForArithmeticGeometry R09.1/A0-extension, MC.2/MC.7, ComplexComparisonPartII C5, the parent Brauer and QFI carriers, and the four continuations above. Early quadratic-field theorems feed this geometry; only later does it export to the u-invariant theorem. Final geometric acceptance includes degree4 del Pezzo points over a real curve with no real points. All objects have APIs and three tests in this extraction. Before execution extract every unread prerequisite proof in the ledger, verify coefficient/sign gates, and split all coarse stages into acyclic proof leaves. No Lean implementation or unconditional proof closure is claimed.\n\nThe continuation supplies items161–167 as a conditional repair for constant evaluation t on Psi. Use them for the main period induction: t=n/2 mod2 covers both n≡2 and n≡0 modulo4. Retain the general printed items66,67,85 as gated research obligations, not prerequisites for that restricted main branch. The integral correction is theta1+2mu+2t lambda+2nu, with nu the curve adjustment from Assumption4.1(ii). Its trace-quotient inputs come from the shared equivariant-topology PartII and its Picard primitivity from MC.7. Keep G10 and unread transitive source inputs visible. No generic equivariant topology or Hodge variation is owned by this application roadmap."
     },
     {
       "route": "source",
@@ -2345,7 +2767,7 @@
         "PAPER-BENOIST-19/85"
       ],
       "status": "unresolved",
-      "detail": "On published p.84 the printed Bockstein formula gives [ζ]1|Ψ=[α̃]0|Ψ·[e]1|Ψ when [α̃]1=0. Replacing that by [e]1 needs [α̃]0=1 or another correction. [α̃]0 is the characteristic function of Θ, while §4 permits Ψ⊃Θ. Resolve the general Ψ case; Ψ=Θ, used for Proposition6.7, removes this particular mismatch. This is a proof-audit gate, not a counterexample to the theorem."
+      "detail": "The unrestricted p.84 computation omits [aTilde]_0. Item162 repairs it whenever that function is constant t by multiplying the Picard correction by t. The general nonconstant-indicator case remains open. The main induction is uniform but not always Psi=Theta(a): for n divisible by4, a=(n/2)alpha evaluates zero on Psi=Theta(alpha). This corrects the previous handoff."
     },
     {
       "id": "G4b",
@@ -2355,7 +2777,7 @@
         "PAPER-BENOIST-19/92"
       ],
       "status": "unresolved",
-      "detail": "Published pp.84–85 (visually checked), author PDF and arXiv v2 use α̃∈H²_G(U,F2) as an integral Z(1) class in β|TU=p*α̃+2ε+clφ and then in2α̃. An integral lift on U is not supplied by(2.16);(2.17) may have nonzero topological obstruction. Reconstruct the argument at cochain/derived level or find an authoritative correction. Also absorb the extra curve classes in Assumption4.1(ii) before concluding δ−clθ2 is a pushforward."
+      "detail": "The general pp.84–85 proof remains ill-typed. Items158–165 give a typed replacement under constant evaluation t on Psi: form an integral lift upstairs from the trace quotient, use Picard primitivity, then the t lambda and extra curve corrections. This bypasses the missing integral lift on U. It does not prove the printed unrestricted statement or close G10/G11."
     },
     {
       "id": "G4",
@@ -2366,8 +2788,8 @@
         "PAPER-BENOIST-19/106",
         "PAPER-BENOIST-19/110"
       ],
-      "status": "sign-and-derived-diagram-audit",
-      "detail": "With(7.2)'s(1,−φ) and §7.1's ψ, Lemma7.3 must read p*η−ψζ, because ψ mod n=p*φ. The n=4 tuple(1,0,0,0) distinguishes signs. Traceψ=0 and final mod2 signs survive this repair, but reconstruct all §7.5 maps. Lemma7.5's printed(0,1) reduction on the truncated complexes must also be reconciled with the claimed identity on degree1; do not infer a split extension from that diagram."
+      "status": "local-sign-and-reduction-repaired; prerequisite-closure-open",
+      "detail": "Minus psi is required in Lemma7.3 and(7.13); trace zero leaves(7.14),(7.15) unchanged. Item157 supplies the missing target restriction argument. The earlier suspicion about(0,1) labels on p.100 is withdrawn: visual inspection identifies diagonal projection labels. Item156 computes the actual reduction as(id,n/2 mod2) in cohomological degrees1/2; no split circle extension follows. Full general monodromy and cited-foundation formalisation remain G11."
     },
     {
       "id": "G5",
@@ -2419,13 +2841,21 @@
         "PAPER-BENOIST-19/66"
       ],
       "status": "unread-precise-homological-input",
-      "detail": "Read Jannsen's lemma p.268 and the injective-complex replacement theorem with exact signs; reconstruct(4.3)–(4.5). A general derived-category carrier or octahedron axiom does not by itself certify this diagram chase."
+      "detail": "Read Jannsen's lemma p.268 and the injective-complex replacement theorem with exact signs; reconstruct(4.3)–(4.5). A general derived-category carrier or octahedron axiom does not by itself certify this diagram chase. The Springer chapter was located by DOI10.1007/978-94-011-4098-0_8, but its PDF request returned an HTML access page; old Regensburg author URLs failed DNS. This is not a reading of the lemma. Uniform variants162,165,166 explicitly retain this gate."
     },
     {
       "id": "G11",
       "items": [],
       "status": "prerequisite-and-coverage-closure-open",
       "detail": "The main published paper is completely read and its numbered results and major constructions inventoried, but several cited proof interiors listed in prerequisites remain unread. They may reveal further definitions/auxiliary lemmas, so no exhaustive transitive proof-closure claim is made. Reconcile new foundation proposals with other paper routes at integration; none is an accepted new owner yet."
+    },
+    {
+      "id": "G12",
+      "items": [
+        "PAPER-BENOIST-19/157"
+      ],
+      "status": "target-sheaf-argument-supplied",
+      "detail": "The source injection Q→j_*j*Q does not prove equality of maps out of Q. The required target extension property for p_*(Z/n) follows by the local connected-complement argument of §7.1, as item157 records."
     }
   ],
   "sourceLedger": [
@@ -2434,21 +2864,24 @@
       "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
       "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
       "read": "All48 pages, every section/proof/reference. Printed pages76,84,85 additionally viewed as images.",
-      "accessed": "2026-09-22"
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
     },
     {
       "source": "Author's Benoist2019 copy",
       "url": "https://www.math.ens.psl.eu/~benoist/articles/realperiodindex.pdf",
       "sha256": "e4c90a314c6d9ea38d3bd8498a6ec050aa763c4150890c98cc295390ef4ece2a",
       "read": "Introduction and targeted comparisons of §3.1 and Proposition4.5. Not claimed independently read in full.",
-      "accessed": "2026-09-22"
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
     },
     {
       "source": "Benoist2019 arXiv v2,15May2019",
       "url": "https://arxiv.org/pdf/1804.03642v2",
       "sha256": "5dc12ae78790cfc5f2fb3ce9921269cbf593c38022a41a0c7da798795c9c3cda",
       "read": "Targeted Lemma1.4, §3.1 and Proposition4.5; same problematic coefficient expressions. Not full alternate-version reading.",
-      "accessed": "2026-09-22"
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
     },
     {
       "source": "Benoist–Wittenberg, On the integral Hodge conjecture for real varieties,I, published author PDF",
@@ -2456,7 +2889,8 @@
       "doi": "10.1007/s00222-020-00965-8",
       "sha256": "daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9",
       "read": "§1.1.4 surrounding(1.22), §1.4 definition of(1.46) and Theorem1.12 with proof, §2.3.1 Propositions2.8–2.9 and §2.3.2 Lemma2.11 with surrounding proof. Not full77-page reading; the cited2018v2 and published version require a final numbering concordance.",
-      "accessed": "2026-09-22"
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
     },
     {
       "source": "Benoist, Sums of three squares and Noether–Lefschetz loci, Compos.Math.154(2018),1048–1065",
@@ -2464,13 +2898,50 @@
       "doi": "10.1112/S0010437X18007017",
       "sha256": "507e29afb63417c50ae995f95a543d80df79b1b61d7fb69de9eca13c4c666367",
       "read": "Entire§1(pp.1050–1052) and§2.1(pp.1053–1054), including proofs of Propositions1.1–1.3 and2.1 and Corollary2.2. Other sections not read.",
-      "accessed": "2026-09-22"
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
     },
     {
       "source": "Voisin, On integral Hodge classes on uniruled or Calabi–Yau threefolds, author manuscript",
       "url": "https://webusers.imj-prg.fr/~claire.voisin/Articlesweb/inthodge.pdf",
       "sha256": "3f86dcab8ec0afce3a8dd8cb839025aaba38773eba1b38f374546106726f81ce",
       "read": "§3 pp.19–21 of manuscript, Propositions8–9 and proofs, with preceding transition. Earlier propositions invoked by Proposition9 and residue computations not fully read.",
+      "accessed": "2026-09-22",
+      "provenance": "Retained reading evidence from merged PR1673; new reading scope recorded separately below."
+    },
+    {
+      "source": "Published Benoist2019, continuation",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+      "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
+      "read": "All48 pages63–110, including proofs and references, reread. Additional images listed in source.versionChecks.",
+      "accessed": "2026-09-22"
+    },
+    {
+      "source": "BW1 author published copy, continuation",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf",
+      "sha256": "daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9",
+      "read": "Pages16–19, §§1.2.1–1.2.6 including(1.30),(1.33), and pp.39–40 Proposition2.9 with complete proof. This validates the ordinary sign-local-system Bockstein and nonproper Picard primitivity used by the repair. Not the entire77-page paper.",
+      "accessed": "2026-09-22"
+    },
+    {
+      "source": "Jannsen letter to Gross",
+      "doi": "10.1007/978-94-011-4098-0_8",
+      "url": "https://link.springer.com/chapter/10.1007/978-94-011-4098-0_8",
+      "read": "Bibliographic record only. PDF response was HTML; exact lemma p.268 not read. Old Regensburg author URLs failed DNS. G10 remains open.",
+      "accessed": "2026-09-22"
+    },
+    {
+      "source": "Benoist author-copy targeted recheck in this continuation",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/realperiodindex.pdf",
+      "sha256": "e4c90a314c6d9ea38d3bd8498a6ec050aa763c4150890c98cc295390ef4ece2a",
+      "read": "PDF pages9,14,22–23,36–38: hypersurface parameter, projective double-cover model, Propositions4.4–4.5, Lemma7.3 and truncation diagram. Same relevant expressions; no full-copy equivalence claim.",
+      "accessed": "2026-09-22"
+    },
+    {
+      "source": "Benoist author-copy targeted recheck in this continuation",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/realperiodindex.pdf",
+      "sha256": "e4c90a314c6d9ea38d3bd8498a6ec050aa763c4150890c98cc295390ef4ece2a",
+      "read": "PDF pages9,14,22–23,36–38: hypersurface parameter, projective double-cover model, Propositions4.4–4.5, Lemma7.3 and truncation diagram. Same relevant expressions; no full-copy equivalence claim.",
       "accessed": "2026-09-22"
     }
   ],
@@ -2552,6 +3023,42 @@
         "ShimuraData:D3 full description, full README and accepted AUDIT-10 target notes read."
       ],
       "result": "Corrected generic VHS ownership to D3 (new planned item151). Reused BKT20's proposed DegeneratingHodgeStructures ID/title, adding only this paper's real infinitesimal/geometric tranche. No new roadmap definition/packet accepted during the interval; Charles remains partial. No deliverable or proposed-ID file collision."
+    },
+    {
+      "scope": "Continuation pinned cyclic-cohomology audit",
+      "evidence": [
+        "Mathlib/RepresentationTheory/Homological/FiniteCyclic.lean, resolution and moduleCatCochainComplex",
+        "Mathlib/RepresentationTheory/Homological/GroupCohomology/FiniteCyclic.lean, complete declaration statements for items152–154"
+      ],
+      "result": "Three library imports; only the sheaf and coefficient adapters remain planned work. Broad source-tree searches for Bockstein, Noether–Lefschetz, Borel–Haefliger, Krasnov, Jannsen, Enriques and trace quotient found no matching geometric adapter. Trace/Exact and Trace/QuotientPow candidates concern traces of linear maps/finite algebras, not this permutation-sheaf construction."
+    },
+    {
+      "scope": "Continuation ownership audit",
+      "evidence": [
+        "Current full atlas, roadmap/packet/paper proposal inputs, 487-file manifest",
+        "AlgebraicTopology README Stages5–6 and HodgeStructures scope reread",
+        "AUDIT-01 SchemeAndStackFoundations:SF.2 target notes reread",
+        "PAPER-BENOIST-WITTENBERG-20, PAPER-GAO-HABEGGER-19, PAPER-JANNSEN-16 and PAPER-BAKKER-KLINGLER-TSIMERMAN-20 shared route briefs"
+      ],
+      "result": "Reuse the existing proposed IDs and imports; no new accepted owner is inferred from paper routing. Hodge PartII area aligned to arithmeticgeometry. All135 legacy missing items, including66,67,149, now have exactly one route. Old full near-area README readings remain attributed to PR1673."
+    },
+    {
+      "scope": "Final current-main refresh",
+      "snapshot": "38c5f2bb6aeb10e91ca02161f0dfdcbdaff5952d",
+      "evidence": [
+        "All486 input blob hashes checked",
+        "Changed Kisin–Pappas18 report/result and newly present Groechenig–Wyss–Ziegler20 result screened; relevant Brauer/gerbe items and duality route inspected"
+      ],
+      "result": "Neither adds an accepted competing real-surface, equivariant-topology or real Hodge owner. The gerbe and local Tate-duality tranches stay with their existing owners. No concurrent edits to this job’s three deliverables."
+    },
+    {
+      "scope": "Final current-main refresh",
+      "snapshot": "38c5f2bb6aeb10e91ca02161f0dfdcbdaff5952d",
+      "evidence": [
+        "All487 input blob hashes checked",
+        "Changed Kisin–Pappas18 report/result and newly present Groechenig–Wyss–Ziegler20 result screened; relevant Brauer/gerbe items and duality route inspected; final refresh also inspected the merged Witaszek22 continuation and new Böckle–Iyengar–Paškūnas23 route summary"
+      ],
+      "result": "Neither adds an accepted competing real-surface, equivariant-topology or real Hodge owner. The gerbe and local Tate-duality tranches stay with their existing owners. No concurrent edits to this job’s three deliverables."
     }
   ],
   "conjectures": [
@@ -2585,7 +3092,7 @@
       ]
     },
     {
-      "target": "Real degree-two sufficiency",
+      "target": "Real degree-two sufficiency under uniform evaluation",
       "chain": [
         "PAPER-BENOIST-19/57",
         "PAPER-BENOIST-19/58",
@@ -2597,8 +3104,8 @@
         "PAPER-BENOIST-19/64",
         "PAPER-BENOIST-19/65",
         "PAPER-BENOIST-19/149",
-        "PAPER-BENOIST-19/66",
-        "PAPER-BENOIST-19/67",
+        "PAPER-BENOIST-19/162",
+        "PAPER-BENOIST-19/165",
         "PAPER-BENOIST-19/68",
         "PAPER-BENOIST-19/69",
         "PAPER-BENOIST-19/71",
@@ -2619,14 +3126,10 @@
         "PAPER-BENOIST-19/88",
         "PAPER-BENOIST-19/89",
         "PAPER-BENOIST-19/90",
-        "PAPER-BENOIST-19/85"
+        "PAPER-BENOIST-19/166"
       ],
       "gates": [
         "G1",
-        "G4a",
-        "G4b",
-        "G7",
-        "G8",
         "G10",
         "G11"
       ]
@@ -2637,7 +3140,8 @@
         "PAPER-BENOIST-19/16",
         "PAPER-BENOIST-19/07",
         "PAPER-BENOIST-19/08",
-        "PAPER-BENOIST-19/85",
+        "PAPER-BENOIST-19/167",
+        "PAPER-BENOIST-19/166",
         "PAPER-BENOIST-19/93",
         "PAPER-BENOIST-19/92",
         "PAPER-BENOIST-19/18",
@@ -2646,11 +3150,11 @@
         "PAPER-BENOIST-19/21"
       ],
       "gates": [
-        "G4b",
-        "G5",
+        "G1",
+        "G10",
         "G11"
       ],
-      "note": "This uses Ψ=Θ, so the larger-Ψ mismatch G4a is not itself needed here."
+      "note": "Use t=n/2 mod2 on Psi=Theta(alpha), not an assumed equality Psi=Theta((n/2)alpha). General items66,67,85 are not dependencies of this repaired main branch."
     },
     {
       "target": "Necessity and exact index",
@@ -2671,9 +3175,9 @@
         "PAPER-BENOIST-19/22"
       ],
       "gates": [
-        "G4",
         "G11"
-      ]
+      ],
+      "note": "Local sign and coefficient repairs are in items156–159; full prerequisite proof closure remains open."
     },
     {
       "target": "u-invariant and del Pezzo",
@@ -2691,9 +3195,9 @@
         "PAPER-BENOIST-19/30"
       ],
       "gates": [
-        "G4b",
         "G6",
-        "G11"
+        "G11",
+        "G10"
       ]
     },
     {
@@ -2721,16 +3225,349 @@
         "PAPER-BENOIST-19/24"
       ],
       "gates": [
-        "G4",
-        "G4b",
         "G9",
-        "G11"
+        "G11",
+        "G10"
       ]
+    },
+    {
+      "target": "Typed uniform pushforward adjustment",
+      "chain": [
+        "PAPER-BENOIST-19/152",
+        "PAPER-BENOIST-19/153",
+        "PAPER-BENOIST-19/154",
+        "PAPER-BENOIST-19/155",
+        "PAPER-BENOIST-19/156",
+        "PAPER-BENOIST-19/157",
+        "PAPER-BENOIST-19/158",
+        "PAPER-BENOIST-19/159",
+        "PAPER-BENOIST-19/160",
+        "PAPER-BENOIST-19/161",
+        "PAPER-BENOIST-19/162",
+        "PAPER-BENOIST-19/163",
+        "PAPER-BENOIST-19/164",
+        "PAPER-BENOIST-19/165",
+        "PAPER-BENOIST-19/166",
+        "PAPER-BENOIST-19/167",
+        "PAPER-BENOIST-19/93",
+        "PAPER-BENOIST-19/92"
+      ],
+      "gates": [
+        "G1",
+        "G10",
+        "G11"
+      ],
+      "note": "An outline, not a claim of full transitive extraction. Explicit dependency fields on the new nodes supply the tested DAG; the old proofSpines are not mistaken for direct dependency edges."
     }
   ],
   "checks": {
     "paper": "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BENOIST-19.result.json: ok",
-    "lean": "Not applicable: the paper issue authorizes JSON, report and handoff, no Lean file; no Lean compilation claimed.",
-    "scope": "Exactly the two named paper files and this job's handoff."
-  }
+    "lean": "Not applicable: only JSON, report and handoff are authorized; no Lean file or compilation claimed.",
+    "scope": "Exactly the two paper deliverables and this job’s handoff.",
+    "mathematics": "7926 exact finite/integer diagnostics passed: trace quotient, signs, cyclic coefficient reduction, twisted circle total complex, uniform component cancellation, Picard correction and index divisibility. These do not prove the geometric inputs.",
+    "structure": {
+      "items": 167,
+      "statuses": {
+        "library": 11,
+        "missing": 148,
+        "planned": 8
+      },
+      "definitionsAndConstructions": 65,
+      "explicitDependencyEdges": 84,
+      "routes": 10,
+      "sourceIssues": 17,
+      "status": "pass"
+    }
+  },
+  "continuation": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "issue": 1454,
+    "previous": "https://github.com/CBirkbeck/tauceti-explorer/pull/1673",
+    "scope": "Preserves items01–151 and the prior source ledger, with explicit reassessment of gaps. New source reading and proof work are distinguished from inherited evidence.",
+    "inputCount": 487
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-BENOIST-19/E1",
+      "kind": "error",
+      "locator": "Published §3.1 p.76",
+      "printed": "finite double cover",
+      "correction": "The projective equation gives a proper generically degree-two map, finite flat on S0; introduce its finite Stein model separately.",
+      "reason": "At r=s=0 the fibre of rv²=sw² is P1, not a finite scheme. G1 remains a geometric comparison obligation.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E2",
+      "kind": "gap",
+      "locator": "Lemma1.4 p.70",
+      "printed": "p*p*α̃",
+      "correction": "Choose beta compatibly so beta modulo n equals p*aTilde before taking its trace.",
+      "reason": "Being an integral lift of the same Brauer class alone allows a Picard difference. Lemma1.3 kills the Bockstein of this chosen Kummer lift and permits the compatible choice.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E3",
+      "kind": "gap",
+      "locator": "Proposition4.4 p.84, after(4.8)",
+      "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
+      "correction": "The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.",
+      "reason": "The degree-one term of the printed Bockstein map is b+a[e]_1; b=0 does not force a=1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E4",
+      "kind": "gap",
+      "locator": "Proposition4.5 pp.84–85",
+      "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
+      "correction": "Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.",
+      "reason": "aTilde has F2 coefficients while the other summands have integral Z(1) coefficients. The Brauer topological obstruction downstairs need not vanish.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E5",
+      "kind": "gap",
+      "locator": "Proposition4.5 p.85, application of Assumption4.1(ii)",
+      "printed": "δ−cl(θ₂)",
+      "correction": "Subtract an additional Picard class nu made from the allowed curves before applying Proposition3.3; include2nu in the final theta.",
+      "reason": "Assumption4.1(ii) gives generation by pushforwards AND curve classes. It does not identify its kernel with the pushforward image alone.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E6",
+      "kind": "misprint",
+      "locator": "Lemma7.3 p.98 and equation(7.13) p.103",
+      "printed": "p*η+ψ(ζ)",
+      "correction": "Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.",
+      "reason": "psi modulo n equals p*phi. For n=4, a sheet tuple(1,0,0,0) detects the difference of signs.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E7",
+      "kind": "gap",
+      "locator": "Proof of Lemma7.3 p.99",
+      "printed": "Q→j*j*Q",
+      "correction": "Use injectivity of the TARGET p_*(Z/n)→j_*j*p_*(Z/n). Item157 proves it in this setting.",
+      "reason": "Equality of maps after restriction can be cancelled through a target monomorphism. A monomorphism on their source cannot justify this step.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E8",
+      "kind": "gap",
+      "locator": "Proposition6.7 statement and proof p.95",
+      "printed": "n/2",
+      "correction": "Separate the odd case from the half-period hypothesis; initially conclude the restricted period divides n/2.",
+      "reason": "The half-period class is undefined for odd n. Killing it for even n gives divisibility; the index inequalities at the end force equality.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E9",
+      "kind": "gap",
+      "locator": "Proof of Theorem0.12 p.95",
+      "printed": "K=∪iKi",
+      "correction": "Include a transcendence basis of K/R in K0 before expressing K as the union of finite extensions of K0.",
+      "reason": "Descent of the Brauer coefficients alone need not make K/K0 algebraic.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E10",
+      "kind": "gap",
+      "locator": "Proof of Theorem0.13 p.96",
+      "printed": "not proportional",
+      "correction": "Choose local parameters jointly so det(dy1,dy2) is nonzero, after restricting to a smooth point.",
+      "reason": "With dyj=a+c dzj, avoiding proportionality of each dzj to a separately does not force the pair of dyj to be independent; G6 retains the joint genericity proof.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E11",
+      "kind": "misprint",
+      "locator": "Equation(2.1) p.72",
+      "printed": "M(−k)",
+      "correction": "Use coefficient M(dprime-d) in the source of the Gysin map.",
+      "reason": "The cited BW1(1.22) gives the dimension difference; an identity map must preserve the twist. The prior worker read that source formula.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E12",
+      "kind": "misprint",
+      "locator": "Equation(5.7) p.88",
+      "printed": "H⁰(C,N_C/T)",
+      "correction": "The normal-sequence boundary lands in H¹(C,N_C/T).",
+      "reason": "The short exact sequence(5.8) sends H0 to H1. The cited Benoist2018 Proposition2.1 uses the corrected degree.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E13",
+      "kind": "gap",
+      "locator": "Proof of Proposition0.7 p.108",
+      "printed": "(0:−1:1:1)",
+      "correction": "Use general real points of the divisor u=0 away from zeros and poles, with the required sign, and justify simultaneous specialization.",
+      "reason": "A previously fixed point can be a zero or pole of the specialized rational functions. G9 keeps the generic-point/specialization repair open.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E14",
+      "kind": "misprint",
+      "locator": "Proof of Proposition0.7 p.107",
+      "printed": "Br(R(S))",
+      "correction": "Use Br(K(S)), for the real Puiseux field K defined in this proof.",
+      "reason": "Both functions f,g and the surface S are defined over K here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E15",
+      "kind": "misprint",
+      "locator": "Proof of Theorem0.6 p.107",
+      "printed": "unique δ",
+      "correction": "Say unique NONZERO delta with component0 zero, as in the preceding paragraph on p.106.",
+      "reason": "The zero class also has component0 zero. Item118 already records the nonzero condition.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E16",
+      "kind": "misprint",
+      "locator": "Proof of Proposition7.1 p.103, following(7.14)",
+      "printed": "kernel",
+      "correction": "Use torsion-freeness of the cokernel of the Picard cycle map.",
+      "reason": "Dividing the equality n(eta-p_*gamma)=cl(p_*phi) needs primitivity of its image. BW1 Proposition2.9 is explicitly a cokernel theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    },
+    {
+      "id": "PAPER-BENOIST-19/E17",
+      "kind": "misprint",
+      "locator": "Proof of Theorem1.5 p.71",
+      "printed": "n=dl",
+      "correction": "Distinguish Voisin’s hypersurface-degree parameter from the period n; substitute m=dn for surfaces in |dnH|.",
+      "reason": "The symbol l is not defined in this section. The family was defined on p.69 with hypersurface degree dn; this is only a parameter concordance.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Journal DOI10.1007/s10240-019-00108-7 and Numdam published record, checked2026-09-22",
+        "Author publication page and linked realperiodindex.pdf, checked2026-09-22; no correction linked for this paper",
+        "arXiv1804.03642 version history: latest v2,15May2019; targeted prior comparison retained",
+        "Exact-title and author erratum/corrigendum web searches on2026-09-22; no matching correction located (bounded search, not a certificate of absence)"
+      ]
+    }
+  ],
+  "sourceIssueReassessments": [
+    {
+      "previous": "G4, suspected reduction labels on published p.100",
+      "decision": "withdrawn by the extracting worker, not an independent review verdict",
+      "reason": "The (0,1) labels belong to diagonal projections in(7.8),(7.9). The actual coefficient-reduction map is computed in item156.",
+      "evidence": "Visual inspection of published p.100 and periodic-complex computation."
+    }
+  ],
+  "dependencyCoverage": "New nodes and the affected old consumers have explicit direct dependencies. Other legacy proof spines remain outlines; no claim that all transitive dependencies of all151 inherited items have been converted into a complete DAG."
 }
