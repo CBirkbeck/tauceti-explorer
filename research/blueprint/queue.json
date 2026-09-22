@@ -5203,8 +5203,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1342"
+   "state": "pending",
+   "note": "released on GitHub issue #1342"
   },
   {
    "id": "REV-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -6827,7 +6827,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1444"
   },
   {
    "id": "REV-PAPER-BHATT-ETAL-23",
