@@ -29197,8 +29197,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1705"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1705",
+   "finishedAt": "2026-09-22T07:41:52Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -29515,7 +29516,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MARTIN-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1713"
   },
   {
    "id": "REV-ERRATA-PAPER-MARTIN-25",
