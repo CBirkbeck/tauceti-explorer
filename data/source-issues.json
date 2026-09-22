@@ -908,6 +908,48 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CHEN-24/E1",
+   "kind": "error",
+   "locator": "§5.6, p. 85, Proposition 5.6.1(a) (arXiv v2)",
+   "printed": "There is a unique unramified point in f^{−1}(0). Every other point is ramified with index 3, so |f^{−1}(0)| = (p(p+3)−3)/3 if p ≡ 1 mod 4, (p(p−3)−3)/3 if p ≡ 3 mod 4",
+   "correction": "|f^{−1}(0)| = 1 + (deg f − 1)/3 = (p(p+3)+2)/3 for p ≡ 1 mod 4 and (p(p−3)+2)/3 for p ≡ 3 mod 4.",
+   "reason": "The printed expression is never an integer: deg f = |X*(p)| = p(p±3) ≡ p² ≡ 1 (mod 3) for every prime p ≠ 3, so 3 never divides deg f − 3. The sentence preceding the display gives the correct count, one unramified point together with (deg f − 1)/3 points of ramification index 3. Computing the γ₀-orbits on X*(p) directly confirms it: for p = 5, 7, 11, 13, 17, 19, 23 the fibre has 14, 10, 30, 70, 114, 102, 154 points and γ₀ has exactly one fixed point in each case, matching (deg f + 2)/3 = 14, 10, 30, 70, 114, 102, 154 and not (deg f − 3)/3 = 37/3, 25/3, 85/3, 205/3, 337/3, 301/3, 457/3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2011.12940 on 2026-09-22: two versions (25 November 2020 and 19 June 2021) and the author's comment, which announces a revision but no erratum",
+    "Crossref for 10.4007/annals.2024.199.1.5 and for works correcting it on 2026-09-22: no corrigendum",
+    "the Annals of Mathematics listing for volume 199 (2024), no. 1 on 2026-09-22: no erratum linked"
+   ],
+   "owner": "PAPER-CHEN-24",
+   "file": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+   "citation": "William Y. Chen, \"Nonabelian level structures, Nielsen equivalence, and Markoff triples\", Annals of Mathematics 199 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CHEN-24/E2",
+   "kind": "misprint",
+   "locator": "§5.6, p. 85, Proposition 5.6.1(b), first sentence (arXiv v2)",
+   "printed": "There are precisely two unramified points in π^{−1}(1728) if p ≡ 1, 7 mod 8, and no unramified points otherwise.",
+   "correction": "f^{−1}(1728), the fibre of the forgetful map f : M_p → M(1) named in the statement; π is not defined in this proposition.",
+   "reason": "The rest of the proposition, and part (a), use f for the map M_p → M(1); π is used elsewhere in the paper for the universal admissible cover C → E. The displayed formula in (b) is for |f^{−1}(1728)| and is correct: computing the γ₁₇₂₈-orbits on X*(p) gives 20, 15, 44, 104, 171, 152, 231 for p = 5, 7, 11, 13, 17, 19, 23, with 0, 2, 0, 0, 2, 0, 2 fixed points, matching the four cases of the display and the claim about p ≡ 1, 7 mod 8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2011.12940 on 2026-09-22: two versions (25 November 2020 and 19 June 2021) and the author's comment, which announces a revision but no erratum",
+    "Crossref for 10.4007/annals.2024.199.1.5 and for works correcting it on 2026-09-22: no corrigendum",
+    "the Annals of Mathematics listing for volume 199 (2024), no. 1 on 2026-09-22: no erratum linked"
+   ],
+   "owner": "PAPER-CHEN-24",
+   "file": "research/blueprint/papers/PAPER-CHEN-24.result.json",
+   "citation": "William Y. Chen, \"Nonabelian level structures, Nielsen equivalence, and Markoff triples\", Annals of Mathematics 199 (2024), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DEMARCO-KRIEGER-YE-20/E1",
    "kind": "misprint",
    "locator": "§§2.1–2.2, pp.6–7 (arXiv v2; published Annals version not collated)",
