@@ -4604,7 +4604,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CASTELLA-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1286"
   },
   {
    "id": "REV-PAPER-CASTELLA-ETAL-22",
@@ -7673,8 +7674,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1460"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1460",
+   "finishedAt": "2026-09-22T22:46:11Z"
   },
   {
    "id": "REV-PAPER-KISIN-PAPPAS-18",
