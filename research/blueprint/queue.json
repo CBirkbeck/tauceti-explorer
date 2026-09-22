@@ -2778,8 +2778,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HARPAZ-WITTENBERG-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1179"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1179",
+   "finishedAt": "2026-09-22T18:04:28Z"
   },
   {
    "id": "REV-PAPER-HARPAZ-WITTENBERG-16",
@@ -3207,8 +3208,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1205"
+   "state": "pending",
+   "note": "released on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
