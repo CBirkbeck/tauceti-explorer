@@ -1582,8 +1582,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NGODAC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1111"
+   "state": "pending",
+   "note": "released on GitHub issue #1111"
   },
   {
    "id": "REV-PAPER-NGODAC-21",
@@ -4026,7 +4026,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-QIAN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1252"
   },
   {
    "id": "REV-PAPER-QIAN-23",
