@@ -8,7 +8,7 @@ Bhatt–Ma–Patakfalvi–Schwede–Tucker–Waldron–Witaszek, [Globally +-reg
 
 The entire published paper was read, including proofs and bibliography. Selected arXiv v3 passages were compared; this is not a full collation of that preprint. The published source is CC BY 4.0 (p220): [licence](https://creativecommons.org/licenses/by/4.0/). This report paraphrases the authors and explicitly distinguishes worker diagnostics and proposed repairs from their assertions.
 
-The [machine-readable extraction](PAPER-BHATT-ETAL-23.result.json) has **271 items**, **554 dependency edges**, **60 definition/construction entries**, **180 mathematical planning tests**, and **15 routes**. Seven item groups cite pinned library declarations, eleven import existing planned interfaces, and 253 remain missing. Every missing item has exactly one route. These counts describe this checkpoint, **not exhaustive transitive closure**: the 21 gaps below include original-source proofs, statement refinements and atomic splitting still needed.
+The [machine-readable extraction](PAPER-BHATT-ETAL-23.result.json) has **271 items**, **554 dependency edges**, **60 definition/construction entries**, **180 mathematical planning tests**, and **15 routes**. Seven item groups cite pinned library declarations, eleven import existing planned interfaces, and 253 remain missing. Every missing item has exactly one route. These counts describe this checkpoint, **not exhaustive transitive closure**. Of the 21 gaps below, 15 remain open; they cover original-source proofs, statement refinements and atomic splitting still needed. Six diagnostic gaps were resolved by the 2026-09-22 continuation, and seven verified source mistakes are recorded as `sourceIssues` E1–E7.
 
 Items carry source locators, proof outlines, explicit dependencies, reverse consumer uses and blocking gaps propagated through the graph. Each definition has three use-derived API obligations and three mathematical tests. Tests are proposed assertions, not executed Lean examples. A `library` label applies only to the named carrier/theorem, not all newly proposed API.
 
@@ -176,75 +176,105 @@ Part II of `AlgebraicModuliForArithmeticGeometry`; proposed galaxy `arithmeticge
 
 R09 supplies parameter schemes, stacks and restricted coarse spaces, but no inspected layer owns the stable-surface boundedness/hulls, stable-limit and determinant-positivity theorems. Curve stable reduction is not stable-surface moduli.
 
-Start after Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry R09.2–R09.5), importing actual Hilbert/Quot, polarized Isom, algebraic-stack and finite-inertia coarse-space constructions. Import coherent base change from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, J-C), relative Proj/polarized descent from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), singular duality from AnalyticStacks:AS.1 and intersection theory from SchemeAndStackFoundations:SF.5. Import second-Veronese Lefschetz pencils from LefschetzPencilsAndVanishingCycles:LPV.3, not a duplicate pencil package. Use the pending SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry extension for threefold MMP, lc inversion and canonical singularities; Saito's log-smooth extension belongs to SF.4. Construct Patakfalvi's exact stable-surface groupoid: flat projective families with geometric slc canonically polarized volume-v fibres and EVERY reflexive canonical power compatible with EVERY base change. A naive Q-Gorenstein family over a normal base need not satisfy it. Prove Theorem10.2 separately: Artin finite type, separated finite diagonal, and a separated finite-type coarse algebraic space over Z[1/30] for rational v>0. Build HK19 boundedness, Kollár hull strata, the explicit Hilbert/Isom atlas and the inversion-of-adjunction deformation input, including the central fibre in the normalized pair. Prove Cor10.3's stable lift over an open number ring for finite fields of sufficiently large characteristic. For integer v>0 and d the product of primes≤β(v), with β(1)=393 as printed internally and β(v)=213v+48 for v≥2, prove properness of the CLOSURE OF THE SMOOTH LOCUS over Z[1/d] by Lefschetz pencils, the Saito extension and threefold canonical models; use BK21/Kollár21 CM to verify the central fibre and Kollár conditions. Prove projectivity of its coarse space by the full Pat18 determinant-line argument, finite scheme cover, descent of a power, generic CM-line positivity and the finite bad-prime argument. Neither properness nor finite diagonal alone gives projectivity. Record the introduction/proof value373 versus internal393 mismatch for volume1; do not silently claim the stronger threshold. The entire stable stack over Z[1/30] is not asserted proper. Close the uninspected positivity, boundedness, semistable-extension and canonical-model source proofs before approval.
+Start after Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry R09.2–R09.5), importing actual Hilbert/Quot, polarized Isom, algebraic-stack and finite-inertia coarse-space constructions. Import coherent base change from The Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge, J-C), relative Proj/polarized descent from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer2), singular duality from AnalyticStacks:AS.1 and intersection theory from SchemeAndStackFoundations:SF.5. Import second-Veronese Lefschetz pencils from LefschetzPencilsAndVanishingCycles:LPV.3, not a duplicate pencil package. Use the pending SchemeAndStackFoundationsMixedCharacteristicBirationalGeometry extension for threefold MMP, lc inversion and canonical singularities; Saito's log-smooth extension belongs to SF.4. Construct Patakfalvi's exact stable-surface groupoid: flat projective families with geometric slc canonically polarized volume-v fibres and EVERY reflexive canonical power compatible with EVERY base change. A naive Q-Gorenstein family over a normal base need not satisfy it. Prove Theorem10.2 separately: Artin finite type, separated finite diagonal, and a separated finite-type coarse algebraic space over Z[1/30] for rational v>0. Build HK19 boundedness, Kollár hull strata, the explicit Hilbert/Isom atlas and the inversion-of-adjunction deformation input, including the central fibre in the normalized pair. Prove Cor10.3's stable lift over an open number ring for finite fields of sufficiently large characteristic. For integer v>0 and d the product of primes≤β(v), with β(1)=373 (Theorem K and the proof; Theorem10.6's printed393 is a misprint, sourceIssues E5) and β(v)=213v+48 for v≥2, prove properness of the CLOSURE OF THE SMOOTH LOCUS over Z[1/d] by Lefschetz pencils, the Saito extension and threefold canonical models; use BK21/Kollár21 CM to verify the central fibre and Kollár conditions. Prove projectivity of its coarse space by the full Pat18 determinant-line argument, finite scheme cover, descent of a power, generic CM-line positivity and the finite bad-prime argument. Neither properness nor finite diagonal alone gives projectivity. Theorem10.6's393 for volume1 is a misprint for373 (E5): the proof's conditions p≥114 and p>deg D, with deg D≤373, hold for every p>373. The entire stable stack over Z[1/30] is not asserted proper. Close the uninspected positivity, boundedness, semistable-extension and canonical-model source proofs before approval.
 
 The birational extension is the same pending owner proposed in PAPER-HACON-WITASZEK-23, now expanded at its logically earlier threefold/BCM inputs. Hacon–Witaszek's special fourfold MMP remains downstream: it is never used circularly to prove these inputs. Positivity, numerical-Picard and arithmetic-presentation proposals likewise retain their existing pending IDs.
 
-## Source diagnostics requiring independent verification
+## Source mistakes (sourceIssues E1–E7)
 
-These are worker findings, not author-approved errata and not claims that the main MMP theorem is false. Printed statements, sufficient corrected candidates and actual consumers must be kept separate.
+A continuation on 2026-09-22 (Claude Code, session `cc-fb70e5`) checked the earlier diagnostics at their locators in the published PDF. The same PDF is used (SHA-256 `a07fcb79…`), with page images for E1–E5, and the passages were collated with arXiv v1, v2 and v3. None has a published correction: Crossref records no update to the DOI, no correction notice was found, and v3 (2022-12-05) is the latest arXiv version. Each is in the JSON's `sourceIssues` with printed text, correction, reason and search record. They are worker findings awaiting the independent review, not author-approved errata. None of them changes a main theorem.
 
-### A. Lemma2.56: a limit equality stronger than its proof supplies
+### E1. Lemma 2.56: the limit is only a lower bound (error; p.101)
 
-Take an algebraically closed field k of characteristic7 and X=A²_k. Let f:Y→X blow up the origin, with exceptional E. Let M be the sum of the strict transforms of the two coordinate axes. M is effective, has no f-exceptional component and M∼−2E, hence is f-ample. At x=E∩(one strict transform), mult_x M=1.
+The second assertion says that ε_sa(A; x) "converges to k when δ → 0". The same wording is in v1 Lemma 2.37, v2 Lemma 2.50 and v3 Lemma 2.56. It is false.
 
-Blow up x by π:W→Y; write G for the new exceptional curve and E′ for the strict transform of E. Then E′²=−2, G²=−1, E′·G=1, and
+**Counterexample.** Let k be a field of characteristic p > 0, X = A²_k, and Y the blow-up of the origin, with exceptional curve E = F. Let M be the sum of the strict transforms of the two axes. Then M ∼ −2E is effective, Cartier, globally generated over X and has no exceptional component. At x = E ∩ (strict transform of the y-axis), mult_x M = 1.
 
-`D_t = π*M − tG ∼ −2E′ − (2+t)G`.
+Blow up x, with new curve G and strict transform E′. Then E′² = −2, G² = −1, E′·G = 1 and π*M − tG ∼ −2E′ − (2+t)G, of degree 2 − t on E′ and t on G. So ε(M; x) = 2. At t = 2 the ideal (x, y²) pulls back to O(−E′ − 2G), from the charts c²d and f², so ε_sa(M; x) = 2 as well. With A = M and Λ = 0 the threshold is constantly 2 ≠ k = 1. The intersection numbers and chart exponents were re-verified by exact arithmetic and sympy.
 
-Thus `D_t·E′ = 2−t` and `D_t·G = t`. The relative Seshadri threshold is2, not1. At t=2 the line bundle is globally generated over X: the ideal (x,y²) principalizes with divisor E′+2G, so its square gives O(−2E′−4G). This also checks the endpoint directly. In the first y-chart x=ab,y=b, the ideal is b(a,b). Blowing up a=b=0 gives the charts a=c,b=cd, where the ideal is (c²d), and a=ef,b=f, where it is (f²); these are the claimed exceptional multiplicities.
+**Corrected statement and proof (item `seshadri-lower`).** Fix D. For each rational 0 < γ < k put c = max_j |D·F_j| over the finitely many exceptional curves F_j, and δ₀ = γ/c. Then ε_sa(A; x) = ε(A; x) ≥ k − γ for every δ < δ₀ and every admissible A, M, Λ and x. The proof is the printed one, made uniform:
 
-Set A=M and the source's Λ=D=0. Its perturbed divisor is constantly M, hence the threshold is constantly2 although the printed claimed limit is k=1. The candidate sufficient statement is instead: for every γ>0, sufficiently small δ gives ε≥k−γ (a lower-limit bound). The source proof's intersection argument appears to supply that inequality. Lemma8.15 needs ≥1 and Claim8.21 applies the argument to 3C to obtain >2; neither appears to require equality. Independently verify the complete geometric hypotheses and this weaker replacement before closing either consumer. The integer/intersection and chart-exponent calculations are checked separately; they are not a Lean proof.
+- On the blow-up W of x, write π*A − (k−γ)E ∼_Q M_W + γE + π*Λ.
+- For C = E the degree is −(k−γ)E² > 0.
+- For the strict transform of F_j through x, M_W·C ≥ 0 and E·C ≥ 1, so the degree is at least γ − δ|D·F_j| ≥ 0.
+- For the other F_j the degree is A·F_j ≥ 0.
+- Lemma 2.55 on W turns nef into semiample.
 
-### B. Proposition6.28: pure is not ordinary
+The first assertion (Λ = 0, ≥ k) is correct.
 
-For the identity of a complete DVR R=k[[t]], with S its reduced closed point, the pair is purely globally +-regular by the regular-boundary inversion statement, but cannot be ordinary globally +-regular. Already the identity finite cover would require a splitting of R→t⁻¹R. Every R-linear map t⁻¹R→R sends 1 to t times its value at t⁻¹, hence into the maximal ideal; it cannot send1 to1.
+**Consumers.** Proposition 8.15 (p.173, (8.15.4)) uses only the first assertion, ε_sa(M; x) ≥ 1. Claim 8.21 (p.178) uses k = 3 and needs only ε_sa > 2, which the lower bound gives.
 
-The proposed birational conclusion must preserve the pure qualifier. Theorem7.14 uses that pure conclusion. Check the proof on a fixed complete base through Proposition4.27; do not assume the unknown general pure-completion equivalence.
+### E2. Proposition 6.28: the pure qualifier fell out (misprint; p.154)
 
-### C. Other load-bearing distinctions
+The published proposition reads: hypothesis "globally +-regular (completely purely globally +-regular over R, resp.)", conclusion "globally +-regular (globally +-regular, resp.)". The earlier versions differ:
 
-Definition2.19 needs a nonempty linear system. The closed-centre resolution formulations need a nowhere-dense centre. Lemma4.28's sign must match the negative twist in Corollary3.7, and Corollary4.20 needs a Weil/reflexive pushforward adapter beyond a Q-Cartier lemma. The main paper itself acknowledges an erroneous adjoint argument in arXiv v1; its corrected published construction controls this extraction.
+- v1 Proposition 6.22 prints "purely … purely".
+- v2 Proposition 6.28 prints "completely purely … completely purely".
+- v3 prints the garbled "( ly globally +-regular, resp.)", confirmed on the page image of v3 p.71.
 
-For stable surfaces the volume-one prime threshold is373 in Theorem K and the proof, but393 in printed Theorem10.6. This checkpoint uses the conservative393, without silently asserting the stronger bound. CT20v3's erratum repairs a different dependency, not the statement of its divisor-descent Lemma2.17. Its geometrically connected fibre condition still must be justified at the actual consumers.
+The published resp. conclusion is false. For R = k[[t]], f = id and Δ = S = V(t), the pair is purely globally +-regular: for every finite normal R′ ⊇ R with uniformizer s and ramification e, R → s^{1−e}R′ splits because 1 ∉ sR′. But O → O(S) = t^{−1}R never splits.
 
-## Open gap ledger
+**Corrected statement and proof (item `pure-birational-repair`).** The corrected statement is v2's: (Y, S_Y + B_Y) is completely purely globally +-regular over R, where S_Y is the strict transform. For the proof:
 
-1. `gap-empty-system`: Definition2.19 does not guard the minimum defining Mob/ Fix against an empty linear system (e.g. O(-1) on P¹). Require nonemptiness and check every consumer; §8's effective adjoint choices provide the intended scope.
+1. Complete at each closed point. Since R is excellent, normality and crepant pullback survive.
+2. Pass to a connected component X′ with R′ = H⁰(X′, O), which is complete local.
+3. Proposition 6.26 turns pure regularity into B⁰_{S′} = H⁰.
+4. Lemma 4.27 with B′ = B_{Y′} ≥ 0 identifies B⁰ on X′ and Y′ inside H⁰(X′, O) = H⁰(Y′, O).
+5. Proposition 6.26 on Y′ finishes.
 
-   Directly affected: `mobile-fixed`, `mobile-pullback`, `mobile-limit`. Further consumers inherit this blocker in the JSON.
+No comparison of pure and completely pure regularity over a non-complete base is used; Remark 4.30 leaves that open. Theorem 7.14 (p.165) applies the corrected form over its complete base.
 
-2. `gap-resolution-centres`: Theorem2.13 and Proposition2.14 say closed T without excluding T=X. Requiring the full inverse image to be an SNC divisor then fails. Verify the original CP/CJS/KW hypotheses; use a nowhere-dense closed centre avoiding components. Do not add preservation of the preexisting SNC locus to the stronger ample-exceptional resolution without proof.
+### E3. Lemma 4.28: sign of the twist (misprint; p.128)
+
+The proof twists by O_Y(f*(M − (K_X + S + B))), a big semiample bundle. It then cites Corollary 3.7 (p.107), which kills only negative powers. The twist must be the inverse, f*(K_X + S + B − M), which is the L of Theorem 7.2's proof (p.156). Its dual is exactly the displayed H⁰(K_Y + S_Y + f*(M − K_X − S − B)). The lemma is "a fact we will not use".
+
+### E4. Theorem 9.28(c): strict versus non-strict (misprint; p.206)
+
+It prints −4d_{Γ_i} < (K_X + Δ)·Γ_i < 0. Theorem I(c) (p.74), Lemma 9.29 and the proof (p.210) all give ≤, and no consumer uses strictness. Item `cone-length` states the non-strict bound.
+
+### E5. Theorem 10.6: β(1) = 393 should be 373 (misprint; p.216)
+
+Theorem K (p.76) and the proof use 373. The proof uses β(1) only through two conditions, p ≥ 110 + 4 for the fibre genus and p > deg D for the discriminant. The discriminant degree is 319K² + 12χ ≤ 325K² + 48 = 373 by Noether's formula and inequality. Both conditions hold for all p > 373. The printed 393 is a weaker statement.
+
+### E6. Theorem 2.13 / Proposition 2.14: the centre must be nowhere dense (error; p.85)
+
+For T = X, or T containing a component, g^{−1}(T) is not a divisor. Every application uses a nowhere-dense T: boundary supports of log resolutions, and the blow-up centre inside the proof of 2.14.
+
+### E7. Definition 2.19: nonempty linear systems (error; p.88)
+
+"the minimum exists" fails when |D| = ∅, for example O(−1) on P¹. Every Mob/Fix in §8 lives on a scheme projective and birational over an affine base, where every Cartier divisor has a section. Setting 8.5 moreover chooses K_X + S + B effective.
+
+### Other load-bearing distinctions
+
+Corollary 4.20 invokes Lemma 2.36 on a rounded divisor that need not be Q-Cartier; that gap remains open. The main paper itself acknowledges an erroneous adjoint argument (Lemma 4.25) in arXiv v1; its corrected published construction controls this extraction. CT20v3's erratum repairs a different dependency, not the statement of its divisor-descent Lemma 2.17. Its geometrically-connected-fibre condition still must be justified at the actual consumers.
+
+## Gap ledger
+
+Gaps 1, 3, 4, 6, 7 and 9 were resolved by the continuation; their IDs are kept, and they no longer block any item. The other 15 are open.
+
+1. `gap-empty-system` (**resolved**, E7): Definition 2.19 needs |D| ≠ ∅. `mobile-fixed` carries the guard, and every use in §8 is on a scheme projective and birational over an affine base, where every Cartier divisor has a section.
+
+2. `gap-resolution-centres`: Theorem2.13 and Proposition2.14 say closed T without excluding T=X. Requiring the full inverse image to be an SNC divisor then fails. Verify the original CP/CJS/KW hypotheses; use a nowhere-dense closed centre avoiding components. Do not add preservation of the preexisting SNC locus to the stronger ample-exceptional resolution without proof. Continuation: the T = X defect is recorded as E6, and every application uses a nowhere-dense T. The original CP19/CJS20/KW21 hypotheses remain to be read.
 
    Directly affected: `resolution-three`, `ample-exceptional-resolution`, `compatible-resolution`. Further consumers inherit this blocker in the JSON.
 
-3. `gap-seshadri-limit`: Lemma2.56's printed equality lim ε=k has a two-blowup counterexample with k=1 and constant ε=2, detailed in the report. The proof suggests only liminf ε≥k; §8 consumers seem to need only this lower bound. Independently verify the example and prove the weaker sufficient statement before closing those consumers.
+3. `gap-seshadri-limit` (**resolved**, E1): the counterexample is verified, the uniform lower bound is proved in `seshadri-lower`, and Proposition 8.15 and Claim 8.21 use only that bound.
 
-   Directly affected: `seshadri-lower`, `mobile-descent`, `exceptional-ceiling`. Further consumers inherit this blocker in the JSON.
-
-4. `gap-adjoint-sign`: Lemma4.28's displayed positive L=M-(K_X+S+B) disagrees with the Cor3.7 negative-twist input and its own dual expression. Keep the asserted result provisional and check the candidate replacement L=(K_X+S+B)-M in every step; no author-approved erratum located.
-
-   Directly affected: `adjoint-single-complex`. Further consumers inherit this blocker in the JSON.
+4. `gap-adjoint-sign` (**resolved**, E3): the positive twist in the proof of Lemma 4.28 is a misprint. With the inverse twist, Corollary 3.7 applies and the dual matches the statement.
 
 5. `gap-weil-adapter`: Corollary4.20 invokes Lemma2.36 on a rounded divisor on Y that is not guaranteed Q-Cartier. Supply a reflexive/Weil pushforward version with a codimension-one proof or justify the missing Q-Cartier condition.
 
    Directly affected: `divisor-pushforward`, `rounded-birational`. Further consumers inherit this blocker in the JSON.
 
-6. `gap-pure-birational`: Proposition6.28's ordinary globally +-regular conclusion from pure global +-regularity fails already for the identity of a DVR with its reduced closed divisor. Candidate conclusion preserves 'purely'; Theorem7.14's consumer uses that form. Verify its fixed-complete-base proof from Proposition4.27 without assuming general adjoint completion, which Remark4.30 leaves open.
+6. `gap-pure-birational` (**resolved**, E2): the published resp. conclusion dropped 'completely purely', which arXiv v2 has. The corrected statement is proved in `pure-birational-repair` from Proposition 6.26 and Lemma 4.27, componentwise after completion, and Theorem 7.14 is covered.
 
-   Directly affected: `pure-birational-repair`, `surface-plus-perturb`. Further consumers inherit this blocker in the JSON.
-
-7. `gap-cone-length`: Theorem9.28's internal strict length bound conflicts with its proof and introductory non-strict bound. Retain only ≤4d_C until the strict endpoint is independently justified.
-
-   Directly affected: `cone-length`. Further consumers inherit this blocker in the JSON.
+7. `gap-cone-length` (**resolved**, E4): the strict '<' of Theorem 9.28(c) is a misprint for the ≤ 4d_C of Theorem I(c), Lemma 9.29 and the proof.
 
 8. `gap-section-nine-scope`: Check the repaired supplier selection and standing hypotheses: Cor9.33 needs general BPF9.27 rather than big-only9.17;9.36 needs full-boundary termination9.8 plus terminalization, not only9.7;9.34 must retain characteristic exclusions used by9.20;9.21 needs the three-dimensional normal effective-boundary context.
 
    Directly affected: `real-bpf`, `finite-minimal-models`, `finite-closed-termination`, `dlt-modification-qfactorial`, `dlt-modification-nef`, `dlt-modification-excess`, `dlt-modification-fibres`. Further consumers inherit this blocker in the JSON.
 
-9. `gap-moduli-bound`: Theorem K gives 373 for v=1 whereas printed Theorem10.6 gives 393; the proof computes 373. Use the conservative 393 checkpoint and retain β(v)=213v+48 for v≥2, pending version/author clarification. Do not replace the closure of the smooth locus by the entire stable-surface moduli stack.
-
-   Directly affected: `discriminant-bound`, `smooth-closure-proper`, `smooth-coarse-projective`. Further consumers inherit this blocker in the JSON.
+9. `gap-moduli-bound` (**resolved**, E5): Theorem 10.6's β(1) = 393 is a misprint for Theorem K's 373, since the proof's conditions hold for all p > 373. The items still prove properness only for the closure of the smooth locus, not the whole stable-surface stack.
 
 10. `gap-kollar-family`: Pat18 Definition1.5 requires all reflexive powers of the relative dualizing sheaf to commute with arbitrary base change; naïve flat Q-Gorenstein stable fibres are not the same functor. Close this condition for the constructed stable limit. In normalized central-fibre inversion retain the central fibre in the boundary before forgetting it.
 
@@ -296,9 +326,13 @@ For stable surfaces the volume-one prime threshold is373 in Theorem K and the pr
 
 ## Sources and reading limits
 
-- **main**: [source](https://link.springer.com/content/pdf/10.1007/s10240-023-00140-8.pdf). Entire published 159-page paper, pp69–227, §§1–10 and references; continuous extracted text through line8125. Pages85,88,101,128,154,216 also checked as images. SHA-256: `a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6`. Limit: Full primary-paper reading, not full transitive prerequisite closure.
+- **main**: [source](https://link.springer.com/content/pdf/10.1007/s10240-023-00140-8.pdf). Entire published 159-page paper, pp69–227, §§1–10 and references; continuous extracted text through line8125. Pages85,88,101,128,154,216 also checked as images. SHA-256: `a07fcb798fee01a791980ef8fb72e345da22e7f406af2e245adc47da53cf73d6`. Limit: Full primary-paper reading, not full transitive prerequisite closure. Continuation (cc-fb70e5): pp.74–76, 85, 88, 96, 101, 107, 120–128, 146–156, 165, 169–178, 188, 194, 205–213 and 216–219 reread for the diagnostics, and pp.101, 128, 154, 206 and 216 image-checked.
 
-- **main-v3**: [source](https://arxiv.org/pdf/2012.15801v3). Selected algebra, vanishing, adjoint and MMP passages compared with the published version; earlier Hacon–Witaszek audit supplies the detailed partial log. SHA-256: `533218825ca5045a9e8e04da1f78ef51e05c90dd83ca4ecb7cd6e8c68dff3d80`. Limit: Not a full132-page version comparison. Published version controls this extraction.
+- **main-v3**: [source](https://arxiv.org/pdf/2012.15801v3). Selected algebra, vanishing, adjoint and MMP passages compared with the published version; earlier Hacon–Witaszek audit supplies the detailed partial log. SHA-256: `533218825ca5045a9e8e04da1f78ef51e05c90dd83ca4ecb7cd6e8c68dff3d80`. Limit: Not a full132-page version comparison. Published version controls this extraction. Continuation: collated Lemma 2.56 (p.29), Proposition 6.28 (p.71, page image showing the garbled '( ly globally'), the proof of Lemma 4.28, Theorem 9.28(c) and Theorem K/10.6.
+
+- **main-v1**: [source](https://arxiv.org/pdf/2012.15801v1). Lemma 2.37 (p.20; later Lemma 2.56) and Proposition 6.22 (p.48; later Proposition 6.28, printed 'purely … purely'). SHA-256: `984fd3f1636ceda5ad014eaab75eb11d44063aeab994bafc64efe4898da5cd92`. Limit: only these passages collated.
+
+- **main-v2**: [source](https://arxiv.org/pdf/2012.15801v2). Lemma 2.50 (p.26; later Lemma 2.56), Proposition 6.28 (p.64, printed 'completely purely … completely purely'), the proof of Lemma 4.28 and Theorem 9.28(c). SHA-256: `8393a40ab0ced4f6d74d4dc7a7fab13586a5c35796daec08b5cd09d77bfdb878`. Limit: only these passages collated.
 
 - **bha20**: [source](https://arxiv.org/pdf/2008.08070v2). Definition2.1, Lemmas2.6/2.7 and Cor2.8; complete proofs2.17/2.18; Thm3.4 six clauses and3.5–3.7 refinements; Prop3.10 and sketches3.11/3.12; full Thm5.1 proof and Remark5.2; Cor5.11, Lem5.15, Thm5.16, Cor5.17 and footnote; full Thm6.28 proof and Remark6.29. SHA-256: `6f6292053c0c9bf20d33a07cadc1d072600b832b860d8a2aaa857d4eddba2097`. Limit: §4 geometric heart, §6.1–6.5 graded construction and full BL integral Riemann–Hilbert construction remain open.
 
@@ -326,4 +360,6 @@ The JSON's prerequisite list distinguishes independently read sources from bibli
 
 Run the repository paper checker and the supplemental dependency/route/API audit recorded in the JSON. Their scope is structural consistency, not mathematical proof. No Lean deliverable is required for this paper job; no Lean compilation or execution of the180 tests is claimed.
 
-Resume from [the handoff](../handoff/PAPER-BHATT-ETAL-23.md). The next worker should prioritize the two explicit counterexamples and their minimal sufficient repairs, then exact original-source closure and finer statement splitting. This checkpoint must not be marked complete merely because every currently listed missing item has a route.
+The 2026-09-22 continuation also ran `scripts/check_paper.py` and an exact-arithmetic and sympy check of the E1 counterexample: the nef interval is [0,2] for 41 rational t, with chart exponents c²d and f².
+
+Resume from [the handoff](../handoff/PAPER-BHATT-ETAL-23.md). The two counterexamples are now verified and their repairs proved (E1, E2). The next worker should continue with the open source issues (Corollary 4.20's Weil adapter, the §9 supplier scope, the Kollár base-change condition, CT geometric connectedness), then exact original-source closure and finer statement splitting. This checkpoint must not be marked complete merely because every currently listed missing item has a route.
