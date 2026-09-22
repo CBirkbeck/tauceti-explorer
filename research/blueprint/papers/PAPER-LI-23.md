@@ -101,7 +101,7 @@ All nine are in the published text.
   - **Why:** otherwise the proof (L = N_0, weight-(1, 1) Eisenstein series, λ_2 = 0) does not apply, and Remark 1.8's deduction for X_0(1)², which has signature (2, 2), fails.
 - **E8 (gap, proof of Theorem 1.1, p. 416).**
   - **Problem:** Example 2.7 and Theorems 1.3 and 1.7 need F = Q(√(d_1d_2)) to be a field. The case where d_1d_2 is a square (E_1 = E_2) is not treated. The arXiv TeX has a comment saying this case is covered.
-  - **Fix:** use Bruinier–Ehlen–Yang Theorem 5.5 (F = Q) or Viazovska.
+  - **Fix:** use Bruinier–Ehlen–Yang Theorem 6.1, the same-field case deduced from their Theorem 5.5 and Corollary 5.6. It strengthens Viazovska, who only obtains α ∈ Q̄.
 - **E9 (misprint, proof of Theorem 4.10, p. 413).**
   - **Problem:** Q(z, h) has exponent (−1)^i C(ℓ, i), while the alternating sum above it uses (−1)^{ℓ−i} C(ℓ, i). The result is off by the sign (−1)^ℓ.
   - **Effect:** none on the theorem, since the sign is absorbed into λ.
