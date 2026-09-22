@@ -7794,6 +7794,128 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E1",
+   "kind": "gap",
+   "locator": "Proof of Theorem 10.1, p.80 (the case v ∈ V_asd), and hence Theorems 1.4, 1.5 and 10.2 whenever V_asd ≠ ∅",
+   "printed": "\"For v ∈ V_asd, our definition of Int_{T,ν}(φ_K) differs from that of [LZ22a, (13.5.0.14)]. … However using [LZ22a, Theorem 10.5.1] instead of [LZ22a, Theorem 10.3.1], the proof of [LZ22a, Theorem 13.6] works the same way in this case.\"",
+   "correction": "At almost self-dual inert places, Theorem 10.1 (and Theorem 10.2 when V_asd ≠ ∅) should carry Li–Zhang Conjecture 10.4.1 as a hypothesis, or cite a proof of it.",
+   "reason": "Li–Zhang state before Theorem 10.5.1: \"Note that the result is conditional on Conjecture 10.4.1\". Their final version adds \"In [LRZ21] the authors plan to prove this conjecture, which from now on we assume to hold\". Li–Rapoport–Zhang, arXiv:2404.02214 (2024), Theorem 14.6.2, prove the structure \"conjectured by Kudla and Rapoport, … see also [LZ, Conj. 10.4.1]\". That postdates this paper; that it covers every part used was not checked line by line. The same dependence is recorded in PAPER-LI-LIU-21/E3 and PAPER-LI-LIU-22/E4. The ramified places, which are this paper's contribution, are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)",
+    "Li–Zhang, arXiv 1908.01701v3 and the authors' final version (Chao Li's homepage, KRProof.pdf), §§10.4–10.5",
+    "Li–Rapoport–Zhang, arXiv:2404.02214v2, Theorem 14.6.2"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E2",
+   "kind": "error",
+   "locator": "Proposition 3.20, p.27",
+   "printed": "\"For a rank r lattice L ⊂ V, … Moreover, the intersection of Z(L) with N_Λ is nonempty if and only if L ⊂ Λ^♯.\"",
+   "correction": "\"Moreover, if L is integral, the intersection of Z(L) with N_Λ is nonempty if and only if L ⊂ Λ^♯\" (for non-integral L, Z(L) is empty).",
+   "reason": "Take Λ a vertex lattice of positive type and L = Λ^♯. Then L ⊆ Λ^♯, but no vertex lattice Λ′ contains Λ^♯: it would satisfy Λ^♯ ⊆ Λ′ ⊆ Λ′^♯ ⊆ Λ ⊊ Λ^♯. So Z(L)_red = ∅ by (3.18), and Z(L) ∩ N_Λ = ∅. The proof's first line assumes \"L ⊂ Λ^♯ and L is integral\". Every use in the paper needs only the valid direction (L ⊄ Λ^♯ ⇒ empty) or has L integral: Proposition 2.12 with Λ_0 = Λ_0^♯, Theorem 4.14, and the start of Theorem 9.7.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E3",
+   "kind": "misprint",
+   "locator": "Theorem 7.1(3), p.46; §7.6, (7.39) and the text after it, pp.62–63",
+   "printed": "Theorem 7.1(3): \"If L = I_{n−t} ⊥ L_2 where L_2 is of full type t, then …\" (no t > 0). §7.6: \"It suffices to show Pden(I_n, L_1, q^{2j}) = 0. By Theorem 6.1 and Lemma 7.11, we have Pden(I_n, L, q^{2j}) = Σ_{i=0}^{n_1} Pden_{n_1−i}(I^{−ϵ}_n, L, q^{2j}) = …\"; \"Hence g_{ϵ_1}(n_1, n − t, r, X) is a polynomial of degree n_1 − r − 1\"; \"Pden′(L) = … Pden(I_n, L, q^{n−n_1}) = 0\".",
+   "correction": "\"… of full type t > 0\" (as in Theorem 1.6(3)); L_1 for L in (7.39) and in the last display; g_{ϵ_1}(n_1, n_1 − t, r, X).",
+   "reason": "For t = 0 the formula in (3) would give 0 for even t = 0, contradicting (2) for odd n; Theorem 1.6(3) states \"integral and of type t > 0\". In §7.6 the lattice being evaluated is L_1 = I_{n_1−t} ⊥ L_2 of rank n_1, as the preceding sentence and the summation range 0 ≤ i ≤ n_1 show, and (7.39) itself has g_{ϵ_1}(n_1, n_1 − t, r, ·).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 6.4, p.44",
+   "printed": "\"Then according to [LL22, Lemma 2.16], |Pherm_{L_φ,H^k}(O_{F_0}/(π^d_0))| = |Pherm_{L,H^k}(O_{F_0}/(π^d_0))|.\"",
+   "correction": "[LL22, Lemma 2.15] (the published numbering, used elsewhere in the paper, e.g. Lemma 5.12).",
+   "reason": "In the published Li–Liu (Forum Math. Pi 2022), 2.16 is a Definition (the normalized local Siegel series), and the Cho–Yamauchi count is Lemma 2.15; \"Lemma 2.16\" is its number in arXiv 2101.09485v2. The paper otherwise cites the published numbering: Definition 2.11, Lemmas 2.12, 2.15, 2.23.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E5",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 9.4, (9.5), p.74",
+   "printed": "The second sum on the right of (9.5) runs over \"M^♭ ⊂ L′ ⊂ L′^∨, L′^♭ ≠ M^♭\".",
+   "correction": "\"M^♭ ⊂ L′ ⊂ L′^♯\".",
+   "reason": "In this paper L^∨ is the dual for Tr_{F/F_0}(( , )), with L^∨ = π^{−1}L^♯ (§4.2, proof of Lemma 4.13), while all the sums of §9 run over integral lattices L′ ⊆ L′^♯, as the left side of (9.5) and Definition 9.2 do.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-HE-LI-SHI-ETAL-23/E6",
+   "kind": "misprint",
+   "locator": "Introduction, definition of Den(M, L), p.3, in arXiv v2 (2208.07988v2)",
+   "printed": "\"Den(M, L) := lim_{d→+∞} |Herm_{L,M}(O_{F_0}/π_0^d)| / q^{N·d_{L,M}}\"",
+   "correction": "\"… / q^{d·d_{L,M}}\".",
+   "reason": "There is no N; the exponent is d times the dimension d_{L,M}, as in Definition 5.1.",
+   "affects": "nothing",
+   "known": "Corrected in the authors' final version (Chao Li's homepage, Kramer.pdf, 21 July 2023), which is the only difference found between it and arXiv v2",
+   "searched": [
+    "Invent. Math. 234 (2023), no. 2, 721–817, DOI 10.1007/s00222-023-01209-1: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2208.07988: v1 (16 Aug 2022) and v2 (25 Jun 2023, \"final version, to appear in Invent. Math\"); v2 compared character by character with the authors' final version on Chao Li's homepage (Kramer.pdf, dated 21 July 2023)"
+   ],
+   "owner": "PAPER-HE-LI-SHI-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-HE-LI-SHI-ETAL-23.result.json",
+   "citation": "He–Li–Shi–Yang, \"A proof of Kudla-Rapoport conjecture for Krämer models\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-IM-KIM-LE-ETAL-24/E1",
    "kind": "misprint",
    "locator": "Section 0.2.2, the definition of the alternating multiple zeta values (published: Section 1.2.2); present in arXiv v2 and in the published version",
