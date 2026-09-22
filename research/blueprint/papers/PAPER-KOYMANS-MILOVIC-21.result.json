@@ -1,0 +1,492 @@
+{
+  "paper": "PAPER-KOYMANS-MILOVIC-21",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Joint distribution of spins",
+    "authors": "Peter Koymans and Djordjo Milovic",
+    "venue": "Duke Mathematical Journal 170 (2021), no. 8, 1723–1755",
+    "doi": "10.1215/00127094-2020-0068",
+    "arxiv": "1809.09597v1",
+    "url": "https://arxiv.org/abs/1809.09597v1",
+    "readSections": [
+      "The entire arXiv v1 (25 September 2018, 23 pages; §§1–5 and references), read 2026-09-22. PDF https://arxiv.org/pdf/1809.09597v1, SHA-256 d56a738ae1b1487dd01b92b7084dd6bd4b9a041a85efdd2fac66b86afd8af433. It is the only public version. The Duke version (2021, 33 printed pages) was not accessible and may be revised, so locators are v1 pages. FIMR arXiv:1110.6331v2 was consulted for Proposition 5.2 and §6."
+    ]
+  },
+  "summary": "Answers the question of Friedlander, Iwaniec, Mazur and Rubin on the joint distribution of spins of prime ideals. For a Galois field K (totally real with totally positive units squares, or totally complex) and S ⊂ Gal(K/ℚ) with S ∩ S^{−1} = ∅, the joint spin ∏_{σ∈S}(π/σ(π)) oscillates over prime ideals with a power saving (Theorem 1), and the spins are jointly equidistributed (Theorem 2). This is conditional on FIMR's short character sum Conjecture C_n. The proof is FIMR's type I/type II sieve for primes. The linear sums need new counts of squarefull norms in a submodule (Lemma 3.1, via Widmer's lattice count) and of common factors of two norms (Lemma 3.2, via Bhargava's geometric sieve). The bilinear sums come from the authors' earlier estimate. As an application there is no governing field for the 16-rank of ℚ(√−4p), a conditional negative answer to Cohn–Lagarias (Theorem 3). The atlas plans residue symbols (CA.1), Minkowski's second theorem (GN.1) and Chebotarev (AN.4), and Mathlib has Dedekind's lemma and Dirichlet's unit theorem. It has no spins, prime-detecting sieves in number fields or governing fields. Five source issues are recorded (misprints and small gaps).",
+  "items": [
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/1",
+      "kind": "definition",
+      "name": "Quadratic residue symbols in a number field",
+      "statement": "For an odd prime ideal p of O_K and α ∈ O_K, (α/p)_{K,2} ∈ {−1, 0, 1} is the unique element with (α/p) ≡ α^{(N(p)−1)/2} mod p; for an odd ideal b = ∏p^{e_p}, (α/b) = ∏(α/p)^{e_p}; for odd β ∈ O_K, (α/β) = (α/(β)).",
+      "locator": "§2.1, p.4, arXiv:1809.09597v1",
+      "status": "planned",
+      "planned": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "note": "CA.1 plans power residue symbols in number fields; its audit records only the quadratic case over ZMod p and finite fields as built."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/2",
+      "kind": "definition",
+      "name": "Hilbert symbols and the factors μ₂, μ_∞",
+      "statement": "For a place v of K and α, β ∈ K, (α, β)_v = 1 iff x² − αy² − βz² = 0 has a nonzero solution in K_v, and −1 otherwise; μ₂(α, β) = ∏_{v|2}(α, β)_v and μ_∞(α, β) = ∏_{v|∞}(α, β)_v. (α, β)_∞ = 1 if K is totally complex, or if K is totally real and β ≻ 0.",
+      "locator": "§2.1, p.4, after [FIMR, §3], arXiv:1809.09597v1",
+      "status": "planned",
+      "planned": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "note": "CA.1 plans residue symbols at 2 and the infinite places (local Hilbert symbols); partly built per its audit."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/3",
+      "kind": "theorem",
+      "name": "Lemma 2.1 (quadratic reciprocity in a number field)",
+      "statement": "For α, β ∈ O_K with β odd, μ_∞(α, β)(α/β) depends only on β mod 8α. If α is also odd, then (α/β) = μ₂(α, β)μ_∞(α, β)(β/α), and μ₂(α, β) depends only on α and β mod 8. This follows from Hilbert reciprocity and local computations at the places above 2 ([FIMR, Lemma 2.1, Proposition 2.2, Lemma 2.3]).",
+      "locator": "Lemma 2.1, p.4, citing [FIMR], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.1 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/4",
+      "kind": "theorem",
+      "name": "Norm compatibility of quadratic residue symbols",
+      "statement": "For a Galois extension K/E of number fields, x ∈ O_E and odd w ∈ O_K, (x/w)_{K,2} = (x/N_{K/E}(w))_{E,2}.",
+      "locator": "§5, p.22 (in the computation of ∏_{σ∈S}spin(σ, w)), arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.1 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/5",
+      "kind": "theorem",
+      "name": "Dedekind–Artin independence of characters",
+      "statement": "Distinct monoid homomorphisms from a monoid G to an integral domain L are linearly independent over L; in particular distinct automorphisms of a field K are K-linearly independent.",
+      "locator": "Proof of Lemma 3.2, p.13 (\"Artin–Dedekind Lemma\"), arXiv:1809.09597v1",
+      "status": "library",
+      "library": [
+        "mathlib:linearIndependent_monoidHom"
+      ],
+      "note": "Mathlib/LinearAlgebra/LinearIndependent/Basic.lean:502 at 082e2d3."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/6",
+      "kind": "theorem",
+      "name": "Dirichlet's unit theorem",
+      "statement": "Every unit of O_K is uniquely the product of a root of unity and powers of a fundamental system of units; so O_K^× = T_K × V_K with T_K finite and V_K free of rank r_K (n − 1 for totally real K, n/2 − 1 for totally complex Galois K).",
+      "locator": "§2.3, p.5, arXiv:1809.09597v1",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.Units.exist_unique_eq_mul_prod"
+      ],
+      "note": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:506 at 082e2d3."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/7",
+      "kind": "theorem",
+      "name": "Chebotarev density theorem",
+      "statement": "For a finite Galois extension L/K of number fields, the prime ideals of K whose Frobenius lies in a given conjugacy class C of Gal(L/K) have natural density |C|/[L : K]; in particular degree-one principal prime ideals of K have positive density among all prime ideals.",
+      "locator": "§1, p.1; §5, p.23, arXiv:1809.09597v1",
+      "status": "planned",
+      "planned": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "note": "AN.4 plans Chebotarev via Hecke L-functions."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/8",
+      "kind": "construction",
+      "name": "Standing setup: Galois fields, the unit condition and class-group representatives",
+      "statement": "K/ℚ is Galois of degree n, either totally real with (O_K^×)² = (O_K^×)₊ (every totally positive unit is a square, (2.1)), so narrow and ordinary class groups agree and every principal ideal has a totally positive generator, or totally complex. For each of the h ideal classes C_i choose distinct odd ideals A_i, B_i ∈ C_i with f = N(∏A_iB_i) squarefree; set Cℓ_a = {A_i}, Cℓ_b = {B_i} and F = 2^{2h+3}fD_K (2.2).",
+      "locator": "§2, (2.1)–(2.2), pp.3–5, after [FIMR, p.707], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/9",
+      "kind": "definition",
+      "name": "Spins and joint spins",
+      "statement": "For σ ∈ Gal(K/ℚ) and an odd totally positive α, spin(σ, α) = (α/σ(α)); for totally real K and an odd principal prime p = πO_K with π ≻ 0, spin(σ, p) = (π/σ(π))_{K,2} (1.1), which governs the splitting of p in K(√σ^{−1}(π)). For S ⊂ Gal(K/ℚ) with σ ∈ S ⇒ σ^{−1} ∉ S and a map ψ on (O_K/FO_K)^× with ψ(αu²) = ψ(α), the joint spin is s_a = r(a)Σ_{t∈T_K}Σ_{v∈V_K/V_K²} r₊(tvα)ψ(tvα mod F)∏_{σ∈S}spin(σ, tvα) (2.4), where r(a) indicates that a is odd and principal, α is any generator and r₊ indicates total positivity. It is well defined since spin(σ, u²α) = spin(σ, α). For totally real K it reduces to r(a)ψ(α)∏_{σ∈S}spin(σ, α) with α ≻ 0; for Gal(K/ℚ) = ⟨σ⟩, S = {σ} it is FIMR's spin.",
+      "locator": "§1, (1.1), pp.1–2; §2.3, (2.3)–(2.4), pp.5–6, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/10",
+      "kind": "construction",
+      "name": "Fundamental domains for the unit action",
+      "statement": "For totally real K with (2.1), D ⊂ ℝⁿ₊ is FIMR's fundamental domain for the totally positive units acting on totally positive elements ([FIMR, (4.2), Lemmas 4.3–4.4, Corollary 4.5]); for totally complex K, D ⊂ ℝⁿ is the domain of [KM18a, Lemma 3.5], containing exactly |T_K| generators tα of each nonzero principal ideal. If α = Σa_iη_i ∈ D ∩ O_K has N(α) ≤ X then |a_i| ≪ X^{1/n}.",
+      "locator": "§2.4, p.6, citing [FIMR], [KM18a], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/11",
+      "kind": "definition",
+      "name": "Conjecture C_n (short real character sums)",
+      "statement": "For every n ≥ 3 there is δ(n) > 0 such that for every ε > 0 there is C(n, ε) with |Σ_{M<m≤M+N}χ(m)| ≤ C(n, ε)Q^{(1−δ(n))/n+ε} for all integers M, all Q ≥ 3, all N ≤ Q^{1/n} and all real non-principal characters χ of modulus q ≤ Q.",
+      "locator": "§2.5, p.7, after [FIMR, (9.4)], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "A conjecture beyond Burgess (which gives n = 3 with δ = 1/48). Routed to AnalyticNumberTheory AN.6 (the conjecture register) as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/12",
+      "kind": "theorem",
+      "name": "Corollary 2.2 (Conjecture C_n in arithmetic progressions)",
+      "statement": "Assume Conjecture C_n. Then there is δ(n) > 0 such that for every ε > 0, all odd squarefree q > 1, all N ≤ q^{1/n} and all integers M, l, k with q ∤ k: |Σ_{M<m≤M+N, m≡l mod k}χ_q(m)| ≤ C(n, ε)q^{(1−δ(n))/n+ε}, with χ_q = (·/q).",
+      "locator": "Corollary 2.2, p.7, citing [KM18a, Corollary 7], arXiv:1809.09597v1 (misprint E2)",
+      "status": "missing",
+      "note": "Statement with the +ε restored (E2). Routed to AnalyticNumberTheory AN.6 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/13",
+      "kind": "theorem",
+      "name": "FIMR's sieve for primes from type I and type II sums ([FIMR, Proposition 5.2])",
+      "statement": "Let (a_n) be a sequence on ideals of K with |a_n| ≤ 1. If A_d(x) = Σ_{N a ≤ x, d|a}a_a ≪ x^{1−ϑ+ε} for all ideals d and B(M, N) = Σ_{Na≤M}Σ_{Nb≤N}v_aw_b a_{ab} ≪ (M + N)^θ(MN)^{1−θ+ε} for all bounded v, w, then Σ_{Np≤x}a_p ≪ x^{1−ϑθ/(2+θ)+ε}. With (2.5) (ϑ = δ/(54n|S|²)) and (2.6) (θ = 1/(6n)) this gives the exponent θ(K, S) = δ(|S|n)/(54|S|²n(12n + 1)) of Theorem 1.",
+      "locator": "§2.6, p.7, citing [FIMR, Proposition 5.2]; FIMR arXiv:1110.6331v2, Proposition 5.2, p.24, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "The exponent was checked against FIMR. Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/14",
+      "kind": "theorem",
+      "name": "The linear (type I) estimate (2.5)",
+      "statement": "Assume Conjecture C_{|S|n}. For every nonzero ideal m and ε > 0, Σ_{N(a)≤X, m|a}s_a ≪_ε X^{1−δ/(54n|S|²)+ε}. Proof (§3), for m coprime to F and to σ(m) (σ ∈ S): write the generator in D as α = a + β with a ∈ ℤ, β ∈ M = ω₂ℤ + … + ω_nℤ. Then spin(σ, α) = ((β − σ(β))/(a + σ(β))), and reciprocity turns the sum into T(x; ρ, β) = Σ_a((a + β)/c) with c = ∏_σ c(σ, β) = gq (q squarefree of degree-one unramified primes, g squarefull-type). This is a character sum of length ≪ x^{1/n} and modulus ≪ x^{|S|}, bounded by g₀x^{(1−δ)/n+ε} via Corollary 2.2 unless (3.7) holds. The β satisfying (3.7), those with g₀ > Y, and the rest are bounded by (3.26), (3.27), Lemmas 3.1–3.2 and Y = x^{δ/(2n)}. The totally complex case shifts the fundamental domain by tv.",
+      "locator": "(2.5), p.7; §3, (3.1)–(3.30), pp.8–18, arXiv:1809.09597v1 (gap E3 on the reduction to such m; gap E4 in the use of Lemma 3.1)",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/15",
+      "kind": "theorem",
+      "name": "Lemma 3.1 (squarefull norms in a submodule)",
+      "statement": "Let K_σ be the fixed field of σ, O_K = O_{K_σ} ⊕ M′, and g₀(σ, β) the radical of the norm of the squarefull part g(σ, β) of c(σ, β) (the part of (β − σ(β)) prime to F). Then |{β ∈ M′ : |β^{(i)}| ≤ x^{1/n}, g₀(σ, β) > Z}| ≪_ε x^{1−1/ord(σ)+ε}Z^{−1+2/ord(σ)}. Proof: for each squarefull ideal g, count lattice points of Λ_g = {γ ∈ M″ : g | γ} in a box by Widmer's theorem, with λ_{g,1} ≫ g^{1/n} and det Λ_g ≫ g^{r/n}, r = n(1 − 1/ord(σ)), then sum over squarefull g.",
+      "locator": "Lemma 3.1 and proof, pp.10–12, generalising [KM18a, pp.17–18], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "FIMR describe this count as potentially very difficult ([FIMR, p.729]). Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/16",
+      "kind": "theorem",
+      "name": "Lemma 3.2 (common factors of two norms)",
+      "statement": "For distinct σ, τ ∈ S and f₁(β) = N(σ(β) − β), f₂(β) = N(τ(β) − β) on β = Σa_iω_i ∈ M: |{β ∈ M : |β^{(i)}| ≤ x^{1/n}, gcd(f₁(β), f₂(β)) > Z}| ≪_ε x^{(n−1)/n+ε}Z^{−1/18} + x^{(n−2)/n} + Z^{(2n−4)/3}. Proof: f₁, f₂ are coprime (Artin–Dedekind, using σ ≠ τ and S ∩ S^{−1} = ∅), so the geometric sieve bounds large common primes; the squarefull parts are bounded as in Lemma 3.1; and the squarefree common part is counted by linear independence of the two congruences modulo unramified degree-one primes. Take A = M = Z^{1/3}, using ord(σ) ≥ 3.",
+      "locator": "Lemma 3.2 and proof, pp.12–14, arXiv:1809.09597v1 (gap E4)",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/17",
+      "kind": "theorem",
+      "name": "Widmer's lattice point count ([Wid10, Theorem 5.4])",
+      "statement": "If Λ ⊂ ℝ^r is a lattice with successive minima λ₁ ≤ … ≤ λ_r and S ⊂ ℝ^r is bounded with boundary parametrisable by finitely many Lipschitz maps with constant L, then |Λ ∩ S| − vol(S)/det Λ| ≪_{r,L} max_{0≤i<r} L^i/(λ₁⋯λ_i).",
+      "locator": "Proof of Lemma 3.1, (3.10), p.11, citing Widmer [12, Theorem 5.4], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.4 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/18",
+      "kind": "theorem",
+      "name": "Minkowski's second theorem",
+      "statement": "For a lattice Λ ⊂ ℝ^r with successive minima λ₁, …, λ_r with respect to a convex symmetric body B, λ₁⋯λ_r vol(B) ≍_r det Λ; in particular det Λ ≫ λ₁^r.",
+      "locator": "Proof of Lemma 3.1, (3.12), p.11, arXiv:1809.09597v1",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "note": "GN.1 plans Minkowski's first and second theorems."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/19",
+      "kind": "theorem",
+      "name": "Bhargava's geometric sieve ([Bha14, Theorem 3.3])",
+      "statement": "Let B ⊂ ℝ^m be compact and Y ⊂ 𝔸^m_ℤ a closed subscheme of codimension 2 (the case used). For r > 0 and M > 0, |{a ∈ ℤ^m ∩ rB : a mod p ∈ Y(𝔽_p) for some prime p > M}| ≪ r^m/(M log M) + r^{m−1}, the implied constant depending on B and Y; Bhargava's theorem treats general codimension.",
+      "locator": "Proof of Lemma 3.2, (3.15), p.13, citing Bhargava [1, Theorem 3.3], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Used with k = 2, m = n − 1, r = x^{1/n}. Routed to ArithmeticStatistics ST.2 (uniform tail estimates) as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/20",
+      "kind": "theorem",
+      "name": "The bilinear (type II) estimate (2.6)",
+      "statement": "For bounded sequences (v_a), (w_b), Σ_{N(a)≤x}Σ_{N(b)≤y}v_aw_bs_{ab} ≪_ε (x^{−1/(6n)} + y^{−1/(6n)})(xy)^{1+ε}. Proof (§4): split by ideal classes. With aA = (α), bB = (β), AB = (γ) (all ≻ 0), use the factorisation spin(σ, αβ/γ) = spin(σ, γ)δ(σ; α, β)(αγ/σ(aB))(βγ/σ(bA))(α/σ(β)σ^{−1}(β)) (4.3) of [FIMR, (3.8)], valid also for totally complex K. Absorb the one-variable factors into the coefficients, split α, β modulo F, and reduce to bilinear forms in φ(α, β) = ∏_{σ∈S}(α/σ(β)σ^{−1}(β)), bounded by Lemma 4.1 after verifying (P1)–(P3). The totally complex case adds the sums over t, v.",
+      "locator": "(2.6), p.7; §4, (4.1)–(4.6), pp.18–22, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/21",
+      "kind": "theorem",
+      "name": "Lemma 4.1 ([KM18b, Proposition 3.6] with a weakened (P3))",
+      "statement": "Let D₁, D₂ be unit translates of D, f a nonzero ideal and γ : S_f × O_K → {−1, 0, 1} satisfy (P1) γ(w, z) = μ(ω, ζ)γ(z, w) for w ≡ ω, z ≡ ζ mod f; (P2) multiplicativity in each argument; (P3) γ(w, z) depends on z mod N(w), and Σ_{ξ mod N(w)}γ(w, ξ) = 0 whenever |N(w)| is not squarefull. Then Σ_{w∈D₁, N(w)≤M, w≡ω}Σ_{z∈D₂, N(z)≤N, z≡ζ}α_wβ_zγ(w, z) ≪_ε (M^{−1/(6n)} + N^{−1/(6n)})(MN)^{1+ε} for bounded (α_w), (β_z).",
+      "locator": "Lemma 4.1 and proof, p.20, citing [KM18b, Proposition 3.6], arXiv:1809.09597v1 (misprint and gap E5)",
+      "status": "missing",
+      "note": "The only property of squares used in [KM18b] is that there are ≪ M of size ≤ M²; squarefull numbers satisfy the same bound. Statement as corrected in E5. Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/22",
+      "kind": "theorem",
+      "name": "Properties (P1)–(P3) for φ(α, β)",
+      "statement": "φ(α, β) = ∏_{σ∈S}(α/σ(β)σ^{−1}(β)) satisfies (P1) by Lemma 2.1, φ(α, β) = (∏_σµ(σ; α, β))φ(β, α) with µ depending only on classes mod 8; (P2) by multiplicativity; and (P3) because ϕ(β) = ∏_{σ∈S}σ(β)σ^{−1}(β) divides N(β) (as S ∩ S^{−1} = ∅), and if p ∥ N(β) for an unramified degree-one prime p | β, then (ϕ(β)) is not a square of an ideal, so Σ_{ξ mod ϕ(β)}(ξ/ϕ(β)) = 0.",
+      "locator": "§4, pp.20–21, following [FIMR, Lemma 3.1], arXiv:1809.09597v1 (gap E5)",
+      "status": "missing",
+      "note": "Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/23",
+      "kind": "theorem",
+      "name": "Theorem 1 (oscillation of joint spins)",
+      "statement": "Let K/ℚ be Galois of degree n, totally real with every totally positive unit a square, or totally complex, and S ⊂ Gal(K/ℚ) nonempty with σ ∈ S ⇒ σ^{−1} ∉ S. Assume Conjecture C_{|S|n} with δ = δ(|S|n) > 0. Then for every ε > 0 and X ≥ 2, Σ_{N(p)≤X, p prime}s_p ≪ X^{1−δ/(54|S|²n(12n+1))+ε}, the implied constant depending on ε and K.",
+      "locator": "Theorem 1, p.2; proof §§2.6, 3, 4, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Generalises FIMR (Gal(K/ℚ) = ⟨σ⟩ cyclic, n ≥ 3, S = {σ}) to non-cyclic groups, several automorphisms and totally complex fields. The authors expect that σ^{−1} ∉ S for a single σ ∈ S might suffice. Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/24",
+      "kind": "theorem",
+      "name": "Theorem 2 (joint equidistribution of spins)",
+      "statement": "Let K/ℚ be totally real Galois of degree n with every totally positive unit a square, and S = {σ₁, …, σ_t} with σ ∈ S ⇒ σ^{−1} ∉ S. Assume Conjecture C_{tn}. Then for each e ∈ 𝔽₂^t, the proportion of principal prime ideals p with N(p) ≤ X and spin(σ_i, p) = (−1)^{e_i} for all i tends to 2^{−t}. With S = {σ, σ²}, Gal(K/ℚ) = ⟨σ⟩ and n ≥ 5, this answers the question of [FIMR, p.744].",
+      "locator": "Theorem 2, p.2, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "From Theorem 1 applied to every nonempty S′ ⊆ S; C_{tn} implies C_{mn} for m ≤ t with δ scaled by m/t, by splitting sums. The pairs {σ, σ^{−1}} fall under Chebotarev (McMeekin). Routed to SieveMethodsAndPrimePatterns SV.5 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/25",
+      "kind": "definition",
+      "name": "2^k-ranks and governing fields (Cohn–Lagarias)",
+      "statement": "rk_{2^k}A = dim_{𝔽₂}2^{k−1}A/2^kA. For fixed d ≢ 2 (mod 4) and primes p with dp a fundamental discriminant, a governing field for the 2^k-rank is a finite normal extension M_{d,k}/ℚ with a class function φ_{d,k} on Gal(M_{d,k}/ℚ) such that φ_{d,k}(Art_{M_{d,k}/ℚ}(p)) = rk_{2^k}Cℓ(ℚ(√dp)) (1.2). Cohn and Lagarias conjectured that governing fields exist for all k and d; Stevenhagen proved this for k ≤ 3, and none was known for any d when k ≥ 4. Smith's relative governing fields address Cℓ(K)[2^∞] for imaginary quadratic K.",
+      "locator": "§1, (1.2), p.3, citing [CL83], [CL84], [Ste88], [Smi17], arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2/ST.3 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/26",
+      "kind": "theorem",
+      "name": "The 8-rank of ℚ(√−4p) is governed by E = ℚ(ζ₈, √(1+i))",
+      "statement": "Gal(E/ℚ) ≅ D₄, O_E is a principal ideal domain, and 8 | h(−4p) iff p splits completely in E.",
+      "locator": "§5, p.22, arXiv:1809.09597v1",
+      "status": "missing",
+      "note": "Stated as well known. Routed to ArithmeticStatistics ST.2/ST.3 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/27",
+      "kind": "theorem",
+      "name": "The 16-rank criterion (5.1) ([KM18a, Proposition 6.2], after Bruin–Hemenway)",
+      "statement": "There are an integer F and ψ₀ : (O_E/FO_E)^× → ℂ with ψ₀(αu²) = ψ₀(α) for units u of O_E, such that for primes p ∤ F splitting completely in E and any prime π of O_E above p: 16 | h(−4p) ⇔ ψ₀(π mod F)(r(π)/π)_{E,2} = 1, where r ∈ Gal(E/ℚ) is a fixed element of order 4.",
+      "locator": "§5, (5.1), p.22, citing [KM18a, Proposition 6.2] and [BH13], arXiv:1809.09597v1 (misprint E1)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2/ST.3 as a source."
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/28",
+      "kind": "theorem",
+      "name": "Theorem 3 (no governing field for the 16-rank of ℚ(√−4p))",
+      "statement": "Assume Conjecture C_n for all n. Then there is no governing field for the 16-rank of ℚ(√−4p), i.e. no M_{−4,4} and φ_{−4,4} satisfying (1.2). Proof: a governing field K may be taken to contain E, so it is totally complex. With S the preimage of r in Gal(K/ℚ) (so S ∩ S^{−1} = ∅) and ψ(w) = ψ₁(w mod 8)ψ₀(N_{K/E}(w) mod F), (5.1) gives s_p = 2|T_K||V_K/V_K²|(1_{16|h(−4p)} − ½) for degree-one principal primes. If K governed the 16-rank, s_p would be constant (±|T_K||V_K/V_K²|) on unramified degree-one primes, contradicting the oscillation in Theorem 1.",
+      "locator": "Theorem 3, p.3; proof §5, pp.22–23, arXiv:1809.09597v1 (misprint E1)",
+      "status": "missing",
+      "note": "A negative answer to the Cohn–Lagarias conjecture, conditional on Conjecture C_n. Routed to ArithmeticStatistics ST.2/ST.3 as a source."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "J. B. Friedlander, H. Iwaniec, B. Mazur, K. Rubin, The spin of prime ideals, Invent. Math. 193 (2013), 697–749",
+      "link": "https://doi.org/10.1007/s00222-012-0438-8",
+      "why": "The spin framework, Lemma 2.1, fundamental domains, the factorisation (4.3), Proposition 5.2 and Conjecture C_n."
+    },
+    {
+      "citation": "P. Koymans, D. Milovic, On the 16-rank of class groups of Q(√−2p) for primes p ≡ 1 mod 4, Int. Math. Res. Not. IMRN 2019, 7406–7427",
+      "link": "https://doi.org/10.1093/imrn/rny010",
+      "why": "Totally complex fundamental domains (Lemma 3.5), Corollary 7 and the 16-rank criterion (Proposition 6.2)."
+    },
+    {
+      "citation": "P. Koymans, D. Milovic, Spins of prime ideals and the negative Pell equation x² − 2py² = −1, Compositio Math. 155 (2019), 100–125",
+      "link": "https://doi.org/10.1112/S0010437X18007601",
+      "why": "Proposition 3.6, the bilinear estimate behind Lemma 4.1."
+    },
+    {
+      "citation": "M. Bhargava, The geometric sieve and the density of squarefree values of invariant polynomials, arXiv:1402.0031",
+      "link": "https://arxiv.org/abs/1402.0031",
+      "why": "Theorem 3.3, used in Lemma 3.2."
+    },
+    {
+      "citation": "M. Widmer, Counting primitive points of bounded height, Trans. Amer. Math. Soc. 362 (2010), 4793–4829",
+      "link": "https://doi.org/10.1090/S0002-9947-10-05173-1",
+      "why": "Theorem 5.4, lattice points with Lipschitz boundary."
+    },
+    {
+      "citation": "N. Bruin, B. Hemenway, On congruent primes and class numbers of imaginary quadratic fields, Acta Arith. 159 (2013), 63–87",
+      "link": "https://doi.org/10.4064/aa159-1-4",
+      "why": "The input to the 16-rank criterion (5.1)."
+    },
+    {
+      "citation": "H. Cohn, J. C. Lagarias, On the existence of fields governing the 2-invariants of the classgroup of Q(√dp) as p varies, Math. Comp. 41 (1983), 711–730",
+      "link": "https://doi.org/10.2307/2007707",
+      "why": "The governing-field conjecture refuted (conditionally) by Theorem 3."
+    },
+    {
+      "citation": "D. Milovic, On the 16-rank of class groups of Q(√−8p) for p ≡ −1 mod 4, Geom. Funct. Anal. 27 (2017), 973–1016",
+      "link": "https://doi.org/10.1007/s00039-017-0419-6",
+      "why": "Related application of spin methods."
+    },
+    {
+      "citation": "C. McMeekin, On the asymptotics of a prime spin relation, J. Number Theory 200 (2019), 407–426",
+      "link": "https://doi.org/10.1016/j.jnt.2018.11.027",
+      "why": "The case σ, σ^{−1} ∈ S via Chebotarev."
+    },
+    {
+      "citation": "P. Stevenhagen, Class groups and governing fields, PhD thesis, University of California, Berkeley (1988)",
+      "why": "Governing fields for k ≤ 3 (no stable online link found)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "SieveMethodsAndPrimePatterns",
+      "stages": [
+        "SieveMethodsAndPrimePatterns:SV.5"
+      ],
+      "items": [
+        "PAPER-KOYMANS-MILOVIC-21/8",
+        "PAPER-KOYMANS-MILOVIC-21/9",
+        "PAPER-KOYMANS-MILOVIC-21/10",
+        "PAPER-KOYMANS-MILOVIC-21/13",
+        "PAPER-KOYMANS-MILOVIC-21/14",
+        "PAPER-KOYMANS-MILOVIC-21/15",
+        "PAPER-KOYMANS-MILOVIC-21/16",
+        "PAPER-KOYMANS-MILOVIC-21/20",
+        "PAPER-KOYMANS-MILOVIC-21/21",
+        "PAPER-KOYMANS-MILOVIC-21/22",
+        "PAPER-KOYMANS-MILOVIC-21/23",
+        "PAPER-KOYMANS-MILOVIC-21/24"
+      ],
+      "reason": "SV.5 owns advanced sieves as separate developments with their own bilinear and parity-breaking inputs, and asks that only the exact conclusion proved be transferred. Theorems 1–2 are prime-detecting results of exactly this kind. The Friedlander–Iwaniec type I/type II sieve for primes in a number field (FIMR Proposition 5.2) converts a linear estimate (§3, with Lemmas 3.1–3.2) and a bilinear estimate (§4, with Lemma 4.1 and (P1)–(P3)) into oscillation of joint spins of prime ideals. The spin definitions, class-group representatives and fundamental domains are the data of this development. The atlas has no spin theory, and neither pinned library has any of it."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.2",
+        "ArithmeticStatistics:ST.3"
+      ],
+      "items": [
+        "PAPER-KOYMANS-MILOVIC-21/19",
+        "PAPER-KOYMANS-MILOVIC-21/25",
+        "PAPER-KOYMANS-MILOVIC-21/26",
+        "PAPER-KOYMANS-MILOVIC-21/27",
+        "PAPER-KOYMANS-MILOVIC-21/28"
+      ],
+      "reason": "ST.3 owns counting and distribution theorems for class groups of fields, and ST.2 the uniform tail estimates needed to impose infinitely many local conditions. The paper contributes to ST.3 the 2^k-ranks, governing fields, the 8-rank field E, the 16-rank criterion and Theorem 3, a conditional negative answer to the Cohn–Lagarias conjecture. It uses in Lemma 3.2 Bhargava's geometric sieve, the standard ST.2 tool for uniform counting with conditions at infinitely many primes. ST.3's acceptance (a heuristic is never substituted for a proven limit) requires recording Theorem 3's hypothesis."
+    },
+    {
+      "route": "source",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "stages": [
+        "ClassicalArithmeticCompletion:CA.1"
+      ],
+      "items": [
+        "PAPER-KOYMANS-MILOVIC-21/3",
+        "PAPER-KOYMANS-MILOVIC-21/4"
+      ],
+      "reason": "CA.1 owns quadratic reciprocity, power residue symbols and source-scoped reciprocity through class field theory, and plans the residue symbols in number fields and the Hilbert symbols at 2 and ∞ (planned items). The paper uses the general quadratic reciprocity law in a number field with Hilbert-symbol corrections (Lemma 2.1, from FIMR via Hilbert reciprocity), and the norm compatibility of residue symbols in a Galois extension. Both are statements in CA.1's direction that the audit records as absent."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
+      ],
+      "items": [
+        "PAPER-KOYMANS-MILOVIC-21/17"
+      ],
+      "reason": "GN.4 owns lattice-point estimates with main term and error. The audit marks it partly built, with Mathlib having only the volume limit for dilates of regions with null boundary. Lemma 3.1 needs Widmer's explicit count for sets with Lipschitz-parametrised boundary, with the error in terms of successive minima. This is a GN.4 estimate that it does not yet name."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.6"
+      ],
+      "items": [
+        "PAPER-KOYMANS-MILOVIC-21/11",
+        "PAPER-KOYMANS-MILOVIC-21/12"
+      ],
+      "reason": "AN.6 maintains the statement register for conjectural analytic inputs (RH, GRH, prime tuples) exported to sieves and arithmetic statistics. Theorems 1–3 are conditional on FIMR's Conjecture C_n on short real character sums, which is stronger than Burgess except for n = 3. Its arithmetic-progression form, Corollary 2.2, follows from it. These belong in the register, so that consumers state the hypothesis exactly."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E1",
+      "kind": "misprint",
+      "locator": "§5, (5.1) and (5.2), pp.22–23 (arXiv v1)",
+      "printed": "\"where ψ₀(α mod F) = ψ₀(αu² mod F) for all α ∈ O_K coprime to F and all u ∈ O_K^×\" … \"s_p = … = 2|T_K||V_K/V_K²|(1_{16|h(−p)} − 1/2)\"",
+      "correction": "\"for all α ∈ O_E coprime to F and all u ∈ O_E^×\"; \"1_{16|h(−4p)}\".",
+      "reason": "ψ₀ is defined on (O_E/FO_E)^×, and K is only introduced as a field containing E. The class number in question is h(−4p) of ℚ(√−4p) = ℚ(√−p), as in (5.1) and Theorem 3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
+        "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
+        "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E2",
+      "kind": "misprint",
+      "locator": "Corollary 2.2, p.7 (arXiv v1)",
+      "printed": "\"… we have |Σ_{M<m≤M+N, n≡l mod k} χ_q(m)| ≤ C(n, ǫ)q^{(1−δ(n))/n}.\"",
+      "correction": "\"≤ C(n, ǫ)q^{(1−δ(n))/n+ǫ}\", and the congruence condition is m ≡ l mod k.",
+      "reason": "Conjecture C_n gives only Q^{(1−δ)/n+ε}, and the constant C(n, ε) is otherwise meaningless. (3.6) indeed carries x^{(1−δ)/n+ε}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
+        "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
+        "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E3",
+      "kind": "gap",
+      "locator": "(2.5), p.7, and §3, p.8 (arXiv v1)",
+      "printed": "\"First, for any non-zero ideal m ⊂ O_K and any ǫ > 0, we have Σ_{N(a)≤X, a≡0 mod m} s_a ≪_ǫ X^{1−δ/(54n|S|²)+ǫ}\" … \"Let m be an ideal coprime with F and σ(m) for all σ ∈ S. Following [5] we will bound A(x) = Σ_{Na≤x, (a,F)=1, m|a} …\"",
+      "correction": "Supply the reduction, or restrict (2.5) to what §3 proves (as FIMR do in their Proposition 6.1). Suppose m and σ(m) share a prime q for some σ ∈ S. Then σ^{−1}(q) and q both divide every α with m | (α), so q divides α and σ(α), and spin(σ, α) = 0; hence s_a = 0 for all a divisible by m. The condition (a, F) = 1 costs only finitely many primes in Theorem 1 if the sequence s_a is replaced by 1_{(a,F)=1}s_a.",
+      "reason": "FIMR's Proposition 5.2 needs (5.6) for every ideal d. §3 bounds only the part coprime to F for m coprime to F and to all σ(m). The missing cases are easy, as above, but the paper states (2.5) in general without them.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
+        "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
+        "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E4",
+      "kind": "gap",
+      "locator": "Proof of Lemma 3.2, (3.16), p.13 (arXiv v1)",
+      "printed": "\"By Lemma 3.1 we conclude that for all A > 0 and ǫ > 0, |{β ∈ M : |β^{(i)}| ≤ x^{1/n}, g₁ > A}| ≪_ǫ x^{(n−1)/n+ǫ}A^{−1/2+1/ord(σ)}.\"",
+      "correction": "\"By the proof of Lemma 3.1 (summing the bound x^{r/n}/g^{r/n} over squarefull g > A, and passing from M′ to M as in (3.22))\". Lemma 3.1 as stated controls the radical g₀ > Z, not the squarefull part g₁ > A. Since Σ_{g>A, g squarefull}g^{−r/n} ≪ A^{1/2−r/n} with r/n = 1 − 1/ord(σ), the proof gives exactly A^{−1/2+1/ord(σ)}.",
+      "reason": "A squarefull integer g₁ > A can have a tiny radical (for example a large power of 2), so g₁ > A does not give g₀ > A^c for any c > 0, and the statement of Lemma 3.1 does not apply. The exponent −1/2 + 1/ord(σ) written in (3.16) is what summing over g₁ > A yields. The paper also passes from M′ to M silently. The conclusion of Lemma 3.2 is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
+        "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
+        "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-KOYMANS-MILOVIC-21/E5",
+      "kind": "misprint",
+      "locator": "Lemma 4.1 (P3), p.20, and its verification, p.21 (arXiv v1)",
+      "printed": "\"(P3) for all non-zero w ∈ O_K, if z₁, z₂ ∈ O_K satisfy z₁ ≡ z₂ mod N(w), then we have γ(w, z₁) = γ(w, z₂); moreover, if |N(w)| is not squarefull in ℤ, then Σ_{ξ mod w} γ(w, ξ) = 0.\"",
+      "correction": "Quantify over w ∈ S_f (the domain of γ) and sum over ξ mod N(w): \"if |N(w)| is not squarefull, then Σ_{ξ mod N(w)} γ(w, ξ) = 0\". The verification needs the degree-one prime p with p ∥ N(β) to be unramified. That holds for w ∈ S_f, since f = (F) contains D_K.",
+      "reason": "γ(w, ·) is periodic modulo N(w), not modulo w: φ(ξ, β) = (ξ/ϕ(β)) with ϕ(β) = ∏_{σ∈S}σ(β)σ^{−1}(β). So \"Σ_{ξ mod w}\" is not well defined, and the verification itself sums modulo N(β). For a ramified degree-one prime all conjugates σ(p) coincide, and ∏σ(p)σ^{−1}(p) = p^{2|S|} is a square, so the argument needs p unramified.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1809.09597: only v1 (25 September 2018, 23 pages) exists",
+        "Duke Mathematical Journal 170 (2021), 1723–1755 (10.1215/00127094-2020-0068): the published version (33 pages in print) was not accessible (Project Euclid blocks scripted access), so these issues are recorded against arXiv v1 and may have been corrected in print",
+        "Crossref metadata for 10.1215/00127094-2020-0068: no update or correction relation"
+      ]
+    }
+  ]
+}
