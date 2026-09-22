@@ -2312,8 +2312,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ZHU-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1151"
+   "state": "pending",
+   "note": "released on GitHub issue #1151"
   },
   {
    "id": "REV-PAPER-ZHU-17",
@@ -3165,7 +3165,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1203"
   },
   {
    "id": "REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
@@ -3485,7 +3486,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-IYENGAR-KHARE-MANNING-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1222"
   },
   {
    "id": "REV-PAPER-IYENGAR-KHARE-MANNING-24",
@@ -3944,7 +3946,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-SAVIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1250"
   },
   {
    "id": "REV-PAPER-GAN-SAVIN-23",
