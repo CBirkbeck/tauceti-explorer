@@ -4,7 +4,7 @@ Worker: Codex, session codex-a71f92. Refs #1328. Read/check date: 2026-09-22.
 
 Status: **partial checkpoint**. The entire main paper has been read and its named conclusions, constructions, remarks and proof interfaces inventoried. This is not a closed proof plan: the JSON names 25 open source/proof gaps, several requiring further one-declaration decomposition. Nothing in this submission claims a new formalization.
 
-There are 148 items: 11 library imports, 11 existing planned interfaces and 126 missing items. Every missing item has exactly one route. The 38 definitions carry 114 unexecuted planning tests, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed.
+There are 149 items: 11 library imports, 11 existing planned interfaces and 127 missing items (148 and 126 before the G-NONABELIAN continuation below). Every missing item has exactly one route. The 38 definitions carry 114 unexecuted planning tests, API outlines and use records. All 17 routes are sources for existing proposed roadmaps; no new roadmap or Part II is needed.
 
 ## Source and reading boundary
 
