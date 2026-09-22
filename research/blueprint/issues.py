@@ -167,9 +167,9 @@ def body(job, jobs, roadmaps, stages):
                   "", "An independent verifier checks every finding; confirmed findings of high or medium severity become a fix job."]
     if job["kind"] == "errata":
         lines += ["", "### What this issue delivers",
-                  "- **Every mistake in the paper that its extraction found**, recorded under `sourceIssues` (PROTOCOL.md section 18): misprints, errors and gaps, each quoted at its locator with the correction, the reason and how far it reaches.",
+                  "- **Every mistake in the published source that earlier work on it found**, in `research/blueprint/errata/<paper>.json` (PROTOCOL.md section 18): misprints, errors and gaps, each quoted at its locator with the correction, the reason and how far it reaches.",
                   "- **Whether each is already corrected in print:** a published erratum or a later version, and where you looked.",
-                  "- **A section \"Mistakes in the paper\"** in the extraction's report.",
+                  "- **An explanation of each finding** for a mathematician, beside it in `research/blueprint/errata/<paper>.md`.",
                   "", "An independent reviewer checks each one at its locator; confirmed new mistakes go into the register of mistakes in published work, research/errata/REGISTER.md."]
     if job["kind"] == "fix":
         lines += ["", "### What this issue delivers",

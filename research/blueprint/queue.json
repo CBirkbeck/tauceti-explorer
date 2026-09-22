@@ -28801,8 +28801,8 @@
    "name": "Burungale–Tian (2026): A rank zero p-converse to a theorem of Gross–Zagier, Kolyvagin and Rubin",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.md"
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28818,8 +28818,8 @@
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-BURUNGALE-TIAN-26.md",
-    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.result.json",
-    "research/blueprint/papers/PAPER-BURUNGALE-TIAN-26.md"
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-TIAN-26.md"
    ],
    "after": [
     "ERRATA-PAPER-BURUNGALE-TIAN-26"
@@ -28829,15 +28829,260 @@
    "state": "pending"
   },
   {
+   "id": "ERRATA-PAPER-YUAN-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 502,
+   "name": "Xinyi Yuan (2026): Arithmetic bigness and a uniform Bogomolov-type result",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-YUAN-26.json",
+    "research/blueprint/errata/PAPER-YUAN-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-YUAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-YUAN-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 502,
+   "name": "Xinyi Yuan (2026): Arithmetic bigness and a uniform Bogomolov-type result",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-YUAN-26.md",
+    "research/blueprint/errata/PAPER-YUAN-26.json",
+    "research/blueprint/errata/PAPER-YUAN-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-YUAN-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-YUAN-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-YUAN-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-NEWTON-THORNE-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 503,
+   "name": "Newton–Thorne (2026): Symmetric power functoriality for Hilbert modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-NEWTON-THORNE-26.json",
+    "research/blueprint/errata/PAPER-NEWTON-THORNE-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-NEWTON-THORNE-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-NEWTON-THORNE-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 503,
+   "name": "Newton–Thorne (2026): Symmetric power functoriality for Hilbert modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-NEWTON-THORNE-26.md",
+    "research/blueprint/errata/PAPER-NEWTON-THORNE-26.json",
+    "research/blueprint/errata/PAPER-NEWTON-THORNE-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-NEWTON-THORNE-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-NEWTON-THORNE-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-NEWTON-THORNE-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 504,
+   "name": "Ciubotaru–Harris (2026): On the generalized Ramanujan and Arthur conjectures over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
+    "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 504,
+   "name": "Ciubotaru–Harris (2026): On the generalized Ramanujan and Arthur conjectures over function fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
+    "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.json",
+    "research/blueprint/errata/PAPER-CIUBOTARU-HARRIS-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-CIUBOTARU-HARRIS-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-CIUBOTARU-HARRIS-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-KISIN-ZHOU-25",
+   "kind": "errata",
+   "priority": 1,
+   "order": 505,
+   "name": "Kisin–Zhou (2025): Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-KISIN-ZHOU-25.json",
+    "research/blueprint/errata/PAPER-KISIN-ZHOU-25.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-ZHOU-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-KISIN-ZHOU-25",
+   "kind": "review",
+   "priority": 1,
+   "order": 505,
+   "name": "Kisin–Zhou (2025): Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-KISIN-ZHOU-25.md",
+    "research/blueprint/errata/PAPER-KISIN-ZHOU-25.json",
+    "research/blueprint/errata/PAPER-KISIN-ZHOU-25.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-KISIN-ZHOU-25"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-KISIN-ZHOU-25",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-ZHOU-25.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-SMITH-24",
+   "kind": "errata",
+   "priority": 1,
+   "order": 506,
+   "name": "Alexander Smith (2024): Algebraic integers with conjugates in a prescribed distribution",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-SMITH-24.json",
+    "research/blueprint/errata/PAPER-SMITH-24.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-SMITH-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-SMITH-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 506,
+   "name": "Alexander Smith (2024): Algebraic integers with conjugates in a prescribed distribution",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-SMITH-24.md",
+    "research/blueprint/errata/PAPER-SMITH-24.json",
+    "research/blueprint/errata/PAPER-SMITH-24.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-SMITH-24"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-SMITH-24",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SMITH-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-FU-24",
+   "kind": "errata",
+   "priority": 1,
+   "order": 507,
+   "name": "Weibo Fu (2024): Sharp bounds for multiplicities of Bianchi modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-FU-24.json",
+    "research/blueprint/errata/PAPER-FU-24.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-FU-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-FU-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 507,
+   "name": "Weibo Fu (2024): Sharp bounds for multiplicities of Bianchi modular forms",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-FU-24.md",
+    "research/blueprint/errata/PAPER-FU-24.json",
+    "research/blueprint/errata/PAPER-FU-24.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-FU-24"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-FU-24",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-FU-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-SCHROER-23",
+   "kind": "errata",
+   "priority": 1,
+   "order": 508,
+   "name": "Stefan Schröer (2023): There is no Enriques surface over the integers",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-SCHROER-23.json",
+    "research/blueprint/errata/PAPER-SCHROER-23.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-SCHROER-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-SCHROER-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 508,
+   "name": "Stefan Schröer (2023): There is no Enriques surface over the integers",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-SCHROER-23.md",
+    "research/blueprint/errata/PAPER-SCHROER-23.json",
+    "research/blueprint/errata/PAPER-SCHROER-23.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-SCHROER-23"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-SCHROER-23",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SCHROER-23.md",
+   "state": "pending"
+  },
+  {
    "id": "ERRATA-PAPER-DASGUPTA-KAKDE-23",
    "kind": "errata",
    "priority": 1,
-   "order": 521,
+   "order": 509,
    "name": "Dasgupta–Kakde (2023): On the Brumer–Stark conjecture",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.result.json",
-    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.md"
+    "research/blueprint/errata/PAPER-DASGUPTA-KAKDE-23.json",
+    "research/blueprint/errata/PAPER-DASGUPTA-KAKDE-23.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28848,13 +29093,13 @@
    "id": "REV-ERRATA-PAPER-DASGUPTA-KAKDE-23",
    "kind": "review",
    "priority": 1,
-   "order": 521,
+   "order": 509,
    "name": "Dasgupta–Kakde (2023): On the Brumer–Stark conjecture",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
-    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.result.json",
-    "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-23.md"
+    "research/blueprint/errata/PAPER-DASGUPTA-KAKDE-23.json",
+    "research/blueprint/errata/PAPER-DASGUPTA-KAKDE-23.md"
    ],
    "after": [
     "ERRATA-PAPER-DASGUPTA-KAKDE-23"
@@ -28864,15 +29109,85 @@
    "state": "pending"
   },
   {
+   "id": "ERRATA-PAPER-DITTMANN-POP-23",
+   "kind": "errata",
+   "priority": 1,
+   "order": 510,
+   "name": "Dittmann–Pop (2023): Characterizing finitely generated fields by a single field axiom",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-DITTMANN-POP-23.json",
+    "research/blueprint/errata/PAPER-DITTMANN-POP-23.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-DITTMANN-POP-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-DITTMANN-POP-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 510,
+   "name": "Dittmann–Pop (2023): Characterizing finitely generated fields by a single field axiom",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-DITTMANN-POP-23.md",
+    "research/blueprint/errata/PAPER-DITTMANN-POP-23.json",
+    "research/blueprint/errata/PAPER-DITTMANN-POP-23.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-DITTMANN-POP-23"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-DITTMANN-POP-23",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DITTMANN-POP-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-WITASZEK-22",
+   "kind": "errata",
+   "priority": 1,
+   "order": 511,
+   "name": "Jakub Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-WITASZEK-22.json",
+    "research/blueprint/errata/PAPER-WITASZEK-22.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-WITASZEK-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-WITASZEK-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 511,
+   "name": "Jakub Witaszek (2022): Keel's base point free theorem and quotients in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-WITASZEK-22.md",
+    "research/blueprint/errata/PAPER-WITASZEK-22.json",
+    "research/blueprint/errata/PAPER-WITASZEK-22.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-WITASZEK-22"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-WITASZEK-22",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-WITASZEK-22.md",
+   "state": "pending"
+  },
+  {
    "id": "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "kind": "errata",
    "priority": 1,
-   "order": 535,
+   "order": 512,
    "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
-    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
+    "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28883,13 +29198,13 @@
    "id": "REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "kind": "review",
    "priority": 1,
-   "order": 535,
+   "order": 512,
    "name": "Burungale–Kobayashi–Ota (2021): Rubin's conjecture on local units in the anticyclotomic tower at inert primes",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.result.json",
-    "research/blueprint/papers/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
+    "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json",
+    "research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.md"
    ],
    "after": [
     "ERRATA-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
@@ -28902,12 +29217,12 @@
    "id": "ERRATA-PAPER-BENNETT-SIKSEK-20",
    "kind": "errata",
    "priority": 1,
-   "order": 536,
+   "order": 513,
    "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
-    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.md"
+    "research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json",
+    "research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28918,13 +29233,13 @@
    "id": "REV-ERRATA-PAPER-BENNETT-SIKSEK-20",
    "kind": "review",
    "priority": 1,
-   "order": 536,
+   "order": 513,
    "name": "Bennett–Siksek (2020): A conjecture of Erdős, supersingular primes and short character sums",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-BENNETT-SIKSEK-20.md",
-    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.result.json",
-    "research/blueprint/papers/PAPER-BENNETT-SIKSEK-20.md"
+    "research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.json",
+    "research/blueprint/errata/PAPER-BENNETT-SIKSEK-20.md"
    ],
    "after": [
     "ERRATA-PAPER-BENNETT-SIKSEK-20"
@@ -28937,12 +29252,12 @@
    "id": "ERRATA-PAPER-COUVEIGNES-20",
    "kind": "errata",
    "priority": 1,
-   "order": 541,
+   "order": 514,
    "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
-    "research/blueprint/papers/PAPER-COUVEIGNES-20.md"
+    "research/blueprint/errata/PAPER-COUVEIGNES-20.json",
+    "research/blueprint/errata/PAPER-COUVEIGNES-20.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28953,13 +29268,13 @@
    "id": "REV-ERRATA-PAPER-COUVEIGNES-20",
    "kind": "review",
    "priority": 1,
-   "order": 541,
+   "order": 514,
    "name": "Jean-Marc Couveignes (2020): Enumerating number fields",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-COUVEIGNES-20.md",
-    "research/blueprint/papers/PAPER-COUVEIGNES-20.result.json",
-    "research/blueprint/papers/PAPER-COUVEIGNES-20.md"
+    "research/blueprint/errata/PAPER-COUVEIGNES-20.json",
+    "research/blueprint/errata/PAPER-COUVEIGNES-20.md"
    ],
    "after": [
     "ERRATA-PAPER-COUVEIGNES-20"
@@ -28969,15 +29284,85 @@
    "state": "pending"
   },
   {
+   "id": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
+   "kind": "errata",
+   "priority": 1,
+   "order": 515,
+   "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json",
+    "research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 515,
+   "name": "Mok–Pila–Tsimerman (2019): Ax-Schanuel for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
+    "research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json",
+    "research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-TSIMERMAN-18",
+   "kind": "errata",
+   "priority": 1,
+   "order": 516,
+   "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+    "research/blueprint/errata/PAPER-TSIMERMAN-18.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-TSIMERMAN-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 516,
+   "name": "Jacob Tsimerman (2018): The André-Oort conjecture for A_g",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-TSIMERMAN-18.md",
+    "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+    "research/blueprint/errata/PAPER-TSIMERMAN-18.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-TSIMERMAN-18"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-TSIMERMAN-18",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
    "id": "ERRATA-PAPER-BAKKER-TSIMERMAN-16",
    "kind": "errata",
    "priority": 1,
-   "order": 559,
+   "order": 517,
    "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.result.json",
-    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.md"
+    "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
+    "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.md"
    ],
    "after": [],
    "independentOf": [],
@@ -28988,13 +29373,13 @@
    "id": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
    "kind": "review",
    "priority": 1,
-   "order": 559,
+   "order": 517,
    "name": "Bakker–Tsimerman (2016): p-torsion monodromy representations of elliptic curves over geometric function fields",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16.md",
-    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.result.json",
-    "research/blueprint/papers/PAPER-BAKKER-TSIMERMAN-16.md"
+    "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.json",
+    "research/blueprint/errata/PAPER-BAKKER-TSIMERMAN-16.md"
    ],
    "after": [
     "ERRATA-PAPER-BAKKER-TSIMERMAN-16"
@@ -29004,15 +29389,120 @@
    "state": "pending"
   },
   {
+   "id": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "kind": "errata",
+   "priority": 1,
+   "order": 518,
+   "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json",
+    "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 518,
+   "name": "Duke–Imamoḡlu–Tóth (2016): Geometric invariants for real quadratic fields",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+    "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json",
+    "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-CHARLES-16",
+   "kind": "errata",
+   "priority": 1,
+   "order": 519,
+   "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-CHARLES-16.json",
+    "research/blueprint/errata/PAPER-CHARLES-16.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-CHARLES-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-CHARLES-16",
+   "kind": "review",
+   "priority": 1,
+   "order": 519,
+   "name": "François Charles (2016): Birational boundedness for holomorphic symplectic varieties, Zarhin's trick for K3 surfaces, and the Tate conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-CHARLES-16.md",
+    "research/blueprint/errata/PAPER-CHARLES-16.json",
+    "research/blueprint/errata/PAPER-CHARLES-16.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-CHARLES-16"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-CHARLES-16",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CHARLES-16.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-GILLE-PARIMALA-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 520,
+   "name": "Gille–Parimala (2026): A local-global principle for twisted flag varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+    "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-GILLE-PARIMALA-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 520,
+   "name": "Gille–Parimala (2026): A local-global principle for twisted flag varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-GILLE-PARIMALA-26.md",
+    "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.json",
+    "research/blueprint/errata/PAPER-GILLE-PARIMALA-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-GILLE-PARIMALA-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-GILLE-PARIMALA-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-GILLE-PARIMALA-26.md",
+   "state": "pending"
+  },
+  {
    "id": "ERRATA-PAPER-MARTIN-25",
    "kind": "errata",
    "priority": 1,
-   "order": 582,
+   "order": 521,
    "name": "Martin (2025): A new proof of Chen's theorem for Markoff graphs",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-MARTIN-25.result.json",
-    "research/blueprint/papers/PAPER-MARTIN-25.md"
+    "research/blueprint/errata/PAPER-MARTIN-25.json",
+    "research/blueprint/errata/PAPER-MARTIN-25.md"
    ],
    "after": [],
    "independentOf": [],
@@ -29023,13 +29513,13 @@
    "id": "REV-ERRATA-PAPER-MARTIN-25",
    "kind": "review",
    "priority": 1,
-   "order": 582,
+   "order": 521,
    "name": "Martin (2025): A new proof of Chen's theorem for Markoff graphs",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-MARTIN-25.md",
-    "research/blueprint/papers/PAPER-MARTIN-25.result.json",
-    "research/blueprint/papers/PAPER-MARTIN-25.md"
+    "research/blueprint/errata/PAPER-MARTIN-25.json",
+    "research/blueprint/errata/PAPER-MARTIN-25.md"
    ],
    "after": [
     "ERRATA-PAPER-MARTIN-25"
@@ -29039,15 +29529,120 @@
    "state": "pending"
   },
   {
+   "id": "ERRATA-PAPER-BRESCIANI-24",
+   "kind": "errata",
+   "priority": 1,
+   "order": 522,
+   "name": "Bresciani (2024): On the birational section conjecture with strong birationality assumptions",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BRESCIANI-24.json",
+    "research/blueprint/errata/PAPER-BRESCIANI-24.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BRESCIANI-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BRESCIANI-24",
+   "kind": "review",
+   "priority": 1,
+   "order": 522,
+   "name": "Bresciani (2024): On the birational section conjecture with strong birationality assumptions",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BRESCIANI-24.md",
+    "research/blueprint/errata/PAPER-BRESCIANI-24.json",
+    "research/blueprint/errata/PAPER-BRESCIANI-24.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BRESCIANI-24"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BRESCIANI-24",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BRESCIANI-24.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-CARO-PASTEN-23",
+   "kind": "errata",
+   "priority": 1,
+   "order": 523,
+   "name": "Caro–Pasten (2023): A Chabauty–Coleman bound for surfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-CARO-PASTEN-23.json",
+    "research/blueprint/errata/PAPER-CARO-PASTEN-23.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-CARO-PASTEN-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-CARO-PASTEN-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 523,
+   "name": "Caro–Pasten (2023): A Chabauty–Coleman bound for surfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-CARO-PASTEN-23.md",
+    "research/blueprint/errata/PAPER-CARO-PASTEN-23.json",
+    "research/blueprint/errata/PAPER-CARO-PASTEN-23.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-CARO-PASTEN-23"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-CARO-PASTEN-23",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CARO-PASTEN-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
+   "kind": "errata",
+   "priority": 1,
+   "order": 524,
+   "name": "Benoist–Wittenberg (2020): On the integral Hodge conjecture for real varieties, I",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BENOIST-WITTENBERG-20.json",
+    "research/blueprint/errata/PAPER-BENOIST-WITTENBERG-20.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BENOIST-WITTENBERG-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 524,
+   "name": "Benoist–Wittenberg (2020): On the integral Hodge conjecture for real varieties, I",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
+    "research/blueprint/errata/PAPER-BENOIST-WITTENBERG-20.json",
+    "research/blueprint/errata/PAPER-BENOIST-WITTENBERG-20.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BENOIST-WITTENBERG-20"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
+   "state": "pending"
+  },
+  {
    "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "kind": "errata",
    "priority": 1,
-   "order": 627,
+   "order": 525,
    "name": "Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
    "roadmapIds": [],
    "outputs": [
-    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.result.json",
-    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.md"
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.md"
    ],
    "after": [],
    "independentOf": [],
@@ -29058,19 +29653,649 @@
    "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "kind": "review",
    "priority": 1,
-   "order": 627,
+   "order": 525,
    "name": "Harpaz–Wittenberg (2023): The Massey vanishing conjecture for number fields",
    "roadmapIds": [],
    "outputs": [
     "research/blueprint/reviews/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
-    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.result.json",
-    "research/blueprint/papers/PAPER-HARPAZ-WITTENBERG-23.md"
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.json",
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-23.md"
    ],
    "after": [
     "ERRATA-PAPER-HARPAZ-WITTENBERG-23"
    ],
    "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-23",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "kind": "errata",
+   "priority": 1,
+   "order": 526,
+   "name": "Kisin–Madapusi Pera–Shin (2022): Honda-Tate theory for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+    "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 526,
+   "name": "Kisin–Madapusi Pera–Shin (2022): Honda-Tate theory for Shimura varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
+    "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json",
+    "research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-CESNAVICIUS-19",
+   "kind": "errata",
+   "priority": 1,
+   "order": 527,
+   "name": "Česnavičius (2019): Purity for the Brauer group",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-CESNAVICIUS-19.json",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-19.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-CESNAVICIUS-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 527,
+   "name": "Česnavičius (2019): Purity for the Brauer group",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-CESNAVICIUS-19.md",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-19.json",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-19.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-CESNAVICIUS-19"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-CESNAVICIUS-19",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CESNAVICIUS-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-WOOD-19",
+   "kind": "errata",
+   "priority": 1,
+   "order": 528,
+   "name": "Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-WOOD-19.json",
+    "research/blueprint/errata/PAPER-WOOD-19.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-WOOD-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-WOOD-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 528,
+   "name": "Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-WOOD-19.md",
+    "research/blueprint/errata/PAPER-WOOD-19.json",
+    "research/blueprint/errata/PAPER-WOOD-19.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-WOOD-19"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-WOOD-19",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-WOOD-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "kind": "errata",
+   "priority": 1,
+   "order": 529,
+   "name": "Lipnowski–Tsimerman (2018): How large is A_g(F_q)?",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-LIPNOWSKI-TSIMERMAN-18.json",
+    "research/blueprint/errata/PAPER-LIPNOWSKI-TSIMERMAN-18.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 529,
+   "name": "Lipnowski–Tsimerman (2018): How large is A_g(F_q)?",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
+    "research/blueprint/errata/PAPER-LIPNOWSKI-TSIMERMAN-18.json",
+    "research/blueprint/errata/PAPER-LIPNOWSKI-TSIMERMAN-18.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "kind": "errata",
+   "priority": 1,
+   "order": 530,
+   "name": "Shende–Tsimerman (2017): Equidistribution in Bun_2(P^1)",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
+    "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "kind": "review",
+   "priority": 1,
+   "order": 530,
+   "name": "Shende–Tsimerman (2017): Equidistribution in Bun_2(P^1)",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
+    "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.json",
+    "research/blueprint/errata/PAPER-SHENDE-TSIMERMAN-17.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-SHENDE-TSIMERMAN-17"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-SHENDE-TSIMERMAN-17.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 531,
+   "name": "Kisin–Pappas–Zhou (2026): Integral models of Shimura varieties with parahoric level structure, II",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 531,
+   "name": "Kisin–Pappas–Zhou (2026): Integral models of Shimura varieties with parahoric level structure, II",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.json",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-ZHOU-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-HACON-WITASZEK-23",
+   "kind": "errata",
+   "priority": 1,
+   "order": 532,
+   "name": "Hacon–Witaszek (2023): On the relative minimal model program for fourfolds in positive and mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
+    "research/blueprint/errata/PAPER-HACON-WITASZEK-23.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-HACON-WITASZEK-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 532,
+   "name": "Hacon–Witaszek (2023): On the relative minimal model program for fourfolds in positive and mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-HACON-WITASZEK-23.md",
+    "research/blueprint/errata/PAPER-HACON-WITASZEK-23.json",
+    "research/blueprint/errata/PAPER-HACON-WITASZEK-23.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-HACON-WITASZEK-23"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-HACON-WITASZEK-23",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HACON-WITASZEK-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-CESNAVICIUS-22",
+   "kind": "errata",
+   "priority": 1,
+   "order": 533,
+   "name": "Česnavičius (2022): Grothendieck–Serre in the quasi-split unramified case",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-22.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-CESNAVICIUS-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 533,
+   "name": "Česnavičius (2022): Grothendieck–Serre in the quasi-split unramified case",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-CESNAVICIUS-22.md",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-22.json",
+    "research/blueprint/errata/PAPER-CESNAVICIUS-22.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-CESNAVICIUS-22"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-CESNAVICIUS-22",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CESNAVICIUS-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-HE-21",
+   "kind": "errata",
+   "priority": 1,
+   "order": 534,
+   "name": "He (2021): Cordial elements and dimensions of affine Deligne–Lusztig varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-HE-21.json",
+    "research/blueprint/errata/PAPER-HE-21.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-HE-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-HE-21",
+   "kind": "review",
+   "priority": 1,
+   "order": 534,
+   "name": "He (2021): Cordial elements and dimensions of affine Deligne–Lusztig varieties",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-HE-21.md",
+    "research/blueprint/errata/PAPER-HE-21.json",
+    "research/blueprint/errata/PAPER-HE-21.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-HE-21"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-HE-21",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HE-21.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-MERKURJEV-SCAVIA-26",
+   "kind": "errata",
+   "priority": 1,
+   "order": 535,
+   "name": "Merkurjev–Scavia (2026): Galois representations modulo p that do not lift modulo p^2",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-MERKURJEV-SCAVIA-26.json",
+    "research/blueprint/errata/PAPER-MERKURJEV-SCAVIA-26.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-MERKURJEV-SCAVIA-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26",
+   "kind": "review",
+   "priority": 1,
+   "order": 535,
+   "name": "Merkurjev–Scavia (2026): Galois representations modulo p that do not lift modulo p^2",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26.md",
+    "research/blueprint/errata/PAPER-MERKURJEV-SCAVIA-26.json",
+    "research/blueprint/errata/PAPER-MERKURJEV-SCAVIA-26.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-MERKURJEV-SCAVIA-26"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-MERKURJEV-SCAVIA-26",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-MERKURJEV-SCAVIA-26.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "kind": "errata",
+   "priority": 1,
+   "order": 536,
+   "name": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
+    "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 536,
+   "name": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020): Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
+    "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.json",
+    "research/blueprint/errata/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "kind": "errata",
+   "priority": 1,
+   "order": 537,
+   "name": "Bakker–Klingler–Tsimerman (2020): Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.json",
+    "research/blueprint/errata/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 537,
+   "name": "Bakker–Klingler–Tsimerman (2020): Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
+    "research/blueprint/errata/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.json",
+    "research/blueprint/errata/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "errata",
+   "priority": 1,
+   "order": 538,
+   "name": "Harpaz–Wittenberg (2020): Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-20.json",
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-20.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "review",
+   "priority": 1,
+   "order": 538,
+   "name": "Harpaz–Wittenberg (2020): Zéro-cycles sur les espaces homogènes et problème de Galois inverse",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-20.json",
+    "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-20.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-HARPAZ-WITTENBERG-20"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-BHATT-ETAL-23",
+   "kind": "errata",
+   "priority": 1,
+   "order": 539,
+   "name": "Bhatt et al. (2023): Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BHATT-ETAL-23.json",
+    "research/blueprint/errata/PAPER-BHATT-ETAL-23.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BHATT-ETAL-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BHATT-ETAL-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 539,
+   "name": "Bhatt et al. (2023): Globally +-regular varieties and the minimal model program for threefolds in mixed characteristic",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BHATT-ETAL-23.md",
+    "research/blueprint/errata/PAPER-BHATT-ETAL-23.json",
+    "research/blueprint/errata/PAPER-BHATT-ETAL-23.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BHATT-ETAL-23"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BHATT-ETAL-23",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BHATT-ETAL-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-BENOIST-19",
+   "kind": "errata",
+   "priority": 1,
+   "order": 540,
+   "name": "Benoist (2019): The period-index problem for real surfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-BENOIST-19.json",
+    "research/blueprint/errata/PAPER-BENOIST-19.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENOIST-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-BENOIST-19",
+   "kind": "review",
+   "priority": 1,
+   "order": 540,
+   "name": "Benoist (2019): The period-index problem for real surfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-BENOIST-19.md",
+    "research/blueprint/errata/PAPER-BENOIST-19.json",
+    "research/blueprint/errata/PAPER-BENOIST-19.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-BENOIST-19"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-BENOIST-19",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BENOIST-19.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-KISIN-PAPPAS-18",
+   "kind": "errata",
+   "priority": 1,
+   "order": 541,
+   "name": "Kisin–Pappas (2018): Integral models of Shimura varieties with parahoric level structure",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 541,
+   "name": "Kisin–Pappas (2018): Integral models of Shimura varieties with parahoric level structure",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-KISIN-PAPPAS-18.md",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.json",
+    "research/blueprint/errata/PAPER-KISIN-PAPPAS-18.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-KISIN-PAPPAS-18"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-KISIN-PAPPAS-18",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-PAPPAS-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-PAPER-ANDRE-18",
+   "kind": "errata",
+   "priority": 1,
+   "order": 542,
+   "name": "André (2018): Le lemme d'Abhyankar perfectoïde",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/PAPER-ANDRE-18.json",
+    "research/blueprint/errata/PAPER-ANDRE-18.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-PAPER-ANDRE-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-PAPER-ANDRE-18",
+   "kind": "review",
+   "priority": 1,
+   "order": 542,
+   "name": "André (2018): Le lemme d'Abhyankar perfectoïde",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-PAPER-ANDRE-18.md",
+    "research/blueprint/errata/PAPER-ANDRE-18.json",
+    "research/blueprint/errata/PAPER-ANDRE-18.md"
+   ],
+   "after": [
+    "ERRATA-PAPER-ANDRE-18"
+   ],
+   "avoidAccountOf": "ERRATA-PAPER-ANDRE-18",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-ANDRE-18.md",
+   "state": "pending"
+  },
+  {
+   "id": "ERRATA-DESIGN-LV",
+   "kind": "errata",
+   "priority": 1,
+   "order": 543,
+   "name": "MordellLawrenceVenkatesh",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/errata/MordellLawrenceVenkatesh.json",
+    "research/blueprint/errata/MordellLawrenceVenkatesh.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "prompt": "research/blueprint/prompts/ERRATA-DESIGN-LV.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-ERRATA-DESIGN-LV",
+   "kind": "review",
+   "priority": 1,
+   "order": 543,
+   "name": "MordellLawrenceVenkatesh",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-ERRATA-DESIGN-LV.md",
+    "research/blueprint/errata/MordellLawrenceVenkatesh.json",
+    "research/blueprint/errata/MordellLawrenceVenkatesh.md"
+   ],
+   "after": [
+    "ERRATA-DESIGN-LV"
+   ],
+   "avoidAccountOf": "ERRATA-DESIGN-LV",
+   "prompt": "research/blueprint/prompts/REV-ERRATA-DESIGN-LV.md",
    "state": "pending"
   },
   {
