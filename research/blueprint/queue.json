@@ -2353,7 +2353,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BUSHNELL-HENNIART-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1153"
   },
   {
    "id": "REV-PAPER-BUSHNELL-HENNIART-17",
@@ -3258,7 +3259,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KLEVDAL-PATRIKIS-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1207"
   },
   {
    "id": "REV-PAPER-KLEVDAL-PATRIKIS-25",
@@ -4665,8 +4667,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLAUSEN-MATHEW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1290"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1290",
+   "finishedAt": "2026-09-22T20:40:34Z"
   },
   {
    "id": "REV-PAPER-CLAUSEN-MATHEW-21",
@@ -6679,8 +6682,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1406"
+   "state": "pending",
+   "note": "released on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
@@ -7617,7 +7620,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1458"
   },
   {
    "id": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
