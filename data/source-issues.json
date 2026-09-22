@@ -332,6 +332,153 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
+   "kind": "error",
+   "locator": "Theorem 4.1, p.13 of the author copy (= arXiv 1810.04801v2, p.13); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+   "printed": "\"Theorem 4.1. Let V be a polarized variation of pure Hodge structures of weight k over the punctured polydisk (∆*)^n, with period map Φ: (∆*)^n → S_{Γ,G,M}. Then Φ is R_an,exp-definable.\" (∆ is the unit disk, p.4.)",
+   "correction": "Definability holds only after shrinking. For some radius 0 < ρ < 1, the restriction of Φ to (∆*_ρ)^n is R_an,exp-definable, and then for every ρ < 1 by compactness of the remaining annular pieces. The reduction in §4.1 must use charts whose shrunken polydisks still cover the compactification.",
+   "reason": "Counterexample (n = 1, trivial monodromy). Let f(z) = exp(−(1+z)/(1−z)) on the unit disk, so |f| < 1, and τ = 2i + εf with ε small, so that τ(∆) lies in a disk on which π: H → Γ\\H is injective (Γ torsion-free, e.g. Γ(3)). τ is the period map of a polarized weight-one integral VHS. But Φ^{−1}(π(2i + ε/e)) contains the points z_n = 2πin/(2 + 2πin), n ≠ 0, where f = 1/e. These form an infinite discrete set accumulating at 1, which is impossible for a fibre of a definable map. The proof itself allows for this: it says 'after maybe shrinking the polydisk' (p.14), and its Siegel set S_H (y > 1) covers only |q| < e^{−2π}. Theorem 1.3 is unaffected, since §4.1 can use finitely many shrunken charts. Checked numerically: |f(z_n) − 1/e| < 1e−8 for 0 < |n| ≤ 2000. Noted by the extraction (item local-outer-boundary-obstruction).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E2",
+   "kind": "gap",
+   "locator": "Proof of Lemma 4.5, p.15 of the author copy (= arXiv v2 p.15); the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+   "printed": "\"Consider for each positive integer m and real number c the function f_{m,c} which we obtain from f by setting z_1 = mz_2 + c. Note that the assumptions of the lemma still apply to f_{m,c}, and it follows by induction on n that f_{m,c} ≪ 1 on all of Σ_{n−1}\"",
+   "correction": "State the lemma, and verify its curve hypothesis, on the wider sectors Σ_n^R = {|x_i| < R, y_1 ≥ ⋯ ≥ y_n > 1} for every R, with constants depending on R. The substitution then maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}, and the induction goes through unchanged. In the application in §4.5, the curve bounds come from Schmid's one-variable Corollary 5.29 and the norm estimates of Theorem 4.8, which hold for real parts in any bounded interval; Theorem 1.5 is already stated on H^n_{R,η} for all R.",
+   "reason": "Σ_n is defined with 0 < x_i < 1 (Definition 4.4). The proof uses c = 0, 1, …, r_1 and m ≥ 1. For c ≥ 1, x_1 = mx_2 + c > 1, so Σ_n ∩ {z_1 = mz_2 + c} is empty. For c = 0 it is only the strip x_2 < 1/m. So the hypothesis gives no information about f_{m,c} on Σ_{n−1}. The functions extend there (the coefficients in O are periodic in x and f is polynomial in x), but the bound is assumed only on Σ_n. With the R-uniform hypothesis, the finite difference in c isolates the top x_1-degree, the Vandermonde step in m isolates each y-power, and |x_1| < 1 on Σ_n finishes the proof, as printed. Noted by the extraction (verification gap G4); the repair is given by this continuation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E3",
+   "kind": "error",
+   "locator": "Proof of Theorem 1.5 (§4.5), p.18 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+   "printed": "\"Moreover, if b is (e′, C′)-reduced and e is a basis for which condition (3) of Definition 4.11 holds for some C > 0, then b will also be (e, C″)-reduced for some C″ = C″(e, C, e′, C′) > 0.\"",
+   "correction": "Condition (2), the ordering b(e_i) < C b(e_j) for i < j, transfers only up to a permutation of e. Conclude that b is (σe, C″)-reduced for some permutation σ, which is one of finitely many.",
+   "reason": "Take e′ = (e_1, e_2), e = (e_2, e_1) and b = diag(1, T) with T ≥ 1. Then b is (e′, 2)-reduced and satisfies condition (3) for e (b(e_2)b(e_1) = T = det b), but condition (2) for e would need T = b(e_2) < C″b(e_1) = C″ for all T. The proof immediately adds 'we may assume (2) as there are only finitely many orderings of the basis', which is the corrected form, so Theorem 1.5 is unaffected. Noted by the extraction (item basis-change-reducedness).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E4",
+   "kind": "misprint",
+   "locator": "Appendix A.1, p.20 of the author copy; the JAMS typeset version was not collated (publisher PDF not obtainable here, verification gap G1)",
+   "printed": "\"Given X a real-analytic n-manifold with corners, one defines its boundary ∂X (cf. [Joy12, def. 2.6]. This is a real-analytic n-manifold with corners for n > 0\"",
+   "correction": "∂X is a real-analytic (n − 1)-manifold with corners.",
+   "reason": "The boundary of an n-manifold with corners in Joyce's sense is (n − 1)-dimensional; for [0,∞) it is a point. The appendix itself later says 'the compact real-analytic (n − 1)-manifold with corners ∂X' (proof of Proposition A.2). Noted by the extraction (item corner-boundary).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E5",
+   "kind": "error",
+   "locator": "Theorem 1.1(1), p.3, Definition 2.5, p.8, and Proposition 2.7 of the author copy",
+   "printed": "\"(1) The arithmetic quotient S_{Γ,G,M} := Γ\\G/M admits a natural structure of R_alg-definable manifold, characterized by the following property. ... S ⊂ G/M a semi-algebraic Siegel set ...\"",
+   "correction": "The definable structure depends on a choice of maximal compact subgroup K ⊃ M. For each such K there is a structure S_{Γ,G,M,K}, characterized by the Siegel sets associated to K. Definition 2.5 must fix K, and Proposition 2.7 holds when all Siegel sets use the same K (Erratum, Theorem 1.2(1)).",
+   "reason": "Erratum §1.6.1: for G = SL₂, a Siegel set built with K_x is not contained in finitely many Siegel sets built with K_i when x ≠ i, so the two structures on Γ\\G differ. The Hodge-theoretic statements are unaffected, because Hodge manifolds carry a canonical K (Erratum §1.4).",
+   "affects": "a stated result",
+   "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.1 and Theorem 1.2(1)",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E6",
+   "kind": "error",
+   "locator": "Theorem 1.1(2), p.3 of the author copy",
+   "printed": "\"(2) Any morphism f: S_{Γ′,G′,M′} → S_{Γ,G,M} of arithmetic quotients is R_alg-definable.\"",
+   "correction": "Only morphisms compatible with the chosen maximal compacts are definable: maps Γ′h′M′ ↦ Γφ(h′)gM with φ(Γ′) ⊂ Γ, φ(M′) ⊂ gMg^{−1}, φ(K′) ⊂ gKg^{−1}, and θ_{gKg^{−1}} preserving φ(g′) (Erratum, Theorem 1.2(2)).",
+   "reason": "Erratum §1.6.2, using Orr–Schnell's examples: without the Cartan-involution condition, the image of a Siegel set is not contained in finitely many translates of Siegel sets, so the morphism is not definable. Morphisms of Hodge manifolds satisfy the condition (Erratum, Corollary 1.3).",
+   "affects": "a stated result",
+   "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §§1.1, 1.3 and Theorem 1.2(2)",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E7",
+   "kind": "error",
+   "locator": "Proof of Theorem 1.5 (§4.5), p.17 of the author copy",
+   "printed": "\"By [B-HC62, 7.5] the preimage of any Siegel set S ⊂ X is contained in the union of finitely many Siegel sets of D.\"",
+   "correction": "Cite Bakker–Grimm–Schnell–Tsimerman, Proposition 28.1, instead. [B-HC62, 7.5] concerns real Siegel sets and does not give this rational statement.",
+   "reason": "The erratum (§1.5) states that the proof of Theorem 1.3 is otherwise correct, with this citation replaced. BGST Proposition 28.1 needs a forward-containment hypothesis, which the extraction retains.",
+   "affects": "the proof",
+   "known": "Erratum, J. Amer. Math. Soc. 36 (2023), DOI 10.1090/jams/1025 (author copy https://benjamin-bakker.github.io/DefArithErr.pdf), §1.5",
+   "searched": [
+    "The official erratum (JAMS 36 (2023), DOI 10.1090/jams/1025), read in full: it corrects only the maximal-compact dependence, morphisms and the Siegel-set pullback citation",
+    "arXiv 1810.04801 v2 (2020-06-22, the latest version): same wording at each locator",
+    "Benjamin Bakker's web page (author copy and erratum)"
+   ],
+   "owner": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+   "file": "research/blueprint/papers/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.result.json",
+   "citation": "Bakker–Klingler–Tsimerman, \"Tame topology of arithmetic quotients and algebraicity of Hodge loci\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHATT-ETAL-23/E1",
    "kind": "error",
    "locator": "Lemma 2.56, second assertion, p.101 of the published version; the same wording is arXiv v1 Lemma 2.37 (p.20), v2 Lemma 2.50 (p.26) and v3 Lemma 2.56 (p.29)",
@@ -5549,7 +5696,6 @@
  "older": [],
  "unchecked": [
   "MordellLawrenceVenkatesh",
-  "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
   "PAPER-BENOIST-19",
   "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
   "PAPER-CESNAVICIUS-22",
