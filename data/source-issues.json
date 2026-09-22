@@ -13367,6 +13367,266 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CASTELLA-ETAL-22/E1",
+   "kind": "error",
+   "locator": "Introduction §0.3 (Examples), p. 5",
+   "printed": "One can proceed similarly for p = 3 (resp. p = 7), taking real quadratic twists of, for example, the elliptic curve y² + y = x³ + x² − 7x + 5 of conductor 91 (resp. y² + xy + y = x³ − x² − 19353x + 958713 of conductor 574).",
+   "correction": "For p = 7 use a curve with good reduction at 7 and a rational 7-isogeny, for example 26b1: y² + xy + y = x³ − x² − 3x + 3 (conductor 26, rational 7-torsion).",
+   "reason": "574 = 2·7·41, and the curve has multiplicative reduction of type I_7 at 7 (PARI: ellglobalred and elllocalred). Since v_7(j) < 0, every quadratic twist has bad reduction at 7, so neither the curve nor any twist satisfies the paper's standing hypothesis that p be a prime of good reduction. The other examples check out: conductors 123, 91, 441 and 1225 are prime to p = 5, 3, 13, 37, and the curves have rational p-isogenies and analytic rank 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E2",
+   "kind": "gap",
+   "locator": "§5.2, Corollary 5.2.3 and its proof, p. 32",
+   "printed": "Let E be an elliptic curve over Q with a rational 3-isogeny. Then a positive proportion of quadratic twists of E have algebraic and analytic rank equal to 1 and a positive proportion of quadratic twists of E have algebraic and analytic rank equal to 0. … As the condition φ|_{G_p} ≠ 1, ω can be arranged by a quadratic twist, combining [BKLS, Thm. 2.6] and Corollary 5.2.2, the result follows.",
+   "correction": "Corollary 5.2.2 applies only to twists with good reduction at 3 (Theorem E is stated for Eisenstein primes, which are primes of good reduction). The argument proves the corollary for E having a quadratic twist with good reduction at 3 (for example E with good reduction at 3), using positive-proportion statements in the subfamily of twists with the required local behaviour at 3; for curves with v_3(j(E)) < 0 it proves nothing.",
+   "reason": "E : y² + xy + 3y = x³ has conductor 30, rational 3-torsion (so a rational 3-isogeny) and multiplicative reduction of type I_3 at 3 (PARI). Since v_3(j(E)) < 0, every quadratic twist has multiplicative or additive reduction at 3, so no twist satisfies the hypotheses of Theorem E at p = 3.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E3",
+   "kind": "gap",
+   "locator": "§2.1, Theorem 2.1.2, p. 13; §2.2, Theorems 2.2.2–2.2.3, pp. 15–16; Introduction (0.3), p. 4",
+   "printed": "Let θ : G_Q → Z_p^× be a Dirichlet character of conductor C. As it will suffice for our purposes, we assume that C | N (so p ∤ C) … On the other hand, since ψ = φ^{−1}ω, the functional equation for the Katz p-adic L-function (see e.g. [Kri16, Thm. 27]) yields λ(L_ψ) = λ(L_φ).",
+   "correction": "Define L_ψ as the projection along ψ of Katz's measure on Gal(K(𝔆p^∞)/K), whose branch characters may be tamely ramified at p, and state its interpolation property. Rubin's main conjecture, λ(L_ψ) = λ(𝔛_ψ), and the functional equation λ(L_ψ) = λ(L_φ) are then statements about that element.",
+   "reason": "With the labelling of Theorem 2.2.1 (p ∤ cond(φ)), ψ = ωφ^{−1} is ramified at p because ω is, so the paper's only definition of L_θ, Theorem 2.1.2, does not cover θ = ψ. Yet L_ψ enters (0.3), Theorem 2.2.2 and the proof of Theorem 2.2.3.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E4",
+   "kind": "misprint",
+   "locator": "§1.2, proof of Proposition 1.2.5, p. 9",
+   "printed": "by Proposition 1.1.3(iii) and [GV00, Lem. 2.6] we conclude that also 𝔛_θ^S has no nonzero pseudo-null Λ-submodules",
+   "correction": "by Proposition 1.1.3(ii) …",
+   "reason": "Proposition 1.1.3 has only parts (i) and (ii); the input used is (ii), the Λ-cofreeness of H¹(K_v̄, M_θ).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E5",
+   "kind": "misprint",
+   "locator": "§2.2, proof of Theorem 2.2.1, p. 14",
+   "printed": "Comparing with the interpolation property of L_φ in Theorem 2.2.1",
+   "correction": "… in Theorem 2.1.2",
+   "reason": "The interpolation property of L_φ is Theorem 2.1.2; Theorem 2.2.1 is the statement being proved.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E6",
+   "kind": "error",
+   "locator": "§3.3.3, the paragraph after (3.14), p. 24",
+   "printed": "it follows that (3.14) yields the inequality in Theorem 3.2.1 with an error term E_α = r(M)e that depends only on C_α, T_pE, and rank_{Z_p}(R).",
+   "correction": "E_α = (3/2)r(M)e (= 3se with s = r(M)/2), which is what (3.14) ind(κ_1) + (3/2)r(M)e ≥ length_R(M_0) gives. For its independence of α, bound r(M) + 1 ≤ dim_{F_p} H¹(K^Σ/K, E[p]) with Σ = {w | pN}; the printed equality with dim_{F_p} H¹_F(K, E[p]) uses a Selmer structure on E[p] that the paper never defines and that the propagated structure on T̄ need not match.",
+   "reason": "(3.14) reads ind(κ_1) + (3/2)r(M)e ≥ length_R(M_0), and length_R(H¹_F(K, T)/Rκ_1) = ind(κ_1) because H¹_F(K, T) ≅ R. Theorem 3.2.1 only asserts the existence of some E_α, so the statement is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E7",
+   "kind": "gap",
+   "locator": "§3.3.1, proof of Proposition 3.3.6, p. 20",
+   "printed": "there exists ψ⁺ ∈ Hom_R(W⁺, (T_E^{(k)})⁺) and j ∈ {1, 2} such that β(ψ⁺(f_j⁺)) ∈ π^{max{d_1,d_2}+r(C_1+C_α)}(R^{(k)})^×. Similarly, there exists ψ⁻ ∈ Hom_R(W⁻, (T_E^{(k)})⁻) such that β(ψ⁻(f_{3−j}⁻)) ∈ π^{min{d_1,d_2}+r(C_1+C_α)}(R^{(k)})^× and β(ψ⁻(f_j⁻)) = 0.",
+   "correction": "What is needed, a pair (ψ⁺, ψ⁻) with q(ψ⁺, ψ⁻) of valuation d_1 + d_2 + 2r(C_1 + C_α), does exist. The possible value vectors (ψ(f_1^±), ψ(f_2^±)) form lattices π^{k−a_1^±}Rε_1^* ⊕ π^{k−a_2^±}Rε_2^* (Smith normal form), and q = det(v, w); since the change-of-basis matrix is invertible, a diagonal or anti-diagonal pair of its entries is a unit, and v, w chosen on those coordinates give valuation ≤ d_1 + d_2 + 2r(C_1 + C_α), made exact by scaling.",
+   "reason": "The choice fails for both j under the stated hypothesis. Over Z_3 with r(C_1 + C_α) = 1, d_1 = 0, d_2 = 1, k = 4, W^± = R/27 ⊕ R/9 and f_1 = (1, 0), f_2 = (1, 1), every homomorphism W → R/81 is ψ(x, y) = 3ax + 9by. Killing f_1 forces 27 | 3a and ψ(f_2) = 9b; killing f_2 forces ψ(f_1) = 3a = −9b. So ψ(f_{3−j}) never has valuation 1. Yet q = 27(ab′ − a′b) attains valuation 3 = d_1 + d_2 + 2.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E8",
+   "kind": "error",
+   "locator": "§3.3.1, proof of Proposition 3.3.6, pp. 19–20",
+   "printed": "Then ρ induces an injection ρ : Gal(L/K) ↪ Aut(T^{(k)}). … q(x_ψ) = p^{2C_2}q(ψ⁺, ψ⁻) ∈ π^{d_1+d_2+2r(C_1+C_2+C_α)}(R^{(k)})^×.",
+   "correction": "ρ need not be injective on Gal(L/K); only the centrality of the element g with ρ(g) = u is used in Sah's lemma, and taking g ∈ G_{K_∞} with ρ_E(g) = u scalar gives it. The valuation of q(x_ψ) is d_1 + d_2 + 2r(C_1 + C_α) + 2e_Φ C_2 (e_Φ the ramification index of Φ), which is ≤ the printed exponent; only q(x_ψ) ∉ 𝔪^{D+1} (D the printed exponent) is used. The case D ≥ k, where π^D(R^{(k)})^× = {0}, should be treated separately (then the second conclusion is vacuous).",
+   "reason": "Gal(L/K) ⊂ Gal(K_α/K) × Gal(K(E[p^k])/K), and a pair (σ, h) with ρ_E(h) = u ∈ U scalar and α(σ) ≡ u^{−1} mod 𝔪^k acts trivially on T^{(k)}. v_π(p) = e_Φ, and e_Φ = r only when Φ/Q_p is totally ramified.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E9",
+   "kind": "error",
+   "locator": "§3.3.3, verification of (3.13) and of (d), p. 25",
+   "printed": "k > 2 length_R(M(n_0)_0) + 2r(M)e ≥ 2 length_R(M(n_i)_0) + 2r(M)e − 3ie > length_R(M(n_i)) + 2e. … ord(κ_{n_i}) ≥ k − ind(κ_1) − ie > 4·length_R(M(n_0)_0) + (4s − i + 2)e",
+   "correction": "From length(M(n_i)_0) ≤ length(M(n_0)_0) + 3ie one only gets −6ie, and (3.15) gives k − ind(κ_1) − ie > 2·length(M(n_0)_0) + ind(κ_1) + (4s + 2 − i)e, not 4·length. What the proof needs holds nevertheless: exp(M(n_i)) ≤ length(M(n_i)_0) ≤ length(M(n_0)_0) + 3ie < k − 2e (enough for (3.13)), and ord(κ_{n_i}) > length(M(n_i)_0) + 2e since i < s. Alternatively replace k/2 by k/4 in (3.15), which makes both printed chains valid apart from the −3ie.",
+   "reason": "Take length(M(n_0)_0) = 5, ind(κ_1) = 0, e = 3, s = 5, i = 4, length(M(n_4)_0) = 36 (allowed by (c)) and the least k = 77 allowed by (3.15): then length(M(n_4)) + 2e = 78 > k. For the second chain, length(M(n_0)_0) = 2, ind = 0, e = 1, s = 1, i = 0, k = 11 satisfies (3.15) but 11 > 4·2 + 3e = 14 fails.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E10",
+   "kind": "misprint",
+   "locator": "§3.3.3, condition (b), p. 24",
+   "printed": "(b) d_t(n_j) ≥ d_{t+2}(n_{j−1}), t = 1, …, s(n_{j−1}) − 1,",
+   "correction": "t = 1, …, 2s(n_{j−1}) − 2.",
+   "reason": "The chain d_1(n_j) ≥ d_{2j+1}(n_0) used to derive (3.14) needs t up to 2s − 3 at j = 1, beyond s − 1 once s ≥ 3. Proposition 3.3.11(iii), which is how (b) is verified, gives the full range i = 1, …, 2s − 2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E11",
+   "kind": "gap",
+   "locator": "§3.3.1, proof of Theorem 3.3.8, p. 21",
+   "printed": "The assumption T̄^{G_K} = 0 implies that H¹_F(K, T) is torsion-free, so ε ≥ 1.",
+   "correction": "Drop the claim: the rest of the proof excludes ε = 0 directly. If ε = 0, then c_1 of order k in M^{(k)}(1)² forces an R/𝔪^k summand in M^{(k)}(1), so H¹_F(K, T^{(k)})/Rc_1 contains an element of order k, contradicting that π^{k−1} kills it.",
+   "reason": "Torsion-freeness and κ_1 ≠ 0 give rank H¹_F(K, T) ≥ 1, but ε only records that rank's parity, so rank two with ε = 0 is not excluded at that point.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E12",
+   "kind": "gap",
+   "locator": "§3.3.3, verification of (e), p. 25",
+   "printed": "Arguing further as in the proof that (d) holds also yields ord(loc_ℓ(κ_{n_i})) = ord(loc_ℓ(c_1)) − g and ord(loc_ℓ(κ_{n_{i+1}})) = ord(loc_ℓ(c)) − h. … ord(loc_ℓ(c_1)) ≥ k − e > exp(M(n_i)_0) ≥ b … Hence we must have ord(loc_ℓ(c_1)) = k − a.",
+   "correction": "ord(loc_ℓ c_1) = k − a holds because, as in the proof of Lemma 3.3.10(ii), the free summand maps onto the R/𝔪^{k−a} factor in (3.16). The second equality should be obtained from the Kolyvagin relation first: ord(loc_ℓ κ_{n_{i+1}}) = ord(loc_ℓ κ_{n_i}) = k − a − g exceeds exp(M(n_{i+1})), so ord(π^h loc_ℓ c) = k − a − g and h − g = a − b′ ≤ 3e − d_1(n_i).",
+   "reason": "An order > b in R/𝔪^{k−a} ⊕ R/𝔪^b does not by itself force order k − a. The (d)-type argument for κ_{n_{i+1}} needs ord(loc_ℓ c) > exp(M(n_{i+1})) + h, which the bounds available at that point do not give for i close to s.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CASTELLA-ETAL-22/E13",
+   "kind": "misprint",
+   "locator": "§3.1, p. 16; §3.3, p. 18",
+   "printed": "If w | p is a finite prime where M is unramified, we set H¹_f(K_w, M) := H¹_ur(K_w, M) … I_n = Σ_{ℓ|n} I_n ⊂ R … 𝓛^{(k)} = {ℓ ∈ 𝓛 : I_ℓ ⊂ p^kZ_p}",
+   "correction": "w ∤ p; I_n = Σ_{ℓ|n} I_ℓ; I_ℓ ⊂ p^kR.",
+   "reason": "The finite condition H¹_f = H¹_ur is for primes not above p (at w | p the ordinary condition is used); I_n is defined from the I_ℓ; and I_ℓ is an ideal of R, not of Z_p.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-021-01072-y: no correction or update relation; a Crossref search for a correction found none",
+    "arXiv 2008.02571: v2 (14 September 2021, 'Final version, to appear in Invent. Math') is the last version and was read in full; the published PDF is not open access"
+   ],
+   "owner": "PAPER-CASTELLA-ETAL-22",
+   "file": "research/blueprint/papers/PAPER-CASTELLA-ETAL-22.result.json",
+   "citation": "Castella et al., \"On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CHANG-CHEN-MISHIBA-23/E1",
    "kind": "misprint",
    "locator": "Section 2.2, the definition of the power sums, just before Definition 2.2.2 (published version: Section 2.2, before Definition 2.4); present in arXiv v2 and in the published version",
