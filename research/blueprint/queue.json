@@ -3428,8 +3428,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1218"
+   "state": "pending",
+   "note": "released on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
@@ -3571,7 +3571,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GUO-REINECKE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1226"
   },
   {
    "id": "REV-PAPER-GUO-REINECKE-24",
@@ -3788,8 +3789,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BRIGHT-NEWTON-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1239"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1239",
+   "finishedAt": "2026-09-22T18:32:36Z"
   },
   {
    "id": "REV-PAPER-BRIGHT-NEWTON-23",
