@@ -3205,8 +3205,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1205"
+   "state": "pending",
+   "note": "released on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -3346,8 +3346,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1214"
+   "state": "pending",
+   "note": "released on GitHub issue #1214"
   },
   {
    "id": "REV-PAPER-ABE-25",
@@ -3598,7 +3598,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DISEGNI-LIU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1228"
   },
   {
    "id": "REV-PAPER-DISEGNI-LIU-24",
@@ -4945,7 +4946,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FARB-KISIN-WOLFSON-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1308"
   },
   {
    "id": "REV-PAPER-FARB-KISIN-WOLFSON-24",
