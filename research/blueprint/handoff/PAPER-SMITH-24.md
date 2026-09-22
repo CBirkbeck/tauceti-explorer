@@ -1,3 +1,27 @@
+# PAPER-SMITH-24 — current handoff
+
+Codex — `codex-a71f92`, issue #1081, 22 September 2026. **Partial checkpoint**. No Lean formalization or independent review is claimed.
+
+This continuation preserves all 146 prior IDs/statuses/statements and the cc-fb70e5 separator proof. The inventory now has 155 items: 14 library, 2 planned, 139 missing; 47 definitions/constructions still have 141 proposed APIs and 141 proposed tests. Missing items are routed exactly once. The four route sizes are 62, 53, 15 and 11 (the GN route includes its two planned items).
+
+Done: fresh full read of all 47 Smith v2 pages; read Serre Appendix B printed pp 14–18 plus references 18–19; read the entire pinned circle-average-log file and the relevant cosine-pushforward proof. Items 147–149 import existing suppliers. Items 150–154 give the normalized angular adapter, reciprocal-root potential including endpoints, half-Hölder estimate, log moment and inversion Jacobian. Item 155 checks all nonmonic integer polynomials using both integer leading and constant coefficients. The report supplies the written proofs; G8 is paper-proof-supplied, not implemented.
+
+The exact-rational numerical certificate was rerun unchanged and passes. The embedded finite regression passes 3,205 exact rational assertions. The paper checker, intake path check, full DAG/route/API audit and all 23 pinned declaration file-hash checks passed. No Lean file was authorized or compiled.
+
+Resume:
+
+1. G7: acquire the final Annals text. The fresh official DOI and Project Euclid PDF attempts returned 1,161-byte HTML challenges, not PDFs. All theorem locators remain v2 locators.
+2. G1: general energy minimization/equilibrium identification, capacity, weighted zero distribution, Remez and deeper Saff–Totik proofs. Do not conflate the new elementary pointwise potential computation with complete general potential theory.
+3. G2: Minkowski second theorem and BLPS transference/Gaussian suppliers. Preserve the polytope, not simplex-only, route.
+4. G3/G4: nonmonic algebra, fixed-size resultant, protected roots, real constant shift and same-component/gap estimates.
+5. G5: compactness, singleton-component exhaustion and support exclusion. Item 114's positive-coefficient repair was already supplied by cc-fb70e5; do not reopen it by mistake.
+6. G6: Honda–Tate, isomorphism finiteness and the modulo 4q claim. Preserve square prime powers and the larger-modulus caveat.
+7. At blueprint stage, implement missing adapters 150–155 and the proposed tests. Do not re-prove existing circle-average or cosine-transfer theory. No generic library absence is asserted from a name search.
+
+The prior source-reading scopes below remain historical; this continuation does not claim to have reread every old prerequisite. All old source issues and separate errata files are untouched. Claims about the published paper still require G7.
+
+## Historical handoff (preserved verbatim)
+
 # PAPER-SMITH-24 handoff
 
 Codex — `codex-c83e7a`, issue #1081. **Partial checkpoint**, not a completed extraction. Read all 47 pages of arXiv 2111.12660v2. The final published Annals PDF was not obtained, so version reconciliation remains required.
