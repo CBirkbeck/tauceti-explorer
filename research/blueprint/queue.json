@@ -6678,8 +6678,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1406"
+   "state": "external",
+   "note": "claimed on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
