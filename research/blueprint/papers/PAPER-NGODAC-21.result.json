@@ -14,9 +14,10 @@
     "readSections": [
       "Entire manuscript: introduction, §§2–6, references",
       "Figures of formulas on printed pp.9,10,12,18,23,24 checked against rendered PDF"
-    ]
+    ],
+    "continuationReading": "codex-c83e7a reread the full 26-page HAL manuscript and references. Fresh HAL requests returned challenge HTML; the earlier worker’s public artifact was reused after matching its recorded SHA-256. No new journal-version equivalence claim."
   },
-  "summary": "Complete reading of the 2021 manuscript; partial proof-closure checkpoint. Extracts the reduction algorithm giving Thakur spanning sets at every weight, independence of indices with entries strictly below q at every weight, and the Thakur basis theorem only through weight 2q−2. Separates generic Frobenius/ABP infrastructure in DrinfeldModulesAndTModules from higher-depth theory in the already-proposed DrinfeldModulesAndTModulesPartII. External degree-bound, interpolation, nonvanishing and analytic proof leaves remain explicit; no claim of formalisation or complete closure.",
+  "summary": "Complete reading of the 2021 manuscript; partial proof-closure checkpoint. Extracts the reduction algorithm giving Thakur spanning sets at every weight, independence of indices with entries strictly below q at every weight, and the Thakur basis theorem only through weight 2q−2. Separates generic Frobenius/ABP infrastructure in DrinfeldModulesAndTModules from higher-depth theory in the already-proposed DrinfeldModulesAndTModulesPartII. The exact degree-bound/descent instance and Chen coefficient formula now have explicit proof decompositions. Interpolation, nonvanishing, analytic and norm/divisor proof leaves remain explicit; no claim of formalisation or complete closure.",
   "conventions": [
     "q=p^e with p prime and e>0; A=F_q[θ], K=F_q(θ), K∞ its infinity completion, and C∞ the completed algebraic closure. θ is transcendental and t is a separate auxiliary variable.",
     "All tuple entries are positive integers. Empty tuple has weight/depth zero and zeta value 1. Tuple coordinates past its length are zero. Strict inequalities concern polynomial degrees, not an ordering of finite-field elements.",
@@ -81,6 +82,43 @@
         "module": "Mathlib/Algebra/SkewPolynomial/Basic.lean",
         "checked": "Declaration and actual statement read at the pinned Mathlib commit.",
         "provides": "Given a ring R equipped with the required multiplicative-N action, SkewPolynomial R is its skew monoid algebra; monomial multiplication is X^n(r)·X^m(s)=X^(n+m)(r φ^[n](s)). The action instance is part of the input."
+      },
+      {
+        "ref": "mathlib:FiniteField.sum_pow_units",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "line": 290,
+        "sha256": "5e92972b7030c2b6a27bf66ea79de25a7a24e7b2110a840f7fb877fb8c7268c5",
+        "checked": "Actual declaration and hypotheses read at the pinned commit in continuation codex-c83e7a.",
+        "provides": "For a finite field K, sum of unit i-th powers is −1 if card K−1 divides i, else zero; inverse exponents follow by a bijective reindexing."
+      },
+      {
+        "ref": "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree",
+        "module": "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
+        "line": 65,
+        "sha256": "af96bb1c57d91369276cb810292503233b5a2f8ea739dc0021f420332e78db4f",
+        "checked": "Actual declaration and hypotheses read at the pinned commit in continuation codex-c83e7a.",
+        "provides": "High-degree Riemann–Roch with explicit IsFunctionField and exact-constant-field IsIntegrallyClosedIn hypotheses."
+      },
+      {
+        "ref": "tauceti:TauCeti.riemannRochSpace",
+        "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+        "sha256": "8339a3856249d3453648d3ad07603093abff576d6f652ca1d5eb739f10ebad76",
+        "checked": "Definition/theorem and exact hypotheses read at the pinned commit.",
+        "provides": "Existing divisor-space interface and eventual Riemann equality; exact constant-field hypothesis retained where required. These do not yet identify the ABP norm ball."
+      },
+      {
+        "ref": "tauceti:TauCeti.mem_riemannRochSpace_iff_neg_le_ord",
+        "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Basic.lean",
+        "sha256": "8339a3856249d3453648d3ad07603093abff576d6f652ca1d5eb739f10ebad76",
+        "checked": "Definition/theorem and exact hypotheses read at the pinned commit.",
+        "provides": "Existing divisor-space interface and eventual Riemann equality; exact constant-field hypothesis retained where required. These do not yet identify the ABP norm ball."
+      },
+      {
+        "ref": "tauceti:TauCeti.exists_forall_dim_eq_degree_add_one_sub_genus",
+        "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
+        "sha256": "21c3afd9bf02c88a1004f1bc74b4b60ec9d812e4bece0d1ba763d7dff992c2e0",
+        "checked": "Definition/theorem and exact hypotheses read at the pinned commit.",
+        "provides": "Existing divisor-space interface and eventual Riemann equality; exact constant-field hypothesis retained where required. These do not yet identify the ABP norm ball."
       }
     ]
   },
@@ -680,10 +718,19 @@
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/chen-coefficient",
-        "PAPER-NGODAC-21/degree-sums"
+        "PAPER-NGODAC-21/degree-sums",
+        "PAPER-NGODAC-21/explicit-partial-fractions",
+        "PAPER-NGODAC-21/monic-pair-reindex"
       ],
       "implementationStatus": "unchecked",
-      "note": "Chen 2015 original explicit-coefficient proof was not obtained; Thakur 2010 existence and degree-one transfer were read. Gap G2."
+      "note": "G2 is discharged for the actual F_q[θ] consumer by the direct all-exponent/all-degree derivation above. The original Chen article and any additional results in it are not claimed read or extracted.",
+      "proofSteps": [
+        "For d≥0 separate the diagonal u=v in the product of degree-d sums; it contributes S_d(a+b).",
+        "Apply explicit-partial-fractions to each ordered pair u≠v, h=u−v. Reindex its two sums by (u,h) and (v,h), respectively.",
+        "With i=a+b−j the coefficient before summing h is (−1)^b binom(i−1,b−1)+(−1)^(i−a) binom(i−1,a−1), interpreting out-of-range binomial coefficients as zero.",
+        "monic-pair-reindex kills i not divisible by q−1 and multiplies the other coefficient by −1. If p is odd then surviving i is even; if p=2 signs coincide. In either case the resulting coefficient is exactly Δ_i(a,b).",
+        "The independent sums are S_d(a+b−i)S_<d(i)=S_d(a+b−i,i). For d=0 the correction sum is zero; for d<0 every nonempty fixed-degree sum is zero."
+      ]
     },
     {
       "id": "PAPER-NGODAC-21/transfer",
@@ -2257,14 +2304,15 @@
       "locator": "ABP 2004 Lemma 3.3.4",
       "status": "missing",
       "dependencies": [
-        "PAPER-NGODAC-21/ABP-size"
+        "PAPER-NGODAC-21/ABP-size",
+        "PAPER-NGODAC-21/riemann-roch-high-degree"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
         "Riemann–Roch gives # {x∈O_0:||x||≤q^n}=q^{[L_0:K]n+c} for sufficiently large integral n.",
         "Apply q^ν-power and squeeze arbitrary C by q-power rational radii."
       ],
-      "note": "The exact divisor-degree/Riemann–Roch bridge to a pinned declaration has not been verified; G6, not a new competing Riemann–Roch owner."
+      "note": "The high-degree Riemann–Roch theorem is verified at the pinned Tau Ceti commit. G6 now concerns the exact-constant-field, infinity-divisor and all-conjugate-norm bridge, not finding or re-planning Riemann–Roch."
     },
     {
       "id": "PAPER-NGODAC-21/ABP-siegel",
@@ -2944,52 +2992,62 @@
       "uses": [
         {
           "where": "§6 explicit contradiction",
-          "how": "Exact Kuan–Lin input instance."
+          "how": "Input to the explicit integral-descent and degree-bound argument; its scope matches the instance attributed to Kuan–Lin by the manuscript."
         }
       ]
     },
     {
       "id": "PAPER-NGODAC-21/degree-descent",
       "kind": "theorem",
-      "name": "Kuan–Lin descent and θ-degree bound, required instance",
-      "statement": "For the preceding splitting system the manuscript invokes descent δ_i∈K[t] and deg_θ δ_i≤q(s_i+⋯+s_2)/(q−1), with s_1=k,s_2=q−1. The polynomial-in-θ coefficient normalization needed for the subsequent comparisons must also be justified.",
+      "name": "Integral descent and theta-degree bound for the two-row system",
+      "statement": "For the small-weight system with q>2, w=q+k−1 and 2≤k≤q−1, every polynomial solution δ_1,δ_2∈barK[t] already lies in A[t]=F_q[θ,t]. Moreover δ_2=0 or deg_θ δ_2≤q, and δ_1=0 or deg_θ δ_1≤floor(qw/(q−1)). No extra scaling is needed.",
       "locator": "§6 p.23, citing Kuan–Lin 2016 proof of Theorem 2",
       "status": "missing",
       "dependencies": [
-        "PAPER-NGODAC-21/small-weight-system"
+        "PAPER-NGODAC-21/small-weight-system",
+        "PAPER-NGODAC-21/AT-small",
+        "PAPER-NGODAC-21/monic-frobenius-descent",
+        "PAPER-NGODAC-21/theta-degree-bound"
       ],
       "implementationStatus": "unchecked",
-      "note": "UNRESOLVED PROOF INPUT, not a verified stronger theorem: original full text was unavailable (publisher PDF HTTP 403). Need the exact degree convention and the passage from rational K[t] coefficients to the F_q[t][θ] polynomial form used on p.24. Gap G1 blocks complete status."
+      "note": "G1 is discharged for this exact instance by the explicit independent derivation, not by claiming access to Kuan–Lin Theorem 2. The manuscript’s citation is preserved in the locator; the original external theorem remains unread.",
+      "proofSteps": [
+        "Twist (6.4) once, using H_(q−1)=1: δ_2^(1)=(t−θ^q)^(q−1)(δ_2+a_2). Apply monic-frobenius-descent with R=A to obtain δ_2∈A[t]. The degree bound with M=0 gives deg_θ δ_2≤q.",
+        "Twist (6.3) once, using H_k=1: δ_1^(1)=(t−θ^q)^w(δ_1+δ_2+a_1 H_w). Both the monic multiplier and the forcing polynomial belong to A[t], so descend δ_1 to A[t].",
+        "AT-small gives deg_θ H_w≤q, also when p divides k−1. Thus G=δ_2+a_1H_w has θ-degree≤q. Since qw/(q−1)>q, theta-degree-bound gives the required bound for δ_1."
+      ]
     },
     {
       "id": "PAPER-NGODAC-21/second-row-classification",
       "kind": "theorem",
       "name": "Solving the second small-weight equation",
-      "statement": "Every polynomial solution in K[t] of the second row with a_2∈F_q[t] has a_2=f(t)(t^q−t) and δ_2=f(t)(θ^q−t^q), for f∈F_q[t]. For a nontrivial relation f≠0.",
+      "statement": "Every solution δ_2∈barK[t], a_2∈F_q[t] of (6.4), with H_(q−1)=1, has a_2=f(t)(t^q−t) and δ_2=f(t)(θ^q−t^q) for a unique f∈F_q[t]. If a_2≠0 then f≠0.",
       "locator": "§6 pp.23–24",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/small-weight-system",
-        "PAPER-NGODAC-21/degree-descent"
+        "PAPER-NGODAC-21/AT-small"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
-        "Cross-multiply against the displayed particular solution; the difference Δ satisfies Δ=Δ^(−1)(t−θ)^{q−1}.",
-        "Its t-degree forces Δ=0.",
-        "The two polynomials θ^q−t^q and t^q−t are coprime in K[t]; hence t^q−t divides a_2, giving polynomial f."
-      ]
+        "Verify the particular pair (θ^q−t^q,t^q−t) directly in (6.4). The cross-difference Δ=(t^q−t)δ_2−a_2(θ^q−t^q) satisfies Δ=Δ^(−1)(t−θ)^(q−1).",
+        "If Δ≠0, inverse coefficient twist preserves t-degree and the right side has degree deg_t Δ+q−1, impossible. Thus Δ=0.",
+        "For each β∈F_q, evaluate Δ=0 at t=β. Since θ^q−β≠0, a_2(β)=0. The q distinct linear factors of t^q−t therefore divide a_2 in F_q[t]. Set f=a_2/(t^q−t) and cancel the nonzero factor to identify δ_2."
+      ],
+      "note": "This classification works directly over barK[t] and does not need the degree bound; the dependency edge to degree-descent is removed."
     },
     {
       "id": "PAPER-NGODAC-21/interior-contradiction",
       "kind": "theorem",
       "name": "Interior-weight coefficient contradiction",
-      "statement": "Assuming the Kuan–Lin polynomial normalization, if 2≤k<q−1 the degree bound forces δ_1=(aθ+b)(t−θ)^w with a,b∈F_q[t]. Substitution in the twisted first equation forces a=b=0, then f=(k−1)a_1 and (t^q−t)a_1=0, contradicting a_1≠0.",
+      "statement": "Using integral descent, if 2≤k<q−1 the degree bound forces δ_1=(aθ+b)(t−θ)^w with a,b∈F_q[t]. Substitution in the twisted first equation forces a=b=0, then f=(k−1)a_1 and (t^q−t)a_1=0, contradicting a_1≠0.",
       "locator": "§6 p.24, first case",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/second-row-classification",
         "PAPER-NGODAC-21/degree-descent",
-        "PAPER-NGODAC-21/AT-small"
+        "PAPER-NGODAC-21/AT-small",
+        "PAPER-NGODAC-21/integral-monic-quotient"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
@@ -2997,19 +3055,20 @@
         "Compare the θ^k coefficient first, then θ^{k−1}, whose contributions below degree q come only from the low-degree part of (aθ+b)(t^q−θ^q)(t−θ)^{k−1}.",
         "Compare θ^q and then the constant coefficient."
       ],
-      "note": "Conditional on G1's normalization, including when p divides k−1."
+      "note": "The polynomial forms now follow from degree-descent and integral-monic-quotient, including when p divides k−1."
     },
     {
       "id": "PAPER-NGODAC-21/endpoint-contradiction",
       "kind": "theorem",
       "name": "Endpoint-weight coefficient contradiction",
-      "statement": "Under the same normalization, at k=q−1 and w=2q−2 write δ_1=(aθ²+bθ+c)(t−θ)^w. Coefficients θ^{2q−1} and θ^{2q−2} give aθ²+bθ+c=a(t−θ)². Put h=a(t^q−t)−a_1. The resulting identity h[(t−θ^q)²−(t−θ)^{2q}]=(θ^q−t^q)f(t^q−t) is impossible when f≠0.",
+      "statement": "Using integral descent, at k=q−1 and w=2q−2 write δ_1=(aθ²+bθ+c)(t−θ)^w. Coefficients θ^{2q−1} and θ^{2q−2} give aθ²+bθ+c=a(t−θ)². Put h=a(t^q−t)−a_1. The resulting identity h[(t−θ^q)²−(t−θ)^{2q}]=(θ^q−t^q)f(t^q−t) is impossible when f≠0.",
       "locator": "§6 p.24, endpoint case",
       "status": "missing",
       "dependencies": [
         "PAPER-NGODAC-21/second-row-classification",
         "PAPER-NGODAC-21/degree-descent",
-        "PAPER-NGODAC-21/AT-small"
+        "PAPER-NGODAC-21/AT-small",
+        "PAPER-NGODAC-21/integral-monic-quotient"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
@@ -3140,18 +3199,150 @@
         "Independence gives the dimension lower bound.",
         "Partition small-entry compositions by their first part."
       ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/finite-field-unit-sum",
+      "kind": "theorem",
+      "name": "Finite-field power sum over units",
+      "statement": "For a finite field F of cardinality q and i∈N, Σ_{c∈F^×} c^i is −1 when q−1 divides i and 0 otherwise. Reindexing by inversion gives the identical formula for c^(−i).",
+      "locator": "Pinned Mathlib FieldTheory/Finite/Basic.lean, FiniteField.sum_pow_units",
+      "status": "library",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:FiniteField.sum_pow_units"
+      ],
+      "note": "The library statement is for natural positive powers; inverse powers use the bijection c↦c⁻¹. It includes i=0, where q−1=−1 inside F."
+    },
+    {
+      "id": "PAPER-NGODAC-21/explicit-partial-fractions",
+      "kind": "theorem",
+      "name": "Explicit two-pole binomial decomposition",
+      "statement": "In any field, for nonzero x,y with h=x−y≠0 and integers a,b>0, (x^a y^b)⁻¹ = Σ_{j=1}^a (−1)^b binom(a+b−j−1,b−1)/(x^j h^(a+b−j)) + Σ_{j=1}^b (−1)^(b−j) binom(a+b−j−1,a−1)/(y^j h^(a+b−j)). Integer coefficients map to the field.",
+      "locator": "Worker derivation supplying §2.1 equation (2.1), expanded in the report",
+      "status": "missing",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "note": "This is an explicit coefficient application, not a replacement for Mathlib’s general partial-fraction existence/uniqueness theory. Chen 2015 itself remains unread; this proof does not claim to transcribe Chen’s proof.",
+      "acceptance": [
+        "a=b=1 gives (1/y−1/x)/(x−y).",
+        "In characteristic two both minus signs become plus signs.",
+        "x=y is excluded; precisely this diagonal is separated before applying the identity."
+      ],
+      "proofSteps": [
+        "Set P(a,b)=1/(x^a y^b), including boundary a=0 or b=0. The identity h P(a,b)=P(a−1,b)−P(a,b−1) reduces a+b.",
+        "Induct using Pascal’s identity. Boundary terms with b exhausted give (−1)^b binom(a+b−j−1,b−1); terms with a exhausted give (−1)^(b−j) binom(a+b−j−1,a−1).",
+        "Alternatively clear x^a y^b h^(a+b−1): this is an integer polynomial identity, so reduction to every characteristic is legitimate."
+      ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/monic-pair-reindex",
+      "kind": "theorem",
+      "name": "Reindexing distinct equal-degree monic pairs",
+      "statement": "For d≥0, ordered distinct monic degree-d pairs (u,v) are in bijection with (u,h) where u is monic of degree d and 0≠h∈F_q[θ] has degree<d, by h=u−v; also with (v,h) by u=v+h. Every such h has a unique form c g with c∈F_q^× and g monic of degree<d. Thus for i>0, Σ_{0≠h,deg h<d} h^(−i)=−1_{q−1|i} S_<d(i).",
+      "locator": "Worker derivation supplying §2.1 equation (2.1)",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-NGODAC-21/degree-sums",
+        "PAPER-NGODAC-21/finite-field-unit-sum"
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "At d=0 there are no distinct monic pairs and no nonzero lower-degree polynomials.",
+        "For q=4 the filter is divisibility by 3, while its surviving scalar is −1=1 in characteristic two."
+      ],
+      "proofSteps": [
+        "Subtracting monic equal-degree polynomials cancels their leading terms. Conversely adding or subtracting a strictly lower-degree h preserves monicity and degree; h≠0 gives distinctness.",
+        "Normalize a nonzero h by its leading coefficient. Its monic factor has the same degree, and this representation is unique.",
+        "Factor the finite sum into the unit sum and the monic truncated sum, and apply the pinned finite-field power-sum theorem by inverse reindexing."
+      ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/monic-frobenius-descent",
+      "kind": "theorem",
+      "name": "Polynomial descent for a monic difference equation",
+      "statement": "Let E be a characteristic-p field, q=p^e with e>0, and R⊆E a subring stable under q-power. Twist coefficients while fixing t. If B,F∈R[t], B is monic of degree m>0, and δ∈E[t] satisfies δ^(1)=Bδ+F, then δ∈R[t].",
+      "locator": "Worker derivation for §6 equations (6.3)–(6.4)",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-NGODAC-21/twist"
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "Take R=F_q[θ]⊂barK, which is stable under positive q-power but not perfect.",
+        "The degree hypothesis matters: for q=2, B=1,F=1 and δ∈F_4\\F_2 satisfying δ²−δ=1, descent to R=F_2 fails.",
+        "Twisting t itself would change the degree comparison and is excluded."
+      ],
+      "proofSteps": [
+        "Write B=Σ_{i=0}^m B_i t^i with B_m=1 and δ=Σ δ_j t^j; set coefficients outside the finite support to zero.",
+        "Compare the coefficient of t^(j+m): δ_j=δ_(j+m)^q−F_(j+m)−Σ_{i=0}^{m−1} B_i δ_(j+m−i).",
+        "All δ subscripts on the right are strictly greater than j. Descend from deg_t δ; ring closure and q-power stability show every δ_j belongs to R. No denominator clearing or perfectness of R is used."
+      ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/theta-degree-bound",
+      "kind": "theorem",
+      "name": "Theta-degree bound for a scalar Frobenius equation",
+      "statement": "Let q=p^e≥2, A=F_q[θ], m>0, M≥0, G∈A[t] with deg_θ G≤M (G=0 allowed), and δ∈A[t] satisfy δ^(1)=(t−θ^q)^m(δ+G). Then δ=0 or deg_θ δ≤max(M, floor(qm/(q−1))).",
+      "locator": "Worker derivation for the required §6 degree bound",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-NGODAC-21/twist"
+      ],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "m=q−1 and G∈F_q[t] give deg_θ δ≤q.",
+        "m=w=q+k−1 with 2≤k≤q−1 and M=q give deg_θ δ≤floor(qw/(q−1))."
+      ],
+      "proofSteps": [
+        "For nonzero δ write N=deg_θ δ. Positive coefficient twist fixes t and sends θ to θ^q, so deg_θ δ^(1)=qN.",
+        "If N exceeds both M and qm/(q−1), then deg_θ(δ+G)=N. The right-hand side has degree qm+N over the domain F_q[t].",
+        "Equality would force qN=qm+N, contradicting (q−1)N>qm. The zero polynomial is handled separately."
+      ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/integral-monic-quotient",
+      "kind": "theorem",
+      "name": "Integral quotient by the t-minus-theta factor",
+      "statement": "For δ∈A[t], A=F_q[θ], if (t−θ)^m divides δ in barK[t], then δ=(t−θ)^m R with R∈A[t]. For δ≠0, deg_θ R=deg_θ δ−m after identifying A[t] with F_q[t][θ].",
+      "locator": "Worker derivation for the coefficient comparisons on §6 p.24",
+      "status": "missing",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "acceptance": [
+        "The assertion does not follow from a rational θ-degree bound alone; the integrality conclusion of monic-frobenius-descent is used.",
+        "If δ=0 the quotient is zero, and the affine/quadratic forms hold with all coefficients zero."
+      ],
+      "proofSteps": [
+        "Divide by the monic t-polynomial (t−θ)^m over A. Map the quotient and remainder to barK[t]; divisibility and uniqueness of division force the remainder to vanish already in A[t].",
+        "The polynomial (t−θ)^m has θ-leading coefficient (−1)^m, a unit. Degree additivity in the domain F_q[t][θ] gives the asserted difference."
+      ]
+    },
+    {
+      "id": "PAPER-NGODAC-21/riemann-roch-high-degree",
+      "kind": "theorem",
+      "name": "Existing high-degree function-field Riemann–Roch",
+      "statement": "For fields k,F with a k-algebra structure, IsFunctionField k F and IsIntegrallyClosedIn k F (the exact constant-field condition), if D is a divisor with deg D≥2 genus(k,F)−1, then dim_k L(D)=deg D+1−genus(k,F), as an equality of integers.",
+      "locator": "Pinned Tau Ceti FieldTheory/FunctionField/Consequences/HighDegree.lean, lines 65–69",
+      "status": "library",
+      "dependencies": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.Divisor.dim_eq_degree_add_one_sub_genus_of_two_mul_genus_sub_one_le_degree"
+      ],
+      "note": "The exact constant-field hypothesis is essential. This is the existing theorem to import, not a new roadmap target; transporting ABP’s all-conjugate norm bound to such a divisor remains G6."
     }
   ],
   "prerequisites": [
     {
       "citation": "Kuan–Lin, Criterion for deciding zeta-like multizeta values in positive characteristic, Exp. Math. 25 (2016), 246–256",
       "link": "https://doi.org/10.1080/10586458.2015.1069228",
-      "why": "G1: exact rationality, integrality normalization and θ-degree bounds used in §6; full text not obtained."
+      "why": "The manuscript cites its Theorem 2 proof. The required two-row integral descent and degree bounds now have an independent explicit derivation in this extraction; the original paper remains a bibliographic follow-up, not an opaque proof dependency for this instance."
     },
     {
       "citation": "Chen, On shuffle of double zeta values over F_q[t], JNT 148 (2015), 153–163",
       "link": "https://doi.org/10.1016/j.jnt.2014.09.016",
-      "why": "G2: explicit binomial coefficient identity; not replaced by Thakur's existence theorem."
+      "why": "The original article remains a source follow-up. The actual equal-degree formula is now derived for every exponent and degree by explicit partial fractions and finite-field unit sums."
     },
     {
       "citation": "Thakur, Power sums with applications to multizeta and zeta zero distribution for F_q[t], FFA 15 (2009), 534–552",
@@ -3267,9 +3458,11 @@
         "PAPER-NGODAC-21/ABP-auxiliary-zero",
         "PAPER-NGODAC-21/ABP-lifting",
         "PAPER-NGODAC-21/constant-denominator",
-        "PAPER-NGODAC-21/twist-fixed"
+        "PAPER-NGODAC-21/twist-fixed",
+        "PAPER-NGODAC-21/monic-frobenius-descent",
+        "PAPER-NGODAC-21/theta-degree-bound"
       ],
-      "reason": "Generic coefficient twists, Tate/entire analytic interfaces, denominator descent and ABP lifting support period/logarithm theory and every higher-depth consumer. The two nearby paper routes already identify this shared owner; do not re-plan these inside Part II."
+      "reason": "Generic coefficient twists, Tate/entire analytic interfaces, denominator descent and ABP lifting support period/logarithm theory and every higher-depth consumer. The two nearby paper routes already identify this shared owner; do not re-plan these inside Part II. The scalar monic Frobenius descent and theta-degree lemmas are reusable by the higher-depth difference systems and have this same owner."
     },
     {
       "route": "part-ii",
@@ -3352,34 +3545,16 @@
         "PAPER-NGODAC-21/sharp-method-boundary",
         "PAPER-NGODAC-21/next-weight-relation",
         "PAPER-NGODAC-21/BC-support",
-        "PAPER-NGODAC-21/lower-bound"
+        "PAPER-NGODAC-21/lower-bound",
+        "PAPER-NGODAC-21/explicit-partial-fractions",
+        "PAPER-NGODAC-21/monic-pair-reindex",
+        "PAPER-NGODAC-21/integral-monic-quotient"
       ],
       "reason": "Reuse exactly the Part II proposed in PAPER-CHANG-CHEN-MISHIBA-23 and PAPER-IM-KIM-LE-ETAL-24, not a second MZV roadmap. It has no live roadmap definition/packet in the inspected snapshot, so its additional declarations are missing, not planned. The base covers rank-one and generic motive infrastructure, not this higher-depth index calculus and independence argument.",
-      "brief": "Extend the existing proposed DrinfeldModulesAndTModulesPartII by the precise 2021 proof route, sharing definitions with the later basis and alternating-MZV sources. Its theorems from this source are: for every prime power q and weight w>0, Thakur indices with entries≤q and final entry<q span Z_w over F_q(θ); the smaller family with every entry<q is independent at every weight; consequently the Thakur family is a basis and dim Z_w=d(w) for 1≤w≤2q−2. Do not attribute the later all-weight basis theorem to this source. Construct positive indices, prefix dominance, degree sums, MZV convergence/nonvanishing, finite coefficient relation data, Chen product recursion, Todd B*, C and BC_q, the two reduction lemmas and an explicit finite termination rank. Keep Todd's completeness-of-relations assertion labelled conjectural here. Construct Anderson–Thakur interpolation polynomials with the manuscript's one-place index shift, the entire L-series, their explicit matrices, merged proper-prefix extension, normalized ABP row, polynomial splitting, suffix rationality and longest-common-prefix contradiction. The final range extension needs the independently verified Kuan–Lin descent/integrality/degree theorem, the two-equation calculation in both interior and endpoint weights, the I'↔I^T counting bijection, and the explicit dependent I' pair at weight 2q−1. Import Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules) DM.0 for Carlitz denominator arithmetic, DM.2 for C∞ and period/Ω analysis, DM.4 for the exact dual motive interface, DM.6 for factorial and depth-one power-sum normalization, and DM.8 for generic twists, entire solutions, ABP lifting and denominator descent. Import existing global-function-field/Riemann–Roch suppliers only after matching declarations, never rebuild that theory in this extension. Classical MZVs in Periods, motivic L-values and special-value conjectures (PeriodsAndSpecialValues:PS.9) are an analogy, not a source of characteristic-p independence. Every definition must carry the usage-derived APIs and three discriminating tests recorded here. All G1–G8 proof leaves must be closed or retained as precise gaps before a blueprint claims closure."
+      "brief": "Extend the existing proposed DrinfeldModulesAndTModulesPartII by the precise 2021 proof route, sharing definitions with the later basis and alternating-MZV sources. Its theorems from this source are: for every prime power q and weight w>0, Thakur indices with entries≤q and final entry<q span Z_w over F_q(θ); the smaller family with every entry<q is independent at every weight; consequently the Thakur family is a basis and dim Z_w=d(w) for 1≤w≤2q−2. Do not attribute the later all-weight basis theorem to this source. Construct positive indices, prefix dominance, degree sums, MZV convergence/nonvanishing, finite coefficient relation data, Chen product recursion, Todd B*, C and BC_q, the two reduction lemmas and an explicit finite termination rank. Keep Todd's completeness-of-relations assertion labelled conjectural here. Construct Anderson–Thakur interpolation polynomials with the manuscript's one-place index shift, the entire L-series, their explicit matrices, merged proper-prefix extension, normalized ABP row, polynomial splitting, suffix rationality and longest-common-prefix contradiction. The final range extension needs the explicit monic Frobenius descent, theta-degree bound and integral-quotient lemmas recorded in this continuation, the two-equation calculation in both interior and endpoint weights, the I'↔I^T counting bijection, and the explicit dependent I' pair at weight 2q−1. Import Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules) DM.0 for Carlitz denominator arithmetic, DM.2 for C∞ and period/Ω analysis, DM.4 for the exact dual motive interface, DM.6 for factorial and depth-one power-sum normalization, and DM.8 for generic twists, entire solutions, ABP lifting and denominator descent. Import existing global-function-field/Riemann–Roch suppliers only after matching declarations, never rebuild that theory in this extension. Classical MZVs in Periods, motivic L-values and special-value conjectures (PeriodsAndSpecialValues:PS.9) are an analogy, not a source of characteristic-p independence. Every definition must carry the usage-derived APIs and three discriminating tests recorded here. The six remaining G3–G8 proof leaves must be closed or retained as precise gaps before a blueprint claims closure. The direct two-pole partial-fraction and monic-pair reindexing derivation supplies Chen’s coefficients for all exponents and all degrees, importing Mathlib FiniteField.sum_pow_units. It avoids an unread coefficient-formula oracle. Import the verified Tau Ceti high-degree Riemann–Roch theorem with its exact-constant-field hypothesis; the ABP norm/divisor transport is still a gap."
     }
   ],
   "gaps": [
-    {
-      "id": "PAPER-NGODAC-21/G1",
-      "title": "Exact Kuan–Lin degree/descent input",
-      "detail": "Acquire Kuan–Lin 2016, proof of Theorem 2 (DOI 10.1080/10586458.2015.1069228; publisher PDF returned 403). Check the θ-degree convention and justify clearing rational θ-coefficient denominators using only F_q[t] scalars so the p.24 polynomial coefficient comparisons are valid. A degree bound for arbitrary rational K[t] coefficients alone does not imply the displayed affine/quadratic θ forms. This is an unverified input, not a claimed error in that paper.",
-      "neededBy": [
-        "PAPER-NGODAC-21/degree-descent",
-        "PAPER-NGODAC-21/interior-contradiction",
-        "PAPER-NGODAC-21/endpoint-contradiction",
-        "PAPER-NGODAC-21/theorem-6-2",
-        "PAPER-NGODAC-21/theorem-D"
-      ]
-    },
-    {
-      "id": "PAPER-NGODAC-21/G2",
-      "title": "Chen's explicit coefficient proof",
-      "detail": "Read Chen 2015 On shuffle of double zeta values over F_q[t], DOI 10.1016/j.jnt.2014.09.016, and decompose its degree-one partial fraction/binomial identity. Thakur 2010 supplies existence and transfer, but not the explicit Δ formula. The finite tests support conventions without replacing this all-exponent proof.",
-      "neededBy": [
-        "PAPER-NGODAC-21/depth-one-product",
-        "PAPER-NGODAC-21/fixed-product"
-      ]
-    },
     {
       "id": "PAPER-NGODAC-21/G3",
       "title": "Prime-power greedy valuation theorem",
@@ -3415,8 +3590,8 @@
     },
     {
       "id": "PAPER-NGODAC-21/G6",
-      "title": "Riemann–Roch-to-lattice-count bridge",
-      "detail": "Find the exact pinned Tau Ceti/Mathlib Riemann–Roch declaration and global-function-field divisor interface providing ABP's # {x∈O_0:||x||≤q^n}=q^{[L_0:K]n+c} for n large. Do not create a second Riemann–Roch theory; source-route ABP-count as an application and import the verified supplier.",
+      "title": "Exact constants and norm-to-infinity-divisor bridge for ABP",
+      "detail": "The pinned Tau Ceti high-degree Riemann–Roch declaration is now verified in riemann-roch-high-degree. Still construct ABP’s finite extension L_0 over K with exact finite constant field k_0, identify its integral closure O_0 and all-conjugate norm ball with L(nD_infinity), and prove [k_0:F_q] deg_(k_0) D_infinity=[L_0:K]. Riemann–Roch then gives exponent [L_0:K] n+[k_0:F_q](1−g) for large n. Match the embedding/place normalizations and finite-field cardinality transport to pinned declarations; do not silently assume k_0=F_q or recreate Riemann–Roch.",
       "neededBy": [
         "PAPER-NGODAC-21/ABP-count"
       ]
@@ -3434,7 +3609,7 @@
     {
       "id": "PAPER-NGODAC-21/G8",
       "title": "Published-version reconciliation and independent source-issue checks",
-      "detail": "Main HAL manuscript was read completely and title/author/abstract/main theorem ranges match the Annals page, but the 32-page journal PDF was not obtained. Reconcile journal theorem/page locators and determine which E1–E6 persist there. E7–E10 explicitly concern external versions. Independent review must confirm every finding; no author contact is authorized by this job.",
+      "detail": "Main HAL manuscript was read completely and title/author/abstract/main theorem ranges match the Annals page, but the 32-page journal PDF was not obtained. Reconcile journal theorem/page locators and determine which E1–E6 persist there. E7–E10 explicitly concern external versions. Independent review must confirm every finding; no author contact is authorized by this job. Continuation: Annals standard PDF endpoints returned 404; HAL returned HTML challenges. The author publication page links the same HAL manuscript and no separate journal PDF. The previous public artifact was copied and matched byte-for-byte to the merged hash before rereading.",
       "neededBy": [
         "PAPER-NGODAC-21/ABP-lifting",
         "PAPER-NGODAC-21/large-entry-reduction",
@@ -3682,7 +3857,7 @@
     }
   ],
   "ownershipEvidence": {
-    "snapshot": "331a9afc03367d8bd5f8cde591499bcc47d83fe4",
+    "snapshot": "40e5dc275e2a7371c78a76f4147886f49776d1b4",
     "documentsRead": [
       "research/blueprint/WORKERS.md",
       "research/blueprint/PROTOCOL.md",
@@ -3699,7 +3874,10 @@
       "PAPER-CHANG-CHEN-MISHIBA-23",
       "PAPER-IM-KIM-LE-ETAL-24"
     ],
-    "provenanceDiscrepancies": "Nearby extraction URLs arXiv:2007.11060, 1207.4736 and 1601.01927 do not identify Ngo Dac 2021, Chang 2014 and CPY respectively. Use the verified HAL URL, 1207.2326 and 1411.0124. This job leaves the other papers' deliverables unchanged."
+    "provenanceDiscrepancies": "Nearby extraction URLs arXiv:2007.11060, 1207.4736 and 1601.01927 do not identify Ngo Dac 2021, Chang 2014 and CPY respectively. Use the verified HAL URL, 1207.2326 and 1411.0124. This job leaves the other papers' deliverables unchanged.",
+    "previousSnapshot": "331a9afc03367d8bd5f8cde591499bcc47d83fe4",
+    "continuation": "480 ownership/protocol/audit/paper inputs verified by GitHub blob hash and SHA-256. DM.0–DM.8 and PS.9 reviewed audits, base owner document, FunctionFieldArithmetic FA.0/FA.1 and both neighboring Part II route briefs reread. Specialized-name and scalar-equation searches repeated in both pinned libraries; exact new baseline declarations read.",
+    "librarySearchLimits": "No specialized scalar monic Frobenius-descent or explicit Chen binomial decomposition was located by the inspected polynomial/function-field searches. Mathlib has general partial-fraction existence/uniqueness; only the explicit coefficient application is proposed here. This search is not a claim of exhaustive absence of every potentially useful polynomial lemma."
   },
   "validation": {
     "lean": "Not compiled. This paper job authorizes JSON/report/handoff only; no Lean deliverable or formalisation claim.",
@@ -3709,6 +3887,290 @@
       "Thakur and q-indivisible family counts and explicit block bijections for q=2,3,4,5, weights 1..10.",
       "The finite field of four elements is represented as F_2[u]/(u²+u+1); reciprocal-polynomial sums are reduced rational functions by polynomial gcd, not floating-point approximations."
     ],
-    "checker": "PASS: scripts/check_paper.py; intake.py check-files (3 files, 0 problems); 9 test_check_paper tests; 7 test_source_issues tests; custom endpoint/DAG, definition API/test and exact-once missing-route checks."
+    "checker": "PASS: scripts/check_paper.py; intake.py check-files (3 files, 0 problems); continuation DAG, exact-route, API/uses/tests, source-issue preservation and 480 input-hash checks.",
+    "previousCheckpoint": "PASS: scripts/check_paper.py; intake.py check-files (3 files, 0 problems); 9 test_check_paper tests; 7 test_source_issues tests; custom endpoint/DAG, definition API/test and exact-once missing-route checks.",
+    "continuationDiagnostics": {
+      "result": "PASS",
+      "integer_partial_fraction_identities": 900,
+      "inverse_unit_power_sums": 800,
+      "monic_descent_finite_extension_cases": 3584,
+      "degree_zero_counterexample": 1,
+      "small_weight_nonzero_f_obstructions": {
+        "cases": 17,
+        "ranks": [
+          [
+            3,
+            2,
+            4,
+            3
+          ],
+          [
+            4,
+            2,
+            4,
+            3
+          ],
+          [
+            4,
+            3,
+            4,
+            3
+          ],
+          [
+            5,
+            2,
+            4,
+            3
+          ],
+          [
+            5,
+            3,
+            4,
+            3
+          ],
+          [
+            5,
+            4,
+            4,
+            3
+          ],
+          [
+            7,
+            2,
+            4,
+            3
+          ],
+          [
+            7,
+            3,
+            4,
+            3
+          ],
+          [
+            7,
+            4,
+            4,
+            3
+          ],
+          [
+            7,
+            5,
+            4,
+            3
+          ],
+          [
+            7,
+            6,
+            4,
+            3
+          ],
+          [
+            8,
+            2,
+            4,
+            3
+          ],
+          [
+            8,
+            3,
+            4,
+            3
+          ],
+          [
+            8,
+            4,
+            4,
+            3
+          ],
+          [
+            8,
+            5,
+            4,
+            3
+          ],
+          [
+            8,
+            6,
+            4,
+            3
+          ],
+          [
+            8,
+            7,
+            4,
+            3
+          ]
+        ]
+      },
+      "theta_degree_inequalities": 51968,
+      "meaning": "Finite exact diagnostics, not proofs or Lean formalisation. Integer cleared-denominator identities, non-prime finite-field sums, finite-extension descent, positive-degree counterexample, coefficient-rank obstructions with nonzero f, and degree inequalities."
+    },
+    "repeatedPreviousDiagnostics": "PASS: previous exact rational checks rerun (336 Chen identities, 32 shifted-boundary identities, counts and bijections q=2,3,4,5 and weights 1..10).",
+    "structural": {
+      "result": "PASS",
+      "items": 106,
+      "statuses": {
+        "library": 5,
+        "missing": 99,
+        "planned": 2
+      },
+      "definitions": 36,
+      "apiEntries": 105,
+      "tests": 108,
+      "inputHashes": 480,
+      "checks": "Preserved prior item IDs and all source issues; unique IDs; resolved acyclic dependencies; exactly one route per missing item; library declarations and input hashes; real planned stages; definition APIs, tests and uses; disjoint open/resolved gap IDs and valid consumers."
+    }
+  },
+  "resolvedGaps": [
+    {
+      "id": "PAPER-NGODAC-21/G1",
+      "title": "Exact Kuan–Lin degree/descent input",
+      "detail": "Acquire Kuan–Lin 2016, proof of Theorem 2 (DOI 10.1080/10586458.2015.1069228; publisher PDF returned 403). Check the θ-degree convention and justify clearing rational θ-coefficient denominators using only F_q[t] scalars so the p.24 polynomial coefficient comparisons are valid. A degree bound for arbitrary rational K[t] coefficients alone does not imply the displayed affine/quadratic θ forms. This is an unverified input, not a claimed error in that paper.",
+      "neededBy": [
+        "PAPER-NGODAC-21/degree-descent",
+        "PAPER-NGODAC-21/interior-contradiction",
+        "PAPER-NGODAC-21/endpoint-contradiction",
+        "PAPER-NGODAC-21/theorem-6-2",
+        "PAPER-NGODAC-21/theorem-D"
+      ],
+      "resolution": "Required §6 instance supplied by monic-frobenius-descent, theta-degree-bound, degree-descent and integral-monic-quotient. Original Kuan–Lin text still not acquired; no claim about the full external theorem."
+    },
+    {
+      "id": "PAPER-NGODAC-21/G2",
+      "title": "Chen's explicit coefficient proof",
+      "detail": "Read Chen 2015 On shuffle of double zeta values over F_q[t], DOI 10.1016/j.jnt.2014.09.016, and decompose its degree-one partial fraction/binomial identity. Thakur 2010 supplies existence and transfer, but not the explicit Δ formula. The finite tests support conventions without replacing this all-exponent proof.",
+      "neededBy": [
+        "PAPER-NGODAC-21/depth-one-product",
+        "PAPER-NGODAC-21/fixed-product"
+      ],
+      "resolution": "Actual F_q[θ] formula supplied directly by explicit-partial-fractions, monic-pair-reindex and the pinned FiniteField.sum_pow_units. Original Chen text still not acquired."
+    }
+  ],
+  "continuation": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "issue": 1111,
+    "previousPullRequest": 1971,
+    "changes": "Close required G1/G2 instances with explicit independent proof decompositions; identify existing high-degree Riemann–Roch and narrow G6. Preserve the original 99 items, ten source issues, six ownership routes and prior external reading provenance.",
+    "readingBoundary": "The complete main HAL paper was reread. Earlier external PDFs and their source issues are preserved as prior-worker findings; this continuation does not claim a fresh complete external-source read or independent review.",
+    "acquisition": {
+      "url": "https://hal.science/hal-03298790/document",
+      "sha256": "f6bf74f188aad7602293e47b2c963243a036649cb591a4dc7ca13556e90d971d",
+      "accessDate": "2026-09-22",
+      "acquisition": "Copied the previous worker’s publicly fetched HAL artifact; bytes verified against the merged source hash. Fresh HAL requests returned HTML challenge pages."
+    }
+  },
+  "dependencyAudit": {
+    "acyclic": true,
+    "internalEdges": 260,
+    "topologicalOrder": [
+      "PAPER-NGODAC-21/infinity",
+      "PAPER-NGODAC-21/indices",
+      "PAPER-NGODAC-21/dominance",
+      "PAPER-NGODAC-21/tuple-operations",
+      "PAPER-NGODAC-21/degree-sums",
+      "PAPER-NGODAC-21/zeta",
+      "PAPER-NGODAC-21/zeta-converges",
+      "PAPER-NGODAC-21/valuation-monotone",
+      "PAPER-NGODAC-21/zeta-nonzero",
+      "PAPER-NGODAC-21/index-families",
+      "PAPER-NGODAC-21/weight-space",
+      "PAPER-NGODAC-21/dimension-sequence",
+      "PAPER-NGODAC-21/family-count",
+      "PAPER-NGODAC-21/chen-coefficient",
+      "PAPER-NGODAC-21/explicit-partial-fractions",
+      "PAPER-NGODAC-21/finite-field-unit-sum",
+      "PAPER-NGODAC-21/monic-pair-reindex",
+      "PAPER-NGODAC-21/depth-one-product",
+      "PAPER-NGODAC-21/transfer",
+      "PAPER-NGODAC-21/fixed-product",
+      "PAPER-NGODAC-21/truncated-product",
+      "PAPER-NGODAC-21/mixed-product",
+      "PAPER-NGODAC-21/zeta-product",
+      "PAPER-NGODAC-21/binary-relation",
+      "PAPER-NGODAC-21/sum-relation",
+      "PAPER-NGODAC-21/carlitz-products",
+      "PAPER-NGODAC-21/small-power-sum",
+      "PAPER-NGODAC-21/fundamental-relation",
+      "PAPER-NGODAC-21/B-operation",
+      "PAPER-NGODAC-21/B-small",
+      "PAPER-NGODAC-21/C-operation",
+      "PAPER-NGODAC-21/C-fundamental",
+      "PAPER-NGODAC-21/BC-operation",
+      "PAPER-NGODAC-21/initial-prefix",
+      "PAPER-NGODAC-21/BC-support",
+      "PAPER-NGODAC-21/large-entry-reduction",
+      "PAPER-NGODAC-21/terminal-q-reduction",
+      "PAPER-NGODAC-21/finite-rank",
+      "PAPER-NGODAC-21/admissible-spanning",
+      "PAPER-NGODAC-21/theorem-A",
+      "PAPER-NGODAC-21/upper-bound",
+      "PAPER-NGODAC-21/todd-conjecture",
+      "PAPER-NGODAC-21/C-infinity",
+      "PAPER-NGODAC-21/restricted-carrier",
+      "PAPER-NGODAC-21/twist",
+      "PAPER-NGODAC-21/ore-carrier",
+      "PAPER-NGODAC-21/dual-motive",
+      "PAPER-NGODAC-21/rigid-trivialization",
+      "PAPER-NGODAC-21/entire-ring",
+      "PAPER-NGODAC-21/gamma",
+      "PAPER-NGODAC-21/AT-polynomials",
+      "PAPER-NGODAC-21/AT-bound",
+      "PAPER-NGODAC-21/AT-small",
+      "PAPER-NGODAC-21/omega",
+      "PAPER-NGODAC-21/L-series",
+      "PAPER-NGODAC-21/entire-from-equation",
+      "PAPER-NGODAC-21/L-entire",
+      "PAPER-NGODAC-21/AT-interpolation",
+      "PAPER-NGODAC-21/L-theta",
+      "PAPER-NGODAC-21/L-frobenius-specialize",
+      "PAPER-NGODAC-21/single-motive-matrix",
+      "PAPER-NGODAC-21/single-period-matrix",
+      "PAPER-NGODAC-21/single-trivialization",
+      "PAPER-NGODAC-21/ABP-size",
+      "PAPER-NGODAC-21/ABP-liouville",
+      "PAPER-NGODAC-21/riemann-roch-high-degree",
+      "PAPER-NGODAC-21/ABP-count",
+      "PAPER-NGODAC-21/ABP-siegel",
+      "PAPER-NGODAC-21/ABP-polynomial-siegel",
+      "PAPER-NGODAC-21/ABP-auxiliary",
+      "PAPER-NGODAC-21/ABP-auxiliary-zero",
+      "PAPER-NGODAC-21/ABP-lifting",
+      "PAPER-NGODAC-21/constant-denominator",
+      "PAPER-NGODAC-21/twist-fixed",
+      "PAPER-NGODAC-21/MZ-property",
+      "PAPER-NGODAC-21/MZ-weight-separation",
+      "PAPER-NGODAC-21/MZ-descent",
+      "PAPER-NGODAC-21/MZV-property",
+      "PAPER-NGODAC-21/prefix-index",
+      "PAPER-NGODAC-21/prefix-Phi",
+      "PAPER-NGODAC-21/prefix-Psi",
+      "PAPER-NGODAC-21/prefix-trivialization",
+      "PAPER-NGODAC-21/normalized-lift",
+      "PAPER-NGODAC-21/prefix-difference-zero",
+      "PAPER-NGODAC-21/polynomial-splitting",
+      "PAPER-NGODAC-21/prefix-rationality",
+      "PAPER-NGODAC-21/period-power",
+      "PAPER-NGODAC-21/isolated-tail",
+      "PAPER-NGODAC-21/branch-contradiction",
+      "PAPER-NGODAC-21/theorem-B",
+      "PAPER-NGODAC-21/corollary-C",
+      "PAPER-NGODAC-21/nonq-tail",
+      "PAPER-NGODAC-21/two-index-reduction",
+      "PAPER-NGODAC-21/small-weight-system",
+      "PAPER-NGODAC-21/monic-frobenius-descent",
+      "PAPER-NGODAC-21/theta-degree-bound",
+      "PAPER-NGODAC-21/degree-descent",
+      "PAPER-NGODAC-21/second-row-classification",
+      "PAPER-NGODAC-21/integral-monic-quotient",
+      "PAPER-NGODAC-21/interior-contradiction",
+      "PAPER-NGODAC-21/endpoint-contradiction",
+      "PAPER-NGODAC-21/theorem-6-2",
+      "PAPER-NGODAC-21/theorem-D",
+      "PAPER-NGODAC-21/next-weight-relation",
+      "PAPER-NGODAC-21/sharp-method-boundary",
+      "PAPER-NGODAC-21/lower-bound"
+    ],
+    "note": "All extraction-item endpoints and routes checked; six external proof gaps remain. The source-level derivations resolving G1/G2 are not claims of complete recursive or formal closure."
   }
 }
