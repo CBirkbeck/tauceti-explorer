@@ -1837,8 +1837,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1125"
+   "state": "pending",
+   "note": "released on GitHub issue #1125"
   },
   {
    "id": "REV-PAPER-BROWNING-SAWIN-20",
@@ -2413,7 +2413,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1157"
   },
   {
    "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
