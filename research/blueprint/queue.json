@@ -7622,8 +7622,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1458"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1458",
+   "finishedAt": "2026-09-22T20:58:11Z"
   },
   {
    "id": "REV-PAPER-BHATT-MORROW-SCHOLZE-19",
@@ -7800,8 +7801,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1468"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1468",
+   "finishedAt": "2026-09-22T20:58:12Z"
   },
   {
    "id": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
