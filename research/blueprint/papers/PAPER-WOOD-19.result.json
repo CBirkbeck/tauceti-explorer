@@ -1144,7 +1144,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Unresolved as printed: u=1 makes I(φ,u)=1 for every φ, so a nonidentity h has zero count. A generator/full-Hom formulation may be intended, but is not silently substituted. No route until the precise corrected target is chosen; /144 records the obstruction."
+      "note": "The literal printed statement, recorded as a proposition so that its refutation /144 has a target. It is false whenever H₂(G′,c)[|μ_Q|]≠1: at u=1, I(φ,1)=1 for every φ. Wood's own table (§8.2) gives such good pairs over ℚ: A₄ with G′=((C₂⁴)⋊C₃)⋊C₂ [SmallGroup(96,227)], and A₅ with G′=A₅≀C₂, both with H₂(G′,c)=C₂. It is never to be used as a hypothesis. The intended conjecture is /298, justified by /299. Routed with them to ST.3 as a stated proposition, not as a target theorem."
     },
     {
       "id": "PAPER-WOOD-19/100",
@@ -3333,6 +3333,37 @@
       "library": [],
       "planned": [],
       "note": "In the Lyndon–Hochschild–Serre homology spectral sequence, H_i(C2,H_j(H,ℤ)) vanishes for i>0,j>0 because the coefficients have odd order; H₂(C2,ℤ)=0 and differentials from 2-primary terms into odd-order H₂(H,ℤ) vanish. The commuting-pair class is killed by the order of either entry. Import the generic spectral-sequence/five-term infrastructure in the parent continuation, not privately in arithmetic statistics."
+    },
+    {
+      "id": "PAPER-WOOD-19/298",
+      "kind": "definition",
+      "name": "Refined conjecture, generator form (corrected Conjecture 5.1)",
+      "statement": "Let Q be ℚ or F_q(t), G finite, G′≤G≀S₂ admissible and good, c the order-two elements of G′ outside ker π, L=Q(μ_{4|G̃′_c|}), and u a generator of μ_L. For every h∈H₂(G′,c)[|μ_Q|], the averages over tame imaginary (resp. real) quadratic K of #{ρ∈Sur(G_K^{un,∞},G) of type G′ with I_{G′,π,Q}(ρ,u)=h} (resp. of pairs (ρ,y) of type G′ with I((ρ,y),u)=h) tend to 1 as the discriminant bound X→∞. Equivalently, by /299, one may stratify by the Hom-valued invariant μ_L→H₂(G′,c)[|μ_Q|], u′↦I(ρ,u′).",
+      "locator": "Conjecture 5.1, p.26, corrected (the printed version allows any u∈μ_L)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "A proposition being conjectured, not a theorem. It is the extraction's correction of /99, recorded in research/blueprint/errata/PAPER-WOOD-19.json (E7). It is not Wood's printed statement. It matches Theorem 4.8, where the function-field component invariants are evaluated at u_q∈Ẑ(1)^×, a generator. API: the conjecture as a Prop with G, G′, Q, u and h explicit; a test that for u=1 the printed variant /99 fails, via /144; a test that the generator choice does not change the family of counts, via /299."
+    },
+    {
+      "id": "PAPER-WOOD-19/299",
+      "kind": "theorem",
+      "name": "Generator evaluation identifies the Hom-valued lifting invariant",
+      "statement": "In Definition 3.1, let L=K(μ_{4|F̃_c|}) and let u be a generator of the cyclic group μ_L. Then φ↦I_{F,π,K}(φ,u)∈H₂(F,c)[|μ_K|] and φ↦(u′↦I_{F,π,K}(φ,u′))∈Hom(μ_L,H₂(F,c)[|μ_K|]) determine each other. Evaluation at u is a bijection Hom(μ_L,H₂(F,c)[|μ_K|])→H₂(F,c)[|μ_K|]. For another generator u^λ, λ prime to |μ_L|, I(φ,u^λ)=I(φ,u)^λ, so the stratifications by I(·,u) and I(·,u^λ) differ by the bijection h↦h^λ of H₂(F,c)[|μ_K|].",
+      "locator": "Lemma 3.11 and the discussion after Definition 3.1, pp.12–13; consequence used by /298",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-WOOD-19/99",
+        "PAPER-WOOD-19/144"
+      ],
+      "proofSteps": [
+        "Lemma 3.11 gives I(φ,u^λ)=I(φ,u)^λ, so u′↦I(φ,u′) is a homomorphism determined by its value at a generator.",
+        "μ_L is cyclic of order |μ_L|, and |μ_K| divides |μ_L| since μ_K⊂μ_L. So H₂(F,c)[|μ_K|] is killed by |μ_L|, and Hom(μ_L,A)→A, f↦f(u), is an isomorphism for any abelian group A killed by |μ_L|.",
+        "For λ prime to |μ_L|, h↦h^λ is a bijection of H₂(F,c)[|μ_K|], a finite group whose exponent divides |μ_K| and hence is prime to λ."
+      ],
+      "note": "Supplies the justification for the generator form /298 asked for by the previous handoff (item 1). Elementary from Lemma 3.11; no further source needed."
     }
   ],
   "prerequisites": [
@@ -3575,9 +3606,12 @@
         "PAPER-WOOD-19/293",
         "PAPER-WOOD-19/294",
         "PAPER-WOOD-19/295",
-        "PAPER-WOOD-19/296"
+        "PAPER-WOOD-19/296",
+        "PAPER-WOOD-19/99",
+        "PAPER-WOOD-19/298",
+        "PAPER-WOOD-19/299"
       ],
-      "reason": "ST.3 explicitly owns field counts and class-group moments by discriminant/signature with fixed groups and automorphism weights. Add Wood as a concrete source, retaining conjectures, source-reported finite computations and empirical data as such. Import ordinary class fields and the reduced-multiplier supplier; do not construct them privately."
+      "reason": "ST.3 explicitly owns field counts and class-group moments by discriminant/signature with fixed groups and automorphism weights. Add Wood as a concrete source, retaining conjectures, source-reported finite computations and empirical data as such. Import ordinary class fields and the reduced-multiplier supplier; do not construct them privately. The refined Conjecture 5.1 is carried in corrected generator form /298, with its justification /299. The literal printed statement /99 is carried only as the target of its refutation /144, which is routed to IG.4."
     },
     {
       "route": "source",
@@ -3776,6 +3810,14 @@
       ],
       "brief": "Continue the upstream roadmap Arithmetic Dirichlet series and Tauberian methods after its Layer 9. The parent is the first prerequisite; import its LSeries summability, inclusive summatory functions, Abel/Laplace bridges and simple-pole boundary conventions. Do not re-plan Euler products, arithmetic ideal carriers, or Wiener–Ikehara. The target is the integer-pole Delange theorem: nonnegative coefficients, convergence on Re s>1, holomorphic continuation locally along Re s=1 except an order-m pole at 1, and positive leading coefficient A imply sum_(n≤X) a_n ~ A X(log X)^(m−1)/(m−1)!.\n\nSeparate the nondecreasing Laplace theorem from its Dirichlet-series adapter α(t)=sum_(n≤exp t)a_n and integral exp(−st)α(t)dt=F(s)/s. State all analytic continuation hypotheses as named extensions, avoiding junk-valued LSeries at the boundary. Prove the integer m≥1 form from Delange (1954), §5.2.1 Theorem III, before optional real-exponent variants. Export finite-change invariance, lower-pole perturbation and the positive-abscissa scaling variant with the correct 1/a constant. Tests include a_n=1, divisor coefficients of ζ², an inserted n=1 mass, and rejection when only a local pole without boundary control is supplied. Suggested home: TauCeti/NumberTheory/ArithmeticDirichletSeries/Tauberian/HigherPole. ArithmeticStatistics ST.3 owns Wood's local factors, positivity and surjectivity subtraction, and consumes only the generic counting theorem; it must not feed back into this analytic supplier.",
       "reason": "Read the complete upstream README: Layer 9 specifies a simple pole and shifted-abscissa variants, not higher pole orders. The pinned trees and nearby accepted roadmap/packet searches did not locate this theorem. Delange is a primary replacement for Wood's unavailable Narkiewicz citation, and this generic analytic extension must not be buried in the statistics consumer."
+    }
+  ],
+  "continuationLog": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-fb70e5",
+      "date": "2026-09-22",
+      "work": "Resolved /99: added the generator-form conjecture /298 and its justification /299, and routed /99, /298 and /299 to ST.3. /143 remains unrouted."
     }
   ]
 }
