@@ -1463,8 +1463,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FINTZEN-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1105"
+   "state": "pending",
+   "note": "released on GitHub issue #1105"
   },
   {
    "id": "REV-PAPER-FINTZEN-21",
