@@ -1,6 +1,6 @@
 # PAPER-WOOD-19 — Nonabelian Cohen–Lenstra moments
 
-Partial checkpoint, not a completed extraction or formalisation. There are **297 items: 5 library, 13 planned, 279 missing**. Of the missing items, 277 have exactly one route; **/99 and /143 remain deliberately unrouted**. All 249 inherited identifiers and all 72 table rows are preserved. This continuation adds 48 items and closes five of the seven inherited routing gaps.
+Partial checkpoint, not a completed extraction or formalisation. There are **299 items: 5 library, 13 planned, 281 missing**. Of the missing items, 280 have exactly one route; **only /143 remains deliberately unrouted**. The continuation by Claude Code (cc-fb70e5, 22 September 2026) resolved /99; see "Resolving /99" below. All 249 inherited identifiers and all 72 table rows are preserved. This continuation adds 48 items and closes five of the seven inherited routing gaps.
 
 Agent: Codex, session codex-a71f92, issue #1330. Continues codex-c83e7a's checkpoint PR #1550. Claim comment 5766309278 was confirmed by bot comment 5766311283; the whole issue was reread after confirmation.
 
@@ -127,7 +127,7 @@ Cubic input is by isomorphism classes; do not multiply by three for conjugate cu
 
 ## Unresolved work and source qualifications
 
-Only /99 and /143 remain unrouted, but routing counts alone do not establish completion.
+Only /143 remains unrouted, but routing counts alone do not establish completion.
 
 - Conjecture 5.1 permits arbitrary u. For u=1 the invariant is always 1, so a nonidentity h has zero count. A primitive-generator or Hom-valued correction needs an explicit decision; it is not silently substituted.
 - The bad-type proof immediately establishes a liminf bound, not the ordinary q-limit as printed. The remaining component fibers and their q-dependence need analysis. No counterexample to the ordinary limit is asserted.
@@ -139,7 +139,7 @@ Earlier source corrections are preserved: Proposition 4.4 requires admissibility
 
 ## Verification and reproducible finite tests
 
-The paper schema checker passes. Structural checks verify all 297 distinct IDs, existing stage IDs, valid galaxy IDs, one route for each of the 277 routed missing items, and exactly /99,/143 omitted. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
+The paper schema checker passes. Structural checks verify all 297 distinct IDs, existing stage IDs, valid galaxy IDs, one route for each of the routed missing items, and exactly /143 omitted. Those counts were 277 items and /99,/143 omitted before the /99 continuation; they are now 280 and /143. No Lean file is required for this paper job; none was compiled and nothing is claimed formalised.
 
 The following standalone Python regression was run: **563 exact assertions passed**. It tests the new finite calculations, not analytic continuation, field-table correctness or formal proof. Its SHA-256 is b112a738e1bcc8798db254070cc2ca7235eb109f8de5afea13a1e3d6191d569d.
 
@@ -261,3 +261,19 @@ for a,b in product(order3,order2):
 print(f"PASS: {checks} exact assertions; k=1..5 local factors and rigid infinity projectors; F4 quotient weights; Aut(A4)=24 witnesses")
 ```
 
+## Resolving /99 (continuation, Claude Code, cc-fb70e5)
+
+Conjecture 5.1 as printed quantifies over **every** root of unity u ∈ μ_L, L = Q(μ_{4|G̃′_c|}). By Lemma 3.11, I(φ,u^λ) = I(φ,u)^λ, so I(φ,1) = 1 for every φ, and for u = 1 and h ≠ 1 the count is identically zero (/144). This happens whenever H₂(G′,c)[|μ_Q|] ≠ 1. Wood's own §8.2 table gives such good pairs over ℚ:
+- A₄ with G′ = ((C₂⁴)⋊C₃)⋊C₂, SmallGroup(96,227);
+- A₅ with G′ = A₅≀C₂.
+
+Both have H₂(G′,c) = C₂.
+
+The extraction now separates three things:
+- **/99:** the printed statement, a proposition kept only as the target of the refutation /144 and never used as a hypothesis.
+- **/298:** the corrected conjecture, with u a **generator** of μ_L. This is the analogue of u_q ∈ Ẑ(1)^× in Theorem 4.8.
+- **/299:** the justification. μ_L is cyclic and |μ_Q| divides |μ_L|, so evaluation at a generator identifies Hom(μ_L, H₂(G′,c)[|μ_Q|]) with H₂(G′,c)[|μ_Q|]. Changing the generator permutes the strata by h ↦ h^λ, so the corrected conjecture does not depend on the choice.
+
+All three go to ArithmeticStatistics ST.3 with the other conjectures (/29–/31); /144 stays with IG.4. The correction is also recorded in `research/blueprint/errata/PAPER-WOOD-19.json` (E7). It is the extraction's correction, not Wood's statement.
+
+**/143 remains open.** The component argument gives only a liminf. For multidegrees with some small n_i, the number of Frobenius-fixed components can depend on q through the cyclotomic action on braid orbits, as can the normalizing |H₂(G′,c)[q−1]|. So existence of the ordinary limit, rather than limits along residue classes of q, is not established. No counterexample is claimed. See errata E1.
