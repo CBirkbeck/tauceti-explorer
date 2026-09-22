@@ -788,8 +788,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LAWRENCE-SAWIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1067"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1067",
+   "finishedAt": "2026-09-22T14:02:10Z"
   },
   {
    "id": "REV-PAPER-LAWRENCE-SAWIN-25",
@@ -4313,7 +4314,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHARGAVA-SHANKAR-WANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1274"
   },
   {
    "id": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
