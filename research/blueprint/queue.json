@@ -4781,7 +4781,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1300"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-17",
@@ -5850,8 +5851,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-VANHOFTEN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1360"
+   "state": "pending",
+   "note": "released on GitHub issue #1360"
   },
   {
    "id": "REV-PAPER-VANHOFTEN-24",
