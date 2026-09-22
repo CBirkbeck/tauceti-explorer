@@ -2273,7 +2273,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-ICHINO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1149"
   },
   {
    "id": "REV-PAPER-GAN-ICHINO-18",
@@ -6605,8 +6606,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1406"
+   "state": "pending",
+   "note": "released on GitHub issue #1406"
   },
   {
    "id": "REV-PAPER-HE-18",
