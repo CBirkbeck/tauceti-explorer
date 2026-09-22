@@ -1,0 +1,134 @@
+{
+  "paper": "PAPER-GILLE-PARIMALA-26",
+  "protocol": "errata-v1",
+  "sourceIssues": [
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E1",
+      "kind": "misprint",
+      "locator": "Lemma 3.2(3) and the proof of Lemma 3.2(2), v3 p.5, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (extraction report, \"Further recorded corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"(3) We have V = Inf{v ∈ V[1/t] | |v| ≥ 0} and V is a clopen submodule of V[1/t].\" Proof of (2): \"Condition (II) implies that v′ ∈ R̂_0 ∖ tR̂_0 so that |v| = 0.\"",
+      "correction": "(3) V = {v ∈ V[1/t] : |v| ≤ 1}, the unit ball. In the proof of (2): v′ ∈ R̂_0 ∖ tR̂_0, so |v′| = 1.",
+      "reason": "With |v| = Inf{α^n : t^n v ∈ V} as in (2), v lies in V exactly when n = 0 is allowed, that is, when |v| ≤ α⁰ = 1. The printed set is not a set of vectors (\"Inf\" of a set of elements), and the condition |v| ≥ 0 holds for every v. Likewise, v′ ∉ tR̂_0 means v′ has norm 1, not v norm 0. The later use, \"we can assume that Υ ⊂ V × W according to Lemma 3.2.(3)\", needs the unit-ball description. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E2",
+      "kind": "misprint",
+      "locator": "Proposition 3.3(ii), v3 p.6, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 37), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"(ii) the differentials Df^a_0 : (F_0)^a → (F_0)^c and Df^b_0 : (F_0)^a → (F_0)^c satisfy Df^a_0(V[1/t]^a) + Df^b_0(V[1/t]^b) = (F_0)^c.\"",
+      "correction": "Df^b_0 : (F_0)^b → (F_0)^c, and Df^a_0(V[1/t]^a) + Df^b_0(W[1/t]^b) = (F_0)^c.",
+      "reason": "The conclusion gives v ∈ V^a and w ∈ W^b, and the proof uses the embedding V[1/t]^a × W[1/t]^b → (F_0)^a × (F_0)^b, with differential Df^a_0 + Df^b_0 restricted to it. Taken literally the proposition is false. With V = R̂_0, W = 0 and f(v, w) = w, hypothesis (ii) holds, but every value f(v, w) with w ∈ W is 0. Checked on the page image. Noted by the extraction (gap G1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E3",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 3.9, v3 p.10, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 62), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"According to Proposition 3.7.(4), we can write h = h_1 h_2 with h_i ∈ H^+(E ⊗_F F_i) for i = 1, 2. Since x_1 = h.x_2, we obtain h_1^{−1}.x_1 = h_2^{−1}.x_2. This defines a point of X(E) = Z(F).\"",
+      "correction": "h_1^{−1}.x_1 = h_2.x_2.",
+      "reason": "From x_1 = h_1h_2.x_2 one gets h_1^{−1}.x_1 = h_2.x_2. The left side is a point over F_1 ⊗ E and the right side one over F_2 ⊗ E; they agree over F_0 ⊗ E and glue to a point over E. With h_2^{−1} the two sides need not agree. Noted by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E4",
+      "kind": "error",
+      "locator": "Example 4.1 (published Example 5.1(b)), v3 p.10, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item on completed fraction fields; report \"Proof chain and corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"The t-adic completion of R_U is R̂_U = k[x][[t]]; we have F_U = Frac(R̂_U) = k(x)((t)).\"",
+      "correction": "Frac(k[x][[t]]) is a proper subfield of k(x)((t)). The erratum says this but gives the witness Σ_{n≥1} t^n/x^n, which lies in Frac(k[x][[t]]). A valid witness is Σ_{n≥1} t^n/x^{n!}.",
+      "reason": "The erratum's series equals t/(x − t), since 1/(x − t) = Σ_{n≥0} t^n/x^{n+1} in k(x)((t)), and x − t ∈ k[x][[t]]; so it is not in the complement. A correct witness: for c = a/b with a, b ∈ k[x][[t]], remove the common power of t so that b_0 ≠ 0, and let m = ord_x(b_0). The recursion c_n = (a_n − Σ_{i≥1} b_i c_{n−i})/b_0 gives ord_x(c_n) ≥ −m(n + 1). Every element of Frac(k[x][[t]]) therefore has x-poles growing at most linearly in n, while Σ t^n/x^{n!} has poles of order n!. The paper's general arguments use F_U = Frac(R̂_U), not this identification. Noted by the extraction, which also found the flaw in the erratum's witness.",
+      "affects": "nothing",
+      "known": "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper (\"The fraction field of k[x][[t]] is not k(x)((t)); a typical element in the complement is Σ_{n≥1} t^n/x^n\"), which corrects the claim but with a witness that is itself in the fraction field",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E5",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 4.3(2), v3 p.11, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 71), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"We decompose f = f_1 + f_2 = Σ_i x^{m_i}(Σ_{j≥m_i} a_{i,j} x^{−j}) t^i + Σ_i x^{m_i}(Σ_{j<m_i} a_{i,j} x^{−j}) t^i. We observe that f_2 belongs to R̂_P so belongs to V. We recall that R_U is the localization of T[x] with respect to the elements which are units modulo t. We conclude that f_2 belongs to W as desired.\"",
+      "correction": "\"We observe that f_1 belongs to R̂_P so belongs to V … We conclude that f_2 belongs to W.\"",
+      "reason": "In f_1 the exponents m_i − j ≤ 0, so f_1 is a series in x^{−1} and t, an element of R̂_P = k[[t, x^{−1}]], hence of V. In f_2 the exponents are positive, a polynomial in x in each t-degree, hence in W. As printed, f_2 is placed in both V and W and f_1 in neither. Checked on the page image. Noted by the extraction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E6",
+      "kind": "error",
+      "locator": "Theorem 4.4(2) and Corollary 4.5(2), with the proof of Theorem 4.4(2), v3 pp.11–12, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 76 (Theorem 4.5(2) in the HAL v5 numbering)), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "Theorem 4.4(2): \"The Tits index Δ_0(G) is the smallest subset of Δ(G_{F_s}) which is stable under the ⋆-action of Gal(F_s/F) and such that Δ_0(G) ⊂ Δ_0(G_{F_U}) for each U ∈ U and Δ_0(G) ⊂ Δ_0(G_{F_P}) for each P ∈ P.\" Corollary 4.5(2) is worded the same way. The proof defines Θ by the same condition and uses \"Θ ⊂ Δ_0(G_{F_U}) so that Z(F_U) ≠ ∅\".",
+      "correction": "Δ_0(G) is the smallest ⋆-stable subset Θ of Δ(G_{F_s}) with Δ_0(G_{F_U}) ⊂ Θ for each U and Δ_0(G_{F_P}) ⊂ Θ for each P, and similarly in Corollary 4.5(2). In the proof, use Δ_0(G_{F_U}) ⊂ Θ, which is what makes Par_Θ have an F_U-point.",
+      "reason": "Δ_0 is the type of a minimal parabolic subgroup under the order-preserving correspondence I ↦ P_I (p.2). Over an extension field minimal parabolics shrink, so Δ_0(G_{F_U}) ⊂ Δ_0(G). A parabolic of type Θ exists over a field L exactly when Δ_0(G_L) ⊂ Θ. As printed, the \"smallest ⋆-stable subset contained in all the local Δ_0\" is the empty set, and the defining condition refers to Δ_0(G) itself. With the inclusions reversed, the statement follows from part (1) applied to Par_Θ, as the proof intends. Checked on the page image. Noted by the extraction (gap G3).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E7",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.2 (published Proposition 6.2), v3 p.15, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (report, \"Further recorded corrections\"), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"We apply now Theorem 1.1.(b) of [C-G-R] to the Z-group scheme Aut_I(G_0). It provides a finite Z-subgroup S_0 of Aut_I(G_0) … Furthermore the construction of S_0 is explicit in the proof, it is an extension of the finite constant group Aut_I(G_0)/T_0 by a finite subgroup of T_0.\"",
+      "correction": "\"… an extension of the finite constant group N_{Aut_I(G_0)}(T_0)/T_0 by a finite subgroup of T_0.\"",
+      "reason": "Aut_I(G_0) contains the adjoint group of G_0, so Aut_I(G_0)/T_0 is not finite. The finite group produced by the construction of Chernousov–Gille–Reichstein is the normalizer quotient, an extension of the diagram automorphisms stabilizing I by the Weyl group. Its order is what the hypothesis on p controls.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    },
+    {
+      "id": "PAPER-GILLE-PARIMALA-26/E8",
+      "kind": "gap",
+      "locator": "Proof of Proposition 5.2 (published Proposition 6.2), v3 p.15, in arXiv 2301.07572v3 (24 March 2023, the latest arXiv version, 19 pp.; SHA-256 35c492fe…acd9); the extraction found the same passage in the HAL v5 author manuscript of 26 December 2025 (item 145 and report), which could not be re-read here because HAL returned an anti-bot challenge; the published text, Invent. Math. 244 (2026), 617–641, was not collated",
+      "printed": "\"We consider the local ring A = R_P of X at P and denote by A_D its localization at D.\"",
+      "correction": "\"We consider the completion A of the local ring R_P of X at P\", as in the author's erratum. The rest of the argument works because the completion of F_P = Frac(R_P) for the Grothendieck valuation of R_P equals the completion of Frac(A) for that of A.",
+      "reason": "The loop-torsor argument ([Gi2, Lemma 2.3, Theorem 4.1]) needs a complete (henselian) local ring. The erratum supplies the replacement and the comparison of the two valuation completions: they share a uniformizer and the residue field k(P)(u). Noted by the extraction.",
+      "affects": "the proof",
+      "known": "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper (\"Proof of Proposition 6.2. We need to replace the sentence We consider the local ring A = R_P of X at P by We consider the completion A of the local ring R_P of X at P\")",
+      "searched": [
+        "P. Gille, \"Errata et compléments\", https://math.univ-lyon1.fr/~gille/prenotes/errata.pdf (dated 26 May 2026, SHA-256 6297d7a0…ba61), entry for this paper: two corrections, to published Example 5.1(b) and the proof of published Proposition 6.2",
+        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-026-01403-x checked for updates, 22 September 2026",
+        "arXiv 2301.07572: v1 (18 January 2023), v2 (1 March 2023), v3 (24 March 2023, the latest); HAL hal-03938963 v5 (26 December 2025) is the later author manuscript",
+        "web search for further errata, 22 September 2026: none found beyond the author's errata page"
+      ]
+    }
+  ]
+}
