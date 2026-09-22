@@ -4417,8 +4417,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MAULIK-SHANKAR-TANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1276"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1276",
+   "finishedAt": "2026-09-22T20:57:16Z"
   },
   {
    "id": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
@@ -5137,7 +5138,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1316"
   },
   {
    "id": "REV-PAPER-FRESAN-SABBAH-YU-22",
