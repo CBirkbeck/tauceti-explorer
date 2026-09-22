@@ -1,0 +1,3897 @@
+{
+  "paper": "PAPER-MOK-PILA-TSIMERMAN-19",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "agent": "Codex — codex-c83e7a",
+  "source": {
+    "title": "Ax-Schanuel for Shimura varieties",
+    "authors": "Ngaiming Mok, Jonathan Pila, Jacob Tsimerman",
+    "venue": "Annals of Mathematics 189 (2019), 945-978",
+    "doi": "10.4007/annals.2019.189.3.7",
+    "arxiv": "1711.02189",
+    "url": "https://annals.math.princeton.edu/2019/189-3/p07",
+    "readSections": [
+      "Entire published article, pp. 945-978, including all three parts and references; extracted text.",
+      "Published page images 959, 965, 969, 971 and 974 checked for selected formulas/interfaces.",
+      "arXiv v3 p. 23 compared for Theorem 11.3 only; not a full version comparison."
+    ]
+  },
+  "summary": "Source extraction of pure, jet and differential Ax-Schanuel, with the definable Hilbert-family proof, domain rigidity, Schwarzians and differential-field interfaces split into individual obligations. Five pinned library imports are reused. Two extensions provide domain jet rigidity and the independent functional-transcendence supplier; existing owners retain jets, Hilbert schemes, analytic spaces and counting. Four generic monodromy/quotient prerequisites remain unrouted, and precise source/compatibility gaps prevent a complete claim.",
+  "items": [
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/derivation-library",
+      "kind": "definition",
+      "name": "Linear derivation",
+      "statement": "An R-linear map A to M with D(1)=0 and D(ab)=a D(b)+b D(a), under the commutative-semiring, algebra and module hypotheses of the existing carrier.",
+      "locator": "Mathlib/RingTheory/Derivation/Basic.lean:45-50",
+      "status": "library",
+      "library": [
+        "mathlib:Derivation"
+      ],
+      "uses": [
+        {
+          "where": "Section 12; Taylor exponential",
+          "how": "Represent each D_i without duplicating linear derivations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Derivation.toLinearMap",
+          "role": "projection",
+          "statement": "Forget to the R-linear map."
+        },
+        {
+          "name": "Derivation.ext",
+          "role": "extensionality",
+          "statement": "Pointwise equal derivations are equal; reuse the existing extensionality interface."
+        },
+        {
+          "name": "Derivation.leibniz",
+          "role": "relation",
+          "statement": "Evaluate D(ab)=a D(b)+b D(a)."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "derivation-library-1",
+          "statement": "The zero map is a derivation.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "derivation-library-2",
+          "statement": "On C[t], polynomial differentiation sends t^3 to 3t^2.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "derivation-library-3",
+          "statement": "Multiplication by t is not a derivation, since it does not kill 1.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/differential-library",
+      "kind": "definition",
+      "name": "One distinguished ring derivation",
+      "statement": "A commutative ring with one specified integer-linear self-derivation. This existing class does not encode a finite commuting family or a differentially closed field.",
+      "locator": "Mathlib/RingTheory/Derivation/DifferentialRing.lean:21-24",
+      "status": "library",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/derivation-library"
+      ],
+      "library": [
+        "mathlib:Differential"
+      ],
+      "uses": [
+        {
+          "where": "Section 12 single-derivation specialization",
+          "how": "Compare the general commuting family with the existing single-derivation class."
+        }
+      ],
+      "api": [
+        {
+          "name": "Differential.deriv",
+          "role": "projection",
+          "statement": "Extract the distinguished integer-linear derivation."
+        },
+        {
+          "name": "CommutingDerivations.ofDifferential",
+          "role": "compatibility",
+          "statement": "A one-element list of the distinguished derivation commutes."
+        },
+        {
+          "name": "CommutingDerivations.toDifferential",
+          "role": "compatibility",
+          "statement": "Choose one indexed derivation to recover the existing class; the choice is explicit."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "differential-library-1",
+          "statement": "A singleton polynomial derivative gives the expected class.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-library-2",
+          "statement": "The all-zero singleton has all of K as constants.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-library-3",
+          "statement": "Two different choices from partial derivatives in C(s,t) need not give the same class.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/local-system-library",
+      "kind": "definition",
+      "name": "Module-valued local coefficient system",
+      "statement": "For a topological space X and ring R, use the functor category from the fundamental groupoid of X to ModuleCat R.",
+      "locator": "TauCeti/AlgebraicTopology/LocalCoefficient.lean:41-42",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.LocalCoefficientSystem"
+      ],
+      "uses": [
+        {
+          "where": "Homogeneous variation in Lemma 4.1",
+          "how": "Use its fibres and path transport before constructing Hodge filtration and monodromy."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.LocalCoefficientSystem.constantFunctor",
+          "role": "constructor",
+          "statement": "Construct the constant system with identity transport."
+        },
+        {
+          "name": "TauCeti.LocalCoefficientSystem.pullback",
+          "role": "functoriality",
+          "statement": "Pull back by precomposition with the induced fundamental groupoid functor."
+        },
+        {
+          "name": "LocalCoefficientSystem.fibre",
+          "role": "projection",
+          "statement": "Evaluate the existing functor at a point; this alias is a planning convenience, not a new carrier."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "local-system-library-1",
+          "statement": "Constant transport round any loop is identity.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "local-system-library-2",
+          "statement": "Pullback along identity gives a naturally isomorphic system.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "local-system-library-3",
+          "statement": "A nontrivial circle monodromy cannot be replaced by the constant functor.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/hodge-library",
+      "kind": "definition",
+      "name": "Pure Hodge filtration with conjugation",
+      "statement": "Use HodgeStructureOn W omega n: a decreasing exhaustive filtration whose p step is complementary to the conjugate of step n+1-p. This is a fibrewise pure structure, not a variation or a monodromy theorem.",
+      "locator": "TauCeti/Geometry/Hodge/Structure.lean:62-72",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.Hodge.HodgeStructureOn"
+      ],
+      "uses": [
+        {
+          "where": "ShimuraData D3 and monodromy input",
+          "how": "Reuse fibrewise Hodge structures inside the variation."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Hodge.HodgeStructureOn.F",
+          "role": "projection",
+          "statement": "Extract the decreasing filtration."
+        },
+        {
+          "name": "TauCeti.Hodge.HodgeStructureOn.conjF",
+          "role": "data",
+          "statement": "Take the conjugate of each filtration step."
+        },
+        {
+          "name": "TauCeti.Hodge.HodgeStructureOn.ext",
+          "role": "extensionality",
+          "statement": "Equality of filtrations identifies structures with the same conjugation and weight."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "hodge-library-1",
+          "statement": "The weight-zero trivial line has its expected opposed filtration.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "hodge-library-2",
+          "statement": "A Tate twist shifts the weight and filtration with the existing sign convention.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "hodge-library-3",
+          "statement": "A pair of noncomplementary steps must fail the opposedness constructor.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/cover-library",
+      "kind": "theorem",
+      "name": "Covering of the free locus of a discontinuous quotient",
+      "statement": "For a group acting continuously and properly discontinuously on a locally compact Hausdorff space, the orbit quotient map is a covering over the image of points with trivial stabilizer.",
+      "locator": "Mathlib/Topology/Covering/Quotient.lean:239-242",
+      "status": "library",
+      "library": [
+        "mathlib:isCoveringMapOn_quotientMk_of_properlyDiscontinuousSMul"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/domain",
+      "kind": "definition",
+      "name": "Hermitian symmetric domain and effective group",
+      "statement": "Take a connected bounded Hermitian symmetric domain Omega of complex dimension n associated to a semisimple rational group. Use its effective adjoint group for assertions about faithful actions; a central kernel is retained until explicitly removed.",
+      "locator": "Main section 1, pp. 946-949; section 7",
+      "status": "planned",
+      "planned": [
+        "ShimuraData:D2"
+      ],
+      "uses": [
+        {
+          "where": "Sections 1, 7 and normal-factor induction",
+          "how": "Supply one domain and effective group for compact-dual geometry and orbit dimensions."
+        }
+      ],
+      "api": [
+        {
+          "name": "HermitianDomain.toComplexManifold",
+          "role": "projection",
+          "statement": "Use the supplier complex manifold and its complex dimension."
+        },
+        {
+          "name": "HermitianDomain.effectiveGroup",
+          "role": "constructor",
+          "statement": "Pass to the group quotient by the action kernel with its faithful action."
+        },
+        {
+          "name": "HermitianDomain.product",
+          "role": "constructor",
+          "statement": "Form product domains with additive complex dimension."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "domain-1",
+          "statement": "The upper half-plane has dimension one.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "domain-2",
+          "statement": "A product of two disks has dimension two.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "domain-3",
+          "statement": "Minus identity in Sp acts trivially and is removed by the effective quotient.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual",
+      "kind": "construction",
+      "name": "Compact dual and opposite unipotent coordinates",
+      "statement": "Construct the projective flag variety OmegaHat=G(C)/B and Borel embedding Omega into it; an opposite unipotent N+ has an open big cell N+ o with algebraic affine coordinates. The tangent grading is n- plus k_C plus n+, with abelian n+ and n-.",
+      "locator": "Sections 1, 7.1",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain"
+      ],
+      "planned": [
+        "ShimuraData:D3"
+      ],
+      "uses": [
+        {
+          "where": "Identity jets and algebraic closure conventions",
+          "how": "Provide the big cell, tangent grading and projective ambient space."
+        }
+      ],
+      "api": [
+        {
+          "name": "HermitianDomain.borelEmbedding",
+          "role": "projection",
+          "statement": "Embed Omega holomorphically as an open subset of its flag variety."
+        },
+        {
+          "name": "HermitianDomain.bigCell",
+          "role": "equivalence",
+          "statement": "Identify N+ with its open orbit through o."
+        },
+        {
+          "name": "HermitianDomain.tangentGrading",
+          "role": "structure",
+          "statement": "Identify the tangent and opposite directions with the positive and negative graded Lie pieces."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "compact-dual-1",
+          "statement": "For the disk the compact dual is P1.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "compact-dual-2",
+          "statement": "For a product the compact dual and big cell are products.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "compact-dual-3",
+          "statement": "The parabolic stabilizing o uses the negative grading in this convention.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+      "kind": "definition",
+      "name": "Arithmetic quotient uniformization",
+      "statement": "Choose an arithmetic finite-index Gamma and, after a sufficiently small finite cover, an effective torsion-free action. q:Omega to X=Gamma\\Omega is an unramified holomorphic covering and X is smooth quasi-projective. Later assertions descend to the original level by a separately checked finite-map argument.",
+      "locator": "Sections 1-2",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain",
+        "PAPER-MOK-PILA-TSIMERMAN-19/cover-library"
+      ],
+      "planned": [
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V2"
+      ],
+      "uses": [
+        {
+          "where": "Theorems 1.1 and 9.1",
+          "how": "Descend invariant sets and lift jets through the same unramified q."
+        }
+      ],
+      "api": [
+        {
+          "name": "ArithmeticUniformization.map",
+          "role": "projection",
+          "statement": "Expose q with its analytic/algebraic target structures."
+        },
+        {
+          "name": "ArithmeticUniformization.localInverse",
+          "role": "data",
+          "statement": "Give inverse branches over evenly covered open neighbourhoods."
+        },
+        {
+          "name": "ArithmeticUniformization.deckInvariant",
+          "role": "relation",
+          "statement": "q(gamma z)=q(z) for gamma in Gamma."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "arithmetic-cover-1",
+          "statement": "At torsion-free modular level local inverse branches exist.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "arithmetic-cover-2",
+          "statement": "At an elliptic fixed point of full modular level the unramified interface must not be used.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "arithmetic-cover-3",
+          "statement": "Changing level carries an explicit finite map and preserves complex dimension.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/finite-cover-reduction",
+      "kind": "theorem",
+      "name": "Finite-level reduction for Ax-Schanuel",
+      "statement": "Pull back W and U through a neat effective finite level, choose a dominating analytic component, preserve dimensions under the finite maps, and descend a proper weakly special exception. Do not infer freeness from neatness before removing an ineffective centre.",
+      "locator": "Section 2 reductions",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special",
+      "kind": "definition",
+      "name": "Weakly special loci and their domain lifts",
+      "statement": "Use the images, through morphisms of pure Shimura data and finite level maps, of a product factor with the complementary factor fixed at an arbitrary point. Its connected lifts to Omega are bi-algebraic; the fixed point need not be special.",
+      "locator": "Section 1; referenced KUY for the description",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover"
+      ],
+      "uses": [
+        {
+          "where": "Theorems 1.1, 1.2 and product exceptions",
+          "how": "Name the exceptional locus with its arbitrary constant factors."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeaklySpecial.ofFactor",
+          "role": "constructor",
+          "statement": "Map a product factor with the complementary point fixed through an allowed datum morphism."
+        },
+        {
+          "name": "WeaklySpecial.lift",
+          "role": "data",
+          "statement": "Choose a connected domain lift and its bi-algebraic closure."
+        },
+        {
+          "name": "WeaklySpecial.isSpecial_iff",
+          "role": "characterisation",
+          "statement": "In the applicable pure setting, special means weakly special and containing a special point."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "weakly-special-1",
+          "statement": "A singleton at a nonspecial point is weakly special without being special.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "weakly-special-2",
+          "statement": "The entire connected Shimura variety is weakly special.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "weakly-special-3",
+          "statement": "A diagonal relation in X squared is a product exceptional locus even when each projection is dominant.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-closure",
+      "kind": "theorem",
+      "name": "Minimal weakly special closure and reductions",
+      "statement": "An irreducible analytic Y in Omega has a smallest weakly special domain locus Y_WS containing it; restricting to it and resolving the finite quotient gives the ambient reduction used for the two-sorted inequality. Record connected components and possible finite covers.",
+      "locator": "Theorem 1.2 deduction",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special"
+      ],
+      "note": "The closure/factor argument is an explicit source-proof obligation, not a consequence of an arbitrary intersection of analytic sets."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/restricted-algebraic",
+      "kind": "definition",
+      "name": "Algebraic subsets inside the domain",
+      "statement": "An irreducible algebraic subset of Omega times X means an analytically irreducible component of the restriction of an algebraic subset of OmegaHat times X. General algebraic subsets are finite unions. The main theorem further assumes W is the entire restriction of one irreducible algebraic W_hat.",
+      "locator": "Section 1, p. 946",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 1.1 hypothesis",
+          "how": "Track ambient algebraic closure and analytic components inside Omega."
+        }
+      ],
+      "api": [
+        {
+          "name": "DomainAlgebraic.restrict",
+          "role": "constructor",
+          "statement": "Restrict a compact-dual algebraic subvariety to Omega times X."
+        },
+        {
+          "name": "DomainAlgebraic.component",
+          "role": "constructor",
+          "statement": "Take an analytically irreducible component of the restriction."
+        },
+        {
+          "name": "DomainAlgebraic.ambient",
+          "role": "data",
+          "statement": "Retain a witness algebraic ambient subvariety without asserting uniqueness of that witness."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "restricted-algebraic-1",
+          "statement": "An ambient algebraic curve can have more than one analytic component after restriction.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "restricted-algebraic-2",
+          "statement": "The empty restriction yields no irreducible component.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "restricted-algebraic-3",
+          "statement": "The extra entire-restriction hypothesis of Theorem 1.1 is checked separately.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph",
+      "kind": "definition",
+      "name": "Uniformization graph",
+      "statement": "D={(z,q(z)):z in Omega} is a closed complex analytic graph in Omega times X. Its dimension is n, and its codimension in that product is n.",
+      "locator": "Section 1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover"
+      ],
+      "uses": [
+        {
+          "where": "All incidence and dimension arguments",
+          "how": "Use the graph carrier and both projections."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizationGraph.mk",
+          "role": "constructor",
+          "statement": "Send z to (z,q z)."
+        },
+        {
+          "name": "UniformizationGraph.fstEquiv",
+          "role": "equivalence",
+          "statement": "First projection identifies D analytically with Omega."
+        },
+        {
+          "name": "UniformizationGraph.snd",
+          "role": "simp",
+          "statement": "Second projection after mk is q."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "uniformization-graph-1",
+          "statement": "Graph dimension equals n.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "uniformization-graph-2",
+          "statement": "A constant q would not meet the unramified positive-dimensional uniformization hypotheses.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "uniformization-graph-3",
+          "statement": "Intersection with Omega times a point is the corresponding discrete fibre.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/analytic-intersection-dimension",
+      "kind": "theorem",
+      "name": "Analytic intersection lower bound",
+      "statement": "For complex analytic subsets in a smooth ambient complex manifold, each intersection component has dimension at least the sum of their dimensions minus ambient dimension, with local irreducible/dimension qualifications. Apply to W and D to obtain dim U >= dim W-n.",
+      "locator": "Section 1 cites Lojasiewicz III.4.6",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/restricted-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal",
+      "kind": "definition",
+      "name": "The selected o-minimal structures",
+      "statement": "Use real structures R_an and R_an,exp with parameters, their definable sets and maps, and real dimension. Complex definability means definability after real coordinates; it is not the same as complex algebraicity.",
+      "locator": "Section 2",
+      "status": "planned",
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "uses": [
+        {
+          "where": "Definable quotient and counting lemmas",
+          "how": "Keep definability and real dimension explicit."
+        }
+      ],
+      "api": [
+        {
+          "name": "DefinableComplexSet.realize",
+          "role": "compatibility",
+          "statement": "Interpret a complex-coordinate subset as a real definable subset."
+        },
+        {
+          "name": "DefinableSet.image",
+          "role": "functoriality",
+          "statement": "Definable images under definable maps remain definable."
+        },
+        {
+          "name": "DefinableSet.fibre",
+          "role": "constructor",
+          "statement": "Specialize a definable family at an allowed parameter."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "o-minimal-1",
+          "statement": "An algebraic complex set is real definable.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "o-minimal-2",
+          "statement": "An infinite discrete subset of R cannot be definable in an o-minimal structure.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "o-minimal-3",
+          "statement": "Allowing real parameters does not turn the unrestricted exponential covering C to C-star into this pure theorem.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/ominimality",
+      "kind": "theorem",
+      "name": "O-minimality of restricted analytic functions and exponential",
+      "statement": "R_an,exp is o-minimal, with the chosen language and real analytic functions restricted to compact boxes. This deep input is not asserted from the existing first-order syntax alone.",
+      "locator": "Section 2 references van den Dries-Macintyre-Marker and Wilkie",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal"
+      ],
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definable-fibres",
+      "kind": "theorem",
+      "name": "Cell decomposition, dimension and uniformly finite fibres",
+      "statement": "A definable family has definable fibre-dimension strata and a uniform bound for cardinalities of its finite fibres. Use complex analytic rank strata before applying the finite-fibre bound to coordinate projections.",
+      "locator": "Sections 2, 4.3",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/ominimality"
+      ],
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definable-fundamental-set",
+      "kind": "definition",
+      "name": "Definable Siegel fundamental set",
+      "statement": "Choose finitely many Siegel pieces giving a definable fundamental set F in Omega with q(F)=X and q restricted to F definable in R_an,exp. An open thickening may cover noninjectively; definability does not require a global definable inverse of q.",
+      "locator": "Section 2; KUY; Scanlon section 3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal"
+      ],
+      "uses": [
+        {
+          "where": "Lemma 3.1 and Lemma 4.3",
+          "how": "Replace invariant images by a definable restriction and count translates."
+        }
+      ],
+      "api": [
+        {
+          "name": "DefinableFundamentalSet.surjective",
+          "role": "data",
+          "statement": "Every arithmetic orbit has a representative in F."
+        },
+        {
+          "name": "DefinableFundamentalSet.uniformization",
+          "role": "projection",
+          "statement": "Expose the definable restriction of q."
+        },
+        {
+          "name": "DefinableFundamentalSet.translate",
+          "role": "functoriality",
+          "statement": "Translate F by a fixed group element using the algebraic action."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "definable-fundamental-set-1",
+          "statement": "A thickened fundamental set can have multiple representatives.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "definable-fundamental-set-2",
+          "statement": "A point in every orbit is sufficient for invariant-image equality.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "definable-fundamental-set-3",
+          "statement": "A global definable section is not assumed merely from q being a covering.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization",
+      "kind": "theorem",
+      "name": "Definability of uniformization on a fundamental set",
+      "statement": "The pure arithmetic uniformization q restricted to the selected finite Siegel fundamental set is R_an,exp-definable. The unrestricted q on Omega is not claimed definable.",
+      "locator": "Section 2; KUY definability theorem",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fundamental-set"
+      ],
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definable-remmert-stein",
+      "kind": "theorem",
+      "name": "Definable Remmert-Stein extension",
+      "statement": "Let M be a definable complex manifold, E a definable complex analytic subset of M, and A a definable complex analytic subset of M minus E. Then the closure of A in M is complex analytic. Definability removes the dimension restriction of the classical Remmert-Stein statement.",
+      "locator": "Theorem 2.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal"
+      ],
+      "note": "Exact main Theorem 2.1 statement read; the cited original Peterzil-Starchenko Theorem 5.3 and its recursive proof prerequisites remain unexpanded."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow",
+      "kind": "theorem",
+      "name": "Definable Chow algebraization",
+      "statement": "A closed complex analytic subset of a complex quasi-projective algebraic variety which is definable in an o-minimal expansion of the real field is algebraic. Closedness is relative to the algebraic ambient variety.",
+      "locator": "Theorem 2.2; Scanlon Theorem 2.11",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-remmert-stein",
+        "PAPER-MOK-PILA-TSIMERMAN-19/projective-chow"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/projective-chow",
+      "kind": "theorem",
+      "name": "Projective Chow theorem",
+      "statement": "Closed analytic subspaces of complex projective space are algebraic with their coherent ideals. This general supplier is distinct from definable algebraization on a nonproper open variety.",
+      "locator": "Background to section 2",
+      "status": "planned",
+      "planned": [
+        "ComplexComparisonPartII:C4"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/constructible-analytic",
+      "kind": "definition",
+      "name": "Constructible complex analytic set",
+      "statement": "A finite Boolean combination of closed complex analytic subsets of a fixed complex analytic space. A locally analytic image with no such finite decomposition is not automatically constructible analytic.",
+      "locator": "Unnumbered definition before Corollary 2.3, p. 951",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "Corollary 2.3 and arithmetic descent",
+          "how": "Algebraize a finite analytic Boolean expression."
+        }
+      ],
+      "api": [
+        {
+          "name": "ConstructibleAnalytic.closed",
+          "role": "constructor",
+          "statement": "Include a closed analytic subset."
+        },
+        {
+          "name": "ConstructibleAnalytic.diff",
+          "role": "structure",
+          "statement": "Close under finite differences and finite unions."
+        },
+        {
+          "name": "ConstructibleAnalytic.denseOpenDecomposition",
+          "role": "characterisation",
+          "statement": "Decompose into finitely many locally closed analytic pieces with the necessary irreducible-component refinements."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "constructible-analytic-1",
+          "statement": "An open analytic complement of a closed analytic subset is constructible analytic.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "constructible-analytic-2",
+          "statement": "A finite union of locally closed analytic pieces stays in the Boolean algebra.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "constructible-analytic-3",
+          "statement": "An arbitrary infinite union is not accepted by finite-constructibility closure.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/constructible-definable-algebraic",
+      "kind": "theorem",
+      "name": "Constructible definable analytic algebraization",
+      "statement": "A constructible complex analytic subset of a quasi-projective variety that is definable is constructible algebraic. Put a Boolean expression in finite differences A minus B, remove components contained in B, algebraize its definable analytic closure, and induct on dimension on its boundary.",
+      "locator": "Corollary 2.3; Scanlon Corollary 2.14, proof read",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-analytic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/quotient-closed-algebraic",
+      "kind": "theorem",
+      "name": "Algebraization after arithmetic descent",
+      "statement": "If A in Omega times X is closed analytic, Gamma-invariant on the first factor, and A intersect (F times X) is definable, then (q times id)(A) is closed algebraic in X times X. The covering quotient supplies local analytic descent; definable Chow supplies algebraicity.",
+      "locator": "Theorem 3.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/quotient-constructible-algebraic",
+      "kind": "theorem",
+      "name": "Constructible arithmetic descent",
+      "statement": "For the Gamma-invariant constructible analytic relation used in descent, with definable fundamental-set restriction and a descended finite constructible-analytic presentation, its (q times id)-image is constructible algebraic. The printed Corollary 3.2 also says closed; retain that hypothesis for a literal invocation and prove the intended constructible version separately.",
+      "locator": "Corollary 3.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-closed-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-definable-algebraic"
+      ],
+      "note": "Closed appears in the published statement despite the subsequent constructible applications. This extraction does not silently drop the word or use an arbitrary nonproper analytic image as a constructible set."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-family",
+      "kind": "construction",
+      "name": "Projective Hilbert parameter and universal family",
+      "statement": "After projectively compactifying OmegaHat times X, fix the Hilbert polynomial P of W_hat; construct Hilb_P and its universal flat closed subscheme. The parameter is projective; flatness of the universal family is a different morphism property.",
+      "locator": "Section 3",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/restricted-algebraic"
+      ],
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "uses": [
+        {
+          "where": "Sections 3 and 9.3",
+          "how": "Parameterize the original W and all translates with a fixed polynomial."
+        }
+      ],
+      "api": [
+        {
+          "name": "HilbertFamily.fibre",
+          "role": "projection",
+          "statement": "The fibre at a point is the represented closed subscheme."
+        },
+        {
+          "name": "HilbertFamily.universal",
+          "role": "universal-property",
+          "statement": "Flat closed families with fixed Hilbert polynomial classify uniquely by maps to Hilb_P."
+        },
+        {
+          "name": "HilbertFamily.baseChange",
+          "role": "functoriality",
+          "statement": "Universal family and parameter maps commute with the supplier base change."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "hilbert-family-1",
+          "statement": "A point has the degree-one Hilbert polynomial.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "hilbert-family-2",
+          "statement": "Flatness of U to Hilb does not imply flatness of Hilb over another base.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "hilbert-family-3",
+          "statement": "Changing the polynomial changes the parameter component.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/incidence-dimension-locus",
+      "kind": "construction",
+      "name": "Analytic incidence and large-fibre locus",
+      "statement": "Intersect the universal family with D times Hilb_P. For integer d, take the locus of points whose fibre over Hilb_P has complex local dimension at least d; use analytic fibre-dimension semicontinuity. Its projection to Omega times X is closed because the Hilbert parameter is proper.",
+      "locator": "Section 3 before Lemma 3.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-family",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image"
+      ],
+      "uses": [
+        {
+          "where": "Lemma 3.3",
+          "how": "Extract the atypical-intersection family before algebraizing it."
+        }
+      ],
+      "api": [
+        {
+          "name": "IncidenceFamily.intersectGraph",
+          "role": "constructor",
+          "statement": "Intersect the universal closed family with D."
+        },
+        {
+          "name": "IncidenceFamily.largeFibre",
+          "role": "characterisation",
+          "statement": "Membership means local complex fibre dimension at least d."
+        },
+        {
+          "name": "IncidenceFamily.project",
+          "role": "projection",
+          "statement": "Project to Omega times X through the proper Hilbert parameter."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "incidence-dimension-locus-1",
+          "statement": "Threshold zero contains every nonempty local fibre.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "incidence-dimension-locus-2",
+          "statement": "Increasing the threshold shrinks the locus.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "incidence-dimension-locus-3",
+          "statement": "Nonproper parameter projection cannot use the closed-image conclusion without a new argument.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image",
+      "kind": "theorem",
+      "name": "Proper analytic image and dimension loci",
+      "statement": "Proper holomorphic images of closed analytic sets are closed analytic; analytic fibre local-dimension loci are closed analytic in the setting used for the universal incidence. Supply the analytic theorems separately from algebraic properness.",
+      "locator": "Section 3 background; jet section 9.3",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-algebraic-image",
+      "kind": "theorem",
+      "name": "Algebraic image of the large-intersection family",
+      "statement": "The large-fibre incidence image Z is Gamma-invariant with a definable restriction to F times X; its image T in X times X is closed algebraic. Distinguish the complex fibre threshold d from a later fixed jet order.",
+      "locator": "Lemma 3.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/incidence-dimension-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image",
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-closed-algebraic"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/generic-stabilizer",
+      "kind": "definition",
+      "name": "Very general arithmetic stabilizer and its algebraic closure",
+      "statement": "For an irreducible component of the Hilbert parameter locus, choose a very general member W_a and let Gamma_0 be its arithmetic stabilizer. Set Theta to the identity component of the rational Zariski closure of Gamma_0. Theta is not the discrete group Gamma_0.",
+      "locator": "Section 4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-algebraic-image"
+      ],
+      "uses": [
+        {
+          "where": "Lemmas 4.1 and 10.1",
+          "how": "Pass from countable arithmetic stabilizers to a connected algebraic group."
+        }
+      ],
+      "api": [
+        {
+          "name": "GenericStabilizer.arithmetic",
+          "role": "projection",
+          "statement": "Extract Gamma_0 as an actual subgroup of Gamma."
+        },
+        {
+          "name": "GenericStabilizer.connectedClosure",
+          "role": "constructor",
+          "statement": "Take the identity component of its rational Zariski closure."
+        },
+        {
+          "name": "GenericStabilizer.conjugate",
+          "role": "functoriality",
+          "statement": "Track conjugation when the family member is transported."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "generic-stabilizer-1",
+          "statement": "An infinite arithmetic subgroup cannot have zero-dimensional Zariski closure.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "generic-stabilizer-2",
+          "statement": "A finite stabilizer has trivial connected closure.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "generic-stabilizer-3",
+          "statement": "The connected algebraic closure is not identified as a set with the discrete subgroup.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/homogeneous-variation",
+      "kind": "construction",
+      "name": "Homogeneous polarizable variation",
+      "statement": "Attach the rational local system and holomorphic filtered bundle from an algebraic representation of a pure Shimura datum; prove Griffiths transversality and the required polarizability. Reuse the existing fibrewise Hodge and local-system carriers.",
+      "locator": "Section 4 monodromy input",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/hodge-library",
+        "PAPER-MOK-PILA-TSIMERMAN-19/local-system-library",
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain"
+      ],
+      "planned": [
+        "ShimuraData:D3"
+      ],
+      "uses": [
+        {
+          "where": "Monodromy comparison in section 4",
+          "how": "Build a variation from the representation with separate topological and holomorphic data."
+        }
+      ],
+      "api": [
+        {
+          "name": "HomogeneousVariation.localSystem",
+          "role": "projection",
+          "statement": "Return the existing module-valued local system."
+        },
+        {
+          "name": "HomogeneousVariation.filtration",
+          "role": "projection",
+          "statement": "Return the holomorphic filtration with fibrewise Hodge structures."
+        },
+        {
+          "name": "HomogeneousVariation.transversality",
+          "role": "relation",
+          "statement": "The connection lowers the filtration by at most one."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "homogeneous-variation-1",
+          "statement": "A constant representation gives a constant variation.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "homogeneous-variation-2",
+          "statement": "Tensor product filtration agrees with the representation tensor product.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "homogeneous-variation-3",
+          "statement": "A holomorphic filtration violating Griffiths transversality is not accepted as the required variation.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/monodromy-normality",
+      "kind": "theorem",
+      "name": "Connected algebraic monodromy normality",
+      "statement": "For the polarizable rational variation in use over a smooth connected algebraic base, the identity component of algebraic monodromy is normal in the derived generic Mumford-Tate group. State the chosen connectedness and generic-point hypotheses from Andre section 5.",
+      "locator": "Section 4 cites Deligne and Andre 1992 section 5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/homogeneous-variation"
+      ],
+      "note": "Original Andre scan acquired but not read successfully; its exact primary theorem and proof leaves remain open. This conditional contract is not a completed general Hodge-theory extraction."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy",
+      "kind": "theorem",
+      "name": "Dense monodromy at weakly special generic image",
+      "statement": "For the algebraic image in the proof which is not contained in a proper weakly special locus, obtain Zariski-dense monodromy in the effective semisimple G. This needs the weakly special closure/monodromy comparison, not merely generic Mumford-Tate generality.",
+      "locator": "Section 4, Lemma 4.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/monodromy-normality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-closure"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/proper-monodromy-index",
+      "kind": "theorem",
+      "name": "Finite-index monodromy of the incidence component",
+      "statement": "Over a suitable dense smooth open of its algebraic image, a proper dominant incidence component with finitely many fibre components induces finite-index monodromy. Use the descended incidence quotient and a connected component, not the fundamental group of an unrelated simply connected lift.",
+      "locator": "Lemma 4.1 proof",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-algebraic-image"
+      ],
+      "note": "The printed notation for pi_1(A prime) requires reconciliation with descent; the generic connected-fibre/finite-component topological argument is not yet source-closed."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/theta-normal",
+      "kind": "theorem",
+      "name": "Normality of the generic stabilizer closure",
+      "statement": "In the counterexample induction of section 4, Theta is normal in G: very general arithmetic stabilizers are conjugated along the algebraic family, and the finite-index dense monodromy subgroup normalizes their connected Zariski closure.",
+      "locator": "Lemma 4.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/generic-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy",
+        "PAPER-MOK-PILA-TSIMERMAN-19/proper-monodromy-index"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/normal-factor-reduction",
+      "kind": "theorem",
+      "name": "Normal factors of the domain",
+      "statement": "For a connected normal semisimple subgroup Theta of effective G, obtain the complementary normal factor and product decomposition of the Hermitian domain, with arithmetic quotient/product comparison after finite covers. Quotients and finite kernels remain explicit.",
+      "locator": "Lemma 4.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-normal"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/theta-trivial",
+      "kind": "theorem",
+      "name": "Triviality from induction on the domain and defect",
+      "statement": "In a minimal counterexample, Theta invariance and the product factor projection would give a smaller-domain counterexample; compare dimensions of W and U in the projected factors to conclude Theta is trivial.",
+      "locator": "Lemma 4.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/normal-factor-reduction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/generic-stabilizer"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-height",
+      "kind": "definition",
+      "name": "Height on the arithmetic matrix group",
+      "statement": "Fix a faithful integral matrix realization of the effective rational group and a multiplicative height at least one on rational matrices. Record polynomial control under multiplication and inversion and changes of realization.",
+      "locator": "Lemma 4.3; KUY section 5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain"
+      ],
+      "uses": [
+        {
+          "where": "Polynomial count of translates",
+          "how": "Compare geometric radius with rational matrix height."
+        }
+      ],
+      "api": [
+        {
+          "name": "ArithmeticGroupHeight.value",
+          "role": "projection",
+          "statement": "Assign a real height at least one to each rational group element."
+        },
+        {
+          "name": "ArithmeticGroupHeight.inv_bound",
+          "role": "relation",
+          "statement": "Bound inverse height polynomially with dimension/representation constants."
+        },
+        {
+          "name": "ArithmeticGroupHeight.mul_bound",
+          "role": "relation",
+          "statement": "Bound product height polynomially in the two heights."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "arithmetic-height-1",
+          "statement": "Identity has bounded height.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "arithmetic-height-2",
+          "statement": "The inverse of a unipotent integral matrix has a polynomial height bound.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "arithmetic-height-3",
+          "statement": "Changing faithful matrix realization requires a comparison theorem, not literal equality.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/distance-height",
+      "kind": "theorem",
+      "name": "Distance controls heights of relevant translates",
+      "statement": "For a chosen basepoint and Siegel fundamental set, the translates meeting a radius-R part of the analytic locus have representatives of height at most exp(C R) up to constants. The translate convention must be stable under inversion.",
+      "locator": "Lemma 4.3 invokes KUY height estimates",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-height",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fundamental-set"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/analytic-volume-growth",
+      "kind": "theorem",
+      "name": "Exponential volume growth in a Hermitian domain",
+      "statement": "A positive-dimensional closed complex analytic subvariety of the bounded symmetric domain has volume in large invariant-metric balls bounded below by c exp(a R), with positive constants allowed to depend on the subvariety and basepoint. Use the exact dimensional Hwang-To version required in section 4.",
+      "locator": "Lemma 4.3; KUY Theorem 5.7 quotes the curve case",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain"
+      ],
+      "note": "KUY pp. 349-351 read only establish the quoted curve version. General-dimensional input and original Hwang-To proof remain explicit source gaps."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/curve-volume-upper",
+      "kind": "theorem",
+      "name": "Uniform fundamental-set volume for algebraic curves",
+      "statement": "There is A depending on the fixed domain and Siegel fundamental set such that Vol(C intersect F)<=A deg C for any algebraic curve C in the domain, in the fixed embedding. KUY proves this from Mumford metric comparison and coordinate projections of degree at most deg C.",
+      "locator": "KUY Lemma 5.8, pp. 349-351, full proof read",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fundamental-set",
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/family-volume-upper",
+      "kind": "theorem",
+      "name": "Uniform volume for the definable analytic family",
+      "statement": "Obtain a common bound for volumes of the translated analytic members on F used in Lemma 4.3. On complex d-dimensional rank strata expand omega^d, use generic finite coordinate projections and uniform definable fibre cardinality; lower-rank strata contribute no top-dimensional measure.",
+      "locator": "Main Lemma 4.3, adaptation of KUY Lemma 5.8",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fibres"
+      ],
+      "note": "This adaptation is not supplied by the algebraic-curve statement alone; real dimension 2d must not be used as the complex wedge exponent. Measure/change-of-variables and metric comparison proof leaves remain open."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/translate-parameter",
+      "kind": "definition",
+      "name": "Definable set of large-intersection translates",
+      "statement": "Let I consist of g in G(R) for which gW meets D inside F times X in the prescribed real dimension 2 dim_C U. Prove definability from uniformization on F and definable fibre dimension; use inverse representatives when U meets gamma F.",
+      "locator": "Lemma 4.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fibres",
+        "PAPER-MOK-PILA-TSIMERMAN-19/restricted-algebraic"
+      ],
+      "uses": [
+        {
+          "where": "Lemma 4.3 counting step",
+          "how": "Turn large graph intersections into a definable family with arithmetic points."
+        }
+      ],
+      "api": [
+        {
+          "name": "LargeTranslate.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership means the exact specified real dimension of gW intersect D intersect (F times X)."
+        },
+        {
+          "name": "LargeTranslate.definable",
+          "role": "structure",
+          "statement": "Use definable fibre dimensions for the action family."
+        },
+        {
+          "name": "LargeTranslate.inverseConvention",
+          "role": "compatibility",
+          "statement": "An intersection with gamma F gives the corresponding inverse-translate parameter."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "translate-parameter-1",
+          "statement": "The target real dimension is twice the complex dimension.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "translate-parameter-2",
+          "statement": "A translate with empty intersection fails positive threshold.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "translate-parameter-3",
+          "statement": "Replacing gamma by its inverse consistently preserves polynomial height-counting consequences.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/many-integral-translates",
+      "kind": "theorem",
+      "name": "Polynomially many bounded-height translates",
+      "statement": "Volume growth, the uniform volume upper bound and the distance-height comparison yield at least c T^delta arithmetic points in the appropriate definable translate set for arbitrarily large T. Constants are fixed for the chosen counterexample.",
+      "locator": "Lemma 4.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-volume-growth",
+        "PAPER-MOK-PILA-TSIMERMAN-19/family-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/distance-height",
+        "PAPER-MOK-PILA-TSIMERMAN-19/translate-parameter"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/pila-wilkie",
+      "kind": "theorem",
+      "name": "Pila-Wilkie counting outside the algebraic part",
+      "statement": "For every epsilon>0 a definable set has O(T^epsilon) rational points of height at most T outside the union of its positive-dimensional connected semialgebraic subsets. Family uniformity/block refinements must be stated separately when used.",
+      "locator": "Lemma 4.3 cites Pila-Wilkie 2006",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal"
+      ],
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/counting-curve",
+      "kind": "theorem",
+      "name": "A semialgebraic curve with two arithmetic points",
+      "statement": "Use the appropriate uniform/block counting refinement to find one connected real semialgebraic curve in I containing at least two distinct arithmetic points; polynomial growth alone and the bare algebraic-part definition do not prove this without a finite-complexity bound.",
+      "locator": "Lemma 4.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/many-integral-translates",
+        "PAPER-MOK-PILA-TSIMERMAN-19/pila-wilkie"
+      ],
+      "note": "Exact counting refinement and original proof locator remain to acquire; retain as a specific prerequisite, not a falsely immediate corollary."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/curve-induction",
+      "kind": "theorem",
+      "name": "Translate-family intersection and union induction",
+      "statement": "For the complexification C of the semialgebraic curve, compare W_c: if locally constant, two distinct arithmetic translates give a nonidentity stabilizer; otherwise use either a generic pairwise intersection lowering defect or the algebraic union increasing dim U while keeping the required defect. Check analytic components and generic dimension at each branch.",
+      "locator": "End of Lemma 4.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/counting-curve",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-intersection-dimension"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/infinite-stabilizer",
+      "kind": "theorem",
+      "name": "Infinite arithmetic stabilizer of a minimal counterexample",
+      "statement": "The translate induction produces a nontrivial arithmetic stabilizer; torsion-freeness gives infinite order. This contradicts Theta triviality because an infinite subgroup has positive-dimensional algebraic closure in characteristic zero.",
+      "locator": "Lemma 4.3 conclusion",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-induction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-trivial"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/basic-ax-schanuel",
+      "kind": "theorem",
+      "name": "Ax-Schanuel for the pure uniformization graph",
+      "statement": "Let W=W_hat intersect (Omega times X), with W_hat irreducible algebraic in OmegaHat times X. If U is an irreducible analytic component of W intersect D and dim_C W<dim_C U+n, then the X-projection of U is contained in a proper weakly special subvariety. Mixed exponential uniformization is not an instance of this theorem.",
+      "locator": "Theorem 1.1, proof section 4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-cover-reduction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-algebraic-image",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-normal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-trivial",
+        "PAPER-MOK-PILA-TSIMERMAN-19/infinite-stabilizer"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/two-sorted",
+      "kind": "theorem",
+      "name": "Two-sorted Ax-Schanuel inequality",
+      "statement": "For irreducible complex analytic Y in Omega, dim Y_Zar+dim q(Y)_Zar >= dim Y+dim Y_WS, with algebraic closures taken in the compact-dual/domain and X conventions and Y_WS the smallest weakly special domain locus.",
+      "locator": "Theorem 1.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/basic-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-closure"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-disc",
+      "kind": "definition",
+      "name": "Multivariable truncated infinitesimal disc",
+      "statement": "D_k^r=Spec C[epsilon_1,...,epsilon_r]/(epsilon_1,...,epsilon_r)^(k+1), using total degree, not separate truncation of each variable. It has a distinguished origin and truncation maps.",
+      "locator": "Section 5",
+      "status": "missing",
+      "uses": [
+        {
+          "where": "Finite jets and Taylor exponentials",
+          "how": "Fix one multivariable total-degree truncation ring."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetDisc.origin",
+          "role": "projection",
+          "statement": "Set all epsilon variables to zero."
+        },
+        {
+          "name": "JetDisc.truncate",
+          "role": "functoriality",
+          "statement": "For a<=b the order-a disc embeds into order-b, inducing jet truncation in the reverse Hom direction."
+        },
+        {
+          "name": "JetDisc.monomialBasis",
+          "role": "data",
+          "statement": "Use monomials of total degree at most k as a vector-space basis."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "jet-disc-1",
+          "statement": "For k=0 the disc is Spec C.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-disc-2",
+          "statement": "For r=2,k=1 the mixed product epsilon_1 epsilon_2 is zero.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-disc-3",
+          "statement": "The dimension of the coefficient ring is binomial(r+k,k), not (k+1)^r.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets",
+      "kind": "construction",
+      "name": "Representable finite jet functor",
+      "statement": "For the smooth complex varieties in use, J_k^r X represents T maps to Hom(D_k^r times T,X); construct by local coordinate algebras and glue. Obtain J_0^r X=X, J_1^1 X=TX, truncations and base change. Do not assume all singular jet schemes are smooth.",
+      "locator": "Sections 5-6; Scanlon sections 2.2-2.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-disc"
+      ],
+      "uses": [
+        {
+          "where": "Sections 5-12",
+          "how": "Share the representing carrier across analytic and differential consumers."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetScheme.pointsEquiv",
+          "role": "universal-property",
+          "statement": "T-points correspond naturally to maps D_k^r times T to X."
+        },
+        {
+          "name": "JetScheme.evalZero",
+          "role": "projection",
+          "statement": "Evaluate a jet at the origin."
+        },
+        {
+          "name": "JetScheme.map",
+          "role": "functoriality",
+          "statement": "Postcompose jets with a morphism, preserving identity and composition."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "algebraic-jets-1",
+          "statement": "J_0 X is X.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "algebraic-jets-2",
+          "statement": "J_1^1 affine line has base and tangent coordinates.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "algebraic-jets-3",
+          "statement": "Jet schemes of a singular scheme are not asserted to be affine bundles or smooth.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-functor-laws",
+      "kind": "theorem",
+      "name": "Jet functor and analytic comparison",
+      "statement": "J preserves identities/composition and products, and algebraic jets on a smooth complex variety agree with holomorphic germs modulo derivatives of total order k. A biholomorphism induces a biholomorphism on these jets.",
+      "locator": "Section 5; Scanlon Lemma 3.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/iterated-jet",
+      "kind": "construction",
+      "name": "Addition map into iterated jet spaces",
+      "statement": "The ring map epsilon_i to t_i+s_i embeds the total-degree truncated ring of order a+b into the double truncation of orders a,b in characteristic zero; it induces J_(a+b)^r X to J_a^r J_b^r X, with Taylor factorials.",
+      "locator": "Section 5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Equation prolongation and coefficient recovery",
+          "how": "Embed higher-order information into iterated jets via addition."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetScheme.addition",
+          "role": "constructor",
+          "statement": "Use epsilon_i maps to t_i+s_i to construct J_(a+b) X to J_a J_b X."
+        },
+        {
+          "name": "JetScheme.addition_natural",
+          "role": "functoriality",
+          "statement": "The addition construction commutes with maps of X."
+        },
+        {
+          "name": "JetScheme.addition_coeff",
+          "role": "simp",
+          "statement": "The mixed coefficient is the appropriate multinomial multiple of the original coefficient."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "iterated-jet-1",
+          "statement": "For a=b=1, the square coefficient yields a factor two in t s.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "iterated-jet-2",
+          "statement": "Either a=0 or b=0 recovers the original jet.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "iterated-jet-3",
+          "statement": "In characteristic p, factorial-based injectivity arguments require rechecking and are not copied from characteristic zero.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet",
+      "kind": "definition",
+      "name": "Identity jet section in affine coordinates",
+      "statement": "On a fixed coordinate chart, id_k(z) is the jet epsilon maps to z+epsilon. It is a section of evaluation and is natural only after the appropriate coordinate-change jet map; it is not coordinate-free by declaration.",
+      "locator": "Sections 5-7",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Identity orbits and modular derivatives",
+          "how": "Use the chart-dependent identity section consistently."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetScheme.idSection",
+          "role": "constructor",
+          "statement": "At z use epsilon maps to z+epsilon."
+        },
+        {
+          "name": "JetScheme.evalZero_id",
+          "role": "simp",
+          "statement": "The basepoint of id_k(z) is z."
+        },
+        {
+          "name": "JetScheme.idSection_changeChart",
+          "role": "compatibility",
+          "statement": "A coordinate change acts on the section by its full jet, not only its value."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "identity-jet-1",
+          "statement": "In one variable the identity jet has linear coefficient one.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "identity-jet-2",
+          "statement": "A nonlinear chart change produces nonzero higher coefficients.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "identity-jet-3",
+          "statement": "Translation by a constant preserves the linear identity coefficient.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-equation",
+      "kind": "definition",
+      "name": "Algebraic differential equation as a jet condition",
+      "statement": "An order-k equation on maps into X is an algebraic subvariety W of J_k^r X; a map solves it when its actual k-jet takes values in W. Formal points of W need not integrate to solutions.",
+      "locator": "Section 6",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Section 6 and section 11",
+          "how": "Distinguish an algebraic equation from its holomorphic solutions."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetEquation.carrier",
+          "role": "projection",
+          "statement": "Return the algebraic locus in J_k^r X."
+        },
+        {
+          "name": "JetEquation.IsSolution",
+          "role": "characterisation",
+          "statement": "A holomorphic map solves the equation iff its actual jet lies in the locus."
+        },
+        {
+          "name": "JetEquation.restrict",
+          "role": "functoriality",
+          "statement": "Restriction of a solution to an open parameter domain remains a solution."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "jet-equation-1",
+          "statement": "The full jet space imposes no equation.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-equation-2",
+          "statement": "The order-one equation f prime=0 gives local constants.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-equation-3",
+          "statement": "An arbitrary formal solution at one point is not automatically a global holomorphic solution.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/prolong-equation",
+      "kind": "construction",
+      "name": "Prolongation of a jet equation",
+      "statement": "Construct the order a+k equation by inverse image of J_a^r W under the canonical iterated-jet map. Actual solutions of W solve every prolongation. Prove the chain rule rather than identify every formal prolongation point with a solution germ.",
+      "locator": "Section 6",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-equation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/iterated-jet"
+      ],
+      "uses": [
+        {
+          "where": "Section 6",
+          "how": "Differentiate an equation with the correct chain-rule map."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetEquation.prolong",
+          "role": "constructor",
+          "statement": "Pull back J_a W along the addition map."
+        },
+        {
+          "name": "JetEquation.solution_prolong",
+          "role": "compatibility",
+          "statement": "Actual solutions give solutions of the prolonged equation."
+        },
+        {
+          "name": "JetEquation.prolong_zero",
+          "role": "simp",
+          "statement": "Order-zero prolongation is the original equation."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "prolong-equation-1",
+          "statement": "f prime=R(f) implies f double-prime=R prime(f) times R(f).",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "prolong-equation-2",
+          "statement": "For constant R the second derivative vanishes.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "prolong-equation-3",
+          "statement": "Ignoring the factor f prime gives the wrong prolongation for R(f)=f squared.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/nondegenerate-jet",
+      "kind": "definition",
+      "name": "Nondegenerate jet locus",
+      "statement": "For r>=n=dim X and k>=1, J_k^(nd,r) X is the open locus whose first derivative C^r to T_x X is surjective. For r=n this derivative is invertible. Nondegenerate refers to this formal coefficient, not to the derivative of a parameterized family of jets.",
+      "locator": "Section 6 and Theorem 9.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 9.1 and group freeness",
+          "how": "Expose the formal tangent coefficient and its rank predicate."
+        }
+      ],
+      "api": [
+        {
+          "name": "NondegenerateJet.linearPart",
+          "role": "projection",
+          "statement": "Return C^r to T_x X from the first-order coefficient."
+        },
+        {
+          "name": "NondegenerateJet.isOpen",
+          "role": "structure",
+          "statement": "Surjectivity defines a Zariski-open subset of the finite jet scheme."
+        },
+        {
+          "name": "NondegenerateJet.compEtale",
+          "role": "functoriality",
+          "statement": "Composition with an etale map preserves nondegeneracy."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "nondegenerate-jet-1",
+          "statement": "For r=n it is determinant nonvanishing.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "nondegenerate-jet-2",
+          "statement": "For r<n the positive-dimensional locus is empty.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "nondegenerate-jet-3",
+          "statement": "A parameterized family with constant base can have nondegenerate formal coefficients.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability",
+      "kind": "theorem",
+      "name": "Jet coverings and their definability",
+      "statement": "J_k^r q is an analytic Gamma covering onto J_k^r X. Over the preimage of F it is definable because derivatives of a definable holomorphic map are definable and jet composition is polynomial in those derivatives and input coefficients.",
+      "locator": "Scanlon Lemmas 3.3-3.4; main section 9",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-functor-laws",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit",
+      "kind": "definition",
+      "name": "Orbit of the identity jet",
+      "statement": "W_k=G(C) id_k(o) in J_k^n OmegaHat, after fixing big-cell coordinates at o. The G action is the algebraic jet action and uses an effective group.",
+      "locator": "Section 7.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual"
+      ],
+      "uses": [
+        {
+          "where": "Lemmas 7.1-7.3",
+          "how": "Apply the group action to one fixed identity jet."
+        }
+      ],
+      "api": [
+        {
+          "name": "IdentityJetOrbit.orbitMap",
+          "role": "constructor",
+          "statement": "Map g to J_k(g)(id_k(o))."
+        },
+        {
+          "name": "IdentityJetOrbit.mem",
+          "role": "characterisation",
+          "statement": "Membership is witnessed by an element of G(C)."
+        },
+        {
+          "name": "IdentityJetOrbit.truncate",
+          "role": "functoriality",
+          "statement": "Truncation sends W_k to W_j for j<=k."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "identity-orbit-1",
+          "statement": "At order zero this is the homogeneous compact dual.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "identity-orbit-2",
+          "statement": "At order one the residual stabilizer is N-.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "identity-orbit-3",
+          "statement": "At order two only the effective group has a trivial stabilizer.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/first-jet-stabilizer",
+      "kind": "theorem",
+      "name": "Stabilizer of the first identity jet",
+      "statement": "For the effective Hermitian-domain group, the stabilizer of id_1(o) is the negative unipotent N- inside B. The Levi acts faithfully on the positive tangent directions. Use B=K_C N- with the paper grading, not the inconsistent printed sign in the proof.",
+      "locator": "Lemma 7.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free",
+      "kind": "theorem",
+      "name": "Freeness on nondegenerate jets of order at least two",
+      "statement": "The effective G(C) acts freely on id_2(o), hence on J_k^(nd,r) OmegaHat for k>=2 and r>=n. Reduce a possible negative-root stabilizer to the fractional-linear rank-one calculation. An ineffective group such as Sp with central minus identity is not literally free.",
+      "locator": "Proposition 7.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/first-jet-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/nondegenerate-jet"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit-closed",
+      "kind": "theorem",
+      "name": "Closedness and order-three determination of identity orbits",
+      "statement": "Establish that W_k is closed in the nondegenerate locus for k>=2 and that W_3 to W_2 is an isomorphism on the required charts. Freeness alone does not prove closedness of arbitrary algebraic group orbits; supply the homogeneous-orbit argument and separability.",
+      "locator": "After Proposition 7.2 and Corollary 7.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free"
+      ],
+      "note": "Closed-orbit and regular-inverse justifications remain explicit gaps."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/classical-schwarzian",
+      "kind": "definition",
+      "name": "Classical Schwarzian normalization",
+      "statement": "For a holomorphic f with a=f prime nonzero, b=f double-prime and c=f triple-prime, S(f)=c/a-(3/2)(b/a)^2. In Taylor coordinates f(z+t)=f(z)+at+bt^2/2+ct^3/6, the normalized cubic coefficient is S(f)/6.",
+      "locator": "Section 7.1.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Section 7.1.1 normalization",
+          "how": "Compare the quotient invariant with the ordinary analytic formula."
+        }
+      ],
+      "api": [
+        {
+          "name": "ClassicalSchwarzian.value",
+          "role": "data",
+          "statement": "Compute f triple-prime/f prime minus three halves of the square of f double-prime/f prime."
+        },
+        {
+          "name": "ClassicalSchwarzian.mobius",
+          "role": "relation",
+          "statement": "Postcomposition by a fractional linear transformation preserves S where defined."
+        },
+        {
+          "name": "ClassicalSchwarzian.taylorCoefficient",
+          "role": "compatibility",
+          "statement": "The normalized cubic Taylor coefficient equals S divided by six."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "classical-schwarzian-1",
+          "statement": "A fractional linear transformation has S=0.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "classical-schwarzian-2",
+          "statement": "For exp, S=-1/2.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "classical-schwarzian-3",
+          "statement": "For f=t+t cubed at zero, S=6 and the normalized cubic coefficient is 1.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/third-order-rigidity",
+      "kind": "theorem",
+      "name": "Order-three local rigidity",
+      "statement": "If a local biholomorphism F on the compact-dual big cell has J_3 F composed with id_3 in W_3, it equals one fixed g in G(C) on the connected domain. Use determination of higher Taylor coefficients and analytic continuation.",
+      "locator": "Corollary 7.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit-closed"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/ball-order-two",
+      "kind": "theorem",
+      "name": "Order-two rigidity for complex balls",
+      "statement": "For the complex unit ball of dimension at least two, the identity-orbit differential condition of order two forces a local biholomorphism to be a restriction of a projective automorphism. The one-dimensional disk requires order three.",
+      "locator": "Theorem 7.4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit",
+        "PAPER-MOK-PILA-TSIMERMAN-19/projective-line-rigidity"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/projective-line-rigidity",
+      "kind": "theorem",
+      "name": "Local projective geometry theorem",
+      "statement": "A locally biholomorphic map between connected open subsets of projective space of dimension at least two which sends local line segments to projective lines extends to a projective linear transformation, in the precise local form used in the ball argument.",
+      "locator": "Theorem A in section 7.3",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/vmrt-rigidity",
+      "kind": "theorem",
+      "name": "Highest-weight tangent variety rigidity",
+      "statement": "For an irreducible compact Hermitian symmetric space of rank at least two, a local biholomorphism preserving the indicated variety of minimal rational tangents is induced by a global automorphism. Acquire Ochiai/Hwang-Mok hypotheses and distinguish local germs from global automorphisms.",
+      "locator": "Theorem B in section 7.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/higher-rank-order-one",
+      "kind": "theorem",
+      "name": "Order-one rigidity in irreducible higher rank",
+      "statement": "On an irreducible domain of rank at least two, preserving the first identity-jet orbit forces the local map to arise from G(C), using the highest-weight tangent variety and its rigidity.",
+      "locator": "Theorem 7.5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/first-jet-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/vmrt-rigidity"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/product-rigidity-orders",
+      "kind": "theorem",
+      "name": "Rigidity order for products",
+      "statement": "For a product domain, order two suffices if no factor is a disk, and order one if every irreducible factor has rank at least two; retain factor decomposition and possible permutations in the automorphism comparison. Otherwise retain the uniform order-three theorem.",
+      "locator": "Section 7.3 conclusion",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/third-order-rigidity",
+        "PAPER-MOK-PILA-TSIMERMAN-19/ball-order-two",
+        "PAPER-MOK-PILA-TSIMERMAN-19/higher-rank-order-one"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-quotient",
+      "kind": "definition",
+      "name": "Generalized Schwarzian quotient",
+      "statement": "Construct a rational Rosenlicht quotient S_k=G(C)\\J_k^n OmegaHat, birational to B\\(J_k^n OmegaHat)_o. Specify the open charts/strata on which quotient values separate orbits. Do not assert a global geometric quotient without proof.",
+      "locator": "Section 8.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets",
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient"
+      ],
+      "uses": [
+        {
+          "where": "Section 8",
+          "how": "Represent orbit invariants without assuming a nonexistent global regular quotient."
+        }
+      ],
+      "api": [
+        {
+          "name": "SchwarzianQuotient.chart",
+          "role": "data",
+          "statement": "Specify a dense invariant chart admitting the chosen quotient."
+        },
+        {
+          "name": "SchwarzianQuotient.equal_iff_orbit",
+          "role": "characterisation",
+          "statement": "On the specified stratum, equality of quotient values means equality of G-orbits."
+        },
+        {
+          "name": "SchwarzianQuotient.refine",
+          "role": "compatibility",
+          "statement": "Compare two quotient charts through their common invariant refinement."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "schwarzian-quotient-1",
+          "statement": "For PGL2 order-three jets the invariant is the Schwarzian.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "schwarzian-quotient-2",
+          "statement": "Different stabilizer strata require separate quotient pieces.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "schwarzian-quotient-3",
+          "statement": "A rational invariant is not evaluated at a pole outside its chart.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-connection",
+      "kind": "construction",
+      "name": "Generalized Schwarzian and composition connection",
+      "statement": "Assign S_k(F) to a locally biholomorphic F by taking the orbit class of its actual k-jet. Normalize source translation in N+ and construct the composition map psi on appropriate nondegenerate quotient charts, with associativity and inversion where defined.",
+      "locator": "Section 8.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-quotient",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 8.2",
+          "how": "Compose jet invariants with source translation and inverse uniformization data."
+        }
+      ],
+      "api": [
+        {
+          "name": "SchwarzianConnection.compose",
+          "role": "constructor",
+          "statement": "Return the quotient invariant of a composable pair of locally invertible jets."
+        },
+        {
+          "name": "SchwarzianConnection.identity",
+          "role": "simp",
+          "statement": "Composition with the identity class preserves the invariant."
+        },
+        {
+          "name": "SchwarzianConnection.assoc",
+          "role": "relation",
+          "statement": "Two associations of a defined triple composition agree on the common chart."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "schwarzian-connection-1",
+          "statement": "Composition of two Mobius germs has zero classical Schwarzian.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "schwarzian-connection-2",
+          "statement": "A critical point is excluded from a local inverse chart.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "schwarzian-connection-3",
+          "statement": "Changing big-cell coordinates uses the full chain rule.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/modular-embedding",
+      "kind": "construction",
+      "name": "Rational modular embedding and local inverse charts",
+      "statement": "Choose finitely many functions generating C(X) and a rational embedding phi:X rational to OmegaHat squared using a function-field hypersurface presentation; work on a nonempty open where needed projections are etale and inverse branches exist. A finite C-vector-space basis of C(X) is not intended.",
+      "locator": "Section 8.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual"
+      ],
+      "uses": [
+        {
+          "where": "Corollary 9.3 and section 8.2",
+          "how": "Choose algebraic generators and charts for inverse Schwarzians."
+        }
+      ],
+      "api": [
+        {
+          "name": "ModularFunctionEmbedding.generators",
+          "role": "data",
+          "statement": "Return finitely many generators of C(X) as a field over C."
+        },
+        {
+          "name": "ModularFunctionEmbedding.domain",
+          "role": "projection",
+          "statement": "Specify their common regular locus."
+        },
+        {
+          "name": "ModularFunctionEmbedding.inverseChart",
+          "role": "data",
+          "statement": "Provide a chosen generic etale chart and its local inverse branch."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "modular-embedding-1",
+          "statement": "A curve function field is finitely generated as a field, usually infinite-dimensional over C.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "modular-embedding-2",
+          "statement": "Poles exclude a point from a selected affine chart.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "modular-embedding-3",
+          "statement": "Replacing generators by another generating family preserves the resulting function field.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/inverse-schwarzian-algebraic",
+      "kind": "theorem",
+      "name": "Algebraic inverse Schwarzian",
+      "statement": "For p=phi composed with q, the Schwarzian of local inverses descends through Gamma to a single-valued constructible/rational algebraic R_k(x) on the specified charts. Definability and analytic algebraization establish algebraicity; finite function-field generators fix the coordinates.",
+      "locator": "Theorem 8.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-embedding",
+        "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-connection",
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-constructible-algebraic"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-schwarzian",
+      "kind": "theorem",
+      "name": "Schwarzian equations characterize full-rank uniformization",
+      "statement": "On local inverse charts, the equation formed using psi, S_k(F) and R_k(F) characterizes F=p(gz) for a constant g in G(C), using order three generally and the reduced orders in the ball/higher-rank cases.",
+      "locator": "Theorem 8.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/inverse-schwarzian-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/third-order-rigidity",
+        "PAPER-MOK-PILA-TSIMERMAN-19/product-rigidity-orders"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-graph",
+      "kind": "definition",
+      "name": "Nondegenerate jet graph of uniformization",
+      "statement": "D_k^r is the graph of J_k^r q restricted to the nondegenerate jet domain. Its complex dimension is dim J_k^(nd,r) Omega, generally larger than n. Use a different symbol for the infinitesimal disc.",
+      "locator": "Section 9.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/nondegenerate-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability"
+      ],
+      "uses": [
+        {
+          "where": "Lemma 9.2 and Theorem 9.1",
+          "how": "Keep jet-graph dimension distinct from base dimension."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizationJetGraph.mk",
+          "role": "constructor",
+          "statement": "Send a nondegenerate input jet a to (a,J_k q(a))."
+        },
+        {
+          "name": "UniformizationJetGraph.fstEquiv",
+          "role": "equivalence",
+          "statement": "First projection is an analytic isomorphism with the nondegenerate input jet domain."
+        },
+        {
+          "name": "UniformizationJetGraph.evalZero",
+          "role": "compatibility",
+          "statement": "Zeroth-order evaluation maps to the original uniformization graph."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "jet-graph-1",
+          "statement": "At order zero it reduces to D.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-graph-2",
+          "statement": "For n=r=1,k=2 the jet graph has dimension three.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-graph-3",
+          "statement": "The map to the base can have positive-dimensional vertical fibres.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/weighted-jet-compactification",
+      "kind": "construction",
+      "name": "Weighted compactification of the jet fibres",
+      "statement": "Compactify each affine jet fibre by a homogenizing coordinate s of weight one and jet coefficients of their derivative-order weights, using relative weighted Proj. Remove the all-zero positive-weight locus with s=0 before quotienting by G_m. Check that polynomial coordinate changes are weighted homogeneous and glue.",
+      "locator": "Section 9.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "note": "The displayed quotient (J times A1)/G_m must be interpreted projectively; its literal all-points orbit quotient contains a fixed zero and is not the desired compactification.",
+      "uses": [
+        {
+          "where": "Section 9.2 proper-image argument",
+          "how": "Compactify affine fibres while preserving grading and coordinate changes."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeightedJetCompactification.affineChart",
+          "role": "equivalence",
+          "statement": "The chart s nonzero recovers the original jet space."
+        },
+        {
+          "name": "WeightedJetCompactification.boundary",
+          "role": "characterisation",
+          "statement": "The boundary is s=0 in weighted Proj with all-zero homogeneous coordinates excluded."
+        },
+        {
+          "name": "WeightedJetCompactification.changeChart",
+          "role": "functoriality",
+          "statement": "Weighted homogeneous jet coordinate changes glue the relative Proj construction."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "weighted-jet-compactification-1",
+          "statement": "The chart s=1 returns ordinary jet coefficients.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "weighted-jet-compactification-2",
+          "statement": "The all-zero homogeneous tuple is excluded.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "weighted-jet-compactification-3",
+          "statement": "Second-order coefficients have weight two, not weight one.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-analytic",
+      "kind": "theorem",
+      "name": "Constructible analyticity of the G-saturated jet graph",
+      "statement": "Using the weighted compactification, compactified group action and proper analytic projection, show the saturation Y=G(C) D_k^r is constructible analytic in the nondegenerate jet product. Track boundary strata of the action correspondence.",
+      "locator": "Lemma 9.2 first part",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/weighted-jet-compactification",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-graph"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-closed",
+      "kind": "theorem",
+      "name": "Closedness of the jet saturation",
+      "statement": "For k>=2, free G action and jet-disc automorphism transitivity on nondegenerate input jets make the saturation equidimensional in each projection. A hypothetical boundary has second-projection fibres of dimension below dim G but is G-invariant; freeness rules it out. Prove the symmetry and dimension statements before applying this argument.",
+      "locator": "Lemma 9.2 middle part",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-analytic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-algebraic",
+      "kind": "theorem",
+      "name": "Zariski closure of the jet graph",
+      "statement": "The closed analytic saturation G(C) D_k^r is definable via its fundamental-set restriction, hence algebraic, and equals the Zariski closure of D_k^r by arithmetic Zariski density and invariance. Its fibres over the second jet factor have dimension dim G.",
+      "locator": "Lemma 9.2 conclusion",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-closed",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/modular-derivative-trdeg",
+      "kind": "theorem",
+      "name": "Transcendence degree of modular functions and derivatives",
+      "statement": "In N+-translation coordinates z_1,...,z_n, the field generated over C by a finite set of function-field generators phi_i and their partial derivatives through order k>=2 has transcendence degree dim G. Adjoining C(z) leaves this relative transcendence degree dim G; the joint field has degree dim G+n over C.",
+      "locator": "Theorem 1.3 = Corollary 9.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free",
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-embedding"
+      ],
+      "note": "The printed proof line trdeg_C C(z_1,...,z_n)=dim G is inconsistent for general n; the derivative field is the intended object. This interpretation and the finite-basis wording require independent review."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/higher-derivative-rationality",
+      "kind": "theorem",
+      "name": "Higher modular derivatives are rational in order-two data",
+      "statement": "The function field generated by all modular derivatives is generated by derivatives of orders at most two. Use the birational identification between the appropriate G-orbit spaces in characteristic zero; a bijective map of points alone does not establish an everywhere-regular inverse.",
+      "locator": "Remark after Corollary 9.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit-closed"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-locus",
+      "kind": "construction",
+      "name": "Hilbert family for atypical jet intersections",
+      "statement": "Fix jet order k and parameter count r. Compactify the two jet spaces, form the Hilbert family and intersection with D_k^r, and take the complex fibre-dimension threshold d=dim U. Descend with J_k^r q times id, not q on the jet carrier.",
+      "locator": "Section 9.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/weighted-jet-compactification",
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-family",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-graph"
+      ],
+      "uses": [
+        {
+          "where": "Lemma 9.4",
+          "how": "Repeat incidence construction on fixed jet spaces."
+        }
+      ],
+      "api": [
+        {
+          "name": "JetHilbertLocus.incidence",
+          "role": "constructor",
+          "statement": "Intersect a fixed-polynomial universal family with the jet graph."
+        },
+        {
+          "name": "JetHilbertLocus.threshold",
+          "role": "data",
+          "statement": "Store complex fibre threshold d independently of jet order k."
+        },
+        {
+          "name": "JetHilbertLocus.descend",
+          "role": "projection",
+          "statement": "Apply J_k q on the first jet factor and identity on the second."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "jet-hilbert-locus-1",
+          "statement": "Changing d does not change k.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-hilbert-locus-2",
+          "statement": "Evaluation to X is not a substitute for J_k q.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "jet-hilbert-locus-3",
+          "statement": "A vertical jet family can have positive d and constant base projection.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-algebraic",
+      "kind": "theorem",
+      "name": "Algebraic descended image of the jet family",
+      "statement": "The descended jet large-fibre incidence image is algebraic by proper analytic projection and definability, exactly with fixed order k separated from threshold d.",
+      "locator": "Lemma 9.4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-normal",
+      "kind": "theorem",
+      "name": "Normality of the generic stabilizer for jet families",
+      "statement": "Apply the descended Hilbert-family monodromy argument to the jet setting, using the base projection and finite-index monodromy comparison. The connected algebraic stabilizer is normal in G.",
+      "locator": "Lemma 10.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/generic-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy",
+        "PAPER-MOK-PILA-TSIMERMAN-19/proper-monodromy-index"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-trivial",
+      "kind": "theorem",
+      "name": "Jet factor induction forces trivial connected stabilizer",
+      "statement": "Split off the normal Theta factor, compare G-orbits and fibre dimensions of the jet projection, and use induction on domain dimension/defect to deduce Theta triviality for a minimal jet counterexample.",
+      "locator": "Lemma 10.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-normal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/normal-factor-reduction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-infinite-stabilizer",
+      "kind": "theorem",
+      "name": "Jet translate induction and positive-dimensional stabilizer",
+      "statement": "Adapt the volume/counting argument to the base projections of a minimal jet counterexample, also inducting on parameter count and analytic dimension so that purely vertical jet directions are handled. Obtain an infinite arithmetic stabilizer contradicting the trivial connected closure.",
+      "locator": "Lemma 10.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-trivial",
+        "PAPER-MOK-PILA-TSIMERMAN-19/many-integral-translates",
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-induction"
+      ],
+      "note": "The phrase same proof as Lemma 4.3 does not by itself supply the vertical-rank reduction; this is an explicit remaining proof adapter."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/jet-ax-schanuel",
+      "kind": "theorem",
+      "name": "Ax-Schanuel with derivatives in jet spaces",
+      "statement": "For k>=2,r>=n, let W be irreducible algebraic in J_k^(nd,r) OmegaHat times J_k^(nd,r) X, restricted to Omega on the first base. If U is an irreducible analytic component of W intersect D_k^r and dim W<dim U+dim G, its X-base projection is contained in a proper weakly special subvariety.",
+      "locator": "Theorem 9.1, proof section 10",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-normal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-trivial",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-infinite-stabilizer"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/restricted-derivative-inequality",
+      "kind": "theorem",
+      "name": "Derivative transcendence along an analytic subvariety",
+      "statement": "For irreducible analytic V in Omega not contained in a proper weakly special domain locus, algebraic coordinates z and a finite family phi generating modular functions and regular near some point of V, the restricted functions z and all phi derivatives through order k>=2 generate a field of transcendence degree at least dim G+dim V. Derivatives are taken in ambient z before restriction to V.",
+      "locator": "Theorem 1.4 = Corollary 10.4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-embedding"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/finite-orbit-determination",
+      "kind": "theorem",
+      "name": "Finite-order determination for possibly deficient-rank maps",
+      "statement": "For fixed G,q and parameter dimension k there exists a finite order m such that holomorphic maps w,u into OmegaHat, pointwise matching up to order m under some G(C) element, differ globally on a connected domain by one constant group element. No universal bound m=dim G is certified here.",
+      "locator": "Lemma 11.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "note": "Strict stabilizer inclusion need not reduce dimension when component groups shrink. Scanlon Proposition 3.9 gives an alternative finite-order orbit criterion through differential algebra/compactness; the analytic transfer still needs proof.",
+      "alternativeSupplier": "PAPER-MOK-PILA-TSIMERMAN-19/finite-differential-orbits"
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/rank-deficient-orbit-locus",
+      "kind": "definition",
+      "name": "Rank-deficient uniformization jet relation",
+      "statement": "V_m^k is the constructible algebraic G(C)-saturation of the order-m graph jets of q, allowing deficient rank. Membership of actual map jets is the relevant condition, not arbitrary unrelated formal coefficient vectors.",
+      "locator": "Section 11",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph",
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-constructible-algebraic"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 11.2",
+          "how": "State finite equations for an actual map pair."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizationPairRelation.saturate",
+          "role": "constructor",
+          "statement": "Take the constant-G saturation of the graph jet locus."
+        },
+        {
+          "name": "UniformizationPairRelation.mem_actualJet",
+          "role": "characterisation",
+          "statement": "Apply the algebraic relation to actual m-jets of w and u."
+        },
+        {
+          "name": "UniformizationPairRelation.truncate",
+          "role": "functoriality",
+          "statement": "Higher-order membership implies membership at lower order."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "rank-deficient-orbit-locus-1",
+          "statement": "A constant pair lies in the rank-zero relation when geometrically compatible.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "rank-deficient-orbit-locus-2",
+          "statement": "A positive-rank map need not have rank n.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "rank-deficient-orbit-locus-3",
+          "statement": "Unrelated formal jets are not asserted to come from a common parameterized pair.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/pair-characterization",
+      "kind": "theorem",
+      "name": "Uniformization criterion for pairs of maps",
+      "statement": "For sufficiently large m, if the actual m-jets of holomorphic w,u lie in V_m^k, then u=q(gw) for one constant g on the connected domain where defined.",
+      "locator": "Theorem 11.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-orbit-determination",
+        "PAPER-MOK-PILA-TSIMERMAN-19/rank-deficient-orbit-locus"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/derivative-lift",
+      "kind": "construction",
+      "name": "Uniformization with its ambient derivatives",
+      "statement": "For holomorphic w:Delta^k to OmegaHat and constant g with gw in Omega, define L(w,g,r)=(w,q(gw),J_r^n(q composed with g)(id_r(w))). The last coordinate records derivatives in n ambient coordinates, not just k parameter derivatives.",
+      "locator": "Section 11",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 11.3",
+          "how": "Retain full ambient derivatives along a possibly low-rank parameter map."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizationLift.mk",
+          "role": "constructor",
+          "statement": "Form (w,q(gw),J_r(q composed with g)(id_r(w)))."
+        },
+        {
+          "name": "UniformizationLift.evalZero",
+          "role": "simp",
+          "statement": "The third coordinate evaluates at zero to the second."
+        },
+        {
+          "name": "UniformizationLift.chainRule",
+          "role": "relation",
+          "statement": "For each parameter derivation D, D(u)=y_1 D(w), with higher multivariate analogues."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "derivative-lift-1",
+          "statement": "For w=t the ambient first derivative equals the parameter first derivative.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "derivative-lift-2",
+          "statement": "For w=2t a factor two occurs in the parameter derivative.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "derivative-lift-3",
+          "statement": "For constant w the parameter derivative is zero while ambient derivatives need not vanish.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/constant-group-foliation",
+      "kind": "construction",
+      "name": "Foliation of the ambient derivative locus",
+      "statement": "Descend the locus G(C) id_r(OmegaHat) to V_(n,r) in J_r^n X. Descend tangent directions obtained by varying the base while holding g constant to an integrable algebraic foliation W_(n,r). Specify the smooth strata and descent, and reconcile the construction at r>=3 with the stated theorem r>=2.",
+      "locator": "Section 11 before Theorem 11.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-constructible-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 11.3",
+          "how": "Require the derivative-locus path to follow a leaf with fixed group parameter."
+        }
+      ],
+      "api": [
+        {
+          "name": "ConstantGroupFoliation.tangent",
+          "role": "projection",
+          "statement": "Return the integrable tangent distribution on each specified stratum."
+        },
+        {
+          "name": "ConstantGroupFoliation.leaf",
+          "role": "constructor",
+          "statement": "Vary the base coordinate with g fixed."
+        },
+        {
+          "name": "ConstantGroupFoliation.descend",
+          "role": "compatibility",
+          "statement": "Gamma descent preserves the distribution and its integrability."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "constant-group-foliation-1",
+          "statement": "The identity g gives the usual uniformization derivative leaf.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "constant-group-foliation-2",
+          "statement": "A varying g can alter ambient derivatives even when it fixes w.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "constant-group-foliation-3",
+          "statement": "Leaf tangency and zeroth-order agreement do not replace the chain-rule equation involving w.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/triple-characterization-obligation",
+      "kind": "theorem",
+      "name": "Compatibility required in the triple characterization",
+      "statement": "Theorem 11.3 intends the conditions on the pair jets, the third jet locus, its tangent foliation and its restriction to u to characterize exactly L(w,g,r). Interpret restricts to u as full jet compatibility, or supply additional chain-rule equations; zeroth-order equality alone does not imply the intended conclusion.",
+      "locator": "Theorem 11.3, published p. 971; arXiv v3 p. 23",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/pair-characterization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/derivative-lift",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constant-group-foliation"
+      ],
+      "note": "OPEN INTERFACE, not a proved repaired theorem. The local modular-curve test w(t)=2t,u(t)=q(t),v(t)=J_r q(id_r(t)) satisfies the literal zeroth-order reading and foliation condition but violates du=v_1 dw. See the report; no author erratum was acquired."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field",
+      "kind": "definition",
+      "name": "Field with finitely many commuting derivations",
+      "statement": "A characteristic-zero field K with a specified finite list D_i of pairwise commuting self-derivations and constants C=intersection ker D_i. Reuse Derivation; the single Differential class is only its one-derivation specialization.",
+      "locator": "Section 12.1; Scanlon section 2.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/derivation-library",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-library"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 12.1",
+          "how": "Control constants and multi-index derivatives."
+        }
+      ],
+      "api": [
+        {
+          "name": "CommutingDerivations.deriv",
+          "role": "projection",
+          "statement": "Return the indexed Derivation for each element of the finite list."
+        },
+        {
+          "name": "CommutingDerivations.constants",
+          "role": "constructor",
+          "statement": "Form the intersection of kernels as a subfield."
+        },
+        {
+          "name": "CommutingDerivations.multiIndex",
+          "role": "data",
+          "statement": "Iterate derivations in any order; pairwise commutation proves independence."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "commuting-differential-field-1",
+          "statement": "The coordinate partials on C(s,t) commute.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "commuting-differential-field-2",
+          "statement": "The pair d/ds and s d/dt does not commute.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "commuting-differential-field-3",
+          "statement": "All-zero derivations give the whole field as constants.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/taylor-exponential",
+      "kind": "construction",
+      "name": "Truncated differential Taylor homomorphism",
+      "statement": "For commuting D in characteristic zero, E_m(a)=sum over |alpha|<=m of D^alpha(a) epsilon^alpha/alpha! is a ring homomorphism K to the truncated polynomial K-algebra. Distinguish it from the coefficient inclusion iota(a)=a.",
+      "locator": "Scanlon section 2.3, pp. 4-5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-disc"
+      ],
+      "uses": [
+        {
+          "where": "Scanlon prolongations",
+          "how": "Encode all mixed derivatives with factorial normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "DifferentialTaylor.toRingHom",
+          "role": "constructor",
+          "statement": "Package E_m as a ring homomorphism into the total-degree truncated algebra."
+        },
+        {
+          "name": "DifferentialTaylor.coeff",
+          "role": "simp",
+          "statement": "The alpha coefficient is D^alpha(a)/alpha factorial."
+        },
+        {
+          "name": "DifferentialTaylor.truncate",
+          "role": "functoriality",
+          "statement": "Truncating E_m yields E_j for j<=m."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "taylor-exponential-1",
+          "statement": "E_2(t squared)=t squared+2t epsilon+epsilon squared for D(t)=1.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "taylor-exponential-2",
+          "statement": "For constants E_m is the constant inclusion.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "taylor-exponential-3",
+          "statement": "Noncommuting derivations do not satisfy the same symmetric mixed-coefficient contract.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/differential-prolongation",
+      "kind": "construction",
+      "name": "Differential prolongation and jet evaluation",
+      "statement": "Construct tau_m X using base change along E_m and restriction of scalars along iota; obtain nabla_m on K-points. If X is defined over constants, identify tau_m X with the same algebraic jet carrier, with no duplicate arc-space definition.",
+      "locator": "Scanlon section 2.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/taylor-exponential",
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ],
+      "uses": [
+        {
+          "where": "Finite orbit criterion and differential realization",
+          "how": "Use the same jet carrier when the variety is over constants."
+        }
+      ],
+      "api": [
+        {
+          "name": "DifferentialProlongation.points",
+          "role": "universal-property",
+          "statement": "Represent points over the truncated algebra with the E_m-twisted base map."
+        },
+        {
+          "name": "DifferentialProlongation.nabla",
+          "role": "constructor",
+          "statement": "Send a K-point to its actual differential jet."
+        },
+        {
+          "name": "DifferentialProlongation.overConstants",
+          "role": "equivalence",
+          "statement": "Identify prolongation with finite algebraic jets when equations are defined over constants."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "differential-prolongation-1",
+          "statement": "For affine space nabla lists normalized mixed derivatives.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-prolongation-2",
+          "statement": "Order zero is the original variety.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-prolongation-3",
+          "statement": "A variety with nonconstant coefficients requires the twisted base map and is not automatically the ordinary jet scheme.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/seidenberg",
+      "kind": "theorem",
+      "name": "Seidenberg analytic realization",
+      "statement": "If a finitely generated differential field K is already embedded in meromorphic functions on a connected domain U in C^d, a finitely generated differential extension embeds compatibly into meromorphic functions on a smaller connected open V. Iterate the single-generator theorem; do not assert an embedding of an arbitrary enormous constant field into C.",
+      "locator": "Section 12.3; Scanlon Theorem 2.6, p. 4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/finite-differential-orbits",
+      "kind": "theorem",
+      "name": "Finite differential order separates constant-group orbits",
+      "statement": "Over a differentially closed field with finitely many commuting derivations, for an algebraic G action over constants, a,b differ by G(constants) iff their m-th prolongations differ by G(field) for all m, and already for one sufficiently large uniform m. Scanlon proves this through Kolchin closures, quantifier elimination and compactness.",
+      "locator": "Scanlon Proposition 3.9, pp. 11-12",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-prolongation"
+      ],
+      "note": "Alternative supplier for finite-orbit-determination. Differential closure, quantifier elimination, elimination of imaginaries, Kolchin noetherianity and compactness are explicit unexpanded proof leaves, not baseline imports."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient",
+      "kind": "theorem",
+      "name": "Constructible quotient on invariant strata",
+      "statement": "For an algebraic group H acting on a variety over an algebraically closed field, obtain a finite invariant stratification and regular maps on each stratum whose equal fibres are precisely H-orbits. This constructible quotient is not a single global regular geometric quotient.",
+      "locator": "Scanlon Lemma 3.10, pp. 12-13",
+      "status": "missing",
+      "note": "Ownership of the generic Rosenlicht/elimination-of-imaginaries interface requires finer algebraic quotient/model-theory screening; left unrouted in this checkpoint."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/generalized-log-derivative",
+      "kind": "theorem",
+      "name": "Differential constructibility of inverse uniformization invariants",
+      "statement": "For a faithful algebraic G action, discrete Zariski-dense Gamma, an analytic covering pi from a complex submanifold and a definable fundamental set, the constant-G orbit invariant of an inverse branch descends to a differential constructible map on X. Prove branch independence and use invariant-stratum quotient algebraization.",
+      "locator": "Scanlon Theorem 3.12, pp. 13-14",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-differential-orbits",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-definable-algebraic"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/definition-fields",
+      "kind": "definition",
+      "name": "Fields of definition for differential equations",
+      "statement": "Choose a finitely generated field over which the algebraic data and equations are defined, with a specified embedding into the differential constants. The complex source constructs equations over C without an effective arithmetic bound for their field of definition.",
+      "locator": "Section 12.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-schwarzian"
+      ],
+      "uses": [
+        {
+          "where": "Section 12.1 and Seidenberg transfer",
+          "how": "Specify rather than assume the comparison with complex coefficients."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizationDefinitionField.embedding",
+          "role": "projection",
+          "statement": "Retain the chosen isomorphism from a subfield of constants to the complex definition field."
+        },
+        {
+          "name": "UniformizationDefinitionField.extend",
+          "role": "constructor",
+          "statement": "Enlarge the finitely generated definition field to contain all finite equation coefficients."
+        },
+        {
+          "name": "UniformizationDefinitionField.baseChange",
+          "role": "functoriality",
+          "statement": "Transport the algebraic loci through the selected embedding."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "definition-fields-1",
+          "statement": "A different embedding may conjugate the arithmetic variety.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "definition-fields-2",
+          "statement": "Finitely many equations require only finitely many coefficients.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "definition-fields-3",
+          "statement": "The full constant field need not admit an embedding into C.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/conjugate-shimura",
+      "kind": "theorem",
+      "name": "Conjugation of the arithmetic uniformization data",
+      "statement": "A complex-field automorphism sends the algebraic Shimura variety to one admitting the appropriate arithmetic uniformization; apply the chosen Kazhdan/conjugation theorem to transport equations after embedding finitely generated constants.",
+      "locator": "Section 12.1",
+      "status": "planned",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definition-fields"
+      ],
+      "planned": [
+        "ShimuraVarieties:V7"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/differential-rank",
+      "kind": "definition",
+      "name": "Rank of a differential-field point",
+      "statement": "For p in an algebraic variety over constants, rank_D(p) is the rank over K of the matrix D_i(s_j(p)) for affine coordinates on an open containing p. Prove independence of generators/charts. For a tuple, use the joint coordinate matrix.",
+      "locator": "Section 12.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field"
+      ],
+      "uses": [
+        {
+          "where": "Theorems 12.1-12.2",
+          "how": "Measure the actual image rank and express functional dependence by joint ranks."
+        }
+      ],
+      "api": [
+        {
+          "name": "DifferentialPoint.rank",
+          "role": "data",
+          "statement": "Take the K-rank of the matrix D_i(s_j)."
+        },
+        {
+          "name": "DifferentialPoint.rank_chartIndependent",
+          "role": "compatibility",
+          "statement": "Changing affine generators or chart preserves rank."
+        },
+        {
+          "name": "DifferentialPoint.jointRank",
+          "role": "constructor",
+          "statement": "Concatenate coordinate matrices for a tuple."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "differential-rank-1",
+          "statement": "A constant point has rank zero.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-rank-2",
+          "statement": "A pair (t,t squared) with one derivation has rank one.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "differential-rank-3",
+          "statement": "Two independently varying coordinates can have joint rank two despite each having rank one.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/rank-image-dimension",
+      "kind": "theorem",
+      "name": "Rank equals analytic image dimension after realization",
+      "statement": "Under Seidenberg realization, the rank of the derivation matrix of an actual point-function equals the generic complex dimension of its analytic image. Distinguish this base rank from formal first-order coefficients of an independently parameterized jet family.",
+      "locator": "Section 12.2-12.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/seidenberg",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-rank"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/uniformized-differential-locus",
+      "kind": "definition",
+      "name": "Uniformized differential locus",
+      "statement": "Define the differential-constructible relation on (z,x,y) intended to be locally the graph of a uniformization and its ambient derivative data, transported through the specified fields of definition. Its exact finite equations require the full compatibility interface of Theorem 11.3, not just a formal jet point above x.",
+      "locator": "Section 12.1-12.3",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definition-fields",
+        "PAPER-MOK-PILA-TSIMERMAN-19/triple-characterization-obligation"
+      ],
+      "uses": [
+        {
+          "where": "Theorem 12.1",
+          "how": "Expose the intended analytic realization and the unresolved finite-equation equivalence."
+        }
+      ],
+      "api": [
+        {
+          "name": "UniformizedDifferentialLocus.equations",
+          "role": "data",
+          "statement": "List the constructible loci and derivative compatibility equations, once the open interface is resolved."
+        },
+        {
+          "name": "UniformizedDifferentialLocus.realize",
+          "role": "compatibility",
+          "statement": "A Seidenberg realization must yield a tuple L(w,g,r) on a suitable connected open."
+        },
+        {
+          "name": "UniformizedDifferentialLocus.rankCompatibility",
+          "role": "relation",
+          "statement": "Require rank z=rank x=rank(z,x)>0 in the theorem application."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "uniformized-differential-locus-1",
+          "statement": "An actual uniformization lift meets the intended relation.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "uniformized-differential-locus-2",
+          "statement": "The w=2t, u=q(t), v=jet(q at t) example is rejected by chain-rule compatibility.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        },
+        {
+          "name": "uniformized-differential-locus-3",
+          "statement": "A constant tuple does not meet the stated positive-rank theorem hypotheses.",
+          "verification": "proposed mathematical acceptance test; not a Lean proof"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel",
+      "kind": "theorem",
+      "name": "Ax-Schanuel in a differential field",
+      "statement": "Fix characteristic-zero (K,D) with finitely many commuting derivations, constants C, and the specified embedding of the finitely generated complex equation field into C. Let (z,x,y) be a uniformized tuple with y in J_r^n X, r>=2, and rank_D(z)=rank_D(x)=rank_D(z,x)=k>=1. If x is not in any proper weakly special locus in the transported families, then trdeg_C C(z,x,y)>=k+dim G. The finite-equation meaning of uniformized retains the unresolved full compatibility obligation of Theorem 11.3.",
+      "locator": "Theorem 1.5 = Theorem 12.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformized-differential-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/rank-image-dimension",
+        "PAPER-MOK-PILA-TSIMERMAN-19/conjugate-shimura",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-ax-schanuel"
+      ],
+      "note": "The geometric/analytic tuple interpretation has the stated jet proof; this checkpoint does not certify the printed zeroth-order-only equation interface."
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery",
+      "kind": "theorem",
+      "name": "Recovering ambient derivatives from nondegenerate formal jets",
+      "statement": "For r=n and invertible formal linear coefficient A, recover ambient first derivatives from B_1=(dq) A, and higher derivatives recursively from multivariate composition after subtracting known lower-order terms. This works in function fields even when the parameterized base z is constant.",
+      "locator": "Section 12.4 proof adapter",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-functor-laws",
+        "PAPER-MOK-PILA-TSIMERMAN-19/nondegenerate-jet"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/defect-field-inequality",
+      "kind": "theorem",
+      "name": "Algebraic excess dimension for a projected analytic locus",
+      "statement": "For an irreducible analytic locus with coordinate subtuple A and full tuple (A,B), prove trdeg(A,B)-trdeg(A)>=dim_an(A,B)-dim_an(A), using generic fibre dimensions and algebraic closures. Apply after recovering ambient derivatives; do not identify dim U with rank z for arbitrary formal-jet families.",
+      "locator": "Section 12.4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-intersection-dimension",
+        "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/converse-jet-adapter",
+      "kind": "theorem",
+      "name": "Differential-to-jet implication as an alternative proof route",
+      "statement": "Given the differential Ax-Schanuel contract independently, combine formal coefficient recovery and the excess-dimension inequality to obtain the jet bound for r=n. For r>n supply a full-rank minor/reparametrization reduction. This is an alternative implication and is not a prerequisite of jet-ax-schanuel in the selected DAG.",
+      "locator": "Section 12.4",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery",
+        "PAPER-MOK-PILA-TSIMERMAN-19/defect-field-inequality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel"
+      ]
+    },
+    {
+      "id": "PAPER-MOK-PILA-TSIMERMAN-19/product-differential",
+      "kind": "theorem",
+      "name": "Product differential Ax-Schanuel",
+      "statement": "For ell tuples of uniformization coordinates with rank(z_i)=rank(x_i)=n, the stated equal-rank functional dependence conditions and actual ambient derivatives relative to z_i, one has trdeg_C C(all z_i,x_i,derivatives)>=rank_D(all z_i)+ell dim G, unless (x_1,...,x_ell) lies in a proper weakly special subvariety of X^ell. The exception is in the product, so cross-factor Hecke relations count.",
+      "locator": "Theorem 12.2",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-rank",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special"
+      ],
+      "note": "The source prints X for the final exceptional locus; product typing requires X^ell. Its convention for p2 a function of p1 reverses the usual rank formula; state the joint-rank equality explicitly before implementation."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ShimuraData",
+      "stages": [
+        "ShimuraData:D2",
+        "ShimuraData:D3"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/domain",
+        "PAPER-MOK-PILA-TSIMERMAN-19/compact-dual",
+        "PAPER-MOK-PILA-TSIMERMAN-19/homogeneous-variation"
+      ],
+      "reason": "Import the existing domain, compact-dual and homogeneous-variation construction stages. No new Hodge carrier or alternative Shimura datum is planned."
+    },
+    {
+      "route": "source",
+      "roadmap": "ShimuraVarieties",
+      "stages": [
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V7"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-cover",
+        "PAPER-MOK-PILA-TSIMERMAN-19/conjugate-shimura"
+      ],
+      "reason": "Use the actual arithmetic quotient, algebraic variety and conjugation theorem from their existing owners; the complex argument needs no integral model."
+    },
+    {
+      "route": "source",
+      "roadmap": "LogicAndDefinabilityInNumberTheory",
+      "stages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/o-minimal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/ominimality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fibres",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-fundamental-set",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-remmert-stein",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-definable-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/pila-wilkie",
+        "PAPER-MOK-PILA-TSIMERMAN-19/counting-curve"
+      ],
+      "reason": "The o-minimal, counting and definable-algebraization ingredients supply the existing counting/application stage. The independent functional-transcendence proof is assigned to the extension below."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-family"
+      ],
+      "reason": "The fixed-polynomial projective Hilbert parameter and universal flat family have an existing owner; this paper adds a consuming analytic incidence family."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-disc",
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-functor-laws",
+        "PAPER-MOK-PILA-TSIMERMAN-19/iterated-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-equation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/prolong-equation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/nondegenerate-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weighted-jet-compactification"
+      ],
+      "reason": "Use SF.0 for the truncated-scheme, relative Proj and gluing foundations and SF.4 for the finite infinitesimal jet and prolongation constructions. This source-scoped jet API is shared by Shimura, differential-equation and any later deformation consumers. Relative Hom representability is imported from AlgebraicModuli R09.2 and affine finite locally free restriction of scalars from ReductiveGroupsPartII RG2.0a; no duplicate general representability theorem."
+    },
+    {
+      "route": "source",
+      "roadmap": "ComplexComparisonPartII",
+      "stages": [
+        "ComplexComparisonPartII:C0",
+        "ComplexComparisonPartII:C4"
+      ],
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-intersection-dimension",
+        "PAPER-MOK-PILA-TSIMERMAN-19/projective-chow",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-analytic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image"
+      ],
+      "reason": "The analytic-space/coherent-ideal and Chow foundations already have this owner. Add the exact analytic dimension/proper-image interfaces required by the Hilbert argument, using the same analytic carrier as ComplexComparison; definable extensions remain in LD.6."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ShimuraData",
+      "roadmap": "ShimuraDataPartII",
+      "title": "Shimura data, Hermitian domains, and adelic level structures, Part II: domain jets and local rigidity",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-closure",
+        "PAPER-MOK-PILA-TSIMERMAN-19/normal-factor-reduction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/arithmetic-height",
+        "PAPER-MOK-PILA-TSIMERMAN-19/distance-height",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-volume-growth",
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/family-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit",
+        "PAPER-MOK-PILA-TSIMERMAN-19/first-jet-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit-closed",
+        "PAPER-MOK-PILA-TSIMERMAN-19/classical-schwarzian",
+        "PAPER-MOK-PILA-TSIMERMAN-19/third-order-rigidity",
+        "PAPER-MOK-PILA-TSIMERMAN-19/ball-order-two",
+        "PAPER-MOK-PILA-TSIMERMAN-19/projective-line-rigidity",
+        "PAPER-MOK-PILA-TSIMERMAN-19/vmrt-rigidity",
+        "PAPER-MOK-PILA-TSIMERMAN-19/higher-rank-order-one",
+        "PAPER-MOK-PILA-TSIMERMAN-19/product-rigidity-orders"
+      ],
+      "reason": "D2-D3 construct domains, compact duals and their tangent geometry. They do not already state the finite-jet stabilizer calculations, projective/VMRT rigidity or quantitative volume inputs needed for Ax-Schanuel. Extend those objects, rather than reproduce them in the logical supplier.",
+      "brief": "Start with ShimuraData D2-D5, ComplexComparisonPartII C0, SchemeAndStackFoundations finite jets, ShimuraVarieties V0-V2 and ArithmeticLocallySymmetricSpaces reduction theory. On the effective adjoint Hermitian-domain group prove that the stabilizer of the first identity jet is N- and that G(C) acts freely on every nondegenerate jet of order at least two. Prove the closed-orbit and order-three determination statements rather than infer them from freeness. Establish the classical Schwarzian normalization, third-order rigidity, order two for balls of dimension at least two and order one for irreducible domains of rank at least two through the precise projective and VMRT theorems; then handle products. Supply weakly special factor geometry and closure on the existing pure Shimura objects. Decompose Hwang-To volume growth, Mumford metric comparison, KUY Lemma 5.8 and its definable-family higher-dimensional adapter, plus the matrix-height/distance estimates. Test an ineffective central element, the disk, a higher-dimensional ball, a product with a fixed nonspecial point and a rank-deficient coordinate projection. Suggested later file: TauCeti/NumberTheory/Shimura/Domain/JetRigidity.lean. Monodromy normality is a separate unresolved supplier in this checkpoint, not a new theorem assumed in the datum."
+    },
+    {
+      "route": "part-ii",
+      "parent": "LogicAndDefinabilityInNumberTheory",
+      "roadmap": "LogicAndDefinabilityInNumberTheoryPartII",
+      "title": "Logic, definability, valued fields and motivic integration, Part II: Ax-Schanuel and differential uniformization",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-cover-reduction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/restricted-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-graph",
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-closed-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/quotient-constructible-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/incidence-dimension-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/hilbert-algebraic-image",
+        "PAPER-MOK-PILA-TSIMERMAN-19/generic-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-normal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/theta-trivial",
+        "PAPER-MOK-PILA-TSIMERMAN-19/translate-parameter",
+        "PAPER-MOK-PILA-TSIMERMAN-19/many-integral-translates",
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-induction",
+        "PAPER-MOK-PILA-TSIMERMAN-19/infinite-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/basic-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/two-sorted",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-cover-definability",
+        "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-quotient",
+        "PAPER-MOK-PILA-TSIMERMAN-19/schwarzian-connection",
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-embedding",
+        "PAPER-MOK-PILA-TSIMERMAN-19/inverse-schwarzian-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformization-schwarzian",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-graph",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-analytic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-closed",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-saturation-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-derivative-trdeg",
+        "PAPER-MOK-PILA-TSIMERMAN-19/higher-derivative-rationality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-hilbert-algebraic",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-normal",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-theta-trivial",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-infinite-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/restricted-derivative-inequality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-orbit-determination",
+        "PAPER-MOK-PILA-TSIMERMAN-19/rank-deficient-orbit-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/pair-characterization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/derivative-lift",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constant-group-foliation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/triple-characterization-obligation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/commuting-differential-field",
+        "PAPER-MOK-PILA-TSIMERMAN-19/taylor-exponential",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-prolongation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/seidenberg",
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-differential-orbits",
+        "PAPER-MOK-PILA-TSIMERMAN-19/generalized-log-derivative",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definition-fields",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-rank",
+        "PAPER-MOK-PILA-TSIMERMAN-19/rank-image-dimension",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformized-differential-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel",
+        "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery",
+        "PAPER-MOK-PILA-TSIMERMAN-19/defect-field-inequality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/converse-jet-adapter",
+        "PAPER-MOK-PILA-TSIMERMAN-19/product-differential"
+      ],
+      "reason": "LD.6 explicitly consumes an independent functional-transcendence supplier. The Hilbert-family proof, generalized Schwarzians, jet Ax-Schanuel and differential-field realization form the substantial extension needed beyond counting and its application assembly.",
+      "brief": "Begin with LogicAndDefinabilityInNumberTheory LD.0/LD.6, importing the selected o-minimal structures, definable Chow and precise counting refinement. Import the existing quotient/algebraization from ShimuraVarieties V0-V2, conjugation from V7, compact-dual and homogeneous-variation data from ShimuraData D2-D3, domain rigidity/metric estimates from its proposed Part II, jets and relative Proj from SchemeAndStackFoundations, Hilbert schemes from AlgebraicModuli R09.1-R09.2, and analytic proper images from ComplexComparisonPartII. Prove Theorem 1.1 exactly: for an algebraic W restricting an irreducible W_hat and an analytic component U of W intersect graph(q), dim W<dim U+dim X forces a proper weakly special projection. Construct the Hilbert incidence, monodromy normality adapter, normal-factor induction and arithmetic translate argument as separate obligations. Then prove Theorem 9.1 for k>=2,r>=dim X with threshold dim U+dim G and nondegenerate formal jets; algebraize their G-saturation and prove Corollaries 9.3 and 10.4 with ambient derivatives. Construct rational/constructible Schwarzian charts and their equations. Extend the existing derivations to finite commuting families, Taylor prolongations and the precise Seidenberg realization. Resolve the full chain-rule compatibility of Theorem 11.3 before using its finite equations to define uniformized tuples in Theorem 12.1; then prove the trdeg lower bound rank(z)+dim G and the product version with exception in X^ell. Treat section 12.4 as an alternative implication, preserving formal coefficient rank versus base-image rank and avoiding a dependency cycle. Tests include a weakly special factor, an ineffective centre, nonholonomic formal jets and the local w(t)=2t compatibility check. Suggested later file: TauCeti/NumberTheory/FunctionalTranscendence/ShimuraAxSchanuel.lean. This partial brief does not certify the unresolved source interfaces."
+    }
+  ],
+  "provenance": {
+    "binarySources": [
+      {
+        "file": "published.pdf",
+        "url": "https://bimsa.net/doc/publication/2564.pdf",
+        "sha256": "1eab0797914752bdc91b4f46692f0a5716be2cc9e0d2dd96b478f1cdb762a0ab",
+        "pages": 34,
+        "bytes": 450903,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "arxiv.pdf",
+        "url": "https://arxiv.org/pdf/1711.02189",
+        "sha256": "b3de4f10ea6243fafcfc4a12adc939b1c8c6fab620afa00d2860d5313e1c0167",
+        "pages": 29,
+        "bytes": 323945,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "scanlon.pdf",
+        "url": "https://math.berkeley.edu/~scanlon/papers/adecm_dec17.pdf",
+        "sha256": "35ef511cf8e0c0160f41be8593b19de8b3831e5291afc39b845fd9d7800c86d9",
+        "bytes": 463497,
+        "pages": 26,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "kuy.pdf",
+        "url": "https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf",
+        "sha256": "eed3040791f81df63004ae5b2fb4c0f9fd9b127a2df40722a574396a11690533",
+        "bytes": 859788,
+        "pages": 28,
+        "retrieved": "2026-09-21"
+      },
+      {
+        "file": "andre.pdf",
+        "url": "https://www.numdam.org/item/CM_1992__82_1_1_0.pdf",
+        "sha256": "074b1c8edfaef320e24b617bf4dda594e80ac5f555f28dc8cee9fcb371d2d14e",
+        "bytes": 2229263,
+        "pages": 25,
+        "retrieved": "2026-09-21"
+      }
+    ],
+    "repositorySnapshot": {
+      "commit": "681bdeb23d16cc265242f642797afc113f8b6507",
+      "files": [
+        {
+          "path": "research/blueprint/atlas/roadmaps/ReductiveGroupsPartII.json",
+          "sha": "7cfa6e639ac3cbfcee2325735482cdbc53903bca",
+          "sha256": "d6136376879ab2c20888b52d126e98c28cd6e13cbe855331aa83402f3015d43a"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json",
+          "sha": "9350475aa237b7cc838990f87579eecd6c0a82f9",
+          "sha256": "ac04583ea9e777569c7929b45a17e5279ce2bce1d43557c5527417aab7df75e4"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ShimuraCompactifications.json",
+          "sha": "411d846ad14750dc55ab04cea062b29796af14ee",
+          "sha256": "02fc954f25101e38cf4782ba55342074a68707c506d6ff2616c35a75478b5968"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ArithmeticLocallySymmetricSpaces.json",
+          "sha": "2cfaf9080dcb4e35969cbcff8f7e57efa9ea6e9c",
+          "sha256": "f821066e01b7163fd5612d74f58dfb042a8236dda91d2fd8c7163ef22c13e54d"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_UniversalCovers.json",
+          "sha": "5afb37ba4e56b5835f7ac5573b55fbbb99eaa6f1",
+          "sha256": "bbad225572f30e2921fcad7125330ad6760394dc115de27f91a49514a8543644"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json",
+          "sha": "eaa7eeec837aaf4517aeeba705d6157b0f64d036",
+          "sha256": "75920964ec2513279bcff9dbd8f63378bb64209a516eaf643a20bfc3ad512b9c"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json",
+          "sha": "aaec9029ac3aefb14f0c2c907892175d5ba81ad5",
+          "sha256": "8dfcf7991df934b92f40c7dc4847b0652abdfb2aca944030a810708f9c16eee3"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json",
+          "sha": "0961df6b38bce5ff65eac7bab014e38366fa841f",
+          "sha256": "f9c8c1c120bf3e45f91d6b76cce6d454c2c49171e0cff411c2acfcd6b91d2c9e"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ShimuraData.json",
+          "sha": "aba0e6e1a554130819b801640c1cd27c461af13e",
+          "sha256": "94393a482ccd829f4e8fbef4eb12465d51618a10e1470e990dd46f2dc5d04167"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json",
+          "sha": "5fb9437075a46813637581d7dba7bb82eb96dc4f",
+          "sha256": "7e395c747845a1cbec4fe36d6cbf2fc1f9a3bd1e3bd79adcebc2c12bc84c7eab"
+        },
+        {
+          "path": "research/blueprint/reserved-ids.json",
+          "sha": "f2a86b67bbdefd74db66350b301213dcdd5e38c7",
+          "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
+        },
+        {
+          "path": "data/galaxies.json",
+          "sha": "89f0352d24d02608d86d3de3df5514237525b085",
+          "sha256": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+          "sha": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
+          "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_ConformalMapping.json",
+          "sha": "fb51dccaefefb17c9a8f8cd12726b597d50d2c8f",
+          "sha256": "992e7ff3667bdab642021e7af7c3815f208177e14b8fbb0dd0b63af91cae8c08"
+        },
+        {
+          "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+          "sha": "b18c75cd5ea017e32be3733f9d060d97dd151979",
+          "sha256": "9e3a4bb41dcec200da9d585ebb7ae48ad86f2586bd49db05dd78d7f1f991ccf4"
+        },
+        {
+          "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+          "sha": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
+          "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+          "sha": "6d34100064c7480cfc26770bd73b39c91359ee10",
+          "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
+        },
+        {
+          "path": "research/blueprint/roadmaps/QWittVectors.json",
+          "sha": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
+          "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
+        },
+        {
+          "path": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+          "sha": "3e9fc70217ab990b7b90545864c9d01f3030d452",
+          "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
+        },
+        {
+          "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+          "sha": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
+          "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
+        },
+        {
+          "path": "data/library-coverage.json",
+          "sha": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+          "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+        },
+        {
+          "path": "content/tau-ceti/HodgeStructures/README.md",
+          "sha": "2e06a385b7a0a2a02c15cddc729b7702783b6011",
+          "sha256": "11ab7306fedb91d80b4035283d0a436e9fc5bdb76e52d1ea6316cbb9735351ff"
+        },
+        {
+          "path": "content/campaign/ShimuraCompactifications/README.md",
+          "sha": "186507fe12fb83335f74738b3b42d6ff445ce201",
+          "sha256": "c20fe15519e3dba82be1abd24b740ccead4755dd0b189e062231e128474f2cae"
+        },
+        {
+          "path": "content/campaign/SchemeAndStackFoundations/README.md",
+          "sha": "a437e4e97312801aff024ad29dafa30165ed5f1c",
+          "sha256": "0f4e5ebf672d01737bd2c89fba5b510f202f42ba22bbdd68a6542e8173da1de0"
+        },
+        {
+          "path": "content/campaign/ArithmeticLocallySymmetricSpaces/README.md",
+          "sha": "61bb05cc2d7d4d59b39c135f6aaa28b62ae360ee",
+          "sha256": "e08c8acacd68d8f7793a6f65e9f8925901ec1214927a6d675304607f601999ac"
+        },
+        {
+          "path": "content/campaign/ShimuraVarieties/README.md",
+          "sha": "7485ef704a0e85c2afd5602ae8726e9795364a84",
+          "sha256": "a9241ee41d43d4566029e0fda7ce333c3ee4b22f242a4143052a0d3001b29744"
+        },
+        {
+          "path": "content/campaign/ShimuraData/README.md",
+          "sha": "50ddd8ac4aae5b62a4c36f0004477a7d72de5f5a",
+          "sha256": "288531ce0c46b80166f4688a70b84e92e13d0685e475a5308d3cfeed416c9976"
+        },
+        {
+          "path": "content/campaign/ReductiveGroupsPartII/README.md",
+          "sha": "2b093d1410cc2699573c514f83cf0aebca9f3a83",
+          "sha256": "0753d181fb761edbd5688777896b40f2d131c4af1ad49f43847cd4b84cddf423"
+        },
+        {
+          "path": "content/campaign/LogicAndDefinabilityInNumberTheory/README.md",
+          "sha": "89e733f78dae50095efd75d93d12a11b355d7609",
+          "sha256": "5e6bc2326bbea906aea3611863a3a0e858d1b6047b3bcbe520a05b5d976c7ae9"
+        },
+        {
+          "path": "content/tau-ceti/UniversalCovers/README.md",
+          "sha": "71820e8ece13eff8ccac06fc1a340ced18f6f55e",
+          "sha256": "fbe227b0c3a1c352d6058e216db431c69444affe6b5f2ee0aa352909a751ddb6"
+        },
+        {
+          "path": "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md",
+          "sha": "ce1b763bc3909c5098d9a390f4e930c757b99b8b",
+          "sha256": "a137c6fcec0a00edaca46278b6212d97255fa43230f3fef239a13b24793bc3b4"
+        },
+        {
+          "path": "content/tau-ceti/ConformalMapping/README.md",
+          "sha": "b7201f4883e258d7658e2b3f2c1ec197ddf80e56",
+          "sha256": "70c388a36b87d95e4d590ef4ba48555eee71e7d957857aa0bfb76ae16a468e84"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ComplexComparisonPartII.json",
+          "sha": "388ec5e6e4c31b78aa9a9d8a2bf22b84b175be72",
+          "sha256": "a43bf730a99a93ae5f8284cae6b2a75c9e5606b45d12d879d3f65a028048cf25"
+        },
+        {
+          "path": "content/campaign/ComplexComparisonPartII/README.md",
+          "sha": "90bec026b32a4c4be343abe58c2df469a79a41ef",
+          "sha256": "7bc39c35d181ece994da87dd5ca3a4b527facdcf3a4d8de802cbfe5d68354330"
+        }
+      ]
+    },
+    "readExtent": {
+      "main": "All 34 published PDF pages extracted text; selected images listed in source.readSections.",
+      "arxiv": "Only v3 p. 23 compared, concerning Theorem 11.3.",
+      "scanlon": "Author adecm_dec17 manuscript pp. 3-5, 7-14 read, including Seidenberg statement, Taylor/prolongations, definable Chow, constructible algebraization, finite differential orbit criterion and inverse-uniformization invariant. Page 6 and later sections not read.",
+      "kuy": "Published pp. 349-351 (PDF 17-19) read: curve volume statement, entire Lemma 5.8 proof and beginning of height-counting deduction. Other pages searched only.",
+      "andre": "Binary acquired; scan text search did not expose the required theorem. No proof-read claim.",
+      "roadmaps": "Full LD, ShimuraData, ComplexComparisonPartII and SchemeAndStackFoundations documents; relevant V0-V3/V7, R09.1-R09.2 and RG2.0a passages. Full UniversalCovers and ConformalMapping upstream documents read for standard/ownership; other downloaded documents only screened as specified in report."
+    }
+  },
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      "mathlib:Derivation",
+      "mathlib:Differential",
+      "tauceti:TauCeti.LocalCoefficientSystem",
+      "tauceti:TauCeti.Hodge.HodgeStructureOn",
+      "mathlib:isCoveringMapOn_quotientMk_of_properlyDiscontinuousSMul"
+    ],
+    "reviewedAudit": {
+      "path": "data/library-coverage.json",
+      "repositoryCommit": "681bdeb23d16cc265242f642797afc113f8b6507",
+      "read": "AUDIT-01 reviewed by REV-AUDIT-01: R09.1/R09.2 and ComplexComparisonPartII C0/C4; AUDIT-10 reviewed by REV-AUDIT-10: D2/D3; AUDIT-11 reviewed by REV-AUDIT-11: V1/V2. LD.6 has no entry; no audit completeness inferred.",
+      "consequence": "No general Shimura variety, analytic GAGA, Hilbert scheme or finite algebraic jet bundle is marked built. Library statuses below are direct pinned signature reads."
+    },
+    "negativeSearch": {
+      "scope": "Pinned Mathlib Geometry/ModelTheory/AlgebraicGeometry and TauCeti Geometry/AlgebraicGeometry; broader declaration/path searches for derivations and coverings.",
+      "terms": [
+        "jet bundle",
+        "JetBundle",
+        "Ax-Schanuel",
+        "definable Chow",
+        "Schwarzian",
+        "o-minimal",
+        "Rosenlicht"
+      ],
+      "result": "No matching advanced theorem/carrier found in these searches. TauCeti smooth weakWhitneyJet and chart-jet functions were read as a false-positive boundary: they bundle derivatives of a smooth map, not a finite algebraic jet representing functor. These searches are not a universal absence proof."
+    },
+    "signatureFiles": [
+      {
+        "file": "Mathlib/RingTheory/Derivation/Basic.lean",
+        "lines": "45-50",
+        "sha256": "92bccd382e2e1f2caaf7497ed821f3cecb3cddd26b8b3252c9db118c943324ee"
+      },
+      {
+        "file": "Mathlib/RingTheory/Derivation/DifferentialRing.lean",
+        "lines": "21-24",
+        "sha256": "016f4d46cd339ea6886c354e08c39d2e27c99ee84e4561e1a2193c0a7a644ae4"
+      },
+      {
+        "file": "Mathlib/Topology/Covering/Quotient.lean",
+        "lines": "239-242 plus section hypotheses",
+        "sha256": "382e09e36e80edcd010254d24d01fc85b4b156fef262b354dd8b5cd1058c8ff0"
+      },
+      {
+        "file": "TauCeti/AlgebraicTopology/LocalCoefficient.lean",
+        "lines": "41-42; constant/pullback API",
+        "sha256": "b6b371f7a57fd39c3a723222c184e4abbef2d00902bd68dbed0acd60a2e9b2b4"
+      },
+      {
+        "file": "TauCeti/Geometry/Hodge/Structure.lean",
+        "lines": "62-72; conjugate-filtration API",
+        "sha256": "7cea947122a7df69374f1e3ba5f6f3f6c61366e2702c922ac0719ff00ce95bf0"
+      }
+    ]
+  },
+  "verificationGaps": [
+    {
+      "id": "G1",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/monodromy-normality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy",
+        "PAPER-MOK-PILA-TSIMERMAN-19/proper-monodromy-index",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient"
+      ],
+      "description": "Four items are intentionally unrouted pending exact generic ownership/proof checks: connected monodromy normality, weakly special monodromy density, finite-index incidence monodromy and generic constructible orbit quotients. Read Andre section 5 by images and the relevant Deligne proofs; screen the current Hodge variation, algebraic group and model-theory owners before assigning each once."
+    },
+    {
+      "id": "G2",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-volume-growth",
+        "PAPER-MOK-PILA-TSIMERMAN-19/family-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/counting-curve",
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-infinite-stabilizer"
+      ],
+      "description": "Acquire original Hwang-To, Mumford metric bounds, KUY height estimates and the precise uniform/block Pila-Wilkie refinement. Close the higher-dimensional family-volume and jet vertical-rank adapters; the read algebraic-curve lemma does not establish these."
+    },
+    {
+      "id": "G3",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/first-jet-stabilizer",
+        "PAPER-MOK-PILA-TSIMERMAN-19/second-jet-free",
+        "PAPER-MOK-PILA-TSIMERMAN-19/identity-orbit-closed",
+        "PAPER-MOK-PILA-TSIMERMAN-19/modular-derivative-trdeg",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weighted-jet-compactification"
+      ],
+      "description": "Review effective/adjoint conventions, the printed N+ versus N- sign, identity-orbit closedness and birational inverse, the derivative-field typo and finite function-field generator interpretation, and the zero-section deletion in weighted Proj. Exact corrections are identified but are not author-confirmed errata."
+    },
+    {
+      "id": "G4",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-orbit-determination",
+        "PAPER-MOK-PILA-TSIMERMAN-19/triple-characterization-obligation",
+        "PAPER-MOK-PILA-TSIMERMAN-19/uniformized-differential-locus",
+        "PAPER-MOK-PILA-TSIMERMAN-19/differential-ax-schanuel"
+      ],
+      "description": "Resolve finite stabilizer components in Lemma 11.1, transfer the alternative Scanlon finite-order result analytically if selected, and determine the intended full meaning of v restricts to u in Theorem 11.3. The zeroth-order reading fails a concrete chain-rule test. No repaired general characterization is certified."
+    },
+    {
+      "id": "G5",
+      "items": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/formal-chain-rule-recovery",
+        "PAPER-MOK-PILA-TSIMERMAN-19/defect-field-inequality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/converse-jet-adapter",
+        "PAPER-MOK-PILA-TSIMERMAN-19/product-differential"
+      ],
+      "description": "Complete the section 12.4 algebraic recovery argument without conflating holonomic parameter derivatives and formal jet coefficients; prove the r>n minor/reparametrization adapter and product rank/weakly-special typing. Keep the selected proof DAG acyclic."
+    },
+    {
+      "id": "G6",
+      "description": "Recursive primary proofs of definable Remmert-Stein/Chow, full Pila-Wilkie, Hilbert representability, analytic proper-image/dimension theory, projective/VMRT rigidity, and Seidenberg/model-theory background are not fully read here. Existing planned owners remain construction obligations, not formalized facts. Run finer packet/decomposition and open-upstream-owner screening before a complete claim; no Lean file was requested or compiled."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Andre, Mumford-Tate groups of mixed Hodge structures and the theorem of the fixed part (1992), section 5",
+      "link": "https://www.numdam.org/item/CM_1992__82_1_1_0.pdf",
+      "why": "Connected algebraic monodromy and its relation to the generic Mumford-Tate group. Acquired scan, not proof-read.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/monodromy-normality",
+        "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy"
+      ]
+    },
+    {
+      "citation": "Klingler-Ullmo-Yafaev, The hyperbolic Ax-Lindemann-Weierstrass conjecture (2016)",
+      "link": "https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf",
+      "why": "Definable fundamental sets, height estimates and volume control. Lemma 5.8 pp. 349-351 read; the complete definability/height proofs remain to read.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-uniformization",
+        "PAPER-MOK-PILA-TSIMERMAN-19/distance-height",
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-volume-upper"
+      ]
+    },
+    {
+      "citation": "Hwang-To, Volumes of complex analytic subvarieties of Hermitian symmetric spaces (2002)",
+      "link": "https://doi.org/10.1353/ajm.2002.0038",
+      "why": "Exact positive-dimensional exponential volume-growth input, beyond the curve statement quoted by KUY. Original not acquired.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-volume-growth"
+      ]
+    },
+    {
+      "citation": "Mumford, Hirzebruch proportionality theorem in the non-compact case (1977), Theorem 3.1, as cited by KUY Lemma 5.8",
+      "link": "https://www.numdam.org/item/10.1007/s10240-015-0078-9.pdf",
+      "why": "Invariant metric comparison in Siegel coordinates. Link is to the inspected citing source; the original metric proof remains to acquire.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/curve-volume-upper",
+        "PAPER-MOK-PILA-TSIMERMAN-19/family-volume-upper"
+      ]
+    },
+    {
+      "citation": "Peterzil-Starchenko, Tame complex analysis and o-minimality (2010), Theorems 4.5 and 5.3",
+      "link": "https://doi.org/10.1142/9789814324359_0040",
+      "why": "Definable Remmert-Stein and Chow. Statements read in the main source, original proof not acquired.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-remmert-stein",
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-chow"
+      ]
+    },
+    {
+      "citation": "Peterzil-Starchenko, Complex analytic geometry in a nonstandard setting (2008)",
+      "link": "https://doi.org/10.1017/CBO9780511735226.008",
+      "why": "Analytic and o-minimal background to the preceding extension theorem; inspect exact use before adding proof dependencies.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/definable-remmert-stein"
+      ]
+    },
+    {
+      "citation": "Pila-Wilkie, The rational points of a definable set (2006)",
+      "link": "https://doi.org/10.1215/S0012-7094-06-13336-7",
+      "why": "Counting outside the algebraic part; a precise family/block supplier for the two-arithmetic-point curve is still needed.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/pila-wilkie",
+        "PAPER-MOK-PILA-TSIMERMAN-19/counting-curve"
+      ]
+    },
+    {
+      "citation": "van den Dries-Macintyre-Marker, The elementary theory of restricted analytic fields with exponentiation (1994)",
+      "link": "https://doi.org/10.2307/2118545",
+      "why": "Selected o-minimal structure input; not proof-read here.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/ominimality"
+      ]
+    },
+    {
+      "citation": "van den Dries-Miller, On the real exponential field with restricted analytic functions (1994)",
+      "link": "https://doi.org/10.1007/BF02758635",
+      "why": "O-minimal analytic-exponential structure and definability; not proof-read here.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/ominimality"
+      ]
+    },
+    {
+      "citation": "Wilkie, Model completeness results for restricted Pfaffian functions and the exponential function (1996)",
+      "link": "https://doi.org/10.1090/S0894-0347-96-00216-0",
+      "why": "Original real-exponential/model-completeness prerequisite cited by the main source.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/ominimality"
+      ]
+    },
+    {
+      "citation": "Lojasiewicz, Introduction to Complex Analytic Geometry (1991), III.4.6",
+      "link": "https://doi.org/10.1007/978-3-0348-7617-9",
+      "why": "Analytic intersection dimension and selected proper-image/local-dimension foundations; full book not acquired.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-intersection-dimension",
+        "PAPER-MOK-PILA-TSIMERMAN-19/analytic-proper-image"
+      ]
+    },
+    {
+      "citation": "Grothendieck, EGA IV, fourth part (1967), section 16.7",
+      "link": "https://doi.org/10.1007/BF02732123",
+      "why": "Infinitesimal and principal-parts/jet geometry cited by the main paper; use the actual representing functor and do not identify all principal parts with the jet scheme without comparison.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/algebraic-jets"
+      ]
+    },
+    {
+      "citation": "Saunders, The Geometry of Jet Bundles (1989)",
+      "link": "https://doi.org/10.1017/CBO9780511526411",
+      "why": "Jet functors, composition and prolongation background; selected exact proof passages still to acquire.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/jet-functor-laws",
+        "PAPER-MOK-PILA-TSIMERMAN-19/iterated-jet",
+        "PAPER-MOK-PILA-TSIMERMAN-19/prolong-equation"
+      ]
+    },
+    {
+      "citation": "Ochiai, Geometry associated with semisimple flat homogeneous spaces (1970)",
+      "link": "https://doi.org/10.2307/1995645",
+      "why": "Local rigidity theorem used for higher-rank compact duals. Original proof not read.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/vmrt-rigidity"
+      ]
+    },
+    {
+      "citation": "Hwang-Mok, Cartan-Fubini type extension of holomorphic maps for Fano manifolds of Picard number 1 (2001)",
+      "link": "https://doi.org/10.1016/S0021-7824(00)01200-9",
+      "why": "Exact VMRT preservation/extension hypotheses, not a generic local-to-global principle.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/vmrt-rigidity"
+      ]
+    },
+    {
+      "citation": "Mok, G-structures on irreducible Hermitian symmetric spaces of rank at least 2 and deformation rigidity (1999)",
+      "link": "https://doi.org/10.1090/conm/222/03174",
+      "why": "Additional source for the highest-weight tangent structure used in section 7.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/higher-rank-order-one"
+      ]
+    },
+    {
+      "citation": "Scanlon, Algebraic differential equations from covering maps (2018), author manuscript adecm_dec17",
+      "link": "https://math.berkeley.edu/~scanlon/papers/adecm_dec17.pdf",
+      "why": "Selected pp. 3-5 and 7-14 read. Supplies precise jets/prolongations, Seidenberg, constructible orbit criterion and generalized inverse invariant; original logical proof leaves remain open.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/finite-differential-orbits",
+        "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient",
+        "PAPER-MOK-PILA-TSIMERMAN-19/generalized-log-derivative"
+      ]
+    },
+    {
+      "citation": "Seidenberg, Abstract differential algebra and the analytic case (1958)",
+      "link": "https://doi.org/10.2307/2033416",
+      "why": "Analytic realization with extension of the specified base embedding; statement read through Scanlon Theorem 2.6, original proof not acquired.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/seidenberg"
+      ]
+    },
+    {
+      "citation": "Pila-Tsimerman, Ax-Schanuel for the j-function (2016)",
+      "link": "https://doi.org/10.1215/00127094-3620005",
+      "why": "Precursor jet/differential argument and section 12.4 comparison; not reread as part of this job.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/converse-jet-adapter"
+      ]
+    },
+    {
+      "citation": "Kazhdan, On arithmetic varieties II (1983), and Milne conjugation comparison",
+      "link": "https://doi.org/10.1007/BF02760617",
+      "why": "Existing ShimuraVarieties V7 owns this deep construction; this packet needs its precise conjugation interface. No independent duplicate proof is planned here.",
+      "consumedBy": [
+        "PAPER-MOK-PILA-TSIMERMAN-19/conjugate-shimura"
+      ]
+    }
+  ],
+  "prerequisiteScope": "This is a source-acquisition/proof-decomposition register. Entries already assigned to atlas owners request the exact supplier proof, not new duplicate roadmaps. Background applications (Bakker-Tsimerman, Daw-Ren and Betti-map papers), Ax exponential comparison, the alternative Mok-Zhong purely analytic approach, and historical Siegel-special-case results are not prerequisites of the selected DAG.",
+  "verification": {
+    "status": "pass",
+    "items": 113,
+    "edges": 209,
+    "acyclic": true,
+    "definitionConstructionCount": 43,
+    "proposedUnitTests": 129,
+    "executedChecks": {
+      "Schwarzian factor-six normalization": 140,
+      "Total-degree jet monomials": 20,
+      "Addition into iterated jets": 216,
+      "Nonholonomic formal coefficient recovery": 72,
+      "Weighted second-jet coordinate change": 1875,
+      "Triple compatibility negative control": 5,
+      "Ineffective central element": 19,
+      "Finite-component dimension warning": 1,
+      "Unique item ids": 113,
+      "Definition use contract": 43,
+      "Structured API contract": 43,
+      "Proposed test contract": 43,
+      "Resolved item edges": 209
+    },
+    "unrouted": [
+      "PAPER-MOK-PILA-TSIMERMAN-19/monodromy-normality",
+      "PAPER-MOK-PILA-TSIMERMAN-19/weakly-special-monodromy",
+      "PAPER-MOK-PILA-TSIMERMAN-19/proper-monodromy-index",
+      "PAPER-MOK-PILA-TSIMERMAN-19/constructible-orbit-quotient"
+    ],
+    "negativeCompleteControl": 4,
+    "note": "Exact rational regression calculations and data-contract checks only; no Lean elaboration or proof of Ax-Schanuel."
+  },
+  "ownershipScreen": {
+    "portfolio": "All 211 cached atlas roadmap records keyword-screened; prepublication checks compare their blob IDs against fresh main. Current proposed-roadmap, packet and reserved-ID files screened for the two proposed extension IDs. No ID was reserved by this worker.",
+    "selectedSuppliers": [
+      "ShimuraData:D2",
+      "ShimuraData:D3",
+      "ShimuraVarieties:V0",
+      "ShimuraVarieties:V1",
+      "ShimuraVarieties:V2",
+      "ShimuraVarieties:V7",
+      "LogicAndDefinabilityInNumberTheory:LD.6",
+      "AlgebraicModuliForArithmeticGeometry:R09.1",
+      "AlgebraicModuliForArithmeticGeometry:R09.2",
+      "SchemeAndStackFoundations:SF.0",
+      "SchemeAndStackFoundations:SF.4",
+      "ComplexComparisonPartII:C0",
+      "ComplexComparisonPartII:C4"
+    ],
+    "boundaries": [
+      "ConformalMapping handles scalar conformal mapping; it is not a replacement owner for higher-dimensional analytic spaces.",
+      "UniversalCovers is an existing upstream supplier, not a roadmap to re-plan.",
+      "HodgeStructures supplies fibrewise Hodge theory; no general monodromy theorem is inferred from it.",
+      "PadicDifferentialEquationsAndRigidCohomology is not the owner of these characteristic-zero complex differential-field equations.",
+      "ArithmeticLocallySymmetricSpaces reduction/Siegel infrastructure is imported; the Hwang-To metric estimates are additional domain geometry.",
+      "A source route here proposes the specified extension of a supplier blueprint; it does not claim its unproved definitions are library implementations."
+    ]
+  }
+}
