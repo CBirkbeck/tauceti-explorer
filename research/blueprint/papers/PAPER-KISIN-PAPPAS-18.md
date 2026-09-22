@@ -1,10 +1,12 @@
 # Kisin–Pappas: integral models with parahoric level
 
-This is a **partial extraction with a complete read of the main paper**. It records the mathematical contents of Mark Kisin and Georgios Pappas, *Integral models of Shimura varieties with parahoric level structure*, Publications mathématiques de l’IHÉS **128** (2018), 121–218, [DOI](https://doi.org/10.1007/s10240-018-0100-0). The published [Numdam PDF](https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf) has 98 pages; all were read, including the proofs and references. Printed page numbers are PDF page numbers plus 120. The result JSON records the PDF digest, pinned library evidence, input manifest, precise statements, APIs, tests, dependencies and outstanding proof inputs.
+**Complete. 22 September 2026.** Extraction by Codex (session `codex-c83e7a`, checkpoint PR #1684), closed by Claude Code (session `cc-fb70e5`). Issue #1460.
+
+It records the mathematical contents of Mark Kisin and Georgios Pappas, *Integral models of Shimura varieties with parahoric level structure*, Publications mathématiques de l'IHÉS **128** (2018), 121–218, [DOI](https://doi.org/10.1007/s10240-018-0100-0). The published [Numdam PDF](https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf) has 98 pages; all were read, including the proofs and references, and the file was re-downloaded and re-hashed in the closing pass (the digest matches the checkpoint's record). Printed page numbers are PDF page numbers plus 120. The JSON records 171 items — 14 library, 13 planned, 144 missing — in ten routes, with 15 prerequisites and **7 source issues**.
 
 The paper constructs integral models of Shimura varieties of abelian type with connected parahoric level at an odd prime, under a tame-splitting hypothesis. It relates their singularities to group-theoretic local models, proves a tower-level extension property, describes the special fiber, and in an unramified case proves the Kottwitz formula for semisimple Frobenius traces on nearby cycles. The construction requires substantial reusable mathematics before the Shimura application: minuscule representations and integral fixers, torsors on punctured Witt discs, tensor-compatible displays, crystalline lattices, abelian-scheme twists and arithmetic component descent.
 
-The partial status concerns recursive original-source verification and declaration-sized proof closure. It does not mean that the final sections were skipped. Several long proofs still contain named supplier contracts: these are assigned explicit gaps and are not represented as established library declarations. The later [Kisin–Pappas–Zhou paper](https://doi.org/10.1017/fmp.2026.10031), read in full in the preceding job, supplies essential corrections to the display construction and some global arguments. The present extraction retains the original paper’s theorem scopes while incorporating those corrections into the intended proof route.
+**What the closing pass changed.** The checkpoint had already read the paper in full, routed every missing item exactly once, and — importantly — had already incorporated the corrections that Kisin–Pappas–**Zhou** published in the 2026 sequel into the affected item statements. What it had not done was record them where the protocol requires: the `sourceIssues` list was **absent entirely**, although PROTOCOL §18 asks for the list even when it is empty, and asks specifically for mistakes "noted earlier in this extraction's items, gaps and report". Seven are now recorded, each quoting the printed text of this paper at its locator and citing the authors' own correction. The gates were also re-scoped and the routes re-checked against the accepted restructures; see the closing section.
 
 ## The baseline and the existing owners
 
@@ -403,3 +405,30 @@ The JSON supplies the full statements, hypotheses, dependencies, APIs, tests, so
 | A01 | theorem | missing | Siegel moduli with the chosen p-lattice chain | §4.1.4–§4.2.1; citing de Jong and Görtz |
 | A02 | theorem | missing | Lang torsor triviality over a finite field | Corollary4.2.13; Proposition1.4.3 Step4 |
 | A03 | theorem | planned | Serre–Tate comparison with structures | Proposition4.2.2 proof |
+
+
+## Closing pass: the corrections, and why the status is complete
+
+### The paper has been corrected by its own authors
+
+Kisin, Pappas and Zhou, *Integral models of Shimura varieties with parahoric level structure, II* ([Forum of Math. Pi (2026)](https://doi.org/10.1017/fmp.2026.10031), read in arXiv:2409.03689v3) contains a section **§1.3.1 "Corrections to [KP18]"** and a section **§7.3.1 "Errata"**. They describe what the sequel calls "a serious gap in [KP18]", pointed out to the authors by M. Hoff. Crossref carries **no** correction notice and no update relation against this paper's DOI, so nothing in the article's own metadata reveals this; the corrections are published only in the sequel. They are now `sourceIssues` E1–E7:
+
+| id | what is corrected |
+|----|-------------------|
+| E1 | The commutative diagram of **Lemma 3.1.9** is not canonical — the map depends on the chosen normal decomposition M = L ⊕ T, and the diagram does not determine it because its horizontal maps need not be injective. Replaced by KPZ26 Lemma 5.1.15. Consequently **Lemma 3.1.12** fails with that construction. |
+| E2 | The isomorphism Ψ_RG of **§3.2.12** does not exist merely because G is smooth: it needs the Hodge embedding to be **very good** (KPZ26 Def. 5.2.5). **Lemma 3.2.14, Propositions 3.2.17 and 3.3.13** inherit the hypothesis, with the same proofs. This is the omitted condition behind the gap. |
+| E3 | **Theorem 4.2.7** and **Corollaries 4.2.12, 4.2.13** require the very-good hypothesis; Theorem 4.2.7 is replaced by KPZ26 Theorem 7.1.3 and the paper's final **Theorem 4.6.23** by KPZ26 Theorem 7.2.21. The rest of §4 is unaffected. |
+| E4 | In the proof of Theorem 4.2.7, `q_loc` **is not a G-torsor**; it is isomorphic to the action morphism G × M^loc → M^loc, which is smooth — which is all the proof needs. |
+| E5 | In the proof of **Lemma 3.1.17**, cW(A)[1/p] is **not complete** for the topology τ defined there, so the convergence argument is incomplete; KPZ26 replace τ by the p-adic topology. |
+| E6 | **Lemma 4.6.13** and **Corollary 4.6.15**: the components of the disjoint union must carry levels conjugated by j ∈ J, not the single level K°_p. |
+| E7 | **§4.6.21**: H♯ is not defined for every (H,Y) with H of classical type. |
+
+Every item these touch — D07, D08, D10, D18, D20, D21, D31, S06, S07, S08, S09, S34, S35, S36 and S44–S48 — already carries the corrected statement and the very-good hypothesis; that was the checkpoint's work and it was verified item by item in this pass. The practical consequence for a design job is recorded as a gap: **a roadmap that plans [KP18, Thm. 4.2.7] or [KP18, Thm. 4.6.23] as printed would be planning an incorrect statement.**
+
+### Routes re-checked
+
+`scripts/check_paper.py` validates stage ids against the raw atlas and ignores accepted restructures, so the routes were checked by hand. **RS-31** touches all five stages of the `ReductiveGroupsPartII` route: it keeps RG2.0a, RG2.2 and RG2.3 and **narrows** RG2.1 and RG2.4, moving the purely algebraic relative-root and dual-group material to the Tau Ceti *Reductive groups* Layer 7. All seventeen items routed there are valued or integral Bruhat–Tits objects — parahoric and fixer group schemes, buildings and building maps, graded lattice chains, the Kottwitz homomorphism, Lang torsors — which the narrowed stages retain, so the route survives. The remaining stage ids were checked against `data/roadmap-retirements.json`, and all six Part II areas are galaxy ids of `data/galaxies.json`.
+
+### Why complete
+
+§16 sets the bar: the whole paper extracted, every missing item routed exactly once. Both hold, and `check_paper.py` now enforces the second with `"status": "complete"`. The fifteen gates the checkpoint listed ask for the proof interiors of *prerequisite* papers — Bruhat–Tits, Pappas–Zhu, Lau, Zink, Kisin, Breuil, Haines, Lusztig and the rest — which is what the `prerequisites` list is for; they are preserved in `continuation` and re-scoped in `gaps` as design-job inputs. What remains genuinely open is granularity: some long proof steps are still one item each, and splitting them changes no routing. This extraction claims no formalization and no independent review.
