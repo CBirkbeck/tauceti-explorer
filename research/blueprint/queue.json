@@ -2872,8 +2872,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GILLE-PARIMALA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1197"
+   "state": "pending",
+   "note": "released on GitHub issue #1197"
   },
   {
    "id": "REV-PAPER-GILLE-PARIMALA-26",
