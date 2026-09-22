@@ -3094,8 +3094,8 @@
     {
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N29",
       "kind": "theorem",
-      "name": "General rational-Levi minuscule lift requires repair",
-      "statement": "Intended extension of N27: for a rational Levi of an arbitrary connected reductive G, find a G-geometric conjugate of mu in M making the basic M-class admissible. The printed stronger requirement w in N_G(M)/M is false for GL3 with M=GL1 times GL2; do not implement that assertion. A corrected replacement needs a source/proof check.",
+      "name": "General rational-Levi minuscule lift (corrected: absolute Weyl group)",
+      "statement": "Let G be a connected reductive group over Q_p, M a Q_p-rational Levi subgroup, T⊂M a maximal torus, μ a minuscule cocharacter of M, and [b_M]∈B(M)_b such that ([b_M],{μ}) is G-admissible. Then there is w in the absolute Weyl group W(G,T)(Q̄_p), equivalently a G(Q̄_p)-conjugate μ′ of μ factoring through T, such that ([b_M],{w·μ}) is M-admissible. The printed requirement w∈N_G(M)/M is false, by the GL₃ example with M=GL₁×GL₂, μ=(0,1,0), b_M=diag(p,1,1) (errata E2).",
       "locator": "Corollary 1.1.15 and its proof, pp.11–12",
       "status": "missing",
       "implementationStatus": "unchecked",
@@ -3103,14 +3103,16 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N27",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N28"
       ],
-      "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
+      "note": "Corrected formulation and proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026), following the structure of the paper's proof with the correct Weyl group. The only use, Corollary 1.1.17 (N32), needs exactly this: its proof writes \"By Lemma 1.1.13, there exists w∈W(G,T)\". The remaining inputs are N27 and its cited unramified result, and Kottwitz97 4.4, under G-local. The G-source gate for the normalizer statement is resolved by this correction.",
       "owner": "BunGAndNewtonStrata",
       "gaps": [
-        "G-source",
         "G-local"
       ],
       "proofSteps": [
-        "Do not prove the printed normalizer statement: the GL3 example refutes it. Acquire a corrected formulation and check the non-quasi-split descent. Until then this is a blocked source target, not an accepted theorem."
+        "Choose a rational parabolic P with Levi M and an inner twisting ξ:G→G* to the quasi-split form with ξ(P)=P* rational, as in the paper. Then ξ|_M:M→M* is an inner twisting, and B(M)_b≅π₁(M)_Γ=π₁(M*)_Γ≅B(M*)_b gives [b_{M*}].",
+        "Let μ* be the B*∩M*-dominant representative of ξ|_M∘μ. The pair ([b_{M*}],{μ*}) is G*-admissible. The κ-condition holds by functoriality of the Kottwitz maps and the compatible identifications π₁(M)=π₁(M*), π₁(G)=π₁(G*). The Newton condition holds because the Newton points of basic classes lie in X_*(A_{M*})_Q and are determined by κ ([Kot97, 4.4]). This is the paper's own argument.",
+        "Apply N27 (Proposition 1.1.13) to G*: there is w* in W(G*,T*), not only in N_{G*}(M*)/M*, with ([b_{M*}],{w*·μ*}) M*-admissible. The paper's proof misquotes this output as w*∈W(G*,M*).",
+        "Transport back along ξ, which identifies W(G,T)(Q̄_p) with W(G*,T*) after conjugating ξ(T) to T* inside M*. For basic b_M, M-admissibility of ([b_M],{μ′}) is the κ_M-equality κ_M(b_M)=μ′^♯ in π₁(M)_Γ (Lemma 1.1.6), which transports through π₁(M)=π₁(M*)."
       ],
       "source": {
         "id": "berkeley-author-pdf",
@@ -3211,7 +3213,7 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/N32",
       "kind": "theorem",
       "name": "Specialness for a transferred maximal torus",
-      "statement": "Assume (1.1.3.1), minuscule admissible ([b],{mu}) and an existing transfer j:T' to M_[b]. Then the pair is j(T')-special and some mu_T' in the prescribed conjugacy class averages to nu_b,J. The non-quasi-split branch must pass the corrected N29 gate.",
+      "statement": "Assume (1.1.3.1), minuscule admissible ([b],{mu}) and an existing transfer j:T' to M_[b]. Then the pair is j(T')-special and some mu_T' in the prescribed conjugacy class averages to nu_b,J. The non-quasi-split branch uses the corrected N29, with w in the absolute Weyl group W(G,T).",
       "locator": "Corollary 1.1.17",
       "status": "missing",
       "implementationStatus": "unchecked",
@@ -3224,11 +3226,10 @@
       "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
       "owner": "BunGAndNewtonStrata",
       "gaps": [
-        "G-local",
-        "G-source"
+        "G-local"
       ],
       "proofSteps": [
-        "Trivialize the conjugating torus torsor over L, conjugate b into the centralizer of the transferred split subtorus, and make it basic in that Levi. Apply the minuscule Levi lift and elliptic-torus lemma. The non-quasi-split branch passes through N29."
+        "Trivialize the conjugating torus torsor over L, conjugate b into the centralizer of the transferred split subtorus, and make it basic in that Levi. Apply the minuscule Levi lift and elliptic-torus lemma. For non-quasi-split G, the Levi lift is the corrected N29; the printed citation \"Lemma 1.1.13\" in the proof of Corollary 1.1.17 is Proposition 1.1.13 in the quasi-split case and N29 otherwise."
       ],
       "source": {
         "id": "berkeley-author-pdf",
@@ -5845,7 +5846,7 @@
       "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T23",
       "kind": "theorem",
       "name": "Rational abelian-quotient map",
-      "statement": "There is a Q-group map I_x to G_ab whose base change equals the maps induced by i_ell for every ell. Audit the auxiliary special-torus construction and descent of the map through I_x; surjectivity alone does not justify factorization.",
+      "statement": "There is a Q-group map I_x→G_ab whose base change equals the maps induced by i_ℓ for every ℓ. The auxiliary Shimura datum must be G′=G×_{G^ab}T, pairs (g,t) with the same image in G^ab, not the printed G×T.",
       "locator": "Lemma 2.2.8",
       "status": "missing",
       "implementationStatus": "unchecked",
@@ -5853,13 +5854,16 @@
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/T16",
         "PAPER-KISIN-MADAPUSIPERA-SHIN-22/P03"
       ],
-      "note": "A source-based extraction target with the stated gates. This checkpoint does not certify recursive closure.",
+      "note": "Repair and proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026). With the printed G′=G×T the construction fails twice: G×T is not in GSp(V⊕V,ψ⊕ψ), and the kernel of I_{s′₀}→I_{s₀} contains 1×T, which maps onto G^ab. This is recorded in research/blueprint/errata/PAPER-KISIN-MADAPUSIPERA-SHIN-22.json (E5). The remaining inputs, Corollary 2.1.9 and Noot, stay under G-noot.",
       "owner": "ShimuraVarietiesHondaTatePartII",
       "gaps": [
         "G-noot"
       ],
       "proofSteps": [
-        "Compare the auxiliary special-point product and its realization maps. Surjectivity of the map of isogeny groups is not enough: prove its kernel acts trivially on the proposed abelian quotient. The product construction in the author text leaves this verification open here."
+        "For a special point (T,h_T) of (G,X) put G′=G×_{G^ab}T⊂G×T acting on V′=V⊕V, with T acting on the second copy through T⊂G. Similitude factors through G^ab, so G′⊂GSp(V′,ψ⊕ψ). Since h^ab is constant on X, X′=X×{h_T} maps into Hom(S,G′_R), giving an embedding of Shimura data (G′,X′)↪(GSp(V′),H′).",
+        "As in the paper, conjugating T→G by G^ad(Q), the point s₀ lifts to s′₀ on the integral model for (G′,X′). A_{s′₀} is isogenous to A_{s₀}×A_T, and I_{s′₀} preserves the decomposition. Restriction to A_T gives I_{s′₀}→T; compose with T→G^ab.",
+        "Kernel check: the kernel of I_{s′₀}→I_{s₀} (restriction to A_{s₀}) lies, after base change to any Q_ℓ, in ker(G′→G)={(1,t):t∈T∩G^der}. That kernel maps trivially to G^ab. So the composite kills ker(I_{s′₀}→I_{s₀}), and since I_{s′₀}→I_{s₀} is surjective (Corollary 2.1.9) it factors through a Q-map I_{s₀}→G^ab.",
+        "Compatibility with i_ℓ: over Q_ℓ, the map I_{s₀}→G^ab so obtained and the composite I_{s₀}⊗Q_ℓ≅I_{ℓ,s₀}→G_{Q_ℓ}→G^ab_{Q_ℓ} agree on the image of I_{s′₀}, because for (g,t)∈G′ the images of g and t in G^ab coincide."
       ],
       "source": {
         "id": "berkeley-author-pdf",
@@ -9531,6 +9535,14 @@
       "G-crystal: original Appendix A suppliers",
       "G-global and G-tate: transfer, Hasse and finite-field Hom",
       "Resolve supplier granularity and reconcile AbelianSchemesFiniteFieldsPartII with PAPER-SMITH-24 before acceptance"
+    ],
+    "sessions": [
+      {
+        "agent": "Claude Code",
+        "session": "cc-fb70e5",
+        "date": "2026-09-22",
+        "work": "Replaced N29 with the corrected absolute-Weyl-group statement and proof (G-source resolved there); updated N32; supplied T23's fibre-product repair G×_{G^ab}T with the kernel-factorization proof."
+      }
     ]
   }
 }
