@@ -6982,6 +6982,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LI-ZHANG-22-B/E1",
+   "kind": "gap",
+   "locator": "Proof of Theorem 8.2.1, p.59",
+   "printed": "\"We may further assume that L^♭ + ⟨x⟩ is integral and has a basis (e′_1, …, e′_n) such that val(e′_i) = a′_i. Let L′^♭ = ⟨e′_1, …, e′_{n−1}⟩. Then we have Int_{L^♭,V}(x) = Int_{L′^♭,V}(x′), and ∂Den_{L^♭,V}(x) = ∂Den_{L′^♭,V}(x′), where x′ = e′_n.\"",
+   "correction": "Replace the two claimed equalities by the equality of differences: with φ = Int_{L^♭,V} − ∂Den_{L^♭,V} and φ′ = Int_{L′^♭,V} − ∂Den_{L′^♭,V}, Theorem 6.1.3 cancels the horizontal parts, so φ(x) = Int(L^♭ + ⟨x⟩) − ∂Den(L^♭ + ⟨x⟩) = Int(L′^♭ + ⟨x′⟩) − ∂Den(L′^♭ + ⟨x′⟩) = φ′(x′). The induction hypothesis φ′ = 0 then gives φ(x) = 0 for x ∉ M(L^♭), which is all the rest of the proof uses.",
+   "reason": "Only the full functions Int_{L^♭}(x) = Int(L^♭ + ⟨x⟩) and ∂Den_{L^♭}(x) depend on the lattice L^♭ + ⟨x⟩ alone. Their horizontal and vertical parts depend on the hyperplane L^♭_F. By Definition 6.1.2, ∂Den_{L^♭,H}(x) and ∂Den_{L′^♭,H}(x′) are sums over integral L″ ⊇ L^♭ + ⟨x⟩ = L′^♭ + ⟨x′⟩ with the different conditions t(L″ ∩ L^♭_F) ≤ 1 and t(L″ ∩ L′^♭_F) ≤ 1; geometrically, Z(L^♭)_H ≠ Z(L′^♭)_H. So the two stated equalities do not follow from what precedes them. The step is repaired in one line and the theorem stands.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
+    "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
+   ],
+   "owner": "PAPER-LI-ZHANG-22-B",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22-B/E2",
+   "kind": "error",
+   "locator": "§6.4, display before Definition 6.4.3 (p.38); proof of Lemma 6.4.5 (p.40); Lemmas 6.4.6–6.4.7 (pp.40–42); proof of Theorem 6.4.9 (p.42)",
+   "printed": "\"[O_{N_n}(−Z(x))|_{V(Λ)} → O_{N_n}|_{V(Λ)}] ∈ F¹K_0(V(Λ)). Thus we have the Chern character ch(V(Λ) ∩^L Z(x)) = ch(O_{N_n}(−Z(x))|_{V(Λ)}) − ch(O_{V(Λ)}) = … = Σ_{i=1}^d c_1(O_{N_n}(−Z(x))|_{V(Λ)})^i/i!\", then \"c_{1,V(Λ′)}(x) = Int_{V(Λ′)}(x) = (1 − q²)\", Lemma 6.4.6 \"c_{V(Λ)}(x) = c(d)·{(1 − q^{2d}), 1, 0}\", Lemma 6.4.7 \"c_{V(Λ)} = (c(d)/c′(d)) Σ Int_{V(Λ′)}\", and \"l ∘ K_{V(Λ)}(x) = ch_{d′}(V(Λ′) ∩^L Z(x)) = c_{V(Λ′)}(x)/d′!\".",
+   "correction": "The class of the two-term complex [A → B] (B in degree 0) is [B] − [A], so ch(V(Λ) ∩^L Z(x)) = ch(O_{V(Λ)}) − ch(O(−Z(x))|_{V(Λ)}) = −Σ_{i≥1} c_1(O(−Z(x))|_{V(Λ)})^i/i!. Hence:\n- c_{1,V(Λ′)}(x)·[V(Λ′)] = −Int_{V(Λ′)}(x);\n- Lemma 6.4.6 holds with an extra factor (−1)^d, and so does Lemma 6.4.7: c_{V(Λ)} = (−1)^d (c(d)/c′(d)) Σ Int_{V(Λ′)};\n- in the proof of Theorem 6.4.9, l ∘ K_{V(Λ)}(x) = −c_{V(Λ′)}(x)/d′!.\nCorollary 6.4.8, Theorem 6.4.9 and Corollary 6.4.10 are unchanged, since their statements are invariant under an overall sign.",
+   "reason": "For d = 1, take x ∈ Λ^∨ \\ Λ with val(x) ≥ 0. By Lemma 6.2.1, Int_{V(Λ)}(x) = χ(O_{V(Λ)} ⊗^L O_{Z(x)}) = 1, so Z(x) cuts the curve V(Λ) in one reduced point p. Then O(−Z(x))|_{V(Λ)} = O_{V(Λ)}(−p) has degree −1, whereas Lemma 6.4.6 as printed gives c_{V(Λ)}(x) = c(1)·1 = +1. In general χ(O_V) − χ(O_V ⊗ M) = −deg M for a line bundle M on a curve. The rest of §6.4 is homogeneous in c_1 (Lemma 6.4.5, the induction in Lemma 6.4.6, the Fourier eigen-equations), so the sign only changes the stated formulas.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
+    "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
+   ],
+   "owner": "PAPER-LI-ZHANG-22-B",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22-B/E3",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 6.4.8 (p.42); proof of Lemma 6.4.7, case (1) (p.41)",
+   "printed": "\"Proof. It follows immediately from Lemmas 6.4.8 and 6.3.1.\" and \"(1) For x ∈ Λ, we have Int_{V(Λ′)}(x) = 1 − q² for any Λ′ in the sum by Lemma 6.3.1.\"",
+   "correction": "\"Lemmas 6.4.7 and 6.3.1\"; \"by Lemma 6.2.1\".",
+   "reason": "Corollary 6.4.8 is the corollary being proved, and it follows from Lemma 6.4.7 (c_{V(Λ)} as a combination of Int_{V(Λ′)}) and Lemma 6.3.1. The value 1 − q² on Λ′ is Lemma 6.2.1; Lemma 6.3.1 is the Fourier-transform statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
+    "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
+   ],
+   "owner": "PAPER-LI-ZHANG-22-B",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22-B/E4",
+   "kind": "misprint",
+   "locator": "Example 3.5.2 (p.18); Theorems 10.3.1 and 10.5.1 (pp.66, 70); proof of Theorem 10.4.3, case n = 1 (p.68)",
+   "printed": "\"In particular, if val(L^♭) is odd, we obtain Den(L) = 0 and ∂Den(L) = (val(L) + 1)/2.\" \"Theorem 10.3.1. Let L ⊆ V be an O_F-lattice of full rank n.\" \"Theorem 10.5.1. Let L ⊆ V be an O_F-lattice.\" \"Then Y(x) is non-empty unless val(x) ≥ 2 (note that val(x) is even), in which case it has O_F̆-length val(x)/2\".",
+   "correction": "\"if val(L) is odd\"; \"Let L ⊆ 𝕎_n be an O_F-lattice of full rank n\" in both theorems; \"Y(x) is empty unless val(x) ≥ 2\".",
+   "reason": "Example 3.5.2 concerns a rank-one L; L^♭ is reserved for rank n − 1. Theorems 10.3.1 and 10.5.1 concern lattices in the split space 𝕎_n (Definitions 10.1.1 and 10.2.3, and L^♯ = L ⊕ ⟨x_0⟩ ⊂ 𝕍_{n+1}); 𝕍 is the nonsplit space of Part 1. For n = 1 and val(x) = 0, Example 10.5.3 gives Int′(L) = val(x)/2 = 0, i.e. Y(x) = ∅.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
+    "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
+   ],
+   "owner": "PAPER-LI-ZHANG-22-B",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22-B/E5",
+   "kind": "misprint",
+   "locator": "§1.2, p.3",
+   "printed": "\"By [Ter13a, Proposition 3.2] (or [How18, Corollary D]), we know that Int(L) is independent of the choice of the basis x_1, . . . , x_n and hence is a well-defined invariant of L itself.\"",
+   "correction": "Cite [How18, Corollary D] (or Corollary 2.8.2 below) for general n, and [Ter13a, Proposition 3.2] only for n = 3.",
+   "reason": "Terstiege's paper treats GU(1, 2), i.e. n = 3. Howard notes \"When n = 3 Corollary D is [Ter13, Proposition 3.2]\" (arXiv 1811.01482, Introduction), and §2.8 of this paper says it \"generalize[s] the results of Terstiege [Ter13a, Lemma 3.1, Proposition 3.2]\".",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "J. Amer. Math. Soc. 35 (2022), no. 3, 705–797, DOI 10.1090/jams/988 (online 10 September 2021): Crossref (checked 2026-09-22) records no update or correction relation, and a title search finds no correction notice; the AMS PDF returned 403 to scripted access and was not read",
+    "arXiv 1908.01701: v3 of 1 December 2020 (the latest version; its comment lists new §§2.8 and 6.4 and expanded proofs) is the one read",
+    "Authors' pages linked from the job (math.columbia.edu/~chaoli) were not consulted beyond the arXiv version"
+   ],
+   "owner": "PAPER-LI-ZHANG-22-B",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22-B.result.json",
+   "citation": "Chao Li–Wei Zhang, \"Kudla-Rapoport cycles and derivatives of local densities\", Journal of the American Mathematical Society (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E1",
    "kind": "error",
    "locator": "v1 p.10, §3.1.5 (13); final 2018 text not obtained",
