@@ -2267,6 +2267,171 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-BHATT-MATHEW-23/E1",
+   "kind": "misprint",
+   "locator": "§5.2, display before Lemma 5.3, p. 21 (arXiv v2 §5.2; identical in both versions)",
+   "printed": "Recall that the latter is defined as an equalizer: F_p(i)(A) = eq(N^{≥p−1}Δ_A{p−1}/p ⇉ Δ_A{p−1}/p)",
+   "correction": "F_p(i)(A) = eq(N^{≥i}Δ_A{i}/p ⇉ Δ_A{i}/p), the equalizer of can and φ_i in weight i.",
+   "reason": "The weight-i syntomic complex is the equalizer of can and φ_i on N^{≥i}Δ_A{i} (equation (1), Construction 2.2). The weight p − 1 belongs to v_1, not to F_p(i). The proof of Proposition 5.2 that follows uses exactly N^{≥i}Δ_A{i}/p ⇉ Δ_A{i}/p in (24).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 listing (v1 10 Feb 2022, v2 1 Dec 2022 'small errors corrected') and the v2 TeX source",
+    "the published Forum Math. Pi 11 (2023) e1 PDF (Cambridge Core, open access)",
+    "Crossref metadata for DOI 10.1017/fmp.2022.21 (no update-to or correction relation)"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.12, equation (10), p. 12 (arXiv v2 equation (H1Npoly2))",
+   "printed": "H^1(N^{≥*}Δ̄_{R[x]}) ≃ A^{≥*}{−1} ⊕ ⊕_{i=1}^{p−1} A^{≥*−1}/A^{≥*}",
+   "correction": "H^1(N^{≥*}Δ̄_{R[x]}) ≃ A^{≥*−1}{−1} ⊕ ⊕_{i=1}^{p−1} A^{≥*−1}/A^{≥*}, as in the statement (8).",
+   "reason": "The class dx lies in H^1(N^{≥1}Δ̄_{R[x]}{1}), so it generates a copy of A^{≥*−1}{−1}, as the proof itself says when naming the generators. At filtration level 1, equation (9) gives R{−1}⟨x⟩dx = A^{≥0}{−1}·dx, whereas A^{≥1}{−1}·dx = p^{1/p}R{−1}⟨x⟩dx is strictly smaller.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source",
+    "the published Forum Math. Pi PDF",
+    "Crossref metadata for DOI 10.1017/fmp.2022.21"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E3",
+   "kind": "misprint",
+   "locator": "Definition 4.1, p. 13, and proof of Proposition 4.9, p. 15; Proposition 4.6, p. 14",
+   "printed": "'note that F-smoothness is preserved by Zariski localization by Proposition 4.6 below' and 'Proof. Combine Proposition 4.8 and Proposition 4.6.', where Proposition 4.6 (Stability of F-smoothness under filtered colimits and étale localization) states only 'The property of being F-smooth is stable under filtered colimits.'",
+   "correction": "Cite Proposition 4.7 ('In particular, F-smoothness is étale local and passes to étale algebras') for Zariski and étale localization. The proof of Proposition 4.9 combines Propositions 4.8, 4.7 and 4.6.",
+   "reason": "Proposition 4.6's statement and proof cover filtered colimits only. A ring map A → A_f is not a filtered colimit of copies of A as rings, and an algebra B with B/p smooth over A/p is only Zariski-locally étale over a polynomial ring. Both steps need the étale statement, which is Proposition 4.7 (B p-completely flat and relatively perfect).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source (the label of Proposition 4.6 is FSmoothColimitEtale)",
+    "the published Forum Math. Pi PDF",
+    "Crossref metadata for DOI 10.1017/fmp.2022.21"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E4",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 5.7, p. 23",
+   "printed": "The source is discrete as a sheaf (by the odd vanishing theorem, [BS22, Th. 4.1])",
+   "correction": "[BS22, Th. 14.1], as cited for the same fact in Construction 2.2.",
+   "reason": "In Bhatt–Scholze, Prisms and prismatic cohomology (arXiv 1905.08229v4), §4 opens with Definition 4.1 (the prismatic site). Theorem 14.1, 'For each n ≥ 0, the sheaf Z_p(n) is discrete and p-torsionfree', is in §14, 'p-adic Tate twists and the odd vanishing conjecture for K-theory'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source and the published PDF",
+    "Bhatt–Scholze arXiv 1905.08229v4 (statement numbering checked)"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E5",
+   "kind": "misprint",
+   "locator": "§5.3, paragraph before Proposition 5.6, p. 23",
+   "printed": "By [BK86, Th. 14.1], the symbol map is surjective.",
+   "correction": "[BK86, Th. (1.4)] (the sheaves M^q_n are generated locally by symbols), equivalently Corollary (6.1.1).",
+   "reason": "Bloch–Kato's paper has sections 0–9 and no Theorem 14.1. Its Theorem (1.4) opens: 'The sheaves M^q_n are generated locally by symbols', and Corollary (6.1.1) repeats this for n ≥ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source and the published PDF",
+    "Bloch–Kato, Publ. Math. IHÉS 63 (1986), read on Numdam (DOI 10.1007/BF02831624)"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E6",
+   "kind": "gap",
+   "locator": "Proof of Theorem 5.8, p. 24 (arXiv v2 §5.4)",
+   "printed": "Since R is a UFD (as a regular local ring), we have R[1/p]^× = π^Z ⊕ R^×. Consider a symbol (1 + πa) ⊗ b_1 ⊗ ⋯ ⊗ b_{i−1} for b_1, …, b_{i−1} ∈ R[1/p]^×. Using the unique factorization, as well as the fact that π ⊗ (−π) maps to zero …, we reduce to the case i = 2.",
+   "correction": "R[1/p]^× = R^× × t_1^Z × ⋯ × t_r^Z, where t_1, …, t_r are the local equations of the components of the special fibre through x (π = u·t_1⋯t_r with u ∈ R^×). The argument as written proves the claim only when r = 1, for example when X is smooth over A. For r ≥ 2, the symbols (1 + πa) ⊗ b_1 ⊗ ⋯ with several b_j among the t_k need a separate argument.",
+   "reason": "Take X = Spec Z_p[x, y]/(xy − p), regular and semistable over Z_p, at the point x = y = p = 0. Then x ∈ R[1/p]^× because xy = p, but x ∉ p^Z·R^×, since v_x(x) = 1 ≠ 0 = v_y(x). For i = 2, the same bilinearity trick applied to each t_k repairs the case: 1 + πa is a product of elements 1 + t_k w with w ∈ R^×, and {1 + t_k w, −t_k w} = 0. For i ≥ 3 and r ≥ 3, symbols such as (1 + πa) ⊗ t_1 ⊗ t_2 are not reduced to i = 2 by {π, −π} = 0, and the proof does not treat them.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 listing (v1, v2) and the v2 TeX source",
+    "the published Forum Math. Pi 11 (2023) e1 PDF",
+    "Crossref metadata for DOI 10.1017/fmp.2022.21 (no correction relation)",
+    "web search for an erratum to Bhatt–Mathew's Syntomic complexes and p-adic étale Tate twists (none found)"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E7",
+   "kind": "misprint",
+   "locator": "Example 5.9, p. 24",
+   "printed": "Let X be a smooth scheme over O_K with special fiber k.",
+   "correction": "Let X be a smooth scheme over O_K with special fibre X_k.",
+   "reason": "k is the residue field of O_K. The display that follows uses W_nΩ^{i−1}_{X_k,log}, the logarithmic de Rham–Witt sheaf of the special fibre X_k = X ×_{O_K} k.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source",
+    "the published Forum Math. Pi PDF"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-BHATT-MATHEW-23/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.12, p. 11",
+   "printed": "by construction, this class is annihilated by A^{≥1} since R/p^{(−1)}[x^{1/p}] is by definition",
+   "correction": "this class is annihilated by A^{≥1}, since A^{≥1} acts by zero on gr^0 = R/p^{(−1)}[x^{1/p}] by definition",
+   "reason": "The sentence breaks off. The intended reason is that the boundary map is A^{≥*}-linear and A^{≥1} = N^{≥1} acts by zero on gr^0Δ̄_{R[x]}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2202.04818 v2 TeX source",
+    "the published Forum Math. Pi PDF"
+   ],
+   "owner": "PAPER-BHATT-MATHEW-23",
+   "file": "research/blueprint/papers/PAPER-BHATT-MATHEW-23.result.json",
+   "citation": "Bhatt–Mathew, \"Syntomic complexes and p-adic étale Tate twists\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-BHATT-SCHOLZE-17/E1",
    "kind": "misprint",
    "locator": "arXivv3 abstract p1",
