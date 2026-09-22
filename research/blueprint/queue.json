@@ -968,7 +968,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LANDESMAN-LITT-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1077"
   },
   {
    "id": "REV-PAPER-LANDESMAN-LITT-24",
@@ -3890,8 +3891,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1248"
+   "state": "pending",
+   "note": "released on GitHub issue #1248"
   },
   {
    "id": "REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
