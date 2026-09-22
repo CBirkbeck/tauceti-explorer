@@ -1,0 +1,1124 @@
+{
+  "paper": "PAPER-LAFFORGUE-18",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale",
+    "authors": "Vincent Lafforgue",
+    "venue": "Journal of the American Mathematical Society 31 (2018), no. 3, 719–891",
+    "doi": "10.1090/jams/897",
+    "arxiv": "1209.5352",
+    "url": "https://arxiv.org/abs/1209.5352",
+    "readSections": [
+      "The whole of arXiv 1209.5352v10 (10 January 2018), 184 pp., in French: the introduction (§0, pp. 1–41) and all sixteen chapters, together with the bibliography. SHA-256 b37715f9c42862b7560d8b71da07924376e3cbbbe862ef9e89a57d8c91a64295, fetched and read 2026-09-22. Locators are the pages of that version together with the paper's own statement numbers, which are stable across its versions.",
+      "The published version could not be consulted: ams.org returns HTTP 403 to every client tried, and no other copy was found. v10 is the last arXiv version and is contemporaneous with publication (JAMS 31, issue 3, 2018); Crossref records no correction notice for DOI 10.1090/jams/897. All recorded source issues are therefore against v10 and may have been corrected in production.",
+      "Pages 140, 145, 152, 154, 160, 164, 169, 171 and 172 were additionally read as rendered images, because the text layer flattens the sub- and superscripts on which several of the recorded items turn."
+    ]
+  },
+  "summary": "This is the paper that proves the global Langlands correspondence in the “automorphic to Galois” direction for every connected reductive group over a global function field. Let X be a smooth projective geometrically irreducible curve over F_q with function field F, G reductive over F, N ⊂ X a finite subscheme, K_N the associated level subgroup and Ξ ⊂ Z(F)\\\\Z(A) a lattice. Théorème 11.11 (split case) and Théorème 12.3 (general case) give a **canonical** decomposition of the space of cuspidal automorphic forms C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, Q̄_ℓ) = ⊕_σ H_σ indexed by global Langlands parameters — Ĝ(Q̄_ℓ)-conjugacy classes of continuous semisimple σ : Gal(F̄/F) → ^LG(Q̄_ℓ) unramified outside N — compatible with the Satake isomorphism at every unramified place and with the limit over N. The article is completely independent of the Arthur–Selberg trace formula. It rests on two ingredients: the moduli of shtukas, introduced by Drinfeld for GL_r and generalized to reductive groups by Varshavsky, and the geometric Satake equivalence of Lusztig, Drinfeld, Ginzburg and Mirković–Vilonen.\n\nThe mechanism is this. For every finite set I and every representation W of (Ĝ)^I there is a stack Cht^{(I_1,…,I_k)}_{N,I,W} of shtukas with legs (x_i)_{i∈I} — the intersection of a Hecke stack with the graph of the Frobenius of Bun_{G,N} — which plays the role of a Shimura variety but exists for every I and every W, not only for a minuscule coweight. Its degree-zero compactly supported cohomology, H^{0,≤μ,E}_{N,I,W}, is a functor in W on (X ∖ N)^I, carries commuting partial Frobenius morphisms and Hecke operators, and is compatible with the coalescence of legs (Théorème 1.17 c), Proposition 4.12). Creation and annihilation morphisms attached to Ĝ-invariant vectors x ∈ W and ξ ∈ W^* let one write the unramified Hecke operator T(h_{V,v}) as create two legs at v → apply the partial Frobenius → annihilate (Proposition 6.2), which extends every Hecke operator to all of (X ∖ N)^I (Corollaire 6.5) and yields the **Eichler–Shimura relations** (Proposition 7.1): the partial Frobenius at a leg is killed by a polynomial in the Hecke operators, by a tensor-algebra argument modelled on a proof of Cayley–Hamilton. Those relations make the **Hecke-finite** part of the cohomology a union of constructible subsheaves stable under the partial Frobenius (Proposition 8.27), so **Drinfeld’s lemma** applies and gives it an action of Gal(F̄/F)^I; the specialization map identifies the fibre at Δ(η̄) with the one at η̄^I (Corollaire 8.34). The resulting spaces H_{I,W} form a functor in W with coalescence isomorphisms and H_{∅,1} = C^{cusp}_c (Proposition 9.7) — the last equality because Hecke-finite = cuspidal (Proposition 8.23).\n\nFrom these three properties alone the **excursion operators** S_{I,W,x,ξ,(γ_i)} are built: create legs at one generic point, let Galois move them around the curve independently, bring them back, annihilate. They generate a commutative algebra B, depend only on the invariant function f ∈ O(Ĝ\\\\(Ĝ)^I/Ĝ) attached to (W, x, ξ), satisfy explicit relations (Lemme 10.1, Proposition 10.8), are continuous, contain the unramified Hecke operators (Lemme 10.2) and are unramified outside N (Proposition 10.10, found by Böckle, Harris, Khare and Thorne). Spectral decomposition of B gives a decomposition into generalized eigenspaces — B is not known to be reduced, so simultaneous diagonalization is not available — and Proposition 11.7 turns each character of B into a semisimple parameter σ, unique up to conjugacy, using Richardson’s theorem that a tuple has a closed diagonal conjugation orbit exactly when it is semisimple.\n\n§12 redoes everything for non-split G, with parahoric Bruhat–Tits models, the twisted geometric Satake equivalence, the L-group, and Bun_{G,N}(F_q) as a ker^1(F, G)-indexed union of adelic quotients for inner forms; §13 obtains the same decomposition with F̄_ℓ-coefficients; §14 sketches the metaplectic case; §15 relates the excursion operators to geometric Langlands; §16 shows how the theorem reproves the recursion ingredient of Laurent Lafforgue’s theorem for GL_r. Conjectures 12.7 and 12.12 state what is expected and unproved: that the parameters come from elliptic Arthur parameters, and that the decomposition is motivic and independent of ℓ.",
+  "items": [
+    {
+      "id": "PAPER-LAFFORGUE-18/1",
+      "kind": "theorem",
+      "name": "Theorem 11.11 (= Theorem 0.1): the canonical decomposition of cuspidal automorphic forms by global Langlands parameters",
+      "statement": "Let X be a smooth projective geometrically irreducible curve over F_q with function field F, G a split connected reductive group over F, N ⊂ X a finite subscheme with level subgroup K_N = Ker(G(O) → G(O_N)), and Ξ ⊂ Z(F)\\Z(A) a lattice. Then there is a canonical decomposition of C_c(K_N\\G(A)/K_N, Q̄_ℓ)-modules C^{cusp}_c(G(F)\\G(A)/K_NΞ, Q̄_ℓ) = ⊕_σ H_σ, the sum being indexed by global Langlands parameters — Ĝ(Q̄_ℓ)-conjugacy classes of morphisms σ : Gal(F̄/F) → Ĝ(Q̄_ℓ), defined over a finite extension of Q_ℓ, continuous, semisimple and unramified outside N. It is characterized by H_σ = H_ν for the character ν of the excursion algebra B given by ν(S_{I,f,(γ_i)_{i∈I}}) = f((σ(γ_i))_{i∈I}); it is compatible with the Satake isomorphism at every place v of X ∖ N, and with the limit over N.",
+      "locator": "Théorème 11.11, p. 148 (§11.3); stated as Théorème 0.1, p. 2, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "GS.5 plans exactly this: \"Establish the canonical decomposition of the fixed-level cuspidal space, unramified Satake compatibility and independence from auxiliary leg choices\", with this paper named as its source. The theorem is the \"automorphic to Galois\" direction only; Arthur multiplicity formulas are explicitly out of reach of these methods (p. 3)."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/2",
+      "kind": "theorem",
+      "name": "Theorem 12.3: the decomposition for groups that need not be split",
+      "statement": "For G a connected reductive group over F, not necessarily split, the same conclusion holds with the left-hand side replaced by a direct sum, indexed by ker^1(F, G) = Ker(H^1(F, G) → ∏_v H^1(F_v, G)), of spaces of cuspidal automorphic forms for inner forms of G, and with the Langlands parameters σ defined through the L-group: continuous semisimple morphisms Gal(F̄/F) → ^LG(Q̄_ℓ) = Ĝ(Q̄_ℓ) ⋊ Gal(F̄/F) whose projection to Gal(F̄/F) is the identity, taken up to Ĝ(Q̄_ℓ)-conjugacy, unramified outside N. Passing to the limit over N (Remarque 12.4) gives a canonical decomposition of the cuspidal representation of G(A) indexed by Langlands parameters.",
+      "locator": "Théorème 12.3, p. 151, with Remarques 12.2 and 12.4, pp. 150, 152, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "note": "GS.5 plans \"For nonsplit G include the projection to the Galois group and conjugacy convention\"; GS.0 plans \"the adelic description of rational points in the appropriate torsor classes rather than identifying the entire stack with one double quotient\", which is exactly the ker^1(F, G)-indexed sum (Remarque 12.2); RG2.5 owns the L-group with its projection and action law."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/3",
+      "kind": "theorem",
+      "name": "Proposition 0.41 and Proposition 10.10: unramifiedness and compatibility with the Satake isomorphism",
+      "statement": "Every σ occurring in the decomposition is unramified at every place v of X ∖ N, and for every irreducible representation V of Ĝ the Hecke operator T(h_{V,v}) acts on H_σ by the scalar χ_V(σ(Frob_v)), χ_V the character of V and Frob_v any lift of a Frobenius element at v. The unramifiedness comes from the fact that the creation morphisms are morphisms of sheaves on all of ∆(X ∖ N), so S_{I,W,x,ξ,(γ_i)} = S_{I,W,x,ξ,(γ_iδ_i)} for δ_i in the inertia I_v; Proposition 10.10 (found by Böckle, Harris, Khare and Thorne) is the stronger statement that S_{I,f,(γ_i)_{i∈I}} depends only on the image of (γ_i)_{i∈I} in π_1(X ∖ N, η)^I. The proof of the Satake compatibility uses that Hecke operators at unramified places are diagonalizable, being normal operators on the hermitian space of C-valued cuspidal forms.",
+      "locator": "Proposition 0.41 and Lemme 0.38, pp. 34–36; Proposition 10.10, p. 140, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "GS.5 plans \"unramified Satake compatibility\"; its acceptance test \"unramified GL_n matches characteristic polynomials\" is this statement. Proposition 10.10 is used in Böckle–Harris–Khare–Thorne [BHKT16], which is PAPER job #1468 in this repository."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/4",
+      "kind": "construction",
+      "name": "Remark 1.1 and Definition 1.2: π_0(Bun_G), and the Hecke stacks with bounded relative position",
+      "statement": "Remarque 1.1 ([BD99], [Var04, lemme 2.2]): π_0(Bun_G) is canonically π_1(G) = X_*(T)/X_*(T^{sc}), which is canonically the character group of Z_Ĝ; [ω] denotes the class of a coweight. Definition 1.2: for a finite set I, an ordered partition (I_1, …, I_k) and a finite N ⊂ X, Hecke^{(I_1,…,I_k)}_{N,I} classifies points x_i ∈ (X ∖ N)(S), objects (G_0, ψ_0), …, (G_k, ψ_k) of Bun_{G,N}(S), and isomorphisms φ_j away from ∪_{i∈I_j}Γ_{x_i} respecting the level structures; for an I-tuple ω̱ of dominant coweights, Hecke^{(I_1,…,I_k)}_{N,I,≲ω̱} is the closed substack cut out by the weak bound φ_j((G_{j−1})_{V_λ}) ⊂ (G_j)_{V_λ}(Σ_{i∈I_j}⟨λ, ω_i⟩Γ_{x_i}) for every dominant weight λ, and by [Var04, lemme 3.1] it is an algebraic stack locally of finite type. The stack depends on the *order* of the parts, and joining parts with adjacent indices gives the forgetful morphisms π^{(I_1,…,I_k)}_{(I′_1,…,I′_{k′})} (Remarque 1.4); truncations are taken by the Harder–Narasimhan polygon of G_0 (Notation 1.5) precisely because those are the ones the forgetful morphisms preserve.",
+      "locator": "Remarques 1.1, 1.3, 1.4, Définition 1.2 and Notation 1.5, pp. 42–43, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ],
+      "note": "GS.1 plans the bounded Hecke stacks. **Remarque 1.3 records a defect in the literature**: the author says that condition iii′)_ω̱ of [Var04, définition 2.4] — which also appeared in arXiv versions 1–3 of this paper — \"probably did not give the right definition of Hecke_{N,I,ω̱} (even up to reduction) when G^{der} is not simply connected\"; the correct condition bounds the connected component of the affine Grassmannian at each x_i(s) rather than that of Bun_G. Any formalization must take the definition from here, not from [Var04]."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/5",
+      "kind": "construction",
+      "name": "Definitions 1.6, 1.12, 1.13 and Construction 1.8: the Beilinson–Drinfeld affine Grassmannian and the local model",
+      "statement": "Gr^{(I_1,…,I_k)}_I is the ind-scheme over X^I classifying the same data as Hecke^{(I_1,…,I_k)}_I together with a trivialization θ of G_k; for I a singleton its fibre at x is the usual affine Grassmannian G(F_x)/G(O_x). By [BD99, rem. 2.3.7 and thm. 2.12.1], which generalizes the Beauville–Laszlo descent lemma [BL95], a point may equivalently be given by G-torsors on the formal neighbourhood Γ_{Σ∞x_i} of the union of the graphs with isomorphisms over the punctured neighbourhood in the sense of Notation 1.7 (a compatible system of maps V_G → V_{G′}(NΣ_{i∈J}x_i)) and a trivialization of G_k — this works for G-torsors because a torsor is a tensor functor from representations to vector bundles. Remarque 1.9 is the factorization property: over the locus where the legs indexed by different fibres of ζ : I → J are distinct, Gr^{(I_1,…,I_k)}_I is the product of the partial ones. The Weil restrictions G_{Σn_ix_i} and G_{Σ∞x_i} act by changing θ, and for n_i large in terms of the ω_i the action on the bounded stratum factors through G_{Σn_ix_i} (Proposition 1.10, Remarque 1.11). Gr^{(I_1,…,I_k)}_{I,ω̱} is the reduced closed subscheme obtained as the Zariski closure of the product of the usual closed strata Gr_{x_i,ω_i} over the complement of the diagonals (Definition 1.12), and Gr^{(I_1,…,I_k)}_{I,W} the union of those with W_{ω̱} ≠ 0 in the isotypic decomposition of W. Finally β^{(I_1,…,I_k)}_{I,ω̱,ṉ} : Hecke^{(I_1,…,I_k)}_{I,ω̱} ≅ (Gr^{(I_1,…,I_k)}_{I,ω̱} ×_{X^I} Bun_{G,Σn_ix_i})/G_{Σn_ix_i} (Definition 1.13), whose first component δ is smooth because Bun_{G,Σn_ix_i} is smooth over X^I (Lemme 1.14); Lemme 1.15: the forgetful morphism Gr^{(I_1,…,I_k)}_{I,ω̱} → Gr^{(I′_1,…)}_{I,ω̱} is projective, surjective and small; Lemme 1.16: the morphisms κ, κ̃ to the product of the partial quotients are smooth.",
+      "locator": "Définitions 1.6, 1.12, 1.13, Notation 1.7, Construction 1.8, Remarques 1.9, 1.11, Propositions 1.10, Lemmes 1.14–1.16, pp. 43–48; Définition 0.7 and Remarque 0.8, pp. 7–8, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "note": "GS.1 plans \"the Beilinson–Drinfeld Grassmannian over powers of C, bounded Hecke stacks, convolution and collision/factorization maps\", naming this paper as its source; RG2.0a owns Weil restriction, which is how G_{Σn_ix_i} is built. The smallness of Lemme 1.15 is what makes the cohomology independent of the partition."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/6",
+      "kind": "theorem",
+      "name": "Theorem 1.17 (= Theorem 0.9): one direction of the geometric Satake equivalence, as a functor over X^I",
+      "statement": "For A = E or O_E there is a canonical functor W ↦ S^{(I_1,…,I_k)}_{I,W,A} from finite-type A-linear representations of (Ĝ)^I to G_{Σ∞x_i}-equivariant A-perverse sheaves on Gr^{(I_1,…,I_k)}_I, supported on Gr^{(I_1,…,I_k)}_{I,W} (for A = O_E on a sufficiently large finite-type closed subscheme depending on W in an unspecified way), hence a perverse sheaf up to shift on Gr^{(I_1,…,I_k)}_{I,W}/G_{Σn_ix_i} with the shift fixed by the condition that the pullback be perverse relative to X^I, and universally locally acyclic over X^I, with: a) for A = E and W = ⊠_iV_{ω_i} irreducible, S is the intersection sheaf of Gr^{(I_1,…,I_k)}_{I,ω̱}; b) (π^{(I_1,…,I_k)}_{(I′_1,…)})_!S^{(I_1,…,I_k)}_{I,W,A} ≅ S^{(I′_1,…)}_{I,W,A}; c) for W = ⊠_jW_j, S ≅ κ̃^*(⊠_j S^{(I_j)}_{I_j,W_j,A}) (compatibility with convolution); d) for ζ : I → J, Δ_ζ^*(S^{(I_1,…,I_k)}_{I,W,A}) ≅ S^{(J_1,…,J_k)}_{J,W^ζ,A}, functorially in W and compatibly with composition of ζ (compatibility with fusion, Remarque 1.18 — this is what makes geometric Satake a tensor functor). The proof follows [Gai07, thm. 2.6] and its appendix B: Mirković–Vilonen attach a perverse sheaf to each representation of Ĝ, convolution and fusion give the ⊠-case, and the general case is S^{(I_1,…,I_k)}_{I,W,A} = (S^{(I_1,…,I_k)}_{I,⊠_iR,A} ⊗ W)^{Ĝ^I} with R = O(Ĝ) as an ind-object of Rep(Ĝ). Remarque 1.19: the commutativity constraint is the modified one of [MV07] (before prop. 6.3), which adds a sign when permuting two sheaves supported on odd components — by [MV07, lemme 3.9] total cohomology then sits in even degrees, so the fibre functor is tensor into vector spaces rather than super vector spaces. Remarque 1.20: Z_{Σ∞x_i} acts trivially, so S is canonically G^{ad}_{Σ∞x_i}-equivariant.",
+      "locator": "Théorème 1.17 with Remarques 1.18–1.20, pp. 48–51; stated as Théorème 0.9 and Remarque 0.10, pp. 11–12, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ],
+      "note": "GS.1 plans \"the classical equal-characteristic geometric Satake equivalence with its pinning and commutativity normalization … Use rational ell-adic intersection complexes and specify half-Tate-twist choices\", and its acceptance test is exactly the two-leg fusion of d). Note the lettering differs between Théorème 0.9 (forgetful, convolution, fusion, IC) and Théorème 1.17 (IC, forgetful, convolution, fusion). Only this direction is used, and only through the functor — the fibre functor is never used as such (p. 11)."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/7",
+      "kind": "construction",
+      "name": "The classical–geometric Satake comparison and the sign (−1)^{⟨2ρ,ω⟩}",
+      "statement": "For v ∈ |X| and V irreducible with highest weight ω, h_{V,v} ∈ C_c(G(O_v)\\G(F_v)/G(O_v), O_E) is the spherical function attached to χ_V by the classical Satake isomorphism, and (−1)^{⟨2ρ,ω⟩}h_{V,v} is the trace of Frob_{Gr_v/k(v)} on S^{({0})}_{{0},V,E}|_{Gr_v}, the intersection sheaf of the closed stratum Gr_{v,ω}; the h_{V,v} form a basis of the spherical Hecke algebra over O_E, and even over Z[q^{1/2}, q^{−1/2}] ([Gro98, prop. 3.6]). Remarque 1.21: the sign is there because dim Gr_{v,ω} = ⟨2ρ, ω⟩, so h_{V,v} would be the trace outright had the Satake sheaves been normalized to have total cohomology in even degrees — the same normalization that gives the modified commutativity constraint, and the reason why no sign appears in Proposition 6.2.",
+      "locator": "§1.3, pp. 51–52, with Remarque 1.21, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "FunctionFieldArithmetic:FA.6"
+      ],
+      "note": "GS.1 plans the Satake normalization and half-Tate-twist choices, FA.6 the unramified Satake dictionary. This sign convention is the hinge between the geometric and the classical sides and should be pinned once, in GS.1."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/8",
+      "kind": "theorem",
+      "name": "Theorem 12.16: the twisted variant of geometric Satake for a non-constant group scheme over the curve",
+      "statement": "For the non-split case one needs the twisted geometric Satake equivalence of [Zhu15, Ric14]: a canonical functor W ↦ S^{(I_1,…,I_k)}_{I,W,E} from finite-dimensional E-linear representations of (^LG)^I to G^{ad}_{Σ∞x_i}-equivariant perverse sheaves (up to shift) on Gr^{(I_1,…,I_k)}_I, supported on Gr^{(I_1,…,I_k)}_{I,W}, universally locally acyclic over (X ∖ N̂)^I and satisfying the same properties b), c), d) as Theorem 1.17; the representations are those of the L-group, not merely of Ĝ, and Gr_{I,W} now serves only as a support, so no reflex field is introduced. If W factors through (^LG/Ĝ)^I = Gal(F̃/F)^I then S is supported on the section where all φ_j are isomorphisms and comes from the smooth sheaf attached to W, with fibre W at Δ(η̄). Remarque 12.17: E may be replaced by O_E, at the cost of losing the explicit description; Remarque 12.18: since the legs vary in X ∖ N̂, the shtuka stack depends only on G over X ∖ N̂ and on the compact open subgroup at N̂. A further generalization (12.9)–(12.10) fixes some legs at places v and then requires W to be a representation only of the local L-groups ^LG_{α(i)}; the trace of Frobenius on the one-leg sheaf at v is (−1)^{⟨2ρ,ω⟩}h_{V,v}.",
+      "locator": "Théorème 12.16 with Remarques 12.17–12.18 and (12.9)–(12.10), pp. 156–159, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "note": "GS.1 plans \"descend nonsplit data via the L-group\"; the twisted Satake sources ([Zhu15], [Ric14]) are not otherwise named in the atlas and are recorded as prerequisites here. The partially-fixed-legs variant is what makes the operators S_{V,v} available in the non-split case."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/9",
+      "kind": "definition",
+      "name": "Definition 2.1 (= Definitions 0.2 and 0.6): the stacks of G-shtukas with several legs and level structure",
+      "statement": "Cht^{(I_1,…,I_k)}_{N,I} (resp. …_{N,I,ω̱}, resp. the open …^{≤μ}_{N,I,ω̱}) is the ind-stack (resp. stack) over (X ∖ N)^I classifying the data of Hecke^{(I_1,…,I_k)}_{N,I} (resp. with the bound, resp. with G_0 ∈ Bun^{≤μ}_G) together with an isomorphism σ : ^τG_0 ≅ G_k respecting level structures; equivalently it is the fibre product of the Hecke correspondence with the graph of the Frobenius of Bun_{G,N} (Remarque 0.3). A point is written ((x_i)_{i∈I}, (G_0, ψ_0) → ⋯ → (^τG_0, ^τψ_0)). G(O_N) acts by changing the level structure. For G = GL_r, I = {1,2}, ω_1 = (1,0,…,0), ω_2 = (0,…,0,−1) the two orders of the partition give Drinfeld’s left and right shtukas [Dri87], with x_1 and x_2 the zero and the pole; the truncations differ from those of [Laf02a] but the inductive systems are comparable. The x_i are the legs and 𝔭^{(I_1,…,I_k)}_{N,I} : Cht → (X ∖ N)^I the characteristic morphism (Notation 2.3). An I-tuple ω̱ is admissible if [Σ_iω_i] = 0 in π_1(G) (Definition 2.4), equivalently, dually, if Z_Ĝ acts trivially on ⊗_iV_{ω_i} (Remarque 2.5).",
+      "locator": "Définition 2.1, Remarques 2.2, 2.5, Notation 2.3, Définition 2.4, pp. 52–53; Définitions 0.2 and 0.6, pp. 4–7; §2 is almost word for word from [Var04] except Propositions 2.8–2.9, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "GS.2 plans \"a multi-leg global shtuka as successive modifications together with an isomorphism to the pullback by Frobenius … Construct bounds, level, partial Frobenius and HN truncations\", naming this paper as its source. Unlike [Var04] the stack is required to be reduced (which does not affect étale cohomology)."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/10",
+      "kind": "theorem",
+      "name": "Proposition 2.6 and Remark 2.19: the basic geometry of the shtuka stacks",
+      "statement": "Proposition 2.6 (a variant of [Var04, prop. 2.16]): a) Cht^{(I_1,…,I_k)}_{N,I,ω̱} is a Deligne–Mumford stack over (X ∖ N)^I, locally of finite type, and the connected components of the ≤μ-truncation are quotients of quasi-projective schemes by finite groups, and are quasi-projective schemes as soon as dim O_N is large in terms of μ and ω̱; b) it is a finite étale Galois covering of the level-free stack with group G(O_N); c) legs with ω_i = 0 split off as factors (X ∖ N)^{I∖J}; d) if all ω_i = 0 the stack is (X ∖ N)^I times the discrete stack Bun_{G,N}(F_q); e) it is non-empty if and only if ω̱ is admissible. Remarque 2.19: the open Cht^0_{N,I,ω̱} where the legs are pairwise distinct and the relative positions are exactly ω_i is smooth and dense, non-empty exactly for ω̱ admissible, the forgetful morphism is an isomorphism above it, and its preimage is dense — all of this after quotienting by Ξ as well.",
+      "locator": "Proposition 2.6 and Remarque 2.19, pp. 53–54 and 60–61 ([Var04, prop. 2.16, cor. 2.21]; generalizing [Dri87, props. 2.3 and 3.2]), arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "GS.2 plans \"the needed representability/Deligne–Mumford and finite-type statements with their stabilizer hypotheses\" and its acceptance test \"a rank-one shtuka over a finite field checks the Frobenius condition\"; d) is the statement that makes the no-leg case the space of automorphic functions."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/11",
+      "kind": "theorem",
+      "name": "Propositions 2.8 and 2.9: the shtuka stacks are smooth over the affine-Grassmannian local model",
+      "statement": "Proposition 2.8 (new here, not in [Var04]): ϵ^{(I_1,…,I_k)}_{(I),ω̱,ṉ} : Cht^{(I_1,…,I_k)}_{I,ω̱} → Gr^{(I_1,…,I_k)}_{I,ω̱}/G_{Σn_ix_i} is smooth of dimension dim G_{Σn_ix_i} = (Σ_in_i)dim G. The proof realizes the fibre product over a point z of the Grassmannian as the equalizer of the level-forgetting morphism b_1 : Bun_{G,Σn_ix_i} ×_{X^I} S → Bun_G × S, which is smooth of that dimension, and of b_2 = (Frob_{Bun_G} × Id) ∘ (a_z, Id) where a_z is \"modification by z\"; b_2 has zero derivative in the fibres because the Frobenius of Bun_G does, so the equalizer is smooth. Proposition 2.9 (also new): the broken-up variant ϵ^{(I_1,…,I_k)}_{(I_1,…,I_k),ω̱,ṉ} to ∏_j Gr^{(I_j)}_{I_j,(ω_i)_{i∈I_j}}/G_{Σ_{i∈I_j}n_ix_i} is smooth, being κ̃ ∘ ϵ_{(I)} with κ̃ smooth by Lemme 1.16. Remarque 2.10 gives the common generalization for a refinement (J_{j,l})_{j,l} of the partition, and notes that consequently, locally for the smooth topology, the stacks of G-shtukas are isomorphic to closed strata of Beilinson–Drinfeld affine Grassmannians or products of them — but the local model is not smooth unless all I_j are singletons and all coweights minuscule. The morphism does not factor through the quotient by Ξ (as an anonymous referee pointed out), but its composite with Gr/G_{Σn_ix_i} → Gr/G^{ad}_{Σn_ix_i} does, giving (2.10) and its level version, smooth of dimension (Σn_i)dim G^{ad}.",
+      "locator": "Propositions 2.8–2.9 with Remarque 2.10 and (2.10), pp. 54–60; stated at (0.12) and p. 8, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "GS.2 plans \"smooth local-model maps to bounded Grassmannians\". These two propositions and Proposition 2.11 are the only parts of §2 not taken from [Var04]; the Ξ-descent through G^{ad} is the correction the referee forced and is easy to get wrong."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/12",
+      "kind": "theorem",
+      "name": "Proposition 2.11 and Lemma 2.13: the étale-local structure of the shtuka stacks",
+      "statement": "Proposition 2.11 (a constructive variant of [Var04, thm. 2.20]): locally for the étale topology, Cht^{(I_1,…,I_k)}_{N,I,ω̱} is isomorphic to ∏_{j=1}^k Gr^{(I_j)}_{I_j,(ω_i)_{i∈I_j}}, compatibly with the morphism ϵ of Proposition 2.9; precisely, given étale charts α_j × (x_i)_{i∈I_j} : U_j → Bun_{G,N} × (X ∖ N)^{I_j} carrying a trivialization of the universal torsor on Γ_{Σ_{i∈I_j}n_ix_i}, the induced β : U → ∏_j Gr^{(I_j)}_{I_j,(ω_i)} is étale. Lemma 2.13 (a small generalization of [Var04, lemme 4.3]) is the engine: for W, Z, T of finite type over F_q with h = (h_1, h_2) : W → Z × T étale, f : W → Z arbitrary and Z smooth, the locus U = {w : h_1(w) = Frob_Z(f(w))} has h_2 : U → T étale — proved by reducing to Z = A^m and computing the Jacobian, where the Frobenius contributes a zero block. Unlike [Var04, §4] the proof does not use the Drinfeld–Simpson theorem [DS95, thm. 2]. Remarque 2.12 gives the refinement for (J_{j,l})_{j,l}.",
+      "locator": "Propositions 2.11, Lemme 2.13 and Remarque 2.12, pp. 56–59, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "GS.2 plans the local models; Lemme 2.13 is the elementary reason why \"intersecting with the graph of Frobenius\" preserves étaleness, and is worth isolating as a lemma about schemes. The paper notes that Proposition 2.11 is not used later."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/13",
+      "kind": "construction",
+      "name": "The Harder–Narasimhan truncations, the lattice Ξ and the intersection sheaf",
+      "statement": "For a dominant coweight μ of G^{ad}, Cht^{(I_1,…,I_k),≤μ}_{N,I,ω̱} is the open where the Harder–Narasimhan polygon of the G^{ad}-torsor attached to G_0 is ≤ μ (defined by deg B_λ ≤ ⟨μ, λ⟩ for every B-structure; [Var04, lemme A.3] gives openness and finite-type components). Z(F)\\Z(A) acts through Bun_{Z,N}(F_q) by twisting; the action preserves the truncations, because they are taken on the G^{ad}-torsor, and commutes with the partial Frobenius morphisms. A lattice Ξ ⊂ Z(F)\\Z(A) is fixed once and for all, and Cht^{(I_1,…,I_k),≤μ}_{N,I,ω̱}/Ξ is a Deligne–Mumford stack of finite type (Lemme 12.19 in the non-split case). F^{(I_1,…,I_k)}_{N,I,ω̱,Ξ,E} (Definition 2.14) is its intersection sheaf, normalized relative to (X ∖ N)^I. Corollaire 2.15: F is canonically the pullback of the Satake sheaf S^{(I_1,…,I_k)}_{I,⊠V_{ω_i},E} along the smooth morphism of Proposition 2.8; Corollaire 2.16 is the broken-up version; Corollaire 2.18: the forgetful morphism Cht^{(I_1,…,I_k)}_{N,I,ω̱}/Ξ → Cht^{(I′_1,…)}_{N,I,ω̱}/Ξ is projective, surjective and small, so its Rπ_! preserves F — which is why the cohomology below does not depend on the partition.",
+      "locator": "§2.3, Définition 2.14, Corollaires 2.15, 2.16, 2.18 and Remarque 2.17, pp. 59–60; pp. 4–5 and 12 of the introduction, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ],
+      "note": "GS.0 plans the Harder–Narasimhan bounded opens and their finite type; GS.2 the HN truncations of the shtuka stacks; EDC.5 the intersection complex and smallness. \"Nonproperness and unbounded HN degree remain visible\" (GS.2) is the same caveat the paper works under."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/14",
+      "kind": "construction",
+      "name": "§3: the partial Frobenius morphisms and their action on the intersection sheaves",
+      "statement": "Fr^{(I_1,…,I_k)}_{I_1,N,I} : Cht^{(I_1,…,I_k)}_{N,I} → Cht^{(I_2,…,I_k,I_1)}_{N,I} sends a chain to the one obtained by dropping (G_0, ψ_0) and appending (^τG_1, ^τψ_1) through ^τφ_1, and lies over Frob_{I_1} : (X ∖ N)^I → (X ∖ N)^I, which raises the coordinates in I_1 to the q-th power; partial Frobenius morphisms are Drinfeld’s [Dri78, Dri87] and the generalization is evident. Lemme 3.1: they do not preserve the truncations but act on the inductive system, with the explicit bounds (Fr_{I_1})^{-1}(Cht^{≤μ}) ⊂ Cht^{≤μ+Σ_{i∈I_1}ω_i} and Fr_{I_1}(Cht^{≤μ}) ⊂ Cht^{≤μ−w_0(Σ_{i∈I_1}ω_i)}, w_0 the longest Weyl element. Remarque 3.2: the composite of the k partial Frobenius morphisms is the total Frobenius over F_q, so each is a totally radicial local homeomorphism. Proposition 3.3: hence a canonical isomorphism F^{(I_1,…,I_k)}_{I_1,N,I} : (Fr_{I_1})^*(F^{(I_2,…,I_k,I_1)}_{N,I,ω̱,Ξ,E}) ≅ F^{(I_1,…,I_k)}_{N,I,ω̱,Ξ,E}, into which the scalar q^{−d/2} is incorporated by convention, d being the dimension of the stratum Gr^{(I_1)}_{I_1,(ω_i)_{i∈I_1}}, with signs governed by the modified commutativity constraint. Proposition 3.4: this is compatible with the Mirković–Vilonen comparison isomorphisms of Corollaire 2.16 and the canonical F_1 on the Satake side, the square being Cartesian up to totally radicial local homeomorphisms (Remarque 3.5).",
+      "locator": "§3, Lemme 3.1, Remarques 3.2, 3.5, Propositions 3.3–3.4 and (3.5), pp. 62–64; (0.6) and pp. 8–9, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2"
+      ],
+      "note": "GS.2 plans partial Frobenius truncations and GS.4 the partial Frobenius action. The increase of μ is exactly what prevents a direct application of Drinfeld’s lemma and forces the Hecke-finite sector; the q^{−d/2} normalization is the one that makes Proposition 6.2 sign-free."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/15",
+      "kind": "construction",
+      "name": "§4.1: the formalism of cohomological correspondences",
+      "statement": "Following [SGA5], [Var07] and [BV06]: a correspondence from X_1 to X_2 is a morphism a = (a_1, a_2) : A → X_1 × X_2 of stacks locally of finite type over F_q with a_2 representable of finite type; a cohomological correspondence from F_1 to F_2 supported on A is a morphism u : a_{2,!}(a_1^*F_1) → F_2, equivalently u : a_1^*F_1 → a_2^!F_2. If a_1 is proper and p_i : X_i → Y satisfy p_1 ∘ a_1 = p_2 ∘ a_2, then u induces H(u) : p_{1,!}F_1 → p_{2,!}F_2. Correspondences compose through C = A ×_{X_2} B using proper base change ã_{2,!}b̃_2^* ≅ b_2^*a_{2,!}, and H(v ∘ u) = H(v) ∘ H(u) when the relevant legs are proper. All the operators of the paper — the partial Frobenius action F_J, the Hecke operators T(f), the creation and annihilation morphisms — are instances of this formalism, and the compatibilities between them are proved by composing correspondences.",
+      "locator": "§4.1, pp. 64–65, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "note": "EDC.8 plans exactly this: \"cohomological correspondences c₂*K → c₁^!K, their composition when the required properness/base-change maps exist, and the trace class on the fixed-point scheme … compatibility with proper pushforward and restriction\". The stacky case needed here (a_2 representable of finite type, the source only locally of finite type) should be part of that stage’s contract."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/16",
+      "kind": "construction",
+      "name": "Definitions 4.1, 4.5 and 4.7: the cohomology sheaves and the functor W ↦ H^{0,≤μ,E}_{N,I,W}",
+      "statement": "Definition 4.1: since Cht^{(I_1,…,I_k),≤μ}_{N,I,ω̱}/Ξ is a finite-type Deligne–Mumford stack, [LMB99, LO08] give H^{≤μ,E}_{N,I,ω̱} = R(𝔭^{≤μ}_{N,I})_!(F^{(I_1,…,I_k)}_{N,I,ω̱,Ξ,E}|…) ∈ D^b_c((X ∖ N)^I, E), independent of the partition by Corollaire 2.18, with cohomology sheaves H^{i,≤μ,E}_{N,I,ω̱}; Remarque 4.2: for I = ∅ this is C_c(Bun^{≤μ}_{G,N}(F_q)/Ξ, E) in degree 0; Remarque 4.3: for deg N′ large the truncated stack is representable quasi-projective, so étale cohomology of schemes and coinvariants under a finite group would suffice. The definition actually used is the functorial one: F^{(I_1,…,I_k)}_{N,I,W,Ξ,E} = (ϵ^{(I_1,…,I_k),Ξ}_{N,(I),W,ṉ})^*(S^{(I_1,…,I_k)}_{I,W,E}) (Definition 4.5), which for irreducible W is the intersection sheaf (Remarque 4.6, canonically once V_{ω_i} is *defined* as the total cohomology of the corresponding intersection sheaf), and H^{≤μ,E}_{N,I,W} = R(𝔭^{≤μ}_{N,I})_!(F^{(I_1,…,I_k)}_{N,I,W,Ξ,E}|…) (Definition 4.7), an E-linear functor in W with morphisms H(u) (Notation 4.9) and isotypic decomposition H^{≤μ,E}_{N,I,W} = ⊕_{ω̱}H^{≤μ,E}_{N,I,ω̱} ⊗_E W_{ω̱} (Remarque 4.8) — the last formula displays functoriality but is much less convenient for coalescence. Proposition 4.10 gives the broken-up description of F, compatible with the partial Frobenius at I_1.",
+      "locator": "Définitions 4.1, 4.5, 4.7, Notations 4.4, 4.9, Remarques 4.2, 4.3, 4.6, 4.8, Proposition 4.10, pp. 65–69; Définitions 0.4 and 0.11, pp. 5 and 12–13, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3"
+      ],
+      "note": "GS.3 plans \"compactly supported intersection cohomology on bounded truncations and its transition maps, then the filtered colimit used for shtukas\", with this paper as its source. Only the degree-zero cohomology sheaf is used later, which is why the conjectural description (0.43) sees only the diagonal G_m ⊂ SL_2 of an Arthur parameter."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/17",
+      "kind": "construction",
+      "name": "Construction 2.20 and §4.4: Hecke correspondences and the operators T(f)",
+      "statement": "Construction 2.20: for a finite set 𝔗 of places and g ∈ G(A) with g_v ∈ K_{N,v} for v ∉ 𝔗, g induces a finite étale representable self-correspondence Γ_N(g) of Cht^{(I_1,…,I_k)}_{N,I,ω̱} restricted to the legs outside |N| ∪ 𝔗, depending only on the double class K_NgK_N, presented at a deeper level N′ by the right action of g on level structures; there is κ with Γ_N(g) and its transpose carrying Cht^{≤μ} into Cht^{≤μ+κ}. When |N| ∩ 𝔗 = ∅ the class is given by coweights (λ_t)_{t∈𝔗} and Γ_N(g) classifies two shtukas linked by κ_0 : G_0|_{(X∖𝔗)×S} ≅ G′_0|_{(X∖𝔗)×S} of relative position λ_t at t. §4.4: hence for f ∈ C_c(K_N\\G(A)/K_N, E) and κ large, morphisms T(f) : H^{≤μ,E}_{N,I,ω̱}|_{(X∖𝔗)^I} → H^{≤μ+κ,E}_{N,I,ω̱}|_{(X∖𝔗)^I} with T(f_1f_2) = T(f_1)T(f_2), defined by the finite correspondences or equivalently by cohomological correspondences (and over O_E if f is), commuting with the partial Frobenius action. Proposition 4.14: the partial Frobenius action and the Hecke operators are compatible with the morphisms H(u) and with the coalescence isomorphisms, and for j ∈ J, Δ_ζ^*(F_{ζ^{-1}({j})}) corresponds to F_{{j}}.",
+      "locator": "Construction 2.20, pp. 61–62, §§4.3–4.4 and Proposition 4.14, pp. 66–70; (0.7), pp. 5–6, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.3 plans \"Hecke correspondences, cohomological correspondences and adjunction maps on that colimit with coefficient and support control\"; GS.4 the commutation of the partial Frobenius with them. That these morphisms extend to all of (X ∖ N)^I is the content of Corollaire 6.5 and is not formal."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/18",
+      "kind": "construction",
+      "name": "Proposition 4.12 (= Definition 0.12): the coalescence isomorphisms χ_ζ",
+      "statement": "For ζ : I → J with diagonal Δ_ζ : X^J → X^I and W^ζ the representation of Ĝ^J obtained from W through Ĝ^J → Ĝ^I, (g_j) ↦ (g_{ζ(i)}), the canonical isomorphism d) of Theorem 1.17 gives a canonical isomorphism χ_ζ : Δ_ζ^*(H^{≤μ,E}_{N,I,W}) ≅ H^{≤μ,E}_{N,J,W^ζ} in D^b_c((X ∖ N)^J, E), functorial in W and compatible with composition of ζ — the coalescence isomorphism, after [BV06, rem. 2.3.2] and [Var04]. It is enough to treat ζ injective, where it follows from Proposition 2.6 c), and ζ surjective, where the tautological isomorphism Cht^{(I_1,…,I_k)}_{N,I} ×_{(X∖N)^I}(X ∖ N)^J ≅ Cht^{(J_1,…,J_k)}_{N,J} together with d) identifies the perverse sheaves and proper base change gives the isomorphism on cohomology. Remarque 4.13: no shift or Tate twist appears, because the intersection sheaves have been normalized relative to the powers of X; and the modified commutativity constraint is used — the simplest instance being ζ a permutation of I, i.e. a change of the order of the legs. The paper reserves \"coalescence\" for legs fusing on the curve and \"fusion\" for the fusion product of perverse sheaves.",
+      "locator": "Proposition 4.12 with Remarques 4.13–4.14, pp. 69–70; Définition 0.12 and Remarque 0.13, pp. 12–13, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3"
+      ],
+      "note": "GS.4 plans \"specializing legs with explicit independence and coalescence isomorphisms\"; the canonicity of Definition 4.5 is what makes this construction possible, since source and target live on different spaces."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/19",
+      "kind": "construction",
+      "name": "Definitions 5.1–5.2 and Lemma 5.3 (= Definition 0.14): the creation and annihilation morphisms",
+      "statement": "Let I, J be finite sets, ζ_J : J → {0}, ζ^I_J = (Id_I, ζ_J), W and U representations of (Ĝ)^I and (Ĝ)^J, and x ∈ U, ξ ∈ U^* invariant under the diagonal Ĝ, i.e. morphisms x : 1 → U^{ζ_J} and ξ : U^{ζ_J} → 1 of Ĝ-representations. The creation morphism C^♯_x is the composite of χ_{ζ^I_∅}, H(Id_W ⊠ x) and χ^{-1}_{ζ^I_J}, from H^{≤μ,E}_{N,I,W} ⊠ E_{X∖N} to H^{≤μ,E}_{N,I∪J,W⊠U}|_{(X∖N)^I×Δ(X∖N)}; the annihilation morphism C^♭_ξ is the analogous composite in the other direction. By Proposition 4.14 they commute with the Hecke operators and with F_K for K ⊂ I, and they intertwine F_J with the natural partial Frobenius action on E_{X∖N}. Lemme 5.3 records the commutation and composition rules: a creation at one point and an annihilation at another commute; two creations commute and their restriction to the diagonal is C^♯_{x_1⊠x_2}; likewise for annihilations.",
+      "locator": "Définitions 5.1–5.2, Lemme 5.3 and (5.1), pp. 70–72; Définition 0.14, pp. 13–14, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.4 plans \"Verify creation/annihilation and partial Frobenius commute with Hecke operators\", which is exactly Proposition 4.14 plus Lemme 5.3."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/20",
+      "kind": "theorem",
+      "name": "Remark 5.4: Verdier duality, the Chevalley involution and the transposition of creation and annihilation",
+      "statement": "Let θ be a Chevalley involution of Ĝ, with θ(t) = t^{−1} on T̂. Normalizing Verdier duality relative to X^I, Theorem 1.17 gives a canonical isomorphism 𝔻(S^{(I_1,…,I_k)}_{I,W,E}) ≅ S^{(I_1,…,I_k)}_{I,W^{*,θ},E}, functorial in W, where W^{*,θ} is the contragredient composed with θ^I; hence Cht^{≤μ}_{N,I,W} = Cht^{≤μ}_{N,I,W^{*,θ}} and 𝔻(F^{(I_1,…,I_k)}_{N,I,W,Ξ,E}) ≅ F^{(I_1,…,I_k)}_{N,I,W^{*,θ},Ξ,E}, canonically, functorially in W and compatibly with coalescence. This yields a pairing 𝔅^{Ξ,E}_{N,I,W} : H^{0,≤μ,E}_{N,I,W^{*,θ}} ⊗ H^{0,≤μ,E}_{N,I,W} → E_{(X∖N)^I}, for which the creation and annihilation morphisms are transposes of one another. Consequences: the transpose of an excursion operator is an excursion operator (used in Remarque 12.15 to argue that B would be reduced if Conjecture 12.12 held), and Remarque 9.2 characterizes the excursion operators by this bilinear form.",
+      "locator": "Remarque 5.4 with (5.2)–(5.3), pp. 72–73; used in Remarques 9.2 and 12.15, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "ExcursionOperatorsAndSpectralAction:ES6:duality"
+      ],
+      "note": "EDC.1 owns Verdier duality; ES6:duality plans \"compatibility of duality with the Chevalley/contragredient involution\" in the Fargues–Scholze local setting — this is the global shtuka counterpart, and the two should share the convention. Note the duality here is normalized relative to X^I, not absolutely."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/21",
+      "kind": "construction",
+      "name": "Definition 0.15 and §12.3.3: the operators S_{V,v} (create two legs, apply the partial Frobenius, annihilate)",
+      "statement": "For v a place of X ∖ N and V an irreducible representation of Ĝ, S_{V,v} is defined, for κ large in terms of deg(v) and V, as the composite of the creation morphism C^♯_{δ_V} attached to δ_V : 1 → V ⊗ V^* (which creates two legs at v), the deg(v)-th power of the partial Frobenius F_{{1}} at the first of them, and the annihilation morphism C^♭_{ev_V}; since creation and annihilation intertwine the Frobenius action on E_v with F_{{1,2}} = F_{{1}}F_{{2}}, and F_{{1}} commutes with F_{{1,2}}, the composite descends along Z/deg(v)Z to S_{V,v} : H^{0,≤μ,E}_{N,I,W} → H^{0,≤μ+κ,E}_{N,I,W} on (X ∖ N)^I. In the non-split case (§12.3.3) the same construction is carried out with the partially-fixed-legs sheaves H^{≤μ,E}_{N,I,α,W}, the two new legs being fixed at v and V a representation of the local L-group ^LG_v; the notation (F_{{1}})^{deg(v)} is then slightly abusive, since F_{{1}} itself does not exist in that setting, and S_{V,v} is again obtained by descent.",
+      "locator": "Définition 0.15 with (0.22)–(0.25), pp. 14–15; §12.3.3 with (12.15), pp. 161–162, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "This is the germ of an excursion operator: creation, a Frobenius move on one leg, annihilation. GS.5’s excursion construction and GS.4’s creation/annihilation both plan it."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/22",
+      "kind": "theorem",
+      "name": "Proposition 6.2 (= Proposition 0.16) and Corollary 6.5: S_{V,v} is the Hecke operator T(h_{V,v}), extended to all legs",
+      "statement": "The restriction of S_{V,v} to (X ∖ (N ∪ v))^I equals, as a morphism of sheaves there, the Hecke operator T(h_{V,v}). Consequently (Corollaire 6.5) for every f ∈ C_c(K_N\\G(A)/K_N, E) the morphism T(f) extends naturally, for κ large enough, to a morphism of constructible sheaves on the whole of (X ∖ N)^I, compatibly with composition: it suffices to treat f = h_{V,v} at one place, where the extension is S_{V,v}. The proof is geometric: two closed substacks Y_1, Y_2 of Cht^{({1},{2},I)}_{N,I∪{1,2},W⊠V⊠V^*}|_{(X∖(N∪v))^I×Δ(v)} realize the creation-then-partial-Frobenius and the annihilation as cohomological correspondences, their fibre product is canonically the finite étale Hecke correspondence Γ^{(I)}, and for V minuscule and deg(v) = 1 the two are smooth and transverse on the smooth loci, with the correction factor q^{−d/2} already built into the partial Frobenius; Remarque 6.9 shows that no sign is needed, and Remarque 6.17 that Bott–Samelson resolutions would give an alternative to the general singular case. For GL_r it is enough to treat V = Λ^kSt (Remarque 16.1).",
+      "locator": "Proposition 6.2 and Corollaire 6.5, p. 75, with Remarques 6.9 and 6.17, pp. 78 and 101; sketched as Proposition 0.16, pp. 15–19; the non-split case is (12.16), p. 162, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3"
+      ],
+      "note": "For Shimura varieties over number fields such extensions of Hecke operators were constructed by Zariski closure or nearby cycles ([Del71, FC90, GT05], p. 19); this is the shtuka analogue, and it is what makes the Eichler–Shimura relation available at every leg."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/23",
+      "kind": "theorem",
+      "name": "Proposition 7.1 (= Proposition 0.17): the Eichler–Shimura relations",
+      "statement": "Let I, W be as above, V an irreducible representation of Ĝ and v a place of X ∖ N. Then, for κ large enough in terms of deg(v) and V, Σ_{i=0}^{dim V}(−1)^i (F^{deg(v)}_{{0}})^i ∘ S_{Λ^{dim V − i}V, v}|_{(X∖N)^I×v} = 0, as morphisms lim_µ H^{0,≤µ,E}_{N,I∪{0},W⊠V}|_{(X∖N)^I×v} → lim_µ H^{0,≤µ,E}_{N,I∪{0},W⊠V}|_{(X∖N)^I×v}: the partial Frobenius at the leg 0 is annihilated by a polynomial of degree dim V whose coefficients are the restrictions of the morphisms S_{Λ^iV,v}, with coefficients in O_E. The proof is a tensor-algebra computation inspired by a proof of the Cayley–Hamilton theorem and using only Λ^{dim V+1}V = 0, applied to the definition of the S_{Λ^iV,v} by creation, partial Frobenius and annihilation; taking the restriction to (X ∖ N)^I × v requires the extension of the Hecke operators of Corollaire 6.5.",
+      "locator": "Proposition 7.1, p. 102 (§7); stated as Proposition 0.17, pp. 19–20, arXiv v10",
+      "status": "missing",
+      "note": "Routed as a source of GS.3 and GS.4: no stage of the atlas states an Eichler–Shimura relation for shtukas, yet GS.3's Hecke-finite finiteness and GS.4's application of Drinfeld's lemma both consume it."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/24",
+      "kind": "theorem",
+      "name": "Lemma 0.18 (Drinfeld): lisse sheaves on U^I with partial Frobenius actions are representations of π_1(U, η)^I",
+      "statement": "Let E be a constructible lisse O_E-sheaf on a dense open of (X ∖ N)^I equipped with an action of the partial Frobenius morphisms, i.e. isomorphisms F_{{i}} : Frob_{{i}}^*(E)|_{η^I} → E|_{η^I} commuting with one another and with composition the natural isomorphism Frob^*(E) ≅ E. Then E extends to a lisse sheaf on U^I for U a small enough dense open of X ∖ N, the fibre E|_{∆(η)} carries an action of π_1(U, η)^I, and for fixed U the functor E ↦ E|_{∆(η)} is an equivalence from constructible lisse O_E-sheaves on U^I with partial Frobenius action to continuous representations of π_1(U, η)^I on finite-type O_E-modules, compatibly with coalescence. Moreover sp^* : E|_{∆(η)} → E|_{η^I} is then an isomorphism (Remarque 0.19).",
+      "locator": "Lemme 0.18 and Remarque 0.19, p. 21 (Drinfeld, [Dri78, Thm. 2.1] and [Dri89, Prop. 6.1]; see also [Lau04]); §8, pp. 106–127, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.4 plans \"Drinfeld's lemma in the exact lisse/finite-rank setting first, then justify its use on the Hecke-finite sector\" — the two-step structure of this paper."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/25",
+      "kind": "construction",
+      "name": "Remark 0.24 and §8: the group FWeil(η^I, η̄^I) and the factorization of its action",
+      "statement": "FWeil(η^I, η̄^I) := {ε ∈ Aut_{F_q}(F̄_I) : ∃(n_i)_{i∈I} ∈ Z^I, ε|_{(F_I)^{perf}} = ∏_{i∈I}(Frob_{{i}})^{n_i}} is an extension of Z^I by Ker(π_1(η^I, η̄^I) → Ẑ), and for I a singleton it is the usual Weil group π_1(η, η̄) ×_Ẑ Z. A choice of specialization arrow sp gives an inclusion F̄ ⊗_{F_q} ⋯ ⊗_{F_q} F̄ ⊂ F̄_I and hence a surjection FWeil(η^I, η̄^I) → Weil(η, η̄)^I; the statement that the Hecke-finite part carries an action of π_1(η, η̄)^I is equivalent to saying that the natural FWeil-action factors through this surjection, and even through π_1(η, η̄)^I.",
+      "locator": "Remarque 0.24 with (0.35), pp. 23–24; Proposition 8.27 and Remarque 8.28, pp. 119–120, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.4 plans \"Construct the continuous action of a product of global Galois groups … A geometric fundamental group of C^I cannot simply be replaced by the product without the partial-Frobenius/descent theorem\", which is this group and this factorization."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/26",
+      "kind": "definition",
+      "name": "Definition 0.20 and Proposition 8.27 (= Lemma 0.22): the Hecke-finite part",
+      "statement": "For a geometric point x of (X ∖ N)^I, an element of lim_µ H^{0,≤µ,E}_{N,I,W}|_x is Hecke-finite if it lies in a finite-type O_E-submodule stable under T(f) for every f ∈ C_c(K_N\\G(A)/K_N, O_E); the Hecke-finite elements form an E-subspace stable under π_1(x, x̄) and under the Hecke algebra. Proposition 8.27: (lim_µ H^{0,≤µ,E}_{N,I,W}|_{η^I})^{Hf} is the union of the O_E-modules G|_{η^I} for G a constructible O_E-subsheaf of lim_µ H^{0,≤µ,E}_{N,I,W}|_{η^I} stable under the partial Frobenius morphisms — proved by taking, for a finite-type submodule M̌ stable under π_1 and the Hecke algebra, the sum of the F^{n_i}_{{i}}-translates of M̌ for n_i < deg(v_i) dim W_i, which is constructible and stable by the Eichler–Shimura relation. Hence FWeil, and then π_1(η, η̄)^I, acts on it (Proposition 0.23).",
+      "locator": "Définition 0.20 and Remarque 0.21, pp. 21–22; Proposition 8.27, p. 119, with Lemmes 8.30, 8.33; stated as Lemme 0.22 and Proposition 0.23, pp. 22–23, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.3 plans \"the Hecke-finite/cuspidal sector used by V. Lafforgue and prove its required finiteness; do not declare the full untruncated shtuka cohomology finite dimensional\" — exactly the paper's discipline, since lim_µ H is not constructible (its fibres are infinite dimensional)."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/27",
+      "kind": "theorem",
+      "name": "Corollary 8.34 (= Proposition 0.25): the specialization map is an isomorphism on Hecke-finite parts",
+      "statement": "The specialization homomorphism sp^* : lim_µ H^{0,≤µ,E}_{N,I,W}|_{∆(η̄)} → lim_µ H^{0,≤µ,E}_{N,I,W}|_{η̄^I}, for a fixed geometric generic point η̄^I of X^I and a specialization arrow sp : η̄^I → ∆(η̄), restricts to an isomorphism on the Hecke-finite parts. Propositions 8.31 and 8.32 are the two halves (the image of sp^* contains, respectively is contained in, the relevant subspaces).",
+      "locator": "Corollaire 8.34, p. 127, with Propositions 8.31–8.32, pp. 123–124; stated as Proposition 0.25, p. 24, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "This makes Definition 0.26 independent of the choice of η̄^I and sp, which is what GS.5's \"independence from auxiliary leg choices\" requires."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/28",
+      "kind": "definition",
+      "name": "Definition 0.26 and Proposition 9.7 (= Proposition 0.28): the spaces H_{I,W} and their three properties",
+      "statement": "H_{I,W} := (lim_µ H^{0,≤µ,E}_{N,I,W}|_{∆(η̄)})^{Hf}, with its action of Gal(F̄/F)^I = π_1(η, η̄)^I, which is independent of the choice of η̄^I and sp (Lemme 9.4). Proposition 9.7: a) W ↦ H_{I,W}, u ↦ H(u) is an E-linear functor from finite-dimensional representations of (Ĝ)^I to inductive limits of finite-dimensional continuous E-representations of Gal(F̄/F)^I; b) for every ζ : I → J there is an isomorphism χ_ζ : H_{I,W} ≅ H_{J,W_ζ}, functorial in W, equivariant for Gal(F̄/F)^J acting through the diagonal, and compatible with composition; c) for I = ∅ and W = 1, H_{∅,1} = C^{cusp}_c(G(F)\\G(A)/K_NΞ, E). All of this is compatible with the C_c(K_N\\G(A)/K_N, E)-module structure. Remarque 0.27: this paper proves only that H_{I,W} is an inductive limit of finite-dimensional continuous representations; Cong Xue [Xue17] later proved it is finite dimensional, for split groups, and that result is not used here.",
+      "locator": "Définition 0.26, p. 24; Proposition 9.7, p. 132, with Lemme 9.4, p. 130; stated as Proposition 0.28 and Remarque 0.27, pp. 24–26, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "Properties a), b), c) are the whole input to the construction of the excursion operators: everything after §9 is formal consequence of them."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/29",
+      "kind": "theorem",
+      "name": "Proposition 8.23: cuspidal = Hecke-finite in degree zero with no legs",
+      "statement": "The space of cuspidal functions C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, E) is exactly the Hecke-finite part of C_c(Bun_{G,N}(F_q)/Ξ, E). Cuspidal functions are Hecke-finite because the O_E-lattice of cuspidal functions is of finite type and Hecke-stable. Conversely, if a Hecke-finite f had a non-zero constant term f_P along a proper parabolic P with Levi M, then, since the representation ring of M̂ is a finite module over that of Ĝ, f_P would be Hecke-finite for M at a place v; the Hecke operators for M at v include translations by Z_M(F_v), the support of f_P lies in a translate of a cone in the finite-type free Z-module of degrees relative to M/Z (Remarque 8.26), and that contradicts membership of a finite-dimensional Z_M(F_v)-stable space (Lemmes 8.24, 8.25).",
+      "locator": "Proposition 8.23 with Notation 8.22, Lemmes 8.24–8.25 and Remarque 8.26, pp. 117–119; sketched on pp. 25–26, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "FunctionFieldArithmetic:FA.6"
+      ],
+      "note": "GS.3's acceptance test is \"At the trivial representation and no legs identify the cusp-form space exactly\", which is this proposition; FA.6 owns cuspidal subspaces and their reduction-theoretic finiteness."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/30",
+      "kind": "definition",
+      "name": "Definition 0.29 (= §9): the excursion operators",
+      "statement": "For a finite set I, a finite-dimensional representation W of (Ĝ)^I, ζ_I : I → {0}, morphisms of Ĝ-representations x : 1 → W_{ζ_I} and ξ : W_{ζ_I} → 1 (that is, x ∈ W and ξ ∈ W^* invariant under the diagonal Ĝ), and (γ_i)_{i∈I} ∈ Gal(F̄/F)^I, the excursion operator S_{I,W,x,ξ,(γ_i)_{i∈I}} ∈ End(H_{{0},1}) is the composition H_{{0},1} → H_{{0},W_{ζ_I}} ≅ H_{I,W} --(γ_i)--> H_{I,W} ≅ H_{{0},W_{ζ_I}} → H_{{0},1} of H(x), χ_{ζ_I}^{-1}, the Galois action, χ_{ζ_I} and H(ξ): a creation operator which creates legs at one and the same generic point of the curve, a Galois action which moves the legs around the curve independently and brings them back, and an annihilation operator. These operators are endomorphisms of H_{{0},1} = C^{cusp}_c(G(F)\\G(A)/K_NΞ, E) as a module over the Hecke algebra.",
+      "locator": "Définition 0.29 with (0.42), pp. 26–27; §9, pp. 127–133, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "ExcursionOperatorsAndSpectralAction:ES0"
+      ],
+      "note": "GS.5 plans \"excursion operators indexed by invariant functions and Galois tuples\" for the global function-field case; ES0 plans the same formal construction (\"a finite leg set, a matrix coefficient/invariant function, creation by a coevaluation map, the prescribed tuple of Weil elements and annihilation by evaluation\") for the Fargues–Scholze local setting. Keep the two distinct: this paper is the global source."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/31",
+      "kind": "theorem",
+      "name": "Lemma 10.1 (= Lemma 0.31) and Proposition 10.8 (= Proposition 0.36): the relations satisfied by the excursion operators",
+      "statement": "Lemma 10.1: S_{I,W,x,^tu(ξ′),(γ_i)} = S_{I,W′,u(x),ξ′,(γ_i)} for a (Ĝ)^I-equivariant u : W → W′; S_{J,W_ζ,x,ξ,(γ_j)_{j∈J}} = S_{I,W,x,ξ,(γ_{ζ(i)})_{i∈I}}; S over a disjoint union with exterior products is the composition of the two operators; and S_{I,W,x,ξ,(γ_i(γ′_i)^{-1}γ″_i)} = S_{I⊔I⊔I,W⊠W^*⊠W,δ_W⊠x,ξ⊠ev_W,(γ_i)×(γ′_i)×(γ″_i)}. By Observation 0.32 the functions (g_i)_{i∈I} ↦ ⟨ξ, (g_i)_{i∈I}·x⟩ obtained by varying W, x, ξ are exactly the regular functions on the coarse quotient Ĝ\\(Ĝ)^I/Ĝ, and by Lemma 10.6 the operator depends only on I, that function f and (γ_i)_{i∈I}, so one may write S_{I,f,(γ_i)}. Proposition 10.8 then reformulates the relations: (i) f ↦ S_{I,f,(γ_i)} is a morphism of commutative algebras O(Ĝ\\(Ĝ)^I/Ĝ) → B; (ii) S_{J,f_ζ,(γ_j)} = S_{I,f,(γ_{ζ(i)})}; (iii) S_{I⊔I⊔I,f̃,(γ_i)×(γ′_i)×(γ″_i)} = S_{I,f,(γ_i(γ′_i)^{-1}γ″_i)} for f̃((g_i)×(g′_i)×(g″_i)) = f((g_i(g′_i)^{-1}g″_i)); (iv) (γ_i)_{i∈I} ↦ S_{I,f,(γ_i)} is continuous for the E-adic topology on B. Remarque 10.9: S_{I,f,(γ_i)} = S_{I,f,(γ_iγ)} for any γ.",
+      "locator": "Lemme 10.1, p. 133, Lemme 10.6 and Notation 10.7, p. 138, Proposition 10.8, p. 138, Remarque 10.9, p. 139; stated as Lemmes 0.31, 0.33, Observation 0.32, Définition 0.34 and Proposition 0.36, pp. 28–30, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "ExcursionOperatorsAndSpectralAction:ES0",
+        "LanglandsParameterStacks:LP2:excursion-presentation"
+      ],
+      "note": "GS.5 plans \"prove the relations and commutativity\"; ES0 plans \"linearity, multiplication, reindexing, unit insertion and composition relations … continuity in Weil variables\"; LP2:excursion-presentation owns the algebra of invariant functions on tuples. The proofs here use only properties a) and b) of Proposition 9.7."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/32",
+      "kind": "construction",
+      "name": "Notation 10.5 and the spectral decomposition (0.51): the excursion algebra B",
+      "statement": "B ⊂ End_{C_c(K_N\\G(A)/K_N,E)}(C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, E)) is the E-subalgebra generated by all excursion operators; it is commutative by the disjoint-union relation. It is not known whether B is reduced (Remarque 11.6), but a spectral decomposition — a decomposition into generalized eigenspaces, not a simultaneous diagonalization — gives H_{{0},1} = ⊕_ν H_ν over the characters ν of B, after enlarging E so that all characters of B are defined over E. Remarque 11.6 records that the subalgebra B_1 generated by the Θ_1(f) is generated by the Hecke operators at the places of X ∖ N.",
+      "locator": "Notation 10.5, p. 137, Remarque 11.6, p. 142, and (0.51), p. 30, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "GS.5 plans \"Record nilpotents/generalized eigenspaces rather than assuming simultaneous diagonalizability\" — the same warning the paper gives (p. 30: \"we do not know how to show that they are diagonalizable\")."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/33",
+      "kind": "theorem",
+      "name": "Lemmas 10.2 and 10.4 (= Lemma 0.39): Hecke operators at unramified places are excursion operators",
+      "statement": "Let v be a place of X ∖ N, with a fixed embedding F̄ ⊂ F̄_v, and γ ∈ Gal(F̄_v/F_v) ⊂ Gal(F̄/F) with deg(γ) = d. Then S_{{1,2},V⊠V^*,δ_V,ev_V,(γ,1)} depends only on d, and for d = 1 it equals T(h_{V,v}). The proof is the commutativity of a diagram in which the left-hand column is creation at v, the deg(v)d-th power of the partial Frobenius and annihilation — that is, S_{V,v} for d = 1 — and the right-hand column is the excursion operator, the two being linked by the specialization isomorphisms sp_v^*; Proposition 6.2 then identifies the left column with T(h_{V,v}). Remarque 10.3 notes that a formal tensor computation determines these operators for arbitrary d, and Remarque 0.40 that other d bring nothing new.",
+      "locator": "Lemmes 10.2 and 10.4, pp. 135–136, with Remarque 10.3; stated as Lemme 0.39 and Remarque 0.40, pp. 35–36, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "This is the bridge between the excursion algebra and the classical Hecke algebra, and hence the source of the Satake compatibility in Theorem 11.11."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/34",
+      "kind": "theorem",
+      "name": "Proposition 11.7 (= Proposition 0.37): a compatible system of invariant evaluations comes from a unique semisimple parameter",
+      "statement": "Let Γ be a profinite group and H a reductive group over E, not necessarily connected, with H^0 split. Suppose given, for every n ∈ N^*, an algebra morphism Ξ_n : O((H)^n//H^0) → C(Γ^n, E) — regular functions on H^n invariant under diagonal conjugation by H^0 — such that a) the sequence is functorial for all maps between the sets {1, …, n}, Ξ_n(f^ζ)((γ_j)) = Ξ_m(f)((γ_{ζ(i)})) for f^ζ((g_j)) = f((g_{ζ(i)})), and b) Ξ_{n+1}(f̂)(γ_1, …, γ_{n+1}) = Ξ_n(f)(γ_1, …, γ_nγ_{n+1}) for f̂(g_1, …, g_{n+1}) = f(g_1, …, g_ng_{n+1}). Then there is a continuous morphism σ : Γ → H(E′), E′/E finite, whose image has reductive Zariski closure in H_{E′}, with f(σ(γ_1), …, σ(γ_n)) = (Ξ_n(f))(γ_1, …, γ_n) for all n, f and (γ_i); and the σ with these properties form a single H^0(Q̄_ℓ)-conjugacy class. H is allowed to be disconnected because §12 applies the proposition with H = ^LG_E and H^0 = Ĝ_E; for a split G it is applied with H = H^0 = Ĝ_E and Γ = π_1(X ∖ N, η̄), to the system Θ^ν_n = ν ∘ Θ_n attached to a character ν of B, and yields the Langlands parameter σ with (C1) values in Ĝ(E′) and continuity, (C2) reductive Zariski closure of the image, (C3) ν(S_{I,f,(γ_i)}) = f((σ(γ_i))_{i∈I}) and (C4) factorization through π_1(X ∖ N, η̄); ν and the conjugacy class of σ then determine each other.",
+      "locator": "Proposition 11.7, p. 143, with the proof and Lemmes 11.9–11.10, pp. 144–147, and (C1)–(C4), pp. 147–148; stated as Proposition 0.37, pp. 30–34, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "LanglandsParameterStacks:LP2:semisimple-characters"
+      ],
+      "note": "GS.5 plans \"reconstruct continuous semisimple L-group parameters from characters of the excursion algebra\". LP2:semisimple-characters plans the Fargues–Scholze local analogue (FS VIII.3.8) for the Weil group of a local field with finite wild ramification; this is the global profinite statement, for a possibly disconnected H with H^0 split, and the two should cite one another rather than be proved twice. The invariant-theoretic input is routed separately below."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/35",
+      "kind": "theorem",
+      "name": "Notation 11.1, Lemma 11.9 (Richardson) and the invariant theory the reconstruction rests on",
+      "statement": "Notation 11.1: O((H_E)^n//H^0_E) is the algebra of regular functions on H^n invariant under diagonal conjugation, of finite type by Hilbert [Hil1893] (see [MFK94, I.2]), so that (H_E)^n//H^0_E = Spec of it is the coarse quotient. Following [Ric88], an n-tuple (g_1, …, g_n) ∈ H(Q̄_ℓ)^n is semisimple if the Zariski closure ⟨g_1, …, g_n⟩ of the group it generates is reductive; in characteristic zero this is equivalent to every parabolic containing the tuple containing an associated Levi containing it [Ser05]. Lemma 11.9 (Richardson): the tuple is semisimple if and only if its H^0_{Q̄_ℓ}-conjugacy class is closed in (H_{Q̄_ℓ})^n; and the closed H^0-orbits correspond to the Q̄_ℓ-points of the coarse quotient. This is [Ric88, Thm. 3.6] with the quotient taken by H^0 rather than H — the proof adapts because the contradiction in one direction is produced by a cocharacter, which lands in H^0, and the other direction applies the Hilbert–Mumford theorem [Ric88, Thm. 2.1] to the H^0-action — together with the general properties of coarse quotients [Ric88, 1.3.2]. The reconstruction also uses [Ric88, Thm. 5.2]: if (h_1, …, h_n) lies over the same point of the coarse quotient as a semisimple (g_1, …, g_n), then ⟨g_1, …, g_n⟩ is conjugate to a Levi subgroup of ⟨h_1, …, h_n⟩. Remarque 11.2 cites [Pro76, Ric88, Vin96] for these characteristic-zero quotients and [LM85, CW82] for the older moduli-of-representations literature, and §0.9 traces the idea to Poincaré [Poi1884].",
+      "locator": "Notation 11.1 and Remarque 11.2, pp. 140–141, Lemme 11.9, p. 144, and the uses of [Ric88, Thm. 5.2] in Lemme 11.10, p. 145; §0.9, pp. 37–38, arXiv v10",
+      "status": "missing",
+      "note": "Routed as a source of LanglandsParameterStacks LP2 and LP3: the characteristic-zero invariant theory of H^n under diagonal H^0-conjugation that the whole reconstruction rests on, and which the atlas's integral Fargues–Scholze stages consume without stating."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/36",
+      "kind": "theorem",
+      "name": "Remark 11.8: the GL_r case through pseudo-characters",
+      "statement": "For H = GL_r Proposition 11.7 is classical: the sequence (Θ_n) is determined by Θ_1(Tr), which must be the character of σ, and Λ^{r+1}St = 0 gives the pseudo-character relation, whence the existence of σ by Taylor [Tay91]. This is why the paper obtains nothing new for G = GL_r, where everything was already known from Drinfeld (r = 2) and Laurent Lafforgue.",
+      "locator": "Remarque 11.8, p. 143, with p. 32 of the introduction, arXiv v10",
+      "status": "missing",
+      "note": "Routed with the previous item: pseudo-characters and their Taylor reconstruction are the GL_r shadow of the general invariant-theoretic argument, and no stage of the atlas plans them (the string \"pseudo-character\" does not occur in the atlas)."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/37",
+      "kind": "theorem",
+      "name": "Lemma 11.10 and the proof of Proposition 11.7: the maximality choices, the homomorphism property and continuity",
+      "statement": "For (n, (γ_1, …, γ_n)) one writes ξ_n(γ_1, …, γ_n) for the point of (H)^n//H^0 attached to the character f ↦ Ξ_n(f)(γ_1, …, γ_n) and ξ^{ss}_n for the corresponding class of semisimple tuples, C(g_1, …, g_n) for its centralizer in H^0 and D(g_1, …, g_n) for the centralizer of C — both reductive, the centralizer of a reductive subgroup in a reductive group being reductive. One selects (n, (γ_i)) with dim⟨g_1, …, g_n⟩ maximal, then dim C minimal, then the number of connected components of C minimal. Lemma 11.10: for every γ ∈ Γ there is a unique g with (g_1, …, g_n, g) ∈ ξ^{ss}_{n+1}(γ_1, …, γ_n, γ), and then C(g_1, …, g_n, g) = C(g_1, …, g_n) and g ∈ D(g_1, …, g_n); existence uses condition a) and [Ric88, Thm. 5.2] with the maximality of the dimension, uniqueness the minimality of C. Setting σ(γ) = g gives a homomorphism, because (g_1, …, g_n, g, g′) and (g_1, …, g_n, gg′) are semisimple and conditions a), b) place them over the right points. σ takes values in H(E′) because g is determined by the image of (g_1, …, g_n, g) in (H)^{n+1}//H^0, which is defined over E. Continuity follows from the surjectivity of O((H_{E′})^{n+1}//H^0_{E′}) → O(D(g_1, …, g_n)), which factors through O(H_{E′}//C(g_1, …, g_n)) = O(H_{E′})^{C(g_1,…,g_n)}: the conjugation orbit of a semisimple tuple is a closed affine subvariety isomorphic to H^0/C, the quotient of a reductive group by a reductive subgroup being affine, and restriction to D stays surjective on C-invariants by complete reducibility of representations of the reductive C (the Reynolds operator, [MFK94, §I.1]). Finally all the tuples (σ(γ_1), …, σ(γ_n), σ(δ_1), …, σ(δ_m)) are semisimple, so the closure of the image of σ is reductive, and σ is unique up to H^0(Q̄_ℓ)-conjugacy since its construction was forced by the choice of (g_1, …, g_n).",
+      "locator": "Lemme 11.10, p. 145, and the proof of Proposition 11.7, pp. 144–147; sketched on pp. 32–34, arXiv v10",
+      "status": "missing",
+      "note": "Routed with the invariant theory: these are the steps that turn Richardson's theorems into a continuous homomorphism, and they are what LP2:semisimple-characters means by \"construct the representative from the compatible invariant evaluations, prove simultaneous conjugacy/complete reducibility and continuity\"."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/38",
+      "kind": "construction",
+      "name": "§12.1–12.3: the non-split case — L-group, ker^1(F, G), inner forms and Bruhat–Tits models",
+      "statement": "For G connected reductive over F, not necessarily split, one fixes a smooth model over X ∖ N̂ (Bruhat–Tits), the dual group Ĝ with the finite-image Galois action and the L-group ^LG = Ĝ ⋊ Gal(F̄/F). Lemme 12.1 ([Beh91], [Hei10, ex. (1) p. 504], [AH13, Prop. 2.2, Thm. 2.5]) supplies the vector bundle needed for the geometry of Bun_G in this generality. Remarque 12.2: the inclusion G(F)\\G(A)/K_N ⊂ Bun_{G,N}(F_q) has image the locally trivial G-bundles, and Bun_{G,N}(F_q) is the disjoint union, over ker^1(F, G), of the adelic quotients for the corresponding inner forms — which is why Theorem 12.3 decomposes a sum of cuspidal spaces for inner forms. Langlands parameters are then continuous semisimple sections of ^LG over Gal(F̄/F) up to Ĝ-conjugacy; Proposition 12.5 compares parameters under a morphism G′ → G, and Remarque 12.13 recovers the decomposition for SL_r from GL_r.",
+      "locator": "§§12.1–12.3, Lemme 12.1, Remarque 12.2, Proposition 12.5, Remarque 12.13, pp. 148–159, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "note": "GS.0 plans \"descend data for nonsplit groups and retain the ramified places\" and the torsor-class description of rational points; RG2.3 owns parahoric and congruence group schemes (the Bruhat–Tits models Heinloth helped with, p. 38); RG2.5 owns the L-group."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/39",
+      "kind": "theorem",
+      "name": "Conjecture 12.7 (with Remarks 12.6, 12.8–12.11): the parameters should come from elliptic Arthur parameters",
+      "statement": "Conjecture 12.7: every Langlands parameter σ occurring in the decomposition (12.5) is of the form σ_ψ for ψ an elliptic Arthur parameter. Remarque 12.8 hopes to prove it using the Lefschetz SL_2-actions on the cohomology of compactifications; Remarque 12.9 would like a decomposition of the whole discrete part, not only the cuspidal part; Remarque 12.10 notes that for groups other than GL_r multiplicities > 1 may occur in each H_σ; Remarque 12.11 records the coarser decomposition indexed by the parameters of the centre obtained through class field theory (Remarque 12.6).",
+      "locator": "Conjecture 12.7 with Remarques 12.6 and 12.8–12.11, pp. 153–155, arXiv v10",
+      "status": "missing",
+      "note": "Recorded as a conjecture and routed to GS.5 as a source: it is the expected shape of the answer, not a theorem, and GS.5's acceptance conditions explicitly exclude asserting \"that every parameter occurs, packet multiplicities, or a full general-group inverse correspondence\"."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/40",
+      "kind": "theorem",
+      "name": "Conjecture 12.12 (with Remarks 12.14–12.15): the decomposition should be defined over Q and independent of ℓ",
+      "statement": "Conjecture 12.12: the decomposition (12.5) is defined over Q and indexed by motivic Langlands parameters, and it is independent of ℓ and of the embedding Q̄ ↪ Q̄_ℓ. Remarque 12.14: granting the Tate conjecture in addition to the standard conjectures one could hope to prove it by making the constructions motivic; Remarque 12.15: it would imply the existence of an algebra B_Q with B ⊗_E Q̄_ℓ = B_Q ⊗_Q Q̄_ℓ for every embedding. Remarque 12.13 notes it is evident for GL_r.",
+      "locator": "Conjecture 12.12 with Remarques 12.13–12.15, pp. 155–156, arXiv v10",
+      "status": "missing",
+      "note": "Recorded as a conjecture and routed to GS.5 as a source, so that the stage records what is expected but unproved about the canonicity of its own output."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/41",
+      "kind": "theorem",
+      "name": "Proposition 13.1 and Theorem 13.2: the decomposition with F̄_ℓ coefficients",
+      "statement": "Proposition 13.1: the O_E-lattice C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, O_E) is preserved by every excursion operator S_{I,W,x,ξ,(γ_i)} with W, x, ξ defined over O_E. The proof builds H^{0,≤μ,O_E}_{N,I,W} as the image of R^0(p^{≤μ}_{N,I})_!(F^{(I_1,…,I_k)}_{N,I,W,Ξ,O_E}) inside the E-coefficient sheaf — \"one kills the possible torsion\" — shows these subsheaves are preserved by creation, annihilation, Hecke operators over O_E and the partial Frobenius morphisms, characterizes Hecke-finiteness integrally, and concludes that sp^* is an isomorphism on the integral Hecke-finite parts, so that E may be replaced by O_E throughout the definition of the excursion operators. It uses the O_E-coefficient geometric Satake of [MV07], whose argument avoids Verdier duality, so that the failure of duality to preserve the perverse t-structure integrally does not matter. Theorem 13.2: there is a canonical decomposition of C_c(K_N\\G(A)/K_N, F̄_ℓ)-modules C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, F̄_ℓ) = ⊕_σ ℌ^{F̄_ℓ}_σ indexed by the Ĝ(F̄_ℓ)-conjugacy classes of σ : π_1(X ∖ N̂, η̄) → ^LG(F̄_ℓ) that (i) take values in ^LG(F′) for a finite extension F′/F_ℓ and are continuous, (ii) have the prescribed projection to Gal(F̃/F), and (iii) are completely reducible, i.e. every parabolic of ^LG(F̄_ℓ) containing the image admits a Levi containing it; ℌ^{F̄_ℓ}_σ is the generalized eigenspace of the reduced excursion operators for the eigenvalue system ⟨ξ, (σ(γ_i))_{i∈I}·x⟩. The compatibility with Satake holds only in the generalized-eigenspace sense, and Remarque 13.3 says that containment in the honest eigenspace of h_{V,v} is presumably false in general, because the unramified Hecke operators mod ℓ need not be diagonalizable. The last paragraph of §13 relates the two decompositions: for σ : π_1(X ∖ N̂, η̄) → ^LG(Z̄_ℓ) whose rationalization satisfies the conditions of Théorème 11.11, the image of ℌ_{σ^{rat}} ∩ C^{cusp}_c(…, Z̄_ℓ) in C^{cusp}_c(…, F̄_ℓ) lies in ℌ^{F̄_ℓ}_{σ̄^{ss}}, σ̄^{ss} being the semisimplification of the reduction.",
+      "locator": "Proposition 13.1, p. 166, Théorème 13.2, p. 168, Remarque 13.3 and the closing paragraph, p. 169 (§13), arXiv v10",
+      "status": "missing",
+      "note": "Routed as a source of GS.5. No stage plans a modular-coefficient decomposition, and GS.1 defers modular Satake explicitly (\"integral and modular Satake are further coefficient branches\"), which Proposition 13.1 needs. Remarque 13.3 must travel with the theorem: the mod-ℓ branch is strictly weaker than GS.5's \"unramified Satake compatibility\"."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/42",
+      "kind": "theorem",
+      "name": "The characteristic-ℓ complete-reducibility input of §13",
+      "statement": "To run the reconstruction of σ over F̄_ℓ one needs complete reducibility in characteristic ℓ: Theorem 3.1 of Bate–Martin–Röhrle [BMR05], which completes in characteristic ℓ ≠ 0 the results of Richardson [Ric88] (both recapitulated as Theorem 3.7 of [Ser05]), with the details of the argument referred to the proof of Theorem 4.5 of [BHKT16]; and, for non-split G, the extension of complete reducibility to reductive groups that need not be connected (§6 of [BMR05]) together with the fact that every parabolic P of ^LG surjecting onto ^LG/Ĝ is \"of Richardson type\", justified through §I.3 and the proof of Lemma 3.5 of [Bor79]. One also uses that the O_E-defined functions (g_1, …, g_n) ↦ ⟨ξ, (1, g_1, …, g_n)·x⟩ are exactly the O_E-defined regular functions on (^LG)^n//Ĝ, and likewise over Z̄_ℓ and F̄_ℓ.",
+      "locator": "§13, pp. 167–168, arXiv v10",
+      "status": "missing",
+      "note": "Routed with the characteristic-zero invariant theory to LanglandsParameterStacks LP2 and LP3: LP3 is the atlas's stage for integral reductive invariant theory and for a reductive group in characteristic ℓ, and this is exactly the input it would need. PAPER-BOCKLE-HARRIS-KHARE-THORNE (issue #1468, not yet extracted) proves the theorem referred to here."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/43",
+      "kind": "construction",
+      "name": "§14: indications for metaplectic groups",
+      "statement": "The chapter \"indicates summarily\" how the results extend to metaplectic groups, in a deliberately modest framework: N divides q − 1 and the metaplectic extension comes from N-th roots of even-degree line bundles with good factorization properties (the bundles A, B, B^{(I)}_I), which covers the usual metaplectic extension of Sp_{2n} but not the general K_2-extensions of [GG14, Wei14, Wei15]; for the general case one would have to use factorization gerbes over F_q in the sense of [GL16]. One forms μ_N-gerbes B̃un_G, G̃r^{(I_1,…,I_k)}_I/G_{Σ∞x_i} and H̃ecke^{(I_1,…,I_k)}_I — Remarque 14.1: this is a factorization gerbe in the sense of [GL16], defined over F_q because N | q − 1 — lifts the shtuka stack to the gerbe by the trivialization A_{G_0} ⊗ A^{-1}_{^τG_0} = (A_{G_0})^{1-q} = ((A_{G_0})^{-(q-1)/N})^N, constructs an isogeny Z^♯ → Z as in [Lys15, 5.2.3] to replace the failure of the G_{Σ∞x_i}-action to factor through G^{ad}, and obtains the sheaves and the identification lim_μ H̃^{0,≤μ,E}_{N,∅,1}|_{F̄_q} = C_ζ(B̃un_{G,N}(F_q)/Ξ, E) with B̃un_{G,N}(F_q) = ∪_{α∈ker¹(F,G)}G_α(F)\\G̃_α(A)/K_N. The central input is **assumed**: that there is a group ^LG̃, an extension of Gal(F̃/F) by ^LG̃^0, for which the analogue of Théorème 12.16 holds, i.e. a canonical functor W ↦ S^{(I_1,…,I_k)}_{I,W,E} on representations of (^LG̃)^I with properties b), c), d) — its existence being justified in [FL10, Rei12, Lys14, GL16] only when G is split. Granting that, \"the same arguments as in chapter 12\" give a decomposition of C^{cusp}_ζ(B̃un_{G,N}(F_q)/Ξ, E) indexed by metaplectic Langlands parameters. Remarque 14.2: one may hope the F̄_ℓ-results of §13 extend, but this cannot be shown at present, because [FL10] and [Lys14] do not treat O_E coefficients.",
+      "locator": "§14 with Remarques 14.1–14.2 and (14.1)–(14.5), pp. 169–173, arXiv v10",
+      "status": "missing",
+      "note": "Routed as a source of MetaplecticAutomorphicForms MP.4. The chapter proves nothing: it assumes metaplectic geometric Satake (known only in the split case) and then says the arguments of §12 apply. The route must plan it as a programme, with Lysenko's and Gaitsgory–Lysenko's papers as the sources."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/44",
+      "kind": "theorem",
+      "name": "§15 and Proposition 15.1: the link with the geometric Langlands programme",
+      "statement": "For G split and N empty, the Hecke functors φ_{I,W}(F) = q_{1,!}(q_0^*(F) ⊗ F_{I,W}) on D^b_c(Bun_G, Q̄_ℓ) define what it is for F to be \"proper for E\": a family of isomorphisms φ_{I,W}(F) ≅ F ⊠ W_E, functorial in W and compatible with exterior products and fusion, for E a Ĝ-local system on X. The conjectures of the geometric Langlands programme imply the existence of such an F (non-zero after a Whittaker normalization). Proposition 15.1, labelled in print \"conditional on a result not yet written up\": if such an F is Ξ-equivariant and the function f attached to it by the sheaf-to-function dictionary, f(x) = Tr(Frob_x, F|_x), is cuspidal, then f ∈ ℌ_σ for σ the Galois representation attached to E; the proof shows S_{I,W,x,ξ,(γ_i)}(f) = ⟨ξ, (σ(γ_i))_{i∈I}·x⟩ f. It rests on morphisms (15.1) π^{F,E}_{I,W} : lim_μ H^{0,≤μ,Q̄_ℓ}_{N,I,W} → W_E of sheaves on X^I from the unpublished preprint [BV06] of Braverman–Varshavsky, functorial and Q̄_ℓ-linear in W and compatible with coalescence of legs and with the partial Frobenius — \"this last point has not yet been written up\". §0.7 explains what this buys: by the examples of Blasius and Lapid for SL_r (r ≥ 3), and of Larsen and S. Wang for other groups including E_8, one representation of the Hecke algebra can occur in several H_σ, and geometric Langlands had been the only systematic way to tell those copies apart.",
+      "locator": "Proposition 15.1 and §15, pp. 173–174, with §§0.7–0.8, pp. 36–37, arXiv v10",
+      "status": "missing",
+      "note": "Routed as a source of GS.3 and GS.5 for want of a better home: the atlas has no geometric-Langlands roadmap at all, although `geomlanglands` is one of its galaxy ids. The double conditionality — on the geometric Langlands conjectures and on an unwritten compatibility in [BV06] — must be carried."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/45",
+      "kind": "theorem",
+      "name": "§16: the case of GL_r, and the recursion ingredient of Laurent Lafforgue's proof",
+      "statement": "The chapter, \"which brings no new result\", shows how Théorème 0.1 gives a new proof of the recursion ingredient (16.4) of [Laf02a] — that to every cuspidal automorphic π of GL_r of level N one can attach a continuous σ : π_1(X ∖ N, η̄) → GL_r(Q̄_ℓ), defined over a finite extension of Q_ℓ, pure of weight 0 and matching π under Satake at every place of X ∖ N — and hence a new proof of the Langlands correspondence for GL_r, once §6.1 and Appendix B of [Laf02a] are added. Remarque 16.1: for GL_r it is enough to prove Proposition 6.2 for V = Λ^k St, k = 1, …, r, which are minuscule, and Proposition 11.7 was already known from Taylor [Tay91]. Lemme 16.2: for σ occurring in (11.11), V irreducible and V_σ = ⊕_τ τ ⊗ 𝔙_τ its decomposition over the irreducible representations τ of π_1(η, η̄), every τ with 𝔙_τ ≠ 0 has τ ⊠ τ^* a subquotient of H_{{1,2},V⊠V^*} — explicitly, for every non-zero h ∈ ℌ_σ, of the finite-dimensional subrepresentation generated by sp^*(C^♯_{δ_V}(h)) — and τ is ι-pure for every ι : Q̄_ℓ ≅ C. Lemme 16.4: for G = GL_r, assuming the Langlands correspondence known for every GL_{r′} with r′ < r, every σ occurring in the decomposition is irreducible and pure of weight 0 — by Rankin–Selberg [JS81, JPS83], the polynomiality of L(π̌ × π_τ, Z) and the pole of L_S(π̌ × π, Z) at Z = q^{-1} ([Laf02a, Thm. B.10], after Jacquet, Shahidi and Shalika), then ι-purity from Lemme 16.2 and the determinant from class field theory. The proofs are written so as not to use results known as consequences of [Laf02a], to avoid circularity (Remarque 16.3, on [Laf02a, Thm. VII.6]).",
+      "locator": "§16, Remarques 16.1, 16.3, 16.5 and Lemmes 16.2, 16.4, pp. 174–178, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "note": "GS.6 plans Laurent Lafforgue's independent GL_n route, \"induction on rank\", and \"construction in both directions\" with the converse theorems [CPS94] and Laumon's product formula [Lau87]; this chapter is exactly the interface between that route and Théorème 11.11, and Lemme 16.2's ι-purity is a GS.5-level statement about the cohomology with two legs."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/46",
+      "kind": "construction",
+      "name": "Bun_{G,N}: G-bundles on X with level structure, and its rational points",
+      "statement": "The moduli stack Bun_{G,N} of a G-bundle G on X × S with a trivialization over N × S; for a smooth group scheme over X with geometrically connected fibres it is a smooth algebraic stack locally of finite type ([Hei10, prop. 1], [AH13]), and Bun_{G,N}(F_q) is a G(O_N)-torsor over Bun_G(F_q) by Lang’s theorem applied to the Weil restriction G_N. Lemme 12.1 ([Beh91], [Hei10, ex. (1) p. 504], [AH13, prop. 2.2, thm. 2.5]) gives a vector bundle V of rank r with trivialized determinant and a faithful ρ : G → SL(V) with SL(V)/G quasi-affine, so that ρ_* : Bun_G → Bun^0_{GL_r} is representable quasi-affine of finite presentation and the finite-type opens of Bun_G can be pulled back from those of Bun^0_{GL_r} ([Wan11]). The identification Bun_{G,N}(F_q) = G(F)\\G(A)/K_N holds for split G, and in general Bun_{G,N}(F_q) is the disjoint union over ker¹(F, G) of the adelic quotients of the pure inner forms (Remarques 8.21, 12.2). The space of cuspidal functions is finite dimensional ([Har74], [BJ79, prop. 5.2]), because cuspidality forces vanishing on very unstable bundles.",
+      "locator": "§§1–2, Remarques 8.21, 12.2, Lemme 12.1 and §12.1, pp. 41–62, 116–151, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "FunctionFieldArithmetic:FA.6"
+      ],
+      "note": "GS.0 plans Bun_G with level structures, the deformation complex, the Harder–Narasimhan bounded opens and the adelic description in the appropriate torsor classes; FA.6 owns the adelic quotient, compact-level functions and the finiteness of cuspidal spaces."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/47",
+      "kind": "construction",
+      "name": "Perverse sheaves, intersection complexes, universal local acyclicity and relative normalizations",
+      "statement": "The middle perverse t-structure with intermediate extensions; the intersection sheaf IC^E_Y of a stack, normalized to be pure of weight 0, and its renormalization relative to a morphism to a smooth base (here (X ∖ N)^I), which is what makes the coalescence isomorphisms free of shifts and Tate twists; universal local acyclicity relative to X^I; smallness of a proper map and the resulting identification of direct images of intersection complexes; Verdier duality normalized relative to the base; and the constructible A-sheaf conventions of [Del80, §1.1] for A = O_E, E, Q̄_ℓ, with inductive limits treated only as abstract inductive systems except on fibres.",
+      "locator": "§0.12 notations 7), 11), pp. 39–40; used throughout §§1–8, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.5",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "note": "EDC.5 plans the perverse t-structure and intermediate extension, EDC.1 Verdier duality, EDC.0 the coefficient, support and geometric-stalk interfaces. The relative-to-the-base normalization used here is a convention the atlas should fix once, since every statement about coalescence depends on it."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/48",
+      "kind": "construction",
+      "name": "The six operations on stacks with adic coefficients, geometric points and specialization",
+      "statement": "Cohomology of Deligne–Mumford and Artin stacks in the sense of [LMB99] and [LO08]: Rf_!, Rf^!, proper base change and the bounded constructible categories, used to define the cohomology sheaves. Together with the conventions of §8: a geometric point is an algebraically closed field over a point (deliberately *not* the separably closed convention of [SGA4-2-VIII]), Y_{(x)} is the strict localization, a specialization arrow sp : x → y is a morphism Y_{(x)} → Y_{(y)}, and it induces sp^* : F_y → F_x for every constructible sheaf ([SGA4-2-VIII, §7]).",
+      "locator": "§§4.2 and 8, pp. 65 and 106, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "note": "EDC.0 plans the coefficient and geometric-stalk interfaces and SF.1 stack descent, but no stage of the atlas names the Laszlo–Olsson six operations on Artin stacks or the specialization homomorphism of SGA 4; both are used here as black boxes and are worth a maintainer note."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/49",
+      "kind": "construction",
+      "name": "The Langlands dual group, the L-group and the classical Satake isomorphism",
+      "statement": "Ĝ as a split connected reductive group over Q̄_ℓ (over Z_ℓ in §13) with roots and weights exchanging those of G, the Weyl modules V_λ, the bijection between irreducible representations and dominant coweights, minuscule representations (all weights Weyl-conjugate, equivalently a closed orbit in the affine Grassmannian), and π_1(G) = X_*(T)/X_*(T^{sc}) dual to Z_Ĝ. In the non-split case the L-group ^LG = Ĝ ⋊ Gal(F̃/F) for the pinning-preserving action of the image of Gal(F̄/F) in the automorphisms of the Dynkin diagram, with the local L-groups ^LG_v ⊂ ^LG attached to embeddings F̄ ⊂ F̄_v and unramified over U. The Satake isomorphism [V] ↦ h_{V,v} from the representation ring to the spherical Hecke algebra, in the non-split case in the form S : O(Ĝ_E ⋊ Frob_v//Ĝ_E) ≅ C_c(G(O_v)\\G(F_v)/G(O_v), E) of (12.4).",
+      "locator": "§0.12 notations 1), 2), p. 39; §1.3 and §12.1, pp. 51 and 149–151, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "ReductiveGroupsPartII:RG2.5",
+        "FunctionFieldArithmetic:FA.6",
+        "ReductiveGroupsPartII:RG2.3"
+      ],
+      "note": "RG2.5 plans the pinned dual group and the semidirect L-group with its projection and Levi inclusions, FA.6 the unramified Satake dictionary, RG2.3 the parahoric models. The square root of q in E is a coefficient choice, as RG2.5 states."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/50",
+      "kind": "construction",
+      "name": "Galois and fundamental groups of a function field, Frobenius elements and inertia",
+      "statement": "Gal(F̄/F) = π_1(η, η̄), the fundamental group π_1(U, η̄) of a dense open, the Weil group Weil(η, η̄) = π_1(η, η̄) ×_{Ẑ} Z, the degree homomorphism, the decomposition subgroup Gal(F̄_v/F_v) attached to an embedding F̄ ⊂ F̄_v, the inertia I_v and Frobenius elements Frob_v; the fact that π_1(X ∖ N, η̄) is the topological quotient of π_1(U, η̄) by the closed subgroup generated by the inertia at the missing places, used in Proposition 10.10; and Chebotarev’s theorem, used in Remarques 11.6 and 12.13.",
+      "locator": "§§0.4, 0.6, 8, 10 and 12, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.5",
+        "FunctionFieldArithmetic:FA.3"
+      ],
+      "note": "FA.5 plans Frobenius, Artin factors and Chebotarev over a function field, FA.3 ramification in positive characteristic. The continuity statements of Proposition 10.8(iv) and (C1) are about these topologies."
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/51",
+      "kind": "theorem",
+      "name": "The local Langlands parametrization and local–global compatibility (Genestier–Lafforgue)",
+      "statement": "In joint work with Alain Genestier [GL17] the author proves the local Langlands parametrization and its compatibility with the global parametrization of Théorème 11.11; the present paper does not prove it, and states only that it exists. The germ of that work is visible here as Lemme 6.12 and §6.4: the operators S_{V,v} are of local nature at v, proved through the stacks of *restricted* shtukas Cht^{({1},{2}),res(m,n)}_{V⊠V^*} at v (and the local shtukas of (6.24)–(6.26), defined for orientation but not used), whose classifying stacks are quotients of affine Grassmannian data by the groups K_{m,n}; in [GL17] this is extended to all places, including those of N, and to all γ_i in the local Weil group.",
+      "locator": "p. 3 of the introduction; Lemme 6.12 and §6.4, pp. 86–94, arXiv v10",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.7",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4"
+      ],
+      "note": "GS.7 plans exactly this comparison (\"At a chosen place compare restriction of the global parameter with the constructed local parameter … Construct local shtuka/uniformization and nearby-cycle comparison maps\"). Recorded here so that the atlas knows [GL17] is the source for GS.7, not this paper, and that §6.4 is where the restricted shtukas first appear."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Y. Varshavsky, Moduli spaces of principal F-bundles, Selecta Math. (N.S.) 10 (2004), no. 1, 131–166 [Var04]",
+      "link": "https://doi.org/10.1007/s00029-004-0343-0",
+      "why": "The foundation: §§2 and 4 of this paper are almost word for word from it. Used items: lemme 2.2 (π_0(Bun_G) ≅ π_1(G)), définition 2.4 and remarque 2.7 c) (the bounded Hecke stacks), lemme 3.1 (algebraicity), lemme A.3 (HN truncations), proposition 2.16 (the geometry of the shtuka stacks), théorème 2.20 and §4 with lemme 4.3 (the étale-local structure), corollaire 2.21, théorème 2.25, lemme A.12."
+    },
+    {
+      "citation": "V. G. Drinfeld, Moduli varieties of F-sheaves, Funktsional. Anal. i Prilozhen. 21 (1987), no. 2, 23–41 (Func. Anal. Appl. 21, 107–122) [Dri87]",
+      "link": "https://zbmath.org/?q=an:0665.12013",
+      "why": "Shtukas for GL_r with their left/right forms, the smoothness proof generalized by Propositions 2.8–2.9, the partial Frobenius morphisms, and proposition 1.1 (descent of coherent modules along Frobenius), of which Lemme 8.5 is a variant."
+    },
+    {
+      "citation": "V. G. Drinfeld, Langlands' conjecture for GL(2) over functional fields, Proc. ICM (Helsinki 1978), 565–574, Acad. Sci. Fennica, 1980 [Dri78]",
+      "link": "https://zbmath.org/?q=an:0442.12013",
+      "why": "Théorème 2.1: Drinfeld's lemma for two legs, the key input to Lemme 8.2 and Lemme 8.11; §4.1 introduces the group FGal(F̄^I/F^I) = FWeil(η^I, η̄^I) for ♯I = 2."
+    },
+    {
+      "citation": "V. G. Drinfeld, Cohomology of compactified manifolds of modules of F-sheaves of rank 2, J. Soviet Math. 46 (1989), 1789–1821 [Dri89]",
+      "link": "https://zbmath.org/?q=an:0673.14008",
+      "why": "Proposition 6.1: the proof of Drinfeld's lemma, generalized here in Lemmes 8.8 and 8.12 (invariant closed subsets of X^I are contained in vertical divisors)."
+    },
+    {
+      "citation": "I. Mirković and K. Vilonen, Geometric Langlands duality and representations of algebraic groups over commutative rings, Ann. of Math. 166 (2007), 95–143 [MV07]",
+      "link": "https://doi.org/10.4007/annals.2007.166.95",
+      "why": "Geometric Satake with O_E-coefficients (whose argument avoids Verdier duality, which is what makes §13 possible), the modified commutativity constraint introduced before proposition 6.3, lemme 3.9 on the parity of total cohomology, formula (9.9) and the projectives P_Z(ν, A) for the trivial action of the centre, and the smallness of the convolution maps."
+    },
+    {
+      "citation": "D. Gaitsgory, On de Jong's conjecture, Israel J. Math. 157 (2007), 155–191 [Gai07]",
+      "link": "https://doi.org/10.1007/s11856-006-0006-2",
+      "why": "Théorème 2.6 and appendix B: the form of geometric Satake over X^I that Théorème 1.17 quotes and whose proof it imitates; it proves the stronger statement describing the whole category in terms of Ĝ."
+    },
+    {
+      "citation": "A. Beilinson and V. Drinfeld, Quantization of Hitchin's integrable system and Hecke eigensheaves (1999) [BD99]",
+      "link": "https://math.uchicago.edu/~drinfeld/langlands/QuantizationHitchin.pdf",
+      "why": "The Beilinson–Drinfeld affine Grassmannian; remarque 2.3.7 and théorème 2.12.1 (gluing G-torsors across the formal neighbourhood, which generalizes Beauville–Laszlo) and the proof of théorème 2.3.4; the pinning of Ĝ that appears in geometric Satake, whence the semidirect L-group."
+    },
+    {
+      "citation": "A. Beauville and Y. Laszlo, Un lemme de descente, C. R. Acad. Sci. Paris Sér. I Math. 320 (1995), 335–340 [BL95]",
+      "link": "https://zbmath.org/?q=an:0852.13005",
+      "why": "The descent lemma across a formal neighbourhood, generalized by [BD99, thm. 2.12.1] and used in Construction 1.8."
+    },
+    {
+      "citation": "A. Braverman and Y. Varshavsky, From automorphic sheaves to the cohomology of the moduli spaces of F-bundles, unpublished preprint (2006) [BV06]",
+      "link": "https://zbmath.org/?q=an:1373.14017",
+      "why": "With [Var04] the source of §4: remarque 2.3.2 gives the coalescence isomorphism (Proposition 4.12), and claim 1.5.5 the local form of the Grothendieck–Lefschetz trace formula (Proposition 6.6); §15 rests on its morphisms (15.1), whose compatibility with the partial Frobenius “has not yet been written up”. The preprint is unpublished, which is a real obstacle for a formalization."
+    },
+    {
+      "citation": "Y. Varshavsky, Lefschetz–Verdier trace formula and a generalization of a theorem of Fujiwara, Geom. Funct. Anal. 17 (2007), no. 1, 271–319 [Var07]",
+      "link": "https://doi.org/10.1007/s00039-007-0596-9",
+      "why": "1.2.2, 1.5.7, 2.1.3 and 2.2.4: the formalism of cohomological correspondences and trace maps used throughout §§4 and 6."
+    },
+    {
+      "citation": "R. W. Richardson, Conjugacy classes of n-tuples in Lie algebras and algebraic groups, Duke Math. J. 57 (1988), 1–35 [Ric88]",
+      "link": "https://doi.org/10.1215/S0012-7094-88-05902-2",
+      "why": "1.3.2 (coarse quotients and closed orbits), théorème 2.1 (Hilbert–Mumford), théorème 3.6 (semisimple tuples ↔ closed diagonal orbits) = Lemme 11.9, and théorème 5.2 (a Levi of the generated group) = the engine of Lemme 11.10. The whole reconstruction of a Langlands parameter rests on these."
+    },
+    {
+      "citation": "J.-P. Serre, Complète réductibilité, Séminaire Bourbaki 2003/2004, exp. 932, Astérisque 299 (2005), 195–217 [Ser05]",
+      "link": "https://zbmath.org/?q=an:1156.20043",
+      "why": "G-complete reducibility: the equivalence, in characteristic zero, between semisimplicity of a tuple (every parabolic containing it contains an associated Levi) and reductivity of the Zariski closure of the group it generates; théorème 3.7 recapitulates [Ric88] and [BMR05] for §13."
+    },
+    {
+      "citation": "M. Bate, B. Martin and G. Röhrle, A geometric approach to complete reducibility, Invent. Math. 161 (2005), no. 1, 177–218 [BMR05]",
+      "link": "https://doi.org/10.1007/s00222-004-0425-9",
+      "why": "Théorème 3.1 completes Richardson's results in characteristic ℓ ≠ 0, and §6 extends complete reducibility to reductive groups that need not be connected: the two inputs that make the F̄_ℓ-coefficient Théorème 13.2 possible."
+    },
+    {
+      "citation": "C. Procesi, The invariant theory of n × n matrices, Adv. Math. 19 (1976), 306–381 [Pro76]",
+      "link": "https://doi.org/10.1016/0001-8708(76)90027-X",
+      "why": "The invariant theory of tuples of matrices in characteristic zero, and the fact that Θ_1(χ_{St}) determines all the Θ_n for GL_r (Remarque 11.8)."
+    },
+    {
+      "citation": "R. Taylor, Galois representations associated to Siegel modular forms of low weight, Duke Math. J. 63 (1991), 281–332 [Tay91]",
+      "link": "https://doi.org/10.1215/S0012-7094-91-06312-X",
+      "why": "Every pseudo-character over an algebraically closed field of characteristic zero is the character of a semisimple r-dimensional representation: Proposition 11.7 for H = GL_r (Remarque 11.8)."
+    },
+    {
+      "citation": "D. Hilbert, Über die vollen Invariantensysteme, Math. Ann. 42 (1893), no. 3, 313–373 [Hil1893]",
+      "link": "https://doi.org/10.1007/BF01444162",
+      "why": "Finite generation of the algebra of diagonal-conjugation invariants O((Ĝ_E)^n//Ĝ_E) (Notation 11.1), which is what makes the coarse quotient a scheme of finite type."
+    },
+    {
+      "citation": "D. Mumford, J. Fogarty and F. Kirwan, Geometric Invariant Theory, 3rd ed., Ergeb. Math. Grenzgeb. 34, Springer, 1994 [MFK94]",
+      "link": "https://doi.org/10.1007/978-3-642-57916-5",
+      "why": "§I.2 for coarse quotients and finite generation (Notation 11.1) and §I.1 for the Reynolds operator, used in the continuity step of Proposition 11.7."
+    },
+    {
+      "citation": "H. Poincaré, Sur les groupes des équations linéaires, Acta Math. 4 (1884), 201–312 [Poi1884]",
+      "link": "https://doi.org/10.1007/BF02418420",
+      "why": "§0.9: the idea of characterizing conjugacy classes of monodromy representations by finitely many numerical invariants, the ancestor of the excursion operators."
+    },
+    {
+      "citation": "H. Jacquet, R. P. Langlands and the Langlands programme: R. P. Langlands, Problems in the theory of automorphic forms, Lecture Notes in Math. 170 (1970), 18–61 [Lan70]",
+      "link": "https://doi.org/10.1007/BFb0079065",
+      "why": "The global Langlands correspondence whose “automorphic to Galois” direction is proved here."
+    },
+    {
+      "citation": "A. Borel, Automorphic L-functions, in Automorphic forms, representations and L-functions (Corvallis), Proc. Sympos. Pure Math. 33, part 2, AMS, 1979, 27–61 [Bor79]",
+      "link": "https://zbmath.org/?q=an:0412.10017",
+      "why": "The L-group as a semidirect product Ĝ ⋊ Gal(F̃/F) for a pinning-preserving action, §2.5 for the “trivial” functoriality ^LΥ used in Proposition 12.5, and §I.3 with lemme 3.5 for the parabolic subgroups of Richardson type in §13."
+    },
+    {
+      "citation": "I. Satake, Theory of spherical functions on reductive algebraic groups over p-adic fields, Publ. Math. IHÉS 18 (1963), 5–69 [Sat63]",
+      "link": "https://doi.org/10.1007/BF02684590",
+      "why": "The classical Satake isomorphism, which the decomposition is compatible with; with [Car79], [Gro98, prop. 3.6] (the h_{V,v} are a basis over Z[q^{1/2}, q^{-1/2}]) and [BR94] for the non-split form (12.4)."
+    },
+    {
+      "citation": "L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math. 147 (2002), no. 1, 1–241 [Laf02a]",
+      "link": "https://doi.org/10.1007/s002220100174",
+      "why": "The full GL_r correspondence, obtained by a completely different, trace-formula method. §16 shows how Théorème 0.1 reproves its recursion ingredient; théorème B.10, théorème VII.6, lemme VI.13 and §II.1.a are quoted, and §6.1 with appendix B carry the induction on r."
+    },
+    {
+      "citation": "J. W. Cogdell and I. I. Piatetski-Shapiro, Converse theorems for GL_n, Publ. Math. IHÉS 79 (1994), 157–214 [CPS94]",
+      "link": "https://doi.org/10.1007/BF02698889",
+      "why": "The converse theorems that, with Laumon's product formula, give the “Galois to automorphic” direction for GL_r by induction (§16 and p. 3)."
+    },
+    {
+      "citation": "G. Laumon, Transformation de Fourier, constantes d'équations fonctionnelles et conjecture de Weil, Publ. Math. IHÉS 65 (1987), 131–210 [Lau87]",
+      "link": "https://doi.org/10.1007/BF02698937",
+      "why": "The product formula for epsilon factors, the other half of the induction for GL_r (§16)."
+    },
+    {
+      "citation": "E. Lau, On generalised D-shtukas, Dissertation, Bonn 2004, Bonner Math. Schriften 369 [Lau04]",
+      "link": "https://zbmath.org/?q=an:1084.14501",
+      "why": "Théorème 8.1.4: Drinfeld's lemma in general (unpublished); lemme 8.1.2 (descent of étale coverings along Frobenius); lemme 9.2.1 (a partial-Frobenius-invariant strict closed subset of X^I lies in a union of vertical divisors, and the Zariski density of the Frobenius orbit of ∆(η)) — used in Lemme 8.12 and Propositions 8.31–8.32."
+    },
+    {
+      "citation": "C. Xue, Cohomologie cuspidale des champs de chtoucas, thèse de doctorat, Université Paris-Saclay (2017) [Xue17]",
+      "link": "https://theses.hal.science/tel-01662553",
+      "why": "Finite dimensionality of H_{I,W}, which this paper deliberately avoids using (Remarques 0.27, 8.29, 9.5), and a general framework for the parabolic-induction correspondences defining cuspidality in the non-split case."
+    },
+    {
+      "citation": "A. Genestier and V. Lafforgue, Chtoucas restreints pour les groupes réductifs et paramétrisation de Langlands locale, arXiv:1709.00978 (2017) [GL17]",
+      "link": "https://arxiv.org/abs/1709.00978",
+      "why": "The companion paper: the local Langlands parametrization and local–global compatibility, and the general form of Lemme 6.12 (the excursion operators are of local nature at v). Restricted shtukas, sketched here in §6.4, are its main tool."
+    },
+    {
+      "citation": "Y. Laszlo and M. Olsson, The six operations for sheaves on Artin stacks I, II, Publ. Math. IHÉS 107 (2008), 109–168 and 169–210 [LO08]",
+      "link": "https://doi.org/10.1007/s10240-008-0012-5",
+      "why": "With [LMB99] (Laumon–Moret-Bailly, Champs algébriques), the ℓ-adic formalism on the Deligne–Mumford stacks of finite type used to define the cohomology sheaves (Definition 4.1)."
+    },
+    {
+      "citation": "X. Zhu, The geometric Satake correspondence for ramified groups, Ann. Sci. Éc. Norm. Supér. 48 (2015), no. 2, 409–451 [Zhu15]",
+      "link": "https://doi.org/10.24033/asens.2248",
+      "why": "With [Ric14] (T. Richarz, A new approach to the geometric Satake equivalence, Doc. Math. 19 (2014), 209–246), the twisted geometric Satake equivalence that Théorème 12.16 quotes for the non-split case."
+    },
+    {
+      "citation": "J. Heinloth, Uniformization of G-bundles, Math. Ann. 347 (2010), no. 3, 499–528 [Hei10]",
+      "link": "https://doi.org/10.1007/s00208-009-0443-4",
+      "why": "Proposition 1: Bun_G is a smooth algebraic stack locally of finite type for a smooth group scheme over the curve, and example (1) p. 504 for Lemme 12.1; with [Beh91], [AH13] (Arasteh Rad–Hartl, arXiv:1302.6351, props. 2.2, 2.5, thm. 3.14) and [Wan11] for the finite-type truncations."
+    },
+    {
+      "citation": "F. Bruhat and J. Tits, Groupes réductifs sur un corps local II. Schémas en groupes, Publ. Math. IHÉS 60 (1984), 197–376 [BT84]",
+      "link": "https://doi.org/10.1007/BF02700560",
+      "why": "§§5.1.9 and 4.6: the parahoric integral models used to build the smooth group scheme over X in the non-split case (§12.1)."
+    },
+    {
+      "citation": "D. Kazhdan, An introduction to Drinfeld's Shtuka, in Automorphic forms, representations and L-functions, Proc. Sympos. Pure Math. 33, part 2, AMS, 1979, 347–356 [Kaz79]",
+      "link": "https://zbmath.org/?q=an:0475.14027",
+      "why": "Théorème 7: the group W̃_Λ, another description of FWeil(η^I, η̄^I) for two legs (Remarque 8.18)."
+    },
+    {
+      "citation": "A. Borel, Linear Algebraic Groups, 2nd ed., Graduate Texts in Math. 126, Springer, 1991 [Bor91]",
+      "link": "https://doi.org/10.1007/978-1-4612-0941-6",
+      "why": "Proposition 20.6(i) and its proof: a Levi is the centralizer of the maximal split torus of its connected centre, and there is a G_m acting on Lie(U) by strictly positive characters — the contracting element in the proof of Lemme 8.25."
+    },
+    {
+      "citation": "R. E. Kottwitz, Stable trace formula: cuspidal tempered terms, Duke Math. J. 51 (1984), 611–650, and Stable trace formula: elliptic singular terms, Math. Ann. 275 (1986), 365–399 [Kot84, Kot86]",
+      "link": "https://doi.org/10.1215/S0012-7094-84-05129-9",
+      "why": "ker^1(F, G) is dual to ker^1(F, Z_Ĝ(Q̄_ℓ)) — with [NQT11, thm. 2.6.1] (Nguyen Quoc Thang) for characteristic p. This is why (8.5) is a bijection for split G, and the “compensation” in the conjectural multiplicity formula of §12.2.3."
+    },
+    {
+      "citation": "J. Arthur, Unipotent automorphic representations: conjectures, Astérisque 171–172 (1989), 13–71 [Art89]",
+      "link": "https://zbmath.org/?q=an:0728.22014",
+      "why": "With [Kot90] (Kottwitz, Shimura varieties and λ-adic representations), the multiplicity conjectures that Remarque 0.30 extrapolates and that Conjecture 12.7 refers to; [Kos59, cor. 4.2] (Malcev) is used to see that an Arthur parameter is determined by σ_ψ."
+    },
+    {
+      "citation": "Ngô Bao Châu, D-chtoucas de Drinfeld à modifications symétriques et identité de changement de base, Ann. Sci. École Norm. Sup. 39 (2006), no. 2, 197–243 [NBC06a]",
+      "link": "https://doi.org/10.1016/j.ansens.2005.12.001",
+      "why": "Théorème 1 and lemme 2: the circular-permutation argument reused in the proof of the Eichler–Shimura relation, and §3.1, the idea of taking the fibre at a geometric point of the diagonal."
+    },
+    {
+      "citation": "P. Deligne, Catégories tannakiennes, in The Grothendieck Festschrift II, Progr. Math. 87, Birkhäuser, 1990, 111–195 [Del90]",
+      "link": "https://zbmath.org/?q=an:0727.14010",
+      "why": "The notations δ_V, ev_V and the “Zorro lemma” (Id ⊗ ev_V)(δ_V ⊗ Id) = Id, an axiom of tannakian categories, which normalizes the creation and annihilation morphisms (Remarque 6.9) and drives the proof of the Eichler–Shimura relation."
+    },
+    {
+      "citation": "D. Gaitsgory, Outline of the proof of the geometric Langlands conjecture for GL(2), Astérisque 370 (2015) [Gai15]",
+      "link": "https://zbmath.org/?q=an:1342.14042",
+      "why": "Corollaire 4.5.5, the geometric-Langlands statement that §15 compares with; with [Gai04] (the vanishing conjecture, where the permutation action on the legs is already essential) and [GL16] (Gaitsgory–Lysenko) for factorization gerbes."
+    },
+    {
+      "citation": "S. Lysenko, Twisted geometric Satake equivalence: reductive case, arXiv:1411.6782 (2014) [Lys14]",
+      "link": "https://arxiv.org/abs/1411.6782",
+      "why": "With [FL10] (Finkelberg–Lysenko), [Rei12] (Reich) and [GL16], the metaplectic geometric Satake equivalence that §14 assumes, justified only for split G; [Lys06], [Lys11] and [Lys15, 5.2.3] supply the metaplectic bundles, the geometric theta-lifting and the torus case."
+    },
+    {
+      "citation": "L. Xiao and X. Zhu, Cycles on Shimura varieties via geometric Satake, arXiv:1707.05700 (2017) [XZ17]",
+      "link": "https://arxiv.org/abs/1707.05700",
+      "why": "A ring of cohomological correspondences in which the Eichler–Shimura relation follows formally from Cayley–Hamilton (Remarque 7.2) — the structural way to state §7."
+    },
+    {
+      "citation": "Z. Yun and W. Zhang, Shtukas and the Taylor expansion of L-functions, Ann. of Math. 186 (2017), 767–911 (not cited by this paper)",
+      "link": "https://doi.org/10.4007/annals.2017.186.3.2",
+      "why": "Recorded as a companion for the atlas rather than a prerequisite: PAPER-YUN-ZHANG-17 is the other use of multi-leg shtuka moduli over a function field, and its Part II (ShtukaSpecialCyclesAndHigherSiegelWeil) builds on the same GS.0–GS.5 layers this paper is the source of."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "GlobalShtukasAndFunctionFieldLanglands",
+      "stages": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.2",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.7"
+      ],
+      "items": [
+        "PAPER-LAFFORGUE-18/1",
+        "PAPER-LAFFORGUE-18/2",
+        "PAPER-LAFFORGUE-18/3",
+        "PAPER-LAFFORGUE-18/4",
+        "PAPER-LAFFORGUE-18/5",
+        "PAPER-LAFFORGUE-18/6",
+        "PAPER-LAFFORGUE-18/7",
+        "PAPER-LAFFORGUE-18/8",
+        "PAPER-LAFFORGUE-18/9",
+        "PAPER-LAFFORGUE-18/10",
+        "PAPER-LAFFORGUE-18/11",
+        "PAPER-LAFFORGUE-18/12",
+        "PAPER-LAFFORGUE-18/13",
+        "PAPER-LAFFORGUE-18/14",
+        "PAPER-LAFFORGUE-18/16",
+        "PAPER-LAFFORGUE-18/17",
+        "PAPER-LAFFORGUE-18/18",
+        "PAPER-LAFFORGUE-18/19",
+        "PAPER-LAFFORGUE-18/20",
+        "PAPER-LAFFORGUE-18/21",
+        "PAPER-LAFFORGUE-18/22",
+        "PAPER-LAFFORGUE-18/24",
+        "PAPER-LAFFORGUE-18/25",
+        "PAPER-LAFFORGUE-18/26",
+        "PAPER-LAFFORGUE-18/27",
+        "PAPER-LAFFORGUE-18/28",
+        "PAPER-LAFFORGUE-18/29",
+        "PAPER-LAFFORGUE-18/30",
+        "PAPER-LAFFORGUE-18/31",
+        "PAPER-LAFFORGUE-18/32",
+        "PAPER-LAFFORGUE-18/33",
+        "PAPER-LAFFORGUE-18/34",
+        "PAPER-LAFFORGUE-18/38",
+        "PAPER-LAFFORGUE-18/45",
+        "PAPER-LAFFORGUE-18/51"
+      ],
+      "reason": "This paper is the roadmap's own named source: GS.0's source route reads “V. Lafforgue global bundle/level setup”, GS.1's “V. Lafforgue geometric Satake input”, GS.2's “V. Lafforgue shtuka construction”, GS.3's “V. Lafforgue Hecke-finite cohomology construction”, GS.4's “V. Lafforgue Drinfeld-lemma and coalescence arguments” and GS.5's “V. Lafforgue arXiv:1209.5352: general reductive automorphic-to-Galois theorem”. Every item in this route is therefore **planned**, not missing, and the route exists to pin the source: it gives each stage the exact statement, hypotheses and locator it has to reproduce, in the same way PAPER-FENG-24 routes its §§2 and 5.1 to GS.1/GS.2/GS.4/GS.5. The correspondence is stage by stage:\n- **GS.0** — Bun_{G,N} with level structure, the Harder–Narasimhan truncations Cht^{≤μ}, the lattice Ξ and the finite-type quotients; and, for non-split G, the description of Bun_{G,N}(F_q) as the disjoint union over ker¹(F, G) of adelic quotients for inner forms (Remarques 8.21, 12.2), which is exactly GS.0's instruction not to identify the whole stack with one double quotient.\n- **GS.1** — the Beilinson–Drinfeld Grassmannian with its Beauville–Laszlo description, the closed strata Gr_{I,W}, the Weil-restriction groups G_{Σn_ix_i}, the smallness of the forgetful maps, and Théorème 1.17 — one direction of geometric Satake, stated as a functor over X^I with the four properties a)–d), the modified commutativity constraint and half-integral Tate twists. Théorème 12.16 is the twisted variant needed for non-split G.\n- **GS.2** — Définitions 0.2 and 0.6 (multi-leg shtukas as successive modifications with an isomorphism to the Frobenius pullback), the bound on relative positions imposed as an inverse image, Proposition 2.8 (the local model map is smooth of dimension (Σn_i)dim G) and Lemme 12.19.\n- **GS.3** — H^{0,≤μ,E}_{N,I,W} and the functor W ↦ H (Définitions 0.4, 0.11), the Hecke operators as sheaf morphisms, the Hecke-finite sector with Proposition 8.27, the spaces H_{I,W} and Proposition 9.7, and Proposition 8.23 (cuspidal = Hecke-finite), which is GS.3's acceptance test.\n- **GS.4** — the partial Frobenius morphisms, the coalescence isomorphisms χ_ζ, the creation/annihilation morphisms, Drinfeld's lemma (Lemme 0.18), the group FWeil(η^I, η̄^I) with the factorization of its action, and Corollaire 8.34 (specialization is an isomorphism on Hecke-finite parts).\n- **GS.5** — the excursion operators, their relations (Lemme 10.1, Proposition 10.8), the algebra B and its spectral decomposition, Lemmes 10.2/10.4 identifying unramified Hecke operators as excursion operators, Proposition 10.10, Proposition 11.7 (reconstruction of σ) and Théorèmes 11.11 and 12.3.\n- **GS.6** — §16, the comparison with Laurent Lafforgue's theorem for GL_r, including Lemme 16.4's induction on the rank through the converse theorems and Laumon's product formula.\n- **GS.7** — the companion paper [GL17] with Genestier is the source of the local parametrization and of local–global compatibility; this paper only states that it exists, and the route records that so GS.7 does not expect it here.\nTwo boundaries matter. First, the excursion formalism of §§9–10 is also planned, for the Fargues–Scholze **local** setting, in ExcursionOperatorsAndSpectralAction ES0 and LanglandsParameterStacks LP2; those stages own W_E for a local field, finite wild ramification and Bun_G on the Fargues–Fontaine curve, whereas everything here is global over a curve, so the two must cite each other and not be proved twice. Second, this paper proves only the automorphic-to-Galois direction and no multiplicity formula, which is precisely GS.5's stated acceptance boundary."
+    },
+    {
+      "route": "source",
+      "roadmap": "GlobalShtukasAndFunctionFieldLanglands",
+      "stages": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.4",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.5"
+      ],
+      "items": [
+        "PAPER-LAFFORGUE-18/23",
+        "PAPER-LAFFORGUE-18/41",
+        "PAPER-LAFFORGUE-18/39",
+        "PAPER-LAFFORGUE-18/40",
+        "PAPER-LAFFORGUE-18/44"
+      ],
+      "reason": "Four things in the paper are in the direction of these stages but are not planned by any of them.\n- **The Eichler–Shimura relations (Proposition 7.1).** No stage of the atlas states an Eichler–Shimura relation for shtukas, yet the whole of §8 rests on it: it is what makes the Hecke-finite part a union of constructible subsheaves stable under the partial Frobenius (Proposition 8.27), hence what makes GS.3's “required finiteness” of the Hecke-finite sector and GS.4's application of Drinfeld's lemma possible. It needs the extension of the Hecke operators to all of (X ∖ N)^I (Corollaire 6.5), and its proof is a Cayley–Hamilton-style tensor identity using only Λ^{dim V+1}V = 0. PAPER-FENG-24 cites the same relation, in Cong Xue's form, as an input to its Part II; planning it once here serves both.\n- **The F_ℓ-coefficient decomposition (§13).** Proposition 13.1 and Théorème 13.2 give the same canonical decomposition for C^{cusp}_c(…, F̄_ℓ) indexed by continuous semisimple σ : Gal(F̄/F) → Ĝ(F̄_ℓ), with Ĝ over Z_ℓ. GS.5 says nothing about modular coefficients and GS.1 explicitly defers them (“integral and modular Satake are further coefficient branches”), which this chapter requires. Remarque 13.3 must be carried with it: unlike Théorème 11.11, H_σ is probably not contained in a Hecke eigenspace, because mod-ℓ Hecke operators need not be diagonalizable — so GS.5's “unramified Satake compatibility” is weaker in this branch.\n- **The two conjectures of §12.2 (12.7 and 12.12).** That the parameters occurring come from elliptic Arthur parameters, and that the decomposition is defined over Q, indexed by motivic parameters and independent of ℓ. These are recorded as a register of what is expected but unproved, which is the honest complement to GS.5's acceptance boundary (“The output does not assert every parameter occurs, packet multiplicities, or a full general-group inverse correspondence”). The Part II GlobalShtukasPartIIRamanujanArthur proposed by PAPER-CIUBOTARU-HARRIS-26 is where Arthur-type weight constraints are being planned, and its design job should cross-reference Conjecture 12.7 rather than restate it.\n- **The link with geometric Langlands (§15).** The atlas has no geometric-Langlands roadmap at all, although `geomlanglands` is one of its galaxy ids; §15 is two pages relating the cohomology of the shtuka stacks to Hecke eigensheaves, with Proposition 15.1 explicitly “conditional on a result not yet written up”, and §0.7 explains that geometric Langlands was until then the only systematic way to separate the copies of one automorphic representation sitting in different H_σ (the Blasius–Lapid examples for SL_r, r ≥ 3, and Larsen's and S. Wang's for other groups including E_8). It is routed here with its conditional status attached rather than made into a roadmap of its own on the strength of two pages."
+    },
+    {
+      "route": "source",
+      "roadmap": "LanglandsParameterStacks",
+      "stages": [
+        "LanglandsParameterStacks:LP2",
+        "LanglandsParameterStacks:LP3"
+      ],
+      "items": [
+        "PAPER-LAFFORGUE-18/35",
+        "PAPER-LAFFORGUE-18/36",
+        "PAPER-LAFFORGUE-18/37",
+        "PAPER-LAFFORGUE-18/42"
+      ],
+      "reason": "LP2 constructs the excursion algebra Exc(W, Ĝ) from finite free-group cocycle invariants, the affine coarse quotient and “the relation to closed semisimple geometric orbits”, and LP2:semisimple-characters proves Fargues–Scholze VIII.3.8, that excursion characters determine a unique conjugacy class of continuous semisimple L-parameters; LP3 does the integral reductive invariant theory those statements need. What none of them states is the characteristic-zero invariant theory that the argument actually turns on, and which this paper isolates: an n-tuple (g_1, …, g_n) ∈ H(Q̄_ℓ)^n is semisimple (every parabolic containing it contains an associated Levi containing it, equivalently its generated subgroup has reductive Zariski closure, [Ser05]) if and only if its diagonal conjugation orbit is closed, by Richardson [Ric88, Thm. 3.6] — Lemme 11.9 here — so that the Q̄_ℓ-points of the coarse quotient H^n//H are exactly the conjugacy classes of semisimple tuples; together with [Ric88, Thm. 5.2], that a tuple lying over the same point as a semisimple one has a Levi isomorphic to the latter's generated subgroup. Proposition 11.7 then reconstructs σ from a compatible system Θ_n of algebra morphisms on O(H^n//H) for a **profinite** group and an H that need not be connected, with the maximality hypotheses (H1) on dim⟨g_1, …, g_n⟩ and (H2) on the centralizer, the uniqueness Lemme 11.10, the verification that σ is a homomorphism and the two surjectivity arguments that give its continuity. The GL_r shadow is Remarque 11.8: Θ_1(Tr) together with Λ^{r+1}St = 0 is a pseudo-character and Taylor [Tay91] reconstructs σ — the string “pseudo-character” does not occur anywhere in the atlas. Remarque 11.2 names [Pro76, Ric88, Vin96] for these quotients and §0.9 traces the idea to Poincaré [Poi1884], with Hilbert [Hil1893] for finite generation. Plan it once here, in characteristic zero for a profinite group and a possibly disconnected reductive H, and let both LP2:semisimple-characters and GS.5 import it."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.4"
+      ],
+      "items": [
+        "PAPER-LAFFORGUE-18/43"
+      ],
+      "reason": "MP.4 constructs the adelic metaplectic cover and the global Weil representation, for the classical metaplectic group. §14 indicates how the whole method of this paper adapts to metaplectic covers of a reductive group over a function field: the cover is encoded as a μ_N-gerbe over Bun_G which, by Remarque 14.1, is a factorization gerbe in the sense of [GL16] and is defined over F_q because N divides q − 1; the metaplectic geometric Satake equivalence of Lysenko replaces Théorème 1.17; and one obtains a decomposition of the cuspidal automorphic forms of the cover indexed by parameters valued in the metaplectic dual group. Neither factorization gerbes nor metaplectic geometric Satake appear anywhere in the atlas, and MP.0–MP.8 are written for the symplectic/Heisenberg cover over a number field, so this is a genuine addition in MP.4's direction. The route must carry the paper's own status: the chapter is titled “Indications”, the constructions are sketched rather than proved here, and Remarque 14.2 says only that one may hope the F_ℓ-coefficient results of §13 extend to the metaplectic case. Plan it as a programme with Lysenko's papers as the sources, not as a theorem of this paper."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LAFFORGUE-18/E1",
+      "kind": "misprint",
+      "locator": "§4.1, pp. 64–65 (arXiv v10), the definition of the composition of cohomological correspondences",
+      "printed": "\"Si b = (b_1, b_2) : B → X_2 × X_3 est une autre correspondance, F_3 ∈ D^b_c(X_3, E) et v : b_{2,!}(b_1^*(F_2)) → F_3 est une correspondance cohomologique de F_2 vers F_3 supportée par B\" and, a few lines later, \"Si a_1 et b_2 sont propres et p_i : X_i → Y (pour i = 1, 2, 3) sont des morphismes tels que p_1∘a_1 = p_2∘a_2 = p_3∘a_3\"",
+      "correction": "b = (b_2, b_3) : B → X_2 × X_3 with v : b_{3,!}(b_2^*(F_2)) → F_3; and p_1∘a_1 = p_2∘a_2 = p_3∘b_3.",
+      "reason": "The displayed diagram and the formula for v∘u on the same page use b_2 : B → X_2 and b_3 : B → X_3 throughout (\"b_{3,!}b̃_2^*a_1^*(F_1) ≃ b_{3,!}b_2^*a_{2,!}a_1^*(F_1)\", and the base-change isomorphism ã_{2,!}b̃_2^* ≃ b_2^*a_{2,!}); the legs of the first correspondence are a_1, a_2, so the indices of the second must continue with 2, 3. In the properness condition there is no morphism a_3 at all: the third leg is b_3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E2",
+      "kind": "misprint",
+      "locator": "§8.6, p. 116 (arXiv v10), the case I = ∅, and the right-hand side of (8.4)",
+      "printed": "\"Cht^{({0})}_{N,∅,1}/Ξ est égal au champ constant Bun_{G,N}(F_q) sur η^∅ = Spec(F_q)\", and (8.4) \"Cht^{({0})}_{N,{0},1}/Ξ = (Cht^{({0})}_{N,∅,1}/Ξ) ×_{F_q} (X ∖ N)\"",
+      "correction": "Cht^{(∅)}_{N,∅,1} in both places.",
+      "reason": "The superscript is the ordered partition of the leg set, and here the leg set is empty, so the partition is the empty one; the paper writes Cht^{(∅)}_{N,∅,0} on p. 54 and Cht^{(∅),≤µ}_{N,∅,1} on p. 160. The left-hand side of (8.4), Cht^{({0})}_{N,{0},1}, is correct, since there the leg set is the singleton {0} — which is precisely the distinction the equation is about.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E3",
+      "kind": "misprint",
+      "locator": "Proof of Lemme 6.11, p. 86 (arXiv v10)",
+      "printed": "\"(de façon encore plus canonique pr_1^*(F^{(I)}) et pr_1^*(F^{(I)}) sont tous les deux image inverse de S^{(I)}_{I,W,E})\"",
+      "correction": "pr_1^*(F^{(I)}) et pr_2^*(F^{(I)}).",
+      "reason": "The canonical isomorphism recalled on p. 79 is pr_1^*(F^{(I)}) ≃ pr_2^*(F^{(I)}), and the point of the parenthesis is that the two *different* pullbacks along the two projections of the Hecke correspondence Γ^{(I)} are both pullbacks of the Satake sheaf. As printed the sentence is vacuous.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E4",
+      "kind": "misprint",
+      "locator": "Proof of (7.2) in §7, p. 103, and the definition of C_n(U), p. 104 (arXiv v10)",
+      "printed": "\"on obtient que C_{{1,…,i}}(T, σ) est égal à la composée\" (p. 103) and \"on note C_n(U) (pour simplifier par rapport à la notation C_{{0,1,…,n}}(U) utilisée précédemment)\" (p. 104)",
+      "correction": "C_{{1,…,i}}(T, κ_i) on p. 103; and on p. 104 the earlier notation is C_{{1,…,n}}(T, U), the subscript being the set J of Definition C_J(T, U) and not {0} ∪ J.",
+      "reason": "On p. 103 the sentence two lines above announces \"on va montrer que C_{{1,…,i}}(T, κ_i) est égal à T^i\", and σ has just been decomposed into the cycle κ_i and a permutation τ of the remaining indices, so σ is not the argument of the operator being computed. On p. 104 the operator defined on p. 102 is C_J(T, U) for a finite set J and U ∈ End(V^{⊗{0}∪J}): the subscript is J, so for J = {1, …, n} it is C_{{1,…,n}}, while {0, 1, …, n} indexes the tensor power on which U acts.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E5",
+      "kind": "misprint",
+      "locator": "Lemme 11.10, p. 145 (arXiv v10)",
+      "printed": "\"Pour tout γ ∈ Γ, il existe un unique g ∈ G tel que (g_1, …, g_n, g) appartienne à ξ^{ss}_{n+1}(γ_1, …, γ_n, γ). De plus C(g_1, …, g_n, g) = C(g_1, …, g_n) et g appartiennent à D(g_1, …, g_n).\"",
+      "correction": "il existe un unique g ∈ H(Q̄_ℓ) … et g appartient à D(g_1, …, g_n).",
+      "reason": "Proposition 11.7 and its proof concern only the abstract profinite group Γ and the reductive group H with H^0 split; the letter G is the global reductive group over F, which does not occur in that proposition. The conclusion itself places g in D(g_1, …, g_n) ⊂ H_{Q̄_ℓ}, and the proof produces g = h ∈ H(Q̄_ℓ). (\"appartiennent\" for \"appartient\" is a second, purely grammatical slip in the same sentence.)",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E6",
+      "kind": "misprint",
+      "locator": "§12.2.3, p. 154 (arXiv v10)",
+      "printed": "\"On rappelle que dans (12.1) la somme est indexée par ker^1(F, G)\"",
+      "correction": "dans (12.2).",
+      "reason": "(12.1) is the plain inclusion G(F)\\G(A)/K_N ⊂ Bun_{G,N}(F_q), which contains no sum; the disjoint union indexed by ker^1(F, G) is (12.2), and the corresponding direct sum of spaces of cuspidal functions is (12.3). A wrong cross-reference in the paragraph that explains the \"compensation\" between ker^1(F, G) and ker^1(F, Z_Ĝ), where getting the right object matters.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E7",
+      "kind": "misprint",
+      "locator": "Proof of Lemme 12.19 c), p. 160 (arXiv v10)",
+      "printed": "\"On note encore V la représentation de ^LG^{ad} × ^LG^{ab} (et donc de chacun des deux facteurs) qui se déduit de V en composant par (^Lβ^{ad}, ^Lβ^{ab}) : ^LG^{ad} × ^LG^{ad} → ^LG\"",
+      "correction": "(^Lβ^{ad}, ^Lβ^{ab}) : ^LG^{ad} × ^LG^{ab} → ^LG.",
+      "reason": "The morphism is the L-group map attached to (β^{ad}, β^{ab}) : G → G^{ad} × G^{ab}, and the first half of the very same sentence correctly names the source as ^LG^{ad} × ^LG^{ab}; the abelianization factor cannot be ^LG^{ad}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E8",
+      "kind": "misprint",
+      "locator": "Remarque 12.4, p. 152 (arXiv v10)",
+      "printed": "\"lim_N C^{cusp}_c(Bun_{G,N}(F_q)/Ξ, Q̄_ℓ) = ⊕_{α∈ker^1(F,G)} C^{cusp}_c(G_α(F)\\G_α(A)/Ξ, E)\"",
+      "correction": "Q̄_ℓ on both sides.",
+      "reason": "The remark passes to the limit in the decomposition (12.5), which is stated with Q̄_ℓ-coefficients, and the left-hand side is written with Q̄_ℓ; the E is carried over from (12.3), which is the E-coefficient statement. As printed the two sides have different coefficient fields.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E9",
+      "kind": "misprint",
+      "locator": "Théorème 13.2 and Remarque 13.3, p. 169 (arXiv v10) — verified on a rendered page image, since the text layer drops the superscript",
+      "printed": "\"pour tout σ, toute place v ∈ |X| ∖ N̂ et toute représentation V de ^LG_v définie sur O_E, 𝔥_σ est inclus dans l'espace propre généralisé de h_{V,v}\" and \"il n'est sans doute pas vrai en général que 𝔥_σ soit inclus dans l'espace propre de h_{V,v}\"",
+      "correction": "𝔥^{F̄_ℓ}_σ in both places.",
+      "reason": "The summands of the mod-ℓ decomposition (13.4) are written 𝔥^{F̄_ℓ}_σ two lines above, and the closing paragraph of §13, on the same page, uses 𝔥_{σ^{rat}} for the Q̄_ℓ-summand of Théorème 11.11 and 𝔥^{F̄_ℓ}_{σ̄} for the mod-ℓ one in a single sentence. Unadorned 𝔥_σ therefore denotes the characteristic-zero space, and the Satake-compatibility clause of Théorème 13.2 is about the mod-ℓ one.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E10",
+      "kind": "misprint",
+      "locator": "§14, p. 171 (arXiv v10) — verified on a rendered page image",
+      "printed": "\"Soit I un ensemble fini, (I_1, …, I_k) une partition de I et W une représentation irréductible de (^LG)^I.\"",
+      "correction": "une représentation irréductible de (^LG̃)^I.",
+      "reason": "Four lines above, the metaplectic geometric Satake equivalence is assumed in the form of a functor \"de la catégorie des représentations E-linéaires de dimension finie de (^LG̃)^I\", and this very W is fed into that functor S^{(I_1,…,I_k)}_{I,W,E} in the next sentence. The whole point of §14 is that the metaplectic dual group ^LG̃ replaces ^LG.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E11",
+      "kind": "misprint",
+      "locator": "§14, p. 172 (arXiv v10)",
+      "printed": "\"On a en particulier le faisceau constructible H̃^{0,≤µ,Q̄_ℓ}_{N,I,V} sur (X ∖ N̂)^I.\"",
+      "correction": "H̃^{0,≤µ,E}_{N,I,W}.",
+      "reason": "Two slips in one formula: (14.3), three lines above, defines H̃^{≤µ,E}_{N,I,W} with E-coefficients, and no representation called V is introduced anywhere in §14 — the fixed representation is W, used in (14.3) and in Cht^{(I_1,…,I_k)}_{N,I,W} immediately before and after. The parallel sentence on p. 161 reads \"En particulier on possède le faisceau constructible H^{0,≤µ,E}_{N,I,W} sur (X ∖ N̂)^I\".",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    },
+    {
+      "id": "PAPER-LAFFORGUE-18/E12",
+      "kind": "misprint",
+      "locator": "§14, p. 170 (arXiv v10); §2.3, p. 55; §4.4, p. 67; §8, p. 110; bibliography, pp. 178–184",
+      "printed": "Typographical slips: \"pour toute représentation W de G (éventuellemement virtuelle)\" (p. 170); \"mais mais elle n'utilise pas le théorème de Drinfeld-Simpson\" (p. 56); \"est invertible\" for \"est inversible\" (p. 59); \"des règles de composition des corrrespondances\" (p. 67); in the bibliography, \"[NDT07] … Compactification des champs **of** chtoucas\", \"[NDT09] … pour les corps **of** fonctions\", \"[Ses82] C.S. Seshadri (rédaction **of** J.-M. Drezet)\", \"[Sor00] … over algebraic **curves curves**\", \"[KV13] … Work **annonced** in [Var05]\", and the citation key \"[Civ08]\" for P. Cvitanović",
+      "correction": "\"éventuellement\"; \"mais\"; \"inversible\"; \"correspondances\"; \"des champs de chtoucas\"; \"pour les corps de fonctions\"; \"(rédaction de J.-M. Drezet)\"; \"over algebraic curves\"; \"announced\"; and [Cvi08].",
+      "reason": "Duplicated syllables and words, a French/English substitution of \"of\" for \"de\" in three French titles, and a transposition in a citation key. The key [Civ08] is used consistently in the body (p. 102) so nothing is ambiguous, but the author of the cited book is Cvitanović.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The published version, J. Amer. Math. Soc. 31 (2018), no. 3, 719–891, DOI 10.1090/jams/897, could not be consulted: ams.org returns HTTP 403 to every client tried. Crossref (checked 2026-09-22) records no correction notice and no update-to/updated-by relation for that DOI. Every item below is therefore recorded against arXiv 1209.5352v10 (10 January 2018), the last arXiv version, and may have been corrected in production.",
+        "Each reading was checked in the extracted text layer and, where sub- or superscripts or diacritics are involved, on a page image rendered at 200–600 dpi.",
+        "The companion paper [GL17] (arXiv:1709.00978) and the sequel literature do not list errata for this paper."
+      ]
+    }
+  ]
+}
