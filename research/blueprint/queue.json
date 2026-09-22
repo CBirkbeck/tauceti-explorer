@@ -6096,8 +6096,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HACON-WITASZEK-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1369"
+   "state": "pending",
+   "note": "released on GitHub issue #1369"
   },
   {
    "id": "REV-PAPER-HACON-WITASZEK-23",
@@ -7325,7 +7325,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DING-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1440"
   },
   {
    "id": "REV-PAPER-DING-25",
