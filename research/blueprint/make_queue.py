@@ -804,7 +804,9 @@ def main():
         add({"id": pid, "kind": "paper", "priority": 1, "order": 100 + number, "name": paper.get("short") or paper["citation"],
              "roadmapIds": [], "outputs": [result, report], "after": []}, PAPER_TEMPLATE.format(**fill, JOB=pid, **fields))
         add({"id": "REV-" + pid, "kind": "review", "priority": 1, "order": 100 + number, "name": paper.get("short") or paper["citation"],
-             "roadmapIds": [], "outputs": [f"research/blueprint/papers/{pid}.review.json", f"research/blueprint/reviews/REV-{pid}.md"],
+             # The reviewer corrects the extraction and its report in place (PROTOCOL.md section 16).
+             "roadmapIds": [], "outputs": [f"research/blueprint/papers/{pid}.review.json", f"research/blueprint/reviews/REV-{pid}.md",
+                                           f"research/blueprint/papers/{pid}.result.json", f"research/blueprint/papers/{pid}.md"],
              "after": [pid], "avoidAccountOf": pid}, PAPER_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + pid, **fields))
         for route in accepted_routes(pid):
             origin = f" (from the extraction of {paper['citation']}, {pid}: research/blueprint/papers/{pid}.result.json, items {', '.join(route['items'])})"
