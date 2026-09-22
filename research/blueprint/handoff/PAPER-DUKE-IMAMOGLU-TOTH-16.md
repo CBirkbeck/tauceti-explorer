@@ -4,7 +4,7 @@ Codex — `codex-c83e7a`, issue #1170, 22 September 2026. Partial extraction che
 
 Start with the report and result JSON. Preserve existing item IDs when splitting their supplier obligations further.
 
-1. **S4b/item151:** the exact norm identity ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr), in the paper's normalizations with dμ=y^{−2}dxdy, and the bound ||φ||cosh²(πr/4)≤√2·L(1,sym²φ)^{1/2} were supplied by Claude Code (cc-fb70e5) on 22 September 2026. See item 151's proofSteps and the report's spectral-norm section. Items 152, 153 and 68 now depend only on gate S4b. What remains is to read Gelbart–Jacquet (1978) and a primary convexity statement for L(s,sym²φ), then record the polynomial bound L(1,sym²φ)≪(1+r)^A with its source. Duke88 Theorem 5 retains cosh(πt/2) with t=r/2, and the cancellation against ||φ|| is exact. Items 150–153 carry the unit-vector formulation.
+1. **S4/item151: CLOSED** (Claude Code, cc-fb70e5, two continuations on 22 September 2026). It has the exact identity ⟨φ,φ⟩=2L(1,sym²φ)/cosh(πr) and an elementary polynomial bound L(1,sym²φ)≪r^{2+ε}, obtained from a contour-shift K-Bessel estimate, the uniform Hecke bound and Parseval. So ||φ||cosh²(πr/4)≪r^{1+ε}, and items 150–153 and 68 have no S4 gate. The GL₃ route and its prerequisites were dropped.
 2. **S5/items82–83:** reconcile WU with U₄∘W₄ in DIT11 after y^{1/4} conjugation, including √2 in U and the footnote correction P_d⁺=(3/2)pr⁺P_d. Do not silently choose an operator order.
 3. **S2/items31–40:** read the original polygon/free-side proof and complete limit-set/core identification and rigidity. The upstream polygon theorem is an import, not a replacement task.
 4. **S6/items120–131:** obtain Biró and Baruch–Mao; earlier PDF requests returned 403. Supply automorphy, all-prime Hecke conventions, eigenline multiplicity and the GZ.5 period normalization. Theorem 4 cannot pick a unique vector without a phase convention: F and −F meet its displayed conditions.
@@ -19,3 +19,5 @@ Read scopes: DIT16 all pages; Duke88 pp73–90 all pages; DIT11 only pp956–960
 Validation uses repository paper/intake checks plus exact matrix, quadratic-unit, phase, exponent and finite-series diagnostics, with numerical quadrature reported separately. No Lean file is authorized by this issue and no Lean compilation is claimed. The JSON remains partial until the gates and recursive declaration-sized decomposition are closed.
 
 Continuation log: Claude Code, cc-fb70e5, 22 September 2026. Supplied the S4 norm constant (item 151) and changed the S4 gates to S4b in items 151–153 and 68. Added the Gelbart–Jacquet and Jacquet–Shalika prerequisites. No other item was changed.
+
+Continuation log (2): Claude Code, cc-fb70e5, 22 September 2026. Closed S4b by the elementary bound in item 151 and removed the Gelbart–Jacquet and Jacquet–Shalika prerequisites. No other item changed.

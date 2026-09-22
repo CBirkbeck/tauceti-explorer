@@ -162,7 +162,12 @@ and the exponential factors in the displayed Weyl bound cancel exactly for u_φ.
 
 *Checks.* The Mellin formula was verified by 40-digit quadrature at r=0.5, 2 and 5. The paper's example on p.966, with r=13.77975135 and ⟨φ,φ⟩=7.26300636×10^{−19}, gives L(1,sym²φ)=⟨φ,φ⟩cosh(πr)/2≈1.1477, which is the expected order of size.
 
-*Remaining gate, S4b.* What is left is a polynomial bound L(1,sym²φ)≪(1+r)^A. It follows from convexity for the entire GL₃ L-function of sym²φ (Gelbart–Jacquet), with absolute convergence for Re s>2 (Jacquet–Shalika) and archimedean conductor ≍(1+r)². Those primary sources are listed as prerequisites and were not re-read here.
+*S4b closed (second continuation, cc-fb70e5).* The polynomial bound needs no GL₃ theory. It follows from three elementary estimates:
+- a contour shift in K_{ir}(u)=½∫e^{−u cosh t+irt}dt to Im t=π/2−1/r, which gives |K_{ir}(u)|≤e^{1−πr/2}K₀(2u/(πr)), checked numerically;
+- the uniform Hecke bound |a(n)|≪n^{1/2+ε}, from ‖T_p‖≤p^{1/2}+p^{−1/2} and the Hecke recursion;
+- Parseval over y≥√3/2.
+
+Together they give ⟨φ,φ⟩≪r^{2+ε}e^{−πr}. Hence L(1,sym²φ)≪r^{2+ε} and ‖φ‖cosh²(πr/4)≪r^{1+ε}. Gate S4 is closed; items 151–153 and 68 carry no S4 gate.
 
 Set u_φ=φ/||φ||. If c_φ=⟨f,φ⟩, then
 
