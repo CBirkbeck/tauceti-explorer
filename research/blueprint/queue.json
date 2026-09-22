@@ -2605,7 +2605,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHMIDT-STIX-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1167"
   },
   {
    "id": "REV-PAPER-SCHMIDT-STIX-16",
@@ -4757,8 +4758,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1296"
+   "state": "external",
+   "note": "claimed on GitHub issue #1296"
   },
   {
    "id": "REV-PAPER-BENOIST-WITTENBERG-20",
