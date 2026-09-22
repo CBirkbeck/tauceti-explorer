@@ -1,0 +1,2105 @@
+{
+ "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Essential dimension via prismatic cohomology",
+  "authors": "Benson Farb, Mark Kisin and Jesse Wolfson",
+  "venue": "Duke Mathematical Journal 173 (2024), no. 15, 3059–3106",
+  "doi": "10.1215/00127094-2023-0071",
+  "arxiv": "2110.05534",
+  "url": "https://arxiv.org/abs/2110.05534v2",
+  "version": "arXiv v2 (27 February 2024, 40 pages, 'Minor corrections and revisions'), whose TeX source is the file thirdessdimduke-revised_v3.tex, the revised Duke version; read in full from the TeX source and the PDF. The published Duke PDF (Project Euclid) was not retrievable here; page numbers and statement numbers are those of arXiv v2, which match the published numbering scheme. The 2021 version on Kisin's page (= arXiv v1, 31 pages) was compared for every passage in sourceIssues.",
+  "readSections": [
+   "Abstract and §1 (Theorems 1–4)",
+   "§2.1 (2.1.1–2.1.9)",
+   "§2.2 (Lemma 2.2.1–Corollary 2.2.15)",
+   "§2.3 (2.3.1–Corollary 2.3.12)",
+   "§3.1 (3.1.1–Proposition 3.1.9)",
+   "§3.2 (3.2.1–3.2.19)",
+   "§3.3 (3.3.1–Corollary 3.3.19)",
+   "References"
+  ],
+  "accessed": "2026-09-22",
+  "artifacts": [
+   {
+    "url": "https://arxiv.org/pdf/2110.05534v2",
+    "sha256": "f281f903f7a1836ef0eb7abe718c78e72f481d059cecb91dd237e6ecfe83b26b",
+    "read": "all 40 pages (text extraction), statement numbering and pages checked"
+   },
+   {
+    "url": "https://arxiv.org/e-print/2110.05534v2",
+    "sha256": "e0d0e743e781f9d78fdf530a7332030d75132d778ede0f41a8713ff7a23c1f64",
+    "read": "complete TeX source (gzip of thirdessdimduke-revised_v3.tex), every section and the bibliography"
+   },
+   {
+    "url": "https://people.math.harvard.edu/~kisin/dvifiles/essdim3.pdf",
+    "sha256": "8b56d61e385a87c57cfefe7a09391d532a94dfade025f128d257b54a1bcf59a6",
+    "read": "2021 version (31 pages), compared at each recorded mistake"
+   }
+  ]
+ },
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "atlasChecked": "46d351b (tauceti-explorer main, 22 September 2026)",
+  "note": "Cited declarations were read in the pinned source trees: Mathlib RingTheory/Perfectoid/FontaineTheta.lean (fontaineTheta, fontaineTheta_teichmuller, surjective_fontaineTheta), RingTheory/Perfection.lean (PreTilt), RingTheory/Valuation/RankOne.lean, RepresentationTheory/Homological/GroupCohomology (groupCohomology, H1IsoOfIsTrivial), GroupTheory/GroupExtension/Defs.lean, GroupTheory/Exponent.lean; Tau Ceti Geometry/Toric/Algebraic/Fan/Basic.lean and Regular.lean (Fan, Fan.IsComplete, Fan.IsRegular, IsRegularCone, Fan.IsSubdivision), LinearAlgebra/RootSystem/LongestElement.lean, AlgebraicGeometry/AbelianVariety/Basic.lean."
+ },
+ "summary": "Farb, Kisin and Wolfson prove that mod p cohomology classes of a smooth proper complex variety survive restriction to every dense Zariski open, in dimension at least h^{0,i} for primes of unramified good reduction with i < p − 2 (Theorem 4). The proof passes through Breuil–Kisin and A_inf log prismatic cohomology: a torsion-freeness lemma for Frobenius modules of small height, the mod p de Rham and Kummer-étale comparisons, Deligne–Illusie and Cartier reduce the claim to injectivity of restriction on global log differentials. Combined with the characteristic-class method (affine Artin vanishing and transfer) this bounds p-essential dimension: Theorem 2, Brosnan's conjecture for abelian varieties when p ≥ g + 2, and p-incompressibility of mod p homology covers of varieties of maximal Albanese dimension (Theorem 1). A cohomology computation for generalized Heisenberg groups via F_p^×-weights, torus torsors over abelian varieties and their toric compactifications, a tubular-neighbourhood variant, and Pink's boundary charts of toroidal compactifications give p-incompressibility of principal p-congruence covers of Hermitian locally symmetric varieties with Q-rank equal to R-rank (Theorem 3). The atlas plans the prismatic comparisons, derived completion, Cartier theory, toric and toroidal constructions, Shimura data and étale foundations it uses; it lacks essential dimension and everything downstream (a new roadmap), the Heisenberg group cohomology (a ProfiniteCohomology Part II), Hodge-type integral boundary charts, Kisin's abelian-type lifting, Prasad–Rapinchuk, the Deligne–Illusie decomposition, logarithmic purity and the Albanese variety. Eighteen mistakes are recorded, including missing prime bounds in Proposition 3.2.7, Theorem 3.3.17 and Corollary 2.3.12, a false statement in Proposition 3.2.14, and two gaps in the analytic essential-dimension argument; the main theorems survive with the stated corrections.",
+ "items": [
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/001",
+   "kind": "definition",
+   "name": "Essential dimension of a finite map",
+   "statement": "Let C be an algebraically closed field of characteristic 0 and f : Y → X a finite map of C-varieties. ed(Y/X) is the least integer e for which there are a dense Zariski open V ⊂ X, a finite map Y' → Z of C-varieties with dim Z = e and a map V → Z with Y|_V ≅ V ×_Z Y' over V.",
+   "locator": "§1, p. 1",
+   "status": "missing",
+   "note": "Classical notion (Buhler–Reichstein); no roadmap plans essential dimension. The G-equivariant formulation used in the proofs is [FKW21, 2.1.4], item on the equivalent formulation below."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/002",
+   "kind": "definition",
+   "name": "p-essential dimension of a G-cover",
+   "statement": "For a finite group G, a G-cover Y → U (a finite étale G-torsor over a C-variety U) and a prime p, ed(Y/U; p) is the least d for which there exist: a dense Zariski open V ⊂ U; a finite étale π : E → V with p ∤ deg π; a morphism f : E → Z of C-varieties with dim Z = d; and a G-cover Z̃ → Z with f*Z̃ ≅ Y ×_U E as G-covers of E.",
+   "locator": "2.3.1, p. 16 (after [Reichstein–Youssin]); §1, pp. 1–2",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/003",
+   "kind": "definition",
+   "name": "p-incompressible cover",
+   "statement": "A G-cover Y → X of an irreducible C-variety X is p-incompressible if ed(Y/X; p) = dim X (the maximal possible value).",
+   "locator": "Theorem 1, p. 2; §1",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/004",
+   "kind": "construction",
+   "name": "Classifying map of a G-cover in mod p cohomology",
+   "statement": "Let X be a proper connected smooth C-scheme with a normal crossings divisor D, U = X − D, η̄ a geometric generic point and G a finite quotient of π_1^ét(U, η̄) (equivalently a connected G-cover Y → U). The classifying map H^i(G, F_p) → H^i(π_1^ét(U, η̄), F_p) → H^i_ét(U, F_p) is inflation followed by the edge map regarding π_1^ét-representations as étale sheaves on U.",
+   "locator": "2.3.1, (2.3.2), p. 16",
+   "status": "missing",
+   "note": "Inflation in all degrees is planned in tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees; the étale fundamental group comes through SchemeAndStackFoundations:SF.2 (upstream PR196 ConstructibleEtale Layer 3). The edge map to étale cohomology and its multiplicativity are new."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/005",
+   "kind": "definition",
+   "name": "Étale K(π,1)",
+   "statement": "A connected C-variety U is an étale K(π,1) if the edge map H^i(π_1^ét(U, x̄), F) → H^i_ét(U, F) is an isomorphism for every i and every finite π_1-module F of p-power order (here F = F_p is what is used).",
+   "locator": "2.3.1, p. 16; Lemma 3.2.2, p. 24",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/006",
+   "kind": "definition",
+   "name": "Mod p homology cover",
+   "statement": "For U as above, the mod p homology cover Y → U is the G-cover attached to the maximal elementary abelian p-group quotient G of π_1^ét(U, η̄); then H^1(G, F_p) ≅ H^1_ét(U, F_p). When U is proper it is the pullback along the Albanese map of the multiplication-by-p cover of Alb(U).",
+   "locator": "2.3.7, p. 18; §1, p. 2",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/007",
+   "kind": "construction",
+   "name": "Albanese variety and Albanese map",
+   "statement": "For X smooth proper connected over an algebraically closed field of characteristic 0 with a base point x_0, Alb(X) is the abelian variety dual to Pic^0_X (reduced), with the Albanese map α_X : X → Alb(X), α_X(x_0) = 0, universal among pointed maps to abelian varieties; a point of X(C) gives a Poincaré line bundle on X × Pic^0_X.",
+   "locator": "§1, p. 2; Proposition 2.3.10 and its proof, p. 19",
+   "status": "missing",
+   "note": "Tau Ceti has abelian varieties over a field (tauceti:TauCeti.AlgebraicGeometry.AbelianVariety) and the atlas plans Jacobians of curves (SF.3) and duals of abelian schemes (AbelianSchemesAndArithmeticModuli:A2), but no layer plans the Albanese of a higher-dimensional variety."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/008",
+   "kind": "definition",
+   "name": "Albanese dimension and maximal Albanese dimension",
+   "statement": "The Albanese dimension of X is dim α_X(X); X has maximal Albanese dimension when dim α_X(X) = dim X.",
+   "locator": "§1, p. 2; 2.3.9, 2.3.11, pp. 18–19",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/009",
+   "kind": "theorem",
+   "name": "Theorem 1: incompressibility of the mod p homology cover",
+   "statement": "Let X be a smooth proper complex variety of maximal Albanese dimension and Y → X its mod p homology cover. Then ed(Y/X; p) = dim X for all sufficiently large primes p. (Effective form: Corollary 2.3.12, item below.)",
+   "locator": "Theorem 1, p. 2 (= Corollary 2.3.12, p. 19)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/010",
+   "kind": "theorem",
+   "name": "Theorem 2: lower bound from a surjective characteristic class map",
+   "statement": "Let X be a smooth proper complex variety, G a finite group and Y → X a G-cover. Suppose X has unramified good reduction at p and i < p − 2. If H^0(X, Ω^i_X) ≠ 0 and H^i(G, F_p) → H^i(X, F_p) is surjective, then ed(Y/X; p) ≥ i.",
+   "locator": "Theorem 2, p. 3 (the case D = ∅ of Proposition 2.3.3)",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/011",
+   "kind": "theorem",
+   "name": "Theorem 3: incompressibility of principal p-congruence covers",
+   "statement": "Let X be an irreducible Hermitian symmetric domain and G the associated group, with Q-rank equal to R-rank. For every principal p-congruence cover Γ_1\\X → Γ\\X, ed(Γ_1\\X → Γ\\X; p) = dim X, provided, when X is not a tube domain: if X is of classical type, p > (3/2) dim X and p > dim X + 2; if X is of type E_6, p is sufficiently large.",
+   "locator": "Theorem 3, p. 4; proved by Lemma 3.3.8, Theorem 3.3.17 and Corollary 3.3.19",
+   "status": "missing",
+   "note": "Corrected statement: the printed hypothesis p > (3/2) dim X omits p > dim X + 2, which the proof needs and which differs from it only for three-dimensional ball quotients at p = 5; see sourceIssues E14."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/012",
+   "kind": "theorem",
+   "name": "Theorem 4: nonvanishing of restriction to Zariski opens",
+   "statement": "Let X be a smooth proper complex variety with unramified good reduction at p, i < p − 2, and W ⊂ X a dense Zariski open. Then dim_{F_p} Im(H^i(X, F_p) → H^i(W, F_p)) ≥ h^{0,i}_X = dim H^0(X, Ω^i_X).",
+   "locator": "Theorem 4, p. 5 (= Corollary 2.2.13 with D = ∅)",
+   "status": "missing",
+   "note": "The printed statement says only 'a Zariski open'; density is required (sourceIssues E11)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/013",
+   "kind": "definition",
+   "name": "Logarithmic de Rham complex",
+   "statement": "For X smooth over a perfect field k of characteristic p and D ⊂ X a normal crossings divisor, Ω^•_{X/k}(log D) is the de Rham complex of differentials with logarithmic poles along D; its hypercohomology is the log de Rham cohomology H^j(X, Ω^•_{X/k}(log D)).",
+   "locator": "2.1.1, p. 6",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.5",
+    "DerivedDeRhamCohomology:DD.6"
+   ],
+   "note": "CR.5 constructs the log differential module with residues; DD.6 develops log de Rham with its filtrations."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/014",
+   "kind": "construction",
+   "name": "Frobenius twist and relative Frobenius",
+   "statement": "X^{(1)} = X ×_{Spec k, F_k} Spec k and D^{(1)} likewise; the relative Frobenius F_{X/k} : X → X^{(1)} is a finite flat k-morphism carrying D to D^{(1)}.",
+   "locator": "2.1.1, p. 6",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.3"
+   ],
+   "note": "DD.3 defines the Frobenius twist as a derived base change and preserves its structure map."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/015",
+   "kind": "theorem",
+   "name": "Logarithmic Cartier isomorphism",
+   "statement": "For X smooth over perfect k with normal crossings divisor D, the inverse Cartier map is an isomorphism of O_{X^{(1)}}-modules C^{-1} : Ω^i_{X^{(1)}/k}(log D^{(1)}) ≅ H^i(F_{X/k*} Ω^•_{X/k}(log D)) for all i.",
+   "locator": "Proof of Lemma 2.1.2, p. 6; §1, p. 5",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.3",
+    "DerivedDeRhamCohomology:DD.6",
+    "CrystallineCohomology:CR.5"
+   ],
+   "note": "DD.3 compares derived Cartier with classical Cartier on smooth algebras; DD.6 carries the conjugate filtration to log objects; CR.5 supplies the Cartier-type condition."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/016",
+   "kind": "theorem",
+   "name": "Logarithmic Deligne–Illusie decomposition",
+   "statement": "If (X, D) lifts to W_2(k) (in particular to a smooth formal W(k)-scheme with a relative normal crossings divisor), the lift determines an isomorphism in the derived category of O_{X^{(1)}}-modules ⊕_{i<p} Ω^i_{X^{(1)}/k}(log D^{(1)})[−i] ≅ τ_{<p} F_{X/k*} Ω^•_{X/k}(log D), inducing C^{-1} on cohomology sheaves.",
+   "locator": "Proof of Lemma 2.1.2, p. 6, citing [DI87, 4.2.3]",
+   "status": "missing",
+   "note": "DD.3 names Deligne–Illusie only as a later application with liftability and dimension bounds; no layer plans the decomposition itself."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/017",
+   "kind": "theorem",
+   "name": "Lemma 2.1.2: global log differentials split off de Rham cohomology",
+   "statement": "Suppose (X, D) lifts to a smooth formal scheme over W(k) with a relative normal crossings divisor. Then for j < p, H^0(X^{(1)}, Ω^j_{X^{(1)}/k}(log D^{(1)})) is a direct summand of H^j(X, Ω^•_{X/k}(log D)): the conjugate edge map H^j(X, Ω^•(log D)) → H^0(X^{(1)}, Ω^j(log D^{(1)})) is surjective and the lift splits it.",
+   "locator": "Lemma 2.1.2, p. 6",
+   "status": "missing",
+   "note": "The printed word 'canonically' refers to a splitting that depends on the lift (the proof says so); the surjection itself is canonical."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/018",
+   "kind": "definition",
+   "name": "p-adic valuation and the base field K",
+   "statement": "A p-adic valuation on a field K of characteristic 0 is a rank-one valuation v with v(p) > 0. K is assumed complete, with ring of integers O_K and perfect residue field k; K is either discretely valued or algebraically closed.",
+   "locator": "2.1.3, p. 7",
+   "status": "library",
+   "library": [
+    "mathlib:Valuation.RankOne",
+    "mathlib:Valued"
+   ],
+   "note": "Mathlib's Valuation.RankOne (Mathlib/RingTheory/Valuation/RankOne.lean) is a rank-one valuation; the condition v(p) > 0 is an explicit hypothesis on top of it."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/019",
+   "kind": "construction",
+   "name": "The Breuil–Kisin prism",
+   "statement": "For K discretely valued with uniformizer π, A = W(k)[[u]] with Frobenius φ extending the Witt vector Frobenius by φ(u) = u^p, and A → O_K, u ↦ π, whose kernel is generated by the Eisenstein polynomial E(u) of π; (A, E(u)A) is the Breuil–Kisin prism. In the applications O_K = W(k), π = p, E(u) = u − p, and A/pA = k[[u]].",
+   "locator": "2.1.3, p. 7",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0 lists (W(k)[[u]], (E(u))) as an acceptance example. Library pieces: mathlib:WittVector, mathlib:PowerSeries, mathlib:Polynomial.IsEisensteinAt."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/020",
+   "kind": "construction",
+   "name": "A_inf and Fontaine's θ",
+   "statement": "For K algebraically closed, R = lim_{x↦x^p} O_K/p (the tilt), A_inf = W(R) with its Frobenius, and θ : A_inf → O_K the surjective ring map with θ([x]) = x̂_0 for x = (x_0, x_1, …) ∈ R and x̂_i the unique compatible lifts with x̂_i^p = x̂_{i−1}.",
+   "locator": "2.1.3, p. 7",
+   "status": "library",
+   "library": [
+    "mathlib:PreTilt",
+    "mathlib:WittVector.fontaineTheta",
+    "mathlib:WittVector.fontaineTheta_teichmuller",
+    "mathlib:surjective_fontaineTheta"
+   ],
+   "note": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean defines fontaineTheta : 𝕎 R♭ →+* R for p-adically complete R, proves θ([x]) = x.untilt and surjectivity when Frobenius is surjective on R/p (true for O_C, C algebraically closed)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/021",
+   "kind": "theorem",
+   "name": "The kernel of θ and the perfect prism (A_inf, ξ)",
+   "statement": "For K algebraically closed, ker θ is principal, generated by ξ = p − [p̲] with p̲ = (p, p^{1/p}, …) ∈ R for a choice of p-power roots, and (A_inf, ξA_inf) is a perfect prism; (A_inf/p)[1/ξ] = Frac(R).",
+   "locator": "2.1.3, p. 7; proof of Lemma 2.1.6, p. 9",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.0"
+   ],
+   "note": "PR.0 lists (A_inf, ker θ) as an acceptance example and proves the perfect-prism/perfectoid equivalence on the existing tilt and A_inf construction."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/022",
+   "kind": "theorem",
+   "name": "The tilt of an algebraically closed field is algebraically closed",
+   "statement": "If C is an algebraically closed complete nonarchimedean field of residue characteristic p, then Frac(O_C^♭) = C^♭ is algebraically closed.",
+   "locator": "Proof of Lemma 2.1.6, p. 9",
+   "status": "planned",
+   "planned": [
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P3"
+   ],
+   "note": "Follows from the tilting equivalence of finite étale algebras planned in PerfectoidSpaces P1/P3."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/023",
+   "kind": "definition",
+   "name": "Logarithmic formal schemes, log adic spaces and Kummer étale cohomology",
+   "statement": "For X a formally smooth p-adic formal O_K-scheme with a relative normal crossings divisor D, X_D denotes X with the log structure of D and X_{D,K} the associated log adic space; for K algebraically closed, RΓ_két(X_{D,K}, F_p) is the cohomology of its Kummer étale site.",
+   "locator": "2.1.4–2.1.5, pp. 7–8",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.5",
+    "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": "CR.5: fs log structures and Kummer morphisms; T6:log-sites: the Kummer étale site of log adic spaces with an ncd boundary; PR.8: the log-diamond generic fibre."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/024",
+   "kind": "construction",
+   "name": "Logarithmic prismatic cohomology",
+   "statement": "For (A, I) the Breuil–Kisin or A_inf prism with trivial log structure and X_D as above, the log prismatic cohomology RΓ_Δ(X_D/A) is a commutative algebra object of D(A) with a φ_A-semilinear Frobenius φ; for D = ∅ it is the prismatic cohomology of Bhatt–Scholze.",
+   "locator": "2.1.5, p. 8",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/025",
+   "kind": "construction",
+   "name": "Mod p prismatic cohomology",
+   "statement": "RΓ_{Δ̄}(X_D/A) = RΓ_Δ(X_D/A) ⊗^L_A A/pA, with cohomology groups H^i_{Δ̄}(X_D/A), modules over A/p (= k[[u]] in the Breuil–Kisin case, = R in the A_inf case).",
+   "locator": "2.1.5, p. 8",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/026",
+   "kind": "theorem",
+   "name": "Mod p de Rham comparison (2.1.5(1))",
+   "statement": "There is a canonical isomorphism of commutative algebras in D(k): RΓ(X_k, Ω^•_{X_k/k}(log D_k)) ≅ RΓ_{Δ̄}(X_D/A) ⊗^L_{A/pA, φ} k.",
+   "locator": "2.1.5(1), p. 8 ([BS22, Thm 1.8]; [KY23, Thm 2]; [Kos20, Rmk 5.6])",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/027",
+   "kind": "theorem",
+   "name": "Mod p étale comparison (2.1.5(2))",
+   "statement": "If K is algebraically closed there is an isomorphism of commutative algebras in D(F_p): RΓ_két(X_{D,K}, F_p) ≅ RΓ_{Δ̄}(X_D/A)[1/ξ]^{φ=1}, the fibre of φ − 1 on RΓ_{Δ̄}(X_D/A)[1/ξ].",
+   "locator": "2.1.5(2), p. 8 ([BS22, Thm 1.8]; [KY23, Thm 2, Rmk 6.3])",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.4",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/028",
+   "kind": "theorem",
+   "name": "Image of Frobenius (2.1.5(3))",
+   "statement": "Let d generate ker(A → O_K). The linearized Frobenius φ^*RΓ_{Δ̄}(X_D/A) → RΓ_{Δ̄}(X_D/A) becomes an isomorphism in D(A/p) after inverting d, and for each i there is a canonical map V_i : H^i_{Δ̄}(X_D/A) → H^i(φ^*RΓ_{Δ̄}(X_D/A)) with V_i ∘ φ = φ ∘ V_i = d^i.",
+   "locator": "2.1.5(3), p. 8",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.3",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": "PR.3 plans the Lη_I Frobenius factorization of BS22 §15, which gives V_i; PR.8 plans the log version under the Cartier-type hypothesis."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/029",
+   "kind": "theorem",
+   "name": "Completed base change (2.1.5(4))",
+   "statement": "For a map of valued fields K → K' (each discretely valued or algebraically closed) and a Frobenius-compatible map of the corresponding prisms A → A' over O_K → O_{K'}, there is a canonical isomorphism in D(A'/p): RΓ_{Δ̄}(X_D/A) ⊗̂^L_A A' ≅ RΓ_{Δ̄}(X_{D,O_{K'}}/A'), the completion being u-adic or ξ-adic on A'.",
+   "locator": "2.1.5(4), p. 8 ([Kos20, Cor 5.5])",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/030",
+   "kind": "theorem",
+   "name": "Perfectness for proper X (2.1.5(5))",
+   "statement": "If X is proper over O_K, RΓ_{Δ̄}(X_D/A) is a perfect complex of A/p-modules (a consequence of the Hodge–Tate comparison).",
+   "locator": "2.1.5(5), p. 8 ([Kos20, Thm 5.3, Ex. 1.6])",
+   "status": "planned",
+   "planned": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.8"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/031",
+   "kind": "theorem",
+   "name": "Frobenius modules over an algebraically closed field",
+   "statement": "Let L be an algebraically closed field of characteristic p and M a finite-dimensional L-vector space with a φ-semilinear map whose linearization is bijective. Then 1 − φ is surjective on M and M^{φ=1} ⊗_{F_p} L → M is an isomorphism.",
+   "locator": "Proof of Lemma 2.1.6, p. 9, citing [Katz73, Prop. 4.1.1]",
+   "status": "missing",
+   "note": "Lang-type statement; no library declaration or layer found."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/032",
+   "kind": "theorem",
+   "name": "Lemma 2.1.6: étale comparison for proper X, degreewise",
+   "statement": "Suppose K is algebraically closed and X is proper over O_K. Then for each i ≥ 0 there is a natural isomorphism H^i_két(X_{D,K}, F_p) ⊗_{F_p} (A/pA)[1/ξ] ≅ H^i_{Δ̄}(X_D/A)[1/ξ].",
+   "locator": "Lemma 2.1.6, p. 9",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/033",
+   "kind": "definition",
+   "name": "Derived complete complexes and modules",
+   "statement": "With d as in 2.1.5(3), C ∈ D(A/p) is derived complete if C → Rlim_n (C ⊗^L_{A/p} A/(p, d^n)A) is a quasi-isomorphism; a module is derived complete if it is so as a one-term complex; C is derived complete iff all H^i(C) are.",
+   "locator": "2.1.7, p. 9 ([BS15, §3.4, Prop 3.4.4])",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/034",
+   "kind": "construction",
+   "name": "Completed derived base change",
+   "statement": "For an A/p-module M and A → A' as in 2.1.5(4), M ⊗̂^L_A A' = Rlim_n M ⊗^L_{A/p} A'/(p, d^n)A'.",
+   "locator": "2.1.7, p. 9",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.1"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/035",
+   "kind": "theorem",
+   "name": "Lemma 2.1.8(1)–(2): completed base change of derived complete modules",
+   "statement": "With the notation of 2.1.5(4) and K discretely valued: (1) if M is a derived complete A/p-module then M ⊗̂^L_A A' is concentrated in degree 0; (2) the functor M ↦ H^0(M ⊗̂^L_A A') on derived complete A/p-modules is exact.",
+   "locator": "Lemma 2.1.8(1)–(2), p. 10",
+   "status": "missing",
+   "note": "The proof uses a continuous splitting of finitely generated saturated A/p-submodules N ⊂ A'/p; the printed choice of the splitting projects onto the wrong summand (sourceIssues E1). 2.1.9 records that the discretely valued hypothesis is not known to be removable."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/036",
+   "kind": "theorem",
+   "name": "Lemma 2.1.8(3): degreewise base change of mod p prismatic cohomology",
+   "statement": "With K discretely valued: H^i_{Δ̄}(X_{D,O_{K'}}/A') ≅ H^0(H^i_{Δ̄}(X_D/A) ⊗̂^L_A A').",
+   "locator": "Lemma 2.1.8(3), p. 10",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/037",
+   "kind": "theorem",
+   "name": "Lemma 2.2.1: small Frobenius height forces torsion-freeness",
+   "statement": "Let M be a finitely generated k[[u]]-module with a Frobenius-semilinear φ : M → M and a linear V : M → φ^*M such that φ ∘ V = V ∘ φ = u^d. If d + 1 < p then M is torsion-free.",
+   "locator": "Lemma 2.2.1, p. 11",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/038",
+   "kind": "definition",
+   "name": "The invariants h^{0,i}_{X,D}",
+   "statement": "With K = W(k)[1/p], X a proper smooth formal O_K-scheme with relative normal crossings divisor D (2.2.2), h^{0,i}_{X,D} = dim_K H^0(X_K, Ω^i_{X_K/K}(log D)); for a smooth scheme Y over a field with ncd D, h^{0,i}_{Y,D} = dim H^0(Y, Ω^i_Y(log D)).",
+   "locator": "2.2.2, p. 11; 2.2.9, p. 13",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/039",
+   "kind": "theorem",
+   "name": "Upper semicontinuity of h^0 in a proper flat family",
+   "statement": "For a proper smooth X over a discrete valuation ring with special fibre X_k and generic fibre X_K, and D a relative normal crossings divisor, dim_k H^0(X_k, Ω^i(log D_k)) ≥ dim_K H^0(X_K, Ω^i(log D_K)).",
+   "locator": "End of proof of Proposition 2.2.3, p. 12",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "note": "Tau Ceti StableReduction Layer 2 plans the cohomology-and-base-change theorem, Grauert's theorem and upper semicontinuity for coherent sheaves under proper flat morphisms over locally Noetherian bases; Ω^i(log D) is locally free."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/040",
+   "kind": "theorem",
+   "name": "Proposition 2.2.3: restriction to a dense open formal subscheme",
+   "statement": "In the setting 2.2.2 (K = W(k)[1/p], C ⊃ K algebraically closed complete, X proper smooth formal O_K-scheme with relative ncd D), let W ⊂ X − D be a dense open formal subscheme. Then for 0 ≤ i < p − 2, dim_{F_p} Im(H^i_két(X_{D,C}, F_p) → H^i_ét(W_C, F_p)) ≥ h^{0,i}_{X,D}.",
+   "locator": "Proposition 2.2.3, pp. 11–12",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/041",
+   "kind": "theorem",
+   "name": "Corollary 2.2.6: the boundary case i = p − 2",
+   "statement": "If H^{i+1}_{Δ̄}(X_D/A) is u-torsion-free, the conclusion of Proposition 2.2.3 holds for i ≤ p − 2. In particular it holds for i ≤ p − 2 when X is the formal completion of an abelian scheme over O_K and D = ∅.",
+   "locator": "Corollary 2.2.6, p. 12",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/042",
+   "kind": "theorem",
+   "name": "Mod p prismatic cohomology of an abelian scheme",
+   "statement": "For X the formal completion of an abelian scheme of relative dimension g over O_K and A the Breuil–Kisin prism, H^•_{Δ̄}(X/A) is the exterior algebra over k[[u]] on H^1_{Δ̄}(X/A), which is free of rank 2g.",
+   "locator": "Proof of Corollary 2.2.6, p. 12, citing [AL23, Prop. 4.58, Cor. 4.64]",
+   "status": "missing",
+   "note": "Extracted as PAPER-ANSCHUTZ-LEBRAS-23/104 and routed there to the proposed Part II on prismatic Dieudonné theory; routed to the same Part II here."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/043",
+   "kind": "definition",
+   "name": "The invariants h^{0,1→i}",
+   "statement": "h^{0,1→i}_{X,D} = dim_K Im(∧^i H^0(X_K, Ω^1(log D)) → H^0(X_K, Ω^i(log D))) and h^{0,1→i}_{X_k,D_k} = dim_k Im(∧^i H^0(X_k, Ω^1(log D_k)) → H^0(X_k, Ω^i(log D_k))), the maps being wedge product.",
+   "locator": "2.2.7, p. 13",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/044",
+   "kind": "theorem",
+   "name": "Proposition 2.2.8: restriction of cup products of degree-one classes",
+   "statement": "In the setting 2.2.2, let W ⊂ X − D be a dense open formal subscheme and p > max{i + 1, 3}. Then dim_{F_p} Im(∧^i H^1_két(X_{D,C}, F_p) → H^i_ét(W_C, F_p)) ≥ h^{0,1→i}_{X_k,D_k}, the map being cup product followed by restriction.",
+   "locator": "Proposition 2.2.8, p. 13",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/045",
+   "kind": "theorem",
+   "name": "Lemma 2.2.10: log, adic and open étale cohomology agree",
+   "statement": "Let C be algebraically closed complete p-adic, Y a proper smooth C-scheme with normal crossings divisor D and U = Y − D. Then H^i_két(Y^ad_{D^ad}, F_p) ≅ H^i_két(Y_D, F_p) ≅ H^i_ét(U, F_p) naturally, for all i ≥ 0.",
+   "locator": "Lemma 2.2.10, p. 13",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/046",
+   "kind": "theorem",
+   "name": "Kummer étale direct images and logarithmic purity",
+   "statement": "For ε : Y_{D,két} → Y_ét (Y smooth, D normal crossings, over a field of characteristic 0) and M = Rε_*F_p: H^i_ét(Y, M) ≅ H^i_két(Y_D, F_p) and H^i_két(Y_D, F_p) ≅ H^i_ét(Y − D, F_p) ([Ill02, Thms 7.2, 7.4, Cor 7.5]); the pullback M^ad to Y^ad_ét computes Kummer étale cohomology of the log adic space (Y^ad, D^ad) ([DLLZ19, Lemma 4.6.2]).",
+   "locator": "Proof of Lemma 2.2.10, pp. 13–14",
+   "status": "missing",
+   "note": "PR.8 and CohomologyComparisons CP.4 insist Kummer étale and ordinary étale cohomology be compared, but no layer plans this purity theorem."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/047",
+   "kind": "theorem",
+   "name": "Huber's comparison of algebraic and adic étale cohomology",
+   "statement": "For a proper scheme Y over an algebraically closed complete nonarchimedean field and a torsion étale sheaf M, H^i_ét(Y, M) ≅ H^i_ét(Y^ad, M^ad).",
+   "locator": "Proof of Lemma 2.2.10, p. 14, citing [Hub96, Prop. 2.1.4, Thm 3.8.1]",
+   "status": "planned",
+   "planned": [
+    "ClassicalAdicEtaleCohomology:H5"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/048",
+   "kind": "theorem",
+   "name": "Proposition 2.2.11(a): restriction for proper smooth O_K-schemes",
+   "statement": "Let X be a proper smooth O_K-scheme with relative ncd D, U = X ∖ D and W ⊂ U_C a dense open subscheme. If 0 ≤ i < p − 2 then dim_{F_p} Im(H^i_ét(U_C, F_p) → H^i_ét(W, F_p)) ≥ h^{0,i}_{X_C,D_C}.",
+   "locator": "Proposition 2.2.11, p. 14",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/049",
+   "kind": "theorem",
+   "name": "Proposition 2.2.11(b): the abelian scheme case",
+   "statement": "If X is an abelian scheme over O_K and D = ∅, the inequality of 2.2.11(a) holds for i ≤ p − 2.",
+   "locator": "Proposition 2.2.11, p. 14",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/050",
+   "kind": "theorem",
+   "name": "Proposition 2.2.11(c): the cup-product version",
+   "statement": "With X, D, U, W as in 2.2.11(a), if p > max{i + 1, 3} then dim_{F_p} Im(∧^i H^1_ét(U_C, F_p) → H^i_ét(W, F_p)) ≥ h^{0,1→i}_{X_k,D_k}.",
+   "locator": "Proposition 2.2.11, p. 14",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/051",
+   "kind": "definition",
+   "name": "Good reduction and unramified good reduction of (Y, D)",
+   "statement": "For C algebraically closed of characteristic 0, Y proper smooth over C and D ⊂ Y a normal crossings divisor, (Y, D) has good reduction at p if for some p-adic valuation on C (not necessarily complete) with ring O_C, Y extends to a smooth proper O_C-scheme Y° with a relative ncd D° extending D; it has unramified good reduction if (Y°, D°) can be chosen to descend to an absolutely unramified discrete valuation ring O ⊂ O_C. Then h^{0,1→i}_{Y,D,p} is the maximum of h^{0,1→i}_{Y°_k,D°_k} over all such (Y°, D°), k the residue field of O.",
+   "locator": "2.2.12, pp. 14–15",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/052",
+   "kind": "theorem",
+   "name": "Invariance of étale cohomology under extension of algebraically closed fields",
+   "statement": "For C ⊂ C' algebraically closed and a C-variety U, H^i_ét(U, F_p) → H^i_ét(U_{C'}, F_p) is an isomorphism.",
+   "locator": "Proof of Corollary 2.2.13, p. 15",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "note": "Upstream PR196 EtaleBaseChange Layer 4 (smooth base change: invariance under extension of separably closed base fields), integrated through SF.2."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/053",
+   "kind": "theorem",
+   "name": "Corollary 2.2.13(a): restriction over an arbitrary algebraically closed field",
+   "statement": "Let Y be proper smooth over C (algebraically closed, characteristic 0), D ⊂ Y a normal crossings divisor, W ⊂ U = Y − D a dense open, and suppose (Y, D) has unramified good reduction at p. If 0 ≤ i < p − 2 then dim_{F_p} Im(H^i_ét(U, F_p) → H^i_ét(W, F_p)) ≥ h^{0,i}_{Y,D}.",
+   "locator": "Corollary 2.2.13, p. 15",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/054",
+   "kind": "theorem",
+   "name": "Corollary 2.2.13(b): abelian varieties at i = p − 2",
+   "statement": "If Y is an abelian variety over C (and D = ∅) with unramified good reduction at p, the inequality of 2.2.13(a) holds for i ≤ p − 2.",
+   "locator": "Corollary 2.2.13, p. 15",
+   "status": "missing",
+   "note": "Printed as 'abelian scheme' (sourceIssues E7)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/055",
+   "kind": "theorem",
+   "name": "Corollary 2.2.13(c): the cup-product version",
+   "statement": "Under the hypotheses of 2.2.13(a), if p > max{i + 1, 3} then dim_{F_p} Im(∧^i H^1_ét(U, F_p) → H^i_ét(W, F_p)) ≥ h^{0,1→i}_{Y,D,p}.",
+   "locator": "Corollary 2.2.13, p. 15",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/056",
+   "kind": "theorem",
+   "name": "Generic members of good moduli have unramified good reduction everywhere",
+   "statement": "Let M be a smooth, faithfully flat, connected, separated Deligne–Mumford stack over Z, 𝒴 → M proper smooth with a relative ncd 𝒟 ⊂ 𝒴. If Spec C → M has image the generic point of M, then (𝒴 ×_M Spec C, 𝒟 ×_M Spec C) has unramified good reduction at every prime p. (No open substack has this property unless 𝒟 = ∅.)",
+   "locator": "2.2.14, p. 15",
+   "status": "missing",
+   "note": "Uses étale presentations of Deligne–Mumford stacks, planned in SchemeAndStackFoundations:SF.1."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/057",
+   "kind": "theorem",
+   "name": "Spreading out and reducedness modulo p",
+   "statement": "If (Y, D) is proper smooth with ncd over C, it descends to a proper smooth scheme with relative ncd over a finite-type normal Z-subalgebra 𝒜 ⊂ C; since 𝒜 ⊗ Q is geometrically reduced, 𝒜/p𝒜 is reduced for p ≫ 0, and for p ≫ 0 there is a height-one prime 𝔭 over p with 𝒜_𝔭 a discrete valuation ring with uniformizer p.",
+   "locator": "Proof of Corollary 2.2.15, p. 16, citing [EGA IV, 4.6.1, 9.7.7]",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "note": "Limit and constructibility arguments of EGA IV §§8–9 belong to the scheme foundations (SF.0–SF.4); SF.4 owns models over bases."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/058",
+   "kind": "theorem",
+   "name": "Étale cohomology of the generic point as a colimit",
+   "statement": "For an integral C-variety U with generic point η, H^i(η, F_p) = colim_{W} H^i_ét(W, F_p) over dense opens W ⊂ U, and H^i(η, F_p) is the Galois cohomology of the function field.",
+   "locator": "Corollary 2.2.15 and proof of Proposition 2.3.3, pp. 15–17",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/059",
+   "kind": "theorem",
+   "name": "Corollary 2.2.15(a): restriction to the generic point",
+   "statement": "Let Y be proper smooth over C, D a normal crossings divisor, U = Y − D and η the generic point. For i ≥ 0 and p ≫ 0, dim_{F_p} Im(H^i_ét(U, F_p) → H^i_ét(η, F_p)) ≥ h^{0,i}_{Y,D}.",
+   "locator": "Corollary 2.2.15, p. 16",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/060",
+   "kind": "theorem",
+   "name": "Corollary 2.2.15(b): cup products at the generic point",
+   "statement": "In the setting of 2.2.15(a), for p ≫ 0, dim_{F_p} Im(∧^i H^1_ét(U, F_p) → H^i_ét(η, F_p)) ≥ h^{0,1→i}_{Y,D,p}.",
+   "locator": "Corollary 2.2.15, p. 16",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/061",
+   "kind": "theorem",
+   "name": "Transfer for finite extensions of degree prime to p",
+   "statement": "If η'/η is a finite separable extension of fields of degree prime to p, restriction H^i(η, F_p) → H^i(η', F_p) is injective, because corestriction ∘ restriction is multiplication by the degree.",
+   "locator": "Proof of Proposition 2.3.3, p. 17",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+   ],
+   "note": "Tau Ceti ProfiniteCohomology plans corestriction in all degrees with cor ∘ res = index."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/062",
+   "kind": "theorem",
+   "name": "Affine Artin vanishing",
+   "statement": "If Z is an affine variety over an algebraically closed field and dim Z < i, then H^i_ét(Z, F) = 0 for every torsion sheaf F (with torsion invertible on the base).",
+   "locator": "Proof of Proposition 2.3.3, p. 17",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "note": "Upstream PR196 EtaleBaseChange Layer 6 (affine Artin vanishing bound q > dim X), integrated through SF.2."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/063",
+   "kind": "theorem",
+   "name": "Equivariant form of essential dimension [FKW21, 2.1.4]",
+   "statement": "If ed(Y'/U') < i for a G-cover Y' → U', then there are a dense open W ⊂ U', a map of C-schemes W → Z with dim Z < i and a G-cover Y'_Z → Z with Y'|_W ≅ Y'_Z ×_Z W as W-schemes with G-action; shrinking, Z may be taken affine.",
+   "locator": "Proof of Proposition 2.3.3, p. 17, citing [FKW21, 2.1.4]",
+   "status": "missing",
+   "note": "From the authors' earlier paper (Compositio 2021), listed under prerequisites."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/064",
+   "kind": "theorem",
+   "name": "Proposition 2.3.3: the characteristic class lower bound",
+   "statement": "Let X be a proper connected smooth C-scheme with normal crossings divisor D, U = X − D, and suppose i < p − 2 and (X, D) has unramified good reduction at p. Let G be a finite group and Y → U a G-cover. If h^{0,i}_{X,D} ≠ 0 and H^i(G, F_p) → H^i_ét(U, F_p) is surjective, then ed(Y/U; p) ≥ i. If X is an abelian variety and D = ∅, the same holds for i ≤ p − 2.",
+   "locator": "Proposition 2.3.3, pp. 16–17",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/065",
+   "kind": "theorem",
+   "name": "Mod p cohomology of abelian varieties and tori",
+   "statement": "For an abelian variety A of dimension g over an algebraically closed field C of characteristic 0, H^•_ét(A, F_p) is the exterior algebra on H^1_ét(A, F_p) ≅ Hom(π_1^ét(A), F_p) ≅ F_p^{2g}, and the same holds for a split torus G_m^t with H^1 of rank t; multiplication by p on A is a Galois cover with group A[p] ≅ (Z/p)^{2g} and both are étale K(π,1)'s.",
+   "locator": "Proof of Corollary 2.3.5, p. 18; proof of Lemma 3.2.2, p. 24",
+   "status": "missing",
+   "note": "Via Artin comparison (SF.2, PR196 ComplexComparison Layer 10) and Künneth for tori (tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent); [n] is planned in AbelianSchemesAndArithmeticModuli:A3."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/066",
+   "kind": "theorem",
+   "name": "Corollary 2.3.5: Brosnan's conjecture for p ≥ g + 2",
+   "statement": "Let X/C be an abelian variety of dimension g, p ≥ g + 2 a prime at which X has unramified good reduction, and X' → X the multiplication-by-p map viewed as a (Z/p)^{2g}-cover. Then ed(X'/X; p) = g. In particular this holds for all p ≫ 0.",
+   "locator": "Corollary 2.3.5, p. 17; Remark 2.3.6",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/067",
+   "kind": "theorem",
+   "name": "Theorem 2.3.8: lower bound for the mod p homology cover",
+   "statement": "Suppose (X, D) has unramified good reduction at p and p > max{dim X + 1, 3}. Then the mod p homology cover Y → U satisfies ed(Y/U; p) ≥ max{i : h^{0,1→i}_{X,D,p} > 0}. In particular, for p ≫ 0, ed(Y/U; p) ≥ max{i : h^{0,1→i}_{X,D} > 0}.",
+   "locator": "Theorem 2.3.8, p. 18",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/068",
+   "kind": "theorem",
+   "name": "Albanese dimension as a Hodge-theoretic invariant",
+   "statement": "For X smooth proper over C (D = ∅), max{i : h^{0,1→i}_X > 0} = dim α_X(X): H^0(X, Ω^1_X) ≅ H^0(Alb(X), Ω^1), these forms generate the global i-forms on Alb(X), and X is generically smooth over α_X(X) since char C = 0.",
+   "locator": "2.3.9, p. 18",
+   "status": "missing",
+   "note": "Printed with H^1(X, Ω^1) for H^0(X, Ω^1) (sourceIssues E2)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/069",
+   "kind": "theorem",
+   "name": "Koizumi: good reduction of the Albanese and Picard varieties",
+   "statement": "If X has a smooth proper model X° over a discrete valuation ring O, then Alb(X) and Pic^0_X extend to abelian schemes over O.",
+   "locator": "Proof of Proposition 2.3.10, p. 19, citing [Koi60, Thm 2]",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/070",
+   "kind": "theorem",
+   "name": "Proposition 2.3.10(1): the Albanese map extends over a good model",
+   "statement": "Let p be a prime of good unramified reduction for X, with smooth proper model X° over O_C as in 2.2.12. Then α_X extends to α°_X : X° → Alb(X)° over O_C with Alb(X)° an abelian scheme: the Poincaré bundle on X × A (A = Pic^0_X) extends to X° × A° by regularity, giving X° → Pic^0_{A°} ≅ A°∨ ≅ Alb(X)°.",
+   "locator": "Proposition 2.3.10(1), p. 19",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/071",
+   "kind": "theorem",
+   "name": "Proposition 2.3.10(2): effective bound for the mod p homology cover",
+   "statement": "In the setting of 2.3.10(1), let i = dim α_X(X) and suppose p > max{i + 1, 3}. If the special fibre of X° is generically smooth over its image under α°_X, then the mod p homology cover Y → X satisfies ed(Y/X; p) ≥ dim α_X(X).",
+   "locator": "Proposition 2.3.10(2), p. 19",
+   "status": "missing",
+   "note": "Corrected statement: the printed proposition omits p > max{i + 1, 3}, which its appeal to Theorem 2.3.8 requires (sourceIssues E15)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/072",
+   "kind": "definition",
+   "name": "Albanese map unramified at p",
+   "statement": "α_X is unramified at p if O_C and X° in 2.2.12 can be chosen so that the special fibre of X° is generically étale over its image under α°_X.",
+   "locator": "2.3.11, p. 19",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/073",
+   "kind": "theorem",
+   "name": "Corollary 2.3.12: effective incompressibility for maximal Albanese dimension",
+   "statement": "Let X be a smooth proper C-scheme of maximal Albanese dimension and Y → X its mod p homology cover. If p > max{dim X + 1, 3} is a prime of unramified good reduction for X at which α_X is unramified, then ed(Y/X; p) = dim X. In particular this holds for p ≫ 0.",
+   "locator": "Corollary 2.3.12, p. 19",
+   "status": "missing",
+   "note": "Corrected statement: the bound p > max{dim X + 1, 3} is missing in print (sourceIssues E15)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/074",
+   "kind": "theorem",
+   "name": "Cohomology ring of an elementary abelian p-group",
+   "statement": "For p odd and H̄ an elementary abelian p-group, H^•(H̄, F_p) ≅ ∧^•H̄^*(1) ⊗ Sym^•H̄^*(2), where H̄^*(1) = H^1(H̄, F_p) sits in degree 1 and H̄^*(2) = β(H^1(H̄, F_p)) is its Bockstein image in degree 2.",
+   "locator": "3.1.1, p. 20; proof of Proposition 3.1.9, p. 23 ([BC92, §10]; [AM04, II Cor. 4.3])",
+   "status": "missing",
+   "note": "Mathlib has group cohomology (mathlib:groupCohomology) and H^1 with trivial action (mathlib:groupCohomology.H1IsoOfIsTrivial), but no cohomology ring computation."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/075",
+   "kind": "theorem",
+   "name": "Central extensions of elementary abelian p-groups",
+   "statement": "For elementary abelian p-groups H, N (p odd) with trivial action, H^2(H, N) ≅ H^2(H, F_p) ⊗ N ≅ (∧^2 H^* ⊗ N) ⊕ (H^* ⊗ N), the first summand the image of cup products of degree-one classes, the second the image of the Bockstein; this group classifies central extensions 0 → N → E → H → 0.",
+   "locator": "3.1.1, p. 20",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/076",
+   "kind": "construction",
+   "name": "The central extension attached to a 2-cocycle",
+   "statement": "For c ∈ Z^2(H, N) (trivial action) the group E_c has underlying set N × H and law (n_1, h_1)(n_2, h_2) = (n_1 + n_2 + c(h_1, h_2), h_1 + h_2); cohomologous cocycles give isomorphic extensions and Baer sum corresponds to addition.",
+   "locator": "3.1.1, p. 20",
+   "status": "missing",
+   "note": "Mathlib has the extension structure (mathlib:GroupExtension) and 2-cocycles, but not this construction and classification."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/077",
+   "kind": "definition",
+   "name": "Finite Heisenberg group",
+   "statement": "A central extension 0 → N → E → H → 0 of elementary abelian p-groups is a finite Heisenberg group if its class in H^2(H, N) is represented by an alternating bilinear form H ⊗ H → N.",
+   "locator": "3.1.1, p. 20",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/078",
+   "kind": "definition",
+   "name": "Weights of F_p^× and Z_p^× actions",
+   "statement": "An F_p-vector space V with F_p^×-action has weight n ∈ Z/(p − 1) if α acts by α^{−n}; V_n is the weight-n summand. A finite free Z_p-module with Z_p^×-action has weight n ∈ Z if α acts by α^{−n}.",
+   "locator": "3.1.1, p. 21; 3.1.3, p. 21",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/079",
+   "kind": "theorem",
+   "name": "Lemma 3.1.2: characterizations of finite Heisenberg groups",
+   "statement": "For p odd and a central extension 0 → N → E → H → 0 of elementary abelian p-groups, the following are equivalent: (i) E is a finite Heisenberg group; (ii) its class lies in ∧^2 H^* ⊗ N; (iii) E has exponent p; (iv) the extension admits an F_p^×-action with H of weight −1 and N of weight −2. In particular being Heisenberg depends only on the group E.",
+   "locator": "Lemma 3.1.2, p. 21",
+   "status": "missing",
+   "note": "Exponent: mathlib:Monoid.exponent. The proof of (ii)⇒(i) prints n_i ∈ N_i for n_i ∈ N (sourceIssues E3)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/080",
+   "kind": "theorem",
+   "name": "Lemma 3.1.5(i): pro-p central extensions of free abelian groups are alternating",
+   "statement": "For a central extension 0 → N → E → H → 0 with N ≅ Z_p^r, H ≅ Z_p^s (finitely generated free abelian pro-p groups), H^2(H, N) ≅ Λ^2_{Z_p} H^* ⊗ N, so the class of E is represented by an alternating bilinear form.",
+   "locator": "Lemma 3.1.5(i), p. 21",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/081",
+   "kind": "theorem",
+   "name": "Lemma 3.1.5(ii): the Z_p^× weight action",
+   "statement": "Every E as in Lemma 3.1.5(i) admits a Z_p^×-action by group automorphisms under which H has weight −1 and N has weight −2.",
+   "locator": "Lemma 3.1.5(ii), p. 21",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/082",
+   "kind": "theorem",
+   "name": "Cohomology of free abelian pro-p groups",
+   "statement": "For a finitely generated free abelian pro-p group F and a finite elementary abelian p-group M with trivial F-action, H^•(F, M) ≅ (∧^• H^1(F, F_p)) ⊗ M.",
+   "locator": "3.1.7, p. 22 ([Ser02, I §3.2 Ex. 1, §3.3 Prop. 14])",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/083",
+   "kind": "theorem",
+   "name": "Hochschild–Serre spectral sequence for profinite groups",
+   "statement": "For a closed normal subgroup N of a profinite group E with quotient H and a discrete E-module M there is a spectral sequence E_2^{i,j} = H^i(H, H^j(N, M)) ⇒ H^{i+j}(E, M), functorial in automorphisms of the extension; for M = F_p it is multiplicative (E_r is a differential graded algebra).",
+   "locator": "Lemma 3.1.6 and proof of Proposition 3.1.9, pp. 22–23; proof of Lemma 3.2.2, p. 24",
+   "status": "planned",
+   "planned": [
+    "ArithmeticGaloisDuality:R02.2"
+   ],
+   "note": "R02.2 plans the spectral sequence for closed normal subgroups; its multiplicative structure and equivariance under automorphisms of the extension are the API the Heisenberg Part II needs from it."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/084",
+   "kind": "theorem",
+   "name": "Lemma 3.1.6: E_3-degeneration by weights",
+   "statement": "For E as in Lemma 3.1.5 the Hochschild–Serre spectral sequence E_2^{i,j} = H^i(H, H^j(N, F_p)) ⇒ H^{i+j}(E, F_p) degenerates at E_3 if p ≥ min{rk N + 1, rk H}.",
+   "locator": "Lemma 3.1.6, p. 22",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/085",
+   "kind": "definition",
+   "name": "Reduction mod p of a pro-p central extension",
+   "statement": "A reduction mod p of E as in (3.1.4) is a map of central extensions to 0 → N̄ → Ē → H̄ → 0 identifying N̄ = N/pN and H̄ = H/pH, with Ē a finite Heisenberg group.",
+   "locator": "3.1.7, p. 22",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/086",
+   "kind": "theorem",
+   "name": "Lemma 3.1.8: existence and uniqueness of the mod p reduction",
+   "statement": "Every central extension E as in (3.1.4) admits a mod p reduction Ē, and the extension class of Ē is uniquely determined by that of E.",
+   "locator": "Lemma 3.1.8, p. 22",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/087",
+   "kind": "theorem",
+   "name": "Proposition 3.1.9: surjectivity of inflation from the Heisenberg quotient",
+   "statement": "Let E be as in (3.1.4) and Ē a mod p reduction. If p > (rk_{Z_p} H + 3 rk_{Z_p} N + 1)/2, then the ring map H^•(Ē, F_p) → H^•(E, F_p) is surjective.",
+   "locator": "Proposition 3.1.9, p. 23",
+   "status": "missing",
+   "note": "The proof prints (E_3^{i,j})_{i+2j} for (Ē_3^{i,j})_{i+2j} (sourceIssues E4)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/088",
+   "kind": "definition",
+   "name": "Maximal pro-p quotient",
+   "statement": "For a profinite group G, G^p denotes its maximal pro-p quotient.",
+   "locator": "3.2.1, p. 24",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/089",
+   "kind": "definition",
+   "name": "Torus torsors over an abelian variety",
+   "statement": "For a split torus T ≅ G_m^t and an abelian variety S over C, a T-torsor U → S; by Hilbert 90 it is Zariski-locally trivial and, after choosing a basis of X^*(T), corresponds to line bundles L_1, …, L_t on S.",
+   "locator": "3.2.1, p. 24; proof of Proposition 3.2.7, p. 25",
+   "status": "missing",
+   "note": "Line bundles and Picard objects are imported from SchemeAndStackFoundations:SF.3; torsors under tori over abelian varieties are not planned."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/090",
+   "kind": "theorem",
+   "name": "Lemma 3.2.2(a): fundamental group of a torus torsor",
+   "statement": "For U → S a T-torsor over an abelian variety and x̄ ↦ s̄, π_1^ét(U, x̄) is a central extension 0 → π_1^ét(U_s̄, x̄) → π_1^ét(U, x̄) → π_1^ét(S, s̄) → 0 of free abelian profinite groups, whose maximal pro-p quotient is again exact, and H^•(π_1^ét(U)^p, F_p) → H^•(π_1^ét(U), F_p) is an isomorphism.",
+   "locator": "Lemma 3.2.2, p. 24",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/091",
+   "kind": "theorem",
+   "name": "Lemma 3.2.2(b): torus torsors over abelian varieties are étale K(π,1)'s",
+   "statement": "The C-scheme U of Lemma 3.2.2(a) is an étale K(π,1).",
+   "locator": "Lemma 3.2.2, p. 24",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/092",
+   "kind": "construction",
+   "name": "The Heisenberg cover U(Ē) of a torus torsor",
+   "statement": "A mod p reduction Ē of the pro-p extension π_1^ét(U)^p gives a surjection π_1^ét(U, x̄) ↠ Ē onto a finite Heisenberg group and the corresponding finite cover U(Ē) → U.",
+   "locator": "3.2.5, p. 25",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/093",
+   "kind": "definition",
+   "name": "Good reduction of a torus torsor over an abelian variety",
+   "statement": "U → S has good reduction at p if for some p-adic valuation on C with ring O_C, U → S extends to a T-torsor U° → S° over an abelian scheme over O_C; unramified good reduction if U° → S° can be chosen to descend to an absolutely unramified discrete valuation ring O ⊂ O_C.",
+   "locator": "3.2.6, p. 25",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/094",
+   "kind": "theorem",
+   "name": "Logarithmic top forms on torus embeddings over abelian varieties",
+   "statement": "For a torus embedding (X, D) over an abelian variety S of dimension r with dense T-torsor U, ω_T = dz_1/z_1 ∧ … ∧ dz_t/z_t is T-invariant and independent of trivializations up to sign, and ω_r ⊗ ω_T ∈ H^0(X, Ω^d_X(log D)) is nonzero for a nonzero r-form ω_r on S; hence h^{0,d}_{X,D} ≠ 0, d = dim X. For the compactification P = P(O ⊕ L_1^∨) ×_S … ×_S P(O ⊕ L_t^∨) of U, P is smooth projective over S and D = P − U is a normal crossings divisor.",
+   "locator": "Proof of Proposition 3.2.7, p. 25; proof of Proposition 3.2.14, p. 28",
+   "status": "missing",
+   "note": "The proof of 3.2.14 prints ω_r ⊗ ω_s (sourceIssues E6)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/095",
+   "kind": "theorem",
+   "name": "Proposition 3.2.7: incompressibility of Heisenberg covers of torus torsors",
+   "statement": "Let U → S be a T-torsor over an abelian variety with unramified good reduction at p, and suppose p > dim U + (dim U_s̄ + 1)/2 and p > dim U + 2. Then ed(U(Ē)/U; p) = dim U.",
+   "locator": "Proposition 3.2.7, p. 25",
+   "status": "missing",
+   "note": "Corrected statement: the printed hypothesis omits p > dim U + 2, which the appeal to Proposition 2.3.3 (i = dim U < p − 2) requires; it is implied by the printed bound only when dim U_s̄ ≥ 3 (sourceIssues E14)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/096",
+   "kind": "definition",
+   "name": "Toric varieties and relative torus embeddings",
+   "statement": "A toric variety (torus embedding) over a field k is a normal k-scheme with an action of a split torus T having a dense open orbit that is a T-torsor; these are described by fans Σ of rational polyhedral cones in X_*(T)_Q, and proper ones by complete fans. A fan defines X(Σ) over Z. For a scheme S, X → S with T-action is a torus embedding over S if Zariski-locally on S it is T-equivariantly X(Σ) ×_Z S; it contains an open T-torsor U dense in every fibre, and D = X − U is its boundary.",
+   "locator": "3.2.8, p. 25–26",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+    "ShimuraCompactifications:C0"
+   ],
+   "note": "Fans themselves are in the library: tauceti:TauCeti.Toric.Fan (finite fans of toric cones), tauceti:TauCeti.Toric.Fan.IsComplete, tauceti:TauCeti.Toric.Fan.IsRegular. AnalyticToricGeometry Layer 0 glues the toric scheme over C; ShimuraCompactifications C0 extends the charts to the base rings of integral models and builds torus embeddings relative to a torus torsor."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/097",
+   "kind": "theorem",
+   "name": "Étale-local torus embeddings are Zariski-local",
+   "statement": "Aut_T(X(Σ) ×_Z S) = Aut_T(U(Σ) × S) = T(S); hence an X → S étale-locally isomorphic to X(Σ) × S is a twist by a T-torsor, which is Zariski-locally trivial, so X → S is a torus embedding.",
+   "locator": "3.2.8, p. 26",
+   "status": "planned",
+   "planned": [
+    "ShimuraCompactifications:C0"
+   ],
+   "note": "C0 constructs torus embeddings relative to a torus torsor by descent."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/098",
+   "kind": "theorem",
+   "name": "Lemma 3.2.9: classification of relative torus embeddings",
+   "statement": "For S irreducible and T fixed, torus embeddings X → S with a dense open T-torsor are equivalent to pairs (U, Σ) of a T-torsor U over S and a fan Σ in X_*(T)_Q, via X ↦ (U, fan of X_η) and (U, Σ) ↦ (X(Σ) × U)/T.",
+   "locator": "Lemma 3.2.9, p. 26",
+   "status": "planned",
+   "planned": [
+    "ShimuraCompactifications:C0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/099",
+   "kind": "construction",
+   "name": "Boundary strata and iterated blow-ups of torus embeddings",
+   "statement": "For a torus embedding X → S over a C-scheme S, the boundary D has the stratification D_0 ⊂ D_1 ⊂ … with D_j locally S × (closure of the j-dimensional T-orbits of X_0); D_0 is étale over S, finite étale if X is proper. X^1 → X is the blow-up of D_0, again a torus embedding with boundary D^1, smooth with relative ncd if X is; iterating gives X ← X^1 ← X^2 ← …, and X̂^i denotes the completion of X^i along D^i.",
+   "locator": "3.2.10, pp. 26–27",
+   "status": "missing",
+   "note": "Orbit strata are planned in tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-4-torus-actions-strata-and-the-boundary and star subdivisions in tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness; the relative iterated blow-up of the zero-dimensional strata and its formal completions are new."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/100",
+   "kind": "theorem",
+   "name": "Smoothness criterion and toric resolution",
+   "statement": "A torus embedding X(Σ) × S over a smooth S is smooth with relative normal crossings boundary iff every cone of Σ is regular [KKMS73, II.2, Thm 4*]; every fan has a regular subdivision, and subdivisions (in particular blow-ups of torus-invariant strata) give proper torus-equivariant modifications [Ful93, p. 48].",
+   "locator": "Lemma 3.2.11 proof, p. 27; proof of Proposition 3.2.14, p. 28",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-5-toric-maps-and-properness",
+    "ShimuraCompactifications:C0"
+   ],
+   "note": "Regular cones and subdivisions are in the library (tauceti:TauCeti.Toric.IsRegularCone, tauceti:TauCeti.Toric.Fan.IsSubdivision); C0 plans sufficiently fine smooth refinements and ATG Layer 5 properness of subdivisions."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/101",
+   "kind": "theorem",
+   "name": "Lemma 3.2.11: good reduction passes from the torsor to the torus embedding",
+   "statement": "Let X/S be a smooth torus embedding with normal crossings boundary D. If the T-torsor U has unramified good reduction at p, then (X, D) has unramified good reduction at p.",
+   "locator": "Lemma 3.2.11, p. 27",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/102",
+   "kind": "theorem",
+   "name": "Lemma 3.2.12: separating a zero-dimensional stratum from a divisor",
+   "statement": "Let S and X/S be smooth with D ⊂ X a relative normal crossings divisor, Z ⊂ X̂ a formal subscheme of codimension 1 and Z^i ⊂ X̂^i its proper transforms. Then there are a dense open W ⊂ S and i ≥ 1 with D_0^i|_W ⊄ Z^i.",
+   "locator": "Lemma 3.2.12, p. 27",
+   "status": "missing",
+   "note": "The proof prints a_I for a_J (sourceIssues E5)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/103",
+   "kind": "definition",
+   "name": "Complex analytic spaces and their Zariski topology",
+   "statement": "For a complex analytic space Y, a Zariski closed subset is a closed subset locally cut out by analytic functions, and a Zariski open subset is the complement of one; Zariski openness is not transitive along open embeddings of analytic spaces.",
+   "locator": "3.2.13, pp. 27–28",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "ComplexComparisonPartII:C0"
+   ],
+   "note": "Complex analytic spaces and analytification are upstream PR196 ComplexComparison Layer 2 (integrated through SF.2), which ComplexComparisonPartII C0 builds on."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/104",
+   "kind": "theorem",
+   "name": "Compact homotopy cores of complex varieties",
+   "statement": "A (smooth) complex algebraic variety W contains a compact subset W^- whose inclusion is a homotopy equivalence.",
+   "locator": "Proof of Proposition 3.2.14, p. 28, citing [Łoj64, Thm 4]",
+   "status": "missing",
+   "note": "To be derived from the finite triangulation compatible with a stratification planned in upstream PR196 ComplexComparison Layers 3–4 (through SF.2)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/105",
+   "kind": "theorem",
+   "name": "Proposition 3.2.14: nonvanishing on tubular neighbourhoods of the boundary",
+   "statement": "Let S be an abelian variety over C, X/S a proper torus embedding with boundary D and dense open T-torsor U, d = dim X, and suppose U/S has unramified good reduction at a prime p > d + 2. Let V ⊂ X^an be an analytic open subset containing D^an and V' ⊂ V a dense Zariski open subset of V. Then H^d(U, F_p) → H^d(U ∩ V', F_p) is nonzero.",
+   "locator": "Proposition 3.2.14, p. 28",
+   "status": "missing",
+   "note": "Corrected statement: the printed proposition asks only that V' be non-empty, which is false for disconnected V (sourceIssues E13). Theorem 3.3.17 needs the variant for a non-complete fan (sourceIssues E16)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/106",
+   "kind": "definition",
+   "name": "Analytic essential dimension and p-essential dimension",
+   "statement": "For a finite map V_1 → V of reduced complex analytic spaces, ed(V_1/V) is the least e such that for some dense Zariski open V' ⊂ V there are a finite map Y_1 → Y of analytic spaces with dim Y = e and a map V' → Y with V_1|_{V'} ≅ the normalization of V' ×_Y Y_1; ed(V_1/V; p) is the minimum of ed(Ṽ_1/Ṽ) over finite Ṽ → V of degree prime to p (degree taken over a Zariski open where it is finite flat), with Ṽ_1 the normalization of Ṽ ×_V V_1. Auxiliary covers need not be étale.",
+   "locator": "3.2.15, p. 29",
+   "status": "missing",
+   "note": "For the proof of 3.2.17 the compressions must go through Stein spaces Y carrying Ē-coverings (sourceIssues E17)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/107",
+   "kind": "theorem",
+   "name": "Normalization of complex analytic spaces and of finite covers",
+   "statement": "Reduced complex analytic spaces have normalizations; for a finite map Y_1 → Y and V' → Y the normalization of V' ×_Y Y_1 exists, and X(Ē) → X denotes the normalization of X in U(Ē) → U.",
+   "locator": "3.2.15–3.2.16, p. 29",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/108",
+   "kind": "theorem",
+   "name": "Transfer for finite analytic covers of degree prime to p",
+   "statement": "If Ṽ' → V' is a finite surjective map of normal complex analytic spaces of degree prime to p, then H^d(V', F_p) → H^d(Ṽ', F_p) is injective (a trace map composes with pullback to multiplication by the degree).",
+   "locator": "Proof of Corollary 3.2.17, p. 29",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/109",
+   "kind": "theorem",
+   "name": "Vanishing above the dimension for Stein spaces",
+   "statement": "If Y is a Stein space of complex dimension n, then H^k(Y, F_p) = 0 for k > n.",
+   "locator": "Proof of Corollary 3.2.17, p. 29, citing [AF59]",
+   "status": "missing",
+   "note": "Andreotti–Frankel treat Stein manifolds; singular Stein spaces are Narasimhan's theorem (sourceIssues E18)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/110",
+   "kind": "theorem",
+   "name": "Corollary 3.2.17: analytic incompressibility near the boundary",
+   "statement": "With the assumptions of Proposition 3.2.14, suppose p > dim U + (dim U_s̄ + 1)/2, and let V(Ē) = X(Ē)^an|_V. Then ed(V(Ē)/V; p) = d, where compressions are taken through Stein bases Y carrying Ē-coverings Y_1 → Y (this contains every compression obtained from an affine algebraic one).",
+   "locator": "Corollary 3.2.17, p. 29",
+   "status": "missing",
+   "note": "Corrected scope: the printed proof shrinks Y to a Stein space and treats Y_1 → Y as an Ē-covering, neither of which Definition 3.2.15 provides (sourceIssues E17)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/111",
+   "kind": "theorem",
+   "name": "Corollary 3.2.18: the case of a torus (Burda)",
+   "statement": "If in Corollary 3.2.17 dim S = 0, its conclusion holds with no restriction on p: then π_1^ét(U) is abelian, Ē = π_1^ét(U)/p and H^•(U, F_p) is generated in degree 1.",
+   "locator": "Corollary 3.2.18, p. 30; 3.2.19 ([Bur12, Thm 18])",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/112",
+   "kind": "definition",
+   "name": "Shimura datum and Shimura variety",
+   "statement": "A Shimura datum (G, X): a reductive Q-group G and a G(R)-conjugacy class X of homomorphisms h : S = Res_{C/R} G_m → G_R satisfying Deligne's axioms; X is a Hermitian symmetric domain and for neat compact open K ⊂ G(A_f), Sh_K(G, X) = G(Q)\\X × G(A_f)/K is a complex algebraic variety.",
+   "locator": "3.3.1, p. 30 ([Del79, §1])",
+   "status": "planned",
+   "planned": [
+    "ShimuraData:D2",
+    "ShimuraData:D4",
+    "ShimuraData:D5",
+    "ShimuraVarieties:V1",
+    "ShimuraVarieties:V2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/113",
+   "kind": "construction",
+   "name": "The Hodge cocharacter μ_h",
+   "statement": "For h ∈ X, μ_h : G_m → G_C is the composite of G_m → S_C (from R ⊗_R C = R ⊕ c^*(R)) with h; it is minuscule and, by the axioms, nontrivial.",
+   "locator": "3.3.1, p. 30 ([Del79, 1.2.2])",
+   "status": "planned",
+   "planned": [
+    "ShimuraData:D1",
+    "ShimuraData:D3"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/114",
+   "kind": "construction",
+   "name": "Dynkin diagram with Galois action and the opposition involution",
+   "statement": "For G with G^ad Q-simple, the Dynkin diagram Δ(G) carries a transitive action of Gal(Q̄/Q); the opposition involution of the root system is −w_0 for the longest Weyl element w_0.",
+   "locator": "3.3.2, p. 30",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element"
+   ],
+   "note": "The absolute root datum with Galois action is planned in Tau Ceti ReductiveGroups Layer 7; the longest element is in the library (tauceti:TauCeti.longestElement)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/115",
+   "kind": "theorem",
+   "name": "The field K_Δ of a Shimura datum",
+   "statement": "For (G, X) a Shimura datum with G^ad Q-simple, the kernel of the Galois action on Δ(G) cuts out a field K_Δ that is CM or totally real, complex conjugation acts on Δ(G) by the opposition involution, and K_Δ is totally real exactly when −1 ∈ W_G.",
+   "locator": "3.3.2, p. 30",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/116",
+   "kind": "construction",
+   "name": "Fundamental coweights and parabolics attached to cocharacters",
+   "statement": "For a maximal torus T ⊂ G^ad and positive roots, μ_α ∈ X_*(T) is the coweight equal to 1 on the simple root α and 0 on the others, μ_R = ∏_{α∈R} μ_α for R ⊂ Δ(G), with conjugacy class [μ_R] independent of choices; P_R is the parabolic whose Lie algebra is the sum of the root spaces on which μ_R is non-negative ([SGA3, XXVI 1.4]).",
+   "locator": "3.3.2, p. 30",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+   ],
+   "note": "Tau Ceti ReductiveGroups Layer 7 keeps the dynamic approach to parabolics, Levi subgroups and unipotent radicals."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/117",
+   "kind": "construction",
+   "name": "The special nodes Σ and Σ̃",
+   "statement": "Since μ_h is minuscule it corresponds to a set of vertices Σ ⊂ Δ(G) with at most one element in each connected component; Σ̃ = Σ ∪ c(Σ) for complex conjugation c.",
+   "locator": "3.3.2, p. 30",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/118",
+   "kind": "theorem",
+   "name": "Lemma 3.3.3: structure of the unipotent radical U_Σ̃",
+   "statement": "For μ_Σ̃ ∈ [μ_Σ̃] with parabolic P_Σ̃ and unipotent radical U_Σ̃: U_Σ̃ is a central extension of vector groups 0 → Z(U_Σ̃) → U_Σ̃ → U_Σ̃/Z(U_Σ̃) → 0, U_Σ̃ = Z(U_Σ̃) if c fixes Σ, and w = μ_Σ μ_{c(Σ)} acts with weight 2 on Z(U_Σ̃) and weight 1 on U_Σ̃/Z(U_Σ̃).",
+   "locator": "Lemma 3.3.3, p. 31",
+   "status": "missing",
+   "note": "ShimuraCompactifications C1 plans unipotent radicals, their centres and the weight filtration of boundary mixed data; what is new is the Dynkin-diagram description through Σ̃ and its identification with the parabolic of a zero-dimensional rational boundary component."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/119",
+   "kind": "definition",
+   "name": "Condition 3.3.5: a rational cocharacter in [μ_Σ̃]",
+   "statement": "Condition (3.3.5): the conjugacy class [μ_Σ̃] contains a cocharacter defined over Q; it implies that [μ_Σ̃] is Gal(Q̄/Q)-stable.",
+   "locator": "3.3.4–(3.3.5), p. 32",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/120",
+   "kind": "theorem",
+   "name": "Lemma 3.3.6: rational cocharacters and rational parabolics",
+   "statement": "[μ_Σ̃] contains a cocharacter defined over Q if and only if [P_Σ̃] contains a parabolic subgroup defined over Q.",
+   "locator": "Lemma 3.3.6, p. 32 (using [SGA3, IX Thm 3.6])",
+   "status": "missing",
+   "note": "Rigidity and lifting of cocharacters of tori are planned in tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/121",
+   "kind": "theorem",
+   "name": "Q-simple adjoint Shimura groups are restrictions of scalars",
+   "statement": "If (G, X) is a Shimura datum with G^ad Q-simple, then G^ad = Res_{F/Q} G_0 for a totally real field F and an absolutely simple F-group G_0.",
+   "locator": "Lemma 3.3.8, p. 32, citing [Del79, 2.3.4(a)]",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/122",
+   "kind": "theorem",
+   "name": "Real boundary parabolics",
+   "statement": "For the absolutely simple real factor G_{0,R}, the conjugacy class of the parabolic attached to μ_{Σ̃_0} contains a parabolic defined over R (the parabolic of a real boundary component of X_0).",
+   "locator": "Proof of Lemma 3.3.8, p. 32, citing [AMRT, §3.2]",
+   "status": "planned",
+   "planned": [
+    "ShimuraVarieties:V2",
+    "ShimuraCompactifications:C1"
+   ],
+   "note": "V2 constructs the boundary components for Baily–Borel; C1 attaches their parabolics."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/123",
+   "kind": "theorem",
+   "name": "Lemma 3.3.8: criteria for condition 3.3.5",
+   "statement": "Suppose G^ad is Q-simple, so G^ad = Res_{F/Q} G_0. If (1) Σ̃ is Gal(Q̄/Q)-stable and (2) for some (hence, by (1), every) embedding F → R the F-rank of G_0 equals its R-rank, then condition 3.3.5 holds.",
+   "locator": "Lemma 3.3.8, p. 32",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/124",
+   "kind": "theorem",
+   "name": "Explicit forms of conditions (1) and (2)",
+   "statement": "(1) implies X ≅ X_0^m for an irreducible Hermitian domain X_0, and is equivalent to it unless X_0 is of type D_n^H with n even. For G of type B, C or D_n with n even, −1 ∈ W_G and (2) says that the F-rank of G_0 equals the R-rank of G_0 ⊗ R, namely n for C_n (then G_0 is split), 2 for SO(m, 2) and ⌊n/2⌋ for SO^*(2n); for type A_n, (2) says G_0 is the adjoint group of a unitary group of a hermitian form over a CM quadratic extension of F (not an inner form of one); n = 1 covers Hilbert modular varieties.",
+   "locator": "3.3.9, p. 33",
+   "status": "missing",
+   "note": "Corrected: the printed paragraph says G^ad_R is split for types B, C, D_n (n even), which holds only for type C (sourceIssues E12)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/125",
+   "kind": "theorem",
+   "name": "Prasad–Rapinchuk: forms with prescribed real form and maximal Q-rank",
+   "statement": "Let G_0 be a quasi-split absolutely simple Q-group and G_R an inner form of G_{0,R}. There is an inner form G of G_0 over Q with G ⊗ R ≅ G_R (as inner forms of G_{0,R}) whose Q-rank equals the R-rank of G_R.",
+   "locator": "Proof of Corollary 3.3.10, p. 33, citing [PR06, Thm 1]",
+   "status": "missing",
+   "note": "The printed proof says 'the R-rank of G_{0,R}' where the parenthetical note shows G_R is meant (sourceIssues E10)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/126",
+   "kind": "theorem",
+   "name": "Corollary 3.3.10: existence of Shimura data satisfying 3.3.5",
+   "statement": "For every irreducible Hermitian symmetric domain X and every imaginary quadratic field L there is a Shimura datum (G, X) with G absolutely simple, split over L, satisfying condition 3.3.5.",
+   "locator": "Corollary 3.3.10, p. 33",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/127",
+   "kind": "construction",
+   "name": "The boundary torus torsor ξ_K → C_K",
+   "statement": "Under 3.3.5, let P ∈ [P_Σ̃] be defined over Q with unipotent radical U and centre Z, U(Z) = U(Q) ∩ K, Z(Z) = Z(Q) ∩ K; ξ_K = U(Z)\\U(R)Z(C) and C_K = (Z(C)/Z(Z))\\ξ_K. Then C_K is an abelian variety and ξ_K → C_K a torsor under the torus Z(C)/Z(Z); for a smooth fan Σ in X_*(Z(C)/Z(Z))_Q (a cone decomposition of the positive cone) one obtains a smooth torus embedding ξ_K(Σ) → C_K with normal crossings boundary D_K(Σ). For P_Σ̃ the relevant boundary Shimura variety is zero-dimensional.",
+   "locator": "3.3.11, p. 33 ([Pin90, §3, 4.7]; [MP19, 2.1.7])",
+   "status": "planned",
+   "planned": [
+    "ShimuraCompactifications:C0",
+    "ShimuraCompactifications:C1"
+   ],
+   "note": "The printed text places the fan in X^*(…) (sourceIssues E8)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/128",
+   "kind": "theorem",
+   "name": "Proposition 3.3.13(1): the boundary neighbourhood has the torsor's fundamental group",
+   "statement": "There is an analytic neighbourhood V_K of D_K(Σ) in ξ_K(Σ)(C) with V_K^* = V_K ∖ D_K(Σ) = U(Z)\\X^+ ⊂ ξ_K(C) such that V_K^* → ξ_K(C) induces an isomorphism of topological fundamental groups (both ≅ U(Z)).",
+   "locator": "Proposition 3.3.13(1), p. 34 ([Pin90, 4.11, 6.10, 6.13]; [MP19, 2.1.6, 2.1.13, 2.1.22])",
+   "status": "planned",
+   "planned": [
+    "ShimuraCompactifications:C1",
+    "ShimuraCompactifications:C2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/129",
+   "kind": "theorem",
+   "name": "Proposition 3.3.13(2): the étale chart of the toroidal compactification",
+   "statement": "There are an ncd compactification Sh_K(Σ)^+ of Sh_K^+ and an étale map of complex analytic spaces π_K : V_K → Sh_K(Σ)^+ with π_K^{-1}(Sh_K(Σ)^+ ∖ Sh_K^+) = D_K(Σ), such that π_K : V_K^* → Sh_K^+ induces the inclusion U(Z) ↪ Γ on fundamental groups.",
+   "locator": "Proposition 3.3.13(2), p. 34 ([Pin90, §6]; [MP19, 2.1.26])",
+   "status": "planned",
+   "planned": [
+    "ShimuraCompactifications:C2"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/130",
+   "kind": "definition",
+   "name": "ncd compactification",
+   "statement": "For a smooth C-scheme Y, an ncd compactification is a dense open embedding Y ⊂ Ȳ into a proper smooth C-scheme with Ȳ ∖ Y a normal crossings divisor.",
+   "locator": "3.3.12, p. 34",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/131",
+   "kind": "theorem",
+   "name": "Connected components of Shimura varieties",
+   "statement": "For a connected component X^+ ⊂ X, the corresponding component of Sh_K is Sh_K^+ = Γ\\X^+ with Γ = K ∩ G(Q)_+, G(Q)_+ the elements mapping to the identity component of G^ad(R); for neat K its fundamental group is Γ.",
+   "locator": "3.3.12, p. 34 ([Del79, 2.1.2])",
+   "status": "planned",
+   "planned": [
+    "ShimuraVarieties:V0"
+   ],
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/132",
+   "kind": "theorem",
+   "name": "Parabolics extend to reductive models",
+   "statement": "If G has a reductive model G_{Z_p}, a parabolic P ⊂ G_{Q_p} extends to a parabolic P_{Z_p} ⊂ G_{Z_p} because the scheme of parabolic subgroups is projective ([SGA3, XXVI Cor. 3.5]); P_{Z_p} is attached to a cocharacter in [μ_Σ̃] defined over Z_p.",
+   "locator": "3.3.14, p. 35; proof of Lemma 3.3.15",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
+   ],
+   "note": "Tau Ceti ReductiveGroups Layer 8 includes the relative theory over a base."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/133",
+   "kind": "theorem",
+   "name": "Lemma 3.3.15: the integral unipotent radical is a pro-p Heisenberg extension",
+   "statement": "U_{Z_p}(Z_p) is a central extension of finitely generated free abelian pro-p groups; U(Z_p) → U(F_p) is surjective; and U(F_p) is a mod p reduction of U(Z_p) (a finite Heisenberg group, via the F_p^×-action through μ_{Z_p} with weights 1 and 2).",
+   "locator": "Lemma 3.3.15, p. 35",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/134",
+   "kind": "theorem",
+   "name": "Strong approximation for unipotent groups",
+   "statement": "For a unipotent Q-group U and a compact open K, U(Q) is dense in U(A_f); in particular the closure of U(Z) = U(Q) ∩ K in U(Z_p) is U(Z_p), and the pro-p completion of U(Z) is U(Z_p).",
+   "locator": "Proof of Theorem 3.3.17, p. 35",
+   "status": "missing",
+   "note": "AA.4 plans strong approximation for simply connected almost-simple groups only; ShimuraVarieties V0 restricts its use to semisimple simply connected groups."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/135",
+   "kind": "definition",
+   "name": "Principal p-congruence cover",
+   "statement": "With K = K_pK^p, K_p = G(Z_p) for a reductive model G_{Z_p}, K^1_p = ker(G(Z_p) → G(F_p)), K^1 = K^1_pK^p, Γ = K ∩ G(Q)_+ and Γ_1 = K^1 ∩ G(Q)_+, the covering Γ_1\\X^+ → Γ\\X^+ is a principal p-covering.",
+   "locator": "3.3.16, p. 35",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/136",
+   "kind": "theorem",
+   "name": "Algebraic versus analytic p-essential dimension at the boundary",
+   "statement": "In the situation of Theorem 3.3.17 the pullback along π_K of Γ_1\\X^+ → Γ\\X^+ has a component V^*_{K^1} → V^*_K which is the restriction of the U(F_p)-covering of schemes ξ_{K^1} → ξ_K; with V_{K^1} = ξ_{K^1}(Σ)^an|_{V_K}, and since π_K^{-1} of the Zariski closure of a Zariski closed B ⊂ Sh_K^+ is Zariski closed in V_K, ed(Γ_1\\X^+ → Γ\\X^+; p) ≥ ed(V_{K^1} → V_K; p).",
+   "locator": "Proof of Theorem 3.3.17, p. 35",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/137",
+   "kind": "theorem",
+   "name": "Theorem 3.3.17: incompressibility of principal p-coverings",
+   "statement": "Assume condition 3.3.5 and that G extends to a reductive group scheme over Z_p. If Σ ≠ c(Σ) assume p > dim X + (dim Z + 1)/2, p > dim X + 2, and that p is a prime of unramified good reduction for ξ_K. Then ed(Γ_1\\X^+ → Γ\\X^+; p) = dim X.",
+   "locator": "Theorem 3.3.17, p. 35",
+   "status": "missing",
+   "note": "Corrected statement: p > dim X + 2 is added (sourceIssues E14); the proof applies Proposition 3.2.14 and Corollary 3.2.17 to the non-proper torus embedding ξ_K(Σ) → C_K (sourceIssues E16)."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/138",
+   "kind": "theorem",
+   "name": "Good reduction of boundary torus torsors for Hodge-type data",
+   "statement": "If (G, X) is of Hodge type and G extends to a reductive group over Z_p (K_p hyperspecial), then the boundary torus torsor ξ_K → C_K of 3.3.11, and its torus embeddings ξ_K(Σ), have unramified good reduction at p, via the integral toroidal compactifications of Madapusi Pera.",
+   "locator": "Proof of Corollary 3.3.18, p. 36, citing [MP19]",
+   "status": "missing",
+   "note": "ShimuraCompactifications C5 builds integral compactifications for PEL data only and states that it makes no claim for Hodge- or abelian-type data."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/139",
+   "kind": "theorem",
+   "name": "Corollary 3.3.18: the Hodge-type case",
+   "statement": "Under the assumptions of Theorem 3.3.17 with (G, X) of Hodge type, p is a prime of unramified good reduction for ξ_K, and the conclusion of Theorem 3.3.17 holds without that assumption.",
+   "locator": "Corollary 3.3.18, p. 36",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/140",
+   "kind": "theorem",
+   "name": "Classical Hermitian types are of abelian type",
+   "statement": "An adjoint Shimura datum (G, X) whose Hermitian domain is of classical type (A, B, C, D^R, and D^H in the cases of [Del79, 2.3.10]) is of abelian type: there is a Hodge-type datum (G', X') with a central isogeny G'^der → G^der inducing an isomorphism of adjoint data.",
+   "locator": "Proof of Corollary 3.3.19, p. 36, citing [Del79, 2.3.10]",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/141",
+   "kind": "theorem",
+   "name": "Hodge-type lifts with reductive models over Z_p",
+   "statement": "If (G, X) is of abelian type and G has a reductive model over Z_p, the Hodge-type datum (G', X') of the previous item can be chosen so that G' also has a reductive model over Z_p.",
+   "locator": "Proof of Corollary 3.3.19, p. 36, citing [Kis10, 3.4.13]",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/142",
+   "kind": "theorem",
+   "name": "Principal p-coverings under central isogeny",
+   "statement": "For a central isogeny G' → G as above with reductive models over Z_p, the map Γ'_1\\Γ' → Γ_1\\Γ of principal p-covering groups has kernel and cokernel finite of order prime to p, and p-essential dimension is unchanged under such a change of covering group.",
+   "locator": "Proof of Corollary 3.3.19, p. 36, citing [FKW21, 4.3.12, 2.2.7]",
+   "status": "missing",
+   "note": ""
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/143",
+   "kind": "theorem",
+   "name": "Corollary 3.3.19: existence of p-incompressible congruence covers",
+   "statement": "Let X be an irreducible Hermitian symmetric domain and L/Q an imaginary quadratic field. There is a Shimura datum (G, X) with G absolutely simple and split over L such that every principal p-covering Γ_1\\X^+ → Γ\\X^+ satisfies ed = dim X, provided, when X is not a tube domain: for X of classical type, p > (3/2) dim X and p > dim X + 2 (the proof uses dim X = (dim U + dim Z)/2 and dim X + (dim Z + 1)/2 ≤ (3/2) dim X); for type E_6, p sufficiently large.",
+   "locator": "Corollary 3.3.19, p. 36",
+   "status": "missing",
+   "note": "Corrected: the printed corollary allows any quadratic L (sourceIssues E9) and omits p > dim X + 2 (E14)."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "B. Farb, M. Kisin, J. Wolfson, The essential dimension of congruence covers, Compositio Math. 157 (2021), 2407–2432",
+   "link": "10.1112/S0010437X21007594",
+   "why": "Supplies 2.1.4 (equivariant formulation of essential dimension), 2.2.7 (invariance under prime-to-p changes of covering group) and 4.3.12 (index computation), all used without proof."
+  },
+  {
+   "citation": "P. Deligne, L. Illusie, Relèvements modulo p² et décomposition du complexe de de Rham, Invent. Math. 89 (1987), 247–270",
+   "link": "10.1007/BF01389078",
+   "why": "The logarithmic decomposition 4.2.3 behind Lemma 2.1.2; no layer takes it as a source."
+  },
+  {
+   "citation": "L. Illusie, An overview of the work of K. Fujiwara, K. Kato, and C. Nakayama on logarithmic étale cohomology, Astérisque 279 (2002), 271–322",
+   "link": "https://www.numdam.org/item/AST_2002__279__271_0/",
+   "why": "Theorems 7.2, 7.4 and Corollary 7.5 (Kummer étale direct images and logarithmic purity) used in Lemma 2.2.10."
+  },
+  {
+   "citation": "N. Katz, p-adic properties of modular schemes and modular forms, Modular functions of one variable III, LNM 350 (1973)",
+   "link": "10.1007/978-3-540-37802-0_3",
+   "why": "Proposition 4.1.1 (Frobenius modules over algebraically closed fields) used in Lemma 2.1.6."
+  },
+  {
+   "citation": "D. Benson, J. Carlson, The cohomology of extraspecial groups, Bull. London Math. Soc. 24 (1992), 209–235, with its corrigendum, Bull. London Math. Soc. 25 (1993), 498 (doi 10.1112/blms/25.5.498)",
+   "link": "10.1112/blms/24.3.209",
+   "why": "Cohomology rings of elementary abelian p-groups and classification of central extensions (§10), the base of §3.1."
+  },
+  {
+   "citation": "K. Madapusi Pera, Toroidal compactifications of integral models of Shimura varieties of Hodge type, Ann. Sci. ÉNS 52 (2019), 393–514",
+   "link": "10.24033/asens.2391",
+   "why": "Good reduction of the boundary torus torsors for Hodge-type data (Corollary 3.3.18) and the summary of Pink's constructions (2.1.6–2.1.26)."
+  },
+  {
+   "citation": "M. Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010), 967–1012",
+   "link": "10.1090/S0894-0347-10-00667-3",
+   "why": "Lemma 3.4.13, the Hodge-type lift with reductive model over Z_p used in Corollary 3.3.19."
+  },
+  {
+   "citation": "G. Prasad, A. Rapinchuk, On the existence of isotropic forms of semi-simple algebraic groups over number fields with prescribed local behavior, Adv. Math. 207 (2006), 646–660",
+   "link": "10.1016/j.aim.2006.01.001",
+   "why": "Theorem 1, used for Corollary 3.3.10."
+  },
+  {
+   "citation": "S. Koizumi, On specialization of the Albanese and Picard varieties, Mem. Coll. Sci. Univ. Kyoto Ser. A 32 (1960), 371–382",
+   "link": "10.1215/kjm/1250776406",
+   "why": "Theorem 2, good reduction of the Albanese variety, used in Proposition 2.3.10."
+  },
+  {
+   "citation": "G. Kempf, F. Knudsen, D. Mumford, B. Saint-Donat, Toroidal embeddings I, LNM 339 (1973)",
+   "link": "10.1007/BFb0070318",
+   "why": "The smoothness/normal-crossings criterion for torus embeddings (II.2, Thm 4*) used in Lemma 3.2.11."
+  },
+  {
+   "citation": "Y. Burda, Coverings over tori and topological approach to Klein's resolvent problem, Transform. Groups 17 (2012), 921–951",
+   "link": "10.1007/s00031-012-9199-0",
+   "why": "Original source of Corollary 3.2.18 (Theorem 18)."
+  },
+  {
+   "citation": "A. Andreotti, T. Frankel, The Lefschetz theorem on hyperplane sections, Ann. of Math. 69 (1959), 713–717; R. Narasimhan, On the homology groups of Stein spaces, Invent. Math. 2 (1967), 377–385 (doi 10.1007/BF01428900)",
+   "link": "10.2307/1970034",
+   "why": "Vanishing of cohomology of Stein spaces above their dimension, used in Corollary 3.2.17."
+  },
+  {
+   "citation": "S. Łojasiewicz, Triangulation of semi-analytic sets, Ann. Scuola Norm. Sup. Pisa 18 (1964), 449–474",
+   "link": "https://www.numdam.org/item/ASNSP_1964_3_18_4_449_0/",
+   "why": "Theorem 4, compact homotopy cores, used in Proposition 3.2.14."
+  }
+ ],
+ "routes": [
+  {
+   "route": "new",
+   "roadmap": "EssentialDimensionOfCovers",
+   "title": "Essential dimension and p-incompressibility of covers",
+   "area": "algebraicgeometry",
+   "prerequisites": [
+    "PrismaticCohomology",
+    "DerivedDeRhamCohomology",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+    "ShimuraCompactifications",
+    "ShimuraData",
+    "ShimuraVarieties",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/001",
+    "PAPER-FARB-KISIN-WOLFSON-24/002",
+    "PAPER-FARB-KISIN-WOLFSON-24/003",
+    "PAPER-FARB-KISIN-WOLFSON-24/004",
+    "PAPER-FARB-KISIN-WOLFSON-24/005",
+    "PAPER-FARB-KISIN-WOLFSON-24/006",
+    "PAPER-FARB-KISIN-WOLFSON-24/009",
+    "PAPER-FARB-KISIN-WOLFSON-24/010",
+    "PAPER-FARB-KISIN-WOLFSON-24/011",
+    "PAPER-FARB-KISIN-WOLFSON-24/012",
+    "PAPER-FARB-KISIN-WOLFSON-24/037",
+    "PAPER-FARB-KISIN-WOLFSON-24/038",
+    "PAPER-FARB-KISIN-WOLFSON-24/040",
+    "PAPER-FARB-KISIN-WOLFSON-24/041",
+    "PAPER-FARB-KISIN-WOLFSON-24/043",
+    "PAPER-FARB-KISIN-WOLFSON-24/044",
+    "PAPER-FARB-KISIN-WOLFSON-24/048",
+    "PAPER-FARB-KISIN-WOLFSON-24/049",
+    "PAPER-FARB-KISIN-WOLFSON-24/050",
+    "PAPER-FARB-KISIN-WOLFSON-24/051",
+    "PAPER-FARB-KISIN-WOLFSON-24/053",
+    "PAPER-FARB-KISIN-WOLFSON-24/054",
+    "PAPER-FARB-KISIN-WOLFSON-24/055",
+    "PAPER-FARB-KISIN-WOLFSON-24/056",
+    "PAPER-FARB-KISIN-WOLFSON-24/059",
+    "PAPER-FARB-KISIN-WOLFSON-24/060",
+    "PAPER-FARB-KISIN-WOLFSON-24/063",
+    "PAPER-FARB-KISIN-WOLFSON-24/064",
+    "PAPER-FARB-KISIN-WOLFSON-24/065",
+    "PAPER-FARB-KISIN-WOLFSON-24/066",
+    "PAPER-FARB-KISIN-WOLFSON-24/067",
+    "PAPER-FARB-KISIN-WOLFSON-24/068",
+    "PAPER-FARB-KISIN-WOLFSON-24/071",
+    "PAPER-FARB-KISIN-WOLFSON-24/072",
+    "PAPER-FARB-KISIN-WOLFSON-24/073",
+    "PAPER-FARB-KISIN-WOLFSON-24/089",
+    "PAPER-FARB-KISIN-WOLFSON-24/090",
+    "PAPER-FARB-KISIN-WOLFSON-24/091",
+    "PAPER-FARB-KISIN-WOLFSON-24/092",
+    "PAPER-FARB-KISIN-WOLFSON-24/093",
+    "PAPER-FARB-KISIN-WOLFSON-24/094",
+    "PAPER-FARB-KISIN-WOLFSON-24/095",
+    "PAPER-FARB-KISIN-WOLFSON-24/099",
+    "PAPER-FARB-KISIN-WOLFSON-24/101",
+    "PAPER-FARB-KISIN-WOLFSON-24/102",
+    "PAPER-FARB-KISIN-WOLFSON-24/104",
+    "PAPER-FARB-KISIN-WOLFSON-24/105",
+    "PAPER-FARB-KISIN-WOLFSON-24/106",
+    "PAPER-FARB-KISIN-WOLFSON-24/107",
+    "PAPER-FARB-KISIN-WOLFSON-24/108",
+    "PAPER-FARB-KISIN-WOLFSON-24/109",
+    "PAPER-FARB-KISIN-WOLFSON-24/110",
+    "PAPER-FARB-KISIN-WOLFSON-24/111",
+    "PAPER-FARB-KISIN-WOLFSON-24/115",
+    "PAPER-FARB-KISIN-WOLFSON-24/117",
+    "PAPER-FARB-KISIN-WOLFSON-24/118",
+    "PAPER-FARB-KISIN-WOLFSON-24/119",
+    "PAPER-FARB-KISIN-WOLFSON-24/120",
+    "PAPER-FARB-KISIN-WOLFSON-24/123",
+    "PAPER-FARB-KISIN-WOLFSON-24/124",
+    "PAPER-FARB-KISIN-WOLFSON-24/126",
+    "PAPER-FARB-KISIN-WOLFSON-24/130",
+    "PAPER-FARB-KISIN-WOLFSON-24/133",
+    "PAPER-FARB-KISIN-WOLFSON-24/135",
+    "PAPER-FARB-KISIN-WOLFSON-24/136",
+    "PAPER-FARB-KISIN-WOLFSON-24/137",
+    "PAPER-FARB-KISIN-WOLFSON-24/139",
+    "PAPER-FARB-KISIN-WOLFSON-24/142",
+    "PAPER-FARB-KISIN-WOLFSON-24/143"
+   ],
+   "brief": "Final theorems, stated as the paper does after the corrections recorded in sourceIssues. (A) Theorem 4 / Corollary 2.2.13: for a smooth proper Y over an algebraically closed field C of characteristic 0 with normal crossings divisor D, U = Y − D, W ⊂ U dense open, (Y, D) with unramified good reduction at p and i < p − 2, dim Im(H^i_ét(U, F_p) → H^i_ét(W, F_p)) ≥ h^{0,i}_{Y,D}, with the abelian-variety case at i = p − 2, the cup-product version ≥ h^{0,1→i}_{Y,D,p} for p > max{i+1, 3}, and the generic-point form for p ≫ 0 (Corollary 2.2.15). (B) Proposition 2.3.3 (Theorem 2), Corollary 2.3.5 (ed(X'/X; p) = g for an abelian variety and p ≥ g + 2 of unramified good reduction), Theorem 2.3.8, Proposition 2.3.10(2) and Corollary 2.3.12 (Theorem 1: ed(Y/X; p) = dim X for the mod p homology cover of a variety of maximal Albanese dimension when p > max{dim X + 1, 3} is of unramified good reduction with α_X unramified). (C) Proposition 3.2.7, Proposition 3.2.14 (dense V'), Corollaries 3.2.17 and 3.2.18 for Heisenberg covers of torus torsors over abelian varieties and their torus embeddings. (D) Theorem 3.3.17, Corollaries 3.3.18 and 3.3.19 and Theorem 3: principal p-congruence covers of Γ\\X for an irreducible Hermitian domain with Q-rank = R-rank are p-incompressible, with no condition on p for tube domains and p > max{(3/2) dim X, dim X + 2} for non-tube classical types. Cover: essential dimension and p-essential dimension (algebraic, and analytic with Stein compression bases), the classifying map H^i(G, F_p) → H^i_ét(U, F_p), étale K(π,1)'s, the mod p homology cover; the invariants h^{0,i}, h^{0,1→i}, (unramified) good reduction of pairs and of torus torsors; Lemma 2.2.1; Propositions 2.2.3, 2.2.8, 2.2.11 and Corollary 2.2.6; generic members of moduli (2.2.14); [FKW21, 2.1.4] and [FKW21, 2.2.7, 4.3.12]; cohomology of abelian varieties and tori; torus torsors, Lemma 3.2.2, the Heisenberg cover U(Ē), iterated blow-ups of zero-dimensional strata (Lemma 3.2.12), Lemma 3.2.11; compact homotopy cores, normalization, transfer for finite analytic covers and vanishing for Stein spaces (Andreotti–Frankel, Narasimhan), all owned here because no roadmap plans Stein spaces; the Σ̃ description of the zero-dimensional boundary parabolic (Lemma 3.3.3), condition 3.3.5 with Lemmas 3.3.6 and 3.3.8, Corollary 3.3.10, Lemma 3.3.15, principal p-coverings and the algebraic-to-analytic comparison. Import, never re-plan: Prismatic cohomology: relative, absolute, Nygaard and log variants (PrismaticCohomology, PR.0, PR.1, PR.3, PR.4, PR.8) for the Breuil–Kisin and A_inf prisms, the log de Rham, Kummer-étale, Frobenius-image, base-change and perfectness comparisons; Derived de Rham cohomology (DerivedDeRhamCohomology, DD.1, DD.3, DD.6) for derived completeness, Cartier and the Deligne–Illusie decomposition; Crystalline cohomology (CrystallineCohomology, CR.5) for log structures; HodgeTateAndCanonicalSubgroups T6:log-sites for Kummer étale sites and log purity; Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1–SF.4) for étale cohomology, Artin vanishing and comparison (upstream Cohomological point counting), Albanese varieties and spreading out; Tau Ceti StableReduction Layer 2 for semicontinuity; Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology) and its Part II on Heisenberg cohomology (ProfiniteCohomologyPartIIHeisenbergCohomology) for Proposition 3.1.9; Analytic toric geometry (tauceti:TauCetiRoadmap/AnalyticToricGeometry) and Toroidal compactifications and boundary geometry (ShimuraCompactifications, C0–C2) for torus embeddings and Pink's boundary charts, with its Hodge-type integral Part II; Shimura data (ShimuraData) and Complex Shimura varieties (ShimuraVarieties); Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups, Layers 4, 7, 8); AdelicAlgebraicGroups AA.4 for strong approximation of unipotent groups. Prove Proposition 3.2.14 for torus embeddings whose fan need not be complete (V a neighbourhood of the boundary of the given fan), as Theorem 3.3.17 requires. Every definition needs an API (functoriality in covers, behaviour under prime-to-p base change, restriction to opens) and at least three unit tests, for example: ed of a trivial cover is 0; ed(X'/X; p) = 1 for an elliptic curve; the double cover of G_m by z ↦ z^2 is 2-incompressible but not 3-incompressible in the sense of ed(·; 3) = 0; h^{0,1→i} of a product of curves; Lemma 2.2.1 is sharp: M = k[[u]]/(u) with φ(x) = x and V(x) = u^{p−1}(1 ⊗ x) ∈ φ^*M = k[[u]]/(u^p) satisfies φV = Vφ = u^{p−1} and is torsion. Supply a suggested Lean file.",
+   "reason": "Nothing in the atlas plans essential dimension, incompressibility of covers, or the prismatic restriction theorems that bound it; the paper's own argument (prismatic mod p comparison ⇒ restriction bounds ⇒ characteristic-class lower bounds ⇒ torus torsors ⇒ toroidal boundary of Shimura varieties) is a new direction that imports prismatic, toric, group-cohomological and Shimura-theoretic suppliers rather than extending any one of them."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+   "roadmap": "ProfiniteCohomologyPartIIHeisenbergCohomology",
+   "title": "Continuous cohomology of profinite groups, Part II: cohomology rings of abelian and Heisenberg p-groups",
+   "area": "grouptheory",
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/074",
+    "PAPER-FARB-KISIN-WOLFSON-24/075",
+    "PAPER-FARB-KISIN-WOLFSON-24/076",
+    "PAPER-FARB-KISIN-WOLFSON-24/077",
+    "PAPER-FARB-KISIN-WOLFSON-24/078",
+    "PAPER-FARB-KISIN-WOLFSON-24/079",
+    "PAPER-FARB-KISIN-WOLFSON-24/080",
+    "PAPER-FARB-KISIN-WOLFSON-24/081",
+    "PAPER-FARB-KISIN-WOLFSON-24/082",
+    "PAPER-FARB-KISIN-WOLFSON-24/084",
+    "PAPER-FARB-KISIN-WOLFSON-24/085",
+    "PAPER-FARB-KISIN-WOLFSON-24/086",
+    "PAPER-FARB-KISIN-WOLFSON-24/087"
+   ],
+   "brief": "First prerequisite: Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology), whose all-degree cohomology, inflation, corestriction and graded cup product (Layers 6, 10, 12) this Part II starts from; it also imports Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 3, maximal pro-p quotients) and the Hochschild–Serre spectral sequence of Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2), whose multiplicative structure and functoriality in automorphisms of the extension it requests. Cover: for p odd, the ring H^•((Z/p)^n, F_p) = ∧(H^1) ⊗ Sym(β H^1) with its Bockstein description (Benson–Carlson §10, Adem–Milgram II.4.3); H^•(Z_p^n, M) = ∧H^1 ⊗ M for trivial elementary abelian M (Künneth and universal coefficients); the construction of the central extension E_c from a 2-cocycle, Baer sum, and the decomposition H^2(H, N) = (∧^2 H^* ⊗ N) ⊕ (H^* ⊗ N); finite Heisenberg groups; weights of F_p^× and Z_p^× actions; Lemma 3.1.2 (Heisenberg ⟺ class alternating ⟺ exponent p ⟺ F_p^×-action of weights −1 and −2); Lemma 3.1.5 (free abelian pro-p central extensions are alternating and carry Z_p^×-weights); Lemma 3.1.6 (E_3-degeneration for p ≥ min{rk N + 1, rk H}); mod p reductions and Lemma 3.1.8; and the final theorem, Proposition 3.1.9: if p > (rk H + 3 rk N + 1)/2 then H^•(Ē, F_p) → H^•(E, F_p) is surjective. API: functoriality of E_c in (H, N, c), compatibility of the weight action with inflation, restriction and cup products, and naturality of the mod p reduction. Unit tests: the Heisenberg group of order p^3 has exponent p for p odd while Z/p^2 has a Bockstein class; the extraspecial group of order p^3 and exponent p is the mod p reduction of the integral Heisenberg group (rk H = 2, rk N = 1), and Proposition 3.1.9 applies to it for p > 3; Proposition 3.1.9 for N = 0 is the statement that H^•(H̄) → H^•(H) is onto the exterior algebra. Supply a suggested Lean file.",
+   "reason": "Cohomology rings of elementary abelian and free abelian pro-p groups, the classification of central extensions and the Heisenberg computations of §3.1 are general group cohomology in the direction of the Tau Ceti roadmap, which stops at the graded cup product and the Evens norm; they are reusable beyond essential dimension, so they are planned once here and imported by the new roadmap."
+  },
+  {
+   "route": "part-ii",
+   "parent": "PrismaticCohomology",
+   "roadmap": "PrismaticCohomologyPartIIPrismaticDieudonneTheory",
+   "title": "Prismatic cohomology: relative, absolute, Nygaard and log variants, Part II: prismatic Dieudonné theory",
+   "area": "padic",
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/042"
+   ],
+   "brief": "This route adds one consumer to the Part II proposed by the extraction of Anschütz–Le Bras (PAPER-ANSCHUTZ-LEBRAS-23), which it extends rather than duplicates: Prismatic cohomology: relative, absolute, Nygaard and log variants (PrismaticCohomology) is the first prerequisite. The needed theorem is Anschütz–Le Bras Prop. 4.58 and Cor. 4.64: for X the p-completion of an abelian scheme of relative dimension g over a bounded prism (here the Breuil–Kisin prism over W(k)), the prismatic cohomology is the exterior algebra on the finite locally free H^1 of rank 2g, and in particular each H^i_{Δ̄}(X/A) is u-torsion-free over k[[u]]. State the mod p Breuil–Kisin specialization explicitly, since Farb–Kisin–Wolfson Corollary 2.2.6 consumes exactly that torsion-freeness to reach the boundary degree i = p − 2. Import abelian schemes and duals from AbelianSchemesAndArithmeticModuli (A1–A3). Unit tests: g = 0; an elliptic curve with rank-2 H^1; torsion-freeness in every degree. Supply a suggested Lean file.",
+   "reason": "The exterior-algebra structure of prismatic cohomology of abelian schemes is Anschütz–Le Bras's theorem, already extracted and routed to this proposed Part II; routing the paper's use there keeps one owner."
+  },
+  {
+   "route": "part-ii",
+   "parent": "ShimuraCompactifications",
+   "roadmap": "ShimuraCompactificationsPartIIHodgeTypeIntegralBoundary",
+   "title": "Toroidal compactifications and boundary geometry, Part II: integral boundary charts of Hodge type",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/138"
+   ],
+   "brief": "First prerequisite: Toroidal compactifications and boundary geometry (ShimuraCompactifications), whose C0–C3 construct fans, relative torus embeddings, rational boundary data and the characteristic-zero toroidal gluing, and whose C5 treats integral PEL compactifications only. This Part II starts there and constructs, for a Shimura datum (G, X) of Hodge type with G_{Z_(p)} reductive (hyperspecial level at p) and neat prime-to-p level, the integral models of the boundary data following Madapusi Pera (Ann. Sci. ENS 2019): the integral mixed Shimura data at each cusp, the abelian scheme C_K over Z_(p) (or the ring of integers of the reflex field localized at p) and the torus torsor ξ_K → C_K over it, their smoothness, the integral torus embeddings ξ_K(Σ) for smooth admissible fans, and the formal-completion comparison with the integral toroidal compactification. Final statement consumed by Farb–Kisin–Wolfson Corollary 3.3.18: p is a prime of unramified good reduction for ξ_K → C_K and ξ_K(Σ). Import integral Hodge-type models from the Part II of Complex Shimura varieties on integral models (ShimuraVarietiesHondaTatePartII), Siegel and PEL moduli (PELModuli) and degenerations (C4). Unit tests: the Siegel case agrees with C5; the modular-curve case gives the Tate curve chart; a Hilbert modular example. Supply a suggested Lean file.",
+   "reason": "ShimuraCompactifications plans integral compactifications for PEL data only (C5) and disclaims Hodge and abelian type; Madapusi Pera's integral boundary charts for Hodge type are new layers in its direction."
+  },
+  {
+   "route": "part-ii",
+   "parent": "ShimuraVarieties",
+   "roadmap": "ShimuraVarietiesHondaTatePartII",
+   "title": "Complex Shimura varieties and canonical models, Part II: integral models and reduction",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/141"
+   ],
+   "brief": "This route adds one item to the Part II of Complex Shimura varieties and canonical models (ShimuraVarieties) on integral models and reduction proposed by the extractions of Kisin (2017), Kisin–Pappas (2018) and others; ShimuraVarieties is its first prerequisite and it starts beyond V6. The item is Kisin, Integral models for Shimura varieties of abelian type (JAMS 2010), Lemma 3.4.13: for an abelian-type datum (G, X) with G reductive over Z_p there is a Hodge-type datum (G', X') with a central isogeny G'^der → G^der inducing (G'^ad, X'^ad) ≅ (G^ad, X^ad), with G' again reductive over Z_p. Also prove the consequence Farb–Kisin–Wolfson use: principal p-level groups Γ'_1 ⊂ Γ' and Γ_1 ⊂ Γ of the two data have Γ'_1\\Γ' → Γ_1\\Γ with kernel and cokernel of order prime to p. Import Deligne's abelian-type classification from Shimura data (ShimuraData D4) and reductive models from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Unit tests: Siegel data (G' = G); a unitary group; an orthogonal datum via GSpin. Supply a suggested Lean file.",
+   "reason": "Kisin's reduction of abelian type to Hodge type with reductive models over Z_p belongs with the integral-model Part II already proposed by the Kisin and Kisin–Pappas extractions."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/ReductiveGroups",
+   "roadmap": "ReductiveGroupsArithmeticPartII",
+   "title": "Reductive algebraic groups, Part II: global tori, arithmetic forms and cohomological transfer",
+   "area": "representations",
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/125"
+   ],
+   "brief": "This route adds one theorem to the proposed Part II of Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups) on global arithmetic of reductive groups, whose first prerequisite is that roadmap. Final theorem: Prasad–Rapinchuk (Adv. Math. 207 (2006)), Theorem 1: given a quasi-split absolutely simple group G_0 over a number field and, at finitely many places v, inner forms G_v of G_0 ⊗ k_v (here only v = ∞), there is an inner form G of G_0 with G ⊗ k_v ≅ G_v whose global rank equals the minimum over those places of the local ranks, under the paper's conditions. Cover the Galois-cohomological inputs it uses (Kneser–Harder–Chernousov Hasse principle for H^1 of adjoint groups, Borel–Harder local–global realization) and Tits indices over Q and R. Import Global Galois duality (ArithmeticGaloisDuality) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory). Unit tests: G_0 = PGL_2 with G_R = PGL_2(R) (Q-rank 1) or PU(2) (rank 0); a unitary SU(n,1). Supply a suggested Lean file.",
+   "reason": "Existence of global forms with prescribed local behaviour is Galois cohomology of reductive groups over number fields, the direction of the global-arithmetic Part II already proposed for Tau Ceti ReductiveGroups; no layer plans it."
+  },
+  {
+   "route": "source",
+   "roadmap": "DerivedDeRhamCohomology",
+   "stages": [
+    "DerivedDeRhamCohomology:DD.3",
+    "DerivedDeRhamCohomology:DD.6"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/016",
+    "PAPER-FARB-KISIN-WOLFSON-24/017"
+   ],
+   "reason": "The (log) Deligne–Illusie decomposition is the splitting of the conjugate filtration in degrees < p given a lift, the object DD.3 constructs and DD.6 carries to log schemes; DD.3 already names Deligne–Illusie with its liftability and dimension bounds. The paper's Lemma 2.1.2 is its standard corollary and a source for both layers."
+  },
+  {
+   "route": "source",
+   "roadmap": "DerivedDeRhamCohomology",
+   "stages": [
+    "DerivedDeRhamCohomology:DD.1"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/035"
+   ],
+   "reason": "Lemma 2.1.8(1)–(2) is an exchange of derived completion and base change for derived complete modules, which DD.1 plans to catalogue ('which exchanges of completion, base change, … are valid')."
+  },
+  {
+   "route": "source",
+   "roadmap": "PrismaticCohomology",
+   "stages": [
+    "PrismaticCohomology:PR.1",
+    "PrismaticCohomology:PR.4",
+    "PrismaticCohomology:PR.8"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/031",
+    "PAPER-FARB-KISIN-WOLFSON-24/032",
+    "PAPER-FARB-KISIN-WOLFSON-24/036"
+   ],
+   "reason": "The degreewise étale comparison for proper X (Lemma 2.1.6), with Katz's Frobenius-module lemma it uses, belongs to the étale comparison layers PR.4/PR.8, and the degreewise base change of Lemma 2.1.8(3) to the completed base change of PR.1/PR.8; the paper is a source for those layers."
+  },
+  {
+   "route": "source",
+   "roadmap": "HodgeTateAndCanonicalSubgroups",
+   "stages": [
+    "HodgeTateAndCanonicalSubgroups:T6:log-sites"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/045",
+    "PAPER-FARB-KISIN-WOLFSON-24/046"
+   ],
+   "reason": "T6:log-sites constructs Kummer étale sites of log adic spaces with an ncd boundary, their morphisms to the ordinary étale site and restriction to the boundary complement, and requires an analytification comparison with log schemes; logarithmic purity and Lemma 2.2.10 are exactly that comparison."
+  },
+  {
+   "route": "source",
+   "roadmap": "SchemeAndStackFoundations",
+   "stages": [
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/007",
+    "PAPER-FARB-KISIN-WOLFSON-24/008",
+    "PAPER-FARB-KISIN-WOLFSON-24/069",
+    "PAPER-FARB-KISIN-WOLFSON-24/070"
+   ],
+   "reason": "SF.3 owns Picard schemes and Jacobians; the Albanese variety of a smooth proper variety is dual to its Picard variety, and Koizumi's specialization theorem and the extension of the Albanese map over a good model are statements about models over a discrete valuation ring (SF.4)."
+  },
+  {
+   "route": "source",
+   "roadmap": "AdelicAlgebraicGroups",
+   "stages": [
+    "AdelicAlgebraicGroups:AA.4"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/134"
+   ],
+   "reason": "Strong approximation for unipotent groups is the elementary case of the approximation theorems AA.4 plans, and should sit beside the simply connected case there."
+  },
+  {
+   "route": "source",
+   "roadmap": "ShimuraData",
+   "stages": [
+    "ShimuraData:D0",
+    "ShimuraData:D4"
+   ],
+   "items": [
+    "PAPER-FARB-KISIN-WOLFSON-24/121",
+    "PAPER-FARB-KISIN-WOLFSON-24/140"
+   ],
+   "reason": "The restriction-of-scalars form of Q-simple adjoint Shimura groups uses D0's Weil restriction, and Deligne's classification of abelian-type data by Dynkin type belongs with D4's definitions of Hodge and abelian type."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E1",
+   "kind": "misprint",
+   "locator": "Lemma 2.1.8, proof, last line, p. 10 (arXiv v2; not present in v1)",
+   "printed": "so h is an isomorphism, and we may take f to be the projection of N⊕N′ onto N′.",
+   "correction": "f is h^{-1} followed by the projection of N ⊕ N′ onto N.",
+   "reason": "f was introduced as a continuous splitting A′/p → N of the inclusion N ⊂ A′/p; the projection onto N′ kills N, so it cannot restrict to the identity on N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E2",
+   "kind": "misprint",
+   "locator": "2.3.9, p. 18 (arXiv v2)",
+   "printed": "note that H^1(X,Ω^1_{X/C}) is isomorphic to the global 1-forms on Alb(X)",
+   "correction": "H^0(X, Ω^1_{X/C}) is isomorphic to the global 1-forms on Alb(X).",
+   "reason": "Pullback along α_X identifies H^0(Alb(X), Ω^1) with H^0(X, Ω^1); H^1(X, Ω^1) has dimension h^{1,1}, which differs from q = h^{1,0} already for P^1 × E (h^{1,1} = 2, q = 1).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E3",
+   "kind": "misprint",
+   "locator": "Lemma 3.1.2, proof of (ii)⇒(i), p. 21",
+   "printed": "where αi, βi ∈ Z^1(H,Fp) and ni ∈ Ni.",
+   "correction": "n_i ∈ N.",
+   "reason": "N_i is not defined; c ∈ Z^2(H, N) is written as a sum of cup products tensored with elements of N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E4",
+   "kind": "misprint",
+   "locator": "Proposition 3.1.9, proof, p. 23",
+   "printed": "is precisely Ẽ^{i,j}_2, and so Ẽ^{i,j}_3 = (E^{i,j}_3)_{i+2j}.",
+   "correction": "Ẽ^{i,j}_3 = (Ē^{i,j}_3)_{i+2j}.",
+   "reason": "Ẽ_3 is defined as a subquotient of the Ē spectral sequence; the base case r = 3 of the induction ('(Ē^{i,j}_r)_{i+2j} maps isomorphically to E^{i,j}_r') uses this equality together with the splitting Ẽ_3 ≅ E_3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E5",
+   "kind": "misprint",
+   "locator": "Lemma 3.2.12, proof, p. 27",
+   "printed": "is generated by the function z_1^{−|J|} f, whose expansion contains the term a_I u_2^{j_2}…u_n^{j_n}.",
+   "correction": "a_J u_2^{j_2} ⋯ u_n^{j_n}.",
+   "reason": "Substituting z_i = z_1u_i gives z_1^{−|J|} f = Σ_I a_I z_1^{|I|−|J|} u_2^{i_2}⋯u_n^{i_n}; the term of lower total degree |J| − j_1 comes from I = J with coefficient a_J ≠ 0, which drives the induction on |J|.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E6",
+   "kind": "misprint",
+   "locator": "Proposition 3.2.14, proof, second paragraph, p. 28",
+   "printed": "In fact the differential ωr ⊗ ωs defined there is in H^0(X,Ω^d_X(log D))",
+   "correction": "ω_r ⊗ ω_T.",
+   "reason": "The form defined in the proof of Proposition 3.2.7 is ω_r ⊗ ω_T with ω_T = dz_1/z_1 ∧ ⋯ ∧ dz_t/z_t; no ω_s is defined.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E7",
+   "kind": "misprint",
+   "locator": "Corollary 2.2.13, p. 15 (also v1)",
+   "printed": "If Y is an abelian scheme, then the same statement holds for i ≤ p − 2.",
+   "correction": "If Y is an abelian variety (and D = ∅).",
+   "reason": "Y is a proper smooth scheme over the field C; the proof passes to an abelian scheme model, as in Proposition 2.2.11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E8",
+   "kind": "misprint",
+   "locator": "3.3.11, p. 33 (also v1)",
+   "printed": "Fix a fan Σ, in X^∗(Z(C)/Z(Z))_Q so that the resulting torus embedding is smooth",
+   "correction": "a fan in X_∗(Z(C)/Z(Z))_Q.",
+   "reason": "In 3.2.8 fans are collections of cones in X_*(T)_Q, the cocharacter space, as for all torus embeddings.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E9",
+   "kind": "misprint",
+   "locator": "Corollary 3.3.19, p. 36 (also v1)",
+   "printed": "Let X be an irreducible symmetric domain, and let L/Q be a quadratic extension.",
+   "correction": "L/Q an imaginary quadratic extension, as in Corollary 3.3.10, which the proof applies.",
+   "reason": "For real quadratic L a group split over L is split over R, but complex conjugation must act on Δ(G) by the opposition involution, which is nontrivial for types A_n (n ≥ 2), D_n (n odd) and E_6; so no such G exists for those domains.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E10",
+   "kind": "misprint",
+   "locator": "Corollary 3.3.10, proof, p. 33 (also v1)",
+   "printed": "and whose Q-rank is equal to the R-rank of G_{0,R}.",
+   "correction": "whose Q-rank equals the R-rank of G_R.",
+   "reason": "The Q-rank of G is at most the R-rank of G ⊗ R ≅ G_R, which is smaller than that of the quasi-split G_{0,R} unless G_R is quasi-split; the paper's own parenthetical note says the count is the split rank of G_R, which is what Lemma 3.3.8(2) needs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E11",
+   "kind": "misprint",
+   "locator": "Theorem 4, p. 5 (arXiv v2; v1 reads 'W ⊂ X any Zariski open')",
+   "printed": "Let i < p − 2, and W ⊂ X a Zariski open. Then the image of the map H^i(X,Fp) → H^i(W,Fp) has dimension at least h^{0,i}_X",
+   "correction": "W ⊂ X a dense Zariski open.",
+   "reason": "For W = ∅ the image is 0 while h^{0,i}_X can be positive (i = g for an abelian variety); Corollary 2.2.13, of which Theorem 4 is a case, assumes W dense.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E12",
+   "kind": "error",
+   "locator": "3.3.9, second paragraph, p. 33 (also v1)",
+   "printed": "If G is of type B or C or Dn with n even, then G^ad_R is split, and (2) means that G0 is a split group, or (in this context) that G is quasi-split.",
+   "correction": "For these types −1 ∈ W_G, so complex conjugation acts trivially on Δ(G); (2) says that the F-rank of G_0 equals the R-rank of G_0 ⊗ R, which is n for C_n (Sp_{2n}(R) is split, so G_0 is split), 2 for SO(2n−1, 2) and SO(2n−2, 2), and n/2 for SO^*(2n) (n even); only in type C does (2) mean G_0 split.",
+   "reason": "The Hermitian real forms of types B_n and D_n are SO(2n−1, 2), SO(2n−2, 2) and SO^*(2n), of real rank 2, 2 and ⌊n/2⌋, below the absolute rank n once n ≥ 3 (B) or n ≥ 4 (D); a group of real rank 2 and absolute rank n is not split, and SO(2n−1, 2) (n ≥ 3) is not even quasi-split since B_n has no outer forms.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E13",
+   "kind": "error",
+   "locator": "Proposition 3.2.14, statement, p. 28 (also v1)",
+   "printed": "Let V ⊂ X^an be an analytic open subset containing D^an, and V′ ⊂ V a non-empty Zariski open subset of V. Then the map H^d(U, Fp) → H^d(U ∩ V′, Fp) is nonzero.",
+   "correction": "V′ ⊂ V a dense Zariski open subset (it suffices that V′ be dense in the connected components of V meeting D^an).",
+   "reason": "Take V = N ⊔ B with N a neighbourhood of D^an and B a small ball in U^an disjoint from N. Then V′ = B is Zariski open in V (its complement N is a union of components, cut out locally by 0 or 1), but U ∩ V′ = B is contractible and H^d(B, F_p) = 0 for d ≥ 1. The proof tacitly uses that Z = V − V′ has codimension 1, i.e. that V′ is dense; Corollary 3.2.17, the only use, applies it to a dense V′.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E14",
+   "kind": "gap",
+   "locator": "Proposition 3.2.7 (p. 25), Theorem 3.3.17 (p. 35) and Corollary 3.3.19 / Theorem 3 (pp. 36, 4) (also v1)",
+   "printed": "Proposition 3.2.7: Suppose that p > dimU + ½(dimU_s̄ + 1), and that U → S has unramified good reduction at p. Theorem 3.3.17: If Σ ≠ c(Σ) then we assume that p > dimX + ½(dimZ + 1)",
+   "correction": "Add the hypothesis p > dim U + 2 to Proposition 3.2.7 and p > dim X + 2 to Theorem 3.3.17 and Corollary 3.3.19 (non-tube case); it follows from the printed bounds when dim U_s̄ (resp. dim Z) is at least 3, and for classical non-tube X the bound p > (3/2) dim X implies it except when dim X = 3, p = 5.",
+   "reason": "Proposition 3.2.7 applies Proposition 2.3.3 with i = d = dim U, which needs d < p − 2 (D ≠ ∅, and for D = ∅ still d ≤ p − 2); Theorem 3.3.17 applies Corollary 3.2.17, whose hypotheses include Proposition 3.2.14's p > d + 2. For S an abelian surface and t = 1, p = 5 satisfies 5 > 3 + 1 but not 5 > 5; for X the complex 3-ball (SU(3,1), dim Z = 1) p = 5 satisfies p > (3/2)·3 and p > 3 + 1 but not p > 5. At i = p − 2 the torsion-freeness of H^{i+1}_{Δ̄} needed by Corollary 2.2.6 is not supplied.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E15",
+   "kind": "gap",
+   "locator": "Proposition 2.3.10(2) and Corollary 2.3.12, p. 19 (arXiv v2; not in this form in v1)",
+   "printed": "Let p be a prime of good unramified reduction for X … If the special fiber of X° is generically smooth over its image under α°_X, then ed(Y/U; p) ≥ dim α_X(X)",
+   "correction": "Add p > max{dim α_X(X) + 1, 3} to Proposition 2.3.10(2), and p > max{dim X + 1, 3} to Corollary 2.3.12.",
+   "reason": "The proof ends by applying Theorem 2.3.8, which assumes p > max{dim X + 1, 3} (its Corollary 2.2.13 input needs p > max{i + 1, 3}). As printed, Corollary 2.3.12 asserts ed(Y/X; p) = 2 for an abelian surface X at p = 2 or 3 with good unramified reduction, which the argument does not reach (Corollary 2.3.5 needs p ≥ g + 2 = 4).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E16",
+   "kind": "gap",
+   "locator": "Theorem 3.3.17, proof, p. 35 (also v1)",
+   "printed": "the theorem follows from Corollary 3.2.17 if c(Σ) ≠ Σ and from Corollary 3.2.18 if c(Σ) = Σ.",
+   "correction": "Complete the admissible fan Σ to a smooth complete fan Σ′ ⊃ Σ, apply Proposition 3.2.14 to ξ_K(Σ′) → C_K, and in its proof choose the T-fixed point x_0 in a top-dimensional cone of Σ (subdivided by the blow-ups); state Proposition 3.2.14 and Corollaries 3.2.17–3.2.18 for torus embeddings with an arbitrary smooth fan and V a neighbourhood of the boundary of that embedding.",
+   "reason": "Proposition 3.2.14 (and so 3.2.17–3.2.18) assumes X/S proper and V ⊃ D^an, but ξ_K(Σ) → C_K is not proper: Σ is a cone decomposition of the positive cone, not a complete fan (for the modular curve it is the ray R_{≥0}, giving the disc chart A^1 ⊃ G_m rather than P^1), and V_K is a neighbourhood of D_K(Σ) only. The argument of 3.2.14 uses V only near one torus-fixed point of the boundary, so the correction repairs it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E17",
+   "kind": "gap",
+   "locator": "Corollary 3.2.17, proof, last paragraph, p. 29 (also v1); Definition 3.2.15",
+   "printed": "Shrinking Y and Ṽ′ as necessary, we can assume that Y is Stein. By Andreotti-Frankel [AF59], dim Y < d implies that H^d(Y, Fp) = 0.",
+   "correction": "Define the analytic (p-)essential dimension of 3.2.15 through compressions Ṽ′ → Y with Y Stein and Y_1 → Y an Ē-covering (every compression coming from an affine algebraic Ē-cover, as in Theorem 3.3.17 via [FKW21, 2.1.4], is of this kind), or supply the reduction to that case.",
+   "reason": "Shrinking Y to a Stein open replaces Ṽ′ by an analytic, not Zariski, open, where the nonvanishing proved in the first paragraph is not available; Zariski opens need not be Stein (on a two-dimensional complex torus without curves they are complements of finite sets and carry only constant functions), and a compact Y can have H^d(Y, F_p) ≠ 0 although dim Y < d (a compact Riemann surface when d = 2). Moreover 3.2.15 allows any finite Y_1 → Y, while the proof needs the Ē-class to factor through H^d(Y), which requires an Ē-covering.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E18",
+   "kind": "gap",
+   "locator": "Corollary 3.2.17, proof, p. 29 (also v1)",
+   "printed": "By Andreotti-Frankel [AF59], dim Y<d implies that H^d(Y,Fp)=0.",
+   "correction": "For a possibly singular Stein space Y of dimension n, H^k(Y, F_p) = 0 for k > n by Narasimhan (On the homology groups of Stein spaces, Invent. Math. 2 (1967)); Andreotti–Frankel give it for Stein manifolds.",
+   "reason": "The Y of Definition 3.2.15 is an arbitrary (reduced) analytic space; Andreotti–Frankel's Morse-theoretic argument is for Stein manifolds, and removing the singular locus destroys the Stein property.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
+    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
+    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
+    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+   ]
+  }
+ ]
+}
