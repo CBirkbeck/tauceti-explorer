@@ -1,55 +1,65 @@
 # PAPER-DITTMANN-POP-23 handoff
 
-Codex `codex-a71f92`, issue #1099, 21 September 2026.
-Partial checkpoint; no claim that the roadmap or a Lean implementation is complete.
+Codex `codex-c83e7a`, 22 September 2026; Refs #1099.
+Status: partial continuation of codex-a71f92 / PR #1662.
 
-## Done
+## Completed in this continuation
 
-Read all 19 pages of Dittmann–Pop arXiv:2012.01307v2 and the selected original
-inputs recorded with hashes in the result. Extracted 116 items, 40
-definitions/constructions with 120 API and 120 test contracts, and six
-acyclic routes. Ten actual library inputs and five planned imports are
-separated from 101 missing items, each routed once. Reused patch compactness,
-function-field discreteness/place dictionaries, approximation and prescribed
-poles. Checked live supplier stages, current L5 decomposition and reserved IDs.
-The paper checker and finite/structural regressions passed.
+Reread all 19 pages of the final author version, with the same recorded
+SHA-256. Read the full Kuhlmann–Novacoski Theorem1.2 proof and its local
+lemmas; expanded the residue-degree-one application into prime-orbit,
+CRT, primitivity, simple-reduction and clopen-neighborhood items. Added
+eight exact pinned library imports, including the previously omitted
+purely inseparable polynomial normalization and normal fixed-field
+results. The normalization proof is now an explicit assembly in the
+existing A0-extension owner. Added concrete downstream uses to every one
+of the forty definition/construction APIs, preserving all old IDs/names.
+
+129 items: 18 library, 5 planned, 106 missing; all missing routed exactly
+once across the six retained routes. 40 D/C, 120 APIs, 120 proposed tests.
+Fresh inputs were captured at main 8c1784e9ccdc6dfef9fef5207ee3cdc02a5977b3.
+The reviewed A0-extension audit already records the inseparable result.
 
 ## Resume here
 
-1. G1–G2: original Jannsen/KS/Suwa Hasse–Gersten chain, completed/henselian
-   comparison, characteristic-two dimension≤3 use of Cossart–Piltant, and
-   ILO Exposé X Theorem2.4's exact degree/base-extension hypotheses.
-   PAPER-JANNSEN-16 is already queued; do not request it twice.
-2. G3: EKM subform/cancellation and Kato's quadratic-Witt comparison;
-   coefficient-field/cohomology-continuity/real-place descent inputs;
-   Kuhlmann–Novacoski Theorem1.2 proof (only its statement was read).
-3. G4: original Rumely and Pop low-dimensional formulas, Poonen's earlier
-   elliptic/arithmetic inputs, AKNS §3.1 and coding lemmas. Verify the
-   dimension-one/two bi-interpretability reduction, not only single axioms.
-4. G5: finish exact library/supplier matching for number-field strong
-   approximation off a finite place and general Krull-domain/inseparable
-   normalization/prolongation interfaces. Function-field approximation is
-   already built; never duplicate it.
-5. G6: independently check the full-rank flag repair in §5 and the total-
-   inverse finite-language QFA bridge; retain the torus condition in the
-   residue specialization.
-6. G7: if obtainable, collate the published typeset paper against the final
-   author version; revalidate proposed Part II ownership on current main.
+1. DP23-G1–G2: Jannsen/KS/Suwa/ILO original proof chains, precise odd-degree
+   alteration base changes, and Cossart–Piltant’s characteristic-two
+   dimension-three input. Jannsen has its own queued paper; import its
+   work when available instead of creating a duplicate.
+2. DP23-G3: Kuhlmann–Novacoski Theorem1.2 proof is now read. Finish the
+   decomposition-field, conjugate-prime and localized-integral-closure
+   foundations of henselian-prime-orbit (their Lemma3.2 cites Raynaud).
+   EKM subform/cancellation, graded quadratic-Witt, coefficient-field and
+   compact real-place descent inputs remain open.
+3. DP23-G4: Rumely/Pop/Poonen internal arithmetic inputs and AKNS coding,
+   especially the low-dimensional bi-interpretability argument.
+4. DP23-G5: the exact off-a-finite-place number-field approximation,
+   general divisorial discreteness, Krull height-one intersection and all-
+   prolongation integrality adapters. Check the normalization assembly’s
+   algebra/fraction-field towers; its pure and separable components are
+   already built. Do not replace this with new general excellence work.
+5. DP23-G6–G7: independent mathematical review of full-rank geometric flags,
+   torus specialization and the finite inverse-language bridge; collate
+   against the 25-page publisher version if acquired.
 
-## Guardrails
+## Preserve these boundaries
 
-Use b_a=UNION of balls and O_a=INTERSECTION of rings. Empty V_a yields O_a=K
-and must be rejected. Characteristic two uses a quadratic last Pfister
-factor, not an all-diagonal form. Non-dyadic includes equal characteristic
-two. All auxiliary adjunctions are root fields, possibly trivial.
-The general resolution assumption applies only in characteristic two and
-dimension greater than three. Finitely generated as a field is not
-finitely generated as a ring.
+Characteristic two in dimension three is unconditional; higher dimension
+uses both resolution clauses. Higher Pfister forms require quadratic,
+not diagonal, characteristic-two last factors. Root fields may be trivial.
+The ball set is a union and its stabilizer an intersection. Rank-one W_T
+and full-rank G_T have different uses. Normalization needs the pure step
+below the separable step. Do not infer selected-family integrality from
+one chosen prolongation, or from the universal criterion without an
+adapter. The henselian CRT argument excludes the identity embedding from
+its nonfixing claim and does not assert finite generation of the whole
+prolonged valuation ring.
 
-## Deliverables and checks
+## Validation
 
-Only the result, report and this handoff are submitted. Re-run
-`python3 scripts/check_paper.py research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json`
-after changes. No Lean file was required or compiled. JSON tests are
-planning contracts, not assertions that a formal test suite has passed.
-The report describes the finite scratch regressions in reproducible terms.
+Paper checker and intake file check pass. Custom checks pass for the
+129-item DAG, retained IDs, API/test/use references, route uniqueness,
+owner/stage/galaxy IDs, and fresh-main input consistency. Finite examples
+exercise simple-root reduction, split valuations, Frobenius monomial
+bounds, total inversion and the source sign correction. No Lean file was
+compiled; the proposed test contracts remain unexecuted in Lean.
