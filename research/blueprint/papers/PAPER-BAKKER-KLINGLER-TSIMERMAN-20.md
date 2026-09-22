@@ -67,6 +67,22 @@ The following are derived audit qualifications, distinct from the official errat
 
 Appendix A's boundary is the space of pairs consisting of a point and a local boundary branch. At a quadrant vertex two boundary points map to the same ambient point. The dimension is n−1, as correctly stated later in the appendix, and the boundary map need not be injective.
 
+## Source mistakes (sourceIssues E1–E7)
+
+A continuation on 2026-09-22 (Claude Code, session `cc-fb70e5`) checked the audit qualifications above at their locators in the author copy and in arXiv v2 (1810.04801v2, the latest version; same wording). It recorded them, together with the corrections already made by the official erratum, in the JSON's `sourceIssues`. The JAMS typeset version is still not collated (G1).
+
+| id | locator (author copy) | kind | finding | known |
+|---|---|---|---|---|
+| E1 | Theorem 4.1, p.13 | error | Definability on the whole punctured polydisk is false. τ = 2i + ε·exp(−(1+z)/(1−z)) has a fibre {z_n = 2πin/(2+2πin)} that is infinite and discrete. Shrink the polydisk, as the proof already does. Theorem 1.3 is unaffected. | new |
+| E2 | proof of Lemma 4.5, p.15 | gap | The substitutions z₁ = mz₂ + c (c = 0,…,r₁) leave Σ_n = {0 < x_i < 1}, so the hypothesis is used where it was not assumed. Repaired by assuming the curve bound on Σ_n^R = {\|x_i\| < R, …} for all R (item `rational-curve-test`). | new |
+| E3 | §4.5, p.18 | error | "b (e′,C′)-reduced and (3) for e ⇒ b (e,C″)-reduced" fails for b = diag(1,T) with e the reversed basis. It holds up to one of finitely many permutations, which the proof then allows. | new |
+| E4 | Appendix A.1, p.20 | misprint | "∂X is a real-analytic n-manifold with corners" should read (n−1), as in the proof of Proposition A.2. | new |
+| E5 | Theorem 1.1(1), Def 2.5, Prop 2.7 | error | The definable structure depends on a choice of maximal compact K. | Erratum JAMS 36 (2023), Theorem 1.2(1) |
+| E6 | Theorem 1.1(2) | error | Only K-compatible morphisms are definable. | Erratum, Theorem 1.2(2) |
+| E7 | §4.5, p.17 | error | The citation [B-HC62, 7.5] concerns real Siegel sets; replace it with BGST Proposition 28.1. | Erratum §1.5 |
+
+**Repaired Lemma 4.5.** State the curve hypothesis on Σ_n^R for every R. Then f_{m,c} satisfies it on every Σ_{n−1}^{R′}, since the substitution maps Σ_{n−1}^{R′} into Σ_n^{mR′+c}. The finite difference in c, the Vandermonde step in m and the bound \|x₁\| < 1 on Σ_n then complete the printed argument. The application needs Schmid's Corollary 5.29 and the Theorem 4.8 norm estimates uniformly for bounded real parts. Theorem 1.5 is itself stated for all R; auditing that uniformity in the cited sources is now part of G3, and G4 is resolved.
+
 ## Validation and remaining work
 
 The structural audit checks unique identifiers, all dependencies and their acyclicity, complete API/test/consumer coverage, exactly one route for each missing item, valid stage/parent/area identifiers, source and input hashes, and absence of concurrent deliverable changes. Finite diagnostics check nilpotent identities and the noncommuting exclusion, Hodge conjugation conventions, the two boundary branches, the rational torus/Cartan obstruction, the reversed-basis example and finite sorting. Numerical evaluation checks the explicit Möbius fibre formula; the symbolic argument above supplies its mathematical explanation. These diagnostics are not Lean proofs and are distinct from the 132 proposed tests.
