@@ -13,9 +13,12 @@ the pull request's checks have passed (or none apply). With --auto (the "Swarm
 intake" workflow) it must also be a ready pull request from this repository
 for one known, unfinished job, touch only that job's deliverables and handoff
 note, and, for a review, come from a worker who did not do the work under
-review, and the job's deliverables must not already be complete on main.
-Anything else is left to the maintainer, with a comment saying why. `sweep`
-does this for every open pull request whose "Swarm submission check" passed.
+review, and the job's deliverables must not already be complete on main. The
+one exception is a follow-up: the job's own worker (a branch named after a
+session that claimed the job's issue) may still correct a finished job while
+nobody has started its review. Anything else is left to the maintainer, with a
+comment saying why. `sweep` does this for every open pull request whose "Swarm
+submission check" passed.
 
 After the merge the job is complete when its deliverables on main cover the
 whole job (issues.deliverables_complete); the sync then finishes it and its
@@ -46,6 +49,8 @@ ISSUE = re.compile(r"\b(?:refs|references|closes|fixes|resolves|issue)\s*#(\d+)"
 CLAIM = re.compile(r"^Claimed for (.+?) by @")
 BOT = "github-actions[bot]"
 CHECK = "Swarm submission check"
+# A review's issue with one of these labels has been taken up.
+STARTED = ("state:claimed", "state:submitted", "state:running", "state:done")
 PENDING = ("EXPECTED", "PENDING", "QUEUED", "IN_PROGRESS", "WAITING", "REQUESTED")
 REPO = "CBirkbeck/tauceti-explorer"
 ROOT = Path(__file__).resolve().parents[2]
@@ -104,18 +109,20 @@ def claimants(comments):
     return sessions
 
 
-def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already_complete=False):
-    """Why an automatic merge must leave this pull request to the maintainer."""
+def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already_complete=False, follow_up=False):
+    """Why an automatic merge must leave this pull request to the maintainer.
+    follow_up: the job's own worker is correcting it before its review starts."""
     if job is None:
         return ["no job found for the submission"]
     found = []
     if draft:
         found.append("the pull request is a draft")
     if job.get("state") == "done":
-        found.append(f"{job['id']} is already done")
+        if not follow_up:
+            found.append(f"{job['id']} is already done")
     elif job.get("state") in ("superseded", "failed"):
         found.append(f"{job['id']} is {job['state']}")
-    elif already_complete:
+    elif already_complete and not follow_up:
         found.append(f"{job['id']}'s deliverables on main are already complete")
     own = own_files(job)
     found += [f"{path} is not a deliverable of {job['id']}" for path in files if path not in own]
@@ -124,6 +131,26 @@ def auto_refusals(job, files, draft, reviewer_sessions, author_sessions, already
         role = "reviewer" if job["kind"] == "review" else "red teamer" if job["kind"] == "redteam" else "worker"
         found += [f"the {role} {session} also did {' or '.join(others)}" for session in sorted(reviewer_sessions & author_sessions)]
     return found
+
+
+def follow_up(branch, sessions, review_has_started):
+    """Whether a pull request for a finished job is its own worker's correction:
+    from a branch named after a session that claimed the job (WORKERS.md), while
+    nobody has started the job's review. A session id too short to tell workers
+    apart does not count."""
+    own = any(len(session) >= 6 and (branch == session or branch.startswith((session + "-", session + "/")))
+              for session in sessions)
+    return own and not review_has_started
+
+
+def reviews_of(job, jobs):
+    """The reviews that check this job."""
+    return [other for other in jobs if other["kind"] == "review" and job["id"] in independent_of(other)]
+
+
+def review_started(review, labels):
+    """A review has started once the queue has it past pending, or its issue is taken up."""
+    return review.get("state") not in (None, "pending") or any(label in STARTED for label in labels)
 
 
 def independent_of(job):
@@ -169,6 +196,10 @@ def load_queue():
     return jobs, mapping
 
 
+def issue_labels(issue):
+    return [label["name"] for label in json.loads(gh("issue", "view", str(issue), "--json", "labels"))["labels"]] if issue else []
+
+
 def comments(issue):
     return json.loads(gh("api", "--paginate", f"repos/{REPO}/issues/{issue}/comments?per_page=100")) if issue else []
 
@@ -201,7 +232,11 @@ def inspect(number, jobs, mapping, auto=False):
                 if mapping.get(other):
                     author |= claimants(comments(mapping[other]))
         complete = bool(job) and deliverables_complete(job, ROOT)
-        problems += auto_refusals(job, files, data["isDraft"], reviewer, author, already_complete=complete)
+        correction = False
+        if job and (job.get("state") == "done" or complete):
+            started = any(review_started(review, issue_labels(mapping.get(review["id"]))) for review in reviews_of(job, jobs))
+            correction = follow_up(data["headRefName"], claimants(comments(issue)), started)
+        problems += auto_refusals(job, files, data["isDraft"], reviewer, author, already_complete=complete, follow_up=correction)
     return data, files, problems, job, issue
 
 
@@ -248,6 +283,8 @@ def merge(number, argv, wait=True):
         mark_complete = [path for path in files if path.endswith(".json") and "/links/" in path]
     if data["isDraft"]:
         gh("pr", "ready", str(number))
+    # Finished before this merge: an automatic merge then took it as its worker's follow-up.
+    correction = bool(job) and (job.get("state") == "done" or deliverables_complete(job, ROOT))
     gh("pr", "merge", str(number), "--squash", "--delete-branch")
     # A description saying "close #N" makes GitHub close the job's issue on merge;
     # the issue stays open until the job is reviewed and integrated.
@@ -268,7 +305,10 @@ def merge(number, argv, wait=True):
                        cwd=ROOT, check=True)
         subprocess.run(["git", "push", "-q"], cwd=ROOT, check=True)
     complete = bool(job) and deliverables_complete(job, ROOT)
-    if complete:
+    if correction and complete:
+        note = (f"Swarm intake: merged as a follow-up from the worker who did {job['id']}. Nobody had started its review, "
+                "so the review will see this version.")
+    elif complete:
         note = f"Swarm intake: merged. {job['id']} is complete; the sync records it and its independent review follows."
     else:
         note = "Swarm intake: merged as a checkpoint; the job stays open for continuation from the merged files and the handoff note."
