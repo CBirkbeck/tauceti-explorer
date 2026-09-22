@@ -5363,8 +5363,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SHENDE-TSIMERMAN-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1334"
+   "state": "external",
+   "note": "claimed on GitHub issue #1334"
   },
   {
    "id": "REV-PAPER-SHENDE-TSIMERMAN-17",
@@ -7201,7 +7201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1442"
   },
   {
    "id": "REV-PAPER-RICHARD-YAFAEV-25",
