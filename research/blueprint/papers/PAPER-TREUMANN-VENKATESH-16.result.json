@@ -12,7 +12,7 @@
   "readSections": [
    "Read in full from the arXiv source (arXiv:1407.2346v1, 9 July 2014, the only version; source archive sha256 28e20b81414249488dc37189de7ffeb316314c5c3ea374fe675a5e28195b2c11, file TV_submit.tex, 5733 lines): §1 Introduction, §2 Notation, §3 Tate cohomology, §4 The Brauer homomorphism, §5 Cyclic group actions on locally symmetric spaces, §6 Representation theory, §7 Satake parameters, §8 The Satake parameters of the Brauer homomorphism, §9–12 Construction of σ-dual homomorphisms 1–4.",
    "All locators refer to the preprint. The preprint numbers theorems, propositions, lemmas and definitions by the subsection counter (\\newtheorem{theorem}[subsection]{Theorem}), so statement numbers interleave with subsection numbers and many statements are unnumbered; an unnumbered statement is located by its subsection and its position in it.",
-   "The published version could not be read: this environment has no PDF text extraction (pdftotext, mutool, gs, qpdf, pypdf, PyPDF2, fitz, pdfminer and pdfplumber are all absent) and the Annals of Mathematics article page serves the text only as a PDF, so no published numbering map was built and no claim is made here about the printed text.",
+   "The published version could not be read, so no published numbering map was built and no claim is made here about the printed text. The Annals of Mathematics article page serves the text only as a PDF; that PDF (annals-v183-n1-p04-p.pdf) downloads freely but is encrypted with the standard security handler (/Filter /Standard /V 2 /Length 128), so its content streams cannot be decompressed and its text cannot be read. No PDF text-extraction tool is installed in this environment either (pdftotext, mutool, gs, qpdf, pypdf, PyPDF2, fitz, pdfminer and pdfplumber are all absent), but that is not the obstacle: a text extractor written for the purpose does read unencrypted PDFs, and was checked on the arXiv PDF of this very paper, which it reads in full. The encryption of the published PDF is the reason the printed text is not cited here.",
    "Checks run on the source: a duplicate-label audit (no duplicate \\label), an undefined-reference audit (none), and a cross-reference type audit comparing the word before each \\ref with the environment carrying that label, which found the two occurrences recorded in the source issues below; and a direct computation in the E_8 root system verifying §12.2 (the order and Weyl-group membership of U, the A_3 x A_3 Dynkin diagram of x_1,x_2,x_3,y_1,y_2,y_3, the Coxeter factorisation of U, and the roots of L_G(U) and L_G(U^2))."
   ]
  },
@@ -1437,7 +1437,7 @@
     "arXiv listing for 1407.2346, which has only v1 (9 July 2014) and no later version",
     "the Annals of Mathematics page for volume 183 issue 1 article 4 (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
     "the Annals of Mathematics errata and corrigenda listing",
-    "the published text itself, which could not be read: no PDF text extractor is available in this environment (pdftotext, mutool, gs, qpdf, pypdf, PyPDF2, fitz, pdfminer and pdfplumber are all absent) and the Annals article page serves only a PDF, so the finding is recorded against the preprint and makes no claim about the printed version"
+    "the published text itself, which could not be read: the Annals PDF downloads freely but is encrypted with the standard security handler (/Filter /Standard /V 2 /Length 128), so its content streams cannot be decompressed; no PDF text-extraction tool is installed here either, although a text extractor written for the purpose does read unencrypted PDFs and was checked on the arXiv PDF of this paper. The finding is therefore recorded against the preprint and makes no claim about the printed version"
    ]
   },
   {
@@ -1452,7 +1452,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ]
   },
   {
@@ -1467,7 +1467,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ]
   },
   {
@@ -1482,7 +1482,7 @@
    "searched": [
     "arXiv listing for 1407.2346, which has only v1 and no later version",
     "the Annals of Mathematics page for the article (doi 10.4007/annals.2016.183.1.4), which lists no erratum or corrigendum",
-    "the published text, which could not be read for lack of any PDF text extractor in this environment"
+    "the published text, which could not be read because the Annals PDF is encrypted with the standard security handler, so its content streams cannot be decompressed; the finding is recorded against the preprint and makes no claim about the printed version"
    ]
   }
  ]
