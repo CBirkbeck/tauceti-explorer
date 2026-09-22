@@ -1,0 +1,1232 @@
+{
+ "paper": "PAPER-WEI-26",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Algebraic relations among special gamma values and the Chowla–Selberg phenomenon over function fields",
+  "authors": "Fu-Tsun Wei",
+  "venue": "Inventiones mathematicae 244 (2026), no. 3, 815–897; doi:10.1007/s00222-026-01406-8",
+  "arxiv": "2207.01165",
+  "url": "https://arxiv.org/abs/2207.01165",
+  "readSections": [
+   "Read in full in the LaTeX source of arXiv:2207.01165v2 (11 January 2026, the latest version and the one carrying the accepted text; source archive sha256 8b5cef6bf94bb297d1c633f4b0226bc08c032bf3e704fcce8dcd3b8a59520a4a, file CS-v2.tex, 4660 lines): §1 Introduction, §2 Preliminaries, §3 Period symbols and the period distribution, §4 Diamond brackets and Stickelberger distributions, §5 Gamma distributions, §6 The Chowla–Selberg phenomenon, §7 The Deligne–Gross period conjecture.",
+   "The published version is Inventiones mathematicae 244 (2026), no. 3, 815–897 (doi:10.1007/s00222-026-01406-8), which is behind a paywall and could not be read. The author's arXiv v2 was posted in January 2026, after acceptance, and is the version read. No numbering from the published version is cited here.",
+   "On numbering. Every statement environment shares the equation counter and the counter is reset per subsection (\\newtheorem{theorem}[equation]{Theorem} with \\numberwithin{equation}{subsection}), so a number has three components and numbered displays step it. The numbers used in the locators below were taken from the compiled arXiv PDF (sha256 7bc90192f53212daa484e0aa6ed07fad68ad9f117470df09471872a3e1460a65), not reconstructed from the source: 84 distinct (type, number) pairs were read off it, covering every Theorem, Lemma, Proposition, Corollary and Example of the paper. Where a Definition or Remark number could not be confirmed from the PDF, the locator gives the subsection instead of a number.",
+   "Checks run on the source: a duplicate-label audit (none), an undefined-reference audit (none) and a cross-reference type audit comparing the word before each \\ref with the environment carrying that label (one mismatch, recorded as E1). E2, E3 and E4 came from reading, and each was then checked mechanically against every other occurrence of the same notation in the source.",
+   "Where an existing correction was looked for: the arXiv listing for 2207.01165 (only v1 of 4 July 2022 and v2 of 11 January 2026, with no comment about a correction); the author's publication page at math.nthu.edu.tw/~ftwei, which gives the reference as Inventiones Mathematicae 244 (2026) 815–897 and has no errata section; the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link; and a web search for an erratum or corrigendum. None exists."
+  ]
+ },
+ "summary": "The paper determines all algebraic relations among the special values of the three gamma functions of function-field arithmetic — Goss's arithmetic Γ_ari, Thakur's geometric Γ_geo and Goss's two-variable Γ — and proves Thakur's conjectured Chowla–Selberg formula for periods and quasi-periods of CM abelian t-modules. The mechanism is a period interpretation. On one side it builds, after Anderson, a period distribution: a unique Q-linear map from the space of Stickelberger functions on Gal(𝕜^sep/𝕜) to C_∞^×/k-bar^× sending the function attached to a CM field and a divisor of weight-compatible multiplicities to the corresponding period symbol of a CM dual t-motive; its transcendence degree at each finite level is computed by the function-field analogue of Shimura's conjecture, proved by Brownawell, Chang, Papanikolas and the author. On the other side it builds gamma distributions out of Thakur's diamond brackets, shows the associated Stickelberger distributions are universal, and identifies the two through a generalized soliton construction: Γ-hat = 𝒫^cyc ∘ St, the analogue of Deligne's theorem. The Lang–Rohrlich analogue and the completeness of the monomial relations follow, as does Thakur's recipe for CM periods, an explicit Chowla–Selberg formula with Dirichlet L-values as exponents, a Lerch-type formula for L'_𝔸(0,χ), and the Deligne–Gross period conjecture for CM Hodge–Pink structures. What the atlas lacks: gamma functions in characteristic p; CM theory for dual t-motives with generalized CM types, period symbols and the Legendre relation; Stickelberger functions, the period distribution and the universal distributions of the diamond brackets; solitons; the Chowla–Selberg formula; and Hodge–Pink structures with the Deligne–Gross conjecture. What it already has: Drinfeld modules and the Carlitz module, analytic uniformization and periods, Anderson t-modules and effective t-motives, isogenies and shtuka realisations, and the Tannakian transcendence machinery (DrinfeldModulesAndTModules DM.0–DM.8); function-field class field theory and L-functions (FunctionFieldArithmetic FA.0–FA.5); and, in the libraries, polynomial and rational function fields, transcendence bases, locally constant functions, profinite groups and Haar measure.",
+ "items": [
+  {
+   "id": "PAPER-WEI-26/1",
+   "kind": "definition",
+   "name": "The base data A, k, k_infinity and C_infinity",
+   "statement": "p is a prime, q a power of p, A = F_q[θ] the polynomial ring in one variable over F_q, k = F_q(θ) its fraction field, k_∞ the completion of k at the infinite place with |θ|_∞ = q, C_∞ the completion of a chosen algebraic closure of k_∞, and k-bar the algebraic closure of k inside C_∞; A_+ is the set of monic elements of A.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.1",
+   "status": "library",
+   "library": [
+    "mathlib:Polynomial",
+    "mathlib:RatFunc",
+    "mathlib:FunctionField",
+    "mathlib:Polynomial.Monic",
+    "mathlib:LaurentSeries"
+   ],
+   "planned": [],
+   "note": "Mathlib has the polynomial ring, its fraction field as rational functions, the function-field API and monicity; the completion at the infinite place is the Laurent-series completion, and the algebraic closure and its completion are standard constructions. Only the assembly is specific to the paper."
+  },
+  {
+   "id": "PAPER-WEI-26/2",
+   "kind": "definition",
+   "name": "The arithmetic gamma function",
+   "statement": "For y ∈ Z_p with q-adic digits y = Σ_{i≥0} y_i q^i, 0 ≤ y_i < q, set Π_ari(y) = ∏_{i≥1} (∏_{j=0}^{i-1}(1 - θ^{q^j}/θ^{q^i}))^{y_i} and Γ_ari(y) = Π_ari(y-1).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.1, after Goss",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Goss's arithmetic gamma function, interpolating the Carlitz factorial p-adically. No layer of the atlas plans a gamma function in characteristic p."
+  },
+  {
+   "id": "PAPER-WEI-26/3",
+   "kind": "definition",
+   "name": "The geometric gamma function",
+   "statement": "For x ∈ C_∞ \\ (-A_+ ∪ {0}), Π_geo(x) = ∏_{a ∈ A_+} (1 + x/a)^{-1} and Γ_geo(x) = Π_geo(x)/x.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.1, after Thakur",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Thakur's geometric gamma function. The product converges in C_∞; it is the function-field analogue of Euler's product for 1/Γ."
+  },
+  {
+   "id": "PAPER-WEI-26/4",
+   "kind": "definition",
+   "name": "The two-variable gamma function",
+   "statement": "For x ∈ C_∞ \\ (-A_+ ∪ {0}) and y ∈ Z_p with digits y_i, Π_geo(x,y) = ∏_{i≥0} ∏_{a ∈ A_+, deg a = i} (1 + x/a)^{-y_i} and Γ(x,y) = Π_geo(x,y-1)/(x·Π_ari(y-1)). It extends both the arithmetic and the geometric gamma functions: Γ(x, 1 - 1/(q-1))·Γ_ari(1 - 1/(q-1)) = Γ_geo(x) for every admissible x.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.1, following Thakur's Γ2 in Definition 8.1.1 of his paper; compared with Goss's original definition in Remark 5.4.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The object whose special values the paper's first main theorem is about; Remark 5.4.1 records the comparison with Goss's normalisation."
+  },
+  {
+   "id": "PAPER-WEI-26/5",
+   "kind": "definition",
+   "name": "The Carlitz fundamental period",
+   "statement": "π-tilde = (-θ)^{q/(q-1)} ∏_{i≥1} (1 - θ^{1-q^i})^{-1} ∈ C_∞^×, a fundamental period of the Carlitz F_q[t]-module. Thakur's relation gives Γ_ari(1 - a/(q-1)) ~ π-tilde^{a/(q-1)} for every integer 0 ≤ a < q-1, where x ~ y means x/y ∈ k-bar^×.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 3.1.8 and the remark after Theorem 1.1.1",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.0",
+    "DrinfeldModulesAndTModules:DM.2"
+   ],
+   "note": "DM.0 plans the Carlitz module among Drinfeld modules and DM.2 its analytic uniformization, where the fundamental period is the generator of the period lattice."
+  },
+  {
+   "id": "PAPER-WEI-26/6",
+   "kind": "definition",
+   "name": "The second variable: 𝔸 = F_q[t], 𝕜, and the evaluation map v_θ",
+   "statement": "𝔸 = F_q[t] is the polynomial ring in a variable t transcendental over C_∞, 𝕜 = F_q(t) its fraction field, regarded as the function field of P^1 over F_q, and v_θ: 𝕜 → k the F_q-algebra isomorphism t ↦ θ, corresponding to evaluation at the point θ ∈ P^1(C_∞); one writes f(θ) = v_θ(f).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The systematic separation of the two variables — t on the motivic side, θ on the analytic side — is the convention on which the whole paper rests; DM.4 fixes A = F_q[t] for the t-module branch but does not set up this pair with the evaluation map."
+  },
+  {
+   "id": "PAPER-WEI-26/7",
+   "kind": "definition",
+   "name": "The Galois groups 𝔊 and 𝔊_∞ and the embedding ν",
+   "statement": "𝕜^sep is a separable closure of 𝕜 and 𝔊 = Gal(𝕜^sep/𝕜). Fix an embedding ν: 𝕜^sep ↪ k-bar ⊂ C_∞ extending v_θ; with respect to ν the group Gal(k_∞^sep/k_∞) corresponds to a subgroup 𝔊_∞ ⊂ 𝔊, the decomposition group at infinity.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "FunctionFieldArithmetic:FA.0",
+    "FunctionFieldArithmetic:FA.3"
+   ],
+   "note": "FA.0 and FA.3 plan function fields with their separable and constant-field extensions and the local structure at a place; the specific pairing of 𝔊_∞ with the chosen embedding is the paper's convention."
+  },
+  {
+   "id": "PAPER-WEI-26/8",
+   "kind": "theorem",
+   "name": "Lang–Rohrlich analogue: the transcendence degree of gamma values (Theorem 1.1.1 = Theorem 5.4.7)",
+   "statement": "For 𝔫 ∈ 𝔸_+ and ℓ ∈ N, trdeg_{k-bar} k-bar(Γ_geo(x), Γ_ari(y), Γ(x,y) : x ∈ (1/𝔫(θ))A \\ (-A_+ ∪ {0}), y ∈ (1/(q^ℓ-1))Z) = 1 + (ℓ - 1/(q-1)^{ε_𝔫})·#(A/𝔫)^×, where ε_𝔫 = 1 if deg 𝔫 > 0 and 0 otherwise.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.1.1, proved as Theorem 5.4.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of the Lang–Rohrlich conjecture, for all three gamma functions at once. Taking ℓ = 1 recovers the geometric case of Anderson–Brownawell–Papanikolas and 𝔫 = 1 the arithmetic case of Chang–Papanikolas–Thakur–Yu."
+  },
+  {
+   "id": "PAPER-WEI-26/9",
+   "kind": "theorem",
+   "name": "All algebraic relations among gamma values are monomial (Corollary 5.4.8)",
+   "statement": "Every algebraic relation among the values Γ_geo(x), Γ_ari(y) and Γ(x,y), for x ∈ 𝕜 \\ (-A_+ ∪ {0}) and y ∈ Z_(p), is explained by the monomial relations of Proposition 5.4.2, that is by the reflection, multiplication and translation formulas of the three gamma functions.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Corollary 5.4.8, stated in the introduction as the second half of Theorem 1.1.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The qualitative form of the first main theorem. In particular the algebraic relations between arithmetic and geometric gamma values come solely from their separate relations with the Carlitz period π-tilde."
+  },
+  {
+   "id": "PAPER-WEI-26/10",
+   "kind": "theorem",
+   "name": "The period distribution (Theorem 1.2.1 = Theorem 3.3.1)",
+   "statement": "Fix an embedding ν: 𝕜^sep ↪ k-bar. There is a unique Q-linear map 𝒫_ν: 𝒮(𝔊) → C_∞^×/k-bar^× such that 𝒫_ν(φ_{𝕂,Φ^0}) = 𝒫_𝕂(ξ_ν, Φ^0) for every CM field 𝕂 ⊂ 𝕜^sep fixed by the commutator subgroup [𝔊,𝔊_∞] and every Φ^0 ∈ I_𝕂^0, where ξ_ν ∈ J_𝕂 is the point with ν_{ξ_ν} = ν restricted to 𝕂.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.2.1, proved as Theorem 3.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of Anderson's period distribution. Its value on the constant function 1_𝔊 is the class of the Carlitz period π-tilde."
+  },
+  {
+   "id": "PAPER-WEI-26/11",
+   "kind": "theorem",
+   "name": "Gamma distributions come from the period distribution (Theorem 1.2.2 = Theorem 5.4.5)",
+   "statement": "Let ν_1: 𝕂^cyc ↪ C_∞ be the specific embedding of (5.4) and 𝒫^cyc_{ν_1} the restriction of the period distribution to 𝒮(𝔊^cyc). Then Γ-hat_geo = 𝒫^cyc_{ν_1} ∘ St^geo, Γ-hat_ari = 𝒫^cyc_{ν_1} ∘ St^ari and Γ-hat = 𝒫^cyc_{ν_1} ∘ St.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.2.2, proved as Theorem 5.4.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The analogue of Deligne's theorem, in the form stated as Theorem 4.7 of Anderson's 1982 paper: every gamma value at a fraction is a period of a CM dual t-motive, and the dictionary is the Stickelberger distribution."
+  },
+  {
+   "id": "PAPER-WEI-26/12",
+   "kind": "theorem",
+   "name": "Thakur's conjecture: the Chowla–Selberg phenomenon for CM Drinfeld periods (Theorem 1.2.4 = Theorem 6.2.3)",
+   "statement": "Let 𝕂 ⊂ 𝕂^cyc be an imaginary field over 𝕜 and φ_𝕂 ∈ 𝒮(𝔊^cyc) the characteristic function of Gal(𝕂^cyc/𝕂); write φ_𝕂 = Σ_{x ∈ k/A} Σ_{y ∈ Z_(p)/Z} m_{x,y} St(x,y) with m_{x,y} ∈ Q almost all zero. Then for every nonzero period λ of a Drinfeld 𝔸-module of rank [𝕂:𝕜] over k-bar with CM by O_𝕂, λ ~ ∏_{x} ∏_{y} Γ-tilde(x,y)^{m_{x,y}}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.2.4, proved as Theorem 6.2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the recipe Thakur proposed in 7.12 of his 1991 paper and verified in several cases; it is proved here in general. Because any CM Drinfeld module over k-bar is isogenous to one with CM by the maximal order, the statement applies to every 𝔸-order in 𝕂."
+  },
+  {
+   "id": "PAPER-WEI-26/13",
+   "kind": "theorem",
+   "name": "Chowla–Selberg formula for quasi-periods of CM abelian t-modules (Theorem 1.3.1 = Theorem 6.3.7(1))",
+   "statement": "Let E_ρ be a CM abelian t-module with generalized CM type (𝕂,Ξ) over k-bar, with 𝕂 ⊂ 𝕂_{𝔫,ℓ}, and 𝔥_𝕂 = Gal(𝔊^cyc/𝕂). Write φ_{𝕂,Ξ} for the Stickelberger function of (𝕂,Ξ), viewed as a Z-valued function on 𝔊_𝕂 = Gal(𝕂/𝕜), and m_ϱ = φ_{𝕂,Ξ}(ϱ). Then the space of quasi-periods of E_ρ is spanned over k-bar by the elements π-tilde^{wt(Ξ)/[𝕂:𝕂^+]} · ∏_{ϱ ∈ 𝔊_𝕂} (∏_{𝔠 | 𝔫} ∏_{a ∈ (𝔸/𝔠)^×, i ∈ Z/ℓZ} Γ-tilde(a(θ)/𝔠(θ), q^i/(1-q^ℓ))^{n_𝔠(ϱϱ_0,a,i)})^{m_ϱ/[𝕂:𝕜]}, one for each ϱ_0 ∈ 𝔊_𝕂, where n_𝔠(ϱ,a,i) is the rational number defined in §6.3.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.3.1, proved as part (1) of Theorem 6.3.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The generalisation of Thakur's recipe from periods of CM Drinfeld modules to quasi-periods of CM abelian t-modules with an arbitrary generalized CM type, in the fully explicit form. The abstract form, with the exponents given by any preimage of φ_{𝕂,Ξ} under St, is Theorem 6.1.4."
+  },
+  {
+   "id": "PAPER-WEI-26/14",
+   "kind": "theorem",
+   "name": "Period vectors of CM Hilbert–Blumenthal t-modules (Theorem 1.3.2 = Theorem 6.2.2, explicit in Theorem 6.3.7(2))",
+   "statement": "Let 𝕂 ⊂ 𝕂_{𝔫,ℓ} be a CM field with maximal totally real subfield 𝕂^+ of degree d over 𝕜, and Ξ = ξ_1 + ··· + ξ_d a CM type of 𝕂; choose ϱ_i ∈ 𝔊^cyc with ν_1 ∘ ϱ_i restricted to 𝕂 equal to ν_{ξ_i}. Then the period vector of the corresponding CM Hilbert–Blumenthal t-module is given coordinatewise by the monomial products of gamma values determined by the Stickelberger decomposition of φ_{𝕂,Ξ}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.3.2, proved as Theorem 6.2.2, with the explicit form in part (2) of Theorem 6.3.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Hilbert–Blumenthal case is what makes the formula a statement about a period vector rather than a single period, and is the closest analogue of the classical Chowla–Selberg formula for CM abelian varieties."
+  },
+  {
+   "id": "PAPER-WEI-26/15",
+   "kind": "theorem",
+   "name": "The Deligne–Gross period conjecture for CM Hodge–Pink structures (Theorem 1.4.1 = Theorem 7.3.1)",
+   "statement": "Let 𝕄 be a pure uniformizable dual t-motive defined over k-bar and 𝕳' a 𝕜-Hodge–Pink sub-structure of 𝕳(𝕄) with full CM by a CM field 𝕂 ⊂ 𝕂_{𝔫,ℓ}. Then the periods of 𝕳' are, up to k-bar^×, the monomial products of gamma values prescribed by the Hodge–Pink type Φ_{𝕳'} through the period distribution; in particular they depend only on the Hodge–Pink structure and not on 𝕄.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 1.4.1, proved as Theorem 7.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of the Deligne–Gross period conjecture, which over number fields predicts the periods of a CM Hodge structure from its CM type through the Chowla–Selberg formula."
+  },
+  {
+   "id": "PAPER-WEI-26/16",
+   "kind": "definition",
+   "name": "Dual t-motives",
+   "statement": "For a field 𝕂 ⊇ F_q(θ) inside C_∞, a dual t-motive over 𝕂 is a left 𝕂[t,σ]-module 𝕄 that is (1) free of finite rank over 𝕂[t], (2) free of finite rank as a left 𝕂[σ]-module, and (3) satisfies (t-θ)^N · 𝕄 ⊂ σ𝕄 for some large N. A morphism is a 𝕂[t,σ]-module homomorphism.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 2.2.1",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.4"
+   ],
+   "note": "DM.4 plans Anderson t-modules and their motives including the contravariant convention, tau action and finite-generation requirements, which is exactly this notion; other sources call it a t-finite or A-finite dual t-motive (Remark 2.2.2)."
+  },
+  {
+   "id": "PAPER-WEI-26/17",
+   "kind": "definition",
+   "name": "Isogenies of dual t-motives",
+   "statement": "A morphism f: 𝕄 → 𝕄' over 𝕂 is an isogeny if it is injective with finite dimensional cokernel over 𝕂; then there is a ∈ 𝔸 with a𝕄' ⊂ f(𝕄), hence an isogeny g: 𝕄' → 𝕄 with f ∘ g = a and g ∘ f = a.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 2.2.3",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.5"
+   ],
+   "note": "DM.5 plans isogenies and the Tate theorem for Drinfeld modules and their motives; the existence of a quasi-inverse isogeny is quoted from Theorem 4.4.7 of Anderson–Brownawell–Papanikolas."
+  },
+  {
+   "id": "PAPER-WEI-26/18",
+   "kind": "definition",
+   "name": "The Tate algebra, Frobenius twists and the Betti module",
+   "statement": "T is the Tate algebra of Σ c_i t^i ∈ C_∞[[t]] with |c_i|_∞ → 0; the q^n-power Frobenius twist is f^{(n)} = Σ c_i^{q^n} t^i, giving T a C_∞[t,σ]-module structure with σ·f = f^{(-1)}. For a dual t-motive 𝕄 put M = T ⊗_{𝕂[t]} 𝕄; the Betti module is H_Betti(𝕄) = M^σ. It is free over 𝔸 of rank at most rank_{𝕂[t]}𝕄 and T ⊗_𝔸 H_Betti(𝕄) → M is injective.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §2.2.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Tate algebra with its Frobenius-twist action, and the Betti realisation it defines, are the analytic side of the theory; nothing in the atlas plans them, and the general Tate rings of the adic-spaces roadmaps are a different object."
+  },
+  {
+   "id": "PAPER-WEI-26/19",
+   "kind": "definition",
+   "name": "Uniformizability",
+   "statement": "A dual t-motive 𝕄 is uniformizable if T ⊗_𝔸 H_Betti(𝕄) → M is surjective, hence an isomorphism of T[σ]-modules; then rank_𝔸 H_Betti(𝕄) = rank_{𝕂[t]}𝕄 and H_Betti(𝕄) ⊂ T^† ⊗_{𝕂[t]} 𝕄, where T^† ⊂ T is the subring of rigid analytic functions on C_∞ \\ {θ^{q^i} : i ∈ N}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §2.2.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.4"
+   ],
+   "note": "DM.4 names rigid analytic triviality and uniformizability as additional properties of a t-module, not automatic ones; this is that property in the dual-motive formulation, with the Hartl–Juschka refinement to T^†."
+  },
+  {
+   "id": "PAPER-WEI-26/20",
+   "kind": "construction",
+   "name": "Push-forward of a morphism on Betti modules",
+   "statement": "For uniformizable 𝕄, 𝕄' over 𝕂 and a morphism f, extending f to M → M' induces f_*: H_Betti(𝕄) → H_Betti(𝕄'). If f is an isogeny then f_* is injective and dim_{F_q}(H_Betti(𝕄')/f_*H_Betti(𝕄)) = dim_𝕂(𝕄'/f(𝕄)) < ∞, so id ⊗ f_* is an isomorphism after tensoring with 𝕜.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §2.2.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The compatibility that lets periods be compared across an isogeny, which is what makes the period symbol depend only on the CM type."
+  },
+  {
+   "id": "PAPER-WEI-26/21",
+   "kind": "theorem",
+   "name": "Morphisms over C_infinity are defined over the field of definition (Lemma 2.2.7)",
+   "statement": "Let 𝕄, 𝕄' be uniformizable dual t-motives over 𝕂 and 𝕄_{C_∞}, 𝕄'_{C_∞} their base changes. Then every morphism 𝕄_{C_∞} → 𝕄'_{C_∞} over C_∞ already satisfies f(𝕄) ⊆ 𝕄', i.e. is defined over 𝕂.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 2.2.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used repeatedly to descend constructions from C_∞ to k-bar, in particular in §7 to know that the CM dual t-motive attached to a Hodge–Pink sub-structure is defined over k-bar."
+  },
+  {
+   "id": "PAPER-WEI-26/22",
+   "kind": "definition",
+   "name": "Purity and the weight of a dual t-motive",
+   "statement": "Extend σ to 𝕄((1/t)) = 𝕂((1/t)) ⊗_{𝕂[t]} 𝕄 by σ(f ⊗ m) = f^{(-1)} ⊗ σm. 𝕄 is pure if there are a 𝕂[[1/t]]-lattice L of 𝕄((1/t)) and u,v ∈ N with t^u L = σ^v L; then -u/v = -rank_{𝕂[σ]}𝕄 / rank_{𝕂[t]}𝕄 =: w(𝕄), the weight. Any subquotient of a pure dual t-motive is pure of the same weight.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §2.2.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quoted from Hartl–Juschka. Purity is one of the three defining conditions of a CM dual t-motive and is what makes the weight of a Hodge–Pink structure well defined in §7."
+  },
+  {
+   "id": "PAPER-WEI-26/23",
+   "kind": "definition",
+   "name": "CM fields over 𝕜, the set J_𝕂 and generalized CM types",
+   "statement": "For a CM field 𝕂 over 𝕜 with maximal totally real subfield 𝕂^+, let J_𝕂 be the set of points of the associated F_q-scheme X above the point θ, I_𝕂 the free abelian group on J_𝕂, and I_𝕂^0 ⊂ I_𝕂 the subgroup of Φ = Σ m_ξ ξ whose fibrewise sums over π^{-1}(ξ^+) are independent of ξ^+ ∈ J_{𝕂^+}; that common value is wt(Φ). A generalized CM type is a nonzero effective divisor in I_𝕂^0, and a CM type is one of weight 1.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 2.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field notion of a CM type, allowing multiplicities and weights, which is what makes the theory cover quasi-periods and not only periods. No layer of the atlas plans CM theory for t-motives."
+  },
+  {
+   "id": "PAPER-WEI-26/24",
+   "kind": "theorem",
+   "name": "J_𝕂 parametrises the embeddings of 𝕂 into C_infinity (Remark 2.3.3)",
+   "statement": "Let Emb(𝕂,C_∞) be the embeddings ν: 𝕂 ↪ C_∞ restricting to ν_θ on 𝕜. Then ξ ↦ ν_ξ is a bijection J_𝕂 → Emb(𝕂,C_∞), where ξ corresponds to an F_q-morphism Spec(C_∞) → X that is not F_q-bar-valued.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 2.3.3, after Proposition 3.3.4 of Brownawell–Chang–Papanikolas–Wei",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The dictionary that turns a CM type, a divisor on J_𝕂, into a set of embeddings with multiplicities, so that a period symbol can be indexed by an embedding."
+  },
+  {
+   "id": "PAPER-WEI-26/25",
+   "kind": "construction",
+   "name": "Inflation and restriction of CM types",
+   "statement": "For CM fields 𝕂_1 ⊂ 𝕂_2 over 𝕜 with associated morphism π: X_2 → X_1, Inf_{𝕂_2/𝕂_1} = π^* and Res_{𝕂_2/𝕂_1} = π_* carry I^0 into I^0, hence carry generalized CM types to generalized CM types.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §2.3.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The functoriality that makes the period symbol and the Stickelberger function independent of the field in which a CM type is considered (Lemma 3.2.11)."
+  },
+  {
+   "id": "PAPER-WEI-26/26",
+   "kind": "definition",
+   "name": "CM dual t-motives",
+   "statement": "A CM dual t-motive over 𝕂 is a dual t-motive 𝕄 such that (1) there is a CM field 𝕂 over 𝕜 with [𝕂:𝕜] = rank_{𝕂[t]}𝕄 and an 𝔸-algebra map O_𝕂 → End(𝕄) making 𝕄 projective of rank one over O_𝕂-bar; (2) there is a generalized CM type Ξ = Σ m_ξ ξ with σ𝕄 = 𝕀_Ξ · 𝕄, where 𝕀_Ξ = ∏ 𝔓_ξ^{m_ξ}; and (3) 𝕄 is pure. One says 𝕄 has generalized CM type (𝕂,Ξ).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 2.4.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Remark 2.4.2 records that this axiomatic definition agrees with the geometric one of Brownawell–Chang–Papanikolas–Wei, built after Sinha, Brownawell–Papanikolas and Anderson–Brownawell–Papanikolas."
+  },
+  {
+   "id": "PAPER-WEI-26/27",
+   "kind": "theorem",
+   "name": "Existence, uniformizability and isogeny of CM dual t-motives (Theorem 2.4.3)",
+   "statement": "(1) For every CM field 𝕂 and every generalized CM type Ξ of 𝕂 there is a CM dual t-motive with generalized CM type (𝕂,Ξ) over k-bar. (2) Every CM dual t-motive is uniformizable and pure. (3) Two CM dual t-motives over 𝕂 with the same generalized CM type are isogenous over 𝕂.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 2.4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quoted from Brownawell–Chang–Papanikolas–Wei. Part (3) with the push-forward of §2.2.6 is what makes the period symbol depend only on (𝕂,Ξ)."
+  },
+  {
+   "id": "PAPER-WEI-26/28",
+   "kind": "construction",
+   "name": "De Rham realisation and quasi-periods of a dual t-motive",
+   "statement": "For a uniformizable dual t-motive 𝕄 over 𝕂 one forms H_dR(𝕄,𝕂) together with the pairing against H_Betti(𝕄) given by integration ∫_γ ω, whose values are the quasi-periods of 𝕄; for a CM dual t-motive with CM type (𝕂,Ξ) and ξ ∈ J_𝕂 there is a distinguished differential ω_{𝕄,ξ}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The de Rham side of the period pairing for dual t-motives, in the form of Brownawell–Chang–Papanikolas–Wei §5; DM.2 plans periods of Drinfeld modules through analytic uniformization but not the de Rham module of a dual t-motive."
+  },
+  {
+   "id": "PAPER-WEI-26/29",
+   "kind": "definition",
+   "name": "Essentially surjective morphisms",
+   "statement": "A morphism f: 𝕄 → 𝕄' of dual t-motives over 𝕂 is essentially surjective if f(𝕄) is isogenous to 𝕄' via the inclusion; then f_*^∨ and hence f^*: H_dR(𝕄',𝕂) → H_dR(𝕄,𝕂) are injective.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 3.1.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The notion in which the Hodge–Pink comparison of §7 is stated: a Hodge–Pink sub-structure is realised by an essentially surjective morphism of dual t-motives, not by a sub-object."
+  },
+  {
+   "id": "PAPER-WEI-26/30",
+   "kind": "definition",
+   "name": "Period symbols",
+   "statement": "For a CM field 𝕂 over 𝕜, a generalized CM type Ξ and ξ ∈ J_𝕂, the period symbol 𝒫_𝕂(ξ,Ξ) is the class in C_∞^×/k-bar^× of ∫_γ ω_{𝕄,ξ} for any CM dual t-motive 𝕄 with generalized CM type (𝕂,Ξ) over k-bar and any nonzero γ ∈ H_Betti(𝕄); p_𝕂(ξ,Ξ) denotes a representative.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 3.1.7, following Definition 5.2.2 of Brownawell–Chang–Papanikolas–Wei",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of Shimura's period symbols. Well-definedness rests on Theorem 2.4.3(3) and the push-forward of §2.2.6."
+  },
+  {
+   "id": "PAPER-WEI-26/31",
+   "kind": "theorem",
+   "name": "The period symbol as a homomorphism, with the Legendre relation (Theorem 3.1.9)",
+   "statement": "For each ξ ∈ J_𝕂, 𝒫_𝕂(ξ,·) extends uniquely to a group homomorphism I_𝕂^0 → C_∞^×/k-bar^× satisfying: (1) 𝒫_𝕂(Res_{𝕂'/𝕂}(ξ'),Φ^0) = 𝒫_{𝕂'}(ξ', Inf_{𝕂'/𝕂}(Φ^0)); (2) 𝒫_𝕂(ξ^ϱ, Φ^0) = 𝒫_𝕂(ξ, (Φ^0)^{ϱ^{-1}}) for ϱ ∈ Aut(𝕂/𝕜); and (3) the Legendre relation ∏_{ξ ↦ ξ^+} p_𝕂(ξ,Φ^0) ~ π-tilde^{wt(Φ^0)} for every ξ^+ ∈ J_{𝕂^+}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 3.1.9, from Theorem 1.3.1, equivalently Theorem 5.3.2, of Brownawell–Chang–Papanikolas–Wei",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These three properties are exactly what a distribution on the Galois group needs, and they are the reason the period distribution of Theorem 3.3.1 exists."
+  },
+  {
+   "id": "PAPER-WEI-26/32",
+   "kind": "definition",
+   "name": "Stickelberger functions",
+   "statement": "𝒮(𝔊) is the space of locally constant Q-valued functions φ on 𝔊 such that (1) φ(ϱ_1 · (ϱ_2 ϱ_∞ ϱ_2^{-1} ϱ_∞^{-1})) = φ(ϱ_1) for all ϱ_1, ϱ_2 ∈ 𝔊 and ϱ_∞ ∈ 𝔊_∞, and (2) ∫_{𝔊_∞} φ(ϱ_1 ϱ_∞) dϱ_∞ is independent of ϱ_1, for the normalised Haar measure on 𝔊_∞.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 3.2.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Mathlib has locally constant functions and the Haar measure of a compact group, so the carrier is available, but the space cut out by these two conditions — the function-field analogue of the space on which Stickelberger elements live — is not planned anywhere."
+  },
+  {
+   "id": "PAPER-WEI-26/33",
+   "kind": "construction",
+   "name": "The 𝔊-action on 𝒮(𝔊), stabilisers and the associated CM field",
+   "statement": "𝒮(𝔊) carries the left 𝔊-action (ϱ_0 · φ)(ϱ) = φ(ϱϱ_0). For φ ∈ 𝒮(𝔊) the stabiliser 𝔥_φ has finite index, its fixed field 𝕂_φ is a CM field over 𝕜 containing the commutator subgroup [𝔊,𝔊_∞] in its Galois group, and 𝔥_{𝕂_φ} = 𝔥_φ.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 3.2.2 and Remark 3.2.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what turns an abstract Stickelberger function into CM data, and is the mechanism behind the isomorphism of Remark 3.2.12."
+  },
+  {
+   "id": "PAPER-WEI-26/34",
+   "kind": "construction",
+   "name": "The Stickelberger function attached to a CM type",
+   "statement": "For a CM field 𝕂 ⊂ 𝕜^sep fixed by [𝔊,𝔊_∞] and Φ^0 ∈ I_𝕂^0 one defines φ_{𝕂,Φ^0} ∈ 𝒮(𝔊) by the recipe of (3.2.8), a function on 𝔊 supported on the cosets of 𝔥_𝕂 with multiplicities read off Φ^0.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), equation (3.2.8)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bridge between CM types and Stickelberger functions on which everything after §3 is built."
+  },
+  {
+   "id": "PAPER-WEI-26/35",
+   "kind": "theorem",
+   "name": "𝒮(𝔊/𝔥_𝕂) is the rational span of the CM types (Lemma 3.2.9)",
+   "statement": "Let 𝕂 ⊂ 𝕜^sep be a CM field with 𝔥_𝕂 ⊇ [𝔊,𝔊_∞]. (1) φ_{𝕂,Φ^0} ∈ 𝒮(𝔊/𝔥_𝕂) for every Φ^0 ∈ I_𝕂^0, and Φ^0 ↦ φ_{𝕂,Φ^0} is injective. (2) 𝒮(𝔊/𝔥_𝕂) consists of the rational multiples of these, so φ_𝕂 induces a Q-linear isomorphism Q ⊗_Z I_𝕂^0 ≅ 𝒮(𝔊/𝔥_𝕂).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 3.2.9, with the dimension formula dim_Q 𝒮(𝔊/𝔥_𝕂) = 1 + (1 - 1/[𝕂:𝕂^+])[𝕂:𝕜] of Remark 3.2.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The finite-level identification of Stickelberger functions with CM types, which converts the transcendence statement of Theorem 3.3.5 into a dimension count."
+  },
+  {
+   "id": "PAPER-WEI-26/36",
+   "kind": "theorem",
+   "name": "Compatibility of Stickelberger functions with inflation (Lemma 3.2.11)",
+   "statement": "For CM fields 𝕂 ⊂ 𝕂' over 𝕜 fixed by [𝔊,𝔊_∞] and Φ^0 ∈ I_𝕂^0, one has φ_{𝕂,Φ^0} = φ_{𝕂', Inf_{𝕂'/𝕂}(Φ^0)} in 𝒮(𝔊). Consequently 𝒮(𝔊) is the colimit of the 𝒮(𝔊/𝔥_𝕂) and is spanned by the φ_{𝕂,Ξ}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 3.2.11 with Remark 3.2.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The compatibility that lets the period distribution be defined on all of 𝒮(𝔊) at once rather than level by level."
+  },
+  {
+   "id": "PAPER-WEI-26/37",
+   "kind": "theorem",
+   "name": "Transcendence degree of the period distribution and its injectivity (Theorem 3.3.5)",
+   "statement": "Let 𝕂 ⊂ 𝕜^sep be a CM field Galois over 𝕜 and fixed by [𝔊,𝔊_∞], with maximal totally real subfield 𝕂^+. Then trdeg_{k-bar} k-bar(𝒫_ν(𝒮(𝔊_𝕂))) = 1 + (1 - 1/[𝕂:𝕂^+])·[𝕂:𝕜]. Consequently 𝒫_ν: 𝒮(𝔊) → C_∞^×/k-bar^× is injective.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 3.3.5, resting on the main theorem of Brownawell–Chang–Papanikolas–Wei on Shimura's conjecture",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The transcendence input of the whole paper. It is the function-field analogue of Shimura's conjecture on CM periods, proved by Papanikolas-style Tannakian methods; DM.8 plans that machinery but not this theorem."
+  },
+  {
+   "id": "PAPER-WEI-26/38",
+   "kind": "construction",
+   "name": "Cyclotomic function fields and the restriction of the period distribution",
+   "statement": "𝕂^cyc is the compositum of all Carlitz cyclotomic function fields and constant field extensions of 𝕜, with 𝔊^cyc = Gal(𝕂^cyc/𝕜); 𝒮(𝔊^cyc) is the subspace of 𝒮(𝔊) of functions factoring through 𝔊^cyc, and 𝒫^cyc_ν is the restriction of the period distribution to it. For 𝔫 ∈ 𝔸_+ and ℓ ∈ N, 𝕂_{𝔫,ℓ} is the (𝔫,ℓ)-th cyclotomic function field with group 𝔊_{𝔫,ℓ}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §3.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "FunctionFieldArithmetic:FA.4"
+   ],
+   "note": "FunctionFieldArithmetic:FA.4 plans local and global class field theory over a function field, which is where the Carlitz cyclotomic extensions and their Artin map belong; the specific tower 𝕂_{𝔫,ℓ} and the identification of its group with (𝔸/𝔫)^× × Z/ℓZ is the paper's set-up."
+  },
+  {
+   "id": "PAPER-WEI-26/39",
+   "kind": "definition",
+   "name": "The geometric, arithmetic and two-variable diamond brackets",
+   "statement": "For x ∈ k write {x} for the representative of x mod A with |{x}|_∞ < 1, and for y ∈ Z_(p) = Q ∩ Z_p write ⟨y⟩_ari for the representative of y mod Z with 0 ≤ ⟨y⟩_ari < 1. The geometric diamond bracket ⟨x⟩_geo, the arithmetic one ⟨y⟩_ari and the two-variable one ⟨x,y⟩ are the rational numbers attached to these fractional parts by Thakur's recipe; they are functions on k/A, Z_(p)/Z and their product.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §4.1, after Thakur",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The combinatorial input that converts the analytic functional equations of the gamma functions into linear relations among distributions."
+  },
+  {
+   "id": "PAPER-WEI-26/40",
+   "kind": "theorem",
+   "name": "Digit expansion of the arithmetic bracket (Lemma 4.1.2)",
+   "statement": "Given y ∈ Z_(p), take ℓ ∈ N with (q^ℓ-1)y ∈ Z. (1) There are unique integers y_0,...,y_{ℓ-1} with 0 ≤ y_i < q and ⟨y⟩_ari = Σ_{i=0}^{ℓ-1} y_i ⟨q^i/(q^ℓ-1)⟩_ari. (2) The corresponding reflection and multiplication relations hold for ⟨·⟩_ari.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.1.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The q-adic digit expansion in the form needed to show that the arithmetic Stickelberger distribution is universal."
+  },
+  {
+   "id": "PAPER-WEI-26/41",
+   "kind": "theorem",
+   "name": "Reflection and multiplication formulas for the geometric bracket (Lemma 4.1.4)",
+   "statement": "For x ∈ k/A and 𝔫 ∈ A_+: (1) reflection, Σ_{ε ∈ F_q^×} ⟨εx⟩_geo = wt_0^geo(x); (2) multiplication, Σ_{a ∈ A, deg a < deg 𝔫} ⟨(x+a)/𝔫⟩_geo is given by the stated expression in ⟨x⟩_geo and deg 𝔫.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.1.4, compare 5.5.5 of Anderson–Brownawell–Papanikolas",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric counterpart of Lemma 4.1.2; together they generate all the relations among gamma values."
+  },
+  {
+   "id": "PAPER-WEI-26/42",
+   "kind": "theorem",
+   "name": "Characterisation of the two-variable bracket (Proposition 4.1.5)",
+   "statement": "There is a unique map ⟨·,·⟩: k × Z_(p) → Q such that (1) ⟨x+a, y+N⟩ = ⟨x,y⟩ for a ∈ A and N ∈ Z, and (2) the stated compatibility with the arithmetic and geometric brackets holds for all x ∈ k and y ∈ Z_(p).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 4.1.5, with Remark 4.1.6 comparing Thakur's Definition 8.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The two-variable bracket is characterised rather than constructed, which is what makes the verification of its relations a finite check."
+  },
+  {
+   "id": "PAPER-WEI-26/43",
+   "kind": "theorem",
+   "name": "Relations for the two-variable bracket (Proposition 4.1.7 and Remark 4.1.8)",
+   "statement": "For x ∈ k and y ∈ Z_(p): if |x|_∞ < 1 then for ℓ ∈ N and 0 ≤ i < ℓ, Σ_{ε ∈ F_q^×} ⟨εx, q^i/(q^ℓ-1)⟩ is 1 if x ≠ 0 and ord_∞(x) ≡ -i mod ℓ, and 0 otherwise; together with the corresponding reflection and multiplication formulas of Remark 4.1.8 for x ∈ k/A and y ∈ Z_(p)/Z.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 4.1.7 and Remark 4.1.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The relations that match, one for one, the monomial relations among two-variable gamma values in Proposition 5.4.2."
+  },
+  {
+   "id": "PAPER-WEI-26/44",
+   "kind": "definition",
+   "name": "The Stickelberger functions St^geo, St^ari and St",
+   "statement": "For x ∈ k/A and y ∈ Z_(p)/Z, identify k/A with the Carlitz torsion and Z_(p)/Z with roots of unity in k-bar and equip them with the 𝔊-action ★ through the Artin map. Set St^geo(x)(ϱ) = ⟨ϱ★x⟩_geo - 1/(q-1), St^ari(y)(ϱ) = ⟨-ϱ★y⟩_ari and St(x,y)(ϱ) = ⟨ϱ★x, -ϱ★y⟩ - ⟨-ϱ★y⟩_ari. All three lie in 𝒮(𝔊^cyc).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 4.2.2, with the group actions of (4.2.1) and (4.2.2)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These are the function-field Stickelberger elements, in the sense of Kubert–Lang Chapter 1 §3; the paper's whole strategy is that they are universal distributions."
+  },
+  {
+   "id": "PAPER-WEI-26/45",
+   "kind": "theorem",
+   "name": "Distribution relations for the Stickelberger functions (Remark 4.2.3)",
+   "statement": "For 𝔫 ∈ 𝔸_+ and ℓ ∈ N, and x ∈ (1/𝔫(θ))A/A, y ∈ (1/(q^ℓ-1))Z/Z, the maps St^geo, St^ari and St satisfy the distribution relations induced by the diamond bracket relations of §4.1, so they are distributions on k/A, Z_(p)/Z and their product with values in 𝒮(𝔊^cyc).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Remark 4.2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The distribution property is what allows the universal-distribution comparison in §4.3."
+  },
+  {
+   "id": "PAPER-WEI-26/46",
+   "kind": "theorem",
+   "name": "The Stickelberger functions span (Proposition 4.2.4)",
+   "statement": "For 𝔫 ∈ 𝔸_+ and ℓ ∈ N: (1) 𝒮(𝔊_{1,ℓ}) is spanned by St^ari(y) for y ∈ (1/(q^ℓ-1))Z/Z, hence 𝒮(𝔊^ari) by all St^ari(y); (2) 𝒮(𝔊_{𝔫,1}) is spanned by the St^geo(x); (3) 𝒮(𝔊_{𝔫,ℓ}) is spanned by the St(x,y).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 4.2.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The surjectivity half of the universality statement; the injectivity half is the dimension count of §4.3."
+  },
+  {
+   "id": "PAPER-WEI-26/47",
+   "kind": "theorem",
+   "name": "Stickelberger functions evaluate Dirichlet L-values (Lemma 4.2.8)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N, a character χ of 𝔊_{𝔫,ℓ} and 𝔪 ∈ 𝔸_+ dividing 𝔫, the sum Σ_{ϱ ∈ 𝔊_{𝔫,ℓ}} χ-bar(ϱ) St(a(θ)/𝔪(θ), q^c/(1-q^ℓ))(ϱ) equals the stated multiple of the Dirichlet L-value L_𝔸(0,χ-bar), when the finite part χ_f is nontrivial.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.2.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The arithmetic content of the Stickelberger functions: they are evaluators of Dirichlet L-values at 0, which is what turns the Chowla–Selberg formula into an explicit product over characters in §6.3."
+  },
+  {
+   "id": "PAPER-WEI-26/48",
+   "kind": "theorem",
+   "name": "When a Dirichlet L-value at 0 vanishes (Corollary 4.2.12)",
+   "statement": "For χ a character of 𝔊_{𝔫,ℓ}, L_𝔸(0,χ) = 0 if and only if χ is nontrivial and χ(ϱ_{ε,c}) = 1 for all ε ∈ F_q^× and c ∈ Z/ℓZ.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Corollary 4.2.12, with Remark 4.2.11",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "FunctionFieldArithmetic:FA.5"
+   ],
+   "note": "FA.5 plans zeta functions and Artin L-factors over a function field with Chebotarev; the vanishing criterion at s = 0 for these characters is a statement inside that layer, specialised to the cyclotomic tower."
+  },
+  {
+   "id": "PAPER-WEI-26/49",
+   "kind": "definition",
+   "name": "The universal distributions 𝒰^ari, 𝒰^geo and 𝒰^cyc",
+   "statement": "𝒜^ari_{ℓ,Q}, 𝒜^geo_{𝔫,Q} and 𝒜^cyc_{𝔫,ℓ,Q} are the Q-vector spaces on the corresponding sets of fractions, and 𝒰^ari_ℓ, 𝒰^geo_𝔫 and 𝒰^cyc_{𝔫,ℓ} are their quotients by the subspaces generated by the diamond-bracket distribution relations — the universal distributions in the sense of Kubert–Lang.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The universal distribution is the combinatorial object whose dimension has to match the transcendence degree; this is the only place where the paper's argument is purely linear algebra."
+  },
+  {
+   "id": "PAPER-WEI-26/50",
+   "kind": "theorem",
+   "name": "Universality of the arithmetic Stickelberger distribution (Lemma 4.3.1, Lemma 4.3.2, Corollary 4.3.3)",
+   "statement": "dim_Q 𝒰^ari_ℓ ≤ ℓ for every ℓ; St^ari: 𝒜^ari_{ℓ,Q} → 𝒮(𝔊_{1,ℓ}) is surjective; hence the induced map 𝒰^ari_ℓ → 𝒮(𝔊_{1,ℓ}) is an isomorphism, dim_Q 𝒰^ari_ℓ = dim_Q 𝒮(𝔊_{1,ℓ}) = ℓ, and 𝒰^ari ≅ 𝒮(𝔊^ari).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.3.1, Lemma 4.3.2 and Corollary 4.3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The upper bound is a counting argument on digits, the surjectivity is Proposition 4.2.4, and the isomorphism follows because the two dimensions agree."
+  },
+  {
+   "id": "PAPER-WEI-26/51",
+   "kind": "theorem",
+   "name": "Universality of the geometric Stickelberger distribution (Lemma 4.3.5, Lemma 4.3.6, Corollary 4.3.7)",
+   "statement": "dim_Q 𝒰^geo_𝔫 ≤ 1 + (1 - 1/(q-1)^{ε_𝔫})·#(A/𝔫)^×; St^geo: 𝒜^geo_{𝔫,Q} → 𝒮(𝔊_{𝔫,1}) is surjective; hence 𝒰^geo_𝔫 ≅ 𝒮(𝔊_{𝔫,1}) with that dimension, and 𝒰^geo ≅ 𝒮(𝔊^geo).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.3.5, Lemma 4.3.6 and Corollary 4.3.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The geometric analogue, with ε_𝔫 = 1 if deg 𝔫 > 0 and 0 otherwise."
+  },
+  {
+   "id": "PAPER-WEI-26/52",
+   "kind": "theorem",
+   "name": "Universality of the two-variable Stickelberger distribution (Lemma 4.3.11, Lemma 4.3.12, Corollary 4.3.13)",
+   "statement": "dim_Q 𝒰^cyc_{𝔫,ℓ} ≤ 1 + (ℓ - 1/(q-1)^{ε_𝔫})·#(𝔸/𝔫)^×; St: 𝒜^cyc_{𝔫,ℓ,Q} → 𝒮(𝔊_{𝔫,ℓ}) is surjective; hence 𝒰^cyc_{𝔫,ℓ} ≅ 𝒮(𝔊_{𝔫,ℓ}) with that dimension, and 𝒰^cyc ≅ 𝒮(𝔊^cyc).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 4.3.11, Lemma 4.3.12 and Corollary 4.3.13, summarised in Remark 4.3.15",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The two-variable case, which contains the other two and whose dimension is exactly the transcendence degree in Theorem 1.1.1."
+  },
+  {
+   "id": "PAPER-WEI-26/53",
+   "kind": "theorem",
+   "name": "Generalized CM types attached to Stickelberger functions (Lemma 5.1.2)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N, x ∈ (1/𝔫(θ))A/A and y ∈ (1/(q^ℓ-1))Z/Z, the divisors Ξ_x, Ξ_y and Ξ_{(x,y)} are generalized CM types of 𝕂_{𝔫,ℓ}, the divisors Φ_x and Φ_{(x,y)} lie in I^0_{𝕂_{𝔫,ℓ}}, and St_0^geo(x) = (q^ℓ-1)^{-1}φ_{𝕂_{𝔫,ℓ},Φ_x} with the analogous identities for the arithmetic and two-variable cases.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 5.1.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The translation of the combinatorics of §4 into CM data, so that the period distribution can be applied to Stickelberger functions."
+  },
+  {
+   "id": "PAPER-WEI-26/54",
+   "kind": "theorem",
+   "name": "Shtuka functions for cyclotomic function fields (Theorem 5.2.1)",
+   "statement": "Let 𝔫 ∈ 𝔸_+ with deg 𝔫 > 0. For each nonzero x ∈ (1/𝔫(θ))A/A there is a regular function g_x = 1 + Σ c_{ij} t^i z^j ∈ O_{𝕂_𝔫}-bar with c_{ij} ∈ k-bar and |c_{ij}|_∞ < 1 whose divisor is the prescribed one on the curve X_𝔫.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 5.2.1, from §6.3.9 of Anderson–Brownawell–Papanikolas",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.7"
+   ],
+   "note": "DM.7 plans elliptic sheaves and shtuka realisations; the shtuka function of a cyclotomic function field is that construction in the case at hand, and is the geometric source of the soliton."
+  },
+  {
+   "id": "PAPER-WEI-26/55",
+   "kind": "theorem",
+   "name": "Divisors of the twisted shtuka products (Proposition 5.2.6)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N and x, y as above, div(h_x), div(h_y) and div(h_{(x,y)}) are the stated combinations of the infinite point of X_𝔫, the divisors Ξ^#, and the Frobenius twists W^{(ℓ)} - W.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 5.2.6, with the twisting convention of Remark 5.2.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The divisor computation that makes the infinite product defining the soliton converge and identifies its value with a gamma value."
+  },
+  {
+   "id": "PAPER-WEI-26/56",
+   "kind": "construction",
+   "name": "Generalized soliton dual t-motives",
+   "statement": "From the shtuka data one forms 𝕄(*) and the infinite product ψ_* = ∏_{j≥1} (h_*^{-1})^{(ℓj)}, which lies in O_𝔫-bar^× ⊂ T ⊗ O_𝔫, and ψ-tilde_* = (ψ_*, ψ_*^{(-1)}, ..., ψ_*^{(1-ℓ)}) lies in the Betti module of 𝕄(*); ψ_* in fact lies in T^† ⊗ O_𝔫.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 5.3.1, Lemma 5.3.2 and Remark 5.3.3, generalizing 6.4.2 of Anderson–Brownawell–Papanikolas",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The soliton is the explicit Betti cycle whose period is a gamma value; generalizing it from the geometric case to the two-variable case is the technical heart of §5."
+  },
+  {
+   "id": "PAPER-WEI-26/57",
+   "kind": "theorem",
+   "name": "The soliton evaluates to a gamma product (Proposition 5.3.4)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N, nonzero x ∈ (1/𝔫(θ))A with |x|_∞ < 1, and y = q^c/(q^ℓ-1) with 0 ≤ c < ℓ, one has ψ_{(x,y)}(ξ_{1,0}) = ∏_{j≥0} ∏_{a ∈ A, deg a = c+ℓj} (1 + x/a)^{1-q^ℓ}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 5.3.4, with Remark 5.3.5 for the purely geometric case",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The explicit evaluation which, compared with the product defining Π_geo, is what identifies a period with a gamma value."
+  },
+  {
+   "id": "PAPER-WEI-26/58",
+   "kind": "theorem",
+   "name": "Monomial relations among gamma values (Proposition 5.4.2)",
+   "statement": "(1) For x ∈ C_∞ \\ (-A_+ ∪ {0}) and y ∈ Z_p, Γ_ari(y)Γ_ari(1-y) ~ π-tilde and Γ(x,y)Γ(x,1-y) ~ Γ_geo(x)^{q-1}/π-tilde. (2) For x ∈ k \\ (-A_+ ∪ {0}), y ∈ Z_p and a ∈ A_+, the corresponding multiplication and translation formulas hold. These are the relations induced by the functional equations of Goss and Thakur.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 5.4.2, with Remark 5.4.3 for the geometric specialisation",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The list against which Corollary 5.4.8 asserts completeness: every algebraic relation among the gamma values is a consequence of these."
+  },
+  {
+   "id": "PAPER-WEI-26/59",
+   "kind": "theorem",
+   "name": "The soliton period equals the gamma product (Proposition 5.4.4)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N, x ∈ (1/𝔫(θ))A/A and y ∈ (1/(q^ℓ-1))Z/Z, ψ_x(ξ_{1,0}) = Π_geo({x})^{q^ℓ-1}, ψ_y(ξ_{1,0}) = Π_ari(-⟨y⟩_ari)^{q^ℓ-1} and ψ_{(x,y)}(ξ_{1,0}) = Π_geo({x}, -⟨y⟩_ari)^{q^ℓ-1} up to the stated factor.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 5.4.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The last computation before Theorem 5.4.5: it identifies the value of the soliton at the distinguished point with a power of the gamma value."
+  },
+  {
+   "id": "PAPER-WEI-26/60",
+   "kind": "definition",
+   "name": "Abelian t-modules and their quasi-periods",
+   "statement": "An abelian t-module E_ρ over a field 𝕂 is a t-module in the sense of Anderson whose motive is finitely generated; for E_ρ pure and uniformizable one has the Hartl–Juschka dual t-motive 𝕄(ρ), and the quasi-periods of E_ρ are the values of the period pairing against H_dR.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §6.1, after Anderson",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.4",
+    "DrinfeldModulesAndTModules:DM.2"
+   ],
+   "note": "DM.4 plans Anderson t-modules on G_a^d with the nilpotent differential, their motives and the equivalence with effective Anderson motives in the abelian range; quasi-periods are the de Rham side of the pairing DM.2 plans for Drinfeld modules."
+  },
+  {
+   "id": "PAPER-WEI-26/61",
+   "kind": "theorem",
+   "name": "Quasi-periods of CM abelian t-modules as gamma monomials (Theorem 6.1.4)",
+   "statement": "Let E_ρ be a CM abelian t-module with generalized CM type (𝕂,Ξ) over k-bar, 𝕂 ⊂ 𝕂_{𝔫,ℓ}, and 𝔥_𝕂 = Gal(𝔊^cyc/𝕂). There exists 𝕒 ∈ 𝒜^cyc_{𝔫,ℓ,Q} with St(𝕒) = φ_{𝕂,Ξ} such that the space of quasi-periods of E_ρ is spanned over k-bar by the monomial ∏ Γ-tilde(x,y)^{a_{x,y}}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 6.1.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The general Chowla–Selberg statement of the paper: every quasi-period of a CM abelian t-module in the cyclotomic tower is a gamma monomial determined by its CM type."
+  },
+  {
+   "id": "PAPER-WEI-26/62",
+   "kind": "theorem",
+   "name": "Thakur's conjecture (Theorem 6.2.3)",
+   "statement": "Let E_ρ be a Drinfeld 𝔸-module over k-bar with CM by O_𝕂, where 𝕂 ⊂ 𝕂_{𝔫,ℓ} is imaginary and O_𝕂 the integral closure of 𝔸 in 𝕂, and 𝔥_𝕂 = Gal(𝕂^cyc/𝕂). For any 𝕒 ∈ 𝒜^cyc_{𝔫,ℓ,Q} with St(𝕒) = φ_𝕂, every nonzero period λ of E_ρ satisfies λ ~ ∏_{x,y} Γ-tilde(x,y)^{a_{x,y}}.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 6.2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The theorem the paper's title points at: the Chowla–Selberg phenomenon for CM Drinfeld modules, conjectured by Thakur in 7.12 of his 1991 paper."
+  },
+  {
+   "id": "PAPER-WEI-26/63",
+   "kind": "theorem",
+   "name": "Stickelberger functions and L-values at a character (Lemma 6.3.2)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N and a character χ of 𝔊_{𝔫,ℓ}, Σ_{(a,i) ∈ (𝔸/𝔠_χ)^× × (Z/ℓZ)} χ-bar(a, i + deg 𝔠_χ)·St(a(θ)/𝔠_χ(θ), q^i/(1-q^ℓ)) = L_𝔸(0,χ-bar)·e_χ in the stated normalisation, where 𝔠_χ is the conductor.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 6.3.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The character decomposition of the Stickelberger function, which turns the abstract decomposition φ_𝕂 = Σ m_{x,y} St(x,y) into an explicit formula with L-values as coefficients."
+  },
+  {
+   "id": "PAPER-WEI-26/64",
+   "kind": "theorem",
+   "name": "Explicit decomposition of φ_{𝕂,Ξ} (Proposition 6.3.5)",
+   "statement": "For 𝕂 ⊂ 𝕂_{𝔫,ℓ} and a generalized CM type Ξ = Σ_{ϱ ∈ 𝔊_𝕂} m_ϱ ξ_ϱ, and for each ϱ_0 ∈ 𝔊_𝕂, the Stickelberger function φ_{𝕂,Ξ} is given by the stated finite sum over characters with nonvanishing L_𝔸(0,χ), with coefficients built from the m_ϱ and the L-values.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 6.3.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The explicit form of the decomposition (1.2.3), obtained by inverting the character relation of Lemma 6.3.2."
+  },
+  {
+   "id": "PAPER-WEI-26/65",
+   "kind": "theorem",
+   "name": "The explicit Chowla–Selberg formula (Theorem 6.3.7)",
+   "statement": "Let E_ρ be a CM abelian t-module with generalized CM type (𝕂,Ξ) over k-bar, 𝕂 ⊂ 𝕂_{𝔫,ℓ}, 𝔊_𝕂 = Gal(𝕂/𝕜) and Ξ = Σ_{ϱ} m_ϱ ξ_ϱ ∈ I_𝕂^0. Then the quasi-periods of E_ρ are given explicitly by products of the values Γ-tilde(a(θ)/𝔠(θ), 1 - q^i/(q^ℓ-1)) with exponents expressed through the m_ϱ and the Dirichlet L-values L_𝔸(0,χ).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 6.3.7, announced in §1.3 as Theorems 1.3.1, 1.3.2 and 1.3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The final, fully explicit form of the Chowla–Selberg formula over function fields, with the class-number interpretation of Remark 6.3.6."
+  },
+  {
+   "id": "PAPER-WEI-26/66",
+   "kind": "theorem",
+   "name": "Chowla–Selberg for constant field extensions (Example 6.3.9)",
+   "statement": "For ℓ ∈ N and 𝕂 = 𝕂_{1,ℓ} = F_{q^ℓ}(t), the formula of Theorem 6.3.7 specialises to an explicit expression for the periods in terms of arithmetic gamma values at the fractions q^i/(q^ℓ-1).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Example 6.3.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The first of three worked examples; it recovers the constant-field case treated by Thakur."
+  },
+  {
+   "id": "PAPER-WEI-26/67",
+   "kind": "theorem",
+   "name": "Chowla–Selberg for the t-th Carlitz cyclotomic field (Example 6.3.10)",
+   "statement": "For 𝕂 = 𝕂_{t,1} = 𝕜((-t)^{1/(q-1)}), the formula specialises to an explicit expression in geometric gamma values.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Example 6.3.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The second worked example, in the purely geometric direction."
+  },
+  {
+   "id": "PAPER-WEI-26/68",
+   "kind": "theorem",
+   "name": "Chowla–Selberg for imaginary quadratic extensions (Example 6.3.11)",
+   "statement": "For an imaginary quadratic extension 𝕂 of 𝕜 inside the cyclotomic tower, Theorem 6.3.7(3) gives an explicit product formula for the period of the corresponding CM Drinfeld module, in the shape of the classical Chowla–Selberg formula.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Example 6.3.11, with Remark 6.3.13 for the case χ_𝕂(1,i) = 1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The closest analogue of the classical statement for imaginary quadratic fields, and the example against which Thakur's recipe was originally tested."
+  },
+  {
+   "id": "PAPER-WEI-26/69",
+   "kind": "theorem",
+   "name": "Logarithmic derivative of an arithmetic L-function (Lemma 6.4.2)",
+   "statement": "For ℓ ∈ N and a character χ of 𝔊_{1,ℓ}, L'_𝔸(0,χ) = -Σ_{c=0}^{ℓ-1} χ(c)·ln|Γ^*_ari(1 - q^c/(q^ℓ-1))|_∞, where Γ^*_ari is the normalised arithmetic gamma value.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 6.4.2, with Remark 6.4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The first step of the Lerch-type formula, relating the derivative at 0 of a Dirichlet L-function to logarithms of gamma values."
+  },
+  {
+   "id": "PAPER-WEI-26/70",
+   "kind": "theorem",
+   "name": "A Lerch-type formula (Theorem 6.4.5)",
+   "statement": "For 𝔫 ∈ 𝔸_+, ℓ ∈ N and a character χ of 𝔊_{𝔫,ℓ}, L'_𝔸(0,χ) = -L_𝔸(0,χ) ln|𝔠_χ|_∞ + Σ_{a ∈ 𝔸, deg a < deg 𝔠_χ, gcd(a,𝔠_χ)=1} Σ_{i=0}^{ℓ-1} χ(a, i + deg 𝔠_χ) ln|Γ^*(a(θ)/𝔠_χ(θ), 1 - q^i/(q^ℓ-1))|_∞.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 6.4.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of Lerch's formula, obtained by normalising the gamma values so that the ambiguity by k-bar^× is removed on taking absolute values."
+  },
+  {
+   "id": "PAPER-WEI-26/71",
+   "kind": "theorem",
+   "name": "Logarithmic form of the Chowla–Selberg formula (Corollary 6.4.6)",
+   "statement": "For an imaginary field 𝕂 ⊂ 𝕂_{𝔫,ℓ}, ln|π-tilde · ∏_{𝔠 | 𝔫} ∏_{a} ∏_{i} Γ^*(a(θ)/𝔠(θ), 1 - q^i/(q^ℓ-1))^{e_{a,i}}|_∞ is given by the stated combination of L_𝔸(0,χ) and L'_𝔸(0,χ) over the characters of 𝔊_{𝔫,ℓ} cutting out 𝕂.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Corollary 6.4.6, with Remarks 6.4.7 and 6.4.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The absolute-value form of the Chowla–Selberg formula, which is the shape in which the classical formula is usually quoted."
+  },
+  {
+   "id": "PAPER-WEI-26/72",
+   "kind": "definition",
+   "name": "Pre-Hodge–Pink and Hodge–Pink structures",
+   "statement": "An exhaustive separated increasing Q-filtration W_•H of a finite dimensional 𝕜-vector space H is a family of subspaces with W_{μ'}H ⊂ W_μ H for μ' < μ and finite-dimensional graded pieces. A mixed 𝕜-pre-Hodge–Pink structure is a triple 𝕳 = (H, W_•H, 𝔮) with 𝔮 ⊂ C_∞((t-θ)) ⊗ H a C_∞[[t-θ]]-lattice. It is a 𝕜-Hodge–Pink structure if it satisfies the local semistable condition at infinity: for every 𝕜_∞-subspace H'_∞ of H_∞ the induced weight and lattice data satisfy the stated inequality.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definitions 7.1.1, 7.1.2 and 7.1.4, following Definition 2.2.3 of Hartl–Juschka",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field analogue of a mixed Hodge structure. Nothing in the atlas plans it; the Tau Ceti Hodge-structures roadmap is the classical linear-algebraic theory over R and C."
+  },
+  {
+   "id": "PAPER-WEI-26/73",
+   "kind": "theorem",
+   "name": "Hodge–Pink sub-structures are realised by dual t-motives (Theorem 7.1.8)",
+   "statement": "Let 𝕄 be a pure uniformizable dual t-motive over C_∞ and 𝕳' a 𝕜-Hodge–Pink sub-structure of 𝕳(𝕄). Then there is a pure uniformizable dual t-motive 𝕄' over C_∞ and an essentially surjective morphism f: 𝕄 → 𝕄' whose associated morphism of Hodge–Pink structures identifies 𝕳(𝕄') with 𝕳'.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 7.1.8, with Remark 7.1.9 on effectiveness",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The function-field counterpart of the fact that a sub-Hodge-structure of the cohomology of a variety is motivated; it is what lets a Hodge–Pink statement be proved by a statement about dual t-motives."
+  },
+  {
+   "id": "PAPER-WEI-26/74",
+   "kind": "definition",
+   "name": "Full CM Hodge–Pink structures and their Hodge–Pink type",
+   "statement": "A 𝕜-Hodge–Pink structure 𝕳 has full CM by a CM field 𝕂 over 𝕜 if 𝕂 acts on it with [𝕂:𝕜] = dim_𝕜 H; its Hodge–Pink type is Φ_𝕳 = Σ_{ξ ∈ J_𝕂} w_ξ ξ ∈ I_𝕂, where w_ξ records the jump of the lattice 𝔮 in the ξ-eigenspace.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 7.2.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The invariant that plays the role of the CM type of a CM Hodge structure, and the input of the Deligne–Gross statement."
+  },
+  {
+   "id": "PAPER-WEI-26/75",
+   "kind": "theorem",
+   "name": "The Hodge–Pink type lies in I_𝕂^0 (Lemma 7.2.3)",
+   "statement": "Let 𝕳 be a pure 𝕜-Hodge–Pink structure of weight w(𝕳) with full CM by a CM field 𝕂 over 𝕜. Then Φ_𝕳 ∈ I_𝕂^0 with wt(Φ_𝕳) = [𝕂:𝕂^+]·w(𝕳).",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Lemma 7.2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what makes the period distribution applicable to Φ_𝕳 and so is the step that connects §7 with §3."
+  },
+  {
+   "id": "PAPER-WEI-26/76",
+   "kind": "theorem",
+   "name": "A CM Hodge–Pink sub-structure comes from a CM dual t-motive (Proposition 7.2.7)",
+   "statement": "Let 𝕄 be a pure uniformizable dual t-motive of weight w(𝕄) over C_∞ and 𝕳' a 𝕜-Hodge–Pink sub-structure of 𝕳(𝕄) with full CM by a CM field 𝕂 over 𝕜. Then 𝕳' is effective and the 𝕄' of Theorem 7.1.8 may be taken to be a CM dual t-motive with generalized CM type (𝕂,Φ_{𝕳'}); by Theorem 2.4.3(3) it may be taken over k-bar and is unique up to isogeny.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Proposition 7.2.7, with Remarks 7.2.6 and 7.2.8 and Definition 7.2.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The bridge that turns the Deligne–Gross statement into an instance of the Chowla–Selberg formula for CM dual t-motives."
+  },
+  {
+   "id": "PAPER-WEI-26/77",
+   "kind": "theorem",
+   "name": "The Deligne–Gross conjecture over function fields (Theorem 7.3.1)",
+   "statement": "Let 𝕄 be a pure uniformizable dual t-motive over k-bar and 𝕳' a 𝕜-Hodge–Pink sub-structure of 𝕳(𝕄) with full CM by 𝕂 ⊂ 𝕂_{𝔫,ℓ}. For each ϱ ∈ 𝔊_{𝔫,ℓ} put the corresponding coefficient of Φ_{𝕳'}; then every period of 𝕳' is, up to k-bar^×, the monomial in the values Γ-tilde(x,y) prescribed by Φ_{𝕳'} through the period distribution.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 7.3.1, with Remarks 7.3.2 and 7.3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The fourth main theorem. Because Φ_{𝕳'} depends only on the Hodge–Pink structure, the periods do too, which is the content of the Deligne–Gross prediction."
+  },
+  {
+   "id": "PAPER-WEI-26/78",
+   "kind": "theorem",
+   "name": "Analogue of Gross's period formula (Example 7.3.4)",
+   "statement": "For an abelian t-module E_ρ over k-bar that is pure and uniformizable, so that its Hartl–Juschka dual t-motive is pure and uniformizable, Theorem 7.3.1 gives the periods of any CM Hodge–Pink sub-structure of its cohomology as an explicit gamma monomial, the analogue of Gross's formula for periods of CM abelian varieties.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Example 7.3.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The worked example closing the paper, which is the function-field counterpart of Gross's 1978 period formula."
+  },
+  {
+   "id": "PAPER-WEI-26/79",
+   "kind": "theorem",
+   "name": "Shimura's conjecture over function fields (the transcendence input)",
+   "statement": "For a CM field 𝕂 over 𝕜 Galois and fixed by [𝔊,𝔊_∞], the transcendence degree over k-bar of the field generated by the CM periods p_𝕂(ξ,Φ^0), for Φ^0 ∈ I_𝕂^0, is 1 + (1 - 1/[𝕂:𝕂^+])·[𝕂:𝕜], the dimension of the corresponding Q-vector space of CM types.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Theorem 3.3.5, quoted from the main theorem of Brownawell–Chang–Papanikolas–Wei",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.8"
+   ],
+   "note": "DM.8 plans the Tannakian category of rigid analytically trivial dual t-motives, its Frobenius-difference Galois group and the theorem identifying the transcendence degree of the periods with the dimension of that group; this statement is the CM case of that programme and is the one input of this paper that is not proved in it."
+  },
+  {
+   "id": "PAPER-WEI-26/80",
+   "kind": "theorem",
+   "name": "The Anderson–Brownawell–Papanikolas criterion",
+   "statement": "The ABP linear independence criterion for entries of an analytic trivialization matrix, in the form used to pass from the soliton construction to algebraic independence statements.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), used through §5 and the transcendence input of §3.3",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.8"
+   ],
+   "note": "DM.8 plans the analytic trivialization matrix and the specialization/lifting criterion identifying the period transcendence degree with the Galois group dimension, which is where the ABP criterion sits."
+  },
+  {
+   "id": "PAPER-WEI-26/81",
+   "kind": "definition",
+   "name": "Drinfeld 𝔸-modules and CM by an order",
+   "statement": "A Drinfeld 𝔸-module of rank r over a field L with 𝔸 = F_q[t], its period lattice under analytic uniformization, and what it means for it to have CM by an 𝔸-order in an imaginary field 𝕂 of degree r over 𝕜.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §6.2, standard",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "DrinfeldModulesAndTModules:DM.0",
+    "DrinfeldModulesAndTModules:DM.1",
+    "DrinfeldModulesAndTModules:DM.2"
+   ],
+   "note": "DM.0 plans additive polynomials and Drinfeld modules, DM.1 torsion and Tate modules, and DM.2 analytic uniformization and lattices, which is exactly this material."
+  },
+  {
+   "id": "PAPER-WEI-26/82",
+   "kind": "definition",
+   "name": "Dirichlet characters and L-functions over 𝔸",
+   "statement": "For 𝔫 ∈ 𝔸_+ and ℓ ∈ N, the characters χ of 𝔊_{𝔫,ℓ} with their conductors 𝔠_χ, and the Dirichlet L-function L_𝔸(s,χ) = ∏_{𝔭 irreducible} (1 - χ(𝔭)|𝔭|_∞^{-s})^{-1} for Re(s) > 1, with its value and derivative at s = 0.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §4.2 and §6.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "FunctionFieldArithmetic:FA.5"
+   ],
+   "note": "FA.5 plans zeta functions, Artin factors and Chebotarev over a function field; Mathlib has Dirichlet characters in the classical setting but not the function-field L-function."
+  },
+  {
+   "id": "PAPER-WEI-26/83",
+   "kind": "definition",
+   "name": "Transcendence degree of a field extension",
+   "statement": "trdeg_F E for a field extension E/F, used throughout to state the main theorem.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), §1.1",
+   "status": "library",
+   "library": [
+    "mathlib:IsTranscendenceBasis",
+    "mathlib:Transcendental",
+    "mathlib:exists_finset_isTranscendenceBasis"
+   ],
+   "planned": [],
+   "note": "Mathlib has transcendence bases and the finiteness statements attached to them."
+  },
+  {
+   "id": "PAPER-WEI-26/84",
+   "kind": "definition",
+   "name": "Locally constant functions and the Haar measure of a profinite group",
+   "statement": "Locally constant Q-valued functions on a profinite group, and the normalised Haar measure used to state condition (2) of Definition 3.2.1.",
+   "locator": "arXiv:2207.01165v2 (11 January 2026), Definition 3.2.1",
+   "status": "library",
+   "library": [
+    "mathlib:IsLocallyConstant",
+    "mathlib:ProfiniteGrp",
+    "mathlib:MeasureTheory.Measure.haarMeasure"
+   ],
+   "planned": [],
+   "note": "Mathlib has locally constant functions, profinite groups and the Haar measure of a compact group, which supply the carrier of 𝒮(𝔊)."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "W. D. Brownawell, C.-Y. Chang, M. A. Papanikolas and F.-T. Wei, \"Function field analogue of Shimura's conjecture on period symbols\"",
+   "link": "arXiv:2203.09131",
+   "why": "The transcendence input of the whole paper: the computation of the transcendence degree of the field generated by the CM period symbols of a CM field over 𝕜, which is quoted as Theorem 3.3.5. It also supplies the period symbols themselves (its §5), their functoriality and Legendre relation (its Theorem 5.3.2), the geometric definition of CM dual t-motives and the existence and isogeny statements of Theorem 2.4.3."
+  },
+  {
+   "citation": "D. S. Thakur, \"Gamma functions for function fields and Drinfeld modules\", Annals of Mathematics (2) 134 (1991), 25–64",
+   "link": "https://doi.org/10.2307/2944331",
+   "why": "The geometric and two-variable gamma functions with their functional equations, the diamond brackets of §4.1, and the conjectured Chowla–Selberg recipe of its 7.12 that Theorem 6.2.3 proves."
+  },
+  {
+   "citation": "D. Goss, \"The Γ-function in the arithmetic of function fields\", Duke Mathematical Journal 56 (1988), 163–191",
+   "link": "https://doi.org/10.1215/S0012-7094-88-05609-1",
+   "why": "The original two-variable gamma function, compared with Thakur's normalisation in Remark 5.4.1, and the interpolation theory the three gamma functions rest on."
+  },
+  {
+   "citation": "G. W. Anderson, W. D. Brownawell and M. A. Papanikolas, \"Determination of the algebraic relations among special Γ-values in positive characteristic\", Annals of Mathematics (2) 160 (2004), 237–313",
+   "link": "https://doi.org/10.4007/annals.2004.160.237",
+   "why": "The geometric case of the main theorem, the linear independence criterion used throughout, the shtuka functions of §6.3.9 quoted as Theorem 5.2.1, and the soliton construction of its 6.4.2 that §5.3 generalizes to two variables."
+  },
+  {
+   "citation": "M. A. Papanikolas, \"Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms\", Inventiones mathematicae 171 (2008), 123–174",
+   "link": "arXiv:math/0506078",
+   "why": "The Tannakian and Frobenius-difference-Galois theory that computes transcendence degrees of periods of dual t-motives, on which the Shimura-conjecture input rests. DM.8 already names it as its source, so it is listed here for the record rather than as a new acquisition."
+  },
+  {
+   "citation": "U. Hartl and A.-K. Juschka, \"Pink's theory of Hodge structures and the Hodge conjecture over function fields\", in t-Motives: Hodge Structures, Transcendence and Other Motivic Aspects, EMS, Zürich, 2020, 31–182",
+   "link": "arXiv:1607.01412",
+   "why": "Mixed 𝕜-Hodge–Pink structures with their weight filtration and lattice, the local semistable condition, purity of dual t-motives and the containment of the Betti module in T^† ⊗ 𝕄; §7 is written entirely in this language."
+  },
+  {
+   "citation": "G. W. Anderson, \"Logarithmic derivatives of Dirichlet L-functions and the periods of abelian varieties\", Compositio Mathematica 45 (1982), 315–332",
+   "link": "http://www.numdam.org/item/CM_1982__45_3_315_0/",
+   "why": "The classical period distribution and the theorem of Deligne stated as its Theorem 4.7, of which Theorem 5.4.5 is the function-field analogue; also the model for the logarithmic form of the Chowla–Selberg formula in §6.4."
+  },
+  {
+   "citation": "C.-Y. Chang, M. A. Papanikolas, D. S. Thakur and J. Yu, \"Algebraic independence of arithmetic gamma values and Carlitz zeta values\", Advances in Mathematics 223 (2010), 1137–1154",
+   "link": "https://doi.org/10.1016/j.aim.2009.09.011",
+   "why": "The arithmetic case of the main theorem, recovered by taking 𝔫 = 1, and the transcendence techniques for arithmetic gamma values."
+  },
+  {
+   "citation": "D. S. Kubert and S. Lang, \"Modular units\", Grundlehren der mathematischen Wissenschaften 244, Springer, 1981",
+   "link": "https://doi.org/10.1007/978-1-4757-1741-9",
+   "why": "The theory of distributions and universal distributions, in the sense of its Chapter 1 §3, which §4.3 uses to show that the three Stickelberger distributions are universal."
+  },
+  {
+   "citation": "G. W. Anderson, \"t-motives\", Duke Mathematical Journal 53 (1986), 457–502",
+   "link": "https://doi.org/10.1215/S0012-7094-86-05328-7",
+   "why": "Abelian t-modules and their motives, the objects whose quasi-periods the Chowla–Selberg formula of §6 computes. DM.4 already names it as its source."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "DrinfeldModulesAndTModules",
+   "roadmap": "GammaValuesAndCMPeriods",
+   "title": "Drinfeld modules, t-motives and characteristic-p special values, Part II: gamma values, CM periods and the Chowla–Selberg phenomenon",
+   "area": "functionfields",
+   "items": [
+    "PAPER-WEI-26/2",
+    "PAPER-WEI-26/3",
+    "PAPER-WEI-26/4",
+    "PAPER-WEI-26/6",
+    "PAPER-WEI-26/8",
+    "PAPER-WEI-26/9",
+    "PAPER-WEI-26/10",
+    "PAPER-WEI-26/11",
+    "PAPER-WEI-26/12",
+    "PAPER-WEI-26/13",
+    "PAPER-WEI-26/14",
+    "PAPER-WEI-26/15",
+    "PAPER-WEI-26/18",
+    "PAPER-WEI-26/20",
+    "PAPER-WEI-26/21",
+    "PAPER-WEI-26/22",
+    "PAPER-WEI-26/23",
+    "PAPER-WEI-26/24",
+    "PAPER-WEI-26/25",
+    "PAPER-WEI-26/26",
+    "PAPER-WEI-26/27",
+    "PAPER-WEI-26/28",
+    "PAPER-WEI-26/29",
+    "PAPER-WEI-26/30",
+    "PAPER-WEI-26/31",
+    "PAPER-WEI-26/32",
+    "PAPER-WEI-26/33",
+    "PAPER-WEI-26/34",
+    "PAPER-WEI-26/35",
+    "PAPER-WEI-26/36",
+    "PAPER-WEI-26/37",
+    "PAPER-WEI-26/39",
+    "PAPER-WEI-26/40",
+    "PAPER-WEI-26/41",
+    "PAPER-WEI-26/42",
+    "PAPER-WEI-26/43",
+    "PAPER-WEI-26/44",
+    "PAPER-WEI-26/45",
+    "PAPER-WEI-26/46",
+    "PAPER-WEI-26/47",
+    "PAPER-WEI-26/49",
+    "PAPER-WEI-26/50",
+    "PAPER-WEI-26/51",
+    "PAPER-WEI-26/52",
+    "PAPER-WEI-26/53",
+    "PAPER-WEI-26/55",
+    "PAPER-WEI-26/56",
+    "PAPER-WEI-26/57",
+    "PAPER-WEI-26/58",
+    "PAPER-WEI-26/59",
+    "PAPER-WEI-26/61",
+    "PAPER-WEI-26/62",
+    "PAPER-WEI-26/63",
+    "PAPER-WEI-26/64",
+    "PAPER-WEI-26/65",
+    "PAPER-WEI-26/66",
+    "PAPER-WEI-26/67",
+    "PAPER-WEI-26/68",
+    "PAPER-WEI-26/69",
+    "PAPER-WEI-26/70",
+    "PAPER-WEI-26/71",
+    "PAPER-WEI-26/72",
+    "PAPER-WEI-26/73",
+    "PAPER-WEI-26/74",
+    "PAPER-WEI-26/75",
+    "PAPER-WEI-26/76",
+    "PAPER-WEI-26/77",
+    "PAPER-WEI-26/78"
+   ],
+   "brief": "Plan the theory of special gamma values and CM periods in positive characteristic, and the Chowla-Selberg phenomenon over function fields. Fix a prime power q, A = F_q[theta], k = F_q(theta), k_infinity its completion at the infinite place with |theta|_infinity = q, C_infinity the completion of an algebraic closure of k_infinity, and k-bar the algebraic closure of k inside it; on the motivic side fix a second variable, 𝔸 = F_q[t] and 𝕜 = F_q(t), with the evaluation map v_theta sending t to theta. The final theorems are the four main results of Wei's paper. (1) Theorem 5.4.7, the Lang-Rohrlich analogue: for 𝔫 in 𝔸_+ and ℓ a positive integer, the transcendence degree over k-bar of the field generated by the values Gamma_geo(x), Gamma_ari(y) and Gamma(x,y), for x in (1/𝔫(theta))A outside -A_+ union {0} and y in (1/(q^ℓ-1))Z, equals 1 + (ℓ - 1/(q-1)^{eps}) times the order of (A/𝔫)^*, where eps is 1 if deg 𝔫 > 0 and 0 otherwise; with Corollary 5.4.8, that every algebraic relation among these values follows from the monomial relations of Proposition 5.4.2. (2) Theorem 3.3.1, the period distribution: for a fixed embedding of 𝕜^sep into k-bar there is a unique Q-linear map from the space of Stickelberger functions on the Galois group to C_infinity^*/k-bar^* taking the function attached to a CM field and a divisor in I^0 to the corresponding period symbol; and Theorem 5.4.5, that the three gamma distributions are the composites of that map with the three Stickelberger distributions, the analogue of Deligne's theorem. (3) Theorem 6.2.3, Thakur's conjecture: for an imaginary field 𝕂 inside the cyclotomic tower and a Drinfeld 𝔸-module over k-bar with CM by the maximal order of 𝕂, every nonzero period is, up to k-bar^*, the monomial in the values Gamma-tilde(x,y) whose exponents are the coefficients of the characteristic function of Gal(𝕂^cyc/𝕂) in the Stickelberger basis; with Theorem 6.1.4 and Theorem 6.2.2 for quasi-periods of CM abelian t-modules and period vectors of CM Hilbert-Blumenthal t-modules, and Theorem 6.3.7 for the fully explicit form with Dirichlet L-values as coefficients. (4) Theorem 7.3.1, the Deligne-Gross period conjecture for CM Hodge-Pink structures: the periods of a 𝕜-Hodge-Pink sub-structure with full CM depend only on its Hodge-Pink type, and are the gamma monomial that type prescribes. Cover: dual t-motives with their Betti modules over the Tate algebra, uniformizability, purity and weight; CM fields over 𝕜, the set J_𝕂, generalized CM types with their weights, inflation and restriction, and CM dual t-motives with their existence, uniformizability and isogeny theorem; the de Rham realisation, essentially surjective morphisms, period symbols and their functoriality including the Legendre relation; the space of Stickelberger functions, its 𝔊-action and the identification of its finite levels with rational spans of CM types; the three gamma functions of Goss and Thakur with their functional equations; the geometric, arithmetic and two-variable diamond brackets with all their relations; the Stickelberger distributions, the universal distributions they define, and the three universality theorems; shtuka functions and generalized soliton dual t-motives, with the evaluation identifying a soliton period with a gamma value; the Chowla-Selberg formula in its abstract, explicit and logarithmic forms, with the Lerch-type formula for L'(0,chi) and the three worked examples; and mixed 𝕜-Hodge-Pink structures, the realisation of a Hodge-Pink sub-structure by a dual t-motive, full CM and the Hodge-Pink type. Import from: Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules) for additive polynomials and Drinfeld modules with the Carlitz module (DM.0), torsion and Tate modules (DM.1), analytic uniformization, lattices and periods (DM.2), Anderson t-modules and effective t-motives with the contravariant convention (DM.4), isogenies and the Tate theorem (DM.5), shtuka realisations (DM.7), and the Tannakian and Frobenius-difference machinery behind the transcendence input (DM.8); and Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic) for curves, fields and constants (FA.0), positive-characteristic extensions (FA.3), class field theory and the Carlitz cyclotomic tower (FA.4), and zeta functions and Artin factors (FA.5). This lane is distinct from the existing proposed DrinfeldModulesAndTModulesPartII on multiple zeta values and Thakur's basis conjecture: that one owns MZVs, this one owns gamma values, CM periods and Hodge-Pink structures. Transcendence degree, polynomial and rational function fields, locally constant functions, profinite groups and Haar measure are already in the libraries and must not be rebuilt.",
+   "reason": "The parent roadmap owns every object this paper computes with — Drinfeld modules and the Carlitz module (DM.0), analytic uniformization and periods (DM.2), Anderson t-modules and effective t-motives in the contravariant, that is dual, convention (DM.4), isogenies (DM.5), shtuka realisations (DM.7) and the Papanikolas machinery behind algebraic independence (DM.8) — and the paper is a source for those layers, as the source route below records. What it adds is new layers in the same direction, and a search of data/atlas.json finds none of them anywhere: gamma functions in characteristic p and their functional equations; CM theory for dual t-motives, with generalized CM types of arbitrary weight, period symbols and the Legendre relation; the space of Stickelberger functions and the period distribution on it; diamond brackets, Stickelberger distributions and the universal distributions they are shown to be; solitons; the Chowla–Selberg formula; and Hodge–Pink structures with the Deligne–Gross conjecture. A search for \"gamma value\", \"hodge-pink\" and \"soliton\" returns nothing, and the only \"stickelberger\" hits are in Iwasawa theory over number fields. It is a Part II rather than a new roadmap because every statement is about periods and special values of the t-modules the parent roadmap constructs, and its transcendence input is the CM case of what DM.8 plans. It is deliberately disjoint from DrinfeldModulesAndTModulesPartII, the Part II of the same parent already proposed by PAPER-CHANG-CHEN-MISHIBA-23, PAPER-IM-KIM-LE-ETAL-24 and PAPER-NGODAC-21, which owns multiple zeta values and Thakur's basis conjecture and says nothing about gamma values or CM periods."
+  },
+  {
+   "route": "source",
+   "roadmap": "DrinfeldModulesAndTModules",
+   "stages": [
+    "DrinfeldModulesAndTModules:DM.0",
+    "DrinfeldModulesAndTModules:DM.1",
+    "DrinfeldModulesAndTModules:DM.2",
+    "DrinfeldModulesAndTModules:DM.4",
+    "DrinfeldModulesAndTModules:DM.5",
+    "DrinfeldModulesAndTModules:DM.7",
+    "DrinfeldModulesAndTModules:DM.8"
+   ],
+   "items": [
+    "PAPER-WEI-26/5",
+    "PAPER-WEI-26/16",
+    "PAPER-WEI-26/17",
+    "PAPER-WEI-26/19",
+    "PAPER-WEI-26/60",
+    "PAPER-WEI-26/54",
+    "PAPER-WEI-26/79",
+    "PAPER-WEI-26/80",
+    "PAPER-WEI-26/81"
+   ],
+   "reason": "Sections 2 and 6 set up, carefully and in one place, exactly what these layers plan, and the paper is a good source for them. DM.4 plans Anderson t-modules and their motives including the contravariant convention, the tau action and the finite-generation requirements, with rigid analytic triviality and uniformizability as additional properties: §2.2 gives the dual t-motive, its Betti module and uniformizability in the form later work uses, and §6.1 the abelian t-modules and their quasi-periods. DM.0, DM.1 and DM.2 plan Drinfeld modules, their torsion and their analytic uniformization: §6.2 uses exactly a Drinfeld 𝔸-module of rank [𝕂:𝕜] with CM by an order in an imaginary field, and the Carlitz fundamental period is the normalisation every period statement in the paper is relative to. DM.5 plans isogenies and the Tate theorem, and Remark 2.2.3 gives the isogeny calculus for dual t-motives with its quasi-inverse. DM.7 plans elliptic sheaves and shtuka realisations, and Theorem 5.2.1 is the shtuka function of a cyclotomic function field. DM.8 plans the Tannakian category of rigid analytically trivial motives, its Frobenius-difference Galois group and the criterion identifying period transcendence degree with the group dimension: the transcendence input of this paper, the function-field analogue of Shimura's conjecture on period symbols, is the CM case of that programme, and the Anderson–Brownawell–Papanikolas criterion is the linear-independence step inside it."
+  },
+  {
+   "route": "source",
+   "roadmap": "FunctionFieldArithmetic",
+   "stages": [
+    "FunctionFieldArithmetic:FA.0",
+    "FunctionFieldArithmetic:FA.3",
+    "FunctionFieldArithmetic:FA.4",
+    "FunctionFieldArithmetic:FA.5"
+   ],
+   "items": [
+    "PAPER-WEI-26/7",
+    "PAPER-WEI-26/38",
+    "PAPER-WEI-26/48",
+    "PAPER-WEI-26/82"
+   ],
+   "reason": "The arithmetic background of §§3.4, 4.2 and 6.4 is function-field class field theory and L-functions, which this roadmap plans. FA.4 plans local and global class field theory over a function field, which is where the Carlitz cyclotomic tower 𝕂_{𝔫,ℓ}, its Galois group and the Artin map that transports the action to the Carlitz torsion and the roots of unity belong. FA.5 plans zeta functions, Artin factors and Chebotarev, which is where the Dirichlet L-functions L_𝔸(s,χ), their conductors, the vanishing criterion for L_𝔸(0,χ) and the derivative at 0 belong. FA.0 and FA.3 plan curves, fields and constants and positive-characteristic extensions, which supply the separable closure, the constant-field extensions and the decomposition group at the infinite place that the space of Stickelberger functions is defined with. The paper works all of this out explicitly in the Carlitz tower, so it is a good source; none of these items is missing."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-WEI-26/E1",
+   "kind": "misprint",
+   "locator": "§6.2, in the proof of Theorem 6.2.3 (arXiv:2207.01165v2; the published version is paywalled and was not read)",
+   "printed": "= [𝕂:𝕜]  (by Proposition 3.3.5).",
+   "correction": "(by Theorem 3.3.5). Statement 3.3.5, the transcendence-degree theorem quoted from Brownawell–Chang–Papanikolas–Wei, is a Theorem, not a Proposition.",
+   "reason": "3.3.5 is declared as \\begin{theorem} in §3.3 of the source, and the paper cites it correctly as \"Theorem 3.3.5\" at its two other occurrences, in §1.2 of the introduction and in the proof of Theorem 5.4.7. A mechanical cross-reference type audit of the whole source — comparing the word introducing each \\ref with the environment carrying the label it points at — flags this one occurrence and no other.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ]
+  },
+  {
+   "id": "PAPER-WEI-26/E2",
+   "kind": "misprint",
+   "locator": "Theorem 6.4.5, the hypothesis line (arXiv:2207.01165v2)",
+   "printed": "Given a character χ ∈ 𝔊_{𝔫,ℓ}, the following equality holds:",
+   "correction": "Given a character χ ∈ 𝔊̂_{𝔫,ℓ}: the character belongs to the dual group, not to 𝔊_{𝔫,ℓ} itself.",
+   "reason": "The conclusion is a formula for L_𝔸'(0,χ) involving the conductor 𝔠_χ and the values χ(a,i+deg 𝔠_χ), all of which are defined only for χ in the dual group. The source writes \\widehat{\\eG} in all 38 other places where a character of one of these groups is quantified; this is the only place where the hat is missing, and the word \"character\" makes the intended reading unambiguous.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ]
+  },
+  {
+   "id": "PAPER-WEI-26/E3",
+   "kind": "misprint",
+   "locator": "Example 6.3.11, final sentence, and the Remark following Theorem 1.3.3 in §1.3, part (2) (arXiv:2207.01165v2)",
+   "printed": "Example 6.3.11: \"The second statement of Theorem 6.3.7 (3) says that the space of quasi-periods of E_ρ is spanned over k-bar by {ω_𝕂^+,ω_𝕂^-}, and ω_𝕂^+,ω_𝕂^- are algebraically independent over k-bar.\" §1.3: the display defines ω_𝕂^±, and the two sentences after it read \"λ ∼ ϖ_𝕂^+\" and \"{ϖ_𝕂^+,ϖ_𝕂^-} are algebraically independent\".",
+   "correction": "The same object is written ϖ (varpi) in one place and ω (omega) in the other. In Example 6.3.11 the intended symbol is ϖ_𝕂^±, the quantity defined in the display earlier in that example; in §1.3 the intended symbol in the two closing sentences is ω_𝕂^±, the quantity the display just defined — equivalently, the display should define ϖ_𝕂^±.",
+   "reason": "ϖ and ω are distinct symbols in the source (\\varpi and \\omega). ω_𝕂^± is defined once in the whole paper, in the §1.3 Remark, and is never defined in §6, so the reference to it in Example 6.3.11 has no antecedent there; ϖ_𝕂^± is defined in Example 6.3.11 and is used again in §7 through that definition, and ϖ_𝕂^ϱ for ϱ ∈ 𝔊_𝕂 is defined in Theorem 1.3.3, where the superscript is a Galois element rather than a sign. The two formulas agree: with 𝔫 = 𝔡 and ℓ = 2 the exponent n_𝔡(ϱ,a,i) computed in Example 6.3.11 turns the Theorem 1.3.3 definition into the §1.3 display, so nothing but the name is affected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ]
+  },
+  {
+   "id": "PAPER-WEI-26/E4",
+   "kind": "misprint",
+   "locator": "Remark 6.3.6, its last sentence and the display closing it (arXiv:2207.01165v2)",
+   "printed": "\"the expression of 𝔫_𝔠(ϱ,a,i) in (the displayed definition) tells us in particular that\" and \"h(𝕂/𝕂^+) · 𝔫_𝔠(ϱ,a,i) ∈ ℤ\".",
+   "correction": "n_𝔠(ϱ,a,i) in both places, the rational number defined by the displayed equation the sentence points at.",
+   "reason": "𝔫 (fraktur n) denotes a monic polynomial in 𝔸_+ everywhere else in the paper, and 𝔫_𝔠 is never defined; the equation the sentence cites defines n_𝔠(ϱ,a,i) as a sum of χ(ϱ)χ(a,i+deg 𝔠)/L_𝔸(0,χ). The roman n_𝔠 is used correctly at its 19 other occurrences, including the statement of Theorem 1.3.3 and the whole of §6.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing for 2207.01165, which shows only v1 (4 July 2022) and v2 (11 January 2026) and carries no comment about a correction",
+    "the author's publication page at math.nthu.edu.tw/~ftwei, which lists the paper as Inventiones Mathematicae 244 (2026) 815-897 and has no errata or corrigenda section",
+    "the Springer page for doi:10.1007/s00222-026-01406-8, which shows no \"Correction to this article\" link (the article text itself is paywalled and could not be read)",
+    "a web search for an erratum or corrigendum to this paper, which returned none"
+   ]
+  }
+ ]
+}
