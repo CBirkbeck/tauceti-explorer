@@ -2425,8 +2425,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1157"
+   "state": "external",
+   "note": "claimed on GitHub issue #1157"
   },
   {
    "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -4204,8 +4204,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-WANG-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1262"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1262",
+   "finishedAt": "2026-09-22T21:57:23Z"
   },
   {
    "id": "REV-PAPER-LIU-WANG-22",
