@@ -3844,6 +3844,96 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E1",
+   "kind": "misprint",
+   "locator": "Published p.218, Lemma 5.2, sentence after the displayed finite étale trace; same omission in author GSS.pdf",
+   "printed": "H^w(U′,Λℓ)",
+   "correction": "Replace this direct-summand target by H_c^w(U′,Λℓ).",
+   "reason": "Both arrows in the immediately preceding restriction/trace composite have compact support. For the identity cover of A¹ over an algebraically closed field, H_c²(A¹,Qℓ) is nonzero while H²(A¹,Qℓ)=0, so forgetting support cannot give the stated direct factor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
+    "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
+    "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
+    "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+   ],
+   "owner": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "file": "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+   "citation": "Cadoret–Hui–Tamagawa, \"Geometric monodromy — semisimplicity and maximality\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E2",
+   "kind": "misprint",
+   "locator": "Published p.229, §9.2.1, last paragraph before the footnote; same expression in author GSS.pdf",
+   "printed": "x₀ ∈ π₁(X₀,x)",
+   "correction": "The x₀ indexing its residue field and Frobenius F_x₀ is a closed point of X₀; use x₀∈|X₀|.",
+   "reason": "A fundamental-group element is not a scheme point with a residue field. The preceding paragraph and the Frobenius characteristic polynomial require a closed-point index. Only its Frobenius conjugacy class lies in the fundamental group.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
+    "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
+    "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
+    "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+   ],
+   "owner": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "file": "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+   "citation": "Cadoret–Hui–Tamagawa, \"Geometric monodromy — semisimplicity and maximality\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E3",
+   "kind": "gap",
+   "locator": "Published Theorem 9.1(1)–(2), p.226, versus the root-exponential step p.227; author version has the same scope",
+   "printed": "For ℓ ≥ r",
+   "correction": "Either supply a proof of the first two assertions also for ℓ<r, or restrict them to the sufficiently-large-ℓ scope actually used in the application. The extraction exports only this restricted version.",
+   "reason": "Only item (9.1.3) carries an explicit sufficiently-large-prime qualifier in the statement. The proof of smoothness and the reductive-rank/root assertion first requires ℓ≥r for the integral root-group exponential embedding. No argument for the omitted range is given in that proof. This records a proof-scope gap, not a counterexample to the unrestricted assertions.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
+    "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
+    "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
+    "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists."
+   ],
+   "owner": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "file": "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+   "citation": "Cadoret–Hui–Tamagawa, \"Geometric monodromy — semisimplicity and maximality\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17/E4",
+   "kind": "misprint",
+   "locator": "Published p.233, bibliography [BT84]",
+   "printed": "197–376; SB_1988-1989__31__7_0",
+   "correction": "The Bruhat–Tits II article is Publications Mathématiques de l'IHÉS 60 (1984), pp.5–184, https://www.numdam.org/item/PMIHES_1984__60__5_0/ .",
+   "reason": "Numdam's primary bibliographic record identifies pp.5–184 and DOI10.1007/BF02700560. The printed Numdam identifier instead resolves to Tits's 1989 Bourbaki talk on Kac–Moody groups. The author GSS.pdf already gives the correct page interval.",
+   "affects": "nothing",
+   "known": "Correct page interval already in the author's GSS.pdf bibliography [BrT84]; correct article locator in Numdam. No journal corrigendum found.",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2017/186-1/p05 (22 September 2026), no linked correction found",
+    "arXiv https://arxiv.org/abs/1702.07017: only v1 shown",
+    "Anna Cadoret publication list https://webusers.imj-prg.fr/~anna.cadoret/Travaux.html and linked GSS.pdf (selected passages compared)",
+    "Web search of exact title plus erratum/corrigendum; no correction to these passages found. This search is not a proof that none exists.",
+    "Numdam original BT84 record https://www.numdam.org/item/PMIHES_1984__60__5_0/",
+    "Printed identifier resolved at https://www.numdam.org/item/SB_1988-1989__31__7_0/"
+   ],
+   "owner": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "file": "research/blueprint/papers/PAPER-CADORET-HUI-TAMAGAWA-17.result.json",
+   "citation": "Cadoret–Hui–Tamagawa, \"Geometric monodromy — semisimplicity and maximality\", Annals of Mathematics 186 (2017), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25/E1",
    "kind": "misprint",
    "locator": "Lemma 4.5.11, second line, p.663 (published version; the same in arXiv v3–v4)",
