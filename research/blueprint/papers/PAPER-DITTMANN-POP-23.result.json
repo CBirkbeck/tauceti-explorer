@@ -19,7 +19,7 @@
     "publicationMatch": "Title, authors, DOI, venue and conclusions agree with publisher metadata; arXiv labels v2 final version, posted after acceptance. Publisher-format PDF not acquired: guessed annals-v198-n3-p04-p.pdf returned 404. No line-by-line publication collation claimed.",
     "previousCheckpoint": "codex-a71f92 PR #1662 and codex-c83e7a PR #1668; all 129 inherited item IDs and all 120 API/test IDs preserved."
   },
-  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. The preceding continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem. This continuation adds eight exact Mathlib suppliers and six separate proof inputs, proves the selected-family valuation adapter at the mathematical level, exposes a direct height-one intersection proof, and corrects its owner to the already planned AutomorphicCongruences:L4. Fourteen source findings are structured without claiming independent review.",
+  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. The preceding continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem. This continuation adds eight exact Mathlib suppliers and six separate proof inputs, proves the selected-family valuation adapter at the mathematical level, exposes a direct height-one intersection proof, and corrects its owner to the already planned AutomorphicCongruences:L4. Thirteen source findings are structured without claiming independent review.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2200,7 +2200,7 @@
       "statement": "For H_d(K), geometric w, and global k_1 plus algebraically independent t such that w is trivial on k_1(t) and Kw/k_1(t) is finite separable, there is a Zariski open dense U⊂(k_1×)^{d−2} such that for each ε∈U a k_1-nice tail can be chosen so that every a_d with w(a_d) odd yields an anisotropic k_1,t-test form over K_w.",
       "locator": "Proposition3.8",
       "status": "missing",
-      "note": "One tail per epsilon works for all odd-valuation a_d; requires finite normalization, its étale locus and the local power-series embedding. The corrected finite set contains all nonunit places of the coordinates ε_i, contrary to the printed Σ-unit condition; see E5.",
+      "note": "One tail per epsilon works for all odd-valuation a_d; requires finite normalization, its étale locus and the local power-series embedding. The paper correctly chooses Σ so every ε_i is a Σ-unit: this means a unit outside Σ. Thus Σ contains every nonunit place, and Lemma 3.5 makes a_1 a unit at each of them. This is a clarification, not a source error.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/test-form",
         "PAPER-DITTMANN-POP-23/global-nice-tail",
@@ -5338,21 +5338,6 @@
       "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
       "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
       "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
-      ]
-    },
-    {
-      "id": "PAPER-DITTMANN-POP-23/E5",
-      "kind": "error",
-      "locator": "arXiv v2, Proposition 3.8 proof, p.11",
-      "printed": "Σ-units",
-      "correction": "Choose Σ containing every finite place where at least one ε_i is not a unit. Lemma 3.5 then makes a_1 a unit at every such place.",
-      "reason": "The test-form condition requires every place with v(a_1)>0 to be a place where every ε_i is a unit. The printed choice of Σ among unit places gives no control at the nonunit places. The corrected complement is finite by the global-field finite-support property. The previous extraction already used this correction silently.",
-      "affects": "the proof",
       "known": "new",
       "searched": [
         "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
