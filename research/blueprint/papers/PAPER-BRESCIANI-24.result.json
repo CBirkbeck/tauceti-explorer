@@ -10,13 +10,13 @@
     "arxiv": "2108.13397",
     "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf",
     "sha256": "77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148",
-    "readDate": "2026-09-21",
-    "version": "Published open-access PDF, 22 pages, published online 26 September 2023; entire paper read. arXiv v3 downloaded as secondary provenance but not used as the main text.",
+    "readDate": "2026-09-22",
+    "version": "Published open-access PDF, 22 pages, online 26 September 2023; all pp.129–150 reread by codex-hjdg0j on 22 September 2026. arXiv:2108.13397v3 (15 September 2023) checked at the six source-issue passages; its SHA-256 is e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
     "readSections": [
       "Entire published pp.129–150: introduction, §§2–7, Lemmas1–26, TheoremsA–C, all proofs, footnote1, acknowledgements and references."
     ]
   },
-  "summary": "Continuation of the full published-paper extraction: 149 items, 8 library, 8 planned, 133 missing. A self-contained split-extension proof closes the completion-exactness source gap, with a separately owned profinite-groups Part II and a lamplighter counterexample to dropping finite generation. Borne–Vistoli's gerbe factorization/relative-gerbe results are now checked directly. The parabolic counterexample is routed as a valid negative acceptance theorem; its downstream proof repair and the unpointed Albanese comparison remain unresolved. Only /58 remains unrouted. Partial: no formalization or complete source closure is claimed.",
+  "summary": "Continuation of the full published-paper extraction: 152 items, 8 library, 8 planned, 136 missing, all missing items now routed exactly once. The generalized Albanese comparison is resolved with a torsor-aware proof and explicit band/neutralization suppliers. Seven source issues are recorded, including the three findings in the separate errata file, the comparison choice, a polynomial-lift correction and two reference/notational slips. The parabolic reduction and other named prerequisite readings remain open, so status stays partial. No formalization or complete source closure is claimed.",
   "items": [
     {
       "id": "PAPER-BRESCIANI-24/1",
@@ -617,12 +617,12 @@
       "id": "PAPER-BRESCIANI-24/54",
       "kind": "theorem",
       "name": "Finite-cover abelian detection",
-      "statement": "A nontrivial continuous homomorphism Zhat→π1(X_bar k) can be detected nontrivially in the abelianization after passing to a suitable finite étale neighborhood (and necessary neutralization).",
+      "statement": "Let 1→G→E→G_k→1 be the arithmetic fundamental-group sequence of a smooth geometrically connected curve X/k in characteristic zero, s:G_k→E a section, and f:Zhat(1)→G a nontrivial continuous homomorphism equivariant for s. There is an open subgroup E′⊂E containing s(G_k) and f(Zhat(1)), projecting onto G_k, such that f is nonzero in (E′∩G)^ab. Thus the corresponding geometrically connected finite étale cover Y→X has a lift of s and of the loop, with nonconstant abelianized loop.",
       "locator": "Published paper Lemma 8 proof p.138",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proof leaf: choose a finite quotient detecting an element and pull back a cyclic subgroup; retain arithmetic/Galois stability, rather than using an arbitrary geometric cover without descent."
+      "note": "Choose a characteristic open subgroup N⊂G detecting f, using finite generation of the geometric curve group. In G/N the image C of f is cyclic and s(G_k)-stable. Let H be its inverse image and E′=H⋊s(G_k). Then H→C is an abelian quotient detecting f. The finite-fiber map on section classes preserves the finite local-image condition. This makes the arithmetic descent and the neutralizing object explicit; no rational point is chosen."
     },
     {
       "id": "PAPER-BRESCIANI-24/55",
@@ -661,12 +661,12 @@
       "id": "PAPER-BRESCIANI-24/58",
       "kind": "theorem",
       "name": "Abelianized fundamental gerbe comparison",
-      "statement": "The abelianized geometric fundamental group of X identifies with TJ. After a chosen rational section neutralizes the gerbes, Π_X/k^ab and Π_J/k are equivalent as classifying gerbes of the corresponding Tate module.",
-      "locator": "Published paper Lemma 8 p.138",
+      "statement": "Let X/k be a smooth geometrically connected curve in characteristic zero, J its generalized Jacobian and P its generalized Albanese torsor, with a:X→P. The induced map Π_X/k^ab→Π_P/k is an equivalence of gerbes banded by TJ. Given s∈Π_X/k(k), its images s_ab and a(s) neutralize these gerbes, giving (Π_X/k^ab,s_ab)≃(B_k TJ,*)≃(Π_P/k,a(s)). In particular the loop γ:B_k Zhat(1)→Π_X/k of Lemma 8, with s=γ(*), induces a Galois-equivariant homomorphism Zhat(1)→TJ. Neither X(k) nor P(k) is assumed nonempty.",
+      "locator": "Published paper Lemma 8 p.138; Harari–Szamuely, author bash5.pdf, §1 and Remark 2.4; Bresciani 1904.00789v2, Lemma 5.8",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "SOURCE-SENSITIVITY: without neutralization an Albanese torsor replaces a canonical identification with a pointed Jacobian. Construct the comparison with the loop-provided section; never silently choose x∈X(k). UNRESOLVED: confirm the unpointed Albanese-gerbe comparison and its descent before routing this item as an unconditional construction."
+      "note": "Comparison resolved from /150 (geometric isomorphism), /151 (canonical band of a semiabelian torsor), and /152 (neutralization by a chosen gerbe object). Equivalence is checked after separable base change; commutativity makes the band descent independent of translations. The section does not trivialize P as a J-torsor. This repairs the missing choice in the printed canonical identification; see sourceIssue E4 and the report. Routed once to JacobianChallengePartIIGeneralizedAlbanese."
     },
     {
       "id": "PAPER-BRESCIANI-24/59",
@@ -759,7 +759,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Choose a MONIC lift: the source’s words any lifting are used with degree preserved. Unit discriminant and the unique closed fiber prove étaleness/locality."
+      "note": "Choose a monic lift with the same degree. Unit discriminant gives étaleness, and irreducible reduction plus finiteness gives a local ring, hence a DVR. An arbitrary lift is insufficient: for R=Q[u]_(u), qbar=T and q=uT²+T, R[T]/q≃R×Q(u), which is not finite over R. See sourceIssue E5."
     },
     {
       "id": "PAPER-BRESCIANI-24/67",
@@ -1252,7 +1252,7 @@
       "kind": "theorem",
       "name": "Theorem A forward direction",
       "statement": "For every smooth geometrically connected curve X over k finitely generated over Q, every geometric or cuspidal section is t-b.l.",
-      "locator": "Published paper Theorem A pp.130,146",
+      "locator": "Published paper Theorem A pp.131,146",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1263,7 +1263,7 @@
       "kind": "theorem",
       "name": "Theorem A reverse direction",
       "statement": "For every such X/k, every t-b.l. section is geometric or cuspidal.",
-      "locator": "Published paper Theorem A pp.130,146",
+      "locator": "Published paper Theorem A pp.131,146",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -1689,6 +1689,39 @@
       "library": [],
       "planned": [],
       "note": "API: finite-stage image, transition factorization, comparison with original limit, invariance under refinement, locally full projections. After a common fpqc neutralizing field extension this is replacement of finite groups by the images of the profinite group; the two limits agree because every compatible tuple already lies in those images. Descend the canonical factorizations. Tests: a system with non-surjective transitions; a constant finite gerbe; a neutral infinite profinite group. The proper relative-gerbe conclusion is /35, not a second assertion bundled here."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/150",
+      "kind": "theorem",
+      "name": "Geometric Albanese comparison for smooth curves",
+      "statement": "For a smooth connected curve X over an algebraically closed characteristic-zero field, the generalized Albanese map induces π1(X)^ab≃TJ, with J the generalized Jacobian. For a smooth proper compactification C and reduced boundary D, the obstruction is dual to the torsion of NS(C)/⟨[d]:d∈D⟩. This vanishes: NS(C)≃Z by degree, and the quotient is Z when D is empty and zero when D is nonempty. All finite étale covers are tame in this characteristic.",
+      "locator": "Spieß–Szamuely, math/0009017, §4, Propositions 4.1 and 4.3, author pp.8–10 (Harari–Szamuely Remark 2.4 cites published Proposition 4.4)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read both propositions and their proofs in the arXiv PDF. This is the curve specialization of their exact sequence, not an isomorphism for arbitrary varieties. The cited Picard 1-motive/Serre-duality machinery remains a prerequisite of its supplier blueprint. Tests: proper genus g gives Zhat^(2g), Gm gives Zhat(1), and three punctures on P1 give Zhat(1)^2."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/151",
+      "kind": "theorem",
+      "name": "Canonical Tate-module band of a semiabelian torsor",
+      "statement": "For a semiabelian variety J over a characteristic-zero field k and a J-torsor P, let Ψ_n be the gerbe of liftings of P along [n]:J→J. The compatible tautological maps P→Ψ_n identify Π_P/k with lim_n Ψ_n, canonically banded by TJ=lim_n J[n]. The transition maps use divisibility and multiplication on torsion. The band is independent of a splitting point of P.",
+      "locator": "Bresciani, Essential dimension and pro-finite group schemes, arXiv:1904.00789v2, Lemma 5.8 and proof, pp.19–20; Harari–Szamuely §2 and Remark 2.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof read: form the Kummer lifting gerbes, use the tautological trivialization over P, and check equivalence after a splitting field. The final word A in the proof of Lemma 5.8 must read TA; its statement already gives the correct band. SourceIssue E7 records this dependency misprint. No assertion that neutral Π_P implies P(k)≠∅."
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/152",
+      "kind": "theorem",
+      "name": "Neutralization of a banded gerbe by a chosen object",
+      "statement": "For an fpqc gerbe G over k with a chosen object s∈G(k), the functor x↦Isom(s,x) is an equivalence G≃B_k Aut(s), taking s to the trivial torsor. If G has a commutative band H, Aut(s) identifies with H and changing s does not change this band. A morphism of gerbes together with the image of the chosen object induces the corresponding homomorphism of automorphism group sheaves (group schemes when representable).",
+      "locator": "Bresciani, published §2 p.133 and Lemma 8 p.138; Bresciani 1904.00789v2 Lemma 5.8 for the Tate-module band",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Elementary descent proof in the report: Isom is locally a simply transitive automorphism torsor; twisting s constructs the inverse, with descent for objects and arrows. Use fpqc torsors for profinite H. Test the trivial torsor, twisting by an H-torsor, and the independence of inner conjugation only for a commutative band. Owned by SF.1."
     }
   ],
   "prerequisites": [
@@ -1705,7 +1738,7 @@
     {
       "citation": "Bresciani, Essential dimension and pro-finite group schemes",
       "link": "https://arxiv.org/abs/1904.00789v2",
-      "why": "AppendixA.2–A.5 pp.27–28 read, including the stabilization hypothesis in CorollaryA.3. The full generic extension machinery is not supplied by an existing accepted blueprint."
+      "why": "AppendixA.2–A.5 pp.27–28 read, including the stabilization hypothesis in CorollaryA.3. The full generic extension machinery is not supplied by an existing accepted blueprint. Additionally Lemma 5.8 and its proof pp.19–20 and Lemma 5.17 p.24 read in this continuation. /151 uses Lemma 5.8; /150 uses the precise open-curve comparison in Spieß–Szamuely, not a proper-Albanese shortcut."
     },
     {
       "citation": "Bresciani, On the section conjecture over fields of finite type",
@@ -1766,6 +1799,16 @@
       "citation": "Bekka, On Bohr compactifications and profinite completions of group extensions, arXiv:2305.04803v1 (8 May 2023), CorollaryC",
       "link": "https://arxiv.org/abs/2305.04803v1",
       "why": "Read introduction pp.1–5, Proposition6(ii) and complete quotient proof pp.9–10, and CorollaryC proof §4.1 p.15. CorollaryC corroborates the exact split/finitely-generated endpoint. The replacement proof in the report supplies its own finite-quotient argument; Bekka TheoremB's representation-theoretic proof is not a dependency or claimed fully read."
+    },
+    {
+      "citation": "Spieß–Szamuely, On the Albanese map for smooth quasi-projective varieties, Math. Ann. 325 (2003), 1–17",
+      "link": "https://arxiv.org/abs/math/0009017",
+      "why": "§4 Propositions 4.1 and 4.3 and proofs read, author pp.8–10. Supplies /150; the published numbering cited by Harari–Szamuely is Proposition 4.4. The full Picard 1-motive construction used in the proof remains a supplier source task."
+    },
+    {
+      "citation": "Harari–Szamuely, Galois sections for abelianized fundamental groups, with an appendix by E. V. Flynn",
+      "link": "https://pagine.dm.unipi.it/tamas/bash5.pdf",
+      "why": "Comparison passages in author §§1–2, especially the fundamental-group extension comparison in Proposition 2.2 and Remark 2.4, read. Supplies arithmetic descent and the generalized Albanese torsor interpretation of /58; does not replace a torsor by its group of translations."
     }
   ],
   "routes": [
@@ -1788,7 +1831,8 @@
         "PAPER-BRESCIANI-24/121",
         "PAPER-BRESCIANI-24/147",
         "PAPER-BRESCIANI-24/148",
-        "PAPER-BRESCIANI-24/149"
+        "PAPER-BRESCIANI-24/149",
+        "PAPER-BRESCIANI-24/152"
       ],
       "reason": "Gerbes, quotient/classifying stacks, root stacks and proper tame valuative/extension criteria fit the existing general stack/descent layer; they must not be private anabelian constructions. Existing IsStack and fpqc/fppf sites are imported. Borne–Vistoli2019 Definition3.4 and Propositions3.9–3.11 are now directly read; finite-stage cofinal image refinement and the relative-gerbe criterion are distinct obligations."
     },
@@ -1947,7 +1991,7 @@
         "PAPER-BRESCIANI-24/133",
         "PAPER-BRESCIANI-24/77"
       ],
-      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) remains an unrouted source gap; consume it only once verified.\n\nRoute /77 only as the valid nonsplit-boundary counterexample. Its routing does not repair /81 or /96. Lemma1's completion input now imports the separately owned split-completion Part II through IG.1; do not reintroduce Anderson/goodness as required assumptions for this replacement proof.",
+      "brief": "Extend Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), separately from the Betts–Stix p-adic-period-mapping extension. Own birational/t-birational/quasi-t-birational section conditions, ramified specializing loops and the three proved endpoints of Bresciani, Invent. math.235 (2024),129–150. For X/k smooth geometrically connected and k finitely generated over Q prove: a section is geometric or cuspidal iff its base change to k(t) lifts birationally (Theorem A). For fixed hyperbolic X/k prove equivalence of geometric-or-cuspidal and birational lifting AFTER EVERY finitely generated extension K/k (Theorem B), and deduce the equivalence, not truth, of the global section and cuspidalization conjectures. Prove Theorem C exactly: the ordinary birational section conjecture is equivalent to existence, for every number field k, birational section z of k(P1)/k and nonempty open U⊆P1, of a nonempty open V⊆U and relative π1 section of (U×V)\\Δ→V whose v-specialization is the prescribed image of z on U\\{v} for every v∈V(k).\n\nBuild Lemmas1–26 and their proof leaves in source order, with generic foundation ownership below, then Proposition17's stronger pro-open diagonal lifting criterion and its completed-unit valuation proof, the number-field open-lifting Lemma16, quasi-t-b.l. reduction, Tamagawa neighborhoods and the coherence input. Do not substitute the rational-function field for Spec k(y)×k Spec k(t) with the diagonal deleted. Track restricted completed products, nonrational closed points, finite places, residue characteristic zero and the nonparabolic reductions. A specialization is an essential-image class and need not be unique; the C[x]_(x), z=x example must reject the converse to constant-loop⇒unique specialization. For Hilbertian uniqueness keep finite-kernel conjugacy limits, not arbitrary choices of conjugators.\n\nImport path torsors/sections from the parent NC.0; finite covers, homotopy exactness and relative fundamental gerbes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.2); gerbes, root stacks, tame valuative criteria and extension gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations SF.1), with local curve geometry from SF.3; compact cohomology/Kummer completions from Global Galois duality and compact coefficients (ArithmeticGaloisDuality R02.1); generalized Jacobians/Albanese torsors from the proposed JacobianChallenge Part II; local torsion from the proposed AbelianSchemesAndArithmeticModuli Part II. Import existing Chebotarev and Faltings Hom suppliers by verified stage IDs. General finite cofiltered-limit compactness and stack/site carriers already exist in Mathlib. No private replacements of these suppliers.\n\nPrerequisite papers are work to decompose, not axioms: Bresciani–Vistoli valuative criterion, Bresciani's gerbe/base-change and coherence papers, Stix local density and cuspidal packets/book, Koenigsmann, Tamagawa and Saïdi–Tyler. Use [6] Proposition A.23 for arbitrary extension, not A.18. In Lemma26 first omit the associated point before calling open-curve images cuspidal. Design must resolve the checkpoint gaps before declaring source closure. Give each definition its listed evaluation/functoriality API and tests, and a suggested Lean file on the canonical carriers; no Lean construction is claimed in this paper extraction.\n\nCorrectness gate: the published p.141 assertion that all affine-parabolic sections are cuspidal is false for P1_Q minus the closed point T²−2, which has geometric sections and no rational cusp. This does not refute the main theorem, but the claimed trivial reduction in Lemma16 and the quasi-t-b.l. step must be supplied by a valid argument. Do not turn the printed false sentence into a Lean theorem. The generalized-Jacobian torsor neutralization comparison (/58) is now verified and owned by the JacobianChallenge Part II, importing generic neutralization /152 from SF.1. The parabolic proof repair is still unresolved; do not conflate these two issues.\n\nRoute /77 only as the valid nonsplit-boundary counterexample. Its routing does not repair /81 or /96. Lemma1's completion input now imports the separately owned split-completion Part II through IG.1; do not reintroduce Anderson/goodness as required assumptions for this replacement proof.",
       "reason": "NC.1 is source-qualified Mochizuki reconstruction and NC.2–NC.5 are unipotent/Chabauty branches. These full profinite birational-lifting, specialization and conjecture-equivalence theorems need new layers in the parent direction. Betts–Stix imports period maps and is a separate sibling, not a supplier of these theorems."
     },
     {
@@ -1959,9 +2003,12 @@
       "items": [
         "PAPER-BRESCIANI-24/56",
         "PAPER-BRESCIANI-24/57",
-        "PAPER-BRESCIANI-24/59"
+        "PAPER-BRESCIANI-24/59",
+        "PAPER-BRESCIANI-24/58",
+        "PAPER-BRESCIANI-24/150",
+        "PAPER-BRESCIANI-24/151"
       ],
-      "brief": "Extend the upstream Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge) beyond its pointed smooth proper v1. Construct the generalized Jacobian of a smooth open curve with reduced boundary, its torus extension of the proper Jacobian, and the degree-one Albanese torsor without assuming a rational point. Prove geometric π1 abelianization = the full Tate module, torsor/fundamental-gerbe comparison and compatibility with neutralization by a given Galois section. Prove the number-field vanishing Hom_Gk(Zhat(1),TA)=0 from actual degree-one purity, with integral-to-rational comparison. Import upstream JacobianChallenge proper Jacobians/Abel–Jacobi and AlgebraicCurves, SchemeAndStackFoundations SF.1–SF.3, AbelianSchemesAndArithmeticModuli A3–A4 Tate modules, and ShimuraCompactifications C4 general semiabelian extensions. Do not duplicate NeronModelsAndSemistableAbelianVarieties R11.4, whose generalized Jacobians are for nodal degeneration fibers. Unit tests: proper boundary empty, Gm, a nonsplit torus boundary, and a curve without a rational point. The neutralization in Bresciani Lemma8 is supplied by the image of the trivial BZhat(1)-torsor; do not claim a canonical pointed Jacobian gerbe before that choice. Cover the same construction used in Bresciani 1911.03234 Proposition4.6, so the two consumers share one implementation. Every definition needs functoriality/base-change API and a suggested Lean file. Resolve the torsor comparison from primary sources before proof execution.",
+      "brief": "Extend the upstream Jacobian challenge (tauceti:TauCetiRoadmap/JacobianChallenge) beyond its pointed smooth proper v1. Construct the generalized Jacobian of a smooth open curve with reduced boundary, its torus extension of the proper Jacobian, and the degree-one Albanese torsor without assuming a rational point. Prove geometric π1 abelianization = the full Tate module, torsor/fundamental-gerbe comparison and compatibility with neutralization by a given Galois section. Prove the number-field vanishing Hom_Gk(Zhat(1),TA)=0 from actual degree-one purity, with integral-to-rational comparison. Import upstream JacobianChallenge proper Jacobians/Abel–Jacobi and AlgebraicCurves, SchemeAndStackFoundations SF.1–SF.3, AbelianSchemesAndArithmeticModuli A3–A4 Tate modules, and ShimuraCompactifications C4 general semiabelian extensions. Do not duplicate NeronModelsAndSemistableAbelianVarieties R11.4, whose generalized Jacobians are for nodal degeneration fibers. Unit tests: proper boundary empty, Gm, a nonsplit torus boundary, and a curve without a rational point. The neutralization in Bresciani Lemma8 is supplied by the image of the trivial BZhat(1)-torsor; do not claim a canonical pointed Jacobian gerbe before that choice. Cover the same construction used in Bresciani 1911.03234 Proposition4.6, so the two consumers share one implementation. Every definition needs functoriality/base-change API and a suggested Lean file. Use /150–/151 and /58 for the verified torsor comparison: Spieß–Szamuely §4 and Harari–Szamuely Remark 2.4 provide the curve-specific geometric isomorphism; Bresciani 1904.00789v2 Lemma 5.8 identifies the band. Import generic chosen-object neutralization /152 from SF.1. Keep the Albanese torsor until applying that neutralization.",
       "reason": "The upstream README expressly excludes the unpointed Albanese/Pic1 torsor v2; affine generalized Jacobians also extend its smooth proper scope. Nodal Néron-model Picard theory is a distinct construction, to be compared rather than silently substituted."
     },
     {
@@ -2005,6 +2052,140 @@
       ],
       "brief": "Take Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) as FIRST prerequisite, importing its Layer0 completion and quotient infrastructure and Layer3 topological-generation substrate. Do not rebuild those carriers or their already-implemented universal properties. The new endpoint is: for an abstract split extension 1→N→G→H→1 with N finitely generated and H arbitrary, its profinite completion is split exact, and hat G is isomorphic as a topological group to hat N⋊hat H with the action induced by the chosen splitting. Bekka, On Bohr compactifications and profinite completions of group extensions, arXiv:2305.04803v1, CorollaryC, independently states this endpoint; use the direct finite-quotient proof detailed in the paper report rather than importing his representation-theoretic TheoremB as an unexplained hypothesis.\n\nFirst reuse TauCeti.isTopologicallyFinitelyGenerated_of_fg and the nonzero-index form of finite_openSubgroup_index_eq, applied with discrete topology. Define C_n as the intersection of all index-n subgroups of N, prove finite index using Mathlib.Subgroup.finiteIndex_iInf, and prove characteristicity and C_n≤K for a given index-n K. Descend H's action to N/C_n, take its finite image Q_n in Aut(N/C_n), and construct the surjective finite quotient G→(N/C_n)⋊Q_n whose kernel restricts to C_n. Deduce the cofinal restriction property and injectivity/topological embedding of hat N→hat G. Separately prove general right exactness by identifying hat G/closure(N) with hat(G/N) through the existing universal property. Extend the abstract splitting to hat H, construct the completed action by conjugation, and prove the canonical semidirect-product comparison and its naturality for maps preserving the chosen splittings. No residual-finiteness, cohomological goodness or finite generation of H is a hypothesis.\n\nAdd the free-quotient splitting lemma using the existing abstract FreeGroup universal property. Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups IG.1) imports it with the separate curve-topology/Riemann-existence input: smooth affine complex curves have free fundamental group and curve fibers have finitely generated fundamental group. This geometric application is owned there, never by this generic Part II. Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations) likewise owns gerbes, not this roadmap. Profinite arithmetic (ProfiniteArithmetic) owns profinite powers and topological Aut/Out carriers; the present action is built via the closed-kernel comparison and does not construct another Aut topology.\n\nTests include finite groups, trivial action, all small dihedral quotients of Z⋊C2, a non-invariant index-two subgroup under coordinate swap, and the sharp negative split example (⊕_Z C2)⋊Z: coordinate-zero kernel cannot contain any restricted finite-quotient kernel, because a finite-order shift identifies e_0 and e_t. Thus finite generation cannot simply be deleted. Distinguish ordinary profinite completion from the paper's power-quotient completion of an arbitrary abelian group. Every construction has projection, multiplication, kernel, refinement, naturality and concrete unit-test obligations. No blanket left exactness of profinite completion, general goodness theorem, pro-p replacement, or geometric section of a curve family is claimed.",
       "reason": "The upstream roadmap's Layers0/3/5 provide completion, finite-subgroup counts and continuous profinite extensions, but do not state preservation of discrete split extensions under completion. This genuinely new generic theorem extends upstream as a Part II; the arithmetic curve-family application imports it once. A catalogue/content search found no existing owner for this exact preservation theorem."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BRESCIANI-24/E1",
+      "kind": "misprint",
+      "locator": "Published §2 pp.133,135; arXiv v3 §2",
+      "printed": "Proposition A.18",
+      "correction": "Cite [6, Proposition A.23] for arbitrary characteristic-zero field extensions.",
+      "reason": "The published dependency, Algebraic Geometry 8 (2021), A.18 p.262, only covers algebraic separable extensions; A.23 p.264 covers arbitrary extensions for geometrically connected concentrated fibered categories. Both statements and the proof of A.23 were reread. k(t)/k requires the latter. Matches the separate errata file E1; no independent review verdict is claimed here.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E2",
+      "kind": "error",
+      "locator": "Published §4 p.141, paragraph after Corollary 15; arXiv v3 §4",
+      "printed": "every Galois section of X is cuspidal",
+      "correction": "Treat parabolic curves with nonsplit degree-two boundary separately. A replacement argument for the general-curve reductions /81 and /96 remains open.",
+      "reason": "X=P1_Q minus V(T²−2) has a rational point 0 and hence a geometric section, but no rational boundary point and therefore no cuspidal section. Splitting its proper completion does not split its boundary. This is the same finding as E2 of the separate errata file; no disproof of Theorems A–C is claimed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E3",
+      "kind": "gap",
+      "locator": "Published proof of Lemma 26 p.148; arXiv v3 Lemma 26",
+      "printed": "by hypothesis it is cuspidal",
+      "correction": "First the images are geometric or cuspidal. After identifying the unique associated rational point x, compute the inverse limit over the cofinal opens omitting x.",
+      "reason": "If an open contains x, its image can be geometric. After removing x, uniqueness of the associated point and disjointness of geometric and cuspidal packets force cuspidality at x. The same cofinal limit computes the birational section. Matches E3 of the separate errata file.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E4",
+      "kind": "gap",
+      "locator": "Published Lemma 8 proof p.138; arXiv v3 Lemma 8",
+      "printed": "canonical identification",
+      "correction": "The choice-free comparison is Π_X/k^ab≃Π_P/k for the generalized Albanese torsor P. Use s=γ(*) to obtain a chosen-object equivalence with B_k TJ (and hence Π_J/k), as in /58 and /150–/152.",
+      "reason": "A geometric Albanese isomorphism supplies the same band, not a choice-free equivalence with the neutral gerbe of J. The image of γ(*) gives the required neutralization of Π_P/k, without a point of P or X. The missing descent/choice argument is now supplied in the report.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E5",
+      "kind": "misprint",
+      "locator": "Published Lemma 9 proof p.140; arXiv v3 Lemma 9",
+      "printed": "any lifting",
+      "correction": "Choose qbar monic and a monic lift q of the same degree.",
+      "reason": "For R=Q[u]_(u), qbar=T and q=uT²+T reduce correctly, but the coprime factors T and uT+1 give R[T]/q≃R×Q(u), which is not finite over R. With a monic same-degree lift, finite freeness and the unit discriminant give the intended finite étale local extension. /66 already uses that correction.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E6",
+      "kind": "misprint",
+      "locator": "Published §6 opening p.144; arXiv v3 §6, citation [Sti13]",
+      "printed": "Theorem B",
+      "correction": "The citation should be [21, Theorem B] (Stix 2015), not [20] (the 2013 book).",
+      "reason": "The discussion refers to the density theorem already cited as [21, Theorem B] in the proof of Lemma 16; the arXiv reference key likewise points to the book instead of Sti15. This is a reference correction, not a new theorem.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher article https://link.springer.com/article/10.1007/s00222-023-01220-6 and Crossref DOI record checked 2026-09-22; no correction/update relation found.",
+        "https://arxiv.org/abs/2108.13397 checked 2026-09-22: v3 (15 September 2023) remains latest; corresponding passages inspected in v3, SHA-256 e23989fbac0cb38646d34a69f8c724611fd1f46a371122197e25f83f18cbb722.",
+        "Author institutional publications https://www.unipi.it/ateneo/organizzazione/persone/giulio-bresciani-124575/ and title/erratum/correction web search checked 2026-09-22; no author correction located. This is a search report, not a claim that no correction exists."
+      ]
+    },
+    {
+      "id": "PAPER-BRESCIANI-24/E7",
+      "kind": "misprint",
+      "locator": "Dependency Bresciani, Essential dimension and pro-finite group schemes, arXiv:1904.00789v2, Lemma 5.8 proof, last sentence p.20",
+      "printed": "banded by A",
+      "correction": "The band is TA, the full Tate module, as in the lemma statement.",
+      "reason": "The proof identifies the gerbe with the inverse limit of gerbes banded by A[n]; its band is therefore lim_n A[n]=TA. The semiabelian variety A is not that profinite band.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:1904.00789v2, Lemma 5.8 statement and proof checked 2026-09-22; the statement already says TA. Only this author version is asserted to contain the slip.",
+        "Title/erratum web search and the author institutional publication list checked 2026-09-22; no separate correction located. Publication-version comparison remains open."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Parabolic reduction",
+      "neededBy": [
+        "PAPER-BRESCIANI-24/81",
+        "PAPER-BRESCIANI-24/96",
+        "PAPER-BRESCIANI-24/112"
+      ],
+      "detail": "The nonsplit degree-two-boundary case needs a noncircular proof. E2 disproves the printed blanket cuspidality sentence, not Theorems A–C. /58 is no longer part of this gap."
+    },
+    {
+      "title": "Remaining source verification and decomposition",
+      "neededBy": [
+        "PAPER-BRESCIANI-24/39",
+        "PAPER-BRESCIANI-24/62",
+        "PAPER-BRESCIANI-24/79",
+        "PAPER-BRESCIANI-24/80",
+        "PAPER-BRESCIANI-24/83",
+        "PAPER-BRESCIANI-24/100",
+        "PAPER-BRESCIANI-24/109",
+        "PAPER-BRESCIANI-24/110",
+        "PAPER-BRESCIANI-24/115",
+        "PAPER-BRESCIANI-24/126",
+        "PAPER-BRESCIANI-24/128"
+      ],
+      "detail": "Verify the exact Stix book Proposition 75/Lemma 259, Tamagawa Proposition 2.8(iv), Koenigsmann original theorem; finish Mattuck analytic supplier ownership and the inherited valuative/coherence/density prerequisites. The new Albanese sources were read only in the portions listed in the report; Picard 1-motive proof dependencies remain supplier blueprint work."
     }
   ]
 }
