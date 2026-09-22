@@ -885,6 +885,111 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E1",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.1, p.10 (published version)",
+   "printed": "\"If ℓ = 1, then we are done, since k = r + 1 and T_bif^{∧(r+1)} ∧ [Y] in M_d^cm.\"",
+   "correction": "\"… and T_bif^{∧(r+1)} ∧ [Y] ≠ 0 in M_d^cm.\"",
+   "reason": "The sentence asserts the non-vanishing obtained from [GOV, Lemma 6.8] in the preceding line; the relation symbol is missing.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E2",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 4.1, p.17 (published version)",
+   "printed": "\"M_i = (ρ_ε/ρ)^{i−1}(M₁ + 1) + (1/ρ^i) Σ_{j=1}^{i−2} ρ_ε^j.\"",
+   "correction": "M_i = (ρ_ε/ρ)^{i−1}(M₁ + 1) + (1/ρ^{i−1}) Σ_{j=1}^{i−2} ρ_ε^j.",
+   "reason": "From M₂ = (ρ_ε/ρ)(M₁ + 1) and M_{i+1} = ρ_ε/ρ^i + (ρ_ε/ρ)M_i one gets M₃ = ρ_ε/ρ² + (ρ_ε/ρ)²(M₁ + 1), whereas the printed formula gives ρ_ε/ρ³. The corrected tail is ≤ (ρ_ε/ρ)^{i−1}/(ρ_ε − 1), so M_i → 0 still holds.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E3",
+   "kind": "misprint",
+   "locator": "§5, pp.19–20 (definition of Σ^r_{λ,ε}) (published version)",
+   "printed": "\"Σ^r_{λ,ε} := {f ∈ X_λ ∩ M_d(Q̄) : ĥ_crit(f) < (ε/(ℓ+1)) max{1, h_Ch(f)}} ⊂ X_λ\"",
+   "correction": "max{1, h_Ch(λ)}.",
+   "reason": "h_Ch is a height on the Chow variety, evaluated at the parameter λ of the cycle X_λ as in Theorem 1.8 and in the curve case (p.19); f is a point of M_d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E4",
+   "kind": "gap",
+   "locator": "Proof of Theorems 1.1 and 1.2, §5, pp.19–20 (complex parameters) (published version)",
+   "printed": "\"… and to Σ_{λ,ε} := {f ∈ C_λ ∩ M_d(Q̄) : ĥ_crit(f) < ε/(ℓ+1)} ⊂ C_λ for λ ∈ U(ℂ) ∖ U(Q̄) … repeating this procedure provides uniform bounds on the Zariski closures of Σ^r_{λ,ε′} for all ε′ < ε and of X_λ ∩ PCF_d for all λ ∈ U(ℂ).\"",
+   "correction": "For λ ∈ V(ℂ) ∖ V(Q̄), X_λ ∩ PCF_d can contain flexible Lattès maps not defined over Q̄. These do not lie in Σ_{λ,ε}, whose points are in M_d(Q̄). Since X_λ ∩ PCF_d ∖ M_d(Q̄) ⊂ L_d (Thurston rigidity, §2.2), add the components of X_λ ∩ L_d. By Bézout they number at most D·deg L_d plus the number of components of L_d, with degrees ≤ max{deg L_d, 1}, uniformly in λ. The theorems are unaffected; only N and B change.",
+   "reason": "The count in §5 bounds only algebraic points of small critical height, but Theorem 1.1 is stated for arbitrary complex X and all PCF points. Flexible Lattès maps are PCF and form a curve L_d ⊂ M_d in square degrees whose points with transcendental j-invariant are not defined over Q̄. So for d a square and transcendental λ, a curve C_λ can meet L_d in PCF points outside Σ_{λ,ε}.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/E5",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.8, (4.3), p.14 (published version)",
+   "printed": "\"h_{M₁}(λ₀, t₁, …, t_{ℓ+1}) = Σ_{i=1}^ℓ h_crit(f_i) + Σ_{j=1}^r ĥ_{f_{λ₀,t_{ℓ+1}}}(c_j(λ₀, t_{ℓ+1}))\" (and likewise for M₂)",
+   "correction": "h_{M₁} = κ Σ_{i=1}^ℓ ĥ_crit(f_i) + Σ_{j=1}^r ĥ_{f_{λ₀,t_{ℓ+1}}}(c_j(λ₀, t_{ℓ+1})), where κ > 0 is the number of marked tuples containing a given critical point in a given slot, summed over slots.",
+   "reason": "L = ⊗_c ⟨L_Φ|_{Γ_c}⟩ is a tensor product over all marked tuples c for f₁,…,f_ℓ, so its height counts each critical point of each f_i many times. Only the vanishing at PCF points and the comparison with Σ ĥ_crit are used, so nothing downstream changes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2405.17343 versions (v3, 10 January 2026)",
+    "Forum of Mathematics, Pi 14 (2026) e4 article page (open access): no correction notice",
+    "Crossref metadata for 10.1017/fmp.2026.10024: no update or correction relation"
+   ],
+   "owner": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "file": "research/blueprint/papers/PAPER-DEMARCO-MAVRAKI-YE-26.result.json",
+   "citation": "DeMarco–Mavraki–Ye, \"Bounded geometry for PCF-special subvarieties\", Forum of Mathematics, Pi (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E1",
    "kind": "misprint",
    "locator": "§1.3, p.7 (arXiv v3; published Annals version not collated)",
