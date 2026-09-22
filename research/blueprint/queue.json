@@ -6777,7 +6777,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-ZHANG-22-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1416"
   },
   {
    "id": "REV-PAPER-LI-ZHANG-22-B",
@@ -7420,8 +7421,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHENEVIER-TAIBI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1452"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1452",
+   "finishedAt": "2026-09-22T16:01:43Z"
   },
   {
    "id": "REV-PAPER-CHENEVIER-TAIBI-20",
