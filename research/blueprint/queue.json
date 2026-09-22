@@ -3046,7 +3046,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HOWE-KLEVDAL-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1195"
   },
   {
    "id": "REV-PAPER-HOWE-KLEVDAL-26",
@@ -6165,8 +6166,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DOR-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1373"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1373",
+   "finishedAt": "2026-09-22T23:30:50Z"
   },
   {
    "id": "REV-PAPER-DOR-23",
