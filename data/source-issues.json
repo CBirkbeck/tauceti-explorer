@@ -15350,6 +15350,27 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DOR-23/E1",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.12, p. 14 (arXiv v2: same passage)",
+   "printed": "where (F^×)^{3,Π=1} = {(a, b, c) ∈ F^× | abc = 1}",
+   "correction": "(F^×)^{3,Π=1} = {(a, b, c) ∈ (F^×)³ | abc = 1}",
+   "reason": "Triples (a, b, c) do not lie in F^×; the group is the kernel of the product map on (F^×)³, embedded in G^{3,det=1} by (a, b, c) ↦ (diag(a, 1), diag(b, 1), diag(c, 1)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2011.03313 listing (v1 6 November 2020; v2 28 September 2022, 'Expanded and clarified section 2') and the v2 TeX source and PDF",
+    "the published article, Forum Math. Pi 11 (2023) e20, https://doi.org/10.1017/fmp.2023.18 (open access; received 29 September 2022, revised 3 June 2023, accepted 29 June 2023; read in full)",
+    "Crossref metadata for DOI 10.1017/fmp.2023.18 (no update or correction relation)"
+   ],
+   "owner": "PAPER-DOR-23",
+   "file": "research/blueprint/papers/PAPER-DOR-23.result.json",
+   "citation": "Dor, \"Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
    "kind": "misprint",
    "locator": "§5, \"Spectral expansion\", the display after (5.2), p.961, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
