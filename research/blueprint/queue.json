@@ -1952,7 +1952,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KHAYUTIN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1131"
   },
   {
    "id": "REV-PAPER-KHAYUTIN-19",
@@ -2813,8 +2814,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SCHIFFMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1181"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1181",
+   "finishedAt": "2026-09-22T17:59:54Z"
   },
   {
    "id": "REV-PAPER-SCHIFFMANN-16",
@@ -3205,8 +3207,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1205"
+   "state": "external",
+   "note": "claimed on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -3421,7 +3423,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
