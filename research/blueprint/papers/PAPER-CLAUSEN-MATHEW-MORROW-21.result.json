@@ -1,0 +1,1494 @@
+{
+ "paper": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "K-theory and topological cyclic homology of henselian pairs",
+  "authors": "Dustin Clausen, Akhil Mathew and Matthew Morrow",
+  "venue": "Journal of the American Mathematical Society 34 (2021), 411–473",
+  "doi": "10.1090/jams/961",
+  "arxiv": "1803.10897",
+  "url": "https://arxiv.org/abs/1803.10897v2",
+  "version": "arXiv v2 (20 July 2020, 59 pages, 'revised and final version'), read in full from its TeX source and PDF; all locators and page numbers are those of the arXiv v2 PDF. The authors' page links to this version. The published JAMS PDF could not be retrieved (HTTP 403) and was not compared.",
+  "readSections": [
+   "Abstract and §1",
+   "§2.1–2.4",
+   "§3.1–3.2",
+   "§4.1–4.5",
+   "§5.1–5.3",
+   "§6.1–6.4",
+   "References"
+  ],
+  "accessed": "2026-09-22",
+  "artifacts": [
+   {
+    "url": "https://arxiv.org/pdf/1803.10897v2",
+    "sha256": "ad23c1d7b818b85e1752cdc4b01ec9442a9c62c3c8e85ebd7cf6f4584c6abd9c",
+    "read": "all 59 pages (text), page numbers and statement numbering"
+   },
+   {
+    "url": "https://arxiv.org/e-print/1803.10897v2",
+    "sha256": "22f7d57f0cccbcdc8dec3152ffa5be862370ea8e8619e1ac4290401e6491b4f1",
+    "read": "complete TeX source rigidity_final.tex (4016 lines) and rigidity_final.bbl"
+   }
+  ]
+ },
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "atlasChecked": "eeedeb8 (tauceti-explorer main, 22 September 2026)",
+  "note": "Library citations read at the pinned commit: Mathlib/RingTheory/Henselian.lean (HenselianRing R I with fields jac and is_henselian for monic polynomials; HenselianLocalRing with TFAE; IsAdicComplete.henselianRing). The pinned Mathlib and Tau Ceti have no spectra-level algebraic K-theory, THH/TC, cyclotomic spectra, de Rham–Witt complexes, henselization of pairs or nonunital henselian rings (declaration index searched for Henselization, Cyclotomic, TopologicalHochschild, DeRhamWitt, AlgebraicKTheory, Nonunital)."
+ },
+ "summary": "Clausen, Mathew and Morrow prove that for a henselian pair (R, I) the relative K-theory and relative topological cyclic homology agree with finite coefficients: K^inv(R) → K^inv(R/I) is an equivalence mod p (Theorem A). This extends Gabber rigidity (n invertible) and the profinite Dundas–Goodwillie–McCarthy theorem (I nilpotent). The key new input is that TC/p commutes with all colimits on connective cyclotomic spectra (Theorem G), proved by showing that the Frobenius of HF_p^triv kills the periodicity class. That finiteness enters a pseudocoherence formalism for functors on henselian nonunital rings, which axiomatizes the first half of Gabber's proof. The equal-characteristic case comes from Geisser–Levine and Geisser–Hesselholt. Consequences: K/p and TC/p agree in high degrees for rings henselian along p with finite p-rank residue fields (Theorem B, a p-adic Lichtenbaum–Quillen statement); K^inv/p vanishes at strictly henselian points (Theorem C) and p-adic étale K-theory of schemes proper over such rings is TC; the trace is split injective for local F_p-algebras (Theorem D); K-theory is continuous for F-finite complete noetherian rings (Theorem F), and not without F-finiteness (Theorem 5.7); p-adic continuity of K for rings henselian along p; and a pro Geisser–Levine theorem (Theorem E). The atlas plans cyclotomic spectra, the trace and Dundas–Goodwillie–McCarthy (RefinedTraceMethods RT.2–RT.3), Gabber rigidity away from p (KTheoryFiniteLocalFields L.2), K-theory foundations and de Rham–Witt theory. The paper's own theory goes to a new Part II of RefinedTraceMethods, p-adic continuity to the AMMN Part II, Gabber's affine proper base change to ArcTopologyAndDescent, and standard inputs to sources of existing layers. Seven misprints are recorded; no error or gap was found.",
+ "items": [
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/001",
+   "kind": "definition",
+   "name": "The fibre of the cyclotomic trace K^inv",
+   "statement": "For a ring R (more generally a connective E_1-ring spectrum), K^inv(R) is the homotopy fibre of the cyclotomic trace K(R) → TC(R) from connective algebraic K-theory; 𝕂^inv(R) is the fibre of 𝕂(R) → TC(R) from nonconnective K-theory. Relative versions are K^inv(R, I) = fib(K^inv(R) → K^inv(R/I)).",
+   "locator": "Definition 1.1, p. 2; Variant in §5.2, p. 41; §4.5, p. 35",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/002",
+   "kind": "theorem",
+   "name": "Dundas–Goodwillie–McCarthy theorem",
+   "statement": "If R → R′ is a surjection of rings with nilpotent kernel (more generally a map of connective E_1-rings with π_0R → π_0R′ surjective with nilpotent kernel), then K^inv(R) → K^inv(R′) is an equivalence.",
+   "locator": "Theorem 1.2, p. 2",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.3"
+   ],
+   "note": "RT.3 plans the relative nilpotent comparison theorem."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/003",
+   "kind": "definition",
+   "name": "Henselian pairs and henselian local rings",
+   "statement": "A pair (S, I) is henselian if I ⊆ Jac(S) and every simple root modulo I of a monic polynomial over S lifts to a root in S; a local ring is henselian if (S, 𝔪) is. Pairs complete along I are henselian.",
+   "locator": "Definition 1.3, p. 2; Definition 3.12(2), p. 20",
+   "status": "library",
+   "library": [
+    "mathlib:HenselianRing",
+    "mathlib:HenselianLocalRing",
+    "mathlib:IsAdicComplete.henselianRing"
+   ],
+   "note": "Mathlib/RingTheory/Henselian.lean at 082e2d3: HenselianRing R I is exactly condition (2) of Definition 3.12 (jac and monic lifting); HenselianLocalRing.TFAE gives the local equivalences. The other two characterizations are item 043."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/004",
+   "kind": "theorem",
+   "name": "Gabber rigidity",
+   "statement": "Let (R, I) be a henselian pair and n invertible in R. Then K(R)/n → K(R/I)/n is an equivalence of spectra.",
+   "locator": "Theorem 1.4, p. 3",
+   "status": "planned",
+   "planned": [
+    "KTheoryFiniteLocalFields:L.2"
+   ],
+   "note": "L.2 plans rigidity with coefficients prime to the residue characteristic 'for the required henselian pairs'; the paper uses only the second half of Gabber's proof (henselizations of smooth algebras over fields at rational points, also in Gillet–Thomason), Remark 4.37."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/005",
+   "kind": "theorem",
+   "name": "Theorem A: rigidity of K^inv for henselian pairs",
+   "statement": "Let (R, I) be a henselian pair. For every prime p the map K^inv(R) → K^inv(R/I) is an equivalence modulo p; equivalently K(R, I)/p → TC(R, I)/p is an equivalence. Hence K^inv(R)/n → K^inv(R/I)/n is an equivalence for every n.",
+   "locator": "Theorem A, p. 3; Theorem 4.36, p. 36",
+   "status": "missing",
+   "note": "RT.3 asks for 'the map-level square for ... a henselian pair in the proven range' without planning a proof, and the AMMN extraction marks this theorem planned there; this extraction assigns the theorem and its proof to the Part II, whose export RT.3 and the AMMN Part II then import."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/006",
+   "kind": "theorem",
+   "name": "Theorem B: asymptotic comparison of K and TC",
+   "statement": "Let R be henselian along (p) with R/p of finite Krull dimension, and d ≥ 1 with [k(x) : k(x)^p] ≤ p^d for all x ∈ Spec(R/p). Then K(R)/p^r → TC(R)/p^r is an equivalence in degrees ≥ d for every r. (Theorem B: with d = sup_x log_p[k(x):k(x)^p], an equivalence in degrees ≥ max(d, 1).)",
+   "locator": "Theorem B, p. 3; Theorem 6.5, p. 52",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/007",
+   "kind": "theorem",
+   "name": "Theorem C: étale K-theory is TC at points of characteristic p",
+   "statement": "If R is a strictly henselian local ring with residue field of characteristic p > 0, then K^inv(R)/p = 0, i.e. K(R) → TC(R) is a p-adic equivalence.",
+   "locator": "Theorem C, p. 4; Theorem 6.1, p. 50",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/008",
+   "kind": "theorem",
+   "name": "Theorem D: split injectivity of the cyclotomic trace",
+   "statement": "For any local F_p-algebra R, n ≥ −1 and r ≥ 1, π_n(K(R)/p^r) → π_n(TC(R)/p^r) is split injective. More precisely there is a functor ν̃_r^{n+1} : CAlg_{F_p} → Ab commuting with filtered colimits and a natural map ν̃_r^{n+1}(R) → π_n(TC(R)/p^r) such that ν̃_r^{n+1}(R) ⊕ π_n(K(R)/p^r) ≅ π_n(TC(R)/p^r) for R local, compatibly in r; the decomposition holds for all R after Zariski sheafification.",
+   "locator": "Theorem D, p. 4; Theorem 6.11, p. 54",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/009",
+   "kind": "theorem",
+   "name": "Geisser–Levine: p-adic K-theory of regular local F_p-algebras",
+   "statement": "If R is an ind-smooth local F_p-algebra (e.g. a regular local F_p-algebra), dlog[·] on symbols gives isomorphisms K_n(R; Z/p^r) ≅ W_rΩ^n_{R,log} for all n ≥ 0, r ≥ 1 (for r = 1, K_n(R; Z/p) ≅ Ω^n_{R,log} = ν^n(R)), and each K_n(R) is p-torsion-free. For general ind-smooth R there is a natural map π_n(K(R)/p) → ν^n(R) (Zariski sheafification on smooth varieties, [GL00, Th. 8.3]).",
+   "locator": "Theorem 1.5, p. 4; Theorem 4.29(1), p. 33; §5.3, p. 45",
+   "status": "missing",
+   "note": "Nothing in the atlas plans Geisser–Levine; the Part II owns it as an imported theorem with its hypotheses (M.5 mentions only the Bloch–Gabber–Kato statement for Milnor K-theory of fields)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/010",
+   "kind": "theorem",
+   "name": "Theorem E: pro Geisser–Levine",
+   "statement": "Let R be an F-finite regular local noetherian F_p-algebra and I ⊆ R an ideal; fix n, r ≥ 0. Then {K_n(R/I^s)}_s is p-torsion-free and dlog[·] on symbols gives an isomorphism of pro abelian groups {K_n(R/I^s; Z/p^r)}_s ≅ {W_rΩ^n_{R/I^s,log}}_s.",
+   "locator": "Theorem E, p. 4; Theorem 5.26, p. 45; Corollary 5.32, p. 49",
+   "status": "missing",
+   "note": "Proved in [Morrow-HW] when Spec R/I is a generalised normal crossing; the general case combines Theorem 5.31 with Geisser–Levine."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/011",
+   "kind": "theorem",
+   "name": "Theorem F: continuity of K-theory for F-finite complete noetherian rings",
+   "statement": "Let R be a noetherian ring complete along an ideal I with R/pR F-finite. Then K(R) → lim_s K(R/I^s) is an equivalence modulo p.",
+   "locator": "Theorem F, p. 4; Theorem 5.5, p. 39",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/012",
+   "kind": "theorem",
+   "name": "Theorem G: TC/p is finitary on rings",
+   "statement": "The functor Alg(Sp_{≥0}) → Sp, R ↦ TC(R)/p, commutes with sifted colimits, in particular with filtered colimits of rings.",
+   "locator": "Theorem G, p. 5; Corollary 2.15, p. 12",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/013",
+   "kind": "definition",
+   "name": "Cyclotomic spectra and topological cyclic homology (Nikolaus–Scholze)",
+   "statement": "A cyclotomic spectrum is X ∈ Fun(BS^1, Sp) with S^1-equivariant Frobenius maps φ_p : X → X^{tC_p} for every prime p; CycSp is the presentably symmetric monoidal stable ∞-category of these (a lax equalizer), with conservative, exact, colimit-preserving forgetful functor. TC(X) = Hom_CycSp(1, X), TC^−(X) = X^{hS^1}, TP(X) = X^{tS^1}; CycSp_{≥n} is the full subcategory with X ∈ Sp_{≥n}.",
+   "locator": "Definitions 2.1–2.3, pp. 6–7",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.2"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/014",
+   "kind": "theorem",
+   "name": "The Nikolaus–Scholze formula for bounded-below p-complete cyclotomic spectra",
+   "statement": "For X ∈ CycSp bounded below and p-complete, X^{tC_q} = 0 for q ≠ p [NS, Lem. I.2.9], X^{tS^1} ≃ (X^{tC_p})^{h(S^1/C_p)} (Tate orbit lemma, [NS, Lem. II.4.2]), and TC(X) = fib(can − φ : TC^−(X) → TP(X)) [NS, Prop. II.1.9]; in the bounded-below case this agrees with the classical genuine-equivariant theory [NS, Thm. II.6.9].",
+   "locator": "§2.1, equation (1), p. 7",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.2"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/015",
+   "kind": "construction",
+   "name": "THH of a ring as a cyclotomic spectrum",
+   "statement": "For a ring (or structured ring spectrum) R, THH(R) ∈ CycSp [NS, §III.2]; TC(R), TC^−(R), TP(R) denote TC, TC^−, TP of THH(R). THH : Alg(Sp_{≥0}) → CycSp_{≥0} commutes with sifted colimits.",
+   "locator": "Example 2.4, p. 8; proof of Corollary 2.15, p. 12",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.2"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/016",
+   "kind": "construction",
+   "name": "Classical TR, restriction, Frobenius and the isotropy sequence",
+   "statement": "For p-complete X ∈ CycSp, TR^r(X; p) = X^{C_{p^{r−1}}} with maps R, F : TR^{r+1} → TR^r and V : TR^r → TR^{r+1}; TR(X; p) = lim_R TR^r, TC(X) = fib(id − F : TR(X; p) → TR(X; p)) (equation (2)), TC^r(X; p) = fib(R − F : TR^r → TR^{r−1}), and there are cofibre sequences X_{hC_{p^r}} → TR^{r+1}(X; p) → TR^r(X; p) (equation (3), [Hes96, Th. 1.2]).",
+   "locator": "§2.1, equations (2)–(3), pp. 7–8; §2.3, p. 13",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.2"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/017",
+   "kind": "theorem",
+   "name": "Connectivity of TC",
+   "statement": "If X ∈ CycSp_{≥n} is p-complete, then TC(X) ∈ Sp_{≥n−1}.",
+   "locator": "Lemma 2.5, p. 8; Remark 2.14, p. 11",
+   "status": "missing",
+   "note": "Two proofs: via TR and the isotropy sequence, and (Remark 2.14) purely from the Nikolaus–Scholze formula using the Adams tower for HZ^triv and Proposition 2.12."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/018",
+   "kind": "theorem",
+   "name": "TC/p commutes with geometric realizations",
+   "statement": "The functor TC/p : CycSp_{≥0} → Sp commutes with geometric realizations.",
+   "locator": "Corollary 2.6, p. 8",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/019",
+   "kind": "theorem",
+   "name": "TC/p commutes with all colimits on connective cyclotomic spectra",
+   "statement": "The functor TC/p : CycSp_{≥0} → Sp commutes with all colimits (equivalently, with filtered colimits).",
+   "locator": "Theorem 2.7, p. 8; proof pp. 11–12",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/020",
+   "kind": "theorem",
+   "name": "Inverse limits of towers of connective cyclotomic spectra",
+   "statement": "For a tower … → X_2 → X_1 in CycSp_{≥0}, lim X_i exists in CycSp (in CycSp_{≥−1}) and is preserved by the forgetful functor; hence TC(lim X_i) ≃ lim TC(X_i).",
+   "locator": "Remark 2.8, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/021",
+   "kind": "construction",
+   "name": "Trivial cyclotomic spectra",
+   "statement": "The unique symmetric monoidal cocontinuous functor Sp → CycSp, X ↦ X^triv, is left adjoint to TC; X^triv has trivial S^1-action and Frobenius X → X^{hC_p} → X^{tC_p}; S^triv is the unit.",
+   "locator": "Definition 2.9, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/022",
+   "kind": "theorem",
+   "name": "The cyclotomic spectrum HF_p^triv",
+   "statement": "π_*(HF_p^{tC_p}) is E(u_{−1}) ⊗ F_p[t^{±1}], |t| = −2, for p > 2 and F_2[t^{±1}], |t| = −1, for p = 2; TC^−_*(HF_p^triv) = F_p[x] and TP_*(HF_p^triv) = F_p[x^{±1}] with |x| = −2 and can the localization at x; φ_{HF_p} is an isomorphism on π_0.",
+   "locator": "§2.2, before Lemma 2.10, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/023",
+   "kind": "theorem",
+   "name": "The Frobenius of HF_p^triv kills x",
+   "statement": "The Frobenius φ : TC^−_*(HF_p^triv) → TP_*(HF_p^triv) annihilates x.",
+   "locator": "Lemma 2.10, p. 9",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/024",
+   "kind": "theorem",
+   "name": "Three cofibre sequences for circle actions on HZ-modules",
+   "statement": "For X ∈ Mod_HZ(Sp^{BS^1}) there are functorial cofibre sequences Σ^{−2}X^{hS^1} →^x X^{hS^1} → X, X → X_{hS^1} → Σ^2X_{hS^1}, and Σ^{−2}X^{hS^1} →^{x·can} X^{tS^1} → X_{hS^1}, x ∈ π_{−2}(HZ^{hS^1}) the generator.",
+   "locator": "Lemma 2.11, p. 10",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/025",
+   "kind": "theorem",
+   "name": "TC of HF_p^triv-modules",
+   "statement": "For X ∈ Mod_{HF_p^triv}(CycSp) there is a functorial fibre sequence TC(X) → X → X_{hS^1}.",
+   "locator": "Proposition 2.12, p. 11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/026",
+   "kind": "theorem",
+   "name": "The unit of HF_p^triv-modules is compact",
+   "statement": "X ↦ TC(X) on Mod_{HF_p^triv}(CycSp) commutes with all colimits; that is, the unit of this presentably symmetric monoidal stable ∞-category is compact.",
+   "locator": "Corollary 2.13, p. 11",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/027",
+   "kind": "theorem",
+   "name": "Earlier special cases of the finiteness of TC/p",
+   "statement": "Corollary 2.15 was previously accessible for commutative F_p-algebras (Hesselholt's de Rham–Witt description, §2.4), for square-zero extensions (McCarthy's p-limit axiom), and for spherical monoid rings Σ^∞_+M, whose THH has a Frobenius lift so that TC(X) fits in a fibre square with ΣX_{hS^1} and two copies of X [NS, Prop. IV.3.4, Lem. IV.3.1].",
+   "locator": "Examples 2.16–2.18, p. 13",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/028",
+   "kind": "theorem",
+   "name": "Approximating TC/p by homotopy orbits",
+   "statement": "For each n there is a functor F : CycSp_{≥0} → Sp in the thick subcategory generated by X ↦ (X ⊗ HF_p^triv)_{hS^1} with τ_{≤n}F(X) ≃ τ_{≤n}(TC(X)/p); one may take F(X) = TC(X ⊗ τ_{≤n+1}(S^0/p)^triv).",
+   "locator": "Proposition 2.19, p. 13",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/029",
+   "kind": "theorem",
+   "name": "Pro-zero towers of functors",
+   "statement": "Let 𝒞 admit countable coproducts and {F_r} a tower of functors 𝒞 → Ab with lim_r F_r(X) = lim^1_r F_r(X) = 0 for all X and each F_r commuting with countable coproducts; then {F_r} is pro-zero in Pro(Fun(𝒞, Ab)). The same holds for towers of functors 𝒞 → Sp with lim_r F_r(X) = 0, F_r commuting with countable coproducts, and homotopy uniformly in a fixed interval [a, b].",
+   "locator": "Lemmas 2.20–2.21, p. 14",
+   "status": "missing",
+   "note": "Uses Emmanouil's criterion (Topology 35, Cor. 6): vanishing lim^1 of countable sums of a tower implies Mittag-Leffler."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/030",
+   "kind": "theorem",
+   "name": "The TC^r tower is pro-constant mod p",
+   "statement": "For each k, the tower {τ_{≤k}(TC^r(−; p)/p)}_r in Fun(CycSp_{≥0}, Sp) is pro-constant with value τ_{≤k}(TC(−)/p).",
+   "locator": "Proposition 2.22, p. 14",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/031",
+   "kind": "definition",
+   "name": "The inverse Cartier operator and the Cartier isomorphism",
+   "statement": "For an F_p-algebra R, C^{−1} : Ω^n_R → H^n(Ω^*_R) ⊂ Ω^n_R/dΩ^{n−1}_R is the multiplicative operator with C^{−1}(a) = a^p and C^{−1}(db) = b^{p−1}db; for R ind-smooth it is an isomorphism Ω^n_R ≅ H^n(Ω^*_R) (Cartier isomorphism, [Kat70, Th. 7.2]).",
+   "locator": "Definition 2.23, p. 15",
+   "status": "planned",
+   "planned": [
+    "DerivedDeRhamCohomology:DD.3"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/032",
+   "kind": "definition",
+   "name": "The de Rham–Witt complex",
+   "statement": "For an F_p-algebra R, the de Rham–Witt complexes W_rΩ^*_R (Bloch–Deligne–Illusie) with R, F : W_rΩ^n → W_{r−1}Ω^n and V, and WΩ^*_R = lim_R W_rΩ^*_R; F reduces to C^{−1} : Ω^* → Ω^*/dΩ^{*−1}.",
+   "locator": "Definition 2.24 and diagram (9), p. 15",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/033",
+   "kind": "theorem",
+   "name": "Hesselholt's HKR theorem for TR",
+   "statement": "For R smooth over F_p and s ≥ 1, TR^s_*(R; p) ≅ W_sΩ^*_R ⊗_{Z/p^s} Z/p^s[σ_s], |σ_s| = 2, with R(σ_s) = pσ_{s−1} (up to a unit) and R on W_sΩ; hence TR_*(R; p) ≅ WΩ^*_R with F matching F. The comparison is induced by the map of p-typical Witt complexes λ_{s,R} : W_sΩ^*_R → TR^s_*(R; p) ([Hes96, Prop. 1.5.8]), and extends to ind-smooth algebras.",
+   "locator": "Theorem 2.25 and equations (10)–(11), p. 15; proof of Theorem 5.31, p. 48",
+   "status": "missing",
+   "note": "CR.4 assigns the THH/TR realization of de Rham–Witt to RefinedTraceMethods; no RT stage names it."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/034",
+   "kind": "theorem",
+   "name": "Structure of the de Rham–Witt complex of ind-smooth algebras",
+   "statement": "For R ind-smooth over F_p: each WΩ^n_R is p-torsion-free (R kills p-torsion in W_sΩ^n, [Ill79, I.3.6]); ker(WΩ^n_R → Ω^n_R) is generated by the images of V and dV ([Ill79, I.3.18]); im(F) = {w : dw ∈ pWΩ^{n+1}} ([Ill79, I.3.21.1.5]); W_sΩ^•/p ≃ Ω^• ([Ill79, I.3.15]); and ker(d) = im(F : W_2Ω^n → Ω^n) ([Ill79, I.3.21]).",
+   "locator": "Proof of Proposition 2.26 and footnote 5, pp. 16–17",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "CR.4 plans the classical de Rham–Witt complex over perfect fields; the paper spells out the passage to ind-smooth algebras."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/035",
+   "kind": "theorem",
+   "name": "TC/p of F_p-algebras via de Rham–Witt",
+   "statement": "R ↦ TC(R)/p commutes with filtered colimits of F_p-algebras. For R ind-smooth, 0 → coker(F − 1 on WΩ^{n+1}_R/p) → π_n(TC(R)/p) → ker(F − 1 on WΩ^n_R/p) → 0, and the square with rows F − 1 : WΩ^n_R/p → WΩ^n_R/p and C^{−1} − 1 : Ω^n_R → Ω^n_R/dΩ^{n−1}_R (diagram (12)) is cartesian and cocartesian.",
+   "locator": "Proposition 2.26, pp. 16–17",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/036",
+   "kind": "definition",
+   "name": "Saturated and strict Dieudonné complexes",
+   "statement": "A saturated Dieudonné complex is a p-torsion-free complex with F such that dF = pFd, F injective and im F = {x : p | dx}; it is strict if complete for the filtration by im(V^n, dV^n). WΩ^*_A of ind-smooth A is strict, and A ↦ WΩ^*_A commutes with filtered colimits into strict Dieudonné complexes.",
+   "locator": "§2.4, before Proposition 2.27, p. 17",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "note": "CR.4 plans the BLM construction via strict saturated Dieudonné complexes."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/037",
+   "kind": "theorem",
+   "name": "Frobenius fixed points of strict Dieudonné complexes are finitary",
+   "statement": "The functors (X^*, d, F) ↦ ker(F − 1 : X^*/p → X^*/p) and coker(F − 1 : X^*/p → X^*/p) from strict Dieudonné complexes to graded abelian groups commute with filtered colimits.",
+   "locator": "Proposition 2.27, p. 17",
+   "status": "missing",
+   "note": "Stated with the remark that it 'can be proved in an entirely analogous manner' to Proposition 2.26; no separate proof is given."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/038",
+   "kind": "definition",
+   "name": "Nonunital algebras",
+   "statement": "For a commutative ring R, a nonunital R-algebra is an R-module I with a commutative associative multiplication I ⊗_R I → I; the category Ring^nu_R has all limits and colimits and is equivalent to augmented R-algebras via I ↦ R ⋉ I. R[x_1,…,x_n]^+ is free on n generators; a short exact sequence I′ → I ↠ Ī is one of underlying abelian groups.",
+   "locator": "Definition 3.1, Examples 3.2–3.3, pp. 17–18",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/039",
+   "kind": "definition",
+   "name": "Local nonunital algebras and localization",
+   "statement": "I ∈ Ring^nu_R is local if every x ∈ I has y ∈ I with x + y + xy = 0 (equivalently I lies in the Jacobson radical of any R-algebra containing it as an ideal, or of R ⋉ I). Ring^{nu,loc}_R is closed under limits and sifted colimits and is reflective, with left adjoint I ↦ I[(1 + I)^{−1}] = I ⊗_{R[1+I]} R[(1+I)^{gp}]; R[x_1,…,x_n]^+_{(x_1,…,x_n)} is the free local object.",
+   "locator": "Definition 3.4, Example 3.5, Remark 3.6, pp. 18–19",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/040",
+   "kind": "definition",
+   "name": "Henselian nonunital algebras",
+   "statement": "I ∈ Ring^nu_R is henselian if for every n ≥ 1 and g ∈ I[x] the equation x(1 + x)^{n−1} + g(x) = 0 has a solution in I. Henselian implies local, the solution is unique, Ring^{nu,h}_R is closed under limits, sifted colimits and quotients, and the condition does not depend on R.",
+   "locator": "Definition 3.7, Remark 3.8, p. 19",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/041",
+   "kind": "theorem",
+   "name": "Henselization of nonunital algebras",
+   "statement": "Ring^{nu,h}_R is presentable and the inclusion into Ring^nu_R has a left adjoint (henselization): it is the orthogonal subcategory for the maps f_{n,t} : R[x_0,…,x_t]^+ → R[x_0,…,x_t,y]^+/(y(1+y)^{n−1} + x_0 + x_1y + … + x_ty^t). R{x_1,…,x_n}^+, the henselization of R[x_1,…,x_n]^+, is the free henselian nonunital algebra on n generators.",
+   "locator": "Lemma 3.9, Example 3.10, pp. 19–20",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/042",
+   "kind": "theorem",
+   "name": "Lawvere theories for nonunital rings",
+   "statement": "A category 𝒞 with all limits and colimits and a conservative sifted-colimit-preserving U : 𝒞 → Sets with left adjoint F is monadic over Sets; a full subcategory closed under limits and sifted colimits whose inclusion is a right adjoint again has these properties, with free objects obtained by reflecting. Ring^nu_R, Ring^{nu,loc}_R and Ring^{nu,h}_R are of this kind; their compact projective objects are retracts of free objects.",
+   "locator": "Remark 3.11, p. 20",
+   "status": "missing",
+   "note": "Printed with F called the 'right adjoint' of U (sourceIssues E2)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/043",
+   "kind": "theorem",
+   "name": "Equivalent characterizations of henselian pairs and first properties",
+   "statement": "For a pair (S, I), equivalent: (1) simple roots mod I of every f ∈ S[x] lift; (2) I ⊆ Jac(S) and (1) for monic f; (3) S → S/I has the right lifting property against étale maps ([Stacks, Tag 09XD]). Lifts in (3) are unique; subideals of henselian ideals are henselian; locally nilpotent ideals are henselian.",
+   "locator": "Definition 3.12, Remarks 3.13–3.14, pp. 20–21",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/044",
+   "kind": "theorem",
+   "name": "Elkik's theorem",
+   "statement": "If (S, I) is a henselian pair, S → S/I has the right lifting property with respect to smooth maps.",
+   "locator": "Theorem 3.15, p. 21",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/045",
+   "kind": "theorem",
+   "name": "Gabber: henselianity depends only on the ideal",
+   "statement": "A pair (S, I) is henselian if and only if I is henselian as a nonunital ring [Gab92, Prop. 1]; equivalently if and only if (Z ⋉ I, I) is henselian.",
+   "locator": "Proposition 3.16, Corollary 3.17, p. 21",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/046",
+   "kind": "construction",
+   "name": "Henselization of pairs",
+   "statement": "Every pair (S, I) has a henselization (S^h, I^h): the initial henselian pair under (S, I), with S^h a filtered colimit of étale S-algebras, I^h = IS^h = I ⊗_S S^h and S/I ≅ S^h/I^h ([Stacks, Tag 0EM7]); any factorization S → S̃ → S/I with S̃ ind-étale over S and S̃ → S/I henselian is the henselization.",
+   "locator": "Construction 3.18, Remark 3.19, p. 22",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/047",
+   "kind": "theorem",
+   "name": "Henselization preserves Milnor squares",
+   "statement": "Milnor squares are cartesian and cocartesian squares of rings with surjective vertical maps (so the kernels are identified). If S → T, S′ → T′ is a Milnor square with kernels I, J, the henselizations along I and J form a Milnor square with S′, T′, and T^h ≅ S^h ⊗_S T.",
+   "locator": "Definition 3.20, Lemma 3.21, p. 22",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/048",
+   "kind": "theorem",
+   "name": "Henselization of an ideal is independent of the base",
+   "statement": "For a pair (S, I) with henselization (S^h, I^h) and any ring R → S, I^h is the henselization of I in Ring^nu_R; hence the nonunital henselization does not depend on R.",
+   "locator": "Corollary 3.22, p. 23",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/049",
+   "kind": "theorem",
+   "name": "Free henselian nonunital Q-algebras",
+   "statement": "The filtered colimit, over N ordered by divisibility, of the endomorphisms [N] : x_i ↦ Nx_i of Z{x_1,…,x_n}^+ is Q{x_1,…,x_n}^+ ([Gab92, Prop. 3]).",
+   "locator": "Corollary 3.23, p. 23",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/050",
+   "kind": "definition",
+   "name": "Finitely generated, perfect and pseudocoherent functors",
+   "statement": "For a small category 𝒞, F : 𝒞 → Ab is finitely generated if it is a quotient of ⊕_{i≤t} Z[Hom(X_i, −)]; F : 𝒞 → Sp is perfect if in the thick subcategory generated by Σ^∞_+Hom(C, −) (the compact objects of Fun(𝒞, Sp)), and pseudocoherent if for each n some perfect F′ → F is an equivalence on τ_{≤n}. Relative versions (𝒟-perfect, 𝒟-pseudocoherent, 𝒟-finitely generated) use only corepresentables of objects of a small full subcategory 𝒟 ⊂ 𝒞.",
+   "locator": "Definitions 4.1, 4.2 and 4.4, pp. 24–25",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/051",
+   "kind": "theorem",
+   "name": "Characterizations of pseudocoherent functors",
+   "statement": "For F : 𝒞 → Sp_{≥d}, equivalent: F is pseudocoherent; τ_{≤n}F is compact in Fun(𝒞, Sp_{≤n}) for every n; F = colim G_i with G_{d−1} = 0 and G_i/G_{i−1} a finite sum of Σ^iΣ^∞_+Hom(C, −). F is 𝒟-pseudocoherent iff it is left Kan extended from 𝒟 and F|_𝒟 is pseudocoherent, iff it has such a filtration with C ∈ 𝒟.",
+   "locator": "Lemma 4.3, Lemma 4.6, Proposition 4.7, pp. 24–26",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/052",
+   "kind": "construction",
+   "name": "Left Kan extension along a full subcategory",
+   "statement": "For 𝒟 ⊂ 𝒞 full, Lan : Fun(𝒟, Sp) → Fun(𝒞, Sp), Lan(G)(C) = colim_{D→C, D∈𝒟} G(D), left adjoint to restriction; functors left Kan extended from 𝒟 are equivalent to Fun(𝒟, Sp).",
+   "locator": "Construction 4.5, p. 25",
+   "status": "planned",
+   "planned": [
+    "EnhancedDerivedSheaves:E3"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/053",
+   "kind": "theorem",
+   "name": "Closure properties of pseudocoherent functors",
+   "statement": "𝒟-pseudocoherent functors form a thick subcategory; are closed under colimits over simplicial sets with finite skeleta and under geometric realizations of uniformly bounded below diagrams; π_d of a d-connective 𝒟-pseudocoherent functor is 𝒟-finitely generated; and if 𝒞 has finite coproducts and 𝒟 is closed under them, they are closed under smash products.",
+   "locator": "Proposition 4.8, p. 26",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/054",
+   "kind": "theorem",
+   "name": "The Goodwillie tower of Σ^∞Ω^∞",
+   "statement": "There is a natural tower {P_n(Σ^∞Ω^∞)} under Σ^∞Ω^∞ with P_1(X) ≃ X and fib(P_n → P_{n−1}) ≃ (X^{⊗n})_{hΣ_n}; for X ∈ Sp_{≥1}, Σ^∞Ω^∞X ≃ lim_n P_n(X) and the connectivity of Σ^∞Ω^∞X → P_n(X) tends to ∞.",
+   "locator": "Proposition 4.9, p. 27",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/055",
+   "kind": "theorem",
+   "name": "Pseudocoherence through Σ^∞Ω^∞ and through HZ",
+   "statement": "If 𝒞 has finite coproducts, 𝒟 is closed under them and F : 𝒞 → Sp_{≥1}, then F is 𝒟-pseudocoherent iff Σ^∞Ω^∞F is, iff Σ^∞_+Ω^∞F is. If F is 𝒟-pseudocoherent so is HZ ⊗ F; conversely if F is uniformly bounded below and HZ ⊗ F is 𝒟-pseudocoherent, so is F.",
+   "locator": "Propositions 4.10–4.11, p. 27",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/056",
+   "kind": "definition",
+   "name": "Projectively pseudocoherent functors on henselian nonunital rings",
+   "statement": "A functor Ring^{nu,h}_R → Ab (resp. Sp) is projectively finitely generated (resp. projectively pseudocoherent) if it is 𝒟-finitely generated (resp. 𝒟-pseudocoherent) for 𝒟 = (Ring^{nu,h}_R)_Σ, the idempotent completion of the free objects R{x_1,…,x_n}^+. I ↦ Σ^∞_+I^n is projectively pseudocoherent, and projectively pseudocoherent functors commute with filtered colimits.",
+   "locator": "Definition 4.12, Examples 4.13–4.14, p. 28",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/057",
+   "kind": "theorem",
+   "name": "A Gabber-type vanishing lemma",
+   "statement": "Let F_0 : Ring^{nu,h}_Z → Ab be projectively finitely generated, vanishing on I killed by some N > 0 and on nonunital Q-algebras, right exact on short exact sequences (F_0(I′) → F_0(I) → F_0(Ī) → 0 exact), and commuting with filtered colimits. Then F_0 = 0.",
+   "locator": "Lemma 4.15, p. 28",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/058",
+   "kind": "theorem",
+   "name": "The axiomatic rigidity argument",
+   "statement": "Let F : Ring^{nu,h}_Z → Sp be projectively pseudocoherent with (1) F(R{x_1,…,x_n}^+) = 0 for every prime field R and n; (2) F sends short exact sequences to fibre sequences; (3) F(I) = 0 for nilpotent I. Then F = 0.",
+   "locator": "Proposition 4.16, p. 29",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/059",
+   "kind": "theorem",
+   "name": "Left Kan extension via simplicial resolutions",
+   "statement": "For 𝓔 with sifted colimits and F : Ring^{nu,h}_R → 𝓔, F is left Kan extended from (Ring^{nu,h}_R)_Σ iff F commutes with filtered colimits and |F(I_•)| ≃ F(I_{−1}) for every simplicial resolution I_• of I_{−1} (free resolutions suffice); resolutions come from Quillen's model structure on simplicial objects.",
+   "locator": "Construction 4.17, Corollary 4.18, p. 30",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/060",
+   "kind": "theorem",
+   "name": "Homological stability for GL_n",
+   "statement": "H_*(BGL_n(A); Z) → H_*(BGL_{n+1}(A); Z) is an isomorphism in a range growing linearly in n whose offset depends only on the Krull dimension of the maximal spectrum of A (the stable rank) (van der Kallen [vdK80]); for Z ⋉ I with I henselian the range is that of Z.",
+   "locator": "Proof of Proposition 4.19, p. 30",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/061",
+   "kind": "theorem",
+   "name": "Finiteness of classifying spaces of congruence subgroups",
+   "statement": "GL_n(Z) has a normal subgroup N of finite index with BN homotopy equivalent to a finite CW complex (Borel–Serre).",
+   "locator": "Proof of Proposition 4.19, p. 31",
+   "status": "planned",
+   "planned": [
+    "ArithmeticLocallySymmetricSpaces:ALS.2"
+   ],
+   "note": "ALS.2 plans the Borel–Serre compactification."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/062",
+   "kind": "theorem",
+   "name": "Pseudocoherence of group homology of GL",
+   "statement": "I ↦ C_*(BGL_∞(Z ⋉ I); Z) is projectively pseudocoherent on Ring^{nu,h}_Z (via GL_n(1 + I) ≅ I^{n^2} as sets, the bar construction and C_*(BGL_n(Z ⋉ I)) ≃ C_*(BGL_n(1 + I))_{hGL_n(Z)}).",
+   "locator": "Proposition 4.19, pp. 30–31",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/063",
+   "kind": "theorem",
+   "name": "K_0 is rigid for henselian pairs",
+   "statement": "For a henselian pair (R, I), isomorphism classes of finitely generated projective R-modules and R/I-modules agree; K_0(R) ≅ K_0(R/I).",
+   "locator": "Lemma 4.20, p. 31",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/064",
+   "kind": "theorem",
+   "name": "K-theory of rings via the plus construction",
+   "statement": "Connective K(A) has Ω^∞K(A) ≃ K_0(A) × BGL(A)^+, so HZ ⊗ Σ^∞_+Ω^∞τ_{≥1}K(A) ≃ C_*(BGL_∞(A); Z); K_1(A) = GL(A)^ab.",
+   "locator": "Proof of Proposition 4.21, p. 31; proof of Proposition 4.34, p. 35",
+   "status": "planned",
+   "planned": [
+    "GeneralAlgebraicKTheory:K.2",
+    "StableHomotopyKTheory:H.3"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/065",
+   "kind": "theorem",
+   "name": "Pseudocoherence of K-theory",
+   "statement": "I ↦ K(Z ⋉ I) is projectively pseudocoherent on Ring^{nu,h}_Z; in particular it commutes with simplicial resolutions (and this holds on nonunital local rings too).",
+   "locator": "Proposition 4.21, Remark 4.22, p. 31",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/066",
+   "kind": "theorem",
+   "name": "Pseudocoherence of Eilenberg–MacLane functors",
+   "statement": "A ↦ HA on abelian groups is Latt-pseudocoherent (Latt the finitely generated free groups), via HA = colim_n Σ^{−n}Σ^∞K(A, n) and the iterated bar construction; hence I ↦ HI is projectively pseudocoherent on Ring^{nu,h}_Z (a spectral form of Deligne's functorial free resolutions).",
+   "locator": "Lemmas 4.23–4.24, p. 32",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/067",
+   "kind": "theorem",
+   "name": "Pseudocoherence of THH and TC/p",
+   "statement": "I ↦ THH(Z ⋉ I) and I ↦ TC(Z ⋉ I)/p are projectively pseudocoherent on Ring^{nu,h}_Z.",
+   "locator": "Lemma 4.25, Proposition 4.26, p. 32",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/068",
+   "kind": "definition",
+   "name": "Logarithmic forms ν^n and their cokernel ν̃^n",
+   "statement": "For an F_p-algebra R, ν^n(R) = Ω^n_{R,log} = ker(1 − C^{−1} : Ω^n_R → Ω^n_R/dΩ^{n−1}_R) and ν̃^n(R) = coker(1 − C^{−1}). ν^n is an étale sheaf generated étale-locally by dlog x_1 ∧ … ∧ dlog x_n (x_i units), ν^0 = F_p, and ν̃^n vanishes étale-locally.",
+   "locator": "Definition 4.27, pp. 32–33",
+   "status": "missing",
+   "note": "[Ill79, Thm. 2.4.2] in the smooth case and [Morrow-HW, Cor. 4.2] in general."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/069",
+   "kind": "theorem",
+   "name": "Differential forms under étale maps in characteristic p",
+   "statement": "For R → S étale of F_p-algebras, Ω^n_R ⊗_R S ≅ Ω^n_S, and Ω^n_R/dΩ^{n−1}_R ⊗_{R^{(1)}} S^{(1)} ≅ Ω^n_S/dΩ^{n−1}_S (the relative Frobenius square is cocartesian, [Stacks, Tag 0EBS]).",
+   "locator": "Lemma 4.28, p. 33",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/070",
+   "kind": "theorem",
+   "name": "Geisser–Hesselholt: TC/p of ind-smooth F_p-algebras",
+   "statement": "For R ind-smooth over F_p there is a functorial exact sequence 0 → ν̃^{n+1}(R) → π_n(TC(R)/p) → ν^n(R) → 0, and π_n(K(R)/p) → π_n(TC(R)/p) → ν^n(R) is the Geisser–Levine map. On smooth schemes the étale homotopy sheaves of TC/p and K/p agree via the trace and TC/p has an étale descent spectral sequence ([GH99, Th. 4.2.6]); the trace is dlog[·] on symbols ([GH99, Lem. 4.2.3, Cor. 6.4.1]).",
+   "locator": "Theorem 4.29(2), p. 33; proof of Corollary 5.32, p. 49",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/071",
+   "kind": "theorem",
+   "name": "K^inv of ind-smooth local F_p-algebras",
+   "statement": "If R is an ind-smooth local F_p-algebra, π_n(K^inv(R)/p) ≅ ν̃^{n+2}(R) functorially.",
+   "locator": "Theorem 4.29(3), p. 33",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/072",
+   "kind": "theorem",
+   "name": "Rigidity of ν and ν̃",
+   "statement": "For a henselian pair (R, I) of F_p-algebras, ν^n(R) → ν^n(R/I) is surjective and ν̃^n(R) → ν̃^n(R/I) is an isomorphism for each n.",
+   "locator": "Lemma 4.30, Proposition 4.31, p. 34",
+   "status": "missing",
+   "note": "Key step: for s ∈ I, x − sx^n = 1 has a solution in R (Lemma 4.30), so (1 − C^{−1})(uω) = ω for a form ω vanishing mod I."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/073",
+   "kind": "theorem",
+   "name": "Rigidity for ind-smooth henselian local F_p-algebras",
+   "statement": "If (R, 𝔪) is an ind-smooth henselian local F_p-algebra with residue field k, then K^inv(R) → K^inv(k) is an equivalence modulo p.",
+   "locator": "Proposition 4.32, p. 34",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/074",
+   "kind": "theorem",
+   "name": "Excision for K^inv (Cortiñas; Geisser–Hesselholt; Dundas–Kittang; Land–Tamme)",
+   "statement": "If R → S is a map of unital associative rings carrying a two-sided ideal I isomorphically onto a two-sided ideal J of S, then 𝕂^inv(R, I) → 𝕂^inv(S, J) is an equivalence (rationally Cortiñas, with finite coefficients Geisser–Hesselholt, in general Land–Tamme).",
+   "locator": "Theorem 4.33, p. 35",
+   "status": "missing",
+   "note": "RT.3 lists excision among the named inputs of the relative comparison; this statement is the general form it should own."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/075",
+   "kind": "construction",
+   "name": "K^inv of nonunital rings",
+   "statement": "For a nonunital ring I set 𝕂^inv(I) = 𝕂^inv(Z ⋉ I, I); then 𝕂^inv(I) ≃ 𝕂^inv(R, I) whenever I is a two-sided ideal of R, and 𝕂^inv sends short exact sequences of nonunital rings to fibre sequences.",
+   "locator": "§4.5, after Theorem 4.33, p. 35",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/076",
+   "kind": "theorem",
+   "name": "Bass excision in low degrees",
+   "statement": "For a Milnor square, 𝕂_n(R, I) → 𝕂_n(S, J) is an isomorphism for n ≤ 0 and surjective for n = 1 ([Bass, Thm. XII.8.3]); connective and nonconnective K-theory agree in degrees ≥ 0.",
+   "locator": "Proof of Proposition 4.34, p. 35",
+   "status": "planned",
+   "planned": [
+    "GeneralAlgebraicKTheory:K.5",
+    "GeneralAlgebraicKTheory:K.6"
+   ],
+   "note": "K.6 plans Bass's negative K-groups and K.5 excision under the hypotheses of the adopted theorem."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/077",
+   "kind": "theorem",
+   "name": "Connective versus nonconnective relative K-theory for henselian pairs",
+   "statement": "If (R, I) is henselian and R → S carries I isomorphically onto an ideal J of S, the square with rows K(R, I) → K(S, J) and 𝕂(R, I) → 𝕂(S, J) is cartesian; hence K^inv(R, I) → K^inv(S, J) is an equivalence.",
+   "locator": "Proposition 4.34, Corollary 4.35, p. 35",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/078",
+   "kind": "theorem",
+   "name": "The integral statement fails",
+   "statement": "Theorem 4.36 is false integrally: for R the perfection of F_p[[x]] and I = ∪(x^{1/p^n}), K_1(R, 𝔪) = ker(R^× → F_p^×) is a nonzero Z[1/p]-module, while TC_1(R, 𝔪) is derived p-complete.",
+   "locator": "Remark 4.39, p. 37",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/079",
+   "kind": "definition",
+   "name": "The continuity question",
+   "statement": "For a ring R and ideal I (with R I-adically complete, or (R, I) henselian), how close is K(R) → lim_s K(R/I^s) to an equivalence? Known mod-p cases: Suslin and Panin for complete DVRs, Gabber rigidity for p invertible, Dundas in low degrees, Geisser–Hesselholt for A[[x_1,…,x_n]] with A F-finite regular local and for p-torsion-free rings of finite stable rank henselian along p, and Morrow for F-finite regular local rings complete along a generalised normal crossing ideal.",
+   "locator": "Question in §5.1, pp. 37–38",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/080",
+   "kind": "theorem",
+   "name": "F-finite rings and their first properties",
+   "statement": "An F_p-algebra R is F-finite if its absolute Frobenius is finite. An F-finite noetherian F_p-algebra has finite Krull dimension ([Kun76, Prop. 1.1]); a generation bound p^d over the Frobenius passes to localizations, so every residue field k has [k : k^p] ≤ p^d; henselizations of finite type F_p-algebras along ideals are F-finite and excellent ([Stacks, Tag 07QS]); for excellent R the completion R → R̂ is regular ([EGA IV_2, 7.8.3(v)]).",
+   "locator": "Definition 5.1, p. 38; Example 6.7, p. 53; proof of Lemma 5.29, p. 46",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/081",
+   "kind": "theorem",
+   "name": "Cotangent complexes and p-bases of F-finite rings and fields",
+   "statement": "For R F-finite noetherian, each π_nL_{R/F_p} is a finitely generated R-module ([DM17, Cor. 3.8]); e.g. Ω^1_{F_p[[t]]/F_p} is free of rank one. For a field k of characteristic p, a family is part of a p-basis iff its differentials are linearly independent in Ω^1_k, so dim Ω^1_k = log_p[k : k^p] and Ω^n_k = 0 for n > log_p[k : k^p] ([Mat86, §26, Thm. 26.5]).",
+   "locator": "§5.1, p. 38; proof of Theorem 5.7, p. 39; proof of Theorem 6.5, p. 53",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/082",
+   "kind": "theorem",
+   "name": "THH mod p only sees R ⊗^L F_p",
+   "statement": "If R → R′ induces R ⊗^L_Z F_p ≃ R′ ⊗^L_Z F_p, then THH(R) → THH(R′) is a mod p equivalence; in particular THH(R) → THH(R̂_p) is one for R noetherian.",
+   "locator": "Lemmas 5.2–5.3, p. 38",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/083",
+   "kind": "theorem",
+   "name": "Continuity of THH for F-finite complete noetherian rings",
+   "statement": "If R is noetherian, complete along I ⊆ R and R/pR is F-finite, then THH(R) → lim_s THH(R/I^s) is an equivalence modulo p (extending [DM17, Thm. 4.5] from Z_(p)-algebras).",
+   "locator": "Proposition 5.4, p. 38",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/084",
+   "kind": "theorem",
+   "name": "Continuity is equivalent to henselian rigidity",
+   "statement": "Theorem 5.5 implies Theorem 4.36: reduce to henselizations of finite type Z-algebras, use Néron–Popescu and Elkik to write R → R̂ as a filtered colimit of split injections (Artin approximation), then continuity and Dundas–Goodwillie–McCarthy for (R̂, IR̂).",
+   "locator": "Remark 5.6, p. 39",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/085",
+   "kind": "theorem",
+   "name": "Néron–Popescu desingularization",
+   "statement": "A regular homomorphism of noetherian rings (e.g. R → R̂ for R excellent) is a filtered colimit of smooth ring maps ([Stacks, Tag 07BW]).",
+   "locator": "Remark 5.6, p. 39; proofs of Lemma 5.29 and Theorem 5.31, pp. 46–48",
+   "status": "missing",
+   "note": "The same statement is routed to SF.0 by the Česnavičius extraction (PAPER-CESNAVICIUS-22/popescu)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/086",
+   "kind": "theorem",
+   "name": "Discontinuity of K-theory without F-finiteness",
+   "statement": "If k is a field of characteristic p that is not F-finite, K(k[[t]])/p → lim_s K(k[t]/(t^s))/p is not an equivalence; it is not surjective on π_2.",
+   "locator": "Theorem 5.7, pp. 39–41",
+   "status": "missing",
+   "note": "The proof detects symbols by dlog into lim_s Ω^2 and bounds the weights of t-adic coefficients of forms from Ω^2_{k[[t]]}; its displayed congruences carry index slips (sourceIssues E3)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/087",
+   "kind": "theorem",
+   "name": "Weights of 2-forms and the Bloch–Esnault–Kerz bound",
+   "statement": "If u_1,…,u_n,v_1,…,v_n are linearly independent in a vector space V, then Σu_i ∧ v_i has weight exactly n (Lemma 5.8, via the interior product V^∨ → V of rank ≤ 2·weight). The image of Ω^2_{k[[t]]} in lim_s Ω^2_k ⊗ k[t]/(t^s) consists of Σ τ_j t^j with w(τ_j) ≤ N·C(j+2, j) for some N ([BEK14, Lem. B2], valid for any field k).",
+   "locator": "Proof of Theorem 5.7 and Lemma 5.8, pp. 39–41",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/088",
+   "kind": "theorem",
+   "name": "K_2 of local rings with many units",
+   "statement": "For local rings with infinite residue field (e.g. k[[t]], k[t]/(t^s) with k infinite), K_2^M ≅ K_2 ([vdK77, §8]).",
+   "locator": "Proof of Theorem 5.7, p. 40",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/089",
+   "kind": "definition",
+   "name": "p-adic continuity of K-theory",
+   "statement": "K-theory is p-adically continuous for R if K(R) → lim_i K(R/p^iR) is an equivalence modulo p.",
+   "locator": "Definition 5.9, p. 41",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/090",
+   "kind": "theorem",
+   "name": "Geisser–Hesselholt p-adic continuity",
+   "statement": "If R is a p-torsion-free local ring henselian along (p), K-theory is p-adically continuous at R, and K(R)/p → {K(R/p^iR)/p}_i is a pro-isomorphism on each π_j.",
+   "locator": "Theorem 5.10, p. 41",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/091",
+   "kind": "definition",
+   "name": "Nilpotent and quickly converging towers",
+   "statement": "A tower {A_i} of abelian groups is nilpotent if all A_{i+N} → A_i vanish for some N, and quickly converging if some r makes {im(A_{i+r} → A_i)} eventually constant; these form an abelian subcategory closed under extensions ([Mat15, Lem. 3.10]). A tower of spectra is nilpotent if some A_{i+N} → A_i are nullhomotopic, quickly converging if cofib({lim X_i} → {X_i}) is nilpotent, almost nilpotent/almost quickly converging if every τ_{≤n} truncation is.",
+   "locator": "Definitions 5.11, 5.12, 5.14, p. 42",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/092",
+   "kind": "theorem",
+   "name": "Formal properties of quickly converging towers",
+   "statement": "Quickly converging towers of spectra have quickly converging homotopy towers (conversely when homotopy lies in a fixed range); almost nilpotent and almost quickly converging towers form thick subcategories; geometric realizations of simplicial almost quickly converging towers of connective spectra are almost quickly converging with the expected limit; and tensor products of almost quickly converging towers of connective spectra are almost quickly converging with limit X ⊗ Y.",
+   "locator": "Lemmas 5.13, 5.15, 5.16, 5.18, pp. 42–43",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/093",
+   "kind": "theorem",
+   "name": "TC/p of almost quickly converging towers",
+   "statement": "If {X_i} is a tower in CycSp_{≥0} whose underlying tower {X_i/p} is almost quickly converging, then {TC(X_i)/p} is almost quickly converging.",
+   "locator": "Lemma 5.17, p. 43",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/094",
+   "kind": "theorem",
+   "name": "Continuity of TC along towers of ring spectra",
+   "statement": "If {R_i} is a tower of connective E_1-rings and R → lim R_i is an equivalence mod p with {R_i/p} almost quickly converging, then TC(R) → lim TC(R_i) is an equivalence mod p and {TC(R_i)/p} is almost quickly converging.",
+   "locator": "Theorem 5.19, p. 43",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/095",
+   "kind": "theorem",
+   "name": "Derived p-adic continuity of TC",
+   "statement": "For R a connective E_1-algebra in Mod_HZ, TC(R) → lim_i TC(R ⊗_HZ HZ/p^i) is a p-adic equivalence and the tower is almost quickly converging modulo p.",
+   "locator": "Theorem 5.20, p. 44",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/096",
+   "kind": "theorem",
+   "name": "Derived p-adic continuity of K-theory",
+   "statement": "If R is a connective E_1-algebra in Mod_HZ with π_0R commutative and henselian along (p), then {K(R ⊗_HZ HZ/p^i)/p} is almost quickly converging and K(R) → lim_i K(R ⊗_HZ HZ/p^i) is an equivalence modulo p.",
+   "locator": "Theorem 5.21, p. 44",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/097",
+   "kind": "theorem",
+   "name": "p-adic continuity of K-theory for rings henselian along p",
+   "statement": "If R is a commutative ring henselian along (p) with bounded p-power torsion, then K-theory is p-adically continuous at R and {K(R/p^iR)/p} is almost quickly converging.",
+   "locator": "Theorem 5.22, p. 44",
+   "status": "missing",
+   "note": "Generalizes Theorem 5.10 (no locality, no p-torsion-freeness). Remark 5.23 notes sphere-level variants using towers of E_∞-algebras approximating S^0 p-adically."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/098",
+   "kind": "definition",
+   "name": "Logarithmic de Rham–Witt groups",
+   "statement": "For an F_p-algebra R, dlog[·] : (R^×)^{⊗n} → W_rΩ^n_R, α_1 ⊗ … ⊗ α_n ↦ dlog[α_1] ∧ … ∧ dlog[α_n]; W_rΩ^n_{R,log} is the subgroup of forms that are Zariski-locally sums of dlog forms (equivalently étale-locally). The sheaves W_rΩ^n_X on an F_p-scheme have no higher cohomology on affines, W_r of an étale map is étale and W_rΩ^n_R ⊗_{W_r(R)} W_r(S) ≅ W_rΩ^n_S for R → S étale.",
+   "locator": "Definitions 5.24–5.25, p. 45",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.4",
+    "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+   ],
+   "note": "CR.4 plans W_rΩ, dlog and étale descent; HL.2 introduces logarithmic de Rham–Witt coefficients. The Zariski–étale comparison is [Morrow-HW, Cor. 4.1(iii)], item 099."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/099",
+   "kind": "theorem",
+   "name": "Morrow's structure results for logarithmic Hodge–Witt groups",
+   "statement": "For any F_p-algebra R: pro short exact sequences {W_rΩ^n_log}_r → {W_rΩ^n}_r →^{R−F} {W_{r−1}Ω^n}_r of étale sheaves ([Morrow-HW, Cor. 4.1(ii),(iii)]); ker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^m_R) = W_rΩ^m_{R,log} ([Morrow-HW, Cor. 4.2(iii)]); R − F is surjective on relative forms for F-finite noetherian I-adically complete R ([Morrow-HW, Prop. 2.20]); and the pro Illusie sequence for formal completions ([Morrow-HW, Cor. 4.8]).",
+   "locator": "§5.3 and §6.4, pp. 45–48 and 55",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/100",
+   "kind": "theorem",
+   "name": "Relative mod p K-theory of smooth henselian pairs",
+   "statement": "If (R, I) is a henselian pair of F_p-algebras with R and R/I ind-smooth, then K_n(R, I; Z/p) ≅ Ω^n_{(R,I),log} := ker(Ω^n_{R,log} → Ω^n_{R/I,log}).",
+   "locator": "Proposition 5.27, p. 46",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/101",
+   "kind": "theorem",
+   "name": "Surjectivity of R − F on relative de Rham–Witt groups",
+   "statement": "Let R be an F_p-algebra henselian along I, with W_rΩ^n_{(R,I)} := ker(W_rΩ^n_R → W_rΩ^n_{R/I}) and W_rΩ^n_{(R,I),log} := ker(W_rΩ^n_{R,log} → W_rΩ^n_{R/I,log}). Then R − F : W_rΩ^n_{(R,I)} → W_{r−1}Ω^n_{(R,I)} is surjective.",
+   "locator": "Definition 5.28, Lemma 5.29, p. 46",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/102",
+   "kind": "theorem",
+   "name": "Illusie's exact sequence for logarithmic Hodge–Witt sheaves",
+   "statement": "For X smooth over a perfect field of characteristic p (and, by Shiho, for regular F_p-schemes), W_sΩ^n_{X,log}/p^r ≅ W_rΩ^n_{X,log} for s ≥ r, so 0 → {W_sΩ^n_{X,log}}_s →^{p^r} {W_sΩ^n_{X,log}}_s →^{R^{s−r}} W_rΩ^n_{X,log} → 0 is exact as pro étale sheaves ([Ill79, §I.5.7], [Shi07, Cor. 2.13]).",
+   "locator": "§5.3, before Lemma 5.30, p. 47",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/103",
+   "kind": "theorem",
+   "name": "The relative pro Illusie sequence",
+   "statement": "Let R be F-finite, regular, noetherian and henselian along I, and n ≥ 0. Then 0 → {W_sΩ^n_{(R,I^s),log}}_s →^{p^r} {W_sΩ^n_{(R,I^s),log}}_s →^{R^{s−r}} {W_rΩ^n_{(R,I^s),log}}_s → 0 is exact for every r ≥ 1.",
+   "locator": "Lemma 5.30, pp. 47–48",
+   "status": "missing",
+   "note": "The proof's displays print R^{r−s} for R^{s−r} (sourceIssues E4)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/104",
+   "kind": "theorem",
+   "name": "Pro HKR for TR of regular F-finite rings and their quotients",
+   "statement": "For R regular noetherian F-finite and I ⊆ R, λ_R : {W_sΩ^n_R}_s → {TR^s_n(R; p)}_s and λ : {W_sΩ^n_{R/I^s}}_s → {TR^s_n(R/I^s; p)}_s are pro-isomorphisms (Hesselholt; Dundas–Morrow [DM17, Cor. 4.15]); hence {W_sΩ^n_{(R,I^s)}}_s ≅ {TR^s_n(R, I^s; p)}_s.",
+   "locator": "Proof of Theorem 5.31, p. 48",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/105",
+   "kind": "theorem",
+   "name": "Relative pro Geisser–Levine for henselian ideals",
+   "statement": "Let R be an F-finite regular noetherian F_p-algebra henselian along I ⊆ R; fix n, r ≥ 0. The trace induces an isomorphism of pro abelian groups {K_n(R, I^s; Z/p^r)}_s ≅ {W_rΩ^n_{(R,I^s),log}}_s.",
+   "locator": "Theorem 5.31, p. 48",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/106",
+   "kind": "theorem",
+   "name": "Pro comparison with Milnor K-theory and p-torsion-freeness",
+   "statement": "For R F-finite regular noetherian and I ⊆ R with R/I local, and n, r ≥ 0: {K^M_n(R/I^s)/p^r}_s → {K_n(R/I^s; Z/p^r)}_s is surjective with the same kernel as dlog[·] : {K^M_n(R/I^s)/p^r}_s → {W_rΩ^n_{R/I^s}}_s (for classical or Kerz's improved Milnor K-theory), and {K_n(R/I^s)}_s is p-torsion-free.",
+   "locator": "Corollary 5.33, p. 49",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/107",
+   "kind": "theorem",
+   "name": "Lifting classes and relative pro Geisser–Levine for local rings",
+   "statement": "For R F-finite regular noetherian local and I ⊆ R, and n, r ≥ 0: 0 → {K_n(R, I^s; Z/p^r)}_s → K_n(R; Z/p^r) → {K_n(R/I^s; Z/p^r)}_s → 0 is short exact; there is s such that any class of K_n(R/I; Z/p^r) lifting to K_n(R/I^s; Z/p^r) is symbolic and lifts to K_n(R); and {K_n(R, I^s; Z/p^r)}_s ≅ {W_rΩ^n_{(R,I^s),log}}_s via the trace.",
+   "locator": "Corollaries 5.34–5.35, pp. 49–50",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/108",
+   "kind": "theorem",
+   "name": "Rigid invariants agree on separably closed fields (after Suslin)",
+   "statement": "Let F : Ring → Ab commute with filtered colimits and be rigid for henselian pairs. Then F(K) ≅ F(L) for any extension K → L of separably closed fields.",
+   "locator": "Proposition 6.2, pp. 50–51",
+   "status": "missing",
+   "note": "Suslin's argument: for a connected smooth affine k-scheme X, x^*α ∈ F(k) is independent of the k-point x. The proof prints x^*α = 0 for x_0^*α = 0 (sourceIssues E5)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/109",
+   "kind": "theorem",
+   "name": "Étale sheaves of K/p and TC/p",
+   "statement": "Let π_n(𝒦/p), π_n(𝒯𝒞/p) be the étale sheafifications of π_n(K(−)/p), π_n(TC(−)/p) on a scheme X and i : (X ×_Z F_p)_et → X_et. Theorem 6.1 (with TC/p = 0 where p is invertible) is equivalent to π_n(𝒯𝒞/p) ≃ i_*i^*π_n(𝒦/p), adjoint to the trace; likewise mod p^s.",
+   "locator": "§6.1, equation (25), p. 51",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/110",
+   "kind": "theorem",
+   "name": "p-adic étale K-theory of schemes proper over a ring henselian along p",
+   "statement": "Let X be proper over Spec R with R henselian along (p), and K̂^ét the étale Postnikov sheafification of K. Then K̂^ét(X)/p → TC(X)/p is an equivalence.",
+   "locator": "Theorem 6.3, p. 51",
+   "status": "missing",
+   "note": "Uses that TC/p is an étale Postnikov sheaf ([CM21, Thm. 5.16]; [GH99, §3] for affines), proper base change and Gabber's affine analogue, and Lemma 6.4."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/111",
+   "kind": "theorem",
+   "name": "Étale Postnikov sheafification and hyperdescent inputs",
+   "statement": "TC/p is an étale Postnikov sheaf on qcqs schemes ([CM21, Thm. 5.16]); the Nisnevich topos of Spec R with R of finite Krull dimension has finite homotopy dimension ([CM21, Th. 3.17]; [SAG, Thm. 3.7.7.1] for R noetherian), so Postnikov towers converge; and TC/p^r is a Nisnevich sheaf (Blumberg–Mandell).",
+   "locator": "Proofs of Theorems 6.3 and 6.5, pp. 51–53",
+   "status": "missing",
+   "note": "Clausen–Mathew, Hyperdescent and étale K-theory, is queued as PAPER-CLAUSEN-MATHEW-21."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/112",
+   "kind": "theorem",
+   "name": "Proper base change",
+   "statement": "For X proper over Spec R and torsion étale sheaves, higher direct images commute with base change.",
+   "locator": "Proof of Theorem 6.3, p. 51",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "EtaleDualityAndPerverseSheaves:EDC.0"
+   ],
+   "note": "As in the Bhatt–Mathew arc-topology extraction (item 5 there)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/113",
+   "kind": "theorem",
+   "name": "Gabber's affine analogue of proper base change",
+   "statement": "If (R, I) is a henselian pair, H^j_et(Spec R, 𝓕) ≅ H^j_et(Spec R/I, 𝓕|) for torsion étale sheaves 𝓕; combined with proper base change this gives H^j_et(X, 𝓕) ≅ H^j_et(X ×_R R/pR, i^*𝓕) for X proper over R henselian along (p).",
+   "locator": "Proof of Theorem 6.3, p. 51",
+   "status": "missing",
+   "note": "Routed with the same statement of the Bhatt–Mathew arc-topology extraction (PAPER-BHATT-MATHEW-21/25)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/114",
+   "kind": "theorem",
+   "name": "Mod p étale cohomological dimension of F_p-algebras",
+   "statement": "For any F_p-algebra R, the mod p étale cohomological dimension of Spec R is ≤ 1.",
+   "locator": "Lemma 6.4, p. 52",
+   "status": "missing",
+   "note": "Noetherian case by Artin–Schreier ([SGA4, X.5.1]); general case by [SGA4, IX.5.5] and commutation with filtered colimits."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/115",
+   "kind": "theorem",
+   "name": "Nisnevich descent for nonconnective K-theory",
+   "statement": "𝕂(−)/p^r is a Nisnevich sheaf of spectra on Spec R (Thomason–Trobaugh).",
+   "locator": "Proof of Theorem 6.5, p. 52",
+   "status": "planned",
+   "planned": [
+    "SchemeKTheoryOperations:S.4"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/116",
+   "kind": "theorem",
+   "name": "p-adic Lichtenbaum–Quillen for rings henselian along p",
+   "statement": "If R is henselian along (p), Spec(R/p) has finite Krull dimension and [k(x) : k(x)^p] ≤ p^d (d ≥ 1) for all x, then K(R)/p^r → K̂^ét(R)/p^r is an equivalence in degrees ≥ d for every r.",
+   "locator": "Corollary 6.6, p. 53",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/117",
+   "kind": "theorem",
+   "name": "F-finite noetherian F_p-algebras",
+   "statement": "If R is a noetherian F-finite F_p-algebra generated by p^d elements over its Frobenius, then K(R)/p → TC(R)/p is an equivalence in degrees ≥ d (d = 0: R is a finite product of perfect fields).",
+   "locator": "Example 6.7, p. 53",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/118",
+   "kind": "theorem",
+   "name": "K and TC of perfect F_p-algebras",
+   "statement": "For R a perfect F_p-algebra, K(R)/p^r → TC(R)/p^r is an equivalence on connective covers: TC_i(R) = 0 for i > 0, with THH_*(R) = R[σ], TC^−_*(R) = W(R)[x, σ]/(xσ − p), TP_*(R) = W(R)[x^{±1}]; for connected Spec R, π_0(TC(R)/p^r) = Z/p^r and π_{−1}(TC(R)/p^r) = coker(F − 1 on W_r(R)); K_i(R) is a Z[1/p]-module for i > 0 because ψ^p is the Frobenius ([Hil81], [Kra80]).",
+   "locator": "Example 6.8, p. 53",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/119",
+   "kind": "theorem",
+   "name": "Semiperfect reductions",
+   "statement": "If R is henselian along (p) and R/p is semiperfect, then K(R)/p^r → TC(R)/p^r is an equivalence in degrees ≥ 0 for every r.",
+   "locator": "Corollary 6.9, p. 53",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/120",
+   "kind": "theorem",
+   "name": "K-theory and TC of O_C",
+   "statement": "For C a complete nonarchimedean field with perfect residue field of characteristic p (e.g. perfectoid, or C_p), (O_C, 𝔪_C) is henselian and K(O_C)/p^r → TC(O_C)/p^r exhibits the source as the connective cover of the target, recovering Nizioł's and Hesselholt's calculations for O_{C_p}.",
+   "locator": "Example 6.10, pp. 53–54",
+   "status": "missing",
+   "note": "The printed 'K(O_C; Z_p) ≃ K(C; C_p)' should read K(C; Z_p) (sourceIssues E6)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/121",
+   "kind": "theorem",
+   "name": "Identification of the complementary summand",
+   "statement": "For any F_p-algebra R, ν̃^m_r(R) := H^1(Spec(R′)_et; π_m(𝒯𝒞/p^r)) (R′ → R the henselized free ind-smooth cover) is naturally coker(π − F̄ : W_rΩ^m_R → W_rΩ^m_R/dV^{r−1}Ω^m_R); for r = 1 it is ν̃^m(R). The cokernel of π − F̄ is rigid for henselian pairs and π − F̄ is surjective étale-locally.",
+   "locator": "Proposition 6.12, p. 55; before Theorem 6.11, p. 54",
+   "status": "missing",
+   "note": "The paragraph before Theorem 6.11 defines π_{n+1}(𝒯𝒞/p^r) as the sheafification of π_n(TC(−)/p^r) (sourceIssues E7)."
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/122",
+   "kind": "theorem",
+   "name": "Strictly henselian local rings and strict henselization",
+   "statement": "A local ring is strictly henselian if it is henselian with separably closed residue field; strict henselizations exist.",
+   "locator": "§6.1, p. 50",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem"
+   ],
+   "note": "Tau Ceti's Modular Curves layer 4D owns strict henselisation as general scheme-level API."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Thomas Nikolaus and Peter Scholze, On topological cyclic homology, Acta Math. 221 (2018), 203–409",
+   "link": "https://doi.org/10.4310/ACTA.2018.v221.n2.a1",
+   "why": "The ∞-category of cyclotomic spectra, TC = fib(can − φ) for bounded-below p-complete objects, the Tate orbit lemma, trivial cyclotomic spectra and Frobenius lifts: the whole of §2 is phrased in it. Also listed by the AMMN extraction."
+  },
+  {
+   "citation": "Ofer Gabber, K-theory of Henselian local rings and Henselian pairs, Contemp. Math. 126 (1992), 59–70",
+   "link": "https://doi.org/10.1090/conm/126/00509",
+   "why": "Rigidity for n invertible (Theorem 1.4), henselian nonunital rings and Proposition 1 (Proposition 3.16), free henselian Q-algebras (Corollary 3.23), and the two-step structure of the rigidity proof that §4.2 axiomatizes."
+  },
+  {
+   "citation": "Thomas Geisser and Marc Levine, The K-theory of fields in characteristic p, Invent. Math. 139 (2000), 459–493",
+   "link": "https://doi.org/10.1007/s002220050014",
+   "why": "K_n(R; Z/p^r) ≅ W_rΩ^n_log for ind-smooth local F_p-algebras and p-torsion-freeness of K_n(R): the equal-characteristic input of Theorem 4.29 and of §5.3."
+  },
+  {
+   "citation": "Thomas Geisser and Lars Hesselholt, Topological cyclic homology of schemes, Proc. Sympos. Pure Math. 67 (1999), 41–87",
+   "link": "https://doi.org/10.1090/pspum/067/1743237",
+   "why": "TC/p of smooth F_p-schemes, its étale descent and the comparison with K/p (Theorem 4.29(2)); the trace as dlog on symbols."
+  },
+  {
+   "citation": "Thomas Geisser and Lars Hesselholt, Bi-relative algebraic K-theory and topological cyclic homology, Invent. Math. 166 (2006), 359–395; Markus Land and Georg Tamme, On the K-theory of pullbacks, Ann. of Math. 190 (2019), 877–930",
+   "link": "https://doi.org/10.4007/annals.2019.190.3.4",
+   "why": "Excision for K^inv (Theorem 4.33), used to reduce every henselian pair to (Z ⋉ I, I). Geisser–Hesselholt's DOI is 10.1007/s00222-006-0515-y."
+  },
+  {
+   "citation": "Thomas Geisser and Lars Hesselholt, On the K-theory and topological cyclic homology of smooth schemes over a discrete valuation ring, Trans. Amer. Math. Soc. 358 (2006), 131–145",
+   "link": "https://doi.org/10.1090/S0002-9947-04-03599-8",
+   "why": "p-adic continuity of K-theory for p-torsion-free local rings henselian along p (Theorem 5.10), generalized in Theorem 5.22."
+  },
+  {
+   "citation": "Bjørn Ian Dundas and Matthew Morrow, Finite generation and continuity of topological Hochschild and cyclic homology, Ann. Sci. Éc. Norm. Supér. (4) 50 (2017), 201–238",
+   "link": "https://doi.org/10.24033/asens.2319",
+   "why": "THH continuity for F-finite noetherian rings (Thm. 4.5, used in Proposition 5.4), finite generation of the cotangent complex (Cor. 3.8) and the pro HKR theorem (Cor. 4.15) used in Theorem 5.31."
+  },
+  {
+   "citation": "Matthew Morrow, K-theory and logarithmic Hodge–Witt sheaves of formal schemes in characteristic p, Ann. Sci. Éc. Norm. Supér. (4) 52 (2019), 1537–1601",
+   "link": "https://doi.org/10.24033/asens.2415",
+   "why": "The pro Geisser–Levine theorem in the generalised normal crossing case, and the structure results on logarithmic Hodge–Witt groups (Cor. 4.1, 4.2, 4.8, Prop. 2.20) that §§5.3 and 6.4 rely on."
+  },
+  {
+   "citation": "Lars Hesselholt, On the p-typical curves in Quillen's K-theory, Acta Math. 177 (1996), 1–53",
+   "link": "https://doi.org/10.1007/BF02392597",
+   "why": "The HKR theorem TR^s_*(R; p) ≅ W_sΩ^*_R ⊗ Z/p^s[σ_s] for smooth F_p-algebras and the Witt-complex maps λ_{s,R} (Theorem 2.25 and proof of Theorem 5.31)."
+  },
+  {
+   "citation": "Wilberd van der Kallen, Homology stability for linear groups, Invent. Math. 60 (1980), 269–295",
+   "link": "https://doi.org/10.1007/BF01390018",
+   "why": "Homological stability for GL_n with a range independent of the henselian ideal, the key input of Proposition 4.19."
+  },
+  {
+   "citation": "Dustin Clausen and Akhil Mathew, Hyperdescent and étale K-theory, Invent. Math. 225 (2021), 981–1076",
+   "link": "https://doi.org/10.1007/s00222-021-01043-3",
+   "why": "Finite homotopy dimension of Nisnevich topoi of finite Krull dimension and the étale Postnikov sheaf property of TC/p, used in Theorems 6.3 and 6.5. Queued as PAPER-CLAUSEN-MATHEW-21."
+  },
+  {
+   "citation": "Andrew J. Blumberg and Michael A. Mandell, Localization theorems in topological Hochschild homology and topological cyclic homology, Geom. Topol. 16 (2012), 1053–1120",
+   "link": "https://doi.org/10.2140/gt.2012.16.1053",
+   "why": "Nisnevich descent for TC, used in the proof of Theorem 6.5."
+  },
+  {
+   "citation": "Spencer Bloch, Hélène Esnault and Moritz Kerz, Deformation of algebraic cycle classes in characteristic zero, Algebr. Geom. 1 (2014), 290–310",
+   "link": "https://doi.org/10.14231/AG-2014-015",
+   "why": "Appendix B, Lemma B2: the weight bound on t-adic coefficients of forms from Ω^2_{k[[t]]}, the engine of the discontinuity Theorem 5.7."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "RefinedTraceMethods",
+   "roadmap": "RefinedTraceMethodsPartIIHenselianPairs",
+   "title": "Hochschild, cyclotomic and refined trace methods, Part II: K-theory and topological cyclic homology of henselian pairs",
+   "area": "ktheory",
+   "prerequisites": [
+    "RefinedTraceMethods",
+    "GeneralAlgebraicKTheory",
+    "StableHomotopyKTheory",
+    "KTheoryFiniteLocalFields",
+    "SchemeKTheoryOperations",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "EnhancedDerivedSheaves",
+    "SchemeAndStackFoundations",
+    "ArcTopologyAndDescent"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/001",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/005",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/006",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/007",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/008",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/009",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/010",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/011",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/012",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/017",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/018",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/019",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/020",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/021",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/022",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/023",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/024",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/025",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/026",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/027",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/028",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/029",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/030",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/035",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/037",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/038",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/039",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/040",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/041",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/042",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/045",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/047",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/048",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/049",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/050",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/051",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/053",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/054",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/055",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/056",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/057",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/058",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/059",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/060",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/062",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/063",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/065",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/066",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/067",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/068",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/069",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/070",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/071",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/072",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/073",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/075",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/077",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/078",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/079",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/082",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/083",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/084",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/086",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/087",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/088",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/099",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/100",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/101",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/103",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/104",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/105",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/106",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/107",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/108",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/109",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/110",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/111",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/114",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/116",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/117",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/118",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/119",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/120",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/121"
+   ],
+   "brief": "First prerequisite: Hochschild, cyclotomic and refined trace methods (RefinedTraceMethods). RT.2 plans cyclotomic spectra, TC, TC^−, TP and the Nikolaus–Scholze formula. RT.3 plans the cyclotomic trace and the Dundas–Goodwillie–McCarthy theorem, and asks for 'the map-level square for … a henselian pair in the proven range' without planning a proof. This Part II supplies that theorem with its proof and its consequences. RT.3's henselian export, and the Part II proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses), should import Theorem 4.36 from here.\n\nFinal theorems, as the paper states them (arXiv v2 numbering):\n- Theorem 4.36 (Theorem A). For a henselian pair (R, I) and every prime p, K^inv(R) → K^inv(R/I) is an equivalence modulo p; equivalently K(R, I)/p ≃ TC(R, I)/p.\n- Theorem 2.7 and Corollary 2.15 (Theorem G). TC/p commutes with all colimits on CycSp_{≥0}, and with sifted colimits of connective E_1-rings.\n- Theorem 6.5 (Theorem B). If R is henselian along (p), R/p has finite Krull dimension and [k(x):k(x)^p] ≤ p^d with d ≥ 1, then K(R)/p^r → TC(R)/p^r is an equivalence in degrees ≥ d. Corollary 6.6 is the p-adic Lichtenbaum–Quillen statement.\n- Theorem 6.1 (Theorem C) and Theorem 6.3. K^inv(R)/p = 0 for R strictly henselian local of residue characteristic p, and K̂^ét(X)/p ≃ TC(X)/p for X proper over a ring henselian along (p).\n- Theorem 6.11 (Theorem D). Split injectivity for local F_p-algebras, with the complement identified in Proposition 6.12.\n- Theorem 5.5 (Theorem F). K(R) → lim K(R/I^s) is an equivalence mod p for R noetherian, I-adically complete, with R/p F-finite. Theorem 5.7 shows the F-finiteness hypothesis is needed.\n- Theorems 5.26 and 5.31 (Theorem E). Pro Geisser–Levine for F-finite regular local F_p-algebras, with Corollaries 5.33–5.35.\n\nCover every construction on the way, in this order.\n(1) Finiteness of TC/p (§2):\n- connectivity (Lemma 2.5);\n- trivial cyclotomic spectra and HF_p^triv, with Lemma 2.10 (Frobenius kills x);\n- the cofibre sequences of Lemma 2.11 and TC(X) ≃ fib(X → X_{hS^1}) for HF_p^triv-modules (Proposition 2.12);\n- the approximation of Proposition 2.19 and the pro-constancy of TC^r/p (Lemmas 2.20–2.21, Proposition 2.22);\n- the de Rham–Witt route for F_p-algebras (Proposition 2.26), and Proposition 2.27 for strict Dieudonné complexes, which the paper leaves to the reader: supply its proof.\n(2) Nonunital henselian rings (§3):\n- nonunital, local and henselian nonunital algebras, their reflections and free objects, and the Lawvere-theory point of view;\n- Gabber's criterion that henselianity depends only on I (Proposition 3.16);\n- henselization and Milnor squares (Lemma 3.21, Corollary 3.22), and free henselian Q-algebras as colimits (Corollary 3.23).\n(3) Pseudocoherence (§4.1):\n- perfect and pseudocoherent functors, relative to a subcategory;\n- their characterizations and closure properties;\n- the Goodwillie tower of Σ^∞Ω^∞ and the passage through Σ^∞Ω^∞ and HZ.\n(4) The axiomatic rigidity argument: Lemma 4.15 and Proposition 4.16, with the simplicial-resolution description (Corollary 4.18).\n(5) Projective pseudocoherence of C_*(BGL_∞(Z ⋉ I)), K(Z ⋉ I), HI, THH and TC/p (Propositions 4.19–4.26), using van der Kallen's homological stability, which nothing else plans.\n(6) The equal-characteristic case:\n- ν^n and ν̃^n, and Lemma 4.28;\n- the Geisser–Levine and Geisser–Hesselholt theorems, stated as imported theorems with their exact hypotheses;\n- Proposition 4.31 (rigidity of ν̃) and Proposition 4.32.\n(7) The proof of Theorem 4.36 via K^inv of nonunital rings and Proposition 4.34 / Corollary 4.35. Record Remark 4.39's integral counterexample.\n(8) I-adic continuity: Lemmas 5.2–5.3, Proposition 5.4 with Dundas–Morrow, Remark 5.6, Theorem 5.7 with Lemma 5.8 and the Bloch–Esnault–Kerz bound (correcting the index slips of sourceIssues E3).\n(9) Pro Geisser–Levine:\n- Morrow's logarithmic Hodge–Witt results;\n- Proposition 5.27, Lemmas 5.29–5.30 and the pro HKR theorem of Dundas–Morrow;\n- Theorem 5.31 and Corollaries 5.32–5.35.\n(10) §6:\n- Theorem 6.1, Proposition 6.2 and the étale sheaf reformulation;\n- Theorem 6.3, with Clausen–Mathew's hyperdescent inputs and Lemma 6.4;\n- Theorem 6.5, Corollary 6.6 and Examples 6.7–6.10;\n- Theorem 6.11 and Proposition 6.12.\n\nImport, never re-plan:\n- RefinedTraceMethods RT.2 (cyclotomic spectra, the Nikolaus–Scholze formula, classical TR/TC, THH of rings, and Hesselholt's HKR theorem routed there by this extraction) and RT.3 (the trace, Dundas–Goodwillie–McCarthy, K^inv excision).\n- GeneralAlgebraicKTheory K.2, K.5, K.6, K.7 (K-theory of rings and the plus construction, relative and nonconnective K-theory, Bass excision, filtered colimits) and StableHomotopyKTheory H.3, H.6 (plus construction, E/m, Bockstein and Milnor sequences).\n- KTheoryFiniteLocalFields L.2 (Gabber rigidity away from p).\n- SchemeKTheoryOperations S.4 (Thomason–Trobaugh descent) and S.6 (Adams operations).\n- CrystallineCohomology CR.4 (de Rham–Witt complexes, strict Dieudonné complexes, logarithmic forms and Illusie's sequence) and DerivedDeRhamCohomology DD.3 (Cartier isomorphism).\n- HigherLocalFieldsAndHigherClassFieldTheory HL.2 (logarithmic de Rham–Witt coefficients).\n- EnhancedDerivedSheaves E3 (Kan extensions).\n- ArithmeticLocallySymmetricSpaces ALS.2 (Borel–Serre).\n- SchemeAndStackFoundations SF.0 and SF.2 (henselian pairs, henselization, Elkik, Popescu, étale cohomology and proper base change) and Tau Ceti's Modular Curves layer 4D (strict henselization).\n- DeformationAndDerivedPatchingAlgebra R03.1/R03.3 (F-finiteness and excellence).\n- ArcTopologyAndDescent (Gabber's affine proper base change).\n- Mathlib's HenselianRing and HenselianLocalRing.\nThe p-adic continuity theorems of §5.2 go to the AMMN Part II, which this roadmap supplies with Theorem 4.36.\n\nUnit tests:\n- a square-zero extension (Dundas–Goodwillie–McCarthy);\n- (Z_p, (p)) and O_{C_p} (Example 6.10);\n- F_p[t]^h at (t) against F_p;\n- the perfection of F_p[[x]] for Remark 4.39;\n- k[[t]] with k = F_p(t_1, t_2, …) for Theorem 5.7;\n- F_p[x]/(x^2) for Theorem D.\nSupply a suggested Lean file.",
+   "reason": "The rigidity of K^inv for henselian pairs is the henselian extension of RT.3's Dundas–Goodwillie–McCarthy theorem, and it rests on RT.2's cyclotomic spectra. Nothing in the atlas plans the finiteness of TC/p, nonunital henselian rings, pseudocoherent functors, the equal-characteristic Geisser–Levine/Geisser–Hesselholt input, or the paper's consequences (I-adic continuity, pro Geisser–Levine, étale K = TC, the asymptotic comparison, split injectivity). These are new layers in RefinedTraceMethods' direction, so they form a Part II; the AMMN Part II covers deformation of classes, not rigidity."
+  },
+  {
+   "route": "part-ii",
+   "parent": "RefinedTraceMethods",
+   "roadmap": "RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses",
+   "title": "Hochschild, cyclotomic and refined trace methods, Part II: p-adic deformation of K-theory classes",
+   "area": "motivic",
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/089",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/090",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/091",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/092",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/093",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/094",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/095",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/096",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/097"
+   ],
+   "brief": "This route adds a source to the Part II of Hochschild, cyclotomic and refined trace methods proposed by the AMMN extraction (RefinedTraceMethodsPartIIPadicDeformationOfKTheoryClasses). That brief already requires 'continuous invariants F^cts(X) = lim_n F(X_n) … with the continuity theorems saying which comparison maps F(X) → F^cts(X) are p-adic equivalences'. Clausen–Mathew–Morrow §5.2 proves those theorems for K and TC.\n\nPlan:\n- nilpotent, quickly converging, almost nilpotent and almost quickly converging towers of abelian groups and spectra, with Mathew's Lemmas 3.10–3.11 (Geom. Topol. 19) and Lemmas 5.13, 5.15–5.18;\n- Theorem 5.19 (continuity of THH and TC along almost quickly converging towers of connective E_1-rings);\n- Theorem 5.20 (derived p-adic continuity of TC for HZ-algebras);\n- Theorem 5.21 (derived p-adic continuity of K when π_0 is commutative and henselian along p);\n- Theorem 5.22 (p-adic continuity of K for commutative rings henselian along p with bounded p-power torsion, generalizing Geisser–Hesselholt's Theorem 5.10);\n- Remark 5.23's variant over the sphere.\n\nImport Theorem 4.36 (rigidity for henselian pairs) and Remark 2.8 from the proposed RefinedTraceMethodsPartIIHenselianPairs, and TC and THH from RefinedTraceMethods RT.2.\n\nUnit tests:\n- R = Z_p;\n- R = Z_p[x]/(px), with bounded p-torsion;\n- a ring with unbounded p-power torsion, where Theorem 5.22 does not apply.",
+   "reason": "The AMMN extraction's proposed Part II already owns the continuity theorems for K and TC of p-adic formal schemes; §5.2 proves them, so routing it there keeps one owner for p-adic continuity."
+  },
+  {
+   "route": "new",
+   "roadmap": "ArcTopologyAndDescent",
+   "title": "The arc-topology and descent for étale cohomology",
+   "area": "etale",
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/113"
+   ],
+   "brief": "This route adds one consumer to the new roadmap proposed by the Bhatt–Mathew arc-topology extraction (PAPER-BHATT-MATHEW-21), which already routes Gabber–Huber's affine analogue of proper base change there (item 25). Clausen–Mathew–Morrow use it, with proper base change (SchemeAndStackFoundations SF.2), to reduce the torsion étale cohomology of a scheme proper over a ring henselian along (p) to its special fibre (proof of Theorem 6.3). Follow that brief. Unit tests: Spec of a henselian DVR, and a finite étale cover of it.",
+   "reason": "Gabber's affine analogue of proper base change is already routed to this proposed roadmap by the Bhatt–Mathew extraction."
+  },
+  {
+   "route": "source",
+   "roadmap": "SchemeAndStackFoundations",
+   "stages": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/043",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/044",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/046",
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/085"
+   ],
+   "reason": "The equivalent characterizations of henselian pairs, henselization of pairs, Elkik's theorem and Néron–Popescu are standard Stacks-project commutative algebra; SF.0 already receives Néron–Popescu from the Česnavičius extraction, and these belong with it."
+  },
+  {
+   "route": "source",
+   "roadmap": "DeformationAndDerivedPatchingAlgebra",
+   "stages": [
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/080"
+   ],
+   "reason": "R03.3 states excellence and catenarity hypotheses for local rings; Kunz's finiteness of F-finite rings, F-finiteness of henselizations and regularity of completions of excellent rings belong there, as in the Bhatt–Mathew syntomic extraction."
+  },
+  {
+   "route": "source",
+   "roadmap": "DerivedDeRhamCohomology",
+   "stages": [
+    "DerivedDeRhamCohomology:DD.0"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/081"
+   ],
+   "reason": "DD.0 owns cotangent complexes and Kähler differentials; finite generation of π_nL for F-finite rings and dim Ω^1_k = log_p[k:k^p] via p-bases are statements about them."
+  },
+  {
+   "route": "source",
+   "roadmap": "CrystallineCohomology",
+   "stages": [
+    "CrystallineCohomology:CR.4"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/102"
+   ],
+   "reason": "CR.4 owns classical de Rham–Witt theory of smooth (and, by Popescu, regular) F_p-algebras; Illusie's I.5.7 sequence for logarithmic Hodge–Witt sheaves and Shiho's extension are part of that theory."
+  },
+  {
+   "route": "source",
+   "roadmap": "RefinedTraceMethods",
+   "stages": [
+    "RefinedTraceMethods:RT.2"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/033"
+   ],
+   "reason": "CR.4 assigns the THH/TR realization of de Rham–Witt to RefinedTraceMethods, and RT.2 plans agreement with the classical TR/TC formulation; Hesselholt's HKR theorem for TR of smooth F_p-algebras is that realization."
+  },
+  {
+   "route": "source",
+   "roadmap": "RefinedTraceMethods",
+   "stages": [
+    "RefinedTraceMethods:RT.3"
+   ],
+   "items": [
+    "PAPER-CLAUSEN-MATHEW-MORROW-21/074"
+   ],
+   "reason": "RT.3 lists excision among the named inputs of the relative K/TC comparison; the Cortiñas–Geisser–Hesselholt–Land–Tamme excision theorem for 𝕂^inv is that input in its general form."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E1",
+   "kind": "misprint",
+   "locator": "§1.2, paragraph after Theorem G, p. 5 (arXiv 1803.10897v2)",
+   "printed": "it relies heavily on the calculations of Geisser–Levine [GH] and Geisser–Hesselholt [GH] of p-adic algebraic K-theory and topological cyclic homology",
+   "correction": "Geisser–Levine [GL] and Geisser–Hesselholt [GH] (in the PDF numbering, [34] and [30]).",
+   "reason": "The PDF prints [30] twice; [30] is Geisser–Hesselholt, Topological cyclic homology of schemes, and the Geisser–Levine paper is [34], as cited correctly in Theorem 1.5 and at the start of §4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897 listing (v1 29 March 2018, v2 20 July 2020 'revised and final version') and the v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961 (no update-to or correction relation)",
+    "the AMS page of J. Amer. Math. Soc. 34 (2021) 411–473 (the PDF returned HTTP 403, not read)",
+    "the second author's home page (links to arXiv only)"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E2",
+   "kind": "misprint",
+   "locator": "Remark 3.11, p. 20",
+   "printed": "In this case, one takes for U the forgetful functor taking the underlying set, and its right adjoint F is the free ring, nonunital ring, group, etc. on the given set.",
+   "correction": "its left adjoint F is the free ring, nonunital ring, group, etc.",
+   "reason": "Condition (Law) two sentences earlier asks U to admit a left adjoint F, and the free-object functor is left adjoint to the forgetful functor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E3",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.7, pp. 40–41",
+   "printed": "let b_1^{(j)}, …, b_{w_j}^{(j)}, c_1^{(j)}, …, c_{w_j}^{(j)} ∈ k_i be part of such a relative p-basis … dlog(1 + t^jb) ∧ dlog(1 + t^jc) ≡ t^{2j} da ∧ db mod dt, t^{3j} … τ_{2s−2} ≡ Σ_{i=1}^{w_s} b_i^{(s)} ∧ c_i^{(s)} mod Ω^2_{k_{s−1}}",
+   "correction": "The elements lie in k_j; dlog(1 + t^jb) ∧ dlog(1 + t^jc) ≡ t^{2j} db ∧ dc mod dt, t^{3j}; and τ_{2s} ≡ Σ_{i=1}^{w_s} db_i^{(s)} ∧ dc_i^{(s)} modulo the image of Ω^2_{k_{s−1}}, so the growth condition on w_j should use C(2j+2, 2j) (the bound of Lemma B2 at index 2j).",
+   "reason": "dlog(1 + t^jb) ≡ t^j db mod (dt, t^{2j}), so the jth block of f contributes to the coefficient of t^{2j}, not t^{2j−2}, and the coefficient is a 2-form in db ∧ dc. The argument is unaffected: C(2j+2, 2j)/C(2j, 2j−2) ≤ 6 for j ≥ 1, so a sequence w_j that defeats one bound defeats the other.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E4",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 5.30, displays on p. 47",
+   "printed": "{W_sΩ^n_{X,log}}_s →^{p^r} {W_sΩ^n_{X,log}}_s →^{{R^{r−s}}_s} W_rΩ^n_{X,log} (and the same R^{r−s} in the other two displays)",
+   "correction": "The maps are {R^{s−r}}_s, the (s − r)-fold restriction W_s → W_r, as in the statement of Lemma 5.30 and in Illusie's sequence recalled just before it.",
+   "reason": "Restriction lowers the level by one, so passing from W_s to W_r (s ≥ r) needs s − r restrictions; r − s is non-positive.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 6.2, first paragraph, p. 50",
+   "printed": "Replacing α by α − q^*x_0^*α, we can assume x^*α = 0.",
+   "correction": "we can assume x_0^*α = 0.",
+   "reason": "Subtracting the constant class q^*x_0^*α kills the pullback at the fixed point x_0; the next sentence then uses rigidity at the henselization of X at x_0 to make α vanish near x_0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E6",
+   "kind": "misprint",
+   "locator": "Example 6.10, p. 54",
+   "printed": "the p-adic K-theory of O_C was calculated by Nizioł, cf. [Niz98, Lem 3.1] which shows that K(O_C; Z_p) ≃ K(C; C_p)",
+   "correction": "K(O_C; Z_p) ≃ K(C; Z_p)",
+   "reason": "The coefficients are p-adic (Z_p) on both sides; the sentence continues that this is p-adic connective topological K-theory by Suslin, which is a statement about K(C; Z_p).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E7",
+   "kind": "misprint",
+   "locator": "§6.4, paragraph before Theorem 6.11, p. 54",
+   "printed": "is given by H^1(Spec(R)_ét; π_{n+1}(𝒯𝒞/p^r)), where π_{n+1}(𝒯𝒞/p^r) denotes the étale sheafification of the presheaf π_n(TC(−)/p^r).",
+   "correction": "the étale sheafification of the presheaf π_{n+1}(TC(−)/p^r).",
+   "reason": "The complementary summand of π_n(K(R)/p^r) comes from the E_2^{1,−(n+1)} term of the étale descent spectral sequence, i.e. H^1 of the sheaf of π_{n+1}; for r = 1 this is ν̃^{n+1}(R) = H^1(Spec R_et, ν^{n+1}), as in Theorem 4.29 and the proof of Theorem 6.11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1803.10897v2 TeX source and PDF",
+    "Crossref metadata for DOI 10.1090/jams/961"
+   ]
+  }
+ ]
+}
