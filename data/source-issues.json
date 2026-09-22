@@ -18043,6 +18043,174 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-YUN-ZHANG-17/E1",
+   "kind": "misprint",
+   "locator": "Proposition B.1, p. 902, and §B.2, p. 903 (published; also arXiv v3) — both verified on rendered page images, since a text layer drops the superscript",
+   "printed": "\"φ^{(r)}(0) := (d/ds)|_{s=0}φ(s) ≥ 0\" (Proposition B.1) and \"Λ^{(r)}(π, 1/2) := (d/ds)|_{s=1/2}Λ(π, s)\" (§B.2)",
+   "correction": "(d/ds)^r|_{s=0}φ(s) and (d/ds)^r|_{s=1/2}Λ(π, s).",
+   "reason": "The superscript (r) on the left-hand side is the r-th derivative — this is the whole point of \"super-positivity\", and both statements quantify over all r ≥ 0 and compare φ^{(r_0)} with φ^{(r_0+2i)}. As printed, the definitions say that every φ^{(r)}(0) is the first derivative. The proofs use the genuine r-th derivative (the Taylor coefficients of the product expansion in the proof of Proposition B.1, and the even-degree coefficients of A_i(s) in Remark B.4).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E2",
+   "kind": "misprint",
+   "locator": "Remark B.4, the displayed computation of A_i(s), p. 905 (published; also arXiv v3) — verified on a rendered page image",
+   "printed": "A_i(s) = q^s(1 − α_iq^{−s})(1 − α_i^{−1}q^{−s}) = q^s + q^{−s} − α_i − ᾱ_i = (2 − α_i − ᾱ_i) + 2Σ_{j≥1}(s log q)^{2j}/j!",
+   "correction": "2Σ_{j≥1}(s log q)^{2j}/(2j)!",
+   "reason": "q^s + q^{−s} = 2cosh(s log q) = 2Σ_{j≥0}(s log q)^{2j}/(2j)!, so subtracting the constant 2 gives 2Σ_{j≥1}(s log q)^{2j}/(2j)!, not /j!. With /j! the identity fails already at j = 1: the coefficient of s² in q^s + q^{−s} is (log q)², while 2(s log q)²/1! contributes 2(log q)².",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E3",
+   "kind": "misprint",
+   "locator": "Display (B.1), §B.1, p. 901 (published; also arXiv v3)",
+   "printed": "φ(s) = s^me^{h(s)}∏_{i∈Z}E_n(s/α_i)",
+   "correction": "∏_{i∈I}E_n(s/α_i).",
+   "reason": "Three lines earlier the nonzero roots are \"indexed by a subset I of Z_{>0}\", and the convergence condition (B.2) that makes the product unique sums over i ∈ I. Only in the proof of Proposition B.1, after the functional equation is used to pair α with −α, are the roots re-indexed by Z ∖ {0}; at (B.1) no functional equation is assumed, so Z is the wrong index set.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E4",
+   "kind": "misprint",
+   "locator": "Proof of Proposition A.5, §A.2.9, p. 887, the sentence after the decomposition of diagram (A.5) (published; also arXiv v3)",
+   "printed": "Therefore, it remains to show that the image of s^* lands K_0(X′)_{Q,≤n−d} and that the right square is commutative.",
+   "correction": "lands in K′_0(X′)_{Q,≤n−d}",
+   "reason": "Six lines earlier the same condition is stated correctly: \"the dotted arrow is conditional on showing that the image of s^* (where s is the embedding X ↪→ C_XY) lands in K′_0(X′)_{Q,≤n−d}\", and the dotted arrow of the displayed diagram has target K′_0(X′)_{Q,≤n−d}. The group K_0 of vector bundles is never filtered this way in the paper; it is K′_0, the Grothendieck group of coherent sheaves, that carries the filtration of §A.2.3. The preposition is also missing. (arXiv v3 has the same defect here, and additionally omits \"in\" at the first occurrence.)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition A.5, §A.2.9, p. 887, second paragraph (published; also arXiv v3)",
+   "printed": "Then there exists a closed n-dimensional closed substack Y″ ⊂ Y′ such that α is in the image of K′_0(Y″)_Q.",
+   "correction": "\"a closed n-dimensional substack Y″ ⊂ Y′\" — \"closed\" is printed twice.",
+   "reason": "A duplicated adjective; the intended statement is that a class of K_0(Coh(Y′)_{≤n})_Q comes from a closed substack of dimension n.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E6",
+   "kind": "misprint",
+   "locator": "§A.1.6, p. 882 (published; also arXiv v3)",
+   "printed": "Taking direct limit over such Z_1 and Z_2, we get a convolutiton product",
+   "correction": "convolution",
+   "reason": "A spelling slip; the word is spelled correctly everywhere else in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E7",
+   "kind": "misprint",
+   "locator": "Bibliography, entry [4], p. 909 (published version only; arXiv v3 prints the name correctly)",
+   "printed": "G. Csordas, T. S. NSorfolk, and R. S. Varga, The Riemann hypothesis and the Turán inequalities",
+   "correction": "T. S. Norfolk",
+   "reason": "The author of Trans. Amer. Math. Soc. 296 (1986), 521–541 is Timothy S. Norfolk; arXiv v3 has \"Timothy S. Norfolk\", so the corruption was introduced in production.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/E8",
+   "kind": "misprint",
+   "locator": "Remark B.5, p. 906 (published; also arXiv v3)",
+   "printed": "Moreover, if F = Q, we have the Riemann zeta function, and the super-positivity is known without assuming the Riemann hypothesis, by Pólya [4].",
+   "correction": "by Pólya (see [4])",
+   "reason": "Reference [4] is Csordas–Norfolk–Varga, \"The Riemann hypothesis and the Turán inequalities\", not a paper of Pólya; it is where Pólya's result on the Riemann ξ-function is proved or reproved. As printed the sentence attributes [4] to Pólya.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+    "arXiv 1512.02683v3 (the last arXiv version, 24 January 2017): each reading below was compared with it, and the version that differs is named",
+    "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper"
+   ],
+   "owner": "PAPER-YUN-ZHANG-17",
+   "file": "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+   "citation": "Zhiwei Yun–Wei Zhang, \"Shtukas and the Taylor expansion of L-functions\", Annals of Mathematics 186 (2017), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-ZHU-17/E1",
    "kind": "error",
    "locator": "arXivv2 AppendixA, PropositionA.28 PDF47–48; revisedv3 A.29 PDF53–54; publishedpp476–477",
