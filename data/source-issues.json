@@ -4087,6 +4087,26 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/E1",
+   "kind": "misprint",
+   "locator": "First sentence of the proof of Theorem 1.5(3), Section 6.2 (arXiv v3; the published version at doi:10.1017/fmp.2024.24 has the same text)",
+   "printed": "We now show that H_k(M̄_{g,n}) is tautological for even k ≥ 14.",
+   "correction": "for even k ≤ 14.",
+   "reason": "Theorem 1.5(3) states that RH^*(M̄_{g,n}) contains H_k(M̄_{g,n}) for even k ≤ 14, and the proof itself uses the opposite inequality two sentences later: 'When g ≥ 3, in all of these cases with k ≤ 14 we know that M_{g,n} has the CKgP'. The proof is correct with k ≤ 14; with k ≥ 14 it would assert the statement in degrees where it is open (Conjecture 1.8 concerns even k ≤ 20) and where the table of known CKgP cases does not apply.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2307.08830, read 22 September 2026: v1 (17 July 2023), v2 and v3 (25 October 2024), the version read, described by the authors as the final version to appear in Forum of Mathematics, Pi; there is no later version",
+    "the published version, doi:10.1017/fmp.2024.24 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the sentence recorded below appears there in the same form"
+   ],
+   "owner": "PAPER-CANNING-LARSON-PAYNE-24",
+   "file": "research/blueprint/papers/PAPER-CANNING-LARSON-PAYNE-24.result.json",
+   "citation": "Canning–Larson–Payne, \"Extensions of tautological rings and motivic structures in the cohomology of the moduli spaces of stable curves\", Forum of Mathematics, Pi (2024)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CARO-PASTEN-23/E1",
    "kind": "error",
    "locator": "arXiv:2102.01055v2, Lemma 3.15 pp.10–11 and (9.8) p.35; PDF SHA-256 d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7. Final publication not read.",
