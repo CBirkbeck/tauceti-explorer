@@ -1401,8 +1401,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WITASZEK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1101"
+   "state": "pending",
+   "note": "released on GitHub issue #1101"
   },
   {
    "id": "REV-PAPER-WITASZEK-22",
@@ -5511,7 +5511,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLOZEL-THORNE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1336"
   },
   {
    "id": "REV-PAPER-CLOZEL-THORNE-17",
@@ -6303,8 +6304,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOCKLE-IYENGAR-PASKUNAS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1382"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1382",
+   "finishedAt": "2026-09-22T23:05:42Z"
   },
   {
    "id": "REV-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
@@ -7602,7 +7604,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1456"
   },
   {
    "id": "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
