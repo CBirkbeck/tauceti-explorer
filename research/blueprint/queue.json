@@ -2967,8 +2967,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KALETHA-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1190"
+   "state": "pending",
+   "note": "released on GitHub issue #1190"
   },
   {
    "id": "REV-PAPER-KALETHA-16",
@@ -3650,8 +3650,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1230"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1230",
+   "finishedAt": "2026-09-22T18:56:26Z"
   },
   {
    "id": "REV-PAPER-FENG-YUN-ZHANG-24",
@@ -4861,7 +4862,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ZHU-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1302"
   },
   {
    "id": "REV-PAPER-LIU-ZHU-17",
