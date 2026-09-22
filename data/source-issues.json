@@ -2,6 +2,28 @@
  "purpose": "Mistakes found in published sources by the atlas's workers (research/blueprint/PROTOCOL.md section 18).",
  "issues": [
   {
+   "id": "PAPER-ANDRE-18/E1",
+   "kind": "error",
+   "locator": "Published §2.2.4, second paragraph, p.13, DOI 10.1007/s10240-017-0096-x; also arXiv:1609.00320v1 §2.2.4, p.12. Both parsed passages compared on 22 September 2026; main-PDF screenshot retrieval failed.",
+   "printed": "une K-algèbre A admet au plus une norme spectrale pour laquelle elle est complète",
+   "correction": "Retain a specified topology, or assume the identity between the two complete normed algebras is continuous in one direction. Then open mapping and the valid fixed-topology uniqueness argument apply. The maximum of two complete norms on the same algebra need not be complete.",
+   "reason": "Let C=C_p, F=Q_p-bar⊂C. Choose t in C outside F, extend t to a transcendence basis of C/F, and extend the automorphism t↦pt of its rational function field to σ∈Aut(C/F). Set ρ_1(x)=|x| and ρ_2(x)=|σ(x)|. Both are complete multiplicative Q_p-algebra norms, but ρ_2(t)=|p|ρ_1(t)≠ρ_1(t). Choose a_n∈F converging to t for ρ_1. Since σ fixes F, this sequence is Cauchy for max(ρ_1,ρ_2), while its individual limits are t and σ^(-1)(t)=p^(-1)t. Thus the maximum is not complete. The report gives all steps and the auxiliary field-theory inputs. This refutes the isolated stronger assertion and its proof step, not the main ramified theorem; an audit of all downstream uses remains open.",
+   "affects": "a stated result",
+   "known": "New candidate finding in this extraction; no published correction located in the searches recorded below. This is not a claim of exhaustive historical novelty. Independent review pending.",
+   "searched": [
+    "NUMDAM published PDF, §2.2.4 p.13, and its article metadata; same assertion still printed.",
+    "arXiv:1609.00320v1, §2.2.4 p.12, and version-history page; same assertion and proof step found.",
+    "Web searches for André Abhyankar erratum, André norme spectrale complète, and the exact French uniqueness phrase with correction terms; no published correction found among the inspected results.",
+    "Repository default-branch code search for 2.2.4 and for the exact PAPER-ANDRE-18/E prefix; no existing André finding returned. These searches are not a complete catalogue or literature audit."
+   ],
+   "owner": "PAPER-ANDRE-18",
+   "file": "research/blueprint/papers/PAPER-ANDRE-18.result.json",
+   "citation": "André, \"Le lemme d'Abhyankar perfectoïde\", Publications Mathématiques de l'IHÉS (2018)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-HE-18/E1",
    "kind": "error",
    "locator": "§2.1(a) p.9; Corollary9 p.12; §5.2 p.20; Theorem23 pp.24–25",
@@ -2365,7 +2387,6 @@
  "older": [],
  "unchecked": [
   "MordellLawrenceVenkatesh",
-  "PAPER-ANDRE-18",
   "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
   "PAPER-BENOIST-19",
   "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
