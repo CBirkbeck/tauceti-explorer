@@ -11,9 +11,11 @@
     "url": "https://arxiv.org/pdf/2102.01055v2",
     "readSections": [
       "Entire 39-page arXiv v2, §§1–11 and references.",
-      "Only the explicitly recorded selections of prerequisite sources were read."
+      "Only the explicitly recorded selections of prerequisite sources were read.",
+      "Codex codex-a71f92, 2026-09-22: freshly read all 39 pages of arXiv:2102.01055v2, §§1–11 and full bibliography, from the separately downloaded identical PDF.",
+      "Freshly read Stacks 33.39 (0C3Q), 33.27.6 (0C3P), 43.16 (0B01), and 43.14 (0AZR); these are selected sections, not full chapters. Older Debarre/Garcia-Fritz/Aubry–Perret/Balakrishnan–Caro reading extents remain inherited, not newly read."
     ],
-    "versionNote": "The fully read v2 predates the 54-page publication; final-source reconciliation is G0. Error findings concern v2 only. Later Balakrishnan–Caro quotes a different constant and domain.",
+    "versionNote": "The fully read v2 predates the 54-page publication; final-source reconciliation is G0. Error findings concern v2 only. Later Balakrishnan–Caro quotes a different constant and domain. Fresh 2026-09-22 publisher PDF attempt returned an HTML access page; arXiv still lists only v1/v2. The componentwise +3 derivation below is our argument for the smooth nef-canonical setup, not evidence about the 54-page final paper or its W₂ domain.",
     "files": [
       {
         "name": "arxiv.pdf",
@@ -63,15 +65,58 @@
         "pages": 25,
         "bytes": 325251,
         "read": "first three PDF pages only"
+      },
+      {
+        "name": "cp23-v2-20260922.pdf",
+        "url": "https://arxiv.org/pdf/2102.01055v2",
+        "date": "2026-09-22",
+        "sha256": "d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7",
+        "pages": 39,
+        "read": "Fresh complete reading §§1–11, proofs and bibliography by codex-a71f92."
+      },
+      {
+        "name": "cp23-stacks-0C3Q.html",
+        "url": "https://stacks.math.columbia.edu/tag/0C3Q",
+        "date": "2026-09-22",
+        "sha256": "fe143693a86f310833c57049eeea9139ef412ca9ffd6f12d8e3392827c5fa377",
+        "read": "33.39, entire mathematical section"
+      },
+      {
+        "name": "cp23-stacks-0C3P.html",
+        "url": "https://stacks.math.columbia.edu/tag/0C3P",
+        "date": "2026-09-22",
+        "sha256": "a4326c169af08340ae94a40b5100cc6c3cbfa2006af551f21eac0a8d464f7243",
+        "read": "33.27.6, statement and proof"
+      },
+      {
+        "name": "cp23-stacks-0B01.html",
+        "url": "https://stacks.math.columbia.edu/tag/0B01",
+        "date": "2026-09-22",
+        "sha256": "87004f59fbad97a159814b2d144469eb92b8fc8cdfb32b88c0a6cb70529c3662",
+        "read": "43.16, entire mathematical section"
       }
     ],
     "libraryPins": {
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "TauCeti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
-    "atlasCommit": "89c6d635718f318a74871acc16a6fc4562815261"
+    "atlasCommit": "765cf019bd7b864e7e0d0b121abaad090606b9b3",
+    "acquisitionAttempts": [
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
+        "date": "2026-09-22",
+        "result": "HTML access page, not PDF",
+        "sha256": "130679a31b77ff0c74918dadc1c88d9cbc43256a98053a5b1a367c44c8101dd9"
+      },
+      {
+        "url": "https://projecteuclid.org/journals/memoirs-of-the-college-of-science-university-of-kyoto-series-a-mathematics/volume-30/issue-2/On-the-arithmetic-genera-and-the-effective-genera-of-algebraic/10.1215/kjm/1250777055.pdf",
+        "date": "2026-09-22",
+        "result": "1160-byte HTML challenge, not an acquired Hironaka text"
+      }
+    ],
+    "priorAtlasCommit": "89c6d635718f318a74871acc16a6fc4562815261"
   },
-  "summary": "Complete reading of the available preprint, atomic extraction and source-qualified routing for overdetermined jets, abelian differential restriction, formal Lie theory and local surface Chabauty. The false geometric branch bound, printed formal-group construction and canonical-ampleness claim are recorded with counterexamples; numerical global endpoints and unmatched original suppliers remain withheld. Existing suppliers retain their owners; two Part II briefs cover formal Lie theory and surface methods. No formalization is claimed.",
+  "summary": "Complete reading of the available preprint, atomic extraction and source-qualified routing for overdetermined jets, abelian differential restriction, formal Lie theory and local surface Chabauty. The false geometric branch bound, printed formal-group construction and canonical-ampleness claim are recorded with counterexamples; numerical global endpoints and unmatched original suppliers remain withheld. Existing suppliers retain their owners; two Part II briefs cover formal Lie theory and surface methods. No formalization is claimed. Continuation codex-a71f92 derives a +3 weighted jet-sum repair from Frobenius orbit splitting and a componentwise canonical intersection budget, conditional only on the explicitly extracted geometric/analytic suppliers. No final-version reconciliation or full library closure is claimed.",
   "items": [
     {
       "id": "PAPER-CARO-PASTEN-23/abelian-variety",
@@ -455,7 +500,7 @@
       "statement": "For a geometrically integral projective curve C/F_q, A_C(F_q)≤#C̃(F_q)+2Σ_geometric x δ_x≤q+1+2g√q+2(p_a−g).",
       "locator": "Derived repair of Lemma 3.15, restricted scope",
       "status": "missing",
-      "note": "At each rational singular point, only non-F_q-rational branches are extra; their number is zero or at most b≤δ+1≤2δ. Apply Weil to C̃. This does not settle Galois orbits of distinct geometric components in the full weighted surface sum."
+      "note": "At each rational singular point, only non-F_q-rational branches are extra; their number is zero or at most b≤δ+1≤2δ. Apply Weil to C̃. This does not settle Galois orbits of distinct geometric components in the full weighted surface sum. Continuation 2026-09-22 (codex-a71f92): W1–W8 now give a componentwise +3 repair under the explicit geometric/local interfaces. Earlier language describing the weighted sum as unresolved is historical; the original v2 proof remains invalid and publication reconciliation remains open. See weighted-jet-repair and numeric-global-conditional."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/curve-weil",
@@ -870,7 +915,7 @@
       "prerequisites": [
         "PAPER-CARO-PASTEN-23/formal-n"
       ],
-      "note": "Added by the continuation of Claude Code (cc-fb70e5). Integral by construction: an integer combination of the [i]. API: Δ^m as n-tuples of series over R; Δ¹=[1]=Id. Tests: for F=X+Y, Δ¹=X and Δ^m=0 for m≥2; for the multiplicative law in dimension 1, Δ^m=X^m."
+      "note": "Added by the continuation of Claude Code (cc-fb70e5). Integral by construction: an integer combination of the [i]. API: Δ^m as n-tuples of series over R; Δ¹=[1]=Id. Tests: for F=X+Y, Δ¹=X and Δ^m=0 for m≥2; for the multiplicative law in dimension 1, Δ^m=X^m. Continuation API/test completion (codex-a71f92): Tests: (1) additive law has Δ¹=X and Δ^m=0 for m≥2; (2) multiplicative law X+Y+XY has Δ^m=X^m; (3) the product of one additive and one multiplicative factor has Δ^m=(0,Y^m) for m≥2, so coordinate mixing or treating multiplication-by-m as Δ^m is detected."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/formal-finite-difference-vanishing",
@@ -1306,7 +1351,7 @@
       "statement": "Under the local residue bound, Γ∩X(K) is finite and #Γ∩X(K)≤#X(F_q)+(1−e/(p−1))⁻¹Σ_(x∈X(F_q))m(x).",
       "locator": "§9.5, before the failed branch estimate",
       "status": "missing",
-      "note": "Use inequalities in (9.5), not its printed equalities. This endpoint does not assert the q+4√q+3 reduction."
+      "note": "Use inequalities in (9.5), not its printed equalities. This endpoint does not assert the q+4√q+3 reduction. Continuation 2026-09-22 (codex-a71f92): W1–W8 now give a componentwise +3 repair under the explicit geometric/local interfaces. Earlier language describing the weighted sum as unresolved is historical; the original v2 proof remains invalid and publication reconciliation remains open. See weighted-jet-repair and numeric-global-conditional."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/global-sum-source",
@@ -1315,7 +1360,7 @@
       "statement": "The preprint asserts Σ_(x∈X(F_q))m(x)≤(q+4√q+3)s under Theorem 9.1 hypotheses.",
       "locator": "Equations (9.6)–(9.8)",
       "status": "missing",
-      "note": "G1: depends on false Lemma 3.15 for components with nonsplit branches or nontrivial Frobenius orbits. The partial geometrically integral correction alone does not close the general weighted sum. Withheld."
+      "note": "G1: depends on false Lemma 3.15 for components with nonsplit branches or nontrivial Frobenius orbits. The partial geometrically integral correction alone does not close the general weighted sum. Withheld. Continuation 2026-09-22 (codex-a71f92): W1–W8 now give a componentwise +3 repair under the explicit geometric/local interfaces. Earlier language describing the weighted sum as unresolved is historical; the original v2 proof remains invalid and publication reconciliation remains open. See weighted-jet-repair and numeric-global-conditional."
     },
     {
       "id": "PAPER-CARO-PASTEN-23/mordell-weil",
@@ -1534,6 +1579,128 @@
       "planned": [
         "WeilConjectures:WC.5"
       ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/branch-profile",
+      "kind": "construction",
+      "name": "Geometric branches above rational surface points",
+      "statement": "For a smooth projective geometrically integral surface S/F_q and an effective F_q-divisor D=Σ_i a_i C_i on S_kbar, let σ be the action induced by c↦c^q on kbar and the F_q-model of S. Write ν_i:C̃_i→S_kbar. For x∈S(F_q), put b_i(x)=#ν_i⁻¹(x) and B_i=Σ_x b_i(x). The finite component set carries a permutation σ with a_{σi}=a_i. Partition it into fixed components I_0 and moved components I_1. Count geometric branches, not just F_q-points of C̃_i.",
+      "locator": "Continuation W1; CP v2 §§3.5 and 9.5",
+      "status": "missing",
+      "note": "API: construct finite normalization fibers; restrict to rational base points; transport under Frobenius; prove multiplicities constant on orbits; split weighted finite sums over I_0/I_1. Tests: (1) nonsplit F_3 node has b=2 but no rational normalization preimage; (2) two exchanged lines meet at one rational point and contribute two branches; (3) changing all multiplicities from 1 to 3 triples the weighted count. Do not identify the semilinear Galois action with absolute Frobenius, which fixes the underlying topological space."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/local-branch-intersection",
+      "kind": "theorem",
+      "name": "Branches bounded by a proper local intersection",
+      "statement": "Let C,C′ be distinct integral curves on a smooth surface over an algebraically closed field, and let x∈C∩C′. If ν:C̃→C is the normalization, then #ν⁻¹(x)≤I_x(C,C′)=length O_{S,x}/(f,g), where f,g are local equations. Summing over any subset of C∩C′ gives a bound by C.C′ when S is projective.",
+      "locator": "Continuation W2; CP v2 Lemmas 3.7–3.8 and Stacks 43.16.4 (0B05)",
+      "status": "missing",
+      "note": "In the completed regular local ring k[[u,v]], factor f into distinct irreducible factors f_r. Proper intersection excludes a common factor with g. The exact sequence for multiplication by one f_r modulo g shows length A/(∏f_r,g)=Σ_r length A/(f_r,g). Every summand is at least 1. Finite length is preserved by completion. Branch/normalization comparison, complete regular local coordinates and scheme-intersection realization remain SF.4/5 suppliers; the ring length addition itself is built."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/canonical-component-budget",
+      "kind": "theorem",
+      "name": "Canonical intersection budget for each component",
+      "statement": "Let S be a smooth projective integral surface over an algebraically closed field, and D=Σ_i a_i C_i>0 an effective nef canonical divisor, with distinct integral curves and integers a_i≥1. Then C_i²≤D.C_i and, by adjunction, p_a(C_i)−1≤D.C_i for each i. Consequently for any subset J, Σ_{i∈J} a_i(p_a(C_i)−1)≤Σ_{i∈J}a_i D.C_i; the latter contributions over all components sum to D².",
+      "locator": "Continuation W3, sharpening the component accounting in CP v2 Lemma 3.6",
+      "status": "missing",
+      "note": "If C_i²≤0 use nefness. If C_i²>0, D.C_i=a_i C_i²+Σ_{j≠i}a_j C_j.C_i≥C_i². Adjunction gives 2(p_a−1)=C_i²+D.C_i. This subset-sensitive budget is essential: assigning the whole D² independently to each class would lose a constant."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/moved-component-branches",
+      "kind": "theorem",
+      "name": "Rational branches of a Frobenius-moved component",
+      "statement": "In branch-profile, for i∈I_1 one has B_i≤C_i.C_{σi}, and a_i B_i≤D.C_i−a_i C_i². No assumption that C_i descends to F_q is made.",
+      "locator": "Continuation W4; derived replacement for the moved-component use of CP v2 (9.8)",
+      "status": "missing",
+      "note": "A rational point on C_i also lies on the distinct curve C_{σi}. Apply local-branch-intersection at every rational point and sum. Since a_{σi}=a_i and all other distinct-component intersections are nonnegative, a_i C_i.C_{σi}≤Σ_{j≠i}a_j C_i.C_j=D.C_i−a_i C_i². Works for orbits of any length >1, not only conjugate pairs."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/fixed-component-cost",
+      "kind": "theorem",
+      "name": "Fixed-component differential and branch contribution",
+      "statement": "In branch-profile assume D is nef canonical and every normalization has genus g_i≥2. For i∈I_0 let δ_i=p_a(C_i)−g_i, and choose a nonzero regular differential η_i on C̃_i (it need not descend to F_q). Then a_i Σ_{x∈S(F_q)}Σ_{y∈ν_i⁻¹(x)}(ord_y η_i+1)≤a_i[q−1+(2√q+2)g_i+2δ_i]≤(q+4√q+3)a_i(p_a(C_i)−1)≤(q+4√q+3)a_i D.C_i.",
+      "locator": "Continuation W5; CP v2 Lemma 3.2, branch-delta-repair and W3",
+      "status": "missing",
+      "note": "The fixed component descends to a geometrically integral F_q-curve. Its normalization has ≤q+1+2g_i√q rational points; nonrational geometric branches over rational singularities contribute at most 2δ_i. Zero orders over a subset sum to at most 2g_i−2. The middle difference equals (g_i−2)(q+2√q+1)+δ_i(q+4√q+1), hence is nonnegative. Genus≥2 and nefness are explicit, indispensable hypotheses."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/moved-component-cost",
+      "kind": "theorem",
+      "name": "Moved-component differential and branch contribution",
+      "statement": "In branch-profile assume D is nef canonical and choose a nonzero regular differential η_i on C̃_i for i∈I_1. Put g_i=g(C̃_i), δ_i=p_a(C_i)−g_i. Then a_i Σ_{x∈S(F_q)}Σ_{y∈ν_i⁻¹(x)}(ord_y η_i+1)≤a_i(2g_i−2)+D.C_i−a_i C_i²=(a_i+1)D.C_i−2a_iδ_i≤2a_i D.C_i.",
+      "locator": "Continuation W6; W4 and adjunction in CP v2 Lemma 3.6",
+      "status": "missing",
+      "note": "The equality follows from 2(p_a−1)=C_i²+D.C_i. Use δ_i≥0, a_i≥1 and nefness in the last step. This estimates differential zeros and branches together, so the arithmetic-genus term cancels. A moving component is never assigned a nonexistent F_q-normalization point count."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/weighted-jet-repair",
+      "kind": "theorem",
+      "name": "Componentwise repaired canonical jet-sum bound",
+      "statement": "Let S/F_q be smooth projective geometrically integral. Let u_1,u_2∈H⁰(S,Ω¹) have nonzero wedge with D=div(u_1∧u_2)>0 nef canonical. Suppose each geometric component C_i of D has normalization genus ≥2, and a single linear combination w over kbar pulls back to a nonzero regular differential on every C̃_i. If m:S(F_q)→R_≥0 vanishes off supp D and satisfies m(x)≤Σ_i a_i Σ_{y∈ν_i⁻¹(x)}(ord_y ν_i* w+1), then Σ_x m(x)≤(q+4√q+3)D².",
+      "locator": "Continuation W7, independent repair of CP v2 §§9.3–9.5, not a theorem quoted from the publication",
+      "status": "missing",
+      "note": "Split components into I_0/I_1 and apply fixed-component-cost and moved-component-cost. The common coefficient q+4√q+3 is ≥2; nefness permits replacing 2 by it for moved components. Sum a_i D.C_i=D². This bypasses false Lemma 3.15 entirely. It is a written derived proof awaiting independent review and Lean implementation, not publication reconciliation or closure of all original suppliers."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/numeric-global-conditional",
+      "kind": "theorem",
+      "name": "Numerical global bound from the explicit local interface",
+      "statement": "Under weighted-jet-repair, let T be a set equipped with a reduction map red:T→S(F_q), let λ∈[0,1), and suppose each fiber is finite with #red⁻¹(x)≤1+m(x)/(1−λ). Then T is finite and #T≤#S(F_q)+(q+4√q+3)D²/(1−λ). In the surface Chabauty application take T=Γ∩X(K), S=X′, D²=K_X² and λ=e/(p−1), once those geometric and local hypotheses have actually been established.",
+      "locator": "Continuation W8; CP v2 Proposition 9.14 and (9.5), using W7 in place of (9.8)",
+      "status": "missing",
+      "note": "Finite union over S(F_q), followed by finite-sum inequalities. This conditional consequence does not assert that the publication or all proofs of the main local inputs have been checked. It preserves the leading 1 for each residue disc and the ramification factor."
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/length-exact-import",
+      "kind": "theorem",
+      "name": "Additivity of module length in a short exact sequence",
+      "statement": "For a ring R, R-modules N,M,P, R-linear maps f:N→M and g:M→P with f injective, g surjective and Function.Exact f g, Module.length R M = Module.length R N + Module.length R P in ℕ∞.",
+      "locator": "Mathlib/RingTheory/Length.lean:162–193 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "Freshly read actual statement and proof. Used only for the algebraic length step of W2; geometric intersection numbers and branch comparison are not thereby built.",
+      "library": [
+        "mathlib:Module.length_eq_add_of_exact"
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/length-positive-import",
+      "kind": "theorem",
+      "name": "Positive length of a nontrivial module",
+      "statement": "For a ring R and a nontrivial R-module M, 0 < Module.length R M.",
+      "locator": "Mathlib/RingTheory/Length.lean:62–66 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "Freshly read actual statement. The nontrivial finite local quotients in W2 have length at least one; their geometric and ring-theoretic hypotheses must still be proved.",
+      "library": [
+        "mathlib:Module.length_pos"
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/frobenius-algebraic-import",
+      "kind": "construction",
+      "name": "Scalar Frobenius automorphism over a finite field",
+      "statement": "For a finite field K and an algebraic field extension L/K, FiniteField.frobeniusAlgEquivOfAlgebraic K L is a K-algebra automorphism of L whose underlying map is x↦x^(Fintype.card K). Its n-fold iterate is x↦x^((Fintype.card K)^n).",
+      "locator": "Mathlib/FieldTheory/Finite/Basic.lean:359–371 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "note": "Freshly read including field, algebra and algebraicity hypotheses. API: coerce to q-power map; iterate; invert; transport coefficients. Tests: (1) base-field elements fixed; (2) F_9/F_3 exchanges ±i; (3) third iterate on F_8 is identity. This is the scalar automorphism, not the missing component-descent or rational-point comparison on a scheme.",
+      "library": [
+        "mathlib:FiniteField.frobeniusAlgEquivOfAlgebraic",
+        "mathlib:FiniteField.coe_frobeniusAlgEquivOfAlgebraic",
+        "mathlib:FiniteField.coe_frobeniusAlgEquivOfAlgebraic_iterate"
+      ]
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/length-finite-import",
+      "kind": "theorem",
+      "name": "Finite length of an Artinian Noetherian module",
+      "statement": "For a ring R and an R-module M with IsArtinian R M and IsNoetherian R M, Module.length R M ≠ ⊤ in ℕ∞.",
+      "locator": "Mathlib/RingTheory/Length.lean:111–113 at 082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "status": "library",
+      "library": [
+        "mathlib:Module.length_ne_top"
+      ],
+      "note": "Freshly read actual statement. Proper local intersection quotients must be shown Artinian and Noetherian before this import applies."
     }
   ],
   "prerequisites": [
@@ -1571,6 +1738,11 @@
       "citation": "Hironaka; Płoski; Nakai; Green; Yau; Chavdarov; Poincaré formula sources cited by CP",
       "link": "https://arxiv.org/abs/2102.01055v2",
       "why": "G6: original Hironaka genus/delta and neighboring-point formulas; Płoski Theorem 2.1; Nakai Theorem 5(I); Green/Yau hyperbolicity/general type; Chavdarov Corollary 6.10 with monodromy hypotheses; and symmetric-power Poincaré formula remain unacquired. Exact bibliography and resume locators appear in the report. They are explicit source tasks, not checked black boxes."
+    },
+    {
+      "citation": "The Stacks Project, §§33.39, 33.27.6 and 43.16",
+      "link": "https://stacks.math.columbia.edu/tag/0C3Q",
+      "why": "Fresh selected readings provide a modern arbitrary-characteristic normalization/length and proper-intersection route for W2/W5. Original Hironaka was not acquired. Remaining construction obligations: finite smooth normalization, sheaf cohomology genus-delta dictionary, local completion/branch correspondence, Cartier intersection realization and adjunction; import SF.4/5, not opaque axioms."
     }
   ],
   "routes": [
@@ -1642,7 +1814,9 @@
         "PAPER-CARO-PASTEN-23/degree-canonical",
         "PAPER-CARO-PASTEN-23/threefold-degree",
         "PAPER-CARO-PASTEN-23/wedge-auxiliary",
-        "PAPER-CARO-PASTEN-23/symmetric-intersections"
+        "PAPER-CARO-PASTEN-23/symmetric-intersections",
+        "PAPER-CARO-PASTEN-23/local-branch-intersection",
+        "PAPER-CARO-PASTEN-23/canonical-component-budget"
       ],
       "reason": "Use the birational and single Chow/intersection owners for minimality, adjunction, Hodge index, positivity and canonical numerical estimates."
     },
@@ -1709,7 +1883,9 @@
         "PAPER-CARO-PASTEN-23/zeta-norm",
         "PAPER-CARO-PASTEN-23/branch-delta-repair",
         "PAPER-CARO-PASTEN-23/curve-weil",
-        "PAPER-CARO-PASTEN-23/surface-count-comparison"
+        "PAPER-CARO-PASTEN-23/surface-count-comparison",
+        "PAPER-CARO-PASTEN-23/branch-profile",
+        "PAPER-CARO-PASTEN-23/moved-component-branches"
       ],
       "reason": "Zeta extension arithmetic and point-count inequalities retain the Weil owner; the false branch bound is explicitly excluded."
     },
@@ -1839,10 +2015,14 @@
         "PAPER-CARO-PASTEN-23/theta-descent",
         "PAPER-CARO-PASTEN-23/symmetric-polarization-degrees",
         "PAPER-CARO-PASTEN-23/symmetric-threshold",
-        "PAPER-CARO-PASTEN-23/genus-three-threshold"
+        "PAPER-CARO-PASTEN-23/genus-three-threshold",
+        "PAPER-CARO-PASTEN-23/fixed-component-cost",
+        "PAPER-CARO-PASTEN-23/moved-component-cost",
+        "PAPER-CARO-PASTEN-23/weighted-jet-repair",
+        "PAPER-CARO-PASTEN-23/numeric-global-conditional"
       ],
       "reason": "ED.4 treats curves; surfaces require simultaneous integral jets, geometric nonvanishing and a rank-one formal direction. These are new layers in the same direction, not nonabelian Chabauty or a new rational-point programme.",
-      "brief": "Import Effective Diophantine Methods (EffectiveDiophantineMethods) ED.4 for zero bounds; Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1–A4/A6 and its proposed Formal Lie Theory Part II; Scheme and Stack Foundations (SchemeAndStackFoundations) SF.0/4/5; Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) C/D/F; Weil Conjectures (WeilConjectures) WC.1/5; and Heights, Rational Points and Obstructions (HeightsRationalPointsAndObstructions) RP.1. Prove CP Theorem 4.4 exactly as item overdetermined, in arbitrary characteristic, with closed immersed jets, geometric branches and infinite-order conventions. Develop Morikawa-based curve restriction, surface one-form injectivity and Lemma 5.7 two-form nonvanishing; correct Lemma 5.5(i) to the sufficient p>max(s,2s²/9). Close original Nakai, positivity, singularity and general-type suppliers rather than assume them. For the exact common local hypotheses recorded in main-local-source, construct two independently reducing annihilating forms using a saturated kernel, D=div(u₁∧u₂), one global combination nonzero on every component and m(x)≤3s≤p−3. First final target is Proposition 9.14: #Γ∩X(K)∩U_x≤1+m(x)/(1−e/(p−1)); summation gives the explicit finite jet-sum bound. The historical preprint target is #Γ∩X(K)≤#X(F_q)+(1−e/(p−1))⁻¹(q+4√q+3)s, but this is a BLOCKED source endpoint: Lemma 3.15 is false and the 54-page publication must be acquired and matched before this or its Q/number-field/symmetric-square corollaries becomes an accepted theorem target. Do not silently replace +3 by the +5 quoted in Balakrishnan–Caro. The present route excludes those endpoint items. For nonhyperelliptic C, construct C^(2)≃W₂, its canonical and theta intersections, descent of H≡2Θ and thresholds (8g−10)^g and p≥521 in genus three. Hyperelliptic genus-three C^(2) has nonample K and cannot be imported as an ample example. Keep density-one simple reduction and hyperbolicity originals as explicit unclosed G6 inputs. Give consumer-derived APIs and ≥3 tests per definition, including nonsplit nodes, ramification and boundary jets; no Lean implementation is claimed."
+      "brief": "Import Effective Diophantine Methods (EffectiveDiophantineMethods) ED.4 for zero bounds; Abelian Schemes and Arithmetic Moduli (AbelianSchemesAndArithmeticModuli) A1–A4/A6 and its proposed Formal Lie Theory Part II; Scheme and Stack Foundations (SchemeAndStackFoundations) SF.0/4/5; Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) C/D/F; Weil Conjectures (WeilConjectures) WC.1/5; and Heights, Rational Points and Obstructions (HeightsRationalPointsAndObstructions) RP.1. Prove CP Theorem 4.4 exactly as item overdetermined, in arbitrary characteristic, with closed immersed jets, geometric branches and infinite-order conventions. Develop Morikawa-based curve restriction, surface one-form injectivity and Lemma 5.7 two-form nonvanishing; correct Lemma 5.5(i) to the sufficient p>max(s,2s²/9). Close original Nakai, positivity, singularity and general-type suppliers rather than assume them. For the exact common local hypotheses recorded in main-local-source, construct two independently reducing annihilating forms using a saturated kernel, D=div(u₁∧u₂), one global combination nonzero on every component and m(x)≤3s≤p−3. First final target is Proposition 9.14: #Γ∩X(K)∩U_x≤1+m(x)/(1−e/(p−1)); summation gives the explicit finite jet-sum bound. The historical preprint target is #Γ∩X(K)≤#X(F_q)+(1−e/(p−1))⁻¹(q+4√q+3)s, but this is a BLOCKED source endpoint: Lemma 3.15 is false and the 54-page publication must be acquired and matched before this or its Q/number-field/symmetric-square corollaries becomes an accepted theorem target. Do not silently replace +3 by the +5 quoted in Balakrishnan–Caro. The present route excludes those endpoint items. For nonhyperelliptic C, construct C^(2)≃W₂, its canonical and theta intersections, descent of H≡2Θ and thresholds (8g−10)^g and p≥521 in genus three. Hyperelliptic genus-three C^(2) has nonample K and cannot be imported as an ample example. Keep density-one simple reduction and hyperbolicity originals as explicit unclosed G6 inputs. Give consumer-derived APIs and ≥3 tests per definition, including nonsplit nodes, ramification and boundary jets; no Lean implementation is claimed. Continuation W1–W8 (codex-a71f92): the historical version-qualified endpoint records remain excluded, but the explicit conditional +3 numerical endpoint is now supplied by weighted-jet-repair and numeric-global-conditional, with a written proof in the report. Use Frobenius-fixed versus moved components, not Lemma 3.15. Import proper local intersection/branch comparison and the componentwise canonical budget from SF.4/5, and the fixed-curve normalization count plus Frobenius component action from WC.1/5. For fixed components bound zeros plus branches by (q+4√q+3)a_i D.C_i. For moved components rational points lie on C_i∩σC_i; combine the branch intersection estimate with adjunction to get (a_i+1)D.C_i−2a_iδ_i≤2a_i D.C_i. Sum the SAME canonical intersection budget once. Preserve g_i≥2, D nef effective canonical, orbit-invariant multiplicities and nonzero pullback of w on every normalization. Keep final-source reconciliation G0 and all other source gaps explicit; no promotion of the published theorem follows from this conditional repair."
     }
   ],
   "continuationLog": [
@@ -1851,6 +2031,98 @@
       "session": "cc-fb70e5",
       "date": "2026-09-22",
       "work": "Closed the G4 formal-group construction by finite differences: added formal-finite-difference and formal-finite-difference-vanishing, and gave proofs for formal-denominators, formal-log-radius and formal-exp-bound."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "date": "2026-09-22",
+      "work": "Fresh full reading of all 39 pages of v2; componentwise Frobenius/adjunction repair of the weighted jet sum, preserving +3 under explicit interfaces; 8 missing items routed into existing owners and 4 narrowly scoped library imports. All original IDs/statuses/statements retained; final publication and other source gaps remain open."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-CARO-PASTEN-23/E1",
+      "kind": "error",
+      "locator": "arXiv:2102.01055v2, Lemma 3.15 pp.10–11 and (9.8) p.35; PDF SHA-256 d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7. Final publication not read.",
+      "printed": "A_D(F_q) ≤ (q+1)r + 2√q Σ_j g_g(C_j).",
+      "correction": "Lemma 3.15 is false as a general curve statement. For a geometrically integral curve add 2(p_a−g). In the special smooth-surface application, use W1–W8 to recover Σm≤(q+4√q+3)K² from componentwise adjunction and Frobenius-intersection accounting, without the false lemma. This is a derived replacement proof, not a claim about the final publication.",
+      "reason": "For the nonsplit F_3 node y²=x²(x−1), normalization P¹ has four rational points but six geometric branches over the five rational image points. The original roots-of-unity norm argument loses cancelling factors. The repair uses extra geometric hypotheses (nef effective canonical divisor, component genera ≥2 and nonzero normalization differentials), so does not assert the false general lemma. Full derived proof and finite regressions are in the report.",
+      "affects": "a stated result",
+      "known": "Already recorded in research/blueprint/errata/PAPER-CARO-PASTEN-23.json, E1; this continuation adds a replacement proof for the restricted surface application. Published correction status remains unverified; a later +5 citation alone is not proof.",
+      "searched": [
+        "arXiv 2102.01055 version history, 2026-09-22: v2 remains latest",
+        "Springer official article and canonical PDF URL, 2026-09-22: subscription preview/access page, not final text",
+        "Pasten author-page search result links arXiv; live page timed out",
+        "Search for Caro/Pasten Lemma 3.15 correction and branch erratum, 2026-09-22: no relevant public correction found in this limited search",
+        "Existing atlas errata E1–E13 read; no independent review added, and its files are outside this claim's edit scope"
+      ]
+    }
+  ],
+  "continuationDependencies": [
+    {
+      "source": "PAPER-CARO-PASTEN-23/length-exact-import",
+      "target": "PAPER-CARO-PASTEN-23/local-branch-intersection",
+      "reason": "Add lengths along each factor exact sequence."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/length-positive-import",
+      "target": "PAPER-CARO-PASTEN-23/local-branch-intersection",
+      "reason": "Each branch contributes positive local length."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/length-finite-import",
+      "target": "PAPER-CARO-PASTEN-23/local-branch-intersection",
+      "reason": "Finite-length quotients at a proper isolated intersection."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/frobenius-algebraic-import",
+      "target": "PAPER-CARO-PASTEN-23/branch-profile",
+      "reason": "Scalar q-power action; scheme descent remains a supplier."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/branch-profile",
+      "target": "PAPER-CARO-PASTEN-23/moved-component-branches",
+      "reason": "Fixed rational image lies on its conjugate component."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/local-branch-intersection",
+      "target": "PAPER-CARO-PASTEN-23/moved-component-branches",
+      "reason": "Bound all branches by the conjugate intersection."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/branch-delta-repair",
+      "target": "PAPER-CARO-PASTEN-23/fixed-component-cost",
+      "reason": "Fixed-component branch count with delta correction."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/canonical-component-budget",
+      "target": "PAPER-CARO-PASTEN-23/fixed-component-cost",
+      "reason": "Use a component's own canonical budget."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/moved-component-branches",
+      "target": "PAPER-CARO-PASTEN-23/moved-component-cost",
+      "reason": "Cancel genus via adjunction before summing."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/fixed-component-cost",
+      "target": "PAPER-CARO-PASTEN-23/weighted-jet-repair",
+      "reason": "Stable component contribution."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/moved-component-cost",
+      "target": "PAPER-CARO-PASTEN-23/weighted-jet-repair",
+      "reason": "Moved component contribution."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/weighted-jet-repair",
+      "target": "PAPER-CARO-PASTEN-23/numeric-global-conditional",
+      "reason": "Reduce the finite jet sum."
+    },
+    {
+      "source": "PAPER-CARO-PASTEN-23/global-conditional",
+      "target": "PAPER-CARO-PASTEN-23/numeric-global-conditional",
+      "reason": "Sum local bounds with positive ramification factor."
     }
   ]
 }
