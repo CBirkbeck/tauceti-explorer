@@ -16164,6 +16164,153 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E1",
+   "kind": "misprint",
+   "locator": "§3.2.1, arXiv v5 p. 23",
+   "printed": "Indeed, Kl-tilde_{n+1} is the localized Fourier transform j_0^*FT_ψ of Rg_*Q_ℓ(ζ)_{G_m^{kn}}[n], which has thus non-constant cohomology only in degree zero.",
+   "correction": "… of Rg_*Q_ℓ(ζ)_{G_m^n}[n] …",
+   "reason": "g is the function y₁ + ⋯ + y_n + 1/(y₁⋯y_n) on G_m^n ((2.3)), the shift [n] is the dimension of G_m^n, and the object is Kl-tilde_{n+1}, not its k-th tensor power; the tensor power is obtained in the next sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.20, arXiv v5 p. 33",
+   "printed": "the non-zero graded pieces of the weight filtration on ψ_{1/τ}M-tilde^H = ψ_{1/τ,1}M-tilde^H, which is the monodromy filtration associated with N-tilde centered at k − 1, are the N-tilde^ℓ P_k.",
+   "correction": "… are the N-tilde^ℓ P_{k−1}.",
+   "reason": "The monodromy at infinity of M-tilde has a single Jordan block of size k (Corollary 4.10(2)), so the primitive part sits in gr^W_{2k−2} = gr^W_{(k−1)+(k−1)} and is P_{k−1}, in the indexing the paper uses elsewhere (P_k for the block of size k+1 of Π(M-tilde) in the proof of Proposition 2.21, P₀ for blocks of size one in the proof of Theorem 3.2). The next sentence correctly lists gr^W_{2j} for 0 ≤ j ≤ k − 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E3",
+   "kind": "misprint",
+   "locator": "§5.1.1, after (5.4), arXiv v5 p. 40",
+   "printed": "In all three cases, the reciprocal roots α of the polynomial M_k(p; T) are stable under the transformation α ↦ p^{(k+1)/2}α^{−1}, which reflects the self-duality of the middle cohomology.",
+   "correction": "α ↦ p^{k+1}α^{−1}",
+   "reason": "The reciprocal roots are Weil numbers of weight k+1, so |α| = p^{(k+1)/2} and |p^{(k+1)/2}α^{−1}| = 1; the self-duality H¹_mid ≅ (H¹_mid)^∨(−k−1) pairs α with p^{k+1}α^{−1} = ᾱ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E4",
+   "kind": "misprint",
+   "locator": "§5.1.2, arXiv v5 p. 41",
+   "printed": "From the first two, it follows that ∂g₁/∂z₁ does not vanish on (z_r) for r ⩾ 2, hence the smoothness of 𝒦̄ along (z₁⋯z_r). … and 𝒦̄ ∩ (z_{r₁}) ∩ ⋯ ∩ (z_{r_i}) is smooth for any sequence 2 ⩽ r₁ ⩽ ⋯ ⩽ r_i ⩽ k",
+   "correction": "From the last two, ∂g₁/∂z₁ does not vanish on (g₁) ∩ (z_r) for r ⩾ 2, hence the smoothness of 𝒦̄ along the boundary (z₁⋯z_k) of the chart; … for 2 ⩽ r₁ < ⋯ < r_i ⩽ k",
+   "reason": "Restricted to (z_r), ∂g₁/∂z₁ = 1 + z₂ + ⋯ + z₂⋯z_{r−1}, which does vanish on (z_r); what the displayed equations show is that on (g₁) ∩ (z_r) one has 1 + z₁·(∂g₁/∂z₁) = 0, so ∂g₁/∂z₁ ≠ 0 there. The boundary divisor of the chart X₁ is (z₁⋯z_k), not (z₁⋯z_r) with r free, and the intersections are over distinct indices.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E5",
+   "kind": "misprint",
+   "locator": "Corollary 5.30, arXiv v5 p. 52",
+   "printed": "For each integer k ⩾ 1, the gamma factor of the motive 𝑴_k is equal to L_k(∞, s) = π^{−ms/2}∏_{j=1}^mΓ((s − j)/2)",
+   "correction": "L_k(∞, s) = ∏_{j=1}^mΓ_R(s − j) = π^{m(m+1)/4}·π^{−ms/2}∏_{j=1}^mΓ((s − j)/2)",
+   "reason": "With the Hodge numbers of Theorem 1.8 and the sign h(w/2)⁻ = 1 found in the proof, Serre's Γ_V just defined equals ∏_{j=1}^mΓ_R(s − j) (the pairs Γ_C(s − p) = Γ_R(s − p)Γ_R(s − p + 1) for p = 2, 4, … fill j = 1, …, m); since Γ_R(s − j) = π^{−(s−j)/2}Γ((s − j)/2), the printed formula omits the constant π^{Σj/2} = π^{m(m+1)/4}. The introduction's Λ_k uses the same normalization, and a constant factor does not affect the functional equations.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E6",
+   "kind": "misprint",
+   "locator": "Example A.3, arXiv v5 p. 63",
+   "printed": "Then there is an isomorphism _Hi^*ᵖQ^H_U = H⁰_Hi^*ᵖQ^H_U ≃ ᵖQ^H_D",
+   "correction": "_Hi^*ᵖQ^H_U[−1] = H^{−1}_Hi^*ᵖQ^H_U ≃ ᵖQ^H_D",
+   "reason": "ᵖQ^H_U = Q_U[d] and i^*Q_U[d] = Q_D[d] = ᵖQ^H_D[1], which sits in perverse degree −1; the exact sequence 0 → i_*ᵖQ^H_D → ᵖQ^H_U[!D] → ᵖQ^H_U → 0 stated next is the dual localization sequence with H^{−1}i^*ᵖQ^H_U = ᵖQ^H_D and H⁰ = 0, and the companion formula i^!ᵖQ^H_U[1] = H¹i^!ᵖQ^H_U is shifted correctly.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-FRESAN-SABBAH-YU-22/E7",
+   "kind": "misprint",
+   "locator": "Example A.27, arXiv v5 p. 71",
+   "printed": "Applying _H(tg)_* to the triangle … and noting that (tg)_* ∘ i_{𝒦,*} is the zero map, the vanishing of H^r(A¹_t × (V ∖ 𝒦), tg) for all r yields an isomorphism of mixed Hodge structures",
+   "correction": "… noting that (tg) ∘ i_𝒦 is the zero map, so that _H(tg)_*_Hi_{𝒦,*} = _H(0)_* takes values in objects supported at 0, …",
+   "reason": "The composite of functors (tg)_* ∘ i_{𝒦,*} is not zero: it produces the local-cohomology term H^r_{A¹×𝒦}(A¹ × V), which is the answer. What vanishes is the function tg on A¹ × 𝒦.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1810.06454 listing (v1 15 October 2018, v2 9 December 2018, v3 16 November 2020 'substantial revision after referee reports … a few mistakes corrected', v4 21 April 2021, v5 13 June 2022 'Final published version') and the v5 TeX source and PDF",
+    "Crossref metadata for DOI 10.1215/00127094-2021-0036 (Duke Math. J. 171 (2022), no. 8): no update-to or updated-by relation; a Crossref search for an erratum or correction to 'Hodge theory of Kloosterman connections' found none",
+    "the Project Euclid article page for the DOI (the full text is by subscription and was not read; v5 is the authors' final published version)"
+   ],
+   "owner": "PAPER-FRESAN-SABBAH-YU-22",
+   "file": "research/blueprint/papers/PAPER-FRESAN-SABBAH-YU-22.result.json",
+   "citation": "Fresán–Sabbah–Yu, \"Hodge theory of Kloosterman connections\", Duke Mathematical Journal (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-GAMBURD-MAGEE-RONAN-19/E1",
    "kind": "gap",
    "locator": "Proposition 21, Proposition 30 and Theorem 3, pp.3, 21, 32–33 (arXiv v3)",
