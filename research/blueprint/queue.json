@@ -7672,7 +7672,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1460"
   },
   {
    "id": "REV-PAPER-KISIN-PAPPAS-18",
