@@ -4266,8 +4266,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1268"
+   "state": "pending",
+   "note": "released on GitHub issue #1268"
   },
   {
    "id": "REV-PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22",
@@ -6494,8 +6494,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1395"
+   "state": "pending",
+   "note": "released on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -6891,7 +6891,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1418"
   },
   {
    "id": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
