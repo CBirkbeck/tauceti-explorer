@@ -3201,8 +3201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1205"
+   "state": "pending",
+   "note": "released on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -3342,7 +3342,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1214"
   },
   {
    "id": "REV-PAPER-ABE-25",
@@ -4410,7 +4411,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LI-ZHANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1278"
   },
   {
    "id": "REV-PAPER-LI-ZHANG-22",
@@ -7697,8 +7699,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1466"
+   "state": "pending",
+   "note": "released on GitHub issue #1466"
   },
   {
    "id": "REV-PAPER-ESNAULT-GROECHENIG-20",
