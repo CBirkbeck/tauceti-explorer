@@ -29092,8 +29092,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1703"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1703",
+   "finishedAt": "2026-09-22T07:53:28Z"
   },
   {
    "id": "REV-ERRATA-PAPER-DASGUPTA-KAKDE-23",
