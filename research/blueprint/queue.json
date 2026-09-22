@@ -5694,8 +5694,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1352"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1352",
+   "finishedAt": "2026-09-22T13:58:57Z"
   },
   {
    "id": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -6682,7 +6683,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1412"
   },
   {
    "id": "REV-PAPER-BOXER-CALEGARI-GEE-25",
