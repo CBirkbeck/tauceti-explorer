@@ -1,0 +1,1223 @@
+{
+  "paper": "PAPER-GAO-HABEGGER-19",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Heights in families of abelian varieties and the Geometric Bogomolov Conjecture",
+    "authors": "Ziyang Gao and Philipp Habegger",
+    "venue": "Annals of Mathematics 189 (2019), no. 2, 527–604",
+    "doi": "10.4007/annals.2019.189.2.3",
+    "arxiv": "1801.05762v3",
+    "url": "https://arxiv.org/abs/1801.05762v3",
+    "readSections": [
+      "Entire arXiv v3 (28 January 2019, the latest version), 64 pages: §§1–11, Appendices A–C and references, read 2026-09-22 (PDF https://arxiv.org/pdf/1801.05762v3, SHA-256 ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e). The typeset Annals PDF was not accessible, so the published version was not collated."
+    ]
+  },
+  "summary": "Proves a height inequality h_S(π(P)) ≤ c(1 + ĥ_𝒜(P)) on X* for every subvariety X of an abelian scheme over a curve over Q̄, where X* removes the generically special subvarieties (Theorem 1.4). As an application it proves the Geometric Bogomolov Conjecture over function fields of curves in characteristic 0 (Theorem 1.1). The proof shows that degenerate subvarieties, those where the Betti map has positive-dimensional fibres, are generically special (Theorem 5.1), using monodromy, Deligne's semisimplicity and Pila–Wilkie. Then an auxiliary variety, Blichfeldt lattice counting on Betti coordinates and Habegger's degree-height lemma give h([2^N]P) ≥ c4^N h(P) − c′(N) (Proposition 9.1), and Silverman–Tate kills the error term. Silverman's limit theorem gives Theorem 1.1, and Moriwaki heights extend it to all characteristic-0 constant fields. The atlas plans heights, Manin–Mumford, Blichfeldt, Néron models and o-minimality; it lacks function-field heights, the trace, Betti maps, variations of Hodge structure, Moriwaki heights and the height inequality.",
+  "items": [
+    {
+      "id": "PAPER-GAO-HABEGGER-19/1",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (Geometric Bogomolov Conjecture over Q̄(S))",
+      "statement": "Let K be the function field of a smooth projective curve over k = Q̄, A an abelian variety over K with symmetric ample L, and X ⊆ A an irreducible closed subvariety with X ⊗_K K̄ irreducible and not of the form B + (Z ⊗_k K̄) with Z ⊆ A^{K̄/k} closed irreducible and B a torsion coset of A ⊗_K K̄. Then there is ε > 0 such that {x ∈ X(K̄) : ĥ_{K,A,L}(x) ≤ ε} is not Zariski dense in X.",
+      "locator": "Theorem 1.1, p.2; proof §11, pp.52–54, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Proof: spread out to 𝒜 → S with an admissible immersion, apply Proposition 10.1 to the Zariski closure of X, and compare with Silverman's Height Limit Theorem 11.1 along the section of each small point; the bound is ĥ_{K,A}(x) ≥ deg(S)/c off a proper closed subset."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/2",
+      "kind": "theorem",
+      "name": "Theorem 1.1 for every algebraically closed k of characteristic 0 (Appendix A)",
+      "statement": "Theorem 1.1 holds with Q̄ replaced by any algebraically closed field k of characteristic 0.",
+      "locator": "Appendix A, §A.3, pp.56–57, arXiv v3 (28 January 2019) (a sketch)",
+      "status": "missing",
+      "note": "Descend to a finitely generated k₀, run §11 with Moriwaki heights (Theorem A.3 and the Moriwaki–Wazir Silverman theorems), and pass from k₀‾(S) to K through the essential minimum: µ_ess(X) = 0 iff ĥ(X) = 0 (Zhang, Gubler Cor. 4.4) and ĥ(X) is invariant under extension of the constant field. The authors call this a sketch."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/3",
+      "kind": "construction",
+      "name": "The K/k-trace and trace map (Chow)",
+      "statement": "For a field extension K/k with k algebraically closed in K and char k = 0, and an abelian variety A over K, the K/k-trace A^{K/k} is an abelian variety over k with a trace map τ : A^{K/k} ⊗_k K → A universal for maps from constant abelian varieties; τ is a closed immersion in characteristic 0, and there is a unique abelian subvariety A′ ⊆ A with A′ = A^{K/k} ⊗ K and (A/A′)^{K/k} = 0.",
+      "locator": "§1, p.2; §2, p.9; §3.1, p.12, citing Conrad [Con06, §6, Thms. 6.2, 6.4], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Not in the atlas. Routed with Lang–Néron to HeightsRationalPointsAndObstructions RP.1 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/4",
+      "kind": "theorem",
+      "name": "Lang–Néron theorem",
+      "statement": "If L/k is a finitely generated extension with k algebraically closed in L and A is an abelian variety over L with A^{L/k} = 0, then A(L) is a finitely generated abelian group.",
+      "locator": "Proof of Proposition 3.1, p.14, and of Proposition B.1, p.58, citing Lang–Néron [LN59, Thm. 1] and [Con06, Thm. 7.1], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The function-field Mordell–Weil theorem. Routed to RP.1 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/5",
+      "kind": "construction",
+      "name": "Heights over the function field of a curve",
+      "statement": "For K = k(S̄), S̄ a smooth projective irreducible curve over an algebraically closed k, the height h_K : ℙ^n(K̄) → ℝ, h_K(P) = [K′:K]^{-1} Σ_v d_v log max_i |p_i|_v for P = [p₀:…:p_n] with p_i ∈ K′ finite over K, summing over the places of K′ above S̄(k); it satisfies the product formula and is independent of K′.",
+      "locator": "§2.1, pp.9–10, citing Bombieri–Gubler §1.3, 1.4.6 and [Con06, §8], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The atlas height owner (RP.0) plans number-field heights; the function-field height is routed there as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/6",
+      "kind": "theorem",
+      "name": "Néron–Tate height over a function field and its kernel",
+      "statement": "For A over K = k(S̄) with symmetric ample L, Tate's limit gives ĥ_{K,A,L} : A(K̄) → [0,∞), a quadratic form, and ĥ_{K,A,L}(P) = 0 iff P ∈ (A^{K̄/k} ⊗_k K̄)(K̄) + A_tor.",
+      "locator": "§1, p.2; §2.1, p.10, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The kernel statement combines Lang–Néron with Northcott for constant heights. Routed to RP.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/7",
+      "kind": "definition",
+      "name": "Definition 1.2 (generically special subvariety) and X*",
+      "statement": "For an abelian scheme 𝒜 → S over a smooth irreducible curve over k, an irreducible closed Y ⊆ 𝒜 is generically special if it dominates S and its geometric generic fibre is a finite union of (Z ⊗_k k(S)‾) + B with Z ⊆ A^{k(S)‾/k} closed irreducible and B a torsion coset. For irreducible closed X ⊆ 𝒜, X* = X minus the union of the generically special Y ⊆ X.",
+      "locator": "Definition 1.2 and the display below it, p.3, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/8",
+      "kind": "theorem",
+      "name": "Proposition 1.3 (maximal generically special subvarieties)",
+      "statement": "Only finitely many generically special subvarieties of 𝒜 contained in X are maximal for this property. Hence X* is Zariski open in X, and X* = ∅ iff X is generically special.",
+      "locator": "Proposition 1.3, p.3; proof §3.1, p.12, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Via the Poincaré splitting A′ × A″ → A with A′ the trace part and (A″)^{K/k} = 0, and Proposition 3.1 with V₀ = A^{K/k}. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/9",
+      "kind": "construction",
+      "name": "Absolute logarithmic Weil height on ℙ^n(Q̄)",
+      "statement": "h([p₀:…:p_n]) = [K:ℚ]^{-1} Σ_v d_v log max_i |p_i|_v for p_i in a number field K, independent of K and of the coordinates.",
+      "locator": "§2.1, p.9, arXiv v3 (28 January 2019)",
+      "status": "library",
+      "library": [
+        "mathlib:Projectivization.logHeight"
+      ],
+      "note": "Mathlib `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) for fields with `Height.AdmissibleAbsValues`; the extension to Q̄ is RP.0 work."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/10",
+      "kind": "theorem",
+      "name": "Height machine on quasi-projective varieties",
+      "statement": "To (S̄, M) with M ample the Height Machine attaches h_{S̄,M} : S(Q̄) → ℝ, well defined up to O(1), which may be taken ≥ 0, with additivity, functoriality and h(ϕ(Q)) ≤ δh(Q) + c(ϕ) for a rational map ϕ given by forms of degree δ, off their common zeros.",
+      "locator": "§1, p.3; §2.2, p.11; (9.2), p.50, citing Bombieri–Gubler Ch. 2.4 and Hindry–Silverman Thm. B.2.5(a), arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ],
+      "note": "RP.0 plans divisor/line-bundle heights modulo bounded functions and their pullback and tensor laws."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/11",
+      "kind": "construction",
+      "name": "Naive and fibrewise Néron–Tate heights on an abelian scheme",
+      "statement": "For P = (P′, π(P)) ∈ 𝒜(Q̄) ⊆ ℙ^M × ℙ^m, h(P) = h(P′) + h(π(P)) (2.2); the fibrewise Néron–Tate height ĥ_𝒜(P) = ĥ_{𝒜_{π(P)}}(P) = lim h([2^N]P)/4^N (2.1), (2.3), quadratic on each fibre.",
+      "locator": "§2.1, (2.1), p.10; §2.2, (2.2)–(2.3), p.11, arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.0"
+      ],
+      "note": "RP.0 plans the height machine and Néron–Tate heights."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/12",
+      "kind": "theorem",
+      "name": "Theorem 1.4 (height inequality over a curve)",
+      "statement": "Let π : 𝒜 → S be an abelian scheme over a smooth irreducible curve over Q̄, L a relatively ample symmetric line bundle and M ample on a compactification S̄. For every closed irreducible X ⊆ 𝒜 over Q̄ there is c > 0 with h_{S̄,M}(π(P)) ≤ c(1 + ĥ_{𝒜,L}(P)) for all P ∈ X*(Q̄).",
+      "locator": "Theorem 1.4 and (1.1), p.4; proof §10.2, p.52, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Induction on dim X: Proposition 10.1 on an open dense U ⊆ X and the induction hypothesis on the components Z_i of X∖U, using X* ⊆ (X∖Z) ∪ ⋃ Z_i* (10.4). Generalized to bases of any dimension by Dimitrov–Gao–Habegger 2021, Theorems 1.6/B.1."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/13",
+      "kind": "theorem",
+      "name": "Theorem 1.4′ (with the naive height)",
+      "statement": "With L′ = L ⊗ π*M and a closed immersion ι : 𝒜 → ℙ^M × S from (L′)^{⊗n}, h_{𝒜,L′}(P) = n^{-1}h(P′) + h_{S̄,M}(π(P)); then h_{S̄,M}(π(P)) ≤ h_{𝒜,L′}(P) ≤ c(1 + ĥ_{𝒜,L}(P)) for all P ∈ X*(Q̄).",
+      "locator": "Theorem 1.4′, p.5; proof §10.2, p.52, arXiv v3 (28 January 2019) (the first inequality is misattributed to (1.1), sourceIssues E15)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/14",
+      "kind": "theorem",
+      "name": "Projective presentation of an abelian scheme over a curve",
+      "statement": "For an abelian scheme 𝒜 → S over a smooth curve and a symmetric ample L on the generic fibre, L^{⊗3g} gives a projectively normal closed immersion of the generic fibre; after removing finitely many points of S its Zariski closure in ℙ^M_S is an abelian scheme isomorphic to 𝒜, giving ι_S : 𝒜 → ℙ^M × S with relatively very ample ι_S*O(1). In general a closed immersion 𝒜 → ℙ^M × S arises from (L ⊗ π*M)^{⊗n}, n ≫ 1 (Raynaud, Faisceaux amples XI 1.4; EGA II 5.3.3, 4.1.4).",
+      "locator": "§1, pp.4–5; §2.2, pp.10–11, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to AbelianSchemesAndArithmeticModuli A2 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/15",
+      "kind": "theorem",
+      "name": "Néron mapping property for abelian schemes",
+      "statement": "An abelian scheme over a Dedekind (here smooth curve) base is the Néron model of its generic fibre, so morphisms from the generic fibre extend. For an abelian subvariety A₀ of the generic fibre, the Néron model of A/A₀ is an abelian scheme ℬ with an exact sequence 0 → A₀-model → 𝒜 → ℬ → 0 (BLR §1.2 Prop. 8, §7.5 Prop. 3).",
+      "locator": "§2.2, p.10; proof of Theorem 5.1, p.29, citing [BLR90], arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.1"
+      ],
+      "note": "NeronModelsAndSemistableAbelianVarieties R11.1 plans Néron models over Dedekind bases, the mapping property, extension of homomorphisms and the comparison with abelian-scheme models."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/16",
+      "kind": "theorem",
+      "name": "Multiplication by 2 by quartic polynomials in families",
+      "statement": "On the projectively normal generic fibre with [2]*L ≅ L^{⊗4}, [2] is given by M+1 forms of degree 4; after removing finitely many points of S, [2] on 𝒜 ⊆ ℙ^M × ℙ^m is given by bihomogeneous G₀,…,G_M of degree 4 in X and c₀ in Y (A2), and [2^N] locally by forms of degree 4^N in X and ≤ c₁(4^N − 1)/3 in the base coordinates.",
+      "locator": "§2.2 (A2), p.11; §9.1, p.47; proof of Proposition 9.1, p.49, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to RP.0 as a source, as for PAPER-DIMITROV-GAO-HABEGGER-21."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/17",
+      "kind": "definition",
+      "name": "Admissible immersion (A1)–(A3)",
+      "statement": "An immersion 𝒜 → ℙ^M × ℙ^m compatible with π and the projection, such that (A1) each 𝒜_s → ℙ^M is induced by a symmetric very ample bundle, (A2) [2] is given by bihomogeneous polynomials of degree 4 in the fibre coordinates, and (A3) for every s and P ∈ 𝒜_s a generic hyperplane section of 𝒜_s through P contains no positive-dimensional coset. Every abelian variety over k(S) is, after shrinking S, the generic fibre of an abelian scheme with an admissible immersion.",
+      "locator": "§2.2, (A1)–(A3), pp.10–11, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "(A3) comes from Proposition C.1 with d = g for the L^{⊗3} embedding. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/18",
+      "kind": "theorem",
+      "name": "Proposition 3.1 (special points of V₀(k) × A_tor)",
+      "statement": "Let k be algebraically closed of characteristic 0, S a smooth irreducible curve over k, K = k(S)‾, A an abelian variety over K with A^{K/k} = 0, V₀ an irreducible variety over k, V = V₀ ⊗_k K and Σ = V₀(k) × A_tor. (i) If Y ⊆ V × A is irreducible closed with Y(K) ∩ Σ Zariski dense, then Y = (W₀ ⊗_k K) × (P + B) with W₀ ⊆ V₀ irreducible closed, P ∈ A_tor and B an abelian subvariety. (ii) Only finitely many such subvarieties contained in a given Y are maximal.",
+      "locator": "Proposition 3.1 and proof, pp.12–15, arXiv v3 (28 January 2019) (misprints E1–E3)",
+      "status": "missing",
+      "note": "Uniform Manin–Mumford (Theorem 3.2) gives finitely many B; a Galois-orbit bound and Proposition B.1 bound the orders; then [N] ∘ (A → A/B) and the fibre dimension theorem. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/19",
+      "kind": "theorem",
+      "name": "Theorem 3.2 (uniform Manin–Mumford in characteristic 0)",
+      "statement": "For an abelian variety A and an irreducible quasi-projective V over K, and Y ⊆ V × A irreducible closed with fibres Y_v = projection of Y ∩ ({v} × A), there are a finite set 𝓜 of abelian subvarieties and D such that for every v ∈ V(K̄) the Zariski closure of Y_v(K̄) ∩ A_tor is a union of at most D translates of members of 𝓜 by torsion points.",
+      "locator": "Theorem 3.2 and proof, p.13, citing Raynaud [Ray83], Scanlon [Sca04, Thm. 2.4], Hrushovski [Hru01], Hindry [Hin88, Thm. 1], arXiv v3 (28 January 2019) (statement misprint E1)",
+      "status": "missing",
+      "note": "Routed to HeightsRationalPointsAndObstructions RP.5 as a source; RP.5 plans the qualitative Manin–Mumford theorem, and uniformity in algebraic families is Scanlon's automatic uniformity."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/20",
+      "kind": "theorem",
+      "name": "Manin–Mumford conjecture in characteristic 0 (Raynaud)",
+      "statement": "For an abelian variety A over an algebraically closed field of characteristic 0 and a subvariety X ⊆ A, the Zariski closure of X ∩ A_tor is a finite union of torsion cosets.",
+      "locator": "§1, p.3; proof of Theorem 3.2, p.13, citing [Ray83], arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "note": "RP.5 plans the Manin–Mumford theorem with precise characteristic and field hypotheses."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/21",
+      "kind": "theorem",
+      "name": "Torsion points are unramified at places of good reduction (residue characteristic 0)",
+      "statement": "If an abelian variety over the function field F of a curve over k (char 0) has good reduction at a place v, then F(P)/F is unramified at v for every torsion point P.",
+      "locator": "Proof of Proposition 3.1, p.14 (\"general reduction theory of abelian varieties\"), arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.5"
+      ],
+      "note": "NeronModelsAndSemistableAbelianVarieties R11.5 plans Néron–Ogg–Shafarevich; the needed direction is its easy half."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/22",
+      "kind": "theorem",
+      "name": "Lemma B.2 (finitely many étale covers of bounded degree)",
+      "statement": "For a smooth irreducible quasi-projective variety S over an algebraically closed field k of characteristic 0, the étale fundamental group π₁(S) is topologically finitely generated; hence S has only finitely many étale coverings of degree ≤ D, and the compositum of all extensions of k(S) of degree ≤ D unramified over S is finite. A finite monodromy representation is trivialized on a finite étale cover (Riemann existence).",
+      "locator": "Lemma B.2 and proof, p.58, citing SGA1 XII 5.1, XIII 2.12, Cadoret [Cad13, Cor. 6.5, Rem. 6.8], Völklein [Völ96, Cor. 7.11]; proof of Proposition 3.1, p.14; proof of Lemma 5.8, p.26, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Descend to a subfield of finite transcendence degree, compare with ℂ, use finite generation of π₁^top and Riemann existence, and invariance of π₁ under extension of algebraically closed fields. Routed to InverseGaloisAndArithmeticFundamentalGroups IG.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/23",
+      "kind": "theorem",
+      "name": "Proposition B.1 (torsion of bounded degree has bounded order)",
+      "statement": "If S is smooth irreducible quasi-projective over k (char 0, algebraically closed), K = k(S) and A/K has A^{K/k} = 0, then the orders of the points of {P ∈ A(K̄)_tor : [K(P):K] ≤ D} are bounded in terms of A and D.",
+      "locator": "Proposition B.1 and proof, p.58; the case dim S = 1 is the claim (3.2), p.14, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The Zariski closure of a torsion point is a component of 𝒜[N], hence finite étale over S; Lemma B.2 bounds the compositum and Lang–Néron finishes. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/24",
+      "kind": "theorem",
+      "name": "Proposition B.3 (Proposition 3.1 over a base of any dimension)",
+      "statement": "Proposition 3.1(i) holds with S smooth irreducible quasi-projective of any dimension over k.",
+      "locator": "Proposition B.3, p.59, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The only use of dim S = 1 in Proposition 3.1 is (3.2), replaced by Proposition B.1. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/25",
+      "kind": "theorem",
+      "name": "Proposition 4.1 and Remark 4.2 (the Betti map over a curve)",
+      "statement": "For an abelian scheme π : 𝒜 → S of relative dimension g over a smooth irreducible complex curve and s ∈ S(ℂ), there are an open neighbourhood Δ of s in S^an and a real-analytic b : 𝒜_Δ → T^{2g} with (i) b|_{𝒜_s^an} a group isomorphism for all s ∈ Δ, (ii) every fibre b^{-1}(ξ) complex analytic, (iii) (b, π) : 𝒜_Δ → T^{2g} × Δ real bianalytic. For path-connected Δ two such maps differ by an element of GL_{2g}(ℤ).",
+      "locator": "Proposition 4.1, Remark 4.2 and construction, pp.15–18, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Construction: Ehresmann trivialization with analytic fibres, a holomorphic period matrix from Griffiths' theorem, and the Albanese coordinates b̃(P) = (Ω, Ω̄)^{-1}(L(P), L̄(P)) ∈ ℝ^{2g}. The special case of PAPER-DIMITROV-GAO-HABEGGER-21 Proposition 2.1/B.2. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/26",
+      "kind": "theorem",
+      "name": "Ehresmann trivialization with analytic fibres and holomorphic periods",
+      "statement": "For a proper submersion 𝒜^an → S^an there is, locally on S, a fibrewise diffeomorphism 𝒜_{s₀} × Δ ≅ 𝒜_Δ whose inverse has complex-analytic fibres (Voisin I, Thm. 9.3, Prop. 9.5); the Hodge subspace f_s* H⁰(𝒜_s, Ω¹) ⊆ H¹(𝒜_{s₀}, ℂ) varies holomorphically in s (Griffiths), so the period matrix Ω(s) is holomorphic.",
+      "locator": "§4, pp.15–17, citing Voisin [Voi02, Thm. 9.3, Prop. 9.5] and Griffiths, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the Hodge-theory Part II DegeneratingHodgeStructures (period maps of variations)."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/27",
+      "kind": "definition",
+      "name": "Degenerate points and degenerate subvarieties (base a curve)",
+      "statement": "For Y ⊆ 𝒜 irreducible closed dominating S and a Betti map b on 𝒜_Δ, P ∈ Y^{sm,an} ∩ 𝒜_Δ is degenerate for Y if it is not isolated in b|_{Y^{sm,an} ∩ 𝒜_Δ}^{-1}(b(P)); Y is degenerate if a non-empty open subset of Y^{sm,an} ∩ 𝒜_Δ consists of degenerate points.",
+      "locator": "§5, p.18, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "For dim S = 1 this is the negation of the Betti-rank condition of PAPER-DIMITROV-GAO-HABEGGER-21 Definition 1.5. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/28",
+      "kind": "theorem",
+      "name": "Theorem 5.1 (degenerate implies generically special)",
+      "statement": "Over a smooth irreducible complex curve S, an irreducible closed subvariety of 𝒜 that is degenerate is generically special.",
+      "locator": "Theorem 5.1, p.18; proof §5.4, pp.28–30, arXiv v3 (28 January 2019) (misprint E9; Lemma 5.8 gap E8)",
+      "status": "missing",
+      "note": "Pass to a finite étale cover where the trace is stable and Lemma 5.7 applies; monodromy transport (Proposition 5.4) makes Y virtually monodromy invariant over uncountably many extendable points; Lemma 5.8 when the trace vanishes; the general case splits off the constant part via the Néron model of A/A₀ and uses Proposition 1.3. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/29",
+      "kind": "construction",
+      "name": "The o-minimal structure ℝ_an and definable sets",
+      "statement": "ℝ_an, generated by restrictions to [−1,1]^n of real-analytic functions, is o-minimal; definable sets and families in it.",
+      "locator": "§5.1, pp.18–19, citing van den Dries [vdD98], arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "note": "LogicAndDefinabilityInNumberTheory LD.6 plans the selected o-minimal structures, definable sets and cell decomposition."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/30",
+      "kind": "theorem",
+      "name": "Semi-rational Pila–Wilkie counting in definable families (Habegger–Pila)",
+      "statement": "For a definable family Z ⊆ ℝ^m × ℝ^n with fibres Z_x and ε > 0 there is c such that if a fibre contains more than cT^ε points whose \"rational\" coordinates have height ≤ T, then there is a continuous definable path whose rational coordinates are semi-algebraic and whose remaining coordinates are non-constant, starting at such a point ([HP16, Cor. 7.2], including the refinement (iii) that the path starts at a rational point).",
+      "locator": "Proof of Lemma 5.2, pp.19–20, citing Habegger–Pila [HP16, Cor. 7.2], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "LD.6 plans the plain Pila–Wilkie estimate; the semi-rational family version is routed to LD.6 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/31",
+      "kind": "theorem",
+      "name": "Ax's theorem for complex abelian varieties (Ax-type images)",
+      "statement": "For a complex abelian variety A with real-analytic group isomorphism A^an → T^{2g}, the image of X(ℂ) for Zariski closed X is definable and of Ax-type: every continuous semi-algebraic path y : [0,1] → exp^{-1}(image), real-analytic on (0,1), satisfies exp ∘ y([0,1]) ⊆ y(0) + G ⊆ image for a closed subgroup G.",
+      "locator": "§5.1, p.19; proof of Proposition 5.3, p.21, citing Ax [Ax71], [Ax72], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Functional transcendence for a constant abelian variety. Routed to LD.6 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/32",
+      "kind": "theorem",
+      "name": "Lemma 5.2 (invariant definable sets of Ax-type)",
+      "statement": "Let X ⊆ T^n be closed, definable and of Ax-type, and Γ ⊆ GL_n(ℤ) free on two generators with γ(X) = X for all γ ∈ Γ. Then either X lies in a finite union of proper closed subgroups of T^n, or there are a non-empty open U ⊆ X and a closed connected infinite subgroup G with U + G ⊆ X.",
+      "locator": "Lemma 5.2 and proof, pp.19–20, arXiv v3 (28 January 2019) (misprints E4–E5)",
+      "status": "missing",
+      "note": "Exponential growth of Γ (≥ T^{log 2/log c₁} elements of height ≤ T) against semi-rational Pila–Wilkie, then Ax-type, Kronecker's countability of closed subgroups and Baire. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/33",
+      "kind": "theorem",
+      "name": "Proposition 5.3 (monodromy-invariant subvarieties of an abelian variety)",
+      "statement": "Let A be a complex abelian variety and Γ ⊆ GL_{2g}(ℤ) act continuously on A^an via a Betti isomorphism, of monodromy type (every abelian subvariety is Γ-stable), containing a free subgroup of rank 2 and with no non-zero invariant vector in ℤ^{2g}. If Z ⊆ A is irreducible closed with Γ(Z(ℂ)) = Z(ℂ), then Z lies in a proper torsion coset, or Z + B = Z for some abelian subvariety B of positive dimension.",
+      "locator": "Proposition 5.3 and proof, pp.21–22, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/34",
+      "kind": "theorem",
+      "name": "Poincaré complementary abelian subvariety",
+      "statement": "For an abelian subvariety B of a polarized abelian variety A there is a complementary B′ with B + B′ = A and B ∩ B′ finite.",
+      "locator": "Proof of Proposition 5.3, p.21; §3.1, p.12; proof of Theorem 5.1, p.29, citing Birkenhake–Lange [BL04, §5.3], arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "note": "AbelianSchemesAndArithmeticModuli A6 plans Poincaré complete reducibility."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/35",
+      "kind": "theorem",
+      "name": "Proposition 5.4 (monodromy transport along Betti fibres)",
+      "statement": "Glueing Betti maps along loops gives a homomorphism ρ̃ : π₁(S^an, s) → {homeomorphic group automorphisms of 𝒜_s^an} with ρ̃(h)_* = ρ(h), the monodromy on H₁(𝒜_s^an, ℤ). (i) If P ∈ Y^an over s is not isolated in its Betti fibre in Y, then ρ̃(h)(P) ∈ Y^an for all h, and if P has order N then dim_P Y ∩ 𝒜[N] ≥ 1. (ii) ρ̃ commutes with homomorphisms of abelian schemes.",
+      "locator": "Proposition 5.4, (5.3)–(5.5) and proof, pp.22–24, arXiv v3 (28 January 2019) (misprint E6)",
+      "status": "missing",
+      "note": "Uses dim S = 1: the Betti fibre through a degenerate point is a disc contained in Y by the identity lemma. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/36",
+      "kind": "theorem",
+      "name": "Deligne: semisimplicity of monodromy and the Theorem of the Fixed Part",
+      "statement": "For a family of abelian varieties over a smooth complex curve, the identity component G⁰_s of the Zariski closure of the monodromy group in GL(H₁(𝒜_s, ℚ)) is semisimple (Hodge II, Cor. 4.2.9), and the monodromy invariants H₁(𝒜_s, ℤ)^ρ carry a sub-Hodge structure (Cor. 4.1.2); the isomorphism class of G_s and the index [G_s : G⁰_s] do not depend on s.",
+      "locator": "§5.3, pp.25–26, citing Deligne [Del71, 4.1.2, 4.2.9] and Zarhin [Zar08], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the Hodge-theory Part II DegeneratingHodgeStructures."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/37",
+      "kind": "theorem",
+      "name": "Tits: free subgroups of linear groups",
+      "statement": "A subgroup of GL_n over a field of characteristic 0 that is not virtually solvable contains a free subgroup on two generators; in particular a Zariski-dense subgroup of a non-trivial connected semisimple group does ([Tit72, Thm. 3]).",
+      "locator": "Proof of Lemma 5.5, p.25, citing Tits [Tit72, Thm. 3], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "No atlas layer owns the Tits alternative; it is routed with its only consumer, Lemma 5.5, to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/38",
+      "kind": "theorem",
+      "name": "Lemma 5.5 (free subgroups in monodromy)",
+      "statement": "If G⁰_s is non-trivial, every finite-index subgroup of Γ_s = ρ(π₁(S^an, s)) contains a free subgroup on two generators.",
+      "locator": "Lemma 5.5 and proof, p.25, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Tits applied to Γ′ ∩ G⁰_s(ℚ), Zariski dense in G⁰_s. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/39",
+      "kind": "theorem",
+      "name": "Hodge substructures of H₁ come from abelian subvarieties",
+      "statement": "Rational (or integral) Hodge substructures of H₁(A^an, ℤ) for a complex abelian variety A correspond to abelian subvarieties B ⊆ A, with dim B = ½ rank.",
+      "locator": "Proof of Lemma 5.6, p.25, arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A5"
+      ],
+      "note": "AbelianSchemesAndArithmeticModuli A5 plans the equivalence between polarized complex abelian varieties and polarizable integral Hodge structures of types (−1,0),(0,−1)."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/40",
+      "kind": "theorem",
+      "name": "Grothendieck: extension of homomorphisms of abelian schemes",
+      "statement": "For abelian schemes ℬ, 𝒜 over a smooth connected complex base S and s ∈ S(ℂ), every homomorphism ℬ_s → 𝒜_s whose map on H₁ is monodromy-equivariant is the restriction of a homomorphism ℬ → 𝒜 over S (Grothendieck, Invent. Math. 2 (1966); Deligne Hodge II 4.1.3.2).",
+      "locator": "Proof of Lemma 5.6, p.25, citing [Gro66] and [Del71, 4.1.3.2], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to AbelianSchemesAndArithmeticModuli A6 (Hom groups and their compatibility with geometric fibres) as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/41",
+      "kind": "theorem",
+      "name": "Lemma 5.6 (invariant homology forces a non-zero trace)",
+      "statement": "If H₁(𝒜_s^an, ℤ) has a non-zero monodromy-invariant element, then the ℂ(S)‾/ℂ-trace of the generic fibre is non-zero.",
+      "locator": "Lemma 5.6 and proof, p.25, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "The invariants give an abelian subvariety B ⊆ 𝒜_s by the Theorem of the Fixed Part; Grothendieck's theorem extends B × S → 𝒜. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/42",
+      "kind": "theorem",
+      "name": "Extendable points and Lemma 5.7 (Zarhin)",
+      "statement": "s ∈ S(ℂ) is extendable for 𝒜 if every abelian subvariety of 𝒜_s is the fibre of an abelian subscheme (the image of an endomorphism of 𝒜). If G⁰_s = G_s for some s, then all points outside an at most countable subset of S(ℂ) are extendable; they are the Hodge-generic points.",
+      "locator": "§5.3 and Lemma 5.7, pp.25–26, citing Zarhin [Zar08, Cor. 3.5], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Hodge loci of the variation. Routed to the Hodge-theory Part II DegeneratingHodgeStructures."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/43",
+      "kind": "theorem",
+      "name": "Lemma 5.8 (virtually monodromy-invariant subvarieties lie in kernels)",
+      "statement": "Let Y ⊆ 𝒜 be irreducible closed dominating S, virtually monodromy invariant (some component of Y_s is ρ̃-stable under a finite-index subgroup) above every point of an uncountable set of extendable points, and suppose the generic fibre of 𝒜 ×_S S′ has trivial trace for every finite étale S′ → S. Then there is a homomorphism 𝒜 → 𝒞 of abelian schemes over S whose kernel contains Y and has dimension dim Y.",
+      "locator": "Lemma 5.8 and proof, pp.26–28, arXiv v3 (28 January 2019) (misprint E7; degenerate cases of the induction omitted, E8)",
+      "status": "missing",
+      "note": "Induction on dim 𝒜 with Proposition 5.3 at uncountably many points: torsion cosets give [N]Y ⊆ ℬ (Case 1), stabilizers give a quotient 𝒜/ℬ (Case 2). The subcases where ℬ or 𝒜/ℬ has relative dimension 0 need the one-line arguments in sourceIssues E8. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/44",
+      "kind": "theorem",
+      "name": "Lemma 6.2 (non-generically special subvarieties have full Betti rank)",
+      "statement": "If X ⊆ 𝒜 dominating S is not generically special, there is P ∈ X^{sm}(F) with π(P) ∈ Δ and P ∈ (X_{π(P)})^{sm} such that dim im T_P(b|_{X^{sm,an} ∩ 𝒜_Δ}) = 2 dim X (6.1).",
+      "locator": "Lemma 6.2 and proof, p.31, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Theorem 5.1 makes X non-degenerate; the constant-rank theorem then forces maximal rank 2 dim X, and F-points are dense. Routed to the Betti-map Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/45",
+      "kind": "theorem",
+      "name": "Proposition 6.1 (the auxiliary subvariety Z)",
+      "statement": "For X ⊊ 𝒜 dominating S, not generically special, of codimension n, and P as in (6.1), there is an irreducible closed Z ⊆ 𝒜 over F with (i) dim Z = n and Z dominating S, (ii) P smooth on Z_s and Z, (iii) Z_s containing no positive-dimensional coset, (iv) deg Z_t ≤ D for all t, and (v) im T_P(b|_X) ∩ im T_P(b|_{Z_s}) = 0. Moreover only finitely many fibres Z_t contain a positive-dimensional coset.",
+      "locator": "Proposition 6.1, pp.30–31; proof §§6.1–6.4, pp.31–38, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Z is a component of (𝒵(f₁,…,f_{g+1−n}) × ℙ^m) ∩ 𝒜 for generic linear forms through P, using (A3), Bertini, Bézout and Lemma 6.6; the Moreover part is Proposition 6.9. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/46",
+      "kind": "theorem",
+      "name": "Bertini theorems for generic linear sections through a point",
+      "statement": "For an irreducible closed V ⊆ ℙ^M smooth at P, generic linear forms f₁,…,f_r vanishing at P cut V in a set smooth at P of dimension dim V − r, irreducible if dim V − r ≥ 1; generic here means in a Zariski open dense set of coefficient vectors.",
+      "locator": "§6.1, pp.31–32, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to SchemeAndStackFoundations SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/47",
+      "kind": "theorem",
+      "name": "Flatness and fibre dimension over a smooth curve",
+      "statement": "An irreducible closed subvariety dominating a smooth curve is flat over it with equidimensional fibres of dimension one less (Hartshorne III.9.6, 9.7); fibre dimension theorem (Hartshorne Ex. II.3.22).",
+      "locator": "§5.3, p.26; §6, pp.31–32, 37; §8.3, p.46, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to SchemeAndStackFoundations SF.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/48",
+      "kind": "theorem",
+      "name": "Lemmas 6.3–6.6 (transversal complex subspaces)",
+      "statement": "Let T be a g-dimensional ℂ-vector space and W ⊆ T of dimension m. (6.3) A real subspace V₀ ⊆ T_ℝ of dimension 2m+2k containing W meets some complex subspace of dimension g − (m+k) trivially. (6.4–6.5) Base cases: ℂ^{2k} has a k-dimensional complex subspace meeting ℝ^{2k} trivially. (6.6) If dim_ℝ V = 2(m+1) and W ⊆ V, the complex subspaces V′ of dimension g − m − 1 with V′ ∩ V = 0 form a non-empty open subset of Gr(T, g−m−1).",
+      "locator": "Lemmas 6.3–6.6 and proofs, pp.32–34, arXiv v3 (28 January 2019) (misprint E10)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II with Proposition 6.1."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/49",
+      "kind": "theorem",
+      "name": "Lemma 6.8 (Faltings: cutting out by hypersurfaces of bounded degree)",
+      "statement": "An irreducible closed subvariety of ℙ^n of degree δ is an intersection of finitely many irreducible hypersurfaces of degree ≤ δ.",
+      "locator": "Lemma 6.8, p.35, citing Faltings [Fal91, Prop. 2.1], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/50",
+      "kind": "theorem",
+      "name": "Proposition 6.7 (Bézout for long intersections)",
+      "statement": "If V₁,…,V_m ⊆ ℙ^n are irreducible closed of degree ≤ δ and C₁,…,C_r are the top-dimensional (dimension k) components of V₁ ∩ ⋯ ∩ V_m, then Σ deg C_i ≤ δ^{n−k}, independently of m.",
+      "locator": "Proposition 6.7 and proof, pp.35–36, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Choose n−k hypersurfaces of degree δ in general position through C₁ ∪ ⋯ ∪ C_r and apply Bézout. The proof also works when each V_i is reducible with the sum of its component degrees ≤ δ, which is how it is used in Proposition 6.9 (sourceIssues E12). Routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/51",
+      "kind": "theorem",
+      "name": "Bézout and conservation of number (Fulton)",
+      "statement": "The degrees of the irreducible components of an intersection in ℙ^n sum to at most the product of the degrees (Fulton Ex. 8.4.6, also for reducible hypersurfaces); degrees of fibres of a flat family of cycles are constant (Fulton 10.2.2).",
+      "locator": "§6.1, p.32; proof of Proposition 6.7, p.36; §8.3, p.46, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to SF.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/52",
+      "kind": "theorem",
+      "name": "Degree of stabilizers (David–Hindry)",
+      "statement": "For an irreducible subvariety W of an abelian variety embedded in projective space, the stabilizer Stab(W) has degree ≤ deg(W)^{dim W + 1} ([DH00, Lemme 2.1(ii)]).",
+      "locator": "Proof of Proposition 6.9, p.38; proof of Proposition 8.1, p.47, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/53",
+      "kind": "theorem",
+      "name": "Proposition 6.9 (few fibres contain cosets)",
+      "statement": "If Z ⊆ 𝒜 is irreducible closed dominating S and some fibre Z_s contains no positive-dimensional coset, then only finitely many fibres Z_t contain a positive-dimensional coset.",
+      "locator": "Proposition 6.9 and proof, pp.36–38, arXiv v3 (28 January 2019) (misprint E11; Proposition 6.7 applied to reducible fibres, E12)",
+      "status": "missing",
+      "note": "For a large prime ℓ and each ℓ-torsion section σ, Z(σ) = ⋂_k (Z − [k]σ) is closed and contains every coset-bearing fibre; Proposition 6.7 bounds the top-dimensional part of Z(σ)_s independently of ℓ, and the stabilizer bound gives a contradiction if Z(σ)_s ≠ ∅. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/54",
+      "kind": "theorem",
+      "name": "Blichfeldt's theorem",
+      "statement": "If U ⊆ ℝ^m is measurable, some translate −x + U contains at least vol(U) points of ℤ^m.",
+      "locator": "Proof of Proposition 7.2, p.41, citing Cassels [Cas97, III.2, Thm. I], arXiv v3 (28 January 2019)",
+      "status": "planned",
+      "planned": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "note": "GeometryOfNumbersAndQuadraticArithmetic GN.1 plans Blichfeldt and Minkowski."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/55",
+      "kind": "theorem",
+      "name": "Lemma 7.1 (volume and injectivity of ψ_N)",
+      "statement": "For C¹ maps φ₁ : U₀ × U₁ → ℝ^m, φ₂ : U₀ × U₂ → ℝ^m (U₀ ⊆ ℝ², m = 2 + m₁ + m₂) with finite C¹ norms, ψ_N(w,x,y) = Nφ₁(w,x) − φ₂(w,y), and z₀ with δ₀(z₀) ≠ 0 (7.2), there are bounded neighbourhoods U″ ⊆ U′ of z₀ and c ∈ (0,1] such that φ₁ is injective on π₁(U′) and, for N ≥ c^{-1}, ψ_N|_{U′} is injective and open, vol ψ_N(U″) ≥ cN^{2+m₁} and B_c(ψ_N(U″)) ⊆ ψ_N(U′).",
+      "locator": "Lemma 7.1 and proof, pp.38–41, arXiv v3 (28 January 2019) (misprints E13)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/56",
+      "kind": "theorem",
+      "name": "Proposition 7.2 (lattice points in ψ_N(U′))",
+      "statement": "Under the hypotheses of Lemma 7.1 there are a bounded neighbourhood U′ of z₀ and c ∈ (0,1] with #(ψ_N(U′) ∩ N₀^{-1}ℤ^m) ≥ cN^{2+m₁} for all integers N₀ ≥ c^{-1} and real N ≥ c^{-1}; moreover φ₁|_{π₁(U′)} and ψ_N|_{U′} are injective.",
+      "locator": "Proposition 7.2 and proof, p.41, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Blichfeldt, then translation by a point of N₀^{-1}ℤ^m within c of the Blichfeldt shift. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/57",
+      "kind": "theorem",
+      "name": "Lemma 8.2 (division points from lattice points)",
+      "statement": "For X as in Proposition 8.1 there are c > 0, a prime ℓ > D^{2^{g+1}(g+1)} and a finite étale S′ → S carrying all ℓ-torsion sections such that for every N ≥ c^{-1} there are r ≥ cN^{2 dim X} pairs (P′_i, Q′_i) ∈ X′(ℂ) × Z′(ℂ), with the P′_i distinct, satisfying (i) π′(P′_i) = π′(Q′_i) and [ℓN]P′_i = [ℓ]Q′_i, (ii) Z′_{π′(P′_i)} contains no positive-dimensional coset, (iii) if Q′_i ∈ Y′ and P′_i is not isolated in X′ ∩ [ℓN]^{-1}([ℓ]Y′) then Q′_i ∈ Y′ ∩ (Y′ − im σ) for some non-zero ℓ-torsion section σ.",
+      "locator": "Lemma 8.2, (8.1)–(8.8) and proof, pp.42–45, arXiv v3 (28 January 2019) (misprints E14)",
+      "status": "missing",
+      "note": "Local parametrizations of X and Z at P composed with a lift of the Betti map give φ₁, φ₂; Proposition 6.1(v) gives δ₀(0) ≠ 0 and Proposition 7.2 with N₀ = ℓ gives the pairs. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/58",
+      "kind": "construction",
+      "name": "Auxiliary sets Σ_k of intersections with torsion translates",
+      "statement": "Σ₀ = components of Z′; Σ_{k+1} = components of Y′ ∩ (Y′ − im σ) for Y′ ∈ Σ_k and σ ∈ 𝒜′[ℓ](S′) with Y′ ⊄ Y′ − im σ. Then dim Y′ ≤ n − k and deg Y′_t ≤ D^{2^k} for Y′ ∈ Σ_k, so deg Y′_t ≤ D^{2^{g+1}} on Σ = Σ₀ ∪ ⋯ ∪ Σ_n, independently of ℓ (8.9).",
+      "locator": "§8.3, (i)–(iii) and (8.9), pp.45–46, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Fibre degrees over special points by conservation of number. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/59",
+      "kind": "theorem",
+      "name": "Proposition 8.1 (many isolated division points)",
+      "statement": "If X ⊆ 𝒜 is irreducible closed over F, dominates S and is not generically special, there are c > 0, a finite étale S′ → S and closed Y₁,…,Y_R ⊆ 𝒜′ = 𝒜 ×_S S′ such that for every integer N ≥ c^{-1} some Y_j has X′ ∩ [N]^{-1}(Y_j) with at least cN^{2 dim X} irreducible components of dimension 0.",
+      "locator": "Proposition 8.1, p.42; proof pp.46–47, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Take Y = [ℓ]^{-1}([ℓ]Y′) for the Y′ ∈ Σ hit most often; a non-isolated point would force a σ(t)-stable fibre and a positive-dimensional stabilizer, contradicting Lemma 8.2(ii). Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/60",
+      "kind": "theorem",
+      "name": "Lemma 9.2 (auxiliary rational map)",
+      "statement": "For locally closed X, Y ⊆ ℙ^M with X irreducible there is δ depending only on Y such that for any Q₁,…,Q_r ∈ X ∩ Y there are forms ϕ₀,…,ϕ_{dim X} of degree δ with common zero set 𝒵 such that ϕ = [ϕ₀:⋯:ϕ_{dim X}] maps Y∖𝒵 to [1:0:⋯:0], the Q_i ∉ 𝒵, and any irreducible C ⊆ X through some Q_i on which ϕ is constant lies in the closure of Y.",
+      "locator": "Lemma 9.2 and proof, pp.47–48, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/61",
+      "kind": "theorem",
+      "name": "Lemma 9.3 (isolated points bound the degree; Habegger)",
+      "statement": "For a rational map ϕ : X ⇢ ℙ^{dim X}_ℂ on an irreducible variety, the number of zero-dimensional components of any fibre ϕ^{-1}(Q) is at most deg ϕ (deg ϕ = 0 if ϕ is not dominant).",
+      "locator": "Lemma 9.3, p.48, citing Habegger [Hab13, Lemma 4.2], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/62",
+      "kind": "theorem",
+      "name": "Lemma 9.4 (height lower bound from degree; Habegger)",
+      "statement": "For X ⊆ ℙ^M irreducible closed over Q̄ of positive dimension and ϕ = [ϕ₀:⋯:ϕ_{dim X}] given by forms of equal degree ≤ D not all vanishing on X, there are c and a Zariski open dense U ⊆ X on which the ϕ_i have no common zero and h(ϕ(P)) ≥ (4^{dim X} deg X)^{-1} (deg ϕ / D^{dim X − 1}) h(P) − c.",
+      "locator": "Lemma 9.4, p.49, citing Habegger [Hab13, Lemma 4.3], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/63",
+      "kind": "theorem",
+      "name": "Silverman: heights under generically finite dominant maps",
+      "statement": "For a dominant generically finite morphism (or equidimensional dominant rational map) f : X′ → X of varieties over Q̄ there are c > 0, c′ and a Zariski open dense U with h(f(P)) ≥ c h(P) − c′ on U (Silverman, J. Ramanujan Math. Soc. 26 (2011)).",
+      "locator": "Proof of Proposition 9.1, p.49, citing [Sil11], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Used to pass through the finite étale cover S′ → S. Routed to RP.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/64",
+      "kind": "theorem",
+      "name": "Proposition 9.1 (height inequality in the total space)",
+      "statement": "If X ⊆ 𝒜 is irreducible closed, dominates S and is not generically special, there is c > 0 such that for every integer N ≥ c^{-1} there are a non-empty Zariski open U_N ⊆ X and c′(N) with h([2^N]Q) ≥ c4^N h(Q) − c′(N) for all Q ∈ U_N(Q̄).",
+      "locator": "Proposition 9.1, p.47; proof pp.49–51, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Proposition 8.1 with 2^N gives ≥ c₃4^{N dim X} isolated points in a fibre of ϕ ∘ [2^N] (Lemma 9.2); Lemma 9.3 bounds deg(ϕ ∘ [2^N]) below, Lemma 9.4 with degree ≤ c₂δ4^N and (9.2) conclude. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/65",
+      "kind": "theorem",
+      "name": "Silverman–Tate theorem (line-bundle version)",
+      "statement": "For an abelian scheme with admissible immersion there is c₁ ≥ 0 with |ĥ_𝒜(P) − h(P)| ≤ c₁(1 + h(π(P))) for all P ∈ 𝒜(Q̄); the smoothness hypothesis of [Sil83, Thm. A] can be dropped when working with line bundles instead of Weil divisors.",
+      "locator": "Proof of Proposition 10.1, (10.2), p.51, citing Silverman [Sil83, Thm. A], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to RP.0 as a source, as for PAPER-DIMITROV-GAO-HABEGGER-21 (which reproves it)."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/66",
+      "kind": "theorem",
+      "name": "Proposition 10.1 (Néron–Tate height versus naive height)",
+      "statement": "If X ⊆ 𝒜 is irreducible closed and not generically special, there are a non-empty Zariski open U ⊆ X over Q̄ and c > 0 with h(P) ≤ c(1 + ĥ_𝒜(P)) for all P ∈ U(Q̄).",
+      "locator": "Proposition 10.1 and proof, pp.51–52, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Silverman–Tate plus Proposition 9.1: ĥ_𝒜(P) ≥ (c₂ − c₁/4^N)h(P) − (c₃(N) + c₁)/4^N, then fix N with 4^N ≥ 2c₁/c₂ (\"killing Zimmer constants\"). Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/67",
+      "kind": "theorem",
+      "name": "Theorem 11.1 (Silverman's Height Limit Theorem, after base change)",
+      "statement": "For x ∈ A(K̄) represented by σ_x : S′ → 𝒜 over a generically finite ρ : S′ → S, lim ĥ_𝒜(σ_x(t)) / h_S(ρ(t)) = ĥ_{K,A}(x) as h_S(ρ(t)) → ∞, with h_S = h ∘ ι / deg S (11.1). Heights on curves are quasi-equivalent (h_S ∘ ρ / h_{S′} → deg ρ) and ĥ_{K′,A_{K′}} = [K′:K] ĥ_{K,A}.",
+      "locator": "Theorem 11.1, (11.1)–(11.2) and proof, pp.52–53, citing Silverman [Sil83, Thm. B], Bombieri–Gubler Cor. 9.3.10 and [Con06, Rem. 9.2], arXiv v3 (28 January 2019) (misprints E16)",
+      "status": "missing",
+      "note": "Routed to RP.0 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/68",
+      "kind": "construction",
+      "name": "Moriwaki heights over finitely generated fields and their height machine",
+      "statement": "For k₀ finitely generated over ℚ of transcendence degree d with a polarization B = (B; H̄₁,…,H̄_d; τ) (B flat quasi-projective integral over ℤ, H̄_i nef smooth hermitian line bundles), and a line bundle L on a projective X over k₀, the Moriwaki height h^B_{k₀,X,L} : X(k₀‾) → ℝ, defined up to O(1), satisfies additivity, functoriality under quasi-finite morphisms, boundedness below off the base locus, Northcott when L is ample and B is big, and the algebraic-equivalence limit (Proposition A.1); it transforms correctly under isomorphisms of k₀.",
+      "locator": "§A.1, (A.1) and Proposition A.1, pp.54–55, citing Moriwaki [Mor00, Prop. 3.3.7], Wazir [Waz06, Prop. 2(iv)], Lang [Lan83, Ch. 4, Prop. 3.3, Cor. 3.4], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to ArakelovGeometryAndAbelianHeightsPartII, whose Yuan–Zhang adelic line bundles over finitely generated fields contain Moriwaki's heights."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/69",
+      "kind": "theorem",
+      "name": "Proposition A.2 (Moriwaki Néron–Tate height)",
+      "statement": "For A over k₀ with symmetric ample L, ĥ^B_L(P) = lim 2^{-2n} h^B_L([2^n]P) exists, is quadratic, ≥ 0, vanishes on torsion, and when B is big vanishes exactly on torsion points.",
+      "locator": "(A.2) and Proposition A.2, pp.55–56, citing [Mor00, §3.4, Prop. 3.4.1], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to ArakelovGeometryAndAbelianHeightsPartII."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/70",
+      "kind": "theorem",
+      "name": "Silverman–Tate and the height limit theorem for Moriwaki heights (Wazir)",
+      "statement": "The Silverman–Tate comparison and Silverman's specialization limit (11.2) hold with Moriwaki heights in place of Weil heights ([Waz06, Thms. 2, 3]).",
+      "locator": "§A.2, p.56; §A.3, p.57, citing Wazir [Waz06], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to ArakelovGeometryAndAbelianHeightsPartII."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/71",
+      "kind": "theorem",
+      "name": "Theorem A.3 (height inequality with Moriwaki heights)",
+      "statement": "For k₀ finitely generated over ℚ with polarization B, an abelian scheme 𝒜 → S over a smooth irreducible quasi-projective curve over k₀‾, L symmetric relatively ample, M ample on S̄ and X ⊆ 𝒜 closed irreducible, there is c > 0 depending on B, 𝒜/S, X, L, M with h^B_{S̄,M}(π(P)) ≤ c(1 + ĥ^B_{𝒜,L}(P)) for P ∈ X*(k₀‾).",
+      "locator": "Theorem A.3 and sketch, p.56, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Repeat §§9–10 with Proposition A.1 and Wazir's Silverman–Tate; reduce to k₀ ⊆ ℂ by an isomorphism. Routed to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/72",
+      "kind": "theorem",
+      "name": "Essential minimum under extension of the constant field",
+      "statement": "For X ⊆ A over k₀‾(S): µ_ess(X) = 0 iff ĥ(X) = 0 (Zhang's inequalities in Gubler's function-field form [Gub07, Cor. 4.4]); the canonical height of a subvariety is unchanged by extending the constant field k₀‾ to k, so µ_ess(X_K) = 0 implies µ_ess(X) = 0.",
+      "locator": "§A.3, p.57, citing Zhang [Zha95] and Gubler [Gub07, Cor. 4.4, §3], arXiv v3 (28 January 2019) (a sketch)",
+      "status": "missing",
+      "note": "Routed to the uniformity Part II with Theorem 1.1 for general k."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/73",
+      "kind": "theorem",
+      "name": "Bogomolov: maximal cosets in a subvariety have bounded degree",
+      "statement": "For a subvariety X of an abelian variety A ⊆ ℙ^M over an algebraically closed field of characteristic 0, the maximal cosets contained in X are translates of abelian subvarieties of degree bounded in terms of deg X, A and the polarization ([Bog81, Thm. 1]).",
+      "locator": "Proof of Proposition C.1, p.61, citing Bogomolov [Bog81], arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Routed to RP.5 as a source, as for PAPER-GAO-GE-KUHNE-26."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/74",
+      "kind": "theorem",
+      "name": "Lemma C.2 and (C.1) (hypersurfaces containing no translate of B)",
+      "statement": "H_V(d) ≥ binom(dim V + d, dim V) ≥ d + 1 for the Hilbert function of V ⊆ ℙ^M with dim V ≥ 1 (C.1). For A ⊆ ℙ^M of dimension g ≥ 2, an abelian subvariety B with dim B ≥ 1 and d ≥ max{1, g − dim B}, the degree-d forms f such that A ∩ 𝒵(f) contains a translate of B lie in a closed subset of codimension ≥ d + 1 + dim B − g.",
+      "locator": "(C.1) and Lemma C.2 with proof, pp.59–61, arXiv v3 (28 January 2019)",
+      "status": "missing",
+      "note": "Incidence variety and fibre dimension counts. Routed to RP.5 as a source."
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/75",
+      "kind": "theorem",
+      "name": "Proposition C.1 (hyperbolic hypersurface sections of abelian varieties)",
+      "statement": "For A ⊆ ℙ^M of dimension g ≥ 1 and d ≥ g − 1, there is a Zariski open dense U in the space of degree-d forms, with complement of codimension ≥ d + 2 − g, such that A ∩ 𝒵(f) contains no positive-dimensional coset for f ∈ U. Hence for d ≥ g a generic degree-d section through a given point is hyperbolic (by Bloch–Ochiai).",
+      "locator": "Proposition C.1, its corollary and proof, pp.59, 61, arXiv v3 (28 January 2019) (misprint E17)",
+      "status": "missing",
+      "note": "A quantitative case of Brotbek's theorem: Bogomolov reduces to finitely many B, and Lemma C.2 handles each. Routed to RP.5 as a source."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "J. H. Silverman, Heights and the specialization map for families of abelian varieties, J. reine angew. Math. 342 (1983), 197–211",
+      "link": "https://doi.org/10.1515/crll.1983.342.197",
+      "why": "Theorem A (Silverman–Tate) in Proposition 10.1 and Theorem B (height limit) in §11."
+    },
+    {
+      "citation": "P. Habegger, Special points on fibered powers of elliptic surfaces, J. reine angew. Math. 685 (2013), 143–179",
+      "link": "https://doi.org/10.1515/crelle-2012-0007",
+      "why": "Lemmas 4.2–4.3 (Lemmas 9.3–9.4) and the blueprint of §11; Theorem 1.4 for fibred powers of elliptic families."
+    },
+    {
+      "citation": "P. Habegger, J. Pila, O-minimality and certain atypical intersections, Ann. Sci. ÉNS 49 (2016), 813–858",
+      "link": "https://doi.org/10.24033/asens.2296",
+      "why": "Corollary 7.2 (semi-rational Pila–Wilkie in families) in Lemma 5.2."
+    },
+    {
+      "citation": "B. Conrad, Chow's K/k-image and K/k-trace, and the Lang–Néron theorem, Enseign. Math. 52 (2006), 37–108",
+      "link": "https://www.e-periodica.ch/digbib/view?pid=ens-001:2006:52::128",
+      "why": "The trace, its closed-immersion property, Lang–Néron (Thm. 7.1) and function-field heights (§§8–9)."
+    },
+    {
+      "citation": "P. Deligne, Théorie de Hodge II, Publ. Math. IHÉS 40 (1971), 5–57",
+      "link": "https://doi.org/10.1007/BF02684692",
+      "why": "Theorem of the Fixed Part (4.1.2), extension of homomorphisms (4.1.3.2) and semisimplicity of monodromy (4.2.9) in §5.3."
+    },
+    {
+      "citation": "Yu. G. Zarhin, Isogeny classes of abelian varieties over function fields, Proc. LMS 96 (2008), 312–334",
+      "link": "https://doi.org/10.1112/plms/pdm049",
+      "why": "Corollary 3.5 (Lemma 5.7: extendable points outside a countable set)."
+    },
+    {
+      "citation": "J. Tits, Free subgroups in linear groups, J. Algebra 20 (1972), 250–270",
+      "link": "https://doi.org/10.1016/0021-8693(72)90058-0",
+      "why": "Theorem 3 in Lemma 5.5."
+    },
+    {
+      "citation": "T. Scanlon, Automatic uniformity, IMRN 2004, no. 62, 3317–3326; M. Raynaud, Sous-variétés d'une variété abélienne et points de torsion (1983)",
+      "link": "https://doi.org/10.1155/S1073792804140816",
+      "why": "Uniform Manin–Mumford (Theorem 3.2)."
+    },
+    {
+      "citation": "A. Moriwaki, Arithmetic height functions over finitely generated fields, Invent. Math. 140 (2000), 101–142; R. Wazir, On the specialization theorem for abelian varieties, Bull. LMS 38 (2006), 555–560",
+      "link": "https://doi.org/10.1007/s002220050358",
+      "why": "Moriwaki heights and their Silverman theorems in Appendix A."
+    },
+    {
+      "citation": "S. David, M. Hindry, Minoration de la hauteur de Néron–Tate sur les variétés abéliennes de type C.M., J. reine angew. Math. 529 (2000), 1–74",
+      "link": "https://doi.org/10.1515/crll.2000.096",
+      "why": "Lemme 2.1(ii) (stabilizer degree) in Propositions 6.9 and 8.1."
+    },
+    {
+      "citation": "G. Faltings, Diophantine approximation on abelian varieties, Ann. of Math. 133 (1991), 549–576",
+      "link": "https://doi.org/10.2307/2944319",
+      "why": "Proposition 2.1 (Lemma 6.8)."
+    },
+    {
+      "citation": "F. Bogomolov, Points of finite order on an abelian variety, Math. USSR Izv. 17 (1981), 55–72",
+      "link": "https://doi.org/10.1070/IM1981v017n01ABEH001329",
+      "why": "Theorem 1 (degree of maximal cosets) in Proposition C.1."
+    },
+    {
+      "citation": "W. Gubler, The Bogomolov conjecture for totally degenerate abelian varieties, Invent. Math. 169 (2007), 377–400",
+      "link": "https://doi.org/10.1007/s00222-007-0049-y",
+      "why": "Corollary 4.4 (Zhang's inequalities over function fields) in the essential-minimum step of Appendix A."
+    },
+    {
+      "citation": "J. H. Silverman, Height estimates for equidimensional dominant rational maps, J. Ramanujan Math. Soc. 26 (2011), 145–163",
+      "link": "https://arxiv.org/abs/0908.3835",
+      "why": "Height comparison through the finite étale cover in Proposition 9.1."
+    },
+    {
+      "citation": "V. Dimitrov, Z. Gao, P. Habegger, Uniformity in Mordell–Lang for curves, Ann. Math. 194 (2021)",
+      "link": "https://doi.org/10.4007/annals.2021.194.1.4",
+      "why": "Later generalization of Theorem 1.4 to bases of any dimension (Theorem 1.6/B.1); extracted as PAPER-DIMITROV-GAO-HABEGGER-21."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ],
+      "items": [
+        "PAPER-GAO-HABEGGER-19/3",
+        "PAPER-GAO-HABEGGER-19/4",
+        "PAPER-GAO-HABEGGER-19/5",
+        "PAPER-GAO-HABEGGER-19/6",
+        "PAPER-GAO-HABEGGER-19/16",
+        "PAPER-GAO-HABEGGER-19/63",
+        "PAPER-GAO-HABEGGER-19/65",
+        "PAPER-GAO-HABEGGER-19/67",
+        "PAPER-GAO-HABEGGER-19/19",
+        "PAPER-GAO-HABEGGER-19/52",
+        "PAPER-GAO-HABEGGER-19/73",
+        "PAPER-GAO-HABEGGER-19/74",
+        "PAPER-GAO-HABEGGER-19/75"
+      ],
+      "reason": "RP.0 owns the height machine and canonical heights, RP.1 Mordell–Weil and RP.5 subvarieties of abelian varieties. The paper is a source for the function-field side of these layers: heights over k(S̄), the function-field Néron–Tate height and its kernel, Chow's trace and the Lang–Néron theorem. It is also a source for Silverman's comparison and specialization theorems (Theorems A and B of Crelle 342, and the 2011 estimate for dominant maps), the quartic description of [2], uniform Manin–Mumford, the stabilizer and Bogomolov degree bounds, and the coset-free hypersurface sections of Appendix C. None of these is specific to the height inequality."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A6"
+      ],
+      "items": [
+        "PAPER-GAO-HABEGGER-19/14",
+        "PAPER-GAO-HABEGGER-19/40"
+      ],
+      "reason": "A2 owns relatively ample bundles and projective presentations of abelian schemes; A6 owns Hom groups and their compatibility with geometric fibres. The paper needs Raynaud's projective presentation over a curve after removing finitely many points, and Grothendieck's theorem that a monodromy-equivariant homomorphism of fibres extends over the base."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-GAO-HABEGGER-19/47",
+        "PAPER-GAO-HABEGGER-19/46",
+        "PAPER-GAO-HABEGGER-19/49",
+        "PAPER-GAO-HABEGGER-19/50",
+        "PAPER-GAO-HABEGGER-19/51"
+      ],
+      "reason": "SF.0 owns general scheme theory and SF.5 intersection theory and degrees. The paper proves a long-intersection Bézout bound independent of the number of intersected varieties (Proposition 6.7, with Faltings' Lemma 6.8), and uses Bertini through a point, Bézout, conservation of number and flatness over a curve. These are general projective-geometry tools."
+    },
+    {
+      "route": "source",
+      "roadmap": "LogicAndDefinabilityInNumberTheory",
+      "stages": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "items": [
+        "PAPER-GAO-HABEGGER-19/30",
+        "PAPER-GAO-HABEGGER-19/31"
+      ],
+      "reason": "LD.6 owns o-minimal counting and functional transcendence. The paper uses the semi-rational Pila–Wilkie theorem for definable families (Habegger–Pila, Cor. 7.2), a refinement of the planned estimate, and Ax's theorem that images of algebraic subsets of a constant abelian variety are of Ax-type."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+      ],
+      "items": [
+        "PAPER-GAO-HABEGGER-19/22"
+      ],
+      "reason": "IG.0 owns the profinite fundamental group of finite étale covers. Appendix B proves that π₁ of a smooth variety over an algebraically closed field of characteristic 0 is topologically finitely generated, so there are finitely many étale covers of bounded degree. This is the fundamental-group input to the torsion bounds."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesBettiMapsPartII",
+      "title": "Abelian Schemes And Arithmetic Moduli, Part II: Betti maps and non-degenerate subvarieties",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-HABEGGER-19/25",
+        "PAPER-GAO-HABEGGER-19/27",
+        "PAPER-GAO-HABEGGER-19/28",
+        "PAPER-GAO-HABEGGER-19/32",
+        "PAPER-GAO-HABEGGER-19/33",
+        "PAPER-GAO-HABEGGER-19/35",
+        "PAPER-GAO-HABEGGER-19/37",
+        "PAPER-GAO-HABEGGER-19/38",
+        "PAPER-GAO-HABEGGER-19/41",
+        "PAPER-GAO-HABEGGER-19/43",
+        "PAPER-GAO-HABEGGER-19/44"
+      ],
+      "brief": "This is the Part II proposed by PAPER-GAO-GE-KUHNE-26 and PAPER-DIMITROV-GAO-HABEGGER-21 under the same id, and their briefs remain binding. This paper adds the one-dimensional-base theory that preceded them. Import complex uniformization and Hodge structures of abelian varieties from AbelianSchemesAndArithmeticModuli A5, Hom groups and Grothendieck's extension theorem from A6, the o-minimal structure ℝ_an, semi-rational Pila–Wilkie and Ax's theorem from LogicAndDefinabilityInNumberTheory LD.6, and period maps, Deligne's semisimplicity, the Theorem of the Fixed Part and Hodge-generic points from DegeneratingHodgeStructures. State and prove, as in Gao–Habegger (Ann. Math. 189 (2019)), the following. Proposition 4.1: the Betti map over a curve, via Ehresmann and periods, unique up to GL_{2g}(ℤ). The notion of a degenerate subvariety. Lemma 5.2: definable Ax-type subsets of T^n stable under a rank-two free group lie in finitely many proper closed subgroups or contain a coset of a connected infinite subgroup. Proposition 5.3: monodromy-stable subvarieties of an abelian variety. Proposition 5.4: monodromy transport along Betti fibres, compatible with homomorphisms. The Tits alternative [Tit72, Thm. 3], which no atlas layer owns, and Lemma 5.5. Lemma 5.6. Lemma 5.8, including its relative-dimension-0 subcases (sourceIssues E8). Theorem 5.1: over a curve, degenerate implies generically special. Lemma 6.2: a subvariety that is not generically special has Betti rank 2 dim X at some algebraic point. Acceptance: a torsion multisection and a constant family are degenerate; the equivalence of Theorem 5.1 matches the dim S = 1 case of the generic-rank criterion in the PAPER-DIMITROV-GAO-HABEGGER-21 brief.",
+      "reason": "The Betti map and degeneracy are not in the atlas. Two extracted papers already propose this Part II, so this paper's one-parameter theory coalesces with it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/HodgeStructures",
+      "roadmap": "DegeneratingHodgeStructures",
+      "title": "Hodge structures (pure, mixed, and polarized), Part II: degeneration, period maps and Hodge loci",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-HABEGGER-19/26",
+        "PAPER-GAO-HABEGGER-19/36",
+        "PAPER-GAO-HABEGGER-19/42"
+      ],
+      "brief": "This is the Part II proposed by PAPER-BAKKER-KLINGLER-TSIMERMAN-20 and PAPER-BENOIST-19 under the same id, and their briefs remain binding. This paper adds three global inputs for weight-one variations over a smooth complex curve. First, the local period map: an Ehresmann trivialization with complex-analytic fibres (Voisin I, Thm. 9.3, Prop. 9.5), and holomorphic variation of the Hodge subspace with a holomorphic period matrix (Griffiths). Second, Deligne's Hodge II results: the identity component of the Zariski closure of global monodromy is semisimple (Cor. 4.2.9), and the monodromy invariants form a sub-Hodge structure (the Theorem of the Fixed Part, Cor. 4.1.2). Third, Zarhin's theorem: when the monodromy closure is connected, the points outside a countable set are Hodge-generic, so every abelian subvariety of the fibre extends to an abelian subscheme (Zarhin, Proc. LMS 96 (2008), Cor. 3.5). Import Hodge structures and polarizations from Tau Ceti HodgeStructures L0–L3, the variation interface from ShimuraData D3, the Gauss–Manin comparison from ComplexComparisonPartII C5, and the dictionary between abelian varieties and Hodge structures from AbelianSchemesAndArithmeticModuli A5. Export them to AbelianSchemesBettiMapsPartII. Acceptance: a family with finite monodromy has trivial G⁰; for a non-isotrivial elliptic family the invariants vanish.",
+      "reason": "These are theorems about variations of Hodge structure: periods, global monodromy and Hodge loci. Tau Ceti HodgeStructures covers pure and mixed structures but not variations. The pending Part II for period maps and Hodge loci is where they belong."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ArakelovGeometryAndAbelianHeights",
+      "roadmap": "ArakelovGeometryAndAbelianHeightsPartII",
+      "title": "Arakelov geometry and heights of abelian varieties, Part II: adelic bigness on curve families",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-HABEGGER-19/68",
+        "PAPER-GAO-HABEGGER-19/69",
+        "PAPER-GAO-HABEGGER-19/70"
+      ],
+      "brief": "This is the Part II proposed by PAPER-YUAN-26 under the same id, and its brief remains binding. Its Yuan–Zhang adelic line bundles on flat quasi-projective schemes over ℤ include Moriwaki's arithmetic heights over finitely generated fields, which this paper uses. Add: Moriwaki polarizations B = (B; H̄₁,…,H̄_d; τ) of a finitely generated field k₀/ℚ, and the height h^B_{k₀,X,L} modulo bounded functions with its height machine (Moriwaki, Invent. Math. 140 (2000), Prop. 3.3.7): additivity, functoriality under quasi-finite maps, boundedness off the base locus, Northcott for big B, and the algebraic-equivalence limit. Add the Moriwaki Néron–Tate height (quadratic, and vanishing exactly on torsion for big B), and Wazir's Silverman–Tate and specialization theorems (Bull. LMS 38 (2006), Thms. 2–3). Export them to HeightsRationalPointsAndObstructionsPartII for Theorem A.3. Acceptance: for a number field k₀ with d = 0 the Moriwaki height is the absolute Weil height, and h^{B′}_{k′₀} ∘ ι = h^B_{k₀} under a field isomorphism ι.",
+      "reason": "Moriwaki's heights are not in the atlas. They are a special case of the adelic arithmetic intersection theory that YUAN-26's pending Part II proposes, so they are routed there instead of to a new roadmap."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsAndObstructionsPartII",
+      "title": "Heights, rational points and obstructions, Part II: uniform Bogomolov and uniform Mordell–Lang",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-GAO-HABEGGER-19/1",
+        "PAPER-GAO-HABEGGER-19/2",
+        "PAPER-GAO-HABEGGER-19/7",
+        "PAPER-GAO-HABEGGER-19/8",
+        "PAPER-GAO-HABEGGER-19/12",
+        "PAPER-GAO-HABEGGER-19/13",
+        "PAPER-GAO-HABEGGER-19/17",
+        "PAPER-GAO-HABEGGER-19/18",
+        "PAPER-GAO-HABEGGER-19/23",
+        "PAPER-GAO-HABEGGER-19/24",
+        "PAPER-GAO-HABEGGER-19/45",
+        "PAPER-GAO-HABEGGER-19/48",
+        "PAPER-GAO-HABEGGER-19/53",
+        "PAPER-GAO-HABEGGER-19/55",
+        "PAPER-GAO-HABEGGER-19/56",
+        "PAPER-GAO-HABEGGER-19/57",
+        "PAPER-GAO-HABEGGER-19/58",
+        "PAPER-GAO-HABEGGER-19/59",
+        "PAPER-GAO-HABEGGER-19/60",
+        "PAPER-GAO-HABEGGER-19/61",
+        "PAPER-GAO-HABEGGER-19/62",
+        "PAPER-GAO-HABEGGER-19/64",
+        "PAPER-GAO-HABEGGER-19/66",
+        "PAPER-GAO-HABEGGER-19/71",
+        "PAPER-GAO-HABEGGER-19/72"
+      ],
+      "brief": "This is the Part II proposed by PAPER-YUAN-26, PAPER-GAO-GE-KUHNE-26 and PAPER-DIMITROV-GAO-HABEGGER-21 under the same id, and their briefs remain binding. This paper supplies the one-dimensional-base height inequality that DGH Theorem 1.6 generalizes, and the Geometric Bogomolov Conjecture over function fields of curves in characteristic 0. Import from RP.0 the height machine, function-field heights, Silverman–Tate, Silverman's limit theorem and his estimate for dominant maps. Import from RP.1 and RP.5 the trace, Lang–Néron, uniform Manin–Mumford, the stabilizer and Bogomolov degree bounds, and Appendix C. Import Blichfeldt from GeometryOfNumbersAndQuadraticArithmetic GN.1 and Néron models from NeronModelsAndSemistableAbelianVarieties R11.1. Import long-intersection Bézout from SchemeAndStackFoundations SF.5, Betti maps and Theorem 5.1 from AbelianSchemesBettiMapsPartII, and Moriwaki heights from ArakelovGeometryAndAbelianHeightsPartII. State and prove, as in Gao–Habegger (Ann. Math. 189 (2019)): generically special subvarieties and Proposition 1.3 (via Proposition 3.1 and Propositions B.1, B.3); admissible immersions (A1)–(A3); Proposition 6.1 with Lemmas 6.3–6.6 and Proposition 6.9; Lemma 7.1 and Proposition 7.2; Lemma 8.2, the sets Σ_k and Proposition 8.1; Lemmas 9.2–9.4 and Proposition 9.1, h([2^N]Q) ≥ c4^N h(Q) − c′(N); Proposition 10.1; Theorems 1.4 and 1.4′ by induction on dim X; and Theorem 1.1. Then add Theorem A.3 and the essential-minimum descent giving Theorem 1.1 for every algebraically closed k of characteristic 0. Acceptance: Theorem 1.4 fails on torsion multisections (ĥ = 0 with h(π(P)) unbounded), so X* cannot be enlarged. The DGH height inequality restricted to dim S = 1 implies Theorem 1.4 on non-degenerate X.",
+      "reason": "The height inequality and geometric Bogomolov belong to the uniformity programme already proposed under this id by three papers. GH19 is the base case that DGH generalizes, so it coalesces with that route instead of proposing a new roadmap."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E1",
+      "kind": "misprint",
+      "locator": "Theorem 3.2, p.13 (arXiv v3; published Annals version not collated)",
+      "printed": "\"For v ∈ V(K) we let Y_v denote the projection of V ∩ ({v} × A) to A.\"",
+      "correction": "Y_v is the projection of Y ∩ ({v} × A) to A.",
+      "reason": "The fibre of Y over v is meant; V ∩ ({v} × A) makes no sense since V is a factor of V × A, and the proof of Proposition 3.1 uses Y_v as the fibre of Y.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E2",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+      "printed": "\"In other words, the finite morphism S̄″ → S̄′ is unramified above S′ ∖ Z. So we get a finite étale covering of S ∖ Z of degree [F(P) : F].\"",
+      "correction": "A finite étale covering of S′ ∖ Z.",
+      "reason": "Z is a finite subset of S′(k), the curve with function field F; the covering S̄″ → S̄′ lives over S′, not over S.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E3",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Define a morphism ψ : V × A → V × (A/B) by ψ(v, t) = (v, [N] ∘ φ(P)).\"",
+      "correction": "ψ(v, t) = (v, [N] ∘ φ(t)).",
+      "reason": "ψ is a function of (v, t); P is not a variable here, and the next sentence uses ψ(Σ′) ⊆ V × {0}, which needs [N]φ(t) = 0 for the second coordinates t of Σ′.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.2, p.19 (arXiv v3; published Annals version not collated)",
+      "printed": "\"We define c₁ = max{2, |γ₁|₂, |γ₁|₂} ≥ 2 and observe |γ|₂ ≤ c₁^{l(γ)} for all γ ∈ Γ.\"",
+      "correction": "c₁ = max{2, |γ₁|₂, |γ₁^{-1}|₂, |γ₂|₂, |γ₂^{-1}|₂}.",
+      "reason": "Elements of Γ are reduced words in γ₁^{±1}, γ₂^{±1}; submultiplicativity gives |γ|₂ ≤ c₁^{l(γ)} only if c₁ bounds all four letters, and γ₂ does not appear in the printed maximum.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E5",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.2, p.20 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Now suppose x ∈ 𝒳 with exp(x) ∈ V and γ ∈ G with H(γ) ≤ T.\"",
+      "correction": "γ ∈ Γ with H(γ) ≤ T.",
+      "reason": "The count is over the free group Γ (the next sentences count \"elements in Γ of height at most T\"); G denotes a closed subgroup of T^n later in the proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E6",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.4, p.24 (arXiv v3; published Annals version not collated)",
+      "printed": "\"then all points of Z₁ have order N in their respective fibers as β is fiberwise a group isomorphism.\"",
+      "correction": "\"as b₁ is fiberwise a group isomorphism.\"",
+      "reason": "Z₁ = b₁^{-1}(ξ) is a fibre of the Betti map b₁ on 𝒜_{Δ₁}; no map β is defined.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E7",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.8, Case 2, p.28 (arXiv v3; published Annals version not collated)",
+      "printed": "\"there exist by induction an abelian scheme 𝒞 over S and a homomorphism ψ : 𝒜/ℬ → 𝒞 whose kernel has dimension φ(Y) and contains φ(Y).\"",
+      "correction": "\"whose kernel has dimension dim φ(Y)\".",
+      "reason": "The dimension count on the next line uses dim ker(ψ) = dim φ(Y).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E8",
+      "kind": "gap",
+      "locator": "Proof of Lemma 5.8, Cases 1 and 2, pp.26–28 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Our proof is by induction on dim 𝒜. The small possible value is 2 as we require g ≥ 1.\" … Case 1: \"We observe that dim ℬ = dim B_s + 1 ≤ (dim 𝒜_s − 1) + 1 = dim 𝒜 − 1. By induction there is an abelian scheme 𝒞 …\" … Case 2: \"Now since dim(𝒜/ℬ) = dim 𝒜 − dim B_s ≤ dim 𝒜 − 1, there exist by induction …\"",
+      "correction": "Two subcases lie outside the induction and need separate one-line arguments. In Case 1 with B_s = 0, ℬ is the zero section, so [N]Y lies in it, Y is a component of 𝒜[N] (so dim Y = 1), and 𝒞 = 𝒜 with [N] works. In Case 2 with B_s = 𝒜_s, Z_s = 𝒜_s, so Y = 𝒜, and the zero homomorphism to the relative-dimension-0 scheme 𝒞 = S works. In all other subcases ℬ, resp. 𝒜/ℬ, has relative dimension ≥ 1 and the induction applies as written.",
+      "reason": "The induction hypothesis is stated for abelian schemes of relative dimension g ≥ 1 (dim ≥ 2). If B_s = 0 in Case 1, ℬ has relative dimension 0 and dim ℬ = 1. If B_s = 𝒜_s in Case 2, 𝒜/ℬ has relative dimension 0. In both, the hypothesis cannot be invoked. The lemma remains true by the arguments above.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E9",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 5.1, p.29 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Clearly, U ∖ Σ is an uncountable set as U is open in S^an and non-empty.\" … \"M equal to the set of s obtained from U∖Σ\"",
+      "correction": "π(U) ∖ Σ is uncountable, because π(U) is a non-empty open subset of S^an (π|_Y is flat, hence open).",
+      "reason": "U is an open subset of Y^an ∩ 𝒜_Δ, while Σ ⊆ S(ℂ) is the countable set of non-extendable points; the set M fed into Lemma 5.8 is a set of base points.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E10",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 6.4, p.33 (arXiv v3; published Annals version not collated)",
+      "printed": "\"If c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2g}, then we have c_i ∈ ℝ and √−1c_i ∈ ℝ\"",
+      "correction": "c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2k}.",
+      "reason": "Lemma 6.4 lives in ℂ^{2k} with real part ℝ^{2k}; g does not occur in it.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E11",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 6.9, p.37 (arXiv v3; published Annals version not collated)",
+      "printed": "\"We write Z′ = Z ×_S S′ which comes with a closed immersion Z′ → 𝒜′. Observe that Z may now longer be irreducible.\"",
+      "correction": "\"Observe that Z′ may no longer be irreducible.\"",
+      "reason": "Z is irreducible by hypothesis; the base change Z′ may split, as the next sentences about the components Z′_1,…,Z′_r assume.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E12",
+      "kind": "gap",
+      "locator": "Proof of Proposition 6.9, p.38 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Recall that Z_s and thus each Z_s − [k](σ(s)) with k ∈ ℤ is equidimensional of dimension dim Z − 1. All irreducible components that appear have degree bounded by a constant independent of the auxiliary prime ℓ. By (6.4) and Proposition 6.7 the degree deg(W) is bounded from above by a constant c ≥ 1 that is independent of ℓ.\"",
+      "correction": "Proposition 6.7 must be applied to the possibly reducible sets V_k = Z_s − [k]σ(s), with δ = deg Z_s the sum of the component degrees. Its proof still works: a union V′ ∪ V″ of sets cut out by forms {f} and {g} of degrees ≤ δ′, δ″ is cut out by the products {fg} of degree ≤ δ′ + δ″. So Lemma 6.8 extends to an algebraic set whose component degrees sum to δ, and the rest of the proof of Proposition 6.7 never uses irreducibility of the V_i.",
+      "reason": "Proposition 6.7 is stated for irreducible V₁,…,V_m. For a general Z the fibre Z_s can be reducible (after the base change of the proof, Z is replaced by a component whose fibre is a union of components of Z_s). Expanding ⋂_k (⋃_j V_{kj}) into irreducible intersections gives J^ℓ terms, so the irreducible case alone does not give a bound independent of ℓ. In the application to Proposition 6.1 with n ≥ 2, Z_s = Z′ is irreducible, and for n = 1 the fibres are finite; only the general statement needs the extension.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E13",
+      "kind": "misprint",
+      "locator": "§7, pp.39–40 (notation before Lemma 7.1 and its proof) (arXiv v3; published Annals version not collated)",
+      "printed": "\"we sometimes write φ_{1j}(z) for φ_{1j}(w,x) and φ_{2j}(z) for φ_{2j}(w,x) if z = (w,x,y)\"; \"has absolute value at least ε = |δ(z₀)|/2 > 0\"; (7.7) \"where M(·) is the matrix above and z̃₁, …, z̃_n lie on the line segment\"",
+      "correction": "φ_{2j}(z) = φ_{2j}(w,y); ε = |δ₀(z₀)|/2; z̃₁, …, z̃_m.",
+      "reason": "φ₂ is defined on U₀ × U₂ and takes (w,y); the non-vanishing determinant is δ₀ of (7.2); there is one intermediate point per coordinate j = 1,…,m, and n indexes the sequence z_n.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E14",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 8.2, pp.44–45 (arXiv v3; published Annals version not collated)",
+      "printed": "\"By (8.6) there are at most C possibilities for ψ_N(w′, x′, y′), when (x, y, z) is fixed.\" … \"ψ_N(w^α, x^α, w^α) = Nφ₁(w^α, x^α) − φ₂(w^α, y^α)\" … \"hence (w^α, x^α, w^α) is eventually constant\"",
+      "correction": "\"when (w, x, y) is fixed\"; ψ_N(w^α, x^α, y^α) and (w^α, x^α, y^α).",
+      "reason": "The coordinates of U′ ⊆ U₀ × U₁ × U₂ are (w, x, y); the right-hand side of the display already uses y^α.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E15",
+      "kind": "misprint",
+      "locator": "§10.2 (proof of Theorem 1.4), p.52 (arXiv v3; published Annals version not collated)",
+      "printed": "\"The first inequality in (1.1) follows from the definition of h_{𝒜,ι}(·) and as the absolute logarithmic Weil height is non-negative.\"",
+      "correction": "\"The first inequality in Theorem 1.4′ follows from the definition of h_{𝒜,L′}(·)\".",
+      "reason": "(1.1) is the single inequality h_{S̄,M}(π(P)) ≤ c(1 + ĥ_{𝒜,L}(P)); the chain h_{S̄,M}(π(P)) ≤ h_{𝒜,L′}(P) ≤ c(1 + ĥ) is Theorem 1.4′, and the naive height defined on p.5 is h_{𝒜,L′}.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E16",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 11.1, p.53 (arXiv v3; published Annals version not collated)",
+      "printed": "\"But we have h_S(ρ(t))/h_{S′}(t) → deg ρ = [K′ : K] for t ∈ S′(Q̄) as h_{S′}(ρ(t)) → ∞\" … \"Silverman's Theorem applied to x ∈ A(K′) implies ĥ_𝒜(σ_x(t))/h_{S′}(t) → ĥ_{K′,A_{K′}}(x) as h_S(t) → ∞ for t ∈ S′(Q̄).\"",
+      "correction": "\"as h_{S′}(t) → ∞\" in both places.",
+      "reason": "h_{S′} is defined on S′ and h_S on S; t ∈ S′(Q̄), so the expressions h_{S′}(ρ(t)) and h_S(t) do not typecheck. The limit is taken as the height of t on S′ (equivalently of ρ(t) on S) tends to infinity.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-GAO-HABEGGER-19/E17",
+      "kind": "misprint",
+      "locator": "Appendix C, corollary of Proposition C.1, p.59 (arXiv v3; published Annals version not collated)",
+      "printed": "\"Then the hypersurface defined by a generic choice of a section in H⁰(ℙⁿ, 𝒪(d)) vanishing at P is hyperbolic for d ≥ g.\"",
+      "correction": "H⁰(ℙ^M, 𝒪(d)).",
+      "reason": "A ⊆ ℙ^M throughout Appendix C; n is not defined there.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+        "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+        "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+      ]
+    }
+  ]
+}
