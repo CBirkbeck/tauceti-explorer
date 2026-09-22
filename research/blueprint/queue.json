@@ -29376,7 +29376,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BAKKER-TSIMERMAN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1711"
   },
   {
    "id": "REV-ERRATA-PAPER-BAKKER-TSIMERMAN-16",
@@ -29516,8 +29517,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MARTIN-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1713"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1713",
+   "finishedAt": "2026-09-22T07:44:10Z"
   },
   {
    "id": "REV-ERRATA-PAPER-MARTIN-25",
