@@ -1,0 +1,1185 @@
+{
+  "paper": "PAPER-LI-LIU-21",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Chow groups and L-derivatives of automorphic motives for unitary groups",
+    "authors": "Chao Li and Yifeng Liu",
+    "venue": "Annals of Mathematics (2) 194 (2021), no. 3, 817–901",
+    "doi": "10.4007/annals.2021.194.3.6",
+    "arxiv": "2006.06139",
+    "url": "https://annals.math.princeton.edu/2021/194-3/p06",
+    "readSections": [
+      "The whole paper (§§1–11, Appendices A–B, references) in the authors' final version: https://www.math.columbia.edu/~chaoli/AIPF.pdf, dated 20 October 2021, 67 pp., SHA-256 6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566, fetched 2026-09-22. It post-dates the journal revision (13 July 2021) and matches the published bibliographic data; the typeset Annals PDF is paywalled and was not read. Locators are pages of this version.",
+      "arXiv 2006.06139v5 (10 April 2021), SHA-256 b3705e15817c142a2319660f12b07bf3871e13389d6d5557397c776809cec289, read in full and compared line by line with the final version (173 differing passages; the substantive ones are sourceIssues E1, E2 and E9)."
+    ]
+  },
+  "summary": "Li–Liu study the Chow group of the motive of a tempered global L-packet π of U(r, r) over a CM extension E/F with F ≠ Q, V^ram_F = ∅ and every 2-adic place split, when the global root number is −1. The main results:\n- Theorem 1.5: if L′(1/2, π) ≠ 0 and Hypothesis 6.6 (Galois action on the π-part of middle cohomology) holds, the π-nearly isotypic localization of the Chow group of the unitary Shimura variety X_L is nonzero.\n- Theorem 1.7: assuming in addition the modularity of Kudla's generating functions (Hypothesis 4.5), the Beilinson–Bloch height of arithmetic theta lifts equals L′(1/2, π)/b_{2r}(0) times C_r^{[F:Q]} times normalized local doubling zeta integrals. This is Liu's arithmetic inner product formula.\n- Corollary 1.9: an explicit formula for new vectors.\n\nThe proof chooses Hecke operators that temper the cycles (Appendix B). Beilinson's height of the special cycles then decomposes into local indices, which are identified with the Fourier coefficients of E′(0, g, Φ):\n- at split places, by vanishing on Drinfeld-level models (§7, using Caraiani–Scholze);\n- at inert places, through the Li–Zhang local identities on smooth and semistable RSZ models (§§8–9);\n- at archimedean places, after averaging against a cusp form (§10).\nThe doubling method with regular test functions (Proposition 3.13, Appendix A) supplies the analytic side (§3).\n\nThe libraries have none of this. The atlas plans the standard inputs: Fourier theory AL.0, the Weil representation MP.2–MP.3, the doubling method AutomorphicPadicLFunctions L4, Arthur's multiplicity formula ML.4, Galois representations AG2.2/AG2.5, Shimura varieties V1/V6, cycle classes EDC.3, Hochschild–Serre R02.2, weights R34.5, the weight spectral sequence LPV.7, K-theory with supports S.6–S.7, Chern classes M.8, and Igusa varieties IG.1/IG.4/IG.5.\n\nRoutes:\n- the arithmetic inner product formula, including Beilinson's local indices, to the Part II UnitaryArithmeticInnerProductFormula proposed by PAPER-LI-LIU-22;\n- the integral models to UnitaryRapoportZinkSpacesAndRSZModels, and the integral special cycles and Li–Zhang identities to UnitaryKudlaRapoportCycles, both candidates of PAPER-LI-ZHANG-22-B;\n- sources: local theta results to MP.3, Lemma 7.3 to IG.5/IG.7, absolute purity to SF.2, and the Beilinson–Bloch conjecture to MC.7.\n\nNine source issues are recorded.\n- E1 and E2, and the citation gap E9, are corrected in the authors' final version but remain in arXiv v5: the constant C_r (2^{r(r−1)} for 2^{−2r}), and a choice of current in the archimedean proof.\n- E3 is new. Proposition 9.1 uses Li–Zhang Theorem 10.5.1, which Li–Zhang state is conditional on their Conjecture 10.4.1. The main theorems therefore carried an unstated hypothesis until Li–Rapoport–Zhang (arXiv:2404.02214, Theorem 14.6.2).\n- E4–E8 are misprints.",
+  "items": [
+    {
+      "id": "PAPER-LI-LIU-21/1",
+      "kind": "theorem",
+      "name": "The equivariant Beilinson–Bloch conjecture (1.1) and Beilinson's positivity conjecture (conjectures)",
+      "statement": "For X projective smooth over a number field E of odd dimension 2r − 1 with an algebra T acting by étale correspondences, and ϱ an irreducible finite-dimensional complex representation of T: dim_C Hom_T(ϱ, CH^r(X)^0_C) = ord_{s=0} L(s, Hom_T(ϱ, H^{2r−1}(X ⊗_E Ē, Q_ℓ(r))_C)) (1.1), refining rank CH^r(X)^0 = ord_{s=0} L(s, H^{2r−1}(X_Ē, Q_ℓ(r))) [Beĭ87, Conj. 5.9; Blo84]. Beilinson's positivity conjecture [Beĭ87, Conj. 5.5]: (−1)^r⟨c, c⟩ ≥ 0 for primitive homologically trivial cycles c of codimension r (used in Remark 1.10 together with injectivity of the étale Abel–Jacobi map).",
+      "locator": "Introduction, (1.1), pp.2–3; Remark 1.10, p.8, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Conjectures, stated only. Routed to MotivesAndAlgebraicCycles MC.7 as a source."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/2",
+      "kind": "theorem",
+      "name": "Conjecture 1.1 (Beilinson–Bloch for unitary Shimura varieties), conjecture",
+      "statement": "Let π be a tempered cuspidal automorphic representation of G_r(A_F), G_r = U(W_r) quasi-split of rank n = 2r, and V a hermitian space over E of rank n of signature (n − 1, 1) at the real place induced by ι and (n, 0) at the others, H = U(V). For every irreducible admissible representation π̃^∞ of H(A^∞_F) with π̃^∞_v ≃ π_v for almost all v where H_v ≃ G_{r,v}, and Hom_{H(A^∞_F)}(π̃^∞, colim_L H^{n−1}_dR(X_L/C)) ≠ 0: dim_C Hom_{H(A^∞_F)}(π̃^∞, colim_L CH^r(X_L)^0_C) = ord_{s=1/2} L(s, Π_{j(π̃^∞)}), where Π_{j(π̃^∞)} is the cuspidal factor of BC(π) determined by π̃^∞ (Lemma 3.15). Remark 1.2: it should be formulable with totally positive definite incoherent hermitian spaces and incoherent Shimura varieties without fixing ι.",
+      "locator": "Conjecture 1.1 and Remark 1.2, pp.3–4, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "A conjecture, stated only. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/3",
+      "kind": "definition",
+      "name": "Assumption 1.3, Remark 1.4, and the invariants R_π, S_π, ε(π), V_π",
+      "statement": "Assumption 1.3: V^ram_F = ∅ and V^spl_F contains all 2-adic places (so [F:Q] is even); π cuspidal on G_r(A_F) with π_v holomorphic discrete series of Harish-Chandra parameter {(1−n)/2, …, (n−1)/2} at archimedean v, a principal series at split v, unramified or almost unramified (in the sense of [Liu22, Def. 5.3]) with respect to K_{r,v} at inert v (v unramified over Q if almost unramified), and tempered at finite v. R_π ⊆ V^spl_F: π_v ramified; S_π ⊆ V^int_F: π_v almost unramified. Then ε(π) = (−1)^{r[F:Q]+|S_π|}; π determines by local theta dichotomy a totally positive definite hermitian space V_π over A_E with ϵ(V_{π,v}) = 1 iff v ∉ S_π; |S_π| odd iff ε(π) = −1 iff V_π is incoherent.",
+      "locator": "Assumption 1.3 and Remark 1.4, pp.4–5, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Remark 1.4(2): condition (2) is used only in Lemma 7.3 and is removed in PAPER-LI-LIU-22 (Theorem 4.21). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/4",
+      "kind": "theorem",
+      "name": "Theorem 1.5 (nonvanishing of the π-localized Chow group)",
+      "statement": "Let (π, V_π) be as in Assumption 1.3 with |S_π| odd, and assume Hypothesis 6.6. If L′(1/2, π) ≠ 0 (ord_{s=1/2} L(s, π) = 1), then for every finite R ⊇ R_π with |R ∩ V^spl_F| ≥ 2: colim_{L_R} (CH^r(X_{L_R L^R})^0_{Q^ac})_{𝔪^R_π} ≠ 0, the colimit over open compact L_R ⊆ H(F_R). In fact the subgroup generated by special cycles is already nonzero after localization (Remark 1.6(4)); Q^ac may be replaced by any field of definition of π^∞ (Remark 1.6(5)).",
+      "locator": "Theorem 1.5 and Remark 1.6, pp.5–6; proof §11, pp.52–53, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Proof: assuming vanishing, Hecke operators t_{T₂} with χ^R_π(t_{T₂}) = 1 kill the special cycles, so by Lemma 11.1 the doubling integral of E′ vanishes; Proposition 3.13 supplies test vectors with nonzero local zeta integrals at R. The local index at u above S_π rests on Proposition 9.1 (sourceIssues E3). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/5",
+      "kind": "theorem",
+      "name": "Theorem 1.7 (arithmetic inner product formula)",
+      "statement": "Let (π, V_π) be as in Assumption 1.3 with |S_π| odd; assume Hypothesis 6.6 and Hypothesis 4.5 in codimension r. (1) For ϕ_i = ⊗ϕ_{iv} ∈ V_π with lowest-weight archimedean components and ⟨ϕ^c_{1v}, ϕ_{2v}⟩ = 1 there, and φ^∞_i ∈ S(V^r ⊗ A^∞_F): ⟨Θ_{φ^∞_1}(ϕ_1), Θ_{φ^∞_2}(ϕ_2)⟩^♮_{X,E} = (L′(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_{v finite} Z^♮_{π_v,V_v}(ϕ^c_{1v}, ϕ_{2v}, φ^∞_{1v} ⊗ (φ^∞_{2v})^c), with C_r = (−1)^r 2^{−2r} π^{r²} Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)) [Liu11a, Conj. 3.11]. (2) If L′(1/2, π) ≠ 0, then Hom_{H(A^∞_F)}(π̃^∞, colim_L CH^r(X_L)^0_C) ≠ 0 for π̃^∞ the theta lift of π^∞.",
+      "locator": "Theorem 1.7 and Remark 1.8(1),(3), pp.6–7; proof §11, p.53, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The height lies a priori in C ⊗ Q_ℓ; the identity shows it lies in C and is independent of ℓ (footnote 4). arXiv v5 prints C_r with 2^{r(r−1)} (sourceIssues E1); the item uses the final value. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/6",
+      "kind": "theorem",
+      "name": "Corollary 1.9 and Remark 1.10 (explicit height of new vectors)",
+      "statement": "In Theorem 1.7(1) with R_π = ∅, ϕ_1 = ϕ_2 = ϕ in the one-dimensional space V^{[r]∅}_π of holomorphic new forms normalized everywhere, and φ^∞_v = 1_{(Λ^∅_v)^r}: ⟨Θ_{φ^∞}(ϕ), Θ_{φ^∞}(ϕ)⟩^♮_{X,E} = (−1)^r·(L′(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_{v∈S_π} q_v^{r−1}(q_v + 1)/((q_v^{2r−1} + 1)(q_v^{2r} − 1)). Assuming injectivity of the étale Abel–Jacobi map and Beilinson's positivity conjecture, this is equivalent to L′(1/2, π) ≥ 0 (Remark 1.10).",
+      "locator": "Corollary 1.9 and Remark 1.10, pp.7–8; proof p.53, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Checked: (−1)^{r|S_π|} = (−1)^r for |S_π| odd, and C_r^{[F:Q]} > 0 for [F:Q] even. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/7",
+      "kind": "theorem",
+      "name": "The classical Rallis inner product formula (coherent case)",
+      "statement": "If |S_π| is even, so V_π ≃ V ⊗_F A_F for a hermitian space V over E, the classical theta lifts with Gaussian archimedean data satisfy ⟨θ_{φ^∞_1}(ϕ_1), θ_{φ^∞_2}(ϕ_2)⟩_H = (L(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_{v finite} Z^♮_{π_v,V_v}(…) (Petersson product for the Tamagawa measure); in §11 it is applied (via [Liu11a, (2-6)] and Proposition 3.6(2)) to show that the doubling integral of the coherent Eisenstein series built from 1_{(Λ⋆_u)^{2r}} vanishes.",
+      "locator": "Remark 1.8(2), p.7; proof of Lemma 11.1(2), p.51, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/8",
+      "kind": "definition",
+      "name": "Notation 2.1 (places, hermitian matrices and normalizing factors)",
+      "statement": "For a CM extension E/F with fixed ι: E → C: the sets V_F, V^fin_F, V^spl_F, V^int_F, V^ram_F, V^{(⋄)}_F and their preimages in V_E; q_v; E_v = E ⊗_F F_v and |·|_{E_v}; the subscheme Herm_m ⊆ Res_{E/F} Mat_{m,m} of b with ^t b^c = b, Herm°_m = Herm_m ∩ Res GL_m, the diagonal-block maps ∂_{m_1,…,m_s}, Herm_m(F)^+ (totally semi-positive definite) and Herm°_m(F)^+; η = η_{E/F}, b_{m,v}(s) = Π_{i=1}^m L(2s + i, η_v^{m−i}) and b_m(s) = Π_v b_{m,v}(s); ψ_T(b) = ψ_F(tr bT); (skew-)hermitian spaces over R ⊗_F E.",
+      "locator": "Notation 2.1, p.10, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/9",
+      "kind": "definition",
+      "name": "Notation 2.2 (the adelic hermitian space V, nearby spaces, level and Hecke algebras)",
+      "statement": "For a totally positive definite hermitian space V over A_E of rank n = 2r: moment matrices T(x); V_v and the local Hasse invariant ϵ_v = η_v((−1)^r det V_v) (coherent iff Π ϵ_v = 1); (V^m_v)_T and (V^m_v)_reg = ⋃_{T ∈ Herm°_m} (V^m_v)_T; the Gaussian φ^0_v(x) = e^{−2π tr T(x)}; Diff(T, V) = {v : (V^m_v)_T = ∅}, finite and disjoint from V^spl; a finite R ⊇ V^ram_F and S = {v ∉ R : ϵ_v = −1} ⊆ V^int_F; a lattice Λ^R with Λ^R_v of index q_v^{1−ϵ_v} in its ψ_{E,v}-dual; H = U(V), the special maximal L^R = Stab(Λ^R) (conjugacy classes a μ_2-torsor, footnote 5), T^R = Z[L^R\\H(A^{∞,R}_F)/L^R] ⊇ S^R (split places); for incoherent V and u ∈ V_E \\ V^spl_E, the u-nearby hermitian space ^uV over E (signature (n − 1, 1) at u if u is archimedean) with ^uV ⊗ A^u_F ≃ V ⊗ A^u_F and ^uH = U(^uV).",
+      "locator": "Notation 2.2, pp.10–12, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/10",
+      "kind": "definition",
+      "name": "Fourier transform on V^m_v with the self-dual measure",
+      "statement": "φ̂(x) = ∫_{V^m_v} φ(y) ψ_{E,v}(Σ_i (x_i, y_i)_V) dy on the Bruhat–Schwartz space S(V^m_v), with dy the self-dual Haar measure for ψ_{E,v}.",
+      "locator": "Notation 2.2(H3), p.11, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "note": "AL.0 plans local Schwartz–Bruhat spaces, Fourier transforms and self-dual measures. The reviewed audit counts Mathlib's generic Fourier.fourierIntegral (an AddChar and a measure) as a partial start, with no p-adic theorems."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/11",
+      "kind": "definition",
+      "name": "Notation 2.3 (the groups G_m, their compact subgroups, measures and automorphic spaces)",
+      "statement": "W_m = E^{2m} and W̄_m with skew-hermitian matrices ±w_m; G_m = U(W_m); P_m, N_m, m(a), n(b); K_m = Π K_{m,v} with K_{m,v} = Stab(O^{2m}_{E_v}) at finite v and {[k_1, k_2]} at archimedean v; the character κ_{m,v}([k_1, k_2]) = det k_1/det k_2; Haar measures dg_v (K_{m,v} of volume 1 at finite v; volume-one K times the standard hyperbolic measure on G_m(F_v)/K_{m,v} at archimedean v, as in [EL, §2.1]); the spaces A[r](G_m(F)\\G_m(A_F)) (K_{m,v} acting by κ^r_{m,v}), A[r]R (spherical off R ∪ S, Iwahori-fixed with character κ^−_{m,v} [Liu22, Def. 2.1] at v ∈ S), cusp forms and the Petersson product ⟨ , ⟩_{G_m}.",
+      "locator": "Notation 2.3, pp.12–13, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/12",
+      "kind": "construction",
+      "name": "The Weil representation of G_m(F_v) × H(F_v) (Schrödinger model)",
+      "statement": "ω_{m,v} with respect to ψ_{F,v} and the trivial splitting character on S(V^m_v): ω(m(a))φ(x) = |det a|^r_{E_v} φ(xa), ω(n(b))φ(x) = ψ_{T(x)}(b)φ(x), ω(w_m)φ = γ^m_{V_v,ψ_{F,v}} φ̂, ω(h)φ(x) = φ(h^{−1}x); ω_m = ⊗ω_{m,v}; the contragredient realized on S(V^m_v) by ⟨φ^∨, φ⟩ = ∫ φ(x)φ^∨(x) dx.",
+      "locator": "Notation 2.4, p.13, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.3"
+      ],
+      "note": "MP.2 plans the Weil index and explicit operator formulas; MP.3 the unitary dual pairs with their splittings."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/13",
+      "kind": "definition",
+      "name": "Notation 2.5 (homologically trivial cycles and the subgroups CH^m(X)^{⟨ℓ⟩})",
+      "statement": "For X smooth over a characteristic-zero field K: Z^m(X)^0 = ker(cl_dR : Z^m(X) → H^{2m}_dR(X/K)(m)) and CH^m(X)^0 its image; for K a non-archimedean local field, Z^m(X)^{⟨ℓ⟩} = ker(cl_{X,ℓ}); for K a number field, Z^m(X)^{⟨ℓ⟩} is the fibre product of Z^m(X) with Π_v Z^m(X_{K_v})^{⟨ℓ⟩} over the places v not above ℓ, and CH^m(X)^{⟨ℓ⟩} ⊆ CH^m(X)^0 its image.",
+      "locator": "Notation 2.5, pp.13–14, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/14",
+      "kind": "construction",
+      "name": "The doubling method: degenerate principal series, Siegel Eisenstein series and local doubling zeta integrals",
+      "statement": "W^□_r = W_r ⊕ W̄_r identified with W_{2r}, G^□_r ⊇ G_r × G_r, P^□_r, δ^□_r, the element w_r with P^□_r w_r(G_r × G_r) open; I^□_{r,v}(s) = Ind(|·|^s_{E_v} ∘ δ^□_{r,v}), standard sections f^{(s)}, the Siegel–Weil section f_Φ(g) = ω^□_r(g)Φ(0), E(s, g, Φ) = Σ_{γ ∈ P^□_r(F)\\G^□_r(F)} f^{(s)}_Φ(γg); the local doubling zeta integral Z(ϕ^∨ ⊗ ϕ, f^{(s)}) = ∫_{G_r(F_v)} ⟨π^∨(g)ϕ^∨, ϕ⟩ f^{(s)}(w_r(g, 1_{2r})) dg for good sections [Yam14, Def. 3.1], its normalization Z^♮ = (L(s + 1/2, π_v)/b_{2r,v}(s))^{−1} Z, and the functional Z^♮_{π_v,V_v} on π^∨_v ⊗ π_v ⊗ S(V^{2r}_v); absolute convergence at s = 0 and finiteness of L(s + 1/2, π_v)/b_{2r,v}(s) at s = 0 [Yam14, Lemma 7.2] (Remark 3.5).",
+      "locator": "§3, (3.1), pp.14–16; Remark 3.5, p.16, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicPadicLFunctions:L4"
+      ],
+      "note": "L4 plans the doubling embedding and the global zeta integral identity from local integrals, including ramified local calculations, in the Eischen–Harris–Li–Skinner setting."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/15",
+      "kind": "definition",
+      "name": "Assumption 3.1 and Remark 3.2",
+      "statement": "π an irreducible cuspidal subrepresentation with π_v the discrete series containing κ^r_{r,v} at archimedean v, unramified (resp. almost unramified) with respect to K_{r,v} at v ∉ R with ϵ_v = 1 (resp. −1), and tempered at all finite v; then V^{[r]R}_π ≠ 0. When R ⊆ V^spl_F, V is the hermitian space determined by π via local theta dichotomy.",
+      "locator": "Assumption 3.1 and Remark 3.2, p.15, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/16",
+      "kind": "definition",
+      "name": "Definition 3.3 and Remark 3.4 (the doubling L-function)",
+      "statement": "L(s, π) = Π_v L(s, π_v) with the doubling L-factor of [Yam14, Thm. 5.2] at finite v and L(s, BC(π_v)) at archimedean v, where BC(π_v) is induced from arg^{n−1} ⊠ arg^{n−3} ⊠ ⋯ ⊠ arg^{1−n}, so L(s + 1/2, π_v) = (Π_{i=1}^r 2(2π)^{−(s+i)}Γ(s + i))² (3.2). At split v and inert v ∉ R, L(s, π_v) = L(s, BC(π_v)) [Yam14, Thm. 7.2; Liu22, Rem. 1.4].",
+      "locator": "Definition 3.3, (3.2) and Remark 3.4, p.15, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/17",
+      "kind": "theorem",
+      "name": "Proposition 3.6 (local doubling multiplicity one and theta dichotomy)",
+      "statement": "For π as in Assumption 3.1: (1) dim Hom_{G_r(F_v) × G_r(F_v)}(I^□_{r,v}(0), π_v ⊠ π^∨_v) = 1 for every finite v; (2) for v ∈ (V^fin_F \\ R) ∪ V^spl_F, V_v is the unique hermitian space of rank 2r with Z^♮_{π_v,V_v} ≠ 0; (3) Θ(π_v, V_v) = Hom_{G_r(F_v)}(S(V^r_v), π_v) is irreducible, and nonzero for v ∈ (V^fin_F \\ R) ∪ V^spl_F. Proof: seesaw identity, semisimplicity [GI16, Thm. 4.1(v)], Howe duality [GT16, Thm. 1.2], theta dichotomy [GG11, Thm. 1.8; HKS96], degenerate principal series [KS97, Thms. 1.2–1.3], and [Liu22, Prop. 5.6, Lemma 6.1].",
+      "locator": "Proposition 3.6 and proof, pp.16–17, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to MetaplecticAutomorphicForms MP.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/18",
+      "kind": "theorem",
+      "name": "Proposition 3.7 (doubling integral of the derivative of the Eisenstein series)",
+      "statement": "If L(1/2, π) = 0, then for ϕ_1, ϕ_2 ∈ V^{[r]R}_π with ⟨ϕ^c_{1v}, ϕ_{2v}⟩ = 1 off R and Φ Gaussian at ∞ and 1_{(Λ^R_v)^{2r}} off R: ∫∫ ϕ_2(g_2)ϕ^c_1(g_1)E′(0, (g_1, g_2), Φ) dg_1 dg_2 = (L′(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_{v finite} Z^♮_{π_v,V_v}(ϕ^c_{1v}, ϕ_{2v}, Φ_v) = (L′(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_{v∈S} (−1)^r q_v^{r−1}(q_v + 1)/((q_v^{2r−1} + 1)(q_v^{2r} − 1))·Π_{v∈R} Z^♮_{π_v,V_v}(…), with C_r = (−1)^r 2^{−2r} π^{r²} Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)). The archimedean value comes from f^{(0)}_{Φ_v}(w_r(g, 1)) = (−1)^r⟨ω(g)φ^0_v, φ^0_v⟩ and Z(0, …) = (−1)^r 2^{−2r²}·2^{r²−r} π^{r²} Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)) [EL, Thm. 1.3, Prop. 3.3.2].",
+      "locator": "Proposition 3.7 and proof, p.17, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Checked: with (3.2) and b_{2r,v}(0) = (Π_{i=1}^r π^{−i}Γ(i))², the normalization factor is 2^{r²−r}, giving 2^{−2r}; and ⟨φ^0_v, φ^0_v⟩ = 2^{−2r²} for the self-dual measure. arXiv v5 has a different constant (sourceIssues E1). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/19",
+      "kind": "definition",
+      "name": "Definition 3.8 and Remark 3.9 (the Siegel–Weil measure and vol^♮)",
+      "statement": "For each v there is a unique Haar measure dh_v on H(F_v) with W_{T□}(0, 1_{4r}, Φ_v) = (γ^{2r}_{V_v,ψ_{F,v}}/b_{2r,v}(0)) ∫_{H(F_v)} Φ_v(h^{−1}x) dh_v for x ∈ (V^{2r}_v)_{T□}; hyperspecial subgroups have volume 1 for almost all v [Tan99, Prop. 3.2]; d^♮h = b_{2r}(0)^{−1} Π_v dh_v and vol^♮(L) = vol(H(F_∞)L). When V is coherent, d^♮h is the Tamagawa measure. (The local Whittaker function W_{T□}(s, g, Φ_v) of (3.3) is entire [Liu11a, Lemma 2.8(1)].)",
+      "locator": "(3.3), Definition 3.8 and Remark 3.9, p.18, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/20",
+      "kind": "theorem",
+      "name": "Proposition 3.10, Definition 3.11 and Remark 3.12 (nonsingular Fourier expansions of incoherent Eisenstein series)",
+      "statement": "For V incoherent: (1) if supp(^uΦ_v) ⊆ (^uV^{2r}_v)_reg for v in a nonempty R′ ⊆ R, then E(0, g, ^uΦ) = Σ_{T□ ∈ Herm°_{2r}(F)} Π_v W_{T□}(0, g_v, ^uΦ_v) on P^□_r(F_{R′})G^□_r(A^{R′}_F); (2) if supp(Φ_v) ⊆ (V^{2r}_v)_reg for v in R′ with |R′| ≥ 2, then E′(0, g, Φ) = Σ_{w ∉ V^spl} 𝔈(g, Φ)_w, 𝔈(g, Φ)_w = Σ_{Diff(T□,V) = {w}} W′_{T□}(0, g_w, Φ_w)Π_{v≠w} W_{T□}(0, g_v, Φ_v) [Liu11b, §2B]. E_{T_1,T_2} and 𝔈_{T_1,T_2} restrict the sums to ∂_{r,r}T□ = (T_1, T_2), and ∂_{r,r} maps Herm°_{2r}(F)^+ into Herm°_r(F)^+ × Herm°_r(F)^+.",
+      "locator": "Proposition 3.10, Definition 3.11 and Remark 3.12, pp.18–19, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/21",
+      "kind": "theorem",
+      "name": "Proposition 3.13 (test functions with regular support)",
+      "statement": "For π as in Assumption 3.1, a finite v with Z^♮_{π_v,V_v} ≠ 0, and nonzero ϕ_v ∈ π_v, ϕ^∨_v ∈ π^∨_v, there are φ_v, φ^∨_v ∈ S(V^r_v) with supp(φ_v ⊗ φ^∨_v) ⊆ (V^{2r}_v)_reg and Z^♮_{π_v,V_v}(ϕ^∨_v, ϕ_v, φ_v ⊗ φ^∨_v) ≠ 0. Proof: via the open cell ι : Ω → P_r w_r N_r, Z(ϕ^∨ ⊗ ϕ, f_Ψ) = ∫_Ω ξ^♭_{ϕ^∨,ϕ} Ψ̂ (3.6), temperedness gives ξ ∈ L^{2+ε} (modulo the centre when E = F × F), and Lemmas A.1–A.2 produce Ψ ∈ S(Herm°_{2r}(F)) with nonzero integral; the part pushed forward from the other hermitian space V′ contributes zero by Proposition 3.6.",
+      "locator": "Proposition 3.13 and proof, (3.4)–(3.6), pp.19–21, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/22",
+      "kind": "theorem",
+      "name": "Lemma A.1 (Fourier support of L^{2+ε} functions)",
+      "statement": "For F non-archimedean, X a finite-dimensional F-vector space, Δ a nonzero homogeneous polynomial on X and r ≥ 0: if f is a nonzero locally constant function on an open Ω ⊆ {Δ ≠ 0}, locally integrable on X, with ∫_Ω |f|^{2+ε}|Δ|^{rε}_F dx < ∞ for every ε > 0, then the support of f̂ (a distribution on X^∨) is not contained in an analytic hypersurface. Proof by Hausdorff–Young, Hölder and a tubular-neighbourhood volume estimate, as in [AN04, Thm. 1].",
+      "locator": "Lemma A.1 and proof, pp.53–54, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The exponents were rechecked: (A.1) gives q^{N(n−da)(δ+ε)/(2+ε)} with a = r(2−δ)ε/(δ+ε), and a choice δ < 2/n, ε → 0 makes the final exponent negative. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/23",
+      "kind": "theorem",
+      "name": "Lemma A.2 (the split variant)",
+      "statement": "As Lemma A.1 for Ω = {Δ ≠ 0} and f on Ω, under a decomposition X = X_1 ⊕ X_2 ⊕ X_3 with dim X_1 = dim X_2 > 0 such that Ω is disjoint from X_1 ⊕ X_3 ∪ X_2 ⊕ X_3, |Δ| and |f| are invariant under α·(x_1, x_2, x_3) = (αx_1, α^{−1}x_2, x_3), and ∫_{F^×\\Ω} |f|^{2+ε}|Δ|^{rε} < ∞ for every ε > 0: the support of f̂ is not contained in an analytic hypersurface.",
+      "locator": "Lemma A.2 and proof, pp.55–57, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The proof sums over the shells A^m_0 × A^m_i × B^{n−2m}_{−N} and then keeps the index i on the right-hand side (sourceIssues E7); the exponent condition in the final display was rechecked. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/24",
+      "kind": "definition",
+      "name": "Notation 3.14 (automorphic base change and archimedean characters)",
+      "statement": "Π the automorphic base change of π to GL_n(A_E) (existence by [Shi], [KMSW]; uniqueness by strong multiplicity one), with Π_v induced from arg^{n−1} ⊠ ⋯ ⊠ arg^{1−n} at archimedean v; I = {n − 1, n − 3, …, 1 − n}; characters χ : μ_2^I → C^× of signature (p, q) and the discrete series π^χ of U(p, q), π^χ_∞ on ^uH(F_∞) for signature (n − 1, 1); Π = Π_1 ⊞ ⋯ ⊞ Π_s with conjugate-self-dual cuspidal Π_j and the induced partition I = I_1 ⊔ ⋯ ⊔ I_s.",
+      "locator": "Notation 3.14(1)–(3), p.21, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/25",
+      "kind": "theorem",
+      "name": "Arthur's multiplicity formula and endoscopic classification for unitary groups",
+      "statement": "The endoscopic classification of representations of quasi-split unitary groups and their inner forms [Mok15; KMSW]: the automorphic base change BC(π) is an isobaric sum of distinct cuspidal representations; Arthur's multiplicity formula for tempered global L-packets [KMSW, Thm. 1.7.1] (coherent characters χ = {χ_v} of A_Π give the discrete automorphic representations ⊗π^{χ_v} of U(V^χ) with multiplicity one; incoherent ones do not occur), and local–global compatibility at archimedean and split places; used in Notation 3.14, Lemma 3.15, Remark 3.16, Proposition 6.9 and Lemma 9.2.",
+      "locator": "Notation 3.14, Lemma 3.15, Proposition 6.9 and Lemma 9.2(a)–(d), pp.21–22, 31, 41–42, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "ModularityAndLanglandsExtensions:ML.4"
+      ],
+      "note": "ML.4 gives the Arthur/Mok/KMSW classification inputs (packets, multiplicities, local–global compatibilities) explicit owners."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/26",
+      "kind": "theorem",
+      "name": "Galois representations of conjugate-self-dual cuspidal representations and their purity",
+      "statement": "For each Π_j, a semisimple ρ_{Π_j} : Gal(Q^ac/E) → GL_{n_j}(Q̄_ℓ) [Car12, Thm. 1.1], whose Weil–Deligne representations at finite places are pure (proof of [Car12, Thm. 7.4]), so H¹(E_u, ρ^c_{Π_j}(r)) = 0 [Nek07b, Prop. 4.2.2(1)].",
+      "locator": "Notation 3.14(4), p.21; proof of Proposition 6.9, p.31, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "AutomorphicGaloisRepresentationsPartII:AG2.2",
+        "AutomorphicGaloisRepresentationsPartII:AG2.5"
+      ],
+      "note": "AG2.2 constructs the representations of polarized cuspidal systems; AG2.5 proves the ramified local–global comparison including the Caraiani upgrade."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/27",
+      "kind": "theorem",
+      "name": "Lemma 3.15 (which nearby-space representations contribute to middle cohomology)",
+      "statement": "For π̃^∞ with Π_v the standard base change of π̃^∞_v for almost all v, exactly one holds: (a) no χ of signature (n − 1, 1) makes π^χ_∞ ⊗ π̃^∞ cuspidal automorphic on ^uH(A_F); (b) there is a unique j(π̃^∞) such that π^χ_∞ ⊗ π̃^∞ is cuspidal automorphic iff the μ_2-generator where χ = −1 lies in I_{j(π̃^∞)}. Moreover dim Hom_{H(A^∞_F)}(π̃^∞, colim_L H^{n−1}_dR(X_L/C)) is 0 in case (a) and n_{j(π̃^∞)} > 0 in case (b) (Matsushima's formula, [KMSW, Thm. 1.7.1], and one-dimensional middle (g, K)-cohomology of discrete series [BW00, II Thm. 5.4]).",
+      "locator": "Lemma 3.15 and proof, pp.21–22, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/28",
+      "kind": "theorem",
+      "name": "Remark 3.16 (root numbers and the case (b))",
+      "statement": "If π̃^∞ = Hom_{G_r(A^∞_F)}(S(V^r ⊗ A^∞_F), π^∞) ≠ 0 (irreducible by Proposition 3.6(3)), then ε(Π) = −1 [GI16, Thm. 4.1(ii)], and π̃^∞ is in case (b) of Lemma 3.15 iff exactly one j has ε(Π_j) = −1, in which case j = j(π̃^∞) (Arthur's multiplicity formula and Conjecture (P1)_n proved in [GI16, §4.4]); if ord_{s=1/2} L(s, Π) = 1 this holds automatically.",
+      "locator": "Remark 3.16, p.22, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/29",
+      "kind": "construction",
+      "name": "The unitary Shimura varieties X_L",
+      "statement": "For V incoherent with fixed u-nearby space ^uV (u the place induced by ι), the Shimura varieties X_L of Res_{F/Q} ^uH, smooth quasi-projective over E of dimension n − 1 (projective when F ≠ Q), with complex uniformization (X_L ⊗_E C)^an ≃ ^uH(F)\\^u𝔇 × H(A^∞_F)/L (4.1), ^u𝔇 the negative lines in ^uV ⊗_E C, with the Deligne homomorphism of [LTXZZ, §3.2].",
+      "locator": "§4, (4.1), p.22, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V6"
+      ],
+      "note": "V1 plans the analytic tower and V6 canonical models of abelian type, which covers these PEL-type unitary data."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/30",
+      "kind": "construction",
+      "name": "Definition 4.1 and Remark 4.2 (Kudla's special cycles in Chow groups)",
+      "statement": "For x ∈ V^m ⊗ A^∞_F (1 ≤ m ≤ n − 1): Z(x)_L = 0 if T(x) ∉ Herm_m(F)^+; if T(x) ∈ Herm°_m(F)^+, choose x′ ∈ ^uV^m and h with hx = x′, and let Z(x)_L ∈ Z^m(X_L) be the image cycle of X^{x′}_{hLh^{−1} ∩ H_{x′}(A^∞_F)} → X_{hLh^{−1}} →(·h) X_L, H_{x′} = U(V^⊥_{x′}); in general Z(x)_L ∈ CH^m(X_L)_Q [Liu11a, §3A]. For φ^∞ ∈ S(V^m ⊗ A^∞_F)^L and T ∈ Herm_m(F): Z_T(φ^∞)_L = Σ_{x ∈ L\\V^m ⊗ A^∞_F, T(x) = T} φ^∞(x)Z(x)_L ∈ CH^m(X_L)_C, a cycle when T ∈ Herm°_m(F)^+.",
+      "locator": "Definition 4.1 and Remark 4.2, pp.22–23, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Placed with the generating functions, as in PAPER-LI-LIU-22; the integral models of these cycles go to UnitaryKudlaRapoportCycles. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/31",
+      "kind": "construction",
+      "name": "Kudla's generating function and Lemmas 4.3–4.4",
+      "statement": "Z_{φ^∞}(g)_L = Σ_{T ∈ Herm_m(F)^+} ω_{m,∞}(g_∞)φ^0_∞(T)·Z_T(ω^∞_m(g^∞)φ^∞)_L, a formal sum in CH^m(X_L)_C. Lemma 4.3: ω_{m,∞}(n(b)m(a))φ^0_∞(T)·Z_T(ω_m(n(b)m(a))φ^∞)_L = φ^0_∞(^t a^c Ta)·Z_{^t a^c Ta}(φ^∞)_L for a ∈ GL_m(E), b ∈ Herm_m(F) (from [Liu11a, Thm. 3.5]). Lemma 4.4: t^*Z_T(φ^∞)_L = Z_T(tφ^∞)_L for t ∈ T^R_C.",
+      "locator": "§4 and Lemmas 4.3–4.4, pp.23–24, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/32",
+      "kind": "definition",
+      "name": "Hypothesis 4.5 and Remark 4.6 (modularity of generating functions), assumed",
+      "statement": "For every L, φ^∞ ∈ S(V^m ⊗ A^∞_F)^L and linear l : CH^m(X_L)_C → C, g ↦ l(Z_{φ^∞}(g)_L) converges absolutely and lies in A[r](G_m(F)\\G_m(A_F)). Known for m = 1 [Liu11a, Thm. 3.5]; for m ≥ 2 the generating function is formally modular [Liu11a, Thm. 3.5]; the symplectic analogue over Q is [BWR15] (conjectured in [Kud04]).",
+      "locator": "Hypothesis 4.5 and Remark 4.6, p.24, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "A hypothesis of Theorem 1.7 and Corollary 1.9, not of Theorem 1.5. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/33",
+      "kind": "theorem",
+      "name": "Proposition 4.7 (finite-dimensionality of the span of special cycles)",
+      "statement": "Under Hypothesis 4.5 in codimension m: (1) Z_{φ^∞}(−)_L lies in A[r](G_m(F)\\G_m(A_F)) ⊗_C CH^m(X_L)_C; (2) φ^∞ ↦ Z_{φ^∞}(−)_L is G_m(A^∞_F) × T^R_C-equivariant. Proof: by the q-expansions f^{(i)}(q) = Σ_T Z_T(φ^{∞(i)})_L q^T and dim M^{(i)} ≤ dim M[r]_m(Γ^{(i)}) < ∞ (4.2).",
+      "locator": "Proposition 4.7 and proof, (4.2), pp.24–25, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/34",
+      "kind": "construction",
+      "name": "Definition 4.8 (arithmetic theta lifting)",
+      "statement": "Under Hypothesis 4.5 in codimension r, for ϕ ∈ V^{[r]}_π and φ^∞ ∈ S(V^r ⊗ A^∞_F)^L: Θ_{φ^∞}(ϕ)_L = ∫_{G_r(F)\\G_r(A_F)} ϕ^c(g)Z_{φ^∞}(g)_L dg ∈ CH^r(X_L)_C (by Proposition 4.7), with image Θ_{φ^∞}(ϕ) in CH^r(X)_C = colim_L CH^r(X_L)_C; Θ(π, V) is the span of all Θ_{φ^∞}(ϕ).",
+      "locator": "Definition 4.8, p.25, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/35",
+      "kind": "theorem",
+      "name": "Notation 5.1 and Lemma 5.2 (moduli interpretation of X′_L)",
+      "statement": "T_0(R) = {a ∈ E ⊗ R : Nm_{E/F} a ∈ R^×}; for a CM type Φ ∋ ι, E′ generated by E and the reflex field of Φ, and a rank-one skew-hermitian space W, the PEL moduli Y of CM abelian varieties of type Φ and level L_0 is smooth projective of dimension 0 over E′ [Kot92]. X′_L := X_L ⊗_E Y represents sextuples (A_0, λ_0, η_0; A, λ, η) with (A_0, λ_0, η_0) ∈ Y(S), (A, λ) a unitary O_E-abelian scheme of signature nΦ − ι + ι^c [LTXZZ, Defs. 3.4.2–3.4.3], and η an L-orbit of hermitian isomorphisms V ⊗ A^∞_F → Hom^{λ_0,λ}_{E⊗A^∞}(H_1(A_{0s}, A^∞), H_1(A_s, A^∞)), up to O_F-linear quasi-isogenies compatible with the data [RSZ20, §3.2; LTXZZ, §4.1].",
+      "locator": "Notation 5.1 and Lemma 5.2, p.26, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/36",
+      "kind": "theorem",
+      "name": "Lemma 5.5 (changing the complex embedding)",
+      "statement": "For u ∈ V^{(∞)}_E there is an isomorphism of systems {X_L ⊗_{E,ι_u} C} ≃ {^uX_L ⊗_{ι_u(E)} C} under which Z(x)_L ⊗_{E,ι_u} C corresponds to ^uZ(x)_L ⊗ C for x ∈ V^r ⊗ A^∞_F with T(x) ∈ Herm°_r(F)^+ (via the moduli interpretations for CM types containing both ι_u and ι, and Lemma 5.4).",
+      "locator": "Lemma 5.5 and proof, pp.27–28, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/37",
+      "kind": "definition",
+      "name": "Notation 5.6 (admissible CM types and the integral model of Y)",
+      "statement": "For u ∈ V^fin_E \\ V^ram_E above p, with C ≅ Q̄_p inducing u: Φ is admissible if Φ_v induces one place v^c of E above split v and is pulled back from the maximal unramified subfield at inert v; K is generated by E_u and the reflex field (unramified over E_u when V^{(p)}_F ∩ V^ram_F = ∅), with residue field k and K̆; for L_0 maximal at p, the model 𝒴 over O_K of triples (A_0, λ_0, η^p_0) (signature Φ, p-principal λ_0, L^p_0-level [LTXZZ, Def. 4.1.2]) is finite étale over O_K [How12, Prop. 3.1.2].",
+      "locator": "Notation 5.6, p.28, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/38",
+      "kind": "theorem",
+      "name": "Integral models 𝒳_m with Drinfeld level at a split place",
+      "statement": "For u ∈ V^spl_E with V^{(p)}_F ∩ R ⊆ V^spl_F: the moduli 𝒳_m over O_K of tuples (A_0, λ_0, η^p_0; A, λ, η^p, {η_v}, η_{u,m}) (signature nΦ − ι_w + ι^c_w, λ[v^∞] an isogeny with kernel of order q_v^{1−ϵ_v}, Lie(A[u^{c,∞}]) of rank 1 with O_E acting by ι^c_w, L_v-level structures at split v ≠ u, and a Drinfeld level-m structure η_{u,m} on A[u^{c,∞}][p^m_u]) is regular, flat (smooth for m = 0) and projective over O_K, with 𝒳_m ⊗ K ≃ X′_{L_{u,m}L^u} ⊗ K [RSZ20, Thm. 4.5]; S^{R ∪ V^{(p)}_F} acts by étale correspondences.",
+      "locator": "§7, pp.32–33 and footnotes 12–13, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Regularity for m > 0 uses that K is unramified over E_u (footnote 13). Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/39",
+      "kind": "theorem",
+      "name": "Smooth integral models at an inert place with self-dual level",
+      "statement": "For u ∈ V^int_E above odd p with u ∉ S and V^{(p)}_F ∩ R ⊆ V^spl_F (after rescaling so that ψ_{F,v} is unramified and each Λ^R_v is self-dual or almost self-dual): a projective system {𝒳_{L̃}} of smooth projective schemes over O_K with 𝒳_{L̃} ⊗ K = X′_{L̃} ⊗ K and finite étale transition maps [LZ, §11.2], so S^R acts by étale correspondences.",
+      "locator": "§8, p.36, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/40",
+      "kind": "theorem",
+      "name": "Uniformization along the supersingular locus (8.2)",
+      "statement": "For the smooth models at inert u: 𝒳^∧_{L̃} ≃ [^uH(F)\\𝒩 × H(A^{∞,u}_F)/L̃^u] ×_{Spf O_K} 𝒴^∧ (8.2), compatibly in L̃, with 𝒳^∧_{L̃} the completion of 𝒳_{L̃} ⊗ O_K̆ along its supersingular locus and 𝒩 the relative unitary Rapoport–Zink space over Spf O_K̆ [LZ, §§2.1, 13.1].",
+      "locator": "§8, (8.2), p.37, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/41",
+      "kind": "theorem",
+      "name": "Strictly semistable models at an almost self-dual inert place and their reduction",
+      "statement": "For u ∈ V^int_E above S with p odd and unramified in E and V^{(p)}_F ∩ R ⊆ V^spl_F: a projective system {𝒳_{L̃}} of strictly semistable projective schemes over O_K [LZ, §11.3] (using that u is unramified over Q, footnote 18) with generic fibre X′_{L̃} ⊗ K; its special fibre is Y°_{L̃} ∪ Y•_{L̃}, where Y° is a P^{2r−1}-fibration over ^uH(F)\\^uH(A^∞_F)/L̃^u L⋆_u × (𝒴 ⊗ F̄_p) (L⋆_u hyperspecial), Y• is proper smooth of dimension 2r − 1, and Y† = Y° ∩ Y• is a relative Fermat hypersurface in Y° [LTXZZ, §§5.1–5.5].",
+      "locator": "§9, pp.40–41 and footnote 19, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryRapoportZinkSpacesAndRSZModels (parent PELModuli), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/42",
+      "kind": "theorem",
+      "name": "Definition 5.3 and Lemma 5.4 (moduli description of special cycles)",
+      "statement": "For x ∈ V^r ⊗ A^∞_F with T(x) ∈ Herm°_r(F)^+, Z′(x)_L classifies septuples (A_0, λ_0, η_0; A, λ, η; x̃) with x̃ ∈ Hom_{O_E}(A^r_0, A)_Q and x̃_* ∈ η(Lx); (1) Z′(x)_L → X′_L is finite and unramified; (2) its image cycle Z(x)′_L equals the restriction of Z(x)_L to X′_L, via Z′(x)_L ≅ X^{x′}_{hLh^{−1} ∩ H_{x′}(A^∞_F)} ⊗_E Y (5.1).",
+      "locator": "Definition 5.3, Lemma 5.4 and proof, (5.1), pp.26–27, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The proof writes V^m for V^r (sourceIssues E5). Routed to the Part II UnitaryKudlaRapoportCycles (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/43",
+      "kind": "construction",
+      "name": "Integral special cycles, their K-theory classes and their uniformization",
+      "statement": "For p-basic φ^∞ (Definition 6.5) and T ∈ Herm°_m(F)^+: the finite unramified morphism 𝒵_T(φ^∞)_L → 𝒳_L extending Z′_T(φ^∞)_L → X′_L [LZ, §13.3]; for φ^∞ = φ^∞_1 ⊗ ⋯ ⊗ φ^∞_r of characteristic functions, ^K𝒵_T(φ^∞)_L ∈ K^Z_0(𝒳_L)_C the component supported on 𝒵_T(φ^∞)_L of O_{𝒵_{t_1}} ⊗^L ⋯ ⊗^L O_{𝒵_{t_r}}, in F^r K^Z_0(𝒳_L)_C [GS87, Prop. 5.5], hence an extension of Z_T(φ^∞)′_L; the uniformization 𝒵_T(φ^∞)^∧_L = Σ_{x ∈ ^uH(F)\\^uV^m, T(x) = T} Σ_{h ∈ H_x(F)\\H(A^{∞,u}_F)/L^u} φ^{∞,u}(h^{−1}x)·(𝒩(x), h)_L × 𝒴^∧ (8.3), with 𝒩(x) the Kudla–Rapoport cycle [KR11, Def. 3.2]; and ^K𝒩(x) = [𝒩(x_1)] ∪ ⋯ ∪ [𝒩(x_m)] in K^{𝒩(x)}_0(𝒩) [Zha21, App. B].",
+      "locator": "§8, (8.3) and footnote 17, pp.37–38, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryKudlaRapoportCycles (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/44",
+      "kind": "theorem",
+      "name": "The local Kudla–Rapoport identity as used (self-dual level)",
+      "statement": "For x ∈ ^uV^{2r} with T(x) = T□ ∈ Herm°_{2r}(F_u): χ(π^∧_* ^K𝒩(x)) = (b_{2r,u}(0)/log q_u)·W′_{T□}(0, 1_{4r}, 1_{(Λ^R_u)^{2r}}) [LZ, Thm. 3.4.1, Rem. 3.4.2].",
+      "locator": "Proof of Proposition 8.1, p.39, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Extracted in PAPER-LI-ZHANG-22-B (Theorem 3.4.1, Remark 3.4.2). Routed to the Part II UnitaryKudlaRapoportCycles (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/45",
+      "kind": "theorem",
+      "name": "The almost self-dual intersection formula as used",
+      "statement": "For x ∈ ^uV^{2r} with T(x) = T□ on the almost self-dual Rapoport–Zink space: χ(π^∧_* ^K𝒩(x)) = (b_{2r,u}(0)/log q_u)·(((q_u^{2r} − 1)/(q_u + 1))·W′_{T□}(0, 1_{4r}, 1_{(Λ^R_u)^{2r}}) − (log q_u/(q_u + 1))·W_{T□}(0, 1_{4r}, 1_{(Λ⋆_u)^{2r}})) [LZ, Thm. 10.5.1, Rem. 10.5.4], with q_u the residue cardinality of F in the fractions and of E in log q_u.",
+      "locator": "Proof of Proposition 9.1, p.45, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "[LZ, Thm. 10.5.1] is stated there as conditional on [LZ, Conj. 10.4.1], in the arXiv version and in the authors' final version; Li–Rapoport–Zhang, arXiv:2404.02214, Thm. 14.6.2, later prove that conjecture (sourceIssues E3). The formula matches [LZ, Rem. 10.5.4] with b_{2r,u}(0) = Π_{i=1}^{2r}(1 − (−q)^{−i})^{−1}. Routed to the Part II UnitaryKudlaRapoportCycles (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/46",
+      "kind": "construction",
+      "name": "Beilinson's ℓ-adic height pairing and its decomposition into local indices",
+      "statement": "For F ≠ Q (so X_L is projective) and ℓ with X_{L,u} of smooth projective reduction for all u | ℓ: ⟨ , ⟩^ℓ_{X_L,E} : CH^r(X_L)^{⟨ℓ⟩}_C × CH^r(X_L)^{⟨ℓ⟩}_C → C ⊗_Q Q_ℓ [Beĭ87, §4], complex linear in the first variable and conjugate symmetric; for disjointly supported c_1, c_2 ∈ Z^r(X_L)^{⟨ℓ⟩}_C, ⟨c_1, c_2⟩^ℓ = Σ_{u | ∞} 2⟨c_1, c_2⟩_{X_L,u,E_u} + Σ_{u finite} log q_u·⟨c_1, c_2⟩^ℓ_{X_L,u,E_u} (6.1), with the non-archimedean indices (B.1) (Remark B.11 at u | ℓ) vanishing for almost all u and the archimedean ones (10.2).",
+      "locator": "§6, (6.1), pp.28–29, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/47",
+      "kind": "definition",
+      "name": "Definitions 6.1–6.2 (R-good primes and tempering ideals)",
+      "statement": "ℓ is R-good if it is unramified in E and V^{(ℓ)}_F ⊆ V^fin_F \\ (R ∪ S). For L_R ⊆ H(F_R) and L ⊆ C: (S^R_L)^0_{L_R} is the ideal of S^R_L annihilating ⊕_{i ≠ 2r−1} H^i_dR(X_{L_R L^R}/E) ⊗ L, and (S^R_L)^{⟨ℓ⟩}_{L_R} the ideal annihilating ⊕_{u ∈ V^fin_E \\ V^{(ℓ)}_E} H^{2r}(X_{L_R L^R, u}, Q_ℓ(r)) ⊗ L.",
+      "locator": "Definitions 6.1–6.2, p.29, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/48",
+      "kind": "definition",
+      "name": "Definitions 6.3 and 6.5, Lemma 6.4 (admissible sextuples, global and local indices, p-basic functions)",
+      "statement": "An (R, R′, ℓ, L)-admissible sextuple (φ^∞_1, φ^∞_2, s_1, s_2, g_1, g_2): φ^∞_i = ⊗φ^∞_{iv} ∈ S(V^r ⊗ A^∞_F)^L with φ^∞_{iv} = 1_{(Λ^R_v)^r} off R and supp(φ^∞_{1v} ⊗ (φ^∞_{2v})^c) ⊆ (V^{2r}_v)_reg for v ∈ R′; s_i a product of two elements of (S^R_{Q^ac})^{⟨ℓ⟩}_{L_R}; g_i ∈ G_r(A^{R′}_F). The global index I_{T_1,T_2}(…)^ℓ_L pairs ω_{r,∞}(g_{i∞})φ^0_∞(T_i)·s^*_i Z_{T_i}(ω^∞_r(g^∞_i)φ^∞_i)_L, and the local indices at finite and archimedean u are its terms in (6.1). Lemma 6.4: special cycles Z(x_1)_L, Z(x_2)_L with (L_v x_{1v}, L_v x_{2v}) ⊆ (V^{2r}_v)_reg for some v ∈ R′ have disjoint supports (checked on (4.1)). Definition 6.5: φ^∞ is p-basic if φ^∞_v = 1_{(Λ^R_v)^m} for v ∈ V^{(p)}_F \\ (R ∪ V^spl_F).",
+      "locator": "Definitions 6.3, 6.5 and Lemma 6.4, pp.29–30, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Lemma 6.4(1) writes x_1, x_2 ∈ V ⊗ A^∞_F for V^r ⊗ A^∞_F (sourceIssues E5). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/49",
+      "kind": "definition",
+      "name": "Hypothesis 6.6 and Remark 6.7 (Galois action on the π-part of middle cohomology), assumed",
+      "statement": "For π̃^∞ in case (b) of Lemma 3.15, the semisimplification of ρ[π̃^∞] = Hom_{H(A^∞_F)}(π̃^∞, colim_L H^{2r−1}(X_L ⊗_E Q^ac, Q_ℓ)) is isomorphic to ρ^c_{Π_{j(π̃^∞)}}. Known for n = 2 [Liu21, Thm. D.6]; announced for cuspidal Π in [KSZ]; in general expected from [KSZ] once the full endoscopic classification is available.",
+      "locator": "Hypothesis 6.6 and Remark 6.7, p.30, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "A hypothesis of Theorems 1.5 and 1.7 and Corollary 1.9 (removed when S_π = ∅ in PAPER-LI-LIU-22, Remark 4.32). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/50",
+      "kind": "theorem",
+      "name": "Hecke compatibility of the local theta correspondence (almost unramified and split places)",
+      "statement": "At inert v, the Hecke algebras H^±_{W_r,v} of [Liu22, Def. 2.5] with the canonical surjection θ onto the Hecke algebra of U(V_v) at self-dual or almost self-dual level [Liu22, Def. 2.8], compatible with the Weil representation: hφ = θ(h)φ on the spherical vectors [Liu22, Thm. 1.1]; almost unramified representations [Liu22, Def. 5.3], characterized for odd q_v by theta lifts with nonzero invariants under the stabilizer of an almost self-dual lattice [Liu22, Thm. 1.2]; at split v the analogous identity [Liu11a, Prop. A.5; Ral82, p.511].",
+      "locator": "Remark 1.4(3), p.5; Definition 6.8, p.31; proofs of Proposition 6.10 and Lemma 11.1, pp.32, 50, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to MetaplecticAutomorphicForms MP.3 as a source."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/51",
+      "kind": "definition",
+      "name": "Definition 6.8 (the Hecke character χ^R_π and the maximal ideal 𝔪^R_π)",
+      "statement": "With H^R_{W_r} = ⊗_{v ∉ R} H^{ϵ_v}_{W_r,v} (spherical Hecke algebras at split v) and θ^R : H^R_{W_r} → T^R_C, the algebra H^R_{W_r} acts on V^{[r]R}_π by a character χ^R_{π,W_r} factoring through θ^R; since π is cohomological, there is a unique χ^R_π : T^R_{Q^ac} → Q^ac with χ^R_{π,W_r} = (χ^R_π ⊗ C) ∘ θ^R, and 𝔪^R_π = ker χ^R_π.",
+      "locator": "Definition 6.8, pp.30–31, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/52",
+      "kind": "theorem",
+      "name": "Proposition 6.9 (tempering Hecke operators exist)",
+      "statement": "For every L_R: (1) (S^R_{Q^ac})^0_{L_R} \\ 𝔪^R_π ≠ ∅; (2) under Hypothesis 6.6, (S^R_{Q^ac})^{⟨ℓ⟩}_{L_R} \\ 𝔪^R_π ≠ ∅. Proof: (1) by Matsushima's formula, [Ram, Thm. A] and temperedness [KMSW] only degree 2r − 1 survives localization; (2) by Hochschild–Serre and the Weil conjectures for almost all u, and at the remaining u by H¹(E_u, ρ^c_{Π_j}(r)) = 0 from purity.",
+      "locator": "Proposition 6.9 and proof, p.31, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/53",
+      "kind": "theorem",
+      "name": "Proposition 6.10 (Hecke behaviour of arithmetic theta lifts)",
+      "statement": "Under Hypothesis 4.5, for L = L_R L^R, ϕ ∈ V^{[r]R}_π and φ^∞ ∈ S(V^r ⊗ A^∞_F)^L: (1) s^*Θ_{φ^∞}(ϕ)_L = χ^R_π(s)^c·Θ_{φ^∞}(ϕ)_L for s ∈ S^R_{Q^ac}; (2) Θ_{φ^∞}(ϕ)_L ∈ CH^r(X_L)^0_C; (3) under Hypothesis 6.6, Θ_{φ^∞}(ϕ)_L ∈ CH^r(X_L)^{⟨ℓ⟩}_C for every R-good ℓ.",
+      "locator": "Proposition 6.10 and proof, pp.31–32, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/54",
+      "kind": "definition",
+      "name": "Definition 6.11 (the normalized height pairing)",
+      "statement": "Under Hypotheses 4.5 and 6.6: ⟨Θ_{φ^∞_1}(ϕ_1), Θ_{φ^∞_2}(ϕ_2)⟩^♮_{X,E} ∈ C ⊗_Q Q_ℓ is vol^♮(L)·⟨Θ_{φ^∞_1}(ϕ_1)_L, Θ_{φ^∞_2}(ϕ_2)_L⟩^ℓ_{X_L,E} for any L = L_R L^R (R enlarged) fixing the data with ℓ R-good; independent of L by the projection formula. (Footnote 11: the total degree of the Hodge bundle on X_L is 2 vol^♮(L)^{−1}.)",
+      "locator": "Definition 6.11 and footnotes 10–11, p.32, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/55",
+      "kind": "theorem",
+      "name": "Proposition 7.1 and Lemma 7.2 (local indices at split places vanish)",
+      "statement": "For |R′| ≥ 2, u ∈ V^spl_E with π_u a tempered principal series and V^{(p)}_F ∩ R ⊆ V^spl_F, there are s^u_1, s^u_2 ∈ S^R_{Q^ac} \\ 𝔪^R_π with I_{T_1,T_2}(φ^∞_1, φ^∞_2, s^u_1 s_1, s^u_2 s_2, g_1, g_2)^ℓ_{L,u} = 0 for every admissible sextuple and all (T_1, T_2); s^u_i = 1 if u ∉ R. Lemma 7.2 (u ∉ R): the closures of Z(x_1)′_L, Z(x_2)′_L in the smooth model 𝒳_0 are disjoint, since a common point would make A quasi-isogenous to A^{2r}_0, impossible by [RSZ20, Lemma 8.7]; then Proposition B.10 applies. In general, an ℓ-tempered s from Lemma 7.3 and Corollary B.15(1) reduces to Proposition B.13 on 𝒳_m.",
+      "locator": "Proposition 7.1, Lemma 7.2 and proofs, (7.1)–(7.2), pp.32–36, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/56",
+      "kind": "theorem",
+      "name": "Lemma 8.3 (products of tempering operators are ℓ-tempered on the smooth model)",
+      "statement": "If s is a product of two elements of (S^R_{Q^ac})^{⟨ℓ⟩}_{L_R}, it gives an ℓ-tempered Q^ac-étale correspondence of 𝒳_L: via H^{2r}_{𝒳_L ⊗ k}(𝒳_L, Q_ℓ(r)) → H^{2r}(𝒳_L, Q_ℓ(r)) → H^{2r}(X′_L, Q_ℓ(r)) (8.1), absolute purity, Hochschild–Serre and the Weil conjectures, Poincaré duality and smooth proper base change, each factor kills one graded piece.",
+      "locator": "Lemma 8.3 and proof, (8.1), p.37, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/57",
+      "kind": "theorem",
+      "name": "Proposition 8.1 and Lemma 8.2 (local indices at inert places, self-dual level)",
+      "statement": "For u ∈ V^int_E with u ∉ S, p odd and V^{(p)}_F ∩ R ⊆ V^spl_F: log q_u·vol^♮(L)·I_{T_1,T_2}(φ^∞_1, φ^∞_2, s_1, s_2, g_1, g_2)^ℓ_{L,u} = 𝔈_{T_1,T_2}((g_1, g_2), Φ^0_∞ ⊗ (s_1φ^∞_1 ⊗ (s_2φ^∞_2)^c))_u for every admissible sextuple and (T_1, T_2). Lemma 8.2 reduces to g_{1v} = g_{2v} = 1 at v ∈ V^{(∞)}_F ∪ V^{(p)}_F using Lemma 4.3. The proof computes the intersection on 𝒳_L by Proposition B.13 and Lemma 8.3, restricts to the supersingular locus, uses (8.3) and the local identity χ(π^∧_*{}^K𝒩(x)) = (b_{2r,u}(0)/log q_u)W′_{T□} (8.4)–(8.6), and matches the other places through Definition 3.8.",
+      "locator": "Proposition 8.1, Lemma 8.2 and proofs, (8.4)–(8.6), pp.36–39, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The proof writes S(V^m ⊗ A^∞_F) for S(V^r ⊗ A^∞_F) (sourceIssues E5). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/58",
+      "kind": "theorem",
+      "name": "Lemma 9.2 (a tempering Hecke operator on the semistable model)",
+      "statement": "In the situation of Proposition 9.1 there is an element of S^R_{Q^ac} \\ 𝔪^R_π giving an ℓ-tempered Q^ac-étale correspondence of 𝒳_L. Proof: by Corollary B.15 and Proposition 6.9(2) it suffices that H^i(Y°_L)_𝔪 = 0 and H^i(Y•_L)_𝔪 = 0 for i ≤ 2r − 2 and H^i(Y†_L)_𝔪 = 0 for i ≤ 2r − 3; the first because Π_u is ramified (so the hyperspecial invariants of the relevant packet members vanish, via Arthur's multiplicity formula, [Ram, Thm. A] and [LTXZZ, Lemma C.2.3]), the third by the Lefschetz hyperplane theorem and Poincaré duality, and the second from the weight spectral sequence, [LTXZZ, Prop. 5.5.4] and the nontrivial monodromy of ρ^c_{Π_1} at u forced by Hypothesis 6.6 (9.1).",
+      "locator": "Lemma 9.2 and proof, (9.1), pp.41–44, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/59",
+      "kind": "theorem",
+      "name": "Proposition 9.1 (local indices at inert places, almost self-dual level)",
+      "statement": "For u ∈ V^int_E above S with p odd, unramified in E, and V^{(p)}_F ∩ R ⊆ V^spl_F, and a fixed self-dual lattice Λ⋆_u of ^uV_u, there are s^u_1, s^u_2 ∈ S^R_{Q^ac} \\ 𝔪^R_π with log q_u·vol^♮(L)·I_{T_1,T_2}(φ^∞_1, φ^∞_2, s^u_1 s_1, s^u_2 s_2, g_1, g_2)^ℓ_{L,u} = 𝔈_{T_1,T_2}((g_1, g_2), Φ^0_∞ ⊗ (s^u_1 s_1φ^∞_1 ⊗ (s^u_2 s_2φ^∞_2)^c))_u − (log q_u/(q_u^r − 1))·E_{T_1,T_2}((g_1, g_2), Φ^0_∞ ⊗ (s^u_1 s_1φ^{∞,u}_1 ⊗ (s^u_2 s_2φ^{∞,u}_2)^c) ⊗ 1_{(Λ⋆_u)^{2r}}). Proof as for Proposition 8.1 on the strictly semistable model, with vol(L_u) = (q + 1)(q^{2r} − 1)^{−1} and the almost self-dual intersection formula of [LZ, Thm. 10.5.1, Rem. 10.5.4] ((9.2)–(9.3)).",
+      "locator": "Proposition 9.1 and proof, (9.2)–(9.3), pp.40, 44–45, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Checked: with q_u the residue cardinality of E_u in log q_u/(q^r_u − 1) and of F in (q + 1)/(q^{2r} − 1), (9.2) and (9.3) agree and match [LZ, Rem. 10.5.4]. The input [LZ, Thm. 10.5.1] is conditional there on [LZ, Conj. 10.4.1] (sourceIssues E3). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/60",
+      "kind": "definition",
+      "name": "Green currents and the archimedean local index (10.2)",
+      "statement": "For X smooth projective over C of dimension n − 1 and Z ∈ Z^r(X)_C, a Green current g_Z is an (r − 1, r − 1)-current, smooth off supp Z, with dd^c g_Z + δ_Z = [ω_Z] for a smooth tail form ω_Z; for Z homologically trivial it is harmonic (g^♥_Z) if ω_Z = 0; for disjointly supported homologically trivial Z_1, Z_2, ⟨Z_1, Z_2⟩_{X,C} = ½ ∫_{X(C)} g^♥_{Z_1} ∧ δ_{Z^c_2}, independent of the harmonic Green current.",
+      "locator": "§10, (10.2), p.45, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/61",
+      "kind": "theorem",
+      "name": "Kudla–Millson Green currents and the archimedean comparison of Liu",
+      "statement": "For the cycles s^*_i Z_{T_i}(ω^∞_r(g^∞_i)φ^∞_i)_L on X_L ⊗_E C there are Kudla–Millson Green currents g^KM_{T_i}(φ^∞_i, s_i, g_i)_L with tail forms ω^KM_{T_i} (proof of [Liu11a, Thm. 4.20]); with I^KM (10.4) the modified index, vol^♮(L)·I^KM_{T_1,T_2}(…)_{L,u} = ½ 𝔈_{T_1,T_2}((g_1, g_2), Φ^0_∞ ⊗ (s_1φ^∞_1 ⊗ (s_2φ^∞_2)^c))_u (10.5) [Liu11a, Thm. 4.20], with the sign Π_v γ^{2n}_{V_v} = 1 in place of Π_v γ_{V_v} = −1 (footnote 20; reproved in [GS19, Cor. 5.12]). The integral of ϕ^c against the Kudla–Millson form of the generating function is a harmonic (r, r)-form [Mil85, Thm. III.2.1; KM86, §3] (10.9).",
+      "locator": "§10, (10.4)–(10.5), (10.9) and footnote 20, pp.45–49, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Footnote 20 corrects a sign in [Liu11a, Thm. 4.20]; that correction is the paper's, not a mistake in it. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/62",
+      "kind": "theorem",
+      "name": "Proposition 10.1 and Remark 10.2 (local indices at archimedean places, after averaging)",
+      "statement": "For u ∈ V^{(∞)}_E, an admissible sextuple, ϕ_1 ∈ V^{[r]R}_π, K_1 fixing φ^∞_1 and ϕ_1, a Siegel fundamental domain 𝔉_1 for G_r(F) ∩ g^∞_1 K_1(g^∞_1)^{−1} and T_2 ∈ Herm°_r(F)^+: vol^♮(L)·∫_{𝔉_1} ϕ^c(τ_1g_1) Σ_{T_1} I_{T_1,T_2}(φ^∞_1, φ^∞_2, s_1, s_2, τ_1g_1, g_2)_{L,u} dτ_1 = ½ ∫_{𝔉_1} ϕ^c(τ_1g_1) Σ_{T_1} 𝔈_{T_1,T_2}((τ_1g_1, g_2), Φ^0_∞ ⊗ (s_1φ^∞_1 ⊗ (s_2φ^∞_2)^c))_u dτ_1 (10.1), both sides absolutely convergent. No termwise comparison (holomorphic projection) is needed: the difference is the pairing of a harmonic, cohomologically trivial, hence zero, (r, r)-form (10.9) with η + g^KM_{T_2}, where η := −g^♥_{T_2}(φ^∞_2, s_2, g^∞_2)^c_L.",
+      "locator": "Proposition 10.1, Remark 10.2 and proof, (10.1)–(10.9), pp.45–49, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "arXiv v5 took η from the ∂∂̄-lemma for currents; the final version's choice repairs the wedge products of currents (sourceIssues E2). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/63",
+      "kind": "theorem",
+      "name": "Lemma 11.1 (assembling the local indices)",
+      "statement": "In the setting of §11 (S = S_π, R ⊆ V^spl_F with R_π ⊆ R, |R| ≥ 2, R′ = R, s_i with χ^R_π(s_i) = 1, s̃_i = s_i Π_u s^u_i): (1) for T_2 ∈ Herm°_r(F)^+, t ∈ T^R_{Q^ac} and g_2 ∈ G_r(A^R_F), vol^♮(L)·Σ_j ∫_{𝔉^{(j)}} ϕ^c_1(τg^{(j)}) Σ_{T_1} I_{T_1,T_2}(tφ^∞_1, φ^∞_2, s̃_1, s̃_2, τg^{(j)}, g_2)^ℓ_L dτ = χ^R_π(t)^c ∫ ϕ^c_1(g_1)E′(0, (g_1, g_2), Φ^0_∞ ⊗ Φ^∞)_{−,T_2} dg_1 − χ^R_π(t)^c Σ_{u ∈ S_E} (log q_u/(q_u^r − 1)) ∫ ϕ^c_1(g_1)E(0, (g_1, g_2), Φ^0_∞ ⊗ Φ^{∞,u} ⊗ 1_{(Λ⋆_u)^{2r}})_{−,T_2} dg_1; (2) the double integral over both variables of the global indices equals (L′(1/2, π)/b_{2r}(0))·C_r^{[F:Q]}·Π_v Z^♮_{π_v,V_v}(ϕ^c_{1v}, ϕ_{2v}, φ^∞_{1v} ⊗ (φ^∞_{2v})^c), the coherent terms vanishing by the Rallis inner product formula and Proposition 3.6(2).",
+      "locator": "Lemma 11.1 and proof, (11.1)–(11.5), pp.49–52, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/64",
+      "kind": "construction",
+      "name": "Beilinson's non-archimedean local index (B.1), Definition B.2, Remark B.1 and Lemma B.3",
+      "statement": "For X smooth projective of pure dimension n − 1 over a non-archimedean local field K and ℓ invertible on k: Z^d(X)^{⟨ℓ⟩} = ker cl_{X,ℓ}; Z^{d_1,d_2}(X) and Z^{d_1,d_2}(X)^{⟨ℓ⟩} (d_1 + d_2 = n) spanned by pairs supported on disjoint closed Z_1, Z_2; ⟨c_1, c_2⟩^ℓ_{X,K} ∈ C ⊗ Q_ℓ is the image of γ_1 ∪ γ_2 under H^{2n−2}(U_1 ∩ U_2, Q_ℓ(n)) → H^{2n−1}(X, Q_ℓ(n)) → H¹(K, Q_ℓ(1)) = Q_ℓ, where γ_i ∈ H^{2d_i−1}(U_i, Q_ℓ(d_i)) lifts the refined cycle class cl^{Z_i}_{X,ℓ}(c_i) [Beĭ87, §2]; it is conjugate symmetric, independent of choices, invariant under finite base extension and multiplied by deg u under finite étale u (Lemma B.3). Remark B.1: under the monodromy–weight conjecture Z^d(X)^{⟨ℓ⟩} is independent of ℓ.",
+      "locator": "Remark B.1, Definition B.2, (B.1) and Lemma B.3, pp.57–58, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/65",
+      "kind": "theorem",
+      "name": "Lemma B.4 and Remark B.5 (the local index via a projective model)",
+      "statement": "For π : 𝒳 → Spec O_K projective with generic fibre X and special fibre Y, c_i supported on disjoint Z_i: for β_1 ∈ H^{2d_1}_{Y ∪ Z_1}(𝒳, Q_ℓ(d_1)) lifting cl^{Z_1}(c_1) with zero image in H^{2d_1}(𝒳), and β_2 ∈ H^{2d_2−2(n−1)}_{Y ∪ Z_2}(𝒳, π^!Q_ℓ(d_2 − n + 1)) lifting cl^{Z_2}(c_2), the trace of β_1 ∪ β_2 ∈ H²_Y(𝒳, π^!Q_ℓ(1)) is ⟨c_1, c_2⟩^ℓ_{X,K} ([Beĭ87, Lemma-def. 2.1.1], stated there without proof); for 𝒳 regular, π^!Q_ℓ[2 − 2n](1 − n) ≅ Q_ℓ by absolute purity (Remark B.5).",
+      "locator": "Lemma B.4, proof and Remark B.5, pp.58–60, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/66",
+      "kind": "theorem",
+      "name": "Lemma B.6 (Chern classes of cycle classes are refined cycle classes)",
+      "statement": "For c ∈ Z^d_Z(X), cl^Z_{X,ℓ}([c]) ∈ H^{2d}_Z(X, Q_ℓ(d)) (Gillet's Chern class of the K-theory class) equals the refined cycle class cl^Z_{X,ℓ}(c): reduce to Z smooth by semi-purity [Fuj02, §8], then [Gil81, Thm. 3.1].",
+      "locator": "Lemma B.6 and proof, p.61, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/67",
+      "kind": "theorem",
+      "name": "Definition B.7 and Lemma B.8 (the intersection pairing on K-groups with supports)",
+      "statement": "For 𝒳 regular and closed Z_1, Z_2 ⊆ 𝒳 with Z_1 ∩ Z_2 ⊆ Y: C_1.C_2 = χ(π_*(C_1 ∪ C_2)) on K^{Z_1}_0(𝒳)_C × K^{Z_2}_0(𝒳)_C (linear, conjugate linear). Lemma B.8: for C_i ∈ F^{d_i}K^{Z_i}_0(𝒳), C_1.C_2 is the image of cl^{Z_1}_{𝒳,ℓ}(C_1) ∪ cl^{Z_2}_{𝒳,ℓ}(C_2) under H^{2n}_{Z_1∩Z_2}(𝒳) → H^{2n}_Y(𝒳) → H²_{Spec k}(Spec O_K, Q_ℓ(1)) = Q_ℓ (by [GS87, Prop. 5.5] and the proof of [Gil81, Prop. 2.35], footnote 22).",
+      "locator": "Definition B.7, Lemma B.8 and proof, pp.61–62, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "arXiv v5 cites [Gil81, Prop. 2.35] without the footnote-22 remark that it covers only Z_1 = Z_2 (sourceIssues E9). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/68",
+      "kind": "theorem",
+      "name": "Definition B.9, Proposition B.10 and Remark B.11 (computing local indices by extensions)",
+      "statement": "C ∈ F^d K^{Y ∪ supp(c)}_0(𝒳)_C is an extension of c ∈ Z^d(X)_C if C|_X = [c], and ℓ-flat if its class in H^{2d}(𝒳, Q_ℓ(d)) ⊗ C vanishes. Proposition B.10: for (c_1, c_2) ∈ Z^{d_1,d_2}(X)^{⟨ℓ⟩} with disjoint supports and extensions C_i ∈ F^{d_i}K^{Z_i}_0(𝒳)_C (Z_1 ∩ Z_2 ⊆ Y), one of them ℓ-flat: ⟨c_1, c_2⟩^ℓ_{X,K} = C_1.C_2; for π smooth, Zariski closures give ℓ-flat extensions and the index is in C and independent of ℓ (Remark B.11, which also defines it at u | ℓ).",
+      "locator": "Definition B.9, Proposition B.10 and Remark B.11, p.62, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Proposition B.10 prints supp(c_i) ∩ supp(c_2) (sourceIssues E6). Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/69",
+      "kind": "theorem",
+      "name": "Definition B.12 and Proposition B.13 (ℓ-tempered correspondences)",
+      "statement": "For n = 2r and d_1 = d_2 = r, an L-étale correspondence t of 𝒳 is ℓ-tempered if t^* annihilates H^{2r}(𝒳, Q_ℓ(r)) ⊗ L. Proposition B.13: then for c_1, c_2 ∈ Z^r(X)_C with supp(t^*c_1) ∩ supp(t^*c_2) = ∅, (t^*c_1, t^*c_2) ∈ Z^{r,r}(X)^{⟨ℓ⟩} and ⟨t^*c_1, t^*c_2⟩^ℓ_{X,K} = t^*C_1.t^*C_2 for arbitrary extensions C_i, so the index lies in C.",
+      "locator": "Definition B.12 and Proposition B.13, p.63, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/70",
+      "kind": "theorem",
+      "name": "Proposition B.14 and Corollary B.15 (a criterion for tempering)",
+      "statement": "If Y_0 = Y^red ⊃ Y_1 ⊃ ⋯ is a finite stratification with Y°_j = Y_j \\ Y_{j+1} regular of pure codimension n_j ≥ 1 in 𝒳, stabilized by t, and t^* kills H^{2r}(X, Q_ℓ(r)) ⊗ L and H^i(Y°_j ⊗ F̄_p, Q_ℓ) ⊗ L for i ≤ 2r − 2n_j, then some power of t is ℓ-tempered (decreasing induction on j via absolute purity and Hochschild–Serre, m_j = m_{j+1} + 2). Corollary B.15: for a ring S of étale correspondences and a maximal ideal 𝔪 of S_L, (1) if (H^{2r}(𝒳, Q_ℓ(r)) ⊗ L)_𝔪 = 0 there is an ℓ-tempered element of S_L \\ 𝔪; (2) if (H^{2r}(X, Q_ℓ(r)) ⊗ L)_𝔪 = 0 and (H^i(Y°_j ⊗ F̄_p, Q_ℓ) ⊗ L)_𝔪 = 0 for i ≤ 2r − 2n_j and every j, for an S-stable stratification, then (H^{2r}(𝒳, Q_ℓ(r)) ⊗ L)_𝔪 = 0.",
+      "locator": "Proposition B.14, Corollary B.15 and proofs, pp.63–64, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Corollary B.15 prints H^{2d}(𝒳, Q_ℓ(d)) for H^{2r}(𝒳, Q_ℓ(r)) (sourceIssues E6); the induction in Proposition B.14 was rechecked. Routed to the Part II UnitaryArithmeticInnerProductFormula (parent GrossZagierAndArithmeticHeights), the candidate proposed by PAPER-LI-LIU-22."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/71",
+      "kind": "construction",
+      "name": "ℓ-adic and de Rham cycle class maps, with supports",
+      "statement": "cl_{X,ℓ} : Z^d(X) → H^{2d}(X, Q_ℓ(d)) and the refined class cl^Z_{X,ℓ}(c) ∈ H^{2d}_Z(X, Q_ℓ(d)) for smooth X over a field of characteristic zero, and cl_dR.",
+      "locator": "Notation 2.5, p.13; Appendix B, pp.57–58, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.3"
+      ],
+      "note": "EDC.3 constructs fundamental classes with support and the cycle class map for smooth varieties over perfect fields."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/72",
+      "kind": "theorem",
+      "name": "Hochschild–Serre spectral sequences over local and finite fields",
+      "statement": "For varieties over E_u, K or k, the Hochschild–Serre spectral sequence relating cohomology over the field to Galois cohomology of geometric cohomology; used with weights for injectivity of H^{2r}(X_u, Q_ℓ(r)) → H^{2r}(X_u ⊗ Ē_u, Q_ℓ(r)) and in Proposition B.14.",
+      "locator": "Proofs of Propositions 6.9, B.14 and Lemma 8.3, pp.31, 37, 64, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.2"
+      ],
+      "note": "R02.2 is the Hochschild–Serre owner."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/73",
+      "kind": "theorem",
+      "name": "The Weil conjectures (weights) for proper smooth varieties over finite fields",
+      "statement": "Purity of the cohomology of proper smooth varieties over finite fields (and weight arguments for smooth varieties), used for injectivity of restriction to the geometric fibre and in the weight spectral sequence argument.",
+      "locator": "Proofs of Proposition 6.9, Lemma 8.3 and Lemma 9.2, pp.31, 37, 43, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "WeightsInEtaleCohomology:R34.5"
+      ],
+      "note": "R34.5 plans Weil I and the required Weil II results."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/74",
+      "kind": "theorem",
+      "name": "The weight spectral sequence of a strictly semistable scheme",
+      "statement": "For a proper strictly semistable scheme over O_K, the weight spectral sequence E^{p,q}_1 ⇒ H^{p+q}(𝒳 ⊗ Q̄_p, Q_ℓ) built from the cohomology of the strata Y°, Y•, Y†, with the monodromy operator; used after localization at 𝔪 in Lemma 9.2.",
+      "locator": "Proof of Lemma 9.2, pp.42–43, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "LefschetzPencilsAndVanishingCycles:LPV.7"
+      ],
+      "note": "LPV.7 constructs the weight spectral sequence for strict normal-crossing models \"actually used by the analytic/Shimura consumer\"."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/75",
+      "kind": "construction",
+      "name": "Gillet–Soulé K-groups with supports and their codimension filtration",
+      "statement": "For Z ⊆ 𝒳 closed, K^Z_0(𝒳) of complexes with support in Z [GS87, §1.1] with the codimension filtration F^d, pushforward to K_0(Spec k), maps K^{Z′}_0 → K^Z_0 for Z′ ⊆ Z, cup products K^{Z_1}_0 × K^{Z_2}_0 → K^{Z_1∩Z_2}_0 with F^a ∪ F^b ⊆ F^{a+b} rationally [GS87, Prop. 5.5], the map [ ] : ⊕_{d′≥d} Z^{d′}_Z(𝒳) → F^d K^Z_0(𝒳) (B.3), and agreement with Quillen K-theory with supports for regular 𝒳.",
+      "locator": "Appendix B, (B.3), pp.60–61, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "SchemeKTheoryOperations:S.6",
+        "SchemeKTheoryOperations:S.7"
+      ],
+      "note": "S.6 plans products with supports and Adams operations; S.7 Chern classes and the comparison with Chow groups in the regular setting."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/76",
+      "kind": "construction",
+      "name": "Gillet's ℓ-adic Chern classes with supports",
+      "statement": "cl^Z_{𝒳,ℓ} : F^d K^Z_0(𝒳) → H^{2d}_Z(𝒳, Q_ℓ(d)) for regular 𝒳 [Gil81, Def. 2.34(ii)] with S = Spec O_K and ℓ-adic cohomology, compatible with cup products [Gil81, Prop. 2.35] and with refined cycle classes on smooth varieties [Gil81, Thm. 3.1].",
+      "locator": "Appendix B, pp.61–62, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "MotivicEtaleKTheory:M.8"
+      ],
+      "note": "M.8 constructs étale Chern classes with product compatibilities."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/77",
+      "kind": "construction",
+      "name": "Igusa varieties of the first kind and Mantovan's Igusa varieties",
+      "statement": "I_{m,j} with Y°_{m,j} a finite disjoint union of copies [HT01, §IV.1], forming projective systems with finite étale transitions; Mantovan's I^j_{Mant,m} (finite Galois covers of I_{m,j}) and the perfection Ig_j of lim_m I^j_{Mant,m} [CS17, Prop. 4.3.8].",
+      "locator": "Proof of Lemma 7.3 and footnote 15, pp.35–36, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "IgusaVarietiesAndTorsionConcentration:IG.1"
+      ],
+      "note": "IG.1 constructs Igusa towers, their finite-level models and perfected limits."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/78",
+      "kind": "theorem",
+      "name": "Caraiani–Scholze: generic concentration and the Igusa trace formula",
+      "statement": "[CS17, Cor. 6.1.4]: localized at a generic 𝔪, H^i(Ig_b ⊗ F̄_p, Q_ℓ)_𝔪 vanishes outside the middle degree d_b; [CS17, Thm. 5.5.7] (with the modification in the proof of [LTXZZ, Thm. D.1.3]): the alternating cohomology [H_c(I^j_Mant ⊗ F̄_p, Q_ℓ)] as a Hecke module in terms of automorphic representations; used, with [Ram, Thm. A], to force j = 0 in Lemma 7.3. The source assumes hyperspecial level at p; footnote 16 asserts the argument works with only L_u hyperspecial.",
+      "locator": "Proof of Lemma 7.3 and footnote 16, pp.35–36, authors' final version (20 October 2021)",
+      "status": "planned",
+      "planned": [
+        "IgusaVarietiesAndTorsionConcentration:IG.4",
+        "IgusaVarietiesAndTorsionConcentration:IG.5"
+      ],
+      "note": "IG.4 plans the semiperversity and support bounds, IG.5 the rational Igusa trace comparison."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/79",
+      "kind": "theorem",
+      "name": "Absolute purity (Gabber; Fujiwara)",
+      "statement": "For a regular closed immersion Z → 𝒳 of pure codimension c of regular schemes with ℓ invertible, H^i_Z(𝒳, Q_ℓ(j)) ≅ H^{i−2c}(Z, Q_ℓ(j − c)) [Fuj02]; used in Lemma 8.3, Lemma 9.2, Remark B.5 and Proposition B.14, and semi-purity [Fuj02, §8] in Lemma B.6.",
+      "locator": "Proofs of Lemmas 8.3, 9.2, B.6, Remark B.5 and Proposition B.14, pp.37, 42, 60–61, 64, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "EtaleDualityAndPerverseSheaves EDC.2 explicitly excludes Gabber's absolute purity. Routed to SchemeAndStackFoundations SF.2 as a source, where PAPER-CESNAVICIUS-19 routes its absolute-purity input."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/80",
+      "kind": "construction",
+      "name": "Newton strata of the special fibre of 𝒳_m",
+      "statement": "Y_m = 𝒳_m ⊗ k, Y_{m,0} = Y^red_m, and Y_{m,j} (0 ≤ j ≤ n − 1) the closed locus where the formal part of A[u^{c,∞}] has height at least j + 1; Y°_{m,j} = Y_{m,j} \\ Y_{m,j+1} is smooth over k of pure dimension n − 1 − j (as [HT01, Cor. III.4.4]; parallel to X^{(n−1−j)}_{U^p,m} of [HT01, §III.4], footnote 14).",
+      "locator": "Proof of Lemma 7.3 and footnote 14, pp.34–35, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "Routed to IgusaVarietiesAndTorsionConcentration IG.5/IG.7 as a source."
+    },
+    {
+      "id": "PAPER-LI-LIU-21/81",
+      "kind": "theorem",
+      "name": "Lemma 7.3 and Remark 7.4 (vanishing of localized middle cohomology of 𝒳_m)",
+      "statement": "In the situation of Proposition 7.1 with p ≠ ℓ (π_u a tempered principal series), for every m ≥ 0: (H^{2r}(𝒳_m, Q_ℓ(r)) ⊗ Q^ac)_𝔪 = 0 with 𝔪 = 𝔪^R_π ∩ S^{R ∪ V^{(p)}_F}_{Q^ac}. Proof: by Corollary B.15(2) and Proposition 6.9(2) it suffices that H^i(Y°_{m,j} ⊗ F̄_p)_𝔪 = 0 unless j = 0 and i = 2r − 1; for the maximal j with nonzero cohomology, [CS17, Cor. 6.1.4] gives concentration in degree 2r − 1 − j, and [CS17, Thm. 5.5.7] with Π_u ≃ π_u tempered principal series and [Ram, Thm. A] force j = 0. Remark 7.4 conjectures the lemma without the principal-series condition (proved in PAPER-LI-LIU-22, Theorem 4.21).",
+      "locator": "Lemma 7.3, proof and Remark 7.4, pp.34–35, authors' final version (20 October 2021)",
+      "status": "missing",
+      "note": "The proof writes d = n − j = 2r − 1 − j (sourceIssues E4). Routed to IgusaVarietiesAndTorsionConcentration IG.5/IG.7 as a source."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "C. Li, W. Zhang, Kudla–Rapoport cycles and derivatives of local densities, J. Amer. Math. Soc. 35 (2022), 705–797",
+      "link": "https://doi.org/10.1090/jams/988",
+      "why": "The local inputs of Propositions 8.1 and 9.1 (Theorems 3.4.1 and 10.5.1 with Remarks 3.4.2 and 10.5.4) and the integral models, uniformization and integral special cycles of §§11–13. Extracted as PAPER-LI-ZHANG-22-B."
+    },
+    {
+      "citation": "C. Li, M. Rapoport, W. Zhang, Quasi-canonical AFL and arithmetic transfer conjectures at parahoric levels, arXiv:2404.02214 (to appear in J. reine angew. Math.)",
+      "link": "https://arxiv.org/abs/2404.02214",
+      "why": "Theorem 14.6.2 proves the structure of the auxiliary almost self-dual space conjectured by Kudla–Rapoport (Li–Zhang Conjecture 10.4.1), on which Li–Zhang Theorem 10.5.1, and so Proposition 9.1 here, depends (sourceIssues E3)."
+    },
+    {
+      "citation": "C. Li, Y. Liu, Chow groups and L-derivatives of automorphic motives for unitary groups, II, Forum Math. Pi 10 (2022), e5",
+      "link": "https://doi.org/10.1017/fmp.2022.2",
+      "why": "The sequel removes V^ram = ∅ and the principal-series condition (Remark 7.4). Extracted as PAPER-LI-LIU-22."
+    },
+    {
+      "citation": "Y. Liu, Arithmetic theta lifting and L-derivatives for unitary groups, I and II, Algebra Number Theory 5 (2011), 849–921 and 923–1000",
+      "link": "https://doi.org/10.2140/ant.2011.5.849",
+      "why": "The conjecture (Conj. 3.11), the formal modularity and the generating functions (Thm. 3.5, §3A), the doubling formula (p.869), the Rallis formula (2-6), Proposition A.5, the Eisenstein expansions (§2B) and the archimedean comparison (Thm. 4.20, with the sign corrected here)."
+    },
+    {
+      "citation": "Y. Liu, Theta correspondence for almost unramified representations of unitary groups, J. Number Theory 230 (2022), 196–224",
+      "link": "https://doi.org/10.1016/j.jnt.2021.03.027",
+      "why": "Almost unramified representations, the Hecke algebra homomorphisms θ^R and the local zeta integrals at S (Defs. 2.1, 2.5, 2.8, 5.3, Thms. 1.1–1.2, Prop. 5.6, Lemma 6.1)."
+    },
+    {
+      "citation": "M. Rapoport, B. Smithling, W. Zhang, Arithmetic diagonal cycles on unitary Shimura varieties, Compos. Math. 156 (2020), 1745–1824",
+      "link": "https://doi.org/10.1112/S0010437X20007289",
+      "why": "The moduli interpretation of X′_L (§3.2), the Drinfeld-level models (Thm. 4.5) and Lemma 8.7."
+    },
+    {
+      "citation": "Y. Liu, Y. Tian, L. Xiao, W. Zhang, X. Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Invent. Math. 228 (2022), 107–375",
+      "link": "https://doi.org/10.1007/s00222-021-01088-4",
+      "why": "Unitary Shimura data and moduli (§§3.2, 3.4, 4.1), the reduction of the almost self-dual models (§§5.1–5.5, Prop. 5.5.4), Lemma C.2.3 and Theorem D.1.3."
+    },
+    {
+      "citation": "T. Kaletha, A. Minguez, S. W. Shin, P.-J. White, Endoscopic classification of representations: inner forms of unitary groups, arXiv:1409.3731; C. P. Mok, Endoscopic classification of representations of quasi-split unitary groups, Mem. Amer. Math. Soc. 235 (2015), no. 1108",
+      "link": "https://arxiv.org/abs/1409.3731",
+      "why": "Arthur's multiplicity formula (Thm. 1.7.1), base change and local–global compatibility."
+    },
+    {
+      "citation": "A. Caraiani, Local-global compatibility and the action of monodromy on nearby cycles, Duke Math. J. 161 (2012), 2311–2413",
+      "link": "https://doi.org/10.1215/00127094-1723706",
+      "why": "The Galois representations ρ_{Π_j} (Thm. 1.1) and purity at finite places (Thm. 7.4)."
+    },
+    {
+      "citation": "A. Caraiani, P. Scholze, On the generic part of the cohomology of compact unitary Shimura varieties, Ann. of Math. (2) 186 (2017), 649–766",
+      "link": "https://doi.org/10.4007/annals.2017.186.3.1",
+      "why": "Proposition 4.3.8, Corollary 6.1.4 and Theorem 5.5.7, used in Lemma 7.3."
+    },
+    {
+      "citation": "M. Harris, R. Taylor, The geometry and cohomology of some simple Shimura varieties, Ann. of Math. Stud. 151 (2001)",
+      "why": "Newton strata (Cor. III.4.4) and Igusa varieties of the first kind (§IV.1)."
+    },
+    {
+      "citation": "S. Yamana, L-functions and theta correspondence for classical groups, Invent. Math. 196 (2014), 651–732",
+      "link": "https://doi.org/10.1007/s00222-013-0476-x",
+      "why": "Doubling L-factors, good sections and the unramified computation (Def. 3.1, Thm. 5.2, Lemma 7.2, Prop. 7.1, Thm. 7.2)."
+    },
+    {
+      "citation": "E. Eischen, Z. Liu, Archimedean zeta integrals for unitary groups, arXiv:2006.04302 (accepted in J. reine angew. Math.)",
+      "link": "https://arxiv.org/abs/2006.04302",
+      "why": "The archimedean doubling zeta integral (Thm. 1.3, Prop. 3.3.2) that fixes C_r, and the measure convention (§2.1)."
+    },
+    {
+      "citation": "W. T. Gan, A. Ichino, The Gross–Prasad conjecture and local theta correspondence, Invent. Math. 206 (2016), 705–799; W. T. Gan, S. Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016), 473–493; S. S. Kudla, W. J. Sweet Jr., Degenerate principal series representations for U(n, n), Israel J. Math. 98 (1997), 253–306",
+      "link": "https://doi.org/10.1007/s00222-016-0662-8",
+      "why": "Semisimplicity of big theta lifts and root numbers (Thm. 4.1, §4.4), Howe duality (Thm. 1.2) and the structure of I^□_r(0) (Thms. 1.2–1.3), used in Proposition 3.6 and Remark 3.16."
+    },
+    {
+      "citation": "A. Beĭlinson, Height pairing between algebraic cycles, Contemp. Math. 67 (1987), 1–24",
+      "link": "https://doi.org/10.1090/conm/067/902590",
+      "why": "The height pairing, local indices (§§2, 4, Lemma-definition 2.1.1) and Conjectures 5.5 and 5.9."
+    },
+    {
+      "citation": "H. Gillet, C. Soulé, Intersection theory using Adams operations, Invent. Math. 90 (1987), 243–277; H. Gillet, Riemann–Roch theorems for higher algebraic K-theory, Adv. Math. 40 (1981), 203–289",
+      "link": "https://doi.org/10.1007/BF01388705",
+      "why": "K-theory with supports and its filtration (§§1, 5, Prop. 5.5, Thm. 8.2) and Chern classes with supports (Def. 2.34, Prop. 2.35, Thm. 3.1) in Appendix B."
+    },
+    {
+      "citation": "K. Fujiwara, A proof of the absolute purity conjecture (after Gabber), Adv. Stud. Pure Math. 36 (2002), 153–183",
+      "link": "https://doi.org/10.2969/aspm/03610153",
+      "why": "Absolute purity and semi-purity for regular schemes."
+    },
+    {
+      "citation": "S. S. Kudla, J. J. Millson, The theta correspondence and harmonic forms I, Math. Ann. 274 (1986), 353–378; J. J. Millson, Cycles and harmonic forms on locally symmetric spaces, Canad. Math. Bull. 28 (1985), 3–38",
+      "link": "https://doi.org/10.1007/BF01457221",
+      "why": "The Kudla–Millson forms and the harmonicity of their theta integrals (Thm. III.2.1), used in Proposition 10.1."
+    },
+    {
+      "citation": "B. Howard, Complex multiplication cycles and Kudla–Rapoport divisors, Ann. of Math. (2) 176 (2012), 1097–1171",
+      "link": "https://doi.org/10.4007/annals.2012.176.2.9",
+      "why": "Proposition 3.1.2: the CM moduli 𝒴 is finite étale over O_K."
+    },
+    {
+      "citation": "M. L. Agranovsky, E. K. Narayanan, L^p-integrability, supports of Fourier transforms and uniqueness for convolution equations, J. Fourier Anal. Appl. 10 (2004), 315–324",
+      "link": "https://doi.org/10.1007/s00041-004-0986-4",
+      "why": "Theorem 1, whose non-archimedean variants are Lemmas A.1–A.2."
+    },
+    {
+      "citation": "D. Ramakrishnan, A theorem on GL(n) à la Tchebotarev, arXiv:1806.08429",
+      "link": "https://arxiv.org/abs/1806.08429",
+      "why": "Theorem A (strong multiplicity one from split places), used in Proposition 6.9, Lemma 7.3 and Lemma 9.2."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "UnitaryArithmeticInnerProductFormula",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: the arithmetic inner product formula for unitary groups",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LI-LIU-21/2",
+        "PAPER-LI-LIU-21/3",
+        "PAPER-LI-LIU-21/4",
+        "PAPER-LI-LIU-21/5",
+        "PAPER-LI-LIU-21/6",
+        "PAPER-LI-LIU-21/7",
+        "PAPER-LI-LIU-21/8",
+        "PAPER-LI-LIU-21/9",
+        "PAPER-LI-LIU-21/11",
+        "PAPER-LI-LIU-21/13",
+        "PAPER-LI-LIU-21/15",
+        "PAPER-LI-LIU-21/16",
+        "PAPER-LI-LIU-21/18",
+        "PAPER-LI-LIU-21/19",
+        "PAPER-LI-LIU-21/20",
+        "PAPER-LI-LIU-21/21",
+        "PAPER-LI-LIU-21/22",
+        "PAPER-LI-LIU-21/23",
+        "PAPER-LI-LIU-21/24",
+        "PAPER-LI-LIU-21/27",
+        "PAPER-LI-LIU-21/28",
+        "PAPER-LI-LIU-21/30",
+        "PAPER-LI-LIU-21/31",
+        "PAPER-LI-LIU-21/32",
+        "PAPER-LI-LIU-21/33",
+        "PAPER-LI-LIU-21/34",
+        "PAPER-LI-LIU-21/46",
+        "PAPER-LI-LIU-21/47",
+        "PAPER-LI-LIU-21/48",
+        "PAPER-LI-LIU-21/49",
+        "PAPER-LI-LIU-21/51",
+        "PAPER-LI-LIU-21/52",
+        "PAPER-LI-LIU-21/53",
+        "PAPER-LI-LIU-21/54",
+        "PAPER-LI-LIU-21/55",
+        "PAPER-LI-LIU-21/56",
+        "PAPER-LI-LIU-21/57",
+        "PAPER-LI-LIU-21/58",
+        "PAPER-LI-LIU-21/59",
+        "PAPER-LI-LIU-21/60",
+        "PAPER-LI-LIU-21/61",
+        "PAPER-LI-LIU-21/62",
+        "PAPER-LI-LIU-21/63",
+        "PAPER-LI-LIU-21/64",
+        "PAPER-LI-LIU-21/65",
+        "PAPER-LI-LIU-21/66",
+        "PAPER-LI-LIU-21/67",
+        "PAPER-LI-LIU-21/68",
+        "PAPER-LI-LIU-21/69",
+        "PAPER-LI-LIU-21/70"
+      ],
+      "brief": "This is the candidate proposed by PAPER-LI-LIU-22. Li–Liu, Ann. of Math. 194 (2021), 817–901, is its foundation: it proves the arithmetic inner product formula and the Chow-group nonvanishing when E/F is unramified. The sequel (PAPER-LI-LIU-22) adds ramified places and arbitrary components at split places. Plan the two papers as one Part II, with the 2021 argument as the main line and the sequel's changes as extensions of the same stages.\n\nImport:\n- UnitaryRapoportZinkSpacesAndRSZModels: the auxiliary moduli X′_L, 𝒴, the Drinfeld-level, smooth and strictly semistable models, and uniformization.\n- UnitaryKudlaRapoportCycles: the integral special cycles, their K-theory classes and the local Kudla–Rapoport identities (Li–Zhang Theorems 3.4.1 and 10.5.1).\n- AutomorphicPadicLFunctions L4: the doubling embedding, Siegel Eisenstein series and local doubling zeta integrals.\n- MetaplecticAutomorphicForms MP.2–MP.3 and AutomorphicLFunctionsAndLocalFactors AL.0: the Weil representation and Fourier analysis.\n- ModularityAndLanglandsExtensions ML.4 and AutomorphicGaloisRepresentationsPartII AG2.2, AG2.5: Arthur's multiplicity formula, base change and the Galois representations ρ_{Π_j}.\n- IgusaVarietiesAndTorsionConcentration: the vanishing Lemma 7.3.\n- Cohomological tools planned elsewhere: EtaleDualityAndPerverseSheaves EDC.3 (cycle classes), ArithmeticGaloisDuality R02.2 (Hochschild–Serre), WeightsInEtaleCohomology R34.5 (weights), LefschetzPencilsAndVanishingCycles LPV.7 (the weight spectral sequence), SchemeKTheoryOperations S.6–S.7 and MotivicEtaleKTheory M.8 (K-theory with supports and Chern classes), SchemeAndStackFoundations SF.2 (absolute purity).\n\nConstruct:\n- the running notation of §2 (Herm_m, Hasse invariants, Diff(T, V), nearby spaces, the lattice Λ^R and the Hecke algebras T^R ⊇ S^R, the groups G_m with their measures and automorphic spaces, the subgroups CH^m(X)^{⟨ℓ⟩});\n- the doubling L-function and the Siegel–Weil measure d^♮h;\n- Kudla's special cycles and generating functions, conditional on the modularity Hypothesis 4.5, and the arithmetic theta lifting;\n- Beilinson's ℓ-adic height pairing and its local indices: the whole of Appendix B, including the K-theoretic computation on regular models and the ℓ-tempered correspondences. Plan it as a general tool, since nothing in the atlas plans Beilinson heights for higher-codimension cycles;\n- Green currents and harmonic Green currents;\n- R-good primes, admissible sextuples and the normalized height pairing (Hypothesis 6.6 stays explicit).\n\nThe final theorems:\n- Proposition 3.7, with C_r = (−1)^r 2^{−2r} π^{r²} Γ(1)⋯Γ(r)/(Γ(r+1)⋯Γ(2r)) as in the final version (arXiv v5 has 2^{r(r−1)}; sourceIssues E1);\n- Propositions 3.10 and 3.13, with Lemmas A.1–A.2;\n- Lemma 3.15 and Remark 3.16;\n- Propositions 6.9 and 6.10;\n- the local-index Propositions 7.1, 8.1, 9.1 and 10.1, with Lemmas 8.3 and 9.2;\n- Lemma 11.1, Theorems 1.5 and 1.7, and Corollary 1.9.\n\nKeep F ≠ Q, V^ram = ∅ (removed in the sequel) and all 2-adic places split. Keep Hypotheses 4.5 and 6.6 as explicit hypotheses.\n\nProposition 9.1 uses Li–Zhang Theorem 10.5.1, which is conditional on Li–Zhang Conjecture 10.4.1 (sourceIssues E3). Import it only once the UnitaryKudlaRapoportCycles design has either Li–Rapoport–Zhang (arXiv:2404.02214) Theorem 14.6.2 or the conjecture as an explicit hypothesis. Until then Theorems 1.5 and 1.7 carry that hypothesis.\n\nTests:\n- r = 1 against Liu 2011 (U(1, 1));\n- the constant C_r and ⟨φ^0, φ^0⟩ = 2^{−2r²};\n- the sign (−1)^r in Corollary 1.9;\n- vol(L_u) = (q + 1)/(q^{2r} − 1) against (9.2)–(9.3).",
+      "reason": "GZ plans rank-one height formulas: point heights, Waldspurger theta kernels, and generating series against incoherent kernels on Shimura curves. It does not plan Beilinson–Bloch heights of arithmetic theta lifts on higher unitary Shimura varieties, Beilinson's local indices, or the doubling-method comparison with L′(1/2, π). These continue GZ's arithmetic-heights direction. PAPER-LI-LIU-22 proposed this Part II for the sequel, and this paper is its foundation."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PELModuli",
+      "roadmap": "UnitaryRapoportZinkSpacesAndRSZModels",
+      "title": "Siegel and PEL moduli problems, Part II: unitary Rapoport–Zink spaces, RSZ integral models and p-adic uniformization",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LI-LIU-21/35",
+        "PAPER-LI-LIU-21/36",
+        "PAPER-LI-LIU-21/37",
+        "PAPER-LI-LIU-21/38",
+        "PAPER-LI-LIU-21/39",
+        "PAPER-LI-LIU-21/40",
+        "PAPER-LI-LIU-21/41"
+      ],
+      "brief": "This reuses the candidate proposed by PAPER-LI-ZHANG-22-B and extended by PAPER-LI-LIU-22; keep it moduli-theoretic. Li–Liu, Ann. of Math. 194 (2021), add the following, all over O_K with K generated by E_u and the reflex field of an admissible CM type.\n\nConstruct:\n- the moduli interpretation of X′_L = X_L ⊗_E Y (Lemma 5.2, following RSZ20 §3.2 and LTXZZ §4.1), with T_0 and the CM moduli Y;\n- the comparison of Shimura varieties for different complex embeddings (Lemma 5.5);\n- admissible CM types and the finite étale integral model 𝒴 (Notation 5.6; Howard 2012 Prop. 3.1.2);\n- the Drinfeld-level models 𝒳_m at a split place (RSZ20 Thm. 4.5; regular for m > 0 because K/E_u is unramified);\n- the smooth models at an inert place with self-dual level (Li–Zhang §11.2) and their uniformization (8.2) (Li–Zhang §13.1);\n- the strictly semistable models at an almost self-dual inert place (Li–Zhang §11.3), with the decomposition of the special fibre into Y° (a P^{2r−1}-fibration), Y• (proper smooth) and Y† (a relative Fermat hypersurface) (LTXZZ §§5.1–5.5).\n\nThe almost self-dual models need p unramified in E and u unramified over Q (footnote 18). LTXZZ's extra conditions on u are asserted removable (footnote 19); check this before relying on it.\n\nTests:\n- 𝒳_0 smooth and 𝒳_m ⊗ K ≅ X′_{L_{u,m}L^u} ⊗ K;\n- the two components of the special fibre and their intersection in rank n = 2.",
+      "reason": "These are the integral models and uniformizations on which the local indices of §§7–9 are computed. PAPER-LI-ZHANG-22-B proposed this Part II in the direction of PELModuli, which plans PEL moduli functors and good-level representability only."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GrossZagierAndArithmeticHeights",
+      "roadmap": "UnitaryKudlaRapoportCycles",
+      "title": "Gross–Zagier formulas and arithmetic heights, Part II: unitary Kudla–Rapoport cycles and the arithmetic Siegel–Weil formula",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-LI-LIU-21/42",
+        "PAPER-LI-LIU-21/43",
+        "PAPER-LI-LIU-21/44",
+        "PAPER-LI-LIU-21/45"
+      ],
+      "brief": "This reuses the candidate proposed by PAPER-LI-ZHANG-22-B. Li–Liu 2021 consume its global special cycles and its two local identities. Add:\n- the moduli description of special cycles on X′_L, finite and unramified over it (Definition 5.3, Lemma 5.4);\n- the integral special cycles 𝒵_T(φ^∞)_L on the smooth and semistable models (Li–Zhang §13.3), their K-theory classes in F^r K^Z_0 (Gillet–Soulé Prop. 5.5) and their uniformization (8.3);\n- the classes ^K𝒩(x) (Zhang 2021 App. B);\n- the Euler-characteristic identities χ(π^∧_*{}^K𝒩(x)) at self-dual level (Li–Zhang Thm. 3.4.1, Rem. 3.4.2) and at almost self-dual level (Li–Zhang Thm. 10.5.1, Rem. 10.5.4), exported in the Whittaker normalization used here.\n\nThe almost self-dual identity is conditional in Li–Zhang on their Conjecture 10.4.1 (Kudla–Rapoport). Either import Li–Rapoport–Zhang arXiv:2404.02214 Theorem 14.6.2, after checking that it supplies parts (i)–(iii) of that conjecture, or keep the conjecture as a named hypothesis (sourceIssues E3).",
+      "reason": "The integral special cycles and the local Kudla–Rapoport identities belong to the Kudla–Rapoport Part II proposed by PAPER-LI-ZHANG-22-B; Li–Liu 2021 use them without change."
+    },
+    {
+      "route": "source",
+      "roadmap": "MetaplecticAutomorphicForms",
+      "stages": [
+        "MetaplecticAutomorphicForms:MP.3"
+      ],
+      "items": [
+        "PAPER-LI-LIU-21/17",
+        "PAPER-LI-LIU-21/50"
+      ],
+      "reason": "MP.3 plans unitary dual pairs and local theta modules, with see-saw identities and first-occurrence statements. This source adds two local results.\n- Proposition 3.6: doubling multiplicity one, local theta dichotomy and irreducibility of Θ(π_v, V_v) for tempered π_v, from the see-saw identity, Gan–Ichino, Gan–Takeda, Gong–Grenié and Kudla–Sweet.\n- Liu's Hecke compatibility of the theta correspondence at almost unramified inert places, and its split-place analogue."
+    },
+    {
+      "route": "source",
+      "roadmap": "IgusaVarietiesAndTorsionConcentration",
+      "stages": [
+        "IgusaVarietiesAndTorsionConcentration:IG.5",
+        "IgusaVarietiesAndTorsionConcentration:IG.7"
+      ],
+      "items": [
+        "PAPER-LI-LIU-21/80",
+        "PAPER-LI-LIU-21/81"
+      ],
+      "reason": "IG.5 plans the rational Igusa trace comparison, and IG.7 plans localized concentration for unitary Shimura varieties. Lemma 7.3 belongs to that direction: vanishing of the π-localized H^{2r} of the Drinfeld-level models 𝒳_m when π_u is a tempered principal series. It uses the Newton strata of the special fibre and the Caraiani–Scholze results. PAPER-LI-LIU-22 routes its generalization (Theorem 4.21) to the same stages."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "items": [
+        "PAPER-LI-LIU-21/79"
+      ],
+      "reason": "SF.2 owns scheme cohomology with supports and purity. PAPER-CESNAVICIUS-19 routes its prime-to-residue-characteristic absolute-purity input there, and EDC.2 explicitly excludes Gabber's theorem. Li–Liu use absolute and semi-purity (Fujiwara) for regular models over O_K."
+    },
+    {
+      "route": "source",
+      "roadmap": "MotivesAndAlgebraicCycles",
+      "stages": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "items": [
+        "PAPER-LI-LIU-21/1"
+      ],
+      "reason": "MC.7 plans typed statements of the cycle conjectures and a register of proved cases. The unrefined and equivariant Beilinson–Bloch conjecture (1.1) and Beilinson's height-positivity conjecture are cycle conjectures of that kind, and this paper proves cases of the former."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-LI-LIU-21/E1",
+      "kind": "error",
+      "locator": "Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs",
+      "printed": "\"C_r = (−1)^r 2^{r(r−1)} π^{r²} Γ(1)···Γ(r)/(Γ(r+1)···Γ(2r))\", from \"By [HLS11, (4.2.7.4)] and [Gar08, Theorem 3.1], we have Z(0, ϕ^c_{1v} ⊗ ϕ_{2v}, Φ_v) = (−1)^r π^{r²} Γ(1)···Γ(r)/(Γ(r+1)···Γ(2r)).\"",
+      "correction": "C_r = (−1)^r 2^{−2r} π^{r²} Γ(1)···Γ(r)/(Γ(r+1)···Γ(2r)), from Z(0, …) = (−1)^r 2^{−2r²}·2^{r²−r} π^{r²} Γ(1)···Γ(r)/(Γ(r+1)···Γ(2r)) [Eischen–Liu, Thm. 1.3, Prop. 3.3.2].",
+      "reason": "The v5 value of Z(0) omits the factor ⟨φ^0_v, φ^0_v⟩ = 2^{−2r²} (the Gaussian norm for the self-dual measure, rederived here) and the factor 2^{r²−r} from Eischen–Liu. With (3.2) and b_{2r,v}(0) = (Π_{i=1}^r π^{−i}Γ(i))², the normalization contributes 2^{r²−r}, so v5 gets 2^{r(r−1)} and the final version 2^{−2r}. The sequel (Forum Math. Pi 2022, Prop. 4.9) also uses 2^{−2r}. The constant enters Theorem 1.7(1), Proposition 3.7, Lemma 11.1(2) and Corollary 1.9 as C_r^{[F:Q]}; Theorems 1.5 and 1.7(2) are unaffected.",
+      "affects": "a stated result",
+      "known": "Corrected in the authors' final version (Chao Li's homepage, AIPF.pdf, dated 20 October 2021, Theorem 1.7 and Proposition 3.7), which the published article follows by its date; arXiv v5 remains uncorrected",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E2",
+      "kind": "gap",
+      "locator": "Proof of Proposition 10.1, (10.6)–(10.8), pp.46–48 in arXiv v5; the final version differs",
+      "printed": "\"since s*_2 Z_{T_2}(ω^∞_r(g^∞_2)φ^∞_2)_L is cohomologically trivial, by the ∂∂̄-lemma for currents, there is an (r−1, r−1)-current η on X_L(C) such that dd^c η = δ(s*_2 Z_{T_2}(…)_L)^c.\" The proof then integrates (g^KM_{T_1} − g^♥_{T_1}) ∧ dd^c η by parts and pairs ω^KM_{T_1} with η + g^KM_{T_2}(…)^c.",
+      "correction": "Take η := −g^♥_{T_2}(φ^∞_2, s_2, g^∞_2)^c_L, a harmonic Green current for the conjugate cycle, singular only along supp Z_{T_2}, which is disjoint from supp Z_{T_1}; then η + g^KM_{T_2}(…)^c is smooth, and the manipulations are legitimate.",
+      "reason": "An arbitrary current η with dd^c η = δ need not be smooth near the support of Z_{T_1}. Neither the wedge product of g^♥_{T_1} with dd^c η nor the integration by parts between two singular currents is then defined. The final version makes exactly this replacement and adds \"and the fact that η + g^KM_{T_2}(φ^∞_2, s_2, g_2)^c_L is a smooth form on X_L(C)\" to the convergence argument.",
+      "affects": "the proof",
+      "known": "Corrected in the authors' final version (20 October 2021), proof of Proposition 10.1, p.46",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E3",
+      "kind": "gap",
+      "locator": "Proof of Proposition 9.1, p.45 (final version; the same in arXiv v5, p.44)",
+      "printed": "\"The proof of (9.3) is same to that of (8.5) except that now we have χ(π^∧_* {}^K𝒩(x)) = (b_{2r,u}(0)/log q_u)((q^{2r}_u − 1)/(q_u + 1) W′_{T□}(0, 1_{4r}, 1_{(Λ^R_u)^{2r}}) − (log q_u/(q_u + 1)) W_{T□}(0, 1_{4r}, 1_{(Λ⋆_u)^{2r}})) if T(x) = T□, by [LZ, Theorem 10.5.1 & Remark 10.5.4].\"",
+      "correction": "Proposition 9.1, and with it Lemma 11.1 and Theorems 1.5 and 1.7 and Corollary 1.9 (which always involve u above S_π ≠ ∅ since |S_π| is odd), should carry as a hypothesis Li–Zhang Conjecture 10.4.1 on the auxiliary almost self-dual space Ñ¹_n → N¹_n × Z(x_0), or cite a proof of it.",
+      "reason": "Li–Zhang state before Theorem 10.5.1: \"Note that the result is conditional on Conjecture 10.4.1\", a conjecture of Kudla–Rapoport. arXiv 1908.01701v3 says \"In [KRSZ19] the authors will prove this conjecture, which from now on we assume to hold\", and the authors' final version (Chao Li's homepage, KRProof.pdf, compiled 31 October 2021) says \"In [LRZ21] the authors plan to prove this conjecture, which from now on we assume to hold\". Li–Liu cite Theorem 10.5.1 with no hypothesis, and state their main theorems unconditionally apart from Hypotheses 4.5 and 6.6. The sequel repeats this (Forum Math. Pi 2022, Prop. 4.27(2), \"as [LL21, Props. 8.1, 9.1]\"). Li–Rapoport–Zhang, arXiv:2404.02214 (2024, to appear in J. reine angew. Math.), Theorem 14.6.2, prove the structure of Ñ^{[1]}_n \"conjectured by Kudla and Rapoport, cf. [11], see also [15, Conj. 10.4.1]\". That should close the gap, but whether it supplies every part used in Li–Zhang §10.5, in particular the blow-up description (ii), was not checked line by line.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22",
+        "Li–Zhang, arXiv 1908.01701v3 §10.4–10.5 and the authors' final version (KRProof.pdf) §10.4–10.5",
+        "Li–Rapoport–Zhang, arXiv:2404.02214v2, Introduction, §3.5 and Theorem 14.6.2",
+        "the sequel Forum Math. Pi 10 (2022), e5: no mention of the conditionality"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E4",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.3, p.35 (final version; arXiv v5, p.34)",
+      "printed": "\"the set B(G, µ^{−1}) is identified with {0, . . . , n − 1} under which d = n − j = 2r − 1 − j\"",
+      "correction": "\"d = n − 1 − j = 2r − 1 − j\".",
+      "reason": "n = 2r, so n − j = 2r − j; the intended value is the dimension n − 1 − j of Y°_{m,j}, as stated earlier in the proof and used in the conclusion \"i can only be 2r − 1 − j\".",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E5",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.4, p.27; Lemma 6.4(1), p.30; proofs of Proposition 8.1, p.38, and Proposition 9.1, p.44 (final version; also in arXiv v5)",
+      "printed": "\"Take x′ ∈ ^uV^r and h ∈ H(A^∞_F) such that hx = x′ holds in V^m ⊗_{A_F} A^∞_F\"; \"(1) For x_1, x_2 ∈ V ⊗_{A_F} A^∞_F satisfying T(x_1) = T_1, T(x_2) = T_2\"; \"for every pair of p-basic elements φ^∞_1, φ^∞_2 ∈ S(V^m ⊗_{A_F} A^∞_F)^L\" (twice).",
+      "correction": "V^r ⊗_{A_F} A^∞_F in each place.",
+      "reason": "In Lemma 5.4 and Lemma 6.4, x and x_i have r components (T(x_i) = T_i ∈ Herm°_r(F)^+); in Propositions 8.1 and 9.1 the φ^∞_i are the test functions of admissible sextuples, which lie in S(V^r ⊗ A^∞_F) by Definition 6.3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E6",
+      "kind": "misprint",
+      "locator": "Proposition B.10, p.62; Corollary B.15 and its proof, p.64 (final version; also in arXiv v5)",
+      "printed": "\"Consider a pair (c_1, c_2) ∈ Z^{d_1,d_2}(X)^{⟨ℓ⟩} satisfying supp(c_i) ∩ supp(c_2) = ∅\"; Corollary B.15: \"(1) If (H^{2d}(𝒳, Q_ℓ(d)) ⊗_Q L)_𝔪 = 0, then there exists an ℓ-tempered element in S_L \\ 𝔪\" and \"(2) … then (H^{2d}(𝒳, Q_ℓ(d)) ⊗_Q L)_𝔪 = 0\", and \"some power of t annihilates H^{2d}(𝒳, Q_ℓ(d)) ⊗_Q L\".",
+      "correction": "\"supp(c_1) ∩ supp(c_2) = ∅\"; H^{2r}(𝒳, Q_ℓ(r)) in all three places of Corollary B.15.",
+      "reason": "In Corollary B.15 the setting is n = 2r, d_1 = d_2 = r, and d is undefined. ℓ-tempered (Definition B.12) and Proposition B.14 concern H^{2r}(𝒳, Q_ℓ(r)), and the corollary's hypothesis (2) already reads H^{2r}(X, Q_ℓ(r)).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E7",
+      "kind": "misprint",
+      "locator": "Proof of Lemma A.2, pp.55–56 (final version; also in arXiv v5)",
+      "printed": "After summing over i ≥ −2N: \"= C_{γ,δ}·q^{Nn(γ−δ)/(2−δ)} (∫_{A^m_0 × A^m_i × B^{n−2m}_{−N}} |f(x)|^{2−δ} dx)^{(2−γ)/(2−δ)}\", and the same region A^m_0 × A^m_i × B^{n−2m}_{−N} in (A.3) and in the next Hölder estimate.",
+      "correction": "The region A^m_0 × B^m_{−2N} × B^{n−2m}_{−N} = ⋃_{i ≥ −2N} A^m_0 × A^m_i × B^{n−2m}_{−N}, the union of the shells, on which each shell integral is bounded before summing.",
+      "reason": "The index i is summed out in the previous line, so it cannot appear on the right. The estimate needs the bound of each shell integral by the integral over the union, and Σ_{i≥−2N}(i + 2N + 1)q^{−im(γ−δ)/(2−δ)} ≍ q^{2Nm(γ−δ)/(2−δ)}, which together with q^{N(n−2m)(γ−δ)/(2−δ)} gives the stated power. The later bound by ∫_{B^n_{−2N}} |Δ|^{−…} and by hypothesis (4) holds for the union, a fundamental domain for the α-action.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E8",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 1.5, p.52 (final version; arXiv v5, p.51)",
+      "printed": "\"First, it suffices to prove the theorem for R satisfying R_π ⊆ R ⊆ V^fin_F and |R| ⩾ 2.\"",
+      "correction": "\"R_π ⊆ R ⊆ V^spl_F and |R| ⩾ 2\".",
+      "reason": "Every R is a subset of V^fin_F, so the stated reduction is empty. The set-up of §11 takes R to be a finite subset of V^spl_F containing R_π with |R| ≥ 2. The reduction from R to R ∩ V^spl_F is valid: T^R ⊆ T^{R∩V^spl}, and 𝔪^R_π is the contraction of 𝔪^{R∩V^spl}_π, so nonvanishing of the finer localization implies the coarser.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    },
+    {
+      "id": "PAPER-LI-LIU-21/E9",
+      "kind": "gap",
+      "locator": "Proof of Lemma B.8, pp.61–62 in arXiv v5; the final version adds footnote 22",
+      "printed": "\"By [Gil81, Proposition 2.35], cl^{Z_1}_{X,ℓ}(C_1) ∪ cl^{Z_2}_{X,ℓ}(C_2) and cl^{Z_1∩Z_2}_{X,ℓ}(C_1 ∪ C_2) have the same image under the natural map H^{2n}_{Z_1∩Z_2}(X, Q_ℓ(n)) → H^{2n}_Y(X, Q_ℓ(n)).\"",
+      "correction": "Cite the proof of [Gil81, Prop. 2.35], which extends to Z_1 ≠ Z_2 when the product of classes represented by S⁰_{Z_i} → ΩBQP𝒳 is taken through S⁰_{Z_1∩Z_2} = S⁰_{Z_1} ∧ S⁰_{Z_2}.",
+      "reason": "The final version's footnote 22 says so: \"Although [Gil81, Proposition 2.35] only implies the statement when Z_1 = Z_2, its proof works more generally.\" It changes the citation to \"(the same proof of)\" and restates Definition B.7 on all of K^{Z_1}_0 × K^{Z_2}_0.",
+      "affects": "the proof",
+      "known": "Corrected in the authors' final version (20 October 2021), proof of Lemma B.8 and footnote 22, p.62",
+      "searched": [
+        "Ann. of Math. (2) 194 (2021), no. 3, 817–901, DOI 10.4007/annals.2021.194.3.6: Crossref (checked 2026-09-22) records no update or correction relation; the Annals article page (received 18 June 2020, revised 13 July 2021, accepted 30 June 2021, published online 2 November 2021) lists no erratum",
+        "arXiv 2006.06139: v1–v5, the last of 10 April 2021 (\"revised after referee reports\"), compared line by line with the authors' final version on Chao Li's homepage (AIPF.pdf, dated 20 October 2021)",
+        "the sequel, Li–Liu, Forum Math. Pi 10 (2022), e5, read in full for PAPER-LI-LIU-22"
+      ]
+    }
+  ]
+}
