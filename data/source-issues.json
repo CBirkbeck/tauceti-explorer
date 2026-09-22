@@ -633,6 +633,132 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E1",
+   "kind": "misprint",
+   "locator": "§1.3, p.7 (arXiv v3; published Annals version not collated)",
+   "printed": "\"Then S^sm denotes the regular locus of X.\"",
+   "correction": "S^sm denotes the regular locus of S.",
+   "reason": "The sentence introduces notation for the variety S.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E2",
+   "kind": "misprint",
+   "locator": "Introduction to §4, p.16 (arXiv v3; published Annals version not collated)",
+   "printed": "\"Next we prove the appropriate lower bound for (M · F^{·(d−1)}) in Proposition 4.3.\"",
+   "correction": "An upper bound: Proposition 4.3 gives (M·F^{·(d−1)}) ≤ cN^{2(d−1)}.",
+   "reason": "The preceding paragraph asks for \"an appropriate upper bound for (M·F^{·(d−1)})\", and Siu's criterion needs exactly that.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E3",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.2, p.27 (arXiv v3; published Annals version not collated)",
+   "printed": "\"obtain that D_M(C^{[M+1]}_S) is non-degenerate if M ≥ j_ε(C_S) = dim S + 1\"",
+   "correction": "M ≥ dim j_ε(C_S) = dim S + 1.",
+   "reason": "Gao's Theorem 1.3(ii) has a dimension threshold, and dim j_ε(C_S) = dim S + 1 because the curves are one-dimensional.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 1.2, p.36 (arXiv v3; published Annals version not collated)",
+   "printed": "\"As in the proof of Theorem 1.2 we use h(ι(ρ(t))) ≤ c′h_{A_g,M}(t) + c″\"",
+   "correction": "\"As after the proof of Theorem 1.1\".",
+   "reason": "The inequality is established in the remark following the proof of Theorem 1.1 (p.35); the sentence sits inside the proof of Theorem 1.2 itself.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E5",
+   "kind": "misprint",
+   "locator": "Proof of Theorem B.1, pp.43–46 (arXiv v3; published Annals version not collated)",
+   "printed": "\"We will proceed the proof with six dévissage steps.\" … \"Seventh dévissage: … It remains to prove the height inequality (B.1) with the extra hypotheses (i) - (v) listed above using Theorem 1.6. … (Hyp) is just (iv) and (v).\"",
+   "correction": "There are seven dévissage steps. The extra hypotheses are (i)–(vi), and (Hyp) is (v) and (vi) (principal polarization and level-ℓ structure).",
+   "reason": "The list has items (i)–(vii), with (iv) \"isogenous to a principally polarized scheme\", (v) \"principal polarization\" and (vi) \"level ℓ-structure\", and the text has headings First to Seventh. (Hyp) is defined on p.5 as a principal polarization plus a level-ℓ structure.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DIMITROV-GAO-HABEGGER-21/E6",
+   "kind": "gap",
+   "locator": "Proof of Theorem 1.4, p.36 (arXiv v3; published Annals version not collated)",
+   "printed": "\"By the Northcott property and Torelli's Theorem, there are up-to Q̄-isomophism only finitely many C_Q̄'s … such that h(ι([Jac(C_Q̄)])) < c1. By applying Raynaud's result on the Manin–Mumford Conjecture to each one of these finitely many curves separately, we obtain Theorem 1.4.\"",
+   "correction": "For each of the finitely many curves C a bound for #((C − P₀) ∩ Jac(C)_tors) uniform in P₀ ∈ C(ℚ̄) is needed, because Theorem 1.4 quantifies over all P₀. For g ≥ 3 it follows from Raynaud's theorem for the surface C − C ⊆ Jac(C): its torsion lies in finitely many points and elliptic torsion cosets, and a coset t + E pulls back to a curve in C × C with no component C × {P₀}, so each P₀ meets it in boundedly many points. For g = 2, C − C = Jac(C), and a uniform Manin–Mumford for the translates C − P₀ is required, e.g. Kühne's later uniform Manin–Mumford theorem (arXiv:2101.10272), which proves Theorem 1.4 without the dependence on d.",
+   "reason": "Raynaud's theorem gives, for each embedding C − P₀ ⊆ Jac(C), a finite set, with no control of its size as P₀ varies over the infinitely many points of C(ℚ̄). The statement is true, but the displayed step does not prove it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2001.10276 versions (v3, 31 March 2021, is the latest)",
+    "Annals of Mathematics 194 (2021) article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Crossref metadata for 10.4007/annals.2021.194.1.4: no update or correction relation"
+   ],
+   "owner": "PAPER-DIMITROV-GAO-HABEGGER-21",
+   "file": "research/blueprint/papers/PAPER-DIMITROV-GAO-HABEGGER-21.result.json",
+   "citation": "Dimitrov–Gao–Habegger, \"Uniformity in Mordell–Lang for curves\", Annals of Mathematics 194 (2021), no. 1",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-FINTZEN-21/E1",
    "kind": "misprint",
    "locator": "Types, arXiv1810.04198v2, Definition4.6, p17; second comparison facet",
