@@ -3331,7 +3331,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BINDA-KATO-VEZZANI-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1211"
   },
   {
    "id": "REV-PAPER-BINDA-KATO-VEZZANI-25",
@@ -5138,8 +5139,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FRESAN-SABBAH-YU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1316"
+   "state": "pending",
+   "note": "released on GitHub issue #1316"
   },
   {
    "id": "REV-PAPER-FRESAN-SABBAH-YU-22",
