@@ -9721,6 +9721,146 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-LI-ZHANG-22/E1",
+   "kind": "error",
+   "locator": "Lemma 3.2.2, p.13, and the simplified (\"Namely\") form of Lemma 3.2.1, p.12 (final version; also arXiv v1); used in the proof of Lemma 7.6.7 (ii) at d = 2, p.51",
+   "printed": "Lemma 3.2.2: \"S_b(V) = (q^{m/2} − χ(V))(q^{m/2−b} + χ(V))Π_{i=1}^{b−1}(q^{m−2i} − 1)/Π_{i=1}^{b}(q^i − 1), m even\", stated for all b ≥ 0; the simplified form of Lemma 3.2.1, \"#O(U, V) = q^{n(2m−n−1)/2}(1 − sgn(V)q^{−m/2})(1 + χ(V)sgn(U)q^{−(m−n−t)/2})Π_{1≤i<(n+t)/2}(1 − q^{2i−m}) for m even\", stated for all U.",
+   "correction": "Both hold for b ≥ 1, resp. n + t > 0. For b = 0 (U = 0) with m even they give q^m − 1 and 1 − q^{−m}, while S_0(V) = 1 and #O(0, V) = 1.",
+   "reason": "The simplification replaces (1 − x)^{−1}(1 − x²) by (1 + x) for x = q^{−(m−n−t)/2}; the factor (1 − x²) is the i = (m − n − t)/2 term of the product, which is present only when (m − n − t)/2 < m/2, i.e. n + t > 0. Brute force over F_3 (m ≤ 4) and F_5 (m ≤ 3) confirms the simplified form in 160 of 166 configurations, the six exceptions being exactly U = 0 with m even. The first (unsimplified) form of Lemma 3.2.1 is correct there, but is indeterminate (0/0) in the other edge case n + t = m when U does embed in V. The edge case matters in the proof of Lemma 7.6.7 (ii) at d = 2, where the displayed evaluation substitutes the printed closed formula for S_{d−2}(W_{Λ+⟨x⟩}) = S_0 = 1 and so reads (q^4 − 1)(1 − q) + (q^2 + 1)q in place of (1 − q) + (q^2 + 1)q = 1 + q^3; with the correct value S_0 = 1 the identity of Lemma 7.6.7 holds (checked symbolically for 2 ≤ d ≤ 7), so the lemma itself is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E2",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 3.5.4, p.19 (final version; also arXiv v1)",
+   "printed": "\"Taking the ratio we obtain Den(H^ε_{n+1+2k}, L)/Nor^♭ε(q^{−k}, L) = …\"",
+   "correction": "Den(H^ε_{n+2k}, L)/Nor^♭ε(q^{−k}, L).",
+   "reason": "In the even corank case Den^♭ε(q^{−k}, L) is defined with H^ε_{n+2k} (Definition 3.5.2), and the preceding display of the proof takes m = n + 2k in Lemma 3.3.2.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E3",
+   "kind": "gap",
+   "locator": "Remark 4.11.5, p.30 (final version; also arXiv v1); used in the proof of Lemma 9.2.2 (i), p.64",
+   "printed": "\"If L, L′ ⊆ V are isometric O_F-lattices of rank n, then we may find g ∈ SO(V)(F) such that L = gL′. We may further lift g to g̃ ∈ GSpin(V)(F) = J(F) such that η(g) = 1. Then the automorphism g̃ of N (see §4.4, 4.5) carries ^𝕃Z(L′) to ^𝕃Z(L). In particular, Int(L) only depends on the isometry class of L.\"",
+   "correction": "A lift g̃ ∈ J(F) of g ∈ SO(V)(F) has spinor norm η(g̃) = sn(g) in F^×/(F^×)², so η(g̃) = 1 forces sn(g) = 1. What the argument needs is only val η(g̃) = 0, since g̃ carries RZ^{(ℓ)}_G to RZ^{(ℓ + val η(g̃))}_G (§4.5) and N = RZ^{(0)}_G; that is available exactly when some isometry carrying L′ to L has spinor norm of even valuation, which the remark does not establish.",
+   "reason": "There are isometric pairs for which every isometry has spinor norm of odd valuation. Take m even and ε = −1: for m even and U unimodular, ϵ(ϖU) = χ(U), so V^−_m ≅ ϖ·H^−_{m,F}. Write H^−_m = M ⊥ ⟨w⟩ with M self-dual of rank n = m − 1, and let L ⊆ V be M with the scaled form, so that all its fundamental invariants are 1 and val(w) = 1. An element of SO(V)(F) stabilizing L preserves L_F and the line L^⊥_F, hence is a product of an even number of reflections in vectors of L or of L^⊥_F (for p odd the orthogonal group of a unimodular lattice is generated by the reflections in its vectors of unit norm, O'Meara 92:4); each such reflection has spinor norm of valuation 1, so the stabilizer has spinor norms of even valuation. Since V is isotropic, sn : SO(V)(F) → F^×/(F^×)² is surjective; choosing h with val sn(h) odd and L′ = hL gives isometric lattices such that every g ∈ SO(V)(F) with gL′ = L has val sn(g) odd. Remark 4.11.5 is the invariance input for Lemma 9.2.2 (i) (the O(W)(F)-invariance of Int^⊥_{L^♭,V}), hence for Proposition 9.2.3 and Theorem 9.3.2. The conclusion is presumably true — Theorem 4.15.1 asserts it, and for m = 4, ε = −1 it follows from Terstiege's explicit formulas (Remark 4.15.2) — and an automorphism of RZ_G outside J(F) shifting the components would supply it; but no such argument is given here, and this extraction did not settle it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E4",
+   "kind": "misprint",
+   "locator": "Wrong cross-references: proof of Lemma 4.13.1, p.31; proof of Theorem 6.3.2, p.40; §7.6, p.47; proof of Corollary 7.6.8, p.51 (final version; also arXiv v1)",
+   "printed": "\"The vertical part Z(L)_V is a scheme by Lemma 6.1.1 below.\" — \"The same proof of [LZ, Theorem 5.2.2] works verbatim using Lemma 6.3.1 in place of [LZ, Lemma 5.2.1].\" — \"we generalize Lemmas 7.4.5 and 7.5.1\" — \"Proof. It follows immediately from Lemmas 7.6.8 and 7.5.1.\"",
+   "correction": "Proposition 6.1.1; [LZ, Theorem 5.3.2] and [LZ, Lemma 5.3.1]; Corollary 7.4.5 and Lemma 7.5.1; Lemmas 7.6.7 and 7.5.1.",
+   "reason": "There is no Lemma 6.1.1, no Lemma 7.4.5 and no Lemma 7.6.8; Corollary 7.6.8 cites itself, and the input it needs is Lemma 7.6.7, which writes c_{V(Λ)} as a combination of the Int_{V(Λ′)} for Λ′ of type 4, to which Lemma 7.5.1 applies. In Li–Zhang, Kudla–Rapoport cycles and derivatives of local densities (J. Amer. Math. Soc. 35 (2022), 705–797), the Tate-conjecture results are Lemma 5.3.1 and Theorem 5.3.2 — the numbering Corollary 7.3.2 of this paper uses — while 5.2.1 and 5.2.2 are the horizontal/vertical splitting. (The unitary companion has the same self-citation in its Corollary 6.4.8; see PAPER-LI-ZHANG-22-B/E3.)",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E5",
+   "kind": "misprint",
+   "locator": "Introduction, p.5; §5.3, p.34; proof of Corollary 7.4.5, p.46 (final version; also arXiv v1)",
+   "printed": "\"∂Eis(z, ϕ_K) = Σ_{T ∈ Herm_n(F)} ∂Eis_T(z, ϕ_K)\" — \"we can identify the cycle Z(M^♭) ⊆ Z(M_{n−2}) with the cycle Z(M_2) ⊆ N^+_3\" — \"(iii) If x ∉ Λ^∨ or val(x) ≤ 0, then Λ + ⟨x⟩ is not integral\"",
+   "correction": "Sym_n(F); Z(M^♭) ⊆ Z(M_{n−3}); val(x) < 0.",
+   "reason": "This is the orthogonal case, and the Fourier expansion (11.4.0.2) is indexed by Sym_n(F). In the case t(M^♭) = 2 the self-dual lattice used is M_{n−3}, with Z(M_{n−3}) ≅ N^+_3 by (4.14.0.2). In Corollary 7.4.5 the case val(x) = 0 with x ∈ Λ^∨ \\ Λ is already case (ii), where Λ + ⟨x⟩ is integral and the value is 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E6",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 8.2.7, base case (2) and the inductive identity, p.60 (final version; also arXiv v1)",
+   "printed": "\"So µ_−(L) = q^t − q, µ_0(L) = q − 1, µ_+(L) = 1.\" and \"(1 + sq^{t/2})(1 − sq^{t/2−1})µ_+(L, M) + (1 − sq^{t/2−1})µ_0(L, M) + µ_−(L, M) = 0 for any s ∈ {±1}.\"",
+   "correction": "µ_−(L) = q^{t−1} − q; and the inductive identity with the coefficients of the statement, (1 − sq^{t/2})(1 + sq^{t/2−1}) and (1 + sq^{t/2−1}).",
+   "reason": "The preceding lines compute #(L^∨)°/L = q^{t−1} and #(ϖL^∨)° = q, so µ_− = q^{t−1} − q; the displayed identity (1 − sq^{t/2})(1 + sq^{t/2−1}) + (1 + sq^{t/2−1})(q − 1) + (q^{t−1} − q) = 0 (rechecked) needs q^{t−1} − q, while q^t − q would not give 0. The flipped signs of s in the inductive identity are harmless, since it is claimed for both values of s.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LI-ZHANG-22/E7",
+   "kind": "misprint",
+   "locator": "arXiv v1 (2106.15038v1): Theorem 1.3.1 and §11.4; Definition 8.2.2; proofs of Propositions 8.2.5 and 8.2.7",
+   "printed": "v1: \"q^T := ψ_∞(tr Tz) = e^{2πi tr Tz}\"; \"µ_?(L, M) := µ_?(L) − [L : M]µ_?(M)\"; \"L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, e_t⟩\" (twice); \"E(z, s, ϕ) := χ_∞(m(a))^{−1}|det(m(a))|^{−m/2}_F · E(g_z, s, ϕ)\"; \"Notice that E(z, s, Φ) does not depend on the choice of χ.\"",
+   "correction": "q^T := ψ_∞(½ tr Tz) = e^{πi tr Tz}; [M : L]; L^∨ = ⟨ϖ^{−1}e_1, …, ϖ^{−1}e_{t−1}, ϖ^{−2}e_t⟩; |det(a)|^{−m/2}_F; and the last sentence deleted (the final version says instead, in §11.1, that E(g, s, Φ) does depend on the choice of χ).",
+   "reason": "The Fourier coefficients are taken against ψ(−tr ½Tb) (§11.2), so the classical variable is q^T = ψ_∞(½ tr Tz); [M : L] is the index of L in M ⊇ L, as Lemma 8.2.3 uses; for fundamental invariants (1, …, 1, 2) the dual of ⟨e_t⟩ is ⟨ϖ^{−2}e_t⟩, as the next line of both proofs (x = … + λ_tϖ^{−2}e_t) already assumes.",
+   "affects": "nothing",
+   "known": "Corrected in the authors' final version (Chao Li's homepage, KRO.pdf, dated 2 March 2022); arXiv has only v1",
+   "searched": [
+    "Invent. Math. 228 (2022), no. 3, 1353–1460, DOI 10.1007/s00222-022-01106-z: Crossref (checked 2026-09-22) records no update or correction relation",
+    "arXiv 2106.15038: only v1 (29 June 2021), compared word by word with the authors' final version on Chao Li's homepage (KRO.pdf, dated 2 March 2022)"
+   ],
+   "owner": "PAPER-LI-ZHANG-22",
+   "file": "research/blueprint/papers/PAPER-LI-ZHANG-22.result.json",
+   "citation": "Chao Li–Wei Zhang, \"On the arithmetic Siegel-Weil formula for GSpin Shimura varieties\", Inventiones Mathematicae (2022)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-LIPNOWSKI-TSIMERMAN-18/E1",
    "kind": "error",
    "locator": "v1 p.10, §3.1.5 (13); final 2018 text not obtained",
