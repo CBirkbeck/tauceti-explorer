@@ -3007,8 +3007,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WEI-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1193"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1193",
+   "finishedAt": "2026-09-22T19:55:46Z"
   },
   {
    "id": "REV-PAPER-WEI-26",
@@ -4126,7 +4127,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSUZUKI-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1258"
   },
   {
    "id": "REV-PAPER-TSUZUKI-23",
@@ -5342,8 +5344,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1328"
+   "state": "external",
+   "note": "claimed on GitHub issue #1328"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
@@ -6494,8 +6496,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1395"
+   "state": "external",
+   "note": "claimed on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -6891,8 +6893,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1418"
+   "state": "pending",
+   "note": "released on GitHub issue #1418"
   },
   {
    "id": "REV-PAPER-CLAUSEN-MATHEW-MORROW-21",
