@@ -1,0 +1,1088 @@
+{
+  "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Squarefree values of polynomial discriminants I",
+    "authors": "Manjul Bhargava, Arul Shankar and Xiaoheng Wang",
+    "venue": "Inventiones Mathematicae 228 (2022), 1037–1073",
+    "doi": "10.1007/s00222-022-01098-w",
+    "arxiv": "1611.09806",
+    "url": "https://arxiv.org/abs/1611.09806v3",
+    "readSections": [
+      "The entire arXiv v3 (31 December 2021, dated January 4, 2022; 29 pages; §§1–5 and references), read 2026-09-22. PDF from arxiv.org, SHA-256 6a7252706b283de3f1ee254fe6b56fd76e215f789550346aba12861dfd02af83. The Inventiones version (published online 4 February 2022) is paywalled and was not read; v3 was posted five weeks earlier and is presumably the accepted manuscript. Locators are v3 pages.",
+      "Part II (arXiv 2207.05592v1) was consulted only to see whether it revisits Part I's arguments; it does not."
+    ]
+  },
+  "summary": "Determines the density of monic integer polynomials of degree n with squarefree discriminant (Theorem 1.1): it is λ_n = ∏λ_n(p) > 0, which tends to ≈ 30.7% as n grows. It also shows that Z[x]/(f) is the maximal order with density ζ(2)^{−1} (Theorem 1.2). Both come with power-saving error terms X^{n(n+1)/2−1/5+ε}. Corollaries: ≫ X^{1/2+1/n} monogenic S_n-fields of degree n with discriminant below X, and the Ellenberg–Venkatesh conjecture that ≍ Y^{(n−1)(n+2)/2} fields have a generating integer of length below Y. The key is a tail estimate (Theorem 1.5) for polynomials whose discriminant is divisible by m² with m large. If p² strongly divides Δ, the quantitative Ekedahl sieve applies. If p² only weakly divides Δ, the polynomial is embedded (Theorems 2.3, 3.2) into symmetric matrices, in the SO_n-representation of Bhargava–Gross and Shankar–Wang, via explicit matrices B_m that split the two factors of p apart. There the new Q-invariant equals m, and the points of large |Q| are counted deep in the cusp by geometry of numbers. A squarefree sieve with κ-acceptable local conditions (Theorem 4.1) and bounds for reducible polynomials (Proposition 4.3) finish the proof. §5 converts polynomials into distinct fields by Minkowski quasi-reduction. The libraries have the discriminant, the index formula (so a squarefree discriminant gives a maximal order) and monogenicity. The atlas plans Hilbert irreducibility (IG.2), Siegel sets (AA.3) and the Selberg sieve (SV.1). Everything else is routed as sources of ArithmeticStatistics ST.0–ST.3 and ST.5, with single items for GN.3, IG.2 and CA.3. Twelve source issues are recorded, none affecting the main theorems:\n- the strong/weak criterion fails at p = 2;\n- a wrong error term in the sieve (41);\n- an index miscount in Proposition 4.3, which leaves the stated bound unproved for n = 4;\n- a sign gap in Lemma 5.1, with an explicit counterexample;\n- a missing case n = 2;\n- several misprints, including the sign of w(Q) in (36).\nThe constructions B_m, the Q-invariant, Q² | Δ, the weight chains, λ_n(p), λ and C_3 were checked by computation.",
+  "items": [
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/1",
+      "kind": "definition",
+      "name": "Monic polynomials ordered by height",
+      "statement": "V_n(Z) is the set of monic integer polynomials f(x) = x^n + a_1x^{n−1} + ⋯ + a_n of degree n (and V_n(R), V_n(Z_p) the real and p-adic analogues). The height is H(f) = max{|a_1|, |a_2|^{1/2}, …, |a_n|^{1/n}}, and #{f ∈ V_n(Z) : H(f) < X} = 2^nX^{n(n+1)/2} + O(X^{n(n+1)/2−1}). For S ⊂ V_n(Z), S_X is the set of elements of S of height < X. Volumes on V_n(Z_p) (resp. V_n(R)) are normalised so that V_n(Z_p) has volume 1 (resp. V_n(Z) has covolume 1).",
+      "locator": "§1, pp.1–2; §4, pp.20–21, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/2",
+      "kind": "definition",
+      "name": "The discriminant of a polynomial",
+      "statement": "Δ(f) is the discriminant of f, equal up to sign to the resultant Res(f, f′), a polynomial with integer coefficients in a_1, …, a_n.",
+      "locator": "§1, p.1; proof of Proposition 2.2, p.9, arXiv:1611.09806v3",
+      "status": "library",
+      "library": [
+        "mathlib:Polynomial.discr"
+      ],
+      "note": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:930 at 082e2d3 (the Sylvester-matrix definition, with the sign that makes real-rooted polynomials have non-negative discriminant)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/3",
+      "kind": "theorem",
+      "name": "Yamamura's density λ_n(p) of p² ∤ Δ",
+      "statement": "For p ≠ 2 let λ_1(p) = 1, λ_2(p) = 1 − 1/p², and λ_n(p) = 1 − (3p^{n−1} − p^{n−2} + (−1)^n(p − 1)²)/(p^n(p + 1)) for n ≥ 3; let λ_1(2) = 1 and λ_n(2) = 1/2 for n ≥ 2. Then λ_n(p) is the density of monic f ∈ V_n(Z_p) with p² ∤ Δ(f) (Yamamura [26, Proposition 3]).",
+      "locator": "§1, (1), p.1, citing [26], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Checked by exhaustive count modulo p² for n ≤ 5 and p ∈ {2, 3, 5} whenever p^{2n} ≤ 2·10⁶ (for example λ_4(5) = 564/625). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/4",
+      "kind": "theorem",
+      "name": "The constants λ_n and their limit λ",
+      "statement": "λ_n := ∏_p λ_n(p) > 0, and λ_n → λ = (1/2)·∏_{p≥3}(1 − (3p − 1)/(p²(p + 1))) ≈ 30.7056% as n → ∞ (2). So as the degree grows, the probability that a random monic integer polynomial has squarefree discriminant tends to λ.",
+      "locator": "§1, (2), p.2, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Computed with PARI: λ = 0.3070556828588…; λ_3, …, λ_8 ≈ 0.3426, 0.2997, 0.3091, 0.3064, 0.3072, 0.3070. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/5",
+      "kind": "theorem",
+      "name": "Lenstra's density ρ_n(p) = 1 − 1/p² of p-maximality",
+      "statement": "For n > 1 and every prime p, the density of monic f ∈ V_n(Z_p) such that Z_p[x]/(f(x)) is the maximal order of Q_p[x]/(f(x)) is ρ_n(p) = 1 − 1/p², independently of n (H. W. Lenstra; [1, Proposition 3.5]). Hence ∏_pρ_n(p) = ζ(2)^{−1} ≈ 60.7927%.",
+      "locator": "§1, (3), p.2, citing [1], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/6",
+      "kind": "theorem",
+      "name": "A squarefree discriminant forces maximality",
+      "statement": "If the discriminant of an order Z[θ] in a number field is squarefree, the order is maximal: Δ(minpoly θ) = [O_K : Z[θ]]²·disc(K). Hence the irreducible polynomials counted in Theorem 1.1 are among those counted in Theorem 1.2.",
+      "locator": "§1, p.2, arXiv:1611.09806v3",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr — TauCeti/NumberTheory/NumberField/Index/Discriminant.lean:56, pin f790474821cf4256814db967cb154e7af3d0c369"
+      ],
+      "note": "The index formula; the squarefree corollary is one line from it (compare not_dvd_index_of_not_dvd_discr_minpoly, same file, line 118)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/7",
+      "kind": "theorem",
+      "name": "Squarefree discriminant implies Galois group S_n",
+      "statement": "If f is a monic irreducible integer polynomial of degree n with squarefree discriminant, then the Galois group of its splitting field is S_n (see [20], [25], [16], [15]). Equivalently, a degree-n number field with squarefree discriminant has associated Galois group S_n.",
+      "locator": "§1, p.2; §5, p.26, citing [15], [16], [20], [25], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Proof idea: the inertia groups are generated by transpositions and generate a normal transitive subgroup. Not in the atlas: PolynomialGaloisGroups Layer 3 treats the discriminant and A_n only. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/8",
+      "kind": "definition",
+      "name": "Monogenic number fields",
+      "statement": "A number field K is monogenic if Z[θ] = O_K for some θ ∈ K.",
+      "locator": "§1, p.3, arXiv:1611.09806v3",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.NumberField.IsMonogenic — TauCeti/NumberTheory/NumberField/Monogenic.lean:68, pin f790474821cf4256814db967cb154e7af3d0c369"
+      ],
+      "note": "Tau Ceti also has isMonogenic_iff_exists_index_eq_one (same file)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/9",
+      "kind": "definition",
+      "name": "The absolute discriminant of a number field",
+      "statement": "The discriminant of K is the discriminant of O_K; Corollaries 1.3 and 1.4 count fields by its absolute value.",
+      "locator": "§1, p.3; §5, p.26, arXiv:1611.09806v3",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.discr"
+      ],
+      "note": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean:36 at 082e2d3."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/10",
+      "kind": "theorem",
+      "name": "Hilbert irreducibility for monic polynomials by height",
+      "statement": "A density of 100% of monic integer polynomials of degree n, ordered by H, are irreducible over Q and have Galois group S_n (Hilbert's irreducibility theorem). Consequently it does not matter whether irreducibility is imposed in Theorems 1.1–1.2.",
+      "locator": "§1, pp.2–3, arXiv:1611.09806v3",
+      "status": "planned",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "IG.2 plans Hilbert irreducibility with specialization of regular covers. The power-saving form used in the proofs is Proposition 4.3."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/11",
+      "kind": "definition",
+      "name": "Strong and weak divisibility of the discriminant by p²",
+      "statement": "For a prime p and monic f ∈ V_n(Z) with p² | Δ(f), p² strongly divides Δ(f) if p² | Δ(f + pg) for every integer polynomial g of degree less than n (the paper says \"of degree n\"; since the leading coefficient of f + pg is then a p-adic unit, the two readings agree); otherwise p² weakly divides Δ(f).",
+      "locator": "§1, p.4, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/12",
+      "kind": "theorem",
+      "name": "Root-theoretic criterion for strong and weak divisibility (p odd)",
+      "statement": "Let p be an odd prime and p² | Δ(f). Then p² strongly divides Δ(f) if and only if f mod p has at least two distinct multiple roots in F̄_p or a root in F_p of multiplicity ≥ 3; p² weakly divides Δ(f) if and only if f mod p has exactly one multiple root in F̄_p and it is a double root in F_p. For p = 2 every divisibility 4 | Δ(f) is strong (Stickelberger: Δ(f) ≡ 0 or 1 mod 4 for every lift), so W^{(2)}_m = ∅ for even m. The implication \"two multiple roots or a triple root ⇒ strong\" holds for every p, and it is the one used in Proposition 2.2.",
+      "locator": "§1, p.4, arXiv:1611.09806v3 (error E1: stated for all p)",
+      "status": "missing",
+      "note": "Checked by brute force over all f mod p for n ≤ 5, p ∈ {3, 5} (no exceptions), and p = 2, n = 2, …, 5 (failures, e.g. x² + 1 ≡ (x + 1)²). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/13",
+      "kind": "definition",
+      "name": "Collections of local specifications and κ-acceptability",
+      "statement": "A collection of local specifications is Σ = (Σ_v)_v with Σ_p ⊂ V_n(Z_p) defined by congruence conditions modulo some power of p, and Σ_∞ ⊂ V_n(R) the degree-n polynomials whose number of real roots lies in a fixed nonempty subset of {0, …, n}. V(Σ) is the set of f ∈ V_n(Z) with f ∈ Σ_v for all v. Σ is κ-acceptable if every Σ_p is defined modulo p^κ and, for all sufficiently large p, Σ_p contains every f ∈ V_n(Z_p) with p² ∤ Δ(f). The specifications of Theorems 1.1 and 1.2 are 2-acceptable.",
+      "locator": "§4, pp.20–21, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/14",
+      "kind": "theorem",
+      "name": "Proposition 2.2 (the shape of a weakly divisible polynomial)",
+      "statement": "Let m be a positive squarefree integer and f a monic integer polynomial whose discriminant is weakly divisible by p² for all p | m. Then there is an integer ℓ with f(x + ℓ) = x^n + b_1x^{n−1} + ⋯ + b_{n−1}x + b_n, m | b_{n−1} and m² | b_n (9). The proof reduces to m = p by CRT, moves the double root to 0, and uses the identity Δ(f) = b_nΔ_1 + b_{n−1}²Δ_3 with Δ_1 ∈ Z[b_1, …, b_n], Δ_3 ∈ Z[b_1, …, b_{n−1}] (10), obtained from the Sylvester matrix of Res(f, f′). The integer ℓ is unique mod m.",
+      "locator": "Proposition 2.2 and proof, pp.8–9; remark after Theorem 2.3, p.10, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/15",
+      "kind": "definition",
+      "name": "The representation of SO_n on symmetric matrices",
+      "statement": "A_0 is the n × n symmetric matrix with 1s on the anti-diagonal. G = SO(A_0) (n = 2g + 1) or G = SO(A_0)/μ_2 = PSO_n (n = 2g + 2) acts on the space W of symmetric n × n matrices by γ·B = γBγ^t. The invariant polynomial of B is f_B(x) = (−1)^{n(n−1)/2}det(A_0x − B), a monic polynomial of degree n (the sign is (−1)^g for n odd and (−1)^{g+1} for n even). Δ(B) := Δ(f_B) and H(B) := H(f_B). (1/2)W(Z) and (1/4)W(Z) are the lattices of B with coefficient denominators dividing 2 and 4.",
+      "locator": "§1, pp.4–5; §2.1, pp.6–7; §3.1, pp.14–15, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/16",
+      "kind": "theorem",
+      "name": "The invariant ring of W",
+      "statement": "The ring of polynomial invariants for the action of G(C) on W(C) is freely generated by the coefficients of the invariant polynomial f_B(x) ([3, §4]; for n even, [23, §2.1–2.2]).",
+      "locator": "§1, p.4; §2.1, p.6; §3.1, p.15, citing [3], [23], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/17",
+      "kind": "theorem",
+      "name": "Stabilizers are the 2-torsion of the Jacobian",
+      "statement": "Let k have characteristic ≠ 2 and f ∈ k[x] monic of degree n with Δ(f) ≠ 0; C_f : y² = f(x) is the smooth hyperelliptic curve of genus g, with one rational Weierstrass point at infinity (n odd) or two rational non-Weierstrass points at infinity (n even), and J_f is its Jacobian. The stabilizer in G(k) of any B ∈ W(k) with f_B = f is naturally isomorphic to J_f[2](k), so has order ≤ #J_f[2](k̄) = 2^{2g} ([4, Proposition 5.1] for n odd; [24, Proposition 2.33] for n even).",
+      "locator": "§2.1, p.7; §3.1, p.15, citing [4], [24], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/18",
+      "kind": "definition",
+      "name": "Distinguished elements and orbits",
+      "statement": "B ∈ W(k) with Δ(B) ≠ 0 is k-distinguished if, for n = 2g + 1, there is a g-dimensional subspace over k isotropic for both A_0 and B; for n = 2g + 2, if there is a flag Y′ ⊂ Y over k with Y (g + 1)-dimensional isotropic for A_0 and Y′ g-dimensional isotropic for B. W^dist ⊂ W(Q) is the set of Q-distinguished elements. The distinguished G(Q)-orbits correspond to the identity 2-Selmer elements of J_f.",
+      "locator": "§1, p.5; §2.1, p.7; §3.1, p.15, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/19",
+      "kind": "theorem",
+      "name": "Isotropic subspaces of a distinguished element",
+      "statement": "If B is k-distinguished, the set of g-dimensional k-subspaces isotropic for A_0 and B (n odd), resp. of the flags of the definition (n even), is in bijection with J_f[2](k), so has at most 2^{2g} elements ([4, Proposition 4.1]; [24, Proposition 2.32]).",
+      "locator": "§2.1, p.7; §3.1, p.15, citing [4], [24], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/20",
+      "kind": "theorem",
+      "name": "J_f[2](k) and factorizations of f",
+      "statement": "For n odd, J_f[2](k) is in natural bijection with the even-degree factors of f over k ([4, Proposition 5.1]); for n even, with the even-degree factorizations of f over k ([5, Proposition 22]). Over k̄ there are 2^{2g} of them. In particular J_f[2](k) is trivial if f is irreducible over k and, for n even, does not factor as g(x)ḡ(x) over a quadratic extension of k.",
+      "locator": "§2.1, p.7; §3.1, p.15, citing [4], [5], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/21",
+      "kind": "definition",
+      "name": "The subspace W_0 and its parabolic G_0",
+      "statement": "For n = 2g + 1, W_0 ⊂ W is the subspace of B whose top left g × g block is 0, and G_0 ⊂ G is the subgroup of γ such that γ^t preserves the span Y_g of the first g basis vectors; γ ∈ G_0 has block form (γ_1 0; δ γ_2) (5) and acts on the top right g × (g + 1) block by (γ·B)^top = γ_1B^topγ_2^t. For n = 2g + 2, W_0 is the subspace of B whose top left g × (g + 1) block is 0, and G_0 is the parabolic subgroup of γ with γ^t preserving the flag Y_g ⊂ Y_{g+1}; γ has the block form (24) with blocks γ_1, α, γ_2 and again (γ·B)^top = γ_1B^topγ_2^t. Elements of W_0(k) with nonzero discriminant are k-distinguished.",
+      "locator": "§2.1, (5), p.7; §3.1, (24), p.15, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/22",
+      "kind": "construction",
+      "name": "The Q-invariant of 2 ⊗ g ⊗ (g + 1)",
+      "statement": "Write v ∈ V_g = 2 ⊗ g ⊗ (g + 1) as a pair (A, B) of g × (g + 1) matrices, a representation of H_g = SL_2 × GL_g × GL_{g+1}. Let M_v(x, y) be the vector whose i-th coordinate is (−1)^{i−1} times the g × g minor of Ax − By omitting the i-th column; these are g + 1 binary forms of degree g. Q(v) is the determinant of the (g + 1) × (g + 1) matrix of their coefficients. It is a relative invariant: Q((γ_0, γ_1, γ_2)·v) = det(γ_1)^{g+1}det(γ_2)^gQ(v) (6), invariant under SL_2 × SL_g × SL_{g+1}. By SL_2-invariance it is homogeneous of degree g(g + 1)/2 in B.",
+      "locator": "§2.1, (6), pp.7–8, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/23",
+      "kind": "definition",
+      "name": "The Q-invariant on W_0",
+      "statement": "For B ∈ W_0 put Q(B) := Q(A_0^top, B^top), using the top right g × (g + 1) blocks ((7), (25)). It is a relative invariant of G_0: Q(γ·B) = det(γ_1)Q(B) for n odd (8), and Q(γ·B) = det(γ_1)^{g+1}det(γ_2)^gQ(B) = det(γ_1)α^{−g}Q(B) for n even (26).",
+      "locator": "§2.1, (7)–(8), p.8; §3.1, (25)–(26), p.15, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/24",
+      "kind": "theorem",
+      "name": "Q² divides the discriminant on W_0",
+      "statement": "As polynomials in the coordinates of W_0, the discriminant Δ is divisible by Q². So Δ restricted to W_0 is not squarefree and the Ekedahl sieve does not apply to it; moreover σ_m(f), viewed in (1/2)W_0(Z), has discriminant strongly divisible by p² for every p | m, even though Δ(f) is only weakly divisible.",
+      "locator": "§1, p.5; remark after Theorem 2.3, p.10, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Asserted \"as we will show in the sequel\" but not proved in the paper. Q² | Δ was checked at 53–60 random points of W_0(Z) for each n = 3, …, 7. Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/25",
+      "kind": "theorem",
+      "name": "Proposition 2.1 (|Q| is well defined, n odd)",
+      "statement": "Let n = 2g + 1 and B ∈ W_0(Q) with f_B irreducible over Q. Then Q(B′) = ±Q(B) for every B′ ∈ W_0(Q) that is G(Z)-equivalent to B. Proof: Y_g and γ^tY_g are both isotropic for A_0 and B, and J_f[2](Q) is trivial, so γ ∈ G_0(Z), and (8) applies.",
+      "locator": "Proposition 2.1 and proof, p.8, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/26",
+      "kind": "theorem",
+      "name": "Proposition 3.1 (|Q| is well defined, n even)",
+      "statement": "Let n = 2g + 2 and B ∈ W_0(Q) with f_B irreducible over Q and, when n ≥ 4, not of the form g(x)ḡ(x) over a quadratic extension of Q. Then Q(B′) = ±Q(B) for every B′ ∈ W_0(Q) that is G(Z)-equivalent to B.",
+      "locator": "Proposition 3.1 and proof, p.16, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/27",
+      "kind": "definition",
+      "name": "The |Q|-invariant and the sets L",
+      "statement": "For B ∈ W(Q) that is G(Z)-equivalent to some B′ ∈ W_0(Q), with f_B irreducible (and, for n even, not g(x)ḡ(x) over a quadratic field), |Q|(B) := |Q(B′)|, independent of B′ by Propositions 2.1 and 3.1. L is the set of v ∈ (1/2)W(Z) (n odd), resp. v ∈ (1/4)W(Z) (n even), that are G(Z)-equivalent to an element of (1/2)W_0(Z), resp. (1/4)W_0(Z), with f_v satisfying these conditions; L ⊂ W^dist. N(L; M; X) is the number of G(Z)-classes in L with |Q| > M and height < X.",
+      "locator": "§2.1, p.8; §2.2, pp.10–11; §3.1, p.16; §3.2, p.17, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/28",
+      "kind": "construction",
+      "name": "The matrices B_m(c_1, …, c_n) for odd n (11)",
+      "statement": "For n = 2g + 1 and integers m, c_1, …, c_n, B_m ∈ (1/2)W_0(Z) is the symmetric matrix with b_{1,n−1} = b_{n−1,1} = m, b_{i,n−i} = 1 for 2 ≤ i ≤ n − 2, whose lower right (g + 1) × (g + 1) block (rows and columns g + 1, …, n) is tridiagonal with diagonal −c_1, −c_3, …, −c_n and off-diagonal entries −c_2/2, −c_4/2, …, −c_{n−1}/2, and whose other entries are 0. Then f_{B_m}(x) = x^n + c_1x^{n−1} + ⋯ + c_{n−2}x² + mc_{n−1}x + m²c_n and Q(B_m) = ±m, and for every integer ℓ, f_{B+ℓA_0}(x) = f_B(x − ℓ) (12) and Q(B + ℓA_0) = Q(B) (13).",
+      "locator": "§2.2, (11)–(13), pp.9–10, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Verified symbolically for g = 1, 2, 3. With the minor-sign convention of p.7, Q(B_m) = m for g = 1, 3 and −m for g = 2 (the ordering of the coefficient matrix is not fixed; only |Q| is used). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/29",
+      "kind": "theorem",
+      "name": "Theorem 2.3 (the embedding σ_m, n odd)",
+      "statement": "Let n be odd and m a positive squarefree integer. There is a map σ_m : W^{(2)}_m → (1/2)W_0(Z) with f_{σ_m(f)} = f and Q(σ_m(f)) = m (14), namely σ_m(f) = B_m(c_1, …, c_n) + ℓA_0 where f(x + ℓ) = x^n + c_1x^{n−1} + ⋯ + mc_{n−1}x + m²c_n (Proposition 2.2). No two elements of the image are G(C)-equivalent.",
+      "locator": "Theorem 2.3 and proof, p.10, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/30",
+      "kind": "theorem",
+      "name": "Theorem 2.4 (orbits of |Q|-invariant m, n odd)",
+      "statement": "Let W^{(2),irr}_m be the irreducible polynomials in W^{(2)}_m. There is an injective map σ̄_m : W^{(2),irr}_m → G(Z)\\L with f_{σ̄_m(f)} = f, and every B in an orbit in the image has |Q|(B) = m. Hence the left side of Theorem 1.5(b), up to reducible polynomials, is at most N(L; M; X).",
+      "locator": "Theorem 2.4, p.11, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/31",
+      "kind": "construction",
+      "name": "The matrices B_m(c_1, …, c_n) for even n (27)",
+      "statement": "For n = 2g + 2 and integers m, c_1, …, c_n, B_m ∈ (1/4)W_0(Z) is the symmetric matrix with b_{1,n−1} = b_{n−1,1} = m, b_{i,n−i} = 1 for 2 ≤ i ≤ n − 2, b_{g+1,g+2} = b_{g+2,g+1} = −c_1/2, whose lower right (g + 1) × (g + 1) block (rows and columns g + 2, …, n) is tridiagonal with diagonal c_1²/4 − c_2, −c_4, −c_6, …, −c_n and off-diagonal entries −c_3/2, −c_5/2, …, −c_{n−1}/2, and whose other entries are 0. Then f_{B_m}(x) = x^n + c_1x^{n−1} + ⋯ + c_{n−2}x² + mc_{n−1}x + m²c_n and Q(B_m) = ±m.",
+      "locator": "§3.2, (27), pp.16–17, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Verified symbolically for g = 1, 2, 3 (Q = m for g = 1, 3, −m for g = 2). Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/32",
+      "kind": "theorem",
+      "name": "Theorem 3.2 (the embedding σ_m, n even)",
+      "statement": "Let n be even and m a positive squarefree integer. There is a map σ_m : W^{(2)}_m → (1/4)W(Z), with image in (1/4)W_0(Z), such that f_{σ_m(f)} = f and Q(σ_m(f)) = m (28), namely σ_m(f) = B_m(c_1, …, c_n) + ℓA_0.",
+      "locator": "Theorem 3.2, p.17, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/33",
+      "kind": "theorem",
+      "name": "Theorem 3.3 (orbits of |Q|-invariant m, n even)",
+      "statement": "Let W^{(2),irr}_m be the polynomials in W^{(2)}_m that are irreducible over Q and do not factor as g(x)ḡ(x) over any quadratic extension of Q. There is an injective map σ̄_m : W^{(2),irr}_m → G(Z)\\L with f_{σ̄_m(f)} = f for every f ∈ W^{(2),irr}_m, and every element of every orbit in the image has |Q|-invariant m.",
+      "locator": "Theorem 3.3, p.17, arXiv:1611.09806v3 (misprint E4)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.0/ST.1 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/34",
+      "kind": "definition",
+      "name": "The tail sets W^{(1)}_m, W^{(2)}_m and W_m",
+      "statement": "For squarefree m > 0, W^{(1)}_m (resp. W^{(2)}_m) is the set of f ∈ V_n(Z) whose discriminant is strongly (resp. weakly) divisible by p² for every prime p | m; W_m is the set of f ∈ V_n(Z) with m² | Δ(f); a subscript X restricts to height < X.",
+      "locator": "§1, p.4; §4.2, p.22, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/35",
+      "kind": "theorem",
+      "name": "Iwasawa decomposition and a Siegel-set fundamental set",
+      "statement": "G(R) = N(R)TK with N the lower-triangular unipotent group, T the split torus and K compact, and a fundamental set F for the left action of G(Z) on G(R) can be taken inside a Siegel set N′T′K, with N′ absolutely bounded and T′ = {(s) : s_i ≥ c}.",
+      "locator": "§2.3, pp.11–12; §3.3, pp.17–18, citing [4, §9.2], [23], arXiv:1611.09806v3",
+      "status": "planned",
+      "planned": [
+        "AdelicAlgebraicGroups:AA.3"
+      ],
+      "note": "AA.3 plans Siegel sets, their height estimates and the finite covering of arithmetic quotients."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/36",
+      "kind": "theorem",
+      "name": "Reduction to an integral over the torus (odd n)",
+      "statement": "Let n = 2g + 1, R a bounded fundamental domain for G(R) on {B ∈ W(R) : Δ(B) ≠ 0, H(B) < 1} ([4, §9.1]), and G_1 ⊂ G(R) a compact left K-invariant set that is the closure of a nonempty open set. Since (Fh)·(XR) covers a fundamental domain at most 2^{2g} times, N(L; M; X) ≪ #{B ∈ (Fh)·(XR) ∩ L : |Q|(B) > M} (15); averaging over h ∈ G_1 gives (16), and with the Haar measure dγ = dn δ(s)d^×s dk, δ(s) = ∏_{k=1}^g s_k^{k²−2kg} (17), s_i = t_i/t_{i+1} (i < g), s_g = t_g, and the bounded set E = N″KG_1R, N(L; M; X) ≪ ∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L : |Q|(B) > M}δ(s)d^×s (18).",
+      "locator": "§2.3, (15)–(18), pp.11–12, citing [4, §§9–10], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/37",
+      "kind": "theorem",
+      "name": "Reduction to an integral over the torus (even n)",
+      "statement": "Let n = 2g + 2, with R and F as in [23, §4.1], s_i = t_i/t_{i+1} for 1 ≤ i ≤ g and s_{g+1} = t_gt_{g+1}, d^×s = ∏_{i=1}^{g+1}ds_i/s_i, and δ(s) = ∏_{k=1}^{g−1}s_k^{k²−2kg−k}·(s_gs_{g+1})^{−g(g+1)/2} (30). Then N(L; M; X) ≪ ∫_{γ∈F}#{B ∈ ((γG_1)·(XR)) ∩ L : |Q|(B) > M}dγ (29) and N(L; M; X) ≪ ∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L : |Q|(B) > M}δ(s)d^×s (31), with E = N″KG_1R bounded.",
+      "locator": "§3.3, (29)–(31), pp.17–18, citing [23, (20)], arXiv:1611.09806v3 (misprints E2, E4)",
+      "status": "missing",
+      "note": "δ(s) is the modular character of the D_{g+1} root system in these coordinates, checked against 2ρ. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/38",
+      "kind": "theorem",
+      "name": "Torus weights of the coordinates and of Q (odd n)",
+      "statement": "For n = 2g + 1 and T = diag(t_1^{−1}, …, t_g^{−1}, 1, t_g, …, t_1), the weight of b_ij is t_i^{−1}t_j^{−1} (i, j ≤ g), t_i^{−1} (i ≤ g, j = g + 1), t_i^{−1}t_{n−j+1} (i ≤ g < g + 1 < j), 1 (i = j = g + 1), t_{n−j+1} (i = g + 1 < j), t_{n−i+1}t_{n−j+1} (i, j > g + 1) (19), and w(Q) = ∏_{k=1}^gt_k^{−1} = ∏_{k=1}^gs_k^{−k} (23). Every entry of B ∈ (s)·XE is ≪ Xw(b_ij), and |Q(B)| ≪ X^{g(g+1)/2}w(Q).",
+      "locator": "§2.3, (19), p.12; §2.4, (23), p.13, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Checked symbolically for g ≤ 5. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/39",
+      "kind": "theorem",
+      "name": "Torus weights of the coordinates and of Q (even n)",
+      "statement": "For n = 2g + 2 and T = diag(t_1^{−1}, …, t_{g+1}^{−1}, t_{g+1}, …, t_1), the weight of b_ij is t_i^{−1}t_j^{−1} (i, j ≤ g + 1), t_i^{−1}t_{n−j+1} (i ≤ g + 1 < j), t_{n−i+1}t_{n−j+1} (i, j > g + 1) (32), and w(Q) = (t_1⋯t_g)^{−1}t_{g+1}^g = ∏_{k=1}^gs_k^{−k} (36, corrected). Every entry of B ∈ (s)·XE is ≪ Xw(b_ij), and |Q(B)| ≪ X^{g(g+1)/2}w(Q).",
+      "locator": "§3.3, (32), p.18; §3.4, (36), p.19, arXiv:1611.09806v3 (misprint E3)",
+      "status": "missing",
+      "note": "Checked symbolically for g ≤ 5: with s_{g+1} = t_gt_{g+1}, (t_1⋯t_g)^{−1}t_{g+1}^g = ∏s_k^{−k}, as the proof of Proposition 3.6 uses. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/40",
+      "kind": "theorem",
+      "name": "Proposition 2.5 (most distinguished points lie in W_00, odd n)",
+      "statement": "Let W_00 ⊂ W be the symmetric matrices with b_ij = 0 whenever i + j < n. Then ∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ ((1/2)W(Z) ∖ (1/2)W_00(Z)) : b_11 = 0}δ(s)d^×s = O_ε(X^{n(n+1)/2−1+ε}) (20) and ∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L : b_11 ≠ 0}δ(s)d^×s = o(X^{n(n+1)/2}) (21) ([4, Propositions 10.5 and 10.7]).",
+      "locator": "Proposition 2.5, (20)–(21), p.13, citing [4, §10.2], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/41",
+      "kind": "theorem",
+      "name": "Distinguished elements have p-adic density bounded away from 1",
+      "statement": "The p-adic density of Q_p-distinguished elements of W(Z_p) is bounded uniformly away from 1: for n = 2g + 1 it is at most 1 − g/(2g + 1) + O(1/p) ([4, §10.7]); for n even this is shown in the proof of [23, Proposition 23].",
+      "locator": "Proof of Proposition 2.6, p.13; proof of Proposition 3.5, p.19, citing [4], [23], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/42",
+      "kind": "theorem",
+      "name": "The Selberg-sieve step of Shankar–Tsimerman",
+      "statement": "If the local densities of a set of lattice points defined by conditions at each p are bounded uniformly away from 1, the Selberg sieve applied to the count of (s)·XE-points with b_11 ≠ 0, exactly as in [22], saves a power: the count is O_ε(X^{n(n+1)/2−1/5+ε}).",
+      "locator": "Proofs of Propositions 2.6 and 3.5, pp.13, 19, citing [22], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Stated only by reference to [22]; the exponent 1/5 is inherited from there. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/43",
+      "kind": "theorem",
+      "name": "The Selberg upper-bound sieve",
+      "statement": "The Λ²-sieve: for a sifted set with local densities, the Selberg weights give an upper bound for the number of elements avoiding the excluded residue classes, with the main term governed by the local densities and an error from the level of distribution.",
+      "locator": "Proofs of Propositions 2.6 and 3.5, pp.13, 19, arXiv:1611.09806v3",
+      "status": "planned",
+      "planned": [
+        "SieveMethodsAndPrimePatterns:SV.1"
+      ],
+      "note": "SV.1 plans the Brun and Selberg sieves (and reuses Mathlib's SelbergSieve carrier)."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/44",
+      "kind": "theorem",
+      "name": "Proposition 2.6 (power saving off W_00, odd n)",
+      "statement": "∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ W^dist ∩ (1/2)W(Z) : b_11 ≠ 0}δ(s)d^×s = O_ε(X^{n(n+1)/2−1/5+ε}).",
+      "locator": "Proposition 2.6 and proof, p.13, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/45",
+      "kind": "theorem",
+      "name": "Proposition 2.7 (large |Q| in the cusp, odd n)",
+      "statement": "∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L ∩ (1/2)W_00(Z) : |Q|(B) > M}δ(s)d^×s = O(X^{n(n+1)/2}log X/M). Proof: an element of (1/2)W_00(Z) with a zero entry b_{i,n−i} has discriminant 0, and w(b_{i,n−i}) = s_i^{−1}, so only 1 ≪ s_i ≪ X matters; there the lattice points number ≪ ∏_{α∈S}Xw(α) = X^{n(n+1)/2−g²}∏_ks_k^{2k−1}·δ(s)^{−1} (S the coordinates of W_00), and X^{g(g+1)/2}w(Q) ≫ M gives the factor 1/M; the integrand becomes X^{n(n+1)/2−g(g−1)/2}∏s_k^{k−1}, and the log X comes from s_1.",
+      "locator": "Proposition 2.7 and proof, p.14, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "The exponent chain was checked symbolically for g ≤ 5, and the vanishing of Δ when some b_{i,n−i} = 0 in W_00 was tested for n = 3, …, 7. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/46",
+      "kind": "theorem",
+      "name": "Proposition 3.4 (most distinguished points lie in W_00, even n)",
+      "statement": "∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ ((1/4)W(Z) ∖ (1/4)W_00(Z)) : b_11 = 0}δ(s)d^×s = O_ε(X^{n(n+1)/2−1+ε}) (33) and ∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L : b_11 ≠ 0}δ(s)d^×s = o(X^{n(n+1)/2}) (34) ([23, Propositions 21 and 23]).",
+      "locator": "Proposition 3.4, (33)–(34), p.19, citing [23, §4.2], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/47",
+      "kind": "theorem",
+      "name": "Proposition 3.5 (power saving off W_00, even n)",
+      "statement": "∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ W^dist ∩ (1/4)W(Z) : b_11 ≠ 0}δ(s)d^×s = O_ε(X^{n(n+1)/2−1/5+ε}).",
+      "locator": "Proposition 3.5 and proof, p.19, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/48",
+      "kind": "theorem",
+      "name": "Proposition 3.6 (large |Q| in the cusp, even n)",
+      "statement": "∫_{s_i≫1}#{B ∈ ((s)·XE) ∩ L ∩ (1/4)W_00(Z) : |Q|(B) > M}δ(s)d^×s = O(X^{n(n+1)/2}log²X/M). Nonemptiness forces Xs_i^{−1} ≫ 1, Xs_gs_{g+1}^{−1} ≫ 1 and X^{g(g+1)/2}w(Q) ≫ M (37); the integrand is X^{n(n+1)/2−g(g+1)}∏_{k≤g−1}s_k^{2k−1}·s_g^{g−1}s_{g+1}^g, and after the factors 1/M and (Xs_gs_{g+1}^{−1})^g ≫ 1 it becomes X^{n(n+1)/2−g(g+1)/2+g}∏_{k≤g−1}s_k^{k−1}·s_g^{g−1}; the log²X comes from s_1 and s_{g+1}.",
+      "locator": "Proposition 3.6 and proof, pp.19–20, arXiv:1611.09806v3 (misprints E3, E4)",
+      "status": "missing",
+      "note": "The exponent chain was checked symbolically for g ≤ 5; it uses w(Q) = ∏s_k^{−k}, not the printed (36). Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/49",
+      "kind": "theorem",
+      "name": "Bhargava's quantitative Ekedahl sieve ([2, Theorem 3.3]) in weighted form",
+      "statement": "Let Y ⊂ A^n_Z be a closed subscheme of codimension k ≥ 2 and B ⊂ R^n a bounded region with a reasonable boundary. Then #{a ∈ rB ∩ Z^n : a mod p ∈ Y(F_p) for some prime p > M} = O(r^n/(M^{k−1}log M) + r^{n−k+1}). The same proof applies to weighted homogeneous expansions and to a union over squarefree m > M of the conditions at all p | m; for the codimension-2 locus of polynomials with two multiple roots or a triple root it gives Theorem 1.5(a), with the smaller second error term O(X^{n(n+1)/2−1}) because a_n has the largest range.",
+      "locator": "§1, p.4, citing [8], [2, Theorem 3.3]; §4.2, pp.22–23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "The adaptation is asserted, not written out. The same external theorem is routed to ST.2 by PAPER-KOYMANS-MILOVIC-21. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/50",
+      "kind": "theorem",
+      "name": "Theorem 1.5(a) (tail estimate, strongly divisible case)",
+      "statement": "For every M > 0 and ε > 0, #⋃_{m>M, m squarefree}{f ∈ W^{(1)}_m : H(f) < X} = O_ε(X^{n(n+1)/2+ε}/M) + O(X^{n(n+1)/2−1}), with implied constants independent of M and X.",
+      "locator": "Theorem 1.5(a), p.4; §4.2, p.22, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/51",
+      "kind": "theorem",
+      "name": "Theorem 1.5(b) (tail estimate, weakly divisible case)",
+      "statement": "For every M > 0 and ε > 0, #⋃_{m>M, m squarefree}{f ∈ W^{(2)}_m : H(f) < X} = O_ε(X^{n(n+1)/2+ε}/M) + O_ε(X^{n(n+1)/2−1/5+ε}), with implied constants independent of M and X. For odd n it follows from Theorem 2.4 and Propositions 2.5–2.7, for even n from Theorem 3.3 and Propositions 3.4–3.6, together with Proposition 4.3.",
+      "locator": "Theorem 1.5(b), p.4; §2.4, p.14; §3.4, p.20, arXiv:1611.09806v3 (gap E9: n = 2)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/52",
+      "kind": "theorem",
+      "name": "Lemma 4.2 (polynomials with a rational root)",
+      "statement": "The number of f ∈ V_n(Z)_X with a rational linear factor is O(X^{n(n+1)/2−n+1}log X). Proof: a_n = 0 gives O(X^{n(n+1)/2−n}); otherwise count (a_1, …, a_{n−2}, a_n, r) with r | a_n, which determines a_{n−1}, using Σ_{|a_n|≤X^n}d(a_n) ≪ X^nlog X.",
+      "locator": "Lemma 4.2 and proof, p.21, arXiv:1611.09806v3 (gap E8)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/53",
+      "kind": "theorem",
+      "name": "Dietmann's quantitative Hilbert irreducibility ([7, Lemma 2, Lemma 4, Theorem 1])",
+      "statement": "x^n + a_1x^{n−1} + ⋯ + a_{n−1}x + t has Galois group S_n over Q(t) for all (a_1, …, a_{n−1}) with |a_i| ≤ X^i outside a set of O(X^{(n−1)(n−2)/2}) tuples ([7, Lemma 2]). For such a tuple and H ⊂ S_n, the number of integers t with |t| ≤ T for which the specialization has Galois group H over Q is O_ε(T^{1/[S_n:H]+ε}) ([7, Theorem 1]). The Galois group of a reducible polynomial without a rational root has index ≥ n(n − 1)/2 in S_n ([7, Lemma 4]).",
+      "locator": "Proof of Proposition 4.3, p.22, citing [7], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to InverseGaloisAndArithmeticFundamentalGroups IG.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/54",
+      "kind": "theorem",
+      "name": "Proposition 4.3 (reducible polynomials are negligible)",
+      "statement": "Let V_n(Z)^red be the polynomials that are reducible or, for n ≥ 4, factor as g(x)ḡ(x) over a quadratic extension of Q. Then #V_n(Z)^red_X = O(X^{n(n+1)/2−n+1}log X). Proof: Lemma 4.2, Dietmann's bounds with T = X^n, and index bounds for the possible Galois groups. The argument as written establishes this for n ≠ 4; for n = 4 it gives O_ε(X^{22/3+ε}) (E7). Every application needs only O(X^{n(n+1)/2−1/5}).",
+      "locator": "Proposition 4.3 and proof, pp.21–22, arXiv:1611.09806v3 (error E7)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/55",
+      "kind": "theorem",
+      "name": "Theorem 4.4 (uniformity for m² | Δ)",
+      "statement": "For every M > 0, Σ_{m>M, m squarefree}#W_{m,X} = O_ε(X^{n(n+1)/2+ε}/√M) + O_ε(X^{n(n+1)/2−1/5+ε}) (39). Proof: f lies in O(X^ε) sets W_m; with k_1 (resp. k_2) the product of the primes p for which p² strongly (resp. weakly) divides Δ(f), f ∈ W^{(1)}_{k_1} ∩ W^{(2)}_{k_2} with k_1k_2 > M, so k_1 > √M or k_2 > √M, and Theorem 1.5 applies.",
+      "locator": "Theorem 4.4 and proof, pp.22–23, arXiv:1611.09806v3 (misprint E5)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/56",
+      "kind": "theorem",
+      "name": "Remark after Theorem 4.4 (the denominator √M improves to M)",
+      "statement": "The √M in (39) can be improved to M: split W_m into W^{(1)}_{m_1} ∩ W^{(2)}_{m_2} over dyadic ranges of m_1, m_2, embed W^{(2)}_{m_2} into (1/4)W(Z), and in the (1/4)W_00(Z) piece impose strong divisibility by p² for p | m_1 and apply the quantitative Ekedahl sieve, saving 1/m_1. This gives O_ε(X^{n(n+1)/2+ε}/M) + O_ε(X^{n(n+1)/2−1/5+ε}).",
+      "locator": "Remark after Theorem 4.4, p.23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Outlined only. Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/57",
+      "kind": "theorem",
+      "name": "Theorem 4.1 (the squarefree sieve with κ-acceptable conditions)",
+      "statement": "Let κ ≥ 1 and Σ be κ-acceptable. Then #V(Σ)_X = Vol(Σ_{∞,H<1})∏_pVol(Σ_p)·X^{n(n+1)/2} + O_ε(X^{n(n+1)/2−min{1/5,1/(2κ)}+ε}), where Σ_{∞,H<1} is the set of elements of Σ_∞ of height < 1, and the implied constant depends only on n and Σ. Proof: inclusion–exclusion #V(Σ)_X = Σ_mμ(m)#W_m(Σ)_X over squarefree m, with W_m(Σ) the f with f ∉ Σ_p for all p | m; lattice-point counts for m ≤ X^{1/κ}; and (40) with Theorem 4.4 for m > X^{1/κ}.",
+      "locator": "Theorem 4.1, p.21; proof §4.2, (40)–(41), pp.22–23, arXiv:1611.09806v3 (error E6, misprint E5)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.2 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/58",
+      "kind": "theorem",
+      "name": "Theorem 1.1 (density of squarefree discriminants)",
+      "statement": "Let n ≥ 1. When monic integer polynomials f of degree n are ordered by H(f), the density of those with squarefree discriminant Δ(f) exists and equals λ_n = ∏_pλ_n(p) > 0.",
+      "locator": "Theorem 1.1, p.1; proof §4.2, p.23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/59",
+      "kind": "theorem",
+      "name": "Power-saving count of squarefree discriminants ((4), first line)",
+      "statement": "For n > 1, #{f ∈ V_n(Z) : H(f) < X, Δ(f) squarefree} = λ_n·2^nX^{n(n+1)/2} + O_ε(X^{n(n+1)/2−1/5+ε}). Theorem 4.1 with κ = 2 gives it. Since reducible polynomials are fewer than the error term, irreducibility may be imposed.",
+      "locator": "§1, (4), p.2; §4.2, p.23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/60",
+      "kind": "theorem",
+      "name": "Theorem 1.2 (density of monogenic maximal orders)",
+      "statement": "Let n > 1. When monic integer polynomials f of degree n are ordered by H(f), the density of those for which Z[x]/(f(x)) is the ring of integers of its fraction field is ∏_p(1 − 1/p²) = ζ(2)^{−1}. Since 100% are irreducible with Galois group S_n, about 60.7927% of monic integer polynomials of degree n are irreducible with Z[x]/(f) maximal.",
+      "locator": "Theorem 1.2, p.2; proof §4.2, p.23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/61",
+      "kind": "theorem",
+      "name": "Power-saving count of maximal orders ((4), second line)",
+      "statement": "For n > 1, #{f ∈ V_n(Z) : H(f) < X, Z[x]/(f(x)) maximal} = (6/π²)·2^nX^{n(n+1)/2} + O_ε(X^{n(n+1)/2−1/5+ε}).",
+      "locator": "§1, (4), p.2; §4.2, p.23, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/62",
+      "kind": "theorem",
+      "name": "Signature and local-condition variants",
+      "statement": "Theorems 1.1 and 1.2 remain true for polynomials with a prescribed number of real roots, and with any finite set of local conditions at finitely many places (with positive, easily computable constants) that do not force the counted set to be empty; certain infinite sets of local conditions are allowed (Theorem 4.1).",
+      "locator": "§1, pp.2–3; Theorem 4.1, p.21, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/63",
+      "kind": "theorem",
+      "name": "The Ellenberg–Venkatesh upper bound ([9, Remark 3.3])",
+      "statement": "The number of number fields K of degree n with s(K) ≤ Y is ≪ Y^{(n−1)(n+2)/2}, where s(K) = inf{‖x‖ : x ∈ O_K, Q(x) = K} and ‖x‖ is the maximum of the archimedean absolute values of x. A bound on ‖x‖ bounds the coefficients of the minimal polynomial; translating x by an integer removes one coefficient.",
+      "locator": "§5, p.27, citing [9, Remark 3.3], arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/64",
+      "kind": "definition",
+      "name": "The lattice R_g, quasi-reduced and strongly quasi-reduced polynomials",
+      "statement": "For g ∈ V_n(R) with Δ(g) ≠ 0, with r real and 2s complex roots, R[x]/(g(x)) ≅ R^r × C^s ≅ R^n via the real and complex embeddings (C = R + R√−1). R_g is the lattice spanned by 1, θ, …, θ^{n−1}, θ the image of x; for g ∈ V_n(Z), R_g is the image of Z[x]/(g(x)). g is quasi-reduced if there are monic integer polynomials h_i of degree i (1 ≤ i ≤ n − 1) such that 1, h_1(θ), …, h_{n−1}(θ) is a Minkowski-reduced basis of R_g, and strongly quasi-reduced if moreover Z[x]/(g(x)) has a unique Minkowski-reduced basis (necessarily read up to the signs of the basis vectors).",
+      "locator": "§1, p.5; §5, p.24, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/65",
+      "kind": "theorem",
+      "name": "Lemma 5.1 (corrected: strongly quasi-reduced polynomials give distinct rings up to x ↦ −x)",
+      "statement": "Let g, g* be monic integer polynomials of degree n with nonzero discriminant, strongly quasi-reduced, with vanishing x^{n−1}-coefficients. If Z[x]/(g(x)) ≅ Z[x]/(g*(x)) as rings, then g*(x) = g(x) or g*(x) = (−1)^ng(−x). (The printed statement concludes g = g*, which fails for the pair g(x), (−1)^ng(−x); E10.)",
+      "locator": "Lemma 5.1 and proof, p.24, arXiv:1611.09806v3 (error E10)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/66",
+      "kind": "theorem",
+      "name": "Lemma 5.2 (scaling makes a polynomial quasi-reduced)",
+      "statement": "If g is a monic real polynomial with nonzero discriminant, then g(ρx) is quasi-reduced for all sufficiently large ρ > 0. Proof: the Gram matrix of 1, ρθ, …, ρ^{n−1}θ^{n−1} is ΛQ_1Λ^T with Λ = diag(1, ρ, …, ρ^{n−1}), so the torus part of its Iwasawa decomposition is (t_1, ρt_2, …, ρ^{n−1}t_n), whose successive ratios tend to infinity.",
+      "locator": "Lemma 5.2 and proof, pp.24–25, arXiv:1611.09806v3 (gap E12)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/67",
+      "kind": "theorem",
+      "name": "Lemma 5.3 (100% are strongly quasi-reduced)",
+      "statement": "A density of 100% of irreducible monic integer polynomials of degree n, ordered by H, are strongly quasi-reduced. Proof: choose a compact B of real polynomials of height < 1 with volume > (1 − ε) of the whole, take ρ_B with f(ρx) quasi-reduced for all f ∈ B and ρ > ρ_B (continuity of ρ_f), and count integer points in ρ·B, where H(ρ·f) = ρH(f).",
+      "locator": "Lemma 5.3 and proof, p.25, arXiv:1611.09806v3 (gap E12)",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/68",
+      "kind": "theorem",
+      "name": "Theorem 5.4 (squarefree discriminants with a_1 = 0 or 0 ≤ a_1 < n)",
+      "statement": "Let n ≥ 1. When monic integer polynomials with a_1 = 0 are ordered by H, the density with squarefree Δ(f) exists and equals κ_n = ∏_pκ_n(p) > 0, where κ_n(p) is the density of monic f over Z_p with vanishing x^{n−1}-coefficient and p² ∤ Δ(f). With 0 ≤ a_1 < n in place of a_1 = 0 the density is λ_n. The proof of Theorem 1.1 goes through with W, W_0, W_00 replaced by the anti-trace-0 subspaces (as in [4], where the only difference is a factor of X in the counts).",
+      "locator": "Theorem 5.4 and the following paragraph, pp.25–26; §2.3, p.11, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/69",
+      "kind": "theorem",
+      "name": "Corollary 1.3 (monogenic S_n-fields)",
+      "statement": "Let n > 1. The number of isomorphism classes of number fields of degree n and absolute discriminant less than X that are monogenic and have associated Galois group S_n is ≫ X^{1/2+1/n}. Proof: polynomials with a_1 = 0 of height < X^{1/(n(n−1))} have |Δ| ≪ X; by Theorem 5.4 and Lemma 5.3, ≫ X^{(2+3+⋯+n)/(n(n−1))} = X^{1/2+1/n} of them are strongly quasi-reduced with squarefree discriminant, and by Lemma 5.1 they give distinct fields (at most two polynomials per field, by the corrected Lemma 5.1).",
+      "locator": "Corollary 1.3, p.3; proof §5, p.26, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/70",
+      "kind": "theorem",
+      "name": "Remark 5.5 (signatures and local conditions in Corollary 1.3)",
+      "statement": "Corollary 1.3 holds with prescribed real signature, and with any local conditions at a finite set of primes that do not contradict local monogeneity.",
+      "locator": "Remark 5.5, p.26, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/71",
+      "kind": "theorem",
+      "name": "Corollary 1.4 (the Ellenberg–Venkatesh conjecture on short generating vectors)",
+      "statement": "Let n > 1. The number of isomorphism classes of number fields K of degree n whose shortest vector in O_K generating K has length less than Y is ≍ Y^{(n−1)(n+2)/2}, and the same holds for fields whose normal closure has Galois group S_n. Proof of the lower bound: irreducible f = x^n + a_2x^{n−2} + ⋯ + a_n with H(f) ≤ Y have roots with ‖θ‖ ≪ Y (43); by Theorem 5.4 and Lemma 5.3, ≫ Y^{(n−1)(n+2)/2} of them are strongly quasi-reduced with squarefree discriminant, and Lemma 5.1 makes their fields distinct.",
+      "locator": "Corollary 1.4, p.3; proof §5, pp.26–27, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/72",
+      "kind": "theorem",
+      "name": "Remark 5.6 (conjectural asymptotic for monogenic fields)",
+      "statement": "Conjecture: a positive proportion of monic integer polynomials of degree n with 0 ≤ a_1 < n and |Δ| < X have height O(X^{1/(n(n−1))}); and the number of monogenic number fields of degree n with absolute discriminant < X is asymptotic to (nC_n/(2ζ(2)))X^{1/2+1/n} (42), where C_n is the (n − 1)-dimensional volume of {f ∈ V_n(R) : a_1 = 0, |Δ(f)| < 1}. For n = 3, C_3 = 2^{1/3}(3 + √3)/45·Γ(1/2)Γ(1/6)/Γ(2/3).",
+      "locator": "Remark 5.6, (42), p.26, arXiv:1611.09806v3",
+      "status": "missing",
+      "note": "A conjecture. C_3 was checked by direct integration of the area of {|4a_2³ + 27a_3²| < 1}: 0.96530936 against the printed closed form 0.965309365. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/73",
+      "kind": "definition",
+      "name": "Minkowski-reduced bases and the Siegel-set description",
+      "statement": "A Z-basis α_1, …, α_n of a lattice L is Minkowski-reduced if, successively for i = 1, …, n, α_i is a shortest vector of L such that α_1, …, α_i extends to a Z-basis of L; most lattices have a unique one (up to signs). For a positive definite form Q = γI_nγ^T with γ = ντκ (ν lower unipotent, τ = diag(t_1, …, t_n), κ ∈ SO_n(R)), Minkowski-reduced forms lie in a Siegel set F_SL = {ντκ : ν ∈ N′, t_i ≤ ct_{i+1}}.",
+      "locator": "§5, footnote 1, p.24; proof of Lemma 5.2, p.25, arXiv:1611.09806v3 (gap E12)",
+      "status": "missing",
+      "note": "Routed to GeometryOfNumbersAndQuadraticArithmetic GN.3 as a source."
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/74",
+      "kind": "theorem",
+      "name": "Fujiwara's root bound (corrected)",
+      "statement": "Every root θ of x^n + a_1x^{n−1} + ⋯ + a_n ∈ C[x] satisfies |θ| ≤ 2·max{|a_1|, |a_2|^{1/2}, …, |a_{n−1}|^{1/(n−1)}, |a_n/2|^{1/n}} (Fujiwara [10]). In particular H(f) ≤ Y implies ‖θ‖ ≪ Y.",
+      "locator": "§5, p.27, citing [10], arXiv:1611.09806v3 (misprint E11)",
+      "status": "missing",
+      "note": "Routed to ClassicalArithmeticCompletion CA.3 as a source."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "M. Bhargava, The geometric sieve and the density of squarefree values of invariant polynomials, arXiv:1402.0031",
+      "link": "https://arxiv.org/abs/1402.0031",
+      "why": "Theorem 3.3 is the quantitative Ekedahl sieve behind Theorem 1.5(a) and the remark after Theorem 4.4."
+    },
+    {
+      "citation": "T. Ekedahl, An infinite version of the Chinese remainder theorem, Comment. Math. Univ. St. Paul. 40 (1991), 53–59",
+      "why": "The Ekedahl sieve (no DOI)."
+    },
+    {
+      "citation": "M. Bhargava, B. H. Gross, The average size of the 2-Selmer group of Jacobians of hyperelliptic curves having a rational Weierstrass point, in Automorphic Representations and L-functions, Tata Inst. Fundam. Res. Stud. Math. 22 (2013), 23–91; arXiv:1208.1007",
+      "link": "https://arxiv.org/abs/1208.1007",
+      "why": "The odd-degree representation: stabilizers, distinguished orbits, the fundamental domains and Propositions 10.5, 10.7 and §10.7, used in §§2.1–2.4."
+    },
+    {
+      "citation": "M. Bhargava, B. H. Gross, Arithmetic invariant theory, in Symmetry: Representation Theory and its Applications, Progr. Math. 257 (2014), 33–54",
+      "link": "https://doi.org/10.1007/978-1-4939-1590-3_3",
+      "why": "The invariant ring of SO_n on symmetric matrices."
+    },
+    {
+      "citation": "A. Shankar, X. Wang, Rational points on hyperelliptic curves having a marked non-Weierstrass point, Compos. Math. 154 (2018), 188–222",
+      "link": "https://doi.org/10.1112/S0010437X17007515",
+      "why": "The even-degree representation, its fundamental domains and Propositions 21 and 23, used in §3."
+    },
+    {
+      "citation": "X. Wang, Pencils of quadrics and Jacobians of hyperelliptic curves, PhD thesis, Harvard University (2013)",
+      "why": "Propositions 2.32–2.33: stabilizers and flags for even n (no stable link verified)."
+    },
+    {
+      "citation": "M. Bhargava, B. H. Gross, X. Wang, A positive proportion of locally soluble hyperelliptic curves over ℚ have no point over any odd degree extension, J. Amer. Math. Soc. 30 (2017), 451–493",
+      "link": "https://doi.org/10.1090/jams/863",
+      "why": "Proposition 22: J_f[2] and even-degree factorizations. Its own paper job is issue #1436."
+    },
+    {
+      "citation": "A. Shankar, J. Tsimerman, Counting S₅-fields with a power saving error term, Forum Math. Sigma 2 (2014), e13",
+      "link": "https://doi.org/10.1017/fms.2014.10",
+      "why": "The Selberg-sieve argument of Propositions 2.6 and 3.5."
+    },
+    {
+      "citation": "R. Dietmann, On the distribution of Galois groups, Mathematika 58 (2012), 35–44",
+      "link": "https://doi.org/10.1112/S0025579311002105",
+      "why": "Lemmas 2 and 4 and Theorem 1, used in Proposition 4.3."
+    },
+    {
+      "citation": "A. Ash, J. Brakenhoff, T. Zarrabi, Equality of polynomial and field discriminants, Experiment. Math. 16 (2007), 367–374",
+      "link": "https://doi.org/10.1080/10586458.2007.10129001",
+      "why": "Proposition 3.5: Lenstra's density ρ_n(p) = 1 − 1/p²."
+    },
+    {
+      "citation": "K. Yamamura, Some analogue of Hilbert's irreducibility theorem and the distribution of algebraic number fields, J. Fac. Sci. Univ. Tokyo Sect. IA Math. 38 (1991), 99–135",
+      "why": "Proposition 3: the density λ_n(p) (no DOI)."
+    },
+    {
+      "citation": "T. Kondo, Algebraic number fields with the discriminant equal to that of a quadratic number field, J. Math. Soc. Japan 47 (1995), 31–36; with K. Yamamura, Osaka J. Math. 23 (1986), 471–478, and J. Nakagawa, Comment. Math. Univ. St. Paul. 37 (1988), 95–98",
+      "link": "https://doi.org/10.2969/jmsj/04710031",
+      "why": "A squarefree discriminant forces Galois group S_n."
+    },
+    {
+      "citation": "J. S. Ellenberg, A. Venkatesh, The number of extensions of a number field with fixed degree and bounded discriminant, Ann. of Math. (2) 163 (2006), 723–741",
+      "link": "https://doi.org/10.4007/annals.2006.163.723",
+      "why": "Remark 3.3 (the conjecture proved in Corollary 1.4) and the S_n lower bounds improved by Corollary 1.3."
+    },
+    {
+      "citation": "M. Fujiwara, Über die obere Schranke des absoluten Betrages der Wurzeln einer algebraischen Gleichung, Tôhoku Math. J. 10 (1916), 167–171",
+      "why": "The root bound in the proof of Corollary 1.4."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.1"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/1",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/3",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/4",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/5",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/11",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/12",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/13",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/14",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/15",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/16",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/17",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/18",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/19",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/20",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/21",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/22",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/23",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/24",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/25",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/26",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/27",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/28",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/29",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/30",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/31",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/32",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/33"
+      ],
+      "reason": "ST.0 owns families, heights, local conditions and densities. That covers the family V_n(Z) ordered by the weighted height, Yamamura's density λ_n(p) of p² ∤ Δ, Lenstra's density 1 − 1/p² of p-maximality, the strong/weak dichotomy for p² | Δ with its root criterion and Proposition 2.2, and κ-acceptable local specifications. ST.1 owns integral invariant theory and orbit parametrizations. That covers the representation of SO_n on symmetric matrices with its invariant polynomial, stabilizers J_f[2], distinguished orbits, the subspace W_0 and parabolic G_0, the new Q-invariant of 2 ⊗ g ⊗ (g + 1) with its relative invariance, and the explicit matrices B_m. These give the embeddings σ_m of weakly divisible polynomials (Theorems 2.3–2.4 and 3.2–3.3), which turn weak divisibility into orbits of |Q|-invariant m. The atlas and libraries have the discriminant only; none of these statements appears."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.2"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/34",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/36",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/37",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/38",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/39",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/40",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/41",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/42",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/44",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/45",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/46",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/47",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/48",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/49",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/50",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/51",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/52",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/54",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/55",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/56",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/57"
+      ],
+      "reason": "ST.2 owns counting lattice points in fundamental domains, bounding cusp and reducible contributions, and the uniform tail estimates needed to impose infinitely many local conditions. Its acceptance condition requires exactly this: an interchange of sieve and height limits must come from a uniform tail theorem. The paper is a model case. Its tail estimate (Theorem 1.5) has two parts:\n- the strongly divisible part, from the quantitative Ekedahl sieve;\n- the weakly divisible part, from counting points of large |Q|-invariant deep in the cusp (Propositions 2.5–2.7 and 3.4–3.6), with the torus-weight bookkeeping and a Selberg-sieve saving off W_00.\nIt then bounds reducible polynomials (Lemma 4.2, Proposition 4.3) and runs the squarefree sieve with κ-acceptable conditions (Theorems 4.1 and 4.4). None of these statements is in the atlas or the libraries."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticStatistics",
+      "stages": [
+        "ArithmeticStatistics:ST.3",
+        "ArithmeticStatistics:ST.5"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/7",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/58",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/59",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/60",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/61",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/62",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/63",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/64",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/65",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/66",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/67",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/68",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/69",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/70",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/71",
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/72"
+      ],
+      "reason": "ST.3 owns counting theorems for fields by discriminant, with degree, Galois group and automorphism weights fixed. That covers:\n- the density theorems for squarefree discriminants and maximal orders (Theorems 1.1, 1.2 and (4));\n- the fact that a squarefree discriminant forces S_n;\n- the counts of monogenic S_n-fields (Corollary 1.3) and of fields with short generating vectors (Corollary 1.4, with the Ellenberg–Venkatesh upper bound), with the quasi-reduction lemmas that make distinct polynomials give distinct fields (§5).\nST.5 records established asymptotics against models, which is where the conjectured asymptotic (42) and the constant C_3 of Remark 5.6 belong. None of these statements is in the atlas or the libraries."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/73"
+      ],
+      "reason": "GN.3 owns reduction domains and arithmetic quotients. Minkowski-reduced bases, their essential uniqueness and their Iwasawa/Siegel-set description are reduction theory of positive definite forms. §5 imports them, together with the fact (needed in the repair of Lemma 5.2) that a basis with rapidly increasing Gram–Schmidt lengths is Minkowski-reduced after a unipotent integral change."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/53"
+      ],
+      "reason": "IG.2 owns Hilbert irreducibility and specialization of covers with full Galois group. Dietmann's bounds are a quantitative form of it: few one-parameter families x^n + ⋯ + t fail to have generic group S_n, and specializations with a smaller group H number O(T^{1/[S_n:H]+ε}). Proposition 4.3 consumes them."
+    },
+    {
+      "route": "source",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "stages": [
+        "ClassicalArithmeticCompletion:CA.3"
+      ],
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-WANG-22/74"
+      ],
+      "reason": "CA.3 owns polynomial arithmetic: resultants, discriminants and irreducibility. Fujiwara's bound on the roots of a monic polynomial in terms of its coefficients is a classical polynomial estimate. It converts the height bound into ‖θ‖ ≪ Y in Corollary 1.4."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E1",
+      "kind": "error",
+      "locator": "§1, p.4 (arXiv v3)",
+      "printed": "\"Then p² strongly divides ∆(f) if and only if f modulo p has at least two distinct multiple roots in F̄_p, or has a root in F_p of multiplicity at least 3; and p² weakly divides ∆(f) if p² | ∆(f) but f modulo p has only one multiple root in F_p and this root is a simple double root.\"",
+      "correction": "This holds for odd p. For p = 2, 4 always divides Δ(f) strongly when 2 | Δ(f), so W^{(2)}_m is empty for even m.",
+      "reason": "By Stickelberger's congruence, the discriminant of a monic integer polynomial is ≡ 0 or 1 mod 4, so 2 | Δ(f + 2g) implies 4 | Δ(f + 2g) for every g. For example f = x² + 1 ≡ (x + 1)² mod 2 has a single simple double root, yet Δ(x² + a_1x + a_2) = a_1² − 4a_2 ≡ 0 mod 4 whenever a_1 is even. A brute-force check over all f mod p confirms the criterion for p = 3 (n ≤ 5) and p = 5 (n ≤ 4), and finds failures at p = 2 for every n = 2, …, 5. The proofs only use the implication \"two multiple roots or a triple root ⇒ strong\", which holds at p = 2 as well (in Proposition 2.2), and the tail estimates concern large primes, so nothing else changes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E2",
+      "kind": "misprint",
+      "locator": "§3.3, p.18 (arXiv v3)",
+      "printed": "\"For 1 ≤ i ≤ g, define s_i to be s_i = t_i/t_{i+1}, and let s_g = t_gt_{g+1}.\"",
+      "correction": "\"… and let s_{g+1} = t_gt_{g+1}.\"",
+      "reason": "The definition gives s_g twice. d^×s = ∏_{i=1}^{g+1}ds_i/s_i, δ(s) in (30) and the conditions (37) all use a (g + 1)-st coordinate s_{g+1}, and s_{g+1} = t_gt_{g+1} is the last simple root of the D_{g+1} torus. With it, (30) is the modular character (checked against 2ρ), and the weight of b_{g+1,g+1} is t_{g+1}^{−2} = s_g/s_{g+1}, as (37) uses.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E3",
+      "kind": "misprint",
+      "locator": "§3.4, (36), p.19 (arXiv v3)",
+      "printed": "\"w(Q) = (t_1 · · · t_g)^{−1}t^g_{g+1} = ∏_{k=1}^g s_k^k.\"",
+      "correction": "w(Q) = (t_1⋯t_g)^{−1}t_{g+1}^g = ∏_{k=1}^g s_k^{−k}.",
+      "reason": "With s_k = t_k/t_{k+1} (k ≤ g) and s_{g+1} = t_gt_{g+1}, ∏_{k=1}^gs_k^k = (t_1⋯t_g)t_{g+1}^{−g}, the inverse of the middle expression (checked symbolically for g ≤ 5). The proof of Proposition 3.6 uses the correct ∏s_k^{−k}: its fourth step turns s_k^{2k−1} into s_k^{k−1} and s_g^{g−1} into s_g^{−1}. The odd-degree analogue (23) has the correct sign.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E4",
+      "kind": "misprint",
+      "locator": "§3.2, Theorem 3.3, p.17; §3.3, p.18; §3.4, pp.19–20 (arXiv v3)",
+      "printed": "Theorem 3.3: \"such that f_{σ̄_m(f)} = f for every f ∈ W^{(2)}_m\". §3.3: \"Since N″, K, G_0 are compact and R is bounded, the set E = N″KG_0R is bounded.\" §3.4: \"up to a multiplicative constant depending only on G_0 and R\"; proof of Proposition 3.6: \"#{B ∈ ((s)·(XE)) ∩ L ∩ (1/2)W_00(Z) : |Q|(B) > M}\".",
+      "correction": "\"for every f ∈ W^{(2),irr}_m\"; \"N″, K, G_1 are compact … E = N″KG_1R\"; \"depending only on G_1 and R\"; \"(1/4)W_00(Z)\".",
+      "reason": "σ̄_m is defined on W^{(2),irr}_m. G_0 is the parabolic subgroup, not compact; the compact set is G_1, as in §2.3 and in (29). The statement of Proposition 3.6 and (35) have (1/4)W_00(Z), the lattice of §3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E5",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.4, p.22; proof of Theorem 4.1, p.23 (arXiv v3)",
+      "printed": "\"⋃_{m>M} W_{m,X} ⊂ ⋃_{k_1>√M} W^{(1)}_{k_1,X} ∪ ⋃_{k_2>√M} W^{(2)}_{k,X}.\" \"We define θ̄(m) = ∏_{p|m} θ̄(m) for squarefree integers m.\"",
+      "correction": "\"W^{(2)}_{k_2,X}\"; \"θ̄(m) = ∏_{p|m} θ̄(p)\".",
+      "reason": "The union is indexed by k_2, and θ̄ is extended multiplicatively from primes.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E6",
+      "kind": "error",
+      "locator": "Proof of Theorem 4.1, (41), p.23 (arXiv v3)",
+      "printed": "\"#V(Σ)_X = Σ_{m=1}^{X^{1/κ}} µ(m)θ(∞)θ̄(m)X^{n(n+1)/2} + O(Σ_{m=1}^{X^{1/κ}} X^{n(n+1)/2−n}) + O(Σ_{m>X^{1/κ}} #W_m(Σ)_X)\"",
+      "correction": "The middle term should be O(Σ_{m≤X^{1/κ}} θ̄(m)m^κX^{n(n+1)/2−1}). Since θ̄(p) ≤ 1 − λ_n(p) ≪ 1/p² for p > N, this is O_ε(X^{n(n+1)/2−1/κ+ε}), which the stated error term O_ε(X^{n(n+1)/2−min{1/5,1/(2κ)}+ε}) absorbs.",
+      "reason": "W_m(Σ) is a union of θ̄(m)m^{κn} residue classes modulo m^κ ≤ X. Each class meets the region {H < X} in Vol/m^{κn} + O(X^{n(n+1)/2−1}/m^{κ(n−1)}) points, the error coming from the a_1-direction, of length ≍ X. An error X^{n(n+1)/2−n} per m cannot hold: already for m = 1 the count #{H(f) < X} = 2^nX^{n(n+1)/2} + O(X^{n(n+1)/2−1}) of the introduction has an error of exact order X^{n(n+1)/2−1}, since the number of a_1 in (−X, X) fluctuates by O(1). Summing the corrected errors: Σ_{m≤X^{1/κ}} C^{ω(m)}m^{κ−2} ≪ X^{(κ−1)/κ+ε}, giving X^{n(n+1)/2−1/κ+ε} ≤ X^{n(n+1)/2−1/(2κ)+ε}. So Theorem 4.1 stands.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E7",
+      "kind": "error",
+      "locator": "Proof of Proposition 4.3, p.22 (arXiv v3)",
+      "printed": "\"When n ≥ 4 is even and the polynomial factors as g(x)ḡ(x) over a quadratic extension, the splitting field has degree at most 2(n/2)! and so the index of the corresponding Galois group in S_n is again at least n(n−1)/2.\"",
+      "correction": "The splitting field has degree at most 2((n/2)!)², so the index is at least C(n, n/2)/2. That is ≥ n(n − 1)/2 only for n ≥ 8. For n = 6 the index can be 10, but n/[S_n : H] ≤ 3/5 < 1 still gives the stated bound. For n = 4 the index can be 3 (Galois group D_4), and the argument yields O_ε(X^{6+4/3+ε}) = O_ε(X^{22/3+ε}) for these quartics. So Proposition 4.3 is proved for n = 4 only in the weaker form #V_4(Z)^red_X = O_ε(X^{22/3+ε}) = O(X^{n(n+1)/2−8/3+ε}).",
+      "reason": "Over K = Q(√d) the splitting fields of g and ḡ have degree up to (n/2)! each, and their compositum up to ((n/2)!)². The Galois group of f lies in S_{n/2} ≀ S_2, of order 2((n/2)!)². Example: x⁴ − 2 = (x² − √2)(x² + √2) over Q(√2) has Galois group D_4 of order 8 > 2·2! = 4. With [S_4 : D_4] = 3, Dietmann's bound for |a_4| ≤ X⁴ is X^{4/3+ε} per (a_1, a_2, a_3), against the X^{2/(n−1)} = X^{2/3} the proof claims. Every use of Proposition 4.3 (§§2.4, 3.4, (4)) needs only O(X^{n(n+1)/2−1/5}), which X^{10−8/3+ε} satisfies. No main result is affected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E8",
+      "kind": "gap",
+      "locator": "Proof of Lemma 4.2, p.21 (arXiv v3)",
+      "printed": "\"If a_n ≠ 0 is fixed, then there are O(log X) possibilities for the linear factor x − r of f(x), since r | a_n.\"",
+      "correction": "The number of r is at most 2d(a_n), which is O_ε(X^ε) but not O(log X) for an individual a_n. What the count needs is the average bound Σ_{0<|a_n|≤X^n} d(a_n) ≪ X^nlog X, which gives the lemma exactly as stated.",
+      "reason": "The divisor function is not bounded by a power of log X pointwise (d(a) can be as large as exp(c log a/log log a)); only its average is ≍ log X. The final bound O(X^{n(n+1)/2−n+1}log X) is correct.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E9",
+      "kind": "gap",
+      "locator": "Theorem 1.5(b) (p.4) and §§2–3 (arXiv v3)",
+      "printed": "\"In this section, we prove the estimate of Theorem 1.5(b) when n = 2g + 1 is odd, for any g ≥ 1.\" (§2) and \"… when n = 2g + 2 is even, for any g ≥ 1.\" (§3)",
+      "correction": "Add the case n = 2 (n = 1 is empty). For odd p every p² | Δ(x² + a_1x + a_2) = a_1² − 4a_2 is weak, and for fixed a_1 the condition m² | a_1² − 4a_2 confines a_2 to at most one residue class modulo m²/(4, m²). Since |Δ| ≪ X², only m ≪ X occur, and the count is ≪ Σ_{|a_1|<X}Σ_{M<m≪X}(X²/m² + 1) ≪ X³/M + X², within Theorem 1.5(b).",
+      "reason": "Theorem 1.5 is used for every n > 1 in Theorems 4.1 and 4.4, hence in Theorems 1.1 and 1.2 for n = 2, but §§2–3 cover only n ≥ 3 (g ≥ 1). The missing case is elementary.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E10",
+      "kind": "error",
+      "locator": "Lemma 5.1 and proof, p.24 (arXiv v3)",
+      "printed": "\"By the uniqueness of Minkowski-reduced bases for these rings, φ must map Minkowski basis elements to Minkowski basis elements, i.e., φ(h_i(θ)) = h*_i(θ*) for all i. In particular, this is true for i = 1, so φ(θ) = θ* + c for some c ∈ Z … It follows that g(x) = g*(x), a contradiction.\"",
+      "correction": "A Minkowski-reduced basis is unique at best up to the signs of its vectors: with α_1, …, α_n, every ±α_1, …, ±α_n is also Minkowski-reduced. So φ(h_1(θ)) = ±h*_1(θ*), φ(θ) = ±θ* + c, and the correct conclusion is g*(x) = g(x) or g*(x) = (−1)^ng(−x). Lemma 5.1 holds as stated only for pairs not related by x ↦ −x. In Corollaries 1.3 and 1.4 each field then comes from at most two of the counted polynomials, so the lower bounds are unchanged. Remark 5.6 already counts θ ↦ ±θ + c.",
+      "reason": "Counterexample: g = x³ − 50x + 7 and g* = x³ − 50x − 7 are distinct, have vanishing x²-coefficients and are strongly quasi-reduced. For both, an exhaustive search gives the Minkowski-reduced basis 1, θ, θ² − 33, unique up to sign, with squared lengths 3, 100, 1667. Yet x ↦ −x is an isomorphism Z[x]/(g) ≅ Z[x]/(g*). If \"unique\" were meant literally, including signs, no lattice would be strongly quasi-reduced and Lemma 5.3 would fail instead.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E11",
+      "kind": "misprint",
+      "locator": "Proof of Corollary 1.4, p.27 (arXiv v3)",
+      "printed": "\"∥θ∥ ≤ max{|a_1|, |a_2|^{1/2}, . . . , |a_{n−1}|^{1/(n−1)}|, |a_n/2|^{1/n}}.\"",
+      "correction": "‖θ‖ ≤ 2·max{|a_1|, |a_2|^{1/2}, …, |a_{n−1}|^{1/(n−1)}, |a_n/2|^{1/n}}, which is Fujiwara's bound.",
+      "reason": "Without the factor 2 the inequality is false: x² − 4 has the root 2, but the right side is (4/2)^{1/2} = √2. Only ‖θ‖ ≪ Y is used in (43), so the argument is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    },
+    {
+      "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E12",
+      "kind": "gap",
+      "locator": "Proofs of Lemmas 5.2 and 5.3, p.25 (arXiv v3)",
+      "printed": "\"The condition that Q is Minkowski reduced is equivalent to the condition that γ belongs to F_SL. The condition that Q be quasi-reduced is simply then that t_i ≤ c t_{i+1} (with no condition on ν).\" (Lemma 5.2); \"… shows that the density of monic integer polynomials f … that have nonzero discriminant and are strongly quasi-reduced is greater than 1 − ε.\" (Lemma 5.3)",
+      "correction": "Lemma 5.2: F_SL is a Siegel set, which contains the Minkowski domain but is not equal to it. The proof needs the converse direction for well-separated tori: if t_{i+1}/t_i ≥ C_n for all i (C_n depending on n), then a basis with these Gram–Schmidt lengths is Minkowski-reduced after a unipotent integral change of basis. This holds because each successive shortest extending vector must then have the form ±b_i + Σ_{j<i}c_jb_j. Since the ratios for g(ρx) grow like ρ, the lemma follows. Lemma 5.3: the proof yields quasi-reduction only. Uniqueness of the reduced basis up to sign must be added. For well-separated tori it fails only on the locus where two candidates ±b_i + Σc_jb_j have equal length, a proper closed semialgebraic subset of V_n(R), whose integer points in ρ·B are o(ρ^{n(n+1)/2}).",
+      "reason": "As written, the equivalence is false, and \"strongly\" in Lemma 5.3 is asserted without argument. Both steps are standard, and with them the lemmas and Corollaries 1.3–1.4 stand.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Invent. Math. 228 (2022), 1037–1073, DOI 10.1007/s00222-022-01098-w: Crossref (checked 2026-09-22) records no update or correction relation and no work updating it; the published article is paywalled and was not read",
+        "arXiv 1611.09806: v3 of 31 December 2021 is the latest version and the one read",
+        "Part II (arXiv 2207.05592v1; Forum Math. Pi 13 (2025)) does not revisit these points"
+      ]
+    }
+  ]
+}
