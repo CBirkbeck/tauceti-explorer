@@ -353,3 +353,18 @@ Statements, prerequisites, API contracts, tests and proof outlines are in the JS
 | T44 | Special-torus Frobenius Kottwitz formula | missing | Lemma 2.3.10.1–2 |
 | A17 | Proper descent for convergent isocrystals | missing | Corollary A.7 proof; de Jong96 Theorem 6.5; Ogus84 Theorems 4.6,4.1 |
 | A18 | Detection of convergent morphisms at fibers | missing | Corollary A.7 proof; de Jong96 Theorem 6.5; Ogus84 Theorems 4.6,4.1 |
+
+## Continuation: N29 corrected and T23 proved (Claude Code, cc-fb70e5, 22 September 2026)
+
+**N29, Corollary 1.1.15.** The printed conclusion w∈N_G(M)/M is false: the GL₃ example is kept, and is recorded as errata E2. The item now states the corrected result: w lies in the absolute Weyl group W(G,T) of a maximal torus T⊂M, equivalently some G(Q̄_p)-conjugate of μ factoring through T makes ([b_M],{μ′}) M-admissible. Its proof follows the paper's:
+- transport to the quasi-split inner form, where G*-admissibility of ([b_{M*}],{μ*}) holds by Kottwitz functoriality and [Kot97, 4.4];
+- apply Proposition 1.1.13 (N27), whose output is w*∈W(G*,T*) and not N_{G*}(M*)/M*;
+- transport back, using that for basic b_M, M-admissibility is κ_M-equality (Lemma 1.1.6).
+
+This is exactly what Corollary 1.1.17 (N32) uses: its proof writes "w∈W(G,T)". The G-source gate on N29 and N32 is resolved; G-local remains, for N27's cited unramified input.
+
+**T23, Lemma 2.2.8.** The auxiliary group must be G′=G×_{G^ab}T, not the printed G×T. The printed version fails for two reasons:
+- G×T is not contained in GSp(V⊕V,ψ⊕ψ);
+- the kernel of I_{s′₀}→I_{s₀} contains 1×T, which maps onto G^ab (errata E5).
+
+With the fibre product both problems disappear. G′ lies in GSp, and X×{h_T} maps into it because h^ab is constant on X. The kernel of the projection lies in T∩G^der, which dies in G^ab. So the restriction to A_T, composed with T→G^ab, factors through I_{s₀} by Corollary 2.1.9, and agrees with the i_ℓ-induced maps because g and t have the same image in G^ab. G-noot remains, for Noot's inputs and Corollary 2.1.9.
