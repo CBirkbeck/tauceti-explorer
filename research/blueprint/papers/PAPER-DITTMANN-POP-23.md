@@ -402,13 +402,13 @@ this continuation does not certify them merely from their names.
 
 ### Structured source findings and provenance
 
-`sourceIssues` now records fourteen findings. E1–E4 retain the IDs in the
+`sourceIssues` now records thirteen findings. E1–E4 retain the IDs in the
 separate errata file: bilinear characteristic-two factors, the sign in
 Proposition 3.10, the full-rank flag notation, and the nonzero torus choice.
-The separate errata job and its review are untouched. E5 records the
-finite-place correction already used silently by the extraction: choose
-Σ to contain every nonunit place of ε, so v(a_1)>0 forces ε to be a unit.
-E6 records the false intermediate cohomological-dimension bound. E7 records
+The separate errata job and its review are untouched. The finite-place condition is correct as printed: a Σ-unit is a unit
+outside Σ, so choosing Σ containing all nonunit places and applying Lemma
+3.5 makes v(a_1)>0 force ε to be a unit. A draft E5 misread that convention
+and was withdrawn; its ID is not reused. E6 records the false intermediate cohomological-dimension bound. E7 records
 the inherited total-inversion bridge to the finite-language QFA theorem.
 E8 is the identity-embedding index slip in Kuhlmann–Novacoski, limited to
 the author PDF inspected. E9–E11 record the neighborhood variable, tensor
@@ -442,7 +442,7 @@ workers' audit.
 Fresh verification covers the paper checker, intake paths, preserved
 IDs/API/test names, acyclic item dependencies, exact missing-item routing,
 and 3,055 finite regression checks: 125 finite-place implications and one
-counterexample to the printed condition; 2,552 tensor coefficients and
+counterexample to reversing the Σ-unit convention; 2,552 tensor coefficients and
 356 rejections of the unsigned formula over F₃, F₅ and F₇ in ranks 1–3;
 17 repeated-root factorizations over F₂, F₃, F₅ and F₇; and four checks of
 the two square roots of 6 modulo 25 and the resulting integral/nonintegral
