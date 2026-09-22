@@ -4927,6 +4927,90 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E1",
+   "kind": "misprint",
+   "locator": "Construction 2.13, p. 11 (arXiv v2, the version read)",
+   "printed": "By the definition of M(O_F)♮, the stack M_x satisfies condition (iii) of Theorem 2.12.",
+   "correction": "condition (iii) of Proposition 2.12.",
+   "reason": "The result numbered 2.12 is stated on p. 10 as 'Proposition 2.12', and two sentences later the same construction refers to it correctly: 'Hence Proposition 2.12 gives us a morphism [Spec(k)/µ_N] → M̃_k → M_k'. The paper has no Theorem 2.12.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E2",
+   "kind": "misprint",
+   "locator": "Remark 6.19, p. 42 (arXiv v2, the version read)",
+   "printed": "In loc. cit. the assumption is formulated for the endoscopy group Ĥ_E, but this is equivalent to our assumption for the Langlands dual group H_E stated in Theorem 6.18.",
+   "correction": "stated in Corollary 6.18.",
+   "reason": "The statement numbered 6.18 is 'Corollary 6.18' (p. 41), and the same remark's first sentence calls it 'Corollary 6.18'; there is no Theorem 6.18.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E3",
+   "kind": "misprint",
+   "locator": "Remark 6.24, p. 43 (arXiv v2, the version read)",
+   "printed": "For (E, θ, ∞̃) ∈ M̃^ani_G(X_k) we have that the map Aut(E, θ) → T induced by M̃^ani_G(X_k) → B_kT is the embedding described in Lemma 4.36.",
+   "correction": "the embedding described in Construction 4.36.",
+   "reason": "The item numbered 4.36 is 'Construction 4.36' (pp. 25–26), and it is cited correctly as 'Construction 4.36' three times elsewhere (Construction 5.10 p. 29, Remark 5.15 p. 30, and p. 30 again); the paper has no Lemma 4.36.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/E4",
+   "kind": "misprint",
+   "locator": "Goal 6.21(2), p. 42 (arXiv v2, the version read)",
+   "printed": "(2) Subsequently we will verify that λ(α) corresponds to the twist M̄^{Π,t}_G with respect to Tate duality. See Lemma 6.34.",
+   "correction": "The pointer should be to Lemma 6.29 together with the argument in the proof of Lemma 6.14, not to Lemma 6.34.",
+   "reason": "Goal 6.21(1) already ends 'See Lemma 6.34', and Lemma 6.34 states only that the Hasse invariant of λ(x_F^*α_{U_a}) equals χ_λ(e(x)), which is goal (1). The identification of λ(α) with the unramified twist is made in the proof of Lemma 6.14: 'It follows from Lemma 6.29 that α_{U_a} ∈ Ext²_ét(P̃^{♦,Π}_{Ĝ,b}, X_*(T/Z(X, G)) ⊗ G_m) = Ext¹_ét(X_*(T̂/Z(X, Ĝ)), P̃^{♦,Π}_{Ĝ,b}) corresponds to the unramified twists M̄^{Π,t}_{Ĝ,b}'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:1810.06739, read 22 September 2026: only v1 (15 October 2018) and v2 (28 October 2019), so no later preprint version corrects it",
+    "the published version at doi:10.1090/jams/948 (Journal of the American Mathematical Society 33 (2020), no. 3): the AMS page refused automated access (HTTP 403) on 22 September 2026, so the published text was not compared and the finding is recorded for arXiv v2",
+    "the authors' companion paper arXiv:1707.06417 (Mirror symmetry for moduli spaces of Higgs bundles via p-adic integration), which shares Sections 2 and 6.5 and carries no erratum for this paper"
+   ],
+   "owner": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "file": "research/blueprint/papers/PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.result.json",
+   "citation": "Groechenig–Wyss–Ziegler, \"Geometric stabilisation via p-adic integration\", Journal of the American Mathematical Society (2020)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-HACON-WITASZEK-23/E1",
    "kind": "error",
    "locator": "Lemma 2.2, second paragraph, p.5 of the published version (arXiv v2 Lemma 2.2, p.6)",
