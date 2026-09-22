@@ -4415,7 +4415,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-MAULIK-SHANKAR-TANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1276"
   },
   {
    "id": "REV-PAPER-MAULIK-SHANKAR-TANG-22",
