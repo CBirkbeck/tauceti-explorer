@@ -1,0 +1,2221 @@
+{
+  "paper": "PAPER-CHARLES-16",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture",
+    "authors": "François Charles",
+    "venue": "Annals of Mathematics 184 (2016), no.2, 487–526",
+    "doi": "10.4007/annals.2016.184.2.4",
+    "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
+    "sha256": "3425f2697b3600f7920f1bdce67681339d06a20dfaf39ea4fdc2a0baebc940e2",
+    "accessed": "2026-09-22",
+    "readSections": [
+      "Entire published forty-page article: introduction and Proposition 1.5; §§2.1–2.2, §§3.1–3.4, §§4.1–4.2; every printed proof and references, pp.487–526.",
+      "Lieblich–Maulik–Snowden, arXiv:1107.1221v5 (12 March 2014), entire twenty-page manuscript including proofs and references; not the published PDF.",
+      "Charles 2013 two-page erratum, complete; it is not a Charles 2016 erratum.",
+      "Older twenty-eight-page author Charles16 PDF: only Corollary 2.7 and its discriminant argument, compared with published Corollary 2.8; not fully read."
+    ],
+    "versionNote": "Published numbering is authoritative. The older author PDF labels the main Zarhin theorem 2.9 rather than 2.10. In LMS arXiv v5, the twisted moduli proposition is 3.4.2 (Charles cites published 3.4.1), and the partner proposition is 3.5.6 (Charles cites published 3.5.4). Published p.499 was also checked as a page image: the erroneous integer multiplier is not an OCR ambiguity.",
+    "additionalSources": [
+      {
+        "url": "https://arxiv.org/pdf/1107.1221",
+        "sha256": "66ee971cf9449a7e76ca9a1a2f7332b54ec86330476ba115b08ab7670baa22d5",
+        "read": "Entire arXiv v5; publication metadata DOI 10.24033/asens.2215 checked separately."
+      },
+      {
+        "url": "https://www.math.ens.psl.eu/~charles/erratum.pdf",
+        "sha256": "ac3fcd9d25336725102f99a49e0ecd956f500cc2c6c88e8fcb27dd987d998b38",
+        "read": "Entire two-page erratum to Charles 2013."
+      },
+      {
+        "url": "https://www.imo.universite-paris-saclay.fr/~francois.charles/Zarhin_K3.pdf",
+        "sha256": "b859a0b875c1a6dcf4d5b04ba66ba7d7bfbefa50d08ed264ac5dee5822b8793a",
+        "read": "Targeted older Corollary 2.7 only."
+      }
+    ]
+  },
+  "summary": "Full published-paper extraction, with the full LMS prerequisite manuscript used to restore the twisted-gerbe sign, determinant trivialization, exact geometric Brauer order and integral-lattice convention. Separates the arbitrary-field Zarhin construction, complex IHS birational boundedness and finite-field Tate arguments. Reuses pinned lattice/Hodge/Clifford/Hensel/Dirichlet APIs. Corrects the nonintegral discriminant multiplier and unpolarized finiteness conclusion with explicit counterexamples. Partial: four proof gates remain unrouted; Nikulin and other original prerequisite interiors remain proof-open. No Lean implementation or closure is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Basic.lean",
+        "provides": "Full embedded Z-lattice with symmetric integral pairing; nondegeneracy separate.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Quadratic.lean",
+        "provides": "Half-norm map on the quotient; evenness required.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_mk",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Discriminant/Quadratic.lean",
+        "provides": "Representative formula B(x,x)/2 modulo Z.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminant_eq_mul_relIndex_sq",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Index.lean",
+        "provides": "Same ambient form and nested full carriers: discriminant scales by square of index.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.isEven_iff_isIsotropic_discriminantSubgroup",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+        "provides": "Even nondegenerate base lattice; even intermediate carrier iff isotropic discriminant subgroup.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.PeriodDomain.Point",
+        "module": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+        "provides": "Fixed-form polarized Hodge filtrations with specified Hodge numbers; no analytic structure.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "provides": "Full Clifford quotient algebra.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.ι",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "provides": "Canonical linear generator map.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "mathlib:CliffordAlgebra.ι_sq_scalar",
+        "module": "Mathlib/LinearAlgebra/CliffordAlgebra/Basic.lean",
+        "provides": "Generator square equals the quadratic form in scalars.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "mathlib:hensels_lemma",
+        "module": "Mathlib/NumberTheory/Padics/Hensel.lean",
+        "provides": "Norm-form Hensel lemma in the root namespace, not PadicInt.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "mathlib:Nat.infinite_setOfPred_prime_and_eq_mod",
+        "module": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
+        "provides": "Infinitely many primes in a unit ZMod residue class with positive modulus.",
+        "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "PAPER-CHARLES-16/1",
+      "kind": "definition",
+      "name": "K3 surfaces",
+      "statement": "A K3 surface over k is a smooth projective geometrically integral surface X with ω_X≃O_X and H¹(X,O_X)=0; geometric base change is denoted X_kbar. Polarizations are ample line bundles, not assumed primitive.",
+      "locator": "§§1–2.1, pp.487–493",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: base change; polarization transport; canonical bundle and H¹ access. Tests: (1) Base change of a K3 remains K3; (2) A smooth quartic surface has trivial canonical bundle; (3) An abelian surface is excluded by H¹(O)≠0."
+    },
+    {
+      "id": "PAPER-CHARLES-16/2",
+      "kind": "definition",
+      "name": "Numerical Néron–Severi lattice",
+      "statement": "NS(X) is the group of line bundles modulo numerical equivalence with the intersection pairing; NS(X) and NS(X_kbar) are distinguished until Galois descent is proved.",
+      "locator": "§2.1, p.492",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: intersection bilinearity; base change injection; divisor representative independence. Tests: (1) Numerically equivalent bundles have equal pairings; (2) H ample has H²>0; (3) Geometric NS need not equal arithmetic NS before extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/3",
+      "kind": "theorem",
+      "name": "K3 cycle-class injection and torsion freeness",
+      "statement": "For ℓ invertible in k, c₁ embeds NS(X) into H²_et(X_kbar,Zℓ(1)); the K3 integral ℓ-adic cohomology and Picard group have the torsion-freeness used to identify numerical and cohomological divisor classes.",
+      "locator": "§2.1, p.492; §2.4 proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/4",
+      "kind": "construction",
+      "name": "ℓ-adic Mukai lattice",
+      "statement": "For X/k K3 and ℓ≠char k, form H⁰_et(X_kbar,Zℓ)⊕H²_et(X_kbar,Zℓ(1))⊕H⁴_et(X_kbar,Zℓ(2)), with pairing (a,b,c)·(a′,b′,c′)=b·b′−ac′−a′c.",
+      "locator": "Definition 2.1(i), p.492",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: three projections; cup pairing; Galois action; scalar extension. Tests: (1) (1,0,0)²=0; (2) (1,0,0)·(0,0,1)=−1; (3) (0,D,0)²=D²."
+    },
+    {
+      "id": "PAPER-CHARLES-16/5",
+      "kind": "construction",
+      "name": "Algebraic Mukai lattice",
+      "statement": "N(X)=Z⊕NS(X)⊕Zω with geometric degree-one point class ω and the same pairing. It maps into every prime-to-characteristic Mukai lattice; ω is a numerical generator, not a claim of a k-rational point.",
+      "locator": "Definition 2.1(ii), pp.492–493",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: rank/c₁/degree projections; geometric degree generator; cycle embedding. Tests: (1) (1,0,0) and ω span a hyperbolic plane with negative off-diagonal; (2) N has rank ρ+2; (3) The ω coordinate does not require a rational point."
+    },
+    {
+      "id": "PAPER-CHARLES-16/6",
+      "kind": "construction",
+      "name": "Sheaf Mukai vector",
+      "statement": "For a coherent sheaf F on a K3 surface, v(F)=ch(F)√td(X)=(rk F,c₁(F),χ(F)−rk F) in N(X). Tensoring by a line bundle acts by multiplication by its Chern-character exponential.",
+      "locator": "Definition 2.1(iii), p.493",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: additivity in K₀; tensor exponential; duality; RR compatibility. Tests: (1) v(O_X)=(1,0,1); (2) v(O_x)=(0,0,1) for a geometric point; (3) v(I_Z)=(1,0,1−length Z)."
+    },
+    {
+      "id": "PAPER-CHARLES-16/7",
+      "kind": "theorem",
+      "name": "Mukai Riemann–Roch pairing",
+      "statement": "For coherent F,G on X, Σ_i (−1)^i dim Ext^i(F,G)=−v(F)·v(G). This uses surface Grothendieck–Riemann–Roch, not a convention with the opposite Mukai sign.",
+      "locator": "Proposition 2.2, p.493",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/8",
+      "kind": "definition",
+      "name": "Gieseker stability",
+      "statement": "For a torsion-free sheaf of positive rank on a polarized smooth projective surface (X,H), compare reduced Hilbert polynomials of nonzero proper subsheaves for sufficiently large twists; strict comparison gives stability and weak comparison semistability.",
+      "locator": "§2.1, pp.493–494; cited Langer 2004",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: reduced Hilbert polynomial; subsheaf test; flat-family/base-change conditions. Tests: (1) A line bundle is stable; (2) Equal reduced polynomial is not a strict inequality; (3) Zero-rank torsion sheaves are not in this torsion-free positive-rank definition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/9",
+      "kind": "construction",
+      "name": "Stable-sheaf moduli space",
+      "statement": "Construct M_H(v), the coarse moduli scheme of H-stable sheaves of specified Mukai vector, from bounded families and GIT/Quot; establish the relative version over the lifting DVR, with projectivity when semistability equals stability.",
+      "locator": "§2.1; Theorem 2.4(i) proof, pp.494–495; Langer Th.0.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: moduli functor; coarse universal property; relative pullback; stabilizers. Tests: (1) Stable does not imply a universal sheaf on the coarse scheme; (2) An empty moduli functor must not be assigned a point; (3) Projectivity requires the semistable compactification or equality of stability notions."
+    },
+    {
+      "id": "PAPER-CHARLES-16/10",
+      "kind": "definition",
+      "name": "Condition (C)",
+      "statement": "For v=(r,D,s)∈N(X), require v primitive, r>0, v²>0 and gcd(r,H·D,s)=1. Neither primitivity alone nor positivity alone replaces the coprimality condition.",
+      "locator": "Definition 2.3, p.493",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: primitive, rank, norm and gcd projections; transport under allowed lattice isometries. Tests: (1) (1,0,−1) satisfies (C); (2) A multiple 2v fails primitivity; (3) v=(1,0,1) fails the positive-square condition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/11",
+      "kind": "theorem",
+      "name": "Coprimality excludes strictly semistable sheaves",
+      "statement": "Under (C), χ(F(tH))=rH²t²/2+(H·D)t+s+r forces every semistable sheaf of vector v to be stable, since equal reduced Hilbert polynomials of a proper positive-rank subsheaf contradict the gcd condition.",
+      "locator": "Theorem 2.4 proof, p.494",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/12",
+      "kind": "theorem",
+      "name": "Lifting up to ten divisor classes",
+      "statement": "For X over algebraically closed k of characteristic p>0 and line bundles L₁,…,L_s with L₁ ample and s≤10, a finite flat DVR extension of W(k) supports a smooth projective lift of X on which all L_i lift.",
+      "locator": "Proposition 1.5, p.491",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/13",
+      "kind": "theorem",
+      "name": "Finite-height K3 lifting with Picard data",
+      "statement": "A finite-height K3 surface over algebraically closed positive-characteristic k admits a characteristic-zero projective lift preserving the chosen Picard classes, in the finite extension of W(k) allowed by Lieblich–Maulik Cor.4.2.",
+      "locator": "Proposition 1.5 proof; Lieblich–Maulik 2014 Cor.4.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/14",
+      "kind": "theorem",
+      "name": "Dimension argument for simultaneous lifting",
+      "statement": "In the 19-dimensional polarized K3 deformation space the infinite-height locus has dimension 9, while imposing s−1 additional line-bundle lifts has codimension at most s−1. For s≤10 the resulting locus meets finite height; specialize its lift.",
+      "locator": "Proposition 1.5 proof; Artin 1974",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/15",
+      "kind": "theorem",
+      "name": "Smooth symplectic stable-sheaf moduli",
+      "statement": "Under (C), M_H(v) is smooth projective geometrically irreducible of dimension v²+2, with one-dimensional space of global two-forms generated by an everywhere nondegenerate form.",
+      "locator": "Theorem 2.4(i), pp.493–495",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/16",
+      "kind": "theorem",
+      "name": "Hilbert-scheme deformation type",
+      "statement": "Under (C), with 2n=v²+2, M_H(v) is deformation-equivalent to X^[n] in the paper's lifting sense; over C it is an irreducible holomorphic symplectic variety. Do not strengthen this to birationality with X^[n] for every v.",
+      "locator": "Theorem 2.4(i),(ii), pp.493–495",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/17",
+      "kind": "definition",
+      "name": "Irreducible holomorphic symplectic variety",
+      "statement": "A compact simply connected Kähler complex manifold whose H⁰(Ω²) is spanned by an everywhere nondegenerate two-form is irreducible holomorphic symplectic (IHS). Projectivity is an additional property, obtained from a positive integral (1,1)-class in the uses here.",
+      "locator": "§1.1 p.488; §3.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: symplectic form up to scalar; complex deformation; projective subcase. Tests: (1) A complex K3 is IHS; (2) A product of two K3 surfaces fails h²⁰=1; (3) A symplectic torus fails simple connectivity."
+    },
+    {
+      "id": "PAPER-CHARLES-16/18",
+      "kind": "construction",
+      "name": "Hilbert scheme of points on a K3 surface",
+      "statement": "Construct X^[n] representing length-n zero-dimensional subschemes, its Hilbert–Chow morphism to SymⁿX, the distinct/double-point open strata and exceptional divisor.",
+      "locator": "Theorem 2.4; Proposition 2.6 proof, pp.494–498",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hilbert functor; universal subscheme; Hilbert–Chow; diagonal strata. Tests: (1) X^[1]=X; (2) X^[0] is a point; (3) X^[2] is not Sym²X along the diagonal."
+    },
+    {
+      "id": "PAPER-CHARLES-16/19",
+      "kind": "theorem",
+      "name": "Prime-to-characteristic Beauville–Bogomolov form",
+      "statement": "For M=M_H(v), dim M=2n, each H²_et(M_kbar,Zℓ(1)) carries canonical q with (2n)!q(α)^n=n!·2^n∫α^(2n). This is the K3^[n] normalization; in dimension four ∫α⁴=3q(α)².",
+      "locator": "Theorem 2.4(iii), equation (2.1), pp.493–495",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/20",
+      "kind": "construction",
+      "name": "Beauville–Bogomolov form on NS",
+      "statement": "The common rational quadratic form on NS(M_kbar) is integral in characteristic zero and Z[1/p]-valued in characteristic p>0, and each prime-to-p cycle-class embedding preserves it. Equality of ℓ-adic realizations includes independence of ℓ.",
+      "locator": "Theorem 2.4(iv); Definition 2.5, pp.493–497",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: polar form; cycle compatibility; Tate twists; top-power normalization. Tests: (1) For fourfolds L⁴=3q(L)²; (2) q(mL)=m²q(L); (3) In positive characteristic no unproved Z-valued assertion replaces Z[1/p]."
+    },
+    {
+      "id": "PAPER-CHARLES-16/21",
+      "kind": "construction",
+      "name": "Mukai cohomological isometry",
+      "statement": "For v satisfying (C) and ℓ invertible in k, the algebraic Mukai correspondence gives a canonical Galois-equivariant isometric isomorphism θ_v,ℓ:v^⊥→H²_et(M_H(v)_kbar,Zℓ(1)).",
+      "locator": "Theorem 2.4(v), pp.494–497",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: forward/inverse map; Galois equivariance; pairing; cycle square. Tests: (1) The target rank is v^⊥ rank; (2) The Tate twist is (1); (3) The isotropic case instead uses v^⊥/v and is not this construction."
+    },
+    {
+      "id": "PAPER-CHARLES-16/22",
+      "kind": "construction",
+      "name": "Integral algebraic Mukai map",
+      "statement": "For finite or algebraically closed k and (C), θ_v:v^⊥∩N(X)→NS(M_H(v)) is an injective isometry compatible with θ_v,ℓ under all cycle maps.",
+      "locator": "Theorem 2.4(vi), pp.494–497",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: injectivity; pairings; specialization; realization compatibility. Tests: (1) The map preserves q; (2) After tensor Zℓ, ℓ≠p, it matches the cohomological map; (3) A p-primary cokernel need not vanish."
+    },
+    {
+      "id": "PAPER-CHARLES-16/23",
+      "kind": "theorem",
+      "name": "Prime-primary cokernel of the algebraic Mukai map",
+      "statement": "For the map of item 22, the cokernel is p-primary torsion in characteristic p>0 and zero in characteristic zero. The finite/algebraically closed base assumption is retained.",
+      "locator": "Theorem 2.4(vii), pp.494–497",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/24",
+      "kind": "construction",
+      "name": "Quasi-universal sheaf correspondence and descent",
+      "statement": "Use a quasi-universal sheaf with its similitude factor to define the rational cohomological and numerical Mukai maps; prove integrality using the prime-to-p realizations, lifting divisor classes, and the vanishing of Br(k) for finite/algebraically closed k.",
+      "locator": "Theorem 2.4(vi),(vii) proof, pp.495–497",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: similitude normalization; independence; Chern-character action; base change. Tests: (1) Changing a quasi-universal multiplicity does not change the rational map; (2) A universal sheaf has multiplicity one; (3) Division by multiplicity is not itself an integrality proof."
+    },
+    {
+      "id": "PAPER-CHARLES-16/25",
+      "kind": "theorem",
+      "name": "Degeneration for a Witt-lifted sheaf moduli space",
+      "statement": "For algebraically closed k of characteristic p and a projective W(k)-lift of (X,v,H) satisfying (C), the Hodge-to-de Rham spectral sequence of M_H(v) degenerates at E₁ if p>dim M=v²+2.",
+      "locator": "Proposition 2.6 first conclusion, p.498",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/26",
+      "kind": "theorem",
+      "name": "Degree-one Hodge numbers of Witt-lifted moduli",
+      "statement": "Under item 25's W(k)-lifting hypotheses, h¹⁰(M_H(v))=h⁰¹(M_H(v))=0 for p>2.",
+      "locator": "Proposition 2.6(1), p.498",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/27",
+      "kind": "theorem",
+      "name": "Integral low-degree cohomology of K3 Hilbert schemes",
+      "statement": "For a complex projective K3 surface S and n≥2, H²(S^[n],Z) is torsion-free and H³(S^[n],Z)=0; the Hilbert–Chow open-stratum calculation and codimension-two restriction prove the second assertion.",
+      "locator": "Proposition 2.6 proof, p.498; Beauville 1983 §6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/28",
+      "kind": "theorem",
+      "name": "Crystalline torsion-freeness in the small-degree lifting regime",
+      "statement": "For the W-lifted moduli spaces in Proposition 2.6, the stated Fontaine–Messing small-weight integral comparison and Hilbert-scheme topology give the H²/H³ crystalline freeness needed for the p>2/p>3 Hodge conclusions. One must verify the exact degree/prime range, not use the converse of a general torsion inequality.",
+      "locator": "Proposition 2.6 proof; Fontaine–Messing 1987",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/29",
+      "kind": "theorem",
+      "name": "Saturated NS specialization and integral generic Mukai map",
+      "statement": "For finite or algebraically closed k, p>2, and a projective W(k)-lift (X,v,H), θ_v,η is integral and commutes with specialization. H¹(O_M)=0 and the Elsenhans–Jahnel specialization theorem supply torsion-free cokernel for NS_generic→NS_special.",
+      "locator": "Corollary 2.7, p.499",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/30",
+      "kind": "definition",
+      "name": "Integral symmetric lattice carrier",
+      "statement": "Use a full finitely generated Z-submodule of a rational vector space with a symmetric rational bilinear form integral on its carrier; nondegeneracy and evenness are separate predicates.",
+      "locator": "§2.2, p.500; pinned lattice carrier",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse carrier/form projections, extensionality and Gram constructors. Tests: (1) The hyperbolic plane is integral and indefinite; (2) ⟨1⟩ is integral but not even; (3) Nondegeneracy is not built into the base structure."
+    },
+    {
+      "id": "PAPER-CHARLES-16/31",
+      "kind": "construction",
+      "name": "Half-norm discriminant quadratic form",
+      "statement": "For an even nondegenerate integral lattice L, put A_L=L^∨/L and q_half(x+L)=B(x,x)/2 modulo Z. Charles/Nikulin use q_full=B(x,x) modulo 2Z; transport through Q/2Z→Q/Z, x↦x/2, rather than equating the two values.",
+      "locator": "§2.2 p.500; baseline normalization",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap",
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_mk"
+      ],
+      "planned": [],
+      "note": "Library supplies the half-norm version. The explicit full-norm/half-norm transport is a consuming conversion, not an assertion that 1/(2d)=1/(4d). API: quotient representatives; polar form; isometry transport. Tests: (1) On ⟨2d⟩ the half-norm generator is 1/(4d) mod Z; (2) Adding a lattice vector leaves the value unchanged for even L; (3) An odd L has no such half-norm descent without additional data."
+    },
+    {
+      "id": "PAPER-CHARLES-16/32",
+      "kind": "theorem",
+      "name": "Discriminant under a full sublattice",
+      "statement": "For L⊂M integral lattices in the same rational space with the same form, disc(L)=disc(M)[M:L]², with disc the absolute determinant.",
+      "locator": "Corollary 2.8 proof; Proposition 4.3 proof; LMS Lemma 2.1.1",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.discriminant_eq_mul_relIndex_sq"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable."
+    },
+    {
+      "id": "PAPER-CHARLES-16/33",
+      "kind": "theorem",
+      "name": "Even-overlattice isotropy criterion",
+      "statement": "An intermediate carrier L⊂M⊂L^∨ for an even nondegenerate L is even exactly when q_half vanishes on M/L. Preserve the separate bilinear criterion for mere integrality.",
+      "locator": "§2.2 gluing argument; Nikulin §1.4 input",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.isEven_iff_isIsotropic_discriminantSubgroup"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable."
+    },
+    {
+      "id": "PAPER-CHARLES-16/34",
+      "kind": "theorem",
+      "name": "Corrected nonisotropic Mukai discriminant formula",
+      "statement": "Let K=v^⊥∩N(X), I=[N(X):Zv⊕K], and [NS(M):θ_vK]=p^a in characteristic p>0. Then |disc NS(X)|=p^(2a)(v²/I²)|disc NS(M)|; I divides v². Thus the multiplier is a positive rational number ≤v², not necessarily an integer.",
+      "locator": "Corollary 2.8, pp.499–500, corrected by its index proof",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/35",
+      "kind": "theorem",
+      "name": "Hilbert-square counterexample to integer multiplier",
+      "statement": "For v=(1,0,−1), v²=2, M=X^[2], and odd p in the usual Hilbert-square NS comparison, disc NS(M)=2 disc NS(X). Hence disc NS(X)=p^t λ disc NS(M) cannot hold with integers t≥0, λ>0. In the lattice calculation I=2 and v²/I²=1/2.",
+      "locator": "Corollary 2.8 literal statement, p.499; index calculation",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/36",
+      "kind": "definition",
+      "name": "Rank-three lattice Λ₂d",
+      "statement": "For d>0 define Λ₂d=⟨2d⟩⊕U, with U the even unimodular hyperbolic plane. Its discriminant group is Z/(2d), with full-norm value 1/(2d) on the standard generator.",
+      "locator": "§2.2, pp.500–501",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration. API: Gram constructor; hyperbolic summand; discriminant generator. Tests: (1) rank Λ₂d=3; (2) |disc Λ₂d|=2d; (3) Full-norm and half-norm generator values differ by two."
+    },
+    {
+      "id": "PAPER-CHARLES-16/37",
+      "kind": "theorem",
+      "name": "Nikulin primitive embedding criterion in signature (2,1)",
+      "statement": "For an even positive definite rank-two lattice Λ and n>0, existence of a primitive embedding into Λ₂n is tested by subgroups V⊂A_Λ,W⊂A₂n, an isometry γ of their restricted full-norm forms, and t>0 such that Γ_γ^⊥/Γ_γ is the cyclic form of order 2t with generator norm 1/(2t). The precise embedding-orbit classification is withheld pending the Nikulin source check.",
+      "locator": "Proposition 2.9 proof, pp.500–501; Nikulin Prop.1.15.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration. G5: no claim of a literal bijection between raw embeddings and these data."
+    },
+    {
+      "id": "PAPER-CHARLES-16/38",
+      "kind": "theorem",
+      "name": "Congruence transport of a primitive embedding",
+      "statement": "Given d>0 and positive definite rank-two sublattice Λ⊂Λ₂d, there are N>0 and a,b≠0 such that for m>0, m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m, Λ embeds primitively into Λ₂md.",
+      "locator": "Proposition 2.9, pp.500–502",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/39",
+      "kind": "theorem",
+      "name": "Cyclic gluing-quotient transport",
+      "statement": "Under m≡1 mod 4dt and |A_Λ| and the finite coprimality exclusions in the proof, Id⊕m maps the old discriminant data into A_Λ⊕A₂md. The new Γ^⊥/Γ is cyclic of order 2tm; its generator has full norm 1/(2t)+y₀²(m−1)/(2md).",
+      "locator": "Proposition 2.9 proof, pp.501–502",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/40",
+      "kind": "theorem",
+      "name": "Generator rescaling congruence",
+      "statement": "With the preceding gluing data, a generator of norm 1/(2tm) is obtained from λ≡1 mod 4dt and λ²ty₀²+d≡0 mod m. The assumptions that −d,t are invertible squares modulo m solve this congruence by CRT and ensure λ is prime to 2tm.",
+      "locator": "Proposition 2.9 proof, p.502",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/41",
+      "kind": "construction",
+      "name": "Norm-two Mukai vector and positive orthogonal class",
+      "statement": "Choose positive definite Λ⊂Λ₂d with v²=2 and v·w=1, and nonzero l⊥v of positive norm, prime to any prescribed odd integer n when required. A transported embedding makes v primitive with gcd(rk v,Hc₁(v),s)=1; an isometry makes its rank positive.",
+      "locator": "Theorem 2.10 proof, p.503",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: lattice embedding; positive-rank adjustment; v,w,l access. Tests: (1) v·w=1 implies v primitive; (2) v²=2 gives dim M=4; (3) An arbitrary positive vector need not satisfy the gcd condition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/42",
+      "kind": "theorem",
+      "name": "Zarhin analogue over arbitrary fields",
+      "statement": "For every d>0 and field k, there exist r,N>0 and a,b≠0 such that any polarized K3 (X,H)/k with H²=2md and m satisfying item 38 has v satisfying (C), c₁(v) proportional to H, dim M_H(v)=4, and a line bundle L with L⁴=r and q(L)>0.",
+      "locator": "Theorem 2.10(i)–(iii), pp.502–504; Theorem 1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/43",
+      "kind": "theorem",
+      "name": "Prime-to-n positive and ample classes",
+      "statement": "For item 42 and an integer n prime to 6, choices can make q(L) an integer prime to n and supply an ample A with integral q(A) prime to n. If k is finite or algebraically closed, it suffices that n is odd.",
+      "locator": "Theorem 2.10 additional conclusion, pp.502–504",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/44",
+      "kind": "theorem",
+      "name": "Witt lifting of the Zarhin triple",
+      "statement": "If char k=p>2 and (X_kbar,H) lifts to W(kbar), the choices in Theorem 2.10 can make (M_H(v)_kbar,L,A) lift to W(kbar). This is an unramified lift hypothesis, stronger than Proposition 1.5's finite DVR extension.",
+      "locator": "Theorem 2.10 last conclusion, pp.502–504",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/45",
+      "kind": "theorem",
+      "name": "Brauer obstruction killed by a zero-cycle degree",
+      "statement": "A geometrically defined line bundle with Galois-invariant class has a Brauer descent obstruction; if a smooth proper geometrically integral variety has a k-zero-cycle of degree e, the obstruction is killed by e, so its e-th tensor power descends.",
+      "locator": "Theorem 2.10 descent proof, p.504",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "note": "R09.3 explicitly distinguishes line-bundle descent from object descent. The Brauer-obstruction/zero-cycle statement is its concrete additional source, not a library declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/46",
+      "kind": "theorem",
+      "name": "Hilbert-square descent exponent",
+      "statement": "For M of K3^[2]-type the top Chern number is 324=2²3⁴, yielding a degree-324 zero-cycle and descent of the 324th power of the geometric L. This explains the prime-to-6 restriction over arbitrary k.",
+      "locator": "Theorem 2.10 proof, p.504",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/47",
+      "kind": "theorem",
+      "name": "Six-dimensional descent variant",
+      "statement": "Replacing the fourfold construction by a K3^[3]-type sixfold gives top Chern number 3200=2⁷5², and permits an arbitrary-field version avoiding a factor of 3 in the descent exponent. This is a distinct dimensional variant, not the fourfold's stronger conclusion.",
+      "locator": "Remark 2.11, p.504",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/48",
+      "kind": "theorem",
+      "name": "Positive-square K3 classes can be made nef",
+      "statement": "On a K3 surface over an algebraically closed field, a class of positive square can, after sign and reflections in effective (−2)-classes, be replaced by a big nef line bundle of the same square.",
+      "locator": "Proposition 3.1 proof, p.505; Ogus 1.10, Huybrechts Ch.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/49",
+      "kind": "theorem",
+      "name": "K3 nef Riemann–Roch and fixed components",
+      "statement": "For big nef L on a K3 surface, H¹(L)=0 and h⁰(L)=L²/2+2; the Saint-Donat fixed-part analysis reduces to a movable positive-square class or mE+Γ with E²=0, E genus one and Γ a (−2)-curve. The specified multiple becomes fixed-part-free and base-point-free.",
+      "locator": "Proposition 3.1 proof, pp.505–506; Saint-Donat §§2,8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/50",
+      "kind": "theorem",
+      "name": "K3 birational boundedness at fixed positive square",
+      "statement": "For each r>0 there exist N,d>0 such that every K3 X over an algebraically closed field in any characteristic with a line bundle L of square r has some L′ with h⁰(L′)≤N and |L′| birational onto an image of degree ≤d. The source's final numerical constants and r=2 jet inequality are not asserted.",
+      "locator": "Proposition 3.1, pp.504–506",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unrouted checkpoint: see explicit gap register."
+    },
+    {
+      "id": "PAPER-CHARLES-16/51",
+      "kind": "theorem",
+      "name": "Finite geometric K3 classes at fixed positive square",
+      "statement": "For finite k and r>0, finitely many kbar-isomorphism classes of K3 surfaces defined over k admit a line bundle on X_kbar of square r; this conclusion includes characteristic two.",
+      "locator": "Corollary 3.2, pp.506–507; bars restored from source convention",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/52",
+      "kind": "theorem",
+      "name": "Uniform extension killing the geometric NS action",
+      "statement": "For K3 surfaces over finite k, a common finite extension depending only on the rank bound 22 makes the Galois action on geometric NS trivial; Br of the finite field vanishes, so invariant line-bundle classes descend.",
+      "locator": "Corollary 3.2 proof; LMS §2.3, extension degree 6983776800",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/53",
+      "kind": "theorem",
+      "name": "Finite forms of a K3 surface in odd characteristic",
+      "statement": "For a fixed K3 surface over a finite field of characteristic at least three, its k-forms constitute a finite set. This uses the automorphism action on the nef cone, finite kernel/index, and finiteness of relevant twisted conjugacy classes.",
+      "locator": "Corollary 3.2; LMS Prop.2.4.1 and Lieblich–Maulik cone theorem",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/54",
+      "kind": "theorem",
+      "name": "Positive integral IHS class implies projectivity and bigness up to sign",
+      "statement": "For a compact complex IHS manifold, an integral (1,1)-class of positive Beauville–Bogomolov square implies projectivity; the associated line bundle or its dual is big in the source's positive-cone choice.",
+      "locator": "§1.1 p.488; Lemma 3.5 proof; Huybrechts 1999 with 2003 erratum",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/55",
+      "kind": "theorem",
+      "name": "Local Torelli and rank-one deformation",
+      "statement": "The IHS local period map is locally an isomorphism. Keeping a positive line-bundle class of type (1,1), one can choose a small deformation with Picard rank one, where that line bundle or its dual is ample.",
+      "locator": "Lemma 3.5 proof, p.507; Beauville Th.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/56",
+      "kind": "theorem",
+      "name": "Kollár–Matsusaka boundedness used here",
+      "statement": "For smooth complex projective varieties of dimension 2n with trivial canonical bundle and an ample L of fixed top self-intersection r, the polarized varieties are bounded. The general theorem controls the required intersection data; this is its K=0 specialization.",
+      "locator": "Lemma 3.5 proof, pp.507–508; Kollár–Matsusaka 1983",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ],
+      "note": "R09.1 explicitly plans relative ampleness, Hilbert polynomials and boundedness; these precise source lemmas refine that scope. No accepted finer packet supplies them."
+    },
+    {
+      "id": "PAPER-CHARLES-16/57",
+      "kind": "theorem",
+      "name": "Finite polarized deformation representatives",
+      "statement": "For n,r>0 there are finitely many ample IHS pairs (X_i,L_i), dim 2n and L_i^(2n)=r, such that every IHS (X,L) with L^(2n)=r and q(L)>0 has (X,L) or (X,L^−1) deformation-equivalent to one of them.",
+      "locator": "Lemma 3.5, pp.507–508",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/58",
+      "kind": "theorem",
+      "name": "Uniform birational sections in a fiberwise-big family",
+      "statement": "For a projective family X→S over a noetherian complex base and a line bundle big on every complex fiber (in the source's variety scope), there exist a,N,d with h⁰(X_s,aL_s)≤N and |aL_s| birational of image degree ≤d for all s. Baire gives generic bigness, spreading and noetherian induction give uniformity.",
+      "locator": "Lemma 3.6, p.508",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1"
+      ],
+      "note": "R09.1 explicitly plans relative ampleness, Hilbert polynomials and boundedness; these precise source lemmas refine that scope. No accepted finer packet supplies them."
+    },
+    {
+      "id": "PAPER-CHARLES-16/59",
+      "kind": "definition",
+      "name": "Orthogonal IHS period domain",
+      "statement": "For Λ=H²(X,Z), positive l=c₁(L), and Λ_prim=l^⊥, define D={ [x]∈P(Λ_prim⊗C): q(x)=0, (x,xbar)>0 }; select the relevant connected component and extendable lattice isometries fixing l.",
+      "locator": "Theorem 3.3 proof, pp.508–509",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: isotropic-line predicate; positivity; component; extendable isometry action. Tests: (1) Rescaling x by z≠0 preserves the point and positivity; (2) A real isotropic line fails (x,xbar)>0; (3) The ambient form is fixed while the line varies."
+    },
+    {
+      "id": "PAPER-CHARLES-16/60",
+      "kind": "construction",
+      "name": "Existing polarized Hodge period-domain points",
+      "statement": "For a finite free integral lattice, its complexification, fixed integral polarization and prescribed finite Hodge type, a point consists of a Hodge filtration polarized by that fixed form with the given Hodge numbers. This supplies point data, not D's analytic structure or Torelli.",
+      "locator": "§3.2 period-domain construction; pinned Hodge PeriodDomain.Point",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.Hodge.PeriodDomain.Point"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse filtration projection, Hodge numbers, polarization and extensionality. Tests: (1) Equal filtrations give equal points; (2) Hodge numbers sum to the lattice rank; (3) The datum does not include a manifold structure."
+    },
+    {
+      "id": "PAPER-CHARLES-16/61",
+      "kind": "theorem",
+      "name": "Polarized monodromy is arithmetic",
+      "statement": "The parallel-transport monodromy group of the fixed IHS deformation type and positive class has finite index in the subgroup of O(Λ_prim) extending to O(Λ) fixing l; choose a common finite-index torsion-free arithmetic subgroup Γ.",
+      "locator": "Theorem 3.3 proof p.508; Sullivan, Markman Prop.1.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/62",
+      "kind": "theorem",
+      "name": "Baily–Borel algebraicity",
+      "statement": "For the orthogonal Hermitian symmetric domain and torsion-free arithmetic Γ in the source setting, Γ\\D is a normal quasi-projective algebraic variety, with its minimal compactification.",
+      "locator": "Theorem 3.3 proof p.508; Baily–Borel 1966",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ShimuraVarieties:V2"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-CHARLES-16/63",
+      "kind": "construction",
+      "name": "Family period map and its algebraicity",
+      "statement": "Parallel transport for a smooth quasi-projective family of the fixed polarized deformation type whose monodromy lies in Γ defines S→Γ\\D. The Hodge-theoretic holomorphic map is algebraic by Borel's algebraicity theorem.",
+      "locator": "Theorem 3.3 proof p.509",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: parallel transport; basepoint change; Γ invariance; family pullback. Tests: (1) Constant marked families have constant periods; (2) Changing marking by Γ does not change the quotient point; (3) An arbitrary Hodge isometry is not automatically monodromy."
+    },
+    {
+      "id": "PAPER-CHARLES-16/64",
+      "kind": "theorem",
+      "name": "Borel algebraicity input",
+      "statement": "A holomorphic map from a smooth complex algebraic variety into a torsion-free arithmetic quotient of a bounded Hermitian symmetric domain is algebraic in the precise Borel theorem used by the source.",
+      "locator": "Theorem 3.3 proof p.509; Borel Th.3.10",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "ShimuraVarieties:V3"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-CHARLES-16/65",
+      "kind": "theorem",
+      "name": "IHS global Torelli in parallel-transport scope",
+      "statement": "Two marked IHS pairs of the fixed deformation type with markings obtained by parallel transport and the same period in Γ\\D are birational. A bare Hodge isometry without the parallel-transport condition is not asserted sufficient.",
+      "locator": "Theorem 3.3 proof p.509; Verbitsky, Markman Th.1.10/Prop.1.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/66",
+      "kind": "theorem",
+      "name": "Surjectivity and algebraized period-covering families",
+      "statement": "Surjectivity of the marked IHS period map, preservation of NS at a very general point of a remaining period stratum, local Torelli, algebraization using an ample class, resolution and a finite monodromy cover produce finitely many smooth quasi-projective families whose period images cover Γ\\D.",
+      "locator": "Theorem 3.3 proof pp.509–510; Huybrechts Th.8.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/67",
+      "kind": "theorem",
+      "name": "Birational IHS Picard and section transport",
+      "statement": "A birational map of smooth projective IHS varieties is an isomorphism outside codimension ≥2; strict transform identifies Picard groups, sections of corresponding line bundles, and the Beauville–Bogomolov form/top intersection used here.",
+      "locator": "Theorem 3.3 proof p.510",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/68",
+      "kind": "theorem",
+      "name": "Weak birational Matsusaka for IHS varieties",
+      "statement": "For n,r>0 there exist a,N,d such that any complex IHS X of dimension 2n with L^(2n)=r and q(L)>0 has a possibly different L′ with (L′)^(2n)=r, h⁰(aL′)≤N and |aL′| birational onto an image of degree ≤d.",
+      "locator": "Theorem 3.3 first conclusion p.507",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/69",
+      "kind": "theorem",
+      "name": "Birationally bounded IHS family",
+      "statement": "For n,r>0, a projective family over a finite-type complex scheme has among its fibers a birational representative of every complex IHS X of dimension 2n admitting L with L^(2n)=r and q(L)>0.",
+      "locator": "Theorem 1.2; Theorem 3.3 second conclusion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/70",
+      "kind": "definition",
+      "name": "Admissible triple",
+      "statement": "For perfect k, p>3, W=W(k) and an embedding Frac W→C, an admissible (M₀,H₀,L₀) is realized at a k-point of smooth irreducible W-scheme T by a smooth projective family M, relatively ample H and L, whose complex fibers are IHS, q(L)>0, H²/H³ singular cohomology are torsion-free, and the BB form on Λ_l=c₁(L)^⊥ is nondegenerate modulo p.",
+      "locator": "Setup and Definition 3.8, pp.511–512",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: realizing family; point; primitive lattice; prime and torsion hypotheses. Tests: (1) p=3 is excluded; (2) A form degenerate modulo p is excluded; (3) H is ample but L is only required to have q(L)>0."
+    },
+    {
+      "id": "PAPER-CHARLES-16/71",
+      "kind": "definition",
+      "name": "Strong admissibility",
+      "statement": "An admissible triple is strongly admissible if its realizing family can be chosen with geometric generic special fiber ordinary in degree two (H²_crys torsion-free and Newton polygon=Hodge polygon), and NS⊗Q generated by the classes of H and L.",
+      "locator": "Definition 3.8 continuation, p.512",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: admissible projection; ordinary locus; generic NS span. Tests: (1) Strong admissibility implies admissibility; (2) Ordinarity requires torsion-free H²_crys as well as polygon equality; (3) The generic NS span may have dimension one when H,L are dependent."
+    },
+    {
+      "id": "PAPER-CHARLES-16/72",
+      "kind": "definition",
+      "name": "Superspecial K3 surface",
+      "statement": "A K3 surface in positive characteristic is superspecial if its Hodge and conjugate filtrations on H²_dR(X_kbar/kbar) coincide; this is not a synonym for every supersingular K3 surface.",
+      "locator": "§3.3, p.512; Ogus Ex.1.10",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hodge/conjugate filtrations; base change; comparison with deformation locus. Tests: (1) Equality is of filtrations, not just dimensions; (2) Supersingular is not substituted for superspecial; (3) The definition is geometric over kbar."
+    },
+    {
+      "id": "PAPER-CHARLES-16/73",
+      "kind": "theorem",
+      "name": "Smooth polarized deformation of a nonsuperspecial K3",
+      "statement": "For a nonsuperspecial primitively polarized K3 in the p≥5 setting used here, the formal polarized deformation space is formally smooth of relative dimension 19 over W; the generic special fiber can be chosen ordinary with minimal prescribed Picard group.",
+      "locator": "Proposition 3.10 proof, pp.512–513; Ogus",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/74",
+      "kind": "theorem",
+      "name": "Obstruction-killing lift of a moduli line bundle",
+      "statement": "In the deformation of the Zarhin moduli space, the obstruction to extending L lies in H²(O_M) tensored with the successive deformation ideal, a free W-module of rank one. An already lifting power of L makes this obstruction torsion, hence zero; inductively lift L and algebraize the polarized family.",
+      "locator": "Proposition 3.10 proof, pp.512–513",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/75",
+      "kind": "theorem",
+      "name": "Zarhin fourfolds are strongly admissible",
+      "statement": "For nonsuperspecial polarized K3 (X,H) in characteristic at least five and the choices of Theorem 2.10, some ample A on M_H(v) makes (M_H(v),A,L) strongly admissible.",
+      "locator": "Proposition 3.10, pp.512–513",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/76",
+      "kind": "construction",
+      "name": "Full Clifford algebra",
+      "statement": "For a quadratic form Q on an R-module, construct the R-algebra generated by a linear map ι with ι(x)²=Q(x)·1, with the universal property. The full algebra, not only its even part, is used in equation (3.2).",
+      "locator": "§3.3 equation (3.2), p.514",
+      "status": "library",
+      "library": [
+        "mathlib:CliffordAlgebra",
+        "mathlib:CliffordAlgebra.ι",
+        "mathlib:CliffordAlgebra.ι_sq_scalar"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse ι, lift, uniqueness and functorial algebra maps. Tests: (1) ι(x)²=Q(x); (2) The full algebra retains odd generators; (3) Q=0 gives the exterior-algebra specialization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/77",
+      "kind": "construction",
+      "name": "Kuga–Satake Hodge construction",
+      "statement": "From the polarized primitive weight-two Hodge structure with h²⁰=1, construct the weight-one structure on its full Clifford algebra, integral lattice and polarized abelian variety, with a Clifford action and the primitive weight-zero embedding into endomorphisms of H¹.",
+      "locator": "§3.3 pp.511–514; Deligne 1972 §6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: Hodge construction; lattice; abelian realization; Clifford action; primitive embedding. Tests: (1) The source weight-two class is twisted before becoming an endomorphism; (2) The input h²⁰=1 condition is retained; (3) The full-Clifford realization is not silently replaced by its even part."
+    },
+    {
+      "id": "PAPER-CHARLES-16/78",
+      "kind": "construction",
+      "name": "Spin level and orthogonal Shimura data",
+      "statement": "For admissible primitive lattices Λ_l,Λ_h,Λ_lh and a prime-to-p level n≥3, construct spin level structures after the allowed finite étale cover and the associated orthogonal Shimura varieties, their maps and the period map preserving h and l.",
+      "locator": "§3.3 pp.513–514; André, Rizov, Charles 2013",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: level pullback; orthogonal lattice embeddings; period-map functoriality. Tests: (1) Use n≥3, not the printed n≤3 typo; (2) p does not divide the level; (3) A Λ_lh period preserves both h and l."
+    },
+    {
+      "id": "PAPER-CHARLES-16/79",
+      "kind": "theorem",
+      "name": "Descent of the IHS orthogonal period map",
+      "statement": "In the admissible setup, the h-polarized period map descends from C to K=Frac W; the closed immersion of the simultaneous (l,h) period variety into the h-period variety forces the simultaneous map and hence its l-projection to be defined over K.",
+      "locator": "§3.3 p.513; Charles 2013 Prop.16; André App.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/80",
+      "kind": "construction",
+      "name": "Integral Kuga–Satake mapping",
+      "statement": "For the spin-level admissible family, κ_K:T_K→A_g,d₀,n,K uniquely extends to κ:T→A_g,d₀,n over W, with p∤d₀ and the level prime to p. The target's polarization degree is d₀² in equation (3.1); distinguish d₀ from its square.",
+      "locator": "Definition 3.11 and construction, pp.513–514",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: generic-fiber recovery; uniqueness; base change; universal abelian scheme. Tests: (1) Restricting κ to T_K recovers κ_K; (2) The polarization parameter d₀ corresponds to degree d₀²; (3) No bad-prime smooth model follows from this construction."
+    },
+    {
+      "id": "PAPER-CHARLES-16/81",
+      "kind": "theorem",
+      "name": "Clifford-equivariant étale comparison",
+      "statement": "For κ's abelian scheme ψ and the IHS family π, C(R²π_*Zℓ(1)_prim)≃End_C(R¹ψ_*Zℓ) as ℓ-adic algebra sheaves, compatible with the full Clifford action and prime-to-p realizations.",
+      "locator": "Equation (3.2), p.514; Deligne §6.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/82",
+      "kind": "theorem",
+      "name": "Primitive filtered crystalline Kuga–Satake embedding",
+      "statement": "On the formal neighborhood of the marked point, R²π_*Ω•(1)_prim embeds primitively and strictly into End_C(R¹ψ_*Ω•) as filtered Frobenius crystals, compatibly with the BB form and étale comparison. The fiber version retains both primitive and (1).",
+      "locator": "Equations (3.3)–(3.4), p.514, latter notation corrected",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/83",
+      "kind": "theorem",
+      "name": "Good-prime integral orthogonal model and finite KS map",
+      "statement": "For the p-self-dual primitive lattice of this admissible construction at p≥5 and sufficiently small prime-to-p spin level, construct the smooth integral orthogonal model and the finite unramified extension of its Kuga–Satake map used in (3.5). This is not a claim about all primes or arbitrary PEL normalizations.",
+      "locator": "Lemma 3.12 proof, pp.514–515; Kisin 2010",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/84",
+      "kind": "theorem",
+      "name": "Finite primitive crystalline realizations over a fixed KS variety",
+      "statement": "For fixed primitive lattice Λ_l and polarized level-n abelian A₀/k in the admissible setup, only finitely many primitive crystalline subspaces in End(H¹_crys(A₀/W)) arise from such triples. Finiteness of the integral KS fiber and horizontal transport make the rational image independent of its lift; saturation recovers the integral image.",
+      "locator": "Lemma 3.12, pp.514–515, primitive indices restored",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension."
+    },
+    {
+      "id": "PAPER-CHARLES-16/85",
+      "kind": "theorem",
+      "name": "Special endomorphisms identify the primitive NS lattice",
+      "statement": "For a strongly admissible triple over algebraically closed k, NS(M₀)∩c₁(L₀)^⊥ is isometric to End(A₀)∩Im(i), with i the primitive twisted crystalline embedding. Lift divisors and special endomorphisms, use Lefschetz (1,1), and the ordinary deformation argument; full H² would give the wrong domain.",
+      "locator": "Lemma 3.15, pp.515–516; Charles 2013 Prop.22 and erratum context",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/86",
+      "kind": "theorem",
+      "name": "Finite NS lattices for strongly admissible triples",
+      "statement": "For finite k of characteristic ≥5 and fixed n,r>0, only finitely many geometric NS lattices occur for strongly admissible (M₀,H₀,L₀) with dim M₀=2n and L₀^(2n)=r.",
+      "locator": "Proposition 3.16, pp.516–517",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/87",
+      "kind": "theorem",
+      "name": "Finite integral lattices of bounded rank and discriminant",
+      "statement": "For a bound on rank and a positive bound on absolute nonzero determinant, there are finitely many isometry classes of nondegenerate integral symmetric lattices (with signatures retained); apply to the BB Néron–Severi forms.",
+      "locator": "Proposition 3.16 proof p.517; Cassels Ch.9 Th.1.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/88",
+      "kind": "theorem",
+      "name": "Corrected unpolarized K3 finiteness",
+      "statement": "For finite k, p≥5, d,t₀>0, there are N>0,a,b≠0 such that only finitely many underlying k-isomorphism classes of nonsuperspecial K3 X admit some H with H²=2md, m≡1 mod N, gcd(m,ab)=1, a,b squares mod m and v_p(disc NS(X_kbar))≤t₀. The conclusion does not count polarized pairs (X,H).",
+      "locator": "Proposition 3.17 proof, pp.517–518, corrected conclusion",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/89",
+      "kind": "theorem",
+      "name": "Unbounded polarizations defeat the printed finiteness conclusion",
+      "statement": "Fix an eligible nonsuperspecial (X,H), H²=2d. Choose a good prime ℓ with a,b square mod ℓ and ℓ prime to Np, and take j in a multiple of the order modulo N. The bundles H^(ℓ^j) have m=ℓ^(2j), satisfy the congruence/residue conditions and the same NS discriminant bound, but have unbounded degree; thus infinitely many polarized pairs.",
+      "locator": "Proposition 3.17 literal statement p.517; elementary counterexample",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/90",
+      "kind": "definition",
+      "name": "Tate conjecture for K3 divisors",
+      "statement": "For K3 X over a finite field k and ℓ≠char k, the divisor cycle map NS(X)⊗Zℓ→H²_et(X_kbar,Zℓ(1))^Gal(kbar/k) is an isomorphism. In this setting integral saturation converts the usual rational divisor Tate statement to this form.",
+      "locator": "§4 opening, pp.518–520",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture. API: cycle map; Galois invariants; rational/integral comparison; finite-extension descent. Tests: (1) Algebraic divisor classes give invariant classes; (2) Geometric H² itself is not the invariant target; (3) Arithmetic Brauer finiteness, not geometric Brauer finiteness, is equivalent."
+    },
+    {
+      "id": "PAPER-CHARLES-16/91",
+      "kind": "theorem",
+      "name": "Tate–Brauer finiteness criterion",
+      "statement": "For a K3 surface over finite k, the divisor Tate conjecture is equivalent to finiteness of Br(X), equivalently of Br(X){ℓ} for one (and then every) ℓ≠char k. The characteristic-two case uses Milne's supplement; this concerns arithmetic Br(X), not geometric Br(X_kbar).",
+      "locator": "§4 opening; Lemma 4.5 proof; Tate 1995 and Milne 1975",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/92",
+      "kind": "definition",
+      "name": "Arithmetic transcendental ℓ-adic lattice",
+      "statement": "After finite extension so NS(X)=NS(X_kbar), T(X,Zℓ) is the orthogonal complement of NS(X)⊗Zℓ in H²_et(X,Zℓ(1)), identified with the Galois invariants of geometric H². It is not the entire geometric transcendental lattice.",
+      "locator": "§4.2 p.520; LMS §3.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; Galois invariants; inclusion; discriminant. Tests: (1) An algebraic class pairs to zero with T; (2) Under Tate this arithmetic T has rank zero; (3) The geometric transcendental space can remain nonzero under Tate."
+    },
+    {
+      "id": "PAPER-CHARLES-16/93",
+      "kind": "construction",
+      "name": "ℓ-adic B-fields and Kummer Brauer classes",
+      "statement": "For ℓ invertible in k and n>0, a primitive α∈H²_et(X,Zℓ(1)) defines B=α/ℓ^n. Its reduction in H²(X,μ_(ℓ^n)) maps to Br(X)[ℓ^n] by Kummer. Transcendence and exact geometric Brauer order are extra assumptions for the integral twisted-lattice/moduli statements below.",
+      "locator": "§4.1 p.518; LMS §§3.1–3.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Kummer reduction; denominator change; gerbe sign; base change. Tests: (1) An algebraic α may give trivial Brauer class; (2) Primitivity in H² alone does not prove exact Brauer order; (3) The negative gerbe convention changes [α_n] to −[α_n]."
+    },
+    {
+      "id": "PAPER-CHARLES-16/94",
+      "kind": "construction",
+      "name": "Rational exponential Mukai transform",
+      "statement": "For B∈H²(X,Qℓ(1)), exp(B)(a,b,c)=(a,b+aB,c+B·b+aB²/2); it is an isometry of the rational Mukai form and exp(B)exp(C)=exp(B+C). Clearing denominators is not automatic integrality.",
+      "locator": "§4.1 pp.518–519; LMS §3.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: components; addition; inverse; isometry; denominator bounds. Tests: (1) exp(0)=id; (2) exp(B)exp(−B)=id; (3) exp(−α/r)(r,α+D,0) has last coordinate −α²/(2r) when αD=0."
+    },
+    {
+      "id": "PAPER-CHARLES-16/95",
+      "kind": "definition",
+      "name": "Corrected integral twisted Mukai lattice",
+      "statement": "For transcendental α and r=ℓ^n in the LMS exact-order scope, define the integral lattice as the Z-span of (r,α,0),(0,D,0),(0,0,1), D∈NS(X): vectors (ar,D+aα,c). Rational twisted Chow classes are exp(−B)^−1 of rational algebraic classes; the integral span is not exp(−B)^−1(N(X)).",
+      "locator": "Equation (4.1) with LMS §3.3/Lemma 3.3.3 correction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral generators; rank; pairing; rational untwist; realization. Tests: (1) The rank coordinate is divisible by r; (2) For α=0,r=1 the untwisted lattice is recovered; (3) The main vector untwists to a nonintegral last coordinate when ℓ∤d."
+    },
+    {
+      "id": "PAPER-CHARLES-16/96",
+      "kind": "theorem",
+      "name": "Failure of the literal integral-preimage definition",
+      "statement": "Take α⊥NS with α²=−2d, r=ℓ^n and ℓ∤d. The claimed integral-span vector (r,α+D,0) with D²=2d is sent by exp(−α/r) to (r,D,d/r). Its last coordinate is not integral, contradicting the literal preimage-of-integral-N definition before (4.1).",
+      "locator": "§4.1 p.519; comparison with LMS §3.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/97",
+      "kind": "construction",
+      "name": "Fixed-determinant twisted sheaf stack",
+      "statement": "Use a μ_r-gerbe representing −[α_n] in LMS's exp(+α/r) convention, and objects (F,φ:det F≃O(D)) with prescribed twisted Mukai vector. Determinant trivialization cuts scalar automorphisms to μ_r; the stack of simple sheaves without φ instead has G_m inertia.",
+      "locator": "§4.1 p.519 corrected from LMS Definition 3.4.1 (arXiv v5)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: objects and determinant trivialization; scalar inertia; pullback; coarse gerbe. Tests: (1) A scalar automorphism satisfies λ^r=1; (2) Forgetting φ restores G_m scalar inertia; (3) Switching gerbe sign without switching B fails the chosen Mukai convention."
+    },
+    {
+      "id": "PAPER-CHARLES-16/98",
+      "kind": "construction",
+      "name": "Twisted Chern character and Mukai vector",
+      "statement": "For the chosen signed μ_r-gerbe, define v^B(F)=exp(B)ch(F)√td(X) through the root-gerbe/twisted Chow comparison, compatibly with pullback, tensor product by untwisted line bundles and the integral structure. Changing the gerbe sign requires changing B.",
+      "locator": "§4.1; LMS §§3.1,3.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: additivity; tensor product; pullback; rational untwist. Tests: (1) B=0 gives ordinary ch(F)√td; (2) Tensoring by an untwisted L multiplies by exp(c₁L); (3) The integral assertion requires the specified lattice, not all rational vectors."
+    },
+    {
+      "id": "PAPER-CHARLES-16/99",
+      "kind": "theorem",
+      "name": "Exact geometric Brauer order gives automatic stability",
+      "statement": "In LMS §3.4's scope, r=ℓ^n is the order of the Brauer class after base change to kbar. The rank of any positive-rank twisted sheaf is divisible by r; a rank-r twisted torsion-free sheaf is stable for any polarization. Merely knowing the arithmetic Brauer order is insufficient.",
+      "locator": "§4.1 invocation of LMS; LMS §3.4 standing hypotheses",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II."
+    },
+    {
+      "id": "PAPER-CHARLES-16/100",
+      "kind": "theorem",
+      "name": "Integral twisted vectors are realized by perfect complexes",
+      "statement": "In LMS §3.4's exact-order K3 setting, each integral twisted Mukai vector is realized by a twisted perfect complex. The proof needs a rank-r twisted sheaf from period-index theory, twisted sheaves on curves/points and a degree-one zero-cycle; it is not formal from rational Chern characters.",
+      "locator": "LMS Lemma 3.4.3 arXiv v5, input to Charles §4.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II."
+    },
+    {
+      "id": "PAPER-CHARLES-16/101",
+      "kind": "theorem",
+      "name": "Isotropic twisted K3 moduli gerbe",
+      "statement": "For k finite or algebraically closed, ℓ invertible, a μ_r-gerbe of exact geometric Brauer order r=ℓ^n, and a primitive isotropic twisted vector v of rank r, the fixed-determinant stable moduli stack is a μ_r-gerbe over a K3 surface M(v).",
+      "locator": "§4.1; LMS Prop.3.4.2(1) arXiv v5 = cited published Prop.3.4.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/102",
+      "kind": "theorem",
+      "name": "Universal twisted Fourier–Mukai equivalence",
+      "statement": "Under item 101's hypotheses, the universal twisted sheaf on the product of the two gerbes induces the source's equivalence of twisted derived categories; establish its cohomological action and compatibility with Mukai pairings.",
+      "locator": "LMS Prop.3.4.2(2), used by Charles §4.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/103",
+      "kind": "theorem",
+      "name": "Coprime pairing makes twisted partner fine",
+      "statement": "In the isotropic twisted moduli setting, existence of an integral twisted class u with gcd(u·v,ℓ)=1 kills the obstruction gerbe on M(v), yielding a fine untwisted partner on that side.",
+      "locator": "LMS Prop.3.4.2(3), arXiv v5; Charles §4.2 partner construction",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/104",
+      "kind": "theorem",
+      "name": "Twisted-lattice discriminant",
+      "statement": "For the integral span N^B(X_kbar) with r=ℓ^n and the source's evenness/integrality hypotheses, |disc N^B(X_kbar)|=r²|disc NS(X_kbar)|; compute the Gram determinant in the basis (r,α,0),(0,0,1),(0,D_i,0).",
+      "locator": "Lemma 4.2, p.519",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/105",
+      "kind": "construction",
+      "name": "Isotropic Mukai cohomological quotient",
+      "statement": "For the twisted K3 moduli surface in item 101 and every eligible prime-to-characteristic realization, the algebraic correspondence identifies v^⊥/Zℓv isometrically with H²_et(M(v)_kbar,Zℓ(1)), with the twisted integral lattice and coefficient prime specified. The fact v²=0 is essential to taking this quotient.",
+      "locator": "§4.1 pp.519–520; Yoshioka Th.3.19(ii)",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: quotient projection; induced pairing; correspondence; realization. Tests: (1) v maps to zero; (2) Replacing a representative by a multiple of v preserves the pairing; (3) For v²≠0 the quotient v^⊥/Zv is not defined this way."
+    },
+    {
+      "id": "PAPER-CHARLES-16/106",
+      "kind": "construction",
+      "name": "Isotropic numerical Mukai map",
+      "statement": "Over finite or algebraically closed k, the corresponding integral map (v^⊥∩N^B(X))/Zv→NS(M(v)) is an injective isometry with p-primary torsion cokernel (zero in characteristic zero), compatible with cycle classes.",
+      "locator": "Equation (4.2), p.519",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral representatives; cycle square; p-primary index; base change. Tests: (1) The image of v is zero; (2) The positive square of b_n is preserved; (3) Rational isometry alone does not prove integral surjectivity."
+    },
+    {
+      "id": "PAPER-CHARLES-16/107",
+      "kind": "theorem",
+      "name": "Primitive isotropic quotient determinant",
+      "statement": "For a nondegenerate integral lattice L, primitive isotropic v and positive divisibility n_v generating (v,L)⊂Z, the nondegenerate quotient K=v^⊥/Zv satisfies |disc L|=n_v²|disc K|. A basis (w,v,e_i) with (v,w)=n_v proves the formula.",
+      "locator": "Proposition 4.3 proof, p.520",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/108",
+      "kind": "theorem",
+      "name": "Discriminant growth formula for twisted partners",
+      "statement": "For the preceding moduli surface with r=ℓ^n, there is t≥0 such that n_v²p^t|disc NS(M(v)_kbar)|=r²|disc NS(X_kbar)| in characteristic p>0; in characteristic zero omit p^t.",
+      "locator": "Proposition 4.3, pp.519–520",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/109",
+      "kind": "theorem",
+      "name": "Finiteness implies Tate via twisted partners",
+      "statement": "For finite k of characteristic ≥5, if finitely many K3 surfaces are defined over each finite extension of k, the Tate conjecture holds for every K3 over k. The proof imports the twisted-partner construction; Charles does not invoke this criterion directly in his final argument.",
+      "locator": "Theorem 4.4 p.520; LMS main theorem",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/110",
+      "kind": "theorem",
+      "name": "Frobenius-invariant lattice discriminant bounds",
+      "statement": "Fix rank r>0, an even weight w≥0 and q. For a nondegenerate O-lattice M, O the integers of a finite unramified extension of Qℓ, with integral characteristic polynomial for φ, all roots Weil q-integers of weight w, semisimple q^(w/2)-eigenvalue and (φx,φy)=q^w(x,y), the q^(w/2)-eigenlattice discriminant valuation is at most vℓ(disc M) for ℓ>C(r,w,q), and at most C′(r,w,q)+vℓ(disc M) for all ℓ. This controls valuations, not a common rational square class.",
+      "locator": "Lemma 4.5 proof; LMS Prop.2.1.2 with its used similitude hypothesis made explicit",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/111",
+      "kind": "theorem",
+      "name": "K3 Frobenius semisimplicity",
+      "statement": "For K3 surfaces over finite fields, the geometric Frobenius action on H²_et(X_kbar,Qℓ) is semisimple in the Deligne result used by LMS; its integral characteristic polynomial and weights are independent of ℓ.",
+      "locator": "LMS Prop.2.1.3; Charles Lemma 4.5 input",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/112",
+      "kind": "theorem",
+      "name": "Nonzero transcendental invariants from infinite Brauer",
+      "statement": "For X over finite k, failure of Tate (infinite Br(X)) gives nonzero T(X,Zℓ) for each ℓ≠p. For ℓ∤disc NS and sufficiently large ℓ, its pairing is unimodular and the Kummer map T⊗Qℓ/Zℓ onto B-field Brauer classes is an isomorphism.",
+      "locator": "Lemma 4.5 proof; LMS Lemma 3.2.7, Prop.3.2.8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/113",
+      "kind": "theorem",
+      "name": "Literal norm-one selection claim needs a square-class argument",
+      "statement": "Charles Lemma 4.5 claims that, if Br(X) is infinite, there are finitely many rational primes p_i such that all sufficiently large ℓ with every p_i a square modulo ℓ have a vector α∈T(X,Zℓ) of square one. The printed proof's passage from ℓ-valuation bounds to finitely supported rational discriminant square classes has not been justified here.",
+      "locator": "Lemma 4.5, pp.520–521",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unrouted checkpoint: see explicit gap register."
+    },
+    {
+      "id": "PAPER-CHARLES-16/114",
+      "kind": "theorem",
+      "name": "Safe norm-representation substitute after quadratic extension",
+      "statement": "In the stated p≥5 scope of LMS §3.5, after the quadratic finite-field extension k′/k and assuming Br(X_k′) infinite, any rational d is represented in T(X_k′,Zℓ) for infinitely many ℓ. For d≠0 choose large odd ℓ splitting the field generated by Frobenius eigenvalues and √−1, √d, √disc NS; exclude denominators. Rank ≥2 uses finite-field forms and Hensel, rank one the reciprocal-eigenspace decomposition. Extending this replacement to p=2,3 requires an explicit hypothesis audit.",
+      "locator": "LMS Lemma 3.5.2, arXiv v5, substitute for Charles Lemma 4.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/115",
+      "kind": "theorem",
+      "name": "Unit representation over an odd finite field",
+      "statement": "A nondegenerate quadratic form of dimension at least two over Fℓ, ℓ odd, represents every nonzero element. This is the finite-field input to the separate Hensel lift, not a theorem for a degenerate form.",
+      "locator": "Lemma 4.5 proof; LMS Lemma 3.5.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/116",
+      "kind": "theorem",
+      "name": "Hensel root lifting",
+      "statement": "For prime ℓ, F a polynomial over a ring mapping to Zℓ and a∈Zℓ with |F(a)|ℓ<|F′(a)|ℓ², there is a unique root within the specified derivative-radius ball, with the derivative norm preserved.",
+      "locator": "Lemma 4.5 proof; Mathlib hensels_lemma (root namespace)",
+      "status": "library",
+      "library": [
+        "mathlib:hensels_lemma"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable."
+    },
+    {
+      "id": "PAPER-CHARLES-16/117",
+      "kind": "theorem",
+      "name": "Dirichlet primes in a unit residue class",
+      "statement": "For q>0 and a∈(Z/qZ)×, infinitely many rational primes p satisfy p mod q=a.",
+      "locator": "Lemma 4.6 proof p.521",
+      "status": "library",
+      "library": [
+        "mathlib:Nat.infinite_setOfPred_prime_and_eq_mod"
+      ],
+      "planned": [],
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable."
+    },
+    {
+      "id": "PAPER-CHARLES-16/118",
+      "kind": "theorem",
+      "name": "Simultaneous quadratic-residue primes",
+      "statement": "For finitely many integers x₁,…,x_s, infinitely many primes ℓ make all x_i squares modulo ℓ. Factoring them and imposing ℓ≡1 modulo 8 and each relevant odd prime gives the result by quadratic reciprocity and Dirichlet; finitely many excluded primes may be removed.",
+      "locator": "Lemma 4.6 p.521",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/119",
+      "kind": "theorem",
+      "name": "Simultaneous splitting and congruence prime choice",
+      "statement": "For the finite number field in item 114 and any additional finite congruence/square exclusions required by Proposition 3.17, choose infinitely many sufficiently large primes splitting its Galois closure composed with the appropriate cyclotomic field. Chebotarev supplies this strengthened existence statement; a statement saying only unramified is not enough.",
+      "locator": "Repair of Lemma 4.5→§4.2 using LMS Lemma 3.5.2; separate Chebotarev input",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unrouted checkpoint: see explicit gap register."
+    },
+    {
+      "id": "PAPER-CHARLES-16/120",
+      "kind": "construction",
+      "name": "Primitive isotropic vectors from a B-field",
+      "statement": "Choose D∈NS(X), D²=2d≠0, and γ∈T(X,Zℓ) with γ²=−2d, ℓ∤2d·disc NS. For n>0 put v_n=(ℓ^n,γ+D,0) in N^(γ/ℓ^n)(X); v_n is primitive isotropic of rank ℓ^n and the associated Brauer class has exact geometric order ℓ^n.",
+      "locator": "§4.2 p.521; LMS Prop.3.5.6 arXiv v5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: n-indexed rank/class; norm computation; exact-order proof. Tests: (1) v_n²=γ²+D²=0; (2) rk v_n=ℓ^n; (3) ℓ∤2d is needed for the unit-norm/order argument."
+    },
+    {
+      "id": "PAPER-CHARLES-16/121",
+      "kind": "construction",
+      "name": "Infinite twisted K3 partner sequence",
+      "statement": "Apply the fixed-determinant twisted moduli construction to v_n to obtain K3 surfaces X_n/k. A prime-to-ℓ pairing (e.g. −2d) removes the partner's gerbe obstruction where the Fourier–Mukai realization needs it.",
+      "locator": "§4.2 pp.521–522; LMS Prop.3.5.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: moduli surface; universal kernel where fine; cohomology and NS maps. Tests: (1) Each X_n has dimension two; (2) Different discriminants prohibit geometric isomorphism; (3) A μ_r-gerbe over a K3 is not itself the K3 coarse space."
+    },
+    {
+      "id": "PAPER-CHARLES-16/122",
+      "kind": "theorem",
+      "name": "Unbounded ℓ-discriminant, bounded p-discriminant",
+      "statement": "For these partners the divisibility n_(v_n) divides 2d, since v_n·(0,D,0)=2d (the sign printed on p.522 is immaterial to divisibility). Thus vℓ(disc NS(X_n,kbar))=2n+vℓ(disc NS X) when ℓ∤2d; v_p(disc NS X_n)≤v_p(disc NS X) follows from n_v²p^t disc NS X_n=ℓ^(2n)disc NS X.",
+      "locator": "§4.2 pp.522–523; Proposition 4.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/123",
+      "kind": "theorem",
+      "name": "Orthogonal positive/negative divisor pair",
+      "statement": "For NS(X) of rank at least two with its Hodge-index signature and an ample class, choose integral D,B with D²=2d<0, B²=2e>0 and B·D=0.",
+      "locator": "Proof of Theorem 1.4 p.522",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/124",
+      "kind": "construction",
+      "name": "Fixed-square divisors on twisted partners",
+      "statement": "For the preceding B, b_n=(0,B,0) belongs to v_n^⊥ with b_n²=2e. The integral isotropic Mukai map sends its class to a divisor B_n on X_n of the same positive square, independent of n.",
+      "locator": "Proof of Theorem 1.4 p.522, correcting X to X_n",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; numerical Mukai descent; fixed-square comparison. Tests: (1) b_n·v_n=B·D=0; (2) B_n²=B²=2e; (3) B_n need not be asserted ample for Corollary 3.2."
+    },
+    {
+      "id": "PAPER-CHARLES-16/125",
+      "kind": "theorem",
+      "name": "Tate for K3 surfaces of Picard rank at least two",
+      "statement": "A K3 surface over a finite field of any characteristic with Picard number at least two satisfies the divisor Tate conjecture. One may first extend the finite field to make geometric NS descend, and descend Tate afterwards; the proof uses fixed-square geometric finiteness of X_n and discriminant growth.",
+      "locator": "Theorem 1.4 p.490; proof p.522",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture."
+    },
+    {
+      "id": "PAPER-CHARLES-16/126",
+      "kind": "construction",
+      "name": "Growing-square classes on partners",
+      "statement": "For d>0 and D ample, h_n=(ℓ^(2n),ℓ^nγ,−2d) lies in v_n^⊥ and has h_n²=2dℓ^(2n); the integral isotropic Mukai map produces a line bundle H_n on X_n of this square.",
+      "locator": "Proof of Theorem 1.3 p.522",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: h_n formula; orthogonal quotient; NS image; square. Tests: (1) h_n·v_n=ℓ^n(γ²+2d)=0; (2) h_n²=2dℓ^(2n); (3) Positive square alone does not imply H_n ample."
+    },
+    {
+      "id": "PAPER-CHARLES-16/127",
+      "kind": "theorem",
+      "name": "Polarized partner applicability gate",
+      "statement": "To apply corrected Proposition 3.17 to every selected X_n, one must prove H_n is ample (up to the permitted sign/choice) and that the surfaces meet the nonsuperspecial hypothesis. The paper sketches a relative projective deformation with generic Picard rank one; the precise simultaneous gerbe, line-bundle and moduli lift and the nonsuperspecial transfer remain to verify.",
+      "locator": "Proof of Theorem 1.3 pp.522–523",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unrouted checkpoint: see explicit gap register."
+    },
+    {
+      "id": "PAPER-CHARLES-16/128",
+      "kind": "theorem",
+      "name": "Special-fiber ampleness from a rank-one projective deformation",
+      "statement": "Let Y→Spec R be a smooth projective family of surfaces with geometrically integral fibers over a DVR, H a line bundle, and Pic(Y_η)⊗Q of rank one generated by H_η with positive square. A relative ample A and the injectivity Pic(Y)→Pic(Y_η) imply a positive rational multiple of H or H^−1 equals A in Pic(Y)⊗Q, hence that choice is ample on the special fiber. Generic ampleness alone, without the rank-one/proportionality argument, is insufficient.",
+      "locator": "Expanded inference for Theorem 1.3 p.522, conditional on the required family",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/129",
+      "kind": "theorem",
+      "name": "Superspecial reduction",
+      "statement": "In characteristic ≥5, superspecial K3 surfaces admit nonsuperspecial supersingular deformations as in Ogus Remark 2.7. Artin's constancy result in the supersingular family transfers Tate from the latter fibers back to the superspecial fiber, in the precise setting of Artin Th.1.1.",
+      "locator": "Proof of Theorem 1.3 p.522",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/130",
+      "kind": "theorem",
+      "name": "Tate for K3 surfaces in characteristic at least five",
+      "statement": "Every K3 surface over a finite field of characteristic p≥5 satisfies the divisor Tate conjecture. The source proof uses the twisted partner sequence, an infinite subsequence ℓ^(2n)≡1 mod N, the bounded p-discriminant and corrected unpolarized Proposition 3.17, contradicting ℓ-discriminant growth.",
+      "locator": "Theorem 1.3 p.489; proof pp.522–523",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture."
+    },
+    {
+      "id": "PAPER-CHARLES-16/131",
+      "kind": "theorem",
+      "name": "Power congruence subsequence",
+      "statement": "For ℓ prime to N>0 there are infinitely many n>0 with ℓ^(2n)≡1 mod N, by the finite order of ℓ in (Z/NZ)×. Squares a,b modulo ℓ lift to squares modulo ℓ^(2n) for odd ℓ not dividing ab by Hensel.",
+      "locator": "Proof of Theorem 1.3 p.523",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+    },
+    {
+      "id": "PAPER-CHARLES-16/132",
+      "kind": "theorem",
+      "name": "Finite-field descent of the rational Tate statement",
+      "statement": "If the divisor Tate statement holds after a finite extension k′/k, it holds over k: take invariants under Gal(k′/k) in the rational cycle map, descend invariant divisor classes using Br(k)=0, then recover the integral version from Kummer saturation.",
+      "locator": "§4.2 finite-extension reduction p.520; LMS §2.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps."
+    },
+    {
+      "id": "PAPER-CHARLES-16/133",
+      "kind": "theorem",
+      "name": "Lefschetz (1,1) theorem for divisors",
+      "statement": "For a smooth projective complex variety, integral degree-two Hodge classes of type (1,1) are exactly the first Chern classes of line bundles, with the standard torsion/exponential-sequence interpretation. Lemma 3.15 uses this after lifting a special endomorphism.",
+      "locator": "Lemma 3.15 proof p.516",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture."
+    },
+    {
+      "id": "PAPER-CHARLES-16/134",
+      "kind": "theorem",
+      "name": "Intersection products on smooth projective surfaces",
+      "statement": "For smooth projective surfaces construct the divisor intersection pairing through Chow/Chern classes, with bilinearity, numerical-equivalence invariance, degree and pullback/pushforward compatibility; use it in the K3 Mukai lattice.",
+      "locator": "Proposition 2.2; Proposition 3.1 proof; §4.2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-CHARLES-16/135",
+      "kind": "theorem",
+      "name": "Hodge endomorphisms of abelian H¹",
+      "statement": "For complex abelian varieties A,B, integral Hodge morphisms on H¹ arise contravariantly from algebraic homomorphisms B→A; rationalizing yields the rational Hom comparison. In particular an integral Hodge endomorphism of H¹(A) comes from End(A).",
+      "locator": "Lemma 3.15 proof p.516; abelian uniformization input",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A5"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PAPER-CHARLES-16/136",
+      "kind": "theorem",
+      "name": "Degree-two Hodge numbers of Witt-lifted moduli",
+      "statement": "Under item 25's W(k)-lifting hypotheses and p>3, h²⁰=h⁰²=1 and h¹¹=21 for M_H(v).",
+      "locator": "Proposition 2.6(2), p.498",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Split from Proposition 2.6(1): its weaker p>2 threshold does not apply here."
+    },
+    {
+      "id": "PAPER-CHARLES-16/137",
+      "kind": "theorem",
+      "name": "Finite arithmetic K3 classes at fixed positive square",
+      "statement": "For a finite field k of odd characteristic and r>0, only finitely many k-isomorphism classes of K3 X/k admit a line bundle on X_kbar of square r.",
+      "locator": "Corollary 3.2 second conclusion, pp.506–507",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Combine geometric finiteness item 51 with the finite-forms input item 53; no characteristic-two extension is claimed."
+    },
+    {
+      "id": "PAPER-CHARLES-16/138",
+      "kind": "theorem",
+      "name": "K3 birational maps are isomorphisms",
+      "statement": "Birational smooth projective K3 surfaces over an algebraically closed field are isomorphic, by minimal surface theory; this turns birational boundedness of models into finiteness of geometric isomorphism classes.",
+      "locator": "Corollary 3.2 proof, pp.506–507",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/139",
+      "kind": "theorem",
+      "name": "Surface Riemann–Roch",
+      "statement": "For a smooth projective surface X and a line bundle L, χ(L)=χ(O_X)+(L·(L−K_X))/2. For K3 this becomes χ(L)=2+L²/2.",
+      "locator": "Proposition 2.2; Proposition 3.1 proof p.505",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/140",
+      "kind": "theorem",
+      "name": "Surface adjunction",
+      "statement": "For an effective Cartier divisor C on a smooth projective surface, ω_C≃(ω_X⊗O_X(C))|_C. This includes the nonreduced Cartier curve in the characteristic-two argument; for K3 and C∈|L| it is L|_C.",
+      "locator": "Proposition 3.1 proof p.506",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/141",
+      "kind": "theorem",
+      "name": "Hodge index theorem",
+      "statement": "For a smooth projective surface and an ample H, the intersection form on NS⊗R has signature (1,ρ−1), with negative definite restriction to H^⊥ after quotient by numerical equivalence.",
+      "locator": "Proposition 3.1 proof p.505; Theorem 1.4 proof p.522",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/142",
+      "kind": "theorem",
+      "name": "Local unit-norm lift",
+      "statement": "For an odd prime ℓ, a unimodular Zℓ quadratic lattice whose reduction represents a unit u admits a vector of norm u: a representing nonzero reduction has a nonzero partial derivative, so fix the other coordinates and apply Hensel.",
+      "locator": "Lemma 4.5 proof; LMS Lemma 3.5.2",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "Lieblich–Maulik–Snowden, Finiteness of K3 surfaces and the Tate conjecture, Ann. Sci. ENS 47 (2014), 285–308",
+      "link": "https://arxiv.org/abs/1107.1221",
+      "why": "Entire arXiv v5 read; published PDF not acquired. Owns the exact-order, determinant and sign hypotheses of twisted moduli, norm representation after quadratic extension, Brauer criterion, finite forms and lattice bounds. Its proof's period-index/Yoshioka inputs are still distinct leaves."
+    },
+    {
+      "citation": "Mukai, Symplectic structure of the moduli space of sheaves on an abelian or K3 surface (1984), Cor.0.2 and Th.1.17",
+      "link": "https://doi.org/10.1007/BF01389137",
+      "why": "Quoted through Charles: smoothness, deformation theory, trace symplectic form and relative moduli. Original proof interior not acquired."
+    },
+    {
+      "citation": "Mukai, On the moduli space of bundles on K3 surfaces I (1987), pp.341–413; O’Grady, The weight-two Hodge structure of moduli spaces of sheaves on a K3 surface (1997), Main Theorem",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
+      "why": "Bibliographic references in Charles pp.525–526, not substitute proof sources: quasi-universal correspondences and integral weight-two isometries. Acquire originals; Charles's blanket birational-to-X^[n] shortcut is not adopted."
+    },
+    {
+      "citation": "Yoshioka, Moduli spaces of stable sheaves on abelian surfaces (2001), Th.8.1",
+      "link": "https://doi.org/10.1007/s002080100255",
+      "why": "The K3 moduli deformation/nonemptiness input cited by Charles. Verify exact hypotheses and avoid the stronger birationality claim."
+    },
+    {
+      "citation": "Yoshioka, Moduli spaces of twisted sheaves on a projective variety (2006), Th.3.19(ii)",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
+      "why": "Charles bibliography supplies metadata only; acquire original for twisted nonemptiness, Mukai quotient isometry and coefficient conventions."
+    },
+    {
+      "citation": "Langer, Semistable sheaves in positive characteristic (2004), Th.0.2",
+      "link": "https://doi.org/10.4007/annals.2004.159.251",
+      "why": "Relative stable/semistable projective moduli; source theorem quoted in Charles, proof not read."
+    },
+    {
+      "citation": "Lieblich, Moduli of twisted sheaves, period-index input [L3] in LMS; Lieblich–Olsson, Fourier-Mukai partners of K3 surfaces in positive characteristic (2015)",
+      "link": "https://arxiv.org/abs/1107.1221",
+      "why": "LMS Lemma 3.4.3 explicitly uses the deep rank-r twisted-sheaf existence result; LO supplies characteristic-p Fourier–Mukai and lifting comparisons. Exact originals still to acquire."
+    },
+    {
+      "citation": "Lieblich–Maulik, A note on the cone conjecture for K3 surfaces in positive characteristic, Cor.4.2",
+      "link": "https://arxiv.org/abs/1102.3377",
+      "why": "Finite-height Picard-preserving lifts and automorphism/nef-cone control; quoted through Charles and LMS."
+    },
+    {
+      "citation": "Artin, Supersingular K3 surfaces (1974), especially Th.1.1",
+      "link": "https://www.numdam.org/item/ASENS_1974_4_7_4_543_0/",
+      "why": "Dimension-nine infinite-height locus and Picard constancy in the supersingular deformation reduction; original proof not yet read."
+    },
+    {
+      "citation": "Ogus, Supersingular K3 crystals (1979), Ex.1.10, Prop.2.2, Rem.2.7 and Th.2.9",
+      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
+      "why": "Acquire original Astérisque 64, pp.3–86; superspecial/polarized deformation and special-endomorphism lifting are not generic crystal formalism."
+    },
+    {
+      "citation": "Beauville, Variétés Kähleriennes dont la première classe de Chern est nulle (1983), Th.5, Prop.6 and §6",
+      "link": "https://projecteuclid.org/euclid.jdg/1214438181",
+      "why": "IHS local Torelli, BB form and Hilbert–Chow low-degree integral topology; quoted through Charles only."
+    },
+    {
+      "citation": "Huybrechts, Compact hyperkähler manifolds: basic results (1999), §§3,8; Erratum (2003)",
+      "link": "https://doi.org/10.1007/s002220050280",
+      "why": "Projectivity, bigness, period surjectivity and birational/deformation comparisons. Mandatory erratum DOI 10.1007/s00222-002-0280-5 is listed by Charles, but neither proof interior nor this erratum was read in this job."
+    },
+    {
+      "citation": "Huybrechts, Lectures on K3 surfaces, cited 2014 manuscript; Saint-Donat, Projective models of K-3 surfaces (1974), §§2,8",
+      "link": "https://doi.org/10.2307/2373709",
+      "why": "Acquire full sources for fixed components, nef vanishing and characteristic-two birational linear systems. Gap G1 concerns the paper's jet argument, not a claim that the endpoint theorem is false."
+    },
+    {
+      "citation": "Nikulin, Integral symmetric bilinear forms and some of their applications, Prop.1.15.1",
+      "link": "https://doi.org/10.1070/IM1980v014n01ABEH001060",
+      "why": "Primitive-embedding existence/classification beyond the already implemented §1.4 gluing theorem. Read exact isometry-orbit conventions and the initial embedding hypothesis."
+    },
+    {
+      "citation": "Cassels, Rational Quadratic Forms (1978), Ch.9 Th.1.1",
+      "link": "https://doi.org/10.1016/S0304-0208(08)70410-9",
+      "why": "Integral isometry finiteness at bounded rank and absolute discriminant, not only rational classification or a finite genus assertion. Original chapter not read."
+    },
+    {
+      "citation": "Kollár–Matsusaka, Riemann–Roch type inequalities (1983)",
+      "link": "https://doi.org/10.2307/2374387",
+      "why": "The fixed-dimensional, K=0 ample boundedness input; R09.1 owns the general boundedness development but not a completed proof."
+    },
+    {
+      "citation": "Markman, A survey of Torelli and monodromy results for holomorphic-symplectic varieties (2011), Prop.1.9 and Th.1.10; Verbitsky (2013)",
+      "link": "https://doi.org/10.1215/00127094-2382680",
+      "why": "Parallel-transport formulation, global Torelli and finite-index polarized monodromy, with Sullivan (1977) as a separate topology/arithmeticity proof leaf. Quoted through Charles, not fully read."
+    },
+    {
+      "citation": "Deligne, La conjecture de Weil pour les surfaces K3 (1972), especially §6",
+      "link": "https://doi.org/10.1007/BF01404126",
+      "why": "K3 Frobenius semisimplicity and the absolute-Hodge/Clifford Kuga–Satake comparison. Not supplied by the existing linear Hodge carrier alone."
+    },
+    {
+      "citation": "André, On the Shafarevich and Tate conjectures for hyperkähler varieties (1996), App.1; Rizov, Kuga-Satake abelian varieties of K3 surfaces in mixed characteristic (2010), 6.1.2",
+      "link": "https://doi.org/10.1515/CRELLE.2010.078",
+      "why": "Spin level, descent and integral extension of KS. André DOI 10.1007/BF01444219. Proof interiors not read."
+    },
+    {
+      "citation": "Kisin, Integral models for Shimura varieties of abelian type (2010)",
+      "link": "https://doi.org/10.1090/S0894-0347-10-00667-3",
+      "why": "Exact good-prime orthogonal integral model and finite/unramified KS morphism used by Lemma 3.12. The current generic-fiber/PEL roadmaps do not already cover this scope."
+    },
+    {
+      "citation": "Charles, The Tate conjecture for K3 surfaces over finite fields (2013), Props.13,16,22 and erratum",
+      "link": "https://www.math.ens.psl.eu/~charles/erratum.pdf",
+      "why": "Full two-page erratum read; main 2013 article DOI 10.1007/s00222-012-0443-y not read in full. Carry its added no-p-torsion H²/H³ and even-form conditions where relevant. This is not a 2016 erratum."
+    },
+    {
+      "citation": "Deligne–Illusie, Relèvements modulo p² et décomposition du complexe de de Rham (1987); Fontaine–Messing, p-adic periods and p-adic étale cohomology (1987)",
+      "link": "https://doi.org/10.1007/BF01389078",
+      "why": "Proper smooth W₂-lifting degeneration and the exact low-degree small-weight integral comparison; FM DOI 10.1090/conm/067/902593. Existing comparison owners supply general infrastructure but these precise proof leaves remain to check."
+    },
+    {
+      "citation": "Elsenhans–Jahnel, The Picard group of a K3 surface and its reduction modulo p (2011)",
+      "link": "https://doi.org/10.2140/ant.2011.5.1027",
+      "why": "Saturated specialization in Cor.2.7, including the extension from Z_p to W(k); do not infer integral lifting from a rational isometry."
+    },
+    {
+      "citation": "Tate, On the conjectures of Birch and Swinnerton-Dyer and a geometric analog, Exp.306; Milne, On a conjecture of Artin and Tate (1975)",
+      "link": "https://doi.org/10.2307/1971042",
+      "why": "Arithmetic Brauer finiteness ⇔ divisor Tate, including characteristic two. Charles and LMS cite these; original interiors remain unread."
+    },
+    {
+      "citation": "Ellingsrud–Göttsche–Lehn, On the cobordism class of the Hilbert scheme of a surface (2001); O’Grady, Involutions and linear systems on holomorphic symplectic manifolds (2005), 4.14",
+      "link": "https://doi.org/10.1007/s00039-005-0538-3",
+      "why": "Top Chern numbers 324/3200 and Fujiki normalization. The original computations must be acquired, not treated as numerical constants without proofs."
+    }
+  ],
+  "routes": [
+    {
+      "route": "new",
+      "roadmap": "K3SurfacesAndSymplecticBoundedness",
+      "title": "K3 surfaces, Mukai moduli and holomorphic symplectic boundedness",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-CHARLES-16/1",
+        "PAPER-CHARLES-16/2",
+        "PAPER-CHARLES-16/3",
+        "PAPER-CHARLES-16/4",
+        "PAPER-CHARLES-16/5",
+        "PAPER-CHARLES-16/6",
+        "PAPER-CHARLES-16/7",
+        "PAPER-CHARLES-16/10",
+        "PAPER-CHARLES-16/11",
+        "PAPER-CHARLES-16/12",
+        "PAPER-CHARLES-16/13",
+        "PAPER-CHARLES-16/14",
+        "PAPER-CHARLES-16/15",
+        "PAPER-CHARLES-16/16",
+        "PAPER-CHARLES-16/17",
+        "PAPER-CHARLES-16/18",
+        "PAPER-CHARLES-16/19",
+        "PAPER-CHARLES-16/20",
+        "PAPER-CHARLES-16/21",
+        "PAPER-CHARLES-16/22",
+        "PAPER-CHARLES-16/23",
+        "PAPER-CHARLES-16/24",
+        "PAPER-CHARLES-16/25",
+        "PAPER-CHARLES-16/26",
+        "PAPER-CHARLES-16/27",
+        "PAPER-CHARLES-16/28",
+        "PAPER-CHARLES-16/29",
+        "PAPER-CHARLES-16/34",
+        "PAPER-CHARLES-16/35",
+        "PAPER-CHARLES-16/41",
+        "PAPER-CHARLES-16/42",
+        "PAPER-CHARLES-16/43",
+        "PAPER-CHARLES-16/44",
+        "PAPER-CHARLES-16/46",
+        "PAPER-CHARLES-16/47",
+        "PAPER-CHARLES-16/48",
+        "PAPER-CHARLES-16/49",
+        "PAPER-CHARLES-16/51",
+        "PAPER-CHARLES-16/52",
+        "PAPER-CHARLES-16/53",
+        "PAPER-CHARLES-16/54",
+        "PAPER-CHARLES-16/55",
+        "PAPER-CHARLES-16/57",
+        "PAPER-CHARLES-16/59",
+        "PAPER-CHARLES-16/61",
+        "PAPER-CHARLES-16/63",
+        "PAPER-CHARLES-16/65",
+        "PAPER-CHARLES-16/66",
+        "PAPER-CHARLES-16/67",
+        "PAPER-CHARLES-16/68",
+        "PAPER-CHARLES-16/69",
+        "PAPER-CHARLES-16/70",
+        "PAPER-CHARLES-16/71",
+        "PAPER-CHARLES-16/72",
+        "PAPER-CHARLES-16/73",
+        "PAPER-CHARLES-16/74",
+        "PAPER-CHARLES-16/75",
+        "PAPER-CHARLES-16/85",
+        "PAPER-CHARLES-16/86",
+        "PAPER-CHARLES-16/88",
+        "PAPER-CHARLES-16/89",
+        "PAPER-CHARLES-16/91",
+        "PAPER-CHARLES-16/92",
+        "PAPER-CHARLES-16/93",
+        "PAPER-CHARLES-16/94",
+        "PAPER-CHARLES-16/95",
+        "PAPER-CHARLES-16/96",
+        "PAPER-CHARLES-16/101",
+        "PAPER-CHARLES-16/102",
+        "PAPER-CHARLES-16/103",
+        "PAPER-CHARLES-16/104",
+        "PAPER-CHARLES-16/105",
+        "PAPER-CHARLES-16/106",
+        "PAPER-CHARLES-16/108",
+        "PAPER-CHARLES-16/109",
+        "PAPER-CHARLES-16/111",
+        "PAPER-CHARLES-16/112",
+        "PAPER-CHARLES-16/114",
+        "PAPER-CHARLES-16/120",
+        "PAPER-CHARLES-16/121",
+        "PAPER-CHARLES-16/122",
+        "PAPER-CHARLES-16/123",
+        "PAPER-CHARLES-16/124",
+        "PAPER-CHARLES-16/126",
+        "PAPER-CHARLES-16/128",
+        "PAPER-CHARLES-16/129",
+        "PAPER-CHARLES-16/132",
+        "PAPER-CHARLES-16/136",
+        "PAPER-CHARLES-16/137",
+        "PAPER-CHARLES-16/138"
+      ],
+      "brief": "Construct the K3-specific geometry missing from the atlas and the proof architecture of Charles, Annals 184 (2016), pp.487–526. The exact geometric endpoints are Theorem 2.10: for every d>0, over any field, choose r,N>0 and nonzero a,b so that H²=2md with m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m produces a smooth four-dimensional stable-sheaf moduli space M and L with L⁴=r, q(L)>0, c₁(v) proportional to H and condition (C); include the specified prime-to-n ample class and W-lifting refinements. The complex endpoint is Theorem 3.3: fixed dimension 2n and positive top power r give uniform birational linear-series bounds after replacing L by L′ with the same top power, and hence a birationally bounded family. Do not claim uniformity for the original L, which the introduction asks as an open question.\n\nBuild numerical NS and its geometric/arithmetic distinction, the ℓ-adic/algebraic Mukai lattices, Mukai vectors and RR, lifting of at most ten divisor classes, stable-moduli smoothness, deformation to Hilbert schemes, the BB form with (2n)!q^n=n!2^n times top intersection, integral/étale θ maps and p-primary cokernel. Include the corrected discriminant formula p^(2a)(v²/I²), not an integer multiplier. Develop the IHS local/global period argument, finite monodromy index, bounded ample deformation representatives, algebraized period-covering families and codimension-two Picard transport. Supply the strong-admissibility, special-endomorphism and finite-NS arguments in p≥5, then corrected Proposition 3.17 for underlying surfaces, never infinitely varying polarized pairs.\n\nThe arithmetic branch builds the corrected LMS signed-gerbe B-field lattice, exact geometric Brauer order, isotropic moduli partners, v^⊥/Zv maps and discriminant growth. Export these geometric inputs to Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles:MC.7) for Charles Theorems 1.3 and 1.4: Tate for all K3 over finite fields in p≥5, and for Picard rank≥2 in every characteristic including two. The latter does not use Kuga–Satake. Withhold the four quarantined items 50,113,119,127 until their named gates are discharged; their consumers remain proof-open, not unconditional formalization-ready nodes.\n\nImport Stable and twisted sheaf moduli (AlgebraicModuliStableTwistedSheaves) for the general moduli/gerbe construction; Complex Shimura varieties and canonical models, Part II (OrthogonalIntegralModelsAndKugaSatake) for KS and good-prime models; Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.2–GN.3) for the new embedding and finite-lattice theorems; existing Integral lattices (tauceti:Completed/IntegralLattices) and Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures) only through their actual pinned APIs. Import Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.5), Algebraic moduli and representability (AlgebraicModuliForArithmeticGeometry:R09.1–R09.6), Complex comparison (ComplexComparisonPartII:C5), Crystalline cohomology (CrystallineCohomology:CR.1–CR.4), Cohomology comparisons (CohomologyComparisons:CP.2,CP.5), and the exact small-weight supplier in FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. No private duplicate cycles, crystals, moduli stacks or comparison maps. Use only the early divisor (1,1) leaf of MC.7 for Lemma 3.15, never its later K3 Tate endpoint: refine that broad stage into acyclic early/late leaves before blueprint closure. Every object needs API, three discriminating tests, and separate proof leaves for every unread cited theorem. Counterexamples 35,89,96 are regression tests, not atlas planets.",
+      "reason": "No atlas stage, new-roadmap definition, accepted packet or reservation plans K3 surfaces or IHS boundedness. K3BlochGroups concerns algebraic K₃, not surfaces. MC.7 owns the Tate/divisor theorem register but not this geometric proof development. The route imports, rather than duplicates, the shared foundations."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AlgebraicModuliForArithmeticGeometry",
+      "roadmap": "AlgebraicModuliStableTwistedSheaves",
+      "title": "Algebraic moduli and representability for arithmetic geometry, Part II: stable and twisted sheaves",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-CHARLES-16/8",
+        "PAPER-CHARLES-16/9",
+        "PAPER-CHARLES-16/97",
+        "PAPER-CHARLES-16/98",
+        "PAPER-CHARLES-16/99",
+        "PAPER-CHARLES-16/100"
+      ],
+      "brief": "Start with Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry:R09.1–R09.6 and A0-extension) as first prerequisite. Its Hilbert/Quot spaces, boundedness, algebraic spaces, stackification and formal algebraization are imports, not new versions. Extend its restricted elliptic/abelian moduli scope by constructing Gieseker-stable torsion-free sheaves of positive rank on polarized smooth projective surfaces, stable and semistable parameter stacks, relative coarse schemes, and the projective moduli theorem in the precise Langer 2004 setting used by Charles Theorem 2.4. Spell out the Hilbert polynomial, boundedness, GIT quotient, flat-family descent and the difference between coarse moduli and a universal sheaf.\n\nBuild μ_r-gerbes, weight-one twisted sheaves, determinant trivializations, the signed B-field/twisted Chern character, and the period-index existence and K₀ realization input of LMS Lemma 3.4.3. In the K3 consumer, r=ℓ^n must equal the exact geometric Brauer order; rank divisibility then implies automatic stability for rank r. The fixed-determinant stack has μ_r inertia, whereas omitting the determinant isomorphism gives G_m inertia. Use the gerbe −[α_n] with LMS's exp(+α/r) vector convention and compare the untwisted B=0 case. Keep K3-specific nonemptiness, symplectic forms, dimensions, Fourier–Mukai equivalence and NS/cohomology isometries in K3SurfacesAndSymplecticBoundedness. Import intersection/Chern classes from SchemeAndStackFoundations SF.5, derived categories from the pinned category-theory library, and the exact Brauer/period-index supplier rather than assuming the desired rank-r sheaf. Read Langer, Lieblich and Yoshioka proof interiors before closing these nodes; currently only Charles and the full LMS manuscript have been read. Acceptance tests must distinguish stable from semistable, coarse from fine, arithmetic from geometric Brauer order, and μ_r from G_m scalar automorphisms.",
+      "reason": "Existing R09.4–R09.6 constructs the shared representability and restricted elliptic/abelian stack foundation; no existing layer promises stable/twisted-sheaf moduli. These are additional layers in that owner's direction, not a new disconnected moduli theory."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ShimuraVarieties",
+      "roadmap": "OrthogonalIntegralModelsAndKugaSatake",
+      "title": "Complex Shimura varieties and canonical models, Part II: good-prime orthogonal models and Kuga–Satake",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-CHARLES-16/77",
+        "PAPER-CHARLES-16/78",
+        "PAPER-CHARLES-16/79",
+        "PAPER-CHARLES-16/80",
+        "PAPER-CHARLES-16/81",
+        "PAPER-CHARLES-16/82",
+        "PAPER-CHARLES-16/83",
+        "PAPER-CHARLES-16/84"
+      ],
+      "brief": "Start beyond Complex Shimura varieties and canonical models (ShimuraVarieties), importing its V0–V6 analytic arithmetic quotients, Baily–Borel/Borel maps and generic-fiber Hodge/abelian canonical models. Construct the full-Clifford Kuga–Satake realization of polarized weight-two Hodge structures with h²⁰=1, its spin-level orthogonal Shimura map to the polarized abelian moduli space, and the rational field-of-definition argument for the simultaneous h,l period subvariety. Import Hodge structures (tauceti:TauCetiRoadmap/HodgeStructures), Mathlib CliffordAlgebra, AbelianSchemesAndArithmeticModuli A4–A5, Siegel and PEL moduli problems (PELModuli M1–M3), and the common crystalline/étale comparison owners.\n\nThe final theorems are exactly the p≥5, prime-to-level, p-nondegenerate primitive-lattice setting of Charles equations (3.1)–(3.6) and Lemma 3.12: the family's KS map uniquely extends over W; the good-prime orthogonal model supports the finite unramified KS map needed in (3.5); the primitive twisted degree-two filtered F-crystal embeds primitively and strictly into the endomorphism crystal of H¹; and only finitely many such primitive sublattices occur over a fixed polarized level-n abelian special fiber and fixed primitive lattice. Prove independence of a characteristic-zero lift using the connection, and recover the integral image by saturation. Retain primitive and Tate-(1) labels in every fiber formula, despite their omission in printed (3.4). Use n≥3, p∤n; separate polarization parameter d₀ from degree d₀².\n\nThis is not supplied by PELModuli M4's normalizations or ShimuraCompactifications C5's good-prime PEL compactifications, whose documents explicitly reject a general integral canonical-model conclusion. Read Kisin 2010, Deligne 1972, André 1996, Rizov 2010 and the relevant Charles 2013 argument with its erratum before closing the proof. The erratum requires the degree-two/three p-torsion and even-form hypotheses in its source theorem; it is not an erratum to Charles 2016. Do not add arbitrary bad primes or all abelian-type models. The K3/IHS-specific admissibility, deformation and special-endomorphism-to-NS application belongs in the consuming K3 roadmap. Test fixed A₀ with distinct finite preimages, full versus even Clifford algebra, wrong full-H² domain, and a lattice degenerate modulo p.",
+      "reason": "The generic-fiber Shimura owner goes in this direction but stops before good-prime orthogonal integral models. PEL integral constructions explicitly have narrower scope, so neither a source route into V6 nor reuse of a PEL normalization would supply the needed theorem."
+    },
+    {
+      "route": "source",
+      "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
+      "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/36",
+        "PAPER-CHARLES-16/37",
+        "PAPER-CHARLES-16/38",
+        "PAPER-CHARLES-16/39",
+        "PAPER-CHARLES-16/40",
+        "PAPER-CHARLES-16/87",
+        "PAPER-CHARLES-16/107",
+        "PAPER-CHARLES-16/110",
+        "PAPER-CHARLES-16/115",
+        "PAPER-CHARLES-16/118",
+        "PAPER-CHARLES-16/131",
+        "PAPER-CHARLES-16/142"
+      ],
+      "reason": "GN.2 owns new integral-lattice arithmetic/local classification and GN.3 reduction/finiteness. Supply Nikulin primitive-embedding arithmetic, the isotropic quotient determinant, unit norm representation, Frobenius-similitude lattice bounds and Cassels finiteness. Import the already implemented discriminant/index/gluing operations; do not re-plan the completed lattice roadmap."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.3"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/45",
+        "PAPER-CHARLES-16/56",
+        "PAPER-CHARLES-16/58"
+      ],
+      "reason": "R09.1 explicitly owns ampleness/Hilbert-polynomial boundedness, refined here by the K=0 Kollár–Matsusaka input and fiberwise-big uniformity; R09.3 owns the line-bundle descent distinction and receives the zero-cycle Brauer-obstruction lemma."
+    },
+    {
+      "route": "source",
+      "roadmap": "ShimuraVarieties",
+      "stages": [
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V3"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/62",
+        "PAPER-CHARLES-16/64"
+      ],
+      "reason": "The complex boundedness proof is a concrete consumer/source of the already planned Baily–Borel and Borel algebraicity theorems. No second arithmetic quotient or algebraicity theorem belongs in the K3 route."
+    },
+    {
+      "route": "source",
+      "roadmap": "MotivesAndAlgebraicCycles",
+      "stages": [
+        "MotivesAndAlgebraicCycles:MC.7"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/90",
+        "PAPER-CHARLES-16/125",
+        "PAPER-CHARLES-16/130",
+        "PAPER-CHARLES-16/133"
+      ],
+      "reason": "MC.7 owns exact Hodge/Tate statements and selected divisor cases. Register Lefschetz (1,1) as an early independent proof leaf and the two K3 Tate cases as late applications of the new geometry. Refine the stage before forming dependency edges: the K3 argument may consume the early leaf but cannot import its own later Tate theorem."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.5"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/134",
+        "PAPER-CHARLES-16/139",
+        "PAPER-CHARLES-16/140",
+        "PAPER-CHARLES-16/141"
+      ],
+      "reason": "Surface RR, adjunction, Hodge index and intersection products are expressly in SF.5. Specialize them to K3 surfaces in the consumer without constructing a second Chow or Chern-class theory."
+    },
+    {
+      "route": "source",
+      "roadmap": "AbelianSchemesAndArithmeticModuli",
+      "stages": [
+        "AbelianSchemesAndArithmeticModuli:A5"
+      ],
+      "items": [
+        "PAPER-CHARLES-16/135"
+      ],
+      "reason": "The complex abelian/integral-Hodge equivalence planned by A5 includes its Hom comparison. Lemma 3.15 uses this precise algebraicity of integral Hodge endomorphisms, not the general Hodge conjecture."
+    }
+  ],
+  "ownershipAudit": {
+    "atlasCommit": "ee6f640ac057d50e12680876719e8cefc5608eee",
+    "upstreamDocumentsRead": [
+      "content/tau-ceti/HodgeStructures/README.md",
+      "content/tau-ceti/Completed/IntegralLattices/README.md"
+    ],
+    "ownerDocumentsRead": [
+      "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md",
+      "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+      "content/campaign/MotivesAndAlgebraicCycles/README.md",
+      "content/campaign/SchemeAndStackFoundations/README.md",
+      "content/campaign/ShimuraVarieties/README.md"
+    ],
+    "reviewedAudits": "Accepted data/library-coverage entries: IntegralLattices and HodgeStructures, GN.2–GN.3, R09.2/R09.4–R09.6, SF.5, V2/V3/V6 and A5. MC.7 has no accepted audit entry; absence is not treated as evidence of implementation.",
+    "screen": "Full live atlas stage keyword screen, all six new-roadmap definitions, current packet/reservations, relevant CrystallineCohomology decomposition, and all 27 existing paper-extraction route lists were screened. K3BlochGroups is unrelated; Schröer23's proposed low-degree Hodge obstruction does not supply K3 moduli, KS or Tate. Paper proposals are not accepted ownership. No finer accepted K3 node was found.",
+    "librarySearch": "Full pinned trees searched for K3 surface/K3Surface/Mukai/Kuga–Satake/Beauville–Bogomolov/Gieseker and then relevant lattice, Hodge, Clifford, arithmetic and algebraic geometry files read. Generic carriers found do not imply the geometric comparison theorems."
+  },
+  "gaps": [
+    {
+      "id": "G1",
+      "items": [
+        "PAPER-CHARLES-16/50"
+      ],
+      "title": "Characteristic-two birational linear-series proof",
+      "detail": "The source's 3r−4>r fails at r=2, and the final degree/h⁰ bounds for 4L are not the displayed r and 2r+1. Always doubling before the argument may repair the inequality, and then tracking powers gives uniform bounds, but the nonreduced-curve jet-separation-to-birationality step still needs a complete proof. Read Saint-Donat/Huybrechts and the Artin–Swinnerton-Dyer cited passage; certify a precise corrected bound. Items 51,124,125 depend on this gap."
+    },
+    {
+      "id": "G2",
+      "items": [
+        "PAPER-CHARLES-16/113"
+      ],
+      "title": "Valuation bounds do not provide rational square classes",
+      "detail": "LMS Prop.2.1.2 gives ℓ-valuations of ℓ-adic discriminants, not a common rational square class supported on finitely many rational primes. Charles Lemma 4.5's rank-one deduction is therefore not justified by that citation alone. Either supply a compatible-system determinant theorem with its proof, or replace this literal claim by the split-prime/quadratic-extension LMS lemma, item 114."
+    },
+    {
+      "id": "G3",
+      "items": [
+        "PAPER-CHARLES-16/119"
+      ],
+      "title": "Complete the simultaneous split-prime replacement",
+      "detail": "The sufficient LMS Lemma 3.5.2 route was read, but the precise field/compositum, quadratic base extension, Tate descent and additional congruence conditions must be composed and assigned to an exact upstream Chebotarev leaf. The existing NumberField.exists_auxiliaryPrime theorem only ensures unramifiedness and cyclotomic irreducibility, not complete splitting in the required eigenvalue field. Do not substitute it. Preserve LMS §3.5's stated p≥5 range unless the proof is checked afresh in p=2,3; the latter is necessary before this substitutes for Charles's all-characteristic Lemma 4.5."
+    },
+    {
+      "id": "G4",
+      "items": [
+        "PAPER-CHARLES-16/127"
+      ],
+      "title": "Final partner polarization and nonsuperspecial hypotheses",
+      "detail": "Construct the simultaneous deformation of the gerbe, v_n, projective twisted moduli space and H_n with generic Picard rank one. Item 128 spells out why a verified projective rank-one family proves special ampleness; mere generic ampleness would not. Separately verify that the X_n to which Proposition 3.17 is applied are nonsuperspecial, or establish an allowed reduction covering exceptions. Do not assume Tate to prove that hypothesis."
+    },
+    {
+      "id": "G5",
+      "items": [
+        "PAPER-CHARLES-16/37",
+        "PAPER-CHARLES-16/38"
+      ],
+      "title": "Primitive embedding source boundary",
+      "detail": "Read Nikulin Prop.1.15.1 itself, including equivalence of embedding data and primitive initial embedding hypotheses. Charles's proof starts with an embedding datum while its statement says rank-two sublattice; check saturation/primitive replacement rather than treating arbitrary raw embeddings as bijective with unquotiented tuples. Items remain routed as proof-open targets, not certified theorem interfaces."
+    },
+    {
+      "id": "G6",
+      "items": [
+        "PAPER-CHARLES-16/12",
+        "PAPER-CHARLES-16/15",
+        "PAPER-CHARLES-16/16",
+        "PAPER-CHARLES-16/24",
+        "PAPER-CHARLES-16/28",
+        "PAPER-CHARLES-16/65",
+        "PAPER-CHARLES-16/74",
+        "PAPER-CHARLES-16/83",
+        "PAPER-CHARLES-16/85",
+        "PAPER-CHARLES-16/100",
+        "PAPER-CHARLES-16/105",
+        "PAPER-CHARLES-16/129"
+      ],
+      "title": "Original prerequisite proofs and remaining declaration-sized decomposition",
+      "detail": "The main published paper and full LMS arXiv manuscript were read; the other prerequisite interiors listed in prerequisites were not. In particular verify Fontaine–Messing small-degree range, integral θ construction, twisted period-index/nonemptiness, Yoshioka's integral quotient, IHS Torelli and special-endomorphism lifting with the 2013 erratum. Their source-extracted endpoints are not a closure certificate. Expand each quoted proof into all intermediate declarations at blueprint time or in a resumed extraction."
+    }
+  ],
+  "coverage": [
+    {
+      "section": "§1",
+      "items": "1–3,12–14,17,42–44,69,90,125,130",
+      "status": "partial",
+      "note": "Theorems 1.1–1.4 and lifting proposition represented; introduction's stronger uniform-original-L question and suggested HMX/AV alternatives are not claimed results. Numbered endpoints extracted, not prerequisite-proof closure."
+    },
+    {
+      "section": "§2.1",
+      "items": "4–35,134,136",
+      "status": "partial",
+      "note": "Every numbered definition/result represented with split outputs; original Mukai/Yoshioka/FM proof inputs remain open."
+    },
+    {
+      "section": "§2.2",
+      "items": "36–47",
+      "status": "partial",
+      "note": "Full congruence/descent proof extracted; Nikulin G5 remains."
+    },
+    {
+      "section": "§3.1",
+      "items": "48–53,137",
+      "status": "partial",
+      "note": "G1 withholds the characteristic-two birational proof; downstream theorem statements retained as proof-open."
+    },
+    {
+      "section": "§3.2",
+      "items": "54–69",
+      "status": "partial",
+      "note": "Period/Torelli route extracted, generic suppliers distinguished; cited original interiors remain. The algebraized-cover step 66 still needs its surjectivity/algebraization/noetherian-induction proof leaves split during the G6 source audit."
+    },
+    {
+      "section": "§3.3–§3.4",
+      "items": "70–89,133,135",
+      "status": "partial",
+      "note": "Primitive/twist/level corrections explicit; Kisin and special-endomorphism lifting source boundaries retained."
+    },
+    {
+      "section": "§4",
+      "items": "90–132",
+      "status": "partial",
+      "note": "LMS convention repairs and discriminant argument extracted; G2–G4 block closed Tate proof routes."
+    }
+  ],
+  "regressions": [
+    {
+      "name": "Corollary 2.8 factor",
+      "expect": "v=e−f has square 2; v^⊥ contains e+f of square −2, index I=2, and v²/I²=1/2."
+    },
+    {
+      "name": "Twisted preimage",
+      "expect": "For γ²=−2d, γD=0, exp(−γ/r)(r,γ+D,0)=(r,D,d/r); this is not integral for r=ℓ^n, ℓ∤d."
+    },
+    {
+      "name": "Partner norms",
+      "expect": "v_n²=0; h_n·v_n=0; h_n²=2dℓ^(2n); pairing v_n with (0,D,0) is +2d in the chosen convention."
+    },
+    {
+      "name": "Linear series powers",
+      "expect": "If L²=r, (4L)²=16r and, in the stated vanishing range, h⁰(4L)=8r+2; track any earlier doubling separately."
+    },
+    {
+      "name": "No generalized question as theorem",
+      "expect": "Theorem 3.3 permits replacing L. Characteristic-two general Tate, all-prime integral models and uniform |aL| for original L are not asserted."
+    }
+  ]
+}
