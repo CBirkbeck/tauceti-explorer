@@ -1,3 +1,328 @@
+# Shende–Tsimerman: weighted-Abel characteristic continuation
+
+
+## Continuation — Codex, codex-a71f92, 22 September 2026
+
+Refs #1334. This is a continuation of PR #1657, not an independent review.
+Current totals are **131 items: 9 library, 20 planned, 102 missing**.
+The original 14 routes now take 86 missing items exactly once; all 16
+previously withheld items remain withheld. All 38 definition/construction
+API/test blocks remain. There are 12 selected prerequisite edges, not a
+claim of complete dependency closure.
+
+The material change is a counterexample to **unrestricted weighted Abel
+finiteness in positive characteristic**, stronger than failure of the
+printed differential proof. The corrected theorem requires nonzero
+**total multiplicities after collecting coincident support points**.
+One original statement, weighted-fibers, is refined accordingly; all other
+original item statements and statuses are retained.
+
+### Fresh evidence and boundaries
+
+Read all 40 pages of [arXiv v1](https://arxiv.org/pdf/1307.8237v1),
+including Appendix A and references, and visually checked page 7 containing
+Proposition 2.3 and Corollary 2.4. SHA-256:
+542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29.
+The public arXiv record lists only v1. The author's link still points there.
+The [canonical publisher](https://doi.org/10.1215/00127094-2017-0025)
+download again returned security HTML, not the final 44-page paper.
+Thus G0 remains open; the page-count difference does not establish a
+mathematical change.
+
+The 21 sourceIssues entries concern **v1**, not verified mistakes in the
+final journal article. They record the predecessor's main-paper findings,
+the selected fresh checks and the new characteristic-five family.
+“new” means no correction was found in the limited listed searches, not
+priority. No review verdict was added. The earlier AT/IY/MS/Sawin reading
+is preserved with attribution; none of those prerequisite papers was
+freshly read in this claim. In particular G6's later-Sawin observations
+remain historical leads, not a new verification of that complete proof.
+
+### W1. The exact characteristic-sensitive rank and finiteness contract
+
+Let p_1,...,p_r be distinct points of a smooth curve over an algebraically
+closed field, and assume h⁰(O(p_1+...+p_r))=1.
+Lemma 2.1 makes the unweighted Abel differential injective: its source
+has dimension r and its rank is r+1−1=r. Its r one-dimensional images
+are therefore linearly independent.
+
+For the weighted map (p_j)↦O(sum e_j p_j), the differential on the j-th
+line is multiplication by e_j. Consequently its rank is the number of
+e_j nonzero in k, and its kernel is the sum of the tangent lines with
+e_j=0 in k. This proves the corrected Proposition 2.3 when every e_j is
+nonzero, and describes its failure otherwise.
+
+For a stratum of several effective divisors D_i with fixed support
+multiplicities m_ij, first rewrite
+
+    sum_i n_i D_i = sum_j e_j p_j,   e_j=sum_i n_i m_ij.
+
+It is these e_j, not merely the original n_i, which must be nonzero in k.
+For example, in characteristic three the weights 1 and 2 are both units,
+but at a coincident support point their total is zero. The previous
+weighted-fibers wording is sharpened to prevent that misuse.
+
+When all total e_j are nonzero, a fiber has zero tangent space at each
+point of the nonspecial-support stratum, hence local dimension zero.
+A finite-type zero-dimensional fiber has finitely many geometric points.
+This is a statement on that stratum; boundary strata must be checked
+with their own collected multiplicities. It is valid in characteristic
+zero for positive weights. A zero differential by itself would not prove
+a positive-dimensional fiber; W2–W4 supplies an actual family.
+
+### W2. A smooth genus-two model and a polynomial certificate
+
+Work over an algebraically closed field k of characteristic five.
+Let C be the smooth projective double cover with affine equation
+
+    y²=x⁵−x.
+
+The affine chart is smooth because the partial derivative with respect to
+x of y²−x⁵+x is 1. At infinity use u=1/x, v=y/x³, giving
+
+    v²=u−u⁵.
+
+This chart is also smooth. There is one point infinity with u=v=0;
+v is a uniformizer and u has order two, so x and y have pole orders two
+and five. The polynomial x⁵−x is squarefree. The cover has six tame
+ramification points, the five finite roots and infinity; the degree-two
+Hurwitz formula gives 2g−2=−4+6=2, hence g=2.
+This is an instance of existing Algebraic Curves Layers 7/10/12, not a
+new model-class foundation. The scheme/model and genus adapters are
+planned upstream, not already supplied by the generic library imports.
+
+For P=(a,b) with b≠0 and a²⁵≠a, set
+
+    t=x−a, U=b¹⁰+b²=a²⁵−a,
+    H_b(t)=b⁶+2b⁴t+3b²t²+4t³,
+    G_P=b⁵ y−H_b(t).
+
+The equality U=a²⁵−a uses b²=a⁵−a and the characteristic-five binomial
+identity. Direct coefficient expansion in F_5[b,t] gives
+
+    b¹⁰(b²+t⁵−t)−H_b(t)²=t⁵(U−t),
+    H_b(U)=−b³⁰.
+
+These identities are exact. On C they say
+
+    (b⁵y−H_b(t))(b⁵y+H_b(t))=t⁵(U−t).
+
+They avoid any appeal to an unverified identification of Frobenius on the
+Jacobian with multiplication by five.
+
+### W3. The principal divisor, including every local order
+
+Let Q=(a²⁵,−b²⁵), the image of P under the hyperelliptic involution
+composed with the coordinate 25-power Frobenius map of this F_5-model,
+base-changed to k. The binomial identity shows
+Q lies on C. It has x-coordinate a+U, distinct from a.
+
+At P, t is a uniformizer since b≠0. The factor b⁵y+H_b(t) evaluates
+to 2b⁶, a unit, while U is nonzero. The product identity therefore gives
+ord_P(G_P)=5.
+
+At Q, H_b(U)=−b³⁰=b⁵y(Q), so G_P vanishes. Its conjugate factor
+evaluates to −2b³⁰, a unit. Since U≠0, the factor U−t has a simple zero;
+thus ord_Q(G_P)=1.
+
+At infinity the term 4(x−a)³ has pole order six, while b⁵y has pole
+order five and the remaining terms have smaller pole orders. There
+is no cancellation, so ord_infinity(G_P)=−6. On the affine curve
+the norm identity allows no other zeros; G_P has no finite poles.
+Consequently
+
+    div(G_P)=5P+Q−6 infinity,
+    O(5P+Q) ≅ O(6 infinity).
+
+This conclusion uses a divisor witness with computed local orders,
+not merely a norm or a numerical point count.
+
+### W4. A genuine positive-dimensional fiber
+
+The set U_C of P=(a,b) with b≠0 and a²⁵≠a is a nonempty open subset
+of C: only finitely many x-values are excluded. For such P, P and Q
+are distinct and cannot be a hyperelliptic conjugate pair because their
+x-coordinates differ. Lemma 2.13, at genus two with h=0,r=2, gives
+
+    h⁰(O(P+Q))=1.
+
+Nevertheless all divisors 5P+Q lie in the **same** complete linear
+system |6 infinity| by W3. The map P↦(P,Q) is an algebraic graph, so
+it is a one-dimensional family in a fixed weighted-Abel fiber.
+The multiplicity-five point uniquely recovers P from the divisor;
+the divisors are not constant along the family.
+
+One can see algebraicity of the linear-system family directly: G_P is a
+linear combination of 1,x,x²,x³,y with coefficients polynomial in a,b,
+and its x³ coefficient is the nonzero constant −4. Its projective section
+class therefore defines a morphism on U_C, with no denominator issue.
+
+This disproves the intended varying-divisor finiteness conclusion of
+Corollary 2.4 if read without a characteristic/weight restriction.
+It does **not** disprove characteristic-zero finiteness, the nonzero-total-
+weight version, or any later equidistribution theorem. In particular the
+Corollary 2.20 argument uses residual weights 1 and 2; a weights-5-and-1
+counterexample alone does not refute that restricted application.
+Actual multiplicities and overlaps, characteristic two and the separate
+septuple-rank error still need to be checked.
+
+### Library matches and ownership
+
+At the repository pins, the following actual statements and their
+supporting proofs were read:
+
+- Mathlib add_pow_char_pow and sub_pow_char_pow,
+  Algebra/CharP/Lemmas.lean:116–178,243–263, at
+  082e2d37e8b0463410cdb532e111cd43d5a66174.
+- TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem:
+  linearlyEquivalent_iff_exists_principalDivisor and
+  coeff_principalDivisor in Principal/Basic.lean:67–155;
+  weightedAbelJacobiDivisorClass_add, its zsmul version, and
+  weightedAbelJacobiDivisorClass_eq_iff_linearlyEquivalent_of_weightedDegree_eq
+  in AbelJacobi/Sum/Basic.lean:47–194.
+- TauCeti.AlgebraicGeometry.SchemeWeilDivisor:
+  nonempty_iso_sheaf_of_linearlyEquivalent in Scheme/Sheaf.lean:544,
+  with the multiplication-isomorphism proof at 465–553 and standing
+  integral/Noetherian/codimension-one DVR hypotheses at 62–77.
+
+Tau Ceti's pin is f790474821cf4256814db967cb154e7af3d0c369.
+The formal Abel-class sum is **not** the scheme Abel morphism and does
+not supply its differential. The sheaf theorem requires the concrete
+scheme and divisor/order adapter. These generic imports prevent
+rebuilding established class-group or divisor-sheaf machinery.
+
+Freshly read the reviewed Algebraic Curves Layers 7/10/12 and Jacobian
+Challenge Layers A/F audit rows, and the relevant stage descriptions.
+They distinguish the available divisor shadow from the unbuilt general
+hyperelliptic model, scheme dictionary and Jacobian morphism.
+The candidate IDs and weighted-Abel endpoints were searched in packets,
+additional roadmaps, decompositions and reserved IDs without a matching
+new owner. The original Jacobian Part II is the sole application route.
+Its brief gains the characteristic-five regression and corrected
+total-weight requirement; general curve and divisor foundations remain
+with their existing upstream owners. No carrier or definition is added.
+
+### Checks and handoff
+
+The embedded standard-library Python verifies both polynomial identities
+exactly over F_5[b,t], including the residual-point evaluation. Over
+F_125=F_5[z]/(z³+z+1), it verifies the field construction, enumerates
+126 curve points including infinity, and checks 120 eligible distinct
+divisors and 15000 specialized norm identities. It also tests the
+overlap-weight pitfall. These are finite/symbolic regressions, not a Lean
+proof or a substitute for the local-order and family argument above.
+
+All G0–G9 remain open or partial. G2 now has a positive-dimensional
+counterexample and a precise restricted repair, but its downstream
+all-characteristic geometry is not closed. No old withheld item is
+promoted. The source-qualified measure normalization, IC/microlocal
+comparisons, numerical constants, later Sawin proof, Linnik transfer,
+ramified-level dictionary and original supplier readings still need work.
+No Lean file was requested, written or compiled.
+
+### Current delivery checks
+
+The paper schema against the complete fresh catalogue and the three-file
+intake both pass (3 files, 0 problems). Preservation checks retain all
+122 original IDs/statuses, all original route assignments, all 38 D/C
+API/test blocks and the same 16 withheld items. The sole original statement
+refinement is weighted-fibers. All 86 routed missing items have one route;
+the 12 selected edges have known endpoints and are acyclic. Historical
+report/handoff text is retained, and no local paths occur. The Python
+regression was also extracted from this report and executed successfully.
+Publication base: a4a17bf2ff12608cc0f7c13a5bd6c6af7eb7ca22. Protocol,
+catalogue, reviewed-coverage and checker hashes match the working snapshot.
+
+### Reproducible regression
+
+```python
+"""Exact algebra checks for the weighted-Abel counterexample; not Lean proofs."""
+from itertools import product
+
+# Polynomials in b,t over F_5, represented by exponent-pair dictionaries.
+def clean(P):
+    return {e:c%5 for e,c in P.items() if c%5}
+def add(P,Q):
+    R=P.copy()
+    for e,c in Q.items():R[e]=R.get(e,0)+c
+    return clean(R)
+def scale(c,P):return clean({e:c*a for e,a in P.items()})
+def mul(P,Q):
+    R={}
+    for (b,t),c in P.items():
+        for (d,u),a in Q.items():
+            e=(b+d,t+u);R[e]=R.get(e,0)+c*a
+    return clean(R)
+def power(P,n):
+    R={(0,0):1}
+    for _ in range(n):R=mul(R,P)
+    return R
+b={(1,0):1};t={(0,1):1}
+H={(6,0):1,(4,1):2,(2,2):3,(0,3):4}
+curve=add(add(power(b,2),power(t,5)),scale(-1,t))
+U=add(power(b,10),power(b,2))
+lhs=add(mul(power(b,10),curve),scale(-1,mul(H,H)))
+rhs=mul(power(t,5),add(U,scale(-1,t)))
+assert lhs==rhs
+HQ={}
+for (e,j),c in H.items():HQ=add(HQ,scale(c,mul(power(b,e),power(U,j))))
+assert HQ==scale(-1,power(b,30))
+assert power(add({(1,0):1},{(0,1):1}),5)=={(5,0):1,(0,5):1}
+print('PASS: exact F5[b,t] norm factorization, residual-point identity and Frobenius expansion')
+
+# F_125 = F_5[z]/(z^3+z+1). A cubic with no base-field root is irreducible.
+assert all((a**3+a+1)%5 for a in range(5))
+def coeff(x):return [x%5,(x//5)%5,x//25]
+def enc(v):return sum((a%5)*5**i for i,a in enumerate(v))
+def fa(x,y):return enc([a+b for a,b in zip(coeff(x),coeff(y))])
+def fn(x):return enc([-a for a in coeff(x)])
+def fs(x,y):return fa(x,fn(y))
+def fm(x,y):
+    v=[0]*5
+    for i,a in enumerate(coeff(x)):
+        for j,b in enumerate(coeff(y)):v[i+j]+=a*b
+    for k in (4,3):
+        v[k-3]-=v[k];v[k-2]-=v[k]
+    return enc(v[:3])
+def fp(x,n):
+    r=1
+    while n:
+        if n%2:r=fm(r,x)
+        x=fm(x,x);n//=2
+    return r
+assert all(fp(x,124)==1 for x in range(1,125))
+affine=[(a,b) for a,b in product(range(125),repeat=2) if fp(b,2)==fs(fp(a,5),a)]
+checked=0;divisors=set()
+for a,b in affine:
+    aq,bq=fp(a,25),fn(fp(b,25))
+    if not b or aq==a:continue
+    u=fs(aq,a)
+    assert u==fa(fp(b,10),fp(b,2))
+    assert fp(bq,2)==fs(fp(aq,5),aq)
+    h=fa(fa(fp(b,6),fm(2,fm(fp(b,4),u))),fa(fm(3,fm(fp(b,2),fp(u,2))),fm(4,fp(u,3))))
+    assert h==fm(fp(b,5),bq)==fn(fp(b,30))
+    # Exact factorization at each rational t, not merely the chosen residual point.
+    for tt in range(125):
+        ht=fa(fa(fp(b,6),fm(2,fm(fp(b,4),tt))),fa(fm(3,fm(fp(b,2),fp(tt,2))),fm(4,fp(tt,3))))
+        yt2=fs(fa(fp(b,2),fp(tt,5)),tt)
+        assert fs(fm(fp(b,10),yt2),fp(ht,2))==fm(fp(tt,5),fs(u,tt))
+    # The points are distinct and not conjugate under (x,y)->(x,-y).
+    assert a!=aq and bq!=0
+    divisors.add(((a,b,5),(aq,bq,1)))
+    checked+=1
+assert len(divisors)==checked and checked>0
+print('PASS:',len(affine)+1,'F125 points including infinity;',checked,
+      'distinct 5P+Q divisors and',125*checked,'specialized norm identities')
+
+# Weights must be collected at coincident support points before reducing modulo p.
+assert 1%3 and 2%3 and (1+2)%3==0
+print('PASS: separately invertible weights can have zero total weight on an overlap stratum')
+```
+
+---
+
+## Historical report from PR #1657 (unchanged)
+
 # PAPER-SHENDE-TSIMERMAN-17: source-qualified checkpoint
 
 Codex — `codex-c83e7a`; Refs #1334. **Partial**, not a completed intake and not a formalization.

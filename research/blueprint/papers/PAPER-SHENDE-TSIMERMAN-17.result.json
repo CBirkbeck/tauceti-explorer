@@ -67,7 +67,7 @@
     },
     "atlasCommit": "06851ad5002dacc66c8cf335bd6e41e5690f4576"
   },
-  "summary": "Complete reading of the available preprint yields a source-qualified checkpoint for hyperelliptic theta geometry and bundle equidistribution. Existing global bundles, Hecke correspondences, Chow operations, perverse theory, weights and arithmetic measures retain their owners. Two Part II briefs add special theta geometry and general microlocal suppliers. Normalizations, ramified torus levels, characteristic restrictions, the signed Morse formula and a polar-cycle factor are explicit gaps; disputed endpoints are withheld. No formalization is claimed.",
+  "summary": "Partial continuation of PR #1657. Keeps the original 122 IDs, 14 ownership routes, 38 definition/construction API/test blocks and all 16 withheld items. Adds a characteristic-five positive-dimensional counterexample to unrestricted weighted Abel finiteness, an exact polynomial/principal-divisor certificate and a total-multiplicity rank refinement. Imports four verified generic library suppliers and one existing hyperelliptic model target; refines weighted-fibers to require nonzero total weights on overlap strata. Current totals: 131 items (9 library,20 planned,102 missing),86 missing routed once. Final version, characteristic-dependent geometry, microlocal constants, small-ratio dynamics and ramified torus dictionary remain open. No formalization is claimed.",
   "items": [
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/hyperelliptic",
@@ -328,16 +328,19 @@
       "statement": "V1 Proposition 2.3 asserts the weighted Abel differential has the unweighted injectivity property for arbitrary multiplicities, without a characteristic restriction.",
       "locator": "Proposition 2.3",
       "status": "missing",
-      "note": "G2: false in characteristic p with one multiplicity p. Corollary 2.4 cannot inherit this infinitesimal proof unchanged. The restricted version is the routed item."
+      "note": "G2: false in characteristic p with one multiplicity p. Corollary 2.4 cannot inherit this infinitesimal proof unchanged. The restricted version is the routed item. Continuation W4 strengthens the diagnosis: in characteristic 5 even the unrestricted finiteness conclusion has a positive-dimensional counterexample. Retain this source claim unrouted."
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/weighted-fibers",
       "kind": "theorem",
       "name": "Weighted Abel quasi-finiteness near nonspecial reduced support",
-      "statement": "For effective D_i whose union support has h⁰=1, a weighted Abel map with all used weights invertible in k has injective differential on the relevant support stratum, hence is locally quasi-finite there.",
+      "statement": "On a fixed support/overlap stratum write the weighted divisor as Σ_j e_j p_j with distinct support points and total multiplicities e_j=Σ_i n_i m_ij. If h⁰(O(Σ_j p_j))=1 and every total e_j is nonzero in k, the differential is injective and the restricted weighted Abel map is locally quasi-finite there; each fixed-line-bundle fiber on that finite-type stratum is finite.",
       "locator": "Corollary 2.4, restricted branch",
       "status": "missing",
-      "note": "Do not infer the stated char-p claim from the unqualified Proposition 2.3."
+      "note": "Do not infer the stated char-p claim from the unqualified Proposition 2.3. Continuation W1: nonzero original weights n_i alone are insufficient on overlaps (1+2=0 in characteristic 3). W4 proves unrestricted characteristic-p finiteness itself false using weights 5,1, not merely unproved by the printed differential argument.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic"
+      ]
     },
     {
       "id": "PAPER-SHENDE-TSIMERMAN-17/hyperell-reduction",
@@ -1243,6 +1246,126 @@
       "locator": "Later source: Sawin §§1,5, Appendix A",
       "status": "missing",
       "note": "G6: selected introduction, polar coefficient discussion and Appendix A read, not the complete proof. The coefficient quoted from ST Lemma 3.22 repeats the 2-power requiring reconciliation. Its odd-parity display repeats even×odd twice; the correct mixture has both cross terms. Leave the numeric endpoint unrouted until original final versions and cycle conventions are checked."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/frobenius-power-library",
+      "kind": "theorem",
+      "name": "Characteristic-power binomial identities",
+      "statement": "In a commutative ring of prime characteristic p, (x+y)^(p^n)=x^(p^n)+y^(p^n) and (x−y)^(p^n)=x^(p^n)−y^(p^n).",
+      "locator": "Mathlib/Algebra/CharP/Lemmas.lean:116–178,243–263; pin 082e2d3",
+      "status": "library",
+      "note": "Statements, standing hypotheses and supporting proofs read. These algebra identities do not construct a curve or identify a Jacobian Frobenius with scalar multiplication.",
+      "library": [
+        "mathlib:add_pow_char_pow",
+        "mathlib:sub_pow_char_pow"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/principal-witness-library",
+      "kind": "theorem",
+      "name": "Linear equivalence from an explicit principal divisor",
+      "statement": "For an order system S and divisors D,E, S.LinearlyEquivalent D E iff there exists g with S.principalDivisor g=D−E.",
+      "locator": "TauCeti/AlgebraicGeometry/WeilDivisor/Principal/Basic.lean:67–155; pin f790474",
+      "status": "library",
+      "note": "Read the actual OrderSystem, principalDivisor and witness equivalence. The concrete point orders must be supplied; a polynomial identity alone is not a divisor computation.",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.linearlyEquivalent_iff_exists_principalDivisor",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.coeff_principalDivisor"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/abel-class-additivity-library",
+      "kind": "theorem",
+      "name": "Formal Abel–Jacobi class sums",
+      "statement": "For an order system with degree-zero principal divisors and a weight-one base point, the degree-corrected Abel–Jacobi divisor class is additive, respects integral multiples, and its equality for equal-degree divisors is equivalent to linear equivalence.",
+      "locator": "TauCeti/AlgebraicGeometry/WeilDivisor/AbelJacobi/Sum/Basic.lean:47–194; pin f790474",
+      "status": "library",
+      "note": "Actual statements/proofs read. This is the existing formal divisor-class shadow; it is not the Abel morphism of schemes or its differential. Reuse it after the concrete order-system comparison.",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiDivisorClass_add",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiDivisorClass_zsmul",
+        "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedAbelJacobiDivisorClass_eq_iff_linearlyEquivalent_of_weightedDegree_eq"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/divisor-sheaf-equivalence-library",
+      "kind": "theorem",
+      "name": "Linearly equivalent divisors have isomorphic sheaves",
+      "statement": "On a Noetherian integral scheme with DVR stalks at codimension-one points, linearly equivalent Weil divisors D,E have isomorphic divisor sheaves O(D),O(E), via multiplication by their witnessing rational function.",
+      "locator": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Sheaf.lean:62–77,465–553; pin f790474",
+      "status": "library",
+      "note": "Actual theorem and multiplication-isomorphism proof read, including ambient hypotheses. The geometric model and its point-to-divisor adapter remain explicit, not already implemented by this import.",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.nonempty_iso_sheaf_of_linearlyEquivalent"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/char5-model-import",
+      "kind": "theorem",
+      "name": "Characteristic-five genus-two model instance",
+      "statement": "Over an algebraically closed field k of characteristic 5, the smooth projective model of y²=x⁵−x has genus 2, one point ∞ above infinity, ord_∞ x=−2 and ord_∞ y=−5, and involution τ(x,y)=(x,−y).",
+      "locator": "Algebraic Curves Layer 10 odd-degree hyperelliptic model and Layer 12 dictionary; continuation W2",
+      "status": "planned",
+      "note": "This is an instance of existing upstream model/comparison plans, not a new hyperelliptic carrier. Two smooth affine charts and the six tame branch points give the mathematical check; generic Riemann–Hurwitz remains with upstream Layer 7.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic",
+      "kind": "theorem",
+      "name": "Exact weighted Abel rank on distinct nonspecial support",
+      "statement": "For distinct p₁,…,p_r on a smooth curve over an algebraically closed field, with h⁰(O(Σp_j))=1, the differential of (p_j)↦O(Σe_jp_j) has rank #{j:e_j≠0 in k} and kernel the direct sum of the tangent lines whose e_j vanish in k. On a fixed overlap stratum first combine e_j=Σ_i n_i m_ij.",
+      "locator": "Proposition 2.3, corrected characteristic-sensitive refinement; continuation W1",
+      "status": "missing",
+      "note": "Independent tangent lines follow from abel-tangent on the reduced divisor. Multiplication by e_j scales each line. This strengthens weighted-abel without duplicating the underlying Abel morphism.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/abel-tangent",
+        "PAPER-SHENDE-TSIMERMAN-17/abel-sum-tangent"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/char5-norm-witness",
+      "kind": "theorem",
+      "name": "Polynomial certificate for the characteristic-five fiber",
+      "statement": "In characteristic 5 set H_b(t)=b⁶+2b⁴t+3b²t²+4t³ and U=b¹⁰+b². Then b¹⁰(b²+t⁵−t)−H_b(t)²=t⁵(U−t) and H_b(U)=−b³⁰. If b²=a⁵−a, then U=a²⁵−a.",
+      "locator": "Continuation W2–W3, explicit counterexample to the unrestricted reading of v1 Corollary 2.4",
+      "status": "missing",
+      "note": "An exact coefficient identity over F₅[b,t], not a numerical conjecture. It avoids any unproved identification of Jacobian Frobenius with [5]. Verified symbolically and in F₁₂₅.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/frobenius-power-library"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/char5-principal-divisor",
+      "kind": "theorem",
+      "name": "Explicit principal divisor in characteristic five",
+      "statement": "On the model above let P=(a,b), b≠0 and a²⁵≠a, Q=(a²⁵,−b²⁵), t=x−a, G_P=b⁵y−H_b(t). Then div(G_P)=5P+Q−6∞, so O(5P+Q)≅O(6∞).",
+      "locator": "Continuation W3: local orders at P,Q,∞",
+      "status": "missing",
+      "note": "The norm certificate gives exact orders 5 and 1 because the conjugate factor is a unit at both points. The cubic term gives the unique pole of order 6 at infinity; no other zeros occur. The geometric order adapter must still be implemented on the existing model.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/char5-model-import",
+        "PAPER-SHENDE-TSIMERMAN-17/char5-norm-witness",
+        "PAPER-SHENDE-TSIMERMAN-17/principal-witness-library",
+        "PAPER-SHENDE-TSIMERMAN-17/divisor-sheaf-equivalence-library"
+      ]
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/char5-infinite-weighted-fiber",
+      "kind": "theorem",
+      "name": "Positive-dimensional weighted Abel fiber with nonspecial support",
+      "statement": "For C:y²=x⁵−x over an algebraically closed field of characteristic 5, the nonempty open set U={P=(a,b):b≠0,a²⁵≠a} maps into one fiber of (P,Q)↦O(5P+Q), via P↦(P,τ(P²⁵)). The support P+Q has h⁰=1, yet the divisors 5P+Q in |6∞| are infinitely many and form a one-dimensional family.",
+      "locator": "Continuation W4; v1 p.7 Corollary 2.4 under an unrestricted characteristic reading",
+      "status": "missing",
+      "note": "Q has different x-coordinate from P, so P+Q contains no hyperelliptic fiber and Lemma 2.13 gives h⁰=1. The coefficient-5 point recovers P, proving nonconstancy. This is stronger than a zero differential. It does not refute characteristic-zero finiteness or by itself any later finite-field equidistribution theorem.",
+      "dependsOn": [
+        "PAPER-SHENDE-TSIMERMAN-17/char5-principal-divisor",
+        "PAPER-SHENDE-TSIMERMAN-17/linear-system",
+        "PAPER-SHENDE-TSIMERMAN-17/abel-class-additivity-library",
+        "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic"
+      ]
     }
   ],
   "prerequisites": [
@@ -1516,10 +1639,14 @@
         "PAPER-SHENDE-TSIMERMAN-17/reduced-divisors",
         "PAPER-SHENDE-TSIMERMAN-17/class-zeta",
         "PAPER-SHENDE-TSIMERMAN-17/reduced-zeta",
-        "PAPER-SHENDE-TSIMERMAN-17/theta-betti-bound"
+        "PAPER-SHENDE-TSIMERMAN-17/theta-betti-bound",
+        "PAPER-SHENDE-TSIMERMAN-17/weighted-rank-characteristic",
+        "PAPER-SHENDE-TSIMERMAN-17/char5-norm-witness",
+        "PAPER-SHENDE-TSIMERMAN-17/char5-principal-divisor",
+        "PAPER-SHENDE-TSIMERMAN-17/char5-infinite-weighted-fiber"
       ],
-      "reason": "Upstream JC.C/D construct symmetric powers, Abel maps and the Picard scheme, but do not plan the special-divisor stratification, Gauss/Nash models or intersection-cohomology comparison. Extend upstream rather than replanning it.",
-      "brief": "Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and Algebraic Curves (tauceti:TauCetiRoadmap/AlgebraicCurves) 10/12. Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.2 and Weil Conjectures (WeilConjectures). Construct Θ_d, hyperelliptic reduction including ramification, Abel differentials and canonical septuples, e(L) with integer shifts, and the proper sum maps. Prove the Gauss embedding for d<g and Nash model only in that range. Establish IC_Θ=Q[dim Θ], set-theoretic ample sections, the small-support constant-to-IC comparison and the exact Theorem 3.9 target: if e(L)≤n=g−a−b≥0 then H^i(X_L)=H^(i+2a+2b)(J)(a+b) for i>n+e(L), retaining coefficient and Frobenius conventions. First close the characteristic-zero proof and then supply an independent valid étale positive-characteristic argument; Proposition 2.3 does not transfer when weights vanish in k. Develop the generic Euler calculation, discriminant candidate geometry and incidence maps, importing the microlocal Part II. Do not promise the printed 960 numerical base until Lemma 3.22, the signed Morse formula and final-source reconciliation close. ArithmeticStatistics owns limiting measures; GS.0 owns bundles. Define APIs with ≥3 discriminating tests, source-faithful proof tasks and suggested Lean files; no implementation is claimed."
+      "reason": "Upstream JC.C/D construct symmetric powers, Abel maps and the Picard scheme, but do not plan the special-divisor stratification, Gauss/Nash models or intersection-cohomology comparison. Extend upstream rather than replanning it. The characteristic-five family is an application-level counterexample/acceptance test on the imported hyperelliptic model; it introduces no general curve or divisor infrastructure.",
+      "brief": "Build on Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) A–F and Algebraic Curves (tauceti:TauCetiRoadmap/AlgebraicCurves) 10/12. Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.2 and Weil Conjectures (WeilConjectures). Construct Θ_d, hyperelliptic reduction including ramification, Abel differentials and canonical septuples, e(L) with integer shifts, and the proper sum maps. Prove the Gauss embedding for d<g and Nash model only in that range. Establish IC_Θ=Q[dim Θ], set-theoretic ample sections, the small-support constant-to-IC comparison and the exact Theorem 3.9 target: if e(L)≤n=g−a−b≥0 then H^i(X_L)=H^(i+2a+2b)(J)(a+b) for i>n+e(L), retaining coefficient and Frobenius conventions. First close the characteristic-zero proof and then supply an independent valid étale positive-characteristic argument; Proposition 2.3 does not transfer when weights vanish in k. Develop the generic Euler calculation, discriminant candidate geometry and incidence maps, importing the microlocal Part II. Do not promise the printed 960 numerical base until Lemma 3.22, the signed Morse formula and final-source reconciliation close. ArithmeticStatistics owns limiting measures; GS.0 owns bundles. Define APIs with ≥3 discriminating tests, source-faithful proof tasks and suggested Lean files; no implementation is claimed. Require the continuation's total-multiplicity rank contract and characteristic-five positive-dimensional fiber regression. Do not seek unrestricted all-characteristic weighted finiteness: it is false. Any positive-characteristic downstream repair must check the actual weights/overlaps used, especially weight two in characteristic two, and the independent septuple-rank issue."
     },
     {
       "route": "part-ii",
@@ -1539,6 +1666,422 @@
       ],
       "reason": "EDC.5/7 provide perverse sheaves and decomposition but have no characteristic-cycle, Euler-obstruction or higher-discriminant theory. Those are shared suppliers for theta geometry and later Sawin applications, not application-local placeholders.",
       "brief": "Import Etale Duality and Perverse Sheaves (EtaleDualityAndPerverseSheaves) EDC.5/7, Scheme and Stack Foundations (SchemeAndStackFoundations) SF.5, Lefschetz Pencils and Vanishing Cycles (LefschetzPencilsAndVanishingCycles) LPV.0/2/6 and Complex Comparison (ComplexComparison and ComplexComparisonPartII). Construct complex conormal cycles, Nash bundle/local Euler obstruction, generic polar cycles and local multiplicities. Prove effective characteristic-cycle conventions for perverse objects, the signed local index formula and Massey stalk inequalities using effective cycle coefficients. Establish higher discriminants, codimension estimates in characteristic zero, support containment and the Migliorini–Shende Euler-obstruction expansion. Final target: dim H^(−i)(K)_x≤γ_i(CC(K),x) for a perverse K on smooth complex Y, with all genericity and indexing conventions, not the false signed n_α sum printed in ST v1. Obtain the original Massey proof and the entire relevant MS proof before declaring closure. Treat the positive-characteristic Beilinson–Saito/Sawin branch as a separately sourced extension: perfect ground field, ℓ invertible, conical singular support not assumed a union of conormals, wild ramification and pencil transversality explicit. Do not infer it from characteristic-zero stratified topology. Give every definition APIs and ≥3 unit tests, including a shifted constant sheaf on a curve and an Artin–Schreier map. Numerical hyperelliptic bounds stay in the Jacobian Part II, not this general supplier."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E1",
+      "kind": "error",
+      "locator": "v1 p.7 Proposition 2.3; final journal text not obtained",
+      "printed": "arbitrary positive d_i",
+      "correction": "Require the weights to be nonzero in k for differential injectivity; the exact rank is the number of nonzero total weights.",
+      "reason": "Multiplication by p has zero differential in characteristic p. Independent unweighted Abel tangent lines do not repair a zero scalar. W1 states the exact rank and overlap convention.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Fresh main-source reading by codex-a71f92; W1–W4 supplies the new characteristic-five argument. Proposed finding, not independent review."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E2",
+      "kind": "error",
+      "locator": "v1 p.7 Corollary 2.4, unrestricted characteristic reading; final journal text not obtained",
+      "printed": "only finitely many points of |L| of the form Σn_iD_i",
+      "correction": "Restrict the characteristic/total weights as in W1. Unrestricted finiteness is false, not merely unproved by the printed tangent argument.",
+      "reason": "W2–W4: on C:y²=x⁵−x in characteristic 5, a nonempty open family P gives Q=τ(P²⁵), h⁰(P+Q)=1 and div(G_P)=5P+Q−6∞. The varying divisors 5P+Q all lie in |6∞|; their multiplicity-five point recovers P.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Fresh main-source reading by codex-a71f92; W1–W4 supplies the new characteristic-five argument. Proposed finding, not independent review."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E3",
+      "kind": "misprint",
+      "locator": "v1 p.8 Corollary 2.9; final journal text not obtained",
+      "printed": "O_(P¹)(g)",
+      "correction": "Use O_(P¹)(g−1) for the canonical rational-normal embedding.",
+      "reason": "Its section space has dimension g, giving P^(g−1); O(g) has g+1 sections.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E4",
+      "kind": "error",
+      "locator": "v1 p.10 Proposition 2.15; final journal text not obtained",
+      "printed": "C^(d) is the Nash blowup of Θ_d",
+      "correction": "Retain the restricted d<g branch used by the proof; do not assert this for all d.",
+      "reason": "At d=g, Θ_g is the smooth Jacobian, whose Nash blowup is itself, whereas special degree-g Abel fibers can have positive dimension. The proof explicitly invokes the d<g embedding.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E5",
+      "kind": "misprint",
+      "locator": "v1 p.11 proof of Proposition 2.16; final journal text not obtained",
+      "printed": "D₁∩D₂ is special",
+      "correction": "At this point the divisor is D₁∪D₂.",
+      "reason": "Lemma 2.1 and Corollary 2.2 compute the tangent image from the union, as does the proposition's displayed statement; the intersection does not give that rank.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Fresh main-source reading by codex-a71f92; W1–W4 supplies the new characteristic-five argument. Proposed finding, not independent review."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E6",
+      "kind": "error",
+      "locator": "v1 p.12 Corollary 2.18; final journal text not obtained",
+      "printed": "min(g,(deg H∩+deg H₁+deg H₂)/2+deg S+deg R∩+deg R₁+deg R₂)",
+      "correction": "Use the union-divisor rank formula until cross-overlap terms are correctly included.",
+      "reason": "For a ramification point p, D₁=p,D₂=2p give H₂=2p,R₁=p, so the display gives min(g,2); the union is 2p and has h⁰=2, hence rank 2+1−2=1. Previously checked in PR #1657; downstream uses remain unclosed.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E7",
+      "kind": "error",
+      "locator": "v1 p.12 after Definition 2.19; final journal text not obtained",
+      "printed": "e(L)≥(2g−a−b−1)/2",
+      "correction": "The safe Riemann–Roch bound is floor((deg L−g)/2)≤e(L)≤floor(deg L/2).",
+      "reason": "A generic degree-g class has e(L)=0; choose a+b=g. The printed lower bound is positive for g≥2.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E8",
+      "kind": "gap",
+      "locator": "v1 pp.3 and 30, Theorems 1.1 and 4.2; final journal text not obtained",
+      "printed": "Theorem 1.1 without a q restriction",
+      "correction": "Reconcile the introduction with the q>4 hypothesis in Theorem 4.2 before exporting the all-q endpoint.",
+      "reason": "The detailed theorem imposes a condition omitted in the introduction. This is a source/proof-scope discrepancy, not a counterexample to the all-q statement.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E9",
+      "kind": "error",
+      "locator": "v1 p.30 proof of Theorem 4.2; final journal text not obtained",
+      "printed": "C has a point over F_q",
+      "correction": "Use a degree-one divisor class with its descent, not an assumed rational point.",
+      "reason": "A finite-field curve need not have a rational point. What is required here is that the two degree-parity Picard components have the same cardinality; the index-one/Picard-descent supplier is still needed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E10",
+      "kind": "misprint",
+      "locator": "v1 p.31, contour estimate after (7); final journal text not obtained",
+      "printed": "O_ε(q^((n/2+ε)g))",
+      "correction": "Use O_ε(q^(n/2+εg)); after division by #J use its actual asymptotic normalization.",
+      "reason": "On the circle |t|=q^(−1/2), t^(−n) contributes q^(n/2), not q^(ng/2). The unnormalized count cannot take the subsequently printed tiny normalized error without dividing by #J.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E11",
+      "kind": "gap",
+      "locator": "v1 p.4 geometric proof outline versus p.32; final journal text not obtained",
+      "printed": "q>N, with N=4",
+      "correction": "The stated O(4^g) cohomological argument yields q>16 unless a stronger estimate is supplied.",
+      "reason": "The normalized error has size 4^g q^(−g/2+o(g)); decay requires 4/√q<1. The p.32 proof itself gives q>16. The analytic argument is separate.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E12",
+      "kind": "error",
+      "locator": "v1 p.33, joint-tail count display; final journal text not obtained",
+      "printed": "μ_i((a+1+2N)×(b+1+2N))=#X(F_q)",
+      "correction": "For the unconditional two-parity Picard quotient, divide by 2#J(F_q); on a fixed parity component use its conditional normalization.",
+      "reason": "The domain has 2#J classes after the degree-one comparison, and the uniform probability of a subset is its cardinality divided by the domain cardinality.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E13",
+      "kind": "error",
+      "locator": "v1 p.18 Theorem 3.12; final journal text not obtained",
+      "printed": "dim H^(−i)(K_p)≤Σ n_α γ^i_(V_α)(p), with χ(K_p)=Σn_α Eu_(V_α)(p)",
+      "correction": "Use effective characteristic-cycle coefficients with the signed Euler-obstruction conversion and the correct shifts.",
+      "reason": "For K=Q_C[1] on a smooth complex curve, χ=−1 but dim H^(−1)=1 and the top polar multiplicity is 1, so the printed bound is 1≤−1. Original Massey normalization remains to acquire.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E14",
+      "kind": "misprint",
+      "locator": "v1 p.19 motivic Abel decomposition and inversion; final journal text not obtained",
+      "printed": "A_(a−2l,b−2r); −[A_(a,b+2)]",
+      "correction": "With A_(a,b)=C^(g−a)×C^(g−b), lower theta degrees have indices a+2l,b+2r; inversion has both middle factors L: Σ_ab=A_ab−L A_(a+2,b)−L A_(a,b+2)+L² A_(a+2,b+2).",
+      "reason": "Fibers of the Abel map over Θ_(g−a−2l) are P^l; decreasing the theta degree increases the a index. Multiplying both geometric-series factors (1−L shift_a)(1−L shift_b) gives the two L coefficients. Derived versions need shifts and Tate twists.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Fresh main-source reading by codex-a71f92; W1–W4 supplies the new characteristic-five argument. Proposed finding, not independent review."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E15",
+      "kind": "error",
+      "locator": "v1 p.27 proof of Lemma 3.22; final journal text not obtained",
+      "printed": "[2]_*[Θ_u]=2^u[Θ_u]",
+      "correction": "The cohomological pushforward factor on a u-dimensional abelian cycle is 4^u; separate image cycles from pushforwards and verify the generic degree.",
+      "reason": "For r=0,s=1,k=g−2 the displayed coefficient gives 2, whereas the doubled-curve pushforward has coefficient 4. No repaired full polar coefficient is asserted without its generic-degree calculation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E16",
+      "kind": "misprint",
+      "locator": "v1 p.26 Lemma 3.21 versus its proof; final journal text not obtained",
+      "printed": "L⊂B",
+      "correction": "Use the proof's condition L^∨ not contained in B, with L and its annihilator correctly typed.",
+      "reason": "The proof passes to the dense open L^∨ minus B. The printed condition is incompatible with that argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E17",
+      "kind": "gap",
+      "locator": "v1 p.28 proof of Proposition 3.23; final journal text not obtained",
+      "printed": "lift the normalization through a proper surjection",
+      "correction": "Record a finite base change of the normalized curve and check the subsequent derivative argument after that change.",
+      "reason": "A proper surjection need not admit a section over a given normalized curve. A finite cover can produce a lift, but this step and the relevant separability must be justified.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E18",
+      "kind": "gap",
+      "locator": "v1 pp.17 and 32, Theorem 3.11 and discussion after Conjecture 4.3; final journal text not obtained",
+      "printed": "N=960",
+      "correction": "Retain O_ε((960+ε)^g), not the exact 960^g endpoint, until an independent sharper estimate is proved.",
+      "reason": "An ε-dependent exponential bound does not imply the bound with ε=0. Existing coefficient/sign problems also prevent certification of the printed numerical endpoint.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E19",
+      "kind": "error",
+      "locator": "v1 p.37 Appendix A.2; final journal text not obtained",
+      "printed": "Pic(D)/π*Pic(C)=X_T/T(O), with T(O) maximal compact",
+      "correction": "Use integral unit-level subgroups. At a ramified quadratic place the unit quotient is index two in the compact anisotropic torus.",
+      "reason": "For l_v=k_v(√π), √π maps to [[0,π],[1,0]], with odd determinant valuation. Scalar multiplication changes that valuation by an even number, so no conjugate lies in PGL₂(O_v). The claimed maximal compact containment fails.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E20",
+      "kind": "gap",
+      "locator": "v1 pp.37–38 Appendix A.3; final journal text not obtained",
+      "printed": "the pushforward map X_T→X_GL₂",
+      "correction": "Construct the framed GL₂ map from Res_(l/k)G_m before quotienting scalars; T=Res G_m/G_m has the canonical map to PGL₂, not that GL₂ lift.",
+      "reason": "Multiplication on l is a GL₂ representation of l×. Modding out k× loses the scalar action needed to define a canonical GL₂ representation. Reprove the framed quotient dictionary with its central data.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    },
+    {
+      "id": "PAPER-SHENDE-TSIMERMAN-17/E21",
+      "kind": "gap",
+      "locator": "v1 pp.33–34 Theorem 4.4 Case 1; final journal text not obtained",
+      "printed": "the proof carries over",
+      "correction": "Supply the positive-characteristic Linnik/dynamics proof with constants uniform in the chosen split place, or retain it as an explicit hypothesis.",
+      "reason": "The source transfers EMiV's number-field argument and allows a place of growing degree; the required variable-place estimates are not established by that sentence. Its optional Waldspurger sketch also states its formula is not available in sufficient generality.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1307.8237 version history, 2026-09-22: only v1 listed; author-linked copy remains v1.",
+        "Tsimerman author page and DOI 10.1215/00127094-2017-0025; canonical Project Euclid download returned security HTML, not the final PDF.",
+        "Searches on 2026-09-22 for Shende Tsimerman Equidistribution Bun2 erratum/correction and Corollary 2.4 characteristic; no relevant correction located. Limited search, not a priority claim."
+      ],
+      "attribution": "Finding retained from codex-c83e7a / PR #1657, with v1 freshly reread. Earlier prerequisite reading remains attributed to that checkpoint; no independent-review verdict."
+    }
+  ],
+  "verification": {
+    "session": "codex-a71f92",
+    "date": "2026-09-22",
+    "status": "partial",
+    "predecessor": "PR #1657 by codex-c83e7a",
+    "sourceRead": {
+      "url": "https://arxiv.org/pdf/1307.8237v1",
+      "sha256": "542a52a2a04b65901a6d753266ef5f44aa73a8bde4dfdf7935ae27d489a5cf29",
+      "extent": "All 40 pages, §§1–4, Appendix A.1–A.4 and references; extracted lines 1–1900 through EOF. Page 7 visually checked."
+    },
+    "finalVersion": "Not acquired. Canonical Project Euclid download for DOI 10.1215/00127094-2017-0025 returned 1160-byte security HTML. ArXiv lists only v1.",
+    "readingBoundary": "AT, IY, MS and Sawin selected readings are inherited from PR #1657, not freshly read in this claim. Sawin coefficient/parity concerns remain attributed leads in G6; no new complete later-source verification.",
+    "libraryPins": {
+      "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+    },
+    "atlasSnapshot": "5db325c698954f89a2b5c8524b297ce8fb066399",
+    "audit": "Freshly read reviewed AC Layers 7/10/12 and JC Layers A/F; checked full AC7/10 and JCA/F descriptions, original Part II brief and bounded collision searches. Existing model and divisor owners reused.",
+    "changeBoundary": "All 122 IDs/statuses and all original route assignments preserved. Only weighted-fibers has a refined original statement: require nonzero TOTAL multiplicities on overlap strata. Two original notes and the existing Jacobian Part II brief/reason gain explicit qualifications. All 38 original definition/construction APIs/tests and all 16 withheld claims retained.",
+    "selectedDependencyEdges": 12,
+    "finiteChecks": "PASS: exact F₅[b,t] norm and residual-point identities; F₁₂₅ model has 126 points including infinity, 120 eligible distinct 5P+Q divisors, and 15000 specialized norm identities; overlapping weights 1+2=0 in characteristic 3. Embedded script is reproducible and standard-library-only.",
+    "sourceIssueBoundary": "21 proposed v1-only findings; not an independent review or a claim of priority. The sourceIssues array concerns the main paper, while inherited unverified later-source leads remain in G6.",
+    "lean": "No Lean file requested, written or compiled. Generic imported statements are verified at pins; no application theorem is claimed implemented.",
+    "checks": "PASS: paper schema against the complete catalogue, three-file intake (0 problems), preservation of 122 original IDs/statuses and all but the explicitly refined weighted-fibers statement, original routes and 38 D/C API/test blocks; same 16 withheld items, 86 uniquely routed missing items; 12 known-ID acyclic selected edges; historical report/handoff preservation; embedded regression executed from the report. Fresh publication snapshot has unchanged protocol, catalogue, coverage and checker hashes.",
+    "publishSnapshot": "a4a17bf2ff12608cc0f7c13a5bd6c6af7eb7ca22"
+  },
+  "gaps": [
+    {
+      "id": "G0",
+      "status": "open",
+      "detail": "Final 44-page journal source still not acquired or matched."
+    },
+    {
+      "id": "G1",
+      "status": "open",
+      "detail": "Inherited measure/typed-object comparisons remain source-qualified."
+    },
+    {
+      "id": "G2",
+      "status": "partial",
+      "detail": "W1–W4 gives an exact total-weight rank contract and a positive-dimensional characteristic-five counterexample. Unrestricted weighted finiteness is false. Restricted downstream weights, characteristic two, septuple-rank correction, criticality/expected dimension and the all-characteristic theta argument remain open."
+    },
+    {
+      "id": "G3",
+      "status": "open",
+      "detail": "Inherited index-one, contour/class-number normalization and analytic suppliers remain unclosed."
+    },
+    {
+      "id": "G4",
+      "status": "open",
+      "detail": "Signed Morse conventions, motivic/derived shifts and étale IC comparison remain open."
+    },
+    {
+      "id": "G5",
+      "status": "open",
+      "detail": "Polar pushforward/image multiplicities, finite lifting and numerical exponential constants remain unverified."
+    },
+    {
+      "id": "G6",
+      "status": "open",
+      "detail": "Full later Sawin proof/final source and coefficient/parity reconciliation not freshly investigated; retain historical leads."
+    },
+    {
+      "id": "G7",
+      "status": "open",
+      "detail": "Small-ratio dynamics, varying-place uniformity, Hecke mixing and conditionality remain open."
+    },
+    {
+      "id": "G8",
+      "status": "open",
+      "detail": "Ramified unit-level torus/adelic measure dictionary remains unclosed."
+    },
+    {
+      "id": "G9",
+      "status": "open",
+      "detail": "Original prerequisite proofs, trace-formula locator, model-to-scheme adapters and complete atomic dependency closure remain missing."
     }
   ]
 }
