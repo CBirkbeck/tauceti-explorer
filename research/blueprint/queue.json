@@ -28810,8 +28810,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1701"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1701",
+   "finishedAt": "2026-09-22T07:34:54Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BURUNGALE-TIAN-26",
