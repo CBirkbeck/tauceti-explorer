@@ -4130,6 +4130,66 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CHANG-CHEN-MISHIBA-23/E1",
+   "kind": "misprint",
+   "locator": "Section 2.2, the definition of the power sums, just before Definition 2.2.2 (published version: Section 2.2, before Definition 2.4); present in arXiv v2 and in the published version",
+   "printed": "S^{ζ}_{d}(s) := Σ_{a ∈ A_{+,d}} 1/a^{d} ∈ k",
+   "correction": "S^{ζ}_{d}(s) := Σ_{a ∈ A_{+,d}} 1/a^{s} ∈ k",
+   "reason": "The exponent must be s, not d: S^ζ_d(s) is the power sum of exponent s over the monic polynomials of degree d. With the printed exponent the symbol would not depend on s at all, and Remark 2.2.12 — which states Carlitz's identity 1/L_d^s = Σ_{a ∈ A_{+,d}} 1/a^s and concludes 𝔏^{Li}_d(s) = 𝔏^ζ_d(s) for 1 ≤ s ≤ q — uses the exponent s. The definition of ζ_A(s) in Section 1.2 likewise sums a^{-s} over monic a. Checked against the published text on Cambridge Core, which prints the same formula.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
+   ],
+   "owner": "PAPER-CHANG-CHEN-MISHIBA-23",
+   "file": "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
+   "citation": "Chang–Chen–Mishiba, \"On Thakur's basis conjecture for multiple zeta values in positive characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CHANG-CHEN-MISHIBA-23/E2",
+   "kind": "misprint",
+   "locator": "Section 2.3, the definition of Δ^{[j]}_{s,n} in H.-J. Chen's formula (arXiv v2)",
+   "printed": "Δ^{[j]}_{s,n} := (−1)^{s−1} C(j−1, s−1) + (−1)^{n−1} C(j−1, n−1) if (q − 1) | k and 1 ≤ j < s + n, and 0 otherwise",
+   "correction": "if (q − 1) | j and 1 ≤ j < s + n",
+   "reason": "k denotes the function field F_q(θ) throughout the paper, so '(q − 1) | k' is not a condition; the divisibility is on the summation index j, as in Chen's theorem. With the corrected reading, Remark 2.3.4 — Δ^{[j]}_{s,n} = 0 for all j when s + n ≤ q — is exactly right: the only j ≤ s + n − 1 divisible by q − 1 is j = q − 1 with s + n = q, and then the two binomial terms cancel (they are equal by the symmetry (n−1) = (q−2) − (s−1), with opposite signs when q is odd and with 2 = 0 when q is even).",
+   "affects": "nothing",
+   "known": "corrected in the published version, Forum of Mathematics, Pi 11 (2023), doi:10.1017/fmp.2023.26, which prints '(q − 1) | j'",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
+   ],
+   "owner": "PAPER-CHANG-CHEN-MISHIBA-23",
+   "file": "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
+   "citation": "Chang–Chen–Mishiba, \"On Thakur's basis conjecture for multiple zeta values in positive characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CHANG-CHEN-MISHIBA-23/E3",
+   "kind": "misprint",
+   "locator": "Remark 1.2.5 (published: Remark 1.6), the displayed upper bound; present in arXiv v2 and in the published version",
+   "printed": "dim_{w} Z_{w} ≤ d'_{w}, ∀ w ≥ 1",
+   "correction": "dim_{k} Z_{w} ≤ d'_{w}, ∀ w ≥ 1",
+   "reason": "Z_w is a k-vector space and its dimension is taken over k everywhere else in the paper (Conjecture 1.2.2 writes dim_k Z_w = d'_w, and Corollary 1.2.7 writes dim_k Z_{v,w}); 'dim_w' is not defined. Checked against the published text on Cambridge Core, which prints the same subscript.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing and submission history of arXiv:2205.09929, read 22 September 2026: v1 (20 May 2022) and v2 (11 July 2022), the version read, whose comment is 'added Section 5.4, corrected a few typos'; there is no later preprint version",
+    "the published version, doi:10.1017/fmp.2023.26 (Forum of Mathematics, Pi 11 (2023), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and each finding below was compared with the published text"
+   ],
+   "owner": "PAPER-CHANG-CHEN-MISHIBA-23",
+   "file": "research/blueprint/papers/PAPER-CHANG-CHEN-MISHIBA-23.result.json",
+   "citation": "Chang–Chen–Mishiba, \"On Thakur's basis conjecture for multiple zeta values in positive characteristic\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CHEN-24/E1",
    "kind": "error",
    "locator": "§5.6, p. 85, Proposition 5.6.1(a) (arXiv v2)",
@@ -4886,27 +4946,6 @@
    "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
    "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
    "affects": "nothing",
-   "known": "new",
-   "searched": [
-    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
-   ],
-   "owner": "PAPER-DITTMANN-POP-23",
-   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
-   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
-  },
-  {
-   "id": "PAPER-DITTMANN-POP-23/E5",
-   "kind": "error",
-   "locator": "arXiv v2, Proposition 3.8 proof, p.11",
-   "printed": "Σ-units",
-   "correction": "Choose Σ containing every finite place where at least one ε_i is not a unit. Lemma 3.5 then makes a_1 a unit at every such place.",
-   "reason": "The test-form condition requires every place with v(a_1)>0 to be a place where every ε_i is a unit. The printed choice of Σ among unit places gives no control at the nonunit places. The corrected complement is finite by the global-field finite-support property. The previous extraction already used this correction silently.",
-   "affects": "the proof",
    "known": "new",
    "searched": [
     "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
