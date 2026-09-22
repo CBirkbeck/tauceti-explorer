@@ -968,8 +968,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LANDESMAN-LITT-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1077"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1077",
+   "finishedAt": "2026-09-22T14:24:56Z"
   },
   {
    "id": "REV-PAPER-LANDESMAN-LITT-24",
@@ -1433,7 +1434,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1103"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-22",
@@ -4032,7 +4034,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1256"
   },
   {
    "id": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
