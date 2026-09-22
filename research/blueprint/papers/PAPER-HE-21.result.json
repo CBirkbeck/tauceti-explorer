@@ -51,7 +51,7 @@
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
       "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
     },
-    "atlasCommit": "6a3c7756d3446bd54797604ac7089df94a7f8551",
+    "atlasCommit": "b5db06f75311f98ee8754aab201b93c99bebd3a2",
     "prerequisiteProvenance": [
       {
         "name": "ghn15",
@@ -149,9 +149,75 @@
       "workersBlob": "5e415ee19ab6b69a25f9f4512e8b5b50c1cf2675",
       "protocolBlob": "80101433c4a5e9c306c316873d0607470ab8f5e0",
       "note": "WORKERS and the complete revised PROTOCOL reread before publication; section18 sourceIssues incorporated. Findings await independent review; no author contact."
+    },
+    "continuationReading": {
+      "agent": "Codex — codex-7e92bd",
+      "sources": [
+        {
+          "source": "he21",
+          "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-delignelusztig-varieties.pdf",
+          "sha256": "89a5bfd91946d5c27d3e347b938d139af3c8901d90a61f40c29d8a26a176d0ec",
+          "date": "2026-09-22",
+          "read": "All 15 published pages, including all proofs and references, reread."
+        },
+        {
+          "source": "ghn15",
+          "url": "https://www.numdam.org/item/10.24033/asens.2254.pdf",
+          "sha256": "f0c94caa4855416b4c1949307ea8c4f382d3310f5b27a349216203f5c9d81e3e",
+          "date": "2026-09-22",
+          "read": "Introduction and §§2.1–2.2 through Corollary2.2.2, with the adjoint-reduction boundary; not a full-paper reread."
+        },
+        {
+          "source": "ghn-erratum",
+          "url": "https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf",
+          "sha256": "cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0",
+          "date": "2026-09-22",
+          "read": "All three pages reread."
+        },
+        {
+          "source": "zhu17",
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+          "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+          "date": "2026-09-22",
+          "read": "§1.1.1–1.1.2 through Lemma1.3; §1.4.1–1.4.2; Appendix A.1.1–A.2.1 through A.21; A.22–A.28 and A.29 proof/opening A.30. Selected scope only; no full-paper extraction claim."
+        }
+      ],
+      "stacks": [
+        "https://stacks.math.columbia.edu/tag/00P0",
+        "https://stacks.math.columbia.edu/tag/00P3",
+        "https://stacks.math.columbia.edu/tag/05F7",
+        "https://stacks.math.columbia.edu/tag/02FW"
+      ],
+      "note": "Statements and displayed proofs read at these tags; recursive Stacks dependencies are not represented as newly verified complete Lean closure.",
+      "stacksAcquisition": [
+        {
+          "url": "https://stacks.math.columbia.edu/tag/00P0",
+          "sha256": "33fc37cc97da399f7291bc847556cdea4ab32ac33a7b89a1e37f8d5bd5e3416c",
+          "date": "2026-09-22",
+          "read": "Statement and proof inspected; linked dependencies not claimed recursively verified."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/00P3",
+          "sha256": "a952d5dbca6b120b89152bcdcace6f4ad5557de8266de7882430c1954c4d898c",
+          "date": "2026-09-22",
+          "read": "Statement and proof inspected; linked dependencies not claimed recursively verified."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/05F7",
+          "sha256": "5dbde674e303ee124f30a9fe6ecae4e94ab8eb26a9180093c5aa6827a724d455",
+          "date": "2026-09-22",
+          "read": "Statement and proof inspected; linked dependencies not claimed recursively verified."
+        },
+        {
+          "url": "https://stacks.math.columbia.edu/tag/02FW",
+          "sha256": "a39258f122bf91ef47e56e8f99299444592c4709322449714efdebe58105f551",
+          "date": "2026-09-22",
+          "read": "Statement and proof inspected; linked dependencies not claimed recursively verified."
+        }
+      ]
     }
   },
-  "summary": "129-item partial follow-up to the full He21 extraction. Routes all missing items once; isolates a non-shrunken basic-seed proof via He14/HY12, decomposes bounded convolution and generic cocenters, and records explicit dependency/API/test contracts. G1, G2, general-scope G3 transport and recursive source closure remain open; no formalization is asserted.",
+  "summary": "134-item partial extraction: resolves the abstract finite-type fibre-dimension argument and compatible perfect-scheme transfer, supplies both Frobenius endpoint squares, reuses two further pinned dimension lemmas, and replaces an impossible original-lattice lifting obligation by an explicit twisted A2 counterexample and adjoint-descent boundary. All 115 missing items are routed once; G1–G10 remain qualified research frontiers, not formalization claims.",
   "items": [
     {
       "id": "PAPER-HE-21/1",
@@ -308,7 +374,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Local reductive root datum and affine apartment for Auxiliary-lattice compatibility still required."
+          "how": "Supply Local reductive root datum and affine apartment for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": []
@@ -502,7 +568,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Iwahori–Weyl group for Auxiliary-lattice compatibility still required."
+          "how": "Supply Iwahori–Weyl group for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": []
@@ -1097,7 +1163,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Kottwitz and Newton invariants for Auxiliary-lattice compatibility still required."
+          "how": "Supply Kottwitz and Newton invariants for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": []
@@ -1313,10 +1379,6 @@
         {
           "where": "PAPER-HE-21/123; He21 §5.3–5.4; GH10 §2.4–2.5; GS0 bounded flag interfaces",
           "how": "Supply Affine flag carrier for Bounded models for forgetting an intermediate flag."
-        },
-        {
-          "where": "PAPER-HE-21/126; GS0:Witt-geometry; He21 §5.4 perfect-carrier obligation",
-          "how": "Supply Affine flag carrier for Dimension and fibre bounds through compatible perfections."
         },
         {
           "where": "PAPER-HE-21/128; GH10 §2.4(1)–(2), pp.5–6",
@@ -3206,7 +3268,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Normalized dominant subtraction for Auxiliary-lattice compatibility still required."
+          "how": "Supply Normalized dominant subtraction for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": [
@@ -3377,7 +3439,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Auxiliary fundamental coweight sum for Auxiliary-lattice compatibility still required."
+          "how": "Supply Auxiliary fundamental coweight sum for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": [
@@ -3388,19 +3450,21 @@
       "id": "PAPER-HE-21/61",
       "kind": "theorem",
       "name": "Auxiliary-lattice realization and geometric descent obligation",
-      "statement": "The proof uses t^{ρ∨_J} and t^{λ−ρ∨_J} as elements of the working Iwahori–Weyl group. For a general simple quasi-split G this requires an explicit passage to an auxiliary/adjoint coweight lattice and a geometry/dimension descent theorem; it is not automatic in X_*(T)_Γ0.",
+      "statement": "Carry out He21 §§5.2–5.4 in a specified adjoint/full-coweight datum. To apply its nonemptiness and dimension conclusions to the original G, construct the componentwise ADLV comparison, compare κ, Newton vectors, defect and the rational double-flat inequality, and handle component reachability. Do not require the auxiliary γ or factors w1,w2 to lift to the original Iwahori–Weyl group; /127 gives an explicit obstruction.",
       "locator": "§5.2–5.4 pp.9–11",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "G1 — routed to the shared affine-flag geometry owner; /127 separately owns local-root lattice compatibility. The equal-characteristic component theorem /104 is qualified by the GHN erratum. Original/general mixed-characteristic descent is still open. Routing is not a claim that the comparison has been proved.",
+      "note": "G1 is narrowed: GHN §2.2 and its erratum give a characteristic-qualified componentwise comparison, not unrestricted dimension descent. The non-lifting boundary in /127 replaces the previous impossible demand for an original-lattice γ.",
       "dependencies": [
         "PAPER-HE-21/104",
         "PAPER-HE-21/127"
       ],
       "implementationStatus": "unchecked",
       "proofOutline": [
-        "Construct the stated interface on the named supplier's actual objects; source-proof closure is recorded as an open frontier rather than assumed."
+        "Use the auxiliary calculation solely in the chosen adjoint carrier; the actual-to-auxiliary map need not be surjective on translations.",
+        "Prove that the comparison of ADLV components covers the components needed to transfer nonemptiness and the maximal dimension, with the original κ condition retained.",
+        "Transport numerical invariants and the rational Newton hypotheses on that comparison. The equal/mixed-characteristic generality and ramified local-root adapter remain explicit source gaps."
       ],
       "prerequisites": [
         "PAPER-HE-21/104",
@@ -3442,7 +3506,7 @@
       "id": "PAPER-HE-21/63",
       "kind": "definition",
       "name": "Double-flat coweight",
-      "statement": "For w=x t^λy in its normal form and J the left descent set of y, define λ_w^{♭♭}=(λ−ρ∨_J)−domη∨_J=λ−dom(ρ∨_J+η∨_J), in a specified coweight lattice.",
+      "statement": "For w=x t^λy in its normal form and J the left descent set of y, define λ_w^{♭♭}=(λ−ρ∨_J)−domη∨_J=λ−dom(ρ∨_J+η∨_J), in the full coweight lattice P∨ of the reduced root system. The result need not lie in the original cocharacter lattice of G.",
       "locator": "§5.2 p.9",
       "status": "missing",
       "library": [],
@@ -3459,7 +3523,7 @@
         {
           "name": "He21.item63.carrier",
           "role": "constructor",
-          "statement": "For w=x t^λy in its normal form and J the left descent set of y, define λ_w^{♭♭}=(λ−ρ∨_J)−domη∨_J=λ−dom(ρ∨_J+η∨_J), in a specified coweight lattice."
+          "statement": "For w=x t^λy in its normal form and J the left descent set of y, define λ_w^{♭♭}=(λ−ρ∨_J)−domη∨_J=λ−dom(ρ∨_J+η∨_J), in the full coweight lattice P∨ of the reduced root system. The result need not lie in the original cocharacter lattice of G."
         },
         {
           "name": "He21.item63.interface1",
@@ -3521,7 +3585,7 @@
         },
         {
           "where": "PAPER-HE-21/127; He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
-          "how": "Supply Double-flat coweight for Auxiliary-lattice compatibility still required."
+          "how": "Supply Double-flat coweight for Lattice comparison with an explicit non-lifting boundary."
         }
       ],
       "gaps": [
@@ -3705,19 +3769,26 @@
       "kind": "theorem",
       "name": "Finite-type fiber lower bound gives total dimension bound",
       "statement": "For a surjective finite-type morphism X→Y of nonempty finite-type schemes over a field, if every geometric fiber has dimension at least d, then dim X≥dim Y+d. Apply to bounded models, and pass through perfection by a proved dimension comparison.",
-      "locator": "§5.4 pp.11–12 argument (a)",
+      "locator": "He21 §5.4, pp.11–12; source-derived generic-point proof from Stacks Tags 00P0 and 00P3",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The paper uses GW10 Cor.14.116. Its finite union of proper closed subsets needs finiteness of the relevant components; an arbitrary ind-scheme or infinite union cannot replace the finite-type hypothesis.",
-      "dependencies": [],
+      "note": "The geometric-fibre hypothesis includes the geometric generic point. If only closed-fibre bounds have been proved, first use Stacks 05F7 to compare with the generic fibre on a nonempty open. The abstract finite-type inequality has an explicit proof; G2 now concerns producing its hypotheses on the flag maps.",
+      "dependencies": [
+        "PAPER-HE-21/130",
+        "PAPER-HE-21/131",
+        "PAPER-HE-21/132"
+      ],
       "implementationStatus": "unchecked",
       "proofOutline": [
-        "For finite-type schemes, choose a maximal-dimensional target component and remove the finitely many exceptional component images. Apply the generic fibre dimension equality to a dominating source component. The exact generic theorem/source/API remains G2."
+        "Replace Y by a reduced irreducible component Z of maximal dimension, and X by X×_Y Z; its dimension is at most dim X. Let η be the generic point of Z.",
+        "By field-extension invariance /130 on a finite affine cover, the geometric-fibre hypothesis implies dim X_η≥d. Choose an irreducible component C of X_η of dimension at least d, and let V be its reduced closure in X×_Y Z.",
+        "Then V dominates Z and has generic fibre C. By /132, dim V=dim Z+dim C≥dim Y+d. Thus dim X≥dim Y+d. This proof does not exclude an arbitrary union of proper closed subsets."
       ],
-      "prerequisites": [],
-      "gaps": [
-        "G2"
+      "prerequisites": [
+        "PAPER-HE-21/130",
+        "PAPER-HE-21/131",
+        "PAPER-HE-21/132"
       ]
     },
     {
@@ -3858,7 +3929,7 @@
       "id": "PAPER-HE-21/72",
       "kind": "construction",
       "name": "Dominant γ and its transporter",
-      "statement": "Let β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J. Choose its unique dominant representative γ; let K={s:sγ=γ} and y′∈W0^K with β=y′γ. Then γ≥_Zλ_w^{♭♭}.",
+      "statement": "Work in the specified full coweight lattice P∨. Let β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J. Choose its unique dominant representative γ; let K={s:sγ=γ} and y′∈W0^K with β=y′γ. Then γ≥_Zλ_w^{♭♭}. Neither γ nor λbb is asserted to be an original-group cocharacter.",
       "locator": "§5.4 p.10",
       "status": "missing",
       "library": [],
@@ -3876,7 +3947,7 @@
         {
           "name": "He21.item72.carrier",
           "role": "constructor",
-          "statement": "Let β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J. Choose its unique dominant representative γ; let K={s:sγ=γ} and y′∈W0^K with β=y′γ. Then γ≥_Zλ_w^{♭♭}."
+          "statement": "Work in the specified full coweight lattice P∨. Let β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J. Choose its unique dominant representative γ; let K={s:sγ=γ} and y′∈W0^K with β=y′γ. Then γ≥_Zλ_w^{♭♭}. Neither γ nor λbb is asserted to be an original-group cocharacter."
         },
         {
           "name": "He21.item72.interface1",
@@ -3935,7 +4006,7 @@
         },
         {
           "where": "PAPER-HE-21/91; §6.3 p.13",
-          "how": "Supply Dominant γ and its transporter for Kottwitz preservation through cordial reduction."
+          "how": "Supply Dominant γ and its transporter for Kottwitz preservation in the working full-coweight datum."
         },
         {
           "where": "PAPER-HE-21/92; §6.3 p.14",
@@ -4004,12 +4075,12 @@
       "id": "PAPER-HE-21/75",
       "kind": "construction",
       "name": "Two factors w1 and w2",
-      "statement": "With the preceding data define w1=xz⁻¹ t^{λ−ρ∨_J}y′ and w2=(y′)⁻¹z t^{ρ∨_J}y. Then w=w1w2.",
+      "statement": "In the working full-coweight Iwahori–Weyl group, with the preceding data define w1=xz⁻¹ t^{λ−ρ∨_J}y′ and w2=(y′)⁻¹z t^{ρ∨_J}y. Then w=w1w2.",
       "locator": "§5.4 p.10",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Define both factors only after G1 is resolved; prove product, normal-form and length identities. Tests: Rank-one computation; translations in an enlarged lattice require an explicit carrier comparison.",
+      "note": "Construct both factors in the auxiliary group and prove their product/length identities there. Use /61 to transfer final geometry; original-factor lifts do not exist in general. Retain the three explicit tests.",
       "dependencies": [
         "PAPER-HE-21/4",
         "PAPER-HE-21/61",
@@ -4021,12 +4092,12 @@
         {
           "name": "He21.item75.carrier",
           "role": "constructor",
-          "statement": "With the preceding data define w1=xz⁻¹ t^{λ−ρ∨_J}y′ and w2=(y′)⁻¹z t^{ρ∨_J}y. Then w=w1w2."
+          "statement": "In the working full-coweight Iwahori–Weyl group, with the preceding data define w1=xz⁻¹ t^{λ−ρ∨_J}y′ and w2=(y′)⁻¹z t^{ρ∨_J}y. Then w=w1w2."
         },
         {
           "name": "He21.item75.interface1",
           "role": "other",
-          "statement": "Define both factors only after G1 is resolved"
+          "statement": "Specify the auxiliary group containing the factors; their product is the image of the original w, even when neither factor lifts."
         },
         {
           "name": "He21.item75.interface2",
@@ -4072,10 +4143,6 @@
         {
           "where": "PAPER-HE-21/78; §5.4 p.11",
           "how": "Supply Two factors w1 and w2 for First constrained correspondence X2→X3."
-        },
-        {
-          "where": "PAPER-HE-21/91; §6.3 p.13",
-          "how": "Supply Two factors w1 and w2 for Kottwitz preservation through cordial reduction."
         }
       ],
       "gaps": [
@@ -4353,10 +4420,6 @@
           "how": "Supply Demazure factor a and second correspondence for Second dimension gain and final identification."
         },
         {
-          "where": "PAPER-HE-21/91; §6.3 p.13",
-          "how": "Supply Demazure factor a and second correspondence for Kottwitz preservation through cordial reduction."
-        },
-        {
           "where": "PAPER-HE-21/92; §6.3 p.14",
           "how": "Supply Demazure factor a and second correspondence for Basic nonemptiness used for the reduced element."
         },
@@ -4457,12 +4520,12 @@
       "id": "PAPER-HE-21/84",
       "kind": "theorem",
       "name": "Reduction to a cordial element",
-      "statement": "For simple quasi-split G and w a shrunken alcove, there exist dominant γ≥_Zλ_w^{♭♭} and a∈W0 with supp_σ(a)⊃supp_σ(η_σ(w)) such that w⇒_σa t^γ.",
+      "statement": "In the working full-coweight realization of the simple quasi-split datum, for a shrunken w there exist dominant γ≥_Zλ_w^{♭♭} and a∈W0 with supp_σ(a)⊃supp_σ(η_σ(w)) such that w⇒_σa t^γ. This is the adjoint-carrier form used by the proof. For a different original cocharacter lattice, transfer the final theorem via /61; requiring the same γ in that lattice can be false.",
       "locator": "Theorem 5.5 p.9",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Extracted as the paper’s target; G1 and G2 prevent claiming proof closure at this checkpoint.",
+      "note": "Corrected carrier qualification for the printed Theorem5.5, recorded under E6. In ²A2 with actual lattice Q∨ and λbb=(1,3), no actual γ can satisfy γ≥_Zλbb. This is not a counterexample to the final geometric Theorem6.1 after a valid adjoint reduction.",
       "dependencies": [
         "PAPER-HE-21/63",
         "PAPER-HE-21/72",
@@ -4711,29 +4774,25 @@
     {
       "id": "PAPER-HE-21/91",
       "kind": "theorem",
-      "name": "Kottwitz preservation through cordial reduction",
-      "statement": "For the constructed γ,a, κ(t^γ)=κ(w); γ−λ is a sum of coroot terms and a (σ−1)-coboundary in the chosen coweight lattice, hence vanishes in the required σ-coinvariants after the carrier comparison.",
+      "name": "Kottwitz preservation in the working full-coweight datum",
+      "statement": "In the full-coweight datum P∨, the constructed dominant γ satisfies κ_P(t^γ)=κ_P(w) in (P∨/Q∨)_σ: β−λ is a coroot term plus (σ⁻¹−1)ρ∨_J, and γ−β is a coroot term. No equality κ_G(t^γ)=κ_G(w) is asserted when γ is not a cocharacter of G.",
       "locator": "§6.3 p.13",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Needs G1: computing in an enlarged lattice does not alone prove equality in the original Ω_σ.",
+      "note": "The ²A2 example in /127 has γ∉Q∨. Equality in auxiliary σ-coinvariants cannot be inverted to manufacture an original-group translation. /61 transfers final geometric conclusions instead.",
       "dependencies": [
-        "PAPER-HE-21/61",
         "PAPER-HE-21/72",
-        "PAPER-HE-21/75",
-        "PAPER-HE-21/80",
         "PAPER-HE-21/127"
       ],
       "implementationStatus": "unchecked",
       "proofOutline": [
-        "Compute γ−λ in the correctly compared integral lattices as coroot terms plus a σ-coboundary; /127 and /61 are essential."
+        "Apply the explicit coroot-plus-coboundary calculation of /127 in P∨, the lattice actually used by the construction.",
+        "Finite Weyl factors have zero Kottwitz class; passing β to γ adds a coroot.",
+        "Retain G1 only for the original-group geometric use, not for this elementary auxiliary κ computation."
       ],
       "prerequisites": [
-        "PAPER-HE-21/61",
         "PAPER-HE-21/72",
-        "PAPER-HE-21/75",
-        "PAPER-HE-21/80",
         "PAPER-HE-21/127"
       ],
       "gaps": [
@@ -4816,7 +4875,7 @@
       "id": "PAPER-HE-21/94",
       "kind": "theorem",
       "name": "Main nonemptiness criterion",
-      "statement": "Under the paper’s standing simple quasi-split G/F hypothesis, let b∈G(L), w∈Wtilde with w a shrunken, λ_w^♦−ν_b∈Σ_{α∈Δ}Q_{>0}α∨ and (λ_w^{♭♭})^♦≥ν_b. Then X_w(b)≠∅ iff κ(b)=κ(w) and supp_σ(η_σ(w))=S.",
+      "statement": "Under the paper’s standing simple quasi-split G/F hypothesis, let b∈G(L), w∈Wtilde with w a shrunken, λ_w^♦−ν_b∈Σ_{α∈Δ}Q_{>0}α∨ and (λ_w^{♭♭})^♦≥ν_b. Then X_w(b)≠∅ iff κ(b)=κ(w) and supp_σ(η_σ(w))=S. Here λbb is defined in the explicitly specified full-coweight rational apartment, and the original-group assertion requires the adjoint descent in G1.",
       "locator": "Theorem 6.1 first conclusion p.13; Theorem1.1",
       "status": "missing",
       "library": [],
@@ -6091,10 +6150,6 @@
         {
           "where": "PAPER-HE-21/125; He21 §5.4 pp.11–12; follow-up local-model proof plan",
           "how": "Supply Bounded models for forgetting an intermediate flag for Local boundedness of the two He21 correspondence maps."
-        },
-        {
-          "where": "PAPER-HE-21/126; GS0:Witt-geometry; He21 §5.4 perfect-carrier obligation",
-          "how": "Supply Bounded models for forgetting an intermediate flag for Dimension and fibre bounds through compatible perfections."
         }
       ],
       "gaps": [
@@ -6114,26 +6169,23 @@
         "PAPER-HE-21/68"
       ],
       "proofOutline": [
-        "Choose a maximal-dimensional component Z and a nonempty affine open U⊂Z; local finite type makes U finite type and dim U=dim Z.",
-        "X×_Y U is finite type. Apply /68 there; its dimension is bounded by dim X since it is a locally closed subspace after the component restriction.",
-        "This avoids asserting that all of X has only finitely many irreducible components. The generic dimension theorem itself remains a verified-source/Lean-API closure obligation."
+        "Choose a reduced maximal-dimensional component Z of Y. Since Y is locally noetherian and finite dimensional, Z has a nonempty affine open U of finite type over k and dim U=dim Z.",
+        "The base change X×_Y U is finite type over k, so apply /68; it is locally closed in X and has dimension at most dim X.",
+        "Only a finite-type neighbourhood of one target component is needed; no global quasi-compactness or global finiteness of the component set is asserted."
       ],
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked",
-      "note": "Follow-up prerequisite extraction; source and scope qualifications below are binding.",
+      "note": "Abstract local deduction complete at the mathematical level relative to /68. The flag-space producers, not this topological localization, remain in G2.",
       "prerequisites": [
         "PAPER-HE-21/68"
-      ],
-      "gaps": [
-        "G2"
       ]
     },
     {
       "id": "PAPER-HE-21/125",
       "kind": "theorem",
       "name": "Local boundedness of the two He21 correspondence maps",
-      "statement": "Once /123 is established on the chosen flag carrier, X2→X3 and X4→X5 are its base changes/restrictions along the endpoint maps specified in /78 and /80. On finite-type opens of target components they are finite type, so surjectivity and the fibre lower bounds imply the total dimension inequalities via /124.",
+      "statement": "Write C(u,v;z)={(A,B,C):pos(A,B)=u,pos(B,C)=v,pos(A,C)=z} with projection q(A,B,C)=(A,C) to O_z. In He21 §5.4 set r=(y′)⁻¹z, u=t^{ρ∨_J}y, v=σ(w1), q0=uv=σ(x′y′t^γ), h=σ(x′y′), k=σ(t^γ). Then X2≅X3×_{O_q0}C(u,v;q0), using e23(g1,g3)=(g3,bσ(g1)); and X4≅X5×_{O_σ(a)}C(r,h;σ(a)), using e45(g1,g4)=(g1,g4). These equalities are functorial identities of relative-position moduli, before deperfection. Conditional on /123, their local finite-type or pfp hypotheses follow by base change.",
       "locator": "He21 §5.4 pp.11–12; follow-up local-model proof plan",
       "status": "missing",
       "library": [],
@@ -6148,14 +6200,15 @@
         "PAPER-HE-21/124"
       ],
       "proofOutline": [
-        "Write the endpoint maps and cartesian squares, including the Frobenius graph and the length-additive identifications; do not assume the whole ADLV is quasi-compact.",
-        "Finite type is stable under base change and locally closed restriction. Check the targets are locally finite type and finite dimensional.",
-        "For the mixed-characteristic application use /126; that producer is still open."
+        "In the first square, a point of X3 has pos(g1,g3)=r and pos(g3,bσ(g1))=q0. Pulling back C inserts exactly g2 with pos(g3,g2)=u and pos(g2,bσ(g1))=v, the defining data of X2. This works over every test algebra, not just geometric points.",
+        "Use ℓ(q0)=ℓ(h)+ℓ(k) to identify X3 with the expanded triple (g1,g3,g4), as in He21 p.11.",
+        "In the second square, X5 has pos(g1,g4)=σ(a) and pos(g4,bσ(g1))=k. Pulling back inserts exactly g3 with positions r,h, the defining data of X4.",
+        "The first q0 is the ordinary product uv; the second σ(a)=r*h is the Demazure product. Apply respectively /66 and /67 for the geometric-fibre bounds; apply /124 or /126 after /123 supplies the local model."
       ],
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked",
-      "note": "Follow-up prerequisite extraction; source and scope qualifications below are binding.",
+      "note": "Both endpoint squares are now explicit. G2 remains in the general bounded-convolution producer and its actual carrier hypotheses, not in identifying the Frobenius endpoint.",
       "prerequisites": [
         "PAPER-HE-21/64",
         "PAPER-HE-21/66",
@@ -6172,29 +6225,30 @@
     {
       "id": "PAPER-HE-21/126",
       "kind": "theorem",
-      "name": "Dimension and fibre bounds through compatible perfections",
-      "statement": "For compatible finite-type models X0→Y0 over a perfect field of characteristic p and their perfections X→Y, perfection induces homeomorphisms of the underlying topological spaces and compatible geometric-fibre perfections. Thus Krull dimensions and lower fibre-dimension bounds agree. Apply only after the map, not merely each space separately, has such a model.",
+      "name": "Compatible perfection models transfer fibre dimension bounds",
+      "statement": "For a morphism f:X→Y of pfp perfect schemes over a perfect field k of characteristic p, choose a scheme model f0:X0→Y0 by /134. By /133, |X|≅|X0|, |Y|≅|Y0|, and geometric fibres are compatible perfections. If f is surjective and every geometric fibre has dimension at least d, then f0 satisfies the same conditions and dim X≥dim Y+d by /68. For algebraic spaces, first supply the corresponding dimension theorem for spaces or a justified étale reduction; the scheme theorem alone is not enough.",
       "locator": "GS0:Witt-geometry; He21 §5.4 perfect-carrier obligation",
       "status": "missing",
       "library": [],
       "planned": [],
       "dependencies": [
-        "PAPER-HE-21/14",
         "PAPER-HE-21/68",
-        "PAPER-HE-21/123"
+        "PAPER-HE-21/133",
+        "PAPER-HE-21/134"
       ],
       "proofOutline": [
-        "Construct/deperfect the actual morphism using the perfect-finite-presentation framework; prove base-change compatibility and the universal-homeomorphism statements.",
-        "Transfer /68 or /124 through these comparisons. This does not assert that a perfect scheme is itself finite type or that a point bijection preserves dimensions."
+        "Use /134 to deperfect the actual morphism after a Frobenius twist of a source model.",
+        "Use /133 for the geometric-fibre cartesian square and dimension preservation; surjectivity is a statement about the same underlying spaces.",
+        "Apply /68 to compatible finite-type scheme models. The affine-flag application must separately produce pfp scheme charts or an algebraic-space dimension extension."
       ],
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked",
-      "note": "Follow-up prerequisite extraction; source and scope qualifications below are binding.",
+      "note": "The perfect-scheme implication is source-backed. G2 retains representability/pfp hypotheses of the actual flag maps and the algebraic-space alternative; no arbitrary point-bijection argument is used.",
       "prerequisites": [
-        "PAPER-HE-21/14",
         "PAPER-HE-21/68",
-        "PAPER-HE-21/123"
+        "PAPER-HE-21/133",
+        "PAPER-HE-21/134"
       ],
       "gaps": [
         "G2"
@@ -6203,8 +6257,8 @@
     {
       "id": "PAPER-HE-21/127",
       "kind": "theorem",
-      "name": "Auxiliary-lattice compatibility still required",
-      "statement": "For a map from the actual local cocharacter datum to the chosen adjoint/full-coweight datum, verify Weyl and σ equivariance, coroot-lattice comparison, dominant representatives, the definitions of ρ∨_J and λ^{♭♭}, and the κ congruence for the constructed γ. This is a precise comparison obligation, not the false assertion that every ρ∨_J is an original cocharacter.",
+      "name": "Lattice comparison with an explicit non-lifting boundary",
+      "statement": "For an unramified semisimple root datum with σ-stable Q∨⊂Λ⊂P∨, the inclusion Λ→P∨ is W0- and σ-equivariant and preserves root pairings, dominant representatives of points of Λ, affine length, and integral-coroot comparisons between points of Λ. The He21 auxiliary construction is carried out in P∨. For its β=λ−ρ∨_J+(x′)⁻¹σ⁻¹ρ∨_J and γ=dom(β), one has [γ]=[λ] in (P∨/Q∨)_σ. This does not imply β, γ or λbb belong to Λ; actual-lattice Kottwitz equality is meaningful only after the needed integral comparison. General ramified data, inertia torsion and reduced-root adapters remain G1.",
       "locator": "He21 §§5.2–5.4,6.3; GHN15 §2.2 and erratum",
       "status": "missing",
       "library": [],
@@ -6219,13 +6273,15 @@
         "PAPER-HE-21/63"
       ],
       "proofOutline": [
-        "Compare the integral lattices before rationalizing. For the constructed γ, identify separately the coroot contribution and the σ-coboundary.",
-        "Supply the geometry/dimension comparison from /104 and its required extension at /61. Neither diagram equivariance nor the SL2 rational computation alone proves this bridge."
+        "A simple reflection changes an integral coweight by an integral multiple of a coroot. Consequently Weyl translates preserve both Λ and its coroot cosets; σ-equivariance and dominance follow from the pinned root datum.",
+        "Compute β−λ=((x′)⁻¹σ⁻¹ρ∨_J−σ⁻¹ρ∨_J)+(σ⁻¹ρ∨_J−ρ∨_J). The first term lies in Q∨ and the second vanishes in σ-coinvariants of P∨/Q∨. Passing to the dominant representative changes by another coroot.",
+        "In a genuinely split datum σ=1, β−λ is a coroot, hence γ lies in Λ. This conclusion does not extend to a nontrivial diagram action.",
+        "The explicit ²A2 computation in the note disproves original-lattice lifting in general. Transfer the final nonemptiness/dimension conclusions through adjoint comparison /61 instead of requiring a nonexistent lift of the intermediate γ."
       ],
       "api": [],
       "tests": [],
       "implementationStatus": "unchecked",
-      "note": "Follow-up prerequisite extraction; source and scope qualifications below are binding.",
+      "note": "In unramified simply connected quasi-split type ²A2, use fundamental-coweight coordinates P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a), λ=(3,3), x=1, y=s1. Then J={s1}, J′=∅, x′=s2, z=1, ρ∨_J=η∨_J=(1,0), λbb=(1,3), γ=(3,2), y′=1 and a=s2. Both λbb and γ are outside Q∨, while λ lies in Q∨. The negative-base-alcove root intervals of w=t^λs1 are (−3,−2),(−4,−3),(−7,−6), so w is shrunken. No γ in Q∨ can satisfy γ≥_Zλbb: that inequality fixes its nonzero class in P∨/Q∨.",
       "prerequisites": [
         "PAPER-HE-21/2",
         "PAPER-HE-21/4",
@@ -6302,6 +6358,111 @@
       "gaps": [
         "G9"
       ]
+    },
+    {
+      "id": "PAPER-HE-21/130",
+      "kind": "theorem",
+      "name": "Affine dimension is invariant under a field extension",
+      "statement": "Let k⊂K be fields and A a finitely generated commutative k-algebra, allowing the zero algebra. Then dim(K⊗_k A)=dim A. This is the affine ingredient for geometric-fibre dimension invariance; it is not by itself a theorem about arbitrary schemes.",
+      "locator": "TauCeti/RingTheory/KrullDimension/FiniteType.lean:103–107 at f790474; Stacks Tag 00P3",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.ringKrullDim_tensorProduct_field_of_finiteType"
+      ],
+      "planned": [],
+      "note": "Pinned statement and proof read; exact affine match. Glue over finite affine covers when applying to finite-type scheme fibres.",
+      "dependencies": [],
+      "prerequisites": [
+        "tauceti:TauCeti.ringKrullDim_tensorProduct_field_of_finiteType"
+      ],
+      "proofOutline": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-HE-21/131",
+      "kind": "theorem",
+      "name": "Finite dimension of a nonzero finite-type algebra",
+      "statement": "For a field k and a nonzero finitely generated commutative k-algebra A, dim A is finite.",
+      "locator": "TauCeti/RingTheory/KrullDimension/FiniteType.lean:64–69 at f790474",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.finiteRingKrullDim_of_finiteType"
+      ],
+      "planned": [],
+      "note": "Pinned statement and proof read. Nontriviality is explicit; do not apply this class to the zero algebra.",
+      "dependencies": [],
+      "prerequisites": [
+        "tauceti:TauCeti.finiteRingKrullDim_of_finiteType"
+      ],
+      "proofOutline": [],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-HE-21/132",
+      "kind": "theorem",
+      "name": "Generic fibre dimension from transcendence degree",
+      "statement": "Let f:V→Z be dominant between nonempty integral schemes of finite type over a field k, and η the generic point of Z. Then dim(V_η)=trdeg_{k(Z)}k(V)=dim V−dim Z. The same equality holds for a nonempty affine open in V that meets the generic fibre.",
+      "locator": "He21 §5.4 invocation of GW10 Corollary 14.116; alternative algebraic derivation using Stacks Tags 00P0 and 00P3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Source-derived scheme bridge, missing in the pinned source search. Routed to SF.0; do not rebuild the existing affine field-extension lemma.",
+      "dependencies": [
+        "PAPER-HE-21/130",
+        "PAPER-HE-21/131"
+      ],
+      "prerequisites": [
+        "PAPER-HE-21/130",
+        "PAPER-HE-21/131"
+      ],
+      "proofOutline": [
+        "On compatible affine opens, pass from an injective map of finite-type domains A→B to Frac(A)⊗_A B. Its fraction field is Frac(B).",
+        "Apply the dimension/transcendence-degree equality (Stacks 00P0) to A, B and the generic-fibre algebra, and the tower formula for transcendence degree.",
+        "Dimensions of nonempty affine opens in an integral finite-type k-scheme agree by the same function-field computation; field extension preserves fibre dimension by /130."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-HE-21/133",
+      "kind": "theorem",
+      "name": "Perfection preserves fibre products and underlying dimensions",
+      "statement": "Over a perfect field k of characteristic p>0, the perfection functor on algebraic spaces is right adjoint to inclusion of perfect spaces, and ε_X:X^perf→X is a universal homeomorphism. Consequently perfection preserves fibre products. For a map X0→Y0 and a geometric point Spec Ω→Y0 with Ω algebraically closed, (X0×_Y0 Spec Ω)^perf identifies with X0^perf×_Y0^perf Spec Ω. Their topological dimensions agree.",
+      "locator": "Zhu17 Appendix A.1.2, Corollary A.3 and Remark A.4, printed pp.465–466",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Selected source proof read; statement includes actual functorial fibre compatibility, not only separate homeomorphisms.",
+      "dependencies": [],
+      "prerequisites": [],
+      "proofOutline": [
+        "Construct X^perf as the inverse limit of Frobenius, using the étale-local affine construction and relative Frobenius for étale maps.",
+        "The right-adjoint universal property preserves fibre products; Ω is already perfect.",
+        "The projection from perfection is a universal homeomorphism, hence identifies the specialisation posets and their chain dimensions."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-HE-21/134",
+      "kind": "theorem",
+      "name": "A morphism of pfp perfect spaces has a compatible model",
+      "statement": "Let k be a perfect field of characteristic p>0 and f:X→Y a morphism between perfect algebraic spaces perfectly of finite presentation over k. There are finite-presentation algebraic spaces X0,Y0 and f0:X0→Y0 with f=f0^perf. If X and Y are schemes, scheme models can be used.",
+      "locator": "Zhu17 Proposition A.17 and proof, printed pp.472–473; Proposition A.15 and Remark A.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Read with its proof. Choose a model of the target, then adjust the Frobenius twist of a source model; independent deperfections are insufficient.",
+      "dependencies": [
+        "PAPER-HE-21/133"
+      ],
+      "prerequisites": [
+        "PAPER-HE-21/133"
+      ],
+      "proofOutline": [
+        "Choose finite-presentation models using A.15; if the original perfect objects are schemes, their models are schemes by Remark A.4.",
+        "Compose f with Y→Y0. Finite-presentation limit descent factors this map through a sufficiently high Frobenius twist of X0.",
+        "Rename that twist as X0. Its perfection is X, and the descended morphism has perfection f by the right-adjoint property."
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "prerequisites": [
@@ -6469,7 +6630,9 @@
         "PAPER-HE-21/123",
         "PAPER-HE-21/125",
         "PAPER-HE-21/126",
-        "PAPER-HE-21/128"
+        "PAPER-HE-21/128",
+        "PAPER-HE-21/133",
+        "PAPER-HE-21/134"
       ],
       "reason": "The existing stages explicitly own affine flag/perfect flag geometry and relative-position strata. Add these convolution and adjoint-comparison interfaces there; do not rebuild Satake or shtuka diamonds."
     },
@@ -6481,7 +6644,8 @@
       ],
       "items": [
         "PAPER-HE-21/68",
-        "PAPER-HE-21/124"
+        "PAPER-HE-21/124",
+        "PAPER-HE-21/132"
       ],
       "reason": "The finite-type scheme dimension lemma is general scheme-morphism infrastructure. Its application to the ind/perfect correspondences remains G2."
     },
@@ -6522,7 +6686,7 @@
         "PAPER-HE-21/116"
       ],
       "reason": "The upstream roadmap owns chambers, Coxeter presentation, exchange/Matsumoto and basic Bruhat order. It does not state the Demazure monoid, least dominant subtraction or affine twisted minimal-length reduction; add only those extensions, consuming the pinned chamber/Bruhat/positive-cone APIs.",
-      "brief": "Import root systems, Weyl groups, and the Cartan-Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), the existing weight-lattice interfaces from representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), and local relative/affine root adapters from ReductiveGroupsPartII RG2.1/RG2.4. Do not re-plan any upstream layer; reconcile their conflicting prose about lattice ownership by using the existing pinned root-datum carrier. Construct only the missing parabolic-representative/support adapters and Demazure product, with maximum characterization, simple recursion, associativity, monotonicity, support union and ordinary-product comparison. Prove the HN14 reduction-to-minimal-length theorem for affine twisted conjugacy. For an explicit full coweight lattice prove nonemptiness, lower-directedness and leastness of the dominant subtraction feasible set; export Prop.5.1, Cor.5.3 and the exact identity (λ−domλ1)−domλ2=λ−dom(λ1+λ2). Supply ρ∨_J and η∨_J on this full lattice, the root-sign/length lemmas used in (5.1)–(5.4), the minuscule exception and the 2ρ∨ bound. Do not identify the full lattice with the cocharacters of every G; G1 must be settled by an explicit comparison. Test A1 parity in P∨/Q∨, singular A2 representatives, s*s=s, diagram automorphisms, non-simply-laced dual root data and strict versus weak dominance. Every definition needs APIs and genuine unit examples. Suggested future Lean home: TauCeti/GroupTheory/Coxeter/Demazure.lean and TauCeti/LinearAlgebra/RootSystem/DominantSubtraction.lean; no Lean implementation is supplied in this paper job. Follow-up: add finite and parabolic twisted Coxeter elements, their ellipticity and HY12's finite-Coxeter-part reduction theorem, preserving P∨ versus actual cocharacters and τ-saturated support. The shared generic Hecke/cocenter carrier belongs to SmoothRepresentationsPartIIParahoricCenters, not a second algebra here. Consolidate the overlapping RootSystemsDominancePartII candidate from PAPER-KISIN-ZHOU-25 into this already reused identifier, as also requested by PAPER-KISIN-PAPPAS-ZHOU-26; retain their stable item ids and separate Stembridge/Frobenius-orbit obligations."
+      "brief": "Import root systems, Weyl groups, and the Cartan-Killing classification (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), the existing weight-lattice interfaces from representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), and local relative/affine root adapters from ReductiveGroupsPartII RG2.1/RG2.4. Do not re-plan any upstream layer; reconcile their conflicting prose about lattice ownership by using the existing pinned root-datum carrier. Construct only the missing parabolic-representative/support adapters and Demazure product, with maximum characterization, simple recursion, associativity, monotonicity, support union and ordinary-product comparison. Prove the HN14 reduction-to-minimal-length theorem for affine twisted conjugacy. For an explicit full coweight lattice prove nonemptiness, lower-directedness and leastness of the dominant subtraction feasible set; export Prop.5.1, Cor.5.3 and the exact identity (λ−domλ1)−domλ2=λ−dom(λ1+λ2). Supply ρ∨_J and η∨_J on this full lattice, the root-sign/length lemmas used in (5.1)–(5.4), the minuscule exception and the 2ρ∨ bound. Do not identify the full lattice with the cocharacters of every G; G1 must be settled by an explicit comparison. Test A1 parity in P∨/Q∨, singular A2 representatives, s*s=s, diagram automorphisms, non-simply-laced dual root data and strict versus weak dominance. Every definition needs APIs and genuine unit examples. Suggested future Lean home: TauCeti/GroupTheory/Coxeter/Demazure.lean and TauCeti/LinearAlgebra/RootSystem/DominantSubtraction.lean; no Lean implementation is supplied in this paper job. Follow-up: add finite and parabolic twisted Coxeter elements, their ellipticity and HY12's finite-Coxeter-part reduction theorem, preserving P∨ versus actual cocharacters and τ-saturated support. The shared generic Hecke/cocenter carrier belongs to SmoothRepresentationsPartIIParahoricCenters, not a second algebra here. Consolidate the overlapping RootSystemsDominancePartII candidate from PAPER-KISIN-ZHOU-25 into this already reused identifier, as also requested by PAPER-KISIN-PAPPAS-ZHOU-26; retain their stable item ids and separate Stembridge/Frobenius-orbit obligations. The ²A2 regression /127 is mandatory: normalized subtraction and γ live in P∨ and cannot always be lifted to the original lattice. No such lift is a target."
     },
     {
       "route": "part-ii",
@@ -6586,7 +6750,7 @@
         "PAPER-HE-21/129"
       ],
       "reason": "HS2 owns local shtuka moduli but none of its layers proves classical Iwahori-level affine Deligne–Lusztig nonemptiness or dimension formulas. This is a continuation in the local Frobenius-modification direction, sharing GS0 geometry and BG invariants. It is not a new copy of affine flags, B(G), Satake or general Hecke functors.",
-      "brief": "Import Hecke correspondences and local shtuka cohomology (HeckeStacksAndLocalShtukas, HS0/HS2), geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0:loop-geometry/GS0:Witt-geometry), Bun_G and Newton strata (BunGAndNewtonStrata BG0/BG1), ReductiveGroupsPartII RG2.1–RG2.4, SchemeAndStackFoundations SF.0 and the proposed RootSystemsPartIIDominanceAndDemazure. Keep classical equal-characteristic ADLV schemes and mixed-characteristic perfect ADLV spaces separate from local shtuka diamonds; an actual comparison is needed where used. Construct X_w(b), η_σ, virtual dimension, reduction relations, generic Newton classes, cordiality, double-flat coweights and Levi alcoves. Cover split parts of Theorems2.1/3.1/3.2, Proposition3.3, MV cordial saturation with a known nonempty lower endpoint, and Theorem4.2: x t^λ is cordial with [b_xtλ]=[t^λ]. Prove the precise two-correspondence Theorem5.5, retaining every lattice, finite-type and perfection hypothesis. Final targets: for simple quasi-split G, shrunken w, λ_w^♦−ν_b strictly positive on every simple coroot and (λ_w^{♭♭})^♦≥ν_b, X_w(b) is nonempty exactly when κ(b)=κ(w) and supp_σ(η_σ(w))=S, and then dim=(ℓw+ℓη_σ(w)−def_G(b))/2−〈ν_b,ρ〉. Also prove Cor.6.4 with λ_w^♦≥ν_b+2ρ∨ and the separate shrunken hypothesis. Gate execution on G1–G3: auxiliary/adjoint lattice realization, bounded/perfect fiber-dimension comparison, and the /120–122 basic-seed proof and transport (the explicit A2 example shows it need not be shrunken). Preserve the tame/good-characteristic restrictions of cited inputs until broader transport is proved. Use the corrected (J,x,σ) in §6.2, all overbars in §4.3, and the GHN erratum. Add basic/minuscule/wall/σ-twisted/rank-one and nonbasic-Levi tests; never infer all classes below the maximal Newton point from saturation alone. Suggested future Lean home: TauCeti/AlgebraicGeometry/AffineDeligneLusztig/{Basic,Reduction,Cordial,Dimension}.lean. This checkpoint is a design brief, not a verified proof closure or a Lean implementation. Follow-up: for γ≠0 use He14 Proposition11.6 with J=S, Proposition11.7 and its class-polynomial nonemptiness criterion, not its shrunken Theorem11.4. For γ=0 use the finite reductive quotient and Lang. Import generic cocenters/class polynomials from SmoothRepresentationsPartIIParahoricCenters and finite-Coxeter reduction from RootSystemsPartIIDominanceAndDemazure. The corrected twisted induction, HN cocenter proof, general datum/characteristic transfer and finite-parahoric Lang comparison remain explicit gates. G2 is now a local finite-type argument /123–126, not an assumption that the full ADLV has finitely many components."
+      "brief": "Import Hecke correspondences and local shtuka cohomology (HeckeStacksAndLocalShtukas, HS0/HS2), geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0:loop-geometry/GS0:Witt-geometry), Bun_G and Newton strata (BunGAndNewtonStrata BG0/BG1), ReductiveGroupsPartII RG2.1–RG2.4, SchemeAndStackFoundations SF.0 and the proposed RootSystemsPartIIDominanceAndDemazure. Keep classical equal-characteristic ADLV schemes and mixed-characteristic perfect ADLV spaces separate from local shtuka diamonds; an actual comparison is needed where used. Construct X_w(b), η_σ, virtual dimension, reduction relations, generic Newton classes, cordiality, double-flat coweights and Levi alcoves. Cover split parts of Theorems2.1/3.1/3.2, Proposition3.3, MV cordial saturation with a known nonempty lower endpoint, and Theorem4.2: x t^λ is cordial with [b_xtλ]=[t^λ]. Prove the precise two-correspondence Theorem5.5, retaining every lattice, finite-type and perfection hypothesis. Final targets: for simple quasi-split G, shrunken w, λ_w^♦−ν_b strictly positive on every simple coroot and (λ_w^{♭♭})^♦≥ν_b, X_w(b) is nonempty exactly when κ(b)=κ(w) and supp_σ(η_σ(w))=S, and then dim=(ℓw+ℓη_σ(w)−def_G(b))/2−〈ν_b,ρ〉. Also prove Cor.6.4 with λ_w^♦≥ν_b+2ρ∨ and the separate shrunken hypothesis. Gate execution on G1–G3: auxiliary/adjoint lattice realization, bounded/perfect fiber-dimension comparison, and the /120–122 basic-seed proof and transport (the explicit A2 example shows it need not be shrunken). Preserve the tame/good-characteristic restrictions of cited inputs until broader transport is proved. Use the corrected (J,x,σ) in §6.2, all overbars in §4.3, and the GHN erratum. Add basic/minuscule/wall/σ-twisted/rank-one and nonbasic-Levi tests; never infer all classes below the maximal Newton point from saturation alone. Suggested future Lean home: TauCeti/AlgebraicGeometry/AffineDeligneLusztig/{Basic,Reduction,Cordial,Dimension}.lean. This checkpoint is a design brief, not a verified proof closure or a Lean implementation. Follow-up: for γ≠0 use He14 Proposition11.6 with J=S, Proposition11.7 and its class-polynomial nonemptiness criterion, not its shrunken Theorem11.4. For γ=0 use the finite reductive quotient and Lang. Import generic cocenters/class polynomials from SmoothRepresentationsPartIIParahoricCenters and finite-Coxeter reduction from RootSystemsPartIIDominanceAndDemazure. The corrected twisted induction, HN cocenter proof, general datum/characteristic transfer and finite-parahoric Lang comparison remain explicit gates. G2 is now a local finite-type argument /123–126, not an assumption that the full ADLV has finitely many components. State Theorem5.5 in the working adjoint/full-coweight carrier. Theorem6.1 for the original group needs a proved componentwise descent, not integral lifting of γ. Use /130–134 for the fibre-dimension and compatible-perfection inputs; the explicit cartesian squares are /125."
     },
     {
       "route": "part-ii",
@@ -6622,23 +6786,21 @@
         "PAPER-HE-21/95",
         "PAPER-HE-21/127"
       ],
-      "missing": "Actual-to-auxiliary integral lattice comparison and the corresponding equal/mixed-characteristic geometry/dimension descent, including γ, κ and double-flat compatibility. /104 only gives the qualified componentwise equal-characteristic branch.",
-      "resume": "Read GHN §2 with its erratum and the precise modern perfect comparison; prove /127 and then the geometric bridge /61."
+      "missing": "General adjoint geometric descent, component reachability, numerical invariant comparison and ramified local-root/inertia-torsion adapter. An original-lattice lift of auxiliary γ is false in ²A2 and is no longer a requested proof.",
+      "resume": "Use /127 only for its explicit unramified integral/root calculation. Prove /61 on components and transfer the final geometric result; do not attempt to lift γ, λbb, w1 or w2 indiscriminately."
     },
     {
       "id": "G2",
       "items": [
-        "PAPER-HE-21/68",
         "PAPER-HE-21/69",
         "PAPER-HE-21/79",
         "PAPER-HE-21/82",
         "PAPER-HE-21/123",
-        "PAPER-HE-21/124",
         "PAPER-HE-21/125",
         "PAPER-HE-21/126"
       ],
-      "missing": "Construct the bounded convolution projection, its finite-level action and finite-type descent; choose compatible finite-type models for perfect maps and prove fibre compatibility. Verify the exact general fibre-dimension input used in /68.",
-      "resume": "Write the two cartesian endpoint diagrams for /125, then prove /123 and /126; /124 supplies the local finite-type repair once those hypotheses are available."
+      "missing": "For the actual equal/mixed-characteristic flag carrier, prove the bounded convolution producer /123 and local finite-type/pfp hypotheses. Supply pfp scheme charts or the algebraic-space dimension extension. The abstract /68,/124 inequalities, the two endpoint squares /125, and compatible-model transfer /126 are now explicit; their application still requires these producers.",
+      "resume": "Construct the finite-level Iwahori action on bounded Schubert loci, or a direct locally trivial bounded-convolution model, then apply the two written cartesian squares. Zhu §1.4.2 and Appendix A provide carriers and compatible deperfection, not a blanket all-characteristic comparison."
     },
     {
       "id": "G3",
@@ -6753,138 +6915,143 @@
     }
   ],
   "dependencyAudit": {
-    "internalEdges": 373,
+    "internalEdges": 376,
     "acyclic": true,
     "topologicalOrder": [
       "PAPER-HE-21/1",
-      "PAPER-HE-21/2",
-      "PAPER-HE-21/3",
-      "PAPER-HE-21/4",
       "PAPER-HE-21/6",
-      "PAPER-HE-21/8",
-      "PAPER-HE-21/5",
-      "PAPER-HE-21/7",
-      "PAPER-HE-21/9",
-      "PAPER-HE-21/10",
-      "PAPER-HE-21/11",
-      "PAPER-HE-21/12",
       "PAPER-HE-21/26",
-      "PAPER-HE-21/13",
-      "PAPER-HE-21/14",
-      "PAPER-HE-21/15",
-      "PAPER-HE-21/16",
-      "PAPER-HE-21/17",
       "PAPER-HE-21/24",
+      "PAPER-HE-21/130",
+      "PAPER-HE-21/131",
+      "PAPER-HE-21/133",
+      "PAPER-HE-21/2",
+      "PAPER-HE-21/7",
+      "PAPER-HE-21/8",
       "PAPER-HE-21/25",
-      "PAPER-HE-21/18",
-      "PAPER-HE-21/19",
-      "PAPER-HE-21/20",
-      "PAPER-HE-21/29",
-      "PAPER-HE-21/30",
-      "PAPER-HE-21/31",
-      "PAPER-HE-21/32",
-      "PAPER-HE-21/64",
-      "PAPER-HE-21/128",
-      "PAPER-HE-21/65",
-      "PAPER-HE-21/129",
-      "PAPER-HE-21/33",
-      "PAPER-HE-21/34",
-      "PAPER-HE-21/106",
-      "PAPER-HE-21/107",
-      "PAPER-HE-21/108",
-      "PAPER-HE-21/109",
-      "PAPER-HE-21/110",
-      "PAPER-HE-21/119",
-      "PAPER-HE-21/21",
-      "PAPER-HE-21/22",
-      "PAPER-HE-21/23",
       "PAPER-HE-21/27",
+      "PAPER-HE-21/53",
+      "PAPER-HE-21/54",
+      "PAPER-HE-21/132",
+      "PAPER-HE-21/134",
+      "PAPER-HE-21/3",
+      "PAPER-HE-21/10",
+      "PAPER-HE-21/9",
+      "PAPER-HE-21/60",
+      "PAPER-HE-21/55",
+      "PAPER-HE-21/68",
+      "PAPER-HE-21/4",
       "PAPER-HE-21/28",
-      "PAPER-HE-21/35",
-      "PAPER-HE-21/36",
+      "PAPER-HE-21/12",
+      "PAPER-HE-21/22",
       "PAPER-HE-21/37",
+      "PAPER-HE-21/56",
+      "PAPER-HE-21/124",
+      "PAPER-HE-21/126",
+      "PAPER-HE-21/5",
+      "PAPER-HE-21/11",
+      "PAPER-HE-21/14",
+      "PAPER-HE-21/85",
+      "PAPER-HE-21/114",
       "PAPER-HE-21/38",
       "PAPER-HE-21/39",
       "PAPER-HE-21/40",
+      "PAPER-HE-21/57",
+      "PAPER-HE-21/58",
+      "PAPER-HE-21/15",
+      "PAPER-HE-21/18",
+      "PAPER-HE-21/29",
+      "PAPER-HE-21/106",
+      "PAPER-HE-21/13",
+      "PAPER-HE-21/104",
+      "PAPER-HE-21/105",
+      "PAPER-HE-21/115",
+      "PAPER-HE-21/59",
+      "PAPER-HE-21/16",
+      "PAPER-HE-21/64",
+      "PAPER-HE-21/19",
+      "PAPER-HE-21/23",
+      "PAPER-HE-21/50",
+      "PAPER-HE-21/62",
+      "PAPER-HE-21/30",
+      "PAPER-HE-21/107",
+      "PAPER-HE-21/111",
+      "PAPER-HE-21/90",
+      "PAPER-HE-21/17",
       "PAPER-HE-21/41",
+      "PAPER-HE-21/86",
+      "PAPER-HE-21/123",
+      "PAPER-HE-21/128",
+      "PAPER-HE-21/20",
+      "PAPER-HE-21/87",
+      "PAPER-HE-21/48",
+      "PAPER-HE-21/51",
+      "PAPER-HE-21/63",
+      "PAPER-HE-21/31",
+      "PAPER-HE-21/116",
+      "PAPER-HE-21/108",
+      "PAPER-HE-21/112",
+      "PAPER-HE-21/113",
+      "PAPER-HE-21/121",
+      "PAPER-HE-21/49",
+      "PAPER-HE-21/65",
+      "PAPER-HE-21/66",
+      "PAPER-HE-21/67",
+      "PAPER-HE-21/35",
       "PAPER-HE-21/42",
+      "PAPER-HE-21/88",
+      "PAPER-HE-21/102",
+      "PAPER-HE-21/96",
+      "PAPER-HE-21/98",
+      "PAPER-HE-21/127",
+      "PAPER-HE-21/32",
+      "PAPER-HE-21/109",
+      "PAPER-HE-21/117",
+      "PAPER-HE-21/47",
+      "PAPER-HE-21/129",
       "PAPER-HE-21/43",
       "PAPER-HE-21/44",
       "PAPER-HE-21/45",
-      "PAPER-HE-21/48",
-      "PAPER-HE-21/49",
-      "PAPER-HE-21/50",
-      "PAPER-HE-21/51",
-      "PAPER-HE-21/47",
-      "PAPER-HE-21/46",
-      "PAPER-HE-21/52",
-      "PAPER-HE-21/53",
-      "PAPER-HE-21/54",
-      "PAPER-HE-21/55",
-      "PAPER-HE-21/56",
-      "PAPER-HE-21/57",
-      "PAPER-HE-21/58",
-      "PAPER-HE-21/59",
-      "PAPER-HE-21/60",
-      "PAPER-HE-21/104",
-      "PAPER-HE-21/62",
-      "PAPER-HE-21/63",
-      "PAPER-HE-21/127",
+      "PAPER-HE-21/89",
+      "PAPER-HE-21/103",
+      "PAPER-HE-21/101",
       "PAPER-HE-21/61",
-      "PAPER-HE-21/66",
-      "PAPER-HE-21/67",
-      "PAPER-HE-21/68",
-      "PAPER-HE-21/123",
-      "PAPER-HE-21/124",
+      "PAPER-HE-21/110",
+      "PAPER-HE-21/33",
+      "PAPER-HE-21/34",
       "PAPER-HE-21/70",
-      "PAPER-HE-21/72",
-      "PAPER-HE-21/75",
+      "PAPER-HE-21/118",
+      "PAPER-HE-21/36",
+      "PAPER-HE-21/119",
       "PAPER-HE-21/71",
+      "PAPER-HE-21/72",
+      "PAPER-HE-21/21",
+      "PAPER-HE-21/120",
       "PAPER-HE-21/73",
       "PAPER-HE-21/74",
+      "PAPER-HE-21/75",
+      "PAPER-HE-21/91",
+      "PAPER-HE-21/46",
+      "PAPER-HE-21/122",
       "PAPER-HE-21/76",
+      "PAPER-HE-21/97",
+      "PAPER-HE-21/52",
       "PAPER-HE-21/77",
       "PAPER-HE-21/78",
       "PAPER-HE-21/80",
+      "PAPER-HE-21/81",
+      "PAPER-HE-21/92",
       "PAPER-HE-21/125",
-      "PAPER-HE-21/126",
       "PAPER-HE-21/69",
       "PAPER-HE-21/79",
-      "PAPER-HE-21/81",
       "PAPER-HE-21/82",
       "PAPER-HE-21/83",
       "PAPER-HE-21/84",
-      "PAPER-HE-21/85",
-      "PAPER-HE-21/86",
-      "PAPER-HE-21/87",
-      "PAPER-HE-21/88",
-      "PAPER-HE-21/89",
-      "PAPER-HE-21/90",
-      "PAPER-HE-21/91",
-      "PAPER-HE-21/114",
-      "PAPER-HE-21/115",
-      "PAPER-HE-21/116",
-      "PAPER-HE-21/111",
-      "PAPER-HE-21/112",
-      "PAPER-HE-21/113",
-      "PAPER-HE-21/117",
-      "PAPER-HE-21/118",
-      "PAPER-HE-21/120",
-      "PAPER-HE-21/121",
-      "PAPER-HE-21/122",
-      "PAPER-HE-21/92",
       "PAPER-HE-21/93",
       "PAPER-HE-21/94",
       "PAPER-HE-21/95",
-      "PAPER-HE-21/96",
-      "PAPER-HE-21/97",
-      "PAPER-HE-21/98",
       "PAPER-HE-21/99",
-      "PAPER-HE-21/100",
-      "PAPER-HE-21/101",
-      "PAPER-HE-21/102",
-      "PAPER-HE-21/103",
-      "PAPER-HE-21/105"
+      "PAPER-HE-21/100"
     ],
     "complete": false,
     "note": "Internal item graph is explicit. Baseline/planned supplier refs are also in prerequisites. This is not a closed proof graph: gaps identify recursive source and implementation frontiers."
@@ -6961,7 +7128,55 @@
         ]
       }
     ],
-    "negativeSearches": "Pinned searches for class polynomial, cocenter/cocentre, Demazure product and twisted Coxeter found no matching implementation. The inspected TauCeti/NumberTheory/HeckeRing/Basic.lean defines actual double-coset modules and is not the generic Z[v,v^-1] affine Hecke algebra."
+    "negativeSearches": "Pinned searches for class polynomial, cocenter/cocentre, Demazure product and twisted Coxeter found no matching implementation. The inspected TauCeti/NumberTheory/HeckeRing/Basic.lean defines actual double-coset modules and is not the generic Z[v,v^-1] affine Hecke algebra.",
+    "continuation": {
+      "agent": "Codex — codex-7e92bd",
+      "read": "Reopened all seven inherited baseline items, compared their six Lean files byte-for-byte with exact pinned raw GitHub URLs, and read all of TauCeti/RingTheory/KrullDimension/FiniteType.lean. Relevant reviewed SF.0 and GS0 loop/Witt entries reread; RG2.1 scope reread.",
+      "newMatches": [
+        {
+          "items": [
+            "PAPER-HE-21/130",
+            "PAPER-HE-21/131"
+          ],
+          "file": "TauCeti/RingTheory/KrullDimension/FiniteType.lean",
+          "sha256": "01a2133e662ed97ddeca12866b7f0da7dffe871301e0682013e7ec788c479b25",
+          "checked": "Exact pinned source compared byte-for-byte; theorem statements and proofs read."
+        }
+      ],
+      "negativeSearches": "Both pinned trees screened for fibre-dimension/perfect-geometry/bounded-convolution and Krull-dimension/transcendence-degree bridges. Affine field-extension/finiteness are present; no scheme generic-fibre theorem or perfect geometric category found. This does not assert the absence of unrelated commutative-algebra ingredients.",
+      "inheritedFileHashes": [
+        {
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/GroupTheory/Coxeter/Length.lean",
+          "sha256": "259b3f23c3692379bcb7a3d17cc62240645f91b100e63e2cc08d0de4a2db8ed9",
+          "path": "Mathlib/GroupTheory/Coxeter/Length.lean"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/Coxeter/Bruhat.lean",
+          "sha256": "0650af247ab7c399d479f462c1af8470e6fe0560a676517bd2d8acbc1edb3386",
+          "path": "TauCeti/GroupTheory/Coxeter/Bruhat.lean"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Chamber.lean",
+          "sha256": "7cd60a3903219b4e87699611be9fa7552e9e49dfa57a4c0c245a2fa1ac3ec0b1",
+          "path": "TauCeti/LinearAlgebra/RootSystem/Chamber.lean"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean",
+          "sha256": "a36f5af3959fe3d0b5c7bab4af5db00741c42b2764ae34f8158d3f4d11e92582",
+          "path": "TauCeti/LinearAlgebra/RootSystem/FundamentalDomain.lean"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/Positive.lean",
+          "sha256": "c2905e6d2fca4dfae7bd589295f0ca4e65d6845809d86a0232607e82c344061b",
+          "path": "TauCeti/LinearAlgebra/RootSystem/Positive.lean"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/RootSystem/DominantCone.lean",
+          "sha256": "05a981a5bca14ea078c476dfca27f5068a305138332b08e9a2f80dbc869eaded",
+          "path": "TauCeti/LinearAlgebra/RootSystem/DominantCone.lean"
+        }
+      ]
+    }
   },
   "ownerAudit": {
     "atlasCommit": "6a3c7756d3446bd54797604ac7089df94a7f8551",
@@ -7032,7 +7247,11 @@
     ],
     "note": "Changed peer-result routes were fetched at the exact audit commit; a pending proposal is not represented as a reviewed/library theorem.",
     "finalRecheckCommit": "93ad2ae65555b960e1ce47ae8b144d2173522ab4",
-    "finalRecheck": "Relevant atlas stages, peer-result hashes and all three input blobs unchanged; instructions/checker changed and were reread."
+    "finalRecheck": "Relevant atlas stages, peer-result hashes and all three input blobs unchanged; instructions/checker changed and were reread.",
+    "continuationCommit": "b5db06f75311f98ee8754aab201b93c99bebd3a2",
+    "continuationNote": "No new roadmap IDs. Existing SF.0 and GS0 source routes extended. Relevant stage descriptions and reviewed audit entries reread; a full new catalogue audit is not claimed.",
+    "preflightCommit": "9742505baca49ba909a0dc9844681502827efd0a",
+    "preflightNote": "WORKERS.md update read. Atlas, library coverage, roadmap files and this extraction unchanged since initial snapshot. Screened all five changed peer-paper route sets; no new claim on the three reused Part II IDs or the SF.0/GS0 obligations."
   },
   "sourceIssues": [
     {
@@ -7112,17 +7331,18 @@
     },
     {
       "id": "PAPER-HE-21/E6",
-      "kind": "gap",
-      "locator": "He21 published §§5.2–5.4, pp.9–11",
-      "printed": "t^{ρ∨_J}",
-      "correction": "Specify the auxiliary/adjoint lattice and prove the carrier/κ/geometry comparison before using this translation for general G.",
-      "reason": "For SL2, ρ∨_{s}=α∨/2 does not belong to the original cocharacter lattice. He21 §1.5 gives a transfer strategy, but the needed precise bridge remains to be made explicit in /61,/127.",
-      "affects": "the proof",
+      "kind": "error",
+      "locator": "He21 published §5.2 and Theorem5.5, p.9, with §5.4 construction, pp.10–11",
+      "printed": "there exist a dominant coweight",
+      "correction": "State Theorem5.5 in the working full-coweight/adjoint realization. For the original group, transfer the final geometric theorem with a proved component and dimension comparison; do not require its intermediate γ to be an original cocharacter.",
+      "reason": "In unramified simply connected quasi-split type ²A2, use fundamental-coweight coordinates P∨=Z², Q∨={(a,b):a+2b≡0 mod 3}, σ(a,b)=(b,a), λ=(3,3), x=1, y=s1. Then J={s1}, J′=∅, x′=s2, z=1, ρ∨_J=η∨_J=(1,0), λbb=(1,3), γ=(3,2), y′=1 and a=s2. Both λbb and γ are outside Q∨, while λ lies in Q∨. The negative-base-alcove root intervals of w=t^λs1 are (−3,−2),(−4,−3),(−7,−6), so w is shrunken. No γ in Q∨ can satisfy γ≥_Zλbb: that inequality fixes its nonzero class in P∨/Q∨. The earlier SL2 example already shows ρ∨_J need not be an original cocharacter. The stronger twisted example prevents repairing this by merely proving the final γ integral.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "2026-09-22: Cambridge article record/HTML and targeted title + erratum/corrigendum searches; no correction located.",
         "2026-09-22: arXiv2001.03325 submission history lists only v1; published text controls these locators.",
-        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists."
+        "2026-09-22: author publication-page search; direct CUHK page fetch timed out. Search is not a proof that no correction exists.",
+        "2026-09-22, codex-7e92bd: repeated exact-title erratum/corrigendum/correction and cordial+coweight+adjoint searches; no published correction located. This finding concerns the literal original-lattice Theorem5.5, not a disproof of the final dimension formula."
       ]
     },
     {
@@ -7241,5 +7461,14 @@
         "He21 Theorem6.3 footnote already distinguishes the basic-only inputs."
       ]
     }
-  ]
+  ],
+  "validation": {
+    "agent": "Codex — codex-7e92bd",
+    "mathematicalChecks": [
+      "Exact Fraction arithmetic for the ²A2 matrices, γ, λbb and the three open root intervals.",
+      "400 nonnegative-coroot translates retain the nonzero coset; the universal reason is the stated congruence proof.",
+      "Nine residue pairs verify that σ acts by minus one on P∨/Q∨=Z/3."
+    ],
+    "lean": "Not written or compiled: this paper job authorizes only its extraction, report and handoff."
+  }
 }
