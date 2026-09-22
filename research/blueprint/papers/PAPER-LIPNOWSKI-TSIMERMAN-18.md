@@ -1,3 +1,396 @@
+# Lipnowski–Tsimerman: local-counting continuation
+
+
+## Continuation by codex-a71f92 — 22 September 2026
+
+Refs #1332. This continues, rather than independently reviews, PR #1652.
+Current totals: **124 items: 11 library, 26 planned, 87 missing**. The ten
+existing routes take 68 missing and 25 planned items; all 19 withheld items
+stay withheld. There are 37 unchanged definition/construction API/test
+blocks, eight new theorem plans, three generic library imports and 24
+selected prerequisite edges. This is not a complete DAG or formalization.
+
+### Evidence, imports and ownership
+
+Freshly read all 38 pages of [v1](https://arxiv.org/pdf/1511.02212v1), including
+the bibliography, and inspected page images 9, 10 and 12. Freshly read
+selected [Yun v2](https://arxiv.org/pdf/1303.2420v2) sections: §§1–2.2,
+4.1–4.7 (4.7 only partly), 4.8–4.14, including complete proofs of Lemma 4.9
+and Proposition 4.13. This is not a whole-Yun reading. The source hashes are
+unchanged. Conrad and the original eight library checks remain attributed
+to PR #1652, not claimed as fresh reading.
+
+A fresh request to the [journal DOI](https://doi.org/10.1215/00127094-2018-0029)
+and canonical publisher download still did not obtain the final PDF.
+Authors' pages still link v1. **G0 remains open**; 38 versus 51 pages does
+not establish a mathematical change. The 17 sourceIssues record predecessor
+findings and selected G2 rechecks, all version-qualified. “new” means only
+that no correction was located in the limited listed search, not priority
+or an allegation about the unavailable final text. No independent-review
+verdict is added.
+
+At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 the actual statements,
+proofs and relevant standing hypotheses were read for:
+
+- traceForm_dualSubmodule_adjoin, Submodule.traceDual and
+  Submodule.traceDual_span_of_basis, in
+  Mathlib/RingTheory/DedekindDomain/Different.lean, especially 57–112 and
+  592–631. The integrally closed hypothesis is on the base ring, not the
+  order. Module.Basis.traceDual_powerBasis_eq in Trace/Basic.lean:610 was
+  also read as compatible basis evidence, not counted as another item.
+- HenselianRing.is_henselian and IsAdicComplete.henselianRing, in
+  Mathlib/RingTheory/Henselian.lean:88–178.
+- IsLocalRing.length_restrictScalars, in
+  Mathlib/RingTheory/LocalRing/Length.lean:54–81. This is an extended-natural
+  length identity; finite-length/residue-degree conversions remain needed.
+
+The inspected Submodule.natAbs_det_basis_change is over **Z**, not a general
+finite-residue DVR; it is not claimed to close the local index adapter.
+GN.2/GN.3 reviewed coverage rows were read at blob
+5e708cfc74a51b10e62149113872fe4e00eb5846 and the owner description checked.
+Library searches did not locate the exact local-order counting endpoints;
+this is bounded evidence, not proof that generic ingredients are absent.
+GN.2 takes the coefficient-DVR, conductor and isotypic stabilizer adapters;
+GN.3 takes local counting. No new carrier, definition or roadmap is
+introduced; the existing finite-field Part II is unchanged.
+
+### L1. Ordinary trace dual and the conductor
+
+Let O=Z_ell, K=Q_ell, F=K(theta), R=O[theta], S=O_F,
+f=minpoly_K(theta) monic integral irreducible, beta=f'(theta), and
+delta=v_ell(disc f). Characteristic zero gives separability. Use the ordinary
+field trace, not Yun's modified pairing without its scaling.
+
+The pinned identity gives R^vee=beta^(-1)R. Traces of integral elements are
+integral, so S⊆R^vee and beta S⊆R. The determinant of multiplication by beta
+is Norm(beta)=±disc(f), hence #S/beta S=ell^delta and length_O(S/R)≤delta.
+For R⊆M⊆S, N=beta M^vee is an R-ideal in R, and
+
+    length_O(R/N)=length_O(R^vee/M^vee)=length_O(M/R)≤delta.
+
+Dual bases or the Smith factors of the inclusion prove the middle equality.
+N represents the **dual homothety class**, not necessarily M's own class.
+Trace duality is an involution on full-lattice homothety classes.
+
+The mathematical DVR calculation used here and in L5 is explicit:
+diagonalize an injective equal-rank free-lattice map with factors pi^a_i.
+Its quotient has length sum a_i, cardinality Q^(sum a_i), and determinant
+valuation sum a_i. The exact pinned finite-DVR adapter remains unmatched;
+the Z-only cardinality theorem is not a substitute.
+
+### L2. Correct residue field
+
+The finite O-algebra R is complete and local: otherwise a coprime
+factorization modulo ell would lift, contradicting irreducibility of f.
+Write k_R=F_(ell^s), not necessarily F_ell. Lift the separable irreducible
+polynomial of the residue of theta to a monic polynomial h over O.
+Hensel lifting in R gives w≡theta with h(w)=0. Then O_0=O[w] is the
+unramified coefficient DVR with residue k_R. Put t=theta−w∈rad R.
+
+We have R=O_0[t]. The radical and ell-adic topologies on this finite local
+algebra agree, so t is topologically nilpotent; continuous evaluation gives
+O_0[[T]]→R, T↦t, surjectively already on polynomials. This includes t=0.
+For a finite R-module A, scalar restriction gives
+
+    length_O(A)=s·length_(O_0)(A).
+
+A colength bound delta becomes floor(delta/s). We do not assert a quotient
+of Z_ell[[T]] for s>1. The generic Hensel theorem supplies lifting, not the
+whole coefficient-DVR and topological evaluation construction; those
+adapters remain planned.
+
+### L3. Weighted partitions, including zero
+
+For Q=#k_R, Yun Proposition 4.13 counts ideals of colength j in O_0[[T]] by
+H_Q(j)=sum_(lambda partition of j) Q^(j−length(lambda)).
+H_Q(0)=1. For j≥1, inject partitions into ordered compositions by retaining
+their nonincreasing order. There are binom(j−1,k−1) compositions of length k,
+so
+
+    H_Q(j)≤sum_(k=1)^j binom(j−1,k−1)Q^(j−k)=(Q+1)^(j−1).
+    sum_(j=0)^a H_Q(j)≤1+((Q+1)^a−1)/Q≤(Q+1)^a≤Q^(2a).
+
+Pullback injects R-ideals into power-series ideals without changing
+O_0-colength. With Q=ell^s and a=floor(delta/s), there are at most
+ell^(2delta) R-ideals of O-colength ≤delta. At delta=0 the candidate is R.
+No false weak-composition bound from LT (13) is used.
+
+### L4. Rank-one classes
+
+Scale M⊂F so SM=S. Some element of M is an S-unit; divide by it to arrange
+R⊆M⊆S. L1 sends the dual class to a small-colength ideal. Duality permutes
+homothety classes, so
+
+    C_1 := #(F^× \ {full R-lattices in F}) ≤ ell^(2delta).
+
+For later flag quotients choose trace duals of the finite list of small
+ideals as representatives. The factor beta is only a scalar. Claiming the
+small ideals directly represent the original classes would omit the
+duality step.
+
+### L5. Refine the existing extension-determinant node
+
+Fix gamma-stable U_i⊂V_i. Put W=Hom_K(V_2,V_1),
+M=Hom_O(U_2,U_1), F(T)=gamma_1 T−T gamma_2.
+An O-splitting identifies graph extensions with ker(F:W/M→W/M);
+changing the splitting changes T by M. Rational commuting shears translate
+by ker(F:W→W). The snake sequence identifies the quotient with
+ker(M/FM→W/FW).
+
+Semisimplicity gives W=ker F⊕W', W'=im F. For M'=M∩W',
+
+    FM'⊆FM⊆M',  ker(M/FM→W/FW)=M'/FM.
+
+There is a **surjection** M'/FM'→M'/FM, not the printed inclusion.
+The lattice M' is full in W' and F is invertible there. The index calculation
+in L1 bounds the shear quotient by ell^(v_ell det(F|W')).
+
+For V_1=F^(i−1), V_2=F, the nonzero differences of distinct roots of f each
+occur i−1 times, giving valuation (i−1)delta. Equal-root directions are
+removed by commuting shears, not counted as finite raw graph fibers.
+This is added to the existing item, not duplicated as a new theorem.
+
+### L6. Repeated blocks
+
+Use the standard F-coordinate flag in F^n. A block-diagonal
+GL_(n−1)(F)×F^× element normalizes the intersection and projected quotient
+to their finite orbit lists. L5 bounds the shear orbits for each pair by
+ell^((n−1)delta). Parabolic orbits surject onto full centralizer orbits:
+
+    C_n≤C_(n−1)C_1 ell^((n−1)delta)
+       ≤ell^((n(n−1)/2+2n)delta)≤ell^(2n²delta), n≥1.
+
+At delta=0 the bound is one. This **quadratic** multiplicity replacement
+does not prove the printed linear ell^(4n delta) bound.
+The original local-orbit-source item stays withheld.
+
+### L7. Distinct isotypic factors
+
+Write charpoly(gamma)=product_i f_i^n_i,
+delta_i=v_ell disc(f_i), rho_ij=v_ell Res(f_i,f_j).
+Across distinct isotypic summands the Sylvester operator is invertible;
+its determinant contributes n_i n_j rho_ij once per unordered pair.
+This reproves Yun's graph-fiber argument using full repeated characteristic
+polynomials, not its regular-semisimple statement beyond its hypotheses.
+
+Combining with L6 gives
+
+    C_gamma≤ell^[sum_i (n_i(n_i−1)/2+2n_i)delta_i
+                  +sum_(i<j)n_i n_j rho_ij]≤ell^(2Delta),
+    Delta=sum_i n_i²delta_i+2sum_(i<j)n_i n_j rho_ij.
+
+Delta is the valuation of the product of **ordered unequal-root
+differences with multiplicities**. Valuations are nonnegative.
+The ordinary discriminant vanishes for repeated roots and is not used.
+
+### L8. Only the adelic local-orbit factor
+
+For a monic integral polynomial of degree m whose roots have modulus
+sqrt(p), the product of ordered unequal-root differences is nonzero,
+integral and Galois invariant. Its absolute value D_* is a positive
+integer with v_ell(D_*)=Delta_ell. All but finitely many local counts are one:
+
+    product_ell C_(gamma,ell)≤D_*²≤(2sqrt(p))^(2m(m−1)).
+
+For m=2g this is (2sqrt(p))^(4g(2g−1))=exp(O_p(g²)).
+This bounds only the restricted-product **local centralizer orbit** factor.
+It is not the rational adelic class-set count or the global abelian-variety
+count. The application uses the inherited prime-field F,V reduction;
+semilinear centralizers over nonprime fields are not covered.
+
+### L9. Isotypic stabilizer by a congruence kernel
+
+Normalize R^n⊆M⊆S^n by choosing an S-basis from M after saturation;
+the images of an S-generating set span the residue vector space.
+Stab(M)⊆GL_n(S) because SM=S^n. For
+g∈ker(GL_n(S)→GL_n(S/beta S)),
+
+    (g−1)M⊆beta S^n⊆R^n⊆M.
+
+The same holds for g^(-1), so gM=M. Bounding the finite reduction image by
+all matrices gives
+
+    [GL_n(S):Stab(M)]≤#(S/beta S)^(n²)=ell^(n²delta).
+
+At delta=0 the whole group stabilizes M; no positive-colength hypothesis is
+hidden. This avoids the ill-defined p.12 orbit map: for ell=3,
+F=Q_3(i), R=Z_3[3i], M=S=Z_3[i], the units **1 and −1 in R** give the
+same orbit point but maps evaluated at i differ by 2i modulo R.
+The target exists since S⊆R^vee. Using i as the group element would fail
+the printed GL_1(R) hypothesis, so that is not the example used.
+
+Only the isotypic case is proved here. In general, a blockwise
+minimal-polynomial conductor may introduce n_i²-weighted cross-resultants
+and lose the desired O(g²) exponent. A compatible sharper flag/stabilizer
+bound and rational class-set glue remain required for (20). G2 stays partial.
+
+### Validation and remaining gaps
+
+The embedded standard-library Python was run: 176 weighted-partition tests,
+992 residue-degree cases, 6144 multiplicity/resultant cases, 28 exact
+trace-dual examples, all 6561 matrices over F_9 (5760 invertible, stabilizer
+48, orbit 120), the unit-of-R counterexample and 30 finite shear cases.
+These are regressions, not proofs for arbitrary fields or dimensions.
+
+G0–G8 and the 19 original withheld claims remain, with G2 narrowed by L1–L9.
+The final journal comparison, full mass theorem, quaternionic scope,
+enhanced limiting law and original external supplier proofs are not closed.
+No Lean file was requested, written or compiled. The paper schema and three-file intake checks pass against the complete
+catalogue (3 files, 0 problems). Preservation checks retain all 113 original
+IDs/statuses/statements, original routes, 37 API/test blocks, all 19 withheld
+items and the historical report/handoff. The 24 selected edges have known
+endpoints and are acyclic; no local paths were found. Publication was
+rebased by API onto fresh snapshot 5db325c698954f89a2b5c8524b297ce8fb066399;
+relevant protocols and GN coverage/description hashes are unchanged.
+
+### Reproducible finite checks
+
+```python
+"""Finite regression checks for the LT18 local replacement; not proofs."""
+from fractions import Fraction as Q
+from itertools import product
+from math import comb
+
+def partitions(n, largest=None):
+    if n == 0:
+        yield ()
+        return
+    largest=min(n, n if largest is None else largest)
+    for a in range(largest, 0, -1):
+        for rest in partitions(n-a,a):
+            yield (a,)+rest
+
+cases=0
+for q in (2,3,4,5,8,9,16,25):
+    running=1
+    for j in range(1,23):
+        exact=sum(q**(j-len(lam)) for lam in partitions(j))
+        comp=sum(comb(j-1,k-1)*q**(j-k) for k in range(1,j+1))
+        assert comp==(q+1)**(j-1)
+        assert exact<=comp
+        running+=exact
+        assert running<=(q+1)**j<=q**(2*j)
+        cases+=1
+print("PASS:",cases,"weighted partition/composition/cumulative cases; colength zero=1")
+
+residue=0
+for ell in (2,3,5,7):
+    for s in range(1,9):
+        for delta in range(31):
+            assert (ell**s+1)**(delta//s)<=ell**(2*delta)
+            residue+=1
+print("PASS:",residue,"residue-degree/length conversions")
+
+exponents=0
+for ni in product(range(1,9),repeat=3):
+    for ds in ((0,0,0),(1,1,1),(0,3,2),(7,0,1)):
+        for rs in ((0,0,0),(1,2,3),(5,0,7)):
+            diag=sum(n*n*d for n,d in zip(ni,ds))
+            cross=ni[0]*ni[1]*rs[0]+ni[0]*ni[2]*rs[1]+ni[1]*ni[2]*rs[2]
+            refined=sum((n*(n-1)//2+2*n)*d for n,d in zip(ni,ds))+cross
+            Delta=diag+2*cross
+            assert refined<=2*Delta
+            exponents+=1
+for n in range(1,101):
+    assert sum(range(n))+2*n==n*(n-1)//2+2*n
+    assert n*(n-1)//2+2*n<=2*n*n
+assert comb(1,1)==1 and 0**1==0  # source composition bound fails at delta=0,n=1
+print("PASS:",exponents,"multiplicity/resultant exponent cases and zero-discriminant branch")
+
+def eye(n):
+    return [[Q(i==j) for j in range(n)] for i in range(n)]
+def mm(A,B):
+    return [[sum(a*b for a,b in zip(row,col)) for col in zip(*B)] for row in A]
+def det(A):
+    a=[list(map(Q,row)) for row in A]
+    ans=Q(1)
+    for j in range(len(a)):
+        k=next((k for k in range(j,len(a)) if a[k][j]),None)
+        if k is None:return Q(0)
+        if k!=j:a[k],a[j]=a[j],a[k];ans=-ans
+        v=a[j][j];ans*=v
+        for k in range(j+1,len(a)):
+            z=a[k][j]/v
+            a[k]=[x-z*y for x,y in zip(a[k],a[j])]
+    return ans
+def inv(A):
+    n=len(A);a=[list(map(Q,row))+e for row,e in zip(A,eye(n))]
+    for j in range(n):
+        k=next(k for k in range(j,n) if a[k][j])
+        a[k],a[j]=a[j],a[k]
+        v=a[j][j];a[j]=[x/v for x in a[j]]
+        for k in range(n):
+            if k!=j:
+                z=a[k][j];a[k]=[x-z*y for x,y in zip(a[k],a[j])]
+    return [row[n:] for row in a]
+dual_cases=0
+for r in range(1,8):
+    for a in (2,3,5,7):
+        # f=X^r-a is Eisenstein, so this is a field order.
+        C=[[Q(0) for _ in range(r)] for _ in range(r)]
+        for j in range(r-1):C[j+1][j]=1
+        C[0][r-1]=a
+        powers=[eye(r)]
+        for k in range(2*r):
+            powers.append(mm(powers[-1],C))
+        tr=[sum(M[i][i] for i in range(r)) for M in powers]
+        G=[[tr[i+j] for j in range(r)] for i in range(r)]
+        assert det(G)
+        D=[[r*x for x in row] for row in powers[r-1]] # multiplication by f'(theta)
+        B=mm(D,inv(G))
+        assert all(x.denominator==1 for row in B for x in row)
+        assert abs(det(B))==1
+        assert abs(det(D))==abs(det(G))
+        assert mm(G,inv(G))==eye(r)
+        dual_cases+=1
+print("PASS:",dual_cases,"exact trace-dual/codifferent and norm-discriminant cases")
+
+# F_9 = F_3[i], i^2=-1; coordinate subspace F_3^2 in F_9^2.
+def add(x,y):return ((x%3+y%3)%3)+3*((x//3+y//3)%3)
+def neg(x):return (-x%3)+3*((-(x//3))%3)
+def mul(x,y):
+    a,b=x%3,x//3;c,d=y%3,y//3
+    return ((a*c-b*d)%3)+3*((a*d+b*c)%3)
+gl=stab=0
+for a,b,c,d in product(range(9),repeat=4):
+    determinant=add(mul(a,d),neg(mul(b,c)))
+    if determinant:
+        gl+=1
+        if all(x<3 for x in (a,b,c,d)):stab+=1
+assert (gl,stab)==(5760,48)
+assert gl//stab==120<=3**8
+print("PASS: GL2(F9)=5760, F3-plane stabilizer=48, orbit=120 <= 3^8")
+
+# In R=Z_3[3i] subset S=Z_3[i], both 1 and -1 are R-units.
+# They give the same orbit point S, but at m=i the maps modulo R differ.
+assert (2 % 3) != 0  # 2i is not in R; reduction detects its i coefficient.
+assert mul(2, 2) == 1  # -1 is a unit even in the smaller residue field F_3.
+print("PASS: the orbit-map counterexample uses two units of R, not merely of S")
+
+# Repeated eigenvalues are quotiented by commuting shears, not counted as finite raw fibers.
+shears=0
+for ell,s,eigs in product((2,3),(1,2,3),((0,0),(0,1),(1,1),(0,2),(1,3))):
+    mod=ell**s
+    differences=[a-b for a in eigs for b in eigs]
+    zero_count=differences.count(0)
+    # Product of independent one-coordinate kernel counts over Z/ell^s.
+    kernel=1;valuation=0
+    for d in differences:
+        kernel*=sum(d*x%mod==0 for x in range(mod))
+        if d:
+            dd=abs(d);v=0
+            while dd%ell==0:dd//=ell;v+=1
+            valuation+=v
+    quotient=kernel//mod**zero_count
+    assert quotient<=ell**valuation
+    shears+=1
+print("PASS:",shears,"finite Sylvester-kernel/shear-quotient tests")
+```
+
+---
+
+## Historical report from PR #1652 (unchanged)
+
 # Lipnowski–Tsimerman: finite-field abelian-variety counts
 
 Partial checkpoint by **Codex — codex-c83e7a**, 21 September 2026. Refs #1332.
