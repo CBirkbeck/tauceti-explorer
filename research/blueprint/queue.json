@@ -6574,8 +6574,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-VENKATESH-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1404"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1404",
+   "finishedAt": "2026-09-22T16:45:09Z"
   },
   {
    "id": "REV-PAPER-VENKATESH-19",
@@ -7685,7 +7686,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1466"
   },
   {
    "id": "REV-PAPER-ESNAULT-GROECHENIG-20",
