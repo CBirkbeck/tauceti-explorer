@@ -1801,7 +1801,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-JIANG-ZHANG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1123"
   },
   {
    "id": "REV-PAPER-JIANG-ZHANG-20",
@@ -24046,8 +24047,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PLANETS-08.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #888"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #888",
+   "finishedAt": "2026-09-22T16:02:45Z"
   },
   {
    "id": "PLANETS-09",
