@@ -1035,8 +1035,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SMITH-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1081"
+   "state": "pending",
+   "note": "released on GitHub issue #1081"
   },
   {
    "id": "REV-PAPER-SMITH-24",
@@ -6707,7 +6707,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1414"
   },
   {
    "id": "REV-PAPER-CALEGARI-DIMITROV-TANG-25",
