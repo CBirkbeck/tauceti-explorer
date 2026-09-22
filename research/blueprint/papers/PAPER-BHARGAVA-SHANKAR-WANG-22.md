@@ -42,7 +42,7 @@ Order monic integer polynomials f = xⁿ + a₁xⁿ⁻¹ + ⋯ + aₙ by H(f) = 
 - **Planned.**
   - InverseGaloisAndArithmeticFundamentalGroups IG.2: Hilbert irreducibility.
   - AdelicAlgebraicGroups AA.3: Siegel sets and reduction theory.
-  - SieveMethodsAndPrimePatterns SV.1: the Selberg sieve.
+  - SieveMethodsAndPrimePatterns SV.1: the optimised Selberg sieve. Mathlib already has the Λ² upper-bound mechanism (`NumberTheory/SelbergSieve.lean`), and RS-07 narrows SV.1 to the optimisation beyond it.
 - **Not in the atlas.** The local densities, the invariant theory of W and the Q-invariant, the cusp counts, the tail estimates, the sieve with infinitely many conditions, and the field-counting corollaries.
   - The same Ekedahl-sieve input is already routed to ST.2 by PAPER-KOYMANS-MILOVIC-21.
   - Tau Ceti has Stickelberger's congruence for number fields (`discr_emod_four_eq_zero_or_one`), relevant to E1.
@@ -157,5 +157,9 @@ Links and reasons are in the JSON. Part II (Forum Math. Pi 2025) has its own pap
 - Tau Ceti citations were read at f790474:
   - `NumberTheory/NumberField/Index/Discriminant.lean:56`;
   - `NumberTheory/NumberField/Monogenic.lean:68`.
-- Stage ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref.
+- Stage ids were checked against `data/atlas.json` and against the accepted restructures:
+  - RS-07 narrows ST.0–ST.4 and SV.1 and keeps ST.5; the routed items fall within the narrowed scopes.
+  - RS-29 keeps IG.2.
+  - Nothing touches CA.3, GN.3 or AA.3, and none of these roadmaps is retired.
+- Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
