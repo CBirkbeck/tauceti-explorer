@@ -1,0 +1,1051 @@
+{
+  "paper": "PAPER-SCHMIDT-STIX-16",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Anabelian geometry with étale homotopy types",
+    "authors": "Alexander Schmidt and Jakob Stix",
+    "venue": "Annals of Mathematics 184 (2016), no. 3, 817–868",
+    "doi": "10.4007/annals.2016.184.3.5",
+    "arxiv": "1504.01068v2",
+    "url": "https://annals.math.princeton.edu/2016/184-3/p05",
+    "readSections": [
+      "Published version, read in full on 2026-09-22 from https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf (52 pages, SHA-256 6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759). Statement numbers and pages are the published ones.",
+      "arXiv v2 TeX source (SHA-256 f7998556f22fa94f6822f5629d2d690d47a61b07007e76b93870b28be08cbfc8) was used as a reading aid. A word-level diff shows that it matches the published text up to copy-editing and the reference list. Every recorded source issue was checked in the published PDF.",
+      "Checked in detail: Lemma 2.7, Proposition 2.8, the point-count formula of Proposition 4.1 (on A¹ and G_m), the counting argument of Proposition 4.6, the proof of Theorem 4.7, Propositions 5.1–5.5 with the Riemann–Hurwitz count of Lemma 5.4, the induction in Theorem 6.2, the proof of Lemma 6.3, the Kummer argument of Theorem 7.2, and Lemmas A.7, A.14–A.15 and Proposition A.16. Mochizuki's Theorem A, Tamagawa's Corollary 2.10, Pop's theorem, SGA 4 XI 3.3 and the Isaksen and Friedlander inputs were used as quoted."
+    ]
+  },
+  "summary": "Schmidt and Stix ask whether a variety is determined by its étale homotopy type X_et, an object of the homotopy category of Isaksen's model structure on pro-simplicial sets, rather than by its étale fundamental group alone. They reformulate Mochizuki's Hom theorem for hyperbolic curves over sub-p-adic fields without base points (Theorems 1.1 and 3.2). For varieties over a finitely generated field k/Q that embed in products of hyperbolic curves, they build a unique functorial retraction r of Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) (Theorems 1.2 and 4.7). Mochizuki gives a morphism to the ambient product; Tamagawa's separation of rational points over finite fields and a point count in closed fibres (Propositions 4.1 and 4.6) show that it lands in the subvariety. Elements of the kernel of r act on π_1 by class-preserving automorphisms (Theorem 1.9, §5, via Čebotarev and ℓ-geometric covers of positive genus). For strongly hyperbolic Artin neighbourhoods, towers of elementary fibrations into hyperbolic curves, the kernel is trivial (Theorem 6.2), so these varieties are anabelian (Theorem 1.5, Corollary 1.6). Every point of a smooth variety has a basis of such neighbourhoods, as Grothendieck predicted (Lemma 6.3, Corollary 1.7). Pop's birational theorem gives absolute versions (Theorems 7.1–7.2). The appendix develops the needed homotopy theory of pro-spaces: coverings, base change along coverings, pointed versus unpointed maps, topological homotopy groups of profinite pro-spaces, and classifying spaces of pro-groups. The atlas plans a Mochizuki reconstruction theorem for proper hyperbolic curves over number fields (NC.1), étale cohomology and point counting (SF.2, EDC.2), resolution (R09.7), Hurwitz formulas and Kummer theory. It has nothing on étale homotopy types or pro-spaces, and nothing on higher-dimensional anabelian geometry. Routes: the homotopy theory of pro-spaces and étale homotopy types become a new roadmap, EtaleHomotopyTypes. The paper's own theorems become a Part II of Anabelian geometry and nonabelian Chabauty. The cited anabelian theorems (Mochizuki's Theorem A, Tamagawa, Pop, strongly center-free Galois groups) are sources of NC.1. Five further inputs go to IG.1, IG.2, AN.4, R09.2 and SF.0. Seven source issues are recorded, all present in the published text: six misprints, one of them the dropped word 'smooth' in Theorem 4.7(b), and one gap, where Proposition 5.5 applies Proposition 5.3 without checking r(γ′) = id.",
+  "items": [
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/1",
+      "kind": "definition",
+      "name": "Pro-objects and pro-categories",
+      "statement": "A pro-object of a category C is a functor I^op → C from a small cofiltered (filtering) index category, written X = (X_i)_{i∈I}; pro-C has morphisms Mor(X, Y) = lim_j colim_i Mor_C(X_i, Y_j). Every pro-object is isomorphic to one indexed by a cofinite directed set (Edwards–Hastings 2.1.6).",
+      "locator": "§1, Notation and conventions, p. 821; Appendix, p. 852",
+      "status": "missing",
+      "note": "Mathlib has no pro-category of a general category at 082e2d3 (DiamondsAndVStacks D0 plans pro-categories only of the small categories it needs)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/2",
+      "kind": "definition",
+      "name": "Simplicial sets, nerves, Kan complexes and model categories",
+      "statement": "Simplicial sets and pointed simplicial sets, the nerve of a small category, the standard simplices and horns, Kan complexes, and the notion of a (closed) model category.",
+      "locator": "§1, p. 821; Appendix, pp. 852–853, 861–862",
+      "status": "library",
+      "library": [
+        "mathlib:SSet",
+        "mathlib:SSet.KanComplex",
+        "mathlib:CategoryTheory.nerve",
+        "mathlib:HomotopicalAlgebra.ModelCategory"
+      ],
+      "note": "Mathlib: SSet, SSet.stdSimplex, SSet.horn, SSet.KanComplex (Mathlib/AlgebraicTopology/SimplicialSet/*), CategoryTheory.nerve, HomotopicalAlgebra.ModelCategory (Mathlib/AlgebraicTopology/ModelCategory/Basic.lean)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/3",
+      "kind": "construction",
+      "name": "Homotopy groups of simplicial sets and classifying spaces of discrete groups",
+      "statement": "Homotopy groups π_n of pointed (Kan) simplicial sets; for a discrete group G the nerve BG of its one-object category is a K(G,1) with π_1(BG) = G, EG → BG is a G-covering with EG contractible, and a surjection G′ → G induces a fibration BG′ → BG, so BG is fibrant.",
+      "locator": "Appendix A.4, pp. 861–862",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "StableHomotopyKTheory:H.1"
+      ],
+      "note": "Tau Ceti AlgebraicTopology Stage 8 plans homotopy groups of Kan simplicial sets; StableHomotopyKTheory H.1 plans nerves, classifying spaces and K(G,1) identification."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/4",
+      "kind": "definition",
+      "name": "Isaksen's model structure on pro-simplicial sets",
+      "statement": "The strict (Isaksen) closed simplicial model structure on pro-ss and its pointed variant pro-ss_*, with every object cofibrant; its homotopy category Ho(pro-ss), with Mor_Ho(X, Y) the strict simplicial homotopy classes of maps into a fibrant Y (Hirschhorn 9.5.24); weak equivalences detected on π_0 and on the pro-homotopy groups (Isaksen Cor. 7.5); strong fibrations are fibrations (Isaksen 14.5); the structure is proper (Isaksen 17.1 with the correction [Isa04] 4.14); and the cohomological criterion for weak equivalences (Isaksen 18.4; Artin–Mazur 4.3).",
+      "locator": "§1.1 and Notation, pp. 817, 821; Appendix, pp. 852–854",
+      "status": "missing",
+      "note": "The whole homotopy theory of pro-spaces used in the paper; nothing in the atlas or the pinned libraries plans it."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/5",
+      "kind": "construction",
+      "name": "Étale topological type and étale homotopy groups",
+      "statement": "For a locally noetherian scheme X, X_et ∈ pro-ss is obtained by applying the connected-component functor to the cofiltered system of rigid étale hypercovers (Friedlander). A geometric point x̄ gives a point x̄_et, and π_n^et(X, x̄) := π_n(X_et, x̄_et). For X locally noetherian, π_1^et is the SGA 3 X §6 étale fundamental group, whose profinite completion is the SGA 1 group; if X is noetherian and geometrically unibranch these pro-groups are profinite (Artin–Mazur 11.1). For a field k, G_k = π_1(k_et, K_et).",
+      "locator": "§1.1 and Notation, pp. 817, 821",
+      "status": "missing",
+      "note": "Uses rigid hypercovers of the étale site (SF.2) and the SGA 1 fundamental group (IG.0)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/6",
+      "kind": "theorem",
+      "name": "Étale homotopy exact sequence for a geometric fibration (Friedlander, Thm. 11.5)",
+      "statement": "For a morphism f: X → Y of geometrically unibranch schemes that is an elementary fibration (more generally, satisfies Friedlander's hypotheses), with the pull-back 𝒳 of the system of pointed Galois covers of (Y, ȳ), there is a long exact sequence ⋯ → π_n^et(X_ȳ, x̄) → π_n^et(𝒳) → π_n^et(𝒴) → π_{n−1}^et(X_ȳ, x̄) → ⋯.",
+      "locator": "Proofs of Proposition 2.8 (p. 827) and Theorem 6.2 (p. 846)",
+      "status": "missing",
+      "note": "Cited from Friedlander, Étale homotopy of simplicial schemes, Thm. 11.5, with L the set of all primes."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/7",
+      "kind": "theorem",
+      "name": "Remark 1.4(2): étale realization factors through A¹-homotopy theory",
+      "statement": "By Isaksen (Adv. Math. 2004) the functor X ↦ X_et from smooth k-schemes to Ho(pro-ss)↓k_et factors through the Morel–Voevodsky A¹-homotopy category; in particular it is not faithful.",
+      "locator": "Remarks 1.4(2), p. 818",
+      "status": "missing",
+      "note": "Not used in the proofs; recorded as the reason Theorem 1.2 needs A¹-local schemes."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/8",
+      "kind": "theorem",
+      "name": "Lemma 2.1: finite étale morphisms give finite coverings of étale types",
+      "statement": "If p: W′ → W is finite étale, then p_et: W′_et → W_et is a finite covering in pro-ss, and for any X → W the natural map (X ×_W W′)_et → X_et ×_{W_et} W′_et is an isomorphism in pro-ss.",
+      "locator": "Lemma 2.1, p. 822",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/9",
+      "kind": "theorem",
+      "name": "Lemma 2.2: base change of homotopy equivalences along finite étale maps",
+      "statement": "Let f: X → W, g: Y → W and γ ∈ Isom_Ho(pro-ss)(X_et, Y_et) with g_et γ = f_et. For W′ → W finite étale there is γ′ ∈ Isom_Ho(pro-ss)((X ×_W W′)_et, (Y ×_W W′)_et) compatible with γ and with the projections to W′_et (γ′ is not asserted to be unique).",
+      "locator": "Lemma 2.2, p. 823",
+      "status": "missing",
+      "note": "From Lemma 2.1 and Proposition A.6."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/10",
+      "kind": "theorem",
+      "name": "Proposition 2.3: Galois-equivariant comparison of geometric cohomology",
+      "statement": "Let X, Y be varieties over k with X_et ≅ Y_et in Ho(pro-ss)↓k_et. Then there are G_k-isomorphisms H^i_et(X_k̄, A) ≅ H^i_et(Y_k̄, A), functorial in the abelian group A, for all i ≥ 0.",
+      "locator": "Proposition 2.3, p. 824",
+      "status": "missing",
+      "note": "The proof identifies (X ×_k k̄)_et with X_et ×_{k_et} (k′_et)_{k′⊂k̄} via limits of étale cohomology and the cohomological criterion, then applies Proposition A.6."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/11",
+      "kind": "definition",
+      "name": "Strongly center-free profinite groups; sub-p-adic fields (Mochizuki, Lemma 15.8)",
+      "statement": "A profinite group is strongly center-free if every open subgroup has trivial center. A sub-p-adic field is a subfield of a finitely generated extension of Q_p. Absolute Galois groups of sub-p-adic fields (in particular of finitely generated extensions of Q) are strongly center-free (Mochizuki, Invent. Math. 138 (1999), Lemma 15.8).",
+      "locator": "§1.1, p. 818; §2.2, p. 824",
+      "status": "missing",
+      "note": "Proved in Mochizuki's local pro-p anabelian paper; it belongs with the Mochizuki reconstruction theorem."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/12",
+      "kind": "theorem",
+      "name": "Proposition 2.4: pointed versus unpointed morphisms of étale types over k",
+      "statement": "Ho(pro-ss) is the homotopy category of Isaksen's model structure on pro-simplicial sets; Ho(pro-ss)↓B is the category of morphisms to B in it; X_et is the étale topological type of X. Let X, Y be connected k-varieties, Y geometrically unibranch and geometrically connected, and x̄, ȳ geometric points over a separably closed K/k. (a) Forgetting base points gives a surjection Mor_{Ho(pro-ss_*)↓(k_et, k̄_et)}((X_et, x̄_et), (Y_et, ȳ_et)) ↠ Mor_{Ho(pro-ss)↓k_et}(X_et, Y_et); in particular isomorphic unpointed types are isomorphic pointed. (b) It factors through the orbits of π_1^et(Y_k̄, ȳ). (c) If G_k is strongly center-free, the induced map on π_1^et(Y_k̄, ȳ)-orbits is a bijection.",
+      "locator": "Proposition 2.4, p. 825",
+      "status": "missing",
+      "note": "From Theorems A.8, A.13 and Lemma A.12."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/13",
+      "kind": "theorem",
+      "name": "Corollaries 2.5–2.6: induced outer homomorphisms and π₁-open maps",
+      "statement": "For X, Y as in Proposition 2.4, OutHom_{G_k}(π_1^et(X), π_1^et(Y)) := Hom_{G_k}(π_1^et(X, x̄), π_1^et(Y, ȳ))_{π_1^et(Y_k̄, ȳ)} is independent of base points, and Mor_k(X, Y) → OutHom_{G_k} factors through Mor_{Ho(pro-ss)↓k_et}(X_et, Y_et) when G_k is strongly center-free (Corollary 2.5). With Mor^{π_1-open} the maps whose π_1 has open image, the pointed π_1-open maps modulo π_1^et(Y_k̄, ȳ) biject with the unpointed π_1-open maps (Corollary 2.6).",
+      "locator": "Corollaries 2.5–2.6, p. 826",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/14",
+      "kind": "definition",
+      "name": "Varieties of type K(π,1) and Lemma 2.7",
+      "statement": "A geometrically pointed connected locally noetherian scheme (X, x̄) is of type K(π,1) if π_n^et(X, x̄) = 0 for all n ≥ 2, equivalently the classifying morphism (X_et, x̄_et) → Bπ_1(X_et, x̄_et) is an isomorphism in Ho(pro-ss_*); for geometrically unibranch X this is independent of the base point. Lemma 2.7: (1) a connected smooth curve over a field that is affine or of genus > 0 is of type K(π,1) (Schmidt, Compositio 1996, Prop. 15); (2) over a characteristic-zero field a product of geometrically connected, geometrically unibranch varieties of type K(π,1) is of type K(π,1).",
+      "locator": "§2.3 and Lemma 2.7, pp. 826–827",
+      "status": "missing",
+      "note": "Part (2) uses the Künneth formulas for π_1 (SGA 1 XIII 4.6) and étale cohomology, and the cohomological criterion (Artin–Mazur 4.3)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/15",
+      "kind": "theorem",
+      "name": "Proposition 2.8: elementary fibrations preserve K(π,1)",
+      "statement": "An elementary fibration X → Y is the complement, in a smooth proper curve X̄ → Y with geometrically connected fibres, of a divisor D finite étale over Y with affine fibres X → Y. Over a field of characteristic zero, if f: X → Y is an elementary fibration of smooth varieties and Y is of type K(π,1), then X is of type K(π,1), and 1 → π_1^et(X_ȳ) → π_1^et(X) → π_1^et(Y) → 1 is exact.",
+      "locator": "Proposition 2.8, p. 827",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/16",
+      "kind": "theorem",
+      "name": "Existence of Artin's good neighbourhoods (SGA 4 XI 3.3)",
+      "statement": "For a smooth variety X of dimension d with a projective compactification X ⊆ X̄ ⊆ P(V) (X̄ normal, O(1)|_X̄ an r-th multiple, r ≥ 2), the linear projections from general Δ_W, W ∈ Grass_d(V), restricted over a non-empty open S_W ⊆ P(W), are elementary fibrations U_W → S_W; over an algebraically closed field every point lies in some U_W.",
+      "locator": "Proof of Lemma 6.3, pp. 847–848",
+      "status": "missing",
+      "note": "The paper applies SGA 4 XI 3.3 over an infinite perfect field at a rational point, then descends from k̄ to k."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/17",
+      "kind": "theorem",
+      "name": "Lemma 2.9: maps into products of K(π,1) varieties are componentwise",
+      "statement": "Let k have characteristic zero with G_k strongly center-free, X a k-variety and Y_1, Y_2 geometrically connected, geometrically unibranch k-varieties of type K(π,1). Then Hom_{Ho(pro-ss)↓k_et}(X_et, (Y_1 ×_k Y_2)_et) → Hom(X_et, Y_{1,et}) × Hom(X_et, Y_{2,et}) is bijective.",
+      "locator": "Lemma 2.9, p. 828",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/18",
+      "kind": "theorem",
+      "name": "Künneth formula for étale fundamental groups in characteristic zero (SGA 1 XIII 4.6)",
+      "statement": "For geometrically connected varieties Y_1, Y_2 over an algebraically closed field of characteristic zero, π_1^et(Y_1 × Y_2) ≅ π_1^et(Y_1) × π_1^et(Y_2); hence over any characteristic-zero k, π_1^et(Y_1 ×_k Y_2) ≅ π_1^et(Y_1) ×_{G_k} π_1^et(Y_2).",
+      "locator": "Proofs of Lemma 2.7(2) and Lemma 2.9, pp. 827–828",
+      "status": "missing",
+      "note": "IG.1 keeps the geometric/arithmetic fundamental-group sequence in the selected SGA range."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/19",
+      "kind": "theorem",
+      "name": "Künneth formula for étale cohomology (SGA 4½, Th. finitude, Cor. 1.11)",
+      "statement": "For varieties over an algebraically closed field and torsion coefficients prime to the characteristic, the étale cohomology of a product is computed by the Künneth formula.",
+      "locator": "Proof of Lemma 2.7(2), p. 827",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "SF.2 integrates the CohomologicalPointCounting (PR196) suppliers, which provide Künneth/base change/Leray (cited by DeligneWeightsAndPurity DWP.6)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/20",
+      "kind": "definition",
+      "name": "Definition A.1: coverings and Galois coverings of pro-spaces",
+      "statement": "A map of simplicial sets p: Y → X is a covering if every Δ[0] → Y over Δ[n] → X lifts uniquely (Gabriel–Zisman); coverings lift uniquely against horns and are fibrations; a connected covering is Galois with group Aut_X(Y) if Y/Aut_X(Y) ≅ X. A morphism of pro-spaces is a covering (resp. Galois covering) if it is isomorphic to a level-wise one. A pointed connected pro-space has a pointed universal covering (the system of level-wise universal coverings), which is Galois with group π_1(X, x).",
+      "locator": "§A.1 and Definition A.1, p. 853",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/21",
+      "kind": "theorem",
+      "name": "Proposition A.2: the covering associated with a sub-pro-group",
+      "statement": "For (X, x) connected in Ho(pro-ss_*) and a monomorphism of pro-groups U ↪ π_1(X, x), there is (X, x)_U → (X, x) in Ho(pro-ss_*)_c such that for every connected (W, w), [(W, w), (X, x)_U] ≅ {f ∈ [(W, w), (X, x)] : π_1(f) factors through U}.",
+      "locator": "Proposition A.2, p. 854",
+      "status": "missing",
+      "note": "Proved as Artin–Mazur §2 (2.7), (2.8)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/22",
+      "kind": "theorem",
+      "name": "Lemmas A.3–A.5: coverings, fibrations and properness",
+      "statement": "Lemma A.3: pull-back along a weak equivalence of connected pro-spaces is an equivalence of categories of connected coverings. Lemma A.4: coverings are fibrations in pro-ss. Lemma A.5: for a fibration W′ → W and a weak equivalence h: Y → X over W, h × id: Y ×_W W′ → X ×_W W′ is a weak equivalence (properness; Hirschhorn 13.3.2).",
+      "locator": "Lemmas A.3–A.5, p. 854",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/23",
+      "kind": "theorem",
+      "name": "Proposition A.6: base change of homotopy equivalences along coverings",
+      "statement": "Let f: X → W, g: Y → W be maps of pro-spaces and γ ∈ Isom_Ho(pro-ss)(X, Y) with gγ = f. For a covering W′ → W there is γ′ ∈ Isom_Ho(pro-ss)(X ×_W W′, Y ×_W W′) compatible with γ and the projections to W′, functorial in W′; for a Galois covering of connected pro-spaces the induced isomorphisms H^i(Y ×_W W′, A) → H^i(X ×_W W′, A) are G(W′/W)-equivariant.",
+      "locator": "Proposition A.6, p. 855",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/24",
+      "kind": "theorem",
+      "name": "Lemma A.7: derived limits of profinite pro-groups vanish",
+      "statement": "For a pro-finite group G = (G_i), lim¹ G = * (Bousfield–Kan's non-abelian lim¹); for a pro-finite abelian group, lim^s G = 0 for all s ≥ 1.",
+      "locator": "Lemma A.7, p. 856",
+      "status": "missing",
+      "note": "Via the strongly Mittag-Leffler pro-group G*_i = ∏_{j≤i} G_j and compactness."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/25",
+      "kind": "theorem",
+      "name": "Theorem A.8: topological homotopy groups of profinite pro-spaces",
+      "statement": "Define π_n^top(X, x) := π_n(holim X) = Mor_{Ho(pro-ss_*)}((S^n, s_n), (X, x)) and call (X, x) path-connected if π_0^top = *. If π_0(X, x) = * and all π_n(X, x) are pro-finite, then π_n^top(X, x) → lim π_n(X, x) is an isomorphism for all n ≥ 0.",
+      "locator": "§A.2.2 and Theorem A.8, p. 857",
+      "status": "missing",
+      "note": "By the Bousfield–Kan spectral sequence of the cosimplicial replacement and Lemma A.7."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/26",
+      "kind": "theorem",
+      "name": "Lemma A.9, Theorem A.10 and Corollary A.11: pointed versus unpointed classes",
+      "statement": "Paths in a fibrant approximation give a well-defined associative action π_1^top(Y, y_0, y_1) × [(X, x), (Y, y_0)]_* → [(X, x), (Y, y_1)]_* (Lemma A.9). If Y is path-connected, forgetting base points induces a bijection ([(X, x), (Y, y)]_*)_{π_1^top(Y, y)} ≅ [X, Y] (Theorem A.10). If X ≅ Y in Ho(pro-ss) and all π_i(Y, y) are pro-finite, then (X, x) ≅ (Y, y) in Ho(pro-ss_*) (Corollary A.11).",
+      "locator": "Lemma A.9, Theorem A.10 and Corollary A.11, p. 859",
+      "status": "missing",
+      "note": "The paper says Theorem A.10 is proved 'formally in the same way' as for well-pointed spaces (Whitehead III §1) and gives no further proof."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/27",
+      "kind": "theorem",
+      "name": "Lemma A.12: the monodromy action is conjugation on π₁",
+      "statement": "For pointed connected pro-spaces, the π_1^top(Y, y)-action on Hom(π_1^top(X, x), π_1^top(Y, y)) induced by α ↦ α(id_Y) is φ ↦ α φ(−) α^{−1}; the orbits are the outer homomorphisms.",
+      "locator": "Lemma A.12, p. 860",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/28",
+      "kind": "theorem",
+      "name": "Theorem A.13: pointed versus unpointed over a base",
+      "statement": "Let (X, x), (Y, y) be pointed pro-spaces over (B, b) with Y, B path-connected and π_1^top(Y, y) → π_1^top(B, b) surjective. (a) Forgetting base points gives a surjection Mor_{Ho(pro-ss_*)↓(B,b)}((X, x), (Y, y)) ↠ Mor_{Ho(pro-ss)↓B}(X, Y), and isomorphisms lift to isomorphisms. (b) With S_X ⊆ π_1^top(B, b) the stabilizer of the structure map of (X, x) and Δ_{X,Y} its preimage in π_1^top(Y, y), the map on Δ_{X,Y}-orbits is a bijection.",
+      "locator": "Theorem A.13, p. 860; proof as corrected by E5",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/29",
+      "kind": "construction",
+      "name": "Pro-classifying spaces: BG, EG and the fibrant model B*G (Lemma A.14)",
+      "statement": "For a pro-group G, BG and EG are defined level-wise; EG is contractible and EG_i → BG_i is a G_i-covering, but BG need not be fibrant. With G* = (∏_{j≤i} G_j)_i and B*G := EG*/G, B*G is fibrant in pro-ss_* and BG → B*G is a weak equivalence (Lemma A.14).",
+      "locator": "§A.4.1–A.4.2 and Lemma A.14, pp. 861–862",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/30",
+      "kind": "theorem",
+      "name": "Lemma A.15 and Proposition A.16: BG represents Hom(π₁(−), G)",
+      "statement": "For pro-groups G, G′, the maps Hom(G′, G) → Hom_{pro-ss_*}(BG′, BG) → Hom_{Ho(pro-ss_*)}(BG′, BG) → Hom(G′, G) are all bijections (Lemma A.15). For a connected pointed pro-space (X, x) and a pro-group G, π_1(−): Mor_{Ho(pro-ss_*)}((X, x), BG) → Mor_{pro-groups}(π_1(X, x), G) is a functorial bijection (Proposition A.16).",
+      "locator": "Lemma A.15 and Proposition A.16, pp. 863–864",
+      "status": "missing",
+      "note": "Uses the fundamental groupoid nerve BΠX and the level-wise covering B*G → BG*."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/31",
+      "kind": "definition",
+      "name": "Definition A.17 and Corollary A.18: classifying morphism and K(π,1) pro-spaces",
+      "statement": "The classifying morphism of a pointed connected pro-space is the map (X, x) → Bπ_1(X, x) in Ho(pro-ss_*) corresponding to the identity of π_1 under Proposition A.16; (X, x) is of type K(π,1) if π_i(X, x) = 0 for i ≥ 2, which holds iff the classifying morphism is an isomorphism (Corollary A.18, via Isaksen Cor. 7.5).",
+      "locator": "Definition A.17 and Corollary A.18, p. 866",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/32",
+      "kind": "definition",
+      "name": "Hyperbolic curves and the conventions of the paper",
+      "statement": "All schemes are separated and locally noetherian; an immersion is an open followed by a closed immersion; an étale covering is a finite étale morphism; a variety is a scheme of finite type over a field. A hyperbolic curve over k is a geometrically connected (smooth) curve C with χ(C_k̄, Q_ℓ) < 0, i.e. 2g − 2 + n > 0 for genus g and n geometric boundary points.",
+      "locator": "§1, Notation and conventions, p. 821",
+      "status": "missing",
+      "note": "NC.1 plans only smooth proper hyperbolic curves over number fields; the affine hyperbolic curves over general fields used throughout are part of the new Part II's carrier."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/33",
+      "kind": "theorem",
+      "name": "Theorem 3.1: Mochizuki's Hom theorem for sub-p-adic fields (Theorem A)",
+      "statement": "Let k be sub-p-adic, X a smooth connected k-variety and Y a smooth hyperbolic curve over k. For any geometric base points, Mor_k^dom(X, Y) → Mor^open_{G_k}(π_1^et(X, x̄), π_1^et(Y, ȳ))_{π_1^et(Y_k̄, ȳ)} is bijective, where Mor^dom are dominant k-morphisms and Mor^open_{G_k} are continuous G_k-homomorphisms with open image.",
+      "locator": "Theorem 3.1, p. 829 (Mochizuki, Invent. Math. 138 (1999), Thm. A)",
+      "status": "missing",
+      "note": "NC.1 plans a Mochizuki reconstruction theorem for smooth proper hyperbolic curves over number fields and states that the Hom version and the affine variants need their own sources; this is that source. Also used over the function field of Y in Theorem 6.2."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/34",
+      "kind": "theorem",
+      "name": "Tamagawa: distinct rational points have non-conjugate decomposition groups (Cor. 2.10)",
+      "statement": "Let C be a smooth proper curve of genus ≥ 1 over a finite field F. The decomposition subgroups in π_1^et(C) of distinct F-rational points are not conjugate; consequently for each w ∈ C(F) there is a connected étale covering C′ → C, geometrically connected, with an F-point over w and none over any other F-point of C.",
+      "locator": "Proof of Proposition 4.6, pp. 834–835 (Tamagawa, Compositio 109 (1997), Cor. 2.10)",
+      "status": "missing",
+      "note": "The step from non-conjugacy to an open subgroup excluding all conjugates of the other decomposition groups is a compactness argument the paper leaves implicit. A finite-field variant of the reconstruction theory that NC.1 asks to be sourced separately."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/35",
+      "kind": "theorem",
+      "name": "Pop's birational anabelian theorem for finitely generated fields over Q",
+      "statement": "For finitely generated extension fields k, ℓ of Q, Isom(Spec k, Spec ℓ) → OutIsom(G_k, G_ℓ) ≅ Isom_Ho(pro-ss)(k_et, ℓ_et) is a bijection (Pop, Ann. of Math. 139 (1994); Pop, Progr. Math. 181 (2000)).",
+      "locator": "Proof of Theorem 7.1, p. 850",
+      "status": "missing",
+      "note": "The field-reconstruction case of source-qualified anabelian reconstruction; nothing in the atlas plans it."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/36",
+      "kind": "theorem",
+      "name": "Galois groups of Hilbertian fields have no nontrivial finitely generated closed normal subgroups",
+      "statement": "Finitely generated extensions of Q are Hilbertian, and the absolute Galois group of a Hilbertian field has no nontrivial finitely generated closed normal subgroup (Fried–Jarden, Field Arithmetic, 3rd ed., Prop. 16.11.6).",
+      "locator": "Proof of Theorem 7.1, p. 850",
+      "status": "missing",
+      "note": "IG.2 owns Hilbert irreducibility; PAPER-BRESCIANI-24 marks Hilbertian fields as planned there."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/37",
+      "kind": "theorem",
+      "name": "Finite generation of geometric fundamental groups in characteristic zero",
+      "statement": "For a geometrically connected variety X over a field k of characteristic zero, π_1^et(X_k̄, x̄) = ker(π_1^et(X, x̄) → G_k) is topologically finitely generated (cited as SGA 7 II Thm. 2.3.1 in the paper; classically SGA 1 XII via Riemann existence).",
+      "locator": "Proof of Theorem 7.1, p. 850",
+      "status": "missing",
+      "note": "IG.1 owns the arithmetic exact sequence; PAPER-BRESCIANI-24 routes the finitely generated curve-fibre groups there."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/38",
+      "kind": "theorem",
+      "name": "Čebotarev density for schemes of finite type over Z (Serre, Thm. 7)",
+      "statement": "For a finite étale Galois covering 𝒴 → 𝒳 with group G of a scheme of finite type over Z, every element of G is the Frobenius of some closed point, and the covering is determined by its set of totally split closed points: for two such coverings one dominates the other iff the split set of the first is contained in that of the second, up to a set of density zero.",
+      "locator": "Proofs of Proposition 5.1 (p. 839) and Lemma 5.2 (p. 840)",
+      "status": "missing",
+      "note": "AN.4 keeps Chebotarev and prime-ideal applications (after RS-07); this is the arithmetic-scheme version of Serre, Zeta and L functions (1965), Thm. 7."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/39",
+      "kind": "theorem",
+      "name": "Closed points of schemes of finite type over Z: Jacobson property and finite residue fields",
+      "statement": "A scheme of finite type over Z is Jacobson, so a reduced such scheme is covered by the closures of its closed points, and every closed point has a finite residue field (EGA IV 10.4.6 and 10.4.11.1).",
+      "locator": "Proof of Proposition 4.6, p. 834",
+      "status": "missing",
+      "note": "Mathlib has AlgebraicGeometry.LocallyOfFiniteType.jacobsonSpace and MvPolynomial.comp_C_integral_of_surjective_of_isJacobsonRing, but no IsJacobsonRing ℤ instance and no finite-residue-field statement; the adapter is general scheme theory."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/40",
+      "kind": "theorem",
+      "name": "Spreading out over a regular base of finite type over Z",
+      "statement": "Given finitely many varieties, morphisms, immersions, smooth compactifications with strict normal crossing boundary and finite étale coverings over a finitely generated field k/Q, there is a regular connected scheme S of finite type over Z with function field k over which all of them extend with the same properties.",
+      "locator": "Proofs of Propositions 4.4, 5.1 and Lemma 5.2, pp. 833, 839–840",
+      "status": "missing",
+      "note": "The standard EGA IV §8 limit arguments, used without statement in the paper."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/41",
+      "kind": "theorem",
+      "name": "Resolution of singularities and normal-crossings compactification in characteristic zero",
+      "statement": "Over a field of characteristic zero, smooth varieties X, Y with morphisms to a proper W have smooth compactifications X̄, Ȳ with simple normal crossing boundary to which the morphisms extend.",
+      "locator": "Proof of Proposition 4.4, p. 833",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7"
+      ],
+      "note": "AlgebraicModuliForArithmeticGeometry R09.7 plans characteristic-zero resolution and normal-crossings compactification."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/42",
+      "kind": "theorem",
+      "name": "Relative purity for a strict normal crossing divisor",
+      "statement": "For j: X ↪ X̄ the complement of a relative strict normal crossing divisor D = ∪ D_α over S and ℓ invertible on S, R^b j_* Q_ℓ = Λ^b R^1 j_* Q_ℓ ≅ ⊕_{|J|=b} i_{J,*} Q_ℓ(−b) (Gabber's work, Exp. XVI Cor. 3.1.3).",
+      "locator": "Proof of Proposition 4.1, p. 830",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity"
+      ],
+      "note": "EtaleDualityAndPerverseSheaves EDC.2 plans the smooth trace and relative purity."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/43",
+      "kind": "theorem",
+      "name": "Smooth and proper base change, and local constancy of higher direct images",
+      "statement": "For proper smooth morphisms the sheaves R^a f_* Q_ℓ are smooth (SGA 4½ Arcata V 3.1); smooth sheaves on a normal connected S give π_1^et(S)-representations with cospecialisation isomorphisms, and compactly supported cohomology commutes with base change.",
+      "locator": "Proof of Proposition 4.1, pp. 830–831",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "SF.2 plans proper/smooth base change and compact support."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/44",
+      "kind": "theorem",
+      "name": "Poincaré duality for smooth varieties",
+      "statement": "For X smooth of pure dimension d over a separably closed field, H^i(X, Q_ℓ) × H^{2d−i}_c(X, Q_ℓ) → Q_ℓ(−d) is a perfect Galois-equivariant pairing.",
+      "locator": "Proof of Proposition 4.1, p. 831",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.2:pairings"
+      ],
+      "note": "EDC.2 plans Poincaré duality."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/45",
+      "kind": "theorem",
+      "name": "Grothendieck–Lefschetz trace formula",
+      "statement": "For X of finite type over a finite field F_s, |X(F_s)| = Σ_i (−1)^i tr(Frob_s | H^i_c(X_s̄, Q_ℓ)).",
+      "locator": "Proof of Proposition 4.1, p. 831",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "As in PAPER-WOOD-19, the trace formula for rational point counts is planned in SF.2 (integrating CohomologicalPointCounting)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/46",
+      "kind": "theorem",
+      "name": "Lifting étale coverings from a closed fibre to a Nisnevich neighbourhood",
+      "statement": "Let W → S be proper and s ∈ S closed. Every finite étale covering of W_s extends to a finite étale covering of W_T for some Nisnevich neighbourhood (T, t) → (S, s) (the paper cites Artin, Publ. IHÉS 36, Thm. 3.1).",
+      "locator": "Proof of Proposition 4.6, p. 835",
+      "status": "missing",
+      "note": "Over the henselization this is the SGA 1 X specialization of covers for proper W; a limit argument then descends to a Nisnevich neighbourhood. IG.1 keeps the specialization maps for smooth proper families."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/47",
+      "kind": "theorem",
+      "name": "Riemann–Hurwitz for tame coverings of curves",
+      "statement": "For a finite covering of smooth curves that is at most tamely ramified along the boundary of smooth compactifications, the Euler characteristic 2g − 2 + n is multiplicative in the degree.",
+      "locator": "Proof of Lemma 5.4, p. 843",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+      ],
+      "note": "Tau Ceti AlgebraicCurves Layer 7 plans the Hurwitz genus formula."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/48",
+      "kind": "theorem",
+      "name": "Elementary abelian ℓ-coverings of the projective line minus n points",
+      "statement": "Over an algebraically closed field of characteristic 0 (or prime to ℓ), the Galois group of the maximal elementary abelian ℓ-covering of P¹ minus n ≥ 1 points is F_ℓ^{n−1}, and the inertia groups of the n boundary points are pairwise distinct lines.",
+      "locator": "Proof of Lemma 5.4, p. 842",
+      "status": "planned",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3"
+      ],
+      "note": "IG.3 plans branched covers from generating tuples with product one via Riemann existence."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/49",
+      "kind": "theorem",
+      "name": "Isom schemes of elementary fibrations in hyperbolic curves are finite unramified",
+      "statement": "For an elementary fibration X → Y in hyperbolic curves, the Isom scheme Isom(X/Y, X/Y) → Y is finite and unramified (Deligne–Mumford, Thm. 1.11), so a K-point at the generic point extends uniquely to a Y-point.",
+      "locator": "Proof of Theorem 6.2, p. 847",
+      "status": "missing",
+      "note": "R09.2 develops relative Hom and Isom schemes where moduli proofs invoke them; finiteness and unramifiedness for stable (hyperbolic) curves is that input."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/50",
+      "kind": "theorem",
+      "name": "Kummer theory for Galois cohomology",
+      "statement": "For a field k of characteristic zero, H^1(k, μ_n) ≅ k^×/(k^×)^n, naturally in k.",
+      "locator": "Proof of Theorem 7.2, p. 852",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+      ],
+      "note": "Tau Ceti ProfiniteCohomology Layer 9 plans Hilbert 90 and Kummer theory."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/51",
+      "kind": "definition",
+      "name": "Profinite groups, absolute Galois groups and compactness arguments",
+      "statement": "Absolute Galois groups with the Krull topology, open and closed subgroups, continuous homomorphisms of profinite groups, and the compactness principle that a decreasing family of nonempty closed subsets of a profinite space has nonempty intersection.",
+      "locator": "§1, p. 821; proofs of Lemma 5.2, Proposition 5.3, Lemma 5.6, pp. 840–844",
+      "status": "library",
+      "library": [
+        "mathlib:Field.absoluteGaloisGroup",
+        "mathlib:krullTopology",
+        "mathlib:ProfiniteGrp",
+        "mathlib:IsCompact.nonempty_iInter_of_directed_nonempty_isCompact_isClosed"
+      ],
+      "note": "Mathlib: Field.absoluteGaloisGroup, krullTopology, ProfiniteGrp, IsCompact.nonempty_iInter_of_directed_nonempty_isCompact_isClosed."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/52",
+      "kind": "theorem",
+      "name": "Theorem 1.1 and Theorem 3.2: Mochizuki's theorem in homotopy form",
+      "statement": "Theorem 3.2: for k sub-p-adic, X a smooth connected k-variety and Y a smooth hyperbolic curve over k, Mor_k^dom(X, Y) → Mor^{π_1-open}_{Ho(pro-ss)↓k_et}(X_et, Y_et) is bijective. Theorem 1.1: for hyperbolic curves X, Y over k, Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) is bijective.",
+      "locator": "Theorem 1.1, p. 818; Theorem 3.2 and proof, pp. 829–830",
+      "status": "missing",
+      "note": "From Theorem 3.1, Proposition 2.4 and Proposition A.16 (hyperbolic curves are K(π,1) by Lemma 2.7)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/53",
+      "kind": "theorem",
+      "name": "Theorem 1.2 and Corollary 1.3: the retraction",
+      "statement": "Let k be finitely generated over Q and X, Y smooth geometrically connected k-varieties that embed as locally closed subschemes in products of hyperbolic curves. Then Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) is a split injection with a functorial retraction r (Theorem 1.2). In particular X_et ≅ Y_et in Ho(pro-ss)↓k_et implies X ≅ Y (Corollary 1.3).",
+      "locator": "Theorem 1.2 and Corollary 1.3, p. 818",
+      "status": "missing",
+      "note": "Proved as Theorem 4.7."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/54",
+      "kind": "theorem",
+      "name": "Proposition 4.1: point counts in closed fibres from generic-fibre cohomology",
+      "statement": "Let S be normal noetherian, s ∈ S closed with finite residue field F_s of size N(s), ℓ invertible on S, X̄ → S proper smooth of relative dimension d and X ⊆ X̄ the complement of a relative strict normal crossing divisor with smooth components. Then the G_{κ(η)}-action on H^i(X_η̄, Q_ℓ) factors through π_1^et(S, η̄), and |X_s(F_s)| = N(s)^d Σ_{i=0}^{2d} (−1)^i tr(φ_s | H^i_et(X_η̄, Q_ℓ)), with φ_s the arithmetic Frobenius.",
+      "locator": "Proposition 4.1, p. 830",
+      "status": "missing",
+      "note": "Assembles relative purity, Leray, smooth and proper base change, Poincaré duality and the trace formula (the planned items above); checked on A¹ and G_m."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/55",
+      "kind": "definition",
+      "name": "Definition 4.2: factor-dominant immersions",
+      "statement": "An immersion ι: Y ↪ W = C_1 × ⋯ × C_n into a product of smooth geometrically connected curves is factor-dominant if every p_i ι is dominant. For Y geometrically connected and geometrically reduced each p_i ι is dominant or constant with k-rational image, so constant factors can be removed.",
+      "locator": "Definition 4.2, p. 832",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/56",
+      "kind": "theorem",
+      "name": "Proposition 4.3: morphisms to the ambient product from étale types",
+      "statement": "Let k be sub-p-adic, ι: Y ↪ W = C_1 × ⋯ × C_n a factor-dominant immersion of a geometrically connected, geometrically unibranch k-variety into a product of hyperbolic curves, and X smooth connected. For every π_1-open γ: X_et → Y_et in Ho(pro-ss)↓k_et there is a unique k-morphism f: X → W with f_et = ι_et γ.",
+      "locator": "Proposition 4.3, p. 832",
+      "status": "missing",
+      "note": "From Theorem 3.2 and Lemma 2.9."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/57",
+      "kind": "theorem",
+      "name": "Proposition 4.4 and Remark 4.5: the morphism factors through Y",
+      "statement": "Let k be finitely generated over Q, ι: Y ↪ W a smooth locally closed subscheme of a product of hyperbolic curves, X smooth and f: X → W with f_et = ι_et γ for some γ ∈ Isom_Ho(pro-ss)(X_et, Y_et). Then f = ι g for a unique g: X → Y. (Remark 4.5: g_et also satisfies the diagram, but γ = g_et is not claimed.)",
+      "locator": "Proposition 4.4 and Remark 4.5, pp. 832–833",
+      "status": "missing",
+      "note": "Reduces to Proposition 4.6 after passing to covers with genus ≥ 2 compactifications, compactifying and spreading out."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/58",
+      "kind": "theorem",
+      "name": "Proposition 4.6: Tamagawa's point-count argument",
+      "statement": "Let S be regular connected of finite type over Z, C_i → S proper smooth curves with geometrically connected fibres of genus ≥ 1, ι: Y ↪ W = ∏_S C_i a locally closed subscheme smooth over S, and f: X → W an S-morphism with X/S smooth, where X and Y have nice relative compactifications mapping to W. If (f_η)_et = (ι_η)_et γ for some γ ∈ Isom_Ho(pro-ss)((X_η)_et, (Y_η)_et), then f factors through Y.",
+      "locator": "Proposition 4.6, pp. 833–835",
+      "status": "missing",
+      "note": "Checked: for x ∈ X(F), a covering W′ → W with W′_s(F) = {f(x)} and Proposition 4.1 give |Y′_s(F)| = q^{d_Y − d_X}|X′_s(F)| > 0."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/59",
+      "kind": "theorem",
+      "name": "Theorem 4.7: the unique functorial retraction",
+      "statement": "For k finitely generated over Q and X, Y smooth geometrically connected varieties embeddable in products of hyperbolic curves, (−)_et: Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) admits a unique functorial retraction r such that (a) r(g_et) = g for every k-isomorphism g; (b) r(γ_2 γ_1) = r(γ_2) r(γ_1) for a further smooth geometrically connected such Z; and (c) h_et r(γ)_et = h_et γ for every dominant h: Y → C to a hyperbolic curve. r(γ) is independent of the chosen immersion.",
+      "locator": "Theorem 4.7, pp. 835–837; statement and proof as corrected by E1–E2",
+      "status": "missing",
+      "note": "r(γ) is built from Propositions 4.3–4.4; it is an isomorphism formally from (a) and (b)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/60",
+      "kind": "theorem",
+      "name": "Proposition 4.8: compatibility of r with dominant maps",
+      "statement": "For X, X′, Y, Y′ as in Theorem 4.7, dominant k-morphisms f: X′ → X, g: Y′ → Y and isomorphisms γ′, γ with γ f_et = g_et γ′, one has g r(γ′) = r(γ) f.",
+      "locator": "Proposition 4.8, pp. 837–838",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/61",
+      "kind": "theorem",
+      "name": "Theorem 1.9 and class-preserving automorphisms",
+      "statement": "For 1 → H → G → Γ → 1, φ ∈ Aut_Γ(G) is class-preserving by elements of H if φ(g) ∈ {hgh^{−1} : h ∈ H} for every g. Theorem 1.9: for k finitely generated over Q, X smooth geometrically connected and embeddable in a product of hyperbolic curves, and γ in the kernel of r: Aut_{Ho(pro-ss)↓k_et}(X_et) → Aut_k(X), the outer automorphism π_1(γ) ∈ OutAut_{G_k}(π_1^et(X)) is class-preserving by elements of π_1^et(X_k̄).",
+      "locator": "§1.3 and Theorem 1.9, p. 820; proof in §5",
+      "status": "missing",
+      "note": "Assembled from Propositions 5.1, 5.3, 5.5 and Lemma 5.6."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/62",
+      "kind": "theorem",
+      "name": "Proposition 5.1: normality under hypothesis (NR)",
+      "statement": "Let X be as in Theorem 1.9 with a factor-dominant immersion ι: X ↪ ∏ C_i such that (NR) no C_i is rational. For γ ∈ Aut_{Ho(pro-ss)↓k_et}(X_et) with r(γ) = id_X, φ = π_1(γ) maps every open normal subgroup N of π_1^et(X) to itself.",
+      "locator": "Proposition 5.1, pp. 838–840",
+      "status": "missing",
+      "note": "Via ι_et γ = ι_et, Proposition A.2, Čebotarev for schemes and the argument of Proposition 4.6 applied to X_N and X_φ(N)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/63",
+      "kind": "theorem",
+      "name": "Lemma 5.2: automorphisms send elements to conjugates of powers",
+      "statement": "Under the hypotheses of Proposition 5.1, a pointed lift φ ∈ Aut_{G_k}(π_1^et(X, x̄)) satisfies φ(g) = h_g g^{m(g)} h_g^{−1} with h_g ∈ π_1^et(X, x̄) and m(g) ∈ Ẑ^× for every g.",
+      "locator": "Lemma 5.2, p. 840",
+      "status": "missing",
+      "note": "In each finite quotient via Čebotarev (Frobenius elements and decomposition groups), then a compactness argument."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/64",
+      "kind": "theorem",
+      "name": "Proposition 5.3: class preservation under (NR)",
+      "statement": "Under the hypotheses of Proposition 5.1, φ is class-preserving: every element of π_1^et(X, x̄) is mapped to a conjugate.",
+      "locator": "Proposition 5.3, p. 841; proof as corrected by E4",
+      "status": "missing",
+      "note": "m(g) = 1 whenever the image of g under π_1^et(X) → G_k → Ẑ (a Ẑ-quotient of the cyclotomic character) generates an open subgroup; these elements are dense."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/65",
+      "kind": "theorem",
+      "name": "Lemma 5.4: ℓ-geometric covers of positive genus exhaust π₁ of a hyperbolic curve",
+      "statement": "A connected pointed étale covering h: (X′, x̄′) → (X, x̄) is ℓ-geometric if π_1^et(X_k̄, x̄) acts on h^{−1}(x̄) through a finite ℓ-group. For ℓ ≠ char k and (C, c̄) a hyperbolic curve over k, π_1^et(C, c̄) is the union of the open subgroups H for which C_H → C is ℓ-geometric and C_H has smooth compactification of genus ≥ 1.",
+      "locator": "§5.3 and Lemma 5.4, pp. 841–843",
+      "status": "missing",
+      "note": "Checked the count: n_H ≤ (d/ℓ)(n − 1) + d with Riemann–Hurwitz gives 2g(C_H) − 2 ≥ (d/ℓ)((ℓ − 1)(n − 3) − 2) ≥ 1 once n ≥ 6."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/66",
+      "kind": "theorem",
+      "name": "Proposition 5.5: class preservation in general",
+      "statement": "Let k be finitely generated over Q and X smooth geometrically connected, embeddable in a product of hyperbolic curves. For γ ∈ Aut_{Ho(pro-ss)↓k_et}(X_et) with r(γ) = id_X, π_1(γ) ∈ OutAut_{G_k}(π_1(X)) is class-preserving.",
+      "locator": "Proposition 5.5, pp. 843–844; proof as completed by E6",
+      "status": "missing",
+      "note": "Rational factors are replaced by ℓ-geometric covers of positive genus containing the image of a given σ (Lemma 5.4, with ℓ larger than the index of a normal subgroup in the image of π_1(X), so X′ stays geometrically connected)."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/67",
+      "kind": "theorem",
+      "name": "Lemma 5.6: class preservation by elements of the kernel",
+      "statement": "Let 1 → Ḡ → G → Γ → 1 be an exact sequence of profinite groups and φ ∈ Aut_Γ(G). If for every open Γ′ ⊆ Γ the induced φ′ ∈ Aut_{Γ′}(p^{−1}(Γ′)) is class-preserving, then φ is class-preserving by elements of Ḡ.",
+      "locator": "Lemma 5.6, p. 844",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/68",
+      "kind": "definition",
+      "name": "Definition 6.1: strongly hyperbolic Artin neighbourhoods",
+      "statement": "A strongly hyperbolic Artin neighbourhood over k is a smooth k-variety X with a tower X = X_n → ⋯ → X_1 → X_0 = Spec k in which each X_i → X_{i−1} is an elementary fibration into hyperbolic curves and each X_i embeds into a product of hyperbolic curves. Example: M_{0,n}, n ≥ 4 (forget points one at a time; forget all but four points in all ways). Over characteristic 0 they are of type K(π,1) by Proposition 2.8.",
+      "locator": "Definition 6.1, p. 845",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/69",
+      "kind": "theorem",
+      "name": "Theorem 6.2: the retraction is injective on strongly hyperbolic Artin neighbourhoods",
+      "statement": "Let k be finitely generated over Q and X a strongly hyperbolic Artin neighbourhood over k. If γ ∈ Aut_{Ho(pro-ss)↓k_et}(X_et) has r(γ) = id_X, then γ = id_{X_et}.",
+      "locator": "Theorem 6.2, pp. 845–847; proof as corrected by E3",
+      "status": "missing",
+      "note": "Induction along the tower: the induced δ on the base has r(δ) = id by Proposition 4.8; on the generic fibre Mochizuki's Theorem A gives g_η, which extends through the finite unramified Isom scheme."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/70",
+      "kind": "theorem",
+      "name": "Theorem 1.5 and Corollary 1.6: anabelian strongly hyperbolic Artin neighbourhoods",
+      "statement": "For strongly hyperbolic Artin neighbourhoods X, Y over k finitely generated over Q, Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) is bijective (Theorem 1.5), equivalently Isom_k(X, Y) → OutIsom_{G_k}(π_1^et(X), π_1^et(Y)) is bijective (Corollary 1.6).",
+      "locator": "Theorem 1.5 and Corollary 1.6, p. 819; proof on p. 847",
+      "status": "missing",
+      "note": "Hoshi proves a similar statement in dimension ≤ 4 by other methods."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/71",
+      "kind": "theorem",
+      "name": "Lemma 6.3 and Corollary 1.7: anabelian Zariski neighbourhoods (Grothendieck's prediction)",
+      "statement": "Every point of a smooth geometrically connected variety over an infinite perfect field has a fundamental system of Zariski-open strongly hyperbolic Artin neighbourhoods (Lemma 6.3). Hence every point of a smooth geometrically connected variety over k finitely generated over Q has a basis of Zariski neighbourhoods that are anabelian: k-isomorphisms between any two correspond bijectively to outer G_k-isomorphisms of their étale fundamental groups (Corollary 1.7).",
+      "locator": "Corollary 1.7, p. 819; Lemma 6.3, pp. 847–849; proof as corrected by E7",
+      "status": "missing",
+      "note": "First remove the hyperplanes x_i = 0, x_i = x_0 to embed in (P¹ ∖ {0, 1, ∞})^n, then use SGA 4 XI 3.3 and induction on dimension."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/72",
+      "kind": "theorem",
+      "name": "Constant fields and divisible elements",
+      "statement": "For a geometrically connected variety X over k, k is the maximal subfield of H^0(X, O_X) (Tamagawa, Lemma 4.2), so scheme isomorphisms X → Y induce isomorphisms of constant fields; a finitely generated extension field of Q has no nontrivial divisible elements in its multiplicative group.",
+      "locator": "Proofs of Theorems 7.1 and 7.2, pp. 849, 852",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/73",
+      "kind": "theorem",
+      "name": "Theorem 1.8 and Theorem 7.1: the absolute version",
+      "statement": "For k, ℓ finitely generated over Q and X/k, Y/ℓ smooth geometrically connected varieties embeddable in products of hyperbolic curves, Isom_Schemes(X, Y) → Isom_Ho(pro-ss)(X_et, Y_et) is a split injection with a functorial retraction, and a bijection if X and Y are strongly hyperbolic Artin neighbourhoods.",
+      "locator": "Theorem 1.8, p. 820; Theorem 7.1, pp. 849–850",
+      "status": "missing",
+      "note": "G_k is recovered as the quotient of π_1^et(X) by its maximal finitely generated closed normal subgroup; Pop's theorem identifies the base fields, and Theorems 1.2 and 1.5 apply over a fixed identification."
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/74",
+      "kind": "theorem",
+      "name": "Theorem 7.2: varieties that are not geometrically connected",
+      "statement": "For k finitely generated over Q and smooth k-varieties X, Y each of whose connected components embeds in a product of hyperbolic curves over its field of constants, Isom_k(X, Y) → Isom_{Ho(pro-ss)↓k_et}(X_et, Y_et) is a split injection with a functorial retraction, and a bijection if all components are strongly hyperbolic Artin neighbourhoods over their constant fields.",
+      "locator": "Theorem 7.2, pp. 851–852",
+      "status": "missing",
+      "note": "k-linearity of the constant-field isomorphism follows from Kummer theory: f_c^*(α) ≡ α mod (K^×)^n for all n."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "S. Mochizuki, The local pro-p anabelian geometry of curves, Invent. Math. 138 (1999), 319–423",
+      "link": "https://doi.org/10.1007/s002220050381",
+      "why": "Theorem A (the Hom theorem for hyperbolic curves over sub-p-adic fields) and Lemma 15.8 (strongly center-free Galois groups); the base of every result."
+    },
+    {
+      "citation": "A. Tamagawa, The Grothendieck conjecture for affine curves, Compositio Math. 109 (1997), 135–194",
+      "link": "https://doi.org/10.1023/A:1000114400142",
+      "why": "Corollary 2.10 (decomposition groups of distinct rational points are not conjugate) and Lemma 4.2 (constant fields)."
+    },
+    {
+      "citation": "F. Pop, On Grothendieck's conjecture of birational anabelian geometry, Ann. of Math. 139 (1994), 145–182; and Alterations and birational anabelian geometry, Progr. Math. 181 (2000), 519–532",
+      "link": "https://doi.org/10.2307/2946630",
+      "why": "The birational anabelian theorem used for the absolute Theorems 7.1–7.2."
+    },
+    {
+      "citation": "D. C. Isaksen, A model structure on the category of pro-simplicial sets, Trans. Amer. Math. Soc. 353 (2001), 2805–2841",
+      "link": "https://doi.org/10.1090/S0002-9947-01-02722-2",
+      "why": "The model structure on pro-ss and its homotopy category, in which all statements are made."
+    },
+    {
+      "citation": "D. C. Isaksen, Strict model structures for pro-categories, in Categorical decomposition techniques in algebraic topology, Progr. Math. 215 (2004), 179–198",
+      "link": "https://doi.org/10.1007/978-3-0348-7863-0_11",
+      "why": "Remark 4.14: the correction that makes the model structure proper (Lemma A.5)."
+    },
+    {
+      "citation": "E. M. Friedlander, Étale Homotopy of Simplicial Schemes, Annals of Mathematics Studies 104, Princeton (1982)",
+      "link": "https://doi.org/10.1515/9781400881499",
+      "why": "The étale topological type via rigid hypercovers and Theorem 11.5 (long exact homotopy sequence)."
+    },
+    {
+      "citation": "M. Artin, B. Mazur, Etale Homotopy, Lecture Notes in Math. 100, Springer (1969)",
+      "link": "https://doi.org/10.1007/BFb0080957",
+      "why": "Pro-homotopy of étale types, the cohomological criterion (Thm. 4.3) and profiniteness for geometrically unibranch schemes (Thm. 11.1)."
+    },
+    {
+      "citation": "A. K. Bousfield, D. M. Kan, Homotopy Limits, Completions and Localizations, Lecture Notes in Math. 304, Springer (1972)",
+      "link": "https://doi.org/10.1007/978-3-540-38117-4",
+      "why": "Non-abelian lim¹, homotopy limits and the spectral sequence used in Lemma A.7 and Theorem A.8."
+    },
+    {
+      "citation": "M. Artin, A. Grothendieck, J.-L. Verdier, Théorie des topos et cohomologie étale des schémas (SGA 4), tome 3, Exposé XI, Lecture Notes in Math. 305, Springer (1973)",
+      "link": "https://doi.org/10.1007/BFb0070714",
+      "why": "Exposé XI 3.3: existence of elementary fibrations (good neighbourhoods), the basis of Lemma 6.3."
+    },
+    {
+      "citation": "P. Deligne, D. Mumford, The irreducibility of the space of curves of given genus, Publ. Math. IHÉS 36 (1969), 75–109",
+      "link": "https://doi.org/10.1007/BF02684599",
+      "why": "Theorem 1.11: Isom schemes of stable curves are finite unramified (Theorem 6.2)."
+    },
+    {
+      "citation": "J.-P. Serre, Zeta and L functions, in Arithmetical Algebraic Geometry (Purdue 1963), Harper & Row (1965), 82–92",
+      "link": "no DOI",
+      "why": "Theorem 7: Čebotarev density for schemes of finite type over Z (Proposition 5.1, Lemma 5.2)."
+    },
+    {
+      "citation": "M. D. Fried, M. Jarden, Field Arithmetic, 3rd ed., Ergebnisse 11, Springer (2008)",
+      "link": "https://doi.org/10.1007/978-3-540-77270-5",
+      "why": "Proposition 16.11.6: Hilbertian fields have no nontrivial finitely generated closed normal subgroups in their Galois groups."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+      "stages": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.1"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/11",
+        "PAPER-SCHMIDT-STIX-16/33",
+        "PAPER-SCHMIDT-STIX-16/34",
+        "PAPER-SCHMIDT-STIX-16/35"
+      ],
+      "reason": "NC.1 plans a source-qualified Mochizuki reconstruction theorem and says that the Hom version, affine curves and finite-field variants each need their own source. These items supply those sources: Mochizuki's Theorem A (Hom version over sub-p-adic fields) with its Lemma 15.8, Tamagawa's separation of rational points on curves over finite fields, and Pop's birational reconstruction of finitely generated fields over Q."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/18",
+        "PAPER-SCHMIDT-STIX-16/37",
+        "PAPER-SCHMIDT-STIX-16/46"
+      ],
+      "reason": "IG.1 keeps (RS-29) the geometric/arithmetic fundamental-group sequence in the selected SGA range and the specialization maps for smooth proper families. PAPER-BRESCIANI-24 routes finitely generated geometric fundamental groups there. Three inputs belong with it: the Künneth formula for π_1 in characteristic zero, finite generation of π_1(X_k̄), and the lifting of étale covers from a closed fibre over a henselian base, which is the specialization of covers for proper W."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/36"
+      ],
+      "reason": "IG.2 owns Hilbert irreducibility, and PAPER-BRESCIANI-24 marks Hilbertian fields as planned there. The Fried–Jarden consequence, that Galois groups of Hilbertian fields have no nontrivial finitely generated closed normal subgroups, is a Hilbertian-field theorem."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.4"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/38"
+      ],
+      "reason": "AN.4 keeps (RS-07) Chebotarev and its prime-ideal applications. Serre's density theorem for schemes of finite type over Z is the arithmetic-scheme form of that statement."
+    },
+    {
+      "route": "source",
+      "roadmap": "AlgebraicModuliForArithmeticGeometry",
+      "stages": [
+        "AlgebraicModuliForArithmeticGeometry:R09.2"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/49"
+      ],
+      "reason": "R09.2 develops relative Hom and Isom schemes where moduli proofs invoke them. Deligne–Mumford's theorem that Isom schemes of (hyperbolic) stable curves are finite and unramified is such an input."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/39",
+        "PAPER-SCHMIDT-STIX-16/40"
+      ],
+      "reason": "SF.0 owns schemes, morphisms and finite-presentation hypotheses. The Jacobson property of finite-type Z-schemes with finite residue fields at closed points, and spreading out over a regular base of finite type over Z, are general scheme theory. Mathlib has the Jacobson-space transfer but not IsJacobsonRing ℤ or the residue-field corollary."
+    },
+    {
+      "route": "new",
+      "roadmap": "EtaleHomotopyTypes",
+      "title": "Étale homotopy types and pro-spaces",
+      "area": "etale",
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/1",
+        "PAPER-SCHMIDT-STIX-16/4",
+        "PAPER-SCHMIDT-STIX-16/5",
+        "PAPER-SCHMIDT-STIX-16/6",
+        "PAPER-SCHMIDT-STIX-16/7",
+        "PAPER-SCHMIDT-STIX-16/8",
+        "PAPER-SCHMIDT-STIX-16/9",
+        "PAPER-SCHMIDT-STIX-16/10",
+        "PAPER-SCHMIDT-STIX-16/12",
+        "PAPER-SCHMIDT-STIX-16/13",
+        "PAPER-SCHMIDT-STIX-16/14",
+        "PAPER-SCHMIDT-STIX-16/15",
+        "PAPER-SCHMIDT-STIX-16/16",
+        "PAPER-SCHMIDT-STIX-16/17",
+        "PAPER-SCHMIDT-STIX-16/20",
+        "PAPER-SCHMIDT-STIX-16/21",
+        "PAPER-SCHMIDT-STIX-16/22",
+        "PAPER-SCHMIDT-STIX-16/23",
+        "PAPER-SCHMIDT-STIX-16/24",
+        "PAPER-SCHMIDT-STIX-16/25",
+        "PAPER-SCHMIDT-STIX-16/26",
+        "PAPER-SCHMIDT-STIX-16/27",
+        "PAPER-SCHMIDT-STIX-16/28",
+        "PAPER-SCHMIDT-STIX-16/29",
+        "PAPER-SCHMIDT-STIX-16/30",
+        "PAPER-SCHMIDT-STIX-16/31"
+      ],
+      "brief": "A new roadmap for étale homotopy theory, the pro-space homotopy theory behind Artin–Mazur, Friedlander and Isaksen, as used by Schmidt–Stix, Ann. of Math. 184 (2016) (§2 and the Appendix). Nothing in the atlas or the pinned libraries plans pro-categories of simplicial sets, their model structure or the étale topological type.\n\nImport, never re-plan:\n- Mathlib's SSet, horns, Kan complexes, nerves and HomotopicalAlgebra.ModelCategory;\n- homotopy groups of Kan complexes: Tau Ceti AlgebraicTopology Stage 8;\n- nerves, BG and K(G,1): StableHomotopyKTheory H.1;\n- profinite groups: Tau Ceti ProfiniteProPGroups Layer 0;\n- étale sites, hypercovers and étale cohomology: SchemeAndStackFoundations SF.2 and EnhancedDerivedSheaves E2;\n- the SGA 1 fundamental group: InverseGaloisAndArithmeticFundamentalGroups IG.0;\n- Künneth for π_1: IG.1.\n\nLayers:\n1. Pro-categories (Mor = lim colim, reindexing to cofinite directed sets).\n2. Isaksen's strict model structure on pro-ss and pro-ss_*, with:\n   - properness (Isaksen 2001, Prop. 17.1, with the correction in Isaksen 2004, Rmk. 4.14);\n   - strong fibrations;\n   - the π_*-criterion for weak equivalences (Cor. 7.5);\n   - the cohomological criterion (18.4).\n3. Coverings of pro-spaces (Definition A.1), Proposition A.2, Lemmas A.3–A.5 and base change along coverings (Proposition A.6).\n4. Bousfield–Kan lim¹ and Lemma A.7; topological homotopy groups and Theorem A.8.\n5. Pointed versus unpointed:\n   - Lemma A.9;\n   - Theorem A.10. The paper gives no proof beyond 'as for well-pointed spaces', so supply one;\n   - Corollary A.11 and Lemma A.12;\n   - Theorem A.13 (read τ ∈ π_1^top(Y, y)).\n6. Pro-classifying spaces (Lemma A.14, Lemma A.15, Proposition A.16) and K(π,1) pro-spaces (Definition A.17, Corollary A.18).\n7. The étale topological type of a locally noetherian scheme via rigid hypercovers (Friedlander), with:\n   - comparison of π_1 with SGA 3/SGA 1;\n   - profiniteness for geometrically unibranch schemes (Artin–Mazur 11.1);\n   - Friedlander's long exact homotopy sequence (Thm. 11.5).\n8. Varieties over a field:\n   - Lemmas 2.1–2.2 and Proposition 2.3;\n   - Proposition 2.4 and Corollaries 2.5–2.6. These need strongly center-free G_k, which is imported from NC.1 via Mochizuki's Lemma 15.8;\n   - K(π,1) varieties (Lemma 2.7), elementary fibrations (Proposition 2.8), SGA 4 XI 3.3 good neighbourhoods, and Lemma 2.9;\n   - Isaksen's factorization through A¹-homotopy (Remark 1.4(2)).\n\nTests:\n- Spec of a finite field and of Q;\n- G_m and an affine hyperbolic curve (K(π,1));\n- P¹ (not K(π,1));\n- a pro-space whose fundamental group depends on the base point, where the finiteness hypotheses of Theorem A.8 fail.\n\nConsumers: AnabelianGeometryAndNonabelianChabautyPartIIEtaleHomotopyTypes. Later arithmetic uses of étale homotopy, such as homotopy obstructions to rational points, should import this roadmap rather than rebuild it.",
+      "reason": "No roadmap in the atlas plans pro-categories of simplicial sets, Isaksen's model structure or the étale topological type. The tauceti AlgebraicTopology and StableHomotopyKTheory roadmaps stop at ordinary simplicial and topological homotopy. This is a self-contained foundational theory with its own sources (Artin–Mazur, Friedlander, Isaksen, Bousfield–Kan), used beyond anabelian geometry, so it is its own roadmap rather than a Part II of the anabelian roadmap."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AnabelianGeometryAndNonabelianChabauty",
+      "roadmap": "AnabelianGeometryAndNonabelianChabautyPartIIEtaleHomotopyTypes",
+      "title": "Anabelian geometry and nonabelian Chabauty, Part II: anabelian geometry with étale homotopy types",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-SCHMIDT-STIX-16/32",
+        "PAPER-SCHMIDT-STIX-16/52",
+        "PAPER-SCHMIDT-STIX-16/53",
+        "PAPER-SCHMIDT-STIX-16/54",
+        "PAPER-SCHMIDT-STIX-16/55",
+        "PAPER-SCHMIDT-STIX-16/56",
+        "PAPER-SCHMIDT-STIX-16/57",
+        "PAPER-SCHMIDT-STIX-16/58",
+        "PAPER-SCHMIDT-STIX-16/59",
+        "PAPER-SCHMIDT-STIX-16/60",
+        "PAPER-SCHMIDT-STIX-16/61",
+        "PAPER-SCHMIDT-STIX-16/62",
+        "PAPER-SCHMIDT-STIX-16/63",
+        "PAPER-SCHMIDT-STIX-16/64",
+        "PAPER-SCHMIDT-STIX-16/65",
+        "PAPER-SCHMIDT-STIX-16/66",
+        "PAPER-SCHMIDT-STIX-16/67",
+        "PAPER-SCHMIDT-STIX-16/68",
+        "PAPER-SCHMIDT-STIX-16/69",
+        "PAPER-SCHMIDT-STIX-16/70",
+        "PAPER-SCHMIDT-STIX-16/71",
+        "PAPER-SCHMIDT-STIX-16/72",
+        "PAPER-SCHMIDT-STIX-16/73",
+        "PAPER-SCHMIDT-STIX-16/74"
+      ],
+      "brief": "First prerequisite: Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), importing NC.0's path torsors and sections and NC.1's source-qualified reconstruction theorems. Do not re-plan them. Second prerequisite: the new roadmap EtaleHomotopyTypes (étale homotopy types and pro-spaces), which owns Isaksen's model structure, étale topological types, pointed versus unpointed comparisons, classifying spaces of pro-groups and K(π,1) varieties. This Part II owns higher-dimensional anabelian geometry with étale homotopy types, following Schmidt–Stix, Ann. of Math. 184 (2016), 817–868 (published numbering).\n\nFinal theorems:\n- Theorem 3.2 / 1.1: Mochizuki's Hom theorem in the base-point-free homotopy category, from NC.1's Theorem A source.\n- Theorem 4.7: the unique functorial retraction r with properties (a)–(c). State (b) with Z smooth (E2).\n- Proposition 4.8.\n- Theorem 1.9: kernel elements of r act class-preservingly by geometric elements.\n- Theorem 6.2 with Theorem 1.5 and Corollary 1.6: bijectivity for strongly hyperbolic Artin neighbourhoods.\n- Lemma 6.3 and Corollary 1.7: Grothendieck's anabelian Zariski neighbourhoods.\n- Theorems 7.1–7.2: absolute and non-geometrically-connected versions.\n\nIntermediate results, in the paper's order:\n- the carrier of possibly affine hyperbolic curves (χ < 0) over arbitrary fields;\n- Proposition 4.1 (point counts in closed fibres from generic-fibre cohomology), assembled from SF.2 (trace formula, base change) and EDC.2 (relative purity, Poincaré duality);\n- Definition 4.2 and Propositions 4.3, 4.4, 4.6;\n- Propositions 5.1, 5.3, 5.5 and Lemmas 5.2, 5.4, 5.6. Record in 5.5 that r(γ′) = id for the base-changed γ′ (E6) and in 5.3 that the dense set is the preimage of Z∖{0} (E4);\n- Definition 6.1, with the M_{0,n} example;\n- the constant-field and divisibility lemmas.\n\nImports, never re-planned:\n- elementary abelian ℓ-covers of P¹ minus points: IG.3;\n- Tamagawa's separation of rational points, Mochizuki's Theorem A and Lemma 15.8, and Pop's theorem: NC.1;\n- Künneth for π_1, finite generation of geometric π_1 and lifting of covers from closed fibres: IG.1;\n- Hilbertian Galois groups: IG.2;\n- Čebotarev for arithmetic schemes: AN.4;\n- Isom schemes of hyperbolic fibrations: AlgebraicModuliForArithmeticGeometry R09.2;\n- resolution and normal-crossings compactification: R09.7;\n- Jacobson property and spreading out: SchemeAndStackFoundations SF.0;\n- Riemann–Hurwitz: Tau Ceti AlgebraicCurves Layer 7;\n- Kummer theory: Tau Ceti ProfiniteCohomology Layer 9.\n\nTests:\n- P¹ ∖ {0, 1, ∞} and its products;\n- M_{0,5} as a strongly hyperbolic Artin neighbourhood;\n- a rational hyperbolic factor that forces the ℓ-geometric covers of Lemma 5.4;\n- Theorem 4.7(a) and (b) on the S_5-action on M_{0,5}.\n\nRemark 1.4(2) (A¹-invariance) is the reason the varieties must be A¹-local; keep it as a stated limitation.",
+      "reason": "NC.0–NC.6 plan fundamental groupoids, curve reconstruction and Chabauty–Kim. The existing Part II candidates (PAPER-BRESCIANI-24's birational sections and the Betts–Stix period-map extension) are about Galois sections. Nothing plans reconstruction of higher-dimensional varieties from étale homotopy types, the retraction, class preservation, or strongly hyperbolic Artin neighbourhoods. These are new layers in the direction of NC.1."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E1",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.7, end of the proof of property (b), p. 837",
+      "printed": "\"= (pr2 ιY r(γ1))et = (ιZ r(γ2) r(γ1))et, and this shows (a).\"",
+      "correction": "\"and this shows (b).\"",
+      "reason": "The computation proves the functoriality r(γ2γ1) = r(γ2)r(γ1), which is property (b). Property (a) (the retraction property) was proved in the preceding paragraph, and the next sentence of the paper cites 'the established retract property (a) and functoriality (b)'.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E2",
+      "kind": "misprint",
+      "locator": "Theorem 4.7(b), p. 835",
+      "printed": "\"(b) Functoriality: Let Z be a further geometrically connected variety over k that can be embedded as a locally closed subscheme into a product of hyperbolic curves over k.\"",
+      "correction": "\"Let Z be a further smooth, geometrically connected variety over k …\"",
+      "reason": "r(γ2): Y → Z is only defined for smooth Z. The construction factors through Proposition 4.4, which requires the target Y ⊆ W to be smooth, and Theorem 4.7 itself is stated for smooth X and Y.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E3",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 6.2, p. 846",
+      "printed": "\"We have δ f_et = f_et γ, and by Proposition 4.8, we obtain f r(δ) = r(γ) f = f.\"",
+      "correction": "r(δ) ∘ f = f ∘ r(γ) = f",
+      "reason": "Here f: X → Y and r(δ): Y → Y, so f ∘ r(δ) is not defined. Proposition 4.8, applied with X′ = Y′ = X, X = Y = Y, the dominant maps f and f, and the isomorphisms γ′ = γ and γ = δ, gives f r(γ) = r(δ) f. Then r(γ) = id_X gives r(δ) f = f, and r(δ) = id_Y because f is surjective.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E4",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.3, p. 841",
+      "printed": "\"Therefore m(g) = 1 holds for elements whose images in Ẑ generate an open subgroup. This is a dense set of elements in π1^et(X, x̄) because it contains the preimage of Z.\"",
+      "correction": "\"… because it contains the preimage of Z ∖ {0}.\"",
+      "reason": "Elements mapping to 0 ∈ Ẑ generate the trivial subgroup, which is not open, so the preimage of Z is not contained in the set. The preimage of Z ∖ {0} is: a nonzero integer generates an open subgroup of Ẑ. That preimage is dense because Z ∖ {0} is dense in Ẑ and the map is open and surjective.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E5",
+      "kind": "misprint",
+      "locator": "Proof of Theorem A.13, p. 861",
+      "printed": "\"… if and only if f′0 = τ(f0) for some τ ∈ πtop1(Y, x), which moreover must map to SX ⊂ πtop1(B, b).\"",
+      "correction": "τ ∈ π1^top(Y, y)",
+      "reason": "The monodromy action on pointed maps into (Y, y) is by the topological fundamental group of Y at its base point y (Theorem A.10). x is the base point of X.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E6",
+      "kind": "gap",
+      "locator": "Proof of Proposition 5.5, p. 844",
+      "printed": "\"Furthermore, by Proposition 5.3, there exists τ′ ∈ π1^et(X′, x̄′) with π1^et(γ′0)(σ) = τ′στ′^{−1}.\"",
+      "correction": "Before applying Proposition 5.3, check its hypotheses for γ′. From Lemma 2.2, ι′_et γ′ = ι′_et, so γ′ lies over k′_et, where k′ is the base field of W′. For every factor p_i: W′ → C′_i, Theorem 4.7(c) gives (p_i ι′)_et r(γ′)_et = (p_i ι′)_et γ′ = (p_i ι′)_et. Theorem 3.2 then gives p_i ι′ r(γ′) = p_i ι′, hence ι′ r(γ′) = ι′ and r(γ′) = id_{X′}. X′ is smooth and geometrically connected over k′ with a factor-dominant immersion into a product of non-rational hyperbolic curves (finite étale covers of hyperbolic curves are hyperbolic).",
+      "reason": "Proposition 5.3 applies only to automorphisms γ with r(γ) = id over the base field. The proof applies it to the base-changed γ′ from Lemma 2.2 without checking this. Lemma 2.2 is stated without uniqueness, so r(γ′) = id is not automatic. The check above supplies it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-SCHMIDT-STIX-16/E7",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 6.3, p. 848",
+      "printed": "\"For every closed point W ∈ Grassd(V), let SW ⊂ P(W) be the preimage of P(W) under the projection SW → P(W). Note that SW is nonempty and open in P(W) for W in an open and nonempty subscheme of Grassd(V), namely, the image of SW under the open map P(W) → Grassd(V).\"",
+      "correction": "Let S_W := 𝒮_𝒲 ∩ P(W) be the fibre over W ∈ Grass_d(V) of 𝒮_𝒲 ⊆ P(𝒲) → Grass_d(V). It is nonempty and open in P(W) for W in the image of 𝒮_𝒲 under the open map P(𝒲) → Grass_d(V).",
+      "reason": "In the TeX source the sets are the universal ones: \\cS_\\cW ⊆ P(\\cW), with P(\\cW) projective over Grass_d(V). The printed sentence confuses the universal 𝒮_𝒲 with the fibre S_W, and 'preimage of P(W)' should be the preimage of the point W. As printed the definition is circular.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the published article, Annals of Mathematics 184 (2016), 817–868 (doi 10.4007/annals.2016.184.3.5), read in full from the free Annals PDF",
+        "arXiv 1504.01068 v1 (April 2015) and v2 (July 2016, 'refereed version'); a word-level diff of v2 against the published text shows only copy-editing and the reference list",
+        "the Annals of Mathematics article page, which lists no erratum",
+        "Crossref metadata for 10.4007/annals.2016.184.3.5, which has no update or correction relation"
+      ]
+    }
+  ]
+}
