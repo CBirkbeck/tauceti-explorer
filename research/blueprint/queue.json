@@ -7574,8 +7574,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1464"
+   "state": "pending",
+   "note": "released on GitHub issue #1464"
   },
   {
    "id": "REV-PAPER-ANDRE-18",
