@@ -10,10 +10,22 @@ Selected primary proofs were read in AHK07, BMPSTWW v3, Wit21b, dFH11 and Stacks
 
 Repository paper checker and custom dependency/route/API checks passed. No Lean file or formalization claim.
 
+## Continuation 2026-09-22 (Claude Code, session `cc-fb70e5`)
+
+This continuation checked the diagnostics at their locators (published page images pp.5, 12, 13; arXiv v2, the latest version; AHK07 Definitions 2.2–2.3). It recorded five source mistakes under `sourceIssues` in the result:
+
+- **E1, Lemma 2.2 (error):** the Cartier index of K_X should be that of K_X + S.
+- **E2, Lemma 2.16 (error):** false without fixed boundary coefficients.
+- **E3 (misprint):** the c_i sign in the Lemma 2.16 proof.
+- **E4 (misprint):** the difficulty's first sum is indexed by b_i ≤ 0, which vanishes identically; AHK has b_i ≥ 0.
+- **E5 (misprint):** the domain of w.
+
+The fixed-coefficient version of Lemma 2.16 is proved in `fixed-boundary-surface`, and its hypotheses are checked for Proposition 2.15, so gap-surface is resolved. gap-index and gap-difficulty are narrowed, not closed; see their details. Items, routes and counts are otherwise unchanged.
+
 ## Resume here, in order
 
-1. Read the report's explicit A1 chart computation. It diagnoses both the published Lem2.2 canonical-index clause and unrestricted Lem2.16. Verify the appropriate corrected **log-index** lemma and the precise **fixed-boundary** surface statement needed for Prop2.15. Do not retain the false unrestricted statement.
-2. Compare AHK07 Def2.3 with published p12: ordinary a=−b changes the first-sum condition to b≥0; fix w/W domains. Close invariance, nonnegativity and decrease in positive/mixed characteristic. AHK is over C.
+1. Lemma 2.2/2.16 diagnostics are done (E1–E3; fixed-boundary-surface proved). Remaining: a general proof of the log-index Lemma 2.2 for excellent plt surface germs from [Kol13] §3.3's chain classification (gap-index).
+2. The AHK07 Definition 2.3 comparison is done: E4 (first sum over b ≥ 0) and E5 (w domain) are recorded and corrected in the items. Close invariance, nonnegativity and decrease in positive/mixed characteristic. AHK is over C.
 3. Repair Lem6.6's local-to-global and characteristic transfer. dFH11 Prop3.1 is near the Cartier divisor; the projective application needs a properness/openness argument. Keep Cor6.7 guarded.
 4. Repair the actual-Picard-lift step in Thm6.1(2b), which assumes only rational N¹ surjectivity. Lem6.5 can be used only with completeness and H²(O)=0.
 5. Close the section-extension proof leaves: Bhatt finite-cover killing, Popescu/henselization, Matlis/derived-local-cohomology comparisons, finite traces, F-different and divisorial S₃. Preserve classwise versus uniform finite-cover killing.
