@@ -5799,8 +5799,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FENG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1354"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1354",
+   "finishedAt": "2026-09-22T19:08:49Z"
   },
   {
    "id": "REV-PAPER-FENG-24",
