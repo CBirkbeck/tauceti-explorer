@@ -487,7 +487,8 @@
    ],
    "avoidAccountOf": "PAPER-BURUNGALE-TIAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-TIAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1049"
   },
   {
    "id": "PAPER-YUAN-26",
@@ -1693,8 +1694,9 @@
    ],
    "avoidAccountOf": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1118"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1118",
+   "finishedAt": "2026-09-22T06:42:22Z"
   },
   {
    "id": "PAPER-BENNETT-SIKSEK-20",
