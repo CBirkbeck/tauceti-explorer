@@ -2675,7 +2675,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-JANNSEN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1172"
   },
   {
    "id": "REV-PAPER-JANNSEN-16",
@@ -3501,8 +3502,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-IYENGAR-KHARE-MANNING-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1222"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1222",
+   "finishedAt": "2026-09-22T18:38:03Z"
   },
   {
    "id": "REV-PAPER-IYENGAR-KHARE-MANNING-24",
