@@ -1,0 +1,823 @@
+{
+ "paper": "PAPER-CLOZEL-THORNE-17",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Level-raising and symmetric power functoriality, III",
+  "authors": "Laurent Clozel and Jack A. Thorne",
+  "venue": "Duke Mathematical Journal 166 (2017), no. 2, 325–402",
+  "doi": "10.1215/00127094-3714971",
+  "arxiv": "",
+  "url": "https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf",
+  "version": "The accepted manuscript, dated 10 December 2015 (53 pages; the version deposited as 'Accepted version' in the Cambridge repository, identical in text to the copy on the second author's homepage), read in full. The paper is not on arXiv, and the published Duke article (78 pages) could not be accessed, so locators give accepted-manuscript page numbers and the source issues were not checked against the published text. The introduction thanks 'all the referees', so the manuscript postdates refereeing.",
+  "readSections": [
+   "§1 Introduction and notation",
+   "§2 Admissible representations of a ramified p-adic unitary group",
+   "§3 Unitary groups and transfer",
+   "§4 Level-raising and algebraic modular forms",
+   "§5 Level-raising and Galois theory",
+   "§6 Symmetric power functoriality",
+   "§7 Complements: the mixed-parity case",
+   "References"
+  ],
+  "accessed": "2026-09-22",
+  "artifacts": [
+   {
+    "url": "https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf",
+    "sha256": "a3fa46fcdebdc1a41a54e8b5a9be22173e9f9f87261c51b1e7a7f29cfada3659",
+    "read": "all 53 pages (author's homepage copy; its server omits the Let's Encrypt intermediate certificate, which was fetched from the certificate's AIA URL to keep TLS verification)"
+   },
+   {
+    "url": "https://www.repository.cam.ac.uk/bitstreams/dc59bf8c-174b-4034-9f2f-070974d101af/download",
+    "sha256": "fb88e83c3c056c2fa6100d1fbb4d0853c4ec636cc68a33548ac4259336094742",
+    "read": "the repository's accepted version; extracted text identical to the homepage copy"
+   },
+   {
+    "url": "https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b",
+    "read": "repository record: title, authors, journal, 'Accepted version'"
+   }
+  ]
+ },
+ "baseline": {
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "atlasChecked": "b38fc0e (tauceti-explorer main, 22 September 2026)",
+  "note": "Declarations read at the pinned commits: Mathlib CoxeterSystem (Mathlib/GroupTheory/Coxeter/Basic.lean:157) and CoxeterSystem.length (Mathlib/GroupTheory/Coxeter/Length.lean:75); Tau Ceti TitsSystem (TauCeti/GroupTheory/TitsSystem/Basic.lean:48) with the Bruhat decomposition (TauCeti/GroupTheory/TitsSystem/Bruhat/), the abstract double-coset Hecke ring (TauCeti/NumberTheory/HeckeRing/, Shimura's Chapter 3) and Matrix.unitaryGroup/Matrix.symplecticGroup in Mathlib. None states an item: there are no Iwahori–Hecke algebras with their presentations, p-adic groups, buildings, admissible representations, Jacquet modules, L-packets, automorphic representations, Galois deformation rings or algebraic modular forms. No item is a library item."
+ },
+ "summary": "Clozel and Thorne prove that the 6th and 8th symmetric powers of a non-CM cuspidal representation π of GL_2(A_F) attached to a Hilbert modular form exist, for F totally real and linearly disjoint from Q(ζ_5), resp. Q(ζ_7) (Theorem 6.1). With their earlier papers and a reduction for forms of mixed parity (§7) this gives Sym^n π for n ≤ 8 when F ∩ Q(ζ_35) = Q (Corollary 7.2), and the holomorphy of L(Sym^n π, s). The key is the congruence Sym^{l+1} r̄ ≅ (φr̄ ⊗ r̄) ⊕ χ²Sym^{l−3} r̄ for l = 5, 7: the residual representation is endoscopic of type (4, l − 2), so a Steinberg lift of it must be produced before Thorne's automorphy lifting for residually reducible representations applies. They construct Iwahori-spherical representations of ramified unitary groups by Kazhdan–Lusztig, place them in Mœglin–Mok L-packets and study their integral structures (§§2–3). They count automorphic representations of a definite unitary group with endoscopic base change (Theorem 3.8), raise the level with algebraic modular forms and a pairing argument that works only for l = 5, 7 (Theorem 4.2), and raise it further to Steinberg by deformation theory of reducible residual representations (Theorem 5.1, giving the automorphy lifting Theorem 5.7). In the atlas the endpoints belong to ModularityAndLanglandsExtensions ML.3, which receives the final theorems and the §7 reductions as a source route. The level-raising method is planned nowhere and becomes a Part II of that roadmap. Casselman's lemma, the Iwahori–Matsumoto and Bernstein–Lusztig presentations and Kazhdan–Lusztig go as sources to SmoothRepresentationsOfLocalGroups SR.1–SR.3, and the partition deformation rings R^m_v to LocalGaloisDeformationRings L7. Mok's classification (ML.4), the known transfers (ML.5), unitary trace formulas (ET.4/ET.7), buildings (RG2.2/RG2.4) and the attached Galois representations (AG2.x) are planned. Five misprints are recorded; no stated result is affected.",
+ "items": [
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/001",
+   "kind": "definition",
+   "name": "Existence of the n-th symmetric power lift Sym^n π",
+   "statement": "Let F be a totally real field and π a cuspidal automorphic representation of GL_2(A_F) attached to a classical Hilbert modular form (weights ≥ 2, constant parity) that is not of CM type. Sym^n π exists if there is a regular algebraic cuspidal automorphic representation Π of GL_{n+1}(A_F) with Sym^n r_l(π) ≅ r_l(Π) for every prime l (for one, hence every, embedding of the coefficient field into Q̄_l); for mixed-parity π (§7) the condition is Sym^n rec_{F_v}(π_v) ≅ rec_{F_v}(Π_v) at every finite place v.",
+   "locator": "§1, accepted manuscript p. 2; Theorem 7.1, p. 46",
+   "status": "missing",
+   "note": "ML.0 plans the endpoint and normalisation registry and ML.3 the symmetric-power endpoints; this Galois-theoretic definition is the form of the endpoint the Clozel–Thorne series proves."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/002",
+   "kind": "definition",
+   "name": "Conventions of [CT14, §2]: RACSDC, RAESDC and RACSD representations, ι-ordinarity, weight and infinity type, and r_ι(π)",
+   "statement": "For a CM or totally real field, regular algebraic (essentially) conjugate self-dual cuspidal automorphic representations of GL_n (RACSDC, RAESDC, RAECSDC, RACSD), the weight λ ∈ (Z^n_+)^{Hom(E,C)} and infinity type a of a regular algebraic cuspidal representation, ι-ordinarity for ι: Q̄_l ≅ C, the local Langlands correspondences rec_{F_v}, rec^T_{F_v} for GL_n, the attached Galois representations r_ι(π): G_F → GL_n(Q̄_l), and what it means for a Galois representation to be automorphic.",
+   "locator": "§1.1, accepted manuscript p. 3",
+   "status": "planned",
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "PotentialAutomorphyInfrastructure:PA.2",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.6"
+   ],
+   "note": "AutomorphicGaloisRepresentationsPartII AG2.0 plans weights and normalisations and AG2.2 the polarized Galois systems; PotentialAutomorphyInfrastructure PA.2 the ordinary GL_n theory over CM fields; EndoscopicTransfer ET.6 the local Langlands correspondence for GL_n."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/003",
+   "kind": "theorem",
+   "name": "Galois representations attached to RACSDC representations, with local–global compatibility including monodromy",
+   "statement": "For a RACSDC automorphic representation Π of GL_n(A_E) (E CM) and ι: Q̄_l ≅ C there is a continuous semisimple r_ι(Π): G_E → GL_n(Q̄_l) with r_ι(Π)^c ≅ r_ι(Π)^∨ ε^{1−n}, and for every finite place w ∤ l, WD(r_ι(Π)|_{G_{E_w}})^{F-ss} ≅ rec^T_{E_w}(Π_w) (Taylor–Yoshida), used with the Jordan decomposition of the monodromy operator N.",
+   "locator": "Used in Proposition 4.1, p. 34, Theorem 5.1, p. 37, and Theorem 5.7, p. 44",
+   "status": "planned",
+   "planned": [
+    "AutomorphicGaloisRepresentationsPartII:AG2.2",
+    "AutomorphicGaloisRepresentationsPartII:AG2.5"
+   ],
+   "note": "AG2.5 plans 'the Caraiani/Taylor–Yoshida upgrades' with full monodromy comparison."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/004",
+   "kind": "definition",
+   "name": "The ramified unitary group U_n, its building and the parahoric subgroups B ⊃ Iwahori and P",
+   "statement": "Let p be odd, F/Q_p finite, E/F ramified quadratic with uniformiser ϖ, ϖ² ∈ F, v(ϖ) = ½, n = 2k + 1, and U_n(R) = {g ∈ GL_n(R ⊗_{O_F} O_E) : ᵗg J g^c = J} with J antidiagonal. The maximal split torus S has non-reduced relative root system BC_k; Z = Z_{U_n}(S), Λ = Z/Z_c ≅ Z^k with basis ε_1, …, ε_k. The standard apartment, affine roots {a_ij + ½Z} ∪ {a_i + ½Z} ∪ {2a_i + ½ + Z}, the chamber C: 0 < a_k < ⋯ < a_1 < ¼ with simple affine roots α_0 = 2a_{−1} + ½, a_{1,−2}, …, a_k, and the affine Weyl group W = W_0 ⋉ Λ of type B_k generated by s_0, …, s_k (with s_0 given by (2.1)). K = U_n(O_F) is special; B = U_n^C is the preimage of the upper-triangular subgroup of O(J)(k_F) and contains an Iwahori subgroup with index 2; P = U_n^F is the preimage of block upper-triangular matrices with a 3 × 3 middle block, [P : B] = q + 1. (U_n, B, N) is a Tits system.",
+   "locator": "§2.1, accepted manuscript pp. 4–6",
+   "status": "planned",
+   "planned": [
+    "ReductiveGroupsPartII:RG2.2",
+    "ReductiveGroupsPartII:RG2.4"
+   ],
+   "note": "ReductiveGroupsPartII RG2.2 plans Bruhat–Tits buildings with facets and fixers, and RG2.4 the Iwahori–Bruhat decomposition with non-split examples. Tau Ceti has the abstract Tits system (TauCeti.TitsSystem, TauCeti/GroupTheory/TitsSystem/Basic.lean:48) and its Bruhat decomposition, but not buildings or parahorics. Corrected for source issue E1 (the paper prints Λ ≅ Z^m)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/005",
+   "kind": "theorem",
+   "name": "Lemma 2.1: invariants of B and P through Jacquet modules (Casselman)",
+   "statement": "For an admissible C[U_n]-module π there are canonical isomorphisms π^B ≅ (π_{N_0})^{Z_c} and π^P ≅ (π_{N_P})^{M∩P} (unnormalised Jacquet modules).",
+   "locator": "Lemma 2.1, accepted manuscript p. 6",
+   "status": "missing",
+   "note": "The first is Casselman's Proposition 2.4 (1980); the second follows as in [CT15, Proposition 2.1]."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/006",
+   "kind": "theorem",
+   "name": "The Iwahori–Matsumoto presentation of the Hecke algebra of a Tits system",
+   "statement": "For a Tits system (G, B, N) whose Weyl group (W, Σ) is a Coxeter system with q_w = #BwB/B = q^{l(w)}, the convolution algebra H_B of B-biinvariant Z-valued functions is free on the double cosets [BwB] and isomorphic to Z[B_W]/((T_s − 1)(T_s + q) : s ∈ Σ), B_W the braid group, via [BwB] ↦ T_w (Matsumoto 1964).",
+   "locator": "§2.1, accepted manuscript pp. 6–7",
+   "status": "missing",
+   "note": "Mathlib has CoxeterSystem and its length function (Mathlib/GroupTheory/Coxeter/Basic.lean:157, Mathlib/GroupTheory/Coxeter/Length.lean:75); Tau Ceti has Tits systems and an abstract double-coset Hecke ring (TauCeti/NumberTheory/HeckeRing/) but not this presentation."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/007",
+   "kind": "theorem",
+   "name": "Proposition 2.2: H_B ≅ H_{B'}, the Iwahori–Hecke algebra of Sp_{2k}",
+   "statement": "Let B' be the Iwahori subgroup of the split group Sp_{2k}(F) and Λ' ≅ Z^k with basis ε'_i = diag(1, …, ϖ², …, ϖ^{−2}, …, 1). The identifications Λ ≅ Λ', W_0 ≅ W'_0 extend to W ≅ W' carrying {s_0, …, s_k} to the simple affine reflections of Sp_{2k}, and induce an isomorphism of Hecke algebras H_B ≅ H_{B'} with [Bε_iB] ↦ [B'ε'_iB'].",
+   "locator": "Proposition 2.2, accepted manuscript p. 7",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/008",
+   "kind": "theorem",
+   "name": "The Bernstein–Lusztig presentation H_{B,C} = H_0 ⊗̃ C[X]",
+   "statement": "With the based root datum of SO_{2k+1}(C) (X = Λ, simple roots ε_i − ε_{i+1}, ε_k), H_{B,C} is the twisted tensor product of H_0 = ⟨T_w : w ∈ W_0⟩ and C[X], with θB_s = B_sθ^s + (θ^s − θ)ζ_β for a simple root β, s = s_β, B_s = T_s − q, where ζ_β = (q − e^β)/(1 − e^β) for β long and (q − e^β)(1 + e^β)/(1 − e^{2β}) otherwise (Lusztig 1989, §3). Its commutative subalgebra O[Λ] acts on Iwahori invariants through the exponents of the Jacquet module.",
+   "locator": "§2.1, accepted manuscript pp. 7–8",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/009",
+   "kind": "definition",
+   "name": "The parameter φ_E of Π_E = St_{n−4,E} ⊞ St_{3,E} ⊞ St_{1,E}, exponents, and its L-packet Π_φ",
+   "statement": "For n ≥ 7 let Π_E = St_{n−4,E} ⊞ St_{3,E} ⊞ St_{1,E}, a tempered representation of GL_n(E), with conjugate orthogonal parameter φ_E, and φ its unique extension to a parameter of U_n; Π_φ is the corresponding L-packet. An exponent [m_1, …, m_k] is the character |·|^{m_1} ⊗ ⋯ ⊗ |·|^{m_k} ⊗ 1 of the torus (E^×)^k × (E^×)^{N=1}; (·)^norm_{N_0} is the normalised Jacquet module for the upper-triangular Borel. f_E ↦ f is the transfer of test functions for stable base change and I_θ: Π_E ≅ Π_E^c the Whittaker-normalised intertwining operator.",
+   "locator": "§2.2, accepted manuscript p. 8",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/010",
+   "kind": "theorem",
+   "name": "Theorem 2.3(1): the L-packet for n = 7",
+   "statement": "In the setting of item 009, for n = 7, Π_φ has exactly two elements X, Y, characterised by: (a) ⟨tr X + tr Y, f⟩ = ⟨tr Π_E × I_θ, f_E⟩; (b) dim X^P = dim X^B = 1, dim Y^B = 7; (c) X^norm_{N_0} = [1, 0, −1] and (Y^norm_{N_0})^ss = [1, 0, −1] + 2[1, 0, 1] + 4[1, 1, 0].",
+   "locator": "Theorem 2.3, accepted manuscript p. 8; part 1; proved in §3.5, pp. 24–28",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/011",
+   "kind": "theorem",
+   "name": "Theorem 2.3(2): the L-packet for n = 9",
+   "statement": "For n = 9, Π_φ is a discrete L-packet with exactly four elements X, Y, Z, W, characterised by: (a) ⟨tr X + tr Y + tr Z + tr W, f⟩ = ⟨tr Π_E × I_θ, f_E⟩; (b) dim X^P = dim X^B = 1, dim Y^B = 11, dim Z^B = 2, dim W^B = 0; (c) X^norm_{N_0} = [2, 1, 0, −1], (Y^norm_{N_0})^ss = [2, 1, 0, −1] + 2[2, 1, 0, 1] + 4[2, 1, 1, 0] + [1, 0, 2, 1] + [1, 2, 0, 1] + 2[1, 2, 1, 0], (Z^norm_{N_0})^ss = [1, 0, 2, 1] + [1, 2, 0, 1].",
+   "locator": "Theorem 2.3, accepted manuscript p. 8; part 2",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/012",
+   "kind": "theorem",
+   "name": "Theorem 2.3(3): the L-packets for n = 2k + 1 ≥ 11, inductively",
+   "statement": "For n = 2k + 1 ≥ 11, Π_φ is a discrete L-packet with exactly four elements X_k, Y_k, Z_k, W_k characterised by the trace identity, dim X_k^P = dim X_k^B = 1, dim Y_k^B = dim Y_{k−1}^B + k, dim Z_k^B = dim Z_{k−1}^B + (k − 2), dim W_k^B = 0, and: X_k^norm = [k − 2, k − 3, …, 0, −1]; (Y_k^norm)^ss is the sum of the exponents [1, k − 2, k − 3, …, 1] with 0 inserted as the i-th entry (i = 2, …, k − 1), the exponent 2[1, k − 2, …, 1, 0], and the exponents of Y_{k−1} with k − 2 inserted first; (Z_k^norm)^ss the same without the term 2[1, k − 2, …, 1, 0], with Z_{k−1} in place of Y_{k−1}.",
+   "locator": "Theorem 2.3, accepted manuscript p. 8; part 3",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/013",
+   "kind": "theorem",
+   "name": "Theorem 2.4: Kazhdan–Lusztig's Deligne–Langlands classification of tempered Iwahori-spherical representations",
+   "statement": "Let G be a split reductive group over F with connected centre and I an Iwahori subgroup. The tempered irreducible π with π^I ≠ 0 are in natural bijection with Ĝ-conjugacy classes of triples (s, u, ρ): s ∈ Ĝ semisimple in a maximal compact subgroup, u unipotent with sus^{−1} = u^q, and ρ an irreducible representation of M(u, s) = π_0((Z_Ĝ(s) ∩ Z_Ĝ(u))/Z_Ĝ) occurring in H_*(B^s_u, C), B^s_u the variety of Borel subgroups containing s and u. The semisimplified Jacquet module of the representation of (u, s, ρ) is ⊕_α dim Hom_{M(u,s)}(ρ, H_*(B^α, C))·e^α over the M(u, s)-orbits B^α of components of B^s_u.",
+   "locator": "Theorem 2.4, accepted manuscript p. 9; Kazhdan–Lusztig 1987, Theorems 7.12 and 8.2",
+   "status": "missing",
+   "note": "A deep theorem (equivariant K-theory of Steinberg varieties); stated as an input. The homology description is in Chriss–Ginzburg, Ch. 8."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/014",
+   "kind": "theorem",
+   "name": "Theorem 2.5: construction of the Iwahori-spherical modules X, Y, Z by Kazhdan–Lusztig",
+   "statement": "For n = 7 there are irreducible admissible C[U_n]-modules X, Y with the dimensions and Jacquet exponents of Theorem 2.3(1)(b)(c); for n = 9 modules X, Y, Z with those of Theorem 2.3(2)(b)(c) (W excluded); and for n = 2k + 1 ≥ 11 modules X_k, Y_k, Z_k with those of Theorem 2.3(3). They are obtained, through Proposition 2.2, from PSp_{2k}(F)-representations attached by Theorem 2.4 to the partition n = (n − 4) + 3 + 1 of the dual SO_{2k+1}(C): M(u, s) = {±1} (n = 7) or {±1}², and B^s_u is paved by affine spaces (De Concini–Lusztig–Procesi; Białynicki-Birula), with the components and exponents listed in the proof.",
+   "locator": "Theorem 2.5, accepted manuscript p. 10",
+   "status": "missing",
+   "note": "For n = 7, B^s_u = X_1 ⊔ X_2 ⊔ X_3 with X_1 two points (exponent [1, 0, −1]), X_2 ≅ P^1 ([1, 0, 1]) and X_3 ≅ P^1 × P^1 ([1, 1, 0]); H_*(B^s_u) is 8-dimensional."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/015",
+   "kind": "theorem",
+   "name": "Proposition 2.6: integral structures with disjoint reductions (q a primitive root mod l)",
+   "statement": "Let l = n − 2 be prime (n ∈ {7, 9}), ι: Q̄_l ≅ C, K/Q_l finite with ring of integers O, residue field k, containing √q, over which X, Y (and Z) are defined. If q is a primitive root modulo l there are H_{B,O}-lattices X^B_O, Y^B_O (and Z^B_O) in X^B_K, Y^B_K (Z^B_K) such that the reductions X^B_O ⊗ k, Y^B_O ⊗ k (and Z^B_O ⊗ k) have pairwise no common Jordan–Hölder factor as H_{B,k}-modules; in fact Y^B_O ⊗ k is absolutely irreducible.",
+   "locator": "Proposition 2.6, accepted manuscript p. 12; Remark 2.7, p. 17",
+   "status": "missing",
+   "note": "Y^B_O is given by explicit matrices of T_{s_i} and the ε_i computed with Reeder's Matrices for affine Hecke modules (2000). Remark 2.7: the matrices define Y^B_K without the primitive-root hypothesis; it is needed only for integrality."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/016",
+   "kind": "theorem",
+   "name": "Corollary 2.8: lattices in (X^a ⊕ Y^b ⊕ Z^c)^B split into isotypic parts",
+   "statement": "Let q be a primitive root mod l and M a finite flat H_{B,O}-module with M ⊗ K ≅ (X^B_K)^a ⊕ (Y^B_K)^b (n = 7) or (X^B_K)^a ⊕ (Y^B_K)^b ⊕ (Z^B_K)^c (n = 9). With M_X = M ∩ (X^B_K-isotypic part) and so on, the natural map M_X ⊕ M_Y (⊕ M_Z) → M is an isomorphism.",
+   "locator": "Corollary 2.8, accepted manuscript p. 17",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/017",
+   "kind": "theorem",
+   "name": "Proposition 2.9: the χ̄-localisations when q ≡ −1 mod l",
+   "statement": "Let χ: O[Λ] → O give the action on X^B_K, χ̄ its reduction, and ‖ the anti-involution [BgB] ↦ [Bg^{−1}B]. Suppose q ≡ −1 mod l. Then X^B_K = X^B_K(χ̄) = X^B_K(χ̄‖) and dim_K Y^P_K ∩ Y^B_K(χ̄) = dim_K Y^P_K ∩ Y^B_K(χ̄‖) = 1; and for n = 9 also Z^B_K(χ̄) = 0.",
+   "locator": "Proposition 2.9, accepted manuscript p. 18",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/018",
+   "kind": "definition",
+   "name": "L-groups of unitary groups, stable and unstable base change of parameters, and bounded parameters",
+   "statement": "For E/F quadratic (local or global) and G = U(n): ᴸG = GL_n(C) ⋊ W_F with c acting by g ↦ Φ_n ᵗg^{−1} Φ_n^{−1}; the L-homomorphism ᴸG → ᴸ(Res_{E/F} G_E), (g, w) ↦ (g, g, w); Φ_bdd(G) the bounded parameters L_F → ᴸG (L_F = W_F or W_F × SU_2(R)). Lemma 3.1: for n odd, φ ↦ φ|_{L_E} is a bijection from Φ_bdd(G) onto the conjugate orthogonal parameters of GL_n(E) (stable base change), and for a character μ of E^× with μ|_{F^×} = ε_{E/F}, φ ↦ φ|_{L_E} ⊗ μ is a bijection onto the conjugate symplectic ones (unstable base change); tempered representations decompose into the L-packets Π_φ (Mœglin, Mok).",
+   "locator": "Lemma 3.1, accepted manuscript p. 19; §§2.2, 3.1, pp. 8, 19; Mok, Lemma 2.2.1",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "ML.4 plans Arthur/Mok classification inputs 'with explicit proof-source owners: … packets, multiplicities'."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/019",
+   "kind": "definition",
+   "name": "The endoscopic group H = U(n − 4) × U(4) and the embedding ξ: ᴸH → ᴸG twisted by μ",
+   "statement": "With m = n − 4 and μ as in Lemma 3.1, ξ sends (g_1, g_2) × 1 to diag(g_1, g_2), 1 × w (w ∈ W_E) to diag(1_m, μ(w)1_4) × w and 1 × w_c to diag(Φ_m, Φ_4)Φ_n^{−1} × w_c (Mínguez); (3.1) is a conjugate form used for the computations.",
+   "locator": "§3.1, (3.1), accepted manuscript pp. 19–20",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+    "ModularityAndLanglandsExtensions:ML.4"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/020",
+   "kind": "theorem",
+   "name": "Theorem 3.2 (Mœglin, Mok): the L-packet of φ_E has two or four elements",
+   "statement": "The parameter φ_E determines an L-packet Π_φ of tempered representations of G = U_n(F): (i) if m = n − 4 = 3 it has two elements X, Y (the two summands of the reducible n-Ind(St_{3,E} ⊗ 1) from the GL_3(E) × U(1) Levi); (ii) if m ≥ 5 it has four elements X, Y, Z, W in the discrete series. S_φ = π_0(S_φ/{±1}) is {±1} in case (i) and {±1}² in case (ii), paired with Π_φ.",
+   "locator": "Theorem 3.2, accepted manuscript p. 20; Mok, Theorem 2.5.1",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/021",
+   "kind": "theorem",
+   "name": "Theorem 3.3 with the signs of the packet: identification of X, Y, Z and their Jacquet modules",
+   "statement": "Suppose E/F ramified and the residue characteristic of F odd. Then the members X, Y (m = 3) or X, Y, Z (m ≥ 5) of Π_φ are semistable with the Jacquet exponents of Theorem 2.3 (for m = 3, X has exponent [1, 0, −1] and Y exponents 4[1, 1, 0] + 2[1, 0, 1] + [1, 0, −1]); W is not semistable. With the characters ε_1, ε_2 of S_φ, the sign ε = ε_1ε_2 satisfies ε(Y) = ε(Z) = 1 and ε(X) = ε(W) = −1, and ε_1(X) = ε_1(Y) = 1, ε_1(Z) = ε_1(W) = −1.",
+   "locator": "Theorem 3.3, accepted manuscript p. 21; sign table p. 21; proof in §3.5, pp. 24–28",
+   "status": "missing",
+   "note": "Corrected for source issue E3: part (i) prints the exponent of X as [1, 0, 1]. The proof compares the stable identity and the endoscopic identity Σ ε(π)⟨tr π, f⟩ = ⟨tr π_H, f^H⟩ ((3.7)) on the maximal split torus, using Lemma 3.6 and Proposition 3.7."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/022",
+   "kind": "theorem",
+   "name": "Lemma 3.4: a conjugate-symplectic Hecke character μ with prescribed archimedean components",
+   "statement": "For a CM extension E/F of a totally real field there is a continuous μ: E^×\\A_E^× → C^× with μ|_{A_F^×} = ε_{E/F} and μ(z) = (z/z̄)^{1/2} for z ∈ E_w ≅ C at every archimedean place w.",
+   "locator": "Lemma 3.4, accepted manuscript p. 21",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/023",
+   "kind": "theorem",
+   "name": "Theorem 3.5 (Mok): multiplicity formula for the quasi-split unitary group and the endoscopic datum (Π_m, Π_4 ⊗ μ)",
+   "statement": "Let Π_m, Π_4 be conjugate self-dual cuspidal representations of GL_m(A_E), GL_4(A_E) with the archimedean parameters of §3.3, so that (Π_m, Π_4 ⊗ μ) is a tempered Arthur parameter ψ for the quasi-split G* = U(n) with S_ψ = {±1} ∋ s. For local π_v ∈ Π_{φ_v}, almost all unramified, π = ⊗π_v occurs in L²_cusp(G*(F)\\G*(A)) if and only if ∏_v ⟨s, π_v⟩ = 1, and then with multiplicity one.",
+   "locator": "Theorem 3.5, accepted manuscript p. 22; Mok, Theorem 2.5.2",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "Mok's results are conditional on the stabilisation of the twisted trace formula (Mœglin–Waldspurger); cuspidality follows because residual representations are nowhere tempered (Clozel 1993)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/024",
+   "kind": "theorem",
+   "name": "Arthur's stabilisation of the trace formula for G* and G, and the reduction to the endoscopic data (G*, H)",
+   "statement": "I^{G*}_disc(f*) = Σ_E ι(G*, E) S^E_disc(f*^E) (3.12) and T^G_disc(f) = I^G_disc(f) = Σ_E ι(G, E) S^E_disc(f^E) (3.13) (Arthur 2003, 2005); by Labesse's CM base change for stable discrete terms and Jacquet–Shalika disjointness (the argument of Clozel–Harris–Labesse 2011, Lemma 4.2), after isolating the Hecke eigenvalues of σ_1 ⊞ σ_2 or π only E = G* and E = H contribute.",
+   "locator": "Proof of Theorem 3.8, (3.12)–(3.13), accepted manuscript pp. 29–31",
+   "status": "planned",
+   "planned": [
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.7",
+    "ModularityAndLanglandsExtensions:ML.4"
+   ],
+   "note": "ET.4 plans the simple stable and twisted unitary trace formulas and ET.7 the unitary-to-GL base-change identities; ML.4 the stabilisation inputs."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/025",
+   "kind": "theorem",
+   "name": "Transfer factors on maximally split tori, and Lemma 3.6",
+   "statement": "At a p-adic place, ∆_0 = ∆_I∆_II∆_III,1∆_III,2∆_IV with ∆_I = ∆_III,1 = 1 (H^1(F, T_sc) = 1), ∆_II = 1 for trivial a- and χ-data, ∆_IV = D_G(t)/D_H(t_H); and (Lemma 3.6) for associated t ∈ T_G and t_H = (t_0, z_1, z_2) ∈ T_H ⊂ U(m) × U(4), ∆(t_H, t) = μ(z_1)μ(z_2)∆_IV(t_H, t). At archimedean places Kottwitz's factor equals ±∆_0, the sign cancelling when [F:Q] is even.",
+   "locator": "Lemma 3.6, accepted manuscript p. 24; §3.4, pp. 23–24",
+   "status": "missing",
+   "note": "Langlands–Shelstad transfer factors are planned in EndoscopicTransfer ET.1; the explicit computation for this embedding ξ is not."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/026",
+   "kind": "theorem",
+   "name": "Proposition 3.7 (Mœglin): a Jacquet module exponent of the endoscopic packet",
+   "statement": "The Jacquet module of π_H contains μ(z)^{−1}[2, 1, 0, −1] with multiplicity 2. More generally, for n = a + b with a ≤ b odd and π the L-packet of St_{a,E} ⊞ St_{b,E}, the full Jacquet module contains μ^{−1}[(b − 1)/2, (b − 3)/2, …, (1 − a)/2].",
+   "locator": "Proposition 3.7, accepted manuscript p. 27",
+   "status": "missing",
+   "note": "Proved by Mœglin's hereditary formula for Jacquet modules, as in [CT15, Appendix A]."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/027",
+   "kind": "theorem",
+   "name": "Theorem 3.8(1): automorphic representations of the definite unitary group with endoscopic base change",
+   "statement": "Let G be the unitary group in n = l + 2 variables over F (l > 5 prime), split by the CM field E, compact at infinity and quasi-split at finite places, [F:Q] even. Let σ_1, σ_2 be conjugate self-dual cuspidal representations of GL_4(A_E), GL_m(A_E) with (a) σ_1 ⊞ σ_2 regular algebraic of infinity type ((l + 1)/2, (l − 1)/2, …, (−1 − l)/2) at every infinite place and ∏_{v|∞} det(w_v) = 1; (b) places v_0, …, v_s ramified in E of odd residue characteristic with σ_{1,w_i} ≅ St_3 ⊞ St_1, σ_{2,w_i} ≅ St_m; (c) every other ramified place of σ_1 ⊞ σ_2 split over F, and no other place of F ramified in E. Then there are exactly 4^{s+1}/2 automorphic representations σ of G(A_F) with stable base change σ_1 ⊞ σ_2, each of multiplicity one, in bijection with the tuples (σ_{v_i}) ∈ ∏ Π_{φ_{v_i}} with ∏ ε_{v_i}(σ_{v_i}) = 1.",
+   "locator": "Theorem 3.8, accepted manuscript p. 28; part 1; Remark 3.9, p. 29",
+   "status": "missing",
+   "note": "Remark 3.9: ∏ det(w_v) = 1 holds if every place above l splits in E with [F_v : Q_l] even and σ_1 ⊞ σ_2 is ι-ordinary ([CT14, Lemma 2.6]); equivalently a Shelstad sign."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/028",
+   "kind": "theorem",
+   "name": "Theorem 3.8(2): the same count for a cuspidal base change, and strong stable base change for G",
+   "statement": "Let π be a RACSDC representation of GL_n(A_E) regular algebraic of the same infinity type with π_{w_i} ≅ St_m ⊞ St_3 ⊞ St_1 at places v_0, …, v_s as in Theorem 3.8(1) and the same splitting conditions. Then there are exactly 4^{s+1} automorphic representations of G(A_F) with stable base change π, each of multiplicity one, in bijection with ∏ Π_{φ_{v_i}}. Moreover every automorphic representation σ of G(A_F) whose Galois representation is irreducible or has constituents of dimensions (4, m) has a strong stable base change to GL_n(A_E) with the local components predicted at every place.",
+   "locator": "Theorem 3.8, accepted manuscript p. 28; part 2 and pp. 30–31",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/029",
+   "kind": "theorem",
+   "name": "Theorem 3.10: the case l = 5 (n = 7)",
+   "statement": "For n = 7, with σ_1, σ_2 of GL_4, GL_3 (σ_{2,w_i} ≅ St_3), the same hypotheses and the two-element packets {X_v, Y_v} (ε(X_v) = −1, ε(Y_v) = 1): there are exactly 2^s automorphic representations of G(A_F) with stable base change σ_1 ⊞ σ_2, in bijection with the tuples with ∏ ε = 1; and exactly 2^{s+1} with a cuspidal base change π with π_{w_i} ≅ St_3 ⊞ St_3 ⊞ St_1; stable base change holds.",
+   "locator": "Theorem 3.10, accepted manuscript p. 31",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/030",
+   "kind": "definition",
+   "name": "The level-raising set-up of §4.1: fields, places, the definite unitary group and the endoscopic datum",
+   "statement": "Let l ≥ 5 be prime, ι: Q̄_l ≅ C, E a CM field with maximal totally real subfield F such that every place v | l of F splits in E with [F_v : Q_l] even, and places v_0, …, v_s (s ≥ 1) of F ramified in E of odd residue characteristic with q_{v_0} ≡ −1 mod l and each q_{v_i} (i ≥ 1) a primitive root mod l, every other place unramified in E. Let n = l + 2, m = l − 2 and G the unitary group in n variables split by E, compact at infinity and quasi-split at every finite place. Let π_1, π_2 be cuspidal conjugate self-dual representations of GL_m(A_E), GL_4(A_E) with π_{1,w_i} ≅ St_m, π_{2,w_i} ≅ St_3 ⊞ St_1, other ramification split over F; π = π_1 ⊞ π_2 regular algebraic, ι-ordinary of infinity type ((n − 1)/2, …, (1 − n)/2); r̄_ι(π) = ρ̄_1 ⊕ ρ̄_2 with ρ̄_i absolutely irreducible of dimensions m and 4; ρ̄_1(t_{w_i}) regular unipotent and ρ̄_2(t_{w_i}) of Jordan type 3 + 1 for a generator t_{w_i} of tame inertia.",
+   "locator": "§4.1, accepted manuscript pp. 33–34",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/031",
+   "kind": "definition",
+   "name": "Algebraic modular forms S(U, A) on the definite unitary group, their Hecke algebras T(U, O), ordinary parts and the maximal ideals m, m^∨",
+   "statement": "For an open compact U ⊂ G(A_F^∞) and an O-algebra A, S(U, A) is the space of functions G(F)\\G(A_F^∞)/U → A (weight zero). With the integral model, identifications ι_w: G(F_v) ≅ GL_n(E_w) at split places and uniformisers at places above l of [CT15, §3.3], the Hecke algebra T(U, O) ⊂ End_O(S(U, O)) is generated by the unramified operators at split places of maximal level and the operators U_v^j at v | l. An automorphic Σ with trivial Σ_∞ contributes to N ⊂ S(U, O) if N ∩ ι^{−1}Σ^{∞,U,ord} ≠ 0. Levels: U_{0,v_0} = P_{v_0}, U_{0,v_i} = B_{v_i} (i ≥ 1), hyperspecial at inert places, Iw(c) at places above l, U_0 sufficiently small with σ^{U_0} ≠ 0; U_1 equals U_0 except U_{1,v_0} = B_{v_0}, so [U_0 : U_1] = q_{v_0} + 1. m ⊂ T(U_1, O) is the maximal ideal of σ and m^∨ that of σ^∨.",
+   "locator": "§4.1, accepted manuscript p. 34",
+   "status": "missing",
+   "note": "AutomorphicFormsOnReductiveGroups AF.5 plans the identification of algebraic modular forms on compact-at-infinity groups with functions on finite adelic double cosets; the Hecke algebras and ordinary parts on definite unitary groups are in the Part II PolarizedAutomorphyLifting proposed by the Boxer–Calegari–Gee extraction (not yet in the atlas)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/032",
+   "kind": "theorem",
+   "name": "Proposition 4.1: the local types of automorphic representations contributing to S(U_1, O)_m",
+   "statement": "If Σ contributes to S(U_1, O)_m and Π is its stable base change to GL_n(A_E) (a RACSD representation), then Π is ι-ordinary and either (1) Π_{w_i} ≅ St_m ⊞ St_3 ⊞ St_1 for every i = 0, …, s, or (2) for some i, r_ι(Π)(t_{w_i}) has Jordan decomposition of partition n = (n − 2) + 1 + 1 or n = n, and Π is cuspidal.",
+   "locator": "Proposition 4.1, accepted manuscript p. 34",
+   "status": "missing",
+   "note": "The proof corrects the proof of [CT15, Lemma 4.3] (semistability of Π_w) and uses the closure order on nilpotent classes (dim ker N^j ≤ dim ker N̄^j), the parity condition of Mok's Lemma 2.2.1, and quadratic characters ≡ 1 mod λ."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/033",
+   "kind": "theorem",
+   "name": "Proposition 4.3: the perfect pairing on S(U_1) and its vanishing on S(U_0) mod l",
+   "statement": "The pairing ⟨f, g⟩ = Σ_{x ∈ G(F)\\G(A^∞_F)/U_1} f(x)g(x) on S(U_1, O) satisfies ⟨af, g⟩ = ⟨f, a^‖g⟩ for a ∈ H_{B_{v_0},O} and induces (1) perfect pairings S(U_1, O)_m × S(U_1, O)_{m^∨} → O and S(U_1, k)_m × S(U_1, k)_{m^∨} → k; (2) a pairing vanishing on S(U_0, k)_m × S(U_0, k)_{m^∨} (because q_{v_0} ≡ −1 mod l); (3) a perfect pairing M × N → O whose reduction vanishes on M^{U_0} ⊗ k × N^{U_0} ⊗ k, for the isotypic submodules M, N of the proof of Theorem 4.2.",
+   "locator": "Proposition 4.3, accepted manuscript p. 36; as in [CT15, Proposition 4.5]",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/034",
+   "kind": "theorem",
+   "name": "Lemma 4.4: the structure of M as an H_{B_{v_0}}-module",
+   "statement": "Under the hypothesis (⋆) of the proof of Theorem 4.2, M ⊗_{O,ι} C ≅ (X^{B_{v_0}}_{v_0})^a ⊕ (Y^{B_{v_0}}_{v_0})^b ⊕ (Z^{B_{v_0}}_{v_0})^c ≅ N ⊗_{O,ι} C as H_{B_{v_0},C}-modules, with a > b = c ≥ 0.",
+   "locator": "Lemma 4.4, accepted manuscript p. 36",
+   "status": "missing",
+   "note": "Endoscopic (non-cuspidal) base changes contribute only X at v_0, cuspidal ones X, Y and Z; the endoscopic set is non-empty because of the initial datum π_1 ⊞ π_2."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/035",
+   "kind": "theorem",
+   "name": "Theorem 4.2: level-raising for l = 5 and l = 7",
+   "statement": "In the set-up of §4.1 with l = 5 or l = 7, there is an automorphic representation Σ of G(A_F) contributing to S(U_1, O)_m that falls into case 2 of Proposition 4.1: its base change is cuspidal and at some w_i the monodromy has Jordan type (n − 2) + 1 + 1 or n.",
+   "locator": "Theorem 4.2, accepted manuscript p. 35; proof pp. 35–37; Remark 4.5",
+   "status": "missing",
+   "note": "Proof by contradiction: choosing R_i with ∏ ε_{v_i}(R_i) = −1 (i ≥ 1), the P_{v_0}-fixed part M_1 of M(χ̄) has rank a + b (Proposition 2.9) and is isotropic mod l, while M(χ̄) has rank a + 3b (X has one exponent ≡ [2, 1, 0, −1], Y three, Z none, as q_{v_0} ≡ −1 mod l); so 2(a + b) ≤ a + 3b, contradicting a > b. Remark 4.5: the count fails for l > 7 since Z(χ̄) ≠ 0."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/036",
+   "kind": "definition",
+   "name": "Local deformation problems at places of L^+: ordinary, unrestricted, R^χ_v, R^St_v, and the new partition rings R^m_v",
+   "statement": "For v ∈ T_L: R^Δ_v the ordinary lifting ring (v | l; Geraghty, [Tho15, §3.3.2]); R_v the unrestricted ring (v ∈ S_{a,L}, formally smooth, unramified universal lift); for v ∤ l with q_v ≡ 1 mod l and characters χ_{v,i}: O^×_{L_ṽ} → O^× trivial mod λ, R^{χ_v}_v classifying lifts whose inertia has characteristic polynomial ∏(X − χ_{v,i}) (R^1_v when all are trivial); R^St_v classifying unipotently ramified lifts with Frobenius eigenvalues α, q_vα, …, q_v^{n−1}α; and, for a partition m = (m_1 ≥ ⋯ ≥ m_k) of n, R^m_v, the maximal O-flat reduced quotient of R^1_v classifying lifts for which a lift of Frob_ṽ^{−1} has characteristic polynomial in Taylor's scheme Pol_n(m, q_v) (so R^{(n)}_v = R^St_v).",
+   "locator": "§5.1, accepted manuscript p. 39",
+   "status": "missing",
+   "note": "The first four are planned in LocalGaloisDeformationRings L7 ('semistable, Steinberg and minimally ramified analogues away from p for rank n') and R08.2; R^m_v is new here. A local deformation problem is determined by its ring (Barnet-Lamb–Geraghty–Harris–Taylor, Lemma 3.2)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/037",
+   "kind": "theorem",
+   "name": "Lemma 5.2: R^1_v[1/l] is smooth at pure points of R^m_v, with a unique minimal prime there",
+   "statement": "Let x ∈ Spec R^m_v[1/l] be a closed point given by ρ: G_{L_ṽ} → GL_n(O) with ρ ⊗ Q̄_l pure (Taylor–Yoshida, Lemma 1.4). Then Spec R^1_v[1/l] is formally smooth over K at x, there is a unique minimal prime Q_v of R^1_v in the kernel of R^1_v → O, and Q_v contains ker(R^1_v → R^m_v).",
+   "locator": "Lemma 5.2, accepted manuscript p. 39",
+   "status": "missing",
+   "note": "Uses that (R^1_v)^red is O-flat equidimensional of dimension 1 + n² (Taylor 2008, Proposition 3.1; Thorne 2012, Lemma 3.15) and that Spec R_v[1/l] is equidimensional of dimension n² and smooth at pure points (BLGGT14, Lemma 1.3.2)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/038",
+   "kind": "definition",
+   "name": "Deformation data D = (L, {R_v}) and the attached objects of [Tho15]: Λ_L, S({R_v}), U, S_D, T_D, R_D, P_D, J_D, R^red_D",
+   "statement": "For a good soluble CM extension L/E (every place of V_0 ∪ S_a split), a set R of places of L^+ above T ∖ (S_l ∪ S_a) and local rings R_v of types 3–5: the Iwasawa algebra Λ_L = ⊗̂_{v∈S_{l,L}} O⟦(I_{L_ṽ}(l)^{ab})^n⟧; the global deformation problem S({R_v}) of type (L/L^+, R ∪ S_{l,L} ∪ S_{a,L}, …, Λ_L, r̄, ε^{1−n}δ^n_{L/L^+}, {R^Δ_v} ∪ {R_v}); the level U; the space of modular forms S_D = S_χ(U(l^∞), K/O)^∨, finite free over Λ_L; the Hecke algebra T_D localised at the maximal ideal of a descent of Π_0; the universal deformation ring R_D ⊃ the universal pseudodeformation ring P_D (finite); a surjection P_D → T_D with kernel I_D and J_D = I_D R_D when every R_v is some R^{χ_v}_v; and the reducible quotient R^red_D. T_D is finite torsion-free over Λ_L, and when every R_v is R^{χ_v}_v or R^St_v each minimal prime of R_D has dimension ≥ 1 + n[L^+ : Q].",
+   "locator": "§5.1, accepted manuscript pp. 39–40",
+   "status": "missing",
+   "note": "From Thorne, Automorphy lifting for residually reducible l-adic Galois representations (JAMS 2015), Propositions 3.8, 3.9, 3.29, 4.3, Definitions 3.27, 3.31, 4.2; the group 𝒢_n of Clozel–Harris–Taylor §2.1. A prerequisite paper; not planned in the atlas (GlobalGaloisDeformations G7 plans polarized deformation problems, but not pseudodeformations of reducible r̄)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/039",
+   "kind": "theorem",
+   "name": "Thorne's R = T and automorphy lifting for residually reducible representations (inputs from [Tho15])",
+   "statement": "(1) [Tho15, Theorem 4.19, Corollary 4.20]: under hypotheses (1)–(5) there, for a minimal prime Q_1 ⊂ R_{D_1} inside a suitable prime, J_{D_1} ⊂ Q_1 and R_{D_1}/Q_1 is finite over Λ_L of dimension dim Λ_L. (2) [Tho15, Theorem 7.1]: automorphy lifting for ρ̄ = ρ̄_1 ⊕ ρ̄_2 Schur, ordinary, given an automorphic ordinary lift that is Steinberg at some place. (3) [Tho15, Lemmas 1.9, 3.36, Corollary 4.14, Proposition 4.18]: dimension-one primes avoiding countably many small quotients, twisting by ∆/(c + 1), and soluble base change of Hecke algebras. (4) Hida classicality for GL_n over CM fields (Geraghty, Lemma 2.6.4).",
+   "locator": "Proofs of Lemmas 5.3–5.6, Theorems 5.1 and 5.7, accepted manuscript pp. 40–44",
+   "status": "missing",
+   "note": "Stated inputs from Thorne 2015 and Geraghty's preprint; prerequisites. The Boxer–Calegari–Gee extraction's proposed Part II PolarizedAutomorphyLifting plans Thorne 2012/2017 and BLGGT14 but not Thorne 2015."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/040",
+   "kind": "theorem",
+   "name": "Lemma 5.3: dimension of the reducible locus with Steinberg-type conditions",
+   "statement": "Fix a partition m with m_1 > n_1 = dim ρ̄_1 and a deformation datum D = (L, {R_v}_{v∈R_0} ∪ {R^m_v}_{v∈R_1}). Let ∆ (resp. ∆') be the Galois group of the maximal abelian l-extension of L unramified outside l (resp. in addition split at R̃_1 ∪ R̃^c_1) and d = dim_{Q_l} ker(∆ ⊗ Q_l → ∆' ⊗ Q_l)^{c=−1}. Then dim R^red_D ≤ 1 + n[L^+ : Q] − d and R^red_D is finite over Λ_L.",
+   "locator": "Lemma 5.3, accepted manuscript p. 40",
+   "status": "missing",
+   "note": "The key point: a reducible deformation (r̄_1 ⊗ Ψ_1) ⊕ (r̄_2 ⊗ Ψ_2) of type R^m_v forces Ψ_1(Frob_ṽ) = Ψ_2(Frob_ṽ), since m_1 > n_1 > n_2. Uses the potential ordinary automorphy of ρ̄_1, ρ̄_2 (hypothesis 4 of Theorem 5.1)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/041",
+   "kind": "theorem",
+   "name": "Lemma 5.4: dim R_D/J_{D'}R_D = dim Λ_L for the partition of the monodromy at w_0",
+   "statement": "Let D = (L, {R^{χ_v}_v}_{v∈R_0} ∪ {R^m_v}_{v∈R_1}) with m the Jordan type of N, rec^T(Π_{w_0}) = (r, N), R_1 the places above v_0, and D' = (L, {R^{χ_v}_v}_{v∈R_0} ∪ {R^1_v}_{v∈R_1}). Then dim R_D/J_{D'}R_D = dim Λ_L.",
+   "locator": "Lemma 5.4, accepted manuscript p. 41",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/042",
+   "kind": "theorem",
+   "name": "Lemma 5.5: changing the characters χ_v after a soluble base change",
+   "statement": "Let D_0^χ = (L_0, {R^{χ_v}_v}_{v∈R}) with pairwise distinct χ_{v,1}, …, χ_{v,n} for each v ∈ R, and L ⊃ L_0 good with every χ_{v,i} trivial on inertia of L above R. For D = (L, ∅) there is a commutative diagram R_D ← P_D → T_D over R^nil_{D_0^χ} ← P^nil_{D_0^χ} → T_{D_0^χ}.",
+   "locator": "Lemma 5.5, accepted manuscript p. 41",
+   "status": "missing",
+   "note": "Uses soluble base change and descent for G ([CT14, Proposition 2.9]); this is why n_1 ≠ n_2 and n_1n_2 even are assumed."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/043",
+   "kind": "theorem",
+   "name": "Lemma 5.6: a characteristic-l prime of R_D containing J_D yields a Steinberg automorphic lift",
+   "statement": "Suppose a deformation datum D = (L, ∅) and a dimension-one prime 𝔭 ⊂ R_D of characteristic l satisfy: (1) r_𝔭: G_L → GL_n(Frac A) is absolutely irreducible (A the normalisation of R_D/𝔭); (2) the characters ψ^v_1, …, ψ^v_n of I_{L_ṽ} (v ∈ S_{l,L}) are pairwise distinct; (3) some σ ∈ I_{L_ṽ} has eigenvalues satisfying no non-trivial Z-linear relation; (4) J_D ⊂ 𝔭; (5) r_𝔭|_{G_{L_ũ}} is trivial for some u ∈ T_L ∖ (S_{l,L} ∪ S_{a,L}). Then there is an ι-ordinary RACSDC Π_1 of GL_n(A_L) with r̄_ι(Π_1) ≅ r̄_ι(Π)|_{G_L} and Π_{1,ũ} an unramified twist of Steinberg.",
+   "locator": "Lemma 5.6, accepted manuscript p. 42",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/044",
+   "kind": "theorem",
+   "name": "Theorem 5.1: level-raising to Steinberg for residually reducible representations",
+   "statement": "Let E be CM, Π a RACSDC representation of GL_n(A_E) with r̄_ι(Π) = ρ̄_1 ⊕ ρ̄_2, ρ̄_i absolutely irreducible, non-isomorphic, ρ̄_i^c ≅ ρ̄_i^∨ ε^{1−n}, n_1 > n_2, r̄_ι(Π) primitive, and a place w_0 where Π_{w_0} is Iwahori-spherical and N in rec^T(Π_{w_0}) = (r, N) has a Jordan block of length > n_1. Assume (1) Π is ι-ordinary; (2) l > 3, l ∤ n_1, n_2, n, and n_1n_2 even; (3) each ρ̄_i|_{G_{E(ζ_l)}} is adequate and E(ζ_l) ⊄ the fixed field of ad r̄_ι(Π); (4) a CM E_0/E linearly disjoint from the field cut out by ρ̄ and ι-ordinary RAECSDC (π_i, χ_i) of GL_{n_i}(A_{E_0}) with r̄_ι(π_i) ≅ ρ̄_i|_{G_{E_0}}. Then there are a soluble CM E_1/E linearly disjoint from the extension of E(ζ_l) cut out by r̄_ι(Π) and an ι-ordinary RACSDC Π_1 of GL_n(A_{E_1}) with r̄_ι(Π_1) ≅ r̄_ι(Π)|_{G_{E_1}} and Π_{1,w_1} an unramified twist of Steinberg at a place w_1 | w_0.",
+   "locator": "Theorem 5.1, accepted manuscript p. 37; proof pp. 38–43",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/045",
+   "kind": "theorem",
+   "name": "Theorem 5.7: automorphy lifting for residually reducible ρ from a lift with a large Jordan block",
+   "statement": "Let E be CM and ρ: G_E → GL_n(Q̄_l) continuous with (1) ρ^c ≅ ρ^∨ε^{1−n}; (2) finitely many ramified places; (3) ρ ordinary of weight λ ([Tho15, Definition 2.5]); (4) l > 3 and E(ζ_l) ⊄ the field cut out by ad ρ̄; (5) ρ̄ ≅ ρ̄_1 ⊕ ρ̄_2 with ρ̄_i|_{G_{E(ζ_l)}} adequate, n_1 ≠ n_2, n_1n_2 even, l ∤ n_1n_2(n_1 + n_2), ρ̄ primitive; (6) a place w_0 ∤ l with ρ|^ss_{G_{E_{w_0}}} ≅ ⊕_{i=1}^n ψε^{n−i}, ψ unramified; (7) an ι-ordinary RACSDC Π with r̄_ι(Π) ≅ ρ̄ whose N at w_0 has a Jordan block of length > max(n_1, n_2); (8) as hypothesis 4 of Theorem 5.1. Then ρ ≅ r_ι(π) for a RACSDC automorphic representation π of GL_n(A_E).",
+   "locator": "Theorem 5.7, accepted manuscript p. 44",
+   "status": "missing",
+   "note": "Combines Theorem 5.1 with [Tho15, Theorem 7.1] and soluble descent; the paper offers it for use elsewhere."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/046",
+   "kind": "theorem",
+   "name": "The congruence Sym^{l+1} r̄ ≅ (φr̄ ⊗ r̄) ⊕ χ² Sym^{l−3} r̄ for two-dimensional mod l representations",
+   "statement": "For a two-dimensional representation r̄ with values in GL_2(F̄_l), determinant χ and φ the (arithmetic) Frobenius acting on coefficients, (Sym^{l+1} r̄)^ss ≅ (φr̄ ⊗ r̄) ⊕ χ² Sym^{l−3} r̄, by the representation theory of GL_2(F_l); if the image of r̄ is large both summands are irreducible, of dimensions 4 and l − 2.",
+   "locator": "(1.1), accepted manuscript p. 2; proof of Theorem 6.2, p. 45",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/047",
+   "kind": "theorem",
+   "name": "Known functorial transfers used: Gelbart–Jacquet, Kim–Shahidi, Kim, Ramakrishnan and Arthur–Clozel",
+   "statement": "(1) Sym² π exists for cuspidal π of GL_2(A_F) and is cuspidal iff π is not automorphically induced from a quadratic extension iff π ≇ π ⊗ η for all non-trivial Hecke characters η (Gelbart–Jacquet; Theorem 7.3(1)); if Sym² π is cuspidal, π_E and Sym² π_E stay cuspidal after any quadratic base change (Arthur–Clozel, Theorem 3.4.2; Theorem 7.3(2)). (2) Sym³ π (Kim–Shahidi) and Sym⁴ π (Kim) exist. (3) Ramakrishnan's Theorem M: the Rankin–Selberg product of two cuspidal representations of GL_2 is automorphic on GL_4.",
+   "locator": "Theorem 7.3, accepted manuscript p. 47; proof of Theorem 6.2, p. 46; Corollary 7.2(1)",
+   "status": "planned",
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.5"
+   ],
+   "note": "ML.5 plans to 'register cyclic base change, automorphic induction and selected tensor/symmetric-power transfers with exact hypotheses'."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/048",
+   "kind": "theorem",
+   "name": "Change of weight and base-change inputs from [CT14], [CT15] and [CHT08]",
+   "statement": "(1) [CT15, Proposition 3.10] with base change for U_2: a RACSDC π'_2 of GL_2(A_{E_2}), ι-ordinary with HT_τ = {(1 − l)/2, (1 + l)/2}, π'_{2,z_i} ≅ St_2 ⊗ ιω (ω the Teichmüller lift of ε̄^{(l−1)/2}), r̄_ι(π'_2) ≅ ε̄^{(l−1)/2} ⊗ ρ̄_2, ramified only above split places. (2) [CT14, Lemma 2.6] (ι-ordinarity of Π_1 ⊞ Π_2; the signs det(w_v)) and [CT14, Proposition 2.9] (soluble base change and descent for G). (3) [CHT08, Lemma 4.1.4]: a finite-order ψ: G_E → Q̄_l^× unramified above u_0 with ψψ^c = r_ι(χ)|_{G_E}.",
+   "locator": "Proof of Theorem 6.2, accepted manuscript pp. 45–46; Remark 3.9; Lemma 5.5",
+   "status": "missing",
+   "note": "Stated inputs from the earlier papers of the series (Compositio 2014, Annals 2015) and Clozel–Harris–Taylor; prerequisites. The proof of Theorem 6.1 also follows 'a series of reductions … essentially the same as those of [CT15, §6]'."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/049",
+   "kind": "theorem",
+   "name": "Theorem 6.2: Sym^{l+1} ρ is automorphic for l ∈ {5, 7} under ordinarity and Steinberg hypotheses",
+   "statement": "Let l ∈ {5, 7}, F totally real, ι: Q̄_l ≅ C, and (π, χ) a RAESDC representation of GL_2(A_F) with (1) π ι-ordinary of weight zero (infinity type (1/2, −1/2) at every real place); (2) ρ̄ = r̄_ι(π) irreducible with image containing a conjugate of SL_2(F_{l^a}) for some a > 1, and (φρ̄ ⊗ ρ̄)|_{G_{F(ζ_l)}} and (Sym^{l−3} ρ̄)|_{G_{F(ζ_l)}} adequate; (3) a place u_0 ∤ 2 with π_{u_0} an unramified twist of Steinberg, q_{u_0} a primitive root mod l and ρ̄ ramified at u_0. Then Sym^{l+1} ρ is automorphic.",
+   "locator": "Theorem 6.2, accepted manuscript p. 45",
+   "status": "missing",
+   "note": "Proof: pass to a CM field E_2 with places above u_0 ramified in E_2/F_2 (q ≡ −1 at one, primitive roots at the others), build Π_1 ⊞ Π_2 of type (4, l − 2) with the congruence of item 046, apply Theorem 4.2 and then Theorem 5.7, and descend. Corrected for source issue E4 (E_2 = F_2·E_1)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/050",
+   "kind": "theorem",
+   "name": "Theorem 6.1 (Theorem 1.1): the 6th and 8th symmetric powers",
+   "statement": "Let F be totally real and (π, χ) a RAESDC representation of GL_2(A_F) not automorphically induced from a quadratic CM extension. (1) If F ∩ Q(ζ_5) = Q, the 6th symmetric power lift of π exists as a cuspidal automorphic representation of GL_7(A_F). (2) If F ∩ Q(ζ_7) = Q, the 8th symmetric power lift exists as a cuspidal automorphic representation of GL_9(A_F).",
+   "locator": "Theorem 6.1, accepted manuscript p. 44; Theorem 1.1, p. 2",
+   "status": "missing",
+   "note": "Deduced from Theorem 6.2 by the reductions of [CT15, §6]. Superseded in range, by a different method, by Newton–Thorne (PAPER-NEWTON-THORNE-21, -21-B, -26); ML.3 should keep the hypotheses of each source."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/051",
+   "kind": "theorem",
+   "name": "Theorem 7.1: reduction of the mixed-parity case to the RAESDC case",
+   "statement": "Let F be totally real and r ≥ 1. Suppose that for every RAESDC (π, χ) of GL_2(A_F) not automorphically induced from a quadratic CM extension there is a RAESDC (Π, Ξ) of GL_{r+1}(A_F) with Sym^r rec_{F_v}(π_v) ≅ rec_{F_v}(Π_v) at all finite v. Then for every cuspidal π of GL_2(A_F) with π_∞ essentially square-integrable and not automorphically induced from a quadratic CM extension there is a cuspidal Π of GL_{r+1}(A_F) with Sym^r rec_{F_v}(π_v) ≅ rec_{F_v}(Π_v) at all finite v; in particular L(Sym^r π, s) = L(Π, s) continues to an entire function with the expected functional equation.",
+   "locator": "Theorem 7.1, accepted manuscript p. 46",
+   "status": "missing",
+   "note": "Mixed-parity π become algebraic up to twist after base change to a CM field (Blasius–Rogawski)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/052",
+   "kind": "theorem",
+   "name": "Corollary 7.2 (with Corollaries 1.2 and 1.3): symmetric powers up to 8",
+   "statement": "Let F be totally real and π cuspidal on GL_2(A_F) with π_∞ essentially square-integrable, not automorphically induced from a quadratic CM extension. There is a cuspidal Π of GL_{r+1}(A_F) with Sym^r rec_{F_v}(π_v) ≅ rec_{F_v}(Π_v) at all finite v in each case: (1) F arbitrary, 1 ≤ r ≤ 4; (2) F ∩ Q(ζ_5) = Q, r ∈ {5, 6}; (3) F ∩ Q(ζ_35) = Q, r = 7; (4) F ∩ Q(ζ_7) = Q, r = 8. Hence L(Sym^r π, s) is entire with the expected functional equation (Corollary 1.3).",
+   "locator": "Corollary 7.2, accepted manuscript p. 46; Corollaries 1.2–1.3, p. 2",
+   "status": "missing",
+   "note": "Cases r = 5, 7 are [CT15, Theorem 1.2]; r ≤ 4 are Gelbart–Jacquet, Kim–Shahidi and Kim."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/053",
+   "kind": "theorem",
+   "name": "Lemma 7.4: twisting π_E to a RACSDC representation",
+   "statement": "Let F be totally real, π cuspidal on GL_2(A_F) with π_∞ essentially square-integrable, and E/F an imaginary CM extension with π_E cuspidal. Then there is a continuous character χ: E^×\\A_E^× → C^× with π_E ⊗ χ RACSDC.",
+   "locator": "Lemma 7.4, accepted manuscript p. 47",
+   "status": "missing",
+   "note": "Uses Chevalley's congruence subgroup theorem for units (to make the central character finite order) and [CHT08, Lemma 4.1.4]."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/054",
+   "kind": "theorem",
+   "name": "Lemma 7.5: large residual image for a density-one set of primes",
+   "statement": "Let E be imaginary CM and π a RACSDC representation of GL_2(A_E) with Sym² π cuspidal. Then there is a set L of rational primes of Dirichlet density 1 such that for all l ∈ L and all ι: Q̄_l ≅ C, r̄_ι(π) is irreducible with image containing a conjugate of SL_2(F_l).",
+   "locator": "Lemma 7.5, accepted manuscript p. 48",
+   "status": "missing",
+   "note": "Uses BLGGT14 Theorem 5.5.2 and Proposition 5.3.2, Fontaine–Laffaille's description of r̄_ι(π)|_{I_v} for l large (so that α_2/α_1 has order > 5), and the classification of finite subgroups of PGL_2(F̄_l)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/055",
+   "kind": "theorem",
+   "name": "Potential diagonalisability and automorphy inputs from Barnet-Lamb–Gee–Geraghty–Taylor",
+   "statement": "[BLGGT14, Theorem 4.4.1]: an odd irreducible R̄: G_F → GL_2(F̄_l) with suitable large image has a potentially diagonalisable lift, unramified almost everywhere; [BLGGT14, Lemma 1.4.3]: potential diagonalisability is preserved by restriction; [BLGGT14, Theorem 4.2.1]: automorphy lifting for potentially diagonalisable, residually (potentially diagonalisably) automorphic representations with adequate residual image; [BLGGT14, Theorem 5.5.2, Proposition 5.3.2]: irreducibility of r_ι(π) and Sym² r_ι(π) and of their reductions for a density-one set of l.",
+   "locator": "Proofs of Lemma 7.5 and Proposition 7.6, accepted manuscript pp. 48–49",
+   "status": "missing",
+   "note": "ModularityAndLanglandsExtensions ML.2 assembles potential automorphy from these theorems; the Boxer–Calegari–Gee extraction's proposed PolarizedAutomorphyLifting plans other parts of BLGGT14 (§2 and Appendix A)."
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/056",
+   "kind": "theorem",
+   "name": "Proposition 7.6: symmetric powers over a CM field from those over its totally real subfield",
+   "statement": "Let E/F be an imaginary CM quadratic extension and r ≥ 1. If Sym^r r_ι(π) is automorphic for every RAESDC (π, χ) of GL_2(A_F) not automorphically induced from a CM extension, then Sym^r r_ι(Π) is automorphic for every RACSDC Π of GL_2(A_E) not automorphically induced from a quadratic extension.",
+   "locator": "Proposition 7.6, accepted manuscript p. 49",
+   "status": "missing",
+   "note": "Proof: by Lemma 7.5 pick l > 2(r + 2) with large residual image; extend r̄_ι(Π) ⊗ φ to an odd R̄ of G_F; lift R̄ potentially diagonalisably (BLGGT14 Theorem 4.4.1); R is automorphic and Sym^r r_ι(Π) is residually potentially diagonalisably automorphic, hence automorphic (BLGGT14 Theorem 4.2.1). Corrected for source issue E5."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Laurent Clozel and Jack A. Thorne, Level-raising and symmetric power functoriality, I, Compos. Math. 150 (2014), 729–748",
+   "link": "https://doi.org/10.1112/S0010437X13007653",
+   "why": "The conventions of §1.1, Lemma 2.6 (ι-ordinarity, signs det(w_v)) and Proposition 2.9 (soluble base change and descent for definite unitary groups), used in §§3, 5 and 6."
+  },
+  {
+   "citation": "Laurent Clozel and Jack A. Thorne, Level raising and symmetric power functoriality, II, Ann. of Math. (2) 181 (2015), 303–359",
+   "link": "https://doi.org/10.4007/annals.2015.181.1.5",
+   "why": "The model for §§2–4 (Propositions 2.1, 2.8–2.10, §§3.3–3.8, Proposition 4.5, Appendix A), the change of weight of Proposition 3.10, the reductions of §6 and Sym^5, Sym^7 (Theorem 1.2); this paper corrects the proof of its Lemma 4.3."
+  },
+  {
+   "citation": "Jack A. Thorne, Automorphy lifting for residually reducible l-adic Galois representations, J. Amer. Math. Soc. 28 (2015), 785–870",
+   "link": "https://doi.org/10.1090/S0894-0347-2014-00812-2",
+   "why": "The deformation theory of residually reducible representations used throughout §5 (Theorems 4.19, 7.1, Corollary 4.20, Propositions 3.8–3.29, 4.3–4.18, Lemmas 1.9, 3.36) and improved by Theorem 5.7."
+  },
+  {
+   "citation": "Chung Pang Mok, Endoscopic classification of representations of quasi-split unitary groups, Mem. Amer. Math. Soc. 235 (2015), no. 1108",
+   "link": "https://doi.org/10.1090/memo/1108",
+   "why": "L-packets, the multiplicity formula and base change for unitary groups (Lemma 2.2.1, Theorems 2.5.1, 2.5.2), Theorems 3.2, 3.5 and 3.8. ML.4 names 'ARTHUR-MOK' as a selected source."
+  },
+  {
+   "citation": "Colette Mœglin, Classification et changement de base pour les séries discrètes des groupes unitaires p-adiques, Pacific J. Math. 233 (2007), 159–204",
+   "link": "https://doi.org/10.2140/pjm.2007.233.159",
+   "why": "Local L-packets of discrete series of unitary groups and the hereditary formula for Jacquet modules (Theorem 3.2, Proposition 3.7, §3.5)."
+  },
+  {
+   "citation": "David Kazhdan and George Lusztig, Proof of the Deligne–Langlands conjecture for Hecke algebras, Invent. Math. 87 (1987), 153–215",
+   "link": "https://doi.org/10.1007/BF01389157",
+   "why": "Theorem 2.4, the construction of the modules X, Y, Z (Theorem 2.5)."
+  },
+  {
+   "citation": "Mark Reeder, Matrices for affine Hecke modules, J. Algebra 231 (2000), 758–785",
+   "link": "https://doi.org/10.1006/jabr.1999.8369",
+   "why": "The explicit matrices defining the integral structures of Proposition 2.6; with Reeder 1994 (Ann. Sci. ÉNS 27) for the inductive description of B^s_u."
+  },
+  {
+   "citation": "C. De Concini, G. Lusztig and C. Procesi, Homology of the zero-set of a nilpotent vector field on a flag manifold, J. Amer. Math. Soc. 1 (1988), 15–34",
+   "link": "https://doi.org/10.1090/S0894-0347-1988-0924700-2",
+   "why": "Smoothness of B^s_u and its paving by affine spaces, the computation behind Theorem 2.5."
+  },
+  {
+   "citation": "George Lusztig, Affine Hecke algebras and their graded version, J. Amer. Math. Soc. 2 (1989), 599–635",
+   "link": "https://doi.org/10.1090/S0894-0347-1989-0991016-9",
+   "why": "The Bernstein presentation of H_{B,C} (§2.1)."
+  },
+  {
+   "citation": "Laurent Clozel, Michael Harris and Jean-Pierre Labesse, Endoscopic transfer, in On the stabilization of the trace formula, Stab. Trace Formula Shimura Var. Arith. Appl. 1, Int. Press (2011), 475–496",
+   "link": "https://intlpress.com/site/pub/files/preview/bookpubs/00000265.pdf",
+   "why": "The method of compact transfer (Lemma 4.2 there) used for Theorems 3.8 and 3.10; with Labesse, Changement de base CM et séries discrètes, and Clozel, Identités de caractères en la place archimédienne, in the same volume."
+  },
+  {
+   "citation": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, Potential automorphy and change of weight, Ann. of Math. (2) 179 (2014), 501–609",
+   "link": "https://doi.org/10.4007/annals.2014.179.2.3",
+   "why": "Potential diagonalisability and automorphy lifting (Theorems 4.2.1, 4.4.1, Lemma 1.4.3) and density-one irreducibility (Theorem 5.5.2, Proposition 5.3.2) in §7. Also listed by the Boxer–Calegari–Gee extraction."
+  },
+  {
+   "citation": "Richard Taylor, Automorphy for some l-adic lifts of automorphic mod l Galois representations. II, Publ. Math. IHÉS 108 (2008), 183–239",
+   "link": "https://doi.org/10.1007/s10240-008-0015-2",
+   "why": "The schemes Pol_n(m, q_v) defining the rings R^m_v, the ordering of nilpotent classes, and Proposition 3.1 on R^1_v (§5.1, Lemma 5.2)."
+  },
+  {
+   "citation": "Jack A. Thorne, On the automorphy of l-adic Galois representations with small residual image, J. Inst. Math. Jussieu 11 (2012), 855–920",
+   "link": "https://doi.org/10.1017/S1474748012000023",
+   "why": "Adequacy and the local rings R^1_v (Lemma 3.15, Proposition 3.16), used in Lemmas 5.2 and 5.5."
+  },
+  {
+   "citation": "David Geraghty, Modularity lifting theorems for ordinary Galois representations, Math. Ann. 373 (2019), 1341–1427",
+   "link": "https://doi.org/10.1007/s00208-018-1742-4",
+   "why": "Ordinary lifting rings R^Δ_v and Hida classicality (Lemmas 2.2.6, 2.6.4 of the preprint cited; numbering in the published version not checked) in §5."
+  },
+  {
+   "citation": "Dinakar Ramakrishnan, Modularity of the Rankin–Selberg L-series, and multiplicity one for SL(2), Ann. of Math. (2) 152 (2000), 45–111",
+   "link": "https://doi.org/10.2307/2661379",
+   "why": "Theorem M (GL_2 × GL_2 → GL_4), giving Π'_1 in the proof of Theorem 6.2."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "ModularityAndLanglandsExtensions",
+   "stages": [
+    "ModularityAndLanglandsExtensions:ML.0",
+    "ModularityAndLanglandsExtensions:ML.2",
+    "ModularityAndLanglandsExtensions:ML.3"
+   ],
+   "items": [
+    "PAPER-CLOZEL-THORNE-17/001",
+    "PAPER-CLOZEL-THORNE-17/050",
+    "PAPER-CLOZEL-THORNE-17/051",
+    "PAPER-CLOZEL-THORNE-17/052",
+    "PAPER-CLOZEL-THORNE-17/053",
+    "PAPER-CLOZEL-THORNE-17/054",
+    "PAPER-CLOZEL-THORNE-17/055",
+    "PAPER-CLOZEL-THORNE-17/056"
+   ],
+   "reason": "ModularityAndLanglandsExtensions owns the symmetric-power endpoints: ML.0 plans the endpoint and normalisation registry, ML.2 'potential automorphy assembly' and ML.3 'symmetric powers and Sato–Tate', to 'integrate Newton–Thorne source-scoped symmetric-power automorphy' and to 'record weight, level, field and regularity assumptions per source'. The paper's final theorems — Sym^6 and Sym^8 over totally real fields disjoint from Q(ζ_5), Q(ζ_7) (Theorem 6.1), the list of Corollary 7.2 and the holomorphy of L(Sym^n π, s) — are such endpoints under their own hypotheses, and the §7 reductions (Theorem 7.1, Lemmas 7.4–7.5, Proposition 7.6, with the BLGGT14 potential automorphy inputs) are generic symmetric-power arguments ML.3 needs for any source. The level-raising method that proves Theorem 6.2 is not an endpoint and goes to the Part II."
+  },
+  {
+   "route": "source",
+   "roadmap": "SmoothRepresentationsOfLocalGroups",
+   "stages": [
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3"
+   ],
+   "items": [
+    "PAPER-CLOZEL-THORNE-17/005",
+    "PAPER-CLOZEL-THORNE-17/006",
+    "PAPER-CLOZEL-THORNE-17/008",
+    "PAPER-CLOZEL-THORNE-17/013"
+   ],
+   "reason": "SmoothRepresentationsOfLocalGroups owns the general local representation theory of G(E): SR.1 'Hecke algebras over rings … identify e_U corners with U-biinvariant Hecke algebras', SR.2 Jacquet functors, SR.3 admissible complex representations and their classification. The paper uses four standard results of that theory in the generality of any group with a Tits system or any split group: Casselman's description of Iwahori invariants through Jacquet modules (Lemma 2.1), the Iwahori–Matsumoto presentation of the Hecke algebra of a Tits system, the Bernstein–Lusztig presentation, and Kazhdan–Lusztig's classification of tempered Iwahori-spherical representations (Theorem 2.4). None is planned in any layer; they belong in SR, not in the symmetric-power Part II."
+  },
+  {
+   "route": "source",
+   "roadmap": "LocalGaloisDeformationRings",
+   "stages": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "items": [
+    "PAPER-CLOZEL-THORNE-17/036",
+    "PAPER-CLOZEL-THORNE-17/037"
+   ],
+   "reason": "LocalGaloisDeformationRings L7 plans, for rank n, 'semistable, Steinberg and minimally ramified analogues away from p, preserving the nilpotent monodromy operator'. The paper adds a deformation condition in exactly that direction: R^m_v, the O-flat reduced quotient of R^1_v whose Frobenius characteristic polynomial lies in Taylor's Pol_n(m, q_v) for a partition m (monodromy bounded by m), and Lemma 5.2 on its smooth points and minimal primes. These are local statements reusable by any level-raising argument."
+  },
+  {
+   "route": "part-ii",
+   "parent": "ModularityAndLanglandsExtensions",
+   "roadmap": "SymmetricPowersByUnitaryLevelRaising",
+   "title": "Modularity, automorphy and Langlands endpoint extensions, Part II: symmetric power functoriality by level-raising on definite unitary groups",
+   "area": "automorphic",
+   "items": [
+    "PAPER-CLOZEL-THORNE-17/007",
+    "PAPER-CLOZEL-THORNE-17/009",
+    "PAPER-CLOZEL-THORNE-17/010",
+    "PAPER-CLOZEL-THORNE-17/011",
+    "PAPER-CLOZEL-THORNE-17/012",
+    "PAPER-CLOZEL-THORNE-17/014",
+    "PAPER-CLOZEL-THORNE-17/015",
+    "PAPER-CLOZEL-THORNE-17/016",
+    "PAPER-CLOZEL-THORNE-17/017",
+    "PAPER-CLOZEL-THORNE-17/021",
+    "PAPER-CLOZEL-THORNE-17/022",
+    "PAPER-CLOZEL-THORNE-17/025",
+    "PAPER-CLOZEL-THORNE-17/026",
+    "PAPER-CLOZEL-THORNE-17/027",
+    "PAPER-CLOZEL-THORNE-17/028",
+    "PAPER-CLOZEL-THORNE-17/029",
+    "PAPER-CLOZEL-THORNE-17/030",
+    "PAPER-CLOZEL-THORNE-17/031",
+    "PAPER-CLOZEL-THORNE-17/032",
+    "PAPER-CLOZEL-THORNE-17/033",
+    "PAPER-CLOZEL-THORNE-17/034",
+    "PAPER-CLOZEL-THORNE-17/035",
+    "PAPER-CLOZEL-THORNE-17/038",
+    "PAPER-CLOZEL-THORNE-17/039",
+    "PAPER-CLOZEL-THORNE-17/040",
+    "PAPER-CLOZEL-THORNE-17/041",
+    "PAPER-CLOZEL-THORNE-17/042",
+    "PAPER-CLOZEL-THORNE-17/043",
+    "PAPER-CLOZEL-THORNE-17/044",
+    "PAPER-CLOZEL-THORNE-17/045",
+    "PAPER-CLOZEL-THORNE-17/046",
+    "PAPER-CLOZEL-THORNE-17/048",
+    "PAPER-CLOZEL-THORNE-17/049"
+   ],
+   "brief": "Final theorems (Clozel–Thorne, Level-raising and symmetric power functoriality III, Duke Math. J. 166 (2017) 325–402): Theorem 6.2 — for l ∈ {5, 7}, F totally real and (π, χ) RAESDC on GL_2(A_F) ι-ordinary of weight zero, with ρ̄ = r̄_ι(π) of image containing SL_2(F_{l^a}) (a > 1), (φρ̄ ⊗ ρ̄) and Sym^{l−3} ρ̄ adequate on G_{F(ζ_l)}, and a place u_0 ∤ 2 where π is an unramified twist of Steinberg with q_{u_0} a primitive root mod l and ρ̄ ramified, Sym^{l+1} ρ is automorphic; Theorem 4.2 — level-raising on the definite unitary group in l + 2 variables for l = 5, 7; Theorem 5.1 — level-raising to Steinberg for residually reducible RACSDC representations with a Jordan block longer than n_1; Theorem 5.7 — automorphy lifting for ρ with ρ̄ = ρ̄_1 ⊕ ρ̄_2 given an automorphic lift with such a Jordan block.\n\nCover, in order: (i) the ramified unitary group U_{2k+1}: its Iwahori–Hecke algebra H_B, the isomorphism with that of Sp_{2k} (Proposition 2.2), the parameter φ_E of St_{n−4} ⊞ St_3 ⊞ St_1 and the Iwahori-spherical modules X, Y, Z constructed by Kazhdan–Lusztig (Theorem 2.5, with De Concini–Lusztig–Procesi pavings), their integral structures (Reeder's matrices, Proposition 2.6, Corollary 2.8) and the localisations of Proposition 2.9; (ii) the identification of these modules with the Mœglin–Mok L-packet and its signs (Theorems 2.3, 3.3), through the transfer factors of Lemma 3.6 and Mœglin's Proposition 3.7; (iii) compact transfer to the definite unitary group (Theorems 3.8, 3.10) with the Hecke character μ of Lemma 3.4; (iv) algebraic modular forms and the level-raising argument of §4 (Propositions 4.1, 4.3, Lemma 4.4, Theorem 4.2); (v) the deformation-theoretic level-raising of §5 (Lemmas 5.3–5.6, Theorem 5.1) and Theorem 5.7, with Thorne 2015's residually reducible R = T theory as a stated input; (vi) the congruence Sym^{l+1} ≡ (φr̄ ⊗ r̄) ⊕ χ²Sym^{l−3} and Theorem 6.2.\n\nImport, never re-plan: Modularity, automorphy and Langlands endpoint extensions (ModularityAndLanglandsExtensions) ML.4 for Mok's classification (Theorems 3.2, 3.5) and ML.5 for Gelbart–Jacquet, Kim–Shahidi, Kim, Ramakrishnan and Arthur–Clozel; the source route of this extraction into ML.0/ML.2/ML.3, which receives Theorem 6.1, Theorem 7.1, Corollary 7.2 and the §7 reductions; Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison) ET.0, ET.1, ET.4, ET.6 and ET.7 for endoscopic data, Langlands–Shelstad transfer factors, the stable and twisted unitary trace formulas, local Langlands for GL_n and unitary base change; Smooth representations of local groups (SmoothRepresentationsOfLocalGroups) SR.1–SR.3 with this extraction's source route (Casselman, Iwahori–Matsumoto, Bernstein–Lusztig, Kazhdan–Lusztig); Reductive groups, Part II (ReductiveGroupsPartII) RG2.2 and RG2.4 for buildings and parahorics of U_n; Automorphic forms on reductive groups (AutomorphicFormsOnReductiveGroups) AF.5 for algebraic modular forms; Automorphic Galois Representations PartII (AutomorphicGaloisRepresentationsPartII) AG2.0, AG2.2 and AG2.5 for r_ι(Π) and local–global compatibility with monodromy; Reusable infrastructure for potential automorphy over CM fields (PotentialAutomorphyInfrastructure) PA.2 for ι-ordinarity; Local Galois deformation rings and their components (LocalGaloisDeformationRings) L7 and R08.2 with this extraction's source route (the rings R^m_v) and Global Galois deformation rings (GlobalGaloisDeformations) G7 for polarized deformation problems. The definite unitary Hecke algebras, ordinary parts and polarized automorphy lifting (Thorne 2012/2017, Geraghty, BLGGT14) should be imported from the Part II PolarizedAutomorphyLifting proposed by the Boxer–Calegari–Gee extraction once it is designed; Thorne 2015 and Theorem 5.7 could equally join that Part II, and the two design jobs should agree which owns them.\n\nTests: n = 7 and n = 9 (l = 5, 7), where Reeder's explicit matrices of Proposition 2.6 and the Jacquet-module counts of Theorem 2.3 can be checked directly; Remark 4.5's failure of the count for l > 7; the partition rings R^{(n)}_v = R^St_v. The earlier papers of the series (Clozel–Thorne, Compositio 2014 and Annals 2015, for Sym^5 and Sym^7) are prerequisites and would extend this Part II; Newton–Thorne's later proofs for all n (PAPER-NEWTON-THORNE-21, -21-B, -26) belong to ML.3 by another method.",
+   "reason": "The paper's method is planned nowhere. It builds Iwahori-spherical representations of ramified unitary groups from Kazhdan–Lusztig and places them in Mœglin–Mok L-packets, counts automorphic representations of a definite unitary group with endoscopic base change, raises the level with algebraic modular forms and a pairing argument, and then raises it to Steinberg with Thorne's residually reducible deformation theory. The atlas has the ingredients it imports (Mok's classification in ML.4, unitary trace formulas in ET.4/ET.7, known transfers in ML.5) but no level-raising for GL_n or unitary groups: the only level-raising layers are ModularCurvesPartII R14.4 (Ihara, GL_2) and consumers of it. Its output is the symmetric-power endpoint of ML.3, so it is new layers in the direction of ModularityAndLanglandsExtensions, as the Boxer–Calegari–Gee extraction did for level-one change of weight (LevelOneCuspidalCohomologyGLn). It is not folded into ML.3, which records endpoints rather than a 50-page proof."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E1",
+   "kind": "misprint",
+   "locator": "§2.1, accepted manuscript p. 5",
+   "printed": "set Λ = Z/Z_c ≅ Z^m, a basis being given by the elements ε_i = diag(1, …, ϖ, …, −1/ϖ̄, …, 1), 1 ≤ i ≤ k",
+   "correction": "Λ = Z/Z_c ≅ Z^k",
+   "reason": "The basis listed has k elements (n = 2k + 1); m is not defined in §2 and later denotes n − 4.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E2",
+   "kind": "misprint",
+   "locator": "§1.1, accepted manuscript p. 4",
+   "printed": "If F is a number field and v is a finite place of v, then we will write G_{F_v} for a choice of decomposition group",
+   "correction": "a finite place of F",
+   "reason": "The place is a place of the number field F.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E3",
+   "kind": "misprint",
+   "locator": "Theorem 3.3(i), accepted manuscript p. 21, and the proof in §3.5, p. 27",
+   "printed": "(i) If m = 3, X, Y are semi-stable with exponents [1, 0, 1] and 4[1, 1, 0] + 2[1, 0, 1] + [1, 0, −1], respectively. … Finally, consider m = 3. … The exponent [1, 0, 1] in Theorem 3.3 again shows …",
+   "correction": "X has exponent [1, 0, −1] (and 'The exponent [1, 0, −1] in Theorem 3.3 …')",
+   "reason": "Theorems 2.3(1)(c) and 2.5(1)(b) give X^norm_{N_0} = [1, 0, −1], which is the distinguished exponent e_0 = [k − 2, …, 0, −1] for k = 3 used in the argument of §3.5; in the Kazhdan–Lusztig construction it comes from the component X_1 of B^s_u (two points, exponent [1, 0, −1]), while [1, 0, 1] is the exponent of X_2 ≅ P^1, which contributes to Y only.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.2, accepted manuscript p. 45",
+   "printed": "choose a cyclic totally real extension F_2/F_1 of degree b … Let E_2 = F_2 · F_1, and let π_2 = π_{1,E_2}",
+   "correction": "E_2 = F_2 · E_1",
+   "reason": "F_2 ⊃ F_1, so F_2 · F_1 = F_2 is totally real; π_1 lives on GL_2(A_{E_1}) and the rest of the proof needs the CM field E_2 = F_2E_1 (π_2 = π_{1,E_2} RACSDC, places z_i of E_2 above y_i ramified over F_2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ]
+  },
+  {
+   "id": "PAPER-CLOZEL-THORNE-17/E5",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 7.6, accepted manuscript p. 49",
+   "printed": "We can further assume that E and π are unramified above l",
+   "correction": "E and Π are unramified above l",
+   "reason": "No π occurs in Proposition 7.6; the representation being lifted is the RACSDC Π of GL_2(A_E).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the accepted manuscript (dated 10 December 2015), two identical copies: the author's homepage, https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf, and the Cambridge repository Apollo, https://www.repository.cam.ac.uk/items/478eb67b-3840-4089-a5f7-360592d61a4b (same text)",
+    "the published article, Duke Math. J. 166 (2017) 325–402, https://doi.org/10.1215/00127094-3714971: not accessible (Project Euclid refused automated access), so whether the published text corrects these issues was not checked",
+    "Crossref metadata for DOI 10.1215/00127094-3714971 (no update or correction relation) and a Crossref search for an erratum or corrigendum to the series (none found)",
+    "zbMATH record Zbl 1372.11054 (pages 325–402; no erratum noted)"
+   ]
+  }
+ ]
+}
