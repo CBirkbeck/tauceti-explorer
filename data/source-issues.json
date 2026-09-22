@@ -2018,6 +2018,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-TSIMERMAN-18/E1",
+   "kind": "misprint",
+   "locator": "§5, proof of Theorem 5.2, p.386, in the published version, Annals of Mathematics 187 (2018), 379–390 (publisher PDF)",
+   "printed": "\"Define the subgroup H of ideal classes [I] in Cl(K*) such that there exists an element a ∈ K^× with t_{K,φ}(I) = (a) and Norm_{K/Q}(I) = aā for some a ∈ K^×.\" and later \"Norm_{K/Q}(I) = r_{K,φ}(I) \\overline{r_{K,φ}(I)} = aā O_K, so that aā/|O_K/I| is a totally positive unit\", \"aā/Norm_{K/Q}(I)\".",
+   "correction": "I is an ideal of the reflex field K*, so read N_{K*/Q}(I) for Norm_{K/Q}(I) and |O_{K*}/I| for |O_K/I|; the ideal-level identity is t_{K,φ}(I)·\\overline{t_{K,φ}(I)} = N_{K*/Q}(I)·O_K (with t, not the class-group map r).",
+   "reason": "The reflex norm t_{K,φ} sends ideals of K* to ideals of K, and t(I)·t(I)‾ = N_{K*/Q}(I)O_K; Norm_{K/Q} and O_K do not apply to an ideal of K*. Checked on the page image. Noted by the extraction (item polarized-reciprocity-kernel).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2018/187-2/p02, checked 22 September 2026: no erratum is linked",
+    "arXiv 1506.01466: v1–v5 (5 December 2015 the last); v5 has the same regulator sentence and the same Proposition 2.2; the §5 passage of E1 appears only in the published version",
+    "web search for an erratum or corrigendum, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TSIMERMAN-18/E2",
+   "kind": "gap",
+   "locator": "Proposition 2.2 (p.382) and the proof of Theorem 4.2 (p.385), in the published version, Annals of Mathematics 187 (2018), 379–390 (publisher PDF)",
+   "printed": "Proposition 2.2: \"For a primitive CM type Φ, there are two elements in S(E, Φ) such that the lowest degree isogeny between them has degree at least |Disc(E)|^{1/4−o_g(1)}.\" Theorem 4.2 is stated for any A ∈ S(E, Φ), and its proof begins \"Note that by Proposition 2.2, there are two elements A and B in S(E, Φ) such that the minimal isogeny between them is of degree at least |Disc(E)|^{1/4−o_g(1)}.\"",
+   "correction": "State Proposition 2.2 as: for every A ∈ S(E, Φ) there is B ∈ S(E, Φ) such that every isogeny A → B has degree at least |Disc(E)|^{1/4−o_g(1)}. This is what its proof gives, and it is what the proof of Theorem 4.2 uses for the given A.",
+   "reason": "The proof of Proposition 2.2 fixes an arbitrary A and counts: isogenies from A of degree n correspond to ideals of norm n, of which there are n^{o(1)}, while |S(E, Φ)| ≫ |Disc(E)|^{1/4−o(1)}. As printed, the proposition asserts only some pair, and the proof of Theorem 4.2 silently replaces the given A by that pair's first element. Noted by the extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2018/187-2/p02, checked 22 September 2026: no erratum is linked",
+    "arXiv 1506.01466: v1–v5 (5 December 2015 the last); v5 has the same regulator sentence and the same Proposition 2.2; the §5 passage of E1 appears only in the published version",
+    "web search for an erratum or corrigendum, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-TSIMERMAN-18/E3",
+   "kind": "error",
+   "locator": "§2.2, p.382, in the published version, Annals of Mathematics 187 (2018), 379–390 (publisher PDF)",
+   "printed": "\"The Brauer–Siegel theorem [4], the fact that the regulators of E and E_0 are the same, and the fact that |Disc(E)| ≥ |Disc(E_0)|² imply that |S(E, Φ)| ≫_g |Cl(E)|/|Cl(E_0)| ≫_g |Disc(E)|^{1/4−o_g(1)}.\"",
+   "correction": "The regulators agree up to a bounded factor: R_E = (2^{g−1}/Q)·R_{E_0}, where Q = [O_E^× : μ_E O_{E_0}^×] ∈ {1, 2} is the Hasse unit index. That suffices for the estimate.",
+   "reason": "For a CM field of degree 2g the regulator ratio is 2^{g−1}/Q (e.g. Washington, Introduction to Cyclotomic Fields, Proposition 4.16), which is 1 only when g = 1, or g = 2 and Q = 2. The factor depends only on g, so the displayed bound is unchanged. Noted by the extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics article page https://annals.math.princeton.edu/2018/187-2/p02, checked 22 September 2026: no erratum is linked",
+    "arXiv 1506.01466: v1–v5 (5 December 2015 the last); v5 has the same regulator sentence and the same Proposition 2.2; the §5 passage of E1 appears only in the published version",
+    "web search for an erratum or corrigendum, 22 September 2026: none found"
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/errata/PAPER-TSIMERMAN-18.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-YUAN-26/E1",
    "kind": "error",
    "locator": "Theorem 4.19, function-field case, p.101 (with the definition of maximal variation, §1.6, p.16); the same statement is Theorem 4.19 in arXiv v4, p.100, in the author manuscript dated 21 August 2024 (126 pp., the journal's revision date; SHA-256 b36f4860…813e)",
@@ -2213,7 +2276,6 @@
   "PAPER-SCHROER-23",
   "PAPER-SHENDE-TSIMERMAN-17",
   "PAPER-SMITH-24",
-  "PAPER-TSIMERMAN-18",
   "PAPER-WITASZEK-22",
   "PAPER-WOOD-19"
  ]
