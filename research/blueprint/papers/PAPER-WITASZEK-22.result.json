@@ -6453,7 +6453,7 @@
       "statement": "On a normal projective surface over an algebraically closed field, a nef line bundle with numerical dimension1 and Iitaka dimension1 is semiample.",
       "locator": "Guarded input for Corollary6.7; compare Keel99 Lemma5.2",
       "status": "missing",
-      "note": "Diagnostic D5 separates the false weaker hypothesis; this corrected target remains an explicit proof-closure gap.",
+      "note": "Proof supplied by the continuation of Claude Code (cc-fb70e5, 22 September 2026). It is characteristic-free and uses only Mumford intersection theory on normal surfaces, base-point-freeness of a moving pencil with M²=0, Stein factorization and Zariski's lemma. This closes gap-surface-nef-repair for this item. surface-rr-growth still carries that gap for its Riemann–Roch input.",
       "prerequisites": [
         "PAPER-WITASZEK-22/nef",
         "PAPER-WITASZEK-22/semiample",
@@ -6461,8 +6461,12 @@
         "PAPER-WITASZEK-22/iitaka-dimension"
       ],
       "proofSteps": [
-        "Use a moving linear system of dimension≥1; after resolving its base locus, intersection zero forces the fixed part to be vertical and yields a curve fibration and an ample divisor downstairs.",
-        "Complete a primary-source proof with this stronger hypothesis; the printed h⁰>0 formulation is not accepted."
+        "Let L be nef on a normal projective surface S over an algebraically closed field (any characteristic), with L²=0 and κ(L)=1. Choose m with h⁰(mL)≥2 and write |mL|=|M|+F, with M the moving part and F≥0 the fixed part. M is nef, since |M| has no fixed component. Intersections of Weil divisors use Mumford's theory.",
+        "Since L is nef, 0=m L²=L·M+L·F with both terms ≥0, so L·M=L·F=0. Then M²=mL·M−M·F=−M·F≤0 and M²≥0, so M²=0 and M·F=0. Finally F²=mL·F−M·F=0.",
+        "|M| is base-point-free: two general members have no common component and intersection M²=0, and local intersection numbers of distinct curves on a normal surface are positive at common points, so they are disjoint. Since κ(L)=1, φ_{|M|} has one-dimensional image. Its Stein factorization f:S→C has connected fibres, and M=f*A with A ample on the normal projective curve C.",
+        "M·F=0 with M=f*A nef forces every component of F to be f-vertical. Group F=Σ_tF_t by fibres; distinct fibres are disjoint, so F²=ΣF_t². By Zariski's lemma the intersection form on the components of the connected fibre G_t=f*(t) is negative semidefinite with kernel QG_t, so each F_t²≤0. Hence F_t²=0 and F_t=q_tG_t with q_t∈Q_{≥0}, as divisors.",
+        "Choose k>0 clearing the denominators of the q_t. Then kmL∼kM+kF=f*(kA+Σ_t kq_t[t]), where kA+Σkq_t[t] has positive degree and is ample on C. So some power of L is a pullback of a very ample divisor, and L is semiample.",
+        "Scope: the bare hypothesis \"ν(L)=1 and h⁰(L^m)>0\" is insufficient (diagnostic D5 gives a ruled-surface counterexample with κ=0). Corollary 6.7 supplies κ=1 through the linear growth of χ(mL) and the H² bound (surface-rr-growth and surface-h2-bound)."
       ],
       "implementationStatus": "unchecked",
       "ownerRoute": "POS",
@@ -6476,7 +6480,6 @@
       },
       "gaps": [
         "PAPER-WITASZEK-22/gap-publication",
-        "PAPER-WITASZEK-22/gap-surface-nef-repair",
         "PAPER-WITASZEK-22/gap-final-closure-audit"
       ]
     },
@@ -7475,7 +7478,7 @@
     {
       "id": "PAPER-WITASZEK-22/gap-surface-nef-repair",
       "title": "surface-nef-repair",
-      "detail": "Supply a primary exact theorem or a full fibration proof for nef ν=κ=1 semiampleness. The weaker h⁰>0 statement has the ruled-surface counterexample D5; Witaszek's χ-growth supplies κ=1, not just nonzero sections.",
+      "detail": "Supply a primary exact theorem or a full fibration proof for nef ν=κ=1 semiampleness. The weaker h⁰>0 statement has the ruled-surface counterexample D5; Witaszek's χ-growth supplies κ=1, not just nonzero sections. Continuation (cc-fb70e5): the ν=κ=1 semiampleness theorem, surface-abundant-nef, is proved by the fibration argument in its proofSteps. What remains is the Euler-characteristic growth input of surface-rr-growth.",
       "neededBy": [
         "PAPER-WITASZEK-22/surface-abundant-nef",
         "PAPER-WITASZEK-22/surface-rr-growth",
@@ -7920,6 +7923,14 @@
       "url": "https://stacks.math.columbia.edu/tag/0B5V",
       "accessed": "2026-09-22",
       "scope": "Whole finite-surjective ampleness lemma and proof."
+    }
+  ],
+  "continuationLog": [
+    {
+      "agent": "Claude Code",
+      "session": "cc-fb70e5",
+      "date": "2026-09-22",
+      "work": "Proved surface-abundant-nef (nef, ν=κ=1 surface bundles are semiample, any characteristic), resolving handoff task 2 for that item."
     }
   ]
 }

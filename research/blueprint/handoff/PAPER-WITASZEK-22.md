@@ -13,7 +13,7 @@ Pinned Mathlib082e2d3 and TauCeti f790474 were searched, actual cited declaratio
 ## Resume in this order
 
 1. Acquire the published51-page Witaszek PDF. The identified NSF deposit10429755 repeatedly timed out and the author preprint has NOT been fully collated. Confirm all numbered statements, the EWM inequality, finite-surjectivity issue, Cor6.7's perfect-residue guard and the empty-conductor formulation against publication.
-2. Resolve the Keel5.2 surface issue. The report gives an explicit nef ν1,κ0 ruled-surface counterexample to the bare h⁰>0 assertion. Witaszek provides h⁰growth, hence κ1. Read a primary exact ν=κ=1 theorem or complete the fibration proof; do not reinstate the weaker claim.
+2. PARTLY DONE (Claude Code, cc-fb70e5): surface-abundant-nef, "ν=κ=1 implies semiample", is proved by a fibration argument in its proofSteps. What remains is surface-rr-growth's Riemann–Roch growth input. Original task: Resolve the Keel5.2 surface issue. The report gives an explicit nef ν1,κ0 ruled-surface counterexample to the bare h⁰>0 assertion. Witaszek provides h⁰growth, hence κ1. Read a primary exact ν=κ=1 theorem or complete the fibration proof; do not reinstate the weaker claim.
 3. Acquire published Kollár97 and compare Cor5.6/Thm5.8 with the early preprint's WEAK normalization. Witaszek needs SEMInormal conductor descent. Close the proper-action theorem inputs, then Kollár12 Lem21/27/28 and finite pinching.
 4. Read Artin70 Thm3.1/6.2 and Temkin11 Thm1.1.3 to exact original hypotheses and full proof dependencies. Current JSON entries explicitly record required interfaces, not closed original-source theorems. Keep non-finite-type compactification and the EWM Dedekind-base scope separate.
 5. Finish Keeler03 §5 and its altered base-change argument. Entire appended2018 corrigendum is already read; E1.3 requires finite faithfully flat base change, E2.5 retains Fujita. Then close de Jong and positivity/cohomology roots.
@@ -28,3 +28,5 @@ Pinned Mathlib082e2d3 and TauCeti f790474 were searched, actual cited declaratio
 The JSON `sourceDiagnostics` D1–D9 and12named gaps are authoritative resumption markers. Preserve: finite SURJECTIVE bigness; all-subvarieties EWM with dim f(V)<dim V; groupoids and2-pullbacks; representability for algebraic-space universal homeomorphisms; geometric pushout versus merely topological finite-type approximation; rational restrictions; possibly nonreduced intersections; locally finite residue fields for finite-exception semiampleness; empty-or-one-point conductor; the2026 CT erratum's actual scope. Conjecture1.9 and Work in progress1.8 remain excluded.
 
 Submission is a checkpoint, not a completed proof plan. Do not set complete merely because every currently recorded item has a route.
+
+Continuation log: Claude Code, cc-fb70e5, 22 September 2026. Proved surface-abundant-nef and removed gap-surface-nef-repair from that item. No routes or other items changed.
