@@ -5327,8 +5327,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1332"
+   "state": "pending",
+   "note": "released on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6244,7 +6244,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BINYAMINI-22.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1387",
+   "finishedAt": "2026-09-22T12:09:34Z"
   },
   {
    "id": "REV-PAPER-BINYAMINI-22",
