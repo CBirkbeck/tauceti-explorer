@@ -4128,8 +4128,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-TSUZUKI-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1258"
+   "state": "pending",
+   "note": "released on GitHub issue #1258"
   },
   {
    "id": "REV-PAPER-TSUZUKI-23",
@@ -7794,7 +7794,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1468"
   },
   {
    "id": "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
