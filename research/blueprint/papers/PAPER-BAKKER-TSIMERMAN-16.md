@@ -99,3 +99,17 @@ These proposed roadmap IDs are design destinations, not already existing stages.
 
 No Lean file is requested for a paper extraction; none was created or compiled. No mathematical implementation is claimed. The next independent reviewer should prioritize the erratum handling, projective/actual moduli descent, cyclic/full Hecke distinction, analytic current normalization, and the five owner boundaries. Complete extraction leaves the explicitly listed prerequisite proof work to the later design/blueprint jobs.
 
+
+## Corrections by the independent review
+
+The independent review (REV-PAPER-BAKKER-TSIMERMAN-16, `research/blueprint/reviews/REV-PAPER-BAKKER-TSIMERMAN-16.md`) accepted this extraction and all five routes. It corrected the JSON in place:
+
+- **Statuses:** item 09 (library → missing: Tau Ceti's disc distance is half the curvature −1 distance) and item 17 (planned → missing).
+- **Statements:**
+  - items 13 and 30: the cusped injectivity radius, where the printed definition omits a factor ½;
+  - items 38–41: the printed hypotheses restored;
+  - item 109: the area formula repaired.
+- **Citations, locators and notes:** the citations of items 109 and 110, the locators of items 10, 31, 33–35 and 37, and several notes.
+- **New items:** eight supporting items (113–120) were added.
+
+Where the text above counts items, the corrected JSON is authoritative. It has 120 items: 6 library, 8 planned and 106 missing.
