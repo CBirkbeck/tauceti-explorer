@@ -1035,8 +1035,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SMITH-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1081"
+   "state": "external",
+   "note": "claimed on GitHub issue #1081"
   },
   {
    "id": "REV-PAPER-SMITH-24",
@@ -28868,7 +28868,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-YUAN-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1750",
+   "finishedAt": "2026-09-22T12:52:56Z"
   },
   {
    "id": "REV-ERRATA-PAPER-YUAN-26",
@@ -28903,7 +28905,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-NEWTON-THORNE-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1764",
+   "finishedAt": "2026-09-22T12:52:58Z"
   },
   {
    "id": "REV-ERRATA-PAPER-NEWTON-THORNE-26",
@@ -28938,7 +28942,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1766",
+   "finishedAt": "2026-09-22T12:52:59Z"
   },
   {
    "id": "REV-ERRATA-PAPER-CIUBOTARU-HARRIS-26",
@@ -28973,7 +28979,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-ZHOU-25.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1768",
+   "finishedAt": "2026-09-22T12:53:01Z"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-ZHOU-25",
@@ -29008,7 +29016,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SMITH-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1770",
+   "finishedAt": "2026-09-22T12:53:02Z"
   },
   {
    "id": "REV-ERRATA-PAPER-SMITH-24",
@@ -29043,7 +29053,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-FU-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1772",
+   "finishedAt": "2026-09-22T12:53:04Z"
   },
   {
    "id": "REV-ERRATA-PAPER-FU-24",
@@ -29078,7 +29090,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1774",
+   "finishedAt": "2026-09-22T12:53:05Z"
   },
   {
    "id": "REV-ERRATA-PAPER-SCHROER-23",
@@ -29150,7 +29164,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1777",
+   "finishedAt": "2026-09-22T12:53:07Z"
   },
   {
    "id": "REV-ERRATA-PAPER-DITTMANN-POP-23",
@@ -29185,7 +29201,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-WITASZEK-22.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1779",
+   "finishedAt": "2026-09-22T12:53:08Z"
   },
   {
    "id": "REV-ERRATA-PAPER-WITASZEK-22",
@@ -29331,7 +29349,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1781",
+   "finishedAt": "2026-09-22T12:53:10Z"
   },
   {
    "id": "REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -29366,7 +29386,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1783",
+   "finishedAt": "2026-09-22T12:53:12Z"
   },
   {
    "id": "REV-ERRATA-PAPER-TSIMERMAN-18",
@@ -29438,7 +29460,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1785",
+   "finishedAt": "2026-09-22T12:53:13Z"
   },
   {
    "id": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -29473,7 +29497,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CHARLES-16.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1787",
+   "finishedAt": "2026-09-22T12:53:15Z"
   },
   {
    "id": "REV-ERRATA-PAPER-CHARLES-16",
@@ -29508,7 +29534,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-GILLE-PARIMALA-26.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1789",
+   "finishedAt": "2026-09-22T12:53:16Z"
   },
   {
    "id": "REV-ERRATA-PAPER-GILLE-PARIMALA-26",
@@ -29580,7 +29608,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BRESCIANI-24.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1791",
+   "finishedAt": "2026-09-22T12:53:18Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BRESCIANI-24",
@@ -29615,7 +29645,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CARO-PASTEN-23.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1793",
+   "finishedAt": "2026-09-22T12:53:20Z"
   },
   {
    "id": "REV-ERRATA-PAPER-CARO-PASTEN-23",
@@ -29650,7 +29682,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-BENOIST-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1795",
+   "finishedAt": "2026-09-22T12:53:21Z"
   },
   {
    "id": "REV-ERRATA-PAPER-BENOIST-WITTENBERG-20",
@@ -29722,7 +29756,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1797",
+   "finishedAt": "2026-09-22T12:53:23Z"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -29757,7 +29793,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1799",
+   "finishedAt": "2026-09-22T12:53:25Z"
   },
   {
    "id": "REV-ERRATA-PAPER-CESNAVICIUS-19",
@@ -29792,7 +29830,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1802",
+   "finishedAt": "2026-09-22T12:53:26Z"
   },
   {
    "id": "REV-ERRATA-PAPER-WOOD-19",
