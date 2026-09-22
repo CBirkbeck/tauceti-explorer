@@ -1,0 +1,1260 @@
+{
+  "paper": "PAPER-HARPAZ-WITTENBERG-16",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "On the fibration method for zero-cycles and rational points",
+    "authors": "Yonatan Harpaz and Olivier Wittenberg",
+    "venue": "Annals of Mathematics 183 (2016), no. 1, 229–295 (received 1 September 2014, revised 6 April 2015, accepted 5 June 2015, published online 25 November 2015)",
+    "doi": "10.4007/annals.2016.183.1.5",
+    "arxiv": "1409.0993v4",
+    "url": "https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf",
+    "readSections": [
+      "The whole paper, §§1–9 and the references, 54 pages. Read 2026-09-22 from the arXiv v4 TeX source (e-print SHA-256 9e5507574467e9feb503fc6c1cdba750befeb71912caed4173c15bc700da6719; PDF SHA-256 3338fb5359996b5824e3f67638e3b848f6a5d8a821cda8e10a6577f349517369).",
+      "The authors' final version (Wittenberg's page, PDF SHA-256 5c1d91c21b0d53dcc32435ea6cb77ce274820fea249790ebf8d8d2199278a424) was compared word by word with v4: five trivial differences. Statement numbers and page locators refer to this version (54 pages). The Annals pagination (pp. 229–295) could not be read beyond a 2-page preview (SHA-256 6c575cefeb86501b77e981d1f7ba7d909b61baad00a87b77bc6afc7e48abd603), whose text matches pp. 1–2.",
+      "Cited inputs were checked where the extraction depends on them: [Wit12] Corollaire 5.7, Théorème 2.1, Lemmes 2.3–2.4, 1.8, 1.10–1.12 (as quoted in the paper); Harari [Har94] Théorème 2.1.1, Corollaires 2.4.3 and 2.6.1 (as quoted); Mattuck's theorem, whose statement the BRESCIANI-24 extraction records."
+    ]
+  },
+  "summary": "Harpaz and Wittenberg prove that the Colliot-Thélène–Sansuc–Kato–Saito conjecture (E) on zero-cycles is compatible with fibrations. If X → C is a fibration over a curve C satisfying (E), and its geometric generic fiber has H¹(−, Q/Z) = 0 and trivial A₀ over an algebraically closed field (for example, it is rationally connected), then (E) for the smooth fibers above a Hilbert set of closed points implies (E) for X (Theorem 8.3). By induction the same holds over bases birational to P^n × C (Corollary 8.4). Fibrations into homogeneous spaces with connected stabilisers therefore satisfy (E) unconditionally (Corollary 8.5); these include all fibrations into toric varieties and Châtelet surfaces, and norm hypersurfaces N_{K/k}(x) = P(t) for every K and P. The proof replaces Dirichlet's theorem, and with it every abelianness hypothesis, by strong approximation for affine space minus codimension 2. It works in Wittenberg's groups Pic₊(C) and Br₊(C) with their arithmetic duality, a formal lemma for effective cycles in a fixed divisor class, Harari's specialisation of the Brauer group, and completion arguments on adelic Chow groups. For rational points, the same argument proves Brauer–Manin density on the total space of rationally connected fibrations over P^n (Theorem 9.17 and Corollaries 9.23–9.25), conditionally on a new Conjecture 9.1 on locally split values of polynomials. Conjecture 9.1 follows from Schinzel's hypothesis for almost abelian extensions (Theorem 9.6), holds in small degree by geometry (Theorem 9.11), holds for linear polynomials over Q by Matthiesen's additive combinatorics (Theorem 9.14, giving the unconditional Theorem 9.28), and in one cubic case by Irving's sieve (Theorem 9.15). The atlas plans the Brauer–Manin set, Hilbert irreducibility, Chow groups, étale cohomology, Poitou–Tate, Weil restriction, Chebotarev, and the class field theory and curve theory used. The fibration method itself, Pic₊/Br₊ duality, (E), and Conjecture 9.1 with its cases are missing. They are routed to HW20's candidate Part II HeightsRationalPointsPartIIZeroCycles, which already names HW16's §8 theorems, and inputs go as sources to RP.2, SF.2, IG.2, WC.5, MC.0, SV.4, SV.5 and AC.5. Two mistakes are recorded: a misprint in the proof of Lemma 9.13, and a false intermediate claim in the proof of Theorem 9.22 for non-proper X, repaired by using integral points.",
+  "items": [
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/1",
+      "kind": "theorem",
+      "name": "Conjecture 1.1 (Colliot-Thélène): Brauer–Manin density for rationally connected varieties",
+      "statement": "For any smooth, proper, geometrically irreducible, rationally connected variety X over a number field k, the set X(k) is dense in X(A_k)^{Br(X)}.",
+      "locator": "Conjecture 1.1, p. 1 (author final version (= arXiv v4))",
+      "status": "missing",
+      "note": "A conjecture, recorded as a statement and never used as a hypothesis-free theorem. HW20 (unreviewed) routed the same statement, its item 133, to HeightsRationalPointsPartIIHomogeneousMassey. The fibration theorems here are its main consumers, so this extraction proposes the zero-cycle/fibration Part II as its single owner (see the report)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/2",
+      "kind": "definition",
+      "name": "Adelic points and the Brauer–Manin set",
+      "statement": "X(A_k) = ∏'_v X(k_v) (restricted product with respect to an integral model), and X(A_k)^{Br(X)} ⊆ X(A_k) is the set of adelic points (x_v) with Σ_v inv_v β(x_v) = 0 for all β ∈ Br(X). It is closed and contains the image of X(k), by global reciprocity.",
+      "locator": "§1, p. 1",
+      "status": "planned",
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "note": "RP.2 plans restricted adelic point spaces, local invariants and the Brauer–Manin pairing with its finite-support theorem."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/3",
+      "kind": "definition",
+      "name": "The Brauer pairing on zero-cycles",
+      "statement": "For a variety X over a field k, ⟨−,−⟩ : Br(X) × Z_0(X) → Br(k) is characterised by ⟨β, P⟩ = Cores_{k(P)/k}(β(P)) for a closed point P. If X is proper it factors through rational equivalence, giving Br(X) × CH_0(X) → Br(k) (Manin, Définition 7 and Proposition 8). Over a number field, summing local invariants gives Br(X) × Z_{0,A}(X) → Q/Z (1.4) and, for smooth proper X, Br(X) × ĈH_{0,A}(X) → Q/Z (1.5).",
+      "locator": "§1, Notation and conventions, pp. 6–7",
+      "status": "missing",
+      "note": "HW20 routed the cycle version of the Brauer evaluation interface as a source of RP.2, and this item follows it. The factorisation through rational equivalence needs properness."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/4",
+      "kind": "definition",
+      "name": "The modified adelic Chow group CH_{0,A}(X), completions, and the complex (E)",
+      "statement": "For smooth proper X over a number field k, CH_{0,A}(X) = ∏_{v∈Ω_f} CH_0(X⊗k_v) × ∏_{v∈Ω_∞} CH_0(X⊗k_v)/N_{k̄_v/k_v}(CH_0(X⊗k̄_v)). For an abelian group M, M̂ = lim_n M/nM. The complex (E) is ĈH_0(X) → ĈH_{0,A}(X) → Hom(Br(X), Q/Z), the second map being Σ_v ⟨−,−⟩_v. It is a complex by global reciprocity. Z_{0,A}(X) is the set of families (z_v) whose supports are integral over O_v for almost all v with respect to a model.",
+      "locator": "§1, (1.1)–(1.2) p. 2, and Notation p. 7",
+      "status": "missing",
+      "note": "HW20 items 24 and 27 (modified local Chow groups, exactness property (E)) are routed to the same Part II. SF.5 supplies CH_0 and proper pushforward."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/5",
+      "kind": "theorem",
+      "name": "Conjecture 1.2 (Colliot-Thélène–Sansuc, Kato–Saito), in van Hamel's formulation",
+      "statement": "For any smooth, proper, geometrically irreducible variety X over a number field k, the complex (E) is exact.",
+      "locator": "Conjecture 1.2, p. 2",
+      "status": "missing",
+      "note": "A conjecture, recorded as a statement. Rationally connected varieties that satisfy Conjecture 1.1 over every finite extension of k satisfy it (Liang)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/6",
+      "kind": "definition",
+      "name": "Definition 1.7: properties (E) and (E₁)",
+      "statement": "A smooth proper variety X over a number field k satisfies (E) if (E) is exact. It satisfies (E₁) if the existence of (z_v) ∈ ∏_v Z_0(X⊗k_v) orthogonal to Br(X) with deg(z_v) = 1 for all v implies the existence of a zero-cycle of degree 1 on X. (E) implies (E₁).",
+      "locator": "Definition 1.7, p. 7",
+      "status": "missing",
+      "note": "Shared with HW20's candidate owner."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/7",
+      "kind": "definition",
+      "name": "Split varieties, symmetric products and effective reduced cycles over a curve",
+      "statement": "A variety over k is split if it contains a geometrically integral open subset. Sym_{X/k} = ⊔_{d≥1} Sym^d_{X/k} for quasi-projective X. For f : X → C to a smooth proper curve, Z_0^{eff,red}(X) is the set of effective zero-cycles z with f_*z reduced. Over a number field, Z^{eff,red}_{0,A}(X) = Z_{0,A}(X) ∩ ∏_v Z_0^{eff,red}(X⊗k_v). For y ∈ Pic(C), Z^{eff,red,y}_{0,A}(X) consists of families with f_*z_v linearly equivalent to y at finite v, and equivalent up to a norm from k̄_v at infinite v.",
+      "locator": "Notation and conventions, pp. 6–7",
+      "status": "missing",
+      "note": "Symmetric powers of a smooth curve are planned in the Jacobian Challenge (Layer C). The adelic effective-reduced sets are specific to the fibration method."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/8",
+      "kind": "definition",
+      "name": "Hilbert subsets (in Lang's sense, of all scheme points)",
+      "statement": "A subset H of an irreducible variety X is a Hilbert subset if there are a dense open X⁰ ⊆ X, n ≥ 1 and irreducible finite étale X⁰-schemes W_1, …, W_n such that H is the set of points of X⁰ above which every W_i has irreducible fiber. H is not a subset of X(k): the generic point belongs to every Hilbert subset.",
+      "locator": "Notation and conventions, p. 7",
+      "status": "planned",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "HW20's item 10 records that IG.2 plans Hilbert subsets of all scheme points, and Hilbert irreducibility."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/9",
+      "kind": "definition",
+      "name": "Strong approximation off a place",
+      "statement": "A variety X over k satisfies strong approximation off v₀ if X(k_{v₀}) = ∅, or if for every finite S ∋ v₀ containing Ω_∞ and every model 𝒳 over 𝒪_S, the diagonal map 𝒳(𝒪_S) → ∏_{v∈S∖{v₀}} X(k_v) × ∏_{v∉S} 𝒳(𝒪_v) has dense image.",
+      "locator": "§1, p. 7",
+      "status": "missing",
+      "note": "Tau Ceti Global Number Fields Layer 6 plans additive strong approximation (the case of 𝔾_a and the ideles), not this property of varieties."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/10",
+      "kind": "theorem",
+      "name": "Lemma 1.8 (Cao–Xu, Wei): A^n minus codimension 2 satisfies strong approximation",
+      "statement": "Let n ≥ 1, k a number field, v₀ a place of k and F ⊆ A^n_k a closed subset of codimension ≥ 2. Then U = A^n_k ∖ F satisfies strong approximation off v₀. Proof: weakly approximate by Q ∈ U(k), choose Q′ with the line through Q, Q′ inside U, and apply strong approximation off v₀ on that line.",
+      "locator": "Lemma 1.8, p. 8",
+      "status": "missing",
+      "note": "Imports weak approximation and additive strong approximation (Tau Ceti Global Number Fields Layers 1 and 6). The general-line step uses codim F ≥ 2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/11",
+      "kind": "theorem",
+      "name": "Theorem 1.3: the fibration theorem for zero-cycles over P^1",
+      "statement": "Let X be a smooth, proper, geometrically irreducible variety over a number field k and f : X → P^1_k a dominant morphism with rationally connected geometric generic fiber. If the smooth fibers of f satisfy Conjecture 1.2, so does X.",
+      "locator": "Theorem 1.3, p. 2",
+      "status": "missing",
+      "note": "The special case of Theorem 8.3(1) with C = P^1 (item 52)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/12",
+      "kind": "theorem",
+      "name": "Theorem 1.4: fibrations into homogeneous spaces satisfy (E)",
+      "statement": "Let X be smooth, proper, irreducible over k; Y irreducible, birational to P^n, C or P^n × C (n ≥ 1, C a smooth proper geometrically irreducible curve satisfying (E)); f : X → Y dominant with generic fiber birational to a homogeneous space of a connected linear algebraic group with connected geometric stabilisers. Then X satisfies (E).",
+      "locator": "Theorem 1.4, p. 3 (= Corollary 8.5)",
+      "status": "missing",
+      "note": "Restated as Corollary 8.5 (item 58)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/13",
+      "kind": "theorem",
+      "name": "Theorem 1.5: the conditional fibration theorem for rational points",
+      "statement": "Let X be smooth, proper, geometrically irreducible over k and f : X → P^1_k dominant with rationally connected geometric generic fiber. Assume Conjecture 9.1. If the smooth fibers of f above rational points satisfy Conjecture 1.1, so does X.",
+      "locator": "Theorem 1.5, p. 3",
+      "status": "missing",
+      "note": "The case n = 1 of Corollary 9.25 (item 92)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/14",
+      "kind": "theorem",
+      "name": "Theorem 1.6: the unconditional fibration theorem over Q (via Matthiesen)",
+      "statement": "Let X be smooth, proper, geometrically irreducible over Q and f : X → P^1_Q dominant with rationally connected geometric generic fiber, whose non-split fibers all lie over rational points. If X_c(Q) is dense in X_c(A_Q)^{Br(X_c)} for every rational point c of a Hilbert subset of P^1_Q, then X(Q) is dense in X(A_Q)^{Br(X)}.",
+      "locator": "Theorem 1.6, p. 4 (= Theorem 9.28)",
+      "status": "missing",
+      "note": "Restated as Theorem 9.28 (item 94)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/15",
+      "kind": "theorem",
+      "name": "Zero-cycles on norm hypersurfaces N_{K/k}(x) = P(t)",
+      "statement": "For any finite extension K/k of number fields (or any finite extension K/k(t)) and any nonzero P(t) ∈ k[t], a smooth proper model of N_{K/k}(x_1ω_1 + ⋯ + x_nω_n) = P(t) satisfies (E). The generic fiber over the t-line is a torsor under the norm torus, and smooth compactifications of torsors under tori satisfy Conjecture 1.1.",
+      "locator": "§1, (1.3) and the discussion after it, pp. 2–3",
+      "status": "missing",
+      "note": "An application of Theorem 1.3 in its form Corollary 8.4(2) (item 57), using Sansuc's theorem for tori (item 59) and Lemma 8.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/16",
+      "kind": "definition",
+      "name": "Definition 2.1: the groups Pic₊(C) and Br₊(C)",
+      "statement": "Let C be a smooth, proper, geometrically irreducible curve over a field k of characteristic 0, C⁰ = C ∖ M dense open, and for m ∈ M a nonzero finite étale k(m)-algebra L_m. Pic₊(C) is Div(C⁰) modulo div(f) for those f invertible at every m ∈ M with f(m) ∈ N_{L_m/k(m)}(L_m^*). Br₊(C) ⊆ Br(C⁰) is the set of classes whose residue at each m ∈ M lies in Ker(r_m : H¹(k(m), Q/Z) → H¹(L_m, Q/Z)). There are exact sequences k^* → ⊕_m k(m)^*/N(L_m^*) → Pic₊(C) → Pic(C) → 0 and 0 → Br(C) → Br₊(C) → ⊕_m Ker(r_m) → H³(C, 𝔾_m). In particular Br₊(C)/Br(C) is finite.",
+      "locator": "Definition 2.1, (2.1)–(2.2), Remarks 2.2, pp. 8–9",
+      "status": "missing",
+      "note": "Pic₊(C) is a quotient of Rosenlicht's relative Picard group Pic(C, M). The finiteness of Br₊(C)/Br(C) is what makes the formal lemma applicable."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/17",
+      "kind": "theorem",
+      "name": "Proposition 2.3: hypercohomological description of Pic₊ and Br₊",
+      "statement": "With 𝓔 = τ_{≤1}Rρ_*[j_*𝔾_m → ⊕_m i_{m*}ℤ], there are canonical isomorphisms Pic₊(C) = H⁰(k, RHom(𝓔, 𝔾_m)) and Br₊(C) = H²(k, 𝓔).",
+      "locator": "Proposition 2.3, p. 10",
+      "status": "missing",
+      "note": "Uses Deligne's universal coefficient formula. SF.2 supplies étale cohomology of schemes."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/18",
+      "kind": "theorem",
+      "name": "Proposition 2.4 and the adelic complex for Pic₊",
+      "statement": "The pairing Br(C⁰) × Div(C⁰) → Br(k) induces Br₊(C) × Pic₊(C) → Br(k). Over a number field, summing local invariants gives Br₊(C) × Pic₊,A(C) → Q/Z, where Pic₊,A(C) is the restricted product of the Pic₊(C⊗k_v) (modified by norms at infinite places). Global reciprocity makes Pic₊(C) → Pic₊,A(C) → Hom(Br₊(C), Q/Z) a complex. It is not exact in general when C has positive genus.",
+      "locator": "Proposition 2.4 and §2.2, (2.3)–(2.5), pp. 10–11",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/19",
+      "kind": "theorem",
+      "name": "Theorem 2.5 (Wittenberg, Corollaire 5.7): arithmetic duality for Pic₊",
+      "statement": "Any element of Pic₊,A(C) that is orthogonal to Br₊(C) and whose image in Pic_A(C) comes from Pic(C) is the image of an element of Pic₊(C).",
+      "locator": "Theorem 2.5, p. 11, citing [Wit12, Corollaire 5.7]",
+      "status": "missing",
+      "note": "When C = P^1 this is Poitou–Tate duality for the norm-one tori of the L_m/k(m) (item 20). For positive genus its proof needs the hypercohomological formalism of [Wit12, §5]."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/20",
+      "kind": "theorem",
+      "name": "Poitou–Tate duality for tori",
+      "statement": "For an algebraic torus T over a number field k, the kernel of H¹(k, T) → ⊕_v H¹(k_v, T) is dual to that of H²(k, T̂), and the image of H¹(k, T) in ⊕_v H¹(k_v, T) is the orthogonal of H¹(k, T̂) (Milne, ADT I.4.20).",
+      "locator": "§2.2, after Theorem 2.5, p. 11",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.4"
+      ],
+      "note": "R02.4 plans Poitou–Tate duality with its lattice versions. HW20 routed the torus/character-lattice statements to it as a source."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/21",
+      "kind": "theorem",
+      "name": "Harari's formal lemma and ramified-evaluation theorem",
+      "statement": "(a) Let X⁰ ⊆ X be a dense open subset of a smooth variety over a number field and B ⊂ Br(X⁰) finite. Then adelic points of X⁰ orthogonal to B are dense in the set of adelic points of X orthogonal to B ∩ Br(X) (Harari, Corollaire 2.6.1). (b) If β ∈ Br(X⁰) ∖ Br(X), then β(a) ≠ 0 for some a ∈ X⁰(k_v), for infinitely many places v (Théorème 2.1.1). (c) If β ∈ Br(f^{-1}(𝒰)) and x ∈ X(k_v) specialises to a smooth point of a split fiber component Y, then inv_v β(x) = n·∂_{β,Y}(Frob), with n the local intersection multiplicity (Corollaire 2.4.3).",
+      "locator": "§3 introduction, proofs of Lemma 3.3, Theorem 9.17, Lemma 9.20, pp. 11–12 and 43–46",
+      "status": "missing",
+      "note": "HW20 routed the formal lemma as a source of RP.2, and this item follows it. These are the core Brauer-evaluation inputs of every fibration argument."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/22",
+      "kind": "theorem",
+      "name": "Proposition 3.1: the formal lemma for effective reduced zero-cycles in a fixed class",
+      "statement": "Let C be a smooth proper geometrically irreducible curve of genus g over a number field k, y ∈ Pic(C) with deg(y) > 2g + 1, X smooth irreducible and f : X → C with geometrically irreducible generic fiber, X⁰ ⊆ X dense open and B ⊂ Br(X⁰) finite. For any (z_v) ∈ Z^{eff,red,y}_{0,A}(X⁰) orthogonal to B ∩ Br(X) and any finite S ⊂ Ω, there is (z′_v) ∈ Z^{eff,red,y}_{0,A}(X⁰) orthogonal to B with z′_v = z_v for v ∈ S.",
+      "locator": "Proposition 3.1 with Lemmas 3.2–3.3, pp. 11–12",
+      "status": "missing",
+      "note": "Lemma 3.2 lifts classes of degree > 2g to effective reduced cycles integral outside S′, using the moving lemma [Wit12, Lemme 4.2], Lang–Weil–Nisnevich and Hensel. Lemma 3.3 is the cycle analogue of item 21(b). The proof then repeats Harari's Pontryagin-duality argument."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/23",
+      "kind": "theorem",
+      "name": "Moving lemmas for zero-cycles on curves in the total space",
+      "statement": "(a) [Wit12, Lemme 4.2]: on X⁰ over C, effective zero-cycles with f_*z reduced can be moved into any class of degree > 2g, avoiding a finite set. (b) [CT00, Lemmes 3.1–3.2] and [Wit12, Lemme 4.4]: for finitely many local cycles z_v⁰ and a closed point P, there are smooth proper geometrically irreducible curves Z_v ⊂ X⊗k_v through P and Supp(z_v⁰) dominating C, and n₀, such that z_v⁰ + nP is linearly equivalent on Z_v to an effective divisor with reduced image for all n ≥ n₀.",
+      "locator": "Lemma 3.2 and Proposition 7.5, pp. 11 and 24",
+      "status": "missing",
+      "note": "Cited inputs of Proposition 3.1 and Proposition 7.5. Bertini-type curve choices plus Riemann–Roch on Z_v."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/24",
+      "kind": "theorem",
+      "name": "Lang–Weil–Nisnevich estimates",
+      "statement": "A geometrically irreducible variety of dimension d over F_q has q^d + O(q^{d−1/2}) rational points, the constant depending only on the geometry of an embedding. In particular smooth geometrically irreducible fibers over closed points of large residue characteristic have rational points, which Hensel's lemma lifts.",
+      "locator": "Lemma 3.2, §5.3, Theorem 6.2, Theorem 9.17, Theorem 9.22 (citing [LW54], [Nis54])",
+      "status": "missing",
+      "note": "WeilConjectures WC.5 plans point-count bounds for smooth projective varieties from cohomology. The elementary Lang–Weil estimate for arbitrary geometrically irreducible varieties is not stated anywhere in the atlas."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/25",
+      "kind": "theorem",
+      "name": "Hensel lifting for smooth schemes over complete discrete valuation rings",
+      "statement": "If 𝒳 is smooth over 𝒪_v, every rational point of the special fiber lifts to an 𝒪_v-point. More generally, formally smooth algebra maps to 𝒪_v/𝔪 lift to 𝒪_v.",
+      "locator": "used throughout §§3, 5, 9",
+      "status": "library",
+      "library": [
+        "mathlib:Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete"
+      ],
+      "note": "Mathlib's `Algebra.FormallySmooth.exists_mkₐ_comp_eq_of_isAdicComplete` lifts a map A → S/I to A → S for formally smooth A and I-adically complete S. The scheme version follows on affine charts."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/26",
+      "kind": "theorem",
+      "name": "Proposition 4.1 (Harari): specialisation of the Brauer group over a Hilbert subset",
+      "statement": "Let C be a smooth irreducible curve over a number field k and f : X → C with smooth, proper, irreducible geometric generic fiber X_η̄ satisfying H¹(X_η̄, Q/Z) = 0 and H²(X_η̄, 𝒪) = 0. Let C⁰ ⊆ C be dense open, X⁰ = f^{-1}(C⁰) and B ⊆ Br(X⁰). If B → Br(X_η)/f_η^*Br(η) is surjective, there is a Hilbert subset H ⊆ C⁰ such that B → Br(X_h)/f_h^*Br(h) is surjective for all h ∈ H.",
+      "locator": "Proposition 4.1 with Lemmas 4.2–4.3, pp. 12–13",
+      "status": "missing",
+      "note": "Proof: Gal(η̄/η) acts on H²(X_η̄, Q/Z(1)) through a finite quotient (Br(X_η̄) finite, NS finitely generated). Hilbert irreducibility for the corresponding Galois cover makes γ_h an isomorphism, and Hochschild–Serre with H³(k(C), Q/Z(1)) = 0 concludes. Remark 4.4: the same holds over any base when H³(η) → H³(X_η) is injective."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/27",
+      "kind": "theorem",
+      "name": "Vanishing of H³(k(C), Q/Z(1)) for a curve over a number field",
+      "statement": "For a curve C over a number field k, H³(k(C), Q/Z(1)) = 0 (Colliot-Thélène–Poonen, Lemma 2.6; equivalently H³(k(C), 𝔾_m) = 0).",
+      "locator": "proof of Proposition 4.1, p. 13",
+      "status": "missing",
+      "note": "A cited input of the specialisation argument."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/28",
+      "kind": "theorem",
+      "name": "Grothendieck's Kummer sequence for Br and finiteness of geometric Br",
+      "statement": "For a smooth variety X: 0 → Pic(X) ⊗ Q/Z → H²(X, Q/Z(1)) → Br(X) → 0. If X is smooth proper over an algebraically closed field of characteristic 0 with H²(X, 𝒪_X) = 0, then Br(X) is finite, and H²(X, Q/Z(1)) is an extension of Br(X) by NS(X) ⊗ Q/Z.",
+      "locator": "proof of Proposition 4.1 and Lemma 4.2, pp. 12–13",
+      "status": "missing",
+      "note": "Belongs to the scheme-cohomology foundation (étale 𝔾_m cohomology), which HW20 also routed to SF.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/29",
+      "kind": "theorem",
+      "name": "Smooth and proper base change for étale cohomology",
+      "statement": "For f smooth and proper, R^i f_*Q/Z(j) is a direct limit of locally constant sheaves with finite stalks, and the specialisation maps H^i(X_η̄) ≅ H^i(X_h̄) are π₁-equivariant.",
+      "locator": "proof of Lemma 4.3 and Lemma 8.10, pp. 13 and 31",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "SF.2 plans proper and smooth base change."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/30",
+      "kind": "theorem",
+      "name": "The Hochschild–Serre spectral sequence for a variety over a field",
+      "statement": "H^p(k, H^q(X_k̄, M)) ⇒ H^{p+q}(X, M), with its low-degree edge maps.",
+      "locator": "proof of Proposition 4.1, p. 13",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisDuality:R02.2",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "R02.2 (Hochschild–Serre and descent) plans the group-theoretic version. HW23's accepted source route adds the scheme-theoretic edge sequence to SF.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/31",
+      "kind": "theorem",
+      "name": "Theorem 5.1: existence of zero-cycles on fibrations over curves",
+      "statement": "Let C be a smooth projective geometrically irreducible curve over a number field k, X smooth projective irreducible, f : X → C with geometrically irreducible generic fiber and no multiple fiber, C⁰ ⊆ C dense open over which f is smooth, X⁰ = f^{-1}(C⁰), B ⊂ Br(X⁰) finite, y ∈ Pic(C), (z_v) ∈ Z^{eff,red,y}_{0,A}(X⁰), S ⊂ Ω_f finite and 𝒰 a neighbourhood of (z_v)_{v∈S} in ∏_{v∈S} Sym_{X⁰/k}(k_v). Assume (i) (z_v) is orthogonal to (B + f_η^*Br(η)) ∩ Br(X); (ii) deg(y) ≥ deg(M) + 2g + 2 (M = C ∖ C⁰); (iii) at each real v, Supp(z_v) lies on a smooth proper geometrically irreducible curve Z_v ⊂ X⊗k_v dominating C with deg(y) ≥ [k_v(Z_v):k_v(C)]deg(M) + 2g_v + 2. Then there are (z′_v) ∈ Z_{0,A}(X⁰) and an effective divisor c on C⁰ of class y with (1) f_*z′_v = c for all v; (2) (z′_v) orthogonal to B; (3) z′_v effective for v ∈ S and (z′_v)_{v∈S} ∈ 𝒰; (4) at each real v, z_v − z′_v has even total coefficient on each connected component of X⁰(k_v). If every fiber has a component of multiplicity 1, all z′_v can be taken effective.",
+      "locator": "Theorem 5.1, p. 14; proof §§5.1–5.5, pp. 15–21",
+      "status": "missing",
+      "note": "The core existence theorem. It replaces Dirichlet's theorem, and so needs no abelianness hypothesis."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/32",
+      "kind": "theorem",
+      "name": "Lemma 5.2: elements with locally split divisors from strong approximation",
+      "statement": "Let L/k be a finite extension of number fields, S a finite set of places and t_v ∈ k_v^* (v ∈ S) norms from (L⊗k_v)^*. There is t ∈ k^*, arbitrarily close to t_v for v ∈ S, such that at every finite v ∉ S either t is a unit or L has a place of degree 1 over v. Given a place v₀ ∉ S over which L has a place of degree 1, t can be taken integral outside S ∪ {v₀}.",
+      "locator": "Lemma 5.2, p. 15",
+      "status": "missing",
+      "note": "Proof: apply Lemma 1.8 to W = R_{L/k}(A¹) ∖ F, F the singular locus of the complement of R_{L/k}𝔾_m, and take t = N_{L/k}(x). The components of D ∖ F are permuted like the embeddings of L, so a k_v-point of D ∖ F embeds L into k_v. Uses Weil restriction (item 40) and Chebotarev (item 98)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/33",
+      "kind": "theorem",
+      "name": "Lemma 5.3: Br₊ controls the vertical part",
+      "statement": "(B + f_η^*Br(η)) ∩ Br(X) ⊆ B + f^*Br₊(C), and ((B + f_η^*Br(η)) ∩ Br(X))/f^*Br(C) is finite (C, M, L_m built from residues of B along fiber components, L_m Galois containing the algebraic closures L_{m,i} of k(m) in the extensions E_{m,i} killing those residues).",
+      "locator": "Lemma 5.3, p. 16",
+      "status": "missing",
+      "note": "Uses the residue formula of item 34 and gcd(e_{m,i}) = 1 (no multiple fibers)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/34",
+      "kind": "theorem",
+      "name": "Residues of pulled-back Brauer classes",
+      "statement": "If γ ∈ Br(k(C)) has residue ∂_γ ∈ H¹(k(m), Q/Z) at m and Y is a component of multiplicity e of f^{-1}(m), the residue of f^*γ at the generic point of Y is e·Res(∂_γ) in H¹(k(Y), Q/Z) (Colliot-Thélène–Swinnerton-Dyer, Proposition 1.1.1). Purity: a class on a regular scheme that is unramified along every divisor extends.",
+      "locator": "proof of Lemma 5.3, p. 16; proof of Lemma 5.9; Proposition 9.9",
+      "status": "missing",
+      "note": "Residue maps and purity for Brauer groups belong to the scheme-cohomology foundation. HW20 routed its residue and purity items as a source of SF.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/35",
+      "kind": "theorem",
+      "name": "Lemmas 5.4–5.6: approximation at S and at the infinite places",
+      "statement": "(5.4) One can replace (z_v) by a family orthogonal to B + f^*Br₊(C) (Proposition 3.1 with a finite Λ ⊂ Br₊(C), Br₊ = Λ + Br(C)). (5.5) At each infinite v there are h_v ∈ H⁰(C⊗k_v, 𝒪(c₁)) and z_v² ∈ Z^{eff,red,y}_0(X⁰⊗k_v) with div(h_v) = f_*z_v² − c₁, h_v(m) a norm from L_m⊗k_v, and z_v − z_v² of even total coefficient on each connected component of X⁰(k_v). (5.6) By the inverse function theorem for the smooth map f_* : Sym_{X⁰} → Sym_{C⁰} at reduced divisors, c lifts near (z_v)_{v∈S} and (z_v²)_{v real}.",
+      "locator": "Lemmas 5.4–5.6, pp. 16–18",
+      "status": "missing",
+      "note": "Lemma 5.5 uses Serre duality on Z_v, H¹(Z_v, 𝒪(z_v¹ − M_v)) = 0, and the sign-change count of a real rational function."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/36",
+      "kind": "construction",
+      "name": "Construction of c₁, v₀ and the divisor c",
+      "statement": "By Theorem 2.5 there is c₁ ∈ Div(C⁰) of class y whose class in Pic₊,A(C) equals that of (f_*z_v). Fix v₀ ∉ S split completely in all L_m. For each m, Lemma 5.2 gives t_m ∈ k(m)^* close to h_v(m) at S ∪ Ω_∞, integral away from S ∪ {v₀}, with divisor supported on places above S or split in L_m. Since deg(y) ≥ deg(M) + 2g + 2, H¹(𝒞, 𝒪(c̃₁ − M̃)) = 0, so H⁰(𝒞, 𝒪(c̃₁)) → H⁰(M̃, 𝒪) is a split surjection of free 𝒪_S-modules. Strong approximation off v₀ in its kernel gives h ∈ H⁰(C, 𝒪(c₁)) with h(m) = t_m, close to h_v at S ∪ Ω_∞, with no pole outside Supp(c̃₁) ∪ 𝒞_{v₀}. Then c = c₁ + div(h).",
+      "locator": "§§5.3–5.4, pp. 17–18",
+      "status": "missing",
+      "note": "Remark 9.12 rephrases the construction as strong approximation on an auxiliary variety W."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/37",
+      "kind": "theorem",
+      "name": "Lemmas 5.7–5.9: local cycles over the degenerate fibers and vanishing evaluations",
+      "statement": "(5.7) Every closed point w ∈ m̃ ∩ Supp(c̃) splits completely in L_m. (5.8) For v ∉ S, m, i, w | v and a rational point ξ of 𝒴_{m̃,i} over w, and a closed point y_v of C⁰⊗k_v whose closure contains w, there is an effective z with f_*z = e_{m,i}y_v whose closure meets the special fiber only at ξ (a finite flat multisection of degree e_{m,i} built from a regular system of parameters). (5.9) For β ∈ B, ⟨β, z′_{v,0}⟩ = 0 and ⟨β, z′_{w,m,i}⟩ = 0, since residues along 𝒴_{m̃,i} die at ξ (the cover ℰ_{m̃,i} has a rational point there) and Br of a complete local ring with finite residue field vanishes.",
+      "locator": "Lemmas 5.7–5.9, pp. 19–21",
+      "status": "missing",
+      "note": "Combining the z′_{w,m,i} with Bézout coefficients f_{m,i} (Σ e_{m,i}f_{m,i} = 1) gives f_*z′_v = c."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/38",
+      "kind": "theorem",
+      "name": "Brauer groups of finite 𝒪_v-algebras and complete local rings vanish",
+      "statement": "Br(A) = 0 for any finite 𝒪_v-algebra A, and for any complete (Henselian) local ring with finite residue field (Grothendieck, Brauer III, Proposition 1.5 and Théorème 11.7).",
+      "locator": "proof of Lemma 5.9, p. 20; §2.2, p. 10",
+      "status": "missing",
+      "note": "A scheme-cohomology input that SF.2 should state (Br of Henselian local rings equals Br of the residue field)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/39",
+      "kind": "theorem",
+      "name": "Riemann–Roch vanishing on curves and on their integral models",
+      "statement": "For a smooth proper curve of genus g and a divisor D with deg D > 2g − 2, H¹(C, 𝒪(D)) = 0. For a smooth proper curve 𝒞 over 𝒪_S the same holds for R¹ρ_*𝒪(D̃) (cohomology and base change), and deg D ≥ 2g makes |D| base-point free and deg D ≥ 2g + 1 very ample.",
+      "locator": "§5.4, p. 18; Lemma 5.5; Theorem 6.2, p. 21",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "note": "Serre duality and Riemann–Roch: Jacobian Challenge Layer B. Cohomology and base change: Layer C."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/40",
+      "kind": "construction",
+      "name": "Weil restriction of affine space and of 𝔾_m along a finite extension",
+      "statement": "R_{L/k}(A¹_L) and R_{L/k}(𝔾_{m,L}) and their integral versions over 𝒪_k. The complement D of R_{L/k}𝔾_m in R_{L/k}A¹ is a normal-crossings divisor, geometrically the union of the coordinate hyperplanes, and its singular locus F has codimension 2.",
+      "locator": "proof of Lemma 5.2, p. 15; §9.2.2, p. 36",
+      "status": "planned",
+      "planned": [
+        "ReductiveGroupsPartII:RG2.0a"
+      ],
+      "note": "RG2.0a plans affine Weil restriction along finite locally free maps. HW20 routed its norm-map items there too."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/41",
+      "kind": "construction",
+      "name": "Symmetric powers and the push-forward f_* : Sym_{X/k} → Sym_{C/k}",
+      "statement": "Sym^d of a quasi-projective variety, and for a smooth curve the identification of Sym^d with effective divisors of degree d. The map f_* is smooth at points corresponding to effective cycles with reduced image.",
+      "locator": "Notation and conventions; Lemma 5.6, pp. 6 and 18",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "note": "Jacobian Challenge Layer C plans relative effective Cartier divisors and symmetric powers of smooth curves."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/42",
+      "kind": "theorem",
+      "name": "Lemma 6.1 (after Swinnerton-Dyer/Smeets): Hilbert subsets are open near a closed point",
+      "statement": "Let V be normal quasi-projective over a number field, H ⊆ V a Hilbert subset and h ∈ H a closed point. For every finite S there are a finite T disjoint from S and a neighbourhood 𝒱 of h in ∏_{v∈T} Sym_{V/k}(k_v) such that every effective zero-cycle in Sym_{V/k}(k) ∩ 𝒱 is a closed point of V lying in H.",
+      "locator": "Lemma 6.1, p. 21",
+      "status": "missing",
+      "note": "Extends Smeets' Proposition 6.1 from rational points to closed points, through the universal family of reduced cycles of degree deg(h)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/43",
+      "kind": "theorem",
+      "name": "Hilbert's irreducibility theorem",
+      "statement": "For an irreducible finite étale cover of a dense open of P^1_k (k a number field), infinitely many rational points have irreducible fiber. Hilbert subsets of P^1_k contain rational points.",
+      "locator": "proofs of Theorems 6.2 and 9.22, pp. 21 and 46",
+      "status": "planned",
+      "planned": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "note": "IG.2 plans Hilbert irreducibility over number fields."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/44",
+      "kind": "theorem",
+      "name": "Theorem 6.2: Theorem 5.1 with c a closed point of a given Hilbert subset",
+      "statement": "Under the assumptions of Theorem 5.1, for any Hilbert subset H ⊆ C, the divisor c can be required to be a closed point of C belonging to H.",
+      "locator": "Theorem 6.2, pp. 21–22",
+      "status": "missing",
+      "note": "Proof: a finite map π : C → P^1 with fibers in |y| and Hilbert irreducibility give a closed point h ∈ H of class y. Then (z_v) is modified at places T from Lemma 6.1 to lie over h, and Theorem 5.1 is applied."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/45",
+      "kind": "theorem",
+      "name": "Theorem 7.1: from completed adelic Chow groups to effective cycles",
+      "statement": "Let f : X → C be as in Theorem 5.1 with X_η̄ irreducible, H¹(X_η̄, Q/Z) = 0 and A₀(X_η̄⊗K) = 0 (K an algebraic closure of k(X_η̄)). Given X⁰ ⊆ X dense open, Φ : ℕ² → ℕ and ẑ_A ∈ ĈH_{0,A}(X) with f_*ẑ_A in the image of P̂ic(C) → P̂ic_A(C), there are y ∈ Pic(C), ẑ ∈ ĈH_0(X), z^eff_A = (z_v) ∈ Z^{eff,red,y}_{0,A}(X⁰), a finite S ⊂ Ω_f and a neighbourhood 𝒰 of (z_v)_{v∈S} with: ẑ_A = z^eff_A + ẑ; at infinite v, Supp(z_v) lies on a smooth proper curve Z_v dominating C with deg(y) ≥ Φ(g_v, d_v); and every z′_A ∈ Z_{0,A}(X⁰) with f_*z′_A ≡ y in Pic_A(C) satisfying (3)–(4) of Theorem 5.1 equals z^eff_A in CH_{0,A}(X).",
+      "locator": "Theorem 7.1, p. 22; proof §7.2, pp. 25–26",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/46",
+      "kind": "theorem",
+      "name": "Theorem 7.2 (Wittenberg): kernel and cokernel of f_* on CH_0",
+      "statement": "Let f : X → Y be proper dominant between smooth irreducible varieties over k. (i) There is n > 0 with Coker(f_* : CH_0(X⊗k′) → CH_0(Y⊗k′)) killed by n for every extension k′/k. (ii) If X_η̄ is smooth irreducible with A₀(X_η̄⊗K) = 0, some n kills Ker(f_*) for every k′. (iii) If moreover H¹(X_η̄, Q/Z) = 0, Y is a proper curve and k a number field, then f_* : CH_0(X⊗k_v) → CH_0(Y⊗k_v) is an isomorphism for almost all v.",
+      "locator": "Theorem 7.2, p. 22, citing [Wit12, Théorème 2.1, Lemmes 2.3–2.4]",
+      "status": "missing",
+      "note": "Relies on a relative decomposition of the diagonal and on Kato–Saito–Sato for Chow groups over finite and local fields. HW20's item 28 is its rationally connected specialisation in the same Part II."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/47",
+      "kind": "theorem",
+      "name": "Lemma 7.3: completions of abelian groups",
+      "statement": "Let h : A → B have cokernel of finite exponent. (i) Coker(h) → Coker(ĥ) is injective. (ii) If B[N] is finite for all N, then the completion of Ker(h) surjects onto Ker(ĥ) and Coker(Ker(h) → Ker(ĥ)) is divisible.",
+      "locator": "Lemma 7.3, p. 23, citing [Wit12, Lemmes 1.10–1.12]",
+      "status": "missing",
+      "note": "Elementary, but not in either library in this form."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/48",
+      "kind": "theorem",
+      "name": "Propositions 7.4–7.5 and Lemma 7.6: the reduction steps",
+      "statement": "(7.4) If f_*ẑ_A comes from P̂ic(C), then for any n > 0, ẑ_A = z_A + n(ẑ + ξ̂_A) with z_A ∈ CH_{0,A}(X), ẑ ∈ ĈH_0(X), f_*ξ̂_A = 0 and f_*z_A coming from Pic(C). (7.5) Such z_A decomposes as z^eff_A + z + ξ_A, with z^eff_A effective reduced of some class y, z ∈ CH_0(X), f_*ξ_A = 0, ξ_A = 0 at S, and curves Z_v with deg(y) ≥ Φ(g_v, d_v). (7.6) Under the hypotheses of Theorem 7.1, Ker(CH_{0,A}(X) → Pic_A(C)) → CH_{0,A}(X)/n is injective for some n, and Ker(ĈH_{0,A}(X) → P̂ic_A(C)) has finite exponent.",
+      "locator": "Propositions 7.4–7.5 and Lemma 7.6, pp. 23–25",
+      "status": "missing",
+      "note": "Uses the projection formula f_*(f^*y·[Z]) = dy (item 50) and Mattuck's finiteness (item 49)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/49",
+      "kind": "theorem",
+      "name": "Mattuck: torsion in Pic of a curve over a local field",
+      "statement": "For a smooth proper curve C over a finite extension k_v of Q_p, the torsion subgroup of Pic(C⊗k_v) has finite exponent. Equivalently, the Jacobian has J(k_v) ≅ 𝒪_v^g × finite.",
+      "locator": "proof of Lemma 7.6, p. 25, citing [Mat55]",
+      "status": "missing",
+      "note": "This is exactly the local-points theorem proposed by PAPER-BRESCIANI-24 as the Part II AbelianSchemesAndArithmeticModuliPartIILocalPoints (Mattuck, Theorem 7)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/50",
+      "kind": "theorem",
+      "name": "Projection formula and birational invariance of CH_0",
+      "statement": "(a) For f : X → C, a curve Z ⊂ X dominating C with d = [k(Z):k(C)] and y ∈ Pic(C), f_*(f^*y·[Z]) = d·y. (b) CH_0, A₀, Br and H¹(−, Q/Z) are birational invariants of smooth proper varieties in characteristic 0.",
+      "locator": "proof of Proposition 7.4, p. 23; proof of Proposition 8.7, p. 29",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "SF.5 plans Chow groups with proper pushforward and the projection formula. The birational invariance of CH_0 (Fulton, Example 16.1.11) is a consequence it should state. The Br and H¹ invariance belong to SF.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/51",
+      "kind": "theorem",
+      "name": "Condition 8.1 and Lemma 8.2",
+      "statement": "Condition 8.1 for a smooth proper V over k: the image of ĈH_0(V) in ĈH_{0,A}(V) contains the image of V(A_k)^{Br(V)}. It holds if V satisfies (E), and (Lemma 8.2) if V(k) is dense in V(A_k)^{Br(V)} and V is rationally connected.",
+      "locator": "Condition 8.1 and Lemma 8.2, p. 26",
+      "status": "missing",
+      "note": "HW20's items 120 and 137 are the same statements, routed to the same Part II. Lemma 8.2 uses [Wit12, Lemme 1.8] and that A₀(V⊗k_v) vanishes at almost all v and has finite exponent everywhere (Kollár–Szabó)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/52",
+      "kind": "theorem",
+      "name": "Theorem 8.3(1): fibrations over curves satisfying (E)",
+      "statement": "Let C be a smooth proper geometrically irreducible curve over a number field k, X smooth proper irreducible, and f : X → C with X_η̄ irreducible, H¹(X_η̄, Q/Z) = 0 and A₀(X_η̄⊗K) = 0. If C satisfies (E) and the smooth fibers of f above the closed points of a Hilbert subset of C satisfy (E), then X satisfies (E).",
+      "locator": "Theorem 8.3(1), p. 26; proof §8.3.1, p. 29",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/53",
+      "kind": "theorem",
+      "name": "Theorem 8.3(2): the relative exact sequence",
+      "statement": "Under the hypotheses of Theorem 8.3, if the smooth fibers above the closed points of a Hilbert subset of C satisfy (E), then CH_0(X/C) → CH_{0,A}(X/C) → Hom(Br(X)/f^*Br(C), Q/Z) is exact, where CH_0(X/C) and CH_{0,A}(X/C) are the kernels of f_*.",
+      "locator": "Theorem 8.3(2), p. 27; proof §8.3.2, pp. 29–30",
+      "status": "missing",
+      "note": "Uses the injectivity of P̂ic(C) → P̂ic_A(C) [Wit12, Remarques 1.1(v)] and Mordell–Weil for Pic(C)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/54",
+      "kind": "theorem",
+      "name": "Theorem 8.3(3): Condition 8.1 suffices when fibers have multiplicity-one components",
+      "statement": "If every fiber of f has an irreducible component of multiplicity 1, then (1) and (2) of Theorem 8.3 hold when the smooth fibers above closed points of a Hilbert subset only satisfy Condition 8.1.",
+      "locator": "Theorem 8.3(3), p. 27",
+      "status": "missing",
+      "note": "HW20's item 121 uses this statement."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/55",
+      "kind": "theorem",
+      "name": "Theorem 8.3(4): (E₁) for the total space",
+      "statement": "If there is (z_v) ∈ Z_{0,A}(X) orthogonal to Br(X) with deg(z_v) = 1 for all v and the class of (f_*z_v) in P̂ic_A(C) in the image of P̂ic(C), and the smooth fibers above the closed points of a Hilbert subset satisfy (E₁), then X has a zero-cycle of degree 1.",
+      "locator": "Theorem 8.3(4), p. 27; proof §8.3.4, p. 30",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/56",
+      "kind": "theorem",
+      "name": "Saito's theorem: curves with trivial divisible Sha satisfy (E)",
+      "statement": "A smooth proper geometrically irreducible curve C over a number field satisfies (E) if the divisible subgroup of the Tate–Shafarevich group of its Jacobian is trivial; if C(k) ≠ ∅ this is equivalent. In particular P^1_k satisfies (E).",
+      "locator": "§1, p. 3, and after Theorem 8.3, p. 27, citing [Sai89], [Wit12, Remarques 1.1(iv)], [Mil86, I.6.26(b)]",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/57",
+      "kind": "theorem",
+      "name": "Corollary 8.4: bases birational to P^n, C or P^n × C",
+      "statement": "Let X be smooth proper irreducible over k, Y irreducible and birational to P^n, C or P^n × C (n ≥ 1, C satisfying (E)), and f : X → Y with X_η̄ irreducible, H¹(X_η̄, Q/Z) = 0 and A₀(X_η̄⊗K) = 0. (1) If the smooth fibers above the closed points of a Hilbert subset of Y satisfy (E), X satisfies (E). (2) The same conclusion holds if they only satisfy Condition 8.1 and the fibers above codimension-1 points have a component of multiplicity 1.",
+      "locator": "Corollary 8.4, p. 27; proof §8.4, pp. 30–32",
+      "status": "missing",
+      "note": "HW20's item 78 cites Corollary 8.4(1). The proof is an induction via Lemmas 8.9, 8.10 and 8.12."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/58",
+      "kind": "theorem",
+      "name": "Corollary 8.5: homogeneous-space fibrations satisfy (E)",
+      "statement": "Under the base hypotheses of Corollary 8.4, if f : X → Y is dominant with generic fiber birational to a homogeneous space of a connected linear group with connected geometric stabilisers, then X satisfies (E). Applied to V × P^1 → P^1, this recovers Liang's theorem that such V satisfy (E). It covers fibrations into toric varieties, Châtelet surfaces and p-folds, and del Pezzo surfaces of degree 6.",
+      "locator": "Corollary 8.5, p. 27, and the discussion after it, pp. 27–28",
+      "status": "missing",
+      "note": "Uses Borovoi's theorem (item 59), Lemma 8.2 and Corollary 8.4(2), with Graber–Harris–Starr for multiplicity-one components."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/59",
+      "kind": "theorem",
+      "name": "Borovoi's theorem (and Sansuc's for tori)",
+      "statement": "For a smooth compactification X of a homogeneous space of a connected linear algebraic group with connected geometric stabilisers over a number field, X(k) is dense in X(A_k)^{Br(X)} (Borovoi, Corollary 2.5). For torsors under tori this is Sansuc's theorem.",
+      "locator": "proof of Corollary 8.5, p. 27; Corollary 9.29; Remark 9.26",
+      "status": "missing",
+      "note": "HW20's candidate HeightsRationalPointsPartIIHomogeneousMassey imports Bor96's connected-stabiliser theorem ('the shared homogeneous owner'), so this item is routed there too, to keep one owner."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/60",
+      "kind": "theorem",
+      "name": "Lemma 8.6: implications between the geometric hypotheses",
+      "statement": "For the geometric generic fiber X_η̄: (a) rationally connected ⇒ (b) A₀(X_η̄⊗K) = 0 ⇒ (c) H^i(X_η, 𝒪) = 0 for i > 0 ⇒ (d) H²(X_η, 𝒪) = 0 ⇒ (e) if H¹(X_η̄, Q/Z) = 0 then Br(X_η)/f_η^*Br(η) is finite; and (c) ⇒ (f) the gcd of the multiplicities of the components of each fiber is 1. Also (a) ⇒ H¹(X_η̄, Q/Z) = 0.",
+      "locator": "Lemma 8.6, p. 28, and the paragraph before Corollary 8.5, p. 27",
+      "status": "missing",
+      "note": "HW20's items 11, 17, 135 and 136 (rational connectedness and its geometric vanishing consequences) are in the same Part II. The (b)⇒(c) step uses the decomposition of the diagonal (item 65)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/61",
+      "kind": "theorem",
+      "name": "Proposition 8.7: the common statement",
+      "statement": "Under the hypotheses of Theorem 8.3, for a Hilbert subset H ⊆ C and ẑ_A ∈ ĈH_{0,A}(X) orthogonal to Br(X) with f_*ẑ_A from P̂ic(C), there are ẑ ∈ ĈH_0(X), a closed point c ∈ H and z′_A ∈ Z_{0,A}(X_c) orthogonal to Br(X_c) with f_*z′_A = c and ẑ_A = z′_A + ẑ. The z′_A can be taken effective if every fiber has a multiplicity-one component.",
+      "locator": "Proposition 8.7, p. 29",
+      "status": "missing",
+      "note": "Combines Theorem 7.1 (with Φ(g, d) = deg(M)d + 2g + 2), Proposition 4.1 and Theorem 6.2, after Chow's lemma and Hironaka."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/62",
+      "kind": "theorem",
+      "name": "Chow's lemma and resolution of singularities in characteristic 0",
+      "statement": "Every proper variety over a field of characteristic 0 is dominated by a smooth projective variety via a birational morphism.",
+      "locator": "proof of Proposition 8.7, p. 29",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "note": "SF.4 owns resolution in named proved settings (characteristic 0 here). HW20 and HW23 route compactification and resolution there."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/63",
+      "kind": "theorem",
+      "name": "Multiplicity-one components are birational invariants of fibrations",
+      "statement": "For a birational morphism π : X′ → X over the base, every fiber of f has a component of multiplicity 1 if and only if every fiber of f∘π does (Skorobogatov, Corollary 1.2; Nishimura's lemma).",
+      "locator": "proof of Proposition 8.7, p. 29",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/64",
+      "kind": "theorem",
+      "name": "Lemmas 8.9–8.10: property (∗) in the induction",
+      "statement": "Definition 8.8: a proper variety V over an algebraically closed field satisfies (∗) if it is integral, H¹(V, Q/Z) = 0 and A₀(V⊗K) = 0. (8.9) For g : X → C the composite of f : X → P^n × C with the projection, the geometric generic fiber of g satisfies (∗). The proof uses Raynaud's surjectivity of π₁ onto fibers over codimension-1 points without multiple fibers, purity for H¹ on P^n minus codimension 2, and Leray. (8.10) There is a dense open C⁰ ⊆ C such that for c ∈ C⁰ the geometric generic fiber of f_c : X_c → P^n satisfies (∗). The proof spreads out a decomposition of the diagonal.",
+      "locator": "Definition 8.8 and Lemmas 8.9–8.10, pp. 30–31",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/65",
+      "kind": "theorem",
+      "name": "Lemma 8.11 (Bloch–Srinivas): decomposition of the diagonal",
+      "statement": "Let V be geometrically integral of dimension d, v ∈ V a closed point and K an algebraic closure of k(V). A₀(V⊗K) = 0 if and only if for some N ≥ 1, N[Δ] = [Γ₁] + [Γ₂] in CH_d(V × V) with Γ₁ supported on V × {v} and Γ₂ on D × V for a proper closed D ⊂ V.",
+      "locator": "Lemma 8.11, p. 31",
+      "status": "missing",
+      "note": "The action of correspondences on Chow groups belongs to MotivesAndAlgebraicCycles MC.0. A₀ over an algebraically closed field is divisible (Bloch, Lemma 1.3)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/66",
+      "kind": "theorem",
+      "name": "Lemma 8.12: Hilbert subsets of a product",
+      "statement": "For geometrically irreducible V₁, V₂ over a number field and a Hilbert subset H ⊆ V₁ × V₂, there is a Hilbert subset H₂ ⊆ V₂ such that for every h ∈ H₂, H ∩ (V₁ × {h}) contains a Hilbert subset of V₁ × {h}.",
+      "locator": "Lemma 8.12, p. 32, citing [Wit07, Lemme 3.12]",
+      "status": "missing",
+      "note": "A Hilbert-irreducibility statement for IG.2, in the same direction as HW20's source route for pullbacks of Hilbert subsets."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/67",
+      "kind": "theorem",
+      "name": "Graber–Harris–Starr and consequences",
+      "statement": "A rationally connected fibration over a curve over an algebraically closed field of characteristic 0 has a section. Hence every fiber over a codimension-1 point of the base of a morphism with rationally connected geometric generic fiber has a component of multiplicity 1, and a variety dominating a rationally connected base with rationally connected generic fiber is rationally connected (GHS, Corollary 1.3). Also H¹(X, Q/Z) = 0 for rationally connected X (Debarre, Corollary 4.18(b)).",
+      "locator": "discussion before Corollary 8.5, p. 27; proof of Corollary 9.25, p. 48",
+      "status": "missing",
+      "note": "HW20's items 13 and 132 are in the same Part II."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/68",
+      "kind": "theorem",
+      "name": "Conjecture 9.1: locally split values of polynomials",
+      "statement": "Let k be a number field, P_1, …, P_n ∈ k[t] pairwise distinct irreducible monic polynomials, k_i = k[t]/(P_i), a_i the class of t, L_i/k_i finite extensions, b_i ∈ k_i^*. Let S be a finite set of places containing the real places and the finite places above which some b_i is not a unit or some L_i/k_i is ramified, and let t_v ∈ k_v (v ∈ S). Assume that for all i and v ∈ S, b_i(t_v − a_i) is a norm from (L_i⊗k_v)^*. Then there is t₀ ∈ k with (1) t₀ arbitrarily close to t_v for v ∈ S, and (2) for every i and every finite place w of k_i with w(t₀ − a_i) > 0, either w lies above S or L_i has a place of degree 1 over w.",
+      "locator": "Conjecture 9.1, p. 32",
+      "status": "missing",
+      "note": "A conjecture, with Remarks 9.3 (reformulation for a common Galois L; reductions to t_v = 0 and to k = Q; enlarging S freely). HW20 (unreviewed) routed its item 76, this conjecture, to HeightsRationalPointsPartIIHomogeneousMassey. The report proposes a single owner."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/69",
+      "kind": "theorem",
+      "name": "Conjecture 9.2: the weak variant",
+      "statement": "As Conjecture 9.1 but with (1) replaced by (1′): t₀ is arbitrarily close to t_v for finite v ∈ S, and at every real place v, for every i and real place w of k_i above v, the sign of (t₀ − a_i)(t_v − a_i) at w is independent of w and i.",
+      "locator": "Conjecture 9.2, p. 33",
+      "status": "missing",
+      "note": "Enough for existence of rational points and for approximation up to connected components at the real places."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/70",
+      "kind": "theorem",
+      "name": "Remarks 9.3: reductions for Conjecture 9.1",
+      "statement": "(i) For a common Galois L, (2) says P_i(t₀) has nonpositive valuation outside S except at places split in L. (ii) One may assume t_v = 0 for v ∈ S and a_i ≠ 0, and Conjectures 9.1–9.2 over Q imply them over every number field. (iii) Finitely many places may be added to S: at a finite v ∉ S, any t_v of valuation −N∏[L_i:k_i] (N large) satisfies the local hypothesis.",
+      "locator": "Remarks 9.3, p. 33",
+      "status": "missing",
+      "note": "(ii) is only sketched ('compare [CTSD94, Proposition 4.1]'). The design should write out the reduction to Q, e.g. by taking L_i^0 the Galois closure of L_i over Q(a_i) and b_i^0 = −a_i^{-1}."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/71",
+      "kind": "definition",
+      "name": "Definition 9.4: almost abelian extensions",
+      "statement": "A finite extension L/k is almost abelian if it is abelian, or if for some prime p there is a bijection Spec(L⊗_k k̄) ≅ 𝔽_p under which Gal(k̄/k) acts by affine transformations x ↦ ax + b. Examples 9.5: cubic extensions, and k(c^{1/p})/k.",
+      "locator": "Definition 9.4 and Examples 9.5, p. 34",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/72",
+      "kind": "theorem",
+      "name": "Schinzel's hypothesis (H), its homogeneous variant (HH₁), and (H) ⇒ (HH₁)",
+      "statement": "(H): for irreducible P_1, …, P_n ∈ ℤ[t] with positive leading coefficients and no fixed prime divisor of ∏P_i, there are infinitely many t with all P_i(t) prime. (HH₁) over a number field k: for irreducible homogeneous P_1, …, P_n ∈ k[λ, μ] and S large enough, given (λ_v, μ_v) at v ∈ S there is (λ₀, μ₀) close at finite places, projectively close at archimedean ones, positive at real ones, integral outside S, with each P_i(λ₀, μ₀) a unit outside S except at one place where it is a uniformiser. (H) implies (HH₁) (Swinnerton-Dyer, Lemma 7.1).",
+      "locator": "§9.2.1, Hypothesis (HH₁), p. 34",
+      "status": "missing",
+      "note": "Conjectural statements. RS-07 moved the prime-tuple conjecture register to SV.4, so Schinzel's generalisation is registered there too. SkorobogatovSofos23's candidate ArithmeticStatisticsPartIISchinzelAverages proves an averaged form."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/73",
+      "kind": "theorem",
+      "name": "Theorem 9.6: Schinzel's hypothesis implies Conjecture 9.1 for almost abelian extensions",
+      "statement": "Assume (H). If L_1/k_1, …, L_n/k_n are almost abelian, Conjecture 9.1 holds. Lemma 9.8: for non-abelian almost abelian L_j/k_j there is a nontrivial cyclic E_j/k_j in the Galois closure such that every place unramified in L_j either splits completely in E_j or has a degree-1 place of L_j above it.",
+      "locator": "Theorem 9.6 and Lemma 9.8, pp. 34–36",
+      "status": "missing",
+      "note": "The proof adds places inert in E_j to make Σ_S inv(E_j/k_j, t_v − a_j) ≠ 0, applies (HH₁), and uses global reciprocity for the abelian L_i and E_j. Its inputs are Chebotarev and the Artin–Tate corollary (item 74)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/74",
+      "kind": "theorem",
+      "name": "Global reciprocity for norms from abelian extensions",
+      "statement": "For a finite abelian extension L/k of number fields, an element of k that is a local norm from L at all places except possibly one is a local norm at the remaining place too (Artin–Tate, Chapter VII, §3, Corollary 1). Equivalently, Σ_v inv_v(χ, a) = 0 for a cyclic algebra.",
+      "locator": "§1, p. 5; proof of Theorem 9.6, p. 36",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ],
+      "note": "Tau Ceti Class Field Theory plans the sum of local invariants (Layer 10) and the norm theorems (Layer 13)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/75",
+      "kind": "theorem",
+      "name": "Remark 9.7: Heath-Brown–Moroz primes of binary cubic forms give (HH₁) in degree 3",
+      "statement": "From Heath-Brown and Moroz's theorem on primes represented by binary cubic forms, (HH₁) holds for k = Q, n = 1, deg P_1 = 3. Hence Conjecture 9.1 holds for n = 1, k = Q, [k_1:Q] = 3 and L_1/k_1 almost abelian.",
+      "locator": "Remark 9.7, p. 34, citing [HBM04]",
+      "status": "missing",
+      "note": "The analytic input is a prime-detecting sieve for binary cubic forms (Heath-Brown's method), in the direction of SV.5's separate advanced-sieve developments."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/76",
+      "kind": "construction",
+      "name": "The variety W of §9.2.2 and Proposition 9.9",
+      "statement": "W is the fiber over 0 of (A² ∖ {0}) × ∏_i (R_{L_i/k}(A¹) ∖ F_i) → ∏_i R_{k_i/k}(A¹), (λ, μ, x) ↦ (b_i(λ − a_iμ) − N_{L_i/k_i}(x_i))_i, with p : W → P^1 the projection. Proposition 9.9: Conjecture 9.1 holds for all S, (t_v) if and only if ∪_{c∈P^1(k)} W_c(A_k) is dense in W(A_k). Its converse direction uses Theorem 9.17 with B = 0 and Br_vert(W/P^1) = Br(k).",
+      "locator": "§9.2.2 and Proposition 9.9, pp. 36–37",
+      "status": "missing",
+      "note": "The vertical Brauer computation uses the Faddeev description of Br(k(t)) and the residues of CT–SwD (Propositions 1.1.1, 1.2.1)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/77",
+      "kind": "theorem",
+      "name": "Corollary 9.10: strong approximation for W implies Conjecture 9.1",
+      "statement": "If W satisfies strong approximation off every finite place, then Conjecture 9.1 holds for the given data.",
+      "locator": "Corollary 9.10, p. 37",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/78",
+      "kind": "theorem",
+      "name": "Theorem 9.11: Conjecture 9.1 in small degree",
+      "statement": "Conjecture 9.1 holds if (i) Σ_i [k_i:k] ≤ 2, or (ii) Σ_i [k_i:k] = 3 and [L_i:k_i] = 2 for all i.",
+      "locator": "Theorem 9.11, p. 38",
+      "status": "missing",
+      "note": "(i): W is affine space minus codimension 2 (Lemma 1.8). (ii): W is a punctured cone over a smooth 4-dimensional quadric minus codimension 2. Strong approximation for such quadric complements goes by conics, then [CTX11, Proposition 3.1] for the cone."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/79",
+      "kind": "theorem",
+      "name": "Lemma 9.13: invariance under Möbius changes of coordinates",
+      "statement": "Given α, β, γ, δ ∈ k with αδ − βγ ≠ 0, γa_i + δ ≠ 0, γt_v + δ ≠ 0, α and αa_i + β units outside S, and (αδ − βγ)/(γt_v + δ) a local norm at S, Conjectures 9.1–9.2 for (a_i, b_i, S, t_v) reduce to the same conjectures for a′_i = (αa_i + β)/(γa_i + δ), b′_i = b_i(γa_i + δ), S′ ⊇ S′₀ and t′_v. The key identity is b′_i(t′₀ − a′_i) = b_i(t₀ − a_i)(α − γt′₀).",
+      "locator": "Lemma 9.13, p. 39",
+      "status": "missing",
+      "note": "The proof of (4) contains a misprint ('lies above' for 'does not lie above'; sourceIssue E1). The identity was checked."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/80",
+      "kind": "theorem",
+      "name": "Matthiesen's theorem on norm-form values of linear forms",
+      "statement": "Let f_i(λ, μ) = b_i(λ − a_iμ) ∈ ℤ[λ, μ] be pairwise non-proportional linear forms and L_i/Q number fields, and S a large finite set of primes. For (λ₁, μ₁) ∈ ℤ² at which each f_i is a local integral norm from L_i at the primes of S and a real norm, there are (λ₀, μ₀) ∈ ℤ² arbitrarily close to it at S (and projectively at ∞) with each f_i(λ₀, μ₀) squarefree outside S and the norm of an integral element of L_i.",
+      "locator": "proof of Theorem 9.14, p. 40, citing [Mat14]",
+      "status": "missing",
+      "note": "Proved by Green–Tao linear-patterns methods for the representation function of norm forms (Matthiesen, building on Browning–Matthiesen). AC.5 owns finite-complexity linear patterns and nilsequence orthogonality."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/81",
+      "kind": "theorem",
+      "name": "Theorem 9.14: Conjecture 9.1 when k = k_1 = ⋯ = k_n = Q",
+      "statement": "Conjecture 9.1 holds when k = k_1 = ⋯ = k_n = Q, i.e. for products of linear polynomials over Q with arbitrary L_i.",
+      "locator": "Theorem 9.14, p. 40",
+      "status": "missing",
+      "note": "Deduced from Matthiesen's theorem (item 80) via Lemma 9.13 with (α, β, γ, δ) = (r^{2N}, 0, 0, r^N), and strong approximation to make (λ₁, μ₁) integral."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/82",
+      "kind": "theorem",
+      "name": "Irving's sieve theorem for binary cubic forms",
+      "statement": "For a binary cubic form f ∈ ℤ[x, y] (positive x³ coefficient, negative real roots, from a cubic field K with one real place not embedding in Q(ζ_q), q ≥ 7 prime) and suitable local data at S, there are positive integers (x₀, y₀) arbitrarily close to (λ, μ) at S such that y₀f(x₀, y₀) has no prime factor p ∉ S with p ≡ 1 (mod q).",
+      "locator": "proof of Theorem 9.15, p. 41, citing [Irv14, §§3–6]",
+      "status": "missing",
+      "note": "A lower-bound sieve result with a restricted set of prime factors, in the direction of SV.5."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/83",
+      "kind": "theorem",
+      "name": "Theorem 9.15 (after Irving): a cubic case of Conjecture 9.2",
+      "statement": "Let K/Q be cubic with a unique real place, not embedding into Q(ζ_q), q ≥ 7 prime. Then Conjecture 9.2 holds for n = 2, k = Q, k_1 = K, L_1 = K(2^{1/q}), k_2 = Q, L_2 = Q(2^{1/q}). Lemma 9.16: by a change of coordinates one may assume b_2t_∞ < b_2a_1 < b_2a_2 at the real place of K.",
+      "locator": "Theorem 9.15 and Lemma 9.16, pp. 40–42",
+      "status": "missing",
+      "note": "It is the first known case with Σ[k_i:k] ≥ 4 and k_i ≠ k. The sign bookkeeping of Lemma 9.16 was checked. The main result of Irving on N_{K/Q}(x) = P(t) for cubic P is recovered."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/84",
+      "kind": "theorem",
+      "name": "Theorem 9.17: the main theorem on rational points in fibrations over P^1",
+      "statement": "Let X be smooth irreducible over a number field k and f : X → P^1_k with geometrically irreducible generic fiber and a multiplicity-one component in every fiber. Let U ⊆ P^1_k be dense open with split fibers and ∞ ∈ U, B ⊆ Br(f^{-1}(U)) finite, and (x_v) ∈ X(A_k) orthogonal to (B + f_η^*Br(η)) ∩ Br(X). Let M′ ⊆ P^1 ∖ U be nonempty, containing all non-split points, such that for each m ∈ M″ = (P^1 ∖ U) ∖ M′ the residue map Br(P^1 ∖ (M′ ∪ {m})) → H¹(k(m), Q/Z) is onto. Assume Conjecture 9.1 for the P_i vanishing on M′ (resp. Conjecture 9.2, with either M″ = ∅ and f proper or k totally imaginary). Then there are c ∈ U(k) with X_c smooth and (x′_v) ∈ X_c(A_k) orthogonal to B and arbitrarily close to (x_v) in X(A_k) (resp. in X(A_k)_•).",
+      "locator": "Theorem 9.17, p. 42; proof with Lemmas 9.19–9.20, pp. 43–46",
+      "status": "missing",
+      "note": "Uses Pic₊(P^1) and Theorem 2.5, Harari's formal lemma and evaluation formula (item 21), Weil reciprocity (Lemma 9.19), Harari's Frobenius argument for the fibers over M″ (Lemma 9.20), Chebotarev, and Ekedahl's geometric Chebotarev. The Remarks 9.18 surjectivity statement uses the Faddeev sequence and the surjectivity of corestriction for totally imaginary fields."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/85",
+      "kind": "definition",
+      "name": "Adelic points modulo connected components at infinity",
+      "statement": "For a proper variety V over a number field, V(A_k)_• = ∏_{v∈Ω_f} V(k_v) × ∏_{v∈Ω_∞} π₀(V(k_v)) (Poonen's notation, after Stoll).",
+      "locator": "§9.3, p. 42, citing [Sto07, §2]",
+      "status": "missing",
+      "note": "A variant of RP.2's adelic point space."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/86",
+      "kind": "theorem",
+      "name": "Weil reciprocity on P^1 and the Faddeev sequence",
+      "statement": "(a) For rational functions f, g on a proper regular curve, ∏_x N_{k(x)/k}(tame symbol) = 1, in particular f(div g) = g(div f) for disjoint supports. (b) Faddeev: 0 → Br(k) → Br(k(t)) → ⊕_{m∈A¹} H¹(k(m), Q/Z) → H¹(k, Q/Z) → 0, via residues and corestriction.",
+      "locator": "proof of Lemma 9.19, p. 43; Remarks 9.18(ii) and proof of Proposition 9.9, pp. 37 and 42",
+      "status": "planned",
+      "planned": [
+        "K2SymbolsBrauer:T.4",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "K2SymbolsBrauer T.4 plans Weil reciprocity for proper regular curves with the Bass–Tate sequence of F(t), the K₂ analogue of Faddeev's sequence. The Brauer-group residue sequence also needs SF.2."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/87",
+      "kind": "theorem",
+      "name": "Surjectivity of corestriction on H¹(−, Q/Z) for totally imaginary fields",
+      "statement": "For a finite extension k′/k of totally imaginary number fields, Cores : H¹(k′, Q/Z) → H¹(k, Q/Z) is surjective (dual to injectivity of C_k/D_k → C_{k′}/D_{k′}; Gras, Note p. 327).",
+      "locator": "Remarks 9.18(ii), p. 42",
+      "status": "missing",
+      "note": "A class field theory statement not named in the Tau Ceti Class Field Theory layers. It is recorded with the fibration Part II, which uses it."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/88",
+      "kind": "theorem",
+      "name": "Ekedahl's geometric Chebotarev density theorem",
+      "statement": "For a finite étale Galois cover 𝒴 → 𝒳 of schemes of finite type over 𝒪_S with geometrically irreducible fibers, for all primes v of large norm every conjugacy class of the Galois group occurs as the Frobenius at some 𝔽_v-point of 𝒳 (Ekedahl, Lemma 1.2).",
+      "locator": "proof of Theorem 9.17, p. 44, citing [Eke90]",
+      "status": "missing",
+      "note": "A finite-field point-counting input, in the same direction as Lang–Weil (WeilConjectures WC.5)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/89",
+      "kind": "theorem",
+      "name": "Theorem 9.22: Theorem 9.17 with c in a Hilbert subset",
+      "statement": "Under the notation and assumptions of Theorem 9.17, for any Hilbert subset H ⊆ P^1_k, the point c ∈ U(k) can be required to lie in H.",
+      "locator": "Theorem 9.22, pp. 46–47",
+      "status": "missing",
+      "note": "The printed proof asserts that elements of B₀ ⊂ Br(X) evaluate trivially on X(k_v) for almost all v. That is false for the non-proper X the theorem allows, and integral points repair it (sourceIssue E2)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/90",
+      "kind": "theorem",
+      "name": "Corollary 9.23: the conditional fibration theorem over P^1",
+      "statement": "Let X be smooth proper irreducible over k and f : X → P^1_k with X_η̄ irreducible. Assume (1) H¹(X_η̄, Q/Z) = 0 and H²(X_η̄, 𝒪) = 0; (2) every fiber has a multiplicity-one component; (3) Conjecture 9.1 (resp. 9.2); (4) X_c(k) dense in X_c(A_k)^{Br(X_c)} (resp. in X_c(A_k)^{Br(X_c)}_•) for every rational point c of a Hilbert subset. Then X(k) is dense in X(A_k)^{Br(X)} (resp. X(A_k)^{Br(X)}_•).",
+      "locator": "Corollary 9.23, p. 47",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/91",
+      "kind": "theorem",
+      "name": "Corollary 9.24: Conjecture 9.1 only for the non-split points",
+      "statement": "With (1), (2) and (4) of Corollary 9.23 and f^{-1}(∞) split, let M′ ⊂ A¹_k be finite containing the non-split points, containing a rational point unless k is totally imaginary. If Conjecture 9.1 holds for the polynomials vanishing on M′, then X(k) is dense in X(A_k)^{Br(X)}.",
+      "locator": "Corollary 9.24, pp. 47–48",
+      "status": "missing",
+      "note": ""
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/92",
+      "kind": "theorem",
+      "name": "Corollary 9.25: rationally connected fibrations over P^n",
+      "statement": "Let n ≥ 1, X smooth proper irreducible over k, and f : X → P^n_k dominant with rationally connected geometric generic fiber. Assume Conjecture 9.1 (resp. 9.2). If X_c(k) is dense in X_c(A_k)^{Br(X_c)} (resp. •) for every rational point c of a Hilbert subset of P^n_k, then X(k) is dense in X(A_k)^{Br(X)} (resp. •).",
+      "locator": "Corollary 9.25, p. 48",
+      "status": "missing",
+      "note": "HW20's item 77 cites this corollary (and HW20's Theorem 6.1 uses it). The proof is an induction via P^n ~ P^{n−1} × P^1, Lemma 8.12, Graber–Harris–Starr and finiteness of Br(X)/Br(k)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/93",
+      "kind": "theorem",
+      "name": "Corollary 9.27: the conditional theorem under Schinzel's hypothesis",
+      "statement": "Assume (H). Let f : X → P^1_k have geometrically irreducible generic fiber, with every fiber containing a multiplicity-one component whose function field has an almost abelian algebraic closure of k(m). If the fibers above the rational points of a Hilbert subset satisfy weak approximation, then X(k) is dense in X(A_k)^{Br_vert(X/P^1)}.",
+      "locator": "Corollary 9.27, p. 49",
+      "status": "missing",
+      "note": "Extends Colliot-Thélène–Skorobogatov–Swinnerton-Dyer [CTSSD98, §1] and recovers Wei [Wei14a, Theorem 3.5]."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/94",
+      "kind": "theorem",
+      "name": "Theorem 9.28: the unconditional theorem over Q",
+      "statement": "Let X be smooth proper irreducible over Q and f : X → P^1_Q dominant with rationally connected geometric generic fiber, whose non-split fibers lie over rational points. If X_c(Q) is dense in X_c(A_Q)^{Br(X_c)} for every rational point c of a Hilbert subset, then X(Q) is dense in X(A_Q)^{Br(X)}.",
+      "locator": "Theorem 9.28, p. 49",
+      "status": "missing",
+      "note": "Corollary 9.24 together with Theorem 9.14."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/95",
+      "kind": "theorem",
+      "name": "Corollary 9.29 and Remark 9.30: pencils of homogeneous spaces over Q",
+      "statement": "If X is smooth proper irreducible over Q with f : X → P^1_Q whose generic fiber is birational to a homogeneous space of a connected linear group with connected geometric stabilisers, and the non-split fibers lie over rational points, then X(Q) is dense in X(A_Q)^{Br(X)}. The same holds over P^n_Q if the non-split codimension-1 fibers lie over generic points of hyperplanes defined over Q.",
+      "locator": "Corollary 9.29 and Remark 9.30, p. 49",
+      "status": "missing",
+      "note": "Subsumes Browning–Matthiesen, Browning–Matthiesen–Skorobogatov, HSW §4, Smeets §3.2 and Skorobogatov 2015."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/96",
+      "kind": "theorem",
+      "name": "Theorem 9.31: fibrations of rank at most 2",
+      "statement": "Let f : X → P^1_k be dominant with rationally connected geometric generic fiber, rank(f) ≤ 2 (the sum of the degrees of the points with non-split fiber), and either k totally imaginary or the non-split fibers over rational points. If X_c(k) is dense in X_c(A_k)^{Br(X_c)} for every rational point c of a Hilbert subset, then X(k) is dense in X(A_k)^{Br(X)}.",
+      "locator": "Theorem 9.31, p. 50",
+      "status": "missing",
+      "note": "Corollary 9.24 with Theorem 9.11(i). A footnote added in proof says the 'totally imaginary or rational points' hypothesis is superfluous, with details to appear elsewhere. The atlas should keep the printed hypothesis until that proof is sourced."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/97",
+      "kind": "theorem",
+      "name": "Remark 9.26: fibrations into torsors under tori",
+      "statement": "If the generic fiber of f : X → P^1_k is birational to a torsor under a torus over k(t), then hypotheses (1), (2), (4) of Corollary 9.23 hold (Sansuc for (4)), so X(k) is dense in X(A_k)^{Br(X)} as soon as the varieties W of §9.2.2 satisfy strong approximation off every finite place.",
+      "locator": "Remark 9.26, p. 48",
+      "status": "missing",
+      "note": "Compare Skorobogatov 2015, Theorem 1.1 (constant torus, weak approximation on W)."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/98",
+      "kind": "theorem",
+      "name": "Chebotarev's density theorem",
+      "statement": "For a finite Galois extension of number fields, every conjugacy class of the Galois group is the Frobenius of a set of primes of positive Dirichlet density. In particular infinitely many primes split completely, and in an abelian extension such as HK/k every class of the Artin map is attained.",
+      "locator": "proofs of Lemma 5.2, Theorem 9.6, Theorem 9.17",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ],
+      "note": "Tau Ceti Chebotarev plans abelian and Dirichlet-density Chebotarev. Its audit records the construction as unfinished."
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/99",
+      "kind": "theorem",
+      "name": "Weak approximation and additive strong approximation for number fields",
+      "statement": "k is dense in ∏_{v∈S} k_v for finite S (weak approximation), and k is dense in the restricted product of the k_v over v ≠ v₀ (strong approximation for 𝔾_a off one place).",
+      "locator": "proof of Lemma 1.8, p. 8; §5.4; proof of Theorem 9.14",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles"
+      ],
+      "note": "Tau Ceti Global Number Fields Layers 1 and 6."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "O. Wittenberg, Zéro-cycles sur les fibrations au-dessus d'une courbe de genre quelconque, Duke Math. J. 161 (2012), 2113–2166",
+      "link": "https://doi.org/10.1215/00127094-1699441",
+      "why": "Pic₊/Br₊ and their duality (Corollaire 5.7 = Theorem 2.5), the kernel/cokernel bounds for f_* on CH_0 (Théorème 2.1, Lemmes 2.3–2.4 = Theorem 7.2), the moving lemmas and the completion lemmas used throughout §§3–8."
+    },
+    {
+      "citation": "D. Harari, Méthode des fibrations et obstruction de Manin, Duke Math. J. 75 (1994), 221–260; and Flèches de spécialisations en cohomologie étale et applications arithmétiques, Bull. SMF 125 (1997), 143–166 (doi 10.24033/bsmf.2302)",
+      "link": "https://doi.org/10.1215/S0012-7094-94-07507-8",
+      "why": "The formal lemma, the ramified-evaluation theorem, the evaluation formula at fiber components, and the specialisation of Brauer groups (Proposition 4.1 for C = P^1)."
+    },
+    {
+      "citation": "L. Matthiesen, On the square-free representation function of a norm form and nilsequences, J. Inst. Math. Jussieu 17 (2018), 107–135 (arXiv:1409.5028)",
+      "link": "https://doi.org/10.1017/S1474748015000389",
+      "why": "The additive-combinatorics input of Theorem 9.14 and hence of the unconditional Theorem 9.28."
+    },
+    {
+      "citation": "A. J. Irving, Cubic polynomials represented by norm forms, J. Reine Angew. Math. 723 (2017), 217–250 (arXiv:1310.6158)",
+      "link": "https://doi.org/10.1515/crelle-2014-0070",
+      "why": "The sieve input of Theorem 9.15."
+    },
+    {
+      "citation": "M. Borovoi, The Brauer–Manin obstructions for homogeneous spaces with connected or abelian stabilizer, J. Reine Angew. Math. 473 (1996), 181–194",
+      "link": "https://doi.org/10.1515/crll.1995.473.181",
+      "why": "Corollary 2.5: Brauer–Manin density for homogeneous spaces with connected stabilisers, used in Corollaries 8.5 and 9.29."
+    },
+    {
+      "citation": "T. Graber, J. Harris, J. Starr, Families of rationally connected varieties, J. Amer. Math. Soc. 16 (2003), 57–67",
+      "link": "https://doi.org/10.1090/S0894-0347-02-00402-2",
+      "why": "Sections of rationally connected fibrations over curves: multiplicity-one components in codimension 1 and rational connectedness of total spaces (Corollaries 8.5 and 9.25)."
+    },
+    {
+      "citation": "S. Bloch, V. Srinivas, Remarks on correspondences and algebraic cycles, Amer. J. Math. 105 (1983), 1235–1253",
+      "link": "https://doi.org/10.2307/2374341",
+      "why": "Decomposition of the diagonal (Lemma 8.11)."
+    },
+    {
+      "citation": "J.-L. Colliot-Thélène, A. N. Skorobogatov, P. Swinnerton-Dyer, Rational points and zero-cycles on fibred varieties: Schinzel's hypothesis and Salberger's device, J. reine angew. Math. 495 (1998), 1–28",
+      "link": "https://doi.org/10.1515/crll.1998.019",
+      "why": "The earlier fibration results (with abelianness hypotheses) that the paper subsumes, and the Schinzel/(H₁) framework of §9.2.1."
+    },
+    {
+      "citation": "D. R. Heath-Brown, B. Z. Moroz, On the representation of primes by cubic polynomials in two variables, Proc. London Math. Soc. (3) 88 (2004), 289–312",
+      "link": "https://doi.org/10.1112/S0024611503014497",
+      "why": "Primes represented by binary cubic forms (Remark 9.7)."
+    },
+    {
+      "citation": "C. Smeets, Insufficiency of the étale Brauer–Manin obstruction: towards a simply connected example, Amer. J. Math. 137 (2015)",
+      "link": "https://arxiv.org/abs/1409.6706",
+      "why": "Proposition 6.1 on Hilbert sets, extended to closed points in Lemma 6.1."
+    },
+    {
+      "citation": "T. Ekedahl, An effective version of Hilbert's irreducibility theorem, Séminaire de Théorie des Nombres, Paris 1988–1989, Progr. Math. 91 (1990), 241–249",
+      "link": "Progr. Math. 91, Birkhäuser (1990), 241–249; no DOI was located",
+      "why": "Lemma 1.2 (geometric Chebotarev), used in the proof of Theorem 9.17."
+    },
+    {
+      "citation": "S. Saito, Some observations on motivic cohomology of arithmetic schemes, Invent. Math. 98 (1989), 371–404",
+      "link": "https://doi.org/10.1007/BF01388859",
+      "why": "Curves with trivial divisible Sha satisfy (E) (used for the base curve C)."
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "HeightsRationalPointsAndObstructions",
+      "stages": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/3",
+        "PAPER-HARPAZ-WITTENBERG-16/21",
+        "PAPER-HARPAZ-WITTENBERG-16/85"
+      ],
+      "reason": "RP.2 owns adelic point spaces, local invariants and the Brauer–Manin pairing. HW20's routes (not yet reviewed) extend that interface to zero-cycles and to Harari's formal lemma. This paper uses exactly those tools: Manin's cycle pairing through corestriction, Harari's formal lemma, the ramified-evaluation theorem and the fiber-component evaluation formula (Harari 1994, 2.1.1, 2.4.3, 2.6.1), and Stoll's adelic points modulo connected components. They are general Brauer-evaluation tools, not specific to fibrations."
+    },
+    {
+      "route": "source",
+      "roadmap": "SchemeAndStackFoundations",
+      "stages": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/28",
+        "PAPER-HARPAZ-WITTENBERG-16/34",
+        "PAPER-HARPAZ-WITTENBERG-16/38"
+      ],
+      "reason": "SF.2 owns étale cohomology of schemes. HW20 and HW23 routed its 𝔾_m-cohomology, residue and purity inputs, and the scheme Hochschild–Serre sequence, there. The same belongs there here: Grothendieck's sequence Pic⊗Q/Z → H²(Q/Z(1)) → Br and the finiteness of geometric Br when H²(𝒪) = 0; the residue of a pulled-back class along a fiber component (multiplicity times the restricted residue); and the vanishing of Br for finite 𝒪_v-algebras and complete local rings with finite residue field."
+    },
+    {
+      "route": "source",
+      "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+      "stages": [
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/42",
+        "PAPER-HARPAZ-WITTENBERG-16/66"
+      ],
+      "reason": "IG.2 owns Hilbert irreducibility over number fields, which RS-29 kept intact, and HW20's routes already use it for Hilbert subsets of all scheme points. Lemma 6.1 (approximating a closed point of a Hilbert set in the symmetric products at finitely many places keeps one in the Hilbert set, after Swinnerton-Dyer and Smeets) and Lemma 8.12 (Hilbert subsets of products) are statements of that theory."
+    },
+    {
+      "route": "source",
+      "roadmap": "WeilConjectures",
+      "stages": [
+        "WeilConjectures:WC.5"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/24",
+        "PAPER-HARPAZ-WITTENBERG-16/88"
+      ],
+      "reason": "WC.5 owns point-count bounds over finite fields. The paper repeatedly needs the elementary Lang–Weil–Nisnevich estimate for arbitrary geometrically irreducible varieties, and Ekedahl's geometric Chebotarev for étale covers of families. Both are finite-field counting statements in that direction, weaker in form than, but not implied by, WC.5's cohomological bound for smooth projective varieties. The atlas states neither."
+    },
+    {
+      "route": "source",
+      "roadmap": "MotivesAndAlgebraicCycles",
+      "stages": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/65"
+      ],
+      "reason": "MC.0 constructs correspondences and their action on Chow groups. The Bloch–Srinivas decomposition of the diagonal, with its converse via divisibility of A₀ over algebraically closed fields, is a correspondence statement used here and in HW20's rational-connectedness inputs."
+    },
+    {
+      "route": "source",
+      "roadmap": "SieveMethodsAndPrimePatterns",
+      "stages": [
+        "SieveMethodsAndPrimePatterns:SV.4"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/72"
+      ],
+      "reason": "RS-07 made SV.4 the owner of the prime-tuple conjecture statement, registered separately from proved results. Schinzel's hypothesis (H) is its generalisation to irreducible polynomials. The homogeneous variant (HH₁) and the implication (H) ⇒ (HH₁) (Swinnerton-Dyer) belong in the same register, for consumers that assume them (Theorem 9.6, Corollary 9.27)."
+    },
+    {
+      "route": "source",
+      "roadmap": "SieveMethodsAndPrimePatterns",
+      "stages": [
+        "SieveMethodsAndPrimePatterns:SV.5"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/75",
+        "PAPER-HARPAZ-WITTENBERG-16/82"
+      ],
+      "reason": "SV.5 owns advanced sieves and prime-detecting developments as separate source-scoped results. Heath-Brown–Moroz (primes represented by binary cubic forms) and Irving's lower-bound sieve for binary cubic forms with prime factors restricted modulo q are the analytic inputs of Remark 9.7 and Theorem 9.15."
+    },
+    {
+      "route": "source",
+      "roadmap": "AdditiveCombinatorics",
+      "stages": [
+        "AdditiveCombinatorics:AC.5"
+      ],
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/80"
+      ],
+      "reason": "AC.5 owns finite-complexity linear patterns in primes and nilsequence orthogonality. Matthiesen's theorem on norm-form values of pairwise non-proportional linear forms (squarefree outside S and integral norms), proved by Green–Tao methods for the norm-form representation function, is the input of Theorem 9.14."
+    },
+    {
+      "route": "part-ii",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "roadmap": "AbelianSchemesAndArithmeticModuliPartIILocalPoints",
+      "title": "Abelian schemes and arithmetic moduli, Part II: p-adic local points and finite torsion",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/49"
+      ],
+      "brief": "Reuse the candidate proposed by PAPER-BRESCIANI-24 without change. That brief already makes Mattuck's theorem (Ann. of Math. 62 (1955), Theorem 7) its endpoint: A(K) has an open subgroup isomorphic to 𝒪_K^{dim A}, hence A(K)_tors is finite, for a finite extension K/Q_p. HW16 needs the corollary for Jacobians of curves: the torsion subgroup of Pic(C⊗k_v) has finite exponent (Lemma 7.6, via the degree sequence 0 → Pic⁰ → Pic → ℤ). Export this corollary with its degree bookkeeping to HeightsRationalPointsPartIIZeroCycles. Import the Jacobian from the Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge) and keep p = 2 and arbitrary reduction.",
+      "reason": "Mattuck's theorem is the endpoint of the candidate Part II proposed by PAPER-BRESCIANI-24. Using the same id keeps a single owner."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIHomogeneousMassey",
+      "title": "Heights, rational points and obstructions, Part II: homogeneous Massey varieties",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/59"
+      ],
+      "brief": "Coalesce with the accepted candidate HeightsRationalPointsPartIIHomogeneousMassey (design job from HW23; HW20 proposes to import Bor96 there as 'the shared homogeneous owner'). HW16 uses Borovoi's Corollary 2.5 (J. reine angew. Math. 473 (1996)) exactly: for a smooth compactification X of a homogeneous space of a connected linear algebraic group with connected geometric stabilisers over a number field, X(k) is dense in X(A_k)^{Br(X)}. It also uses Sansuc's special case for torsors under tori. State both with the compactification-independence of the Brauer–Manin set. Export them to HeightsRationalPointsPartIIZeroCycles, which uses them in HW16 Corollaries 8.5 and 9.29 and Remark 9.26. Import reductive groups from tauceti:TauCetiRoadmap/ReductiveGroups and adelic groups from AdelicAlgebraicGroups.",
+      "reason": "Borovoi's theorem is already imported by HW20's routes into the homogeneous-space candidate (HW23's accepted Part II), so it is routed there to keep one owner. No atlas layer states it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "HeightsRationalPointsAndObstructions",
+      "roadmap": "HeightsRationalPointsPartIIZeroCycles",
+      "title": "Heights, rational points and obstructions, Part II: zero-cycles and homogeneous fibrations",
+      "area": "algebraicnt",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/1",
+        "PAPER-HARPAZ-WITTENBERG-16/4",
+        "PAPER-HARPAZ-WITTENBERG-16/5",
+        "PAPER-HARPAZ-WITTENBERG-16/6",
+        "PAPER-HARPAZ-WITTENBERG-16/7",
+        "PAPER-HARPAZ-WITTENBERG-16/9",
+        "PAPER-HARPAZ-WITTENBERG-16/10",
+        "PAPER-HARPAZ-WITTENBERG-16/11",
+        "PAPER-HARPAZ-WITTENBERG-16/12",
+        "PAPER-HARPAZ-WITTENBERG-16/13",
+        "PAPER-HARPAZ-WITTENBERG-16/14",
+        "PAPER-HARPAZ-WITTENBERG-16/15",
+        "PAPER-HARPAZ-WITTENBERG-16/16",
+        "PAPER-HARPAZ-WITTENBERG-16/17",
+        "PAPER-HARPAZ-WITTENBERG-16/18",
+        "PAPER-HARPAZ-WITTENBERG-16/19",
+        "PAPER-HARPAZ-WITTENBERG-16/22",
+        "PAPER-HARPAZ-WITTENBERG-16/23",
+        "PAPER-HARPAZ-WITTENBERG-16/26",
+        "PAPER-HARPAZ-WITTENBERG-16/27",
+        "PAPER-HARPAZ-WITTENBERG-16/31",
+        "PAPER-HARPAZ-WITTENBERG-16/32",
+        "PAPER-HARPAZ-WITTENBERG-16/33",
+        "PAPER-HARPAZ-WITTENBERG-16/35",
+        "PAPER-HARPAZ-WITTENBERG-16/36",
+        "PAPER-HARPAZ-WITTENBERG-16/37",
+        "PAPER-HARPAZ-WITTENBERG-16/44",
+        "PAPER-HARPAZ-WITTENBERG-16/45",
+        "PAPER-HARPAZ-WITTENBERG-16/46",
+        "PAPER-HARPAZ-WITTENBERG-16/47",
+        "PAPER-HARPAZ-WITTENBERG-16/48",
+        "PAPER-HARPAZ-WITTENBERG-16/51",
+        "PAPER-HARPAZ-WITTENBERG-16/52",
+        "PAPER-HARPAZ-WITTENBERG-16/53",
+        "PAPER-HARPAZ-WITTENBERG-16/54",
+        "PAPER-HARPAZ-WITTENBERG-16/55",
+        "PAPER-HARPAZ-WITTENBERG-16/56",
+        "PAPER-HARPAZ-WITTENBERG-16/57",
+        "PAPER-HARPAZ-WITTENBERG-16/58",
+        "PAPER-HARPAZ-WITTENBERG-16/60",
+        "PAPER-HARPAZ-WITTENBERG-16/61",
+        "PAPER-HARPAZ-WITTENBERG-16/63",
+        "PAPER-HARPAZ-WITTENBERG-16/64",
+        "PAPER-HARPAZ-WITTENBERG-16/67",
+        "PAPER-HARPAZ-WITTENBERG-16/68",
+        "PAPER-HARPAZ-WITTENBERG-16/69",
+        "PAPER-HARPAZ-WITTENBERG-16/70",
+        "PAPER-HARPAZ-WITTENBERG-16/71",
+        "PAPER-HARPAZ-WITTENBERG-16/73",
+        "PAPER-HARPAZ-WITTENBERG-16/76",
+        "PAPER-HARPAZ-WITTENBERG-16/77",
+        "PAPER-HARPAZ-WITTENBERG-16/78",
+        "PAPER-HARPAZ-WITTENBERG-16/79",
+        "PAPER-HARPAZ-WITTENBERG-16/81",
+        "PAPER-HARPAZ-WITTENBERG-16/83",
+        "PAPER-HARPAZ-WITTENBERG-16/84",
+        "PAPER-HARPAZ-WITTENBERG-16/87",
+        "PAPER-HARPAZ-WITTENBERG-16/89",
+        "PAPER-HARPAZ-WITTENBERG-16/90",
+        "PAPER-HARPAZ-WITTENBERG-16/91",
+        "PAPER-HARPAZ-WITTENBERG-16/92",
+        "PAPER-HARPAZ-WITTENBERG-16/93",
+        "PAPER-HARPAZ-WITTENBERG-16/94",
+        "PAPER-HARPAZ-WITTENBERG-16/95",
+        "PAPER-HARPAZ-WITTENBERG-16/96",
+        "PAPER-HARPAZ-WITTENBERG-16/97"
+      ],
+      "brief": "This paper is the foundation that HeightsRationalPointsPartIIZeroCycles was proposed for (PAPER-HARPAZ-WITTENBERG-20, which cites HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2). Extend that candidate's brief with HW16's complete fibration method for zero-cycles and for rational points. Suggested retitle: \"Heights, rational points and obstructions, Part II: zero-cycles and the fibration method\".\n\nThe final theorems, exactly as in Harpaz–Wittenberg, Ann. of Math. 183 (2016):\n- Theorem 8.3(1)–(4). For f : X → C with X_η̄ irreducible, H¹(X_η̄, Q/Z) = 0 and A₀(X_η̄⊗K) = 0:\n  (1) if C and the smooth fibers above the closed points of a Hilbert subset satisfy (E), so does X;\n  (2) the relative sequence CH_0(X/C) → CH_{0,A}(X/C) → Hom(Br(X)/f^*Br(C), Q/Z) is exact;\n  (3) Condition 8.1 on the fibers suffices when every fiber has a multiplicity-one component;\n  (4) the corresponding (E₁) statement.\n- Corollaries 8.4 and 8.5: bases birational to P^n, C or P^n × C, and homogeneous-space fibrations with connected stabilisers satisfy (E).\n- Conjectures 9.1 and 9.2, stated as conjectures.\n- Theorem 9.17 and Theorem 9.22: rational points, conditional on Conjecture 9.1 or 9.2 for the polynomials of M′.\n- Corollaries 9.23, 9.24, 9.25 and 9.27.\n- The unconditional Theorems 9.28 and 9.31, and Corollary 9.29.\n- The known cases of Conjecture 9.1: Theorem 9.6 (from Schinzel's hypothesis, for almost abelian extensions), Theorem 9.11 (small degree), Theorem 9.14 (Matthiesen) and Theorem 9.15 (Irving).\n\nCover, with API and tests:\n- strong approximation for varieties and Lemma 1.8;\n- Lemma 5.2 (locally split elements);\n- Pic₊(C) and Br₊(C), with both definitions, the exact sequences, the pairing, the adelic complex and Theorem 2.5. Wittenberg's hypercohomological duality is needed for positive genus; for C = P^1, derive it from torus Poitou–Tate (ArithmeticGaloisDuality R02.4);\n- the cycle formal lemma, Proposition 3.1, with its moving lemmas;\n- Harari's specialisation of Brauer groups over Hilbert sets (Proposition 4.1), with H³(k(C), Q/Z(1)) = 0;\n- Theorem 5.1 with all of §§5.2–5.5 (Lemmas 5.3–5.9), and Theorem 6.2;\n- Theorems 7.1–7.2, Lemma 7.3, Propositions 7.4–7.5 and Lemma 7.6;\n- Lemma 8.6 and Proposition 8.7, and the induction of Lemmas 8.9–8.12;\n- the variety W, Proposition 9.9 and Corollary 9.10, Lemma 9.13, and Lemmas 9.19–9.20.\n\nUse the corrected arguments of sourceIssues E1–E2:\n- in Lemma 9.13(4) the remaining case is w not above S′;\n- in Theorem 9.22, choose x″_v integral with respect to a model on which B₀ is defined.\n\nWrite out the reduction of Remark 9.3(ii) (Conjecture 9.1 over Q implies it over k) before any consumer uses it; the paper only sketches it.\n\nKeep Theorem 9.31 under its printed hypothesis (k totally imaginary, or non-split fibers over rational points). The footnote saying that hypothesis is superfluous has no proof in this paper.\n\nImport, never re-plan:\n- adelic points, the Brauer–Manin pairing, its cycle version, Harari's formal lemma and evaluation formulas: HeightsRationalPointsAndObstructions RP.2 (sources of this paper included);\n- étale cohomology, base change, Hochschild–Serre, residues, purity and Brauer groups of local rings: SchemeAndStackFoundations SF.2;\n- Chow groups, pushforward and the projection formula: SF.5;\n- characteristic-zero resolution: SF.4;\n- Hilbert subsets and irreducibility, Lemmas 6.1 and 8.12: InverseGaloisAndArithmeticFundamentalGroups IG.2;\n- Lang–Weil and Ekedahl: WeilConjectures WC.5;\n- decomposition of the diagonal: MotivesAndAlgebraicCycles MC.0;\n- Weil restriction: ReductiveGroupsPartII RG2.0a;\n- Weil reciprocity: K2SymbolsBrauer T.4;\n- global reciprocity and norm theorems: Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory), Layers 10 and 13;\n- Chebotarev (tauceti:TauCetiRoadmap/Chebotarev), Layer 10;\n- weak and strong approximation: Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields), Layers 1 and 6;\n- Serre duality, cohomology and base change, and symmetric powers: Jacobian Challenge (tauceti:TauCetiRoadmap/JacobianChallenge), Layers B–C;\n- Mattuck's theorem: AbelianSchemesAndArithmeticModuliPartIILocalPoints;\n- Borovoi's theorem: HeightsRationalPointsPartIIHomogeneousMassey;\n- Schinzel's hypothesis and (HH₁) statements: SieveMethodsAndPrimePatterns SV.4;\n- Heath-Brown–Moroz and Irving: SV.5;\n- Matthiesen: AdditiveCombinatorics AC.5.\n\nOwnership: HW20 (unreviewed) routes Colliot-Thélène's Conjecture 1.1 (its item 133), HW16 Conjecture 9.1 (76) and Corollary 9.25 (77) to HeightsRationalPointsPartIIHomogeneousMassey. These are general fibration statements, so this Part II should own them, and the homogeneous-space roadmap should import them. The two routes must be reconciled so that each has one owner.\n\nTests:\n- Châtelet surfaces;\n- the norm hypersurface N_{K/k}(x) = P(t) for non-abelian K;\n- a positive-genus base with trivial divisible Sha;\n- a failure of Lemma 5.2's conclusion without the norm hypothesis;\n- the non-proper counterexample of E2 (𝔾_m × P^1, (x, a)).",
+      "reason": "HW20 proposed this Part II for (E), the completed adelic Chow complex and the fibration theorems, naming HW16's §8 as its core. No atlas layer plans the fibration method, Pic₊/Br₊ duality, the cycle formal lemma for fixed classes, Harari's specialisation over Hilbert sets, or Conjecture 9.1 and its consequences. RP.2–RP.3 own pairing and descent, not fibrations. Routing all of HW16's fibration content here, rather than into a new roadmap, avoids a second owner of Theorem 8.3."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/E1",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 9.13(4), p. 39 of the authors' final version (= arXiv v4); the published pagination was not accessible",
+      "printed": "\"Thus we may assume that w lies above a place of S′, so that w(b_i) = w(b′_i) = 0 and w(α) ≥ 0, w(γ) ≥ 0, w(a′_i) ≥ 0.\"",
+      "correction": "\"Thus we may assume that w does not lie above a place of S′, so that w(b_i) = w(b′_i) = 0 and w(α) ≥ 0, w(γ) ≥ 0, w(a′_i) ≥ 0.\"",
+      "reason": "Assertion (4) says: either w lies above S, or w does not lie above S′ and w(t′₀ − a′_i) > 0. The first case is immediate, and the preceding sentence excludes w above S′ ∖ S. The case left is w not above S′. Only there do the stated valuations hold: S′₀ ⊆ S′ contains every place above which α, γ or a′_i fails to be integral or b′_i fails to be a unit, and b_i is a unit outside S ⊆ S′. At places above S′ they are not controlled. The rest of the argument proves the second alternative in exactly this case, by the identity b′_i(t′₀ − a′_i) = b_i(t₀ − a_i)(α − γt′₀), checked by direct computation with t′₀ − a′_i = (αδ − βγ)(t₀ − a_i)/((γt₀ + δ)(γa_i + δ)) and α − γt′₀ = (αδ − βγ)/(γt₀ + δ).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1409.0993: v1 (3 Sep 2014) to v4 (22 Jun 2015). v4 was read in full and is the latest",
+        "the authors' final version at https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf (linked from Wittenberg's publication list as the Annals paper): identical to arXiv v4 except for five trivial differences (two punctuation marks, the page range of one reference and a postcode, besides the arXiv header), checked by a word-level diff",
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/183-1/p05: no erratum listed. The publisher PDF is paywalled (a 2-page preview of pp. 229–230 was read), so the published pages could not be checked",
+        "Crossref metadata for 10.4007/annals.2016.183.1.5: no update, erratum or correction relation"
+      ]
+    },
+    {
+      "id": "PAPER-HARPAZ-WITTENBERG-16/E2",
+      "kind": "error",
+      "locator": "Proof of Theorem 9.22, p. 47 of the authors' final version (= arXiv v4)",
+      "printed": "\"To this end, we may assume, after enlarging S, that X_h(k_v) ≠ ∅ for any v ∈ Ω ∖ S (see [LW54], [Nis54]), that Ω_∞ ⊆ S and that any element of B₀ evaluates trivially on X(k_v) for any v ∈ Ω ∖ S. For v ∈ Ω ∖ S, let x″_v be an arbitrary k_v-point of X_h.\"",
+      "correction": "Fix a model 𝒳 of X over 𝒪_S with B₀ ⊂ Br(𝒳). Enlarge S so that x_v ∈ 𝒳(𝒪_v) for v ∉ S, and so that the fiber 𝒳_h has 𝒪_v-points for v ∉ S (Lang–Weil and Hensel on a smooth model of X_h). Then every β ∈ B₀ vanishes on 𝒳(𝒪_v) for v ∉ S, and one takes x″_v ∈ 𝒳_h(𝒪_v). The rest of the proof is unchanged. When X is proper, X(k_v) = 𝒳(𝒪_v) for almost all v and the printed claim holds.",
+      "reason": "Theorem 9.22 keeps the assumptions of Theorem 9.17, where X is only smooth and irreducible, not proper; Proposition 9.9 applies Theorem 9.17 to the quasi-affine W. For non-proper X an element of Br(X) need not vanish on X(k_v) at almost all v. Take X = 𝔾_m × P^1_k with f the second projection (every fiber ≅ 𝔾_m is geometrically integral), U = P^1_k minus a point, and B = {0, (x, a)} with x the coordinate of 𝔾_m and a ∈ k^* a non-square. Then (x, a) ∈ Br(X), so (x, a) ∈ B₀. At each of the infinitely many places v inert in k(√a), (x, a) takes the value 1/2 at every point with v(x) odd. With x″_v arbitrary k_v-points of X_h, the family (x″_v) need not be orthogonal to B₀, so the next sentence ('By the definition of B₀, the adelic point (x″_v) is orthogonal to (B + f_η^*Br(η)) ∩ Br(X)') fails as written. With integral points it holds: Σ_{v∈S} inv_v β(x_v) = 0 by the orthogonality of (x_v) and its integrality outside S, and β(x″_v) = 0 for v ∉ S. Corollary 9.23 and the later results apply Theorem 9.22 only to proper X, where the printed claim is true, so the gap affects only the non-proper generality of Theorem 9.22 itself.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 1409.0993: v1 (3 Sep 2014) to v4 (22 Jun 2015). v4 was read in full and is the latest",
+        "the authors' final version at https://www.math.univ-paris13.fr/~wittenberg/zcfib.pdf (linked from Wittenberg's publication list as the Annals paper): identical to arXiv v4 except for five trivial differences (two punctuation marks, the page range of one reference and a postcode, besides the arXiv header), checked by a word-level diff",
+        "Annals of Mathematics article page https://annals.math.princeton.edu/2016/183-1/p05: no erratum listed. The publisher PDF is paywalled (a 2-page preview of pp. 229–230 was read), so the published pages could not be checked",
+        "Crossref metadata for 10.4007/annals.2016.183.1.5: no update, erratum or correction relation"
+      ]
+    }
+  ]
+}
