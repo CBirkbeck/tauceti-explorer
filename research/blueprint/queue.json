@@ -3201,8 +3201,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GLEASON-LIM-XU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1205"
+   "state": "pending",
+   "note": "released on GitHub issue #1205"
   },
   {
    "id": "REV-PAPER-GLEASON-LIM-XU-26",
@@ -3949,8 +3949,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-GAN-SAVIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1250"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1250",
+   "finishedAt": "2026-09-22T17:31:55Z"
   },
   {
    "id": "REV-PAPER-GAN-SAVIN-23",
@@ -5013,7 +5014,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1312"
   },
   {
    "id": "REV-PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
