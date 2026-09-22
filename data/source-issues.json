@@ -5903,6 +5903,113 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-CLAUSEN-MATHEW-21/E1",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.9, p. 26 (arXiv 1905.06611v3)",
+   "printed": "Thus we can assume that F itself lies in Sh^f(C)_{≥d}, and try to find F′ in Sh^f(C)_{≥d+1} with a factoring F → F′ → G assuming G ∈ Sh^f(C)_{≥d+1}.",
+   "correction": "assuming G ∈ Sh(C)_{≥d+1}.",
+   "reason": "Claim 1 is about an arbitrary d-connective sheaf G, and only F is required to be finite. The inductive step must allow an arbitrary (d + 1)-connective G, and the argument that follows uses only the connectivity of G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1905.06611 listing (v1 16 May 2019, v2 12 June 2019, v3 18 March 2021 'various corrections and edits') and the v3 TeX source hyper_revised_2.tex and PDF",
+    "Crossref metadata for DOI 10.1007/s00222-021-01043-3 (Invent. Math. 225 (2021) 981–1076; no update-to or correction relation)",
+    "the Springer article page (the PDF request returned an HTML page, so the published text was not compared)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 4.23, p. 48",
+   "printed": "Let ρ̃_G be the reduced complex regular representation of G, and let S^{ρ̃_G} be the one-point compactification of G, considered as a spectrum equipped with a G-action.",
+   "correction": "let S^{ρ̃_G} be the one-point compactification of ρ̃_G.",
+   "reason": "S^{ρ̃_G} is the representation sphere of ρ̃_G; its Euler class e : S → S^{ρ̃_G} and the equivalence HZ ⊗ S^{nρ̃_G} ≃ Σ^{2n(|G|−1)}HZ used next require the compactification of the (|G| − 1)-dimensional complex representation, not of the finite set G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1905.06611 listing (v1 16 May 2019, v2 12 June 2019, v3 18 March 2021 'various corrections and edits') and the v3 TeX source hyper_revised_2.tex and PDF",
+    "Crossref metadata for DOI 10.1007/s00222-021-01043-3 (Invent. Math. 225 (2021) 981–1076; no update-to or correction relation)",
+    "the Springer article page (the PDF request returned an HTML page, so the published text was not compared)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21/E3",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 4.39, p. 55",
+   "printed": "From Theorem 4.38 we deduce that A_{V→U} is a d-nilpotent G-spectrum. Thus F_{V→U}, being a module over A_{V→U}, is a d-nilpotent genuine G-spectrum … and F(Y) is d-nilpotent as a G-spectrum.",
+   "correction": "A_{V→U} is (d + l)-nilpotent, where d is the Krull dimension of X and l the bound on the 𝒫-local Galois cohomological dimensions of its residue fields; hence F_{V→U} is (d + l)-nilpotent and F(V) is (d + l)-nilpotent.",
+   "reason": "Corollary 4.39 defines no d, and Theorem 4.38(3) gives nilpotence of exponent d + l with d the Krull dimension. The cover is V → U, so 'F(Y)' should be F(V). Only the existence of some exponent is used when Theorem 4.38 is applied again.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1905.06611 listing (v1 16 May 2019, v2 12 June 2019, v3 18 March 2021 'various corrections and edits') and the v3 TeX source hyper_revised_2.tex and PDF",
+    "Crossref metadata for DOI 10.1007/s00222-021-01043-3 (Invent. Math. 225 (2021) 981–1076; no update-to or correction relation)",
+    "the Springer article page (the PDF request returned an HTML page, so the published text was not compared)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21/E4",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 6.18, part 2, p. 78",
+   "printed": "More generally, if R′ is a finite étale R-algebra, then R is a finite product of henselian local rings, so similarly the fiber of K^Sel(R′)/p → K^Sel(R′ ⊗_R k)/p (17) lives in degrees ≤ 0.",
+   "correction": "then R′ is a finite product of henselian local rings.",
+   "reason": "R is already henselian local; the argument needs the finite étale R-algebra R′ to be a finite product of henselian local rings (true for any finite algebra over a henselian local ring, [Stacks, Tag 04GG]) to apply the previous paragraph to each factor.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1905.06611 listing (v1 16 May 2019, v2 12 June 2019, v3 18 March 2021 'various corrections and edits') and the v3 TeX source hyper_revised_2.tex and PDF",
+    "Crossref metadata for DOI 10.1007/s00222-021-01043-3 (Invent. Math. 225 (2021) 981–1076; no update-to or correction relation)",
+    "the Springer article page (the PDF request returned an HTML page, so the published text was not compared)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21/E5",
+   "kind": "misprint",
+   "locator": "§1.2, p. 7, and proof of Proposition 5.33, p. 67; bibliography entry [MNN19], p. 87",
+   "printed": "relying on the May nilpotence conjecture [MNN19] … But by the May nilpotence conjecture [MNN19], since everything is now E_∞, … — where [MNN19] is Mathew–Naumann–Noel, Derived induction and restriction theory, Geom. Topol. 23 (2019).",
+   "correction": "Cite Mathew–Naumann–Noel, On a nilpotence conjecture of J. P. May, J. Topol. 8 (2015), 917–932 (doi 10.1112/jtopol/jtv021) for the May nilpotence conjecture; [MNN19] remains the reference for the Euler-class criterion in Proposition 4.23.",
+   "reason": "May's conjecture is proved in the 2015 Journal of Topology paper, whose abstract states it. The abstract of Derived induction and restriction theory concerns ℱ-nilpotence and induction theorems. The TeX key is MNN15, but its bibliography entry prints the 2019 paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1905.06611 listing (v1 16 May 2019, v2 12 June 2019, v3 18 March 2021 'various corrections and edits') and the v3 TeX source hyper_revised_2.tex and PDF",
+    "Crossref metadata for DOI 10.1007/s00222-021-01043-3 (Invent. Math. 225 (2021) 981–1076; no update-to or correction relation)",
+    "the Springer article page (the PDF request returned an HTML page, so the published text was not compared)",
+    "Crossref metadata for DOIs 10.1112/jtopol/jtv021 and 10.2140/gt.2019.23.541",
+    "the arXiv abstracts of 1403.2023 (On a nilpotence conjecture of J.P. May) and 1507.06867 (Derived induction and restriction theory)"
+   ],
+   "owner": "PAPER-CLAUSEN-MATHEW-21",
+   "file": "research/blueprint/papers/PAPER-CLAUSEN-MATHEW-21.result.json",
+   "citation": "Clausen–Mathew, \"Hyperdescent and étale K-theory\", Inventiones Mathematicae (2021)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/E1",
    "kind": "misprint",
    "locator": "§1.2, paragraph after Theorem G, p. 5 (arXiv 1803.10897v2)",
@@ -11599,7 +11706,8 @@
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
     "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-    "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review."
+    "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11620,7 +11728,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11641,7 +11750,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11662,7 +11772,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11677,13 +11788,14 @@
    "locator": "Lemma15 proof p.17; Lemma16 proof pp.17–18",
    "printed": "Ĭ_n ∩ gĬ_ng⁻¹ is a pro-p subgroup of Ĭ_n. Thus any element ... can be lifted ...",
    "correction": "Provide connected smooth/pro-unipotent models for the intersection, Lang surjectivity on finite quotients and compatible inverse-limit lifting. Also prove the root-depth quotient comparisons used for counting are Frobenius-equivariant.",
-   "reason": "Abstract pro-p structure does not imply a fixed-coset lifting theorem: a fixed coset need not have a fixed representative without vanishing of the relevant nonabelian H¹. Over k̄ the root groups are not literally finite-residue profinite pro-p groups. Richarz's rank-one Lang argument supports the unshifted count, but the depth/intersection transport still needs proof. No false-Lemma15 claim is made.",
+   "reason": "Abstract pro-p structure does not imply a fixed-coset lifting theorem: a fixed coset need not have a fixed representative without vanishing of the relevant nonabelian H¹. Over k̄ the root groups are not literally finite-residue profinite pro-p groups. Richarz's rank-one Lang argument supports the unshifted count, but the depth/intersection transport still needs proof. No false-Lemma15 claim is made. Concrete obstruction: H=Z/p² additively, sigma(x)=(1+p)x, J=pZ/p². The entire quotient H/J is fixed, but H^sigma=J maps only to its zero coset. Thus even finite p-groups do not justify the printed implication. L19–L22 supply a sufficient connected-model route.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11704,7 +11816,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11726,7 +11839,8 @@
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
     "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-    "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review."
+    "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11747,7 +11861,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11768,7 +11883,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
@@ -11789,7 +11905,8 @@
    "searched": [
     "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
     "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists."
+    "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
+    "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
    ],
    "owner": "PAPER-HE-18",
    "file": "research/blueprint/papers/PAPER-HE-18.result.json",
