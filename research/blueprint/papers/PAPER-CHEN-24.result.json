@@ -1,0 +1,1633 @@
+{
+ "paper": "PAPER-CHEN-24",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "Nonabelian level structures, Nielsen equivalence, and Markoff triples",
+  "authors": "William Y. Chen",
+  "venue": "Annals of Mathematics 199 (2024), no. 1",
+  "doi": "10.4007/annals.2024.199.1.5",
+  "arxiv": "2011.12940",
+  "url": "https://arxiv.org/pdf/2011.12940v2",
+  "sha256": "f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc",
+  "readDate": "2026-09-22",
+  "version": "arXiv:2011.12940v2, posted 19 June 2021, 96 pages, the author's revision whose comment reads 'Changed title, rewrote introduction, improved results and exposition'; v1 is from 25 November 2020. The published version, Annals of Mathematics 199 (2024), no. 1, is behind the journal's paywall and was not consulted, so every locator gives the section, theorem or equation number together with the page of the arXiv v2 PDF, and the findings under sourceIssues are recorded against that version. No erratum or corrigendum is listed on the arXiv page or in Crossref.",
+  "readSections": [
+   "§1 Introduction, pp. 2–13: §1.1 the main congruence and its combinatorial form, §1.2 the applications to Markoff triples and to connectedness of Hurwitz stacks, §1.3 the summary and sketch of the argument, §1.4 further directions, §1.6 notation",
+   "§2 Admissible G-covers of elliptic curves, pp. 13–33: §2.1 admissible G-covers and Adm(G)‾, §2.2 the reduced ramification divisor, §2.3 the Higman invariant, §2.4 stable marked G-curves, §2.5 G-structures, M(G), rigidification and the Galois dictionary",
+   "§3 Degrees of components of Adm(G)‾ over M(1)‾, pp. 33–42: §3.1 differentials and dualizing sheaves on stacks, §3.2 the universal family, §3.3 restriction to a ramified section, §3.4 degrees of line bundles on 1-dimensional stacks and the Hodge bundle, §3.5 the main congruence",
+   "§4 Galois correspondence for cuspidal objects, pp. 42–65: §§4.1–4.3 cuspidal covers, tangential base points and π₁(P¹−{0,1,∞}), §§4.4–4.7 normalization, gluing, balance and connectedness, §4.8 the δ-invariant, §4.9 the [−1]-pullback, §4.10 automorphism groups and the combinatorial congruence, §4.11 the dihedral obstruction, §4.12 congruences for simple groups",
+   "§5 Applications to Markoff triples and the geometry of M(SL₂(F_q)), pp. 65–87: §5.1 the trace invariant, §5.2 the character variety, §5.3 automorphism groups, §5.4 congruences, §5.5 strong approximation for the Markoff equation, §5.6 the genus formula and noncongruence",
+   "§6 Appendix, pp. 86–93: §6.1 normalized coordinates for tame balanced actions, §6.2 the normalizer of SL_n(F_q), §6.3 images of absolutely irreducible representations, §6.4 étale local rings of Deligne–Mumford stacks",
+   "References, pp. 93–96, read in full to identify the inputs listed under prerequisites"
+  ]
+ },
+ "summary": "Complete extraction of the 96-page paper. Chen proves a congruence on the degree over the j-line of any connected component of the stack Adm(G)‾ of admissible G-covers of 1-generalized elliptic curves: with e the ramification index above the origin and d_X, m_X the two obstructions coming from the reduced ramification divisor and from the stackiness of degrees, deg(X → M(1)‾) ≡ 0 mod 12e/gcd(12e, m_X d_X). Through Galois theory this is a divisibility theorem for the cardinalities of Out⁺(Π)-orbits on Epi^ext(Π,G), that is for Nielsen equivalence classes of generating pairs. The proof rests on the isomorphism σ_O*ω_{E/X} ≅ (σ*ω_{C/X})^{⊗e}, on the Hodge bundle having degree 1/24, and on a combinatorial classification of the cusps of Adm(G)‾ by ℤ-orbits of conjugacy classes of generating pairs, the δ-invariant, which computes their automorphism groups. Applied to G = SL₂(F_p) with Higman invariant of trace −2 it gives that every Γ-orbit on the nonzero F_p-points of the Markoff surface has cardinality divisible by p; combined with Bourgain, Gamburd and Sarnak's estimates this makes their exceptional set finite and explicitly bounded, proves strong approximation for the Markoff equation outside it, and gives an exact genus formula for the resulting noncongruence modular curves. Of the 115 items, 6 are in the pinned libraries, 9 are planned by existing layers of the atlas and 100 are missing. The Markoff carrier goes to ClassicalArithmeticCompletion CA.4, which the accepted extractions of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22 already make its owner; the Markoff-modulo-p endpoints go to the pending Part II of Arithmetic dynamics, the third paper to point there; Nielsen equivalence, T-systems and the two standing conjectures about them go to InverseGaloisAndArithmeticFundamentalGroups IG.3 and IG.5; the general stack technology goes to AlgebraicModuliForArithmeticGeometry R09.4–R09.6; tangential base points go to AnabelianGeometryAndNonabelianChabauty NC.0; and the (g,n) = (1,1) Hurwitz theory itself, with its SL₂(F_q) consequences, forms a new roadmap, Nonabelian level structures on elliptic curves and congruences for Hurwitz components. Two mistakes in the source are recorded; the arithmetic consequences of §5 were checked by exhaustive computation for p ≤ 23, including the orbit counts, the cusp count, the ramification above j = 0 and j = 1728 and the genus formula, which is correct. This is a paper inventory and routing, not a proof blueprint: the inputs quoted from Abramovich–Corti–Vistoli, Bertin–Romagny, Bourgain–Gamburd–Sarnak, Macbeath, Nakamoto, Vdovin and Meiri–Puder are recorded as items with their own prerequisite entries and are not decomposed here.",
+ "items": [
+  {
+   "id": "PAPER-CHEN-24/1",
+   "kind": "definition",
+   "name": "Hurwitz stacks of covers of pointed curves",
+   "statement": "For a field k, M_{g,n} is the moduli stack of smooth genus-g curves with n marked points, and for d ∈ ℤ the Hurwitz stack H_{g,n,d} classifies connected degree-d covers of smooth (g,n)-curves ramified only above the n marked points. The stacks M_{g,n} are irreducible while the H_{g,n,d} are typically disconnected, and the problem is to find combinatorial invariants of covers that separate their connected components.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1, p. 2, opening paragraph",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5"
+   ],
+   "note": "IG.5 plans Hurwitz moduli with braid/Nielsen-class components; its reviewed audit records that no Hurwitz space or Nielsen class exists in either library. This paper works throughout with (g,n) = (1,1) and with G-Galois covers."
+  },
+  {
+   "id": "PAPER-CHEN-24/2",
+   "kind": "definition",
+   "name": "The moduli stack of elliptic curves and its compactification",
+   "statement": "M(1) := M_{1,1} is the moduli stack of elliptic curves and M(1)‾ its compactification by stable 1-pointed curves of genus 1 (1-generalized elliptic curves); their coarse schemes are M(1) ≅ A¹_S and M(1)‾ ≅ P¹_S through the j-invariant.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1, p. 3, and §2.1, p. 13, Definition 2.1.3",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ModularCurvesPartII:R13.1",
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-4-the-katzmazur-moduli-formalism"
+   ],
+   "note": "R13.1 plans generalised elliptic curves and the Katz–Mazur layer plans the moduli formalism and its coarse schemes; the j-invariant of a Weierstrass curve is Mathlib's WeierstrassCurve.j. The stack M(1) itself, its compactification and the identification of the coarse space with the j-line are not in either library."
+  },
+  {
+   "id": "PAPER-CHEN-24/3",
+   "kind": "theorem",
+   "name": "Congruence for the degree of a component of Adm(G) (Theorem 1.1.1)",
+   "statement": "Let G be a finite group, c ∈ G with conjugacy class c, and let X ⊂ Adm(G)_c be a connected component with coarse scheme X. For a prime ℓ put r := ord_ℓ(|c|). (a) Write ord_ℓ(|G|) = r + s and let j ≥ 0 be an integer such that G contains no proper normal subgroup of order divisible by ℓ^{j+1}. If r ≥ 3s + j then deg(X → M(1)‾) ≡ 0 mod ℓ^{⌈(r−3s−j)/2⌉}. (b) If G is nonabelian simple, ℓ^{r+1} ≥ |G|^{1/3} and G is not isomorphic to PSL₂(F_q) for any q, then deg(X → M(1)‾) ≡ 0 mod ℓ^{⌈r/2⌉}.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.1, p. 4, Theorem 1.1.1; proved as Corollary 4.12.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "|c| is the ramification index at every ramified point, since the stabiliser of a ramified point is generated by a conjugate of c. Acceptance: for c = [[−1,1],[0,−1]] ∈ SL₂(F_ℓ) with ℓ ≥ 3 one has r = 1, s = j = 0 and the congruence is ≡ 0 mod ℓ, which is the Markoff case."
+  },
+  {
+   "id": "PAPER-CHEN-24/4",
+   "kind": "theorem",
+   "name": "Combinatorial form of the congruence (Theorem 1.1.2)",
+   "statement": "Let G be a finite group, c ∈ G with class c, fix a basis (a,b) of the free group Π of rank 2 and let ϕ : Π ↠ G satisfy ϕ([a,b]) ∈ c. With r, s, j as in Theorem 1.1.1: (a) if r ≥ 3s + j then |Out⁺(Π)·ϕ| ≡ 0 mod ℓ^{⌈(r−3s−j)/2⌉} for the orbit of ϕ in Epi^ext(Π,G); (b) if G is nonabelian simple, ℓ^{r+1} ≥ |G|^{1/3} and G ≇ PSL₂(F_q), then |Out⁺(Π)·ϕ| ≡ 0 mod ℓ^{⌈r/2⌉}. If moreover ϕ ∘ γ_{−I} = ϕ, where γ_{−I} : (a,b) ↦ (a^{−1},b^{−1}), the congruences mod ℓ^k strengthen to mod 2ℓ^k.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.1, pp. 4–5, Theorem 1.1.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Acceptance: for G = ℤ/nℤ the action is transitive with single orbit of size [SL₂(ℤ):Γ₁(n)]; for G = (ℤ/nℤ)² there are φ(n) orbits each of size [SL₂(ℤ):Γ(n)] = |SL₂(ℤ/nℤ)|, so the congruences are vacuous for abelian G."
+  },
+  {
+   "id": "PAPER-CHEN-24/5",
+   "kind": "definition",
+   "name": "Exterior epimorphisms, Nielsen equivalence classes and T-systems",
+   "statement": "For groups A, B, Epi^ext(A,B) := Epi(A,B)/Inn(B) is the set of conjugacy classes of surjections A → B. Having fixed a basis of the free group F_r, Epi^ext(F_r,G) is the set of conjugacy classes of generating r-tuples of G, the Out(F_r)-orbits on it are the Nielsen equivalence classes of generating tuples, and the orbits on Epi(F_r,G)/Aut(G) are the T_r-systems. d(G) denotes the least cardinality of a generating set of G.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.1, p. 5, and §1.6, p. 12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Nielsen equivalence of generating tuples is not in either library: Mathlib's NielsenSchreier is the unrelated theorem that subgroups of free groups are free. API: the Out(F_r)-action on Epi^ext, the quotient by Aut(G), and the count of orbits. Tests: for G = ℤ/nℤ and r = 2 there is one class; for G = (ℤ/nℤ)² there are φ(n)."
+  },
+  {
+   "id": "PAPER-CHEN-24/6",
+   "kind": "theorem",
+   "name": "Wiegold–Garion transitivity conjecture (Conjecture 1.1.3)",
+   "statement": "If G is a finite group and r ≥ d(G) + 1, then Out(F_r) acts transitively on Epi^ext(F_r,G).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.1, p. 5, Conjecture 1.1.3, quoting [Gar08, Conjecture 1]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A conjecture, known for solvable G [Dun70] and for r ≥ log₂|G| [Lub11]; it must never be consumed as a theorem. For finite simple G it is attributed to Wiegold."
+  },
+  {
+   "id": "PAPER-CHEN-24/7",
+   "kind": "theorem",
+   "name": "The trace invariant and the T-classification conjecture (Conjecture 1.1.4)",
+   "statement": "For G = SL₂(F_q) the trace invariant is τ : Epi(Π,SL₂(F_q)) → F_q, ϕ ↦ tr ϕ([a,b]). McCullough and Wanderley conjecture that τ induces a bijection from the set of T₂-systems of SL₂(F_q) onto its image in F_q, and describe that image; they verified the conjecture for all q ≤ 131.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.1, p. 5, Conjecture 1.1.4, quoting [MW13]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A conjecture. The case (q,t) = (p,−2) is resolved for all but finitely many p by Theorem 1.2.6. It contains the Bourgain–Gamburd–Sarnak conjecture as the special case (q,t) = (p,−2)."
+  },
+  {
+   "id": "PAPER-CHEN-24/8",
+   "kind": "theorem",
+   "name": "Trace coordinates classify SL₂(F_q)-representations of the free group of rank two",
+   "statement": "For a prime power q and t ∈ F_q − {2}, the map Hom(Π,SL₂(F_q))_t / GL₂(F_q) → {(x,y,z) ∈ F_q³ : x²+y²+z²−xyz−2 = t}, ϕ ↦ (tr ϕ(a), tr ϕ(b), tr ϕ(ab)), is a bijection, where GL₂(F_q) acts by conjugation and Hom(Π,SL₂(F_q))_t is the set of ϕ with tr ϕ([a,b]) = t. The natural Aut(Π)-action on the source induces an action on the target by polynomial automorphisms of A³ preserving the hypersurface, and the induced group Γ ⊂ Aut(A³) is generated by the coordinate permutations and the Vieta involution (x,y,z) ↦ (x,y,xy−z).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2, pp. 5–6, (2); proved as Theorem 5.2.10 with Proposition 5.2.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the dictionary between the moduli stacks M(G) for G ≤ SL₂(F_q) and the Γ-action on F_q-points of the level sets of x²+y²+z²−xyz−2. Acceptance: the fibre over t = −2 is the Markoff surface."
+  },
+  {
+   "id": "PAPER-CHEN-24/9",
+   "kind": "definition",
+   "name": "The Markoff surface in trace coordinates and its nonzero points",
+   "statement": "X ⊂ A³_ℤ is the affine surface x² + y² + z² − xyz = 0 and, for a prime p, X*(p) := X(F_p) − {(0,0,0)}. For odd p the bijection above restricts to a bijection Epi(Π,SL₂(F_p))_{−2}/GL₂(F_p) ≅ X*(p).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, and (3); also §5.5, p. 80",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "X is the twist by (x,y,z) ↦ (3x,3y,3z) of the classical Markoff surface M : x²+y²+z²−3xyz = 0; the twist is an isomorphism over ℤ[1/3] and a bijection on ℤ-points. The same carrier is routed to ClassicalArithmeticCompletion CA.4 by the accepted extractions of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22 and must not be planned twice."
+  },
+  {
+   "id": "PAPER-CHEN-24/10",
+   "kind": "theorem",
+   "name": "Markoff's theorem on positive integral solutions (Theorem 1.2.1)",
+   "statement": "The positive integer solutions of x²+y²+z²−xyz = 0 form a single orbit under Γ.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, Theorem 1.2.1, quoting [Mar79, Mar80]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The same statement is item /3 of the accepted extraction PAPER-MARTIN-25 in the coefficient-three normalisation; the two must share one carrier. Acceptance: the orbit of (3,3,3) in the coefficient-one normalisation."
+  },
+  {
+   "id": "PAPER-CHEN-24/11",
+   "kind": "theorem",
+   "name": "The Bourgain–Gamburd–Sarnak conjecture (Conjecture 1.2.2)",
+   "statement": "For every prime p, Γ acts transitively on X*(p); equivalently X(F_p) is the union of at most the two orbits {(0,0,0)} and X*(p), and X*(p) is empty exactly for p = 3.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 6, Conjecture 1.2.2; restated as Conjecture 5.5.1, p. 81",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "First posed by Baragar in 1991. A positive answer implies that X(ℤ) → X(F_p) is surjective for every p, that is strong approximation for the Markoff equation. This paper proves it for all p outside an explicitly bounded finite set."
+  },
+  {
+   "id": "PAPER-CHEN-24/12",
+   "kind": "theorem",
+   "name": "The Bourgain–Gamburd–Sarnak theorems (Theorems 1.2.3 and 1.2.4)",
+   "statement": "Let E_bgs be the set of primes for which Γ does not act transitively on X*(p). (a) For every ε > 0, #{p ∈ E_bgs : p ≤ x} = O(x^ε). (b) If C(p) is the largest Γ-orbit on X*(p) then |X*(p) − C(p)| ≤ p^ε for all large p. Equivalently, in group-theoretic form, the same two statements hold for the Out(Π)-action on Epi(Π,SL₂(F_p))_{−2}/GL₂(F_p).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, pp. 6–7, Theorems 1.2.3 and 1.2.4; restated as Theorems 5.5.2 and 5.5.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quoted from [BGS16a]; this paper does not reprove them. Their methods are effective, which is what makes the exceptional set explicitly bounded. Bourgain–Gamburd–Sarnak is listed under prerequisites and is shared with the pending Part II of Arithmetic dynamics."
+  },
+  {
+   "id": "PAPER-CHEN-24/13",
+   "kind": "theorem",
+   "name": "Every orbit on X*(p) has size divisible by p (Theorem 1.2.5)",
+   "statement": "For every prime p ≥ 3, every Out⁺(Π)-orbit on Epi(Π,SL₂(F_p))_{−2}/GL₂(F_p) has cardinality divisible by p; equivalently every Γ-orbit on X*(p) has cardinality divisible by p.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 7, Theorem 1.2.5; proved as Theorem 5.5.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Immediate from Theorem 1.1.2(a) once one knows that ϕ([a,b]) is conjugate to [[−1,u],[0,−1]] with u ∈ F_p^×, hence of order 2p, so that r = ord_p(2p) = 1 and s = j = 0. Acceptance: |X*(p)| = p(p±3) is divisible by p."
+  },
+  {
+   "id": "PAPER-CHEN-24/14",
+   "kind": "theorem",
+   "name": "Finiteness of the exceptional set and strong approximation (Theorem 1.2.6)",
+   "statement": "(a) The exceptional set E_bgs is finite and explicitly bounded. (b) For every prime p ∉ E_bgs the Markoff surface X satisfies strong approximation at p, that is X(ℤ) → X(F_p) is surjective.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 7, Theorem 1.2.6; proved as Theorems 5.5.5 and 5.5.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Combines Theorem 1.2.5 (every orbit has size ≥ p) with Theorem 1.2.3(b) (the complement of the largest orbit has size ≤ p^ε). A preliminary explicit bound of approximately 10^{5547000} for the largest prime in E_bgs was obtained by Elena Fuchs; the conjecture is verified for all p < 3000 by de Courcy-Ireland and Lee, so the conjecture is reduced to a finite computation."
+  },
+  {
+   "id": "PAPER-CHEN-24/15",
+   "kind": "theorem",
+   "name": "Congruences for generalized Markoff equations (Theorem 1.2.7)",
+   "statement": "Let q ≥ 3 be a prime power and t ∈ F_q − {2,−2}, written t = ω + ω^{−1} with ω ∈ F_{q²}^× − {±1} and {ω,ω^{−1}} uniquely determined by t. Let P = (A,B,C) be an F_q-point of x²+y²+z²−xyz = t+2 with at least two of A, B, C nonzero, and let Γ act by the same formulas as on X. Let ℓ be an odd prime, r := ord_ℓ(|ω|) and write ord_ℓ(|SL₂(F_q)|) = ord_ℓ(q³−q) = r + s. Then the Γ-orbit of P has cardinality ≡ 0 mod ℓ^{max{r−s,0}}.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.1, p. 7, Theorem 1.2.7; proved as Theorems 5.4.4 and 5.5.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The case t = −2 is the Markoff equation; t = 2 is the Cayley cubic, where the methods give nothing new because its F_q-points correspond to representations with image in a Borel subgroup."
+  },
+  {
+   "id": "PAPER-CHEN-24/16",
+   "kind": "theorem",
+   "name": "Connectedness of the Hurwitz stacks Adm(SL₂(F_p))_{c} and the genus formula (Theorem 1.2.9)",
+   "statement": "Let p be an odd prime not in E_bgs. The stacks Adm(SL₂(F_p))_{c_i}, i = 1, 2, for the two noncentral conjugacy classes of trace −2, are isomorphic and connected; let M_p be the coarse scheme of either. With Φ(n) := Σ_{d|n} φ(d)/d, genus(M_p‾) = p²/12 − ((p−1)/4)Φ(p−1) − ((p+1)/4)Φ(p+1) + ε(p), where ε(p) ∼ p is explicit in the residue class of p mod 8. For p ≥ 13 the genus is ≥ 2, and for p = 5, 7, 11 it is 0, 0, 1. Consequently, by Faltings' theorem, for p ≥ 13 with p ∉ E_bgs and any number field K only finitely many elliptic curves admit an SL₂(F_p)-cover with ramification index 2p.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.2, p. 8, Theorem 1.2.9; proved as Theorems 5.6.3 and 5.6.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Interpretable as an analogue of Rademacher's conjecture for the noncongruence modular curves M_p. Acceptance: genus 0, 0, 1 at p = 5, 7, 11 and the asymptotic p²/12."
+  },
+  {
+   "id": "PAPER-CHEN-24/17",
+   "kind": "theorem",
+   "name": "The main congruence in its purest form (Theorem 1.3.1)",
+   "statement": "Let X ⊂ Adm(G)‾ be a connected component classifying G-covers of elliptic curves with ramification index e above the origin, let d_X be the degree of the induced map on coarse schemes R → X for a connected component R of the reduced ramification divisor of the universal family, and let m_X be the least positive integer such that (σ*Ω_{C_R/R})^{⊗m_X} has trivial local characters. Then the forgetful map on coarse schemes satisfies deg(X → M(1)‾) ≡ 0 mod 12e/gcd(12e, m_X d_X).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.3.2, p. 10, Theorem 1.3.1; proved as Theorem 3.5.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The prototype is: σ_O*Ω_{E/X} ≅ (σ*Ω_{C/X})^{⊗e} and σ_O*Ω_{E/X} = f*λ with λ the Hodge bundle of degree 1/24, so deg f · deg λ = e · deg(σ*Ω_{C/X}) and integrality of degrees forces the congruence. The two obstructions are that the universal cover need not admit a ramified section (giving d_X) and that degrees on a stack are only rational (giving m_X)."
+  },
+  {
+   "id": "PAPER-CHEN-24/18",
+   "kind": "theorem",
+   "name": "Question 1.4.1 on nonabelian simple groups",
+   "statement": "If G is a nonabelian simple group, must every component X ⊂ Adm(G)‾ classifying covers with ramification index e satisfy deg(X → M(1)‾) ≡ 0 mod e? Combinatorially: if ϕ : Π ↠ G is a surjection with ϕ([a,b]) of order e, must the Out⁺(Π)-orbit of ϕ in Epi^ext(Π,G) have cardinality divisible by e?",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.4, p. 11, Question 1.4.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Open. Verified computationally for every nonabelian finite simple group of order ≤ 29120, a total of 352 non-isomorphic connected components, including PSL₂(F_q) for q = 5,…,37, A₅,…,A₈, M₁₁, PSL₃(F₃), PSL₃(F₄), PSU₃(F₃), O₅(F₃) and Sz(8). It must be recorded as a question, never as a theorem."
+  },
+  {
+   "id": "PAPER-CHEN-24/19",
+   "kind": "definition",
+   "name": "Nodal, prestable and stable pointed curves",
+   "statement": "A morphism f : C → S is a nodal curve if it is flat, proper, of finite presentation with geometric fibres of pure dimension 1 whose only singularities are ordinary double points, and a prestable curve if moreover the geometric fibres are connected. A prestable n-pointed curve of genus g is a prestable curve with n disjoint sections in the smooth locus whose geometric fibres have arithmetic genus g; it is stable if every geometric fibre has finitely many automorphisms fixing the sections, equivalently every genus-0 component of a normalised fibre carries at least three special points and every genus-1 component at least one, equivalently ω_{C_s}(Σσ_i) is ample.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, p. 13, Definitions 2.1.1 and 2.1.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves"
+   ],
+   "note": "Layer 3 of the Tau Ceti roadmap Stable reduction of curves and stable maps plans prestable, semistable, stable and pointed curves; that roadmap is existing work and is never re-planned here. This paper additionally uses the generic locus C_gen, the complement of the special points."
+  },
+  {
+   "id": "PAPER-CHEN-24/20",
+   "kind": "definition",
+   "name": "1-generalized elliptic curves",
+   "statement": "A 1-generalized elliptic curve is a stable 1-pointed curve of genus 1, with section σ_O and divisor O; the moduli stack of such is M(1)‾ and the open substack of smooth ones is M(1). Up to isomorphism there is exactly one nodal (non-smooth) 1-generalized elliptic curve over an algebraically closed field.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, p. 13, Definition 2.1.3, and §4.1, p. 43",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ModularCurvesPartII:R13.1"
+   ],
+   "note": "R13.1 plans generalised elliptic curves, n-gons, contraction and the group law on the smooth locus. Chen's 1-generalized elliptic curves are the stable-pointed rather than the Deligne–Rapoport formulation, and the comparison (Remark 4.10.4, recovering [DR75, Theorem 2.7]) is part of this paper."
+  },
+  {
+   "id": "PAPER-CHEN-24/21",
+   "kind": "definition",
+   "name": "Admissible G-covers of prestable pointed curves",
+   "statement": "An admissible G-cover of a prestable n-pointed curve (D → S, {σ_i}) is a finite map π : C → D with a right G-action leaving π invariant such that: (1) C → S is a prestable curve; (2) every node of C maps to a node of D; (3) the restriction over D_gen is a G-torsor; (4) at a geometric point of C over a marking the strict local picture is Spec O_{S,s}[ξ] → Spec O_{S,s}[x], x ↦ ξ^e, for some e ≥ 1; (5) at a geometric point over a node it is Spec O_{S,s}[ξ,η]/(ξη−a) → Spec O_{S,s}[x,y]/(xy−a^r), (x,y) ↦ (ξ^r,η^r) for some r ≥ 1 and a ∈ m_{S,s}; (6) at every node of C the stabiliser G_p is cyclic and a generator acts étale-locally by ξ ↦ ζξ, η ↦ ζ^{−1}η for a primitive e-th root of unity ζ, that is the node is balanced. It is smooth if C/S is smooth.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, pp. 13–14, Definition 2.1.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Following [ACV03, §4]; Chen requires C prestable, so ACV-admissible covers are the same conditions (2)–(6) without connected fibres. API: the six conditions as predicates, base change, the local models, and the smooth locus. Tests: a G-torsor over a smooth elliptic curve minus the origin extends to an admissible G-cover ramified only there; an unbalanced node action is excluded because it forces a = 0."
+  },
+  {
+   "id": "PAPER-CHEN-24/22",
+   "kind": "theorem",
+   "name": "Elementary properties of admissible G-covers (Remark 2.1.5)",
+   "statement": "(a) Condition (2) follows from (3) and (4); admissible G-covers send smooth points to smooth points, so x ∈ C is a node exactly when π(x) is, and C/S is smooth exactly when D/S is. (b) An admissible G-cover is an ACV-admissible G-cover with connected geometric fibres. (c) A finite map satisfying (1)–(5) is an admissible cover, and a G-action satisfying (6) is balanced; an unbalanced node cannot appear in a generically smooth family. (d) Balancedness at a node is equivalent to: the normalisation splits the cotangent space at the node into two lines, the action of G_p preserves that splitting and acts faithfully by mutually inverse characters.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, pp. 14–15, Remark 2.1.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Part (d) is proved in the appendix as Proposition 6.1.4. Tests: the two branches of a node and the mutually inverse characters; an action with ζ' ≠ ζ^{−1} forces a = 0."
+  },
+  {
+   "id": "PAPER-CHEN-24/23",
+   "kind": "definition",
+   "name": "The stacks Adm(G)‾, Adm⁰(G) and their morphisms",
+   "statement": "A morphism of admissible G-covers is a cartesian G-equivariant diagram compatible with the sections; it is determined by the map C' → C. The category Adm‾_{g,n}(G) of ACV-admissible G-covers of stable n-pointed genus-g curves is fibred in groupoids over Sch/S, the admissible ones form an open and closed substack, and one writes Adm(G)‾ := Adm‾^{conn}_{1,1}(G) with Adm⁰(G) ⊂ Adm(G)‾ the open substack of smooth covers, so Adm⁰(G) = φ^{−1}(M(1)) for the forgetful functor φ. A morphism of admissible G-covers need not induce the identity on the base curve.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, pp. 15–16, Definitions 2.1.6, 2.1.8 and Remark 2.1.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "API: the fibred category, its open and closed decomposition, the forgetful functor to M(1)‾, and the coarse schemes Adm(G)‾, Adm⁰(G). Tests: two admissible G-covers of the same curve can be isomorphic through an automorphism of the base."
+  },
+  {
+   "id": "PAPER-CHEN-24/24",
+   "kind": "theorem",
+   "name": "Coarse spaces and the Keel–Mori theorem (Theorem 2.1.9)",
+   "statement": "A coarse space of an algebraic stack X is a map c : X → X to an algebraic space that is initial among maps to algebraic spaces and induces a bijection X(k)/≅ → X(k) for every algebraically closed k. If X is locally of finite presentation over S with finite inertia then the coarse space exists and: (a) c is proper, quasi-finite and a universal homeomorphism; (b) its formation commutes with flat base change; (c) c_*O_X = O_X; (d) separatedness, (e) local finite presentation and (f) properness descend from X to X.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, pp. 15–16, Definition 2.1.8 and Theorem 2.1.9",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ],
+   "note": "R09.5 plans the existence of coarse spaces for finite-inertia presentations and their base-change statements; its reviewed audit records that neither library has coarse moduli spaces or the Keel–Mori theorem. Chen uses (a)–(f) throughout without further comment."
+  },
+  {
+   "id": "PAPER-CHEN-24/25",
+   "kind": "theorem",
+   "name": "Smoothness of the coarse scheme of a 1-dimensional stack (Lemma 2.1.10)",
+   "statement": "Let X be a smooth proper Deligne–Mumford stack over a regular Noetherian scheme S whose fibres have pure dimension 1, and suppose its coarse space X is a scheme. Then X is smooth and proper over S.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, p. 16, Lemma 2.1.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof route: the local structure of Deligne–Mumford stacks gives an étale cover by [V_i/G_i] with V_i smooth affine, and quotients of smooth affine curves by finite groups are smooth by [KM85, p. 508]. Tests: the j-line as the coarse space of M(1)."
+  },
+  {
+   "id": "PAPER-CHEN-24/26",
+   "kind": "theorem",
+   "name": "Adm(G)‾ is a smooth proper Deligne–Mumford stack (Theorem 2.1.11)",
+   "statement": "(a) Adm(G)‾ is a smooth proper Deligne–Mumford stack of pure dimension 1 over S, with finite diagonal. (b) The forgetful map φ : Adm(G)‾ → M(1)‾ is flat, proper and quasi-finite, and Adm⁰(G) ⊂ Adm(G)‾ is open and dense. (c) Adm(G)‾ admits a coarse scheme Adm(G)‾ with the properties of Theorem 2.1.9, and the induced map Adm(G)‾ → M(1)‾ is finite; in particular Adm(G)‾ is a scheme.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, pp. 16–17, Theorem 2.1.11, quoting [AV02, ACV03]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Quoted from Abramovich–Vistoli and Abramovich–Corti–Vistoli through the equivalence of Adm‾_{1,1}(G) with the stack of twisted G-covers. Properness is what makes the main congruence work; the map φ is not finite, which is why M(G)‾ is introduced."
+  },
+  {
+   "id": "PAPER-CHEN-24/27",
+   "kind": "theorem",
+   "name": "Fixed loci and the reduced ramification divisor (Lemma 2.2.1, Proposition 2.2.2, Definition 2.2.3)",
+   "statement": "Two closed subschemes of a smooth C → S finite étale over S with the same support are equal. For a nontrivial cyclic H ≤ G, C^H is the scheme-theoretic intersection of the equalisers C^h, and C^H_sm := C^H ∩ C_sm is either empty or an effective Cartier divisor finite étale over S, compatibly with arbitrary base change. Writing Δ(H) := C^H_sm − ∪_{K ⊋ H} C^K_sm, whose support consists of the points fixed by H with trivial action on the residue field and by no strictly larger cyclic subgroup, the reduced ramification divisor of an admissible G-cover π is R_π := ⊔_{H ≤ G} Δ(H) over the nontrivial cyclic subgroups H.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.2, pp. 17–18, Lemma 2.2.1, Proposition 2.2.2 and Definition 2.2.3, following [BR11]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The Δ(H) are pairwise disjoint. API: C^H, Δ(H), R_π, the G-action on R_π and base change. Tests: for a free action R_π is empty; over a marking with ramification index e the local picture is Spec A[t]/((ζ−1)t) ⊂ Spec A[t]."
+  },
+  {
+   "id": "PAPER-CHEN-24/28",
+   "kind": "theorem",
+   "name": "The reduced ramification divisor is finite étale (Propositions 2.2.4 and 2.2.6)",
+   "statement": "Let π : C → D be an admissible G-cover of a stable n-pointed curve over a connected S and e_i the ramification index above σ_i. Then R_π is an effective Cartier divisor finite étale over S supported on the non-étale points of C_sm → D_sm, and if e_i ≥ 2 then σ_i*R_π is finite étale over S of degree |G|/e_i. Beware that R_π is reduced if and only if S is, and that it differs from the ramification divisor Div(π*ω_{D/S} → ω_{C/S}) of the Riemann–Hurwitz formula, of which it is a factor.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.2, pp. 18–19, Propositions 2.2.4 and 2.2.6, Remark 2.2.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: degree |G|/e over the origin for a cover of an elliptic curve branched only there; the divisor is not reduced over a non-reduced base."
+  },
+  {
+   "id": "PAPER-CHEN-24/29",
+   "kind": "definition",
+   "name": "The Higman invariant of an admissible G-cover",
+   "statement": "If ζ_n is a primitive n-th root of unity with e | n, the algebraic Higman invariant Hig_{ζ_n}(π) of an admissible G-cover with ramification index e is the conjugacy class of χ_x^{−1}(ζ_n^{n/e}) ∈ G for a point x above the origin, where χ_x is the character by which the stabiliser acts on the cotangent space. Over ℂ it agrees with the topological Higman invariant: for a monodromy representation ϕ_x : π₁^top(E°,x₀) → G attached to the cover and a positively oriented basis a, b, the Higman invariant is the class of ϕ_x([b,a]) = [ϕ_x(b),ϕ_x(a)], so it is always the class of a commutator of a generating pair, and objects of Adm(G)‾ with G abelian have trivial Higman invariant.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.3, pp. 19–20, Definition 2.3.1 and Remark 2.3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Also called the Nielsen type. API: the invariant relative to a compatible system of roots of unity, its independence of the chosen point, and the commutator description. Tests: abelian G gives the trivial class, so abelian covers of elliptic curves unramified away from the origin are unramified everywhere."
+  },
+  {
+   "id": "PAPER-CHEN-24/30",
+   "kind": "theorem",
+   "name": "Local constancy of the Higman invariant and the decomposition of Adm(G)‾ (Proposition 2.3.2, Definition 2.3.4)",
+   "statement": "The functions e : |Adm(G)‾| → ℕ and Hig_{ζ_n} : |Adm(G)‾| → Cl(G) are locally constant on the underlying topological space. Over S = Spec ℚ‾ one therefore has decompositions M(G)‾_ℚ‾ = ⊔_{c ∈ Cl(G)} M(G)‾_c and Adm(G)‾_ℚ‾ = ⊔_{c} Adm(G)‾_c into open and closed substacks of fixed Higman invariant, with coarse schemes M(G)‾_c and Adm(G)‾_c.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.3, pp. 20–21, Proposition 2.3.2 and Definition 2.3.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: the ramification index is the order of the Higman invariant; for SL₂(F_p) and trace −2 there are exactly two noncentral classes, giving two components."
+  },
+  {
+   "id": "PAPER-CHEN-24/31",
+   "kind": "theorem",
+   "name": "Quotients of curves by finite group actions (Lemma 2.4.1)",
+   "statement": "Let C → S be flat proper finitely presented with reduced geometric fibres of equidimension 1 and let a finite group G act S-linearly. Then (a) C is a union of G-invariant affine opens; (b) the categorical quotient C/G exists and π : C → C/G is finite with O_{C/G} ≅ (π_*O_C)^G; (c) the quotient commutes with arbitrary base change. No tameness hypothesis is needed for (a) and (b).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.4, pp. 21–22, Lemma 2.4.1 and Remark 2.4.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: the quotient of a nodal curve by a balanced action is again nodal; base change along S' → S."
+  },
+  {
+   "id": "PAPER-CHEN-24/32",
+   "kind": "definition",
+   "name": "Stable marked G-curves",
+   "statement": "A marking on a prestable curve C → S is an effective Cartier divisor R ⊂ C étale over S, necessarily inside the smooth locus and finite étale over S; a marked prestable curve is a pair (C/S,R), and it is stable if its geometric fibres have finite automorphism groups preserving R. A stable marked G-curve is a stable marked curve with a faithful right G-action such that (a) R is preserved, (b) C → C/G is étale on C_sm − R, and (c) the action at every geometric node is balanced.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.4, p. 22, Definition 2.4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the curve-with-action point of view: one forgets the base curve and remembers C, its G-action and the marking. Tests: an elliptic curve with trivial marking and trivial action; a hyperelliptic curve with its involution and Weierstrass points."
+  },
+  {
+   "id": "PAPER-CHEN-24/33",
+   "kind": "theorem",
+   "name": "Admissible G-covers are the same as stable marked G-curves (Propositions 2.4.4, 2.4.6, 2.4.8 and Theorem 2.4.9)",
+   "statement": "For a stable marked G-curve (C/S,R) the quotient (C/G, R/G) is a stable marked curve and C → C/G is finite flat. For an admissible G-cover π of an n-pointed stable curve, with associated marking R := ⊔R_i where R_i is Z_i := C ×_{D,σ_i} S when R_π misses it and R_π ×_{D,σ_i} S otherwise, the pair (C/S,R) is a stable marked G-curve, the quotient C/G exists, commutes with base change and π induces an isomorphism C/G ≅ D. Conversely, objects of the category H‾_{g,n,G} of stable marked G-curves with a decomposition R = ⊔R_i such that G preserves each R_i, each R_i/G → S is an isomorphism and C/G is a prestable curve of genus g, give admissible G-covers, and the functor Φ is an equivalence H‾_{g,n,G} ≅ Adm‾^{conn}_{g,n}(G). In particular H‾_G := H‾_{1,1,G} is a smooth proper Deligne–Mumford stack of pure dimension 1 over S.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.4, pp. 22–24, Propositions 2.4.4, 2.4.6, 2.4.8, Definitions 2.4.5, 2.4.7 and Theorem 2.4.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This equivalence is what makes the deformation theory of Proposition 2.5.3 available. Tests: the marking of a cover with ramification index 1 above a marking is the whole preimage; the quotient map recovers the base curve."
+  },
+  {
+   "id": "PAPER-CHEN-24/34",
+   "kind": "definition",
+   "name": "G-structures on elliptic curves and the stack M(G)",
+   "statement": "For a 2-generated finite group G, T_G is the sheafification on M(1) of the presheaf of geometrically connected G-torsors on E° := E − O, and a G-structure on E/S is a section of T_G. M(G) is the associated moduli stack of elliptic curves with G-structures. For S = Spec k with k separably closed, G-structures on E/k are exactly the isomorphism classes of geometrically connected G-torsors on E°/k; if G has trivial centre the presheaf is already a sheaf. The point of G-structures is that M(G) → M(1) is finite étale, so it is governed by Galois theory, whereas Adm(G)‾ → M(1)‾ is typically not representable.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5, pp. 23–24 and Remark 2.5.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Following [Che18], with [DM69, §5] and [PdJ95] as antecedents. API: the sheaf T_G, its functoriality in G, the Aut(G)-action, and the induced stack over M(1). Tests: for G = ℤ/nℤ × ℤ/nℤ one recovers full level-n structures."
+  },
+  {
+   "id": "PAPER-CHEN-24/35",
+   "kind": "theorem",
+   "name": "The fundamental properties of M(G) (Theorem 2.5.2)",
+   "statement": "Over S = Spec ℤ[1/|G|]: (1) M(G) is a Noetherian smooth separated Deligne–Mumford stack and M(G) → M(1) is finite étale. (2) M(G) has a coarse moduli scheme M(G), normal, affine and finite over M(1) ≅ Spec ℤ[1/|G|][j], smooth of relative dimension 1, and étale over the complement of j = 0 and j = 1728. (3) For an elliptic curve E/S, a geometric point x ∈ E° over s ∈ S and L the set of primes dividing |G|, the outer representation ρ_{E,x} : π₁(S,s) → Out(π₁^L(E°_s,x)) makes Epi^ext(π₁^L(E°_s,x),G) a finite π₁(S,s)-set whose associated finite étale cover is the pullback of M(G) along E/S. (4)–(7) give the corresponding bijections over an algebraically closed field, the identification of π₁(M(1)_ℚ‾) with the profinite completion of Out⁺(Π), functoriality M(f) : M(G₁) → M(G₂) for surjections f : G₁ ↠ G₂, and the arithmetic action.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.1, pp. 24–27, Theorem 2.5.2, assembled from [Che18], [BBCL20] and [Asa01]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Part (5) uses a theorem of Nielsen that Out⁺(Π) ≅ SL₂(ℤ) acts on the free group as expected, and the Riemann existence theorem for stacks. Part (7) uses Asada's and Belyi's theorems. This is the bridge from geometry to combinatorics used throughout."
+  },
+  {
+   "id": "PAPER-CHEN-24/36",
+   "kind": "theorem",
+   "name": "Deformation theory of stable marked G-curves (Proposition 2.5.3)",
+   "statement": "Let k be algebraically closed of characteristic coprime to |G| and x : Spec k → H‾_G a geometric point given by a stable marked G-curve (C/k,R) with image y = (C/G, R/G) in M(1)‾. On universal deformation rings the map H‾_G → M(1)‾ is given by Λ[[T]] → Λ[[t]], T ↦ t^e, where e = 1 if C is smooth and otherwise e is the order of the stabiliser of any node of C. In particular H‾_G → M(1)‾ is flat, H_G → M(1) is étale, and H_G ⊂ H‾_G and Adm⁰(G) ⊂ Adm(G)‾ are open and dense.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, pp. 27–28, Proposition 2.5.3, quoting [BR11, Theorem 5.1.5]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the source of the ramification index of the forgetful map at the cusps. Tests: a smooth cover gives e = 1; a cuspidal cover whose nodes have stabiliser of order e gives T ↦ t^e."
+  },
+  {
+   "id": "PAPER-CHEN-24/37",
+   "kind": "theorem",
+   "name": "Two-generation is necessary (Corollary 2.5.4)",
+   "statement": "If G cannot be generated by two elements then Adm(G)‾ is empty.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, p. 28, Corollary 2.5.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Because the monodromy of a connected G-cover of a once-punctured genus-1 surface is a surjection from a free group of rank 2. Tests: G = (ℤ/2)³ gives an empty stack."
+  },
+  {
+   "id": "PAPER-CHEN-24/38",
+   "kind": "definition",
+   "name": "Vertical automorphism groups (Definition 2.5.5)",
+   "statement": "For a map of algebraic stacks f : X → Y and a T-point t, the vertical automorphism group of t is the kernel of f_* : Aut_{X(T)}(t) → Aut_{Y(T)}(f(t)); for Deligne–Mumford stacks f is representable exactly when all vertical automorphism groups of geometric points are trivial. Unless said otherwise the vertical automorphism group is taken relative to the map to M(1)‾ and written Aut^v(t); for a point of Adm⁰(G) given by π : C → E it is the group of G-equivariant automorphisms σ of C with π ∘ σ = π.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, pp. 28–29, Definition 2.5.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "API: the vertical group, its relation to representability, and its computation for covers. Tests: for a smooth cover it is Z(G) (Proposition 2.5.6)."
+  },
+  {
+   "id": "PAPER-CHEN-24/39",
+   "kind": "theorem",
+   "name": "Vertical automorphisms of smooth covers (Proposition 2.5.6)",
+   "statement": "The vertical automorphism groups of geometric points of Adm⁰(G) are isomorphic to Z(G).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, p. 29, Proposition 2.5.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof route: such an automorphism restricts to an automorphism of the G-torsor over E_gen, hence is given by an element of G, and G-equivariance forces it to be central. Tests: G with trivial centre gives a representable map at smooth points."
+  },
+  {
+   "id": "PAPER-CHEN-24/40",
+   "kind": "theorem",
+   "name": "Rigidification of a stack by a group of automorphisms (Theorem 2.5.7)",
+   "statement": "Let H be a flat finitely presented separated group scheme over S and X an algebraic stack such that every object ξ carries a compatible embedding H(S) ↪ Aut_S(ξ). Then the rigidification X ⫽ H exists, together with a smooth surjective finitely presented map X → X ⫽ H, such that (a) H(S) lies in the kernel of Aut_S(ξ) → Aut_S(η); (b) X → X ⫽ H is a gerbe, universal for such maps; (c) over an algebraically closed field Aut(η) = Aut(ξ)/H; (d) coarse spaces agree and the map is a homeomorphism on topological spaces; (e) Deligne–Mumfordness is preserved and the map is étale; (f) smoothness and properness are preserved.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, pp. 29–30, Theorem 2.5.7, quoting [ACV03, Theorem 5.1.5]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Notation X ⫽ H follows [Rom0504]. The reviewed audit of AlgebraicModuliForArithmeticGeometry R09.5 records rigidification in the sense of auxiliary level structures, not this quotient-by-inertia construction, and neither is in the libraries."
+  },
+  {
+   "id": "PAPER-CHEN-24/41",
+   "kind": "theorem",
+   "name": "The compactified stack M(G)‾ and its comparison with Adm(G)‾ (Definition 2.5.9, Proposition 2.5.10)",
+   "statement": "Set M(G)‾ := Adm(G)‾ ⫽ Z(G), with coarse space M(G)‾. Over S = Spec ℤ[1/|G|]: (a) Adm(G)‾ → M(G)‾ induces an isomorphism of coarse spaces, and both stacks are empty unless G is 2-generated; (b) the map ϕ : Adm⁰(G) → M(G) sending π : C → E to the G-structure determined by the torsor C_gen → E° is an étale gerbe and factors through an isomorphism Adm⁰(G) ⫽ Z(G) ≅ M(G), so M(G) is an open dense substack of M(G)‾; (c) M(G)‾ is smooth and proper of relative dimension 1 over S; (d) M(G)‾ → M(1)‾ is flat, proper and quasi-finite; (e) M(G)‾ is smooth and proper over S; (f) a surjection f : G₁ ↠ G₂ induces a proper surjective quasi-finite map M(f) : M(G₁)‾ → M(G₂)‾ over M(1)‾ extending the map of Theorem 2.5.2(6).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, pp. 30–31, Definition 2.5.9 and Proposition 2.5.10",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Consequently the sets of connected components of Adm(G)‾, Adm⁰(G) and M(G) are in natural bijection, which is the fact used throughout to pass between geometry and combinatorics."
+  },
+  {
+   "id": "PAPER-CHEN-24/42",
+   "kind": "definition",
+   "name": "Cusps of M(G)‾ and noncongruence modular curves (Definition 2.5.11, Remark 2.5.12)",
+   "statement": "A k-point of M(G)‾ (resp. M(G)‾, Adm(G)‾, Adm(G)‾) not lying in M(G) (resp. M(G), Adm⁰(G), Adm⁰(G)) is called a cusp or cuspidal object. The terminology is justified because the schemes M(G)‾_ℂ are disjoint unions of quotients of the upper half-plane by finite-index, possibly noncongruence, subgroups of SL₂(ℤ), whose cusps in the hyperbolic sense are exactly the points of M(G)‾_ℂ − M(G)_ℂ.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.2, p. 31, Definition 2.5.11 and Remark 2.5.12",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Each component of M(G)_ℂ is thus a possibly noncongruence modular curve; §5.6 shows that for a density-one set of primes the components attached to SL₂(F_p) and trace −2 are noncongruence."
+  },
+  {
+   "id": "PAPER-CHEN-24/43",
+   "kind": "definition",
+   "name": "(G|A)-structures and absolute G-structures (Definition 2.5.13)",
+   "statement": "Out(G) acts freely on the sheaf T_G of G-structures, so for a subgroup A ⊆ Out(G) the quotient T_G/A is again a finite locally constant sheaf; its sections are (G|A)-structures and the associated stack is M(G)/A. For A = Out(G) these are absolute G-structures and the stack is written M(G)^abs.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.3, pp. 31–32, Definition 2.5.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used for SL₂(F_q) with A = D(q), the group of diagonal outer automorphisms, which is what matches the GL₂(F_q)-conjugation on the character variety."
+  },
+  {
+   "id": "PAPER-CHEN-24/44",
+   "kind": "construction",
+   "name": "The Galois-theoretic dictionary (Situation 2.5.14)",
+   "statement": "Let E/ℚ‾ be an elliptic curve, t ∈ E°(ℂ), Π := π₁^top(E°(ℂ),t) with a positively oriented basis a, b, and x_E the geometric point of M(1) given by E. The canonical injection Out⁺(Π) ↪ π₁(M(1)_ℚ‾,x_E) has dense image and identifies the profinite completion of Out⁺(Π) with π₁(M(1)_ℚ‾,x_E); for a finite 2-generated G the fibre of M(G) → M(1) over x_E is the set of geometrically connected G-torsors on E°, and taking monodromy gives an Out⁺(Π)-equivariant bijection α_{G,x_E} : f^{−1}(x_E) ≅ Epi^ext(Π,G) under which the Higman invariant becomes ϕ ↦ ϕ([b,a]). The fibre functor at x_E is an equivalence from finite étale stacks over M(1)_ℚ‾ to finite Out⁺(Π)-sets, compatible with the functor G ↦ M(G).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.3, pp. 32–33, Situation 2.5.14",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This 'Galois theoretic mantra' is invoked whenever a statement about components of M(G) is converted into one about Out⁺(Π)-orbits on Epi^ext(Π,G). Tests: the degree of a component over M(1) equals the size of the corresponding orbit, or twice it (Theorem 2.5.2)."
+  },
+  {
+   "id": "PAPER-CHEN-24/45",
+   "kind": "definition",
+   "name": "Sheaf of relative differentials and relative dualizing sheaf for stacks",
+   "statement": "For a representable morphism f : C → X of algebraic stacks, Ω_{C/X} is defined by descent from a smooth presentation, and for a representable flat proper finitely presented morphism with geometrically connected Cohen–Macaulay fibres the relative dualizing sheaf ω_{C/X} is defined by ω_{C/X}(t) := Γ(T, τ*ω_{C_T/T}) over schemes T → X, using that relative dualizing sheaves commute with arbitrary base change.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.1.1–3.1.2, pp. 33–35, Definitions 3.1.1 and 3.1.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Relative dualizing complexes and Grothendieck duality are absent from both libraries; the stack-level definition is what §3 needs. API: base change, the descent construction, and the invertibility for prestable curves."
+  },
+  {
+   "id": "PAPER-CHEN-24/46",
+   "kind": "theorem",
+   "name": "Very ampleness and the canonical map Ω → ω for marked curves (Lemma 3.1.3, Proposition 3.1.4)",
+   "statement": "For a stable marked curve (f : C → X, R) over a scheme, ω_{C/X}(R)^{⊗3} is relatively very ample and f_*ω_{C/X}(R)^{⊗3} is locally free. For a prestable curve f : C → X of Noetherian algebraic stacks with a finite étale R ⊂ C making every base change a stable marked curve, there is a canonical map ϕ : Ω_{C/X} → ω_{C/X} which is an isomorphism at every geometric point where f is smooth.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.1.3, pp. 35–36, Lemma 3.1.3 and Proposition 3.1.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof route: embed C in the projective bundle P(f*L) with L := f_*(ω_{C/X}(R)^{⊗3}) and use the theory of determinants [KM76]; for schemes this is Stacks 0E9Z. Tests: at a node the map is not an isomorphism; over the smooth locus it is."
+  },
+  {
+   "id": "PAPER-CHEN-24/47",
+   "kind": "theorem",
+   "name": "The universal family and its reduced ramification divisor (Definition 3.2.1, Proposition 3.2.2)",
+   "statement": "Let X ⊂ Adm(G)‾ be a connected component classifying covers with ramification index e, with universal family C → E → X and reduced ramification divisor R_π. Then R_π is finite étale over X of degree |G|/e; for a geometric point z of R_π with stabiliser G_z the connected components of R_π are all isomorphic and each is Galois over X with Galois group isomorphic to a subgroup of N_G(G_z)/G_z; working over ℤ[1/|G|,ζ_e] the Galois groups are isomorphic to subgroups of C_G(G_z)/G_z.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.2, pp. 36–37, Definition 3.2.1 and Proposition 3.2.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This bounds the obstruction d_X: d_X divides |C_G(⟨c⟩)/⟨c⟩| for a representative c of the Higman invariant. Tests: if G_z is self-centralising the divisor is totally split."
+  },
+  {
+   "id": "PAPER-CHEN-24/48",
+   "kind": "theorem",
+   "name": "Restriction of the dualizing sheaf to a ramified section (Lemma 3.3.1, Proposition 3.3.2)",
+   "statement": "For a ring A, an A-flat ideal I and e ≥ 1, multiplication gives I^{⊗e} ≅ I^e and reduction gives I^{⊗e} ⊗_A A/I ≅ (I/I²)^{⊗e}. Consequently, for a connected component X ⊂ Adm(G)‾ with universal family C → E → X of ramification index e above the zero section σ_O, and a section σ : X → C over σ_O, there is a canonical isomorphism σ_O*ω_{E/X} ≅ (σ*ω_{C/X})^{⊗e}.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.3, pp. 37–38, Lemma 3.3.1 and Proposition 3.3.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the geometric heart of the congruence: the pullback of the Hodge bundle along the forgetful map is an e-th tensor power. Tests: e = 1 gives an isomorphism of line bundles; the local model x = ξ^e."
+  },
+  {
+   "id": "PAPER-CHEN-24/49",
+   "kind": "definition",
+   "name": "Degrees of line bundles on 1-dimensional stacks (Lemma 3.4.1, Definition 3.4.2, Proposition 3.4.3)",
+   "statement": "For a connected proper algebraic stack X of pure dimension 1 over a field admitting a finite flat surjection p : U → X from a connected scheme, deg(L) := deg(p*L)/deg p ∈ ℚ is independent of p. Such a cover exists for X smooth separated generically tame 1-dimensional with a coarse scheme, and in particular for Adm(G)‾_k and M(G)‾_k when char k ∤ 2|G|.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.4, pp. 38–39, Lemma 3.4.1, Definition 3.4.2 and Proposition 3.4.3, following [BDP17], [KV04], [EHKV01]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Degrees on a stack are rational, which is the second obstruction to the congruence. Tests: the degree of a line bundle pulled back from the coarse space is an integer divided by the generic automorphism order."
+  },
+  {
+   "id": "PAPER-CHEN-24/50",
+   "kind": "theorem",
+   "name": "Local characters and integrality of degrees (Proposition 3.4.4, Definition 3.4.5, Propositions 3.4.6 and 3.4.7)",
+   "statement": "For a locally finitely presented tame separated Deligne–Mumford stack with coarse scheme c : X → X, pullback along c is an equivalence from invertible sheaves on X to those invertible sheaves on X whose local characters at all geometric points are trivial, with quasi-inverse c_*. If X is connected tame smooth proper 1-dimensional with generic automorphism group of order n, then any invertible sheaf with trivial local characters satisfies deg(L) = (1/n) deg(c_*L) ∈ (1/n)ℤ. Moreover deg(f*L) = d · deg L for a finite flat map of degree d; deg(c*L) = deg(L)/n; and for f : Y → X inducing a finite flat map of coarse schemes, deg(f*L) = (n_X/n_Y) deg(f) deg(L).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.4, pp. 39–41, Propositions 3.4.4, 3.4.6, 3.4.7, Definition 3.4.5, quoting [Ols12, Proposition 6.1]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The local character at a geometric point is the rank-1 representation of the automorphism group on the fibre. m_X is defined as the least m with (σ*Ω)^{⊗m} of trivial local character. Tests: on the stacky point Bμ_n a line bundle has degree in (1/n)ℤ."
+  },
+  {
+   "id": "PAPER-CHEN-24/51",
+   "kind": "theorem",
+   "name": "The Hodge bundle has degree 1/24 (Proposition 3.4.8)",
+   "statement": "Over ℚ‾, for the universal family E(1)‾ → M(1)‾ of 1-generalized elliptic curves with zero section σ_O, the Hodge bundle λ := σ_O*ω_{E(1)‾/M(1)‾} is an invertible sheaf on M(1)‾ of degree 1/24.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.4, p. 41, Proposition 3.4.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The factor 12 in the main congruence comes from here, through 12e/gcd(12e,md). Tests: λ^{⊗12} descends to O(1) on the coarse j-line; the discriminant Δ is a section of λ^{⊗12}."
+  },
+  {
+   "id": "PAPER-CHEN-24/52",
+   "kind": "theorem",
+   "name": "The main congruence (Theorem 3.5.1)",
+   "statement": "Let X ⊂ Adm(G)‾ be a connected component with universal family C → E → X and reduced ramification divisor R_π, coarse scheme X, and let R ⊂ R_π be a connected component with coarse scheme R and induced map ε : R → X, so that C' := C ×_X R → R admits a section σ over the zero section. Put e := e_X the ramification index, d := d_X := deg(ε : R → X) and m := m_X the least positive integer with (σ*Ω_{C'/R})^{⊗m} of trivial local characters. Then the map on coarse schemes f : X → M(1)‾ satisfies deg(f) ≡ 0 mod 12e/gcd(12e, md).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.5, pp. 41–42, Theorem 3.5.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof route: base change to R so that a ramified section exists, apply Proposition 3.3.2 and Proposition 3.4.8, and use that degrees of line bundles on the coarse schemes are integers after clearing the denominators 12 and m and the degree d. Tests: for G = ℤ/2ℤ, Adm(ℤ/2ℤ) has e = 1 and degree 3 over M(1)‾, so the obstructions are necessary."
+  },
+  {
+   "id": "PAPER-CHEN-24/53",
+   "kind": "theorem",
+   "name": "Vertical automorphism groups at smooth points (Proposition 3.5.2)",
+   "statement": "Let Y ⊂ Adm⁰(G) be a connected component classifying covers with Higman invariant c, with representative c, let R be a component of the ramification divisor of the universal family and r a geometric point of R over y ∈ Y corresponding to a cover π : C → E and a point P ∈ π^{−1}(O). Then Aut^v(y) = Z(G) and Aut^v(r) = Z(G) ∩ ⟨c⟩.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §3.5, p. 42, Proposition 3.5.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Together with the cuspidal computation of §4.10 this controls m_X. Tests: for SL₂(F_q) with q odd and trace −2, Z(G) ∩ ⟨c⟩ = {±I} has order 2."
+  },
+  {
+   "id": "PAPER-CHEN-24/54",
+   "kind": "definition",
+   "name": "Precuspidal and cuspidal G-curves and G-covers (Definitions 4.1.1–4.1.3)",
+   "statement": "A precuspidal G-curve is a non-smooth prestable curve C with a faithful right G-action and a G-invariant divisor R finite étale over k such that C → C/G sends nodes to nodes, is étale on C_sm − R, and (C/G, R/G) is a nodal elliptic curve; it is cuspidal if C is connected and the action is balanced at the nodes. A G-cover of a finite-type equidimension-1 scheme Y is a finite flat p : X → Y with a faithful right G-action inducing X/G ≅ Y. For a nodal elliptic curve E a precuspidal G-cover is a G-cover π : C → E sending nodes to nodes and étale on C_sm − π^{−1}(O); it is cuspidal when connected and balanced. C^{pc}_E and C^{c}_E denote the categories of precuspidal and cuspidal G-covers of E.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.1, p. 43, Definitions 4.1.1, 4.1.2 and 4.1.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A precuspidal G-cover is an admissible G-cover exactly when it is cuspidal. Tests: a disconnected normalisation glued along a G-equivariant bijection; an unbalanced action is precuspidal but not cuspidal."
+  },
+  {
+   "id": "PAPER-CHEN-24/55",
+   "kind": "theorem",
+   "name": "The boundary of Adm(G)‾ as a category of cuspidal covers (Proposition 4.1.4)",
+   "statement": "Let Adm^c(G) := Adm(G)‾ − Adm⁰(G) be the closed substack of non-smooth objects. Sending a cuspidal G-curve (C,R) to the cuspidal G-cover C → C/G of the nodal elliptic curve (C/G, R/G) is an equivalence from cuspidal G-curves to Adm^c(G)(k), and for a nodal elliptic curve E there is an equality of categories C^c_E = Adm(G)‾_E, the fibre category over E. In particular the automorphism groups of objects of C^c_E are the vertical automorphism groups of the corresponding points of Adm(G)‾.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.1, pp. 43–44, Proposition 4.1.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is what turns the computation of automorphism groups at the cusps into a combinatorial problem. Tests: the fibre of Adm(G)‾ over the nodal cubic."
+  },
+  {
+   "id": "PAPER-CHEN-24/56",
+   "kind": "definition",
+   "name": "Tangential base points and the canonical generator of inertia (Definitions 4.2.1, 4.2.2)",
+   "statement": "For a smooth curve X with a closed point x and X° := X − {x}, a tangential base point at x is a closed point t of the punctured tangent space T°_x; for a finite étale cover π : Y° → X° one writes Y°_t := π^{−1}(t) := F_{X°,t}(π) and π₁(X°,t) := Aut(F_{X°,t}). There is a canonical injection π₁(T°_x,t) ↪ π₁(X°,t), and, having fixed a compatible system {ζ_n}, the canonical generator of inertia γ_t ∈ π₁(T°_x,t) acts on the fibre of the n-th power cover of T°_x ≅ G_m by z ↦ ζ_n z.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.2, pp. 44–46, Definitions 4.2.1 and 4.2.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.0"
+   ],
+   "note": "NC.0 plans tangential base points for selected open curves, with the comparison of a rational and a tangential point on P¹ minus three points as its acceptance condition; its reviewed audit records that nothing of the kind exists in either library. The finer statements Chen needs are the next item."
+  },
+  {
+   "id": "PAPER-CHEN-24/57",
+   "kind": "theorem",
+   "name": "Specialization to a ramified fibre (Proposition 4.2.3)",
+   "statement": "Let X be a smooth curve, x a closed point and X° := X − {x}. (a) There is a canonical isomorphism T*_xX ≅ T*_0T_x functorial in (X,x), and the canonical generator of inertia γ_t acts on T*_xX by multiplication by ζ_n. (b) For a finite map of smooth curves π : Y → X étale over X°, every connected component of Y_{(x)} has a unique point over 0 ∈ T_x, the fibre π_{(x)}^{−1}(0) is canonically in bijection with Y_x, and sending y ∈ Y_t to the unique point of Y_{(x)} over 0 induces a canonical bijection ⟨γ_t⟩\\Y_t ≅ π^{−1}_{(x)}(0) ≅ Y_x, functorial as an isomorphism of functors on finite étale covers.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.2, pp. 46–47, Proposition 4.2.3, with the analytic counterpart in Remark 4.2.4 and the variant in Remark 4.2.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The specialization map ⟨γ_t⟩\\Y_t ≅ Y_x is what lets the cusp analysis compare fibres at a tangential base point with fibres at the ramification points. Tests: for the n-th power map on G_m the inertia orbits are the points of the ramified fibre."
+  },
+  {
+   "id": "PAPER-CHEN-24/58",
+   "kind": "definition",
+   "name": "The fundamental groupoid of P¹ − {0,1,∞} and good symmetric paths (Definition 4.3.1)",
+   "statement": "Let P* := P¹ − {0,1,∞}, with fundamental groupoid Π_{P*} whose objects are fibre functors at geometric or tangential base points and whose morphisms are paths δ : x ⇝ y; write γ^δ := δ^{−1}γδ. Fix a tangential base point t₀ at 0 and let t_∞ := ι(t₀) for the automorphism ι : z ↦ 1/z fixing 1 and swapping 0, ∞. A path δ : t₀ ⇝ t_∞ is good if γ₀ and γ_∞^δ topologically generate π₁(P*,t₀) and if γ_∞^δ γ₁^ε γ₀ = 1 for some path ε : t₀ ⇝ t₁; it is symmetric if ι_*δ = γ₀^r · δ^{−1} · γ_∞^s for some r, s.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.3, pp. 46–47, and Definition 4.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Good paths exist by comparison with the topological theory over ℂ. The symmetry condition is what makes the δ-invariant behave predictably under the [−1]-pullback (Proposition 4.9.1). AnabelianGeometryAndNonabelianChabauty NC.0 plans the fundamental groupoid and tangential points but not this calculus of good symmetric paths."
+  },
+  {
+   "id": "PAPER-CHEN-24/59",
+   "kind": "definition",
+   "name": "The category C^≻_{P¹} of covers with a gluing datum (Definitions 4.4.1, 4.4.2, 4.4.6)",
+   "statement": "C^≻_{P¹} is the category of pairs (q : D → P¹, α) where q is a possibly disconnected G-cover of P¹ branched only over 0, 1, ∞ and α is a G-equivariant bijection between the fibres over 0 and ∞. A standard normalization of a nodal elliptic curve E is a finite birational ν : P¹ → E identifying 0 and ∞ to the node and sending 1 to the origin. An object of C^≻_{P¹} is connected when the glued precuspidal G-curve is connected.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.4, pp. 47–50, Definitions 4.4.1, 4.4.2 and 4.4.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the normalisation picture of a cuspidal cover: normalising a cuspidal G-cover of a nodal elliptic curve gives a G-cover of P¹ branched over three points together with the gluing bijection of the fibres over the two preimages of the node."
+  },
+  {
+   "id": "PAPER-CHEN-24/60",
+   "kind": "theorem",
+   "name": "Monodromy at the tangential fibres (Proposition 4.4.3)",
+   "statement": "For (q : D → P¹, α) in C^≻_{P¹}, x₀ ∈ D_{t₀} and a path δ : t₀ ⇝ t_∞: (a) G_{[x₀]} = ⟨ϕ_{x₀}(γ₀)⟩ and χ_{[x₀]}(ϕ_{x₀}(γ₀)) = ζ_n; (b) G_{[δx₀]} = ⟨ϕ_{δx₀}(γ_∞)⟩ and χ_{[δx₀]}(ϕ_{δx₀}(γ_∞)) = ζ_n; (c) ϕ_{δx₀}(γ) = ϕ_{x₀}(γ^δ); (d) ϕ_{δ^{−1}x_∞}(γ) = ϕ_{x_∞}(γ^{δ^{−1}}); (e) ϕ_{xg}(γ) = g^{−1}ϕ_x(γ)g.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.4, p. 50, Proposition 4.4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Here ϕ_x is the monodromy representation at x and χ the character by which the stabiliser acts on the cotangent space at the specialised point. Tests: conjugating the base point conjugates the monodromy."
+  },
+  {
+   "id": "PAPER-CHEN-24/61",
+   "kind": "theorem",
+   "name": "Gluing along a G-equivariant bijection (Lemma 4.4.4, Theorem 4.4.5)",
+   "statement": "Given (π : D → P¹, α) with |π^{−1}(0)| = n, the pushout D_α of D along the identification β given by α exists in schemes; ν : D → D_α is finite surjective, identifies the topological space of D_α with the quotient of D by α, has Γ(U,O_{D_α}) = {f : f(x) = f(α(x))}, makes D_α a prestable curve whose nodes are the images of π^{−1}({0,∞}), identifies D with a normalization of D_α, is an isomorphism away from π^{−1}({0,∞}), and the canonical map D_α → E₀ to the nodal elliptic curve obtained by gluing 0 to ∞ in P¹ (with origin the image of 1) is a precuspidal G-cover; this defines the gluing functor Glue : C^≻_{P¹} → C^{pc}_{E₀}. Conversely, for a nodal elliptic curve E and a standard normalization ν, the categories C^{pc}_E and C^≻_{P¹} are groupoids and Ξ_ν : C^{pc}_E → C^≻_{P¹} is an equivalence, with quasi-inverse the gluing functor.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.4, pp. 50–53, Lemma 4.4.4 and Theorem 4.4.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: the degree-1 cover P¹ → P¹ glues to the nodal cubic; the number of irreducible components of the glued curve equals the number of components of D."
+  },
+  {
+   "id": "PAPER-CHEN-24/62",
+   "kind": "theorem",
+   "name": "Balanced objects of C^≻_{P¹} (Lemma 4.5.1, Proposition 4.5.2, Definition 4.5.3)",
+   "statement": "For (q,α) in C^≻_{P¹}, x₀ ∈ D_{t₀} and a path δ, α([x₀]) = [δx₀·h] for h unique modulo the coset H_{δ,x₀} := G_{[δx₀]}h. The following are equivalent: (a) for some, equivalently any, x₀, x_∞ with [x_∞] = α([x₀]) one has ϕ_{x₀}(γ₀)^{−1} = ϕ_{x_∞}(γ_∞); (b) for some, equivalently any, x₀, δ, h ∈ H_{δ,x₀} one has ϕ_{x₀}(γ₀)^{−1} = h^{−1}ϕ_{x₀}(γ_∞^δ)h. A precuspidal G-cover is balanced exactly when its image in C^≻_{P¹} satisfies these conditions, and such objects are called balanced.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.5, pp. 50–51, Lemma 4.5.1, Proposition 4.5.2 and Definition 4.5.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Balancedness is the local condition at the nodes expressed through monodromy; it is the combinatorial shadow of condition (6) of Definition 2.1.4."
+  },
+  {
+   "id": "PAPER-CHEN-24/63",
+   "kind": "theorem",
+   "name": "Galois correspondence for precuspidal G-covers (Definition 4.6.1, Proposition 4.6.2)",
+   "statement": "For a good path δ, Sets^{(Π,G)_δ,≻} is the category of pairs (F,α) where F is a finite set with a left Π-action commuting with a free transitive right G-action and α : ⟨γ₀⟩\\F → ⟨γ_∞^δ⟩\\F is a G-equivariant bijection, called a precuspidal G-datum. The functor F^≻_δ : C^≻_{P¹} → Sets^{(Π,G)_δ,≻} sending (q,α) to (D_{t₀}, F^≻_δ(α)) is an equivalence of categories.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.6, pp. 51–52, Definition 4.6.1 and Proposition 4.6.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Here Π := π₁(P*,t₀). This is the passage from geometry to pure combinatorics for the cusps; it uses the Galois theory of P¹ minus three points and the specialization maps of Proposition 4.2.3."
+  },
+  {
+   "id": "PAPER-CHEN-24/64",
+   "kind": "definition",
+   "name": "Graphs of components and combinatorial connectedness (Definitions 4.7.1, 4.7.2, 4.7.5, Propositions 4.7.3, 4.7.4, 4.7.6)",
+   "statement": "A precuspidal G-datum is balanced when ϕ_x(γ₀)^{−1} = h^{−1}ϕ_x(γ_∞^δ)h for some, equivalently any, x and h ∈ H_{δ,x}. Following Bass, a graph is (V,E,σ,τ) with a fixed-point-free involution τ on edges; the graph Γ_π of a precuspidal G-cover has vertices the components of the normalisation and edges the points over 0 and ∞, and C is connected exactly when Γ_π is. The graph Γ_{F,α} of a precuspidal G-datum has vertices Π\\F and edges ⟨γ₀⟩\\F ⊔ ⟨γ_∞^δ⟩\\F, is isomorphic to Γ_π under the equivalences, and is connected exactly when, for some (equivalently any) x ∈ F, G is generated by the monodromy group M_x := ϕ_x(Π) together with H_{δ,x}, equivalently with any single h ∈ H_{δ,x}. A datum is cuspidal when connected and balanced, and the equivalences Ξ and F^≻_δ restrict to the connected, the balanced and the cuspidal objects.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.7, pp. 52–55, Definitions 4.7.1, 4.7.2, 4.7.5, Propositions 4.7.3, 4.7.4 and 4.7.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: a datum with M_x = G is automatically connected; the graph of a disconnected cover has as many components as the cover."
+  },
+  {
+   "id": "PAPER-CHEN-24/65",
+   "kind": "theorem",
+   "name": "Cuspidal data and the δ-invariant (Proposition 4.8.1, Definitions 4.8.2–4.8.3, Theorem 4.8.4, Definition 4.8.5)",
+   "statement": "A precuspidal G-datum is cuspidal exactly when, for some (equivalently any) x ∈ F and h ∈ H_{δ,x}, ϕ_x(γ_∞^δ) = hϕ_x(γ₀)^{−1}h^{−1} and G is generated by h and ϕ_x(γ₀). For a generating pair (u,h) of G let [[u,h]] denote its class in I(G) := G\\(G×G)/ℤ, where G acts by simultaneous conjugation and the ℤ-action is (u,h) ↦ (u, u^k h), and let (F_{u,h}, α_{u,h}) be the explicit cuspidal datum on the G-torsor G with γ_∞^δ·1 = u, γ₀·1 = h^{−1}u^{−1}h and α_{u,h}([1]₀) = [h]_∞. Then Inv_δ(F,α) := [[ϕ_x(γ_∞^δ), h]] is independent of x and h and induces a bijection from isomorphism classes of cuspidal data onto I(G), with inverse (u,h) ↦ (F_{u,h},α_{u,h}); via Ξ and F^≻_δ this gives a bijection π₀(Adm(G)‾_E) ≅ I(G) for a nodal elliptic curve E.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.8, pp. 55–57, Proposition 4.8.1, Definitions 4.8.2, 4.8.3, 4.8.5 and Theorem 4.8.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The δ-invariant labels the cusps of Adm(G)‾ by ℤ-orbits of conjugacy classes of generating pairs. API: I(G), the explicit datum, and the invariant. Tests: the monodromy group at 1_G is M_{u,h} = ⟨u, h^{−1}u^{−1}h⟩ and the cover is irreducible exactly when M_{u,h} = G."
+  },
+  {
+   "id": "PAPER-CHEN-24/66",
+   "kind": "theorem",
+   "name": "Higman invariant of a cuspidal cover (Proposition 4.8.6)",
+   "statement": "If a cuspidal G-cover π : C → E has δ-invariant [[u,h]] then its Higman invariant is the conjugacy class of [u^{−1},h^{−1}] = u^{−1}h^{−1}uh, which is conjugate to [u,h].",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.8, p. 56, Proposition 4.8.6",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: the ramification index at a cusp is the order of the commutator of the generating pair labelling it."
+  },
+  {
+   "id": "PAPER-CHEN-24/67",
+   "kind": "theorem",
+   "name": "The δ-invariant of the [−1]-pullback (Proposition 4.9.1)",
+   "statement": "Let ι be the automorphism of P¹ fixing 1 and swapping 0, ∞, δ a symmetric good path and p : C → E a cuspidal G-cover with Inv_δ(p) = [[u,h]]. Then Inv_δ([−1]*p) = [[u^{−1},h^{−1}]], and the following are equivalent: (a) [−1] lifts to an automorphism of C; (b) [−1]*p ≅ p as cuspidal G-covers; (c) [[u,h]] = [[u^{−1},h^{−1}]]; (d) (u^{−1},h^{−1}) is conjugate to (u, u^r h) for some r > 0.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.9, pp. 57–59, Proposition 4.9.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This controls the extra factor 2 in the congruences and the automorphism groups of cuspidal objects over the elliptic involution."
+  },
+  {
+   "id": "PAPER-CHEN-24/68",
+   "kind": "theorem",
+   "name": "Automorphism groups of cuspidal objects (Proposition 4.10.1, Theorem 4.10.3)",
+   "statement": "For a generating pair (u,h) let A_{G,u,h} := {a ∈ C_G(M_{u,h}) : [a,h] ∈ ⟨u⟩} and let k_{u,h} be the least positive integer with (u,h) conjugate to (u,u^{k_{u,h}}h); then z : A_{G,u,h} → ⟨u⟩, a ↦ [a,h], is a homomorphism fitting in an exact sequence 1 → Z(G) → A_{G,u,h} → ⟨u^{k_{u,h}}⟩ → 1. For a cuspidal object π of Adm(G)‾(k) with Inv_δ(π) = [[u,h]]: (a) Aut^v(π) ≅ A_{G,u,h}, an extension of a cyclic group of order |u|/k_{u,h} by Z(G); (a′) all vertical automorphism groups of geometric points of Adm(G)‾ are reduced to Z(G), equivalently M(G)‾ → M(1)‾ is representable, exactly when k_{u,h} = |u| for every generating pair; (b) Aut(π) equals Aut^v(π) when [[u,h]] ≠ [[u^{−1},h^{−1}]] and is an extension of ℤ/2ℤ by Aut^v(π) otherwise; (c) every irreducible component of C is Galois over E with group M_{u,h} and there are [G : M_{u,h}] of them, so C is irreducible exactly when M_{u,h} = G, in which case Aut^v(π) = Z(G); (d) the stabiliser in Aut^v(π) of a point above the origin is A_{G,u,h} ∩ ⟨[u^{−1},h^{−1}]⟩.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.10, pp. 59–62, Proposition 4.10.1 and Theorem 4.10.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Part (d) is exactly the group whose order enters m_X. Tests: for G = SL₂(F_q) with q ≥ 5 there are no unexpected vertical automorphisms, so k_{u,h} = |u| and A_{G,u,h} = Z(G) (Theorem 5.3.2)."
+  },
+  {
+   "id": "PAPER-CHEN-24/69",
+   "kind": "theorem",
+   "name": "Abelian G and the Deligne–Rapoport comparison (Remark 4.10.4)",
+   "statement": "For abelian G the vertical automorphism group of any cuspidal G-cover is G itself, so M(G)‾ = Adm(G)‾ ⫽ Z(G) → M(1)‾ is representable; for n ≥ 3 the cuspidal objects of M(ℤ/nℤ × ℤ/nℤ)‾ have no automorphisms, so that stack is representable over ℤ[1/n] and agrees with the Deligne–Rapoport moduli stack of generalized elliptic curves with full level-n structure, recovering [DR75, Theorem 2.7].",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.10, p. 62, Remark 4.10.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A consistency check of the formalism against the classical theory of modular curves."
+  },
+  {
+   "id": "PAPER-CHEN-24/70",
+   "kind": "theorem",
+   "name": "The combinatorial congruence (Theorem 4.10.5)",
+   "statement": "Let G be a finite group, c ∈ Cl(G) with representative c. Put d′ = d′_c := |C_G(⟨c⟩)/⟨c⟩| and let m′ = m′_c be the least positive integer killing A_{G,u,h} ∩ ⟨[u^{−1},h^{−1}]⟩ for every generating pair (u,h) with [u,h] ∈ c. Then every component X ⊂ Adm(G)‾_c with coarse scheme X satisfies deg(X → M(1)‾) ≡ 0 mod |c|/gcd(|c|, m′d′). Combinatorially, with F₂ = ⟨a,b⟩ and γ_{−I} : (a,b) ↦ (a^{−1},b^{−1}), every Out⁺(F₂)-orbit on Epi^ext(F₂,G)_c/⟨γ_{−I}⟩ has cardinality divisible by |c|/gcd(|c|, m′d′).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.10, pp. 63–64, Theorem 4.10.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is Theorem 3.5.1 with the two obstructions replaced by their purely group-theoretic bounds; the factor 12 disappears because m_X divides 12m′_X and the 12 is absorbed. Tests: for G = SL₂(F_ℓ), ℓ ≥ 3 and c of trace −2 one gets ≡ 0 mod 2ℓ divided by the small obstructions, which is the Markoff congruence."
+  },
+  {
+   "id": "PAPER-CHEN-24/71",
+   "kind": "theorem",
+   "name": "The dihedral counterexample (§4.11)",
+   "statement": "The congruence deg(X → M(1)‾) ≡ 0 mod e can fail arbitrarily badly: for the dihedral group D_{2k} with k odd, Adm(D_{2k})‾ is isomorphic to φ(k)² copies of Adm(ℤ/2ℤ)‾, so every component has degree 3 over M(1)‾, while the commutator of any generating pair has order k, so e = k. Here d′ = 2 and the obstruction is entirely m_X.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.11, pp. 62–63",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Also Adm(ℤ/2ℤ)‾ = X₁(2)‾ has e = 1 and degree 3 over M(1)‾, which shows that the factor 12 and the obstructions cannot simply be removed."
+  },
+  {
+   "id": "PAPER-CHEN-24/72",
+   "kind": "theorem",
+   "name": "Bounding the obstructions for nonabelian groups (Lemmas 4.12.1, 4.12.2, Theorem 4.12.3, Corollary 4.12.4)",
+   "statement": "If U ≤ G is a cyclic subgroup of finite index then every g ∈ G normalises U ∩ gUg^{−1}. If G is a nonabelian finite group, ℓ a prime, k := ord_ℓ(m′_c) and j ≥ 0 such that G has no proper normal subgroup of order divisible by ℓ^{j+1}, then G contains a subgroup isomorphic to ℤ/ℓ^kℤ × ℤ/ℓ^{k−j}ℤ, so ℓ^{2k−j} divides |G|. By Vdovin's theorem, a nonabelian finite simple group not isomorphic to any PSL₂(F_q) has every abelian subgroup of order < |G|^{1/3}. Consequently: (a) for nonabelian G with ord_ℓ(|G|) = r+s, ord_ℓ(d′_c) ≤ s and ord_ℓ(m′_c) ≤ ⌊(r+s+j)/2⌋; (b) for nonabelian simple G not isomorphic to PSL₂(F_q), ℓ^{r+1} ≥ |G|^{1/3} forces ord_ℓ(d′_c) = 0, and ℓ^{k+1} ≥ |G|^{1/3} forces ord_ℓ(m′_c) ≤ ⌊k/2⌋.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.12, pp. 63–65, Lemmas 4.12.1, 4.12.2, Theorem 4.12.3 (Vdovin) and Corollary 4.12.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Vdovin's theorem is quoted from [Vdo99, Theorem A] and is an input the atlas does not cover; it is listed under prerequisites. The classification of finite simple groups underlies it."
+  },
+  {
+   "id": "PAPER-CHEN-24/73",
+   "kind": "theorem",
+   "name": "The congruences for arbitrary and for simple groups (Corollary 4.12.5)",
+   "statement": "With the notation above, for a component X ⊂ Adm(G)‾_c: (a) if ord_ℓ(|G|) = r+s and G has no proper normal subgroup of order divisible by ℓ^{j+1}, then deg(X → M(1)‾) ≡ 0 mod ℓ^{⌈(r−3s−j)/2⌉}, and every Out⁺(F₂)-orbit on Epi^ext(F₂,G)_c/⟨γ_{−I}⟩ has cardinality divisible by the same power; (b) if G is nonabelian simple, ℓ^{r+1} ≥ |G|^{1/3} and G ≇ PSL₂(F_q), then deg(X → M(1)‾) ≡ 0 mod ℓ^{⌈r/2⌉}, with the same combinatorial consequence.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.12, p. 65, Corollary 4.12.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the precise form of Theorems 1.1.1 and 1.1.2. Remark 4.12.6 records that Lemma 4.12.2 only needs ℓ^{j+1} ∤ |Z(G)| and ℓ^{j+1} ∤ the order of any proper normal cyclic subgroup, so the corollaries can be sharpened."
+  },
+  {
+   "id": "PAPER-CHEN-24/74",
+   "kind": "definition",
+   "name": "The trace invariant of an admissible SL₂(F_q)-cover (Definition 5.1.1)",
+   "statement": "For a prime power q and a subgroup G ≤ GL₂(F_q), the trace invariant of a geometric point of Adm(G)‾_ℚ‾ is the trace of its Higman invariant relative to {exp(2πi/n)}. This gives decompositions M(SL₂(F_q))‾_ℚ‾ = ⊔_{t ∈ F_q} M(SL₂(F_q))‾_t and Adm(SL₂(F_q))‾_ℚ‾ = ⊔_{t} Adm(SL₂(F_q))‾_t into open and closed substacks.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.1, p. 65, Definition 5.1.1 and (38)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: over F_p with p odd and t = −2 there are exactly two noncentral classes of trace −2, so Adm(SL₂(F_p))‾_{−2} has two pieces."
+  },
+  {
+   "id": "PAPER-CHEN-24/75",
+   "kind": "definition",
+   "name": "q-admissible classes and traces (Definition 5.1.2, Proposition 5.1.3)",
+   "statement": "A conjugacy class of SL₂(F_q), or an element t ∈ F_q, is q-admissible if it is the class, or trace, of the commutator of a generating pair of SL₂(F_q). The q-admissible traces are: F_q − {2} for q = 2, 4, 8 and q ≥ 13; F_q − {1,2} for q = 3, 9, 11; F_q − {0,2,4} for q = 5; F_q − {0,1,2} for q = 7. Geometrically M(SL₂(F_q))_t is nonempty exactly for q-admissible t. For q even every t ≠ 0 is the trace of a unique class, and for q odd every t ≠ ±2 is; the classes of trace −2 for q odd are represented by [[−1,1],[0,−1]] and [[−1,a],[0,−1]] with a a nonsquare, and conjugation by a suitable element of GL₂(F_q) swaps them, so the corresponding stacks Adm(SL₂(F_q))‾_{c} are isomorphic.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.1, pp. 65–67, Definitions 5.1.2 and Proposition 5.1.3, quoting [MW11]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The classification of q-admissible traces is due to McCullough and Wanderley. Tests: t = 2 is never admissible; for q = 5 the admissible traces are F₅ − {0,2,4}."
+  },
+  {
+   "id": "PAPER-CHEN-24/76",
+   "kind": "definition",
+   "name": "The order of a noncentral element by its trace (Definition 5.1.4, Proposition 5.1.5)",
+   "statement": "For a ∈ F_q let n_q(a) be the order of any matrix A ∈ SL₂(F_q) − {±I} with trace a; writing a = ω + ω^{−1} with {ω,ω^{−1}} ⊂ F_{q²} uniquely determined, n_q(a) = 2 if q is even and a = 0; p if q is odd and a = 2; 2p if q is odd and a = −2; and |ω| if a ≠ ±2.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.1, p. 67, Definition 5.1.4 and Proposition 5.1.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The value 2p at a = −2 with q odd is what produces the divisibility by p for the Markoff equation. Tests: n_p(−2) = 2p; n_q(a) divides q−1 or q+1 according as a²−4 is a square."
+  },
+  {
+   "id": "PAPER-CHEN-24/77",
+   "kind": "theorem",
+   "name": "The SL₂ character variety of the free group of rank two (Theorem 5.2.1, Definitions 5.2.2–5.2.3)",
+   "statement": "For any ring R let X_{SL₂,R} := Hom(Π,SL₂,R)//GL₂,R, a universal categorical quotient for the conjugation action. The trace map Tr sending ϕ to (tr ϕ(a), tr ϕ(b), tr ϕ(ab)) induces an isomorphism Tr : X_{SL₂,R} ≅ A³_R. Hom(Π,SL₂,R) is the representation variety, X_{SL₂,R} the character variety, Tr(ϕ) the trace coordinates and tr ϕ([a,b]) the trace invariant of ϕ.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 67–68, Theorem 5.2.1 and Definitions 5.2.2, 5.2.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Character varieties and GIT quotients are absent from both libraries. API: the quotient, the trace coordinates and the identification with affine 3-space. Tests: the trace coordinates of the trivial representation are (2,2,2)."
+  },
+  {
+   "id": "PAPER-CHEN-24/78",
+   "kind": "theorem",
+   "name": "The trace of the commutator and the action of Aut(Π) (Lemma 5.2.4, Proposition 5.2.5)",
+   "statement": "For ϕ : Π → SL₂(R) with (A,B,C) := (tr ϕ(a), tr ϕ(b), tr ϕ(ab)) one has tr ϕ([a,b]) = A²+B²+C²−ABC−2. Writing T(x,y,z) := x²+y²+z²−xyz−2 and τ(ϕ) := tr ϕ([a,b]), the diagram τ = T ∘ Tr commutes; the right Aut(Π)-action on X_{SL₂} preserves the fibres of τ, and Tr induces an injective anti-homomorphism Tr_* : Aut(Π) ↪ Aut(A³) under which the generators r : (a,b) ↦ (a^{−1},b), s : (a,b) ↦ (b,a) and t : (a,b) ↦ (a^{−1},ab) go to R₃ : (x,y,z) ↦ (x,y,xy−z), τ₁₂ : (x,y,z) ↦ (y,x,z) and τ₂₃ : (x,y,z) ↦ (x,z,y).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 68–69, Lemma 5.2.4 and Proposition 5.2.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "So the group Γ of the Markoff literature is exactly the image of Aut(Π) acting on trace coordinates. Remark 5.2.6 explains the invariance of τ through the Dehn–Nielsen–Baer theorem. Tests: R₃ is the Vieta involution; the fibre T = −2 is the Markoff surface."
+  },
+  {
+   "id": "PAPER-CHEN-24/79",
+   "kind": "definition",
+   "name": "Absolutely irreducible representations and the criterion (Definitions 5.2.7, 5.2.8, Lemma 5.2.9)",
+   "statement": "A representation ϕ : G → GL_n(T) is absolutely irreducible if the induced map Γ(T,O_T)[G] → M_n(Γ(T,O_T)) is surjective; the locus Hom(Π,SL₂,R)^{ai} is open and X^{ai}_{SL₂,R} denotes its GL₂-quotient. For ϕ : Π → SL₂(R) with trace coordinates (A,B,C), ϕ is absolutely irreducible if and only if A²+B²+C²−ABC−4 ∈ R^×, so X^{ai}_{SL₂} = X_{SL₂} − τ^{−1}(2).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 69–70, Definitions 5.2.7, 5.2.8 and Lemma 5.2.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: a reducible representation has trace invariant 2; over a field, absolute irreducibility is the absence of invariant lines over the algebraic closure."
+  },
+  {
+   "id": "PAPER-CHEN-24/80",
+   "kind": "theorem",
+   "name": "F_q-points of the character variety (Theorem 5.2.10)",
+   "statement": "For a prime power q the trace map Tr : Hom(Π,SL₂(F_q)) → F_q³ is surjective, and induces bijections Hom(Π,SL₂(F_q))^{ai}/GL₂(F_q) ≅ X^{ai}_{SL₂}(F_q) ≅ F_q³ − T^{−1}(2).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 70–72, Theorem 5.2.10, with two proofs",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Proof 1 is Macbeath's classical argument through the conic Q_{A,B,C} = x²+y²+z²+Ayz+Bxz+Cxy, whose discriminant is −(A²+B²+C²−ABC−4), so nonsingularity of the conic is absolute irreducibility. Proof 2 uses Nakamoto's theorem that Hom(Π,SL₂,R)^{ai} → X^{ai}_{SL₂,R} is a universal geometric quotient and a principal PGL₂-bundle, plus the vanishing of the Brauer group of a finite field and Lang's theorem; Remark 5.2.11 notes that this argument works for GL_n and arbitrary groups."
+  },
+  {
+   "id": "PAPER-CHEN-24/81",
+   "kind": "definition",
+   "name": "Diagonal outer automorphisms and dihedral type (Definitions 5.2.12, 5.2.14, Proposition 5.2.13)",
+   "statement": "D(q) is the image of GL₂(F_q) in Out(SL₂(F_q)) under conjugation, and for G ≤ SL₂(F_q), D(q,G) is the image of N_{GL₂(F_q)}(G) in Out(G). D(q) is trivial for q even, of order 2 for q odd with the nontrivial element represented by any matrix of nonsquare determinant, and D(p) = Out(SL₂(F_p)) for prime q = p. A subgroup G ≤ SL₂(F_q) is of dihedral type if its image in PSL₂(F_q) is trivial or dihedral, and a representation is of dihedral type if its image is.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 72–73, Definitions 5.2.12, 5.2.14 and Proposition 5.2.13",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The dihedral-type representations are exactly the ones the congruences must exclude, matching §4.11 where the obstruction m is uncontrolled for dihedral groups."
+  },
+  {
+   "id": "PAPER-CHEN-24/82",
+   "kind": "definition",
+   "name": "The level sets X_t(q) and their distinguished subsets (Definition 5.2.15, Propositions 5.2.16, 5.2.17)",
+   "statement": "For a ring R and t ∈ R, X_{SL₂,t} := τ^{−1}(t) is identified through Tr with the affine surface x²+y²+z²−xyz−2 = t; X_t(q) is its set of F_q-points, X*_t(q) the subset corresponding to absolutely irreducible representations not of dihedral type, X°_t(q) the subset corresponding to surjections Π ↠ SL₂(F_q), and X(q), X*(q), X°(q) their unions over t. Then X*₂(q) and X°₂(q) are empty; X°(q) ⊆ X*(q) for q ≥ 3; X*(2) is empty while X°(2) is not; and for t ≠ 2, X*_t(q) = {(x,y,z) ∈ X_t(q) : at least two of x, y, z are nonzero}. For p ≥ 3, X*_{−2}(p) = X°_{−2}(p) = X_{−2}(p) − {(0,0,0)} = X*(p), while for p = 2, X°_{−2}(2) = X*_{−2}(2) = ∅ and X_{−2}(2) − {(0,0,0)} has four elements.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 72–73, Definition 5.2.15, Propositions 5.2.16 and 5.2.17",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The identification X*_{−2}(p) = X*(p) for odd p is what ties the Markoff points to surjections onto SL₂(F_p). Tests: (1,1,0), (1,0,1), (0,1,1), (1,1,1) at p = 2."
+  },
+  {
+   "id": "PAPER-CHEN-24/83",
+   "kind": "theorem",
+   "name": "The dictionary between moduli and the character variety (Proposition 5.2.20, Remark 5.2.21)",
+   "statement": "Let p ≥ 3, let E, Π, a, b, x_E be as in Situation 2.5.14, let G ≤ SL₂(F_q) be the image of an absolutely irreducible representation and f : M(G)_ℚ‾/D(q,G) → M(1). Then the fibre f^{−1}(x_E) is identified with Epi^ext(Π,G)/D(q,G) and with a subset of X*(q) ⊂ F_q³ compatibly with the trace invariant, and the automorphisms γ₀ : (a,b) ↦ (ab^{−1},a), γ₁₇₂₈ : (a,b) ↦ (b^{−1},a), γ_∞ : (a,b) ↦ (a,ab) and γ_{−I} : (a,b) ↦ (a^{−1},b^{−1}) of Aut⁺(Π) act on trace coordinates by (x,y,z) ↦ (xy−z, x, x²y−xz−y), (x,y,z) ↦ (y,x,xy−z), rot₁ : (x,y,z) ↦ (x,z,xz−y) and the identity respectively. To each Aut⁺(Π)-orbit on X(q) corresponds a connected component of M(G)_ℚ‾/D(q,G) of degree over M(1)_ℚ‾ equal to the size of the orbit; on coarse schemes the forgetful map is a branched covering of smooth proper curves over ℚ‾, étale away from j = 0, 1728, ∞, with ramification at j = 0, 1728 and ∞ governed by the fixed points of γ₀, γ₁₇₂₈ and by the rot₁-orbits. In SL₂(ℤ) these four automorphisms correspond to the matrices [[1,1],[−1,0]], [[0,1],[−1,0]], [[1,−1],[0,1]] and −I, whose fixed points on the upper half-plane have j-invariant 0, 1728 and ∞.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.2, pp. 73–74, Proposition 5.2.20 and Remark 5.2.21",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the computational engine of §5.6: degrees, ramification and cusps of the curves M_p are read off from the Γ-action on X*(p)."
+  },
+  {
+   "id": "PAPER-CHEN-24/84",
+   "kind": "theorem",
+   "name": "Vertical automorphism groups for SL₂(F_q) (Lemma 5.3.1, Theorem 5.3.2)",
+   "statement": "For q ≥ 3 and an absolutely irreducible ϕ : Π → SL₂(F_q) with (tr ϕ(b), tr ϕ(ab)) ≠ (0,0), the γ_∞-orbit of ϕ in Hom(Π,SL₂(F_q))^{ai}/D(q) has size |ϕ(a)|. Consequently, if ϕ is absolutely irreducible and not of dihedral type, then G := ϕ(Π) contains Z(SL₂(F_q)) and: (a) all vertical automorphism groups of geometric points of Adm(G)‾_ℚ‾ are reduced to Z(SL₂(F_q)) = {±I}; (b) the forgetful map M(G)‾_ℚ‾ → M(1)‾_ℚ‾ is representable; and for a component X ⊂ Adm(G)‾_t with t ≠ 2 and reduced ramification divisor R_π, the vertical automorphism groups of geometric points of R_π are trivial if q is even; of order 2 if q is odd and t = −2; of order 2 if q is odd, t ≠ −2 and n_q(t) is even; and trivial if q is odd, t ≠ −2 and n_q(t) is odd.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.3, pp. 74–78, Lemma 5.3.1 and Theorem 5.3.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This says that for SL₂(F_q) there are no unexpected vertical automorphisms, so k_{u,h} = |u| in Theorem 4.10.3. It is the input that makes the congruence sharp in the Markoff case. Tests: Aut^v(x) = Z(SL₂(F_q)) ∩ ⟨c⟩."
+  },
+  {
+   "id": "PAPER-CHEN-24/85",
+   "kind": "theorem",
+   "name": "The size of X*(p) (Proposition 5.3.3)",
+   "statement": "For a prime p ≥ 3 and a ∈ F_p, the conic C₁(a)*_{−2} = C₁(a)°_{−2} is empty if and only if a ∈ {0,2,−2} and p ≡ 3 mod 4; and |X*(p)| = |X*_{−2}(p)| = |X°_{−2}(p)| = p(p+3) if p ≡ 1 mod 4 and p(p−3) if p ≡ 3 mod 4.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.3, pp. 78–79, Proposition 5.3.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "These are the classical Frobenius congruence conditions: for p ≡ 3 mod 4, p ≠ 3, a Markoff number cannot be ≡ 0, ±2/3 mod p. Tests: |X*(5)| = 40 and |X*(7)| = 28."
+  },
+  {
+   "id": "PAPER-CHEN-24/86",
+   "kind": "theorem",
+   "name": "Counting rot₁-orbits (Definition 5.3.4, Proposition 5.3.5)",
+   "statement": "With Φ(n) := Σ_{d|n} φ(d)/d, for a prime p ≥ 3 the number of rot₁-orbits on X*_{−2}(p) = X°_{−2}(p) is ((p−1)/2)Φ(p−1) + ((p+1)/2)Φ(p+1) + (−5p+11)/4 if p ≡ 1 mod 4 and ((p−1)/2)Φ(p−1) + ((p+1)/2)Φ(p+1) + (−7p−1)/4 if p ≡ 3 mod 4.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.3, pp. 79–80, Definition 5.3.4 and Proposition 5.3.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The rot₁-orbits are the cusps of the curve M_p, so this is the cusp count in the genus formula. Tests: Φ(1) = 1, Φ(2) = 3/2; the formula at p = 5, 7."
+  },
+  {
+   "id": "PAPER-CHEN-24/87",
+   "kind": "theorem",
+   "name": "Bounds for the obstructions for SL₂(F_q) (Propositions 5.4.1, 5.4.2)",
+   "statement": "For q ≥ 3 and a q-admissible trace t, the automorphism groups of geometric points of R_π are killed by 24, and by 12 when q is even or when q is odd with t ≠ −2 and n_q(t) odd; so m_X divides 24, respectively 12. For q = p^r ≥ 3 and a noncentral c ∈ SL₂(F_q) of trace t ≠ 2: if t²−4 = 0 then |c| = 2p and C_{SL₂(F_q)}(⟨c⟩) ≅ F_q × μ₂ has order 2q; if t²−4 is a nonzero square then |c| divides q−1 and the centraliser is cyclic of order q−1; if t²−4 is a nonsquare then |c| divides q+1 and the centraliser is cyclic of order q+1. Accordingly d_X divides p^{r−1}, (q−1)/|c| or (q+1)/|c| in the parabolic, hyperbolic and elliptic cases.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.4, pp. 78–80, Propositions 5.4.1 and 5.4.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: for q = p and t = −2 the class is parabolic, |c| = 2p, and d_X divides p^{0} = 1."
+  },
+  {
+   "id": "PAPER-CHEN-24/88",
+   "kind": "theorem",
+   "name": "Congruences for components of Adm(G)‾_t with G ≤ SL₂(F_q) (Theorem 5.4.3)",
+   "statement": "Let q = p^r ≥ 3, let G ≤ SL₂(F_q) not of dihedral type, t ≠ 2 ∈ F_q, c noncentral of trace t, and X ⊂ Adm(G)‾_t a component with coarse scheme X. Then (a) if t²−4 = 0 and q = p then |c| = 2p and deg(X → M(1)‾) ≡ 0 mod p; (b) if t²−4 is a nonzero square then deg(X → M(1)‾) ≡ 0 mod |c|/gcd(|c|, 2(q−1)/|c|), and in particular ≡ 0 mod n for any n dividing |c| coprime to 2(q−1)/|c|; (c) if t²−4 is a nonsquare the same holds with q+1 in place of q−1. For q even the factor 2(q−1) in (b) may be replaced by q−1.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.4, pp. 80–81, Theorem 5.4.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Obtained by feeding Propositions 5.4.1 and 5.4.2 into Theorem 3.5.1. Tests: case (a) with q = p, t = −2 gives the Markoff divisibility."
+  },
+  {
+   "id": "PAPER-CHEN-24/89",
+   "kind": "theorem",
+   "name": "Congruences for Aut⁺(Π)-orbits on generalized Markoff surfaces (Theorem 5.4.4)",
+   "statement": "Let q = p^r ≥ 3 and t ≠ 2 ∈ F_q, let n_q(t) be the order of a noncentral element of trace t, and let P = (X,Y,Z) be an F_q-point of x²+y²+z²−xyz = 2+t with at least two coordinates nonzero, with Aut⁺(Π)-orbit O. Then (a) if t²−4 = 0 and q = p ≥ 3 then |O| ≡ 0 mod p; (b) if t²−4 is a nonzero square then 2|O| ≡ 0 mod n_q(t)/gcd(n_q(t), 2(q−1)/n_q(t)); (c) if t²−4 is a nonsquare then 2|O| ≡ 0 mod n_q(t)/gcd(n_q(t), 2(q+1)/n_q(t)). For q even and O ⊂ X°_t(q), t²−4 is a square and (b) holds with |O| in place of 2|O| and q−1 in place of 2(q−1).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.4, pp. 81–82, Theorem 5.4.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the combinatorial face of Theorem 5.4.3 and the source of Theorem 1.2.7. Tests: t = −2 and q = p gives divisibility of every orbit by p."
+  },
+  {
+   "id": "PAPER-CHEN-24/90",
+   "kind": "definition",
+   "name": "The Markoff surface, its twist and the induced Γ-action (§5.5)",
+   "statement": "M : x²+y²+z²−3xyz = 0 is the Markoff surface; a Markoff triple is a positive integer solution and a Markoff number a coordinate of one. The map ξ : (x,y,z) ↦ (3x,3y,3z) defines ξ : M → X, an isomorphism over ℤ[1/3] and a bijection M(ℤ) ≅ X(ℤ). The Aut(Π)-action on X is generated by R₃ : (x,y,z) ↦ (x,y,xy−z), τ₁₂ and τ₂₃, and transports through ξ to the action on M generated by τ₁₂, τ₂₃ and R₃′ : (x,y,z) ↦ (x,y,3xy−z). M*(p) := M(F_p) − {(0,0,0)} and X*(p) := X(F_p) − {(0,0,0)}.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, pp. 80–81",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The same carrier and the same twist appear in the accepted extraction PAPER-MARTIN-25, whose coefficient-three convention this paragraph reconciles with the coefficient-one convention; one carrier must serve both."
+  },
+  {
+   "id": "PAPER-CHEN-24/91",
+   "kind": "theorem",
+   "name": "Divisibility of every orbit by p and the finiteness of E_bgs (Theorems 5.5.4, 5.5.5)",
+   "statement": "Every Aut⁺(Π)-orbit on X*(p) has size divisible by p. Consequently the exceptional set E_bgs of primes for which Aut(Π) fails to act transitively on X*(p) is finite and explicitly bounded.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, pp. 82–83, Theorems 5.5.4 and 5.5.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The first statement is Theorem 5.4.4(a); the second combines it with Theorem 5.5.3, since an orbit outside the largest one would have size at most p^ε and at least p."
+  },
+  {
+   "id": "PAPER-CHEN-24/92",
+   "kind": "definition",
+   "name": "Strong approximation for an affine variety over ℤ (Definition 5.5.6)",
+   "statement": "An affine variety V over ℤ satisfies strong approximation mod n if V(ℤ) → V(ℤ/nℤ) is surjective.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, p. 83, Definition 5.5.6, following [BGS16b]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Tests: X satisfies strong approximation mod 3 because X*(3) is empty; the surjectivity for p ∉ E_bgs is Theorem 5.5.7(c)."
+  },
+  {
+   "id": "PAPER-CHEN-24/93",
+   "kind": "theorem",
+   "name": "Transitivity, connectedness and strong approximation for p ∉ E_bgs (Theorem 5.5.7)",
+   "statement": "For every prime p ∉ E_bgs: (a) Aut⁺(Π) acts transitively on X*(p) and on M*(p); (b) M(SL₂(F_p))‾^{abs}_{−2} := M(SL₂(F_p))‾_{−2}/D(p) is connected; (c) both X and M satisfy strong approximation mod p.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, p. 83, Theorem 5.5.7",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Part (c) uses that reduction X(ℤ) → X(F_p) is Aut(Π)-equivariant and that the orbits of (0,0,0) and (3,3,3) exhaust X(F_p)/Aut(Π); strong approximation at 3 is checked by hand. If the remaining finite computation confirms the conjecture, Proposition 5.3.3 shows there are no congruence conditions on Markoff numbers beyond Frobenius's."
+  },
+  {
+   "id": "PAPER-CHEN-24/94",
+   "kind": "theorem",
+   "name": "Strong approximation modulo squarefree integers (Theorem 5.5.8)",
+   "statement": "Let p₁,…,p_r ∉ E_bgs be distinct primes each satisfying the Meiri–Puder condition MP(p): p ≡ 1 mod 4, or the order of (3+√5)/2 in F_{p²} is at least (3/2)√(p+1). Put n := p₁⋯p_r and let X*(n) ⊂ X(ℤ/nℤ) be the solutions not reducing to (0,0,0) modulo any p_i. Then (a) Aut(Π) acts transitively on X*(n); (b) X and M satisfy strong approximation mod n.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, pp. 83–84, Theorem 5.5.8, using [MP+18]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "MP(p) holds for a density-one set of primes, and for all p ≡ 1 mod 4. Meiri–Puder is an input the atlas does not cover and is listed under prerequisites."
+  },
+  {
+   "id": "PAPER-CHEN-24/95",
+   "kind": "theorem",
+   "name": "Congruences for generalized Markoff equations in terms of ω (Theorem 5.5.9)",
+   "statement": "Suppose ω ∈ F_{q²}^× satisfies t := ω + ω^{−1} ∈ F_q − {2,−2}, let ℓ be an odd prime with ord_ℓ(|ω|) = r and ord_ℓ(q(q−1)) = r+s, and let P be an F_q-point of x²+y²+z²−xyz = t+2 with at least two coordinates nonzero. Then the Aut⁺(Π)-orbit of P has cardinality divisible by ℓ^{max{r−s,0}}.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.5, p. 84, Theorem 5.5.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the form of Theorem 1.2.7 stated with the auxiliary element ω; with results analogous to those of [BGS16a] for these equations it would give strong approximation for them too."
+  },
+  {
+   "id": "PAPER-CHEN-24/96",
+   "kind": "theorem",
+   "name": "Ramification of M_p over the j-line (Propositions 5.6.1, 5.6.2)",
+   "statement": "Let p ≥ 5 be prime and f : M_p → M(1) the forgetful map on coarse schemes, of degree p(p+3) for p ≡ 1 mod 4 and p(p−3) for p ≡ 3 mod 4. Then (a) f^{−1}(0) has exactly one unramified point and all others of index 3, so |f^{−1}(0)| = (deg f − 3)/3; (b) f^{−1}(1728) has exactly two unramified points if p ≡ 1, 7 mod 8 and none otherwise, all others of index 2, giving the four explicit formulas (p²+3p+2)/2, (p²−3p)/2, (p²+3p)/2, (p²−3p+2)/2 according to p mod 8; and (c) the number of cusps |f^{−1}(∞)| is the rot₁-orbit count of Proposition 5.3.5.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.6, pp. 84–85, Propositions 5.6.1 and 5.6.2, with the ramification at j = 0, 1728 from [BBCL20, Proposition 3.3.2]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The ramification indices 3 and 2 come from the fixed points of γ₀ and γ₁₇₂₈ acting on X*(p). Tests: the degree formula at p = 5 is 40."
+  },
+  {
+   "id": "PAPER-CHEN-24/97",
+   "kind": "theorem",
+   "name": "The genus formula and finiteness (Theorems 5.6.3, 5.6.4)",
+   "statement": "For p ≥ 5 prime, the smooth compactification of M(SL₂(F_p))‾_{−2} is a disjoint union of two copies of M_p‾, and for p ∉ E_bgs, M_p‾ is a smooth curve of genus p²/12 − ((p−1)/4)Φ(p−1) − ((p+1)/4)Φ(p+1) + ε(p), with ε(p) = (7/8)p − 29/24, (5/8)p + 19/24, (7/8)p − 17/24, (5/8)p + 7/24 according as p ≡ 1, 3, 5, 7 mod 8; in particular genus(M_p‾) ≥ p²/12 − (1/2)(p−1)^{3/2} − (1/2)(p+1)^{3/2} + p/2 for all p ≥ 5. For p ≥ 13 with p ∉ E_bgs the genus is ≥ 2, while for p = 5, 7, 11 it is 0, 0, 1; hence for p ≥ 13, p ∉ E_bgs and any number field K only finitely many elliptic curves admit an SL₂(F_p)-structure with ramification index 2p.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.6, pp. 85–86, Theorems 5.6.3 and 5.6.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The genus is computed by Riemann–Hurwitz from the degree and the three ramified fibres. The finiteness consequence is Faltings' theorem applied to a curve of genus ≥ 2 over a number field."
+  },
+  {
+   "id": "PAPER-CHEN-24/98",
+   "kind": "definition",
+   "name": "Congruence and noncongruence modular stacks (Definition 5.6.5)",
+   "statement": "For a subfield k ⊂ ℂ, a finite étale map f : M → M(1)_k is a congruence modular stack, and M → M(1)_k a congruence modular curve, if M_ℂ is connected and the finite-index subgroup Γ ≤ SL₂(ℤ) attached to f_ℂ contains the kernel of SL₂(ℤ) → SL₂(ℤ/n) for some n; otherwise it is noncongruence.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.6, p. 86, Definition 5.6.5",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Chen conjectures in [Che18] that the components of M(G) are noncongruence for all nonsolvable G; the problem is central to the geometric approach to the unbounded denominators conjecture for noncongruence modular forms."
+  },
+  {
+   "id": "PAPER-CHEN-24/99",
+   "kind": "theorem",
+   "name": "Noncongruence for a density-one set of primes (Theorem 5.6.6, Corollary 5.6.8)",
+   "statement": "Let P_MP be the set of primes p ≥ 5 with p ∉ E_bgs satisfying MP(p), a set of density one. For p ∈ P_MP the stack M(PSL₂(F_p))^{abs}_{−2} is connected of degree d_p = p(p+3)/4 or p(p−3)/4 over M(1) according as p ≡ 1 or 3 mod 4, and its monodromy group over M(1) is the full symmetric group S_{d_p} for p ≡ 5, 7, 9, 11 mod 16 and the alternating group A_{d_p} for p ≡ 1, 3, 13, 15 mod 16. Consequently, for p ∈ P_MP the stacks M(PSL₂(F_p))^{abs}_{−2} and M(SL₂(F_p))^{abs}_{−2} are noncongruence.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.6, pp. 86–87, Theorem 5.6.6 and Corollary 5.6.8, using [MP+18] and [BBCL20, §3.3]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "A congruence cover would have solvable-by-PSL₂ monodromy, not a full alternating or symmetric group of large degree. Conjecturally the theorem holds for all p ≥ 5."
+  },
+  {
+   "id": "PAPER-CHEN-24/100",
+   "kind": "theorem",
+   "name": "Noetherian approximation for prestable curves with a group action (Remark 6.1.1)",
+   "statement": "A prestable curve C → S with an effective Cartier divisor R finite étale over a quasi-compact quasi-separated S and an S-linear action of a finite group G preserving R is the base change of the same data over some finite-type ℤ-scheme S_i, writing S as a cofiltered limit of such with affine transitions.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.1, p. 86, Remark 6.1.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used to reduce statements about prestable curves to the Noetherian case. Tests: the limit presentation of a quasi-compact quasi-separated base."
+  },
+  {
+   "id": "PAPER-CHEN-24/101",
+   "kind": "theorem",
+   "name": "Eigenspace decomposition and henselization of invariants (Lemmas 6.1.2, 6.1.3)",
+   "statement": "Let A be a ring with Spec A connected, e invertible in A and μ_{e,A} totally split, let M be an A-module with an A-linear action of a cyclic group ⟨g⟩ of order e, and let p_ζ(m) := (1/e)Σ_j ζ^{−j}g^j(m). Then p_ζ(M) = M_ζ := {m : gm = ζm} and ⊕_ζ p_ζ : M → ⊕_{ζ ∈ μ_e(A)} M_ζ is an isomorphism, and M ↦ M_ζ is exact. Moreover, for a ring R with an action of a finite group G, a maximal ideal m_R and m_{R^G} := m_R ∩ R^G: m_{R^G} is maximal; the henselizations R^h and (R^G)^h are local; R ⊗_{R^G} (R^G)^h ≅ R^h; and (R^G)^h ≅ (R^h)^G.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.1, pp. 86–88, Lemmas 6.1.2 and 6.1.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Lemma 6.1.3 needs no tameness hypothesis. These are the local tools behind the normalized coordinates of Proposition 6.1.4."
+  },
+  {
+   "id": "PAPER-CHEN-24/102",
+   "kind": "theorem",
+   "name": "Normalized coordinates for tame balanced actions (Proposition 6.1.4)",
+   "statement": "Let G be a finite group of order invertible on S acting S-linearly and fibrewise faithfully on a prestable curve C/S, let p be a geometric point with image s and cyclic stabiliser G_p of order e with generator g, A := O_{S,s} and R the strict local ring of C_A at p. (a) If p is smooth in its fibre, there is φ : A[z] → R identifying R with the strict local ring of A[z] at (m_A,z) and G_p-equivariant for gz = ζ_e z. (b) If p is a node whose G_p-action preserves the two branches of the cotangent space and lands in SL of it, there are a ∈ m_A and φ : A[z,w]/(zw−a) → R identifying R with the strict local ring at (m_A,z,w) and G_p-equivariant for gz = ζ_e z, gw = ζ_e^{−1}w. In particular the quotient C → C/G satisfies conditions (4), (5) and (6) of Definition 2.1.4.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.1, pp. 88–90, Proposition 6.1.4",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the precise sense in which a balanced action gives the admissible local models, and it justifies Remark 2.1.5(d)."
+  },
+  {
+   "id": "PAPER-CHEN-24/103",
+   "kind": "theorem",
+   "name": "The normalizer of SL_n(F_q) in GL_n(F_q‾) (Proposition 6.2.1)",
+   "statement": "For a prime power q and n ≥ 1, N_{GL_n(F_q‾)}(SL_n(F_q)) = F_q‾^× · GL_n(F_q), and the same holds with GL_n(F_q) in place of SL_n(F_q).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.2, pp. 88–89, Proposition 6.2.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Used to show that two absolutely irreducible representations conjugate over F_q‾ are conjugate over F_q, in the second proof of Theorem 5.2.10."
+  },
+  {
+   "id": "PAPER-CHEN-24/104",
+   "kind": "theorem",
+   "name": "Images of absolutely irreducible representations into SL₂(F_q) (Proposition 6.3.1)",
+   "statement": "Let ϕ : Π → SL₂(F_q) be absolutely irreducible with image G and image G‾ in PSL₂(F_q). Then G‾ is dihedral D_{2n} (n ≥ 2), A₄, A₅, S₅, PGL₂(F_q‾)-conjugate to PSL₂(F_{q′}) for some q′ | q, or PGL₂(F_q‾)-conjugate to PGL₂(F_{q′}) with q′² | q; in each case G is a central extension of G‾ by Z := Z(SL₂(F_q)), and outside the dihedral case the normalizer and centralizer of G in GL₂(F_q) satisfy |N/C| ≤ 2.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.3, pp. 89–90, Proposition 6.3.1, following Macbeath [Mac69, §4]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is Dickson's classification of subgroups of SL₂ in the form needed; it is absent from both libraries. It is what excludes the dihedral case in Theorem 5.3.2 and bounds d_X for proper subgroups."
+  },
+  {
+   "id": "PAPER-CHEN-24/105",
+   "kind": "theorem",
+   "name": "Étale local rings of Deligne–Mumford stacks and deformation rings (§6.4)",
+   "statement": "For a Deligne–Mumford stack M with representable diagonal and a point x : Spec Ω → M, the category of étale neighbourhoods is cofiltered and the étale local ring is O_{M,x} := colim Γ(U,O_U); for a scheme this is the strict henselization. Proposition 6.4.2 identifies its residue field and basic properties, Definition 6.4.3 gives the deformation functor of x₀, Proposition 6.4.5 compares the completion of the étale local ring with the universal deformation ring, and Proposition 6.4.6 gives the criterion for a map of locally Noetherian Deligne–Mumford stacks with representable diagonal to be étale in terms of the induced map of deformation functors.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §6.4, pp. 90–93, Definitions 6.4.1, 6.4.3, Propositions 6.4.2, 6.4.5 and 6.4.6",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ],
+   "note": "R09.6 plans the comparison of the deformation functor at a geometric point with the completed local ring of the constructed scheme or stack, including stabilisers and versality; neither library has stacks, so nothing of this exists yet. Chen uses it to deduce étaleness of Adm⁰(G) → M(1) from Proposition 2.5.3."
+  },
+  {
+   "id": "PAPER-CHEN-24/106",
+   "kind": "theorem",
+   "name": "Galois categories, fibre functors and the fundamental group",
+   "statement": "A Galois category with a fibre functor F has Aut(F) a profinite group, the category is equivalent to the category of finite continuous Aut(F)-sets, every object decomposes into connected components, and a profinite group acting on F with the corresponding properties is the fundamental group.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.3, §4.6 and throughout §4, where the Galois correspondence for finite étale covers is used",
+   "status": "library",
+   "library": [
+    "mathlib:CategoryTheory.PreGaloisCategory",
+    "mathlib:CategoryTheory.FiberFunctor",
+    "mathlib:CategoryTheory.GaloisCategory",
+    "mathlib:CategoryTheory.PreGaloisCategory.IsFundamentalGroup"
+   ],
+   "planned": [],
+   "note": "Mathlib/CategoryTheory/Galois/{Basic,GaloisObjects,Prorepresentability,IsFundamentalgroup,Decomposition}.lean at the pinned commit; the audit of InverseGaloisAndArithmeticFundamentalGroups IG.0 records the abstract theory as present and sorry-free. What is missing is the Galois category of finite étale covers of a scheme and its geometric fibre functor, which is what Chen applies it to."
+  },
+  {
+   "id": "PAPER-CHEN-24/107",
+   "kind": "definition",
+   "name": "Free groups and the free group of rank two",
+   "statement": "Π is the free group of rank 2, realised as the fundamental group of a once-punctured genus-1 surface, with a positively oriented basis a, b; Aut(Π), Aut⁺(Π) (determinant 1 on the abelianisation), Out(Π) and Out⁺(Π) ≅ SL₂(ℤ) act on it.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1, p. 4, and §1.6, p. 12",
+   "status": "library",
+   "library": [
+    "mathlib:FreeGroup",
+    "mathlib:FreeGroup.Red",
+    "mathlib:MulAut"
+   ],
+   "planned": [],
+   "note": "Mathlib/GroupTheory/FreeGroup/Basic.lean gives free groups on a type with their universal property, and MulAut gives the automorphism group; the identification Out⁺(F₂) ≅ SL₂(ℤ), the action on Epi^ext and Nielsen equivalence are not in either library. Mathlib's NielsenSchreier is the unrelated theorem that subgroups of free groups are free."
+  },
+  {
+   "id": "PAPER-CHEN-24/108",
+   "kind": "definition",
+   "name": "Elliptic curves, the j-invariant and the discriminant",
+   "statement": "An elliptic curve over a base is a smooth proper genus-1 curve with a section; its j-invariant identifies the coarse moduli of elliptic curves with the affine j-line.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1, p. 13, Definition 2.1.3",
+   "status": "library",
+   "library": [
+    "mathlib:WeierstrassCurve",
+    "mathlib:WeierstrassCurve.j",
+    "mathlib:EllipticCurve"
+   ],
+   "planned": [],
+   "note": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean:389 defines j and :132 the discriminant Δ, over an arbitrary commutative ring, with the invariance under variable change in VariableChange.lean. Elliptic curves as schemes over a base, their moduli stack and generalized elliptic curves are not present."
+  },
+  {
+   "id": "PAPER-CHEN-24/109",
+   "kind": "definition",
+   "name": "SL₂ over a commutative ring, traces and commutators",
+   "statement": "SL₂(R) for a commutative ring R, its centre {±I}, the trace, the commutator [A,B] = ABA^{−1}B^{−1}, and the conjugation action of GL₂(R).",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.6, p. 13, and §5.2 throughout",
+   "status": "library",
+   "library": [
+    "mathlib:Matrix.SpecialLinearGroup",
+    "mathlib:Matrix.trace",
+    "mathlib:commutatorElement",
+    "tauceti:TauCeti.SpecialLinear"
+   ],
+   "planned": [],
+   "note": "Mathlib/LinearAlgebra/SpecialLinearGroup.lean:52 and Mathlib/LinearAlgebra/Matrix/Trace.lean; Tau Ceti adds SL₂(ℤ) congruence subgroups in TauCeti/NumberTheory/ModularForms/CongruenceSubgroups. The classification of subgroups of SL₂(F_q), the character variety and the trace identity of Lemma 5.2.4 are missing."
+  },
+  {
+   "id": "PAPER-CHEN-24/110",
+   "kind": "definition",
+   "name": "Permutation triples, monodromy and the combinatorial genus",
+   "statement": "Covers branched over three points correspond to permutation triples with product one; the monodromy group, the automorphism group as the centraliser of the monodromy group, and the Euler characteristic or genus of a triple are the combinatorial shadow of the geometry.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §4.4 and §4.7, where covers of P¹ branched over {0,1,∞} and their component graphs are analysed",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.PermutationTriple",
+    "tauceti:TauCeti.PermutationTriple.eulerChar",
+    "tauceti:TauCeti.Topology.Covering"
+   ],
+   "planned": [],
+   "note": "Tau Ceti has permutation triples with product one, isomorphism by simultaneous conjugation, the automorphism group as the centraliser, the combinatorial Euler characteristic (TauCeti/Combinatorics/PermutationTriple/EulerCharacteristic.lean) and the classification of covering spaces by π₁-sets with monodromy; the audit of IG.3 records the same. Missing on the geometric side: Belyi maps, covers of P¹ branched over three points as schemes, and Riemann existence."
+  },
+  {
+   "id": "PAPER-CHEN-24/111",
+   "kind": "definition",
+   "name": "Euler's totient and the divisor sum Φ(n)",
+   "statement": "φ is Euler's totient and Φ(n) := Σ_{d|n} φ(d)/d, which appears in the cusp count and the genus formula.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.3, p. 79, Definition 5.3.4",
+   "status": "library",
+   "library": [
+    "mathlib:Nat.totient",
+    "mathlib:Nat.divisors",
+    "mathlib:ArithmeticFunction.sigma"
+   ],
+   "planned": [],
+   "note": "Mathlib/NumberTheory/Divisors.lean and Mathlib/NumberTheory/Totient.lean give φ, the divisor set and multiplicativity; Φ is the rational-valued divisor sum built from them."
+  },
+  {
+   "id": "PAPER-CHEN-24/112",
+   "kind": "theorem",
+   "name": "Riemann existence and branch cycles",
+   "statement": "Finite covers of a curve branched over a prescribed finite set correspond to permutation representations of the fundamental group of its complement, with branch cycles at the punctures.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.5.1, p. 27, in the proof of Theorem 2.5.2(5), and §4.6",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-8-riemann-surfaces-and-analytic-riemann-existence"
+   ],
+   "note": "IG.3 plans branched covers from generating tuples with product one through Riemann existence, consuming the Tau Ceti Belyi maps roadmap for three-point covers; its audit records that the topological half exists in Tau Ceti and the geometric half does not. Chen uses the Riemann existence theorem for stacks, quoted from [Noo05, Theorem 20.4]."
+  },
+  {
+   "id": "PAPER-CHEN-24/113",
+   "kind": "theorem",
+   "name": "Faltings' theorem for curves of genus at least two",
+   "statement": "A smooth proper curve of genus ≥ 2 over a number field has only finitely many rational points.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §1.2.2, p. 8, and §5.6, p. 86, in the proof of Theorem 5.6.4",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "HeightsRationalPointsAndObstructions:RP.4",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.5"
+   ],
+   "note": "RP.4 plans the Parshin reduction and the Shafarevich finiteness route to Faltings' theorem, and R28.5 plans Shafarevich finiteness itself. Chen uses it only as a black box to deduce the finiteness of elliptic curves with an SL₂(F_p)-structure of ramification index 2p."
+  },
+  {
+   "id": "PAPER-CHEN-24/114",
+   "kind": "theorem",
+   "name": "The Riemann–Hurwitz formula for a branched cover of curves",
+   "statement": "For a finite separable map of smooth proper curves, the genus of the source is computed from the degree, the genus of the target and the ramification indices.",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §5.6, p. 85, used to derive Theorem 5.6.3 from Propositions 5.6.1 and 5.6.2",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula"
+   ],
+   "note": "Layer 7 of the Tau Ceti roadmap Algebraic curves plans the different and the Hurwitz genus formula; that roadmap is existing work. Tau Ceti has the combinatorial Riemann–Hurwitz for permutation triples, but the geometric formula for a branched cover of curves is what the genus computation of §5.6 uses."
+  },
+  {
+   "id": "PAPER-CHEN-24/115",
+   "kind": "theorem",
+   "name": "Algebraic and Deligne–Mumford stacks with their atlases",
+   "statement": "Categories fibred in groupoids, stackification, representable diagonals, smooth and étale atlases, Deligne–Mumford and tame stacks, and the local structure theorem giving an étale cover by quotients [V/G].",
+   "locator": "arXiv:2011.12940v2 (19 June 2021), §2.1 and §3.4, used throughout for Adm(G)‾, M(G)‾ and their coarse schemes",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ],
+   "note": "R09.4 plans exactly this; its reviewed audit records that there are no atlases, no algebraic stacks and no quotient stacks in either library, and that the moduli stacks of generalised elliptic curves do not exist. Everything Chen does with stacks rests on this layer."
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "D. Abramovich, A. Corti and A. Vistoli, Twisted bundles and admissible covers, Comm. Algebra 31 (2003), no. 8, 3547–3618",
+   "link": "https://arxiv.org/abs/math/0106211",
+   "why": "The stacks of twisted and admissible G-covers, their properness, smoothness and Deligne–Mumford property (Theorem 2.1.11), and the rigidification theorem (Theorem 2.5.7). Every statement about Adm(G)‾ rests on this paper, and the atlas does not cover it."
+  },
+  {
+   "citation": "D. Abramovich and A. Vistoli, Compactifying the space of stable maps, J. Amer. Math. Soc. 15 (2002), no. 1, 27–75",
+   "link": "https://doi.org/10.1090/S0894-0347-01-00380-0",
+   "why": "The finiteness of the coarse map B‾_{1,1}(G) → M(1)‾ used in Theorem 2.1.11(c), and the general theory of twisted stable maps behind it."
+  },
+  {
+   "citation": "J. Bertin and M. Romagny, Champs de Hurwitz, Mém. Soc. Math. Fr. 125–126 (2011)",
+   "link": "https://doi.org/10.24033/msmf.437",
+   "why": "The deformation theory of stable marked G-curves quoted as Proposition 2.5.3, which gives the ramification index e of the forgetful map at a cusp, and the definition of the reduced ramification divisor followed in §2.2."
+  },
+  {
+   "citation": "W. Y. Chen, Moduli interpretations for noncongruence modular curves, Math. Ann. 371 (2018), no. 1–2, 41–126",
+   "link": "https://doi.org/10.1007/s00208-017-1577-4",
+   "why": "G-structures on elliptic curves, the stack M(G) with its finite étale forgetful map, and the noncongruence conjecture and its link with the unbounded denominators conjecture. Theorem 2.5.2 is assembled from it."
+  },
+  {
+   "citation": "J. Bourgain, A. Gamburd and P. Sarnak, Markoff surfaces and strong approximation: 1, arXiv:1607.01530 (2016), and Markoff triples and strong approximation, C. R. Math. 354 (2016), 131–135",
+   "link": "https://arxiv.org/abs/1607.01530",
+   "why": "Theorems 5.5.2 and 5.5.3, the sparsity of the exceptional set and the near-transitivity of the Γ-action, which this paper combines with its divisibility theorem. Already listed as a prerequisite by the accepted extractions of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22 and shared with the pending Part II of Arithmetic dynamics."
+  },
+  {
+   "citation": "C. Meiri and D. Puder, The Markoff group of transformations in prime and composite moduli, Duke Math. J. 167 (2018), no. 14, 2679–2720",
+   "link": "https://doi.org/10.1215/00127094-2018-0024",
+   "why": "The transitivity modulo composite squarefree integers used in Theorem 5.5.8 and the determination of the monodromy group as a full alternating or symmetric group in Theorem 5.6.6, which is what makes the curves noncongruence."
+  },
+  {
+   "citation": "D. McCullough and M. Wanderley, Nielsen equivalence of generating pairs of SL(2,q), Glasg. Math. J. 55 (2013), no. 3, 481–509; and Writing elements of PSL(2,q) as commutators, Comm. Algebra 39 (2011), no. 4, 1234–1241",
+   "link": "https://doi.org/10.1017/S001708951200059X",
+   "why": "The T-classification conjecture (Conjecture 1.1.4) and the classification of q-admissible classes and traces quoted as Proposition 5.1.3."
+  },
+  {
+   "citation": "A. M. Macbeath, Generators of the linear fractional groups, Proc. Sympos. Pure Math. XII (1969), 14–32",
+   "link": "https://doi.org/10.1090/pspum/012/0262379",
+   "why": "The surjectivity of the trace map and the classification of the subgroups generated by two elements of SL₂(F_q), used in the first proof of Theorem 5.2.10 and in Proposition 6.3.1."
+  },
+  {
+   "citation": "K. Nakamoto, Representation varieties and character varieties, Publ. Res. Inst. Math. Sci. 36 (2000), no. 2, 159–189",
+   "link": "https://doi.org/10.2977/prims/1195143100",
+   "why": "That Hom(Π,SL₂,R)^{ai} → X^{ai}_{SL₂,R} is a universal geometric quotient and a principal PGL₂-bundle, the input to the second proof of Theorem 5.2.10 and to Remark 5.2.11."
+  },
+  {
+   "citation": "E. P. Vdovin, Maximal orders of abelian subgroups in finite simple groups, Algebra Log. 38 (1999), no. 2, 131–160",
+   "link": "https://doi.org/10.1007/BF02671730",
+   "why": "Theorem 4.12.3: a nonabelian finite simple group not isomorphic to any PSL₂(F_q) has all abelian subgroups of order below |G|^{1/3}. It is what turns Lemma 4.12.2 into the congruence for simple groups."
+  },
+  {
+   "citation": "M. Olsson, Integral models for moduli spaces of G-torsors, Ann. Inst. Fourier (Grenoble) 62 (2012), no. 4, 1483–1549",
+   "link": "https://doi.org/10.5802/aif.2727",
+   "why": "Proposition 6.1 there, quoted as Proposition 3.4.4: invertible sheaves on a tame Deligne–Mumford stack with trivial local characters are pullbacks from the coarse space. It bounds the denominator of the degree and hence the obstruction m_X."
+  },
+  {
+   "citation": "D. Edidin, B. Hassett, A. Kresch and A. Vistoli, Brauer groups and quotient stacks, Amer. J. Math. 123 (2001), no. 4, 761–777; A. Kresch and A. Vistoli, On coverings of Deligne–Mumford stacks and surjectivity of the Brauer map, Bull. LMS 36 (2004), no. 2, 188–192",
+   "link": "https://doi.org/10.1353/ajm.2001.0027",
+   "why": "The existence of a finite flat cover by a scheme for the stacks in question (Proposition 3.4.3), without which degrees of line bundles on Adm(G)‾ are not defined."
+  },
+  {
+   "citation": "R. Bell, J. Booher, W. Chen and Y. Liu, Tamely ramified covers of the projective line with alternating and symmetric monodromy, arXiv:2007.12299 (2020)",
+   "link": "https://arxiv.org/abs/2007.12299",
+   "why": "The ramification of M_p above j = 0 and 1728 (Proposition 3.3.2 there, quoted in Proposition 5.6.1) and the determination of when the monodromy group is alternating or symmetric in Theorem 5.6.6."
+  },
+  {
+   "citation": "P. Deligne and M. Rapoport, Les schémas de modules de courbes elliptiques, Modular functions of one variable II, Lecture Notes in Math. 349 (1973), 143–316, with its correction (1975)",
+   "link": "https://doi.org/10.1007/978-3-540-37855-6_4",
+   "why": "Generalized elliptic curves and the moduli stacks with full level structure, recovered in Remark 4.10.4 as a consistency check on the formalism."
+  },
+  {
+   "citation": "J. Harris and D. Mumford, On the Kodaira dimension of the moduli space of curves, Invent. Math. 67 (1982), no. 1, 23–88",
+   "link": "https://doi.org/10.1007/BF01393371",
+   "why": "The original notion of admissible covers that §2.1 follows, and the convention of connected covering curves adopted here."
+  },
+  {
+   "citation": "B. Noohi, Foundations of topological stacks I, arXiv:math/0503247 (2005)",
+   "link": "https://arxiv.org/abs/math/0503247",
+   "why": "The Riemann existence theorem for stacks (Theorem 20.4 there), used in Theorem 2.5.2(5) to identify π₁(M(1)_ℚ‾) with the profinite completion of Out⁺(Π)."
+  },
+  {
+   "citation": "M. de Courcy-Ireland and S. Lee, Experiments with the Markoff surface, Exp. Math. (2020)",
+   "link": "https://doi.org/10.1080/10586458.2020.1780516",
+   "why": "The verification of the Bourgain–Gamburd–Sarnak conjecture for all primes p < 3000 and the treatment of the Cayley cubic t = 2, which bound the remaining finite computation."
+  },
+  {
+   "citation": "S. Garion, Connectivity of the product replacement algorithm graph of PSL(2,q), J. Group Theory 11 (2008), no. 6, 765–777; A. Lubotzky, Dynamics of Aut(F_N) actions on group presentations and representations, Geometry, rigidity, and group actions (2011), 609–643",
+   "link": "https://doi.org/10.1515/JGT.2008.047",
+   "why": "Conjecture 1.1.3 and the known cases r ≥ log₂|G| of transitivity of the Out(F_r)-action, the context in which the paper's congruence is an obstruction to transitivity at r = 2."
+  }
+ ],
+ "routes": [
+  {
+   "route": "source",
+   "roadmap": "ClassicalArithmeticCompletion",
+   "stages": [
+    "ClassicalArithmeticCompletion:CA.4"
+   ],
+   "items": [
+    "PAPER-CHEN-24/9",
+    "PAPER-CHEN-24/10",
+    "PAPER-CHEN-24/90"
+   ],
+   "reason": "CA.4 owns classical Diophantine equations and elementary descent, and the accepted extractions of PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22 already make it the owner of the Markoff carrier. This paper supplies the same objects in the trace-coordinate normalisation x²+y²+z²−xyz = 0, the twist (x,y,z) ↦ (3x,3y,3z) that identifies it with the coefficient-three equation over ℤ[1/3] and on integral points, the group Γ generated by the coordinate permutations and the Vieta involution, and Markoff's theorem that the positive integral solutions form a single Γ-orbit. Routing them here keeps one carrier for the three papers, as PROTOCOL.md section 15 requires; the audit of CA.4 records Pell, sums of two squares and elementary descent and no Markoff material."
+  },
+  {
+   "route": "part-ii",
+   "roadmap": "ArithmeticDynamicsPartIIMarkoff",
+   "parent": "ArithmeticDynamics",
+   "title": "Arithmetic dynamics, Part II: Markoff actions and strong approximation",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-CHEN-24/11",
+    "PAPER-CHEN-24/12",
+    "PAPER-CHEN-24/13",
+    "PAPER-CHEN-24/14",
+    "PAPER-CHEN-24/15",
+    "PAPER-CHEN-24/85",
+    "PAPER-CHEN-24/86",
+    "PAPER-CHEN-24/89",
+    "PAPER-CHEN-24/91",
+    "PAPER-CHEN-24/92",
+    "PAPER-CHEN-24/93",
+    "PAPER-CHEN-24/94",
+    "PAPER-CHEN-24/95"
+   ],
+   "brief": "Extend Arithmetic dynamics (ArithmeticDynamics) by the Markoff group action on the finite-field points of the Markoff surface and its strong-approximation endpoints, in layers distinct from DY.0–DY.6. This is the same Part II already proposed by the accepted extraction of PAPER-MARTIN-25, whose design job DESIGN-ArithmeticDynamicsPartIIMarkoff is pending, and pointed to again by PAPER-GHOSH-SARNAK-22; it is not a second Part II, and the items routed here are additional content for that one design job. Import the Markoff carrier — the surfaces x²+y²+z²−xyz = 0 and x²+y²+z²−3xyz = 0, the Vieta involutions, the group Γ, the twist between the two normalisations and Markoff's theorem — from ClassicalArithmeticCompletion CA.4. The final theorems this paper adds are: every Aut⁺(Π)-orbit on X*(p) = X(F_p) − {(0,0,0)} has cardinality divisible by p, for every prime p ≥ 3; the exceptional set E_bgs of primes for which Γ fails to act transitively on X*(p) is finite and explicitly bounded, so that for every p ∉ E_bgs the surfaces X and M satisfy strong approximation at p and M(SL₂(F_p))^{abs}_{−2} is connected; |X*(p)| = p(p+3) for p ≡ 1 mod 4 and p(p−3) for p ≡ 3 mod 4, with the Frobenius congruence conditions on Markoff numbers as the only ones modulo p; the count of rot₁-orbits, that is of cusps; strong approximation modulo squarefree n whose prime factors avoid E_bgs and satisfy the Meiri–Puder condition; and the congruences for the generalized equations x²+y²+z²−xyz = t+2, namely that an orbit of a point with at least two nonzero coordinates has cardinality divisible by ℓ^{max{r−s,0}} where r = ord_ℓ(|ω|), t = ω + ω^{−1} and ord_ℓ(q³−q) = r+s. Quote Bourgain–Gamburd–Sarnak's two theorems as inputs with their own decomposition, and import the moduli-theoretic proof of the divisibility from the new roadmap proposed alongside this route, Nonabelian level structures on elliptic curves (NonabelianLevelStructures); do not re-plan the stack theory here. The conjecture itself remains open for the finitely many exceptional primes and must be recorded as such.",
+   "reason": "The Markoff-modulo-p statements of this paper are exactly the endpoints the pending Part II was created for: Martin's accepted brief already says to use Chen divisibility to exclude every Γ-orbit outside a giant orbit and to synchronise future PAPER-CHEN-24 work on the same carrier. Routing them to the same Part II id, rather than to a new roadmap, is what keeps one owner for the Markoff mod-p theory; the proof machinery — admissible covers, the moduli stacks and the congruence — is routed instead to the new roadmap proposed below, which that Part II imports."
+  },
+  {
+   "route": "source",
+   "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
+   "stages": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5"
+   ],
+   "items": [
+    "PAPER-CHEN-24/5",
+    "PAPER-CHEN-24/6",
+    "PAPER-CHEN-24/7",
+    "PAPER-CHEN-24/18"
+   ],
+   "reason": "IG.5 plans Hurwitz moduli with braid and Nielsen-class components and IG.3 the branch-cycle and Riemann-existence machinery; the reviewed audit records that no Hurwitz space and no Nielsen class exists in either library. The vocabulary this paper works in belongs there: exterior epimorphisms, Nielsen equivalence classes of generating tuples, T_r-systems, and the two standing conjectures about them — Wiegold and Garion's transitivity conjecture for r ≥ d(G)+1 and McCullough and Wanderley's T-classification conjecture for SL₂(F_q) — together with the paper's own Question 1.4.1 on nonabelian simple groups. These are statements about Out(F_r)-orbits on generating tuples, independent of the moduli of elliptic curves, and the paper is a good source for them. The (g,n) = (1,1) Hurwitz theory itself is not routed here: it is the subject of the new roadmap proposed below, which imports IG.0, IG.3 and IG.5."
+  },
+  {
+   "route": "source",
+   "roadmap": "AlgebraicModuliForArithmeticGeometry",
+   "stages": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4",
+    "AlgebraicModuliForArithmeticGeometry:R09.5",
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ],
+   "items": [
+    "PAPER-CHEN-24/25",
+    "PAPER-CHEN-24/40",
+    "PAPER-CHEN-24/38",
+    "PAPER-CHEN-24/31",
+    "PAPER-CHEN-24/45",
+    "PAPER-CHEN-24/46",
+    "PAPER-CHEN-24/49",
+    "PAPER-CHEN-24/50",
+    "PAPER-CHEN-24/100",
+    "PAPER-CHEN-24/101",
+    "PAPER-CHEN-24/102"
+   ],
+   "reason": "R09.4 plans algebraic and Deligne–Mumford stacks, R09.5 coarse spaces and rigidification and R09.6 the comparison of deformation functors with étale local rings; their reviewed audits record that neither library has stacks, coarse spaces or Keel–Mori. The general stack technology this paper sets up is that layer's subject and not specific to covers of elliptic curves: smoothness of the coarse scheme of a smooth proper 1-dimensional Deligne–Mumford stack; rigidification of a stack by a group of automorphisms in the sense of Abramovich–Corti–Vistoli, with its gerbe and coarse-space properties; vertical automorphism groups and the criterion for representability; categorical quotients of curves by finite group actions; the sheaf of relative differentials and the relative dualizing sheaf for representable morphisms of stacks with the canonical map between them; degrees of line bundles on 1-dimensional stacks, Olsson's local-character criterion and the resulting integrality statements; and the local tools of the appendix — Noetherian approximation for prestable curves with a group action, the eigenspace decomposition for a tame cyclic action, the commutation of henselization with invariants, and normalized coordinates for tame balanced actions at smooth points and at nodes. The paper states each of them in the generality that layer needs."
+  },
+  {
+   "route": "source",
+   "roadmap": "AnabelianGeometryAndNonabelianChabauty",
+   "stages": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.0"
+   ],
+   "items": [
+    "PAPER-CHEN-24/57",
+    "PAPER-CHEN-24/58"
+   ],
+   "reason": "NC.0 plans fundamental groupoids, path torsors and tangential base points for selected open curves, with the comparison of a rational and a tangential point on P¹ minus three points as its acceptance condition; its audit records that nothing of the kind exists in either library. The two items routed here are exactly that layer's subject in the precise form this paper needs: the specialization bijection ⟨γ_t⟩\\Y_t ≅ Y_x from the fibre at a tangential base point to a ramified fibre, functorial in the cover, and the calculus of good and symmetric paths t₀ ⇝ t_∞ in the fundamental groupoid of P¹ − {0,1,∞}. The cusp analysis that consumes them is routed to the new roadmap."
+  },
+  {
+   "route": "new",
+   "roadmap": "NonabelianLevelStructures",
+   "title": "Nonabelian level structures on elliptic curves and congruences for Hurwitz components",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-CHEN-24/3",
+    "PAPER-CHEN-24/4",
+    "PAPER-CHEN-24/8",
+    "PAPER-CHEN-24/16",
+    "PAPER-CHEN-24/17",
+    "PAPER-CHEN-24/21",
+    "PAPER-CHEN-24/22",
+    "PAPER-CHEN-24/23",
+    "PAPER-CHEN-24/26",
+    "PAPER-CHEN-24/27",
+    "PAPER-CHEN-24/28",
+    "PAPER-CHEN-24/29",
+    "PAPER-CHEN-24/30",
+    "PAPER-CHEN-24/32",
+    "PAPER-CHEN-24/33",
+    "PAPER-CHEN-24/34",
+    "PAPER-CHEN-24/35",
+    "PAPER-CHEN-24/36",
+    "PAPER-CHEN-24/37",
+    "PAPER-CHEN-24/39",
+    "PAPER-CHEN-24/41",
+    "PAPER-CHEN-24/42",
+    "PAPER-CHEN-24/43",
+    "PAPER-CHEN-24/44",
+    "PAPER-CHEN-24/47",
+    "PAPER-CHEN-24/48",
+    "PAPER-CHEN-24/51",
+    "PAPER-CHEN-24/52",
+    "PAPER-CHEN-24/53",
+    "PAPER-CHEN-24/54",
+    "PAPER-CHEN-24/55",
+    "PAPER-CHEN-24/59",
+    "PAPER-CHEN-24/60",
+    "PAPER-CHEN-24/61",
+    "PAPER-CHEN-24/62",
+    "PAPER-CHEN-24/63",
+    "PAPER-CHEN-24/64",
+    "PAPER-CHEN-24/65",
+    "PAPER-CHEN-24/66",
+    "PAPER-CHEN-24/67",
+    "PAPER-CHEN-24/68",
+    "PAPER-CHEN-24/69",
+    "PAPER-CHEN-24/70",
+    "PAPER-CHEN-24/71",
+    "PAPER-CHEN-24/72",
+    "PAPER-CHEN-24/73",
+    "PAPER-CHEN-24/74",
+    "PAPER-CHEN-24/75",
+    "PAPER-CHEN-24/76",
+    "PAPER-CHEN-24/77",
+    "PAPER-CHEN-24/78",
+    "PAPER-CHEN-24/79",
+    "PAPER-CHEN-24/80",
+    "PAPER-CHEN-24/81",
+    "PAPER-CHEN-24/82",
+    "PAPER-CHEN-24/83",
+    "PAPER-CHEN-24/84",
+    "PAPER-CHEN-24/87",
+    "PAPER-CHEN-24/88",
+    "PAPER-CHEN-24/96",
+    "PAPER-CHEN-24/97",
+    "PAPER-CHEN-24/98",
+    "PAPER-CHEN-24/99",
+    "PAPER-CHEN-24/103",
+    "PAPER-CHEN-24/104"
+   ],
+   "brief": "Plan the moduli of elliptic curves with nonabelian level structures and the congruence it satisfies, following William Y. Chen, Nonabelian level structures, Nielsen equivalence, and Markoff triples, Annals of Mathematics 199 (2024), no. 1. The final theorems are these, stated as the paper states them. (1) Main congruence: for a connected component X of the stack Adm(G)‾ of admissible G-covers of 1-generalized elliptic curves classifying covers with ramification index e above the origin, with d_X the degree of a component of the reduced ramification divisor over X and m_X the least positive integer killing the local characters of (σ*Ω)^{⊗m}, the map of coarse schemes satisfies deg(X → M(1)‾) ≡ 0 mod 12e/gcd(12e, m_X d_X). (2) Combinatorial congruence: with d′_c = |C_G(⟨c⟩)/⟨c⟩| and m′_c the least integer killing A_{G,u,h} ∩ ⟨[u^{−1},h^{−1}]⟩ over the generating pairs with commutator in c, every component of Adm(G)‾_c has degree divisible by |c|/gcd(|c|, m′_c d′_c), and every Out⁺(F₂)-orbit on Epi^ext(F₂,G)_c/⟨γ_{−I}⟩ has cardinality divisible by the same number. (3) For a prime ℓ with r := ord_ℓ(|c|) and ord_ℓ(|G|) = r+s, and j with no proper normal subgroup of G of order divisible by ℓ^{j+1}: deg ≡ 0 mod ℓ^{⌈(r−3s−j)/2⌉}, and for nonabelian simple G not isomorphic to any PSL₂(F_q) with ℓ^{r+1} ≥ |G|^{1/3}, deg ≡ 0 mod ℓ^{⌈r/2⌉}. (4) For q ≥ 3 and any absolutely irreducible ϕ : Π → SL₂(F_q) not of dihedral type, the vertical automorphism groups of Adm(ϕ(Π))‾_ℚ‾ are reduced to {±I} and M(ϕ(Π))‾_ℚ‾ → M(1)‾_ℚ‾ is representable. (5) Genus formula: for p ∉ E_bgs the compactified coarse scheme M_p‾ of M(SL₂(F_p))^{abs}_{−2} has genus p²/12 − ((p−1)/4)Φ(p−1) − ((p+1)/4)Φ(p+1) + ε(p) with ε(p) explicit in p mod 8, genus ≥ 2 for p ≥ 13 and genus 0, 0, 1 at p = 5, 7, 11; and for a density-one set of primes M(PSL₂(F_p))^{abs}_{−2} is connected with full alternating or symmetric monodromy, hence noncongruence. Cover, in layers: admissible G-covers of prestable pointed curves with their six local conditions and the stacks Adm(G)‾ and Adm⁰(G); the reduced ramification divisor and the Higman invariant with their local constancy; the equivalence with stable marked G-curves; G-structures, the finite étale stack M(G) and the compactification M(G)‾ := Adm(G)‾ ⫽ Z(G) with its cusps; the relative dualizing sheaf on these stacks and the isomorphism σ_O*ω_{E/X} ≅ (σ*ω_{C/X})^{⊗e}; the degree theory for line bundles on 1-dimensional Deligne–Mumford stacks and the Hodge bundle of degree 1/24; the cusp analysis by normalization, gluing data, graphs and the δ-invariant with values in I(G), and the automorphism groups A_{G,u,h}; the SL₂ character variety of the free group of rank two with its trace coordinates, the identification of its F_q-points with GL₂(F_q)-classes of absolutely irreducible representations, and the resulting dictionary between components of M(G) and Aut⁺(Π)-orbits on the surfaces x²+y²+z²−xyz = t+2; the congruences for SL₂(F_q) and the genus, cusp and ramification computations for M(SL₂(F_p))^{abs}_{−2}. Every definition gets its API and the concrete acceptance cases recorded in the extraction. Import, never re-plan: prestable, stable and pointed curves from Stable reduction of curves and stable maps (tauceti:TauCetiRoadmap/StableReduction), layer 3; generalised elliptic curves from Modular Curves PartII (ModularCurvesPartII), R13.1, and the Katz–Mazur moduli formalism and coarse curves from Modular curves, following Katz–Mazur (tauceti:TauCetiRoadmap/ModularCurves), which is existing work and is never re-planned; algebraic and Deligne–Mumford stacks, coarse spaces, rigidification and the deformation/étale-local-ring comparison from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), R09.4, R09.5 and R09.6; Galois categories, branch cycles, Riemann existence and Hurwitz moduli with Nielsen classes from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups), IG.0, IG.3 and IG.5, together with permutation triples and dessins from Belyi maps, dessins d'enfants, and three-point covers (tauceti:TauCetiRoadmap/BelyiMaps); tangential base points and fundamental groupoids from Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty), NC.0; the Markoff carrier — the surfaces x²+y²+z²−xyz = 0 and x²+y²+z²−3xyz = 0, the Vieta involutions, the group Γ and Markoff's theorem — from Classical arithmetic, sequences, polynomials and reciprocity (ClassicalArithmeticCompletion), CA.4, which PAPER-MARTIN-25, PAPER-GHOSH-SARNAK-22 and this paper all source; the Markoff-modulo-p theory and strong approximation from Arithmetic dynamics, Part II: Markoff actions and strong approximation (ArithmeticDynamicsPartIIMarkoff), whose design job is pending; the Riemann–Hurwitz genus formula from Algebraic curves (tauceti:TauCetiRoadmap/AlgebraicCurves), layer 7; and Faltings' theorem from Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.4. Reuse Mathlib's Galois categories and fibre functors, FreeGroup, WeierstrassCurve.j, Matrix.SpecialLinearGroup with trace, Nat.totient, and Tau Ceti's permutation triples with their Euler characteristic and covering-space monodromy; plan no second carrier for any of these. Record Conjectures 1.1.3 and 1.1.4 and Question 1.4.1 as open, and do not assert the Bourgain–Gamburd–Sarnak conjecture for the finitely many exceptional primes: what is proved is its truth outside an explicitly bounded finite set. Use the corrected count |f^{−1}(0)| = (deg f + 2)/3 of the finding recorded in this extraction, not the printed Proposition 5.6.1(a).",
+   "reason": "No layer of the atlas goes in this direction. The atlas plans abelian level structures on elliptic curves — Γ(N), Γ₁(N) and Γ₀(N) — in the Tau Ceti roadmap Modular curves, following Katz–Mazur and in Modular Curves PartII, and it plans Hurwitz moduli in general at IG.5, but nothing plans the moduli of elliptic curves with G-structures for a nonabelian finite group G, the stacks Adm(G)‾ of admissible G-covers of 1-generalized elliptic curves, their cusps and automorphism groups, or the congruence on the degree of their components over the j-line. A Part II of Modular curves was considered and rejected: the objects here are covers of elliptic curves classified by Nielsen classes rather than level structures in the Katz–Mazur sense, the base curve is M(1) rather than a modular curve, and the resulting curves are generically noncongruence, which is the opposite of that roadmap's subject; a Part II of Inverse Galois theory was also rejected because the material is moduli-of-elliptic-curves theory rather than realization theory, and because that roadmap's Part II direction is already claimed by the accepted route of PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 for homological stability. The new roadmap therefore owns the (g,n) = (1,1) Hurwitz theory and its SL₂(F_q) consequences, importing stacks and coarse spaces from AlgebraicModuliForArithmeticGeometry, Galois and Hurwitz machinery from InverseGaloisAndArithmeticFundamentalGroups, tangential base points from AnabelianGeometryAndNonabelianChabauty, curves from the Tau Ceti roadmaps and the Markoff carrier from ClassicalArithmeticCompletion, and exporting the divisibility theorem to the pending Part II of Arithmetic dynamics."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-CHEN-24/E1",
+   "kind": "error",
+   "locator": "§5.6, p. 85, Proposition 5.6.1(a) (arXiv v2)",
+   "printed": "There is a unique unramified point in f^{−1}(0). Every other point is ramified with index 3, so |f^{−1}(0)| = (p(p+3)−3)/3 if p ≡ 1 mod 4, (p(p−3)−3)/3 if p ≡ 3 mod 4",
+   "correction": "|f^{−1}(0)| = 1 + (deg f − 1)/3 = (p(p+3)+2)/3 for p ≡ 1 mod 4 and (p(p−3)+2)/3 for p ≡ 3 mod 4.",
+   "reason": "The printed expression is never an integer: deg f = |X*(p)| = p(p±3) ≡ p² ≡ 1 (mod 3) for every prime p ≠ 3, so 3 never divides deg f − 3. The sentence preceding the display gives the correct count, one unramified point together with (deg f − 1)/3 points of ramification index 3. Computing the γ₀-orbits on X*(p) directly confirms it: for p = 5, 7, 11, 13, 17, 19, 23 the fibre has 14, 10, 30, 70, 114, 102, 154 points and γ₀ has exactly one fixed point in each case, matching (deg f + 2)/3 = 14, 10, 30, 70, 114, 102, 154 and not (deg f − 3)/3 = 37/3, 25/3, 85/3, 205/3, 337/3, 301/3, 457/3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2011.12940 on 2026-09-22: two versions (25 November 2020 and 19 June 2021) and the author's comment, which announces a revision but no erratum",
+    "Crossref for 10.4007/annals.2024.199.1.5 and for works correcting it on 2026-09-22: no corrigendum",
+    "the Annals of Mathematics listing for volume 199 (2024), no. 1 on 2026-09-22: no erratum linked"
+   ],
+   "impact": "Theorem 5.6.3 is unaffected: recomputing the genus by Riemann–Hurwitz from the correct fibre counts reproduces its closed formula exactly for p = 5, 7, 11, 13, 17, 19, 23, giving 0, 0, 1, 5, 10, 9, 18, so the claims that the genus is 0, 0, 1 at p = 5, 7, 11 and at least 2 for p ≥ 13 stand. Proposition 5.6.1(b) and Proposition 5.6.2 were checked the same way and are correct."
+  },
+  {
+   "id": "PAPER-CHEN-24/E2",
+   "kind": "misprint",
+   "locator": "§5.6, p. 85, Proposition 5.6.1(b), first sentence (arXiv v2)",
+   "printed": "There are precisely two unramified points in π^{−1}(1728) if p ≡ 1, 7 mod 8, and no unramified points otherwise.",
+   "correction": "f^{−1}(1728), the fibre of the forgetful map f : M_p → M(1) named in the statement; π is not defined in this proposition.",
+   "reason": "The rest of the proposition, and part (a), use f for the map M_p → M(1); π is used elsewhere in the paper for the universal admissible cover C → E. The displayed formula in (b) is for |f^{−1}(1728)| and is correct: computing the γ₁₇₂₈-orbits on X*(p) gives 20, 15, 44, 104, 171, 152, 231 for p = 5, 7, 11, 13, 17, 19, 23, with 0, 2, 0, 0, 2, 0, 2 fixed points, matching the four cases of the display and the claim about p ≡ 1, 7 mod 8.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 2011.12940 on 2026-09-22: two versions (25 November 2020 and 19 June 2021) and the author's comment, which announces a revision but no erratum",
+    "Crossref for 10.4007/annals.2024.199.1.5 and for works correcting it on 2026-09-22: no corrigendum",
+    "the Annals of Mathematics listing for volume 199 (2024), no. 1 on 2026-09-22: no erratum linked"
+   ]
+  }
+ ]
+}
