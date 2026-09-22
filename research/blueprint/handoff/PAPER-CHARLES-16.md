@@ -1,28 +1,23 @@
-# PAPER-CHARLES-16 handoff
+# PAPER-CHARLES-16 continuation handoff
 
-Worker: Codex, session codex-a71f92. Issue #1188; claim comment 5769456111 explicitly confirmed by bot comment 5769457289. Issue reread in full after confirmation.
+Codex, session `codex-c83e7a`, 22 September 2026. Refs #1188. Continues merged PR #1669. Status partial; three allowed deliverables, no Lean implementation.
 
-Status: partial checkpoint. Three allowed deliverables only; no Lean implementation or suggested file.
+The original worker's 142 IDs and source provenance are preserved. This worker independently read all forty published pages 487–526. The result now contains 153 items (11 library, 14 planned, 128 missing), with 124 missing routed once and /50,/113,/119,/127 still explicitly unrouted. All 44 definitions/constructions have 132 structured API contracts, 132 proposed tests and named consumers. New/expanded lattice dependencies have 31 acyclic edges; this is not a complete dependency decomposition of every inherited theorem.
 
-## Completed
+The lattice interface correction is concrete. The printed Proposition 2.9 requires an initial primitive embedding: the nonprimitive sublattice with Gram diag(8,8) inside <2>⊕U cannot embed primitively there, as reduction modulo 2 proves. Item 38 now states the corrected hypothesis. Item 37 distinguishes genus existence from marked embedding and unmarked sublattice orbits. Item 41 explicitly chooses v=e+f,w=kh+e,l=2w−v in <2d>⊕U; the retraction (x,y,z)↦(z,y−z) proves primitivity and l²=2(4dk²−1) is prime to odd n when n divides k. This suffices for the actual Zarhin consumer. Saturation is not a repair for the literal broader statement.
 
-Read the complete published forty-page Charles16 article, the complete LMS arXiv v5 manuscript, the complete Charles13 two-page erratum, and targeted older Charles16 Corollary 2.7. Provenance/hashes and numbering differences are in the result. Read both near-area upstream documents completely and the relevant current owners/audits. Search both pinned library trees and confirm actual declaration statements.
+Original Nikulin text 1.4–1.6,1.13.4,1.14.2 and 1.15.1–5 was read through the publisher web PDF, including the full 1.15.1 proof. Direct PDF download returned 403 and screenshots failed; several OCR formulas remain damaged. No full-paper read or local PDF hash is claimed. Finish deeper genus/strong-approximation/local-classification source decomposition and image checks. The existing Tau Ceti overlattice order equivalence, H-perp/H discriminant isometry and rank-one discriminant formulas are now exact pinned imports.
 
-Extracted 142 items: 8 library, 14 planned, 120 missing. Nine routes take 116 missing and 14 planned; 41 definitions/constructions include API/three tests. Four missing items are deliberately unrouted: /50,/113,/119,/127. Do not change status to complete merely because the schema checker accepts partial files.
+Resume the remaining proof gates in the previous order:
 
-Recorded concrete corrections: Corollary 2.8 uses rational v²/I², not necessarily integer; Proposition 3.17 proves unpolarized finiteness; twisted N is a separately chosen integral span, gerbe sign is the LMS sign, determinant trivialization is required for μ_r inertia, and exact geometric Brauer order is required. Primitive/twist KS labels and the level inequality are made explicit.
+1. G1 /50: acquire Saint-Donat/Huybrechts and prove the all-characteristic birational linear-series argument with correct numerical powers and the nonreduced-curve separation step. Do not infer birationality from the reduced support alone.
+2. G2/G3 /113,/119: supply the literal rational square-class argument or compose LMS 3.5.2's split-prime replacement, quadratic extension, extra congruences and Tate descent. Preserve its stated p≥5 scope until the p=2,3 proof is audited. The pinned auxiliary-prime theorem does not give complete splitting.
+3. G4 /127: construct the simultaneous twisted-moduli/H_n deformation with generic Picard rank one and verify nonsuperspecial applicability without assuming Tate.
+4. G5: finish the deeper Nikulin sources and clean formula acquisition. The initial primitive-input problem and explicit consumer construction are now resolved; retain the counterexample and corrected scope.
+5. G6: acquire/decompose the remaining original prerequisites in the register, especially Fontaine–Messing integral ranges, Mukai/Yoshioka, IHS Torelli, integral KS models and special endomorphisms with the Charles 2013 erratum.
 
-## Resume in this order
+Retain the prior rational Corollary 2.8 multiplier, unpolarized Proposition 3.17 endpoint, separately defined integral twisted span, LMS gerbe sign, determinant trivialization and exact geometric Brauer order. Published Charles numbering is authoritative. Existing LMS/Charles 2013 reads remain attributed to the previous worker; this continuation does not claim to have reread them completely.
 
-1. G1: acquire Saint-Donat/Huybrechts and complete Proposition 3.1's all-characteristic birational linear-series proof. The displayed constants and r=2 inequality need repair. Do not infer birationality of a nonreduced curve solely from its reduced support.
-2. G2/G3: either justify the literal square-class step in Lemma 4.5 or use the fully read LMS Lemma 3.5.2 after quadratic extension. Compose with complete splitting in the eigenvalue/cyclotomic compositum and exact additional congruences. Preserve its stated p≥5 scope until the p=2,3 hypothesis audit is done. The pinned auxiliary-prime theorem does not assert complete splitting.
-3. G4: prove the actual projective twisted-moduli deformation and H_n lift with generic Picard rank one, then apply /128; independently verify nonsuperspecial applicability to X_n.
-4. G5: read Nikulin 1.15.1 itself, not only Charles's summary. Check primitive initial embedding and orbit conventions.
-5. G6: acquire/decompose the remaining original prerequisite proofs in the 25-entry register. In particular check small-weight integral torsion comparison and Charles13 special-endomorphism proof with its erratum.
-6. Recheck fresh main ownership and any accepted design jobs before revising routes. MC.7 needs acyclic early Lefschetz-(1,1)/late K3 Tate leaves, not a whole-stage circular import.
+Refresh owners before continuing. GN.2/GN.3 own the new lattice interfaces; completed IntegralLattices supplies gluing. MC.7 needs early Lefschetz-(1,1) versus late K3 Tate leaves to avoid a cycle. No new roadmap or change to the prior nine-route architecture was needed.
 
-Published Charles16 numbering is authoritative. LMS arXiv v5 3.4.2 corresponds to Charles's cited published 3.4.1; arXiv 3.5.6 to cited 3.5.4. No published LMS PDF was obtained. No claim of a Charles16 author-issued erratum is made.
-
-## Checks
-
-Run `python3 scripts/check_paper.py research/blueprint/papers/PAPER-CHARLES-16.result.json`. Additional local checks verify counts, single routing, live owner stage IDs, exact baseline reference names, all four source hashes and exact rational Gram/Mukai regressions. No Lean compilation is applicable. Original prerequisite interiors remain open regardless of these checks.
+Validation passed: paper checker, intake on all three named files, counts and preserved IDs, API/tests, four unrouted gates, fresh ownership/concurrency, source hashes and finite lattice/CRT diagnostics. Re-run these after further edits. No Lean compilation or proof-completeness claim follows from those checks.

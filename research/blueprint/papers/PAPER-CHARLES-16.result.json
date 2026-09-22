@@ -14,7 +14,8 @@
       "Entire published forty-page article: introduction and Proposition 1.5; §§2.1–2.2, §§3.1–3.4, §§4.1–4.2; every printed proof and references, pp.487–526.",
       "Lieblich–Maulik–Snowden, arXiv:1107.1221v5 (12 March 2014), entire twenty-page manuscript including proofs and references; not the published PDF.",
       "Charles 2013 two-page erratum, complete; it is not a Charles 2016 erratum.",
-      "Older twenty-eight-page author Charles16 PDF: only Corollary 2.7 and its discriminant argument, compared with published Corollary 2.8; not fully read."
+      "Older twenty-eight-page author Charles16 PDF: only Corollary 2.7 and its discriminant argument, compared with published Corollary 2.8; not fully read.",
+      "Continuation codex-c83e7a independently read the complete published Charles16 article, pp487–526, including every proof and references; re-downloaded its PDF with identical SHA-256. The inherited LMS/Charles13 reads remain attributed to the prior checkpoint."
     ],
     "versionNote": "Published numbering is authoritative. The older author PDF labels the main Zarhin theorem 2.9 rather than 2.10. In LMS arXiv v5, the twisted moduli proposition is 3.4.2 (Charles cites published 3.4.1), and the partner proposition is 3.5.6 (Charles cites published 3.5.4). Published p.499 was also checked as a page image: the erroneous integer multiplier is not an OCR ambiguity.",
     "additionalSources": [
@@ -32,10 +33,16 @@
         "url": "https://www.imo.universite-paris-saclay.fr/~francois.charles/Zarhin_K3.pdf",
         "sha256": "b859a0b875c1a6dcf4d5b04ba66ba7d7bfbefa50d08ed264ac5dee5822b8793a",
         "read": "Targeted older Corollary 2.7 only."
+      },
+      {
+        "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&option_lang=eng&paperid=1677&what=fullteng",
+        "read": "Selected original Nikulin text: printed108–112 (§§1.1–1.6),124–125 (Stability and1.14.2),128–130 (1.15.1 full statement/proof and1.15.2–5). Not a full-paper read; some OCR formulas damaged.",
+        "accessed": "2026-09-22",
+        "acquisition": "Publisher web PDF text readable; local download returned403 and screenshots failed. No local PDF hash or image verification is claimed."
       }
     ]
   },
-  "summary": "Full published-paper extraction, with the full LMS prerequisite manuscript used to restore the twisted-gerbe sign, determinant trivialization, exact geometric Brauer order and integral-lattice convention. Separates the arbitrary-field Zarhin construction, complex IHS birational boundedness and finite-field Tate arguments. Reuses pinned lattice/Hodge/Clifford/Hensel/Dirichlet APIs. Corrects the nonintegral discriminant multiplier and unpolarized finiteness conclusion with explicit counterexamples. Partial: four proof gates remain unrouted; Nikulin and other original prerequisite interiors remain proof-open. No Lean implementation or closure is claimed.",
+  "summary": "Full published-paper extraction, with the full LMS prerequisite manuscript used to restore the twisted-gerbe sign, determinant trivialization, exact geometric Brauer order and integral-lattice convention. Separates the arbitrary-field Zarhin construction, complex IHS birational boundedness and finite-field Tate arguments. Reuses pinned lattice/Hodge/Clifford/Hensel/Dirichlet APIs. Corrects the nonintegral discriminant multiplier and unpolarized finiteness conclusion with explicit counterexamples. Partial: four proof gates remain unrouted; Nikulin and other original prerequisite interiors remain proof-open. No Lean implementation or closure is claimed. Continuation resolves the initial primitive-lattice input, records an explicit counterexample to the broader printed formulation, supplies the actual primitive Zarhin plane, imports three more lattice facilities and structures every definition API/test contract. Remaining proof gates are unchanged.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -105,6 +112,42 @@
         "module": "Mathlib/NumberTheory/LSeries/PrimesInAP.lean",
         "provides": "Infinitely many primes in a unit ZMod residue class with positive modulus.",
         "checked": "Actual declaration statement read at the recorded pinned commit; not inferred from an index or roadmap status."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/Isotropic.lean",
+        "provides": "For an even nondegenerate integral lattice L, even intermediate carriers L⊂M⊂L^∨ correspond by an order isomorphism to quadratic-isotropic subgroups H⊂A_L. The inverse takes the preimage of H in L^∨.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean",
+        "provides": "If L is even and nondegenerate and M is an even intermediate carrier, the discriminant quadratic module of M is canonically isometric to H^⊥/H, H=M/L, in the library half-norm Q/Z convention.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry_mk",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/Overlattice/OrthogonalQuotient/Quadratic.lean",
+        "provides": "If L is even and nondegenerate and M is an even intermediate carrier, the discriminant quadratic module of M is canonically isometric to H^⊥/H, H=M/L, in the library half-norm Q/Z convention.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_rankOneClass",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+        "provides": "For m∈Z nonzero, the canonical generator of the discriminant group of <2m> has half-norm 1/(4m) modulo Z; its k-th multiple has half-norm k²/(4m). The associated self-pairing is 1/(2m) modulo Z.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_zsmul_rankOneClass",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+        "provides": "For m∈Z nonzero, the canonical generator of the discriminant group of <2m> has half-norm 1/(4m) modulo Z; its k-th multiple has half-norm k²/(4m). The associated self-pairing is 1/(2m) modulo Z.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
+      },
+      {
+        "ref": "tauceti:TauCeti.IntegralLattice.discriminantPairing_rankOneClass_self",
+        "module": "TauCeti/LinearAlgebra/IntegralLattice/RankOne.lean",
+        "provides": "For m∈Z nonzero, the canonical generator of the discriminant group of <2m> has half-norm 1/(4m) modulo Z; its k-th multiple has half-norm k²/(4m). The associated self-pairing is 1/(2m) modulo Z.",
+        "checked": "Actual statement read at pinned Tau Ceti commit in this continuation."
       }
     ]
   },
@@ -118,7 +161,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: base change; polarization transport; canonical bundle and H¹ access. Tests: (1) Base change of a K3 remains K3; (2) A smooth quartic surface has trivial canonical bundle; (3) An abelian surface is excluded by H¹(O)≠0."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: base change; polarization transport; canonical bundle and H¹ access. Tests: (1) Base change of a K3 remains K3; (2) A smooth quartic surface has trivial canonical bundle; (3) An abelian surface is excluded by H¹(O)≠0.",
+      "api": [
+        {
+          "name": "Charles16.1.contract1",
+          "role": "integration",
+          "statement": "Base change of a smooth projective geometrically integral surface with trivial canonical bundle and H¹(O)=0 remains a K3 surface."
+        },
+        {
+          "name": "Charles16.1.contract2",
+          "role": "integration",
+          "statement": "A polarization is an ample line-bundle class on the K3 surface and pulls back under field extension."
+        },
+        {
+          "name": "Charles16.1.contract3",
+          "role": "integration",
+          "statement": "The canonical-trivialization and H¹-vanishing projections are available for surface Riemann–Roch and deformation theory."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/12",
+          "how": "The consumer Lifting up to ten divisor classes uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.1.test1",
+          "statement": "Base change of a K3 remains K3",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.1.test2",
+          "statement": "A smooth quartic surface has trivial canonical bundle",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.1.test3",
+          "statement": "An abelian surface is excluded by H¹(O)≠0.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/2",
@@ -129,7 +213,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: intersection bilinearity; base change injection; divisor representative independence. Tests: (1) Numerically equivalent bundles have equal pairings; (2) H ample has H²>0; (3) Geometric NS need not equal arithmetic NS before extension."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: intersection bilinearity; base change injection; divisor representative independence. Tests: (1) Numerically equivalent bundles have equal pairings; (2) H ample has H²>0; (3) Geometric NS need not equal arithmetic NS before extension.",
+      "api": [
+        {
+          "name": "Charles16.2.contract1",
+          "role": "integration",
+          "statement": "The intersection number descends to numerical equivalence classes and is bilinear."
+        },
+        {
+          "name": "Charles16.2.contract2",
+          "role": "integration",
+          "statement": "Base change embeds the arithmetic NS group into geometric NS for a K3 surface."
+        },
+        {
+          "name": "Charles16.2.contract3",
+          "role": "integration",
+          "statement": "The square of an ample class is positive; this does not identify arithmetic and geometric NS groups."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/5",
+          "how": "The consumer Algebraic Mukai lattice uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.2.test1",
+          "statement": "Numerically equivalent bundles have equal pairings",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.2.test2",
+          "statement": "H ample has H²>0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.2.test3",
+          "statement": "Geometric NS need not equal arithmetic NS before extension.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/3",
@@ -151,7 +276,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: three projections; cup pairing; Galois action; scalar extension. Tests: (1) (1,0,0)²=0; (2) (1,0,0)·(0,0,1)=−1; (3) (0,D,0)²=D²."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: three projections; cup pairing; Galois action; scalar extension. Tests: (1) (1,0,0)²=0; (2) (1,0,0)·(0,0,1)=−1; (3) (0,D,0)²=D².",
+      "api": [
+        {
+          "name": "Charles16.4.contract1",
+          "role": "integration",
+          "statement": "The three projections recover H⁰, H²(1) and H⁴(2) with their stated Tate twists."
+        },
+        {
+          "name": "Charles16.4.contract2",
+          "role": "integration",
+          "statement": "The pairing of(a,b,c) and(a′,b′,c′) is bb′−ac′−a′c."
+        },
+        {
+          "name": "Charles16.4.contract3",
+          "role": "integration",
+          "statement": "Galois action preserves the pairing and commutes with scalar extension."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/21",
+          "how": "The consumer Mukai cohomological isometry uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.4.test1",
+          "statement": "(1,0,0)²=0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.4.test2",
+          "statement": "(1,0,0)·(0,0,1)=−1",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.4.test3",
+          "statement": "(0,D,0)²=D².",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/5",
@@ -162,7 +328,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: rank/c₁/degree projections; geometric degree generator; cycle embedding. Tests: (1) (1,0,0) and ω span a hyperbolic plane with negative off-diagonal; (2) N has rank ρ+2; (3) The ω coordinate does not require a rational point."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: rank/c₁/degree projections; geometric degree generator; cycle embedding. Tests: (1) (1,0,0) and ω span a hyperbolic plane with negative off-diagonal; (2) N has rank ρ+2; (3) The ω coordinate does not require a rational point.",
+      "api": [
+        {
+          "name": "Charles16.5.contract1",
+          "role": "integration",
+          "statement": "An algebraic Mukai vector has integral rank and degree coordinates and an NS middle coordinate."
+        },
+        {
+          "name": "Charles16.5.contract2",
+          "role": "integration",
+          "statement": "The cycle-class embedding sends the formal geometric degree-one generator to H⁴(2), without requiring a rational point."
+        },
+        {
+          "name": "Charles16.5.contract3",
+          "role": "integration",
+          "statement": "Its rank is rank(NS)+2 and its pairing is NS orthogonal-sum the negative-off-diagonal hyperbolic plane."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/6",
+          "how": "The consumer Sheaf Mukai vector uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.5.test1",
+          "statement": "(1,0,0) and ω span a hyperbolic plane with negative off-diagonal",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.5.test2",
+          "statement": "N has rank ρ+2",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.5.test3",
+          "statement": "The ω coordinate does not require a rational point.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/6",
@@ -173,7 +380,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: additivity in K₀; tensor exponential; duality; RR compatibility. Tests: (1) v(O_X)=(1,0,1); (2) v(O_x)=(0,0,1) for a geometric point; (3) v(I_Z)=(1,0,1−length Z)."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: additivity in K₀; tensor exponential; duality; RR compatibility. Tests: (1) v(O_X)=(1,0,1); (2) v(O_x)=(0,0,1) for a geometric point; (3) v(I_Z)=(1,0,1−length Z).",
+      "api": [
+        {
+          "name": "Charles16.6.contract1",
+          "role": "integration",
+          "statement": "Mukai vectors are additive for short exact sequences, hence descend to K₀."
+        },
+        {
+          "name": "Charles16.6.contract2",
+          "role": "integration",
+          "statement": "For a line bundle L, v(F⊗L)=exp(c₁(L))v(F)."
+        },
+        {
+          "name": "Charles16.6.contract3",
+          "role": "integration",
+          "statement": "For a vector bundle E, v(E∨)=(r,−c₁(E),s) if v(E)=(r,c₁(E),s)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/7",
+          "how": "The consumer Mukai Riemann–Roch pairing uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.6.test1",
+          "statement": "v(O_X)=(1,0,1)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.6.test2",
+          "statement": "v(O_x)=(0,0,1) for a geometric point",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.6.test3",
+          "statement": "v(I_Z)=(1,0,1−length Z).",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/7",
@@ -195,7 +443,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: reduced Hilbert polynomial; subsheaf test; flat-family/base-change conditions. Tests: (1) A line bundle is stable; (2) Equal reduced polynomial is not a strict inequality; (3) Zero-rank torsion sheaves are not in this torsion-free positive-rank definition."
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: reduced Hilbert polynomial; subsheaf test; flat-family/base-change conditions. Tests: (1) A line bundle is stable; (2) Equal reduced polynomial is not a strict inequality; (3) Zero-rank torsion sheaves are not in this torsion-free positive-rank definition.",
+      "api": [
+        {
+          "name": "Charles16.8.contract1",
+          "role": "integration",
+          "statement": "The reduced Hilbert polynomial divides the Hilbert polynomial by its positive leading coefficient."
+        },
+        {
+          "name": "Charles16.8.contract2",
+          "role": "integration",
+          "statement": "Stability requires the strict eventual polynomial inequality for every proper nonzero positive-rank subsheaf."
+        },
+        {
+          "name": "Charles16.8.contract3",
+          "role": "integration",
+          "statement": "Geometric stability is checked after algebraic closure and is preserved by further field extensions under the moduli hypotheses."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/11",
+          "how": "The consumer Coprimality excludes strictly semistable sheaves uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.8.test1",
+          "statement": "A line bundle is stable",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.8.test2",
+          "statement": "Equal reduced polynomial is not a strict inequality",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.8.test3",
+          "statement": "Zero-rank torsion sheaves are not in this torsion-free positive-rank definition.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/9",
@@ -206,7 +495,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: moduli functor; coarse universal property; relative pullback; stabilizers. Tests: (1) Stable does not imply a universal sheaf on the coarse scheme; (2) An empty moduli functor must not be assigned a point; (3) Projectivity requires the semistable compactification or equality of stability notions."
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: moduli functor; coarse universal property; relative pullback; stabilizers. Tests: (1) Stable does not imply a universal sheaf on the coarse scheme; (2) An empty moduli functor must not be assigned a point; (3) Projectivity requires the semistable compactification or equality of stability notions.",
+      "api": [
+        {
+          "name": "Charles16.9.contract1",
+          "role": "integration",
+          "statement": "The moduli functor assigns to a base the flat families of stable sheaves with the prescribed Mukai vector, with the appropriate family equivalence."
+        },
+        {
+          "name": "Charles16.9.contract2",
+          "role": "integration",
+          "statement": "The coarse moduli space classifies geometric isomorphism classes; it does not promise a universal sheaf."
+        },
+        {
+          "name": "Charles16.9.contract3",
+          "role": "integration",
+          "statement": "The relative construction commutes with the specified base changes, with projectivity supplied only when semistability equals stability."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/15",
+          "how": "The consumer Smooth symplectic stable-sheaf moduli uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.9.test1",
+          "statement": "Stable does not imply a universal sheaf on the coarse scheme",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.9.test2",
+          "statement": "An empty moduli functor must not be assigned a point",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.9.test3",
+          "statement": "Projectivity requires the semistable compactification or equality of stability notions.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/10",
@@ -217,7 +547,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: primitive, rank, norm and gcd projections; transport under allowed lattice isometries. Tests: (1) (1,0,−1) satisfies (C); (2) A multiple 2v fails primitivity; (3) v=(1,0,1) fails the positive-square condition."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: primitive, rank, norm and gcd projections; transport under allowed lattice isometries. Tests: (1) (1,0,−1) satisfies (C); (2) A multiple 2v fails primitivity; (3) v=(1,0,1) fails the positive-square condition.",
+      "api": [
+        {
+          "name": "Charles16.10.contract1",
+          "role": "integration",
+          "statement": "Condition(C) projects to primitive v, positive rank and positive Mukai square."
+        },
+        {
+          "name": "Charles16.10.contract2",
+          "role": "integration",
+          "statement": "Its coprimality field is gcd(r,H·c₁,s)=1 for v=(r,c₁,s)."
+        },
+        {
+          "name": "Charles16.10.contract3",
+          "role": "integration",
+          "statement": "A vector w in the span of the rank, H and degree coordinates with v·w=1 implies this gcd condition."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/11",
+          "how": "The consumer Coprimality excludes strictly semistable sheaves uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.10.test1",
+          "statement": "(1,0,−1) satisfies (C)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.10.test2",
+          "statement": "A multiple 2v fails primitivity",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.10.test3",
+          "statement": "v=(1,0,1) fails the positive-square condition.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/11",
@@ -294,7 +665,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: symplectic form up to scalar; complex deformation; projective subcase. Tests: (1) A complex K3 is IHS; (2) A product of two K3 surfaces fails h²⁰=1; (3) A symplectic torus fails simple connectivity."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: symplectic form up to scalar; complex deformation; projective subcase. Tests: (1) A complex K3 is IHS; (2) A product of two K3 surfaces fails h²⁰=1; (3) A symplectic torus fails simple connectivity.",
+      "api": [
+        {
+          "name": "Charles16.17.contract1",
+          "role": "integration",
+          "statement": "An IHS variety is simply connected compact Kähler and its holomorphic two-forms are generated by a nondegenerate form."
+        },
+        {
+          "name": "Charles16.17.contract2",
+          "role": "integration",
+          "statement": "Multiplying the chosen nonzero symplectic form by a nonzero complex scalar preserves the symplectic line."
+        },
+        {
+          "name": "Charles16.17.contract3",
+          "role": "integration",
+          "statement": "The projective subcase retains the same IHS carrier and supplies an ample line bundle separately."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/59",
+          "how": "The consumer Orthogonal IHS period domain uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.17.test1",
+          "statement": "A complex K3 is IHS",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.17.test2",
+          "statement": "A product of two K3 surfaces fails h²⁰=1",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.17.test3",
+          "statement": "A symplectic torus fails simple connectivity.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/18",
@@ -305,7 +717,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hilbert functor; universal subscheme; Hilbert–Chow; diagonal strata. Tests: (1) X^[1]=X; (2) X^[0] is a point; (3) X^[2] is not Sym²X along the diagonal."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hilbert functor; universal subscheme; Hilbert–Chow; diagonal strata. Tests: (1) X^[1]=X; (2) X^[0] is a point; (3) X^[2] is not Sym²X along the diagonal.",
+      "api": [
+        {
+          "name": "Charles16.18.contract1",
+          "role": "integration",
+          "statement": "The Hilbert functor parametrizes finite flat length-n subschemes and has its universal subscheme."
+        },
+        {
+          "name": "Charles16.18.contract2",
+          "role": "integration",
+          "statement": "The Hilbert–Chow map sends a subscheme to its support cycle counted with lengths."
+        },
+        {
+          "name": "Charles16.18.contract3",
+          "role": "integration",
+          "statement": "The reduced-disjoint-points locus is identified with the corresponding symmetric-product open locus."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/16",
+          "how": "The consumer Hilbert-scheme deformation type uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.18.test1",
+          "statement": "X^[1]=X",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.18.test2",
+          "statement": "X^[0] is a point",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.18.test3",
+          "statement": "X^[2] is not Sym²X along the diagonal.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/19",
@@ -327,7 +780,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: polar form; cycle compatibility; Tate twists; top-power normalization. Tests: (1) For fourfolds L⁴=3q(L)²; (2) q(mL)=m²q(L); (3) In positive characteristic no unproved Z-valued assertion replaces Z[1/p]."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: polar form; cycle compatibility; Tate twists; top-power normalization. Tests: (1) For fourfolds L⁴=3q(L)²; (2) q(mL)=m²q(L); (3) In positive characteristic no unproved Z-valued assertion replaces Z[1/p].",
+      "api": [
+        {
+          "name": "Charles16.20.contract1",
+          "role": "integration",
+          "statement": "The associated polar form is recovered from the quadratic form with the chosen factor-of-two convention."
+        },
+        {
+          "name": "Charles16.20.contract2",
+          "role": "integration",
+          "statement": "Cycle-class maps identify this rational NS form with each prime-to-characteristic cohomological form."
+        },
+        {
+          "name": "Charles16.20.contract3",
+          "role": "integration",
+          "statement": "For dimension2n, (2n)!q(α)^n=n!2^n α^(2n); at n=2 this gives α⁴=3q(α)²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/34",
+          "how": "The consumer Corrected nonisotropic Mukai discriminant formula uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.20.test1",
+          "statement": "For fourfolds L⁴=3q(L)²",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.20.test2",
+          "statement": "q(mL)=m²q(L)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.20.test3",
+          "statement": "In positive characteristic no unproved Z-valued assertion replaces Z[1/p].",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/21",
@@ -338,7 +832,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: forward/inverse map; Galois equivariance; pairing; cycle square. Tests: (1) The target rank is v^⊥ rank; (2) The Tate twist is (1); (3) The isotropic case instead uses v^⊥/v and is not this construction."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: forward/inverse map; Galois equivariance; pairing; cycle square. Tests: (1) The target rank is v^⊥ rank; (2) The Tate twist is (1); (3) The isotropic case instead uses v^⊥/v and is not this construction.",
+      "api": [
+        {
+          "name": "Charles16.21.contract1",
+          "role": "integration",
+          "statement": "θ_v,ℓ maps the nonisotropic orthogonal complement isomorphically to H²(M,Zℓ(1))."
+        },
+        {
+          "name": "Charles16.21.contract2",
+          "role": "integration",
+          "statement": "The map preserves the Mukai and Beauville–Bogomolov pairings."
+        },
+        {
+          "name": "Charles16.21.contract3",
+          "role": "integration",
+          "statement": "Its algebraic correspondence construction is Galois equivariant and compatible with the algebraic Mukai map."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/22",
+          "how": "The consumer Integral algebraic Mukai map uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.21.test1",
+          "statement": "The target rank is v^⊥ rank",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.21.test2",
+          "statement": "The Tate twist is (1)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.21.test3",
+          "statement": "The isotropic case instead uses v^⊥/v and is not this construction.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/22",
@@ -349,7 +884,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: injectivity; pairings; specialization; realization compatibility. Tests: (1) The map preserves q; (2) After tensor Zℓ, ℓ≠p, it matches the cohomological map; (3) A p-primary cokernel need not vanish."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: injectivity; pairings; specialization; realization compatibility. Tests: (1) The map preserves q; (2) After tensor Zℓ, ℓ≠p, it matches the cohomological map; (3) A p-primary cokernel need not vanish.",
+      "api": [
+        {
+          "name": "Charles16.22.contract1",
+          "role": "integration",
+          "statement": "The map v^⊥∩N(X)→NS(M) is integral and injective under the finite/algebraically closed field hypotheses."
+        },
+        {
+          "name": "Charles16.22.contract2",
+          "role": "integration",
+          "statement": "Its realization agrees with θ_v,ℓ through the cycle-class square for ℓ different from the characteristic."
+        },
+        {
+          "name": "Charles16.22.contract3",
+          "role": "integration",
+          "statement": "It preserves the quadratic form; its p-primary cokernel is a separate theorem and need not vanish."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/34",
+          "how": "The consumer Corrected nonisotropic Mukai discriminant formula uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.22.test1",
+          "statement": "The map preserves q",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.22.test2",
+          "statement": "After tensor Zℓ, ℓ≠p, it matches the cohomological map",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.22.test3",
+          "statement": "A p-primary cokernel need not vanish.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/23",
@@ -371,7 +947,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: similitude normalization; independence; Chern-character action; base change. Tests: (1) Changing a quasi-universal multiplicity does not change the rational map; (2) A universal sheaf has multiplicity one; (3) Division by multiplicity is not itself an integrality proof."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: similitude normalization; independence; Chern-character action; base change. Tests: (1) Changing a quasi-universal multiplicity does not change the rational map; (2) A universal sheaf has multiplicity one; (3) Division by multiplicity is not itself an integrality proof.",
+      "api": [
+        {
+          "name": "Charles16.24.contract1",
+          "role": "integration",
+          "statement": "Normalize the Chern-character correspondence by the quasi-universal similitude factor."
+        },
+        {
+          "name": "Charles16.24.contract2",
+          "role": "integration",
+          "statement": "Changing the quasi-universal sheaf by an allowed modification leaves the normalized rational map unchanged."
+        },
+        {
+          "name": "Charles16.24.contract3",
+          "role": "integration",
+          "statement": "The rational construction commutes with the specified base change; integral descent requires its separate proof."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/21",
+          "how": "The consumer Mukai cohomological isometry uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.24.test1",
+          "statement": "Changing a quasi-universal multiplicity does not change the rational map",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.24.test2",
+          "statement": "A universal sheaf has multiplicity one",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.24.test3",
+          "statement": "Division by multiplicity is not itself an integrality proof.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/25",
@@ -439,7 +1056,48 @@
         "tauceti:TauCeti.IntegralLattice"
       ],
       "planned": [],
-      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse carrier/form projections, extensionality and Gram constructors. Tests: (1) The hyperbolic plane is integral and indefinite; (2) ⟨1⟩ is integral but not even; (3) Nondegeneracy is not built into the base structure."
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse carrier/form projections, extensionality and Gram constructors. Tests: (1) The hyperbolic plane is integral and indefinite; (2) ⟨1⟩ is integral but not even; (3) Nondegeneracy is not built into the base structure.",
+      "api": [
+        {
+          "name": "Charles16.30.contract1",
+          "role": "integration",
+          "statement": "The carrier is a full finitely generated Z-submodule of the rational ambient space."
+        },
+        {
+          "name": "Charles16.30.contract2",
+          "role": "integration",
+          "statement": "The symmetric rational bilinear form takes integer values on the carrier."
+        },
+        {
+          "name": "Charles16.30.contract3",
+          "role": "integration",
+          "statement": "Nondegeneracy and evenness are separate predicates, not fields imposed by the base carrier."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/33",
+          "how": "The consumer Even-overlattice isotropy criterion uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.30.test1",
+          "statement": "The hyperbolic plane is integral and indefinite",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.30.test2",
+          "statement": "⟨1⟩ is integral but not even",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.30.test3",
+          "statement": "Nondegeneracy is not built into the base structure.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/31",
@@ -453,7 +1111,48 @@
         "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_mk"
       ],
       "planned": [],
-      "note": "Library supplies the half-norm version. The explicit full-norm/half-norm transport is a consuming conversion, not an assertion that 1/(2d)=1/(4d). API: quotient representatives; polar form; isometry transport. Tests: (1) On ⟨2d⟩ the half-norm generator is 1/(4d) mod Z; (2) Adding a lattice vector leaves the value unchanged for even L; (3) An odd L has no such half-norm descent without additional data."
+      "note": "Library supplies the half-norm version. The explicit full-norm/half-norm transport is a consuming conversion, not an assertion that 1/(2d)=1/(4d). API: quotient representatives; polar form; isometry transport. Tests: (1) On ⟨2d⟩ the half-norm generator is 1/(4d) mod Z; (2) Adding a lattice vector leaves the value unchanged for even L; (3) An odd L has no such half-norm descent without additional data.",
+      "api": [
+        {
+          "name": "Charles16.31.contract1",
+          "role": "integration",
+          "statement": "The class of a dual vector x has quadratic value B(x,x)/2 modulo Z."
+        },
+        {
+          "name": "Charles16.31.contract2",
+          "role": "integration",
+          "statement": "Changing x by a lattice vector preserves that value when the lattice is even."
+        },
+        {
+          "name": "Charles16.31.contract3",
+          "role": "integration",
+          "statement": "The polar of the half-norm quadratic map equals the discriminant bilinear pairing."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/33",
+          "how": "The consumer Even-overlattice isotropy criterion uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.31.test1",
+          "statement": "On ⟨2d⟩ the half-norm generator is 1/(4d) mod Z",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.31.test2",
+          "statement": "Adding a lattice vector leaves the value unchanged for even L",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.31.test3",
+          "statement": "An odd L has no such half-norm descent without additional data.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/32",
@@ -512,29 +1211,91 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration. API: Gram constructor; hyperbolic summand; discriminant generator. Tests: (1) rank Λ₂d=3; (2) |disc Λ₂d|=2d; (3) Full-norm and half-norm generator values differ by two."
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration. API: Gram constructor; hyperbolic summand; discriminant generator. Tests: (1) rank Λ₂d=3; (2) |disc Λ₂d|=2d; (3) Full-norm and half-norm generator values differ by two.",
+      "api": [
+        {
+          "name": "Charles16.36.contract1",
+          "role": "integration",
+          "statement": "In the h,e,f basis the Gram matrix is [[2d,0,0],[0,0,1],[0,1,0]]."
+        },
+        {
+          "name": "Charles16.36.contract2",
+          "role": "integration",
+          "statement": "Its signature is(2,1), rank3 and absolute discriminant2d for d>0."
+        },
+        {
+          "name": "Charles16.36.contract3",
+          "role": "integration",
+          "statement": "The discriminant generator from the first summand has full norm1/(2d) modulo2Z, compared to half-norm1/(4d) moduloZ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/38",
+          "how": "The consumer Congruence transport from a primitive initial embedding uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.36.test1",
+          "statement": "rank Λ₂d=3",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.36.test2",
+          "statement": "|disc Λ₂d|=2d",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.36.test3",
+          "statement": "Full-norm and half-norm generator values differ by two.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/37",
       "kind": "theorem",
       "name": "Nikulin primitive embedding criterion in signature (2,1)",
-      "statement": "For an even positive definite rank-two lattice Λ and n>0, existence of a primitive embedding into Λ₂n is tested by subgroups V⊂A_Λ,W⊂A₂n, an isometry γ of their restricted full-norm forms, and t>0 such that Γ_γ^⊥/Γ_γ is the cyclic form of order 2t with generator norm 1/(2t). The precise embedding-orbit classification is withheld pending the Nikulin source check.",
+      "statement": "For an even positive definite rank-two lattice S and n>0, a primitive embedding S→Λ₂n exists iff there are subgroups H_S⊂A_S,H_q⊂A_Λ₂n and an isometry γ of their restricted full-norm forms for which δ=(q_S⊕−q_Λ₂n)|Γ_γ^⊥/Γ_γ is isometric to the cyclic form on Z/(2t) with generator norm 1/(2t), for some t>0. This is an existence criterion. The general classification includes a chosen complement K and discriminant identification γ_K, then quotients by the stated isometries; it is not a bijection of raw embeddings with tuples.",
       "locator": "Proposition 2.9 proof, pp.500–501; Nikulin Prop.1.15.1",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration. G5: no claim of a literal bijection between raw embeddings and these data."
+      "note": "G5 initial-primitivity and embedding-versus-sublattice conventions have now been resolved. Nikulin primary text pp128–130 read through the publisher web PDF; full local PDF acquisition and deeper genus-classification proofs remain outstanding.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/nikulin-embedding-data",
+        "PAPER-CHARLES-16/hyperbolic-genus-uniqueness",
+        "PAPER-CHARLES-16/negative-rank-one-complement"
+      ],
+      "proofSteps": [
+        "Apply Nikulin1.15.1 to target signature(2,1) and discriminant form q_Λ₂n.",
+        "Its complement is negative rank one, hence <-2t>; its discriminant form is −δ.",
+        "Use uniqueness of the genus of <2n>⊕U to identify the ambient lattice with Λ₂n."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/38",
       "kind": "theorem",
-      "name": "Congruence transport of a primitive embedding",
-      "statement": "Given d>0 and positive definite rank-two sublattice Λ⊂Λ₂d, there are N>0 and a,b≠0 such that for m>0, m≡1 mod N, gcd(m,ab)=1 and a,b squares modulo m, Λ embeds primitively into Λ₂md.",
+      "name": "Congruence transport from a primitive initial embedding",
+      "statement": "Given d>0, an even positive definite rank-two lattice S and a primitive embedding S→Λ₂d, there are N>0 and a,b≠0 such that every m>0 satisfying m≡1 mod N, gcd(m,ab)=1 and a,b invertible squares modulo m admits a primitive embedding S→Λ₂md. The initial primitivity is a necessary correction to the printed statement: arbitrary rank-two sublattices do not suffice.",
       "locator": "Proposition 2.9, pp.500–502",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+      "note": "The counterexample in nonprimitive-obstruction disproves the literal all-sublattices version already at m=1. Saturation of S does not repair that literal assertion. The actual Zarhin construction uses the explicit primitive input of item41.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/37",
+        "PAPER-CHARLES-16/39",
+        "PAPER-CHARLES-16/40"
+      ],
+      "proofSteps": [
+        "Take the discriminant gluing datum of the given primitive initial embedding.",
+        "Choose N divisible by 4dt, |A_S| and (2d)!; the last factor guarantees gcd(m,y₀)=1 for the chosen 1≤y₀≤2d.",
+        "Transport the graph and cyclic orthogonal quotient using item39.",
+        "Use a=−d,b=t and the CRT rescaling in item40, then item37 for the target embedding."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/39",
@@ -545,7 +1306,18 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/gluing-quotient-isometry",
+        "PAPER-CHARLES-16/rank-one-generator",
+        "PAPER-CHARLES-16/nikulin-embedding-data"
+      ],
+      "proofSteps": [
+        "The map Id⊕m preserves discriminant quadratic forms because m≡1 mod4d.",
+        "The graph maps isomorphically, and (x₀,y₀) remains orthogonal to its transported graph.",
+        "Its image in the new/old quotient has order m since gcd(m,y₀)=1; multiplication by m recovers an old generator.",
+        "The quotient has order 2tm by nondegeneracy and the graph order, so this class generates it; compute its norm as displayed."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/40",
@@ -556,18 +1328,75 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration."
+      "note": "Read GN.2/GN.3 and the accepted AUDIT-02 records. Import completed integral-lattice carriers, discriminant forms and gluing; the listed embedding/arithmetic statement is not an existing declaration.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/39"
+      ],
+      "proofSteps": [
+        "Let u²≡−d and v²≡t modulo m. All of u,v,y₀ are units. Set λ≡u(vy₀)⁻¹ modm.",
+        "Solve λ≡1 mod4dt simultaneously by CRT; m≡1 mod4dt gives coprime moduli.",
+        "Then λ is a unit modulo2tm, and the numerator of the difference of quadratic values is divisible by4mdt."
+      ]
     },
     {
       "id": "PAPER-CHARLES-16/41",
       "kind": "construction",
       "name": "Norm-two Mukai vector and positive orthogonal class",
-      "statement": "Choose positive definite Λ⊂Λ₂d with v²=2 and v·w=1, and nonzero l⊥v of positive norm, prime to any prescribed odd integer n when required. A transported embedding makes v primitive with gcd(rk v,Hc₁(v),s)=1; an isometry makes its rank positive.",
+      "statement": "In Λ₂d=<2d>⊕U, with basis h,e,f and e·f=1, choose k>0 and set v=e+f,w=kh+e,l=2w−v. The span S=Zv+Zw is primitive and positive definite, with Gram matrix [[2,1],[1,2dk²]], v²=2,v·w=1,l·v=0 and l²=2(4dk²−1)>0. If a specified integer n is odd, choose k a positive multiple of |n|; then gcd(l²,n)=1. After primitive congruence transport, the pairing v·w=1 supplies the Mukai gcd condition, and an allowed hyperbolic isometry makes the rank positive.",
       "locator": "Theorem 2.10 proof, p.503",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: lattice embedding; positive-rank adjustment; v,w,l access. Tests: (1) v·w=1 implies v primitive; (2) v²=2 gives dim M=4; (3) An arbitrary positive vector need not satisfy the gcd condition."
+      "note": "Explicit construction closes the initial primitive-embedding input to the Zarhin consumer. It does not restore the false arbitrary-sublattice version of Proposition2.9. Existing API/test prose is retained below by structured contracts.",
+      "prerequisites": [
+        "PAPER-CHARLES-16/36",
+        "PAPER-CHARLES-16/explicit-primitive-splitting",
+        "PAPER-CHARLES-16/explicit-positive-plane",
+        "PAPER-CHARLES-16/explicit-orthogonal-class",
+        "PAPER-CHARLES-16/explicit-prime-to-n",
+        "PAPER-CHARLES-16/38"
+      ],
+      "api": [
+        {
+          "name": "Charles16.41.contract1",
+          "role": "integration",
+          "statement": "The coordinates v=e+f,w=kh+e define a primitive span via the integral retraction(x,y,z)↦(z,y−z)."
+        },
+        {
+          "name": "Charles16.41.contract2",
+          "role": "integration",
+          "statement": "The orthogonal class l=2w−v has l²=2(4dk²−1)>0, and k divisible by odd n makes this square prime to n."
+        },
+        {
+          "name": "Charles16.41.contract3",
+          "role": "integration",
+          "statement": "After transport, v·w=1 forces primitivity and the Mukai gcd condition; swapping the hyperbolic coordinates and a common sign if needed makes the rank positive."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/42",
+          "how": "The consumer Zarhin analogue over arbitrary fields uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.41.test1",
+          "statement": "For d=k=1 the Gram matrix is[[2,1],[1,2]] and the retraction is integral.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.41.test2",
+          "statement": "For odd n dividing k, l² is congruent to−2 modulo n.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.41.test3",
+          "statement": "The nonprimitive span of2h and2(e+f) fails the primitive-input contract.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/42",
@@ -771,7 +1600,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: isotropic-line predicate; positivity; component; extendable isometry action. Tests: (1) Rescaling x by z≠0 preserves the point and positivity; (2) A real isotropic line fails (x,xbar)>0; (3) The ambient form is fixed while the line varies."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: isotropic-line predicate; positivity; component; extendable isometry action. Tests: (1) Rescaling x by z≠0 preserves the point and positivity; (2) A real isotropic line fails (x,xbar)>0; (3) The ambient form is fixed while the line varies.",
+      "api": [
+        {
+          "name": "Charles16.59.contract1",
+          "role": "integration",
+          "statement": "A point is a complex isotropic line with positive pairing with its conjugate, in the fixed primitive lattice complexification."
+        },
+        {
+          "name": "Charles16.59.contract2",
+          "role": "integration",
+          "statement": "Multiplication by a nonzero complex scalar preserves the line and scales the positive pairing by its squared absolute value."
+        },
+        {
+          "name": "Charles16.59.contract3",
+          "role": "integration",
+          "statement": "An extendable integral isometry fixing the polarization acts on the domain and on the chosen component when component-preserving."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/63",
+          "how": "The consumer Family period map and its algebraicity uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.59.test1",
+          "statement": "Rescaling x by z≠0 preserves the point and positivity",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.59.test2",
+          "statement": "A real isotropic line fails (x,xbar)>0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.59.test3",
+          "statement": "The ambient form is fixed while the line varies.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/60",
@@ -784,7 +1654,48 @@
         "tauceti:TauCeti.Hodge.PeriodDomain.Point"
       ],
       "planned": [],
-      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse filtration projection, Hodge numbers, polarization and extensionality. Tests: (1) Equal filtrations give equal points; (2) Hodge numbers sum to the lattice rank; (3) The datum does not include a manifold structure."
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse filtration projection, Hodge numbers, polarization and extensionality. Tests: (1) Equal filtrations give equal points; (2) Hodge numbers sum to the lattice rank; (3) The datum does not include a manifold structure.",
+      "api": [
+        {
+          "name": "Charles16.60.contract1",
+          "role": "integration",
+          "statement": "The filtration projection together with the fixed polarization determines the existing period point."
+        },
+        {
+          "name": "Charles16.60.contract2",
+          "role": "integration",
+          "statement": "Its prescribed Hodge dimensions sum to the complexified lattice rank."
+        },
+        {
+          "name": "Charles16.60.contract3",
+          "role": "integration",
+          "statement": "The orthogonal line-domain adapter must construct topology and geometry separately from the existing algebraic point data."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/59",
+          "how": "The consumer Orthogonal IHS period domain uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.60.test1",
+          "statement": "Equal filtrations give equal points",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.60.test2",
+          "statement": "Hodge numbers sum to the lattice rank",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.60.test3",
+          "statement": "The datum does not include a manifold structure.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/61",
@@ -819,7 +1730,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: parallel transport; basepoint change; Γ invariance; family pullback. Tests: (1) Constant marked families have constant periods; (2) Changing marking by Γ does not change the quotient point; (3) An arbitrary Hodge isometry is not automatically monodromy."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: parallel transport; basepoint change; Γ invariance; family pullback. Tests: (1) Constant marked families have constant periods; (2) Changing marking by Γ does not change the quotient point; (3) An arbitrary Hodge isometry is not automatically monodromy.",
+      "api": [
+        {
+          "name": "Charles16.63.contract1",
+          "role": "integration",
+          "statement": "Parallel transport of marked H² sends the holomorphic symplectic line to its period line."
+        },
+        {
+          "name": "Charles16.63.contract2",
+          "role": "integration",
+          "statement": "Changing a marking by Γ leaves the quotient period point unchanged."
+        },
+        {
+          "name": "Charles16.63.contract3",
+          "role": "integration",
+          "statement": "Pullback of a family pulls back its period map; algebraicity uses the independently owned Borel theorem."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/65",
+          "how": "The consumer IHS global Torelli in parallel-transport scope uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.63.test1",
+          "statement": "Constant marked families have constant periods",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.63.test2",
+          "statement": "Changing marking by Γ does not change the quotient point",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.63.test3",
+          "statement": "An arbitrary Hodge isometry is not automatically monodromy.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/64",
@@ -898,7 +1850,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: realizing family; point; primitive lattice; prime and torsion hypotheses. Tests: (1) p=3 is excluded; (2) A form degenerate modulo p is excluded; (3) H is ample but L is only required to have q(L)>0."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: realizing family; point; primitive lattice; prime and torsion hypotheses. Tests: (1) p=3 is excluded; (2) A form degenerate modulo p is excluded; (3) H is ample but L is only required to have q(L)>0.",
+      "api": [
+        {
+          "name": "Charles16.70.contract1",
+          "role": "integration",
+          "statement": "An admissible triple exports its realizing smooth W-family, distinguished special point and relatively ample H."
+        },
+        {
+          "name": "Charles16.70.contract2",
+          "role": "integration",
+          "statement": "The primitive lattice is the orthogonal complement of L, with reduction modulo p nondegenerate."
+        },
+        {
+          "name": "Charles16.70.contract3",
+          "role": "integration",
+          "statement": "The data explicitly includes p>3 and torsion-free second and third singular cohomology of the complex fibres."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/80",
+          "how": "The consumer Integral Kuga–Satake mapping uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.70.test1",
+          "statement": "p=3 is excluded",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.70.test2",
+          "statement": "A form degenerate modulo p is excluded",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.70.test3",
+          "statement": "H is ample but L is only required to have q(L)>0.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/71",
@@ -909,7 +1902,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: admissible projection; ordinary locus; generic NS span. Tests: (1) Strong admissibility implies admissibility; (2) Ordinarity requires torsion-free H²_crys as well as polygon equality; (3) The generic NS span may have dimension one when H,L are dependent."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: admissible projection; ordinary locus; generic NS span. Tests: (1) Strong admissibility implies admissibility; (2) Ordinarity requires torsion-free H²_crys as well as polygon equality; (3) The generic NS span may have dimension one when H,L are dependent.",
+      "api": [
+        {
+          "name": "Charles16.71.contract1",
+          "role": "integration",
+          "statement": "Strong admissibility forgets to admissibility for the same realizing family."
+        },
+        {
+          "name": "Charles16.71.contract2",
+          "role": "integration",
+          "statement": "At the geometric generic special point H²_crys is torsion-free and its Newton and Hodge polygons coincide."
+        },
+        {
+          "name": "Charles16.71.contract3",
+          "role": "integration",
+          "statement": "The generic rational NS space is generated by the H and L classes; independence of these two generators is not required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/85",
+          "how": "The consumer Special endomorphisms identify the primitive NS lattice uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.71.test1",
+          "statement": "Strong admissibility implies admissibility",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.71.test2",
+          "statement": "Ordinarity requires torsion-free H²_crys as well as polygon equality",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.71.test3",
+          "statement": "The generic NS span may have dimension one when H,L are dependent.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/72",
@@ -920,7 +1954,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hodge/conjugate filtrations; base change; comparison with deformation locus. Tests: (1) Equality is of filtrations, not just dimensions; (2) Supersingular is not substituted for superspecial; (3) The definition is geometric over kbar."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Hodge/conjugate filtrations; base change; comparison with deformation locus. Tests: (1) Equality is of filtrations, not just dimensions; (2) Supersingular is not substituted for superspecial; (3) The definition is geometric over kbar.",
+      "api": [
+        {
+          "name": "Charles16.72.contract1",
+          "role": "integration",
+          "statement": "Superspecial means equality of the full Hodge and conjugate filtrations on geometric H²_dR."
+        },
+        {
+          "name": "Charles16.72.contract2",
+          "role": "integration",
+          "statement": "The predicate is invariant under extension of the algebraically closed coefficient field."
+        },
+        {
+          "name": "Charles16.72.contract3",
+          "role": "integration",
+          "statement": "Superspeciality is stronger than supersingularity; its deformation-locus properties require separate theorems."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/74",
+          "how": "The consumer Obstruction-killing lift of a moduli line bundle uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.72.test1",
+          "statement": "Equality is of filtrations, not just dimensions",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.72.test2",
+          "statement": "Supersingular is not substituted for superspecial",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.72.test3",
+          "statement": "The definition is geometric over kbar.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/73",
@@ -968,7 +2043,48 @@
         "mathlib:CliffordAlgebra.ι_sq_scalar"
       ],
       "planned": [],
-      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse ι, lift, uniqueness and functorial algebra maps. Tests: (1) ι(x)²=Q(x); (2) The full algebra retains odd generators; (3) Q=0 gives the exterior-algebra specialization."
+      "note": "Actual declaration statement read at both recorded baseline commits as applicable. API: reuse ι, lift, uniqueness and functorial algebra maps. Tests: (1) ι(x)²=Q(x); (2) The full algebra retains odd generators; (3) Q=0 gives the exterior-algebra specialization.",
+      "api": [
+        {
+          "name": "Charles16.76.contract1",
+          "role": "integration",
+          "statement": "The canonical generator map satisfies ι(x)²=Q(x) in the scalar subalgebra."
+        },
+        {
+          "name": "Charles16.76.contract2",
+          "role": "integration",
+          "statement": "A linear map into an algebra satisfying the same square relations extends uniquely to an algebra homomorphism."
+        },
+        {
+          "name": "Charles16.76.contract3",
+          "role": "integration",
+          "statement": "The construction uses the full Clifford algebra, retaining the odd generators."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/77",
+          "how": "The consumer Kuga–Satake Hodge construction uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.76.test1",
+          "statement": "ι(x)²=Q(x)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.76.test2",
+          "statement": "The full algebra retains odd generators",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.76.test3",
+          "statement": "Q=0 gives the exterior-algebra specialization.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/77",
@@ -979,7 +2095,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: Hodge construction; lattice; abelian realization; Clifford action; primitive embedding. Tests: (1) The source weight-two class is twisted before becoming an endomorphism; (2) The input h²⁰=1 condition is retained; (3) The full-Clifford realization is not silently replaced by its even part."
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: Hodge construction; lattice; abelian realization; Clifford action; primitive embedding. Tests: (1) The source weight-two class is twisted before becoming an endomorphism; (2) The input h²⁰=1 condition is retained; (3) The full-Clifford realization is not silently replaced by its even part.",
+      "api": [
+        {
+          "name": "Charles16.77.contract1",
+          "role": "integration",
+          "statement": "The polarized weight-two input with h²⁰=1 induces a weight-one Hodge structure on the selected full Clifford module."
+        },
+        {
+          "name": "Charles16.77.contract2",
+          "role": "integration",
+          "statement": "The integral lattice and Riemann form produce the corresponding polarized abelian variety through the abelian realization theorem."
+        },
+        {
+          "name": "Charles16.77.contract3",
+          "role": "integration",
+          "statement": "The primitive weight-two space with Tate twist(1) embeds into the relevant endomorphism representation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/80",
+          "how": "The consumer Integral Kuga–Satake mapping uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.77.test1",
+          "statement": "The source weight-two class is twisted before becoming an endomorphism",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.77.test2",
+          "statement": "The input h²⁰=1 condition is retained",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.77.test3",
+          "statement": "The full-Clifford realization is not silently replaced by its even part.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/78",
@@ -990,7 +2147,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: level pullback; orthogonal lattice embeddings; period-map functoriality. Tests: (1) Use n≥3, not the printed n≤3 typo; (2) p does not divide the level; (3) A Λ_lh period preserves both h and l."
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: level pullback; orthogonal lattice embeddings; period-map functoriality. Tests: (1) Use n≥3, not the printed n≤3 typo; (2) p does not divide the level; (3) A Λ_lh period preserves both h and l.",
+      "api": [
+        {
+          "name": "Charles16.78.contract1",
+          "role": "integration",
+          "statement": "The spin level has n≥3 and gcd(n,p)=1 in the good-prime setting."
+        },
+        {
+          "name": "Charles16.78.contract2",
+          "role": "integration",
+          "statement": "The orthogonal sublattice Λ_lh supplies maps to both Λ_l and Λ_h Shimura data."
+        },
+        {
+          "name": "Charles16.78.contract3",
+          "role": "integration",
+          "statement": "The period map preserving both distinguished classes factors through the Λ_lh Shimura variety."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/80",
+          "how": "The consumer Integral Kuga–Satake mapping uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.78.test1",
+          "statement": "Use n≥3, not the printed n≤3 typo",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.78.test2",
+          "statement": "p does not divide the level",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.78.test3",
+          "statement": "A Λ_lh period preserves both h and l.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/79",
@@ -1012,7 +2210,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: generic-fiber recovery; uniqueness; base change; universal abelian scheme. Tests: (1) Restricting κ to T_K recovers κ_K; (2) The polarization parameter d₀ corresponds to degree d₀²; (3) No bad-prime smooth model follows from this construction."
+      "note": "Existing ShimuraVarieties V6 concerns generic-fiber canonical models; PELModuli M4 and ShimuraCompactifications C5 explicitly do not supply this general orthogonal integral-model theorem. Proposed good-prime successor; no all-prime extension. API: generic-fiber recovery; uniqueness; base change; universal abelian scheme. Tests: (1) Restricting κ to T_K recovers κ_K; (2) The polarization parameter d₀ corresponds to degree d₀²; (3) No bad-prime smooth model follows from this construction.",
+      "api": [
+        {
+          "name": "Charles16.80.contract1",
+          "role": "integration",
+          "statement": "Restriction of the integral Kuga–Satake map to the generic fibre is κ_K."
+        },
+        {
+          "name": "Charles16.80.contract2",
+          "role": "integration",
+          "statement": "The extension is unique under the stated smooth-family and good-prime hypotheses."
+        },
+        {
+          "name": "Charles16.80.contract3",
+          "role": "integration",
+          "statement": "Pulling back the universal polarized abelian scheme supplies the integral family and its level structure."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/83",
+          "how": "The consumer Good-prime integral orthogonal model and finite KS map uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.80.test1",
+          "statement": "Restricting κ to T_K recovers κ_K",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.80.test2",
+          "statement": "The polarization parameter d₀ corresponds to degree d₀²",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.80.test3",
+          "statement": "No bad-prime smooth model follows from this construction.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/81",
@@ -1124,7 +2363,48 @@
       "planned": [
         "MotivesAndAlgebraicCycles:MC.7"
       ],
-      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture. API: cycle map; Galois invariants; rational/integral comparison; finite-extension descent. Tests: (1) Algebraic divisor classes give invariant classes; (2) Geometric H² itself is not the invariant target; (3) Arithmetic Brauer finiteness, not geometric Brauer finiteness, is equivalent."
+      "note": "MC.7 owns divisor Hodge/Tate statements and selected proved divisor cases. No accepted audit entry exists for MC.7 at the recorded atlas commit; full pinned-tree search found no applicable implementation. It receives this source and imports the new K3 proof architecture; MC.7 is not an input to that architecture. API: cycle map; Galois invariants; rational/integral comparison; finite-extension descent. Tests: (1) Algebraic divisor classes give invariant classes; (2) Geometric H² itself is not the invariant target; (3) Arithmetic Brauer finiteness, not geometric Brauer finiteness, is equivalent.",
+      "api": [
+        {
+          "name": "Charles16.90.contract1",
+          "role": "integration",
+          "statement": "The cycle map lands in the arithmetic Galois-invariant part of H²(X_kbar,Zℓ(1))."
+        },
+        {
+          "name": "Charles16.90.contract2",
+          "role": "integration",
+          "statement": "For ℓ different from the characteristic, the Tate assertion is that this map from NS(X)⊗Zℓ is an isomorphism."
+        },
+        {
+          "name": "Charles16.90.contract3",
+          "role": "integration",
+          "statement": "Finite-extension descent and rational-to-integral comparison use the separate saturation and norm arguments; they are not automatic changes of target."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/129",
+          "how": "The consumer Superspecial reduction uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.90.test1",
+          "statement": "Algebraic divisor classes give invariant classes",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.90.test2",
+          "statement": "Geometric H² itself is not the invariant target",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.90.test3",
+          "statement": "Arithmetic Brauer finiteness, not geometric Brauer finiteness, is equivalent.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/91",
@@ -1146,7 +2426,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; Galois invariants; inclusion; discriminant. Tests: (1) An algebraic class pairs to zero with T; (2) Under Tate this arithmetic T has rank zero; (3) The geometric transcendental space can remain nonzero under Tate."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; Galois invariants; inclusion; discriminant. Tests: (1) An algebraic class pairs to zero with T; (2) Under Tate this arithmetic T has rank zero; (3) The geometric transcendental space can remain nonzero under Tate.",
+      "api": [
+        {
+          "name": "Charles16.92.contract1",
+          "role": "integration",
+          "statement": "The arithmetic transcendental lattice is the orthogonal complement of NS(X)⊗Zℓ inside arithmetic invariant H²."
+        },
+        {
+          "name": "Charles16.92.contract2",
+          "role": "integration",
+          "statement": "Its elements pair to zero with every divisor class."
+        },
+        {
+          "name": "Charles16.92.contract3",
+          "role": "integration",
+          "statement": "Under Tate this arithmetic complement has rank zero, even if the geometric transcendental cohomology does not vanish."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/113",
+          "how": "The consumer Literal norm-one selection claim needs a square-class argument uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.92.test1",
+          "statement": "An algebraic class pairs to zero with T",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.92.test2",
+          "statement": "Under Tate this arithmetic T has rank zero",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.92.test3",
+          "statement": "The geometric transcendental space can remain nonzero under Tate.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/93",
@@ -1157,7 +2478,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Kummer reduction; denominator change; gerbe sign; base change. Tests: (1) An algebraic α may give trivial Brauer class; (2) Primitivity in H² alone does not prove exact Brauer order; (3) The negative gerbe convention changes [α_n] to −[α_n]."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: Kummer reduction; denominator change; gerbe sign; base change. Tests: (1) An algebraic α may give trivial Brauer class; (2) Primitivity in H² alone does not prove exact Brauer order; (3) The negative gerbe convention changes [α_n] to −[α_n].",
+      "api": [
+        {
+          "name": "Charles16.93.contract1",
+          "role": "integration",
+          "statement": "Reducing α moduloℓ^n and applying Kummer gives the Brauer class[α_n]."
+        },
+        {
+          "name": "Charles16.93.contract2",
+          "role": "integration",
+          "statement": "The denominator r=ℓ^n is recorded together with α; primitivity in total H² alone does not certify the Brauer order."
+        },
+        {
+          "name": "Charles16.93.contract3",
+          "role": "integration",
+          "statement": "The chosen LMS convention uses the gerbe of −[α_n] with the positive exponential Mukai convention, and both signs change together."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/95",
+          "how": "The consumer Corrected integral twisted Mukai lattice uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.93.test1",
+          "statement": "An algebraic α may give trivial Brauer class",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.93.test2",
+          "statement": "Primitivity in H² alone does not prove exact Brauer order",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.93.test3",
+          "statement": "The negative gerbe convention changes [α_n] to −[α_n].",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/94",
@@ -1168,7 +2530,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: components; addition; inverse; isometry; denominator bounds. Tests: (1) exp(0)=id; (2) exp(B)exp(−B)=id; (3) exp(−α/r)(r,α+D,0) has last coordinate −α²/(2r) when αD=0."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: components; addition; inverse; isometry; denominator bounds. Tests: (1) exp(0)=id; (2) exp(B)exp(−B)=id; (3) exp(−α/r)(r,α+D,0) has last coordinate −α²/(2r) when αD=0.",
+      "api": [
+        {
+          "name": "Charles16.94.contract1",
+          "role": "integration",
+          "statement": "Multiplication by exp(B) sends(a,c,s) to(a,c+aB,s+B·c+aB²/2)."
+        },
+        {
+          "name": "Charles16.94.contract2",
+          "role": "integration",
+          "statement": "The transforms satisfy exp(B)exp(C)=exp(B+C), hence exp(−B) is the inverse."
+        },
+        {
+          "name": "Charles16.94.contract3",
+          "role": "integration",
+          "statement": "The transform preserves the rational Mukai pairing; preservation of the separately chosen integral span is a different assertion."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/95",
+          "how": "The consumer Corrected integral twisted Mukai lattice uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.94.test1",
+          "statement": "exp(0)=id",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.94.test2",
+          "statement": "exp(B)exp(−B)=id",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.94.test3",
+          "statement": "exp(−α/r)(r,α+D,0) has last coordinate −α²/(2r) when αD=0.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/95",
@@ -1179,7 +2582,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral generators; rank; pairing; rational untwist; realization. Tests: (1) The rank coordinate is divisible by r; (2) For α=0,r=1 the untwisted lattice is recovered; (3) The main vector untwists to a nonintegral last coordinate when ℓ∤d."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral generators; rank; pairing; rational untwist; realization. Tests: (1) The rank coordinate is divisible by r; (2) For α=0,r=1 the untwisted lattice is recovered; (3) The main vector untwists to a nonintegral last coordinate when ℓ∤d.",
+      "api": [
+        {
+          "name": "Charles16.95.contract1",
+          "role": "integration",
+          "statement": "The selected integral generators are(r,α,0),(0,D_i,0),(0,0,1), for an NS basis D_i."
+        },
+        {
+          "name": "Charles16.95.contract2",
+          "role": "integration",
+          "statement": "A lattice element has components(ar,D+aα,c) with all indicated coordinates integral."
+        },
+        {
+          "name": "Charles16.95.contract3",
+          "role": "integration",
+          "statement": "The rational untwist is evaluated by exp(−α/r), but its image need not be the integral untwisted Mukai lattice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/96",
+          "how": "The consumer Failure of the literal integral-preimage definition uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.95.test1",
+          "statement": "The rank coordinate is divisible by r",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.95.test2",
+          "statement": "For α=0,r=1 the untwisted lattice is recovered",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.95.test3",
+          "statement": "The main vector untwists to a nonintegral last coordinate when ℓ∤d.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/96",
@@ -1201,7 +2645,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: objects and determinant trivialization; scalar inertia; pullback; coarse gerbe. Tests: (1) A scalar automorphism satisfies λ^r=1; (2) Forgetting φ restores G_m scalar inertia; (3) Switching gerbe sign without switching B fails the chosen Mukai convention."
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: objects and determinant trivialization; scalar inertia; pullback; coarse gerbe. Tests: (1) A scalar automorphism satisfies λ^r=1; (2) Forgetting φ restores G_m scalar inertia; (3) Switching gerbe sign without switching B fails the chosen Mukai convention.",
+      "api": [
+        {
+          "name": "Charles16.97.contract1",
+          "role": "integration",
+          "statement": "An object includes a twisted sheaf and an isomorphism from its determinant to the prescribed determinant."
+        },
+        {
+          "name": "Charles16.97.contract2",
+          "role": "integration",
+          "statement": "A scalar automorphism preserving that isomorphism satisfies λ^r=1."
+        },
+        {
+          "name": "Charles16.97.contract3",
+          "role": "integration",
+          "statement": "Forgetting determinant trivialization restores G_m scalar inertia; the coarse K3 space and the gerbe are distinct objects."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/100",
+          "how": "The consumer Integral twisted vectors are realized by perfect complexes uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.97.test1",
+          "statement": "A scalar automorphism satisfies λ^r=1",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.97.test2",
+          "statement": "Forgetting φ restores G_m scalar inertia",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.97.test3",
+          "statement": "Switching gerbe sign without switching B fails the chosen Mukai convention.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/98",
@@ -1212,7 +2697,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: additivity; tensor product; pullback; rational untwist. Tests: (1) B=0 gives ordinary ch(F)√td; (2) Tensoring by an untwisted L multiplies by exp(c₁L); (3) The integral assertion requires the specified lattice, not all rational vectors."
+      "note": "The existing AlgebraicModuliForArithmeticGeometry stages supply parameter spaces, stack foundations and representability criteria, not this stable/twisted-sheaf theory. Import them into its scoped Part II. API: additivity; tensor product; pullback; rational untwist. Tests: (1) B=0 gives ordinary ch(F)√td; (2) Tensoring by an untwisted L multiplies by exp(c₁L); (3) The integral assertion requires the specified lattice, not all rational vectors.",
+      "api": [
+        {
+          "name": "Charles16.98.contract1",
+          "role": "integration",
+          "statement": "The twisted Mukai vector is additive for exact sequences of twisted sheaves."
+        },
+        {
+          "name": "Charles16.98.contract2",
+          "role": "integration",
+          "statement": "Tensoring with an untwisted line bundle L multiplies it by exp(c₁(L))."
+        },
+        {
+          "name": "Charles16.98.contract3",
+          "role": "integration",
+          "statement": "Rational untwisting gives the ordinary Chern-character description, with integrality referred to the specified twisted lattice."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/100",
+          "how": "The consumer Integral twisted vectors are realized by perfect complexes uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.98.test1",
+          "statement": "B=0 gives ordinary ch(F)√td",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.98.test2",
+          "statement": "Tensoring by an untwisted L multiplies by exp(c₁L)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.98.test3",
+          "statement": "The integral assertion requires the specified lattice, not all rational vectors.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/99",
@@ -1289,7 +2815,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: quotient projection; induced pairing; correspondence; realization. Tests: (1) v maps to zero; (2) Replacing a representative by a multiple of v preserves the pairing; (3) For v²≠0 the quotient v^⊥/Zv is not defined this way."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: quotient projection; induced pairing; correspondence; realization. Tests: (1) v maps to zero; (2) Replacing a representative by a multiple of v preserves the pairing; (3) For v²≠0 the quotient v^⊥/Zv is not defined this way.",
+      "api": [
+        {
+          "name": "Charles16.105.contract1",
+          "role": "integration",
+          "statement": "For primitive isotropic v, the pairing descends to v^⊥/Zℓv."
+        },
+        {
+          "name": "Charles16.105.contract2",
+          "role": "integration",
+          "statement": "The induced cohomological isometry identifies this quotient with H²(M(v),Zℓ(1))."
+        },
+        {
+          "name": "Charles16.105.contract3",
+          "role": "integration",
+          "statement": "The correspondence is compatible with the cycle maps and the specified field extensions."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/106",
+          "how": "The consumer Isotropic numerical Mukai map uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.105.test1",
+          "statement": "v maps to zero",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.105.test2",
+          "statement": "Replacing a representative by a multiple of v preserves the pairing",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.105.test3",
+          "statement": "For v²≠0 the quotient v^⊥/Zv is not defined this way.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/106",
@@ -1300,7 +2867,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral representatives; cycle square; p-primary index; base change. Tests: (1) The image of v is zero; (2) The positive square of b_n is preserved; (3) Rational isometry alone does not prove integral surjectivity."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: integral representatives; cycle square; p-primary index; base change. Tests: (1) The image of v is zero; (2) The positive square of b_n is preserved; (3) Rational isometry alone does not prove integral surjectivity.",
+      "api": [
+        {
+          "name": "Charles16.106.contract1",
+          "role": "integration",
+          "statement": "The integral map kills v and therefore acts on v^⊥/Zv."
+        },
+        {
+          "name": "Charles16.106.contract2",
+          "role": "integration",
+          "statement": "It preserves the numerical pairing and commutes with prime-to-p cohomological realization."
+        },
+        {
+          "name": "Charles16.106.contract3",
+          "role": "integration",
+          "statement": "Its cokernel is p-primary under the stated field hypotheses; this does not assert integral surjectivity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/107",
+          "how": "The consumer Primitive isotropic quotient determinant uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.106.test1",
+          "statement": "The image of v is zero",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.106.test2",
+          "statement": "The positive square of b_n is preserved",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.106.test3",
+          "statement": "Rational isometry alone does not prove integral surjectivity.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/107",
@@ -1458,7 +3066,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: n-indexed rank/class; norm computation; exact-order proof. Tests: (1) v_n²=γ²+D²=0; (2) rk v_n=ℓ^n; (3) ℓ∤2d is needed for the unit-norm/order argument."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: n-indexed rank/class; norm computation; exact-order proof. Tests: (1) v_n²=γ²+D²=0; (2) rk v_n=ℓ^n; (3) ℓ∤2d is needed for the unit-norm/order argument.",
+      "api": [
+        {
+          "name": "Charles16.120.contract1",
+          "role": "integration",
+          "statement": "For r=ℓ^n the vector is v_n=(r,γ+D,0), so its rank is r."
+        },
+        {
+          "name": "Charles16.120.contract2",
+          "role": "integration",
+          "statement": "Orthogonality γ·D=0 and γ²=−D² give v_n²=0."
+        },
+        {
+          "name": "Charles16.120.contract3",
+          "role": "integration",
+          "statement": "The unit-norm and geometric transcendental conditions supply the needed primitivity and exact Brauer-order argument separately."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/121",
+          "how": "The consumer Infinite twisted K3 partner sequence uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.120.test1",
+          "statement": "v_n²=γ²+D²=0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.120.test2",
+          "statement": "rk v_n=ℓ^n",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.120.test3",
+          "statement": "ℓ∤2d is needed for the unit-norm/order argument.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/121",
@@ -1469,7 +3118,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: moduli surface; universal kernel where fine; cohomology and NS maps. Tests: (1) Each X_n has dimension two; (2) Different discriminants prohibit geometric isomorphism; (3) A μ_r-gerbe over a K3 is not itself the K3 coarse space."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: moduli surface; universal kernel where fine; cohomology and NS maps. Tests: (1) Each X_n has dimension two; (2) Different discriminants prohibit geometric isomorphism; (3) A μ_r-gerbe over a K3 is not itself the K3 coarse space.",
+      "api": [
+        {
+          "name": "Charles16.121.contract1",
+          "role": "integration",
+          "statement": "At each n construct the coarse K3 moduli space for the specified determinant-trivialized twisted objects."
+        },
+        {
+          "name": "Charles16.121.contract2",
+          "role": "integration",
+          "statement": "The moduli gerbe and any universal kernel enter the cohomological and numerical correspondence with their exact descent hypotheses."
+        },
+        {
+          "name": "Charles16.121.contract3",
+          "role": "integration",
+          "statement": "The discriminant-growth comparison can distinguish geometric isomorphism classes of the resulting surfaces."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/122",
+          "how": "The consumer Unbounded ℓ-discriminant, bounded p-discriminant uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.121.test1",
+          "statement": "Each X_n has dimension two",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.121.test2",
+          "statement": "Different discriminants prohibit geometric isomorphism",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.121.test3",
+          "statement": "A μ_r-gerbe over a K3 is not itself the K3 coarse space.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/122",
@@ -1502,7 +3192,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; numerical Mukai descent; fixed-square comparison. Tests: (1) b_n·v_n=B·D=0; (2) B_n²=B²=2e; (3) B_n need not be asserted ample for Corollary 3.2."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: orthogonality; numerical Mukai descent; fixed-square comparison. Tests: (1) b_n·v_n=B·D=0; (2) B_n²=B²=2e; (3) B_n need not be asserted ample for Corollary 3.2.",
+      "api": [
+        {
+          "name": "Charles16.124.contract1",
+          "role": "integration",
+          "statement": "The vector b_n=(0,B,0) is orthogonal to v_n when B·D=0 and B·γ=0."
+        },
+        {
+          "name": "Charles16.124.contract2",
+          "role": "integration",
+          "statement": "Its image under the numerical Mukai map has square B²=2e>0 independent of n."
+        },
+        {
+          "name": "Charles16.124.contract3",
+          "role": "integration",
+          "statement": "Positive square is the input to Corollary3.2; no ampleness of this particular class is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/125",
+          "how": "The consumer Tate for K3 surfaces of Picard rank at least two uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.124.test1",
+          "statement": "b_n·v_n=B·D=0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.124.test2",
+          "statement": "B_n²=B²=2e",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.124.test3",
+          "statement": "B_n need not be asserted ample for Corollary 3.2.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/125",
@@ -1526,7 +3257,48 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: h_n formula; orthogonal quotient; NS image; square. Tests: (1) h_n·v_n=ℓ^n(γ²+2d)=0; (2) h_n²=2dℓ^(2n); (3) Positive square alone does not imply H_n ample."
+      "note": "No K3-surface, Mukai-moduli, IHS or Beauville–Bogomolov implementation was found in the full pinned source trees. Source-extracted target, not a claim of a complete proof-leaf audit; see prerequisite register and gaps. API: h_n formula; orthogonal quotient; NS image; square. Tests: (1) h_n·v_n=ℓ^n(γ²+2d)=0; (2) h_n²=2dℓ^(2n); (3) Positive square alone does not imply H_n ample.",
+      "api": [
+        {
+          "name": "Charles16.126.contract1",
+          "role": "integration",
+          "statement": "For r=ℓ^n the vector h_n=(r²,rγ,−2d) is orthogonal to v_n."
+        },
+        {
+          "name": "Charles16.126.contract2",
+          "role": "integration",
+          "statement": "Its square is2dr² when γ²=−2d."
+        },
+        {
+          "name": "Charles16.126.contract3",
+          "role": "integration",
+          "statement": "The integral numerical Mukai map produces a line-bundle class of that square, with ampleness left to the explicit partner-applicability gate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/127",
+          "how": "The consumer Polarized partner applicability gate uses this object through the following explicit contracts."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.126.test1",
+          "statement": "h_n·v_n=ℓ^n(γ²+2d)=0",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.126.test2",
+          "statement": "h_n²=2dℓ^(2n)",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.126.test3",
+          "statement": "Positive square alone does not imply H_n ample.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
     },
     {
       "id": "PAPER-CHARLES-16/127",
@@ -1717,6 +3489,338 @@
       "library": [],
       "planned": [],
       "note": "Separated named proof input; no claim of a completed proof-leaf decomposition."
+    },
+    {
+      "id": "PAPER-CHARLES-16/gluing-overlattice-order",
+      "kind": "construction",
+      "name": "Existing even-overlattice order equivalence",
+      "statement": "For an even nondegenerate integral lattice L, even intermediate carriers L⊂M⊂L^∨ correspond by an order isomorphism to quadratic-isotropic subgroups H⊂A_L. The inverse takes the preimage of H in L^∨.",
+      "locator": "Nikulin1.4.1; pinned Overlattice/Isotropic.lean:343",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.evenIntermediateCarrierOrderIsoIsotropicSubgroup"
+      ],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/30",
+        "PAPER-CHARLES-16/31",
+        "PAPER-CHARLES-16/33"
+      ],
+      "proofSteps": [],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization.",
+      "api": [
+        {
+          "name": "Charles16.gluing_overlattice_order.toSubgroup",
+          "role": "integration",
+          "statement": "Send M to M/L inside the discriminant group."
+        },
+        {
+          "name": "Charles16.gluing_overlattice_order.inversePreimage",
+          "role": "computation",
+          "statement": "The inverse carrier is the preimage of H under L^∨→A_L."
+        },
+        {
+          "name": "Charles16.gluing_overlattice_order.orderCompatibility",
+          "role": "transport",
+          "statement": "Inclusion of carriers corresponds exactly to inclusion of isotropic subgroups."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/nikulin-embedding-data",
+          "how": "Construct the even overlattice defined by the isotropic graph."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.gluing_overlattice_order.test1",
+          "statement": "The zero subgroup reconstructs L.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.gluing_overlattice_order.test2",
+          "statement": "A Lagrangian isotropic subgroup gives a unimodular overlattice when the pairing is nondegenerate.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.gluing_overlattice_order.test3",
+          "statement": "A merely bilinear-isotropic subgroup with nonzero quadratic value does not define an even overlattice.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
+    },
+    {
+      "id": "PAPER-CHARLES-16/gluing-quotient-isometry",
+      "kind": "construction",
+      "name": "Existing discriminant isometry of an even overlattice",
+      "statement": "If L is even and nondegenerate and M is an even intermediate carrier, the discriminant quadratic module of M is canonically isometric to H^⊥/H, H=M/L, in the library half-norm Q/Z convention.",
+      "locator": "Nikulin1.4.1(b); pinned OrthogonalQuotient/Quadratic.lean:216–241",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry",
+        "tauceti:TauCeti.IntegralLattice.IntermediateCarrier.discriminantOrthogonalQuotientIsometry_mk"
+      ],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/gluing-overlattice-order"
+      ],
+      "proofSteps": [],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization.",
+      "api": [
+        {
+          "name": "Charles16.gluing_quotient_isometry.representative",
+          "role": "computation",
+          "statement": "A class of y∈M^∨ maps to the quotient class of its discriminant class in A_L."
+        },
+        {
+          "name": "Charles16.gluing_quotient_isometry.quadraticValue",
+          "role": "integration",
+          "statement": "Both sides assign the class of y the value B(y,y)/2 modulo Z."
+        },
+        {
+          "name": "Charles16.gluing_quotient_isometry.fullNormAdapter",
+          "role": "transport",
+          "statement": "Apply the isomorphism Q/Z→Q/2Z sending [r] to [2r] before using Nikulin full-norm values."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/39",
+          "how": "Identify the graph quotient used in the transported embedding."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.gluing_quotient_isometry.test1",
+          "statement": "For M=L the comparison is the identity quotient by zero.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.gluing_quotient_isometry.test2",
+          "statement": "For Lagrangian H the target discriminant group is zero.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.gluing_quotient_isometry.test3",
+          "statement": "On <2d> the half-norm 1/(4d) becomes the full-norm 1/(2d), not the same numerical fraction.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
+    },
+    {
+      "id": "PAPER-CHARLES-16/rank-one-generator",
+      "kind": "theorem",
+      "name": "Existing rank-one discriminant generator formula",
+      "statement": "For m∈Z nonzero, the canonical generator of the discriminant group of <2m> has half-norm 1/(4m) modulo Z; its k-th multiple has half-norm k²/(4m). The associated self-pairing is 1/(2m) modulo Z.",
+      "locator": "Pinned IntegralLattice/RankOne.lean:351–375",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_rankOneClass",
+        "tauceti:TauCeti.IntegralLattice.discriminantQuadraticMap_zsmul_rankOneClass",
+        "tauceti:TauCeti.IntegralLattice.discriminantPairing_rankOneClass_self"
+      ],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/31"
+      ],
+      "proofSteps": [
+        "Import the exact representative formulas and use the half/full-norm convention adapter."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/nikulin-embedding-data",
+      "kind": "construction",
+      "name": "Primitive embedding data with complement identification",
+      "statement": "For an even lattice S of signature(s₊,s₋) and target genus(m₊,m₋,q), take H_S⊂A_S,H_q⊂A_q, an isometry γ of restricted forms, δ=(q_S⊕−q)|Γ_γ^⊥/Γ_γ, an even K of signature(m₊−s₊,m₋−s₋), and an isometry γ_K:q_K→−δ. Primitive embeddings are classified up to target isometry by these data modulo target-discriminant isometries and compatible complement isometries. Passing to sublattice orbits additionally permits source isometries.",
+      "locator": "Nikulin1.15.1, printed128–129, with1.15.3–5 for distinguished discriminant forms",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/gluing-overlattice-order",
+        "PAPER-CHARLES-16/gluing-quotient-isometry"
+      ],
+      "proofSteps": [
+        "Choose an auxiliary lattice T with q_T=−q, unique genus and surjective O(T)→O(q_T).",
+        "Realize target lattices as complements of primitive T in a sufficiently large even unimodular lattice.",
+        "First classify even graph overlattices of S⊕T with both factors primitive, then primitive embeddings of that overlattice; the remaining complement is K.",
+        "Quotient by the indicated source, target and complement actions according to whether embeddings or sublattices are classified."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization.",
+      "api": [
+        {
+          "name": "Charles16.nikulin_embedding_data.graphIsotropic",
+          "role": "integration",
+          "statement": "The graph Γ_γ is isotropic for q_S⊕−q."
+        },
+        {
+          "name": "Charles16.nikulin_embedding_data.complementSign",
+          "role": "integration",
+          "statement": "The orthogonal complement has discriminant form −δ and signature equal to the target-minus-source signature."
+        },
+        {
+          "name": "Charles16.nikulin_embedding_data.orbitEquivalence",
+          "role": "transport",
+          "statement": "For fixed source marking, equivalent data have H_S=H′_S and admit ξ∈O(q),φ:K≅K′ with γ′=ξγ and ξ_bar γ_K=γ′_K φ_bar; source-unmarked sublattices additionally allow O(S)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PAPER-CHARLES-16/37",
+          "how": "Supply the exact existence criterion without mistaking the classification for raw tuples."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "Charles16.nikulin_embedding_data.test1",
+          "statement": "A negative rank-one complement produces a positive cyclic δ.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.nikulin_embedding_data.test2",
+          "statement": "Changing a complement marking can preserve the embedding orbit without preserving the raw tuple.",
+          "status": "proposed"
+        },
+        {
+          "name": "Charles16.nikulin_embedding_data.test3",
+          "statement": "The data of an arbitrary nonprimitive sublattice is rejected at the primitive-embedding constructor.",
+          "status": "proposed"
+        }
+      ],
+      "apiStatus": "Proposed integration contracts; no new name or test is claimed compiled."
+    },
+    {
+      "id": "PAPER-CHARLES-16/hyperbolic-genus-uniqueness",
+      "kind": "theorem",
+      "name": "Genus uniqueness for a lattice containing a hyperbolic plane",
+      "statement": "For an even lattice T, U⊕T is the unique even lattice up to isometry having its signature and discriminant quadratic form. In particular the genus specified by signature(2,1) and the discriminant form of <2n> is represented uniquely by Λ₂n=<2n>⊕U.",
+      "locator": "Nikulin Corollary1.13.4 (Stability), printed124",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/30",
+        "PAPER-CHARLES-16/31"
+      ],
+      "proofSteps": [
+        "Use the stated stability corollary to the even rank-one lattice <2n>.",
+        "Its deeper existence/local-classification and strong-approximation proof inputs remain a source decomposition obligation; do not replace integral isometry by rational equivalence."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/negative-rank-one-complement",
+      "kind": "theorem",
+      "name": "Rank-one complement specialization",
+      "statement": "An even negative definite lattice of rank one is <-2t> for a unique t>0. Its discriminant group is cyclic of order2t with generator full norm −1/(2t), so −q_K has generator norm +1/(2t).",
+      "locator": "Nikulin1.15.1 specialized to Charles2.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/rank-one-generator"
+      ],
+      "proofSteps": [
+        "Choose a Z-basis e, write its negative even norm as −2t, and identify the dual generator as e/(−2t).",
+        "Compute its self-pairing and negate the discriminant form."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/nonprimitive-obstruction",
+      "kind": "theorem",
+      "name": "Counterexample to the arbitrary-sublattice formulation",
+      "statement": "In Λ₂=<2>⊕U, the positive sublattice S generated by2h and2(e+f) has Gram matrix diag(8,8), but the abstract lattice S has no primitive embedding into Λ₂. Thus the printed Proposition2.9 without initial primitivity fails already at m=1, which satisfies every listed congruence and coprimality condition.",
+      "locator": "Derived audit of Proposition2.9, printed500–502",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/36"
+      ],
+      "proofSteps": [
+        "If a primitive embedding existed, reduction mod2 would inject S/2S as a two-dimensional subspace of Λ₂/2Λ₂.",
+        "The half-norm Q(x,y,z)=x²+yz mod2 would vanish on that subspace, since every norm of S is divisible by8.",
+        "The three nonzero singular vectors are(0,0,1),(0,1,0),(1,1,1); the sum of any two has Q=1. Hence no such plane exists.",
+        "The given nonprimitive embedding shows S really is a sublattice of the type allowed by the printed statement."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/explicit-primitive-splitting",
+      "kind": "theorem",
+      "name": "An explicit split primitive positive-plane carrier",
+      "statement": "For d,k>0, v=(0,1,1) and w=(k,1,0) in the h,e,f coordinates of Λ₂d span a primitive rank-two submodule. The retraction P(x,y,z)=(z,y−z) satisfies P(av+bw)=(a,b).",
+      "locator": "Explicit refinement of Theorem2.10 initial lattice choice",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/36"
+      ],
+      "proofSteps": [
+        "Compute av+bw=(bk,a+b,a).",
+        "Apply the displayed integral retraction to obtain(a,b).",
+        "The split quotient is a direct summand of a free Z-module, hence torsion-free; this is primitivity."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/explicit-positive-plane",
+      "kind": "theorem",
+      "name": "Positive-definite Gram matrix for the Zarhin plane",
+      "statement": "For d,k>0, the Gram matrix in v,w is [[2,1],[1,2dk²]], with determinant4dk²−1>0. Hence the span is positive definite and v²=2,v·w=1.",
+      "locator": "Explicit refinement of Theorem2.10 initial lattice choice",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/explicit-primitive-splitting"
+      ],
+      "proofSteps": [
+        "Compute all four pairings using h²=2d,e·f=1 and other cross terms zero.",
+        "Use the positive leading minor2 and determinant4dk²−1>0."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/explicit-orthogonal-class",
+      "kind": "theorem",
+      "name": "Positive class orthogonal to the norm-two vector",
+      "statement": "With v,w as above, l=2w−v=(2k,1,−1) satisfies l·v=0 and l²=2(4dk²−1)>0. The complement of Zv+Zw in Λ₂d is generated by u=(1,2dk,−2dk), with u²=−2d(4dk²−1).",
+      "locator": "Explicit refinement of Theorem2.10 initial lattice choice",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/explicit-positive-plane"
+      ],
+      "proofSteps": [
+        "Calculate l·v=2−2=0 and l²=4w²−4+2.",
+        "Solve b(u,v)=y+z=0 and b(u,w)=2dkx+z=0; the solution is the Z-span of the displayed primitive u."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
+    },
+    {
+      "id": "PAPER-CHARLES-16/explicit-prime-to-n",
+      "kind": "theorem",
+      "name": "Prime-to-n orthogonal norm by one explicit choice",
+      "statement": "For d>0 and any odd integer n, choose k>0 divisible by |n|. Then l²=2(4dk²−1)≡−2 modn, so gcd(l²,n)=1. This provides the exact initial lattice needed by the prime-to-n part of Theorem2.10.",
+      "locator": "Explicit refinement of Theorem2.10, printed503",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "prerequisites": [
+        "PAPER-CHARLES-16/explicit-orthogonal-class"
+      ],
+      "proofSteps": [
+        "Reduce the norm formula modulo n; k is zero modulo n.",
+        "Since n is odd,2 is a unit modulo n."
+      ],
+      "note": "Continuation by Codex, codex-c83e7a. Proposed proof/API decomposition, not a new formalization."
     }
   ],
   "prerequisites": [
@@ -2002,9 +4106,17 @@
         "PAPER-CHARLES-16/115",
         "PAPER-CHARLES-16/118",
         "PAPER-CHARLES-16/131",
-        "PAPER-CHARLES-16/142"
+        "PAPER-CHARLES-16/142",
+        "PAPER-CHARLES-16/nikulin-embedding-data",
+        "PAPER-CHARLES-16/hyperbolic-genus-uniqueness",
+        "PAPER-CHARLES-16/negative-rank-one-complement",
+        "PAPER-CHARLES-16/nonprimitive-obstruction",
+        "PAPER-CHARLES-16/explicit-primitive-splitting",
+        "PAPER-CHARLES-16/explicit-positive-plane",
+        "PAPER-CHARLES-16/explicit-orthogonal-class",
+        "PAPER-CHARLES-16/explicit-prime-to-n"
       ],
-      "reason": "GN.2 owns new integral-lattice arithmetic/local classification and GN.3 reduction/finiteness. Supply Nikulin primitive-embedding arithmetic, the isotropic quotient determinant, unit norm representation, Frobenius-similitude lattice bounds and Cassels finiteness. Import the already implemented discriminant/index/gluing operations; do not re-plan the completed lattice roadmap."
+      "reason": "GN.2 owns new integral-lattice arithmetic/local classification and GN.3 reduction/finiteness. Supply Nikulin primitive-embedding arithmetic, the isotropic quotient determinant, unit norm representation, Frobenius-similitude lattice bounds and Cassels finiteness. Import the already implemented discriminant/index/gluing operations; do not re-plan the completed lattice roadmap. The continuation adds the exact Nikulin embedding-data/orbit boundary, genus specialization, primitive-input counterexample and explicit split positive plane; completed overlattice and discriminant-quotient constructions are imported."
     },
     {
       "route": "source",
@@ -2088,7 +4200,158 @@
     ],
     "reviewedAudits": "Accepted data/library-coverage entries: IntegralLattices and HodgeStructures, GN.2–GN.3, R09.2/R09.4–R09.6, SF.5, V2/V3/V6 and A5. MC.7 has no accepted audit entry; absence is not treated as evidence of implementation.",
     "screen": "Full live atlas stage keyword screen, all six new-roadmap definitions, current packet/reservations, relevant CrystallineCohomology decomposition, and all 27 existing paper-extraction route lists were screened. K3BlochGroups is unrelated; Schröer23's proposed low-degree Hodge obstruction does not supply K3 moduli, KS or Tate. Paper proposals are not accepted ownership. No finer accepted K3 node was found.",
-    "librarySearch": "Full pinned trees searched for K3 surface/K3Surface/Mukai/Kuga–Satake/Beauville–Bogomolov/Gieseker and then relevant lattice, Hodge, Clifford, arithmetic and algebraic geometry files read. Generic carriers found do not imply the geometric comparison theorems."
+    "librarySearch": "Full pinned trees searched for K3 surface/K3Surface/Mukai/Kuga–Satake/Beauville–Bogomolov/Gieseker and then relevant lattice, Hodge, Clifford, arithmetic and algebraic geometry files read. Generic carriers found do not imply the geometric comparison theorems.",
+    "continuationInputs": {
+      "commit": "b9ef2b38b59f373280dd37078ecab65302b4fa36",
+      "files": [
+        {
+          "path": "data/galaxies.json",
+          "sha": "89f0352d24d02608d86d3de3df5514237525b085",
+          "sha256": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/SchemeAndStackFoundations.json",
+          "sha": "aaec9029ac3aefb14f0c2c907892175d5ba81ad5",
+          "sha256": "8dfcf7991df934b92f40c7dc4847b0652abdfb2aca944030a810708f9c16eee3"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_TauCetiRoadmap_HodgeStructures.json",
+          "sha": "5fb9437075a46813637581d7dba7bb82eb96dc4f",
+          "sha256": "7e395c747845a1cbec4fe36d6cbf2fc1f9a3bd1e3bd79adcebc2c12bc84c7eab"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/GeometryOfNumbersAndQuadraticArithmetic.json",
+          "sha": "4ee35bd340108a6a826a34cad45702e6f9fb9218",
+          "sha256": "44313f60897d5b4d49369910a59bf5df9df99ef9e961c5f9036a5abb72e1f0f5"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/ShimuraVarieties.json",
+          "sha": "eaa7eeec837aaf4517aeeba705d6157b0f64d036",
+          "sha256": "75920964ec2513279bcff9dbd8f63378bb64209a516eaf643a20bfc3ad512b9c"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/AbelianSchemesAndArithmeticModuli.json",
+          "sha": "574399121b1012d154326784ad939833fa2bf121",
+          "sha256": "5cd0830d43721526c6d147770a66f39a20c826c00a91ef531061771781596d44"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/AlgebraicModuliForArithmeticGeometry.json",
+          "sha": "0961df6b38bce5ff65eac7bab014e38366fa841f",
+          "sha256": "f9c8c1c120bf3e45f91d6b76cce6d454c2c49171e0cff411c2acfcd6b91d2c9e"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/MotivesAndAlgebraicCycles.json",
+          "sha": "cb06caf9a1fe1d709a66190d84058ef72245e925",
+          "sha256": "b7859a72b54edf53c86a2c343f214de6d87854f49ed69137332aa038676958ff"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/CrystallineCohomology.json",
+          "sha": "3843465c3f01e170ee8a841b2bc35848c1b0cd15",
+          "sha256": "e43dfec02ab12e470c71b4a4d5dab7cf8943707fb4f5af2956493e2b350a173d"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticHabiroStack.json",
+          "sha": "6d34100064c7480cfc26770bd73b39c91359ee10",
+          "sha256": "b6ebaa83923f6ffbbbc5b73495c5527847f1d5fdbba72f3fe305d26ede7aba94"
+        },
+        {
+          "path": "research/blueprint/reserved-ids.json",
+          "sha": "f2a86b67bbdefd74db66350b301213dcdd5e38c7",
+          "sha256": "22f0dad16ad219df1f0066cf2fc0873406a67e56dd5a8ec5ceda786f1c868dd8"
+        },
+        {
+          "path": "research/blueprint/roadmaps/SolidAnalyticRings.json",
+          "sha": "bd5008d8760f0657c4aac7c1be956f5076d44f8d",
+          "sha256": "9de5144b60ea47695a1cd8c470e429c95edc80676028170daddef3124da90907"
+        },
+        {
+          "path": "research/blueprint/roadmaps/AnalyticStacks.json",
+          "sha": "7eab859457d749fd5107b4baa74afb2ff20e9b9e",
+          "sha256": "8bf2ae0bc22842249e90d3012a02d4a3c8f0e21d00a79d66cbba449b28f70fc8"
+        },
+        {
+          "path": "research/blueprint/roadmaps/QWittVectors.json",
+          "sha": "ec2e7e68136b0ef578bdceaee40328682c5d2ec7",
+          "sha256": "020face16ac29a185f65ba97df49e789f0ce2bb2f08987138e463da590bdcfeb"
+        },
+        {
+          "path": "research/blueprint/roadmaps/MordellLawrenceVenkatesh.json",
+          "sha": "b18c75cd5ea017e32be3733f9d060d97dd151979",
+          "sha256": "9e3a4bb41dcec200da9d585ebb7ae48ad86f2586bd49db05dd78d7f1f991ccf4"
+        },
+        {
+          "path": "research/blueprint/roadmaps/RingStacksAndTransmutation.json",
+          "sha": "601a0f69d0858c3ae12a8ea0247dad21f442a1f5",
+          "sha256": "dee6c46a99899e6099477de16d6425177379bef1755eb58323d3f1655280f31c"
+        },
+        {
+          "path": "data/decompositions/CrystallineCohomology.json",
+          "sha": "bc81e506e998bb48f88039193d59e0f262332e3b",
+          "sha256": "23aa8927522d17f709b0709fac64d5f1409f8c4b66dd10d8a9d0545e2684e23e"
+        },
+        {
+          "path": "research/blueprint/packets/MordellLawrenceVenkatesh.json",
+          "sha": "3e9fc70217ab990b7b90545864c9d01f3030d452",
+          "sha256": "fa17428278b416a12293056c898ae18c4daae8df74fe2fc3cc138b7b4d029d01"
+        },
+        {
+          "path": "data/library-coverage.json",
+          "sha": "5e708cfc74a51b10e62149113872fe4e00eb5846",
+          "sha256": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a"
+        },
+        {
+          "path": "content/campaign/SchemeAndStackFoundations/README.md",
+          "sha": "a437e4e97312801aff024ad29dafa30165ed5f1c",
+          "sha256": "0f4e5ebf672d01737bd2c89fba5b510f202f42ba22bbdd68a6542e8173da1de0"
+        },
+        {
+          "path": "content/campaign/MotivesAndAlgebraicCycles/README.md",
+          "sha": "7c320ccc03f0b4b0662574325c4043955153acdb",
+          "sha256": "bfefe58a919f1b4dd74b6860e1f005e1820032ed28b4003744d7a9ec9d718c2a"
+        },
+        {
+          "path": "content/campaign/CrystallineCohomology/README.md",
+          "sha": "6827bf7d66ca7e5fa031c78e085e6cc60ddc545a",
+          "sha256": "a87065cba1ebaec679da931cdd3923a6647c70d19c8cec3facd7310ec319d312"
+        },
+        {
+          "path": "content/campaign/AbelianSchemesAndArithmeticModuli/README.md",
+          "sha": "53b01d15c3ec4171501db0e5e86584836bc46dd9",
+          "sha256": "b229fca45253186f2cf113cbb00e988e77da2874378080cb4293174f4572c381"
+        },
+        {
+          "path": "content/tau-ceti/HodgeStructures/README.md",
+          "sha": "2e06a385b7a0a2a02c15cddc729b7702783b6011",
+          "sha256": "11ab7306fedb91d80b4035283d0a436e9fc5bdb76e52d1ea6316cbb9735351ff"
+        },
+        {
+          "path": "content/campaign/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+          "sha": "7ac6436fd499048580cb800ee15936735bf05ffe",
+          "sha256": "57f8b849bc9b1f57959720e5c79db4ccb1c3d95305b455aa91f3e03029731398"
+        },
+        {
+          "path": "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md",
+          "sha": "ce1b763bc3909c5098d9a390f4e930c757b99b8b",
+          "sha256": "a137c6fcec0a00edaca46278b6212d97255fa43230f3fef239a13b24793bc3b4"
+        },
+        {
+          "path": "content/campaign/ShimuraVarieties/README.md",
+          "sha": "7485ef704a0e85c2afd5602ae8726e9795364a84",
+          "sha256": "a9241ee41d43d4566029e0fda7ce333c3ee4b22f242a4143052a0d3001b29744"
+        },
+        {
+          "path": "research/blueprint/atlas/roadmaps/tauceti_Completed_IntegralLattices.json",
+          "sha": "4877dbe1dffe211e11a650c6acacef092f85584b",
+          "sha256": "f80ae936e74f25b91bcb101594478022a766d43a636369f7ac31d6282586d597"
+        },
+        {
+          "path": "content/tau-ceti/Completed/IntegralLattices/README.md",
+          "sha": "f43ed8eedd4356ede2cb63490af233b185498a61",
+          "sha256": "87545eac9c63a89aae8aff5401ef50384eee3cf2d11c28c5054498a7cf58de9b"
+        }
+      ]
+    },
+    "continuationNote": "GN.2/GN.3 full stages and accepted audit targets read; existing route owners retained. Built Hodge/Clifford/Hensel/Dirichlet and lattice references reopened at the pins. New overlattice order-equivalence, orthogonal-quotient isometry and rank-one generator formulas read from their actual source statements."
   },
   "gaps": [
     {
@@ -2129,8 +4392,8 @@
         "PAPER-CHARLES-16/37",
         "PAPER-CHARLES-16/38"
       ],
-      "title": "Primitive embedding source boundary",
-      "detail": "Read Nikulin Prop.1.15.1 itself, including equivalence of embedding data and primitive initial embedding hypotheses. Charles's proof starts with an embedding datum while its statement says rank-two sublattice; check saturation/primitive replacement rather than treating arbitrary raw embeddings as bijective with unquotiented tuples. Items remain routed as proof-open targets, not certified theorem interfaces."
+      "title": "Primitive embedding interfaces resolved; deeper source proof leaves remain",
+      "detail": "Primary Nikulin text1.4–1.6,1.13.4,1.14.2 and1.15.1–5 was read through the publisher web PDF. Item37 now separates genus existence from marked embedding/sublattice orbit classification. Item38 now requires an initial primitive embedding; nonprimitive-obstruction proves the printed broader statement false. Item41 now has an explicit primitive construction with all prime-to-n properties. Full local PDF acquisition/image checks and deeper local genus/strong-approximation proofs remain open; the text extraction contains some OCR-damaged formulas. No full Nikulin-paper read is claimed."
     },
     {
       "id": "G6",
@@ -2217,5 +4480,25 @@
       "name": "No generalized question as theorem",
       "expect": "Theorem 3.3 permits replacing L. Characteristic-two general Tate, all-prime integral models and uniform |aL| for original L are not asserted."
     }
-  ]
+  ],
+  "continuationCoverage": {
+    "continuationCounts": {
+      "missing": 128,
+      "library": 11,
+      "planned": 14
+    },
+    "continuationItems": 153,
+    "structuredDefinitionsAndConstructions": 44,
+    "structuredAPIContracts": 132,
+    "structuredProposedTests": 132
+  },
+  "continuation": {
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "date": "2026-09-22",
+    "priorPR": 1669,
+    "status": "partial",
+    "leanCompiled": false,
+    "scope": "Lattice proof interfaces and API structure; no closure claim for remaining Hodge/moduli/Tate proof gates."
+  }
 }
