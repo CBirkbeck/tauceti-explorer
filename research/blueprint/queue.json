@@ -4036,8 +4036,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SKOROBOGATOV-SOFOS-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1256"
+   "state": "pending",
+   "note": "released on GitHub issue #1256"
   },
   {
    "id": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
