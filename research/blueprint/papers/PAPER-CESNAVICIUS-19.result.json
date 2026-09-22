@@ -1398,7 +1398,7 @@
       "id": "PAPER-CESNAVICIUS-19/finite-etale-push",
       "kind": "theorem",
       "name": "Exact étale pushforward for finite morphisms",
-      "statement": "For a finite scheme morphism π, the pushforward on abelian étale sheaves is exact. For a smooth affine group on the finite source, the nonabelian R¹π_* obstruction vanishes on strict-local stalks in the application of Proposition2.2.",
+      "statement": "For a finite scheme morphism π, the pushforward on abelian étale sheaves is exact. In particular, for π:V_{R′}→V finite and H a commutative smooth affine group scheme on V_{R′}, R¹π_*H=0 and H¹(V,π_*H)≅H¹(V_{R′},H). This abelian case is what Propositions 2.2 (commutative specialization), 2.3 and Corollary 2.4 use.",
       "locator": "Propositions2.2–2.3; SGA4II VIII5.5; Gir71 V3.1.3",
       "status": "missing",
       "ownershipGroup": "SF2",
@@ -1408,19 +1408,13 @@
       ],
       "proofSteps": [
         "Compute finite inverse images of strict-local schemes as finite products of strict-local schemes.",
-        "Prove the abelian derived and nonabelian degree-one comparisons separately."
+        "Deduce exactness of π_* on abelian étale sheaves (SGA4 VIII 5.5) and the Leray comparison of H¹."
       ],
       "implementationStatus": "not formalized by this job",
       "gaps": [
-        "G-NONABELIAN",
         "G-TOPOS"
       ],
       "uses": [
-        {
-          "where": "Proposition2.2",
-          "item": "PAPER-CESNAVICIUS-19/h1-descent",
-          "how": "Uses Exact étale pushforward for finite morphisms to supply the stated prerequisite in Finite-flat H¹ injectivity (printed scope pending proof check)."
-        },
         {
           "where": "Proposition2.2, abelian specialization used in2.3–2.4",
           "item": "PAPER-CESNAVICIUS-19/h1-abelian",
@@ -1436,7 +1430,42 @@
         "locator": "Propositions2.2–2.3; SGA4II VIII5.5; Gir71 V3.1.3",
         "match": "Main-paper statement/proof or selected supporting-source passage read; unresolved external proof inputs are named in gaps.",
         "source": "main"
-      }
+      },
+      "note": "Split by the continuation of Claude Code (cc-fb70e5, 22 September 2026). The nonabelian degree-one comparison, needed only by the printed-scope item h1-descent, is now finite-etale-push-nonabelian. This item no longer carries G-NONABELIAN."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian",
+      "kind": "theorem",
+      "name": "Nonabelian degree-one comparison for finite pushforward",
+      "statement": "For π:V_{R′}→V finite and G a smooth affine group scheme, the nonabelian sheaf R¹π_*(G_{V_{R′}}) vanishes, as checked on strict henselizations, and hence H¹(V,Res_{R′/R}(G_{R′}))≅H¹(V_{R′},G) as pointed sets ([Gir71, V.3.1.3]).",
+      "locator": "Proposition 2.2 proof; Gir71 V3.1.3",
+      "status": "missing",
+      "ownershipGroup": "SF2",
+      "prerequisites": [
+        "PAPER-CESNAVICIUS-19/strict-henselian",
+        "PAPER-CESNAVICIUS-19/sheaf-cohom"
+      ],
+      "proofSteps": [
+        "Finite inverse images of strict-local schemes are finite products of strict-local schemes, on which torsors under smooth groups are trivial.",
+        "Apply Giraud's nonabelian Leray comparison in degree one."
+      ],
+      "implementationStatus": "not formalized by this job",
+      "gaps": [
+        "G-TOPOS"
+      ],
+      "uses": [
+        {
+          "where": "Proposition2.2",
+          "item": "PAPER-CESNAVICIUS-19/h1-descent",
+          "how": "Uses the nonabelian degree-one comparison to supply the stated prerequisite in Finite-flat H¹ injectivity (printed scope pending proof check)."
+        }
+      ],
+      "sourceEvidence": {
+        "locator": "Proposition 2.2 proof; Gir71 V3.1.3",
+        "match": "Main-paper statement read; Giraud not re-read (G-TOPOS).",
+        "source": "main"
+      },
+      "note": "Split from finite-etale-push (cc-fb70e5). Used only by h1-descent."
     },
     {
       "id": "PAPER-CESNAVICIUS-19/h1-descent",
@@ -1448,7 +1477,7 @@
       "ownershipGroup": "SF1",
       "prerequisites": [
         "PAPER-CESNAVICIUS-19/quotient-representable",
-        "PAPER-CESNAVICIUS-19/finite-etale-push"
+        "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian"
       ],
       "proofSteps": [
         "Extend Q(V) to Q(R) by the affine/Hartogs adjunction.",
@@ -1459,7 +1488,7 @@
       "gaps": [
         "G-NONABELIAN"
       ],
-      "note": "The later uses have commutative G, where kernel-triviality suffices. This is a proof gap to investigate, not a claimed counterexample to the paper.",
+      "note": "The later uses have commutative G, where kernel-triviality suffices; they depend on h1-abelian, not on this item. No other item depends on this one. The printed proof checks only that H(V)→X(V) is surjective, which is the untwisted case. Full pointed-set injectivity for noncommutative G would also need surjectivity of the twisted maps (^P H)(V)→(^P X)(V) for G-torsors P on V that do not extend to R. This is recorded as research/blueprint/errata/PAPER-CESNAVICIUS-19.json, E1 (gap). It is an open proof gap, not a claimed counterexample.",
       "uses": [],
       "sourceEvidence": {
         "locator": "Proposition2.2",
@@ -6915,6 +6944,7 @@
       "items": [
         "PAPER-CESNAVICIUS-19/cohom-brauer",
         "PAPER-CESNAVICIUS-19/finite-etale-push",
+        "PAPER-CESNAVICIUS-19/finite-etale-push-nonabelian",
         "PAPER-CESNAVICIUS-19/h2-descent",
         "PAPER-CESNAVICIUS-19/h2-torsion-descent",
         "PAPER-CESNAVICIUS-19/etale-h2-descent",
@@ -7176,9 +7206,8 @@
   "gaps": [
     {
       "id": "G-NONABELIAN",
-      "detail": "Proposition2.2's proof shows a trivial neutral fibre. Read Gir71 III3.2.2 and verify full twisted-fibre injectivity under only its printed hypotheses. Do not promote neutral-kernel triviality to pointed-set injectivity. The commutative specialization is unaffected.",
+      "detail": "Proposition2.2's proof shows a trivial neutral fibre. Read Gir71 III3.2.2 and verify full twisted-fibre injectivity under only its printed hypotheses. Do not promote neutral-kernel triviality to pointed-set injectivity. The commutative specialization is unaffected. Non-blocking since the cc-fb70e5 continuation: the nonabelian R¹π_* clause is split into finite-etale-push-nonabelian (gate G-TOPOS), and h1-descent, the only item carrying this gap, has no dependants. All uses, in Proposition 2.3 and Corollary 2.4, go through h1-abelian. The mathematical question stays open (errata E1).",
       "consumers": [
-        "PAPER-CESNAVICIUS-19/finite-etale-push",
         "PAPER-CESNAVICIUS-19/h1-descent"
       ],
       "status": "open"
