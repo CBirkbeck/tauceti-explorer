@@ -2816,7 +2816,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1184"
   },
   {
    "id": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
@@ -6835,8 +6836,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BAKKER-KLINGLER-TSIMERMAN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1422"
+   "state": "pending",
+   "note": "released on GitHub issue #1422"
   },
   {
    "id": "REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
