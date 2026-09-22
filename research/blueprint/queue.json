@@ -1033,8 +1033,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1083"
+   "state": "external",
+   "note": "claimed on GitHub issue #1083"
   },
   {
    "id": "REV-PAPER-FU-24",
@@ -2740,8 +2740,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CHARLES-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1188"
+   "state": "pending",
+   "note": "released on GitHub issue #1188"
   },
   {
    "id": "REV-PAPER-CHARLES-16",
