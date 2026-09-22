@@ -4733,7 +4733,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1314"
   },
   {
    "id": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -4964,8 +4965,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1328"
+   "state": "pending",
+   "note": "released on GitHub issue #1328"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-19",
