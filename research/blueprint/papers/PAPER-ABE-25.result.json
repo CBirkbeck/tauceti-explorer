@@ -1,0 +1,3206 @@
+{
+  "paper": "PAPER-ABE-25",
+  "protocol": "paper-v1",
+  "status": "partial",
+  "source": {
+    "title": "On the Serre conjecture for Artin characters in the geometric case",
+    "authors": "Tomoyuki Abe",
+    "venue": "Inventiones mathematicae 241 (2025), 605–622",
+    "doi": "10.1007/s00222-025-01345-w",
+    "arxiv": "2405.19601",
+    "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01345-w.pdf",
+    "version": "Published open-access version; all 18 pages read, including proofs, footnotes and references.",
+    "retrieved": "2026-09-22",
+    "sha256": "f789468ee535bf3347550763fb4f9fce85efa8628247b01a9df2b04b008afb83",
+    "readSections": [
+      "Introduction and conventions, pp.605–607",
+      "§1.1–1.6, pp.607–615, including all of the proof of Theorem 1.5",
+      "§2.1–2.6, pp.615–620",
+      "§3.1–3.3 and acknowledgements/references, pp.620–622"
+    ],
+    "comparison": {
+      "url": "https://arxiv.org/pdf/2405.19601v2",
+      "sha256": "56d897a77e1a3ef0455c861d0f5bd5b499f47ea9420fd5fcca0594e794c020a6",
+      "scope": "Selected comparisons of Theorem 1.6 proof and §§3.1/3.3 only; not a full version diff. The reported formulas remain in v2 (13 June 2025)."
+    },
+    "pageInspection": "Published pp.613 and 621 inspected as page images; source issues are not inferred solely from OCR."
+  },
+  "summary": "Abe proves both positivity and Qℓ-realizability of the higher-dimensional local Artin character for regular local rings containing a finite field. The proof combines an equivariant local-Fourier total-dimension identity with a relative Lefschetz–Verdier trace and ULA extension after alteration. Ordinary nearby cycles and cohomological correspondences are existing atlas imports. General-coherent-base extension, categorical relative traces, projective Swan modules and the geometric Artin theorem require continuations. This is a substantive partial extraction: the whole main paper is read, but the external Kato–Saito–Saito reduction and recursive general-base proof leaves remain open.",
+  "conventions": {
+    "C1": "A is a regular local ring with maximal ideal m and finite group G acting by local automorphisms. A^G is Noetherian, A is finite over A^G, A/Iσ has finite length for every σ≠1, Iσ=(a−σ(a):a∈A), and A^G/(m∩A^G)→A/m is an isomorphism. The main theorem additionally assumes A contains a finite field, hence characteristic p>0; ℓ is invertible in A.",
+    "C2": "In the geometric theorem k is algebraically closed of characteristic p>0, ℓ≠p, S is the strict henselization of P¹_t at 0, S′ that of P¹_t′ at ∞′, and η′ its generic point. f:X→S is flat of finite type, X regular, G finite acting by S-automorphisms, the union of the fixed loci for nonidentity elements has underlying set {x}, and f is smooth outside the closed point x. Λ=Qℓ(ζp), with a fixed nontrivial ψ:Fp→Λ×. Nearby-cycle complexes and traces are unshifted cohomological objects; traces mean alternating traces.",
+    "C3": "For ramification modules K=Frac(k{t}) with k separably closed of characteristic p>0, Γ=Gal(Ksep/K), ℓ≠p, G finite commuting with Γ. A chosen Galois tower and compatible isomorphisms of Swan modules are data at integral level. They are not declared canonical. Rational coefficients L are finite extensions of Qℓ.",
+    "C4": "Dctf means constructible complexes of finite Tor dimension. For the cited Lu–Zheng dualizability theorem use a Noetherian commutative torsion coefficient ring killed by an integer invertible on the Noetherian base. Actual Theorem 1.5 and finite-level trace application use finite rings; no unchecked extension to arbitrary non-Noetherian coefficients is claimed.",
+    "C5": "RL(G) is K0 of perfect L[G]-complexes. In characteristic zero it is compared to the existing split representation ring via semisimplicity and Euler characteristic, not identified by notation alone. DΛ-perf(Λ[G]) means perfect over Λ, not necessarily over Λ[G].",
+    "C6": "All library citations are exact existing carriers/theorems only. Added planning API and tests are specifications for reuse/adapters, not claims that wrappers or the paper are formalized. Items depend on the conventions and the explicitly named gap gates as well as their item dependencies."
+  },
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "atlasCommit": "6416e94a7f13f96db9cc75ff1cbc5983a8ac551f",
+    "readRoadmaps": [
+      "Full CharacterTheory and LocalFieldsRamification upstream documents",
+      "Full EtaleDualityAndPerverseSheaves, LefschetzPencilsAndVanishingCycles and ArithmeticGaloisRepresentations documents",
+      "EnhancedDerivedSheaves E0, E1 and E5:abstract; GeneralAlgebraicKTheory K.4:construction",
+      "Full GrothendieckEulerForms upstream document; its perfect-category exclusion and Layers 1–2 bounded-comparison contracts"
+    ],
+    "reviewedCoverage": [
+      "AUDIT-04 LocalFieldsRamification L0–L4 screen; full L3 targets",
+      "AUDIT-18 EtaleDualityAndPerverseSheaves EDC.0 and EDC.8 entries",
+      "AUDIT-19 LefschetzPencilsAndVanishingCycles LPV.0 and LPV.6 entries",
+      "AUDIT-31 ArithmeticGaloisRepresentations R01.1 and R01.3 entries",
+      "AUDIT-22 GrothendieckEulerForms Layers 1,2,5 relevant targets; Layer 2 reread separately without truncation",
+      "AUDIT-28 GeneralAlgebraicKTheory K.4:construction full entry"
+    ],
+    "screen": "Screened atlas stages, proposed roadmaps, packets and prior paper routes for Artin characters, Swan representations, nearby cycles, categorical traces and Lefschetz–Verdier. Existing pending EtaleDualityAndPerverseSheavesPartIIMicrolocal is a distinct characteristic-cycle/polar-bounds continuation; it is an import candidate for the final remark, not a second owner for relative ULA traces.",
+    "negativeSearch": "Both pinned source trees searched for Swan, ArtinCharacter, VanishingCycles, NearbyCycles, LocallyAcyclic, LefschetzVerdier and MonoidalBicategory; no matching implementation found. These searches are evidence boundaries, not a proof of global absence.",
+    "libraryRead": [
+      "Mathlib/RingTheory/Length.lean: Module.length, finite-length lemmas, length_eq_finrank",
+      "Mathlib/RepresentationTheory/Character.lean: Representation.character, char_one, char_iso, char_conj",
+      "TauCeti/RepresentationTheory/RepresentationRing/Basic.lean and Injective.lean: repRing, repRingCharacter, repRingCharacter_injective",
+      "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean: TriangulatedK0, of_distTriang, of_shift_one, of_shift",
+      "TauCeti/RepresentationTheory/CharacterTable/Determined.lean: FDRep.nonempty_iso_of_character_eq",
+      "TauCeti/CategoryTheory/GrothendieckGroup/EulerCharacteristic.lean: eulerChar_eq_homologyEulerChar and eulerChar_eq_of_quasiIso"
+    ],
+    "publicationRecheck": {
+      "commit": "46d351b51ca31471977fb69af2a063395b060677",
+      "date": "2026-09-22",
+      "instructions": "WORKERS, PROTOCOL, UPSTREAM_GUIDE and expansion PROTOCOL byte-identical to the read baseline.",
+      "owners": "Relevant main owner documents and library-coverage.json unchanged. Current continuation briefs also read for ArithmeticGaloisRepresentationsGeometricMonodromy, LefschetzFiniteFieldBertiniPartII and UniversalHypersurfaceMonodromy; their global invariant-reduction/Bertini/hypersurface targets do not own projective Swan modules or general-base ULA/Fourier traces. No target deliverable exists on the checked main snapshot."
+    }
+  },
+  "items": [
+    {
+      "id": "PAPER-ABE-25/L01",
+      "kind": "definition",
+      "name": "Module length",
+      "statement": "For a ring R and R-module M, Module.length R M is the extended natural composition length; use IsNoetherian and IsArtinian to establish finiteness before extracting a natural number. Over a division ring with M finite-dimensional it equals finrank.",
+      "locator": "Introduction p.605 and §1.6; pinned Length.lean",
+      "status": "library",
+      "library": [
+        "mathlib:Module.length",
+        "mathlib:Module.length_ne_top",
+        "mathlib:Module.length_eq_finrank"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "L01.api1",
+          "statement": "Expose finite length of A/Iσ from C1."
+        },
+        {
+          "name": "L01.api2",
+          "statement": "Transport length through the specific local-ring equivalence."
+        },
+        {
+          "name": "L01.api3",
+          "statement": "Compare length over k with dimension for the explicit Artinian examples."
+        }
+      ],
+      "unitTests": [
+        "The zero module has length 0.",
+        "A one-dimensional vector space over a field has length 1.",
+        "k[z]/(z^4) has k-module length 4."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/G03",
+          "how": "Higher-dimensional Artin class function"
+        },
+        {
+          "where": "PAPER-ABE-25/A21",
+          "how": "Fixed-length invariance under the henselian comparison"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L02",
+      "kind": "definition",
+      "name": "Character of a finite-dimensional representation",
+      "statement": "For a representation ρ over a commutative coefficient ring and finite free underlying module, χρ(g)=trace(ρ(g)); over a field χρ(1)=finrank, and isomorphic representations have equal characters.",
+      "locator": "§§2.3–2.5; pinned Character.lean",
+      "status": "library",
+      "library": [
+        "mathlib:Representation.character",
+        "mathlib:Representation.char_one",
+        "mathlib:Representation.char_iso",
+        "mathlib:Representation.char_conj"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "L02.api1",
+          "statement": "Evaluate the character at the identity."
+        },
+        {
+          "name": "L02.api2",
+          "statement": "Transport along representation isomorphisms."
+        },
+        {
+          "name": "L02.api3",
+          "statement": "Use conjugacy invariance to view χ as a class function."
+        }
+      ],
+      "unitTests": [
+        "The zero representation has zero character.",
+        "The one-dimensional trivial representation has constant character 1.",
+        "For G=C2 in characteristic zero, the sign representation takes the involution to −1."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/L03",
+          "how": "Existing split representation ring"
+        },
+        {
+          "where": "PAPER-ABE-25/G05",
+          "how": "Actual realization versus coefficient rationality"
+        },
+        {
+          "where": "PAPER-ABE-25/B13",
+          "how": "Equivariant perfect trace"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L03",
+      "kind": "definition",
+      "name": "Existing split representation ring",
+      "statement": "For a field L and group G, TauCeti.repRing L G is the split Grothendieck ring of finite-dimensional representations and repRingCharacter its character map. This is not by itself K0 of a derived perfect category.",
+      "locator": "§2.1; pinned RepresentationRing/Basic.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.repRing",
+        "tauceti:TauCeti.repRingCharacter",
+        "tauceti:TauCeti.repRingCharacter_of"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/L02"
+      ],
+      "planningAPI": [
+        {
+          "name": "L03.api1",
+          "statement": "Map an actual representation to its split class."
+        },
+        {
+          "name": "L03.api2",
+          "statement": "Evaluate its class character."
+        },
+        {
+          "name": "L03.api3",
+          "statement": "Separate the split carrier from the later perfect-complex comparison."
+        }
+      ],
+      "unitTests": [
+        "The zero object maps to zero.",
+        "The tensor unit maps to one.",
+        "A formal difference V−W maps to χV−χW."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/L04",
+          "how": "Characteristic-zero finite-group character injectivity"
+        },
+        {
+          "where": "PAPER-ABE-25/G05",
+          "how": "Actual realization versus coefficient rationality"
+        },
+        {
+          "where": "PAPER-ABE-25/G08",
+          "how": "Regular-character ambiguity in a nonidentity trace identity"
+        },
+        {
+          "where": "PAPER-ABE-25/B02",
+          "how": "Perfect representation K0 equals the split representation ring"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L04",
+      "kind": "theorem",
+      "name": "Characteristic-zero finite-group character injectivity",
+      "statement": "For finite G and any characteristic-zero field L, repRingCharacter is injective. Actual objects of FDRep L G with the same character are isomorphic. No algebraic-closedness hypothesis is required by these pinned declarations.",
+      "locator": "§2.3 proof; pinned RepresentationRing/Injective.lean and CharacterTable/Determined.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.repRingCharacter_injective",
+        "tauceti:FDRep.nonempty_iso_of_character_eq"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/L03"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L05",
+      "kind": "definition",
+      "name": "Triangulated Grothendieck group",
+      "statement": "For an essentially small pretriangulated category with the required additive shift structure, TriangulatedK0 is generated by objects modulo distinguished-triangle relations. It is an existing generic carrier; specifying the correct perfect/equivariant subcategory is additional work.",
+      "locator": "§2.1; pinned GrothendieckGroup/Triangulated.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.TriangulatedK0",
+        "tauceti:TauCeti.TriangulatedK0.of_distTriang"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "L05.api1",
+          "statement": "Construct the class of an object."
+        },
+        {
+          "name": "L05.api2",
+          "statement": "Apply the distinguished-triangle relation."
+        },
+        {
+          "name": "L05.api3",
+          "statement": "Transport a class under an exact functor once that functor is constructed."
+        }
+      ],
+      "unitTests": [
+        "A split triangle gives [A⊕B]=[A]+[B].",
+        "The triangle 0→A→A gives the zero class of 0.",
+        "A cone triangle gives [cone(f)]=[target(f)]−[source(f)]."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/L06",
+          "how": "Shift sign in triangulated K0"
+        },
+        {
+          "where": "PAPER-ABE-25/B01",
+          "how": "Perfect-complex and representation Grothendieck groups"
+        },
+        {
+          "where": "PAPER-ABE-25/B13",
+          "how": "Equivariant perfect trace"
+        },
+        {
+          "where": "PAPER-ABE-25/B15",
+          "how": "Additivity of the group-element trace"
+        },
+        {
+          "where": "PAPER-ABE-25/L07",
+          "how": "Bounded-complex Euler–Poincaré identity in abelian K0"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L06",
+      "kind": "theorem",
+      "name": "Shift sign in triangulated K0",
+      "statement": "Under the pinned triangulated-category hypotheses, the class of X[1] is −[X], and the general integer-shift formula is multiplication by (−1)^n. In particular a vector space concentrated in cohomological degree 1 has negative class.",
+      "locator": "§§2.5 and 3.1; pinned Triangulated.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.TriangulatedK0.of_shift_one",
+        "tauceti:TauCeti.TriangulatedK0.of_shift"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/L05"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P01",
+      "kind": "construction",
+      "name": "Derived sheaf tensor and coefficient change",
+      "statement": "On the small étale sites used here, construct derived tensor, internal Hom and coefficient change using K-flat/K-injective models; compare with the ordinary derived category and preserve the coherent composition data needed for correspondences.",
+      "locator": "§1.2; shared enhancement input",
+      "status": "planned",
+      "planned": [
+        "EnhancedDerivedSheaves:E1"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "P01.api1",
+          "statement": "Construct −⊗ᴸΛ− via K-flat replacements."
+        },
+        {
+          "name": "P01.api2",
+          "statement": "Compare finite coefficient reduction with derived tensor."
+        },
+        {
+          "name": "P01.api3",
+          "statement": "Export coherent pullback and tensor compatibilities."
+        }
+      ],
+      "unitTests": [
+        "Tensor with Λ is the identity.",
+        "Derived reduction of a flat module agrees with ordinary reduction.",
+        "A non-flat module is not assigned an underived tensor without its Tor terms."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/P02",
+          "how": "Constructible finite-Tor étale coefficient category"
+        },
+        {
+          "where": "PAPER-ABE-25/A05",
+          "how": "Cohomological correspondence Grothendieck construction"
+        },
+        {
+          "where": "PAPER-ABE-25/A10",
+          "how": "Continuity of derived Hom"
+        },
+        {
+          "where": "PAPER-ABE-25/B13",
+          "how": "Equivariant perfect trace"
+        },
+        {
+          "where": "PAPER-ABE-25/F05",
+          "how": "Regular Galois local-system descent"
+        },
+        {
+          "where": "PAPER-ABE-25/F09",
+          "how": "Equivariant nearby-cycle tensor interchange"
+        },
+        {
+          "where": "PAPER-ABE-25/F14",
+          "how": "Projection formula on the strict-local Milnor-fiber diagram"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P02",
+      "kind": "construction",
+      "name": "Constructible finite-Tor étale coefficient category",
+      "statement": "For the finite-type/noetherian situations covered by EDC.0, form Dctf(X,Λ), its finite coefficient changes, and the duality/six-operation interfaces with their stated finiteness hypotheses. The coherent non-Noetherian base extension in A10–A18 is not included merely by this import.",
+      "locator": "§§1.2–1.3; EDC.0–1",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.1"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/P01"
+      ],
+      "planningAPI": [
+        {
+          "name": "P02.api1",
+          "statement": "Record finite Tor amplitude and constructibility separately."
+        },
+        {
+          "name": "P02.api2",
+          "statement": "Restrict to opens and change finite coefficients."
+        },
+        {
+          "name": "P02.api3",
+          "statement": "Expose f! and f^! adjunctions in their proved scope."
+        }
+      ],
+      "unitTests": [
+        "The constant finite free sheaf is finite Tor.",
+        "An unbounded complex is not silently Dctf.",
+        "Open restriction preserves the stated coefficient conditions."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/P03",
+          "how": "Ordinary cohomological correspondence and fixed-point trace"
+        },
+        {
+          "where": "PAPER-ABE-25/P04",
+          "how": "Trait nearby and vanishing cycles"
+        },
+        {
+          "where": "PAPER-ABE-25/A05",
+          "how": "Cohomological correspondence Grothendieck construction"
+        },
+        {
+          "where": "PAPER-ABE-25/A19",
+          "how": "Artin–Schreier Fourier kernel"
+        },
+        {
+          "where": "PAPER-ABE-25/F05",
+          "how": "Regular Galois local-system descent"
+        },
+        {
+          "where": "PAPER-ABE-25/R01",
+          "how": "Katz canonical-extension Swan model"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P03",
+      "kind": "construction",
+      "name": "Ordinary cohomological correspondence and fixed-point trace",
+      "statement": "For a correspondence c=(c1,c2):Z→X×S X with a map c1*F→c2!F, construct its trace on the fixed scheme using duality, and proper-pushforward/restriction compatibility where the ordinary EDC.8 hypotheses hold. Numerical trace additionally needs the appropriate proper integration.",
+      "locator": "§1.3; ordinary part of EDC.8",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/P02"
+      ],
+      "planningAPI": [
+        {
+          "name": "P03.api1",
+          "statement": "Compose cohomological correspondences with base-change maps."
+        },
+        {
+          "name": "P03.api2",
+          "statement": "Construct the fixed-locus trace class."
+        },
+        {
+          "name": "P03.api3",
+          "statement": "Push the class properly to a point."
+        }
+      ],
+      "unitTests": [
+        "Identity on a point gives ordinary trace.",
+        "A disjoint fixed locus decomposes the trace class.",
+        "A nonproper arbitrary fixed scheme is not automatically assigned a numerical trace."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A08",
+          "how": "Relative Lefschetz–Verdier trace"
+        },
+        {
+          "where": "PAPER-ABE-25/A26",
+          "how": "Trace of the constant sheaf is fixed intersection length"
+        },
+        {
+          "where": "PAPER-ABE-25/A28",
+          "how": "Trace of a point-supported complex"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P04",
+      "kind": "construction",
+      "name": "Trait nearby and vanishing cycles",
+      "statement": "For the excellent finite-type henselian-trait coefficient setting of LPV.0, construct RΨ, continuous inertia, specialization and i*F→RΨ(j*F)→RΦ(F)→, with strict-local Milnor-fiber stalks, proper/smooth base change and finite coefficient change. General coherent-base goodness is a separate continuation.",
+      "locator": "§§1.6,2.5; LPV.0",
+      "status": "planned",
+      "planned": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/P02"
+      ],
+      "planningAPI": [
+        {
+          "name": "P04.api1",
+          "statement": "Evaluate RΨ on geometric Milnor fibers."
+        },
+        {
+          "name": "P04.api2",
+          "statement": "Construct the specialization triangle without an implicit shift."
+        },
+        {
+          "name": "P04.api3",
+          "statement": "Use only the proved base-change isomorphisms."
+        }
+      ],
+      "unitTests": [
+        "A smooth family with constant coefficients has RΦ=0.",
+        "For a disjoint union the complexes split.",
+        "The K0 relation is [RΦ]=[RΨ]−[i*F]."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A12",
+          "how": "Good nearby cycles and cohomological properness"
+        },
+        {
+          "where": "PAPER-ABE-25/A20",
+          "how": "Étale spreading of the geometric action"
+        },
+        {
+          "where": "PAPER-ABE-25/A22",
+          "how": "Perfectness of the Fourier nearby stalk"
+        },
+        {
+          "where": "PAPER-ABE-25/A27",
+          "how": "The infinity fiber identifies with nearby cycles"
+        },
+        {
+          "where": "PAPER-ABE-25/F01",
+          "how": "Local Fourier transform from 0 to infinity"
+        },
+        {
+          "where": "PAPER-ABE-25/F12",
+          "how": "Katz–Laumon vanishing for the constant full-trait input"
+        },
+        {
+          "where": "PAPER-ABE-25/F13",
+          "how": "Localization converts the local identity to vanishing cycles"
+        },
+        {
+          "where": "PAPER-ABE-25/F15",
+          "how": "Milnor-fiber base change to the one-dimensional parameter"
+        },
+        {
+          "where": "PAPER-ABE-25/F16",
+          "how": "Smooth local fiber has constant pushforward"
+        },
+        {
+          "where": "PAPER-ABE-25/F17",
+          "how": "Vanishing cycles commute with the strict-local pushforward comparison"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P05",
+      "kind": "theorem",
+      "name": "Stable lattices for continuous compact actions",
+      "statement": "A finite-dimensional L-vector space, L finite over Qℓ, with continuous action of a profinite group admits a stable OL-lattice; apply this to Γ×G. The proof uses compactness, not a finite image assumption.",
+      "locator": "§2.3; ArithmeticGaloisRepresentations R01.1",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "dependsOn": []
+    },
+    {
+      "id": "PAPER-ABE-25/P06",
+      "kind": "definition",
+      "name": "Numerical Artin and Swan conductors",
+      "statement": "Use the ramification filtration to define numerical Artin/Swan conductors with finite-quotient independence and their stated induction formulas from R01.3. This does not supply projective integral Swan modules or the higher-dimensional local Artin character.",
+      "locator": "§2.2 classical input; R01.3",
+      "status": "planned",
+      "planned": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "P06.api1",
+          "statement": "Evaluate the Swan conductor in a finite quotient."
+        },
+        {
+          "name": "P06.api2",
+          "statement": "Compare two sufficiently large finite quotients."
+        },
+        {
+          "name": "P06.api3",
+          "statement": "Separate Swan(M) from rank(M)+Swan(M)."
+        }
+      ],
+      "unitTests": [
+        "An unramified rank-r representation has Swan 0.",
+        "Its total dimension is r, not 0.",
+        "The zero representation has both invariants zero."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B03",
+          "how": "Projective integral Swan module"
+        },
+        {
+          "where": "PAPER-ABE-25/F22",
+          "how": "Local Fourier rank formula"
+        },
+        {
+          "where": "PAPER-ABE-25/F23",
+          "how": "Local Fourier preservation of Swan conductor"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G01",
+      "kind": "definition",
+      "name": "Admissible regular-local group action",
+      "statement": "Package exactly C1's regular local ring, finite action, finite invariant extension, isolated nonidentity fixed quotients and unchanged residue field. Positive characteristic and invertibility of ℓ are separate hypotheses for the theorem, not part of the bare action.",
+      "locator": "Introduction p.605",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "G01.api1",
+          "statement": "Form A^G and the residue-field comparison."
+        },
+        {
+          "name": "G01.api2",
+          "statement": "Extract finite length of each nonidentity fixed quotient."
+        },
+        {
+          "name": "G01.api3",
+          "statement": "Transport the action under a proved local equivariant isomorphism."
+        }
+      ],
+      "unitTests": [
+        "For tame C_m acting on k[[x]] by x↦ζx, the hypotheses hold.",
+        "The trivial group has vacuous nonidentity fixed conditions.",
+        "A trivial action of a nontrivial group on a positive-dimensional regular local ring fails the finite-length condition."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/G02",
+          "how": "Fixed ideal and scheme-theoretic fixed locus"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G02",
+      "kind": "definition",
+      "name": "Fixed ideal and scheme-theoretic fixed locus",
+      "statement": "For an automorphism σ of A, Iσ is generated by a−σ(a); for an automorphism σ of X, X^σ is the equalizer of σ and id. For affine X it is Spec(A/Iσ). Retain its nilpotent structure.",
+      "locator": "Introduction p.605; §1.6",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G01"
+      ],
+      "planningAPI": [
+        {
+          "name": "G02.api1",
+          "statement": "Identify the affine equalizer with the fixed quotient."
+        },
+        {
+          "name": "G02.api2",
+          "statement": "Compare fixed loci under flat/étale base change with the actual theorem."
+        },
+        {
+          "name": "G02.api3",
+          "statement": "Compute the ideal from algebra generators."
+        }
+      ],
+      "unitTests": [
+        "For σ(x)=−x in characteristic not 2, the fixed ideal in k[x] is (x).",
+        "In E3 the fixed ideal is (t²), not (t).",
+        "For σ=id, the fixed scheme is all of X."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/G03",
+          "how": "Higher-dimensional Artin class function"
+        },
+        {
+          "where": "PAPER-ABE-25/A20",
+          "how": "Étale spreading of the geometric action"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G03",
+      "kind": "definition",
+      "name": "Higher-dimensional Artin class function",
+      "statement": "Under C1 define aG(σ)=−length_A(A/Iσ) for σ≠1 and aG(1)=−Σσ≠1 aG(σ). In the geometric setting use OX,x and the fixed subscheme stalk. This defines an integer-valued function before any representation is constructed.",
+      "locator": "Introduction p.605; §1.6 p.612",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/L01",
+        "PAPER-ABE-25/G02"
+      ],
+      "planningAPI": [
+        {
+          "name": "G03.api1",
+          "statement": "Evaluate nonidentity values from fixed lengths."
+        },
+        {
+          "name": "G03.api2",
+          "statement": "Derive the identity value from the augmentation normalization."
+        },
+        {
+          "name": "G03.api3",
+          "statement": "Compare local and scheme-theoretic definitions."
+        }
+      ],
+      "unitTests": [
+        "Σg aG(g)=0.",
+        "For a tame cyclic order-m action on a smooth curve, values are m−1 at 1 and −1 elsewhere.",
+        "For G trivial, aG=0."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/G04",
+          "how": "Conjugacy invariance of the local Artin function"
+        },
+        {
+          "where": "PAPER-ABE-25/G06",
+          "how": "Geometric Serre conjecture: positivity"
+        },
+        {
+          "where": "PAPER-ABE-25/G08",
+          "how": "Regular-character ambiguity in a nonidentity trace identity"
+        },
+        {
+          "where": "PAPER-ABE-25/G09",
+          "how": "Tame curve tower different formula"
+        },
+        {
+          "where": "PAPER-ABE-25/A26",
+          "how": "Trace of the constant sheaf is fixed intersection length"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G04",
+      "kind": "theorem",
+      "name": "Conjugacy invariance of the local Artin function",
+      "statement": "Under C1, τ transports Iσ to Iτστ⁻¹ and preserves the local quotient length; hence aG is conjugacy invariant.",
+      "locator": "Introduction implicit class-function interface",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G03"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G05",
+      "kind": "definition",
+      "name": "Actual realization versus coefficient rationality",
+      "statement": "For an integer class function a and a characteristic-zero field L, distinguish existence of an actual finite-dimensional Qbarℓ[G]-module with character a from existence of an L[G]-module realizing a after extension of scalars. Being L-valued or a virtual character is not by definition L-realizability.",
+      "locator": "Introduction two-part conjecture",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/L02",
+        "PAPER-ABE-25/L03"
+      ],
+      "planningAPI": [
+        {
+          "name": "G05.api1",
+          "statement": "Map an actual realization to a virtual class."
+        },
+        {
+          "name": "G05.api2",
+          "statement": "Extend coefficients on an actual realization."
+        },
+        {
+          "name": "G05.api3",
+          "statement": "Keep a descent witness distinct from a trace-value statement."
+        }
+      ],
+      "unitTests": [
+        "The zero character has a zero-dimensional realization.",
+        "A formal negative trivial character is not an actual representation.",
+        "A claimed L-realization must include an L-linear G-action, not only an L-valued character."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/G06",
+          "how": "Geometric Serre conjecture: positivity"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G06",
+      "kind": "theorem",
+      "name": "Geometric Serre conjecture: positivity",
+      "statement": "Under C1 with A containing a finite field and ℓ invertible in A, aG is the character of an actual finite-dimensional Qbarℓ-representation of G.",
+      "locator": "Introduction main Theorem, assertion 1; §2.6",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G03",
+        "PAPER-ABE-25/G05",
+        "PAPER-ABE-25/F20"
+      ],
+      "gaps": [
+        "G-KSS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G07",
+      "kind": "theorem",
+      "name": "Geometric Serre conjecture: Qℓ realization",
+      "statement": "Under the same hypotheses as G06, the Artin representation is realizable over Qℓ for every ℓ invertible in A. This is stronger than a Qℓ-valued virtual trace identity.",
+      "locator": "Introduction main Theorem, assertion 2; §2.6",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G06",
+        "PAPER-ABE-25/F20"
+      ],
+      "gaps": [
+        "G-KSS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G08",
+      "kind": "theorem",
+      "name": "Regular-character ambiguity in a nonidentity trace identity",
+      "statement": "For a finite group G over a characteristic-zero field, adding a multiple of the regular character changes only the value at 1. Therefore the nonidentity trace formula alone does not fix the normalized identity value, positivity or rational descent.",
+      "locator": "§2.6 reduction boundary; §3.3",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/L03",
+        "PAPER-ABE-25/G03"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G09",
+      "kind": "theorem",
+      "name": "Tame curve tower different formula",
+      "statement": "For a tower of finite separable smooth curve germs X→qY→gS over an algebraically closed field, d(f)=d(q)+e(q)d(g), where d is the local different exponent and e the ramification index. For the quotient by G at a unique totally ramified point e(q)=|G| and d(q)=aG(1). Thus μf−aG(1)=e(q)d(g), not in general d(g).",
+      "locator": "§3.3 p.621, corrected E1",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G03"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/G10",
+      "kind": "theorem",
+      "name": "Identity-element trace under an étale quotient parameter",
+      "statement": "In the dimension-one specialization of C2, if f factors through q:X→X/G and g:X/G→S is étale at q(x), then d(g)=0 and μf=aG(1), so the formula of Theorem 1.6 also holds at σ=1. This is not an unconditional extension in higher dimension.",
+      "locator": "§3.3 final consequence",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G09",
+        "PAPER-ABE-25/A29",
+        "PAPER-ABE-25/R04"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A01",
+      "kind": "definition",
+      "name": "Dualizable objects in a symmetric monoidal 2-category",
+      "statement": "For a symmetric monoidal 2-category C, a dual of X consists of X∨, evaluation X∨⊗X→1 and coevaluation 1→X⊗X∨ with invertible triangle 2-cells. End(C) uses dualizable X equipped with an endomorphism; ΩC is the category EndC(1), not merely a set.",
+      "locator": "§1.1; Lu–Zheng Definition 1.1 and Notation 1.5",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "A01.api1",
+          "statement": "Construct evaluation and coevaluation with coherence."
+        },
+        {
+          "name": "A01.api2",
+          "statement": "Form End(C) with the adjointability/coherence data from Lu–Zheng §1.2."
+        },
+        {
+          "name": "A01.api3",
+          "statement": "Form ΩC as the endomorphism category of the unit."
+        }
+      ],
+      "unitTests": [
+        "The unit is dualizable.",
+        "A chosen dual has X as a dual.",
+        "Tensor products of dualizable objects are dualizable."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A02",
+          "how": "Categorical trace and its functoriality"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A02",
+      "kind": "construction",
+      "name": "Categorical trace and its functoriality",
+      "statement": "For dualizable X and e:X→X, tr(e) is coev followed by e⊗id, the symmetry and ev, an object of ΩC. Lu–Zheng's adjointable morphisms of endomorphisms induce trace morphisms and make a trace functor. The latter coherence is an explicit supplier gate, not just an objectwise formula.",
+      "locator": "§1.1; Lu–Zheng Construction 1.6, §§1.2–1.3",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A01"
+      ],
+      "planningAPI": [
+        {
+          "name": "A02.api1",
+          "statement": "Construct the objectwise trace with the symmetry in the correct position."
+        },
+        {
+          "name": "A02.api2",
+          "statement": "Define pairing <u,v>=tr(vu)."
+        },
+        {
+          "name": "A02.api3",
+          "statement": "Export the coherent trace map for the allowed morphisms."
+        }
+      ],
+      "unitTests": [
+        "The identity trace is the dimension object.",
+        "For the monoidal unit the identity trace is the unit endomorphism.",
+        "For finite-dimensional vector spaces the construction specializes to ordinary trace."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A03",
+          "how": "Trace commutes with symmetric monoidal functors"
+        },
+        {
+          "where": "PAPER-ABE-25/A08",
+          "how": "Relative Lefschetz–Verdier trace"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A03",
+      "kind": "theorem",
+      "name": "Trace commutes with symmetric monoidal functors",
+      "statement": "A symmetric monoidal 2-functor F preserves duals and induces a coherent isomorphism F(trC(e))≅trD(F(e)), including pairing functoriality.",
+      "locator": "§1.1 diagram; Lu–Zheng Remark 1.9",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A02"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A04",
+      "kind": "definition",
+      "name": "Correspondence 2-category",
+      "statement": "For coherent S, Corr(S) has separated finite-type S-schemes as objects, spans X←Z→Y as 1-morphisms, and proper maps between span vertices compatible with their two legs as 2-morphisms. Composition is fiber product, tensor is product over S, unit is S. Product over S is not asserted to be the categorical product in Corr(S).",
+      "locator": "§1.2; Lu–Zheng Construction 2.6/Remark 2.7",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "A04.api1",
+          "statement": "Compose spans by fiber product."
+        },
+        {
+          "name": "A04.api2",
+          "statement": "Transport proper maps of spans into 2-morphisms."
+        },
+        {
+          "name": "A04.api3",
+          "statement": "Construct the symmetric monoidal product and unit coherences."
+        }
+      ],
+      "unitTests": [
+        "The diagonal span is an identity.",
+        "Composition with an identity span has its canonical unit isomorphism.",
+        "The empty correspondence remains a valid zero-support span."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A05",
+          "how": "Cohomological correspondence Grothendieck construction"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A05",
+      "kind": "construction",
+      "name": "Cohomological correspondence Grothendieck construction",
+      "statement": "For the torsion coefficients and schemes in the Lu–Zheng setup, the right-lax symmetric monoidal pseudofunctor assigns D(X,Λ) to X and g_!f* to a span X←fZ→gY, with the reversed 2-cell convention. Its Grothendieck construction has objects (X,F) and arrows given by a span with f*F→g^!G (equivalently g_!f*F→G). Use distinct notation for g_! and g^!.",
+      "locator": "§1.2; Lu–Zheng Constructions 1.10,2.6",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/P01",
+        "PAPER-ABE-25/P02",
+        "PAPER-ABE-25/A04"
+      ],
+      "planningAPI": [
+        {
+          "name": "A05.api1",
+          "statement": "Name pushforward g_! and extraordinary pullback g^! distinctly."
+        },
+        {
+          "name": "A05.api2",
+          "statement": "Construct objects and cohomological arrows by the adjunction."
+        },
+        {
+          "name": "A05.api3",
+          "statement": "Prove composition via the specific base-change transformation."
+        }
+      ],
+      "unitTests": [
+        "For an identity span, arrows are ordinary derived morphisms.",
+        "The unit object is (S,ΛS).",
+        "External tensor yields (X×S Y,F⊠G)."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A06",
+          "how": "Relative dual and fixed trace target"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A06",
+      "kind": "definition",
+      "name": "Relative dual and fixed trace target",
+      "statement": "For X→S write KX/S=f^!ΛS and DX/S(F)=RHom(F,KX/S). For an endocorrespondence z:Z→X×S X put X^z=Z×X×S X X via the diagonal. A trace class lies in H⁰(X^z,KX^z/S).",
+      "locator": "§1.3",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A05"
+      ],
+      "planningAPI": [
+        {
+          "name": "A06.api1",
+          "statement": "Construct relative duality on the specified coefficient category."
+        },
+        {
+          "name": "A06.api2",
+          "statement": "Build the fixed scheme by its cartesian square."
+        },
+        {
+          "name": "A06.api3",
+          "statement": "Identify ΩCS,Λ with the corresponding cohomological target."
+        }
+      ],
+      "unitTests": [
+        "For a point over itself, K is Λ.",
+        "For z a graph, X^z is the scheme-theoretic equalizer.",
+        "A nonreduced fixed scheme is not replaced by its length before constructing the trace class."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A07",
+          "how": "Local acyclicity characterizes dualizability"
+        },
+        {
+          "where": "PAPER-ABE-25/A08",
+          "how": "Relative Lefschetz–Verdier trace"
+        },
+        {
+          "where": "PAPER-ABE-25/A30",
+          "how": "Relative Verdier dual represents the categorical dual"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A07",
+      "kind": "theorem",
+      "name": "Local acyclicity characterizes dualizability",
+      "statement": "With S Noetherian, Λ Noetherian commutative torsion and its annihilating integer invertible on S, X separated finite type and F∈Dctf(X,Λ), (X,F) is dualizable in CS,Λ iff F is locally acyclic over S; its dual is (X,DX/S F). Universal local acyclicity implies the same statement without needing the extra LA⇒ULA input.",
+      "locator": "§1.3 Theorem; Lu–Zheng Theorem 2.16 and Remark 2.17",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A06"
+      ],
+      "gaps": [
+        "G-LZ"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A08",
+      "kind": "construction",
+      "name": "Relative Lefschetz–Verdier trace",
+      "statement": "For a ULA coefficient object (X,F) and endocorrespondence (z,w), take its categorical trace to obtain τS(z,w)∈H⁰(X^z,KX^z/S). This extends the ordinary EDC.8 construction; it does not replace it with an unrelated carrier.",
+      "locator": "§1.3",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A02",
+        "PAPER-ABE-25/A06",
+        "PAPER-ABE-25/A07",
+        "PAPER-ABE-25/P03",
+        "PAPER-ABE-25/A30"
+      ],
+      "planningAPI": [
+        {
+          "name": "A08.api1",
+          "statement": "Construct the trace using the proven dual."
+        },
+        {
+          "name": "A08.api2",
+          "statement": "Compare it to SGA5 over a point."
+        },
+        {
+          "name": "A08.api3",
+          "statement": "Retain the correspondence and coefficient-action inputs."
+        }
+      ],
+      "unitTests": [
+        "For X=S=point it is the algebraic trace.",
+        "For σ=id on a point and F=Λ it is 1.",
+        "For a zero coefficient object it is zero."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A09",
+          "how": "Base change of relative trace"
+        },
+        {
+          "where": "PAPER-ABE-25/A25",
+          "how": "Relative trace is constant on the connected parameter cover"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A09",
+      "kind": "theorem",
+      "name": "Base change of relative trace",
+      "statement": "For g:T→S in the noetherian setup of C4 and a ULA (X,F), the base-change transformation on the fixed-locus dualizing cohomology sends τS(z,w) to τT(g*(z,w)); the construction follows from the symmetric monoidal pullback, not an arbitrary base-change isomorphism of all f^! complexes.",
+      "locator": "§1.3 Corollary; Lu–Zheng Proposition 2.26",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A03",
+        "PAPER-ABE-25/A08"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A10",
+      "kind": "theorem",
+      "name": "Continuity of derived Hom",
+      "statement": "For a small filtered inverse system of coherent schemes Xi with affine transition maps and Noetherian Λ, pullback induces colimj HomD(Xj)(Fj,Gj)≅HomD(X∞)(F∞,G∞) for F∈Dc⁻(Xi,Λ), G∈D⁺(Xi,Λ). Reduce by bounded truncations and constructible j!Λ generators to étale cohomology continuity.",
+      "locator": "Lemma 1.4 full-faithfulness proof, pp.609–610",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/P01"
+      ],
+      "gaps": [
+        "G-LIMIT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A11",
+      "kind": "theorem",
+      "name": "Continuity of bounded constructible derived categories",
+      "statement": "Under A10's inverse-system and coefficient hypotheses, 2-colimi Dcb(Xi,Λ)→Dcb(X∞,Λ) is an equivalence. Essential surjectivity descends cohomology truncations and their connecting morphism, then takes the cone; it is not only descent of cohomology groups.",
+      "locator": "Lemma 1.4",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A10"
+      ],
+      "gaps": [
+        "G-LIMIT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A12",
+      "kind": "definition",
+      "name": "Good nearby cycles and cohomological properness",
+      "statement": "For a finite-presentation f and the torsion coefficient context of Theorem 1.5, record f-goodness as compatibility of the oriented-topos nearby-cycle object with all base changes in the source's sense, and cohomological properness of the relevant strict-local maps. These are separate predicates and neither is ordinary properness of f.",
+      "locator": "Theorem 1.5 proof; Orgogozo references 2.1,7.1,8.1",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-ORGO"
+      ],
+      "planningAPI": [
+        {
+          "name": "A12.api1",
+          "statement": "Expose each base-change transformation whose invertibility is required."
+        },
+        {
+          "name": "A12.api2",
+          "statement": "Record the strict-local cohomological-properness hypothesis separately."
+        },
+        {
+          "name": "A12.api3",
+          "statement": "Compare the trait construction to the oriented-topos construction."
+        }
+      ],
+      "unitTests": [
+        "A base-change map is not inverted solely because it exists.",
+        "Cohomological properness is not encoded as the Proper predicate on f.",
+        "The comparison with the ordinary trait RΨ must preserve the specialization map."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A13",
+          "how": "Alteration/modification for good constructible nearby cycles"
+        },
+        {
+          "where": "PAPER-ABE-25/A15",
+          "how": "Local acyclicity over an absolute integral closure"
+        },
+        {
+          "where": "PAPER-ABE-25/A27",
+          "how": "The infinity fiber identifies with nearby cycles"
+        },
+        {
+          "where": "PAPER-ABE-25/F15",
+          "how": "Milnor-fiber base change to the one-dimensional parameter"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A13",
+      "kind": "theorem",
+      "name": "Alteration/modification for good constructible nearby cycles",
+      "statement": "Under the exact finite coefficient, finite-presentation and coherent-base hypotheses needed in Theorem 1.5, import Orgogozo's alteration for goodness/cohomological properness and modification ensuring constructibility. Reconstruct the noetherian-approximation and general-base hypotheses from the original theorems before treating this as a closed interface.",
+      "locator": "Theorem 1.5 proof; Orgogozo Theorems 2.1,7.1,8.1",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A12"
+      ],
+      "gaps": [
+        "G-ORGO"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A14",
+      "kind": "construction",
+      "name": "Absolute-integral-closure extension from the generic fiber",
+      "statement": "After reduction to integral S with geometric generic point ξ, let Sbar be its normalization in ξ and j:Xξ→XSbar. Define E=Rj*Fξ. Prove that it is constructible of finite Tor dimension by the modification, oriented-topos point equivalence, enough-points argument and descent along a surjective map of coherent schemes.",
+      "locator": "Theorem 1.5 pp.611–612",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A13"
+      ],
+      "gaps": [
+        "G-ORGO"
+      ],
+      "planningAPI": [
+        {
+          "name": "A14.api1",
+          "statement": "Form normalization in the chosen algebraically closed function field."
+        },
+        {
+          "name": "A14.api2",
+          "statement": "Construct Rj*Fξ and its pullback comparison on the modification."
+        },
+        {
+          "name": "A14.api3",
+          "statement": "Export constructibility and finite Tor as distinct conclusions."
+        }
+      ],
+      "unitTests": [
+        "Restriction back to ξ recovers Fξ.",
+        "The zero generic complex gives E=0.",
+        "Constructibility is not asserted merely because j exists."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A15",
+          "how": "Local acyclicity over an absolute integral closure"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A15",
+      "kind": "theorem",
+      "name": "Local acyclicity over an absolute integral closure",
+      "statement": "In A14 after the chosen cohomologically proper alteration, compare a strict-local stalk with its generization and then the geometric Milnor fiber. Absolute integral closedness identifies the relevant strict henselizations with localizations; cohomological properness supplies the second comparison. Descend local acyclicity through the integral surjection using lifted specializations, then use goodness to get ULA.",
+      "locator": "Theorem 1.5 pp.611–612",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A12",
+        "PAPER-ABE-25/A14"
+      ],
+      "gaps": [
+        "G-ORGO",
+        "G-HENSEL"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A16",
+      "kind": "theorem",
+      "name": "Finite-stage descent of extension and chosen endomorphism",
+      "statement": "In Theorem 1.5 descend the alteration through finite S′→S, then descend the constructible complex, its isomorphism with F over U, and the given α successively using Lemma 1.4. ULA and finite Tor descend through the integral surjection via the Milnor-fiber comparison. This proves a chosen endomorphism extends; a coherent simultaneous action of every element of G is not a stated conclusion.",
+      "locator": "Theorem 1.5 final paragraph",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A11",
+        "PAPER-ABE-25/A15"
+      ],
+      "gaps": [
+        "G-HENSEL",
+        "G-LIMIT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A17",
+      "kind": "theorem",
+      "name": "ULA extension after a surjective alteration",
+      "statement": "Let Λ be a finite commutative ring with p invertible, S a coherent Fp-scheme with finitely many irreducible components, U⊂S open, f:X→S finitely presented, F∈Dctf(XU,Λ) ULA over U, σ an S-endomorphism and α:σU*F→F. There are a surjective alteration T→S, G∈Dctf(XT,Λ) ULA over T and β:σT*G→G restricting to (F,α) over T×S U. No properness assumption on f or automorphism hypothesis on σ is added.",
+      "locator": "Theorem 1.5",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A16"
+      ],
+      "gaps": [
+        "G-ORGO",
+        "G-HENSEL",
+        "G-LIMIT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A18",
+      "kind": "theorem",
+      "name": "Finite-cover refinement under generic goodness",
+      "statement": "In A17, if Fη is f-good for every geometric generic point η of S in the cited sense, T→S may be chosen finite. This is a separately cited refinement, not a conclusion proved in Abe's Theorem 1.5 argument.",
+      "locator": "Remark after Theorem 1.5",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A17"
+      ],
+      "gaps": [
+        "G-GABBER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A19",
+      "kind": "construction",
+      "name": "Artin–Schreier Fourier kernel",
+      "statement": "For char(k)=p, ℓ≠p and a permitted coefficient ring containing a nontrivial ψ:Fp→Λ×, construct the rank-one Artin–Schreier sheaf Lψ from the finite étale torsor u↦u^p−u. Pull back along the product ft′, then extend by zero from the t′-affine/generic locus as specified in C2.",
+      "locator": "§1.6",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/P02"
+      ],
+      "planningAPI": [
+        {
+          "name": "A19.api1",
+          "statement": "Construct the ψ-isotypic local system with its coefficient hypothesis."
+        },
+        {
+          "name": "A19.api2",
+          "statement": "Pull back along multiplication and f."
+        },
+        {
+          "name": "A19.api3",
+          "statement": "Distinguish j! extension at infinity from j*."
+        }
+      ],
+      "unitTests": [
+        "At t′=0 the kernel restricts to the constant sheaf.",
+        "At the boundary the j! stalk is zero before applying nearby cycles.",
+        "For f invariant under G, pullback supplies the canonical G-action on the kernel."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A22",
+          "how": "Perfectness of the Fourier nearby stalk"
+        },
+        {
+          "where": "PAPER-ABE-25/A24",
+          "how": "Connected curve cover with an extended coefficient endomorphism"
+        },
+        {
+          "where": "PAPER-ABE-25/F01",
+          "how": "Local Fourier transform from 0 to infinity"
+        },
+        {
+          "where": "PAPER-ABE-25/F06",
+          "how": "Perfect regular Fourier complex over the group ring"
+        },
+        {
+          "where": "PAPER-ABE-25/F12",
+          "how": "Katz–Laumon vanishing for the constant full-trait input"
+        },
+        {
+          "where": "PAPER-ABE-25/F14",
+          "how": "Projection formula on the strict-local Milnor-fiber diagram"
+        },
+        {
+          "where": "PAPER-ABE-25/R02",
+          "how": "Fourier family relating Katz and Laumon models"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A20",
+      "kind": "theorem",
+      "name": "Étale spreading of the geometric action",
+      "statement": "In C2 spread X, f and the finite G-action to an étale neighborhood Si of A¹ at 0 by finite-presentation descent. Shrink until nonidentity fixed supports lie over the distinguished point and f is smooth elsewhere. Nearby cycles are unchanged under this strict-henselian comparison.",
+      "locator": "Theorem 1.6 proof p.613",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/G02",
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-HENSEL"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A21",
+      "kind": "theorem",
+      "name": "Fixed-length invariance under the henselian comparison",
+      "statement": "In A20, the isolated fixed local algebra is Artinian with unchanged residue field, so its étale/strict-henselian base-change comparison preserves its length. Do not identify the entire fixed scheme with its closed fiber: the base parameter can remain a nonzero nilpotent, as E3 shows.",
+      "locator": "Theorem 1.6 proof p.613, corrected E3",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/A20",
+        "PAPER-ABE-25/L01"
+      ],
+      "gaps": [
+        "G-HENSEL"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A22",
+      "kind": "theorem",
+      "name": "Perfectness of the Fourier nearby stalk",
+      "statement": "In C2 the stalk RΨpr′(LΛ(ft′))_(x,∞′) is a perfect Λ-complex for the finite, regular integral and rational coefficients used by §1.6. The finite-level constructibility/Tor bounds must be proved uniformly to pass to the adic inverse limit; finite cohomological dimension of lim alone is not a substitute for the full comparison.",
+      "locator": "Theorem 1.6 pp.613–614; Orgogozo Remark 8.3",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-ADIC"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A23",
+      "kind": "theorem",
+      "name": "Integral and finite coefficient reduction of the trace",
+      "statement": "For A=Zℓ[ζp] and the perfect compatible nearby complexes of A22, scalar extension to Qℓ(ζp) and reduction modulo ℓ^n commute with the trace, and the integral trace is determined by all its reductions through A≅lim A/ℓ^n. The G-action must descend through the same comparisons.",
+      "locator": "Theorem 1.6 p.614",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/A22",
+        "PAPER-ABE-25/B13"
+      ],
+      "gaps": [
+        "G-ADIC"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A24",
+      "kind": "construction",
+      "name": "Connected curve cover with an extended coefficient endomorphism",
+      "statement": "For each fixed n>0 and σ≠1 in the spread-out setup, apply A17 to the Fourier kernel over A¹t′, obtaining a connected integral finite surjective cover P′→P¹t′, a ULA extension L and α extending σ. Justify the finite curve cover from the alteration by normalization; no simultaneous lifted G-action is inferred.",
+      "locator": "Theorem 1.6 p.614",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A17",
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/A20"
+      ],
+      "gaps": [
+        "G-HENSEL"
+      ],
+      "planningAPI": [
+        {
+          "name": "A24.api1",
+          "statement": "Choose lifts of both 0′ and ∞′ using surjectivity."
+        },
+        {
+          "name": "A24.api2",
+          "statement": "Export connectedness needed for H⁰(P′,Λ)=Λ."
+        },
+        {
+          "name": "A24.api3",
+          "statement": "Retain dependence on n and the chosen σ."
+        }
+      ],
+      "unitTests": [
+        "Both special points have a preimage.",
+        "A disconnected cover cannot use the single-copy H⁰ identification without selecting a component.",
+        "The extension restricts to the original kernel/action over the open locus."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A25",
+          "how": "Relative trace is constant on the connected parameter cover"
+        },
+        {
+          "where": "PAPER-ABE-25/A27",
+          "how": "The infinity fiber identifies with nearby cycles"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A25",
+      "kind": "theorem",
+      "name": "Relative trace is constant on the connected parameter cover",
+      "statement": "In A24, (X^σ)red={x}. Nil-invariance of étale duality identifies H⁰(X^σ×P′,K/P′) with H⁰(P′,Λ)=Λ, and restriction to the chosen points over 0′ and ∞′ is an isomorphism. Hence both restrictions of the relative trace coincide.",
+      "locator": "Theorem 1.6 diagram p.614",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A08",
+        "PAPER-ABE-25/A09",
+        "PAPER-ABE-25/A24"
+      ],
+      "gaps": [
+        "G-TRACE"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A26",
+      "kind": "theorem",
+      "name": "Trace of the constant sheaf is fixed intersection length",
+      "statement": "For the smooth finite-type k-scheme in A20 with isolated fixed locus, the ordinary Lefschetz–Verdier trace of (Λ,σ) is (ΔX·Γσ)X×X=length(OXσ)=−aX,G(σ). The local intersection equality needs the isolated complete-intersection calculation, not just set-theoretic fixed points.",
+      "locator": "Theorem 1.6 p.615; SGA5 III Ex.4.3; Fulton Prop.7.1(b)",
+      "status": "missing",
+      "owner": "EDC",
+      "dependsOn": [
+        "PAPER-ABE-25/P03",
+        "PAPER-ABE-25/G03"
+      ],
+      "gaps": [
+        "G-TRACE"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A27",
+      "kind": "theorem",
+      "name": "The infinity fiber identifies with nearby cycles",
+      "statement": "Under A24 the ULA extension restricts at ∞′ to the nearby cycles of the original kernel, using goodness on the one-dimensional base and the canonical σ-action. This is a coefficient/action-compatible isomorphism, not equality with the original zero-extension stalk.",
+      "locator": "Theorem 1.6 p.614",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A12",
+        "PAPER-ABE-25/A24",
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-ORGO"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A28",
+      "kind": "theorem",
+      "name": "Trace of a point-supported complex",
+      "statement": "For a perfect coefficient complex P on x and closed immersion i:x→X, proper-pushforward compatibility identifies the relative fixed-locus trace of i*P with the ordinary alternating trace of its endomorphism on P. Apply this only after the support theorem F18, whose proof is independent of A29.",
+      "locator": "Theorem 1.6 p.615; SGA5 III Thm4.4",
+      "status": "missing",
+      "owner": "EDC",
+      "dependsOn": [
+        "PAPER-ABE-25/P03",
+        "PAPER-ABE-25/F18",
+        "PAPER-ABE-25/B13"
+      ],
+      "gaps": [
+        "G-TRACE"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A29",
+      "kind": "theorem",
+      "name": "Equivariant Fourier nearby-cycle trace formula",
+      "statement": "Under all of C2, for σ∈G with σ≠1, −aX,G(σ)=Tr(σ;RΨpr′(L(ft′))_(x,∞′)) in Qℓ(ζp). Compare the two restrictions in A25, identify the zero fiber by A26 and the infinity fiber by A27/A28, and pass through finite coefficients by A23. No assertion at σ=1 is made here.",
+      "locator": "Theorem 1.6, equation (1.6.1)",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/A21",
+        "PAPER-ABE-25/A23",
+        "PAPER-ABE-25/A25",
+        "PAPER-ABE-25/A26",
+        "PAPER-ABE-25/A27",
+        "PAPER-ABE-25/A28"
+      ],
+      "gaps": [
+        "G-TRACE",
+        "G-ADIC"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B01",
+      "kind": "definition",
+      "name": "Perfect-complex and representation Grothendieck groups",
+      "statement": "For a ring A let K•(A)=K0(Dperf(A)). For finite G and L of characteristic zero define RL(G)=K•(L[G]). Reuse the existing TriangulatedK0 carrier, constructing the perfect subcategory and its ring product under the appropriate tensor conventions.",
+      "locator": "§2.1",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/L05",
+        "PAPER-ABE-25/P08"
+      ],
+      "planningAPI": [
+        {
+          "name": "B01.api1",
+          "statement": "Embed perfect complexes into the derived category."
+        },
+        {
+          "name": "B01.api2",
+          "statement": "Map an exact functor to K0 only after proving perfectness preservation."
+        },
+        {
+          "name": "B01.api3",
+          "statement": "Construct the Euler map for finite-dimensional G-complexes."
+        }
+      ],
+      "unitTests": [
+        "A degree-zero module gives its usual class.",
+        "A degree-one module gives its negative class.",
+        "A contractible perfect complex has class zero."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B02",
+          "how": "Perfect representation K0 equals the split representation ring"
+        },
+        {
+          "where": "PAPER-ABE-25/F08",
+          "how": "Derived tensor pairing on the relevant K0 groups"
+        }
+      ],
+      "note": "Only the perfect coefficient-category instance and comparison with existing K0 are new here. Import bounded projective-complex construction from K.4:construction and the ordinary derived enhancement; do not construct another higher K-theory spectrum.",
+      "owner": "KT"
+    },
+    {
+      "id": "PAPER-ABE-25/B02",
+      "kind": "theorem",
+      "name": "Perfect representation K0 equals the split representation ring",
+      "statement": "For finite G and characteristic-zero L, Maschke semisimplicity identifies RL(G) with the existing repRing L G via the alternating sum of cohomology representations. Prove compatibility with tensor and character maps. This comparison is missing even though both generic carriers are built.",
+      "locator": "§2.1 and §2.5 identification",
+      "status": "missing",
+      "owner": "KT",
+      "dependsOn": [
+        "PAPER-ABE-25/B01",
+        "PAPER-ABE-25/L03",
+        "PAPER-ABE-25/L04",
+        "PAPER-ABE-25/L06",
+        "PAPER-ABE-25/P07"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B03",
+      "kind": "construction",
+      "name": "Projective integral Swan module",
+      "statement": "For a finite Galois extension of K as in C3 with group Δ, choose a finitely generated projective Zℓ[Δ]-module SwΔ realizing the Swan character. Include the appropriate self-duality/right-module convention used for tensor-Hom comparison. This is stronger than numerical conductor integrality.",
+      "locator": "§2.2; Serre, Linear Representations §19.2 Theorem 44",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/P06"
+      ],
+      "gaps": [
+        "G-SWAN"
+      ],
+      "planningAPI": [
+        {
+          "name": "B03.api1",
+          "statement": "Expose projectivity over the group ring, not merely Zℓ."
+        },
+        {
+          "name": "B03.api2",
+          "statement": "Record a chosen Swan-module realization."
+        },
+        {
+          "name": "B03.api3",
+          "statement": "Export quotient-change isomorphisms and the needed duality."
+        }
+      ],
+      "unitTests": [
+        "For a tame extension SwΔ=0 up to isomorphism.",
+        "Tensoring SwΔ over Zℓ[Δ] is exact.",
+        "The trivial Galois group has zero Swan module."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B04",
+          "how": "Compatible tower trivializing finite reductions"
+        },
+        {
+          "where": "PAPER-ABE-25/B07",
+          "how": "Exactness of the fixed-tower torsion Swan functor"
+        },
+        {
+          "where": "PAPER-ABE-25/F07",
+          "how": "Full regular Fourier class is total dimension, with a minus sign"
+        },
+        {
+          "where": "PAPER-ABE-25/R01",
+          "how": "Katz canonical-extension Swan model"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B04",
+      "kind": "definition",
+      "name": "Compatible tower trivializing finite reductions",
+      "statement": "A tower K=K0⊂K1⊂… of finite Galois extensions, Δi=Gal(Ki/K), trivializes M when every derived reduction M⊗ᴸZℓ Z/ℓ^n has action factoring through some Δi. Choose isomorphisms SwΔi+1⊗Zℓ[Δi+1]Zℓ[Δi]≅SwΔi once and use them coherently along the chain.",
+      "locator": "§2.2",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B03"
+      ],
+      "planningAPI": [
+        {
+          "name": "B04.api1",
+          "statement": "Record a factorization index for each finite reduction."
+        },
+        {
+          "name": "B04.api2",
+          "statement": "Iterate the chosen transition isomorphisms."
+        },
+        {
+          "name": "B04.api3",
+          "statement": "Distinguish derived reduction from an ordinary quotient for torsion modules."
+        }
+      ],
+      "unitTests": [
+        "A representation with finite image is trivialized by a constant eventual tower.",
+        "Replacing a tower by a cofinal subtower still trivializes M.",
+        "Choice of individual module isomorphisms does not make the tower-independent functor canonical."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B05",
+          "how": "Existence of a trivializing tower"
+        },
+        {
+          "where": "PAPER-ABE-25/B06",
+          "how": "Torsion Swan and total-dimension modules"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B05",
+      "kind": "theorem",
+      "name": "Existence of a trivializing tower",
+      "statement": "For a finitely generated module over the finite/integral ℓ-adic coefficient rings of §2.2 with continuous Γ-action, choose finite Galois quotients trivializing all finite derived reductions and take successive composita to obtain B04.",
+      "locator": "§2.2",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B04",
+        "PAPER-ABE-25/P05"
+      ],
+      "gaps": [
+        "G-SWAN"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B06",
+      "kind": "construction",
+      "name": "Torsion Swan and total-dimension modules",
+      "statement": "For torsion Λ, a continuous finite Λ-module M trivialized by the chosen tower, set swΛ(M)=SwΔi⊗Zℓ[Δi]M for large i, identified using the chosen transitions, and dtΛ(M)=swΛ(M)⊕M. A commuting G-action descends to both modules. Only this G-action is required downstream; specify any retained Γ-action separately.",
+      "locator": "§2.2",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B04"
+      ],
+      "planningAPI": [
+        {
+          "name": "B06.api1",
+          "statement": "Use the specified right Swan-module convention for tensor."
+        },
+        {
+          "name": "B06.api2",
+          "statement": "Transport a commuting G-action and module maps."
+        },
+        {
+          "name": "B06.api3",
+          "statement": "Construct total dimension by a direct sum."
+        }
+      ],
+      "unitTests": [
+        "swΛ(0)=0 and dtΛ(0)=0.",
+        "For trivial Γ-action, sw=0 and dt=M.",
+        "The construction is functorial only on the fixed tower/transition-data category as stated."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B07",
+          "how": "Exactness of the fixed-tower torsion Swan functor"
+        },
+        {
+          "where": "PAPER-ABE-25/B08",
+          "how": "Integral inverse-limit Swan module"
+        },
+        {
+          "where": "PAPER-ABE-25/F10",
+          "how": "Finite coefficient local total-dimension identity"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B07",
+      "kind": "theorem",
+      "name": "Exactness of the fixed-tower torsion Swan functor",
+      "statement": "On the fixed-tower category of B06, swΛ is exact because the Swan module is projective over Zℓ[Δi]. Equivalently use its correct self-dual Hom presentation. Commuting G-actions and finite coefficient changes are respected.",
+      "locator": "§2.2",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B03",
+        "PAPER-ABE-25/B06"
+      ],
+      "gaps": [
+        "G-SWAN"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B08",
+      "kind": "construction",
+      "name": "Integral inverse-limit Swan module",
+      "statement": "For Λ finite projective over Zℓ and M finite over Λ with continuous Γ×G action trivialized by B04, define swΛ(M)=limn swΛ/ℓ^n(M⊗Z/ℓ^n); dtΛ(M)=swΛ(M)⊕M. Construct the transition system using the fixed tower data before taking the limit.",
+      "locator": "§2.2 p.616",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B06",
+        "PAPER-ABE-25/B07"
+      ],
+      "gaps": [
+        "G-SWAN",
+        "G-ADIC"
+      ],
+      "planningAPI": [
+        {
+          "name": "B08.api1",
+          "statement": "Build actual reduction transition maps."
+        },
+        {
+          "name": "B08.api2",
+          "statement": "Prove finite generation and compatibility with finite reductions."
+        },
+        {
+          "name": "B08.api3",
+          "statement": "Keep the commuting G-action continuous through the limit."
+        }
+      ],
+      "unitTests": [
+        "For trivial Γ-action the limit Swan module is zero.",
+        "If M is killed by ℓ^n the system stabilizes appropriately at its finite coefficient calculation.",
+        "A list of noncanonical isomorphic modules without maps is not an inverse system."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B09",
+          "how": "Exactness of the integral Swan construction"
+        },
+        {
+          "where": "PAPER-ABE-25/B10",
+          "how": "Tower independence after rationalization"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B09",
+      "kind": "theorem",
+      "name": "Exactness of the integral Swan construction",
+      "statement": "For a short exact sequence in B08's fixed-tower category, swΛ is exact. Prove the finite-level exactness, control reduction Tor terms and the required Mittag–Leffler/surjectivity condition before concluding exactness of inverse limits.",
+      "locator": "§2.2 last paragraph",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B08"
+      ],
+      "gaps": [
+        "G-SWAN",
+        "G-ADIC"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B10",
+      "kind": "theorem",
+      "name": "Tower independence after rationalization",
+      "statement": "For a fixed Γ×G-stable OL-lattice N, the class swOL(N)⊗Q in RL(G) is independent of the trivializing tower and chosen transition isomorphisms. Compare finite-level traces using a common finite Galois extension, pass to the complete coefficient ring and use characteristic injectivity. This does not assert a canonical integral isomorphism.",
+      "locator": "§2.3 Lemma, first half",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B02",
+        "PAPER-ABE-25/B08",
+        "PAPER-ABE-25/L04",
+        "PAPER-ABE-25/A23"
+      ],
+      "gaps": [
+        "G-SWAN"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B11",
+      "kind": "theorem",
+      "name": "Lattice independence after rationalization",
+      "statement": "For two stable OL-lattices N,N′ in M, replace by N+N′ and compare an inclusion with torsion quotient. By exactness B09, the rationalized Swan classes agree since the Swan construction of the quotient remains torsion.",
+      "locator": "§2.3 Lemma, second half",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B09",
+        "PAPER-ABE-25/P05"
+      ],
+      "gaps": [
+        "G-SWAN"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B12",
+      "kind": "definition",
+      "name": "Rational Swan and total-dimension classes",
+      "statement": "For M finite-dimensional over L with continuous Γ×G action, define sw(M)∈RL(G) as the common rational class from B10–B11 and dt(M)=sw(M)+[M]. Extend additively to bounded complexes with the relevant finite-dimensional cohomology and continuous actions.",
+      "locator": "§2.3 Definition; use in Proposition 2.5",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B10",
+        "PAPER-ABE-25/B11"
+      ],
+      "planningAPI": [
+        {
+          "name": "B12.api1",
+          "statement": "Prove invariance under stable-lattice and tower choices."
+        },
+        {
+          "name": "B12.api2",
+          "statement": "Extend additively with cohomological signs."
+        },
+        {
+          "name": "B12.api3",
+          "statement": "Compare dimension(dt(M)) to rank(M)+Swan(M)."
+        }
+      ],
+      "unitTests": [
+        "dt(0)=0.",
+        "For an unramified M, dt(M)=[M].",
+        "dt(M[1])=−dt(M) in the Grothendieck group."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/F11",
+          "how": "Rational equivariant local total-dimension identity"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B13",
+      "kind": "definition",
+      "name": "Equivariant perfect trace",
+      "statement": "For a commutative Noetherian Λ and finite G let DΛ-perf(Λ[G]) be the full subcategory of complexes whose underlying Λ-complex is perfect. For σ∈G, left multiplication on the right regular Λ[G]-module induces ϕσ on its tensor with F; define Tr(σ;F) as the perfect Λ-trace of ϕσ.",
+      "locator": "§2.4",
+      "status": "missing",
+      "owner": "KT",
+      "dependsOn": [
+        "PAPER-ABE-25/P01",
+        "PAPER-ABE-25/L02",
+        "PAPER-ABE-25/L05"
+      ],
+      "planningAPI": [
+        {
+          "name": "B13.api1",
+          "statement": "Construct the underlying Λ-perfect endomorphism using the right regular module."
+        },
+        {
+          "name": "B13.api2",
+          "statement": "Compare with alternating traces of a bounded Λ-projective strict model."
+        },
+        {
+          "name": "B13.api3",
+          "statement": "Prove compatibility with allowed derived coefficient change."
+        }
+      ],
+      "unitTests": [
+        "For F concentrated in degree zero, recover the module trace.",
+        "For F[1], the trace changes sign.",
+        "When ℓ divides |G| a Λ-free module is not silently assumed projective over Λ[G]."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/A23",
+          "how": "Integral and finite coefficient reduction of the trace"
+        },
+        {
+          "where": "PAPER-ABE-25/A28",
+          "how": "Trace of a point-supported complex"
+        },
+        {
+          "where": "PAPER-ABE-25/B14",
+          "how": "Strictification for equivariant perfect complexes and maps"
+        },
+        {
+          "where": "PAPER-ABE-25/F08",
+          "how": "Derived tensor pairing on the relevant K0 groups"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B14",
+      "kind": "theorem",
+      "name": "Strictification for equivariant perfect complexes and maps",
+      "statement": "For a triangle M′→M→M″ in DΛ-perf(Λ[G]), find bounded complexes of finitely generated Λ[G]-modules projective over Λ representing M′ and M, with an actual chain map representing the given derived morphism. Compare M″ with its mapping cone. The finite-resolution/truncation construction must be supplied, not assumed from Λ[G]-perfectness.",
+      "locator": "§2.4 proof pp.617–618",
+      "status": "missing",
+      "owner": "KT",
+      "dependsOn": [
+        "PAPER-ABE-25/B13"
+      ],
+      "gaps": [
+        "G-EQUIVARIANT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B15",
+      "kind": "theorem",
+      "name": "Additivity of the group-element trace",
+      "statement": "For σ∈G and an exact triangle in DΛ-perf(Λ[G]), Tr(σ;M)=Tr(σ;M′)+Tr(σ;M″). This yields K0(DΛ-perf(Λ[G]))→Λ. The proof uses B14 and chain-level cone additivity; it is not an assertion of additivity for arbitrary endomorphism triples in an abstract triangulated category.",
+      "locator": "§2.4",
+      "status": "missing",
+      "owner": "KT",
+      "dependsOn": [
+        "PAPER-ABE-25/B14",
+        "PAPER-ABE-25/L05"
+      ],
+      "gaps": [
+        "G-EQUIVARIANT"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B16",
+      "kind": "theorem",
+      "name": "Finite-coefficient trace detects rational class equality",
+      "statement": "For the perfect compatible integral models used in §2.5, equality of all finite-level group-element traces gives equality of integral traces and then, over characteristic-zero L, equality in RL(G) by B02 and L04. Coefficient completeness, perfectness and G-compatibility are hypotheses.",
+      "locator": "§2.5 reduction to finite coefficients",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/A23",
+        "PAPER-ABE-25/B02",
+        "PAPER-ABE-25/B15",
+        "PAPER-ABE-25/L04"
+      ],
+      "gaps": [
+        "G-ADIC"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F01",
+      "kind": "construction",
+      "name": "Local Fourier transform from 0 to infinity",
+      "statement": "For the strict henselian traits at 0 and ∞′ in equal characteristic p, and a finite-dimensional ℓ-adic local system V on the punctured first trait, define the local Fourier transform as the degree-one vanishing/nearby-cycle stalk of Lψ(tt′)⊗V! at (0,∞′). Relate the RΦ and RΨ descriptions using zero extension in the second coordinate.",
+      "locator": "§2.5; Laumon Definitions 2.4.2.3",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/P04"
+      ],
+      "planningAPI": [
+        {
+          "name": "F01.api1",
+          "statement": "Construct the kernel and the punctured-trait extension."
+        },
+        {
+          "name": "F01.api2",
+          "statement": "Extract H¹ only after the concentration theorem."
+        },
+        {
+          "name": "F01.api3",
+          "statement": "Retain the commuting finite-group action."
+        }
+      ],
+      "unitTests": [
+        "The zero input has zero transform.",
+        "A rank-one unramified input has rank-one transform.",
+        "The associated unshifted derived stalk has negative Euler class when it is concentrated in degree 1."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/F02",
+          "how": "Local Fourier concentration"
+        },
+        {
+          "where": "PAPER-ABE-25/F03",
+          "how": "Laumon's Artin representation from the augmentation ideal"
+        },
+        {
+          "where": "PAPER-ABE-25/R02",
+          "how": "Fourier family relating Katz and Laumon models"
+        },
+        {
+          "where": "PAPER-ABE-25/F21",
+          "how": "Exactness of the local Fourier functor"
+        },
+        {
+          "where": "PAPER-ABE-25/F22",
+          "how": "Local Fourier rank formula"
+        },
+        {
+          "where": "PAPER-ABE-25/F23",
+          "how": "Local Fourier preservation of Swan conductor"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F02",
+      "kind": "theorem",
+      "name": "Local Fourier concentration",
+      "statement": "In F01 the local vanishing-cycle complex is supported at the closed pair and concentrated in cohomological degree 1.",
+      "locator": "Laumon Proposition 2.4.2.2; Abe §2.5",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F01"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F03",
+      "kind": "construction",
+      "name": "Laumon's Artin representation from the augmentation ideal",
+      "statement": "For a finite Galois cover of strictly henselian equal-characteristic traits with algebraically closed residue field and group H, apply F(0,∞′) to ker(Qbarℓ[H]→Qbarℓ), using the commuting left and right H-actions. The remaining right H-action defines ArtH.",
+      "locator": "Laumon §2.6.1; Abe §3.1",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/F01",
+        "PAPER-ABE-25/B02"
+      ],
+      "planningAPI": [
+        {
+          "name": "F03.api1",
+          "statement": "Form the augmentation kernel with its bimodule actions."
+        },
+        {
+          "name": "F03.api2",
+          "statement": "Apply the left action through the Galois quotient."
+        },
+        {
+          "name": "F03.api3",
+          "statement": "Retain the commuting right action as the desired representation."
+        }
+      ],
+      "unitTests": [
+        "For H=1 the augmentation kernel and ArtH are zero.",
+        "The full regular module is not substituted for the augmentation kernel.",
+        "For a tame cyclic order-m cover, the Artin dimension is m−1."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/F04",
+          "how": "Character and coefficient field of Laumon's realization"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F04",
+      "kind": "theorem",
+      "name": "Character and coefficient field of Laumon's realization",
+      "statement": "Under F03, the right H-character of ArtH is the classical Artin character, and the construction is defined over Qℓ(ψ(1)). This alone is not the Qℓ-rationality proof for the higher-dimensional Artin character.",
+      "locator": "Laumon Theorem 2.6.1; Abe §§2.5,3.1",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/F02",
+        "PAPER-ABE-25/F03",
+        "PAPER-ABE-25/F21",
+        "PAPER-ABE-25/F22"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F05",
+      "kind": "construction",
+      "name": "Regular Galois local-system descent",
+      "statement": "For a finite Galois extension ξ→η with group Δ and a finite coefficient ring Λ with p invertible, let D=f*Λξ as a right Λ[Δ]-local system. For a complex M with commuting left Δ and G actions construct its associated η-local system M̃ and the isomorphism D!⊗ᴸΛ[Δ]M≅M̃! on S.",
+      "locator": "§2.5 p.619",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/P01",
+        "PAPER-ABE-25/P02"
+      ],
+      "planningAPI": [
+        {
+          "name": "F05.api1",
+          "statement": "Fix the right-versus-left action convention."
+        },
+        {
+          "name": "F05.api2",
+          "statement": "Construct the associated sheaf by Galois descent."
+        },
+        {
+          "name": "F05.api3",
+          "statement": "Compare descent followed by j! with the derived tensor presentation."
+        }
+      ],
+      "unitTests": [
+        "For Δ=1 the presentation reduces to the constant sheaf.",
+        "For M=Λ[Δ] it recovers D with the corresponding action convention.",
+        "The right and left Δ-actions are not both replaced by left multiplication in the tensor product."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/F06",
+          "how": "Perfect regular Fourier complex over the group ring"
+        },
+        {
+          "where": "PAPER-ABE-25/F09",
+          "how": "Equivariant nearby-cycle tensor interchange"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F06",
+      "kind": "theorem",
+      "name": "Perfect regular Fourier complex over the group ring",
+      "statement": "For D as in F05, the stalk N=RΨq′(LΛ(tt′)⊗ᴸΛ D!)_(0,∞′) is perfect as a right Λ[Δ]-complex, not merely as a Λ-complex. Supply the group-ring constructible finite-Tor argument and finite cohomological bound.",
+      "locator": "§2.5 p.619; SGA4 XVII 5.2.11",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F05",
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/A22"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F07",
+      "kind": "theorem",
+      "name": "Full regular Fourier class is total dimension, with a minus sign",
+      "statement": "For the finite coefficient setup of F06, in K0(Dperf(Λ[Δ]op)) one has −[N]=[(SwΔ⊕Zℓ[Δ])⊗ZℓΛ]. The augmentation-ideal Fourier realization gives Artin, whereas the full regular input gives Artin plus the trivial representation, equivalently Swan plus regular. The integral projective-class comparison needs separate verification beyond the rational character calculation.",
+      "locator": "§2.5 p.619; Laumon §§2.4.2.2,2.6.1",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F04",
+        "PAPER-ABE-25/F06",
+        "PAPER-ABE-25/B03",
+        "PAPER-ABE-25/L06"
+      ],
+      "gaps": [
+        "G-FOURIER",
+        "G-SWAN"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F08",
+      "kind": "theorem",
+      "name": "Derived tensor pairing on the relevant K0 groups",
+      "statement": "For finite Δ,G, N,N′ perfect right Λ[Δ]-complexes and M∈DΛ-perf(Λ[Δ×G]), [N]=[N′] implies [N⊗ᴸΛ[Δ]M]=[N′⊗ᴸΛ[Δ]M] in K0(DΛ-perf(Λ[G])). Prove preservation of the underlying Λ-perfect condition using group-ring perfectness of N; Λ-perfectness of N alone is insufficient.",
+      "locator": "§2.5 observation pp.618–619",
+      "status": "missing",
+      "owner": "KT",
+      "dependsOn": [
+        "PAPER-ABE-25/B01",
+        "PAPER-ABE-25/B13"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F09",
+      "kind": "theorem",
+      "name": "Equivariant nearby-cycle tensor interchange",
+      "statement": "For the specific finite regular local system D! and bounded coefficient context of F06, RΨq′(L⊗ᴸΛ D!⊗ᴸΛ[Δ]M)≅RΨq′(L⊗ᴸΛ D!)⊗ᴸΛ[Δ]M. Use a bounded Ψ⁰-acyclic model on the sheaf side and a possibly unbounded finite-free group-module resolution; justify totalization and acyclicity by the stated finite cohomological dimension.",
+      "locator": "§2.5 p.619",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F05",
+        "PAPER-ABE-25/F06",
+        "PAPER-ABE-25/P01"
+      ],
+      "gaps": [
+        "G-EQUIVARIANT",
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F10",
+      "kind": "theorem",
+      "name": "Finite coefficient local total-dimension identity",
+      "statement": "For finite Λ with p invertible and M a finite Λ-free module carrying Δ×G action as in F05, the fixed-quotient total-dimension class is −[RΨq′(LΛ(tt′)⊗M̃!)_(0,∞′)] in K0(DΛ-perf(Λ[G])). Apply F07 through F08 and F09; this proof does not use Theorem 1.6.",
+      "locator": "§2.5 displayed (♠) finite-level proof",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/B06",
+        "PAPER-ABE-25/F07",
+        "PAPER-ABE-25/F08",
+        "PAPER-ABE-25/F09"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F11",
+      "kind": "theorem",
+      "name": "Rational equivariant local total-dimension identity",
+      "statement": "For M finite-dimensional over Qℓ(ζp) with continuous Γ×G action, dt(M)=−[RΨq′(L(tt′)⊗M̃!)_(0,∞′)] in RQℓ(ζp)(G). Descend to a stable lattice and finite coefficients, then use B16. Retain all character values, including σ=1, for this class equality.",
+      "locator": "§2.5 equation (♠)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/B12",
+        "PAPER-ABE-25/B16",
+        "PAPER-ABE-25/F10"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F12",
+      "kind": "theorem",
+      "name": "Katz–Laumon vanishing for the constant full-trait input",
+      "statement": "For the strict traits and nontrivial ψ in F01, the nearby-cycle stalk at (0,∞′) of L(tt′) tensored with the constant sheaf on the full first trait vanishes. This is distinct from the nonzero rank-one local Fourier transform of the punctured-trait constant sheaf extended by zero.",
+      "locator": "§2.5 support proof p.620; Katz–Laumon vanishing input",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F13",
+      "kind": "theorem",
+      "name": "Localization converts the local identity to vanishing cycles",
+      "statement": "For a bounded constructible Λ[G]-coefficient complex F on S in the admissible rational setting, localization together with F11 and F12 gives dt(RΦid(F))=−[RΨq′(L(tt′)⊗q*F)_(0,∞′)]. Extend from sheaves to bounded complexes by exactness and K0 additivity, stating the finite-dimensionality assumptions.",
+      "locator": "§2.5 first displayed heart identity p.619",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F11",
+        "PAPER-ABE-25/F12",
+        "PAPER-ABE-25/P04"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F14",
+      "kind": "theorem",
+      "name": "Projection formula on the strict-local Milnor-fiber diagram",
+      "statement": "In C2, for a geometric y of the special fiber form g:(X×S′)_(y,∞′)→(S×S′)_(0,∞′). Because L(tt′) is lisse on the generic second-coordinate fiber, the required Rg*-projection formula holds there. This is the specific source-qualified comparison, not a claim that Rg* satisfies every projection formula without hypotheses.",
+      "locator": "§2.5 p.620; Abe 2022 Lemma 6.4",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/P01"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F15",
+      "kind": "theorem",
+      "name": "Milnor-fiber base change to the one-dimensional parameter",
+      "statement": "For f(y):X(y)→S in C2, the goodness comparison identifies Rg*Λ over the generic second-coordinate fiber with the pullback of Rf(y)*Λ. Combine with F14 and the stalk formula to identify the y-stalk of the Fourier nearby cycles with the transform of Rf(y)*Λ.",
+      "locator": "§2.5 second displayed heart identity p.620",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F14",
+        "PAPER-ABE-25/A12",
+        "PAPER-ABE-25/P04"
+      ],
+      "gaps": [
+        "G-ORGO"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F16",
+      "kind": "theorem",
+      "name": "Smooth local fiber has constant pushforward",
+      "statement": "In C2, for y≠x the local acyclicity of the smooth map implies Rf(y)*Λ≅Λ in the strict-local comparison of §2.5. This is used only in that stalk setting, not as a global equality Rf*Λ=Λ for every smooth morphism.",
+      "locator": "§2.5 p.620",
+      "status": "missing",
+      "owner": "LPV",
+      "dependsOn": [
+        "PAPER-ABE-25/P04"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F17",
+      "kind": "theorem",
+      "name": "Vanishing cycles commute with the strict-local pushforward comparison",
+      "statement": "For the coefficient objects in §2.5, RΦid(Rf(y)*F)≅(RΦf F)y with the same G-action when y is fixed. Prove this from the corresponding specialization triangles and Milnor-fiber stalk comparison.",
+      "locator": "§2.5 final displayed heart identity p.620",
+      "status": "missing",
+      "owner": "LPV",
+      "dependsOn": [
+        "PAPER-ABE-25/P04",
+        "PAPER-ABE-25/F15"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F18",
+      "kind": "theorem",
+      "name": "Fourier nearby cycles are supported at the isolated point",
+      "statement": "Under C2, RΨpr′(L(ft′)) on X×{∞′} has support contained in {(x,∞′)}. For y≠x use F15, F16 and F12. This proof is independent of the trace formula A29, so importing it in A28 creates no cycle.",
+      "locator": "Proposition 2.5(1)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F12",
+        "PAPER-ABE-25/F15",
+        "PAPER-ABE-25/F16"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F19",
+      "kind": "theorem",
+      "name": "Vanishing-cycle total-dimension class equals negative Fourier class",
+      "statement": "Under C2, dt((RΦfΛ)x)=−[RΨpr′(L(ft′))_(x,∞′)] in RQℓ(ζp)(G). Combine F13, F15 and F17. No sign is absorbed into the definition of dt or the unshifted nearby-cycle functor.",
+      "locator": "Proposition 2.5(2)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F13",
+        "PAPER-ABE-25/F15",
+        "PAPER-ABE-25/F17"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F20",
+      "kind": "theorem",
+      "name": "Kato–Saito–Saito reduction to the geometric nonidentity trace formula",
+      "statement": "Abe §2.6 invokes Kato–Saito–Saito Lemma 5.3 to reduce both assertions of the regular-local Serre conjecture to their Conjecture 5.1 over k{t}, k algebraically closed of characteristic p. A29 and F19 give Tr(σ;dt((RΦfΛ)x))=aX,G(σ) for σ≠1 in that geometry. The reduction from arbitrary C1 rings, the regular-character correction, actual positivity and Qℓ descent must be transcribed from the unread external lemma before this item is closed.",
+      "locator": "§2.6 p.620; [13] Conjecture 5.1 and Lemma 5.3",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/A29",
+        "PAPER-ABE-25/F19",
+        "PAPER-ABE-25/G08"
+      ],
+      "gaps": [
+        "G-KSS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/R01",
+      "kind": "construction",
+      "name": "Katz canonical-extension Swan model",
+      "statement": "For the finite Galois extension in §3.1, choose a lisse extension of the regular local system on Gm agreeing near 0 and tame at ∞. With j:Gm→A¹ and j′:A¹→P¹, form H¹(P¹,j′!Rj*Reg~); Katz's theorem identifies this G-module with the Swan representation. Canonical extension and the concentration proof are external supplier gates.",
+      "locator": "§3.1; Katz 1986 §1.6",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/B03",
+        "PAPER-ABE-25/P02"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ],
+      "planningAPI": [
+        {
+          "name": "R01.api1",
+          "statement": "Record the local match at 0 and tame condition at ∞."
+        },
+        {
+          "name": "R01.api2",
+          "statement": "Construct j′!Rj* in the specified order."
+        },
+        {
+          "name": "R01.api3",
+          "statement": "Compare H¹ with the chosen Swan-module realization."
+        }
+      ],
+      "unitTests": [
+        "For the trivial Galois cover the Swan module is zero.",
+        "j′!Rj* is not replaced by j′!j! without a comparison.",
+        "An H¹ realization is distinguished from the unshifted derived global sections."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/R02",
+          "how": "Fourier family relating Katz and Laumon models"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/R02",
+      "kind": "construction",
+      "name": "Fourier family relating Katz and Laumon models",
+      "statement": "Let M=j′!Rj*Reg~⊗L(tt′) on P¹t×P¹t′ and C=Rpr′*M with no global shift. Compare its 0′ stalk to RΓ(P¹,M0′), and its generic/special nearby cycles to the local Fourier model. Retain the derived degrees explicitly.",
+      "locator": "§3.1 pp.620–621",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/R01",
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/F01"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ],
+      "planningAPI": [
+        {
+          "name": "R02.api1",
+          "statement": "Construct proper pushforward in the parameter coordinate."
+        },
+        {
+          "name": "R02.api2",
+          "statement": "Compare the zero stalk by proper base change."
+        },
+        {
+          "name": "R02.api3",
+          "statement": "Record the cohomological shift in the H¹ model."
+        }
+      ],
+      "unitTests": [
+        "If the zero stalk has only H¹=Sw, then C0′≅Sw[−1].",
+        "Its Euler class is −[Sw].",
+        "For trivial G, the degree-one generic Fourier contribution has Euler class −1, not +1."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/R03",
+          "how": "Corrected virtual comparison of the two Swan/Artin models"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/R03",
+      "kind": "theorem",
+      "name": "Corrected virtual comparison of the two Swan/Artin models",
+      "statement": "With the concentration and comparison hypotheses of R01–R02 proved, the unshifted nearby-cycle class is −([SwG]+[Λ[G]]). Equivalently, its negative is total dimension. The printed positive formula in §3.1 omits the degree-one sign, as E2 records; the main Proposition 2.5 already has the correct negative sign.",
+      "locator": "§3.1 p.621, corrected E2",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/R02",
+        "PAPER-ABE-25/F02",
+        "PAPER-ABE-25/F07",
+        "PAPER-ABE-25/L06"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/R04",
+      "kind": "theorem",
+      "name": "Identity trace and curve Milnor number",
+      "statement": "In the dimension-one case of C2, the identity trace of the Fourier nearby stalk is −μf, where μf is the local different/discriminant exponent of the finite smooth-curve germ. For the higher-dimensional characteristic-cycle interpretation in §3.3, transcribe Saito's Milnor formula and Fulton's sign conventions before generalizing this numerical statement.",
+      "locator": "§3.3; Saito 2017 Thm5.9 and Fulton Ex.14.1.5(d)",
+      "status": "missing",
+      "owner": "AR",
+      "dependsOn": [
+        "PAPER-ABE-25/F19"
+      ],
+      "gaps": [
+        "G-REMARKS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F21",
+      "kind": "theorem",
+      "name": "Exactness of the local Fourier functor",
+      "statement": "In F01's ℓ-adic equal-characteristic trait setting, F(0,∞′) is an exact functor on the category of continuous finite-dimensional local representations.",
+      "locator": "Laumon Theorem 2.4.3(i)(a)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F01",
+        "PAPER-ABE-25/F02"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F22",
+      "kind": "theorem",
+      "name": "Local Fourier rank formula",
+      "statement": "For V in F01, rank(F(0,∞′)(V))=rank(V)+Swan(V). In particular the unramified rank-one input has a one-dimensional degree-one transform.",
+      "locator": "Laumon Theorem 2.4.3(i)(b)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F01",
+        "PAPER-ABE-25/P06"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/F23",
+      "kind": "theorem",
+      "name": "Local Fourier preservation of Swan conductor",
+      "statement": "For V in F01, Swan(F(0,∞′)(V))=Swan(V); the output has slopes strictly less than one. The slope-filtration infrastructure is an external input, not assumed implemented here.",
+      "locator": "Laumon Theorem 2.4.3(i)(b)",
+      "status": "missing",
+      "owner": "NC",
+      "dependsOn": [
+        "PAPER-ABE-25/F01",
+        "PAPER-ABE-25/P06"
+      ],
+      "gaps": [
+        "G-FOURIER"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/A30",
+      "kind": "theorem",
+      "name": "Relative Verdier dual represents the categorical dual",
+      "statement": "Under the hypotheses of A07, the dual object of (X,F) is (X,DX/S F). Evaluation and coevaluation are the diagonal correspondences with the usual evaluation and the image of idF under the duality comparison.",
+      "locator": "Lu–Zheng Remark 2.15 and Theorem 2.16; Abe §1.3",
+      "status": "missing",
+      "owner": "RT",
+      "dependsOn": [
+        "PAPER-ABE-25/A06",
+        "PAPER-ABE-25/A07"
+      ],
+      "gaps": [
+        "G-LZ"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L07",
+      "kind": "theorem",
+      "name": "Bounded-complex Euler–Poincaré identity in abelian K0",
+      "statement": "For an essentially small abelian category and a cochain complex strictly supported in [a,b], its alternating term class in AbelianK0 over any finite set containing [a,b] equals its alternating cohomology class. A quasi-isomorphism between two such bounded complexes preserves the Euler class over a finite set containing both supports.",
+      "locator": "§2.1 comparison input; pinned GrothendieckGroup/EulerCharacteristic.lean",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.AbelianK0.eulerChar_eq_homologyEulerChar",
+        "tauceti:TauCeti.AbelianK0.eulerChar_eq_of_quasiIso"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/L05"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P07",
+      "kind": "theorem",
+      "name": "Bounded categorical K0 comparisons",
+      "statement": "Import the upstream Layer 2 comparison of split K0 with the bounded homotopy category and the abelian bounded-derived comparison with alternating homology. These are planned, not fully built by the pinned Euler–Poincaré identity; the finite-group perfect-category and character compatibility is B02.",
+      "locator": "§2.1 prerequisite; GrothendieckEulerForms Layer 2",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
+      ],
+      "dependsOn": [
+        "PAPER-ABE-25/L07"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/P08",
+      "kind": "construction",
+      "name": "Bounded projective-complex coefficient model",
+      "statement": "Import the bounded finitely generated projective complexes with quasi-isomorphisms and degreewise split cofibrations from GeneralAlgebraicKTheory K.4:construction. Only this early coefficient model is needed here, not its later S-construction spectrum or delooping theorem.",
+      "locator": "§§2.1,2.4 coefficient-category infrastructure",
+      "status": "planned",
+      "planned": [
+        "GeneralAlgebraicKTheory:K.4:construction"
+      ],
+      "dependsOn": [],
+      "planningAPI": [
+        {
+          "name": "P08.api1",
+          "statement": "Form bounded projective complexes over the chosen ring."
+        },
+        {
+          "name": "P08.api2",
+          "statement": "Use quasi-isomorphisms with the declared cofibration convention."
+        },
+        {
+          "name": "P08.api3",
+          "statement": "Compare the model with the perfect subcategory before transferring K0."
+        }
+      ],
+      "unitTests": [
+        "A finite projective module in degree zero is an object.",
+        "A bounded contractible projective complex becomes zero after localization.",
+        "An arbitrary unbounded free resolution is not itself a bounded projective object."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/B01",
+          "how": "Perfect-complex and representation Grothendieck groups"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "route": "source",
+      "roadmap": "EtaleDualityAndPerverseSheaves",
+      "stages": [
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "items": [
+        "PAPER-ABE-25/A26",
+        "PAPER-ABE-25/A28",
+        "PAPER-ABE-25/P03"
+      ],
+      "reason": "A26 and A28 are the isolated-intersection and proper point-support specializations of the ordinary cohomological correspondence trace already assigned to EDC.8. They do not create another point-counting theorem or contracting-boundary trace formula."
+    },
+    {
+      "route": "source",
+      "roadmap": "LefschetzPencilsAndVanishingCycles",
+      "stages": [
+        "LefschetzPencilsAndVanishingCycles:LPV.0"
+      ],
+      "items": [
+        "PAPER-ABE-25/F16",
+        "PAPER-ABE-25/F17",
+        "PAPER-ABE-25/P04"
+      ],
+      "reason": "The strict-local smooth-fiber and vanishing-triangle comparisons are inside LPV.0's existing trait/Milnor-fiber scope. General coherent bases and local Fourier theory are intentionally excluded from this source route."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/GrothendieckEulerForms",
+      "roadmap": "GrothendieckEulerFormsPartIIEquivariantTraces",
+      "title": "Grothendieck groups, Cartan maps, and Euler forms, Part II: equivariant perfect traces",
+      "area": "algebra",
+      "items": [
+        "PAPER-ABE-25/B01",
+        "PAPER-ABE-25/B02",
+        "PAPER-ABE-25/B13",
+        "PAPER-ABE-25/B14",
+        "PAPER-ABE-25/B15",
+        "PAPER-ABE-25/F08"
+      ],
+      "reason": "The upstream roadmap supplies K0 and bounded comparisons but expressly excludes perfect-category machinery. The new interfaces are group-ring-perfect versus coefficient-perfect categories, equivariant strictification/trace additivity and the tensor comparison, not new K0 carriers.",
+      "brief": "Build on Grothendieck groups, Cartan maps, and Euler forms (tauceti:TauCetiRoadmap/GrothendieckEulerForms), importing Layer 2's K0 and bounded comparisons and the pinned Euler–Poincaré declarations. Import bounded projective coefficient models from General algebraic K-theory (GeneralAlgebraicKTheory:K.4:construction) and derived tensor/enhancement from Enhanced derived categories of sheaves (EnhancedDerivedSheaves:E1). Construct the relevant perfect subcategories and prove their comparison with these models, without constructing another K-theory spectrum. For finite G over a characteristic-zero field L, compare K0(Dperf(L[G])) with the existing split representation ring and its injective character map. For a commutative Noetherian ring Λ, define DΛ-perf(Λ[G]) by underlying Λ-perfectness. Construct the action of each σ through left multiplication on the right regular group algebra, strictify derived maps to bounded Λ-projective equivariant complexes, and prove trace additivity by the mapping cone. State the distinction from arbitrary triangulated endomorphisms identified by Ferrand. Prove the K0 tensor pairing when the right factor is perfect over Λ[Δ], with a coefficient-perfect Δ×G module on the left-action side. Test shifts, cones, a group whose order is not invertible in Λ, and failure of the inference from Λ-perfect to Λ[G]-perfect. This early algebraic supplier must not depend on Abe's ramification theorem or the relative geometric trace."
+    },
+    {
+      "route": "part-ii",
+      "parent": "EtaleDualityAndPerverseSheaves",
+      "roadmap": "EtaleDualityAndPerverseSheavesPartIIRelativeTraces",
+      "title": "Étale duality, cycle classes and perverse sheaves, Part II: relative categorical traces",
+      "area": "cohomology",
+      "items": [
+        "PAPER-ABE-25/A01",
+        "PAPER-ABE-25/A02",
+        "PAPER-ABE-25/A03",
+        "PAPER-ABE-25/A04",
+        "PAPER-ABE-25/A05",
+        "PAPER-ABE-25/A06",
+        "PAPER-ABE-25/A07",
+        "PAPER-ABE-25/A08",
+        "PAPER-ABE-25/A09",
+        "PAPER-ABE-25/A24",
+        "PAPER-ABE-25/A25",
+        "PAPER-ABE-25/A30"
+      ],
+      "reason": "EDC.8 plans ordinary cohomological correspondences, but not the Lu–Zheng symmetric-monoidal 2-category, ULA-dualizability criterion and arbitrary base-change relative trace needed to deform between parameter fibers. This is distinct from the pending microlocal/polar-bounds Part II.",
+      "brief": "Import ordinary six operations, duality and cohomological correspondences from Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves:EDC.0, EDC.1, EDC.8), and the shared derived tensor/enhancement from EnhancedDerivedSheaves:E1. Construct Corr(S), with proper 2-morphisms, and the right-lax symmetric monoidal Grothendieck construction for g_!f*. Add only the missing generic 2-categorical trace/coherence interfaces, coordinating their reusable home with the existing categorical owners rather than duplicating their category carriers. Define dualizable objects, endomorphisms and ΩC, the trace functor and its symmetric monoidal naturality. Under the Noetherian coefficient/base hypotheses of Lu–Zheng Theorem 2.16, prove the LA/ULA-dualizability criterion and identify the dual with relative Verdier duality. Construct the fixed-locus trace and prove Proposition 2.26 base-change compatibility. Import general-base ULA extension from the nearby-cycles continuation, not as an axiom. For Abe's application use one chosen σ at a time, normalize the curve alteration to a connected finite cover, and identify the relative trace target with Λ by nil-invariance and connectedness. Compare with the scalar perfect trace from GrothendieckEulerFormsPartIIEquivariantTraces. Tests include a point, a disconnected parameter countertest and a nonreduced fixed scheme. Do not merge this work with EtaleDualityAndPerverseSheavesPartIIMicrolocal; that continuation owns characteristic-cycle/polar statements."
+    },
+    {
+      "route": "part-ii",
+      "parent": "LefschetzPencilsAndVanishingCycles",
+      "roadmap": "LefschetzPencilsAndVanishingCyclesPartIIGeneralBasesFourier",
+      "title": "Lefschetz pencils, nearby cycles and vanishing cycles, Part II: general bases and local Fourier transforms",
+      "area": "cohomology",
+      "items": [
+        "PAPER-ABE-25/A10",
+        "PAPER-ABE-25/A11",
+        "PAPER-ABE-25/A12",
+        "PAPER-ABE-25/A13",
+        "PAPER-ABE-25/A14",
+        "PAPER-ABE-25/A15",
+        "PAPER-ABE-25/A16",
+        "PAPER-ABE-25/A17",
+        "PAPER-ABE-25/A18",
+        "PAPER-ABE-25/A19",
+        "PAPER-ABE-25/A22",
+        "PAPER-ABE-25/A27",
+        "PAPER-ABE-25/F01",
+        "PAPER-ABE-25/F02",
+        "PAPER-ABE-25/F05",
+        "PAPER-ABE-25/F06",
+        "PAPER-ABE-25/F07",
+        "PAPER-ABE-25/F09",
+        "PAPER-ABE-25/F10",
+        "PAPER-ABE-25/F11",
+        "PAPER-ABE-25/F12",
+        "PAPER-ABE-25/F13",
+        "PAPER-ABE-25/F14",
+        "PAPER-ABE-25/F15",
+        "PAPER-ABE-25/F18",
+        "PAPER-ABE-25/F19",
+        "PAPER-ABE-25/R02",
+        "PAPER-ABE-25/R03",
+        "PAPER-ABE-25/F21",
+        "PAPER-ABE-25/F22",
+        "PAPER-ABE-25/F23"
+      ],
+      "reason": "LPV.0 explicitly restricts its base-change/construction results to the excellent finite-type trait setting. Abe Lemma 1.4/Theorem 1.5 use arbitrary coherent bases and alterations; local Fourier transforms and total-dimension identities also have no current LPV layer.",
+      "brief": "Import the actual trait RΨ/RΦ and strict-local Milnor-fiber API from Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.0), constructible coefficients from EtaleDualityAndPerverseSheaves:EDC.0 and enhancement from EnhancedDerivedSheaves:E1. First prove continuity of Hom and bounded constructible derived categories over affine inverse limits of coherent schemes with Noetherian coefficients. Define goodness and strict-local cohomological properness from Orgogozo, transcribe the alteration/modification theorems with their full hypotheses, and construct the absolute-integral-closure extension Rj*Fξ with constructibility, finite Tor and ULA proofs. Descend the complex, open identification and chosen endomorphism to prove exactly Abe Theorem 1.5: finite coefficient ring, coherent base with finitely many irreducible components, finite-presentation f, ULA input on an open and a specified σ/α. Do not assume proper f or extend to a simultaneous coherent G-action without proof. Treat the finite-cover refinement as a separate Abe–Gabber input. Next construct the Artin–Schreier kernel and local Fourier functor, proving concentration, exactness, rank and Swan formulas from Laumon. Import only the early Swan-module prefix of ArithmeticGaloisRepresentationsPartIIGeometricArtin and the equivariant perfect-trace/tensor prefix of GrothendieckEulerFormsPartIIEquivariantTraces. Prove the group-ring-perfect regular Fourier class, derived tensor interchange, finite-to-adic comparisons and local total-dimension identity. Deduce support at the isolated point independently of the geometric trace theorem; then prove Proposition 2.5(2). The late Artin theorem consumes these outputs, so never impose a cyclic whole-roadmap prerequisite. Tests distinguish full-trait constant input from punctured-trait zero extension, degree-one Euler signs, regular versus augmentation input, and finite-level versus rational coefficients."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ArithmeticGaloisRepresentations",
+      "roadmap": "ArithmeticGaloisRepresentationsPartIIGeometricArtin",
+      "title": "Arithmetic Galois representations and conductors, Part II: geometric Artin representations",
+      "area": "modular",
+      "items": [
+        "PAPER-ABE-25/G01",
+        "PAPER-ABE-25/G02",
+        "PAPER-ABE-25/G03",
+        "PAPER-ABE-25/G04",
+        "PAPER-ABE-25/G05",
+        "PAPER-ABE-25/G06",
+        "PAPER-ABE-25/G07",
+        "PAPER-ABE-25/G08",
+        "PAPER-ABE-25/G09",
+        "PAPER-ABE-25/G10",
+        "PAPER-ABE-25/A20",
+        "PAPER-ABE-25/A21",
+        "PAPER-ABE-25/A23",
+        "PAPER-ABE-25/A29",
+        "PAPER-ABE-25/B03",
+        "PAPER-ABE-25/B04",
+        "PAPER-ABE-25/B05",
+        "PAPER-ABE-25/B06",
+        "PAPER-ABE-25/B07",
+        "PAPER-ABE-25/B08",
+        "PAPER-ABE-25/B09",
+        "PAPER-ABE-25/B10",
+        "PAPER-ABE-25/B11",
+        "PAPER-ABE-25/B12",
+        "PAPER-ABE-25/B16",
+        "PAPER-ABE-25/F03",
+        "PAPER-ABE-25/F04",
+        "PAPER-ABE-25/F20",
+        "PAPER-ABE-25/R01",
+        "PAPER-ABE-25/R04"
+      ],
+      "reason": "R01.3 supplies numerical arithmetic conductors; it does not assert Serre's representation theorem for arbitrary regular local rings or provide chosen projective Swan modules over henselian geometric traits with separably closed residue field.",
+      "brief": "Build on Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations:R01.1, R01.3) for continuous actions, stable lattices and numerical conductors. Import general ramification/valuation infrastructure from Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification) and finite-group character theory from tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory, reusing the pinned split representation ring and character injectivity. The early prefix extends the conductor input to the henselian geometric trait K=Frac(k{t}), k separably closed of characteristic p, and constructs Serre's projective integral Swan modules, chosen quotient-compatible towers, exact torsion/integral Swan functors and lattice/tower-independent rational total-dimension classes. These are early suppliers to local Fourier theory, not consumers of the main theorem. The late prefix defines admissible regular-local actions and aG(σ)=−length(A/Iσ) for σ≠1 with aG(1) fixed by zero augmentation. Import relative trace and local Fourier results from the two geometric continuations; prove Theorem 1.6 for σ≠1 under its full regularity, flatness, isolated-fixed-point and smooth-off-x hypotheses. Read and decompose Kato–Saito–Saito Conjecture 5.1/Lemma 5.3 before deducing that when A contains a finite field, aG is an actual character and is realizable over every Qℓ with ℓ invertible in A. Do not deduce positivity or Qℓ descent from a virtual trace identity alone. Add the Katz/Laumon models and corrected curve identity d(f)=d(q)+e(q)d(g); test tame C2 with x² followed by u³ and the characteristic-two nonreduced fixed-locus example. Keep the W(k)[1/p]-rationality assertion as a conjecture, not a target claimed proved."
+    }
+  ],
+  "prerequisites": [
+    {
+      "citation": "K. Kato, S. Saito, T. Saito, Artin characters for algebraic surfaces, American Journal of Mathematics 110 (1988), 49–75",
+      "link": "https://doi.org/10.2307/2374539",
+      "why": "Conjecture 5.1 and Lemma 5.3 reduce the main theorem to the geometric trace statement, including positivity and rationality. Not found as an extracted paper in the batch.",
+      "readStatus": "Not read: DOI/JSTOR fetch did not yield the paper. No hash of a genuine PDF is claimed."
+    },
+    {
+      "citation": "Q. Lu and W. Zheng, Categorical traces and a relative Lefschetz-Verdier formula, Forum of Mathematics, Sigma 10 (2022), e10",
+      "link": "https://arxiv.org/abs/2005.08522v4",
+      "why": "The specific symmetric-monoidal 2-category, ULA duals and base-change trace are not decomposed by the ordinary EDC.8 layer.",
+      "readStatus": "Selected text read: Definition 1.1 through Construction 1.6, Remark 1.9/Construction 1.10; Construction 2.6/Remark 2.7; Remark 2.15, Theorem 2.16 with proof, Remark 2.17 and Corollaries 2.18–19; Proposition 2.26 with proof and Corollary 2.27. Not the entire paper.",
+      "download": {
+        "url": "https://arxiv.org/pdf/2005.08522",
+        "sha256": "be71f418bdc0a5524e50aff00f2105313efc4759575276e252821b721a56db98",
+        "date": "2026-09-22"
+      }
+    },
+    {
+      "citation": "F. Orgogozo, Modifications et cycles proches sur une base générale, IMRN (2006)",
+      "link": "https://arxiv.org/abs/math/0507475",
+      "why": "General-base goodness, cohomological properness, constructibility after modification and finite cohomological dimension; LPV.0 does not already promise this scope.",
+      "readStatus": "Not read here; exact source locators are taken from the fully read Abe proof, not represented as independently verified statements. The arXiv title differs: Modifications et cycles évanescents sur une base de dimension supérieure à un; its record links the 2006 journal DOI. Align numbering against the published version."
+    },
+    {
+      "citation": "G. Laumon, Transformation de Fourier, constantes d’équations fonctionnelles et conjecture de Weil, Publ. Math. IHÉS 65 (1987), 131–210",
+      "link": "https://www.numdam.org/item/PMIHES_1987__65__131_0/",
+      "why": "Local Fourier transforms and the representation-valued total-dimension calculation have no existing LPV stage.",
+      "readStatus": "Selected pp.163–164 Proposition 2.4.2.2, Definition 2.4.2.3, Theorem 2.4.3; pp.170–171 §2.6.1 construction/theorem/proof read. Earlier Fourier construction and proof sections remain unread.",
+      "download": {
+        "url": "https://www.numdam.org/article/PMIHES_1987__65__131_0.pdf",
+        "sha256": "c666e214ae586651b9f171f6a39d755e58f96379970ffa98bafb2d9be591fc8e",
+        "date": "2026-09-22"
+      }
+    },
+    {
+      "citation": "N. Katz, Local-to-global extensions of representations of fundamental groups, Ann. Inst. Fourier 36 (1986), 69–106",
+      "link": "https://www.numdam.org/item/AIF_1986__36_4_69_0/",
+      "why": "§1.6 Swan model and tame-at-infinity extension for the concluding comparison, not just generic numerical conductors.",
+      "readStatus": "Not read; source demand exposed by §3.1."
+    },
+    {
+      "citation": "T. Abe, Ramification theory from homotopical point of view. I",
+      "link": "https://arxiv.org/abs/2206.02401v1",
+      "why": "§§6.4–6.5 provide the precise projection formula and Fourier-support argument; Abe25 repeats much but not all of the supplier proof.",
+      "readStatus": "Not read independently; Abe25 §2.5's reproduced proof was fully read."
+    },
+    {
+      "citation": "T. Abe and O. Gabber, Transitivity and cohomological properness of nearby cycles",
+      "link": "https://www.ihes.fr/~/gabber/nearby.pdf",
+      "why": "Separately sourced finite-cover refinement following Theorem 1.5; no dedicated extraction found.",
+      "readStatus": "Primary PDF located, introductory excerpt only; not counted as fully read."
+    },
+    {
+      "citation": "J.-P. Serre, Représentations linéaires des groupes finis, §19.2 Theorem 44",
+      "link": "https://doi.org/10.1007/978-1-4684-9458-7",
+      "why": "The projective integral Swan module and its rationality/compatibility are stronger than R01.3's numerical conductor statement.",
+      "readStatus": "Not read independently in this job. The link identifies the English edition; align its numbering before use."
+    },
+    {
+      "citation": "D. Ferrand, On the non additivity of the trace in derived categories",
+      "link": "https://arxiv.org/abs/math/0506589",
+      "why": "Explains why §2.4 needs actual equivariant strict models rather than arbitrary triangulated endomorphism diagrams.",
+      "readStatus": "Not read; not used as an independently verified counterexample."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-ABE-25/E1",
+      "kind": "error",
+      "locator": "Published §3.3 p.621; same formula in arXiv v2",
+      "printed": "disc(q)+disc(g)=disc(f)",
+      "correction": "For local different/discriminant exponents at algebraically closed residue points, use disc(f)=disc(q)+e(q)disc(g), hence μf−aG(1)=e(q)disc(g). The consequence when g is étale is unchanged.",
+      "reason": "In characteristic 5 take q:x↦u=x² with G=C2, g:u↦t=u³, f:x↦t=x6. The local different exponents are 1,2,5, and aG(1)=1. Thus 1+2≠5 and μf−aG(1)=4≠2, while 1+2·2=5. All maps are separable and f is smooth off 0. The different tower formula multiplies the pulled-back lower different by e(q).",
+      "affects": "a stated result",
+      "known": "new (candidate awaiting independent review; novelty search incomplete at the author-page boundary)",
+      "searched": [
+        "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+        "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+        "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/E2",
+      "kind": "misprint",
+      "locator": "Published §3.1 p.621, zero-stalk identification and first displayed virtual-representation equality; same signs in arXiv v2",
+      "printed": "H¹(P¹,M0′)≅C0′; Ψid,0′←η′(C)=H¹(P¹,M0′)+[Λ[G]]",
+      "correction": "With C=Rpr′*M unshifted, the H¹ model contributes Sw[−1] and negative K0 class. Subject to the cited concentration/comparison, use −[Ψ(C)]=[Sw]+[Λ[G]], equivalently the nearby class is the negative total-dimension class; the vanishing contribution at 0′ has negative regular class.",
+      "reason": "Laumon Proposition 2.4.2.2 places the local Fourier transform in degree 1. A degree-one representation contributes its negative Euler class. For G=1 the Swan module is zero and the rank-one local transform has class −1, whereas the printed formula gives +1. This agrees with the minus sign already present in Abe Proposition 2.5. The full Katz comparison still has an external supplier gate.",
+      "affects": "a stated result",
+      "known": "new (candidate awaiting independent review)",
+      "searched": [
+        "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+        "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+        "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/E3",
+      "kind": "error",
+      "locator": "Published Theorem 1.6 proof p.613, fixed-scheme base-change chain; page image checked",
+      "printed": "(Xi)^σ≅(Xi)^σ×Si{si}",
+      "correction": "Remove the identification with the closed fiber. Preserve length by étale/strict-henselian base change of the finite-length local fixed algebra with unchanged residue field.",
+      "reason": "Over algebraically closed k of characteristic 2, X=Spec k[t,z]/(z²+t²z−t), σ(z)=z+t² and σ(t)=t. The map to A¹t is finite flat, X is smooth because ∂F/∂t=1, f is étale off t=0 since ∂F/∂z=t², and σ is an involution. The fixed scheme is k[t,z]/(t²,z²−t)≅k[z]/z4, length 4, supported at the origin. Its closed fiber is k[z]/z², length 2. Thus set-theoretic support at the point does not justify the displayed isomorphism. The needed length-invariance statement survives the proposed henselian repair.",
+      "affects": "the proof",
+      "known": "new (candidate awaiting independent review)",
+      "searched": [
+        "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+        "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+        "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/E4",
+      "kind": "gap",
+      "locator": "Published §1.3 p.609, invocation of Lu–Zheng Theorem 2.16 and displayed Theorem",
+      "printed": "Λ is a torsion ring",
+      "correction": "For the cited theorem retain that Λ is Noetherian and commutative, or supply an additional argument for the broader coefficient claim. This extraction uses the finite/Noetherian coefficient case actually needed later.",
+      "reason": "The inspected Lu–Zheng Theorem 2.16 explicitly assumes a Noetherian commutative coefficient ring. Abe's recalled setup states a torsion ring killed by an integer prime to p without that finiteness condition. This is a citation-scope gap, not a counterexample to the broader theorem and not an obstruction for the finite rings in the main proof.",
+      "affects": "the proof",
+      "known": "new (candidate citation-scope gap, not a proved false theorem)",
+      "searched": [
+        "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+        "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+        "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/E5",
+      "kind": "misprint",
+      "locator": "Published §3.2 p.621, second sentence",
+      "printed": "If fact",
+      "correction": "In fact",
+      "reason": "Typographical substitution in an introductory phrase; the mathematical statement is unchanged.",
+      "affects": "nothing",
+      "known": "new (minor candidate awaiting independent review)",
+      "searched": [
+        "Publisher article/official PDF, https://link.springer.com/article/10.1007/s00222-025-01345-w, checked 2026-09-22; no attached correction found.",
+        "arXiv:2405.19601 history and selected v2 comparisons; v2 dated 13 June 2025. No full v1/v2 diff claimed.",
+        "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
+        "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-KSS",
+      "neededBy": [
+        "PAPER-ABE-25/G06",
+        "PAPER-ABE-25/G07",
+        "PAPER-ABE-25/F20"
+      ],
+      "detail": "Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions."
+    },
+    {
+      "id": "G-LZ",
+      "neededBy": [
+        "PAPER-ABE-25/A07",
+        "PAPER-ABE-25/A30"
+      ],
+      "detail": "The selected Lu–Zheng constructions, Theorem 2.16 and Proposition 2.26 were read, but the entire recursive proof infrastructure was not. Transcribe adjointable 2-morphisms of End(C), trace functor coherences, the internal-Hom/duality criterion and the Gabber LA⇒ULA input. Resolve E4 independently before extending beyond Noetherian coefficients."
+    },
+    {
+      "id": "G-LIMIT",
+      "neededBy": [
+        "PAPER-ABE-25/A10",
+        "PAPER-ABE-25/A11",
+        "PAPER-ABE-25/A16",
+        "PAPER-ABE-25/A17"
+      ],
+      "detail": "Finish the exact SGA4 IX 2.7/2.7.4 and VI 8.7.9 supplier decomposition for Lemma 1.4, including constructible finite generation, cohomology continuity, truncation bounds and descent of the connecting morphism. The main proof is read, the recursive SGA proof leaves are not."
+    },
+    {
+      "id": "G-ORGO",
+      "neededBy": [
+        "PAPER-ABE-25/A12",
+        "PAPER-ABE-25/A13",
+        "PAPER-ABE-25/A14",
+        "PAPER-ABE-25/A15",
+        "PAPER-ABE-25/A17",
+        "PAPER-ABE-25/A27",
+        "PAPER-ABE-25/F15"
+      ],
+      "detail": "Read Orgogozo 2006 Theorems 2.1,7.1,8.1, Proposition 3.1 and Remarks 8.3/§9.1, plus Illusie's goodness criterion. Record every noetherian-approximation, constructibility, finite-Tor and arbitrary-base-change hypothesis. Split A12–A15 further into the original source lemmas; their interfaces are not closed just because Abe invokes them."
+    },
+    {
+      "id": "G-HENSEL",
+      "neededBy": [
+        "PAPER-ABE-25/A15",
+        "PAPER-ABE-25/A16",
+        "PAPER-ABE-25/A17",
+        "PAPER-ABE-25/A20",
+        "PAPER-ABE-25/A21",
+        "PAPER-ABE-25/A24"
+      ],
+      "detail": "Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step."
+    },
+    {
+      "id": "G-GABBER",
+      "neededBy": [
+        "PAPER-ABE-25/A18"
+      ],
+      "detail": "Abe–Gabber's Transitivity and cohomological properness of nearby cycles is cited as in preparation in Abe25. A primary IHÉS author PDF was located at https://www.ihes.fr/~/gabber/nearby.pdf with a 21 November 2023 date, but only its introduction/search excerpt was inspected. Read the actual finite-cover refinement and its relation to generic goodness; do not count a located PDF as a proved supplier."
+    },
+    {
+      "id": "G-ADIC",
+      "neededBy": [
+        "PAPER-ABE-25/A22",
+        "PAPER-ABE-25/A23",
+        "PAPER-ABE-25/A29",
+        "PAPER-ABE-25/B08",
+        "PAPER-ABE-25/B09",
+        "PAPER-ABE-25/B16"
+      ],
+      "detail": "Prove the finite-level uniform Tor/cohomological bounds, derived reduction comparisons and lim/lim¹ control for the nearby-cycle and Swan towers. Check exactness of the integral Swan functor without dropping Tor terms; completeness plus perfectness is needed for trace detection. Existing adic/enhanced categorical roadmaps are suppliers, not a license to assume these application-specific comparisons."
+    },
+    {
+      "id": "G-TRACE",
+      "neededBy": [
+        "PAPER-ABE-25/A25",
+        "PAPER-ABE-25/A26",
+        "PAPER-ABE-25/A28",
+        "PAPER-ABE-25/A29"
+      ],
+      "detail": "Read SGA5 III §4 (especially Example 4.3 and Theorem 4.4), Fulton Proposition 7.1(b), and the nil-invariance/relative dualizing comparison. Prove the isolated graph-diagonal intersection multiplicity equals the full nonreduced fixed length and that point-supported trace becomes the ordinary perfect trace."
+    },
+    {
+      "id": "G-SWAN",
+      "neededBy": [
+        "PAPER-ABE-25/B03",
+        "PAPER-ABE-25/B05",
+        "PAPER-ABE-25/B07",
+        "PAPER-ABE-25/B08",
+        "PAPER-ABE-25/B09",
+        "PAPER-ABE-25/B10",
+        "PAPER-ABE-25/B11",
+        "PAPER-ABE-25/F07"
+      ],
+      "detail": "Read Serre §19.2 Theorem 44 for projective integral Swan realizations, quotient transition isomorphisms and self-duality. Prove the compatible-tower exactness and finite generation; distinguish chosen isomorphisms from a canonical global Swan functor. Check the general henselian geometric trait hypotheses against LocalFieldsRamification's finite-residue/local-field scope."
+    },
+    {
+      "id": "G-EQUIVARIANT",
+      "neededBy": [
+        "PAPER-ABE-25/B14",
+        "PAPER-ABE-25/B15",
+        "PAPER-ABE-25/F09"
+      ],
+      "detail": "Complete the strictification and bounded Λ-projective model construction for actual derived Λ[G]-maps, with finite-generation/Noetherian assumptions. Read Ferrand's nonadditivity example and Kashiwara–Schapira 14.3.4 for the Ψ-acyclic/unbounded-free-resolution totalization. Never promote arbitrary triangulated trace additivity to a library theorem."
+    },
+    {
+      "id": "G-FOURIER",
+      "neededBy": [
+        "PAPER-ABE-25/F02",
+        "PAPER-ABE-25/F04",
+        "PAPER-ABE-25/F06",
+        "PAPER-ABE-25/F07",
+        "PAPER-ABE-25/F09",
+        "PAPER-ABE-25/F12",
+        "PAPER-ABE-25/F14",
+        "PAPER-ABE-25/F21",
+        "PAPER-ABE-25/F22",
+        "PAPER-ABE-25/F23"
+      ],
+      "detail": "Only Laumon Proposition 2.4.2.2, Theorem 2.4.3 statements and §2.6.1 proof were read. Read the earlier local Fourier construction and §§2.3/2.5 concentration/rank proofs, the ∞-local transforms used in §3.1, Abe2022 Lemma 6.4/§6.5 and Katz–Laumon vanishing. Verify the finite integral group-ring-perfect identity, not only the rational character version, before closing F07."
+    },
+    {
+      "id": "G-REMARKS",
+      "neededBy": [
+        "PAPER-ABE-25/G09",
+        "PAPER-ABE-25/G10",
+        "PAPER-ABE-25/R01",
+        "PAPER-ABE-25/R02",
+        "PAPER-ABE-25/R03",
+        "PAPER-ABE-25/R04"
+      ],
+      "detail": "Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes."
+    }
+  ],
+  "notTheorems": [
+    "The W(k)[1/p]-rationality assertion in §3.2 is a conjecture in general, not a theorem of this paper.",
+    "The main theorem is not a mixed-characteristic theorem, and 'contains a finite field' does not include characteristic zero.",
+    "Equality of traces only at σ≠1 does not determine the multiplicity of the regular representation or prove positivity or descent."
+  ],
+  "additionalSourceGates": [
+    "SGA4 VI,IX,XVII; SGA5 III; EGA IV; Kashiwara–Schapira Categories and Sheaves 14.3.4; Fulton Intersection Theory 7.1(b) and 14.1.5(d). These generic foundations have atlas owners; this extraction does not create replacement roadmaps.",
+    "Saito 2017 characteristic-cycle Milnor formula is a late remark input. Coordinate its positive-characteristic specialization with the pending microlocal continuation, rather than making the main proof depend on characteristic cycles.",
+    "Published acknowledgements already credit Gabber with finding a historical gap in Theorem 1.5. This is not presented as a new finding; the original gap and its version-level repair were not reconstructed."
+  ],
+  "verification": {
+    "lean": "No Lean file is authorized by this paper issue; no Lean elaboration or formalization is claimed. API unit tests are proposed acceptance statements.",
+    "certificate": {
+      "script": "Scratch-only abe25-certificates.py",
+      "sha256": "5522cd3087d84502a36855a2985970278a463e0f6dac6d14ddffbbac87a37c17",
+      "result": "Passed: 355 tame tower counterchecks; characteristic-two polynomial involution/derivatives and length-4 versus length-2 bases; degree-one Euler sign arithmetic; regular-character ambiguity.",
+      "limit": "The certificate checks elementary algebra/arithmetic. It does not establish the external étale concentration, comparison or rationality theorems."
+    },
+    "checks": {
+      "paper": "python3 scripts/check_paper.py research/blueprint/papers/PAPER-ABE-25.result.json — passed",
+      "intake": "python3 research/blueprint/intake.py check-files <the three deliverables> — 3 files, 0 problems",
+      "paperCheckerTests": "9 tests passed",
+      "supplemental": "98 unique items; 83 missing each routed once; 184 acyclic dependency edges; 36 definitions/constructions with 108 API statements and 108 tests; all 12 gap references resolve.",
+      "lean": "Not run; no Lean deliverable requested."
+    }
+  }
+}
