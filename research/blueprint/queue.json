@@ -1041,8 +1041,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-SMITH-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1081"
+   "state": "external",
+   "note": "claimed on GitHub issue #1081"
   },
   {
    "id": "REV-PAPER-SMITH-24",
@@ -1434,8 +1434,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1103"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1103",
+   "finishedAt": "2026-09-22T14:42:20Z"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-22",
