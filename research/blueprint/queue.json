@@ -7741,8 +7741,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1464"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1464",
+   "finishedAt": "2026-09-22T22:22:09Z"
   },
   {
    "id": "REV-PAPER-ANDRE-18",
