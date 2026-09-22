@@ -4816,6 +4816,298 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-DITTMANN-POP-23/E1",
+   "kind": "misprint",
+   "locator": "§3, definition of Pfister forms, p.6, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "printed": "⟨⟨a_i⟩⟩ ⊗ … ⟨⟨a_1⟩⟩ ⊗ ⟨⟨a_0]]",
+   "correction": "In characteristic 2 the factors ⟨⟨a_j⟩⟩ (j ≥ 1) are the bilinear Pfister forms ⟨1, −a_j⟩_b of [EKM, 9.B], and q_a is their product with the quadratic form ⟨⟨a_0]]: a nonsingular quadratic form of dimension 2^{i+1}.",
+   "reason": "With ⟨⟨a⟩⟩ read as the quadratic form x_1² − a x_2² just defined, the tensor product in characteristic 2 is not defined (quadratic forms do not multiply there), and that form is totally singular, being (x_1 + √a x_2)². The reference [EKM, 9.B] has the bilinear factors. Noted by the extraction (item pfister-two).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E2",
+   "kind": "misprint",
+   "locator": "Proof of Claim 1 in the proof of Proposition 3.10, p.12, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "printed": "a′_i = 1 − 1/u_i + ε_i/u_i²",
+   "correction": "a′_i = 1 − 1/u_i − ε_i/u_i².",
+   "reason": "Dividing u_i² − u_i − ε_i by u_i² gives the minus sign. Either way a′_i is a principal w̃-unit (w̃(u_i) < 0 and w̃(ε_i) = 0), so the argument is unaffected. Noted by the extraction (item detecting-nonnegative).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E3",
+   "kind": "misprint",
+   "locator": "§5, proof of Proposition 5.1, Case 2 (char K = 0), pp.16–17, and the proof of Lemma 5.3, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "printed": "w ∈ W_T",
+   "correction": "In Case 2 and Lemma 5.3, W_T should denote {w ∈ D^e_{K|κ} : T ⊂ O_w}, the full-rank geometric flags containing T, not the rank-one divisors of p.16.",
+   "reason": "For a rank-one geometric prime divisor w the residue field κw has transcendence degree e − 1 over κ, so it is not a number field and the finite primes P_fin(κw) used next do not apply; the construction needs the rank-e flags just introduced. The symbol is reused for two different sets. Noted by the extraction (items maximal-geometric-flags, arithmetic-flags).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E4",
+   "kind": "gap",
+   "locator": "Proof of Lemma 5.3, Claim, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+   "printed": "Then ζ is an e-tuple of roots of unity",
+   "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
+   "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E5",
+   "kind": "error",
+   "locator": "arXiv v2, Proposition 3.8 proof, p.11",
+   "printed": "Σ-units",
+   "correction": "Choose Σ containing every finite place where at least one ε_i is not a unit. Lemma 3.5 then makes a_1 a unit at every such place.",
+   "reason": "The test-form condition requires every place with v(a_1)>0 to be a place where every ε_i is a unit. The printed choice of Σ among unit places gives no control at the nonunit places. The corrected complement is finite by the global-field finite-support property. The previous extraction already used this correction silently.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E6",
+   "kind": "error",
+   "locator": "arXiv v2, Proposition 3.2(3), Case 2 Claim, p.7",
+   "printed": "cd(E′) ⩽ dim(E′) + 1",
+   "correction": "Bound the nonreal base change E′k′_v directly by cd_2(k′_v)+trdeg(E′/k′)≤dim(E′)+1, using the nonreal local-field theorem and the transcendence-degree inequality.",
+   "reason": "E′ can be formally real, for example Q. Its absolute Galois group has an order-two subgroup and cd_2(E′)=∞, so the printed intermediate bound is false. The intended vanishing after nonreal base change has the corrected proof input nonreal-local-cd-bound; its general source proof remains explicitly open.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E7",
+   "kind": "gap",
+   "locator": "arXiv v2, final deduction, p.18",
+   "printed": "[AKNS, Proposition 2.28]",
+   "correction": "Apply the finite-language QFA theorem after adjoining total inversion to the field language, and then eliminate that definable function. Retain the existing inverse-language-bridge item.",
+   "reason": "A finitely generated field need not be a finitely generated ring: Q is not. In the finite field language with total inversion, it is finitely generated as a structure; the inverse graph has a unique value for every element. The prior extraction identified this omitted bridge. The AKNS original reading is inherited, not newly reread.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E8",
+   "kind": "misprint",
+   "locator": "Kuhlmann–Novacoski, arXiv:1311.6155 PDF p.11, Theorem 1.2 proof",
+   "printed": "σ_iη ≠ η for 1 ≤ i ≤ n",
+   "correction": "Exclude the identity embedding from both nonfixing ranges (choose σ_1=id and use 2≤i≤n, and 2≤i≤k for the residue embeddings).",
+   "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv https://arxiv.org/abs/1311.6155, publisher https://doi.org/10.1016/j.jalgebra.2014.07.004 and title/author correction searches, 2026-09-22; no correction located. Finding scoped to the downloaded author PDF; published text not collated."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E9",
+   "kind": "misprint",
+   "locator": "arXiv v2, Lemma 3.9(2) proof, p.11",
+   "printed": "q_a",
+   "correction": "The open set V_{E|F} is a neighborhood of the valuation w, not of the quadratic form q_a.",
+   "reason": "V_{E|F} is a subset of Val_F, and the chosen point is w∈V_a. The immediately preceding argument supplies that neighborhood.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E10",
+   "kind": "misprint",
+   "locator": "arXiv v2, Proposition 3.2(2) proof, p.7",
+   "printed": "q_{π,ε}(y) = ∑_χ π^χ q_ε(x_χ)",
+   "correction": "In characteristic different from two insert (−1)^{|χ|} in each summand for the paper’s convention ⟨⟨π_i⟩⟩=⟨1,−π_i⟩. Every block has N+1 coordinates; replace the subsequent F^N by F^{N+1}.",
+   "reason": "For one outer factor the tensor is q_ε(x_0)−π_1q_ε(x_1). Signs are valuation units, so the distinct-value anisotropy proof is unchanged. The source defines N=2^{r+1}−1 while q_ε has 2^{r+1} variables.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E11",
+   "kind": "misprint",
+   "locator": "arXiv v2, Proposition 3.10 proof, final sentence p.12",
+   "printed": "w̃ = w̃_N",
+   "correction": "Use the restriction w̃_N|L in V_{a,N}.",
+   "reason": "The constructed valuation is on L(α), whereas V_{a,N} consists of valuations on L. Its restriction preserves the inequalities, and anisotropy over the larger henselization implies anisotropy over the restricted one.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E12",
+   "kind": "misprint",
+   "locator": "arXiv v2, bibliography p.18",
+   "printed": "808–923",
+   "correction": "[Du] ends at p.823, not p.923.",
+   "reason": "Checked the original journal’s article metadata: https://doi.org/10.2307/2275432",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E13",
+   "kind": "misprint",
+   "locator": "arXiv v2, bibliography p.18",
+   "printed": "493–51",
+   "correction": "[Ka] ends at p.510.",
+   "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/BF01389226",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-DITTMANN-POP-23/E14",
+   "kind": "misprint",
+   "locator": "arXiv v2, bibliography p.18",
+   "printed": "385–308",
+   "correction": "[P1] ends at p.408.",
+   "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/s00222-002-0238-7",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
+    "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
+    "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+   ],
+   "owner": "PAPER-DITTMANN-POP-23",
+   "file": "research/blueprint/papers/PAPER-DITTMANN-POP-23.result.json",
+   "citation": "Dittmann–Pop, \"Characterizing finitely generated fields by a single field axiom\", Annals of Mathematics 198 (2023), no. 3",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
    "kind": "misprint",
    "locator": "§5, \"Spectral expansion\", the display after (5.2), p.961, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
