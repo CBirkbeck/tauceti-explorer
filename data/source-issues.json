@@ -55825,9 +55825,9 @@
    "owner": "PAPER-KOYMANS-MILOVIC-21",
    "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
    "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Checked on arXiv v1 PDF22–23: ψ₀ is defined on (O_E/FO_E)^× in (5.1), yet its invariance is stated for α ∈ O_K and u ∈ O_K^×; and (5.2) writes 1_{16|h(−p)} where (5.1) and Theorem 3 concern h(−4p). Both corrections are right. The published version could not be consulted."
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21/E2",
@@ -55846,9 +55846,9 @@
    "owner": "PAPER-KOYMANS-MILOVIC-21",
    "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
    "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Checked on PDF7: Corollary 2.2 ends '≤ C(n, ǫ)q^{(1−δ(n))/n}' with no ε, although C depends on ε and Conjecture C_n only gives Q^{(1−δ)/n+ε}; the congruence is printed 'n ≡ l mod k' for the summation variable m. (3.6) uses the +ε form."
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21/E3",
@@ -55867,9 +55867,9 @@
    "owner": "PAPER-KOYMANS-MILOVIC-21",
    "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
    "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Checked on PDF7–8: (2.5) is stated for every nonzero ideal m, while §3 assumes m coprime to F and to all σ(m) and restricts to (a, F) = 1. The repair is right: if a prime q divides m and σ(m), then q | α and q | σ(α) for every generator α of an ideal divisible by m, so spin(σ, α) = 0 and s_a = 0; and dropping the finitely many primes dividing F changes Σ s_p by O(1). FIMR's Proposition 5.2 (checked in arXiv:1110.6331v2, PDF24) indeed asks (5.6) for every ideal d."
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21/E4",
@@ -55888,9 +55888,9 @@
    "owner": "PAPER-KOYMANS-MILOVIC-21",
    "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
    "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Checked on PDF13: (3.16) cites Lemma 3.1, which bounds the count with radical g₀ > Z, for the condition g₁ > A on the squarefull part; a large squarefull g₁ can have a small radical. The proof of Lemma 3.1 summed over squarefull g > A gives x^{r/n+ε}A^{1/2−r/n} = x^{r/n+ε}A^{−1/2+1/ord(σ)}, and passing from M′ to M multiplies by x^{1/ord(σ)−1/n} as in (3.22), which is the exponent (n−1)/n printed in (3.16). Lemma 3.2 is unaffected."
   },
   {
    "id": "PAPER-KOYMANS-MILOVIC-21/E5",
@@ -55909,9 +55909,72 @@
    "owner": "PAPER-KOYMANS-MILOVIC-21",
    "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
    "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Checked on PDF20–21: (P3) sums 'ξ mod w' although γ(w, ·) is periodic modulo N(w) and the verification sums modulo N(β); and it quantifies over all nonzero w although γ is defined on S_f. The correction is right, and the verification needs the degree-one prime p with p ∥ N(β) to be unramified, which S_f guarantees since F ⊇ D_K. One qualification of the stated reason: the conjugates of a ramified degree-one prime all coincide only when it is totally ramified; in general σ(p) = τ(p) whenever σ⁻¹τ lies in the (nontrivial) decomposition group, so ∏σ(p)σ⁻¹(p) can be a square, and that is what the unramified hypothesis rules out."
+  },
+  {
+   "id": "PAPER-KOYMANS-MILOVIC-21/E6",
+   "kind": "misprint",
+   "locator": "End of §3, PDF18, and §4, PDF19 (arXiv v1)",
+   "printed": "\"… exactly in the same way as for real quadratic fields K …\" (end of §3); \"If K is real quadratic, then we set v′_a = …\" (§4)",
+   "correction": "\"totally real\" in both places.",
+   "reason": "K is Galois of degree n, and the text contrasts the totally real case (§3's main argument, (4.4)) with the totally complex case. A real quadratic field cannot occur: its only nontrivial automorphism σ is its own inverse, so no nonempty S satisfies σ ∈ S ⇒ σ⁻¹ ∉ S. The following sentences ('at least in the case that K is totally real', PDF19 and 21) confirm the intended reading.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+    "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+    "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+   ],
+   "owner": "PAPER-KOYMANS-MILOVIC-21",
+   "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+   "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Found by the reviewer and checked on PDF18–19; the correction is forced by the hypothesis S ∩ S⁻¹ = ∅."
+  },
+  {
+   "id": "PAPER-KOYMANS-MILOVIC-21/E7",
+   "kind": "misprint",
+   "locator": "(2.5), PDF7 (arXiv v1)",
+   "printed": "\"Σ_{N(a)≤X, a≡0 mod m} s_a ≪_ǫ X^{1−δ/(54n|S|²)+ǫ}, where δ is as in Conjecture C_n.\"",
+   "correction": "\"where δ = δ(|S|n) is as in Conjecture C_{|S|n}\".",
+   "reason": "The type I sums are bounded through Corollary 2.2 applied to characters of modulus q ≪ x^{|S|}, and §3 sets δ := δ(|S|n) in (3.6); Theorem 1 assumes Conjecture C_{|S|n} and the exponent θ on PDF7 is written with δ(|S|n). Conjecture C_n alone would not give (2.5) for |S| > 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+    "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+    "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+   ],
+   "owner": "PAPER-KOYMANS-MILOVIC-21",
+   "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+   "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Found by the reviewer and checked against (3.6) on PDF9 and the definition of θ on PDF7."
+  },
+  {
+   "id": "PAPER-KOYMANS-MILOVIC-21/E8",
+   "kind": "misprint",
+   "locator": "Lemma 4.1, PDF20 (arXiv v1)",
+   "printed": "\"Suppose γ is a map γ : S_f × O_F → {−1, 0, 1}\"",
+   "correction": "\"γ : S_f × O_K → {−1, 0, 1}\".",
+   "reason": "The second argument z ranges over O_K in (P2) and (P3), and in the application γ(w, z) is φ with z ∈ O_K; in this paper F is the integer of (2.2), not a field, so O_F has no meaning here.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv 1809.09597 has only v1 (25 September 2018), SHA-256 d56a738a…f433, the version read.",
+    "2026-09-23: the published Duke version (10.1215/00127094-2020-0068) is not openly accessible (Unpaywall lists only the arXiv submitted version; Project Euclid returned no article text), and Crossref records no update or correction relation.",
+    "2026-09-23: the first author's publication page (webspace.science.uu.nl/~koyma001/publications.html) links the Duke article and arXiv only, with no erratum."
+   ],
+   "owner": "PAPER-KOYMANS-MILOVIC-21",
+   "file": "research/blueprint/papers/PAPER-KOYMANS-MILOVIC-21.result.json",
+   "citation": "Koymans–Milovic, \"Joint distribution of spins\", Duke Mathematical Journal (2021)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KOYMANS-MILOVIC-21",
+   "reviewReason": "Found by the reviewer and checked on PDF20."
   },
   {
    "id": "PAPER-KOYMANS-PAGANO/E1",
