@@ -1,4 +1,106 @@
-# Atobe–Kondo–Yasuda: local newforms, continuation checkpoint
+# Atobe–Kondo–Yasuda (2022): extraction and routing
+
+Issue [#1395](https://github.com/CBirkbeck/tauceti-explorer/issues/1395). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints (codex-a71f92 #1814, codex-c83e7a), whose reports follow below as history.
+- **The paper.** H. Atobe, S. Kondo and S. Yasuda, *Local newforms for the general linear groups over a non-archimedean local field*, Forum Math. Pi 10 (2022), e24, 56 pp. It is open access, and the published PDF was read.
+- **Items.** The result has **161 items: 8 library, 10 planned and 143 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Nineteen are recorded under `sourceIssues`. Three affect a stated result, including the main theorem in one case (E19).
+
+## This continuation (cc-442dc5)
+
+**What was read.** §§7.2–9 of the published article in full, and the other sections at the findings' locators. Pages 52–53 were checked as images.
+
+**The main finding, E1 with E19.** Theorem 2.1 for a Speh representation σ = Sp(π, m) with L(s, π) = 1 is proved only in §9:
+- Proposition 9.5 uses Corollary 9.4.
+- Proposition 9.6 uses Lemma 9.3 and the uniqueness in Theorem 9.1.
+
+All three proofs rest on one step: φ_Ze is (N′, Ψ)-equivariant, so that W∘ι ∈ Π.
+- **Why the step fails (n = m = 2).** Here V′ = 1, V″ = V and Ψ(g) = ψ(g_12 + g_34).
+  - Conjugating V by ι(u′) = 1 + zE_13 sends E_32 to E_32 − zE_12, so Ψ is not preserved.
+  - If the step held, every W∘ι would be left N′-invariant and square-integrable on GL_2 by Theorem 8.2, hence zero.
+  - That contradicts Lapid–Mao's Corollary 3.15, which the paper uses in its own existence proof.
+- **Theorem 9.1's uniqueness is false (E1).** Take f = 1_{uK′} − 1_{K′} with u = [[1, ϖ^{−1}], [0, 1]].
+  - Every test integral of f vanishes, since each W⁰ is left N′-invariant and det u = 1.
+  - Lapid–Mao gives W in the Shalika model with W∘ι = f.
+  - Adding W to an essential vector gives a second one.
+- **The consequence (E19).** The paper does not establish Theorem 2.1 for Sp(π, m) with L(s, π) = 1 and n, m ≥ 2.
+  - It needs another proof of Corollary 9.4, and another proof that σ^{K(c_π)} ≠ 0.
+  - No counterexample to Theorem 2.1 is known. The items keep it as the target, with this recorded as open (`main-one`, `main-lex`, `speh-l1`, `speh-main`, `levi-separation`).
+
+**Other findings checked.**
+- **E3 (Lemma 8.10).** When n = m = 2, Ψ is trivial on N′. At repeated parameters (x, x), the t-derivative of W⁰_Ze(xe^t, xe^{−t}) is a second eigenfunction, H(g) = (a − b)q^{−(a−b)/2}x^{a+b}.
+  - It is an eigenfunction because the eigenvalues are even in t.
+  - H(1) = 0, while W⁰(1) = 1, so the lemma's span fails.
+- **E2 (Lemma 7.1).** The escape claim fails only for λ = 0, where it matters only for an unramified character of GL_1, a case excluded under L(s, π) = 1.
+- **E4.** Checked on the image: the factor is q^{−md}, not q^{−m}. It now affects nothing.
+
+**The `known` field.** Every finding had `known` beginning "new (provisional …)", which `scripts/errata.py` would read as "corrected in print". All are now "new". Crossref records no update, and arXiv v4 is the latest version.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded, including the gap in the main theorem's Speh case (E19), which the extraction cannot close.
+- What remains is suppliers' proofs and design work.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Published Theorem9.1/Definition9.2 pp48–50; arXiv v4 pp52–54. *Printed:* There exists a unique function *Correction:* Replace the unique-choice definition by a solution-set/existence interface pending a repaired theorem with extra conditions. The two printed test conditions alone do not determine a vector for n=m=2. Also remove the assertion that all restricted Speh vectors lie in Pi.
+- **E2** (error; affects the proof), Published Lemma7.1 p38 and its compact-mod-center escape claim; v4 pp41–42. *Printed:* G_n ∩ ⋂_(m>=1) Z_n X_lambda^(>=m) = ∅ *Correction:* Require lambda≠0 for this escape argument. Handle lambda=0 separately in the ambient L(s,pi)=1 application via absence of spherical cuspidal vectors. Do not export the literal standalone lemma for all cuspidals and all lambda.
+- **E3** (error; affects a stated result), Published proof of Lemma8.10 p47; v4 corresponding proof. *Printed:* Lemma8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified. *Correction:* The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.
+- **E4** (misprint; affects nothing), Published pp52–53, proof and statement of Proposition9.8; same q^-m in v4 pp56–57. *Printed:* q^(-m) X^(-d) *Correction:* Use q^(-m*d) X^(-d) in every transformed determinant-d summand.
+- **E5** (misprint; affects nothing), Published p37, generating-series proof after equation(6.1). *Printed:* F=(-1)^n(1-t)/(1+Σ_(i=1)^n x_i t^i) *Correction:* Use the infinite sum in the denominator for equality in R[[t]], or declare congruence modulo t^(n+1).
+- **E6** (misprint; affects nothing), Published p19 after Figure2 (visually checked). *Printed:* [a+1,a] to [a,1] *Correction:* The endpoint is (1,r), as in the path definition on p18.
+- **E7** (misprint; affects nothing), Published §2.5 p11, truncated-dual diagram (visually checked). *Printed:* ((m_max)#)^-=(Delta'_1)^-+...+(Delta'_4)^- *Correction:* Retain indices2,3,4,5 from p10 after the singleton Delta'_1=[7,7] disappears; their truncations are[5,5],[4,4],[2,3],[0,2]. Alternatively rename them explicitly, but do not mix original and reset labels.
+- **E8** (misprint; affects nothing), Published proof of Proposition4.6 p23. *Printed:* [M']+[M''] *Correction:* Use [M'] vee [M''] in the final strict-inequality display.
+- **E9** (misprint; affects nothing), Published p25 immediately after Lemma5.1. *Printed:* L_1=o^n and L_1=⊕ p^lambda_i *Correction:* The second lattice is L_2.
+- **E10** (misprint; affects nothing), Published Example6.4 p33, first raw count in continued display (visually checked). *Printed:* -N_(3,5,4,1)(M_pi) *Correction:* Use -N_(3,7,4,1)(M_pi).
+- **E11** (gap; affects the proof), Published Lemma6.6 p34, converse proof. *Printed:* c=Card(m) *Correction:* Use the degree-one/type-chi specialization for the current proof. To export the full printed generality, replace c by degree-weighted derivative orders and justify constituent-wise equalities along each cuspidal line.
+- **E12** (misprint; affects nothing), Published p50 near the end of uniqueness proof; v4 p54. *Printed:* D=V' iota(G') *Correction:* Use D=V iota(G').
+- **E13** (gap; affects the proof), Published proof of Lemma9.3 p49; v4 p53. *Printed:* Pi ≃ ∫^⊕ pi' dmu(pi') *Correction:* Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.
+- **E14** (misprint; affects the proof), Published proof of Proposition9.6 p53. *Printed:* W'_Sh(g)=W_Sh^ess(g·iota(a)) *Correction:* The right side must use an essential solution for the CONTRAGREDIENT representation and inverse psi, with a distinct label. Specify its existence before the comparison. This notation correction alone does not justify the uniqueness argument.
+- **E15** (misprint; affects nothing), Published Section2.3 p7. *Printed:* cuspidal representation of G_d for some d>=0 *Correction:* Use d>=1 for nonempty cuspidal segments; G_0 occurs only as the empty representation after derivatives.
+- **E16** (misprint; affects nothing), Published Proposition5.2 proof p27, final paragraph. *Printed:* span(eprime_1,...,eprime_(n_i))=span(e_1,...,e_(n_i)) *Correction:* Use prefix b_i=n_1+...+n_i in both spans.
+- **E17** (misprint; affects nothing), Published Section6.4 p36, first Mackey display. *Printed:* The final tensor factor is labeled pi_r with level n_s and quotient Gr_s. *Correction:* Replace pi_r by pi_s.
+- **E18** (misprint; affects nothing), Published proof of Corollary9.10 p54. *Printed:* By Lemma9.4 *Correction:* Read Corollary9.4.
+- **E19** (gap; affects a stated result), Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24). *Printed:* Since K_{nm,λ_σ} is conjugate to K(c_π), by Propositions 9.5 and 9.6, we complete the proof of Theorem 2.1 for σ = Sp(π, m) such that L(s, π) = 1. *Correction:* For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.
+- Proposition 9.5 rests on Corollary 9.4.
+- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.
+All three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. That step fails, and the uniqueness itself is false (E1).
+What is needed:
+- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);
+- another proof that σ^{K(c_π)} ≠ 0.
+No counterexample to Theorem 2.1 is known.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **G1** (recorded). E1 (Theorem 9.1's uniqueness is false) and E19 (the main theorem's Speh case with L(s, π) = 1 is not established by the paper) record it; the items state the targets without the false uniqueness. No repair is known.
+- **G2** (deferred). Knight–Zelevinsky/Mœglin–Waldspurger, Lapid–Mínguez and JPSS/Matringe are cited suppliers.
+- **G3** (deferred). Lapid–Mao's support, root-exchange and convergence results are cited suppliers.
+- **G4** (recorded). Lemma 8.10 is false at repeated parameters (E3); the direct-integral step of Lemma 9.3 is E13.
+- **G5** (deferred). Splitting bundled notions and theorem-level API promotion are design work.
+- **G6** (deferred). Declaration-level library audit and adapters are design work.
+- **G7** (deferred). Owner refresh before design activation is design work.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once.
+- **The `known` field.** Every finding has `known` equal to "new".
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E1 and E19 on pp. 48–54. The equivariance computation above is short.
+
+## Checkpoint history (unchanged)
+
+The reports of the earlier checkpoints follow as they were written. Where they say *partial* or call the findings provisional, this continuation supersedes them.
+
+## Atobe–Kondo–Yasuda: local newforms, continuation checkpoint
 
 **Status: partial.** Codex, session `codex-c83e7a`, issue #1395.
 Continues [PR #1814](https://github.com/CBirkbeck/tauceti-explorer/pull/1814)
@@ -17,7 +119,7 @@ supplies direct foundational proofs and five additional narrow library credits.
 The main newform theorem is **not** disproved by these auxiliary counterexamples.
 A replacement analytic argument and recursive source closure remain necessary.
 
-## Sources and reading scope
+### Sources and reading scope
 
 Primary: Hiraku Atobe, Satoshi Kondo and Seidai Yasuda,
 [Local newforms for the general linear groups over a non-archimedean local field](https://doi.org/10.1017/fmp.2022.17),
@@ -46,7 +148,7 @@ the previous deliverable blob IDs are preserved; identical mathematics is not
 inferred solely from a matching DOI. No raw source PDF or source text is published
 in these deliverables.
 
-## Mathematical scope and conventions
+### Mathematical scope and conventions
 
 F is a nonarchimedean local field of characteristic zero. Representations are
 smooth complex representations; psi has conductor o and abs(varpi)=q^-1.
@@ -75,7 +177,7 @@ s-m/2 shift are part of the integral interfaces. Formal spherical families at
 arbitrary nonzero parameters are distinct from actual tempered Speh models.
 An arbitrary spherical irreducible constituent can be nongeneric.
 
-## Essential-vector uniqueness: the exact hypotheses match
+### Essential-vector uniqueness: the exact hypotheses match
 
 This is a worker argument awaiting independent review. In the specialization
 n=m=2, take G=GL4, G'=GL2 and K'=GL2(o). The primed block size is one, so V'=1,
@@ -144,7 +246,7 @@ needs multiplicity spaces and a legitimate dense domain for fiber evaluation.
 Corollary 9.4, the proofs of Propositions 9.5–9.6, and the subsequent general
 newform/essential-existence chain require replacement arguments.
 
-## Lemma 8.10: a direct repeated-parameter counterexample
+### Lemma 8.10: a direct repeated-parameter counterexample
 
 The previous checkpoint identified a geometric-lemma multiplicity defect but
 did not claim to refute the final spanning assertion. The following continuation
@@ -190,7 +292,7 @@ Jacquet module does not make the single printed function span this eigenspace.
 This is still a provisional finding for independent review, not an author
 correction or a claim that the full newform theorem is false.
 
-## Foundational proofs and pinned-library reuse
+### Foundational proofs and pinned-library reuse
 
 Pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. The exact declaration statements,
@@ -260,7 +362,7 @@ were reread. The source-stage statuses do not assert those packages are already
 formalized. The input manifest records their current blobs and the precise
 library read locators. Negative terminology searches remain bounded evidence.
 
-## Ownership and dependency boundaries
+### Ownership and dependency boundaries
 
 The four existing source routes import the shared smooth category,
 induction/Jacquet/derivative theory, GL_n classification, classical local factors
@@ -282,59 +384,59 @@ complex derivative theory precedes the integral-family consumers. Model
 transitions and compact restriction must precede essential/newform arguments,
 so their proofs cannot assume essential uniqueness.
 
-### SmoothRepresentationsOfLocalGroups
+#### SmoothRepresentationsOfLocalGroups
 
 Route: source. Reuse the existing smooth category, complex compact invariants, normalized induction, admissibility, Satake and BZ/Whittaker owners. SR.5 must expose an early complex derivative adapter independently of its late family/spectral branches. Finite-group InductionRestriction is not a substitute for p-adic Mackey theory.
 
 Existing stages: `SmoothRepresentationsOfLocalGroups:SR.0`, `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `SmoothRepresentationsOfLocalGroups:SR.4`, `SmoothRepresentationsOfLocalGroups:SR.5`.
 
-### EndoscopicTransferAndUnitaryTraceComparison
+#### EndoscopicTransferAndUnitaryTraceComparison
 
 Route: source. ET.6 explicitly owns characteristic-zero GL_n segment/Langlands classification and the full WD correspondence. Place the source-specific segment conventions, Speh constructor, constituent multiplicities, truncation and ladder determinantal adapters in that early local-classification branch; do not create a duplicate GL_n classification in GL2 or the newform extension.
 
 Existing stages: `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
-### AutomorphicLFunctionsAndLocalFactors
+#### AutomorphicLFunctionsAndLocalFactors
 
 Route: source. AL.0/2/3 already own nonarchimedean Fourier theory, GJ standard factors and classical generic Rankin–Selberg factors. AKY supplies their normalization-sensitive consumer. The nongeneric Speh integral extension below imports these rather than treating their plans as existing Lean declarations.
 
 Existing stages: `AutomorphicLFunctionsAndLocalFactors:AL.0`, `AutomorphicLFunctionsAndLocalFactors:AL.2`, `AutomorphicLFunctionsAndLocalFactors:AL.3`.
 
-### GL2AutomorphicRepresentationsAndTransfer
+#### GL2AutomorphicRepresentationsAndTransfer
 
 Route: source. R16.2 already owns the rank-two conductor/newvector result. The general-rank newform extension must compare to and import this specialization, not replan Casselman GL2 theory.
 
 Existing stages: `GL2AutomorphicRepresentationsAndTransfer:R16.2`.
 
-### LocalFieldsPartIIFiniteLengthModules
+#### LocalFieldsPartIIFiniteLengthModules
 
 Route: part-ii. The upstream local-field substrate supplies DVRs and valuation normalization, but not the ordered module-class convexity/unique-filtration theory. Keep this characteristic-free finite-DVR algebra in one foundational owner, outside representation-specific newform proofs.
 
 First prerequisite: Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification), especially its existing layer0 substrate; do not replan it. Start the algebra over an arbitrary DVR o with fraction field F. Add finite residue field only for finiteness/counting statements. Import Mathlib's Module.equiv_directSum_of_isTorsion for existence, then prove uniqueness of the sorted exponent sequence, the length/minimal-generator formulas and left-zero-padding compatibility. Define the lex ordered class monoid with vee equal to padded coordinate addition, emphatically not direct sum. Build exact Hom_o(-,F/o) duality and biduality, submodule/quotient inequalities, Proposition4.4 convexity, Proposition4.6 uniqueness of an actual equality-case submodule and its strict-deficit alternative, and Corollary4.7 for actual ordered filtrations. Prove the free-cover change-of-basis and prescribed generator/graded-basis lifting statements without importing finite-dimensional-algebra projective covers at the wrong base ring. Then define admissible filtrations, prove finite and permutation-invariant exact-generator counts, and build the Z-linear weighted polynomial functional and its length-vanishing ideal. Final exports are all §§4.1–4.3 results and Lemmas6.7–6.8 plus the corrected composition-polynomial degree bound. Every definition gets the attached APIs and zero/cyclic/equal-class tests. Consumers are the newform extension's Mackey formula, ladder cancellations and weight vanishing. This is a candidate owner: audit any new module/filtered-lattice roadmap added since this checkpoint before activation. Continuation: import the pinned weighted MvPolynomial grading, Baer extension and Nakayama surjectivity. Recover sorted exponents from dim_k(p^(j-1)M/p^jM), prove injectivity of F/o by the principal-ideal Baer argument, and use the direct residue-matrix proof of equivalent equal-rank free surjections over any commutative local ring. No new projective-cover theory is required for Lemma4.9. Keep the finite residue field assumption only where actual finite counts are used.
 
-### QuiverRepresentationsPartIIMultisegmentDuality
+#### QuiverRepresentationsPartIIMultisegmentDuality
 
 Route: part-ii. Finite type-A interval classification and Krull–Schmidt already belong to upstream QuiverRepresentations. Opposite-degree generic commuting operators, their image-restriction surjectivity and the Knight–Zelevinsky chain formula go beyond those layers.
 
 First prerequisite: Quiver representations, path algebras, and Gabriel's theorem (tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations), layers1,2,5. Import path-algebra/interval/Krull–Schmidt machinery; do not replan Gabriel's theorem. Over C construct finite-support Z-graded VN and WL pairs, shifts, images and opposite-degree centralizer spaces, with all ambient finite-dimensional/Zariski-topology hypotheses. Prove Lemmas3.1–3.4, separating the generic commuting-operator duality theorem from simultaneous genericity on all iterated images. State the elementary interval combinatorics independently; import only the representation-theoretic identification with Zelevinsky involution from the early classification part of Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Do not duplicate the general Aubert duality contemplated in PAPER-CH26's SmoothRepresentationsPartIIUnitarySpherical candidate. Prove the right-truncation/ram commutation and the maximal-peeling identities with full multiplicities. Close Knight–Zelevinsky's adjacent-interval formula through monotone-grid paths and maximum weighted inclusion chains, then prove Proposition2.7 ram additivity for the special maximal split only. Final consumers are the newform tuple comparison and unipotent induction; no general additivity or finite-field version is asserted. The cited KZ/MW proofs remain a closure task, not an assumed generic-black-box theorem.
 
-### AutomorphicLFunctionsPartIISpehIntegrals
+#### AutomorphicLFunctionsPartIISpehIntegrals
 
 Route: part-ii. The existing AL.3 contract is classical generic Whittaker Rankin–Selberg theory. Degenerate Zelevinsky/Shalika models and unequal-rank Speh integrals need new layers; their analytic core can be built before newform existence, avoiding a cycle.
 
 First prerequisite: Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors), AL.0, AL.2 and AL.3. Import Smooth representations of local groups (SmoothRepresentationsOfLocalGroups:SR.0–SR.5, early complex branches) and the Speh constructor from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6). Fix char(F)=0, conductor-o additive character, compatible quotient/self-dual Haar measures, tempered pi on GL_n and pi' on GL_(n-1), and m>=1. Construct the precise block groups, D as row stabilizer, character Psi, model Hom multiplicity-one theorems, Levi restriction, Lapid–Mao compact-induction restriction, unitary pairing and mutually inverse compact-support transforms. Define convergent I_m and Z_m separately from their rational continuations. Split Theorem8.5 into convergence, product-denominator bound and functional equation with every shift/sign; prove the test-vector-one lemma, gcd normalization and ONLY the divisibility of Proposition8.7. Construct the arbitrary-parameter spherical families, distinguish their actual-Speh specializations, and prove all four parts of Theorem8.11 rather than importing its omitted proof. Audit Lemma8.10 with multiplicities; it is not a usable theorem at singular parameters until repaired. Finally establish determinant slicing, lower bounds, finite support for L=1 and the corrected q^(-md) coefficient in Proposition9.8. Stop before essential-vector uniqueness or newforms. All analytic core exports must be independent of §9's newform line; the newform extension is a downstream consumer. Record the source errors and require independent confirmation, especially the compact-restriction input used in the counterexample. Continuation: the repeated-parameter Lemma8.10 is itself false, not only unproved by its display. Include the explicit GL2 derivative eigenfunction H=(a-b)q^(-(a-b)/2)x^(a+b), and replace spanning by statements that retain confluent data at Satake collisions. Do not use an unqualified all-parameter span as an input to spectral separation.
 
-### SmoothRepresentationsPartIIGeneralLinearNewforms
+#### SmoothRepresentationsPartIIGeneralLinearNewforms
 
 Route: part-ii. Neither the Newton/cocenter and parahoric-center candidates nor existing GL2 theory owns all-rank nongeneric row-depth newforms. This extension owns only their new level/tuple/Mackey/combinatorial/analytic assembly, importing each foundation once.
 
 First prerequisite: Smooth representations of local groups (SmoothRepresentationsOfLocalGroups), with SR.0–SR.5 early complex exports. Import GL_n classification and WD conventions from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison:ET.6), GL2 newvectors from GL2 Automorphic Representations And Transfer (GL2AutomorphicRepresentationsAndTransfer:R16.2), classical local factors from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors:AL.0/2/3), and the three candidate foundations LocalFieldsPartIIFiniteLengthModules, QuiverRepresentationsPartIIMultisegmentDuality and AutomorphicLFunctionsPartIISpehIntegrals. Targets: for char-zero local F and every smooth complex irreducible pi on GL_n, lambda_pi,k=c_(pi^(n-k))-c_(pi^(n-k+1)) belongs to ascending Lambda_n; dim pi^(K_n,lambda_pi)=1; lambda<lambda_pi implies no fixed vectors; independently sum(lambda)<c_pi implies no fixed vectors. K uses row depths. Build lattice-pair conjugacy, actual-filtration Mackey decomposition, the two-case reduction, the ladder determinant/cancellation recurrence and arbitrary unipotent induction. Prove weight vanishing using the shared DVR counting functional and GJ Fourier support, explicitly repairing Lemma7.1 at lambda0. Compare mirahoric and generic specializations and all source examples. For tempered Speh, construct K^(a), determinant-support consequences and newform restriction to the Levi. IMPORTANT: the printed essential-vector uniqueness is contradicted by E1's n=m=2 compact-support kernel. Define a solution predicate, not a unique vector. The L=1 existence construction survives, but Cor9.4 and the proof chain9.5–9.10 need a new argument or corrected hypotheses. Do not activate a completed newform blueprint using those claims as axioms. General essential existence and the unramified-partner gcd equality are downstream targets only. The checkpoint is partial until this analytic repair and the remaining cited-input closure are independently checked. Continuation: E1 gives an infinite-dimensional common kernel using pairwise disjoint u_rKprime cosets. Keep the essential solution set affine over this kernel; neither uniqueness nor stronger K^(c_pi)-invariance follows from the printed two conditions. For Lemma7.1 use the nonzero-row compactness bound, and handle lambda=0 separately.
 
-## Source findings
+### Source findings
 
 All findings remain provisional. None has a self-issued review object. Exact-title, author/erratum, essential-uniqueness and arXiv-correction searches found no correction in their bounded results. The prior journal/history/author-page searches are preserved with their actual limits. No authors have been contacted.
 
-### E1 — error
+#### E1 — error
 
 Published Theorem9.1/Definition9.2 pp48–50; arXiv v4 pp52–54. Reach: a stated result.
 
@@ -344,7 +446,7 @@ Correction or obligation: Replace the unique-choice definition by a solution-set
 
 Reason: For n=m=2, G'=GL2,V'=1,T'=id and all formal W^0 are left-N'-invariant. With u=[[1,varpi^-1],[0,1]], f=1_(uK')-1_K' is a nonzero right-K'-invariant compact function annihilated by every test integral by left translation (det u=1). Extend f to D=V iota(G') using Psi. Lapid–Mao20 Cor3.13/3.15 supplies a Shalika vector with this restriction; right averaging preserves f. Adding it to the L=1 essential vector gives a second solution. The proof's character claim fails explicitly: (I+tE13)(I+bE32)(I-tE13)=I+bE32+tbE12, so Psi changes by psi(tb). See report for full argument and limits. The continuation verifies the compact-induction hypothesis directly against Lapid–Mao Cor3.13/3.15 and obtains infinitely many independent perturbations using u_r=I+varpi^-r E12. These vectors satisfy precisely the printed right-iota(Kprime) condition; no K^(c_pi)-invariance is claimed.
 
-### E2 — error
+#### E2 — error
 
 Published Lemma7.1 p38 and its compact-mod-center escape claim; v4 pp41–42. Reach: the proof.
 
@@ -354,7 +456,7 @@ Correction or obligation: Require lambda≠0 for this escape argument. Handle la
 
 Reason: At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem2.2.
 
-### E3 — error
+#### E3 — error
 
 Published proof of Lemma8.10 p47; v4 corresponding proof. Reach: a stated result.
 
@@ -364,7 +466,7 @@ Correction or obligation: The all-parameter spanning statement must be replaced:
 
 Reason: Differentiate W_Ze^0(x exp(t),x exp(-t)) at t=0. Every spherical Hecke eigenvalue is even in t, so the derivative has the same eigenvalue; Hecke convolution is a finite sum on right-K-fixed functions. H(1)=0 but H(diag(varpi,1))=q^-1/2 x, while W_Ze^0(x,x)(1)=1. This directly disproves the literal span, beyond the earlier geometric-lemma multiplicity defect.
 
-### E4 — misprint
+#### E4 — misprint
 
 Published pp52–53, proof and statement of Proposition9.8; same q^-m in v4 pp56–57. Reach: a stated result.
 
@@ -374,7 +476,7 @@ Correction or obligation: Use q^(-m*d) X^(-d) in every transformed determinant-d
 
 Reason: X=q^-s and replacing s by m-s sends (q^-s)^d to (q^(-(m-s)))^d=q^(-md)X^-d. Already d=0 distinguishes1 fromq^-m. Nonzero coefficient scaling leaves the support bounds unchanged, but the printed finite functional equation needs correction.
 
-### E5 — misprint
+#### E5 — misprint
 
 Published p37, generating-series proof after equation(6.1). Reach: nothing.
 
@@ -384,7 +486,7 @@ Correction or obligation: Use the infinite sum in the denominator for equality i
 
 Reason: h contains all y_i t^i, so algebra gives denominator1+Σ_(i>=1)x_i t^i. Coefficient extraction at t^n is unaffected by truncating, but full-series equality is false.
 
-### E6 — misprint
+#### E6 — misprint
 
 Published p19 after Figure2 (visually checked). Reach: nothing.
 
@@ -394,7 +496,7 @@ Correction or obligation: The endpoint is (1,r), as in the path definition on p1
 
 Reason: The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent.
 
-### E7 — misprint
+#### E7 — misprint
 
 Published §2.5 p11, truncated-dual diagram (visually checked). Reach: nothing.
 
@@ -404,7 +506,7 @@ Correction or obligation: Retain indices2,3,4,5 from p10 after the singleton Del
 
 Reason: The figure labels retained terms(Delta'_5)^-,...,(Delta'_2)^- correctly. The prose resets indices while also keeping the truncation superscript and changes the original Delta'_i values.
 
-### E8 — misprint
+#### E8 — misprint
 
 Published proof of Proposition4.6 p23. Reach: nothing.
 
@@ -414,7 +516,7 @@ Correction or obligation: Use [M'] vee [M''] in the final strict-inequality disp
 
 Reason: The entire proposition uses the padded-addition operation vee, not direct sum; the concluding equality follows from the hypothesis only for vee.
 
-### E9 — misprint
+#### E9 — misprint
 
 Published p25 immediately after Lemma5.1. Reach: nothing.
 
@@ -424,7 +526,7 @@ Correction or obligation: The second lattice is L_2.
 
 Reason: The previous paragraph fixes L_2⊆L_1 and the following identity uses K_(L1,L2). The standard quotient must be o^n/(⊕p^lambda_i).
 
-### E10 — misprint
+#### E10 — misprint
 
 Published Example6.4 p33, first raw count in continued display (visually checked). Reach: nothing.
 
@@ -434,7 +536,7 @@ Correction or obligation: Use -N_(3,7,4,1)(M_pi).
 
 Reason: The ladder has x=(5,3,2,0),y=(7,6,5,3). The permutation w=(1,4,3,2) gives capacities(3,7,4,1) and negative sign. No permutation gives the printed(3,5,4,1). Capping all capacities at b=4 gives(3,4,4,1) in both cases, so the subsequent computation is unaffected.
 
-### E11 — gap
+#### E11 — gap
 
 Published Lemma6.6 p34, converse proof. Reach: the proof.
 
@@ -444,7 +546,7 @@ Correction or obligation: Use the degree-one/type-chi specialization for the cur
 
 Reason: For one degree-d cuspidal segment, highest derivative drops rank d, not1. The derivative identified with truncation in the displayed proof is not the Card(m)-th ordinary derivative when d>1. The actual §6.3 application has d=1 and is unaffected.
 
-### E12 — misprint
+#### E12 — misprint
 
 Published p50 near the end of uniqueness proof; v4 p54. Reach: nothing.
 
@@ -454,7 +556,7 @@ Correction or obligation: Use D=V iota(G').
 
 Reason: Lemma8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.
 
-### E13 — gap
+#### E13 — gap
 
 Published proof of Lemma9.3 p49; v4 p53. Reach: the proof.
 
@@ -464,7 +566,7 @@ Correction or obligation: Supply a disintegration with multiplicity fields and p
 
 Reason: A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.
 
-### E14 — misprint
+#### E14 — misprint
 
 Published proof of Proposition9.6 p53. Reach: the proof.
 
@@ -474,7 +576,7 @@ Correction or obligation: The right side must use an essential solution for the 
 
 Reason: The left side is declared to lie in W_Sh^(psi^-1)(tilde sigma), while the existing W_Sh^ess belongs to W_Sh^psi(sigma). Right translation preserves its original representation/model and cannot change that type.
 
-### E15 — misprint
+#### E15 — misprint
 
 Published Section2.3 p7. Reach: nothing.
 
@@ -484,7 +586,7 @@ Correction or obligation: Use d>=1 for nonempty cuspidal segments; G_0 occurs on
 
 Reason: Section2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.
 
-### E16 — misprint
+#### E16 — misprint
 
 Published Proposition5.2 proof p27, final paragraph. Reach: nothing.
 
@@ -494,7 +596,7 @@ Correction or obligation: Use prefix b_i=n_1+...+n_i in both spans.
 
 Reason: Membership in the standard parabolic is preservation of cumulative block flags; for partition(1,2), the second required prefix is3, not2.
 
-### E17 — misprint
+#### E17 — misprint
 
 Published Section6.4 p36, first Mackey display. Reach: nothing.
 
@@ -504,7 +606,7 @@ Correction or obligation: Replace pi_r by pi_s.
 
 Reason: Only pi_1,...,pi_s are defined in this reduction; each quotient indexed s must act on pi_s.
 
-### E18 — misprint
+#### E18 — misprint
 
 Published proof of Corollary9.10 p54. Reach: nothing.
 
@@ -514,11 +616,11 @@ Correction or obligation: Read Corollary9.4.
 
 Reason: The numbered result9.4 is explicitly a corollary on p50; no Lemma9.4 exists. This repairs the locator only, not the faulty separation argument.
 
-## Item inventory and proof boundaries
+### Item inventory and proof boundaries
 
 The statements below preserve hypotheses and distinguish target theorems from proved library inputs. An item marked missing is planned mathematical work, not an assertion that it has been formalized.
 
-### `pid` — PID torsion-module decomposition
+#### `pid` — PID torsion-module decomposition
 
 Status: library; §4.1 input; Mathlib/Algebra/Module/PID.lean, Module.equiv_directSum_of_isTorsion.
 
@@ -526,7 +628,7 @@ For a commutative domain R with IsPrincipalIdealRing R and a finitely generated 
 
 Pinned declarations: `mathlib:Module.equiv_directSum_of_isTorsion`.
 
-### `radical` — Artinian Jacobson radical is nilpotent
+#### `radical` — Artinian Jacobson radical is nilpotent
 
 Status: library; §7.1 input; Mathlib/RingTheory/Artinian/Ring.lean:54.
 
@@ -534,7 +636,7 @@ For any (not necessarily commutative) Artinian ring R, the Jacobson radical of t
 
 Pinned declarations: `mathlib:IsArtinianRing.isNilpotent_jacobson_bot`.
 
-### `compact-ball` — Compact valuation balls
+#### `compact-ball` — Compact valuation balls
 
 Status: library; §2 local-field input; Mathlib/NumberTheory/LocalField/Basic.lean:68.
 
@@ -542,7 +644,7 @@ For a nonarchimedean local field K and gamma in its value group with zero, {x | 
 
 Pinned declarations: `mathlib:IsNonarchimedeanLocalField.isCompact_closedBall`.
 
-### `smooth` — Smooth representation and compact fixed-space interface
+#### `smooth` — Smooth representation and compact fixed-space interface
 
 Status: planned; §2.1; §§5–9.
 
@@ -564,7 +666,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Averaging a K-fixed vector returns it; averaging twice agrees with once.
 - For a surjective intertwiner, lift a K-fixed vector and average the lift; its image is the original vector.
 
-### `induction` — Normalized parabolic induction and Jacquet modules
+#### `induction` — Normalized parabolic induction and Jacquet modules
 
 Status: planned; §2.1; §5.1.
 
@@ -586,7 +688,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Borel induction for GL2 has two geometric-lemma pieces even when their characters coincide.
 - On P∩K the modulus is one, so the Mackey summands acquire no scalar character twist.
 
-### `derivative` — Iterated highest derivative
+#### `derivative` — Iterated highest derivative
 
 Status: planned; §1.2; §2.2; Bernstein–Zelevinsky [4], Zelevinsky [42].
 
@@ -610,7 +712,7 @@ Mathematical acceptance tests (not Lean-executed):
 - An unramified determinant character in rank n>1 does not behave as generic.
 - For a singleton degree2 cuspidal segment, the highest derivative has order2 and is G_0, while the first ordinary derivative is zero.
 
-### `conductor` — Analytic conductor exponent
+#### `conductor` — Analytic conductor exponent
 
 Status: planned; §1.2; §2.2; [8],[14].
 
@@ -632,7 +734,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Generic conductor must not be defined by K-invariants before the newform theorem is proved.
 - For a ramified GL1 character of conductor2, epsilon(s)/epsilon(0)=q^(-2s); the exponent is2, independent of an unramified twist.
 
-### `segment` — Cuspidal segments and linkedness
+#### `segment` — Cuspidal segments and linkedness
 
 Status: planned; §2.1, pp5–6.
 
@@ -654,7 +756,7 @@ Mathematical acceptance tests (not Lean-executed):
 - [0,2] and [1,1] are not linked; different cuspidal lines are not linked.
 - Adjacent singletons [0,0] and [1,1] are linked; their elementary replacement is [0,1] with no nonempty intersection.
 
-### `multisegment` — Multisegments and Zelevinsky classification
+#### `multisegment` — Multisegments and Zelevinsky classification
 
 Status: planned; §2.1; [42].
 
@@ -676,7 +778,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Dualizing twice returns m, including multiplicities.
 - Two identical segments have multiset cardinality2, even though the set of distinct segments has cardinality1.
 
-### `lambda` — Derivative conductor tuple
+#### `lambda` — Derivative conductor tuple
 
 Status: missing; §2.2, p6.
 
@@ -696,7 +798,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Do not infer weight comparison from lex comparison: (0,3)<(1,1) but 3>2.
 - Conductors 8,4,2,1,0 followed by zeros in rank17 give tail(1,1,2,4), with thirteen leading zeros.
 
-### `level` — Row-depth compact groups
+#### `level` — Row-depth compact groups
 
 Status: missing; §1.2; §2.2.
 
@@ -716,7 +818,7 @@ Mathematical acceptance tests (not Lean-executed):
 - For GL2, lambda=(0,c) restricts the second row, not the second column.
 - For lambda=(0,2), mu=(1,1), neither subgroup contains the other: upper and lower elementary unipotents distinguish the row conditions.
 
-### `newform` — Newform line and nonzero vectors
+#### `newform` — Newform line and nonzero vectors
 
 Status: missing; §1.2 after Theorem1.1; §2.2.
 
@@ -736,7 +838,7 @@ Mathematical acceptance tests (not Lean-executed):
 - A zero vector is never a newform.
 - If ell vanishes on the newform line, the normalization ell(v)=1 has no solution; do not omit nonvanishing.
 
-### `main-one` — Newform multiplicity one
+#### `main-one` — Newform multiplicity one
 
 Status: missing; Theorem2.1, first assertion (also1.1(1)).
 
@@ -744,25 +846,25 @@ For every pi in Irr(G_n), dim_C pi^(K_n,lambda_pi)=1. This is the printed target
 
 OPEN proof obligation; do not mark formalized or use the false uniqueness theorem as an axiom.
 
-### `main-lex` — Lexicographic vanishing
+#### `main-lex` — Lexicographic vanishing
 
 Status: missing; Theorem2.1, second assertion.
 
 For pi in Irr(G_n) and lambda in Lambda_n with lambda<lambda_pi in lex order, pi^(K_n,lambda)=0. The §9-dependent branch remains unclosed.
 
-### `main-weight` — Conductor-weight vanishing
+#### `main-weight` — Conductor-weight vanishing
 
 Status: missing; Theorem2.2 (also1.1(2)).
 
 For pi in Irr(G_n), if lambda in Lambda_n has sum(lambda_i)<c_pi=sum(lambda_pi,i), then pi^(K_n,lambda)=0. This criterion is separate from lex vanishing.
 
-### `min-conductor` — Conductor as minimal level weight
+#### `min-conductor` — Conductor as minimal level weight
 
 Status: missing; §1.2 following Theorem1.1.
 
 Conditional on the main existence/vanishing statements, c_pi=min{|lambda| : pi^(K_n,lambda) is nonzero}.
 
-### `truncation` — Right truncation and ram operation
+#### `truncation` — Right truncation and ram operation
 
 Status: missing; §2.3; §2.4.
 
@@ -782,7 +884,7 @@ Mathematical acceptance tests (not Lean-executed):
 - The degree-d rank loss is d per segment, not one unless d=1.
 - For unipotent m=[0,0]+[1,1], each singleton has ram=empty, but ram(m)=[0,0]; arbitrary additivity would be false.
 
-### `lambda-combinatorial` — Multisegment conductor tuple
+#### `lambda-combinatorial` — Multisegment conductor tuple
 
 Status: missing; §2.3, pp7–8.
 
@@ -802,19 +904,19 @@ Mathematical acceptance tests (not Lean-executed):
 - Do not multiply c_rho by degree(rho) in the tail formula.
 - A degree2 cuspidal segment of length3 and conductor4 contributes (0,0,0,4,4,4) in rank6, of weight12.
 
-### `tuple-comparison` — Derivative and multisegment tuples agree
+#### `tuple-comparison` — Derivative and multisegment tuples agree
 
 Status: missing; Proposition2.4.
 
 For pi=Z(m) of rank n>=1, lambda_pi=lambda_m; in particular the derivative differences are ascending nonnegative integers.
 
-### `generic-example` — Generic specialization
+#### `generic-example` — Generic specialization
 
 Status: missing; §1.2 following Theorem1.1; §2.2.
 
 For generic irreducible pi, lambda_pi=(0^(n-1),c_pi), and the groups/newform claim specialize to the JPSS generic theorem.
 
-### `ladder` — Ladder multisegments
+#### `ladder` — Ladder multisegments
 
 Status: missing; Example2.5(2); §6.1.
 
@@ -834,19 +936,19 @@ Mathematical acceptance tests (not Lean-executed):
 - Zero capacity represents G_0; negative capacity contributes zero.
 - For [1,2]+[0,1], the ram segment is [0,1], so the conductor tuple in rank4 is (0,0,1,1).
 
-### `ladder-tuple` — Explicit ladder tuple
+#### `ladder-tuple` — Explicit ladder tuple
 
 Status: missing; Example2.5(2).
 
 For a type-chi ladder [x_1,y_1]+...+[x_t,y_t] in decreasing endpoint order, lambda_pi is the SUM, for i=2,...,t, of the n-tuples with max(y_i-x_(i-1)+2,0) terminal ones and all other entries zero. These lengths are not themselves the coordinates of lambda.
 
-### `product-tuple` — Irreducible-product tuple addition
+#### `product-tuple` — Irreducible-product tuple addition
 
 Status: missing; Example2.5(3).
 
 If each pi_i is either in the L(s,pi_i)=1 class of Example2.5(1) or is a type-chi ladder of Example2.5(2), and pi_1×...×pi_r is irreducible, then lambda of the product is the sum of the lambda_pi_i after left-zero-padding.
 
-### `speh` — Tempered Speh representation
+#### `speh` — Tempered Speh representation
 
 Status: missing; Example2.5(4); §8.2.
 
@@ -866,13 +968,13 @@ Mathematical acceptance tests (not Lean-executed):
 - For n=1 this is a determinant character, not the generalized Steinberg convention.
 - If pi is ramified tempered GL2 of conductor3, Sp(pi,2) has tuple(0,0,3,3), and total conductor6.
 
-### `speh-tuple` — Speh conductor tuple
+#### `speh-tuple` — Speh conductor tuple
 
 Status: missing; Example2.5(4).
 
 For sigma=Sp(pi,m), lambda_sigma=(0^((n-1)m),c_pi repeated m).
 
-### `max-split` — Maximal multisegment peeling
+#### `max-split` — Maximal multisegment peeling
 
 Status: missing; §2.4; §2.5.
 
@@ -892,19 +994,19 @@ Mathematical acceptance tests (not Lean-executed):
 - The rank17 example peels [3,7],[2,5],[1,2],[0,0] first.
 - For [0,2]+[1,1]+[1,1], the first maximal part is [0,2] and the remainder retains both singleton copies.
 
-### `ram-split` — Ram additivity for maximal peeling
+#### `ram-split` — Ram additivity for maximal peeling
 
 Status: missing; Proposition2.7.
 
 For unipotent/type-chi m, m^ram=(m_max)^ram+(m^max)^ram; no unrestricted additivity is claimed.
 
-### `lambda-split` — Tuple additivity for maximal peeling
+#### `lambda-split` — Tuple additivity for maximal peeling
 
 Status: missing; Corollary2.8.
 
 Under the same hypotheses, lambda_m=lambda_(m_max)+lambda_(m^max), padded to the same rank.
 
-### `wd-ram` — Weil–Deligne interpretation of ram
+#### `wd-ram` — Weil–Deligne interpretation of ram
 
 Status: missing; Lemma2.9, §2.6.
 
@@ -912,7 +1014,7 @@ For unipotent irreducible pi, under the GL_n LLC with geometric Frobenius, pi^ra
 
 Imports ET.6 full WD/LLC including N. Quotient is not asserted to have no unramified subrepresentation.
 
-### `vn` — Graded nilpotent pairs
+#### `vn` — Graded nilpotent pairs
 
 Status: missing; §3.1.
 
@@ -932,13 +1034,13 @@ Mathematical acceptance tests (not Lean-executed):
 - Image N with shift -1 is [a,b-1]; Image L without a shift is [a,b-1].
 - For a VN block [2,4], N^2 has rank1 and N^3=0; shifting by -1 does not change these ranks.
 
-### `vn-reconstruct` — Graded pair reconstruction
+#### `vn-reconstruct` — Graded pair reconstruction
 
 Status: missing; Lemma3.1.
 
 Two VN-pairs are isomorphic iff their underlying graded spaces are isomorphic and their image pairs (Image N,N|Image N) are isomorphic.
 
-### `commuting` — Opposite-degree centralizer spaces
+#### `commuting` — Opposite-degree centralizer spaces
 
 Status: missing; §3.1 preceding Lemma3.2.
 
@@ -958,31 +1060,31 @@ Mathematical acceptance tests (not Lean-executed):
 - A single degree-support space has zero opposite-degree maps.
 - For one interval of length2 with N the nonzero raising map, any commuting degree-minus-one L is zero; a nonzero lowering map fails LN=NL.
 
-### `centralizer-surj-plus` — Centralizers restrict surjectively to Image N
+#### `centralizer-surj-plus` — Centralizers restrict surjectively to Image N
 
 Status: missing; Lemma3.2, VN case.
 
 S(V,N)→S(Image N,N|Image N), by restriction, is surjective.
 
-### `centralizer-surj-minus` — Centralizers restrict surjectively to Image L
+#### `centralizer-surj-minus` — Centralizers restrict surjectively to Image L
 
 Status: missing; Lemma3.2, WL case.
 
 S(W,L)→S(Image L,L|Image L), by restriction, is surjective.
 
-### `truncate-vn` — VN image and segment truncation
+#### `truncate-vn` — VN image and segment truncation
 
 Status: missing; Lemma3.3, VN case.
 
 The VN-pair (Image N(-1),N restricted) corresponds to m^-.
 
-### `truncate-wl` — WL image and segment truncation
+#### `truncate-wl` — WL image and segment truncation
 
 Status: missing; Lemma3.3, WL case.
 
 The WL-pair (Image L,L restricted) corresponds to m^- with NO grading shift.
 
-### `generic-commuting` — Generic commuting operator and duality
+#### `generic-commuting` — Generic commuting operator and duality
 
 Status: missing; §3.1, [43],[31]; Lemma3.4.
 
@@ -990,25 +1092,25 @@ For a VN-pair of type m there is a dense open S^o(V,N) in S(V,N) whose operators
 
 Split dense-open duality theorem from simultaneous-genericity proof in the next completion pass; cited-input proofs not yet fully audited.
 
-### `rank-conductor` — Ranks compute derivative conductors
+#### `rank-conductor` — Ranks compute derivative conductors
 
 Status: missing; Proof of Proposition2.4, pp15–16.
 
 For unipotent m represented by (V,N), choose commuting L whose restrictions to every Image N^i are in the required generic opens. Then c_(Z(m)^(i))=rank(L N^i), and the rank differences produce the terminal-one formula for lambda.
 
-### `commute-ram` — Ram and right truncation commute
+#### `commute-ram` — Ram and right truncation commute
 
 Status: missing; Proposition3.5.
 
 For unipotent/type-chi m, (m^-)^ram=(m^ram)^-.
 
-### `truncate-max` — Maximal peeling commutes with truncation
+#### `truncate-max` — Maximal peeling commutes with truncation
 
 Status: missing; Lemma3.6.
 
 For type-chi m, (m^-)_max=(m_max)^- and (m^-)^max=(m^max)^-, after discarding empty intervals.
 
-### `chain` — Weighted inclusion chains and grid paths
+#### `chain` — Weighted inclusion chains and grid paths
 
 Status: missing; Proposition3.7 and proof, pp17–19.
 
@@ -1028,13 +1130,13 @@ Mathematical acceptance tests (not Lean-executed):
 - A grid path ends at (1,r), not (a,1).
 - The intervals [0,1] and [1,2] each intersect [1,2] but are incomparable by inclusion; with multiplicities2 and3 the maximum chain weight is3, not5.
 
-### `chain-formula` — Adjacent dual interval count
+#### `chain-formula` — Adjacent dual interval count
 
 Status: missing; Proposition3.7; Knight–Zelevinsky [16], Theorem1.2 and equation(1.6).
 
 For m of type chi and integer a, the number of segments of m# containing [a,a+1] is Card(m_a)-E_a(m), with full multiplicities.
 
-### `dvr-class` — Finite-DVR-module classes and sorted sequences
+#### `dvr-class` — Finite-DVR-module classes and sorted sequences
 
 Status: missing; §4.1, pp20–21.
 
@@ -1054,7 +1156,7 @@ Mathematical acceptance tests (not Lean-executed):
 - o/p^2 has seq_2=(0,2), not (1,1).
 - For sequence(1,3), the successive layer dimensions are2,1,1,0; these distinguish it from sequence(2,2), whose dimensions are2,2,0.
 
-### `vee` — Padded additive monoid and lex order on classes
+#### `vee` — Padded additive monoid and lex order on classes
 
 Status: missing; §4.1 before Lemma4.1.
 
@@ -1074,13 +1176,13 @@ Mathematical acceptance tests (not Lean-executed):
 - [o/p] direct-sum [o/p] is a different class.
 - For sequences(1,2) and(0,3), vee gives(1,5), whereas direct sum gives(0,1,2,3) after padding.
 
-### `vee-mono` — Monotonicity of vee
+#### `vee-mono` — Monotonicity of vee
 
 Status: missing; Lemma4.1.
 
 If [M]<=[N] and [M']<=[N'], then [M]vee[M']<=[N]vee[N']; equality holds only when both original inequalities are equalities.
 
-### `dvr-dual` — Finite-length DVR dual
+#### `dvr-dual` — Finite-length DVR dual
 
 Status: missing; §4.1; Lemma4.2.
 
@@ -1100,61 +1202,61 @@ Mathematical acceptance tests (not Lean-executed):
 - Duality swaps submodule and quotient in a short exact sequence.
 - For 0→o/p→o/p^2→o/p→0, the dual sequence is again nonsplit; exactness does not assert a splitting.
 
-### `dvr-mono` — Submodule class inequality
+#### `dvr-mono` — Submodule class inequality
 
 Status: missing; Lemma4.3(1).
 
 An injection of finite-length DVR modules M→M' implies [M]<=[M'].
 
-### `dvr-epi` — Quotient class inequality
+#### `dvr-epi` — Quotient class inequality
 
 Status: missing; Lemma4.3(2).
 
 A surjection of finite-length DVR modules M→M' implies [M]>=[M'].
 
-### `convexity` — DVR convexity
+#### `convexity` — DVR convexity
 
 Status: missing; Proposition4.4.
 
 For a short exact sequence 0→M'→M→M''→0 of finite-length DVR modules, [M]>=[M']vee[M''].
 
-### `ideal-split` — Ideal-multiple equality
+#### `ideal-split` — Ideal-multiple equality
 
 Status: missing; Lemma4.5.
 
 For finite-length M and nonzero ideal I of o, [M]=[IM]vee[M/IM].
 
-### `unique-submodule` — Unique equality-case submodule
+#### `unique-submodule` — Unique equality-case submodule
 
 Status: missing; Proposition4.6, first assertion.
 
 If [M]=[A]vee[B], there exists exactly one ACTUAL submodule N≤M with [N]=[A] and [M/N]=[B].
 
-### `submodule-deficit` — Strict deficit away from equality submodule
+#### `submodule-deficit` — Strict deficit away from equality submodule
 
 Status: missing; Proposition4.6, last assertion.
 
 For that unique N and any other N'≤M, either [N']<[A] or [M/N']<[B].
 
-### `unique-filtration` — Unique equality-case filtration
+#### `unique-filtration` — Unique equality-case filtration
 
 Status: missing; Corollary4.7, existence/uniqueness.
 
 If [M]=[M_1]vee...vee[M_r], there is exactly one ordered filtration 0=F_0≤...≤F_r=M whose graded quotient classes are [M_i].
 
-### `filtration-deficit` — Alternative filtration has a deficit
+#### `filtration-deficit` — Alternative filtration has a deficit
 
 Status: missing; Corollary4.7, last assertion.
 
 Under the preceding equality, every different ordered filtration has some i with [Gr_i F]<[M_i].
 
-### `simultaneous-lift` — Simultaneous quotient and surjection lifting
+#### `simultaneous-lift` — Simultaneous quotient and surjection lifting
 
 Status: missing; Lemma4.8.
 
 For surjective f:M→N and submodule M'≤M, the map M→N ×_(N/f(M')) (M/M') is surjective.
 
-### `free-surjections` — Equal-rank free covers are equivalent
+#### `free-surjections` — Equal-rank free covers are equivalent
 
 Status: missing; Lemma4.9.
 
@@ -1168,13 +1270,13 @@ Proof route:
 2. Lift the matrix Abar to A0 over o. The error f-fprime A0 takes each basis vector to mN=fprime(mLprime), so choose a correction matrix Delta with entries in m whose image under fprime is exactly that error.
 3. Then A=A0+Delta intertwines f and fprime and reduces to Abar. Its determinant is not in m, hence is a unit in the local ring; the adjugate gives the inverse. No projective cover or finite length of N is needed.
 
-### `basis-lift` — Ordered generators lift to a basis
+#### `basis-lift` — Ordered generators lift to a basis
 
 Status: missing; Corollary4.10.
 
 Given n generators x_i of finite-length N and a surjection f:L→N from a free rank-n module, there is a basis e_i of L with f(e_i)=x_i.
 
-### `admissible` — Admissible filtrations and compatible generators
+#### `admissible` — Admissible filtrations and compatible generators
 
 Status: missing; Definition4.11.
 
@@ -1194,31 +1296,31 @@ Mathematical acceptance tests (not Lean-executed):
 - For capacities(1,2), F_2 uses the first3 generators, not the first2.
 - With capacities(1,1) on k^2, the admissible intermediate submodules are its q+1 lines, so there are q+1 distinct filtrations.
 
-### `image-filtration` — Image of a free admissible flag
+#### `image-filtration` — Image of a free admissible flag
 
 Status: missing; Lemma4.12(1).
 
 For a free rank-n L surjecting onto finite-length M, an n-admissible filtration of L maps to one of M.
 
-### `flag-basis` — Compatible basis for a free flag
+#### `flag-basis` — Compatible basis for a free flag
 
 Status: missing; Lemma4.12(2).
 
 Given an n-admissible flag of free rank-n L, a surjection L→M, and any compatible ordered generators x_1,...,x_n of the image flag, there are compatible generators y_1,...,y_n of L lifting the x_i (necessarily a basis since rank L=n).
 
-### `flag-lift` — Prescribed compatible generators lift through a free flag
+#### `flag-lift` — Prescribed compatible generators lift through a free flag
 
 Status: missing; Lemma4.12(3).
 
 Given a free admissible flag and compatible generators of its image in M, there is a compatible basis lifting those generators, with the prescribed graded lifts of Lemma4.12(3).
 
-### `count-permute` — Exact-generator filtration counts are symmetric
+#### `count-permute` — Exact-generator filtration counts are symmetric
 
 Status: missing; Lemma4.13.
 
 For finite-length M over o with FINITE residue field, the number of ordered filtrations whose successive quotients have exactly m_1,...,m_r minimal generators is invariant under permutation of the m_i.
 
-### `lattice-level` — Lattice-pair stabilizer
+#### `lattice-level` — Lattice-pair stabilizer
 
 Status: missing; §5.1, p25.
 
@@ -1238,43 +1340,43 @@ Mathematical acceptance tests (not Lean-executed):
 - Isomorphic quotients need conjugacy, not equality of the subgroups.
 - With lambda=(0,2), e1 maps to a class of order1 (zero) and e2 to order p^2; the quotient is cyclic of length2.
 
-### `lattice-conjugacy` — Conjugacy depends only on quotient
+#### `lattice-conjugacy` — Conjugacy depends only on quotient
 
 Status: missing; Lemma5.1.
 
 The conjugacy class of K_(L1,L2) depends only on n and the isomorphism class [L1/L2].
 
-### `coset-lattices` — Cosets as lattices with quotient maps
+#### `coset-lattices` — Cosets as lattices with quotient maps
 
 Status: missing; Lemma5.3(1).
 
 For fixed finite-length M generated by <=n elements and a standard quotient o^n→M, G_n/K_(n,[M]) is G_n-equivariantly in bijection with pairs (L,f) of full lattice and surjection f:L→M.
 
-### `flag-variety` — Flags from parabolic cosets
+#### `flag-variety` — Flags from parabolic cosets
 
 Status: missing; Lemma5.3(2).
 
 For the partition n=(n_1,...,n_r), G_n/P_n identifies with flags of F-subspaces of prefix dimensions b_i; intersecting such a flag with a lattice identifies it with n-admissible lattice filtrations.
 
-### `double-cosets` — Double cosets as actual quotient filtrations
+#### `double-cosets` — Double cosets as actual quotient filtrations
 
 Status: missing; Lemma5.3(3) and proof of Proposition5.2.
 
 P_n\G_n/K_(n,[M]) is in bijection with actual n-admissible filtrations of M. In each Mackey summand, projection of P_n∩gKg^-1 to the Levi is the product of the corresponding smaller level groups, up to conjugacy.
 
-### `mackey` — Fixed vectors indexed by module filtrations
+#### `mackey` — Fixed vectors indexed by module filtrations
 
 Status: missing; Proposition5.2.
 
 For finite-length smooth complex pi_i of G_(n_i), n_i>=1 and sum n_i=n, (pi_1×...×pi_r)^(K_(n,[M])) is isomorphic to the direct sum over actual n-admissible filtrations F of M of ⊗_i pi_i^(K_(n_i,[Gr_i F])).
 
-### `reduction` — Reduction to unipotent and L=1 cases
+#### `reduction` — Reduction to unipotent and L=1 cases
 
 Status: missing; §5.2, pp27–28.
 
 Proving both main theorems for every type-chi irreducible with chi unramified, and for every irreducible with L(s,pi)=1, proves them for all Irr(G_n), via the irreducible cuspidal-support factorization of §5.2, tuple/conductor additivity and Proposition5.2.
 
-### `filtration-count` — Bounded and exact filtration counts
+#### `filtration-count` — Bounded and exact filtration counts
 
 Status: missing; §6.1 preceding Proposition6.1; §6.4.
 
@@ -1294,25 +1396,25 @@ Mathematical acceptance tests (not Lean-executed):
 - Counting filtration isomorphism classes in place of actual submodules gives the wrong invariant dimension.
 - For M=o/p^2 and capacities(1,1), the intermediate submodules0,pM,M give count3; the exact(1,1) count is1.
 
-### `ladder-determinant` — Ladder determinantal character formula
+#### `ladder-determinant` — Ladder determinantal character formula
 
 Status: missing; §6.1 proof of Proposition6.1; [21].
 
 In the Grothendieck group, Z([x_i,y_i]_(i=1..t)) for a type-chi ladder equals sum_(w in S_t) sgn(w) ⊗ind_i Z([x_w(i),y_i]_chi), with empty intervals giving G_0 and negative lengths giving zero.
 
-### `ladder-count` — Ladder invariant dimensions as alternating counts
+#### `ladder-count` — Ladder invariant dimensions as alternating counts
 
 Status: missing; Proposition6.1.
 
 For that ladder pi of rank n and [M]∈C_n, dim pi^(K_(n,[M]))=sum_(w∈S_t) sgn(w) N_(y_i-x_w(i)+1)_i(M).
 
-### `generator-bound` — Subquotient generator bound at ladder level
+#### `generator-bound` — Subquotient generator bound at ladder level
 
 Status: missing; Lemma6.2.
 
 Put b=max_(2<=i<=t) max(y_i-x_(i-1)+2,0). If [M]<=[M_pi], then every graded quotient of every filtration of M is generated by at most b elements.
 
-### `cancellation-sets` — Five permutation subsets for ladder cancellation
+#### `cancellation-sets` — Five permutation subsets for ladder cancellation
 
 Status: missing; Lemma6.3, pp29–30.
 
@@ -1332,55 +1434,55 @@ Mathematical acceptance tests (not Lean-executed):
 - Enumerate t=4 and verify each involution has no fixed point and reverses sign.
 - At t=3,a=2, the first exceptional subset is empty; verify the second pairing exchanges the two permutations with w(3)=1 and w(1)>=2.
 
-### `cancel-one` — First sign-reversing cancellation
+#### `cancel-one` — First sign-reversing cancellation
 
 Status: missing; Lemma6.3(1).
 
 For [M]<=[M_pi], swapping the positions of the two largest values among w(1),...,w(a-1) defines a count-preserving sign-reversing involution on S_t\X1, so its signed sum is zero.
 
-### `cancel-two` — Second sign-reversing cancellation
+#### `cancel-two` — Second sign-reversing cancellation
 
 Status: missing; Lemma6.3(2).
 
 On X1\X2, swapping a with the unique position i<a having w(i)>=a defines a count-preserving sign-reversing involution and its signed sum is zero.
 
-### `cancel-three` — Remaining subset partition
+#### `cancel-three` — Remaining subset partition
 
 Status: missing; Lemma6.3(3).
 
 X2 is the disjoint union of S and X3.
 
-### `cancel-four` — X4 partition and stability
+#### `cancel-four` — X4 partition and stability
 
 Status: missing; Lemma6.3(4).
 
 X4⊆S_t\X1 is stable under the first involution, and X3 disjoint-union X4={w | w(a)=a-1}.
 
-### `cancel-five` — X5 stability
+#### `cancel-five` — X5 stability
 
 Status: missing; Lemma6.3(5).
 
 X5⊆S_t\X1 is stable under the first involution.
 
-### `ladder-recurrence` — Ladder fixed-space recurrence
+#### `ladder-recurrence` — Ladder fixed-space recurrence
 
 Status: missing; §6.1 following Lemma6.3.
 
 For [M]<=[M_pi] and b>0 as above, replace the two adjacent segments at a-1,a by [x_a,y_(a-1)] to form pi'. Then dim pi^(K_(n,[M]))=sum_(N≤M, minimalGenerators N=b) dim pi'^(K_(n',[M/N])).
 
-### `ladder-main` — Newforms for type-chi ladders
+#### `ladder-main` — Newforms for type-chi ladders
 
 Status: missing; §6.1 conclusion; Example6.4.
 
 Theorem2.1 holds for every type-chi ladder; for b=0 use spherical invariants, and for b>0 use the recurrence and unique equality filtration.
 
-### `constituent-one` — Distinguished constituent multiplicity one
+#### `constituent-one` — Distinguished constituent multiplicity one
 
 Status: missing; Lemma6.5; [38] Proposition2.3, [22] Proposition3.5(5).
 
 Z(m1+m2) occurs with multiplicity one as a subquotient of Z(m1)×Z(m2).
 
-### `derivative-constituent` — Truncated constituent criterion
+#### `derivative-constituent` — Truncated constituent criterion
 
 Status: missing; Lemma6.6.
 
@@ -1388,13 +1490,13 @@ For type-chi multisegments, if Z(m) occurs in Z(m1)×Z(m2), then Z(m^-) occurs i
 
 Printed lemma allows general multisegments; the c-th-derivative proof needs degree-weighted orders off a degree-one line. General extension remains a gap; see sourceIssues. The source proof uses the ordinary derivative of order Card(m); for general cuspidal degree this must be replaced by the sum of cuspidal degrees. The type-chi application has degree1 throughout.
 
-### `unipotent-main` — Newforms for arbitrary type-chi irreducibles
+#### `unipotent-main` — Newforms for arbitrary type-chi irreducibles
 
 Status: missing; §6.3.
 
 For chi unramified and pi=Z(m) of type chi, Theorem2.1 holds. Induct on (total segment length,number of linked pairs), use maximal peeling and compare all other constituents' tuples strictly.
 
-### `count-polynomial` — Weighted polynomial counting functional
+#### `count-polynomial` — Weighted polynomial counting functional
 
 Status: missing; §6.4, pp35–36.
 
@@ -1414,19 +1516,19 @@ Mathematical acceptance tests (not Lean-executed):
 - For M=0, all nonconstant exact-positive-generator monomials evaluate to zero.
 - For M=k, xi_M(x1)=1 but xi_M(x1^2)=0, disproving multiplicativity explicitly.
 
-### `count-y` — Bounded counts from y-polynomials
+#### `count-y` — Bounded counts from y-polynomials
 
 Status: missing; Lemma6.7.
 
 xi_M(y_(m1)...y_(ms)) equals the number of (m1,...,ms)-admissible filtrations.
 
-### `count-degree` — Degree vanishing from module length
+#### `count-degree` — Degree vanishing from module length
 
 Status: missing; Lemma6.8.
 
 If length_o(M)<m, then xi_M(I_m)=0.
 
-### `steinberg-polynomial` — Steinberg composition polynomial bound
+#### `steinberg-polynomial` — Steinberg composition polynomial bound
 
 Status: missing; §6.4 equation(6.1) and p37.
 
@@ -1434,13 +1536,13 @@ For n>=1, f_n=sum_(0=n0<...<nr=n) (-1)^(n-r) y_(n1-n0)...y_(nr-n(r-1)) belongs t
 
 Corrects the finite/infinite series misprint; see sourceIssues.
 
-### `unipotent-weight` — Weight vanishing on type-chi lines
+#### `unipotent-weight` — Weight vanishing on type-chi lines
 
 Status: missing; §6.4.
 
 For unramified chi and pi=Z(m) of type chi, weight(lambda)<c_pi implies pi^(K_n,lambda)=0; reduce to unramified Steinberg constituents and apply the weighted polynomial bound.
 
-### `hecke-semigroup` — Congruence semigroup and nonunit Hecke ideal
+#### `hecke-semigroup` — Congruence semigroup and nonunit Hecke ideal
 
 Status: missing; §7.1, pp37–38.
 
@@ -1460,7 +1562,7 @@ Mathematical acceptance tests (not Lean-executed):
 - For a nonzero depth tuple, powers of the nonunit support escape compact sets modulo center under the lemma's argument.
 - For lambda=(1,1), every element of X_lambda is congruent to identity modulo p, hence invertible over o and the nonunit ideal is zero.
 
-### `hecke-nilpotent` — Correctly qualified cuspidal nilpotence
+#### `hecke-nilpotent` — Correctly qualified cuspidal nilpotence
 
 Status: missing; Lemma7.1 and proof, pp38–39.
 
@@ -1474,7 +1576,7 @@ Proof route:
 2. A power T^r has support with determinant valuation at least r, hence every matrix coefficient of T^r eventually vanishes.
 3. Choose finite bases of V^K and its dual to make the vanishing threshold uniform; T is nilpotent. At lambda=0 handle nonspherical cuspidal representations separately.
 
-### `hecke-annihilator` — Nonunit ideal annihilates a simple subspace
+#### `hecke-annihilator` — Nonunit ideal annihilates a simple subspace
 
 Status: missing; §7.1 after Lemma7.1.
 
@@ -1488,25 +1590,25 @@ Proof route:
 2. The inverse z satisfies z*y*x+z-1=0, so Ideal.mem_jacobson_iff puts x in the Jacobson radical.
 3. For a simple submodule W and nonzero w, H→W, h↦hw, has maximal left-ideal kernel. The radical lies in this kernel for every nonzero w, so a annihilates W.
 
-### `fourier-depth` — Fourier support at column depths
+#### `fourier-depth` — Fourier support at column depths
 
 Status: missing; §7.1 Godement–Jacquet calculation, pp38–39.
 
 For the row-depth semigroup characteristic function used in §7.1 and the trace pairing, the Fourier transform is supported where column j has depth at least -lambda_j, hence determinant valuation is >=-|lambda|.
 
-### `ramified-weight` — Conductor bound for L=1 representations
+#### `ramified-weight` — Conductor bound for L=1 representations
 
 Status: missing; §7.1 conclusion.
 
 If L(s,pi)=1 and pi^(K_n,lambda)≠0, then |lambda|>=c_pi. Reduce to cuspidal support, use an a_lambda-annihilated vector and GJ functional equation with the Fourier depth estimate.
 
-### `segment-reduction` — L=1 reduction to single segments
+#### `segment-reduction` — L=1 reduction to single segments
 
 Status: missing; Lemma7.2.
 
 For pi=Z(Delta_1+...+Delta_r) with L(s,pi)=1, if Theorem2.1 holds for each single-segment Z(Delta_i), it holds for pi; use the unitriangular constituent transition and equality-case filtration.
 
-### `speh-groups` — Block groups and the row-stabilizer D
+#### `speh-groups` — Block groups and the row-stabilizer D
 
 Status: missing; §8.1, pp40–42.
 
@@ -1526,19 +1628,19 @@ Mathematical acceptance tests (not Lean-executed):
 - For m=1, D is the usual mirabolic subgroup.
 - For n=m=2, iota(I+tE12)=I+tE13 normalizes V but does not preserve Psi on V; E32 conjugation adds tE12.
 
-### `d-quotient` — First quotient identification
+#### `d-quotient` — First quotient identification
 
 Status: missing; Lemma8.1(1).
 
 D=V iota(G') and V∩iota(G')=iota(V'); hence V\D≃V'\G'.
 
-### `n-quotient` — Second quotient identification
+#### `n-quotient` — Second quotient identification
 
 Status: missing; Lemma8.1(2).
 
 N∩D=(N∩V)iota(N') and (N∩V)∩iota(N')=iota(N'∩V'); hence (N∩V)\(N∩D)≃(N'∩V')\N'.
 
-### `speh-models` — Zelevinsky and Shalika models
+#### `speh-models` — Zelevinsky and Shalika models
 
 Status: missing; §8.2.
 
@@ -1558,37 +1660,37 @@ Mathematical acceptance tests (not Lean-executed):
 - When n-1=1, the primed N' character is trivial, NOT generic.
 - Multiplying the chosen nonzero model functional by2 gives the same image space, although it doubles a specific matrix coefficient.
 
-### `ze-unique` — Zelevinsky-model multiplicity one
+#### `ze-unique` — Zelevinsky-model multiplicity one
 
 Status: missing; §8.2; [42] §8.3.
 
 For tempered Speh sigma, dim Hom_G(sigma,Ind_N^G Psi)=1.
 
-### `sh-unique` — Shalika-model multiplicity one
+#### `sh-unique` — Shalika-model multiplicity one
 
 Status: missing; §8.2; [32], [20] §3.1.
 
 For tempered Speh sigma, dim Hom_G(sigma,Ind_V^G Psi)=1.
 
-### `model-levi` — Levi restriction of Zelevinsky functions
+#### `model-levi` — Levi restriction of Zelevinsky functions
 
 Status: missing; §8.2, p42.
 
 Restriction to L lies in the tensor product over i=1,...,m of the Whittaker model of pi|.|^((m+1-2i)(n-1)/2).
 
-### `unitary-convergence` — Shalika pairing convergence
+#### `unitary-convergence` — Shalika pairing convergence
 
 Status: missing; Theorem8.2, first assertion; [20] Propositions4.1,6.2.
 
 For W1,W2 in W_Sh^psi(sigma), B(W1,W2,s)=integral_(V\D) W1(g) conjugate(W2(g)) |det g|^s dg converges for Re(s)>-1 and admits meromorphic continuation.
 
-### `unitary-pairing` — Shalika invariant inner product
+#### `unitary-pairing` — Shalika invariant inner product
 
 Status: missing; Theorem8.2, second assertion; [20] Theorem4.3, Corollary4.4.
 
 B(W1,W2,0) is a positive-definite G-invariant Hermitian form; in particular restriction to D is injective.
 
-### `transition` — Model transition transforms
+#### `transition` — Model transition transforms
 
 Status: missing; Proposition8.3.
 
@@ -1608,19 +1710,19 @@ Mathematical acceptance tests (not Lean-executed):
 - For primed n-1=1, V'=1 and T' is identity.
 - A right-H-invariant vector remains right-H-invariant under both transforms for any subgroup H, including K^(a).
 
-### `transition-support` — Compact support for both model transforms
+#### `transition-support` — Compact support for both model transforms
 
 Status: missing; Proposition8.3; [20] Lemmas3.8,3.11.
 
 The Zelevinsky integrand is compactly supported on (V∩N)\V and the Shalika integrand on (N∩V)\(N∩D), for every right translate.
 
-### `transition-inverse` — Two-sided model isomorphism
+#### `transition-inverse` — Two-sided model isomorphism
 
 Status: missing; Proposition8.3; [20] Proposition3.5.
 
 With the compatible measures, the displayed T and inverse give mutually inverse G-equivariant isomorphisms of the two Speh models.
 
-### `compact-restriction` — Compact induction occurs in model restriction
+#### `compact-restriction` — Compact induction occurs in model restriction
 
 Status: missing; §8.3 Lemma8.6 and §9.1 input; [20] Corollaries3.13,3.15, pp923–924.
 
@@ -1628,7 +1730,7 @@ Restriction of the Shalika model to D contains c-Ind_V^D Psi; the analogous asse
 
 Statements, row-vector D convention, and Lemma3.14 checked in the published cited source. Remaining surrounding proof closure recorded as a gap.
 
-### `im` — Unequal-rank Zelevinsky integral
+#### `im` — Unequal-rank Zelevinsky integral
 
 Status: missing; §8.3.
 
@@ -1648,25 +1750,25 @@ Mathematical acceptance tests (not Lean-executed):
 - Using psi instead of psi^-1 for W' fails quotient descent.
 - For det h of valuation1, simultaneous translation multiplies I_m by q^(s-m/2); the Laurent variable power is X^-1.
 
-### `im-iwasawa` — Levi decomposition of the integral
+#### `im-iwasawa` — Levi decomposition of the integral
 
 Status: missing; Lemma8.4.
 
 I_m equals the iterated integral over P'\G' and (N'∩L')\L' of W(iota(lg))W'(lg)|det l|^(s-m/2)delta_P'(l)^-1, with the outer factor |det g|^(s-m/2). Interpret the formal identity first under absolute convergence.
 
-### `im-convergence` — Absolute convergence of Speh I_m
+#### `im-convergence` — Absolute convergence of Speh I_m
 
 Status: missing; Theorem8.5(1).
 
 For tempered pi,pi' and the indicated model vectors, I_m converges absolutely for Re(s) sufficiently large (bound may depend on the vectors).
 
-### `im-rational` — Denominator bound for I_m
+#### `im-rational` — Denominator bound for I_m
 
 Status: missing; Theorem8.5(2).
 
 I_m(s,W,W') divided by product_(i=1..m)L(s-m+i,pi×pi') belongs to C[q^-s,q^s].
 
-### `tilde` — Contragredient model involution
+#### `tilde` — Contragredient model involution
 
 Status: missing; Theorem8.5(3); Proposition8.9.
 
@@ -1686,19 +1788,19 @@ Mathematical acceptance tests (not Lean-executed):
 - A vector of sigma cannot silently be used as a vector of its contragredient.
 - A central translate h=aI becomes the central translate a^-1 I after tilde; it does not remain aI.
 
-### `im-fe` — Functional equation for I_m
+#### `im-fe` — Functional equation for I_m
 
 Status: missing; Theorem8.5(3).
 
 I_m(m-s,tilde W,tilde W')=omega_pi'(-1)^((n-1)m) product_(i=1..m) gamma(s-m+i,pi×pi',psi) I_m(s,W,W'). Here gamma=epsilon times L(1-s,tilde pi×tilde pi')/L(s,pi×pi').
 
-### `test-one` — Integral test vector equal to one
+#### `test-one` — Integral test vector equal to one
 
 Status: missing; Lemma8.6.
 
 For W' in the partner Zelevinsky model with W'(1)≠0, some W in the first model satisfies I_m(s,W,W')=1 identically.
 
-### `pm` — GCD polynomial of the integral family
+#### `pm` — GCD polynomial of the integral family
 
 Status: missing; Proposition8.7.
 
@@ -1718,13 +1820,13 @@ Mathematical acceptance tests (not Lean-executed):
 - For m>1 and ramified partner, equality with the product is NOT a theorem of this paper.
 - If all integrals are Laurent polynomials and one equals1, the normalized polynomial is P_m=1.
 
-### `pm-divides` — GCD divisibility bound
+#### `pm-divides` — GCD divisibility bound
 
 Status: missing; Proposition8.7; Remark8.8.
 
 P_m(X) divides product_(i=1..m)P_1(q^(m-i)X). The paper only obtains equality for an unramified partner downstream of §9, not in general.
 
-### `zm` — Unequal-rank Shalika integral
+#### `zm` — Unequal-rank Shalika integral
 
 Status: missing; §8.4.
 
@@ -1744,13 +1846,13 @@ Mathematical acceptance tests (not Lean-executed):
 - For n=m=2, the quotient is the entire GL2(F), not N'\GL2(F).
 - For n=m=2 and f=1_(uK')-1_K', integration against any left-N'-invariant smooth function times a determinant weight is zero.
 
-### `iz` — Model compatibility of integrals
+#### `iz` — Model compatibility of integrals
 
 Status: missing; Proposition8.9.
 
 If W_Sh=T^psi W_Ze and W'_Sh=T^(psi^-1) W'_Ze, then Z_m(s,W_Sh,W'_Sh)=I_m(s,W_Ze,W'_Ze); the contragredient transforms commute with T in the stated conventions.
 
-### `formal-spherical` — Formal spherical test families
+#### `formal-spherical` — Formal spherical test families
 
 Status: missing; §8.5.
 
@@ -1770,7 +1872,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Coincident parameters must retain geometric-lemma multiplicities.
 - For n=m=2 and equal parameters(x,x), the derivative in opposite parameter directions is a second Hecke eigenfunction, vanishing at1 and nonzero at diag(varpi,1).
 
-### `spherical-span` — Spherical spanning fails at coincident parameters
+#### `spherical-span` — Spherical spanning fails at coincident parameters
 
 Status: missing; Lemma8.10.
 
@@ -1784,31 +1886,31 @@ Proof route:
 2. Every compactly supported spherical Hecke operator acts on this family by its symmetric Satake eigenvalue lambda_t. Symmetry gives lambda_t=lambda_-t and lambda_prime(0)=0. Its action is a finite sum on right-K-fixed functions, so differentiate termwise.
 3. H=dF_t/dt at0 therefore has the same eigenvalue as F. The identity and diag(varpi,1) values prove independence. Alternatively for T=1_(K diag(varpi,1) K), use q F(a+1,b)+F(a,b+1)=2 sqrt(q)x F(a,b), and the same equation for H; the central generator acts by x^2.
 
-### `formal-convergence` — Formal-family convergence
+#### `formal-convergence` — Formal-family convergence
 
 Status: missing; Theorem8.11(1).
 
 For W in the Zelevinsky model and every nonzero parameter matrix x, I_m(s,W,W_Ze^0(x)) converges absolutely for Re(s) sufficiently large.
 
-### `formal-rational` — Formal-family denominator bound
+#### `formal-rational` — Formal-family denominator bound
 
 Status: missing; Theorem8.11(2).
 
 Writing q^(-s_ij)=x_ij, divide I_m(s,W,W_Ze^0(x)) by product_(i,j)L(s+s_ij-(m-1)/2,pi); the result lies in C[q^-s,q^s] and is independent of choices of logarithms.
 
-### `formal-fe` — Formal-family functional equation
+#### `formal-fe` — Formal-family functional equation
 
 Status: missing; Theorem8.11(3).
 
 I_m(m-s,tilde W,W_Ze^0(x^-1))=product_(i,j)gamma(s+s_ij-(m-1)/2,pi,psi) I_m(s,W,W_Ze^0(x)), with the changed additive-character convention understood.
 
-### `formal-iz` — Formal-family model compatibility
+#### `formal-iz` — Formal-family model compatibility
 
 Status: missing; Theorem8.11(4).
 
 For W_Sh=T W_Ze, I_m(s,W_Ze,W_Ze^0(x))=Z_m(s,W_Sh,W_Sh^0(x)).
 
-### `essential` — Essential test conditions as a solution set
+#### `essential` — Essential test conditions as a solution set
 
 Status: missing; Theorem9.1 and Definition9.2, corrected interface.
 
@@ -1828,13 +1930,13 @@ Mathematical acceptance tests (not Lean-executed):
 - The printed two conditions cannot justify a unique-choice constructor.
 - For the functions f_r=1_(u_rK')-1_K' with u_r=I+varpi^-r E12, r>=1, distinct right cosets make every finite subset linearly independent.
 
-### `essential-l1` — Existence when L=1
+#### `essential-l1` — Existence when L=1
 
 Status: missing; §9.1 existence proof, pp48–49.
 
 If L(s,pi)=1, Ess(pi,m) is nonempty: extend the compactly induced function on D supported on V iota(K') with values Psi, then average under right iota(K').
 
-### `spectral-space` — Closed transform space Pi
+#### `spectral-space` — Closed transform space Pi
 
 Status: missing; §9.1, p49.
 
@@ -1854,7 +1956,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Nonzero compactly supported functions on G' cannot all lie in this Pi.
 - For m=1 the character is generic and the quotient is N'\G'; the zero-space argument for a noncompact N' fiber in G' must not be reused.
 
-### `spectral-separation` — Separation restricted to Pi remains an obligation
+#### `spectral-separation` — Separation restricted to Pi remains an obligation
 
 Status: missing; Lemma9.3.
 
@@ -1862,7 +1964,7 @@ The source claims a smooth right-K'-invariant phi in Pi with all formal spherica
 
 Open proof audit. In the counterexample specialization Pi=0, so this lemma is vacuous rather than the location of the counterexample.
 
-### `essential-kernel` — Noninjectivity of the essential test transform
+#### `essential-kernel` — Noninjectivity of the essential test transform
 
 Status: missing; Diagnostic replacing the invalid uniqueness part of Theorem9.1; E1.
 
@@ -1870,19 +1972,19 @@ For n=m=2 and any tempered pi on GL2, let u=[[1,varpi^-1],[0,1]]. f=1_(uK')-1_K'
 
 Worker argument, not a result attributed to AKY. Independent confirmation required; full proof in report.
 
-### `levi-separation` — Levi restriction injectivity requires repair
+#### `levi-separation` — Levi restriction injectivity requires repair
 
 Status: missing; Corollary9.4.
 
 The printed Corollary9.4 asserts that a right-iota(K')-invariant W in the Zelevinsky model with W|L=0 vanishes. Its stated proof invokes the failed §9.1 separation of all restricted vectors. Retain as an unresolved target, not an unconditional import.
 
-### `speh-lex` — Speh lex vanishing target
+#### `speh-lex` — Speh lex vanishing target
 
 Status: missing; Proposition9.5.
 
 For sigma=Sp(pi,m) and lambda<lambda_sigma, sigma^(K_nm,lambda)=0. The paper reduces to generic newforms via a conjugate level and Corollary9.4; a replacement for that separation step is required.
 
-### `speh-level` — Speh row-end level
+#### `speh-level` — Speh row-end level
 
 Status: missing; §9.2 before Proposition9.6.
 
@@ -1902,7 +2004,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Right iota(K')-invariance alone is strictly weaker than K^(a)-invariance.
 - For n=m=2, I+E12 belongs to K^(a) for every a, while I+E21 belongs iff its entry has valuation at least a.
 
-### `det-slice` — Determinant-sliced test integral
+#### `det-slice` — Determinant-sliced test integral
 
 Status: missing; §9.2, p51.
 
@@ -1922,25 +2024,25 @@ Mathematical acceptance tests (not Lean-executed):
 - Replacing s by m-s sends X^d to q^(-md)X^(-d), not q^-m X^(-d).
 - For m=2,d=0 the factor is1, and for d=2 it is q^-4; a constant q^-2 fails both checks.
 
-### `slice-lower` — Uniform lower support bound
+#### `slice-lower` — Uniform lower support bound
 
 Status: missing; Lemma9.7 and following paragraph.
 
 For every Shalika vector W there exists integer d(W), independent of x, with Z_(m,d)(W;x)=0 for d<d(W). If W_Ze is right V''(p^ell)-invariant one may take d(W)=-(n-1)m ell.
 
-### `slice-level` — Level-dependent lower bounds
+#### `slice-level` — Level-dependent lower bounds
 
 Status: missing; §9.2 paragraph after Lemma9.7.
 
 For W fixed by K^(a), one may take d(W)=0 and d(tilde W)=-(n-1)ma in the determinant-slice bound.
 
-### `slice-finite` — Finite support when L=1
+#### `slice-finite` — Finite support when L=1
 
 Status: missing; Proposition9.8, first assertion.
 
 If L(s,pi)=1, put d'(W)=-c_pi m(n-1)-d(tilde W). Then Z_m(s,W,W_Sh^0(x))=sum_(d(W)<=d<=d'(W)) X^d Z_(m,d)(W;x).
 
-### `slice-fe` — Corrected finite Laurent functional equation
+#### `slice-fe` — Corrected finite Laurent functional equation
 
 Status: missing; Proposition9.8, second assertion, corrected q exponent.
 
@@ -1948,37 +2050,37 @@ For L=1, epsilon(s,pi,psi)=epsilon_0 q^(-c_pi s), the sum over tilde-W support o
 
 See E4; this correction does not repair the independent §9 uniqueness defect.
 
-### `speh-l1` — L=1 Speh newform line target
+#### `speh-l1` — L=1 Speh newform line target
 
 Status: missing; Proposition9.6.
 
 For L(s,pi)=1, the K^(c_pi)-fixed Shalika space is one-dimensional and admits an element satisfying the essential test conditions. The printed claim that an arbitrarily unique essential vector spans it must be replaced; proof currently unclosed.
 
-### `speh-main` — General tempered Speh newform line target
+#### `speh-main` — General tempered Speh newform line target
 
 Status: missing; Corollary9.9.
 
 For tempered pi, dim Sp(pi,m)^(K^(c_pi))=1. This is the source's Corollary9.9 after the reduction chain; do not deduce it from invalid essential uniqueness.
 
-### `newform-restriction` — Restriction of Speh newform line to Levi
+#### `newform-restriction` — Restriction of Speh newform line to Levi
 
 Status: missing; Corollary9.10.
 
 Conditional on repaired preceding proofs, restriction identifies W_Ze(sigma)^(K^(c_pi)) with the tensor over i of the generic K_(n,(0^(n-1),c_pi))-newform lines for pi|.|^((m+1-2i)(n-1)/2).
 
-### `essential-general` — General essential existence target
+#### `essential-general` — General essential existence target
 
 Status: missing; §9.3, existence part of Theorem9.1.
 
 For every tempered pi, Ess(pi,m) is nonempty, constructed by normalized generic essential functions on the Levi and the newform restriction isomorphism. This is an existence claim only; the uniqueness claim is rejected pending independent review of E1.
 
-### `unramified-gcd` — Unramified partner GCD equality target
+#### `unramified-gcd` — Unramified partner GCD equality target
 
 Status: missing; Remark8.8 and §9.3.
 
 When pi' is unramified, the source obtains P_m(X)=product_(i=1..m)P_1(q^(m-i)X) from essential existence. Its analytic proof branch is presently conditional on repaired §9 existence.
 
-### `mirahoric` — Mirahoric representations
+#### `mirahoric` — Mirahoric representations
 
 Status: missing; Remark2.6; Kondo–Yasuda [17], AppendixA.
 
@@ -1998,7 +2100,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Use L(m), not Z(m), for the no-tightly-linked test.
 - For unramified chi, [0,1] and [1,2] overlap and are tightly linked; L of their sum is not mirahoric.
 
-### `fourier` — Nonarchimedean Schwartz–Bruhat Fourier interface
+#### `fourier` — Nonarchimedean Schwartz–Bruhat Fourier interface
 
 Status: planned; §7.1 and model-transition inputs.
 
@@ -2020,7 +2122,7 @@ Mathematical acceptance tests (not Lean-executed):
 - The trace pairing transposes row and column depth constraints.
 - For a scalar lattice p^r, the annihilator is p^-r and the volume product vol(p^r)vol(p^-r)=1.
 
-### `classical-factors` — Classical local L, epsilon and gamma factors
+#### `classical-factors` — Classical local L, epsilon and gamma factors
 
 Status: planned; §§1.2,7.1,8.3; [8],[14],[15].
 
@@ -2042,7 +2144,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Product denominator bounds do not alone prove equality with the gcd polynomial.
 - If L(s,pi)=L(s,dual pi)=1, then gamma(s,pi,psi)=epsilon(s,pi,psi), the reduction used in the finite-slice functional equation.
 
-### `spherical` — Normalized spherical Whittaker functions
+#### `spherical` — Normalized spherical Whittaker functions
 
 Status: planned; §8.5.
 
@@ -2064,7 +2166,7 @@ Mathematical acceptance tests (not Lean-executed):
 - Repeated parameters must not collapse Weyl double-coset multiplicities.
 - The trivial GL2 representation is unramified but nongeneric; it must not be assigned a nonzero generic Whittaker model merely because it is spherical.
 
-### `generic-newform` — Generic GL_n newform and essential Whittaker inputs
+#### `generic-newform` — Generic GL_n newform and essential Whittaker inputs
 
 Status: missing; §§8–9; [14] with correction [13], also [26].
 
@@ -2072,7 +2174,7 @@ For generic irreducible pi of GL_n(F), the K_(n,(0^(n-1),c_pi))-fixed space is o
 
 GL2 specialization is already owned by R16.2; general GL_n extension imports and compares it, without replanning the rank-two result.
 
-### `gl2-input` — Existing GL2 generic newvector theorem
+#### `gl2-input` — Existing GL2 generic newvector theorem
 
 Status: planned; Rank-two specialization of §1.2.
 
@@ -2080,13 +2182,13 @@ For generic irreducible GL2(F) representations, import the local conductor/newve
 
 Existing stages: `GL2AutomorphicRepresentationsAndTransfer:R16.2`.
 
-### `nonunipotent-tuple` — L=1 multisegment tuple
+#### `nonunipotent-tuple` — L=1 multisegment tuple
 
 Status: missing; Example2.5(1).
 
 For pi=Z(sum Delta_i) with L(s,pi)=1, no Delta_i is unipotent and lambda_pi is the sum of padded tails c_rho_i repeated length(Delta_i); c_rho_i>0.
 
-### `weighted-grading` — Existing weighted multivariate polynomial grading
+#### `weighted-grading` — Existing weighted multivariate polynomial grading
 
 Status: library; Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:128–149,173–182,677–706.
 
@@ -2094,7 +2196,7 @@ For a commutative semiring R, any variable set sigma and weight w:sigma→M to a
 
 Pinned declarations: `mathlib:MvPolynomial.weightedHomogeneousSubmodule`, `mathlib:MvPolynomial.weightedHomogeneousSubmodule_mul`, `mathlib:MvPolynomial.weightedDecomposition`, `mathlib:MvPolynomial.weightedGradedAlgebra`.
 
-### `baer-extension` — Existing Baer extension criterion
+#### `baer-extension` — Existing Baer extension criterion
 
 Status: library; Mathlib/Algebra/Module/Injective.lean:68–72,384–403.
 
@@ -2102,7 +2204,7 @@ For a ring R and R-module Q satisfying Module.Baer R Q, every linear map M→Q e
 
 Pinned declarations: `mathlib:Module.Baer.extension_property`, `mathlib:Module.Baer.injective`.
 
-### `jacobson-criterion` — Existing noncommutative Jacobson membership criterion
+#### `jacobson-criterion` — Existing noncommutative Jacobson membership criterion
 
 Status: library; Mathlib/RingTheory/Jacobson/Ideal.lean:59–65,99–115.
 
@@ -2110,7 +2212,7 @@ For any ring R and left ideal I, x belongs to I.jacobson iff for every y there e
 
 Pinned declarations: `mathlib:Ideal.mem_jacobson_iff`.
 
-### `nilpotent-unit` — Existing geometric inverse for a nilpotent element
+#### `nilpotent-unit` — Existing geometric inverse for a nilpotent element
 
 Status: library; Mathlib/RingTheory/Nilpotent/Basic.lean:64–81.
 
@@ -2118,7 +2220,7 @@ For any ring R, if r is nilpotent then 1+r is a unit; its inverse is the finite 
 
 Pinned declarations: `mathlib:IsNilpotent.isUnit_add_one`, `mathlib:IsNilpotent.isUnit_one_add`.
 
-### `nakayama-surjection` — Existing surjectivity form of Nakayama
+#### `nakayama-surjection` — Existing surjectivity form of Nakayama
 
 Status: library; Mathlib/RingTheory/Nakayama.lean:45–49,229–235.
 
@@ -2126,7 +2228,7 @@ For commutative R, an R-linear f:M→N with N finitely generated, and I containe
 
 Pinned declarations: `mathlib:LinearMap.surjective_of_surjective_comp_mkQ`.
 
-### `dvr-sequence-unique` — Intrinsic uniqueness of the finite-DVR sequence
+#### `dvr-sequence-unique` — Intrinsic uniqueness of the finite-DVR sequence
 
 Status: missing; Section4.1 classification input; continuation proof from cyclic decomposition.
 
@@ -2138,7 +2240,7 @@ Proof route:
 2. Compute the jth quotient of o/p^a: it is k for j<=a and zero otherwise. Finite direct sums preserve this quotient.
 3. Subtract successive layer dimensions to recover every positive exponent multiplicity. Nakayama identifies r_1 with the minimal generator number; padding recovers the zero entries.
 
-### `fraction-quotient-injective` — Injectivity of the fraction-field quotient over a PID
+#### `fraction-quotient-injective` — Injectivity of the fraction-field quotient over a PID
 
 Status: missing; Input to Lemma4.3(1); continuation Baer proof.
 
@@ -2150,7 +2252,7 @@ Proof route:
 2. For an ideal (a) and a map g:(a)→F/o, choose y with ay=g(a), and extend by r↦ry. For a=0 use the zero map. The PID domain hypothesis makes the prescription on (a) well-defined.
 3. Apply Module.Baer.extension_property or Module.Baer.injective.
 
-### `dvr-dual-exact` — Exactness and biduality for finite-DVR duals
+#### `dvr-dual-exact` — Exactness and biduality for finite-DVR duals
 
 Status: missing; Lemmas4.2–4.3 and duality use in Proposition4.4; continuation proof.
 
@@ -2162,7 +2264,7 @@ Proof route:
 2. For o/p^a, evaluation at1 identifies its dual with p^-a o/o; evaluating twice is a perfect cyclic pairing.
 3. Finite cyclic decomposition extends biduality and length preservation to M; naturality follows directly from evaluation and precomposition.
 
-### `spherical-collision` — A second eigenfunction at coincident GL2 parameters
+#### `spherical-collision` — A second eigenfunction at coincident GL2 parameters
 
 Status: missing; Published Lemma8.10 p47; arXiv v4 p51; worker continuation argument E3.
 
@@ -2174,7 +2276,7 @@ Proof route:
 2. Every compactly supported spherical Hecke operator acts on this family by its symmetric Satake eigenvalue lambda_t. Symmetry gives lambda_t=lambda_-t and lambda_prime(0)=0. Its action is a finite sum on right-K-fixed functions, so differentiate termwise.
 3. H=dF_t/dt at0 therefore has the same eigenvalue as F. The identity and diag(varpi,1) values prove independence. Alternatively for T=1_(K diag(varpi,1) K), use q F(a+1,b)+F(a,b+1)=2 sqrt(q)x F(a,b), and the same equation for H; the central generator acts by x^2.
 
-### `essential-infinite-kernel` — Infinite-dimensional common kernel in the rank-two Speh test
+#### `essential-infinite-kernel` — Infinite-dimensional common kernel in the rank-two Speh test
 
 Status: missing; Theorem9.1 obstruction E1; continuation of essential-kernel.
 
@@ -2186,7 +2288,7 @@ Proof route:
 2. Each f_r pairs to zero with every left-Nprime-invariant test and determinant weight by left translation with u_r.
 3. The Lapid–Mao compact-induction inclusion lifts each f_r and averaging over iota(Kprime) preserves it. Any linear relation of lifts restricts to a relation of the f_r.
 
-### `nonzero-level-escape` — Uniform escape of nonunits at nonzero row depth
+#### `nonzero-level-escape` — Uniform escape of nonunits at nonzero row depth
 
 Status: missing; Repair of support-escape step in Lemma7.1.
 
@@ -2198,7 +2300,7 @@ Proof route:
 2. On compact C, every matrix entry has valuation bounded below, so v(z) is bounded above whenever zg belongs to X_lambda.
 3. The continuous nonzero determinant on C has valuation bounded above. Hence n v(z)+v(det g) has a uniform upper bound. A compact-mod-center support can be represented by ZC.
 
-## Validation and handoff
+### Validation and handoff
 
 Six fresh exact-arithmetic diagnostic groups pass:
 
