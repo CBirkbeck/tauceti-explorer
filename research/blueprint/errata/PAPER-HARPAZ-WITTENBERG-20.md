@@ -1,27 +1,19 @@
 # Mistakes in Harpaz–Wittenberg, *Zéro-cycles sur les espaces homogènes et problème de Galois inverse*
 
-Job ERRATA-PAPER-HARPAZ-WITTENBERG-20. Worker: Claude Code, session `cc-442dc5`, 23 September 2026. The findings are in `PAPER-HARPAZ-WITTENBERG-20.json` beside this file.
+Original job: ERRATA-PAPER-HARPAZ-WITTENBERG-20, Claude Code — cc-442dc5. Independent review: REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20, Codex — codex-hjdg0j, 23 September 2026. The two findings are confirmed **with the corrections and source-version limits below**. The [review report](../reviews/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20.md) gives the independent reasoning and provenance.
 
-**Paper and version read.** Yonatan Harpaz and Olivier Wittenberg, J. Amer. Math. Soc. 33 (2020), 775–805, DOI 10.1090/jams/943.
-- The version read is the authors' manuscript on Wittenberg's homepage (SHA-256 `2e425ee6…`). Both quoted passages were re-read in it.
-- The published JAMS text is not openly available here, so its wording was not compared.
+The bibliographic reference is J. Amer. Math. Soc.33 (2020), 775–805, DOI10.1090/jams/943. The actual versions checked are the [author manuscript](https://www.math.univ-paris13.fr/~wittenberg/zceh.pdf) and [arXiv v2](https://arxiv.org/pdf/1802.09605v2). The relevant passages agree. The published AMS full text returned HTTP403, so **journal wording is unverified**. No correction was located in the author page, arXiv history, Crossref metadata or targeted correction searches; this is not a claim of priority or a proof of absence.
 
-**Earlier work.** The extraction PAPER-HARPAZ-WITTENBERG-20 (complete) recorded E1 and E2. They are kept here with everything they say.
+## E1 — Remarque4.5: an unstated extension of the cited fibration theorem
 
-**Existing corrections.** None was found, so both findings are new relative to the manuscript.
-- Crossref registers no update.
-- arXiv 1802.09605 stops at v2 (October 2019).
-- Wittenberg's homepage lists no erratum for this paper. The erratum listed there concerns a different paper.
+**Gap; affects the proof.** Theorem4.2(i), invoked on manuscript PDF17, carries the rational-connectedness hypothesis fixed at the start of §4. The remark does not verify that hypothesis for its new fibration. Adding rational connectedness of X is one sufficient restricted repair.
 
-**Effect on the main results.** None. Theorems 6.1, 6.6 and A concern rationally connected varieties, and Remark 4.5 is not used later.
+The earlier claim that this requires changing a stated result was too strong. Proposition3.3(i) already supplies a geometric section without rational connectedness. The classical fibration argument has a weaker section condition, so the original implication is not disproved. Preserving its full generality requires stating and justifying the corresponding section-based version of the fibration theorem. This review confirms the mismatch with the literal cited theorem; it does not assert that rational connectedness is necessary or certify the full split-fibre generalization. The superseded assessment is retained in the JSON history.
 
-## E1 — Remarque 4.5: a missing rational-connectedness hypothesis (p. 17)
+## E2 — Introduction: the quaternion-group range
 
-- **What the remark says.** For proper smooth X, a dense open V with k̄[V]^* = k̄^* and torsion-free Picard groups, the remark derives: if every universal torsor of V satisfies weak approximation, then so does every universal torsor of X. The derivation uses Theorem 4.2(i).
-- **The gap.** Theorem 4.2 is stated in §4's setting, where the generic fibre is rationally connected; its proof uses Theorem 4.1 through [GHS03]. In the remark, the generic fibre of π′ is birational to V × (torus), so it is rationally connected only when X is.
-- **The correction.** Add the hypothesis that X is rationally connected.
+**Misprint; affects nothing.** The manuscript PDF4 uses m≥1. In the convention of [Demarche's cited author manuscript](https://webusers.imj-prg.fr/~cyril.demarche/articles/BMgroupes.pdf), §8 PDF26, the presentation starts at m≥2 and includes Q4≅C4. Indeed, at m=2 its relations give x=y² and y⁴=1. The exponent 2^(m−2) is not integral at m=1.
 
-## E2 — Introduction: the range of the generalized quaternion groups (p. 4)
+Use **m≥2 with the cyclic endpoint Q4**, or explicitly restrict to **m≥3 for the nonabelian groups**. The previous correction m≥3 unnecessarily removed a case that Demarche includes. No weak-approximation conclusion for the actual groups is changed.
 
-- **The misprint.** "Q_{2^m} … pour un entier m ≥ 1" should say m ≥ 3.
-- **Why.** The presentation ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy⁻¹ = x⁻¹⟩ gives a cyclic group for m = 2 and is undefined for m = 1. The comparison with the known cases (Q₈, Q₁₆) confirms the intended range.
+Neither finding supplies a counterexample to the main theorems. Their full proofs were not independently recertified in this two-finding review. JSON validation, four-file intake validation, whitespace checks, manuscript comparisons and exact finite group diagnostics pass. No Lean file was compiled.
