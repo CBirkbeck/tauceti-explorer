@@ -2,6 +2,29 @@
 
 This is a **partial checkpoint**, continuing PR #2301. It keeps the 480 items (60 library, 8 planned, 412 missing), the 15 route identities and the 38 unreviewed source findings unchanged. No statement, status, route, finding or ID was altered, and no Lean file was written or compiled.
 
+## Second pass (same session): §6 and §9 definitions
+
+A second pass read published PDF125–131 (§6) and PDF180–186 (§9) afresh (same hash). It supplied itemwise `uses`, `api` and typed tests for sixteen more entries.
+- **The §6 patching data.**
+  - P01, the framed lifting ring, and P02, the type quotients R^{λ,τ} and R^{λ,⪯τ}.
+  - P03, the patched ring R∞ with its η-shifted type quotients.
+  - P04–P08: the weak, minimal, potentially diagonalizable, detectable and S-minimal patching functors.
+- **The §9 global setting.**
+  - V01, definite unitary groups, and V02, S(U,W).
+  - V03, Hecke algebras and r_m, and V04, modular weights.
+  - V05, geometric and BM weights, and V06, the conjectural interfaces.
+  - V08, the genericity polynomial, and V10, the component primes p_σ(ρ̄).
+
+**Hand-checked cases behind the tests:**
+- GL₁ lifting rings over Q_p for p odd: O[[X,Y]] framed, and O[[X]] with the type fixed.
+- The completed-tensor dimension formula dim R∞(λ,τ) = dim R^{λ+η,τ} + dim R^p − 1.
+- The GL₂ Hecke polynomial 1 − T^{(1)}X + N(w)T^{(2)}X².
+- The double-coset decomposition of S(U,W).
+- The dual of Sym^r⊗det^a.
+- P_m = (−1)^m m! for n = 1.
+
+**Census.** It now stands at **56 of 152**; **96 remain**.
+
 ## What this continuation does
 
 It closes the §2 part of the definition-API gap. The thirty §2 definitions and constructions that had no itemwise interface now each have:

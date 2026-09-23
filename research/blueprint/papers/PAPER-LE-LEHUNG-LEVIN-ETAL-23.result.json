@@ -162,6 +162,13 @@
         "date": "2026-09-23",
         "main": "Published PDF24–53 (§1.8 notation and all of §2) freshly read in the text layer of the same author-hosted PDF (SHA-256 e5647879…42dd, re-downloaded); PDF34 and PDF42 checked as page images. Later uses located by search of the full text layer (PDF54–212) and spot-read in context. The inherited full reading by codex-7e92bd is retained, not repeated.",
         "sources": []
+      },
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "main": "Second pass: published PDF125–131 (§6) and PDF180–186 (§9) freshly read in the text layer of the same PDF (same SHA-256), for the itemwise interfaces of P01–P08, V01–V06, V08 and V10.",
+        "sources": []
       }
     ],
     "smoothLocusContinuation": {
@@ -180,7 +187,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial. Codex-c83e7a continuation adds24 items (480 total): K45–K48 close the generic tame-to-semisimple adapter; A25–A33 expose exact prime/generator, polarized adequacy and projected-level interfaces; G38–G44 specify monodromy recurrence/precision; Z63–Z66 decompose the regular-local domain argument. E36–E38 are three new unreviewed findings. Status remains partial; the ten gap records specify the remaining work. Continuation cc-442dc5 (Claude Code) supplies itemwise uses, API outlines and typed unit tests for the thirty §2 definitions and constructions that lacked them (Weyl-group, genericity, Serre-weight, Deligne–Lusztig, tame-type and Weil–Deligne notions), from a fresh reading of published PDF24–53; the remaining definition/construction API census and the other listed gaps stay open, and the status remains partial. A second cc-442dc5 pass adds itemwise interfaces for the §6 patching and §9 global definitions (P01–P08, V01–V06, V08, V10).",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3996,7 +4003,69 @@
         "LocalGaloisDeformationRings:R08.1",
         "LocalGaloisDeformationRings:R08.3"
       ],
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
+          "how": "R_ρ = ⊗̂_{v∈S_p,O} R_{ρ_v} is the local factor of the patched ring R∞ (§6.2, PDF126)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
+          "how": "Versal rings at semisimple points are quotients of R_ρ (Theorem 7.3.2(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V10",
+          "how": "The primes p_σ(ρ̄) are primes of R_ρ̄ (§9.1, PDF185)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
+          "how": "Local deformation problems are quotients of the framed lifting rings (Definition A.3.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "FramedLiftingRing.represents",
+          "role": "universal-property",
+          "statement": "R_ρ̄ pro-represents D_ρ̄ : C_O → Sets, A ↦ {continuous r_A : G_L → G(A) with r_A ≡ ρ̄ mod m_A}."
+        },
+        {
+          "name": "FramedLiftingRing.completeLocal",
+          "role": "instance",
+          "statement": "R_ρ̄ is a complete Noetherian local O-algebra with residue field F."
+        },
+        {
+          "name": "FramedLiftingRing.conjAction",
+          "role": "structure",
+          "statement": "ker(G(A) → G(F)) acts on D_ρ̄(A) by conjugation; the framed functor is not quotiented by it."
+        },
+        {
+          "name": "FramedLiftingRing.baseChange",
+          "role": "functoriality",
+          "statement": "For a finite extension O → O′ with residue F′, R_{ρ̄⊗F′}^{O′} ≅ R_ρ̄ ⊗̂_O O′."
+        },
+        {
+          "name": "FramedLiftingRing.pi",
+          "role": "compatibility",
+          "statement": "For a collection (ρ̄_v)_{v∈S_p}, ⊗̂_{v,O} R_{ρ̄_v} represents the product of the lifting functors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "FramedLiftingRing.GL1_Qp",
+          "kind": "computation",
+          "statement": "For G = GL₁, L = Q_p and p odd, R_χ̄ ≅ O[[Z_p²]] ≅ O[[X, Y]], the completed group ring of the pro-p completion of Q_p^×."
+        },
+        {
+          "name": "FramedLiftingRing.tangent",
+          "kind": "characterisation",
+          "statement": "Hom_F(m/(m², ϖ), F) ≅ Z¹(G_L, ad ρ̄), the continuous 1-cocycles (compare E23)."
+        },
+        {
+          "name": "FramedLiftingRing.not_unframed",
+          "kind": "non-example",
+          "statement": "R_ρ̄ is not the unframed deformation ring: the unframed functor need not be representable when End(ρ̄) ≠ F, while D_ρ̄ always is."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P02",
@@ -4010,7 +4079,83 @@
         "LocalGaloisDeformationRings:R08.1",
         "LocalGaloisDeformationRings:R08.3"
       ],
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
+          "how": "R∞(λ,τ) := R∞ ⊗_{R_ρ} R_ρ^{λ+η,τ} (§6.2, PDF127)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+          "how": "R_ρ^{λ+η,τ} ≠ 0 iff w̃(ρ̄,τ) ∈ Adm(λ+η), for generic data (Proposition 6.2.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G30",
+          "how": "R_ρ̄^τ is a domain at semisimple points (Theorem 7.3.2(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
+          "how": "The corrected Theorem A.4.1 uses R_ρ̄^{λ+η,⪯τ} (E33–E34)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V12",
+          "how": "Modularity lifting from polynomial-generic local domains (Theorem 9.2.1)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TypeQuotient.mk",
+          "role": "constructor",
+          "statement": "R_ρ̄^{λ,τ} is the reduced O-flat quotient of R_ρ̄ whose Spec is the Zariski closure of the E′-points that are potentially semistable of Hodge type λ with WD(ρ)|_{I_L} ≅ τ ⊗_E E′; away from p only the inertial type is imposed."
+        },
+        {
+          "name": "TypeQuotient.points",
+          "role": "characterisation",
+          "statement": "For finite E′/E, a map R_ρ̄ → E′ factors through R_ρ̄^{λ,τ} iff the corresponding lift is potentially semistable of type (λ,τ)."
+        },
+        {
+          "name": "TypeQuotient.dominated",
+          "role": "constructor",
+          "statement": "Spec R_ρ̄^{λ,⪯τ} := ⋃_{τ′⪯τ} Spec R_ρ̄^{λ,τ′}, a reduced union."
+        },
+        {
+          "name": "TypeQuotient.crys_of_N0",
+          "role": "compatibility",
+          "statement": "If N_τ = 0, R_ρ̄^{λ,τ} is Kisin's framed potentially crystalline ring and a versal ring of X^{λ,τ} at ρ̄; if τ is maximal for ⪯, R_ρ̄^{λ,⪯τ} is the potentially semistable ring (Remark 6.1.1)."
+        },
+        {
+          "name": "TypeQuotient.dim",
+          "role": "relation",
+          "statement": "If nonzero and λ is regular, R_ρ̄^{λ,τ} is equidimensional of Krull dimension 1 + n² + [L:Q_p]·n(n−1)/2 (Kisin)."
+        },
+        {
+          "name": "TypeQuotient.mono",
+          "role": "relation",
+          "statement": "τ′ ⪯ τ implies Spec R_ρ̄^{λ,τ′} ⊆ Spec R_ρ̄^{λ,⪯τ}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TypeQuotient.empty",
+          "kind": "degenerate",
+          "statement": "If ρ̄ has no lift of type (λ,τ), then R_ρ̄^{λ,τ} = 0."
+        },
+        {
+          "name": "TypeQuotient.GL1",
+          "kind": "computation",
+          "statement": "For GL₁, L = Q_p with p odd, and (λ,τ) compatible with χ̄, R_χ̄^{λ,τ} ≅ O[[X]], parametrizing the unramified twists; otherwise it is 0."
+        },
+        {
+          "name": "TypeQuotient.dominated_union",
+          "kind": "non-example",
+          "statement": "For GL₂ and the Steinberg WD type τ_st, R^{λ,⪯τ_st} contains the crystalline components as well as the exact-type semistable ones, so it differs from R^{λ,τ_st} in general."
+        },
+        {
+          "name": "TypeQuotient.remark611",
+          "kind": "compatibility",
+          "statement": "With N_τ = 0 the quotient agrees with the potentially crystalline ring of [49] (Remark 6.1.1)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
@@ -4019,7 +4164,74 @@
       "locator": "§6.2, PDF126–127",
       "statement": "For finitely many unramified p-adic places, take the completed tensor product R_rho of framed local lifting rings and R_infinity=R_rho completed-tensor R^p, where R^p is nonzero complete Noetherian local, equidimensional and O-flat with residue F. Define R_infinity(lambda,tau) using the Hodge type lambda+eta. The representation sigma(lambda,tau)=V(lambda) tensor sigma(tau) uses lambda, so preserve this shift.",
       "status": "missing",
-      "note": "Route owner: DeformationAndDerivedPatchingAlgebra. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: DeformationAndDerivedPatchingAlgebra. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04",
+          "how": "Patching functors take values in coherent sheaves on X∞ = Spec R∞."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+          "how": "R∞(λ,τ) ≠ 0 iff R_ρ^{λ+η,τ} ≠ 0 (proof of Proposition 6.2.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Minimal patching yields versal cycles on X∞ (Theorem 8.3.5(1))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "Appendix A constructs R∞ with R^p a formally smooth algebra over away-from-p local rings (§A.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "PatchedRing.mk",
+          "role": "constructor",
+          "statement": "R∞ := R_ρ ⊗̂_O R^p, with R_ρ := ⊗̂_{v∈S_p,O} R_{ρ_v} and R^p a nonzero complete local Noetherian equidimensional flat O-algebra with residue F."
+        },
+        {
+          "name": "PatchedRing.typeQuotient",
+          "role": "constructor",
+          "statement": "R∞(λ,τ) := R∞ ⊗_{R_ρ} R_ρ^{λ+η,τ} and R∞(λ,⪯τ) := R∞ ⊗_{R_ρ} R_ρ^{λ+η,⪯τ}; X∞(−) := Spec R∞(−)."
+        },
+        {
+          "name": "PatchedRing.typeQuotient_ne_zero_iff",
+          "role": "characterisation",
+          "statement": "R∞(λ,τ) ≠ 0 iff R_ρ^{λ+η,τ} ≠ 0, since R^p is nonzero and O-flat."
+        },
+        {
+          "name": "PatchedRing.dim",
+          "role": "relation",
+          "statement": "dim R∞(λ,τ) = dim R_ρ^{λ+η,τ} + dim R^p − 1 for complete local O-flat factors with residue F."
+        },
+        {
+          "name": "PatchedRing.eta_shift",
+          "role": "other",
+          "statement": "The Hodge type of R∞(λ,τ) is λ+η, while σ(λ,τ) = V(λ)⊗σ(τ) uses λ; the shift is part of the definition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PatchedRing.trivial_Rp",
+          "kind": "degenerate",
+          "statement": "If R^p = O, then R∞ = R_ρ."
+        },
+        {
+          "name": "PatchedRing.single_place",
+          "kind": "computation",
+          "statement": "If S_p = {v}, then R_ρ = R_{ρ_v} and R∞(λ,τ) = R_{ρ_v}^{λ_v+η_v,τ_v} ⊗̂_O R^p."
+        },
+        {
+          "name": "PatchedRing.no_eta",
+          "kind": "non-example",
+          "statement": "λ = 0 corresponds to Hodge type η, with HT weights (n−1, …, 0) per embedding, not to parallel weight 0."
+        },
+        {
+          "name": "PatchedRing.nonzero",
+          "kind": "compatibility",
+          "statement": "R∞(λ,τ) ≠ 0 exactly when some product of local lifts of type (λ+η,τ) exists."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04",
@@ -4028,7 +4240,78 @@
       "locator": "Definition6.2.1(1)–(2), PDF127",
       "statement": "A weak patching functor is a nonzero covariant exact functor from finite O-module continuous GLn(Op)-representations to coherent R_infinity-modules, taking every stable lattice sigma^circ(lambda,tau) to a maximal Cohen–Macaulay module on X_infinity(lambda,<=tau), and every residual constituent to a maximal Cohen–Macaulay module there or zero. The support includes the monodromy-dominated union.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
+          "how": "Weight elimination for any weak patching functor (Proposition 6.2.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P10",
+          "how": "Existence of a weak potentially diagonalizable patching functor (Proposition 6.2.4(1))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+          "how": "Nonvanishing criterion (Proposition 6.2.7)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Support of a weak detectable patching functor (Lemma 9.1.10)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A23",
+          "how": "Appendix A constructs the exact covariant patching functor (§A.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeakPatchingFunctor",
+          "role": "structure",
+          "statement": "A nonzero exact covariant M∞ : Rep_O(GL_n(O_p)) → Coh(X∞) such that, for every O-lattice σ°(λ,τ) ⊂ σ(λ,τ), M∞(σ°) is maximal Cohen–Macaulay on X∞(λ,⪯τ), and for every σ ∈ JH(σ̄°), M∞(σ) is maximal Cohen–Macaulay on X∞(λ,⪯τ) or 0."
+        },
+        {
+          "name": "WeakPatchingFunctor.support",
+          "role": "characterisation",
+          "statement": "Supp M∞(σ°(λ,τ)) ⊆ X∞(λ,⪯τ)."
+        },
+        {
+          "name": "WeakPatchingFunctor.eq_zero_iff",
+          "role": "relation",
+          "statement": "For a finite-length σ, M∞(σ) = 0 iff M∞(σᵢ) = 0 for every Jordan–Hölder factor σᵢ, by exactness."
+        },
+        {
+          "name": "WeakPatchingFunctor.generic_indep",
+          "role": "compatibility",
+          "statement": "M∞(σ°)[1/p] is independent of the lattice σ° ⊂ σ(λ,τ): two lattices differ by a finite-length module, whose image is p-power torsion."
+        },
+        {
+          "name": "WeakPatchingFunctor.cycle_additive",
+          "role": "relation",
+          "statement": "The special-fibre cycle of M∞(σ̄°) equals Σ_σ [σ̄° : σ]·Z(M∞(σ)), by exactness."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeakPatchingFunctor.nonzero",
+          "kind": "degenerate",
+          "statement": "The zero functor is exact but is not a weak patching functor."
+        },
+        {
+          "name": "WeakPatchingFunctor.support_violation",
+          "kind": "non-example",
+          "statement": "An exact functor with M∞(σ°(λ,τ)) supported on all of X∞, not only on X∞(λ,⪯τ), is not a weak patching functor."
+        },
+        {
+          "name": "WeakPatchingFunctor.jh_zero",
+          "kind": "characterisation",
+          "statement": "M∞(σ°(λ,τ)) ≠ 0 iff M∞(σ) ≠ 0 for some σ ∈ JH(σ̄°(λ,τ))."
+        },
+        {
+          "name": "WeakPatchingFunctor.lattice_change",
+          "kind": "compatibility",
+          "statement": "For lattices σ°₁ ⊂ σ°₂ of σ(λ,τ), M∞(σ°₁)[1/p] ≅ M∞(σ°₂)[1/p]."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P05",
@@ -4037,7 +4320,64 @@
       "locator": "Definition6.2.1(I), PDF127",
       "statement": "A weak functor is minimal if R^p is formally smooth over O and, for each zero-monodromy inertial tau, the generic-fibre module of every type lattice is locally free of rank at most one on each connected component of the regular generic deformation fibre.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P11",
+          "how": "Existence of a weak minimal potentially diagonalizable functor (Proposition 6.2.4(2))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12",
+          "how": "A weak minimal detectable potentially diagonalizable functor exists (Proposition 6.2.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+          "how": "Proposition 6.2.7 assumes a weak detectable minimal functor."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Minimality enters the versal-cycle comparison (Theorem 8.3.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeakPatchingFunctor.IsMinimal",
+          "role": "characterisation",
+          "statement": "M∞ is minimal iff R^p is formally smooth over O and, for every τ with N_τ = 0, M∞(σ°(λ,τ))[1/p] has rank at most one on each connected component of Spec R∞(λ,τ)[1/p]."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsMinimal.locallyFree",
+          "role": "relation",
+          "statement": "Spec R∞(λ,τ)[1/p] is regular for N_τ = 0, so the maximal Cohen–Macaulay module M∞(σ°)[1/p] is locally free there."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsMinimal.toWeak",
+          "role": "projection",
+          "statement": "A minimal weak patching functor is in particular a weak patching functor."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeakPatchingFunctor.double_not_minimal",
+          "kind": "non-example",
+          "statement": "If M∞ is minimal and M∞(σ°) ≠ 0, then M∞ ⊕ M∞ is still a weak patching functor but has rank 2 somewhere, so it is not minimal."
+        },
+        {
+          "name": "WeakPatchingFunctor.minimal_free_rank_one",
+          "kind": "characterisation",
+          "statement": "A functor taking σ°(λ,τ) to a line bundle on each component of X∞(λ,τ)[1/p] where it is nonzero satisfies the rank condition."
+        },
+        {
+          "name": "WeakPatchingFunctor.minimal_only_N0",
+          "kind": "characterisation",
+          "statement": "The rank condition is imposed only for inertial L-parameters (N_τ = 0); WD types with nonzero monodromy are unconstrained."
+        },
+        {
+          "name": "WeakPatchingFunctor.minimal_needs_smooth",
+          "kind": "degenerate",
+          "statement": "If R^p is not formally smooth over O, M∞ is not minimal, whatever its ranks."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P06",
@@ -4046,7 +4386,55 @@
       "locator": "Definition6.2.1(II), PDF127",
       "statement": "A weak functor is potentially diagonalizable when it is nonzero on a type lattice whenever each residual local representation has a potentially diagonalizable lift of the corresponding Hodge type lambda_v+eta_v and inertial type tau_v.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P10",
+          "how": "Existence (Proposition 6.2.4(1), via [14, §2] and [56, Theorem 4.3.8])."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12",
+          "how": "Weak potentially diagonalizable functors are detectable for 4n-generic semisimple ρ̄ (Proposition 6.2.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P15",
+          "how": "Ordinary weights are detected (Proposition 6.2.9)."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeakPatchingFunctor.IsPotDiag",
+          "role": "characterisation",
+          "statement": "M∞ is potentially diagonalizable iff M∞(σ°(λ,τ)) ≠ 0 whenever each ρ̄_v has a potentially diagonalizable lift of type (λ_v+η_v, τ_v) in the sense of [10, §1.4]."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsPotDiag.ordinary",
+          "role": "relation",
+          "statement": "Ordinary (upper-triangular) lifts are potentially diagonalizable [10, Lemma 1.4.3], so the lifts of Lemma 6.2.8 give M∞(σ°(τ(1,κ))) ≠ 0."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsPotDiag.detectable",
+          "role": "relation",
+          "statement": "For semisimple ρ̄ with 4n-generic tame inertial parameter, a potentially diagonalizable weak functor is detectable (Proposition 6.2.6)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeakPatchingFunctor.potDiag_implication",
+          "kind": "non-example",
+          "statement": "The condition is one implication: it does not force M∞(σ°) = 0 when no potentially diagonalizable lift of that type exists."
+        },
+        {
+          "name": "WeakPatchingFunctor.potDiag_FL",
+          "kind": "compatibility",
+          "statement": "Crystalline lifts with Fontaine–Laffaille Hodge–Tate weights are potentially diagonalizable [10, Lemma 1.4.3(2)], as used in Proposition 6.2.6."
+        },
+        {
+          "name": "WeakPatchingFunctor.potDiag_vacuous",
+          "kind": "degenerate",
+          "statement": "If no ρ̄_v has a potentially diagonalizable lift of any type considered, the condition is vacuous."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P07",
@@ -4055,7 +4443,59 @@
       "locator": "Definition6.2.1(III), PDF127",
       "statement": "For semisimple2n-generic rho, a weak functor is detectable when it is nonzero on every obvious Serre weight of rho.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P12",
+          "how": "Existence of detectable functors (Proposition 6.2.6)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P13",
+          "how": "(1) ⟺ (4) in Proposition 6.2.7 uses detectability through W_obv."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Support equals W?(ρ̄) for weak detectable functors (Lemma 9.1.10)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A02",
+          "how": "The global functor is detectable (Lemma A.1.1(2))."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeakPatchingFunctor.IsDetectable",
+          "role": "characterisation",
+          "statement": "For semisimple 2n-generic ρ̄, M∞ is detectable iff M∞(σ) ≠ 0 for every σ ∈ W_obv(ρ̄)."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsDetectable.nonzero_iff_adm",
+          "role": "relation",
+          "statement": "For a weak detectable minimal M∞ and a max{2n, h+n−1}-generic tame τ, M∞(σ°(λ,τ)) ≠ 0 iff w̃(ρ̄,τ) ∈ Adm(λ+η) for a λ-compatible presentation (Proposition 6.2.7)."
+        },
+        {
+          "name": "WeakPatchingFunctor.IsDetectable.support",
+          "role": "relation",
+          "statement": "For P-generic ρ̄, {σ : M∞(σ) ≠ 0} = W?(ρ̄) (Lemma 9.1.10)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeakPatchingFunctor.detectable_GL2",
+          "kind": "computation",
+          "statement": "For GL₂ and 4-generic semisimple ρ̄, W_obv(ρ̄) = W?(ρ̄) has 2 elements, so detectability means M∞ is nonzero on both."
+        },
+        {
+          "name": "WeakPatchingFunctor.detectable_GL3_shadow",
+          "kind": "non-example",
+          "statement": "For GL₃, detectability constrains only the 6 obvious weights; nonvanishing on the 3 shadow weights in W?(ρ̄) is a theorem (Lemma 9.1.10), not part of the definition."
+        },
+        {
+          "name": "WeakPatchingFunctor.detectable_needs_generic",
+          "kind": "degenerate",
+          "statement": "The notion is defined only for semisimple 2n-generic ρ̄."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P08",
@@ -4064,7 +4504,60 @@
       "locator": "Definition6.2.1(IV), PDF127",
       "statement": "For a set S of pairs(lambda+eta,tau) with N_tau=0, a minimal patching functor is a weak minimal one whose generic-fibre module has rank exactly one over the entire Spec R_infinity(lambda,tau)[1/p] for every pair in S and every type lattice. Rank at most one does not imply this full-support property.",
       "status": "missing",
-      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: CompletedCohomologyAndLocalGlobalCompatibilityPartIIPatchedGLdDensity. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B15",
+          "how": "Minimal patching functors for a set of types give versal Breuil–Mézard cycles (Theorem 8.3.5(1))."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B24",
+          "how": "Theorem 8.4.10(1) constructs minimal functors for generic tame ρ̄."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "The proof of Lemma 9.1.10 uses a minimal functor for ρ̄ and S_{0,t}."
+        }
+      ],
+      "api": [
+        {
+          "name": "PatchingFunctor.IsMinimalFor",
+          "role": "characterisation",
+          "statement": "M∞ is minimal for ρ̄ and S (types (λ+η,τ) with N_τ = 0) iff it is weak minimal and M∞(σ°(λ,τ))[1/p] has rank exactly one on all of Spec R∞(λ,τ)[1/p], for every pair in S and every lattice."
+        },
+        {
+          "name": "PatchingFunctor.IsMinimalFor.cycle",
+          "role": "relation",
+          "statement": "For (λ+η,τ) ∈ S, Z(M∞(σ̄°(λ,τ))) = Z(R∞(λ,τ)/ϖ): a maximal Cohen–Macaulay module of generic rank one has the special-fibre cycle of the ring ([23, Lemma 2.2.10], used on PDF169)."
+        },
+        {
+          "name": "PatchingFunctor.IsMinimalFor.mono",
+          "role": "relation",
+          "statement": "Minimal for S implies minimal for every S′ ⊆ S."
+        },
+        {
+          "name": "PatchingFunctor.IsMinimalFor.support",
+          "role": "characterisation",
+          "statement": "For (λ+η,τ) ∈ S, Supp M∞(σ°(λ,τ)) = X∞(λ,τ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PatchingFunctor.minimalFor_empty",
+          "kind": "degenerate",
+          "statement": "Minimal for S = ∅ is the same as weak minimal."
+        },
+        {
+          "name": "PatchingFunctor.minimalFor_not_rank_le_one",
+          "kind": "non-example",
+          "statement": "A weak minimal functor with M∞(σ°(λ,τ)) = 0 on one component of X∞(λ,τ) satisfies rank ≤ 1 but is not minimal for any S containing (λ+η,τ)."
+        },
+        {
+          "name": "PatchingFunctor.minimalFor_full_support",
+          "kind": "characterisation",
+          "statement": "If M∞ is minimal for S and (λ+η,τ) ∈ S with R∞(λ,τ) ≠ 0, then M∞(σ°(λ,τ)) ≠ 0."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P09",
@@ -4946,7 +5439,69 @@
       "locator": "§9.1 PDF180–181",
       "statement": "Fix a CM extension F/F+ with F+ totally real and not Q, all p-adic places split in F, and a form of GL_n over F+ split over F and definite at infinity. Choose its integral model away from N prime to p, a place above each split place, and identifications with GL_n locally. Assume F is unramified at p, as stated in §1.6 PDF20; the body §9.1 uses that standing local hypothesis.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V02",
+          "how": "Algebraic automorphic forms on G (9.2)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V03",
+          "how": "Hecke algebras at split places outside S."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 is stated in this setting."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+          "how": "Polarized global deformation data for G_{F+} (§A.3.2)."
+        }
+      ],
+      "api": [
+        {
+          "name": "DefiniteUnitary.setup",
+          "role": "structure",
+          "statement": "F/F⁺ CM with F⁺ ≠ Q totally real, all places above p split in F, and G/F⁺ an outer form of GL_n split over F and definite at every archimedean place; a reductive model over O_{F⁺}[1/N] with p ∤ N and ι : G/O_F[1/N] ≅ GL_n/O_F[1/N] (9.1)."
+        },
+        {
+          "name": "DefiniteUnitary.iota_split",
+          "role": "projection",
+          "statement": "For split w | v, ι_w : G(O_{F⁺_v}) ≅ GL_n(O_{F_w}); choosing ṽ | v gives ι_v."
+        },
+        {
+          "name": "DefiniteUnitary.iota_p",
+          "role": "projection",
+          "statement": "ι_p : G(O_p) ≅ ∏_{v∈S_p} GL_n(O_{F⁺_v}) (9.3)."
+        },
+        {
+          "name": "DefiniteUnitary.compact",
+          "role": "characterisation",
+          "statement": "G(F⁺⊗R) is compact, so G(F⁺)\\G(A^∞_{F⁺})/U is finite for compact open U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "DefiniteUnitary.U1",
+          "kind": "degenerate",
+          "statement": "For n = 1, G is the norm-one torus U(1)_{F/F⁺}, compact at infinity."
+        },
+        {
+          "name": "DefiniteUnitary.not_Q",
+          "kind": "non-example",
+          "statement": "F⁺ = Q is excluded by the standing hypotheses of §9.1."
+        },
+        {
+          "name": "DefiniteUnitary.conj_choice",
+          "kind": "compatibility",
+          "statement": "Replacing ṽ by its conjugate changes ι_v by the outer automorphism g ↦ ᵗg⁻¹, which the paper suppresses."
+        },
+        {
+          "name": "DefiniteUnitary.finite_quotient",
+          "kind": "characterisation",
+          "statement": "For every compact open U, the double coset space G(F⁺)\\G(A^∞)/U is finite."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V02",
@@ -4955,7 +5510,74 @@
       "locator": "Equation9.2 PDF181",
       "statement": "For compact open U=U_p U^p and finite O-module W with continuous U_p-action, S(U,W) consists of functions on G(F+)\\G(A_f) satisfying f(gu)=u_p^-1 f(g). A sufficiently small level has stabilizer orders prime to p; then S(U,-) is exact and finite over O.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V03",
+          "how": "Hecke operators act on S(U,W)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
+          "how": "Modular weights are defined by nonvanishing of localized S(U, σ^∨∘ι_p)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A16",
+          "how": "Auxiliary parahoric levels (§A.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A19",
+          "how": "Finite patching modules (§A.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "AlgAutForm.mk",
+          "role": "constructor",
+          "statement": "S(U,W) := {f : G(F⁺)\\G(A^∞_{F⁺}) → W | f(gu) = u_p⁻¹f(g) for all g, u ∈ U}, for U = U_pU^{∞,p} compact open and W a finite O-module with continuous U_p-action."
+        },
+        {
+          "name": "AlgAutForm.finite",
+          "role": "instance",
+          "statement": "S(U,W) is a finite O-module."
+        },
+        {
+          "name": "AlgAutForm.exact",
+          "role": "relation",
+          "statement": "If U is sufficiently small (all t⁻¹G(F⁺)t ∩ U have order prime to p), W ↦ S(U,W) is exact."
+        },
+        {
+          "name": "AlgAutForm.decomp",
+          "role": "characterisation",
+          "statement": "S(U,W) ≅ ⊕_{t ∈ G(F⁺)\\G(A^∞)/U} W^{t⁻¹G(F⁺)t∩U}."
+        },
+        {
+          "name": "AlgAutForm.levelChange",
+          "role": "functoriality",
+          "statement": "For U′ ⊆ U there are the restriction S(U,W) → S(U′,W) and the trace S(U′,W) → S(U,W), Hecke-equivariant away from the level."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AlgAutForm.zero",
+          "kind": "degenerate",
+          "statement": "S(U, 0) = 0."
+        },
+        {
+          "name": "AlgAutForm.trivial_coeff",
+          "kind": "computation",
+          "statement": "If U is sufficiently small and W = O with trivial action, S(U,O) ≅ O^h with h = #G(F⁺)\\G(A^∞)/U."
+        },
+        {
+          "name": "AlgAutForm.not_small",
+          "kind": "non-example",
+          "statement": "Without sufficient smallness exactness can fail: for a stabilizer of order p, W ↦ W^{Z/p} is not exact."
+        },
+        {
+          "name": "AlgAutForm.reduction",
+          "kind": "compatibility",
+          "statement": "For U sufficiently small and W O-flat, S(U, W⊗F) = S(U,W)⊗F."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V03",
@@ -4964,7 +5586,69 @@
       "locator": "§9.1 PDF181–182",
       "statement": "Define the universal unramified Hecke algebra using split places outside S, its image on S(U,W), and localization at a residual eigensystem. Import the associated G_n-valued Galois representation with characteristic polynomial coefficients (-1)^j Norm(w)^(j(j-1)/2) T_w^(j). Define automorphic residual representations by nonzero localized forms.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
+          "how": "Automorphy of level U and weight σ is nonvanishing at the maximal ideal of r̄."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 assumes r̄ automorphic."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A09",
+          "how": "r_m is the source of the global deformation data (§A.3)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A22",
+          "how": "The patched ring acts through Hecke algebras (§A.5)."
+        }
+      ],
+      "api": [
+        {
+          "name": "HeckeAlgebra.universal",
+          "role": "constructor",
+          "statement": "T^P := O[T_w^{(i)} : w ∈ P, 0 ≤ i ≤ n] for P ⊆ P_S of finite complement, closed under complex conjugation."
+        },
+        {
+          "name": "HeckeAlgebra.image",
+          "role": "constructor",
+          "statement": "T^P(U,W) := image of T^P in End_O(S(U,W)), a semilocal ring; T^Q(U,W) for Q the places removed from P_S."
+        },
+        {
+          "name": "HeckeAlgebra.galoisRep",
+          "role": "constructor",
+          "statement": "For m in the support there is r_m : G_{F⁺,S} → G_n(T^Q(U,W)_m) with det(1 − r_m|_{G_F}(Frob_w)X) = Σ_j (−1)^j N_{F/Q}(w)^{j(j−1)/2} α(T_w^{(j)}) X^j for w ∈ P (imported)."
+        },
+        {
+          "name": "Automorphic.def",
+          "role": "characterisation",
+          "statement": "r̄ is automorphic of level U and coefficients W iff S(U,W)_m ≠ 0 for the corresponding maximal ideal m ⊂ T^P."
+        },
+        {
+          "name": "Automorphic.modF",
+          "role": "compatibility",
+          "statement": "S(U,W)_m ≠ 0 iff S(U, W⊗F)_m ≠ 0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HeckeAlgebra.GL2_charpoly",
+          "kind": "computation",
+          "statement": "For n = 2, det(1 − r_m(Frob_w)X) = 1 − α(T_w^{(1)})X + N(w)α(T_w^{(2)})X²."
+        },
+        {
+          "name": "HeckeAlgebra.n1",
+          "kind": "degenerate",
+          "statement": "For n = 1 the polynomial is 1 − α(T_w^{(1)})X."
+        },
+        {
+          "name": "HeckeAlgebra.not_in_support",
+          "kind": "non-example",
+          "statement": "If S(U,W)_m = 0, no Galois representation is attached to m at this level."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
@@ -4973,7 +5657,60 @@
       "locator": "Definition9.1.1 PDF182–183",
       "statement": "A weight sigma is modular for residual r at hyperspecial p-level U when S(U,sigma^vee composed with iota_p) localized at r is nonzero. Define W(r) by varying the away-from-p level and W_gen(r) by the generic-weight condition. An automorphic r has at least one such weight by exactness and pro-p invariants.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V06",
+          "how": "Conjecture 9.1.4 predicts W(r̄) = W?(r̄_p|_I)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 proves W(r̄) = W^g_gen(r̄_p) = W?(r̄_p|_I) under P-genericity."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A01",
+          "how": "The arbitrary-level patching functor realizes modular weights (Lemma A.1.1(1))."
+        }
+      ],
+      "api": [
+        {
+          "name": "ModularWeight.def",
+          "role": "characterisation",
+          "statement": "For U = G(O_p)U^{S_p} sufficiently small, σ is modular for r̄ at level U iff r̄ is automorphic of level U and coefficients σ^∨∘ι_p; σ is modular iff this holds for some such U."
+        },
+        {
+          "name": "ModularWeight.sets",
+          "role": "constructor",
+          "statement": "W(r̄) is the set of modular weights, and W_gen(r̄) ⊆ W(r̄) the generic ones (Definition 8.4.6)."
+        },
+        {
+          "name": "ModularWeight.nonempty",
+          "role": "relation",
+          "statement": "If r̄ is automorphic then W(r̄) ≠ ∅, by exactness of S(U,−)_m and pro-p invariants."
+        },
+        {
+          "name": "ModularWeight.dual",
+          "role": "other",
+          "statement": "The coefficients are the F-dual σ^∨ transported by ι_p, not σ itself."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ModularWeight.not_automorphic",
+          "kind": "degenerate",
+          "statement": "If r̄ is not automorphic, W(r̄) = ∅."
+        },
+        {
+          "name": "ModularWeight.dual_matters",
+          "kind": "non-example",
+          "statement": "Using σ instead of σ^∨ gives the dual set in general; for GL₂ over F_p the dual of Sym^r⊗det^a is Sym^r⊗det^{−r−a}."
+        },
+        {
+          "name": "ModularWeight.gen_subset",
+          "kind": "characterisation",
+          "statement": "W_gen(r̄) ⊆ W(r̄), with equality when every modular weight is generic, as Remark 9.1.7(2) arranges."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V05",
@@ -4982,7 +5719,60 @@
       "locator": "Definition9.1.2; Remark9.1.3 PDF183",
       "statement": "A geometric weight sigma is one for which the tuple of local residual representations lies on C_sigma. W_gen^g retains (3n-1)-deep weights. W_gen^BM consists of generic weights for which the tuple lies in the support of Z_sigma. It has product structure over p-adic places, and generic geometric weights are BM weights by the unit leading coefficient.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 identifies W(r̄) with W^g_gen and W_gen with W^BM_gen."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V09",
+          "how": "W^g_gen(ρ̄) = W?(ρ̄|_I) for P-generic ρ̄ (Lemma 9.1.9)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Generic weights with M∞(σ) ≠ 0 are W^BM_gen(ρ̄) (Lemma 9.1.10)."
+        }
+      ],
+      "api": [
+        {
+          "name": "GeometricWeight.def",
+          "role": "characterisation",
+          "statement": "σ = ⊗_vσ_v is a geometric weight of ρ̄ iff (ρ̄_v) lies on C_σ, equivalently ρ̄_v lies on C_{σ_v} for all v ∈ S_p; W^g_gen(ρ̄) keeps the (3n−1)-deep ones."
+        },
+        {
+          "name": "BMWeight.def",
+          "role": "characterisation",
+          "statement": "W^BM_gen(ρ̄) is the set of generic weights σ with ρ̄ in the support of Z_σ (Theorem 8.4.10(2))."
+        },
+        {
+          "name": "BMWeight.pi",
+          "role": "relation",
+          "statement": "W^BM_gen(ρ̄) = {⊗_vσ_v : σ_v ∈ W^BM_gen(ρ̄_v)} (Remark 8.4.14)."
+        },
+        {
+          "name": "GeometricWeight.subset_BM",
+          "role": "relation",
+          "statement": "Every generic weight in W^g_gen(ρ̄) lies in W^BM_gen(ρ̄), by the unit leading coefficient (Remark 9.1.3, Proposition 8.6.1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GeometricWeight.single_place",
+          "kind": "degenerate",
+          "statement": "For |S_p| = 1 the product description of W^BM_gen is tautological."
+        },
+        {
+          "name": "GeometricWeight.depth_cut",
+          "kind": "non-example",
+          "statement": "A geometric weight that is not (3n−1)-deep is excluded from W^g_gen(ρ̄), although ρ̄ lies on its component."
+        },
+        {
+          "name": "GeometricWeight.product",
+          "kind": "compatibility",
+          "statement": "σ = ⊗σ_v is geometric for (ρ̄_v) iff each σ_v is geometric for ρ̄_v."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V06",
@@ -4991,7 +5781,51 @@
       "locator": "Conjectures9.1.4–9.1.5 PDF183",
       "statement": "The general tame 2n-generic conjecture equates modular weights with W?; the geometric BM conjecture equates generic modular and BM weights for automorphic r. These remain conjectures outside the polynomial-generic theorem below.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 proves both conjectures for P-generic, adequate r̄."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V08",
+          "how": "Remark 9.1.7 describes the polynomial that makes the conjectures unconditional."
+        }
+      ],
+      "api": [
+        {
+          "name": "Conjecture914",
+          "role": "other",
+          "statement": "Interface, not a theorem: if r̄ is automorphic and r̄_p|_{I_{Q_p}} is tame and 2n-generic, then W(r̄) = W?(r̄_p|_{I_{Q_p}})."
+        },
+        {
+          "name": "Conjecture915",
+          "role": "other",
+          "statement": "Interface, not a theorem: if r̄ is automorphic, then W_gen(r̄) = W^BM_gen(r̄_p)."
+        },
+        {
+          "name": "Conjecture.provedGeneric",
+          "role": "relation",
+          "statement": "Under the hypotheses of Theorem 9.1.6 both conjectural equalities hold."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Conjecture.from_V07",
+          "kind": "characterisation",
+          "statement": "Theorem 9.1.6's conclusion W(r̄) = W^g_gen(r̄_p) = W?(r̄_p|_I) and W_gen(r̄) = W^BM_gen(r̄_p) implies both conjectures for such r̄."
+        },
+        {
+          "name": "Conjecture.not_general",
+          "kind": "non-example",
+          "statement": "Neither conjecture is asserted when r̄_p is not tame and 2n-generic (Conjecture 9.1.4), nor used as an axiom anywhere."
+        },
+        {
+          "name": "Conjecture.GL2",
+          "kind": "compatibility",
+          "statement": "For n = 2 and generic tame r̄_p, Herzig's W?(r̄_p|_I) agrees with the Buzzard–Diamond–Jarvis weight set, so Conjecture 9.1.4 specializes to the generic weight part of Serre's conjecture for U(2)."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
@@ -5009,7 +5843,56 @@
       "locator": "Remarks9.1.7–9.1.8 PDF184",
       "statement": "Build the sufficient P from the depth, local-model, shifted and component-membership polynomials listed in Remark9.1.7. Enlarging it can make all predicted weights generic. Import the globalization result [14, CorollaryA.7] to realize any allowed semisimple local example in an adequate potentially diagonalizably automorphic global representation.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V07",
+          "how": "Theorem 9.1.6 requires μ to be P-generic for the listed P."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "Lemma 9.1.10 uses P = P^η_{η,e₀}·P_{6n−2}·Q."
+        }
+      ],
+      "api": [
+        {
+          "name": "GenericityPoly.mk",
+          "role": "constructor",
+          "statement": "P := P_{6n−2}·P_{2η,e}·P^η_{η,e₀}·Q, from Remark 2.1.11, Theorem 7.3.2(2), equation (8.1) and the proof of Lemma 9.1.9 (Remark 9.1.7(1))."
+        },
+        {
+          "name": "GenericityPoly.mul",
+          "role": "relation",
+          "statement": "If μ is PQ-generic it is P-generic, so enlarging P keeps every conclusion."
+        },
+        {
+          "name": "GenericityPoly.allGeneric",
+          "role": "relation",
+          "statement": "Some P makes every weight in W?(r̄_p) generic, so W_gen(r̄) may be replaced by W(r̄) (Remark 9.1.7(2))."
+        },
+        {
+          "name": "Globalization.exists",
+          "role": "relation",
+          "statement": "Imported from [14, Corollary A.7]: a semisimple ρ̄ : G_K → GL_n(F) with P-generic presentation is the restriction at all p-adic places of an adequate, potentially diagonalizably automorphic r̄ over some CM F/F⁺ with F⁺ ≠ Q (Remark 9.1.8)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "GenericityPoly.Pm_n1",
+          "kind": "computation",
+          "statement": "For n = 1, P_m = ∏_{j=1}^m (−j) = (−1)^m m!, so P_m-genericity only asks that p > m."
+        },
+        {
+          "name": "GenericityPoly.indep_p",
+          "kind": "characterisation",
+          "statement": "P depends on n and the listed data but not on p (Theorem 9.1.6)."
+        },
+        {
+          "name": "GenericityPoly.small_p",
+          "kind": "non-example",
+          "statement": "If p | 2n there are no n-generic tame parameters (Remark 6.2.5), so no P-generic input exists."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V09",
@@ -5027,7 +5910,51 @@
       "locator": "§9.1 PDF185",
       "statement": "For sufficiently generic tame rho and (3n-1)-deep sigma, the pullback of C_sigma to the product framed deformation ring is irreducible or zero; define its prime p_sigma(rho), using the unit ideal for an absent component. This requires analytic irreducibility, not merely an irreducible stack component.",
       "status": "missing",
-      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted."
+      "note": "Route owner: GenericGL3SerreWeightsAndLattices. This is a source extraction and planning claim; no Lean implementation is asserted.",
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
+          "how": "The proof of Lemma 9.1.10 compares Ann M∞(σ) with p_σ(ρ̄) and uses (9.4)."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G34",
+          "how": "Theorem 7.4.2(1) identifies the components of Spec R_ρ̄^τ."
+        }
+      ],
+      "api": [
+        {
+          "name": "ComponentPrime.mk",
+          "role": "constructor",
+          "statement": "For QP_{4n}-generic tame ρ̄ and (3n−1)-deep σ, i_ρ̄^*(C_σ) is irreducible or zero, and p_σ(ρ̄) ⊂ R_ρ̄ is its prime; the unit ideal is used when it is zero."
+        },
+        {
+          "name": "ComponentPrime.irreducible",
+          "role": "relation",
+          "statement": "The irreducibility of the pullback uses Proposition 4.7.5 and Remark 7.4.3(2) (analytic irreducibility), not merely irreducibility of C_σ."
+        },
+        {
+          "name": "ComponentPrime.components_type",
+          "role": "characterisation",
+          "statement": "The irreducible components of Spec R_ρ̄^τ are the C_{σ′}(ρ̄) with σ′ ∈ W?(ρ̄|_I) ∩ JH(σ̄(τ)) (9.4)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ComponentPrime.absent",
+          "kind": "degenerate",
+          "statement": "If ρ̄ does not lie on C_σ, then p_σ(ρ̄) is the unit ideal."
+        },
+        {
+          "name": "ComponentPrime.minimal",
+          "kind": "characterisation",
+          "statement": "For a suitably generic τ with σ ∈ W?(ρ̄) ∩ JH(σ̄(τ)), p_σ(ρ̄) is a minimal prime of R_ρ̄^τ, by (9.4)."
+        },
+        {
+          "name": "ComponentPrime.needs_generic",
+          "kind": "non-example",
+          "statement": "Without the genericity hypothesis, the pullback of an irreducible stack component to a versal ring may have several analytic branches."
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V11",
@@ -10137,11 +11064,6 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K37",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K39",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K40",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P04",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P05",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P06",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P07",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P08",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G03",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
@@ -10155,17 +11077,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B22",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B34",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V01",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V02",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V04",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/V05",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A05",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A07",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A11",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Q02"
       ],
-      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain."
+      "detail": "There are152 definitions/constructions (85 definitions,67 constructions). Itemwise APIs and typed tests were refined for N52,G04,G09,A18,A26,Z66; existing API-role/test-kind labels were normalized without changing their mathematical statements. A structural census in validation counts literal uses/api/three-typed-test coverage; grouped coverage and untyped plans are not complete itemwise closure. Refine each remaining interface from its actual consumers, split compound definitions and promote API facts used as prerequisites. The paper validator does not certify this requirement. Continuation cc-442dc5 supplied itemwise uses, API and at least three typed tests for all thirty §2 definition/construction entries (N01–N66) that lacked them, read from published PDF24–53; 40 of 152 entries now have literal itemwise uses/API/three typed tests and 112 remain. A second cc-442dc5 pass supplied the same for the sixteen §6 and §9 entries P01–P08, V01–V06, V08 and V10 (published PDF125–131 and PDF180–186); 56 of 152 now have literal itemwise uses/API/three typed tests and 96 remain."
     },
     {
       "id": "library-item-audit",
@@ -11998,7 +12916,14 @@
         "useReferencesResolve": true
       },
       "handChecks": "Small cases behind the tests were checked by hand: GL2 Adm((1,0)) and Adm((2,0)) (3 and 5 elements, 2 and 4 regular), Ω for GL2, star anti-multiplicativity, depth and P1-genericity at p=7, the dot action, GL2 Herzig involution R(Sym^r⊗det^b)=Sym^{p−2−r}⊗det^{r+b+1−p} with R² a twist, W?/W_obv counts 2/2 for GL2 and 9/6 for GL3 via Proposition 2.6.2, tame characters τ(s,μ) for GL2 and the class (λ+η)|_Z of w̃(ρ̄,τ). These are hand computations, not machine certificates.",
-      "lean": "No Lean file required or compiled; the API and tests are planning contracts."
+      "lean": "No Lean file required or compiled; the API and tests are planning contracts.",
+      "secondPass": {
+        "scope": "Itemwise uses/API/typed tests for P01–P08, V01–V06, V08 and V10; no statements, statuses, routes, findings or IDs changed.",
+        "itemwiseApiUsesAndThreeTypedTests": 56,
+        "remainingDefinitionConstructionCensus": 96,
+        "newlyCompleted": 16,
+        "handChecks": "GL1 framed and typed lifting rings over Q_p (p odd), the completed-tensor dimension formula, the GL2 Hecke characteristic polynomial, the decomposition of S(U,W) by double cosets, the dual of Sym^r⊗det^a for GL2(F_p) and P_m for n = 1."
+      }
     }
   },
   "definitionApiGroups": [

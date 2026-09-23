@@ -2,9 +2,9 @@
 
 Claude Code — cc-442dc5, issue #1254, 23 September 2026. Continue from this PR, which extends PR #2301.
 
-**Partial: 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities, 38 unreviewed findings, 152 definitions/constructions, of which 40 now carry literal itemwise uses/API/three typed tests (112 remain).** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
+**Partial: 480 items (60 library, 8 planned, 412 missing), 15 unchanged route identities, 38 unreviewed findings, 152 definitions/constructions, of which 56 now carry literal itemwise uses/API/three typed tests (96 remain).** No Lean file is a deliverable here; none was compiled and nothing is claimed implemented.
 
-This continuation read published PDF24–53 afresh (same hash) and supplied itemwise uses, API and typed tests for all thirty §2 definition/construction entries that lacked them: N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66. Nothing else in the result changed; see `validation.claudeCc442dc5Continuation`. Resume item 4 below now concerns the remaining 112 entries (the `definition-api` gap lists them); P04–P08 (§6 patching functors) are a compact next batch.
+This continuation read published PDF24–53 afresh (same hash) and supplied itemwise uses, API and typed tests for all thirty §2 definition/construction entries that lacked them: N01–N06, N11, N14–N17, N22–N24, N27–N29, N32, N33, N35, N43, N45, N49–N51, N56, N57, N62, N65 and N66. Nothing else in the result changed; see `validation.claudeCc442dc5Continuation`. A second pass in the same session did the same for P01–P08 and V01–V06, V08 and V10 (§6 and §9). Resume item 4 below now concerns the remaining 96 entries, which the `definition-api` gap lists. They are mostly §3 (U), §4 (M), §5 (K), §7 (G), §8 (B) and Appendices A and B. The §8 Breuil–Mézard definitions B01–B36 are a natural next batch, since their consumers are in §8.3–8.6.
 
 The previous handoff follows unchanged.
 
