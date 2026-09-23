@@ -55256,10 +55256,10 @@
   {
    "id": "PAPER-KISIN-ZHOU-25/E1",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p9,§2.2.2; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 9, §2.2.2; final Annals text not compared",
    "printed": "{u^(-1) w sigma(w) | u in W}",
    "correction": "Replace the final sigma(w) with sigma(u).",
-   "reason": "Twisted conjugation acts by u^-1 w sigma(u). For sigma=id,w=1 in the cyclic groupC3, the printed set is allC3, whereas the conjugacy class is {1}; the preceding B(G) definition uses the correct variable.",
+   "reason": "Twisted conjugation acts by u^-1 w sigma(u). For sigma=id, w=1 in the cyclic group C3, the printed set is all C3, whereas the conjugacy class is {1}; the preceding B(G) definition uses the correct variable.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55272,17 +55272,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Printed on p. 9, §2.2.2: 'its σ-conjugacy class is the set {u⁻¹wσ(w) | u ∈ W}'. σ-conjugation of w by u is u⁻¹wσ(u); with σ(w) the set does not depend on u in the right way and is not the σ-conjugacy class the sentence defines. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E2",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p23,§3.2.5, reference to Definition3.1.6; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 23, §3.2.5, reference to Definition 3.1.6; final Annals text not compared",
    "printed": "property (3) of Definition 3.1.6",
-   "correction": "Use property(2), the closed immersion of local models.",
-   "reason": "Definition3.1.6 onp19 has only clauses(1),(2); clause(2) is exactly the asserted good-embedding condition.",
+   "correction": "Use property (2), the closed immersion of local models.",
+   "reason": "Definition 3.1.6 on p. 19 has only clauses (1), (2); clause (2) is exactly the asserted good-embedding condition.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55295,17 +55295,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed decisively. Definition 3.1.6 (pp. 19–20) has exactly two numbered properties, and (2) is 'An integral Hodge embedding ρ is said to be good if there is a closed immersion of local models M^loc_{G,{µ}} ↪ Gr(Λ) ⊗_{O_F} O_E' — precisely what p. 23 needs. There is no property (3), and Remark 3.1.7 itself cites 'Definition 3.1.6 (2)'. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E3",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p23,§3.2.5, canonical comparison c; final Annals text not compared",
-   "printed": "c: U_tilde_1 tensor W_hat(A_G/a_G) -> M_tilde_1 tensor W_hat(A_G)",
-   "correction": "Reduce the right side to W_hat(A_G/a_G) as well, with the same coefficient maps.",
-   "reason": "The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation5.2.1 gives both sides over the quotient. (cc-442dc5) Reclassified to affect nothing: the very-good condition compares c(s_{α,0} ⊗ 1) with s_{α,0} ⊗ 1 after reduction modulo a_G̃, so the intended target M̃_1 ⊗ Ŵ(A_G̃/a_G̃), as in [KPZ]'s canonical isomorphism, is clear and is the one used.",
+   "locator": "arXiv 2103.09945v2, p. 23, §3.2.5, canonical comparison c; final Annals text not compared",
+   "printed": "c: U_tilde_1 tensor W_hat (A_G/a_G) -> M_tilde_1 tensor W_hat (A_G)",
+   "correction": "Reduce the right side to W_hat (A_G/a_G) as well, with the same coefficient maps.",
+   "reason": "The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation 5.2.1 gives both sides over the quotient. It affects nothing: the very-good condition compares c(s_{α,0} ⊗ 1) with s_{α,0} ⊗ 1 after reduction modulo a_G̃, so the intended target M̃_1 ⊗ Ŵ(A_G̃/a_G̃), as in [KPZ]'s canonical isomorphism, is clear and is the one used.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55318,17 +55318,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Located at p. 23. The comparison c is asserted between one object over Ŵ(A_G/a_G) and one over Ŵ(A_G); a map of that shape is not defined without reducing the right-hand side to the same coefficient ring, which is what the surrounding construction does. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E4",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p25,equation(3.3.2.1) and its following tensor label; final Annals text not compared",
-   "printed": "T_p(G)^vee tensor_(breve Z_p) W_hat(O_K); s_(alpha,0)",
-   "correction": "Tensor the etale Tate lattice over Z_p. The tensors transported from that lattice are s_(alpha,et); s_(alpha,0) denotes the crystalline tensors on the target.",
-   "reason": "T_p(G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In§3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha,et) to s_(alpha,0). Keep the crystalline lift tilde-s on the right. (cc-442dc5) Reclassified to affect nothing: (3.3.2.1) is Kisin's comparison T_pG^∨ ⊗_{Z_p} Ŵ(O_K) ≅ D(G)(Ŵ(O_K)); the tensors transported from the Tate module are the s_{α,ét} named in the preceding paragraph, so the intended statement is clear and nothing uses the printed form.",
+   "locator": "arXiv 2103.09945v2, p. 25, equation (3.3.2.1) and its following tensor label; final Annals text not compared",
+   "printed": "T_p (G)^vee tensor_(breve Z_p) W_hat (O_K); s_(alpha, 0)",
+   "correction": "Tensor the etale Tate lattice over Z_p. The tensors transported from that lattice are s_(alpha, et); s_(alpha, 0) denotes the crystalline tensors on the target.",
+   "reason": "T_p (G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In § 3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha, et) to s_(alpha, 0). Keep the crystalline lift tilde-s on the right. It affects nothing: (3.3.2.1) is Kisin's comparison T_pG^∨ ⊗_{Z_p} Ŵ(O_K) ≅ D(G)(Ŵ(O_K)); the tensors transported from the Tate module are the s_{α, ét} named in the preceding paragraph, so the intended statement is clear and nothing uses the printed form.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55341,17 +55341,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Located at p. 25, (3.3.2.1). The étale Tate lattice is a Z_p-module, so the tensor product over Z̆_p is the wrong base, and the tensors transported from it are the étale ones s_{α,ét}; s_{α,0} is the notation the paper uses for the crystalline tensors on the target. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E5",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p34,Proposition4.2.3(5); final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 34, Proposition 4.2.3(5); final Annals text not compared",
    "printed": "X_*(G^ab)_I is torsion.",
    "correction": "Use torsion-free.",
-   "reason": "The immediately following Lemma4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract. (cc-442dc5) Reclassified to affect nothing: Lemma 4.2.4 assumes 'X_*(G^ab)_I is torsion-free' (v2 p.34) and the proof of Lemma 4.3.8 cites 'torsion-free by Proposition 4.2.3 (5)' (p.41), so the intended property is torsion-free and it is the one used.",
+   "reason": "The immediately following Lemma 4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition 7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract. It affects nothing: Lemma 4.2.4 assumes 'X_*(G^ab)_I is torsion-free' (v2 p.34) and the proof of Lemma 4.3.8 cites 'torsion-free by Proposition 4.2.3 (5)' (p.41), so the intended property is torsion-free and it is the one used.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55364,17 +55364,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed by the paper's own text. Proposition 4.2.3(5) (p. 34) prints 'X_*(G^ab)_I is torsion', while the standing hypothesis list on the same page reads 'X_*(G^ab)_I is torsion-free' and the proof on p. 35 says 'it suffices to show this group is torsion-free'. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E6",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p48,§5.2.1, integral dominance; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 48, §5.2.1, integral dominance; final Annals text not compared",
    "printed": "an integral linear combination of positive coroots",
    "correction": "Require a nonnegative integral linear combination of positive coroots.",
-   "reason": "Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g.0 and2 in PGL2). The Bruhat-compatible order requires the positive integral cone. (cc-442dc5) Reclassified to affect nothing: without 'non-negative' the relation would not be an order; the next sentence identifies ≼ with the Bruhat order on W_J\\W/W_J, which is the usual dominance order, and that is the order used.",
+   "reason": "Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g. 0 and 2 in PGL2). The Bruhat-compatible order requires the positive integral cone. It affects nothing: without 'non-negative' the relation would not be an order; the next sentence identifies ≼ with the Bruhat order on W_J\\W/W_J, which is the usual dominance order, and that is the order used.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55387,17 +55387,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Printed on p. 48, §5.2.1: 'we write λ ⪯ λ′ if λ′ − λ is an integral linear combination of positive coroots'. Without nonnegativity that relation is not the dominance order — it is symmetric on the coroot lattice — and the strict form λ ≺ λ′ defined in the next clause would order nothing. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E7",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p52,Lemma5.2.5, hypothesis on t_lambda; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 52, Lemma 5.2.5, hypothesis on t_lambda; final Annals text not compared",
    "printed": "t_lambda in G(F_q[[t]])",
-   "correction": "Use t_lambda in G(F_q((t))) for the loop element; the conjugator g remains in the positive-loop parahoric.",
-   "reason": "The earlier proof onp49 chooses a loop-field lift, andp52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives. (cc-442dc5) Reclassified to affect nothing: ṫ_λ is a lift of the translation t_λ, an element of G(F_q((t))); the proof intersects G(k[[t]]) with ṫ_λ G(k[[t]]) ṫ_λ^{−1} inside G(k((t))) and uses only that ṫ_λ is defined over F_q.",
+   "correction": "Use t_lambda in G(F_q ((t))) for the loop element; the conjugator g remains in the positive-loop parahoric.",
+   "reason": "The earlier proof on p. 49 chooses a loop-field lift, and p. 52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives. It affects nothing: ṫ_λ is a lift of the translation t_λ, an element of G(F_q ((t))); the proof intersects G(k[[t]]) with ṫ_λ G(k[[t]]) ṫ_λ^{−1} inside G(k ((t))) and uses only that ṫ_λ is defined over F_q.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55410,17 +55410,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Printed on p. 52, Lemma 5.2.5: 'assume ṫ_λ ∈ G(F_q[[t]])'. A translation element t^λ has poles in any faithful representation unless λ is trivial, so the positive loop group is the wrong home for it; what the lemma needs is rationality over F_q, i.e. ṫ_λ ∈ G(F_q((t))), while the conjugator g it produces stays in G(F_q[[t]]) as printed. The proof of Proposition 5.2.3 on p. 49 chooses exactly that lift: 'we may choose the lift ṫ_λ ∈ G(F_q((t)))'. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E8",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p55,§6.1.1, Hodge types of Betti cohomology; final Annals text not compared",
-   "printed": "H^1_B(A(C),Q); ((0,-1),(-1,0))",
-   "correction": "For the stated H^1 and the dual Tate comparison in§6.1.3, use cohomological types ((1,0),(0,1)). If choosing H_1 instead, change the realization and dual conventions consistently throughout.",
-   "reason": "The negative types belong to homology. The displayed§6.1.3 comparison is with T_l(A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate. (cc-442dc5) Reclassified to affect nothing: V_B is identified with T_ℓA^∨ ⊗ Q_ℓ in §6.1.3, i.e. with H^1 up to a Tate twist; the Mumford–Tate group, which is all that §6 uses, is the same for H^1 and H^1(1) because both contain the scalars.",
+   "locator": "arXiv 2103.09945v2, p. 55, §6.1.1, Hodge types of Betti cohomology; final Annals text not compared",
+   "printed": "H^1_B(A(C), Q); ((0, -1), (-1, 0))",
+   "correction": "For the stated H^1 and the dual Tate comparison in § 6.1.3, use cohomological types ((1, 0), (0, 1)). If choosing H_1 instead, change the realization and dual conventions consistently throughout.",
+   "reason": "The negative types belong to homology. The displayed § 6.1.3 comparison is with T_l (A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate. It affects nothing: V_B is identified with T_ℓA^∨ ⊗ Q_ℓ in §6.1.3, i.e. with H^1 up to a Tate twist; the Mumford–Tate group, which is all that §6 uses, is the same for H^1 and H^1(1) because both contain the scalars.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55433,17 +55433,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Printed on p. 55, §6.1.1: the Betti cohomology H¹_B(A(C),Q) 'equipped with a Hodge structure of type ((0,−1),(−1,0))'. Those are the types of H_1; H¹ carries ((1,0),(0,1)). The dual Tate comparison of §6.1.3, which uses T_ℓA^∨, is the reason the extraction asks for the convention to be fixed one way throughout rather than for a local patch. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E9",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p58,proof of Lemma6.2.6(2), diagonal conjugacy; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 58, proof of Lemma 6.2.6(2), diagonal conjugacy; final Annals text not compared",
    "printed": "h^(-1) g h = g; h_1 g h_1^(-1)=gprime",
    "correction": "The premise is h^-1 g h=gprime and its first-coordinate consequence is h_1^-1 g h_1=gprime.",
-   "reason": "Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid. (cc-442dc5) Reclassified to affect nothing: the page image (v2 p.58) shows 'h^{−1}gh = g' where g′ is meant and 'h_1gh_1^{−1} = g′' where h_1^{−1}gh_1 = g′ follows; either way g and g′ are conjugate in G(Q̄), which is all that is used.",
+   "reason": "Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid. It affects nothing: the page image (v2 p.58) shows 'h^{−1}gh = g' where g′ is meant and 'h_1gh_1^{−1} = g′' where h_1^{−1}gh_1 = g′ follows; either way g and g′ are conjugate in G(Q̄), which is all that is used.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55456,17 +55456,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed on the page image, since pdftotext drops the prime. Page 58 prints 'Let g, g′ ∈ G(Q̄) such that there exists h ∈ H(Q̄) such that h⁻¹gh = g' — a plain g on the right, which makes the premise vacuous; it must be g′. The first-coordinate consequence is then h₁⁻¹gh₁ = g′, not the printed h₁gh₁⁻¹ = g′. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E10",
    "kind": "error",
-   "locator": "arXiv2103.09945v2, p60,proof of Lemma6.3.3, compactness step; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 60, proof of Lemma 6.3.3, compactness step; final Annals text not compared",
    "printed": "any lift",
    "correction": "Choose a SEMISIMPLE lift of the quotient class before deducing compactness from unit-modulus eigenvalues; carry the central rescaling through the subsequent lift.",
-   "reason": "The unipotent matrix [[1,1],[0,1]] has eigenvalues1 and maps to the identity semisimple quotient class, but its nth power has upper-right entryn and is unbounded. Thus arbitrary lifts do not satisfy the stated compactness inference. This is a proof qualification, not a counterexample to the real elliptic representative theorem.",
+   "reason": "The unipotent matrix [[1, 1], [0, 1]] has eigenvalues 1 and maps to the identity semisimple quotient class, but its nth power has upper-right entry n and is unbounded. Thus arbitrary lifts do not satisfy the stated compactness inference. This is a proof qualification, not a counterexample to the real elliptic representative theorem.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -55479,14 +55479,14 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed, and it is the most serious of the fourteen. The proof of Lemma 6.3.3 (p. 60) takes 'γ̃₁ ∈ G(C) be any lift', observes that the eigenvalues of its image have absolute value 1, and concludes that γ̃₁ lies in a maximal compact subgroup of G(C). That implication needs semisimplicity: a nontrivial unipotent element has all eigenvalues 1 and lies in no compact subgroup. A semisimple lift exists, and the central rescaling by z must then be carried through, so the lemma stands — but not by the printed argument. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E11",
    "kind": "gap",
-   "locator": "arXiv2103.09945v2, p53,proof of Corollary5.2.7; repeated onp54; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 53, proof of Corollary 5.2.7; repeated on p. 54; final Annals text not compared",
    "printed": "[Poo04, Corollary 3.4]",
    "correction": "Supply the local smooth-chart curve argument C20–C24, or a proved reduction to the projective hypotheses of that corollary.",
    "reason": "The cited Poonen statement assumes a smooth projective geometrically integral ambient variety; the obtained Y is only a smooth scheme chart. The etale polynomial graph proof given here establishes exactly the needed one-point/dense-open conclusion over the original field. It does not prove a projective or multipoint Bertini theorem.",
@@ -55502,17 +55502,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed as a gap in the citation's hypotheses. Pages 53 and 54 both apply [Poo04, Corollary 3.4] to a scheme Y produced by [LMB00, Théorème 6.3], i.e. a smooth chart of an algebraic stack. Poonen's Bertini theorems over finite fields are stated for a smooth quasi-projective subscheme of P^n (I checked the paper's own description of its setting), and a smooth chart is not quasi-projective for free. Either that is checked or the curve is produced locally, which is what the extraction's items C20–C24 do. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E12",
    "kind": "gap",
-   "locator": "arXiv2103.09945v2, pp49–50,proof of Proposition5.2.3, choice of orbit sum; final Annals text not compared",
-   "printed": "lambda+sigma_q^i(alpha^vee) <= mu; lambda+sum_i sigma_q^i(alpha^vee) <= mu",
+   "locator": "arXiv 2103.09945v2, pp. 49–50, proof of Proposition 5.2.3, choice of orbit sum; final Annals text not compared",
+   "printed": "lambda+sigma_q^i (alpha^vee) <= mu; lambda+sum_i sigma_q^i (alpha^vee) <= mu",
    "correction": "Choose the coroot orbit by applying the ordinary dominance step to the folded coroot root system, with integral/chamber transport and the adjacent-even-A case checked. C14–C19 supply that finite combinatorial proof; the BT relative-root normalization remains G-roots.",
-   "reason": "Separate upper bounds cannot in general be added while retaining the same upper bound. In A4 with reversal, lambda simple pairings(1,0,0,1), mu-lambda=(1,1,1,1), alpha=(1,1,1,0), both individual steps are dominant and bounded, but their sum(1,2,2,1) exceeds the difference. This tests only the generic inference; no claim is made that these endpoints satisfy the paper's minuscule local-model hypotheses. An existential suitable orbit does exist and is proved here.",
+   "reason": "Separate upper bounds cannot in general be added while retaining the same upper bound. In A 4 with reversal, lambda simple pairings (1, 0, 0, 1), mu-lambda=(1, 1, 1, 1), alpha=(1, 1, 1, 0), both individual steps are dominant and bounded, but their sum (1, 2, 2, 1) exceeds the difference. This tests only the generic inference; no claim is made that these endpoints satisfy the paper's minuscule local-model hypotheses. An existential suitable orbit does exist and is proved here.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -55525,17 +55525,17 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Located at pp. 49–50. The proof passes from 'there exists a positive root α with λ + α^∨ ⪯ µ' (Stembridge's lemma, via [Rap00, Lemma 2.3]) to the σ_q-orbit sum λ + Σ_i σ_q^i(α^∨) ⪯ µ, and the orbit sum does not follow from the single-root statement without an argument in the folded root system. I did not verify the extraction's proposed replacement in detail; its items C14–C19 carry it. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E13",
    "kind": "misprint",
-   "locator": "arXiv2103.09945v2, p59,proof of Theorem6.2.7, auxiliary level and special fiber; final Annals text not compared",
-   "printed": "K_1^p subset H(A_f^p); S_K(H_1,X_1)",
-   "correction": "Use K_1^p subset H_1(A_f^p) containing the image of K^p, and S_(K_1)(H_1,X_1) for the reduction.",
-   "reason": "The ambient Shimura datum and p-level have already changed to H_1 and K_(1,p). The point is in Sh_(K_1)(H_1,X_1), and the immediately following sentence names its integral model with K_1.",
+   "locator": "arXiv 2103.09945v2, p. 59, proof of Theorem 6.2.7, auxiliary level and special fiber; final Annals text not compared",
+   "printed": "K_1^p subset H(A_f^p); S_K(H_1, X_1)",
+   "correction": "Use K_1^p subset H_1(A_f^p) containing the image of K^p, and S_(K_1)(H_1, X_1) for the reduction.",
+   "reason": "The ambient Shimura datum and p-level have already changed to H_1 and K_(1, p). The point is in Sh_(K_1)(H_1, X_1), and the immediately following sentence names its integral model with K_1.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -55548,14 +55548,14 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed, both halves, on p. 59. The text sets K₁,p = H₁(Z_p) and K₁ = K₁,p K₁^p 'where K₁^p ⊂ H(A_f^p)', but K₁ is a level subgroup of H₁, so it must be H₁(A_f^p); and the next sentence reduces to 'y_A ∈ S_K(H₁, X₁)(F_q), where S_{K₁}(H₁, X₁) is the integral model', mismatching K and K₁ within one sentence. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KISIN-ZHOU-25/E14",
    "kind": "gap",
-   "locator": "arXiv2103.09945v2, p60,proof of Lemma6.3.3, last sentence; final Annals text not compared",
+   "locator": "arXiv 2103.09945v2, p. 60, proof of Lemma 6.3.3, last sentence; final Annals text not compared",
    "printed": "Any lift",
    "correction": "Prove a real lift with the required semisimple quotient class, then multiply back by the central element z used to define gamma_1. An arbitrary real lift of the image in G/w(G_m) does not suffice.",
    "reason": "Multiplying a lift by a nontrivial element of w(G_m)(R) preserves its image in the quotient but can change its class in Conj_G. For example scalar matrices in GL2 all map to the identity of PGL2 while their eigenvalues differ. The necessary compatible real lift and central rescaling remain in G-global; no counterexample to the stated elliptic-representative theorem is asserted.",
@@ -55571,9 +55571,9 @@
    "owner": "PAPER-KISIN-ZHOU-25",
    "file": "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json",
    "citation": "Kisin–Zhou, \"Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties\", Annals of Mathematics 202 (2025), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-ZHOU-25",
+   "reviewReason": "Confirmed, and distinct from E10 although it is the same proof and the same phrase. The last sentence of Lemma 6.3.3 (p. 60) reads 'Any lift of ψ⁻¹(γ̃₂) to G(R) yields the required lift of γ'. ψ⁻¹(γ̃₂) lives in Ḡ(R) = (G/w(G_m))(R); a lift to G(R) need not exist over the reals, need not be semisimple, and the element produced has to be multiplied back by the central z used to define γ₁. Separating this from E10 is right: they are two different unjustified steps. No later version or erratum corrects it: arXiv 2103.09945 stops at v2 and Crossref's record of doi:10.4007/annals.2025.202.3.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The final Annals text is paywalled and was not compared, as the extraction states."
   },
   {
    "id": "PAPER-KLEVDAL-PATRIKIS-25/E1",
@@ -61622,6 +61622,52 @@
    "searched": [
     "2026-09-23: the article page and arXiv 2007.05398 (v2, 15 June 2022, the latest) show no correction; https://math.rice.edu/~bl70/ links the published PDF without an erratum.",
     "2026-09-23: arXiv 2007.05398v2 (SHA-256 3cdae0b1…61af), §A.3.3, has the same sentence."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E43",
+   "kind": "error",
+   "locator": "Published PDF71, Lemma3.4.6, last equivariance assertion, relative to the original action in the preceding paragraph; also Morra author preprint p.51.",
+   "printed": "the natural map U(z) ↪ Gr_G,X is T^{∨,ext}-equivariant.",
+   "correction": "Keep the displayed chart action, but precompose the Grassmannian action by the torus automorphism theta_nu(D,r)=(r^nu D,r). The chart inclusion is theta_nu-equivariant; the unqualified assertion with the original (D,r)-action is false in general.",
+   "reason": "In the left quotient the positive factor Ad(w)(D^-1) disappears, leaving [A(r^-1v)r^nu D], whereas the original target action gives [A(r^-1v)D]. Over Q,t=0,w=1,nu=(1,0),h=1, A=[[v,v^-1],[0,1]] is in the chart. With D=I,r=2 the chart image C=[[v,2/v],[0,1]] and original target image B=[[v/2,2/v],[0,1]] differ because CB^-1=[[2,-2/v],[0,1]] is not in L+G(Q). Twisting gives equality. theta_nu is an automorphism and the original torus preserves the differential and Schubert loci, so this repair retains the contraction argument; no counterexample to the main unibranchness theorem is asserted.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: exact-title correction/erratum and Lemma3.4.6/equivariance searches; no dedicated correction located.",
+    "2026-09-23: https://math.rice.edu/~bl70/ lists the published PDF without a correction for this article; its HNTheory correction is for a different paper.",
+    "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 dated15 June2022 as latest. Version metadata checked, not a full version diff.",
+    "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
+    "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
+   ],
+   "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
+   "citation": "Le–Le Hung–Levin–Morra, \"Local models for Galois deformation rings and applications\", Inventiones Mathematicae (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E44",
+   "kind": "misprint",
+   "locator": "Published PDF71, proof of Lemma3.4.6, final right-hand side of each of the two displayed identities; also Morra author preprint p.51.",
+   "printed": "(r^{-1}v-t)^ν",
+   "correction": "Replace this factor by (r^{-1}v-t)^(-ν) in both final right-hand sides.",
+   "reason": "The left sides contain r^nu(v-rt)^(-nu)=(r^-1v-t)^(-nu). Already t=0,r=2,nu=1 gives 2/v, while the printed factor is v/2. The corrected factors are precisely those needed to apply the chart's defining negative-power conditions.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: exact-title correction/erratum and Lemma3.4.6/equivariance searches; no dedicated correction located.",
+    "2026-09-23: https://math.rice.edu/~bl70/ lists the published PDF without a correction for this article; its HNTheory correction is for a different paper.",
+    "2026-09-23: https://arxiv.org/abs/2007.05398 lists v2 dated15 June2022 as latest. Version metadata checked, not a full version diff.",
+    "2026-09-23: https://www.math.univ-paris13.fr/~morra/MLM.pdf p.51 reproduces both passages; downloaded SHA256 8cb1a1dd2eb23404ee9a99b5f0c2632cd1b6f1b879069a6080ff652f8f4f4d6d.",
+    "2026-09-23: Springer https://link.springer.com/article/10.1007/s00222-022-01163-4 timed out; its correction listing was not inspected. 'new' means no correction located in the successful searches, not a priority claim."
    ],
    "owner": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
    "file": "research/blueprint/papers/PAPER-LE-LEHUNG-LEVIN-ETAL-23.result.json",
