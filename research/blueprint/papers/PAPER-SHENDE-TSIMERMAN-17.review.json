@@ -1,0 +1,77 @@
+{
+  "paper": "PAPER-SHENDE-TSIMERMAN-17",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "GS.0 is the correct owner, but the original P1 splitting supplier and ramified integral-model/adelic measure comparison remain unclosed (G1/G8). Correcting the unit carrier does not complete the exported dictionary."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Bounded PGL2 Hecke modification instance fits the read GS.1 description; import its stack/Grassmannian infrastructure. This acceptance does not certify spectral mixing."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "ST.0 owns finite weighted measures and the N1–N5 arithmetic is supported, but the route as a whole still exports the unclosed bundle/adelic measure identification. The Hecke limiting theorem has been moved to ST.5."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "ST.5 owns these limits and the one-bundle all-q argument is supported. The combined route still needs the varying-place Linnik transfer, Hecke spectral input and fixed-characteristic high comparison; they must remain hypotheses (G2/G7)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The rational middle-perverse and IC definitions are explicitly planned by EDC.5; no second perverse category is introduced."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "EDC.7 explicitly owns pure decomposition and relative hard Lefschetz. Retain geometric base change, projectivity, purity and twists; the semismall bridge is an application of that owner, not automatic arithmetic splitting."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "LPV.2 already plans ordinary quadratic singularities and the vanishing module with characteristic and orientation conventions. The source supplies a hyperelliptic application."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "SF.5 owns Chow and intersection operations, but the route includes the exact positivity needed to dominate local polar multiplicity. Fulton 12.2/12.4 and its hypotheses were not acquired, so this numerical supplier is not ready (G5/G9)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "WC.1/WC.2 are the read zeta/functional-equation consumers, with the class-number evaluation explicitly required as the curve/Jacobian comparison. Reuse the shared point-counting trace supplier."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "WC.5 explicitly owns the all-extension curve bound and b1=2g interface used in the elementary point-count argument; genus-one library results do not replace it."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "DWP.7 is the exact upper-weight owner. Singular proper theta loci require compact-support upper bounds, not unsupported smooth purity."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "AA.0–AA.2 own adelic topology and measures. The corrected route imports the scheme Weil restriction and quadratic torus from RG2.0a, avoiding duplicate construction; the ramified global dictionary is held in route 1."
+    },
+    {
+      "route": 13,
+      "verdict": "reject",
+      "reason": "The upstream Jacobian extension is the correct owner, but G4/G5/G9/G10 block its current endpoints: original IC/cohomology suppliers, polar image degrees and isolated intersections, and the full-versus-restricted complex bound. The revised brief records conditional numerical accounting and the corrected characteristic range."
+    },
+    {
+      "route": 14,
+      "verdict": "reject",
+      "reason": "The shared microlocal Part II is architecturally justified and reused by Yang–Zhao/Abe/Lawrence–Sawin. MS general proofs and Sawin v2 were read, but original Massey and local Euler-obstruction suppliers/version conventions remain unclosed. A numerical application cannot replace those generic interfaces."
+    }
+  ],
+  "notes": "Independent Codex review, session codex-7e92bd. All 144 input items inspected; one unrestricted endpoint separated, yielding 145 items (13 library, 23 planned, 109 missing). Every missing item is routed exactly once. All 24 input source findings checked: E8 rejected; 23 confirmed with v1-only and proof-gap qualifications. New E25 confirmed, giving 24 confirmed of 25. Eight routes accepted and six rejected. Extraction status is partial. No Lean deliverable or implementation claim."
+}
