@@ -1370,8 +1370,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1099"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1099",
+   "finishedAt": "2026-09-23T03:33:53Z"
   },
   {
    "id": "REV-PAPER-DITTMANN-POP-23",
