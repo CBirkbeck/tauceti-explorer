@@ -1,5 +1,43 @@
 # PAPER-BHATT-18 — current handoff
 
+Claude Code — `cc-fb70e5`, 23 September 2026. Third partial continuation, of PR #2213 and PR #2221, for issue #2182. This section supersedes the resume orders retained below **only where it says so**; everything else in them stands.
+
+## Delivered
+
+- **86 items** (10 library, 12 planned, 64 missing), nine routes unchanged, every missing item routed once. All 81 inherited items, their statuses, the eight unreviewed source findings, the nine gap groups and both pinned baselines survive untouched. No review verdict supplied or changed.
+- **The coverage half of G8 is closed for the paper's own statements.** A mechanical inventory of arXiv v2 — with `Assumption` added to the environment list, and citations into other papers (`[BS] Lemma 3.16`, `[Sc1] Corollary 6.7`, `[Sc1] Theorem 7.9`) filtered out — gives **32 numbered statements**, contiguous in every section. Five appeared in no locator and nowhere else in the extraction: **Remarks 1.3, 1.8, 2.4, 2.5, 5.5**, now the items `contributions`, `strategy-summary`, `flatness-generality`, `derived-presentation`, `perfectoid-kunz`.
+- Two of those five are planning content. **Remark 1.3**: the conjecture is reproved here using only the *linear* quantitative Hebbarkeitssatz in place of the *non-linear* perfectoid Abhyankar lemma, and the derived theorem is **not** a formal strengthening — its birational case is orthogonal to Theorem 1.1. **Remark 1.8**: of Theorem 1.6, `Ext⁰` recovers Scholze, `Ext¹` suffices for Theorem 1.1, and all `i ≥ 0` is needed for Theorem 1.2.
+- **Remark 5.5's open question is answered in the literature.** Bhatt–Iyengar–Ma, *Regular rings and perfect(oid) algebras*, Comm. Algebra **47** (2019), no. 6, 2367–2383, arXiv:1803.03229: a p-adically complete Noetherian ring is regular exactly when it admits a faithfully flat map to a perfectoid ring, with an almost-flat version. State §5's reductions in the "admits a faithfully flat integral perfectoid extension" form and cite this for the equivalence.
+- **G1 is settled, not open.** No accessible copy of the published article exists: Springer serves the subscription landing page; the author's IAS page routes "Papers" to an arXiv author search and hosts no PDFs; his Michigan directory returns HTTP 403. **arXiv v2 remains the reference text**, and since the published article is 21 journal pages against v2's 12, every finding must keep saying it is certified only against the arXiv version.
+
+## Resume in this order
+
+The previous order stands, with two amendments: **item 5's acquisition half is closed** (do not retry Springer or the author's pages; collate only if a subscription copy appears), and **G8's coverage half is closed** for Bhatt's own statements — what remains there is the cited-input proof-leaf inventory.
+
+1. **G6 remaining geometry.** Unchanged and still the largest block: the actual leaves of Stacks 0815/081M/081R — 38.3.2; 38.30.3 and 38.30.6; 38.10.1; 38.11.1–38.11.3; 37.41.6; 31.34.4; 31.33.14 — matched to suppliers inside SF.4, with the Rees-grading/chart and relative-Proj gluing adapters, proper coherent finiteness/perfectness and generic multisections.
+2. **G2–G3.** Unchanged: the precise BS simplicial-perfection proofs, SW's general integral-perfectoid criterion, the GR (!!) input, Bhatt 2014 Lemma 2.7 and lecture Corollary 9.4.7, keeping field-based and general integral conventions separate. **New**: when you reach the derived-presentation question, the item `derived-presentation` (Remark 2.5) is the statement to prove, and Bhatt says the answer is yes.
+3. **G5/G7.** Unchanged, but note `perfectoid-kunz`: the regular-local reductions should be phrased by the hypothesis the proofs use, with regularity as an equivalent condition by citation to Bhatt–Iyengar–Ma.
+4. **G4 remaining interfaces.** Unchanged.
+5. **G1/G8.** Acquisition closed as above. Remaining: the cited-input proof-leaf inventory, supplier nodes for stage placeholders, active reservations, and coordination of the pending **PerfectoidRamification** and **RegularRingSplittings** proposals with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. **New**: `contributions` (Remark 1.3) should govern that coordination — reuse PAPER-ANDRE-18's PerfectoidRamification proposal for the quantitative Riemann extension, and do **not** plan the perfectoid Abhyankar lemma as an input to *this* paper's route, because the whole point of Remark 1.3 is that it is not needed.
+6. **G9** unchanged: André A.3.1's local-duality/completion scope is an unresolved question, not a finding; do not promote it without a proof and the required correction search.
+7. **The eight source findings remain unreviewed.** They are another worker's; a reviewer may supply verdicts. This worker checked none of them and changed none.
+
+## Source and reading boundaries
+
+Fresh reads by this worker: **arXiv:1608.08882v2 in full** (12 pages, sha256 `08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430`), for the numbering inventory and for the five statements written up here. Everything else — André, Scholze, GR2, the Stacks locators, the Mathlib and Tau Ceti pins — is **inherited, not re-verified by this worker**; the earlier sections' claims about them stand on their own authority, and the pins were not re-read.
+
+Do not mark this job complete on the strength of the coverage audit. **Coverage was never the reason it was partial**: the open work is closing the original cited inputs (G2–G7) and the proof-leaf inventory, and none of that moved this tick.
+
+## Validation
+
+`scripts/check_paper.py` passes on the amended JSON. The five new items follow the file's existing item shape (`note`, `implementationStatus`, `prerequisites`, `proofSteps`, `proposedOwner`, `api`, `unitTests`, `uses`), their `uses` and `prerequisites` resolve to existing ids, and each is in exactly one route: `contributions` and `perfectoid-kunz` in RegularRingSplittings, `strategy-summary` in PerfectoidRamification, `flatness-generality` in PerfectoidQuotients, `derived-presentation` in PerfectoidSpaces. The earlier workers' arithmetic and structural checks were **not** rerun; no new executable check was added, and no Lean file was added or compiled.
+
+---
+
+## Earlier handoffs — historical context
+
+# PAPER-BHATT-18 — current handoff
+
 Codex — codex-7e92bd, 23 September 2026. Partial continuation of PR #2213 for issue #2182. This section supersedes the earlier resume order retained below.
 
 ## Delivered

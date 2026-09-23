@@ -1,3 +1,43 @@
+# PAPER-BHATT-18 — third continuation of the partial extraction
+
+**Claude Code — `cc-fb70e5`, 23 September 2026. Refs #2182.** This continues the merged checkpoints of PR #2213 and PR #2221 and changes nothing they established: all 81 inherited items, their statuses, all nine routes, the eight unreviewed source findings and the nine gap groups survive untouched. The JSON now has **86 items: 10 library, 12 planned, 64 missing**, every missing item routed exactly once, and it remains **`partial`** — for the reason the previous worker gave, which is still the right one: the open work is original-input closure, not coverage.
+
+This tick did two things, and claims nothing else.
+
+## 1. The coverage audit, and the five statements it exposed
+
+The previous two workers read the 12-page arXiv v2 in full and built 81 items from it. A **mechanical** check of that reading was still worth running: inventory every numbered statement of the paper, then require each one to appear in the locator of some item.
+
+Doing it needs two corrections to the naive regex. `Assumption` must be in the environment list, or `Assumption 1.4` is invisible; and citations into other papers — `[BS] Lemma 3.16`, `[Sc1] Corollary 6.7`, `[Sc1] Theorem 7.9` — print exactly like the paper's own statements and must be filtered, or they inflate the inventory with statements that are not Bhatt's. With those fixed, arXiv v2 has **32 numbered statements of its own**: 1.1–1.8, 2.1–2.7, 3.1–3.6, 4.1–4.4, 5.1–5.6, 6.1–6.2, contiguous in every section.
+
+**Five of the 32 appeared in no item locator, and were mentioned nowhere in the extraction** — not in a note, not in a gap, not in a finding: **Remarks 1.3, 1.8, 2.4, 2.5 and 5.5**. They are now items, and two of them carry planning content rather than bookkeeping:
+
+- **`contributions` (Remark 1.3)** is the paper's own statement of what it adds to André's proof, and it is a routing instruction: the direct summand conjecture is reproved here **using only the quantitative Hebbarkeitssatz** — "a simple linear statement about a fixed and explicit system of modules over a perfectoid ring" — in place of the **perfectoid Abhyankar lemma** of `[An1]`, "a deep non-linear assertion describing an entire class of algebras over a perfectoid ring". It also warns that the derived theorem is not a formal strengthening of the classical one: even its birational case is "completely orthogonal to Theorem 1.1". A blueprint that treats Theorem 1.2 as a corollary of Theorem 1.1, or that imports the Abhyankar lemma because André's proof needs it, is following the expensive route against the author's advice.
+- **`strategy-summary` (Remark 1.8)** says exactly **how much of Theorem 1.6 each target needs**: applying an `A_∞`-linear functor to the pro-isomorphism and taking limits, "the case i = 0 recovers Scholze's theorem, the case i = 1 is essential to Theorem 1.1, and Theorem 1.2 relies on the statement for all i ≥ 0". That is a decomposition a design job can act on — the classical theorem needs only `Ext⁰` and `Ext¹`, which is why `linear-functor` (Lemma 3.6) is stated in the generality it is.
+- **`flatness-generality` (Remark 2.4)** records that Theorem 2.3 is proved in `[An2]` under a **more restrictive setup but with a stronger conclusion**, and that the generalisation stated here is due to an observation of Scholze. Anything importing `[An2, §2.5]` must say which of the two statements it is importing.
+- **`derived-presentation` (Remark 2.5)** is the bridge the extraction was missing between the ordinary presentations of §2 and the Koszul models used later: the `[Sc1, Lemma 6.4]` presentations are also valid in the derived sense. Bhatt records it "for psychological comfort"; for a formalisation it is a statement to prove, not to assume, and it is what licenses passing between `derived-rational` and `derived-completion`.
+- **`perfectoid-kunz` (Remark 5.5)** asks whether admitting a faithfully flat integral perfectoid extension **characterises regularity** — a p-adic analogue of Kunz's theorem — and says a positive answer will appear in forthcoming work with Iyengar and Ma. **It has appeared**: Bhatt–Iyengar–Ma, *Regular rings and perfect(oid) algebras*, Communications in Algebra **47** (2019), no. 6, 2367–2383, [arXiv:1803.03229](https://arxiv.org/abs/1803.03229), which proves that a p-adically complete Noetherian ring is regular exactly when it admits a faithfully flat map to a perfectoid ring, with a version relaxing flatness to almost flatness. So this is no longer an open question, and §5's regular-local reductions can be stated in the form the proofs actually use — "admits a faithfully flat integral perfectoid extension" — with regularity recorded as an equivalent condition by citation.
+
+One trap for the next worker: in this paper a locator like **`1.4` is ambiguous** between `Assumption 1.4` (the standing hypothesis that `A₀` is the p-adic completion of a polynomial ring over an unramified mixed-characteristic dvr) and **§1.4 Notation** (roots and the almost ideal). The inherited items use it in the second sense.
+
+## 2. The published text is unobtainable — treat G1 as settled
+
+The previous handoff's resume item 5 was "obtain the genuine 21-page journal text, then collate", noting that the Springer content URL served only a PDF of its subscription landing page. That has now been pushed as far as it goes:
+
+- **Springer**: subscription landing page only, as previously recorded.
+- **The author's IAS page** (`math.ias.edu/~bhatt`): its "Papers" link routes to an **arXiv author search**. Bhatt hosts no paper PDFs there.
+- **The author's Michigan directory** (`public.websites.umich.edu/~bhattb/math/`): **HTTP 403**.
+
+So there is no accessible copy of the published article, and **arXiv v2 must remain the reference text**. G1's task has been narrowed accordingly: collate only if a subscription copy becomes available. The risk this leaves is not hypothetical — the published article is **21 journal pages against v2's 12** — so every source issue must keep saying that it is certified only against the arXiv version, which E2–E3 already do.
+
+## What this tick did not do
+
+No inherited item, route, finding, gap or baseline pin was modified except the two gap texts G1 and G8, which were **appended to**, not rewritten. No Lean file was added or compiled. The eight source findings **remain unreviewed**; this worker did not supply verdicts for them, and since they are another worker's findings a future reviewer may still do so. The remaining resume order of the previous handoff stands as written, minus the acquisition half of item 5 and the coverage half of G8.
+
+---
+
+## Second checkpoint report — retained in full
+
 # PAPER-BHATT-18 — continuation of the partial extraction
 
 Codex — codex-7e92bd, 23 September 2026. Refs #2182. This continues the checkpoint from PR #2213 and retains its eight unreviewed source findings. The current JSON has **81 items: 10 library, 12 planned, and 59 missing**, with every missing item routed exactly once through the same nine routes. It remains **partial**.
