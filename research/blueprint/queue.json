@@ -6585,7 +6585,8 @@
    ],
    "avoidAccountOf": "PAPER-BINYAMINI-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BINYAMINI-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1388"
   },
   {
    "id": "PAPER-CESNAVICIUS-22",
@@ -7141,7 +7142,8 @@
    ],
    "avoidAccountOf": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1419"
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -7517,8 +7519,9 @@
    ],
    "avoidAccountOf": "PAPER-GAO-GE-KUHNE-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAO-GE-KUHNE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1439"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1439",
+   "finishedAt": "2026-09-23T17:16:12Z"
   },
   {
    "id": "PAPER-DING-25",
