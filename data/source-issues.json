@@ -16385,6 +16385,138 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E1",
+   "kind": "misprint",
+   "locator": "Théorème 5.15, p. 55",
+   "printed": "où les produits tensoriels non spécifiés sont au-dessus de R_{B,M} et Ř_{B,M} = Hom(Ř_{B,M}, L).",
+   "correction": "et Ř_{B,M} = Hom(R_{B,M}, L).",
+   "reason": "As printed the definition is circular: Ř_{B,M} is defined as the dual of itself. The intended object is the continuous L-dual of R_{B,M}, as Theorem 0.1 (p. 2) states correctly (‘où Ř_{B,M} est le L-dual continu de R_{B,M}’) and as Theorem 5.24 (ii) (p. 59) repeats (‘où Ř_{B,M} est le L-dual de R_{B,M}’). Theorem 5.15 is the main theorem of the paper, so the misprint sits in the statement that the title announces. The same circular formula is in the arXiv v2 source, so it is not a production error.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E2",
+   "kind": "misprint",
+   "locator": "Proposition 5.16, p. 55",
+   "printed": "à l’ensemble des x ∈ H^{1,+}_{C_p} presque lisses sous l’action de G_{Q_p} (i.e. qui, pour pour tout k ≥ 1, sont fixes modulo p^k par un sous-groupe ouvert de G_{Q_p})",
+   "correction": "qui, pour tout k ≥ 1, sont fixes modulo p^k …",
+   "reason": "‘pour’ is printed twice. Present in the arXiv v2 source as well.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E3",
+   "kind": "gap",
+   "locator": "Théorème 5.24 (ii), p. 59 (and Théorème 5.15, p. 55)",
+   "printed": "Théorème 5.24. (i) R^{ps,δ_M}_B agit sur 𝕞_{B,M} à travers son quotient R_{B,M}. (ii) On a un isomorphisme de E^{δ_M}_B[G_{Q_p}]-modules 𝕞_{B,M} ≃ 𝕞^{δ_M}_B(Π^*(ρ_{B,M})) ⊗ ρ_{B,M} ⊗ Ř_{B,M} …",
+   "correction": "Part (ii) needs the hypothesis of Theorem 0.18 (ii): p > 3, or p = 3 and B not containing a twist of the Steinberg; and Theorem 5.15, whose proof cites (ii), inherits it.",
+   "reason": "Neither Theorem 5.24 (ii) nor Theorem 5.15 carries any hypothesis on p, and no standing hypothesis supplies one: chapter 4 assumes only p > 2 (p. 37, footnote 23) and chapter 5 assumes nothing. But the proof of (ii) ends ‘en adaptant le lemme 5.12’ through footnote 32 (p. 60), which needs the semi-simplicity of F ⊗_{R_{B,M}} E_{B,M} and states that Paškūnas's explicit description ‘demande d'exclure les blocs contenant un twist de la steinberg si p = 2, 3’. Accordingly the introduction states the same result as Theorem 0.18 (ii) with ‘Supposons que p > 3’, and footnote 14 (p. 9) relaxes it to p = 3 away from the Steinberg blocks. As printed, the two body statements assert for all p what is proved only under that restriction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E4",
+   "kind": "misprint",
+   "locator": "reference [52], p. 62",
+   "printed": "[52] V. Paškūnas, Extensions for supersingular representations of ), Astérisque 331 (2010), 317–353.",
+   "correction": "Extensions for supersingular representations of GL_2(Q_p).",
+   "reason": "The group has disappeared from the title, leaving a stray closing parenthesis; checked on the rendered page, not only in the extracted text. The source has the malformed ‘${\\rm GL}_2(\\Q_p$)’, with the closing parenthesis outside the formula, which is presumably what the production system dropped.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E5",
+   "kind": "misprint",
+   "locator": "reference [42], p. 62",
+   "printed": "[42] Y. Hu, H. Wang, On some mod p representations of quaternion algebra over g p, arXiv:2201.01464 [math.NT]",
+   "correction": "… of quaternion algebra over Q_p.",
+   "reason": "The field is printed as an italic ‘g p’ instead of Q_p (verified on the rendered page and by two independent text extractors). The source writes ‘over $\\qp$’, so the substitution happened in production.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/E6",
+   "kind": "misprint",
+   "locator": "reference [68], p. 62",
+   "printed": "[68] M. Strauch, Geometrically connected components of of Lubin-Tate deformation spaces with level structures, Pure and Applied Mathematics Q. 4 (2008), 1215–1232",
+   "correction": "Geometrically connected components of Lubin-Tate deformation spaces …",
+   "reason": "‘of’ is printed twice; the doubling is already in the arXiv v2 bibliography.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for 10.1017/fmp.2023.15 on 2026-09-23: no correction, no erratum, empty relation set, no update-to/updated-by",
+    "the Cambridge article landing page for Forum Math. Pi 11 (2023) e16, which lists no corrigendum",
+    "arXiv:2204.11214, which has only v1 and v2 (v2 is the accepted version); the point is checked against the v2 source",
+    "the authors' related papers on the same tower (J. AMS 33 (2020) 311–362, Camb. J. Math. 10 (2022) 511–655) for a correction notice"
+   ],
+   "owner": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
+   "file": "research/blueprint/papers/PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.result.json",
+   "citation": "Colmez–Dospinescu–Nizioł, \"Factorisation de la cohomologie étale p-adique de la tour de Drinfeld\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E1",
    "kind": "gap",
    "locator": "§3.5, after Theorem 3.8, p. 856 (also in arXiv v1, §3.5)",
