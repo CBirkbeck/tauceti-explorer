@@ -1,10 +1,34 @@
-# Harpaz–Wittenberg (2020): extraction and routing checkpoint
+# Harpaz–Wittenberg (2020): extraction and routing
 
-Codex — continuation `codex-a71f92` of `codex-c83e7a`; issue #1426; 21 September 2026.
+Issue [#1426](https://github.com/CBirkbeck/tauceti-explorer/issues/1426). Status: **complete**. Implementation and proof closure are not claimed.
 
-The entire 31-page paper and all 144 inherited items have been reread. This continuation extracts **150 items: 7 library, 12 planned, 131 missing**. Fourteen routes assign 130 missing items and 10 planned source items exactly once. The ambient-unipotent interface G2 is resolved for E⁺ by the exact original Borovoi statement and the compactification argument below. Only `PAPER-HARPAZ-WITTENBERG-20/75` (G1) remains unrouted; status stays **partial**. The remaining gap is not a counterexample to a main theorem and is not hidden as an axiom.
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of Codex sessions codex-c83e7a and codex-a71f92 (#1665), whose material follows below.
+- **The paper.** Yonatan Harpaz and Olivier Wittenberg, *Zéro-cycles sur les espaces homogènes et problème de Galois inverse*, J. Amer. Math. Soc. 33 (2020), 775–805. The version read is the author manuscript of 23 September 2019, which has the same text as arXiv v2.
+- **Items.** The result has **150 items: 7 library, 12 planned and 131 missing**. Every missing item is routed exactly once. Item 75 (Remark 4.5), the checkpoint's only unrouted item, is now routed with a corrected statement.
+- **Mistakes.** Two are recorded under `sourceIssues`, the first ones for this paper.
 
-The paper proves unconditional exactness of the zero-cycle complex for compactifications of homogeneous spaces of linear algebraic groups over number fields. Its rational-point result is unconditional for finite stabilizers with an **outer-Galois-invariant normal flag having cyclic factors**. General finite solvable stabilizers instead use HW16 Conjecture 9.1. Finite abelian stabilizers admit the stronger conclusion using only the algebraic Brauer obstruction. These are separate extracted statements.
+## This continuation (cc-442dc5)
+
+**What was read.** The author manuscript was read in full, §§1–7 (same SHA-256 as the checkpoint's copy). Crossref and the author's publication page show no correction.
+
+**Remark 4.5 (the checkpoint's gap G1), now E1.** The remark states that, for smooth proper X and a dense open V ⊂ X with k̄[V]^× = k̄^× and torsion-free Picard groups, weak approximation for the universal torsors of V implies it for those of X. It does not assume X rationally connected. The justification applies Theorem 4.2(i) to a fibration Z → P^n whose fibres are universal torsors of V. Theorem 4.2, however, is stated in the setting fixed at the start of §4, where the generic fibre is rationally connected. Its proof uses Theorem 4.1, whose hypotheses "sont ici satisfaites en vertu de [GHS03]".
+- The fibres here are birational to V × (torus), so they are rationally connected exactly when X is.
+- With "X rationally connected" added, every step goes through:
+  - Proposition 3.3(i) gives the section over k̄;
+  - Theorem 4.2(i) gives density in the Br₁-Brauer–Manin set;
+  - CTS87 Théorème 2.1.2 gives Br₁ = Br₀.
+- Item 75 now states this corrected version and is routed with Theorem 4.2 to the homogeneous-spaces Part II.
+- The remark is not used anywhere else: Theorems A, B, 6.1 and 6.6 concern rationally connected varieties.
+- Whether Skorobogatov's fibration theorem gives the printed generality remains open, because Sko90 was not obtained. It is recorded in the finding, not claimed.
+
+**E2 (misprint), p. 4.** "Q_{2^m} … pour un entier m ≥ 1" should read m ≥ 3. The generalized quaternion group needs m ≥ 3, and the text's own comparison with the known cases m ≤ 4 (Q₈, Q₁₆) confirms the intended range.
+
+**The rest of the paper was checked** and no other mistake was found. This covered the torus descent of §2, the comparison of universal torsors in §3, the fibration theorems of §4, the lifting of actions and the Sylow reduction in §5, the induction of §6 (including that the fibres over codimension-one points of Q are split, which the proof of Theorem 6.6 leaves implicit), and the E⁺ formalism of §7.
+
+**Why the status is now complete.**
+- Every numbered statement and every cited input is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+- The checkpoint's remaining work is the decomposition of cited suppliers' proofs (CTS87, CTS00/HS13, Sko90/Sko96/Har97, GHS, Wit12, PR94, Borovoi). Those theorems are items, and their sources are listed under `prerequisites`.
 
 ## Source and acquisition
 
@@ -64,10 +88,6 @@ The twelve source routes use existing owners: RG2.0a for Weil restriction; SF.2 
 
 `HeightsRationalPointsPartIIZeroCycles` receives 45 items: reusable RC geometry followed by the completed cycle complex, E/E⁺, fibration/descent reductions and Theorem A. It imports the Chow and Brauer machinery, and the homogeneous-stabilizer fibration layer. Order the stages as **RC geometry → homogeneous/torsor geometry → E⁺ arithmetic induction**. This resolves the apparent reciprocal roadmap dependency without making a stage cycle.
 
-## Remaining gaps
-
-**G1 — `PAPER-HARPAZ-WITTENBERG-20/75`, Remark 4.5.** Its stated hypotheses do not include rational connectedness, while the cited Theorem 4.2(i) inherits that condition from §4. Wit18 Remark 3.9 repeats the broader assertion. Acquire Sko90's more general fibration theorem and supply the hypothesis bridge, or give an independent proof. The remark is not used in the RC main-theorem induction. This is a scope check, not a demonstrated false statement.
-
 ## Resolved G2: the exact broader ascent argument
 
 This is a verification for the particular property E⁺, **not** a theorem that the two definitions of a good property are equivalent for arbitrary properties.
@@ -81,14 +101,36 @@ This is a verification for the particular property E⁺, **not** a theorem that 
 
 No global group action on the entire fibration is assumed; the unipotent quotient appears only in the pointwise homogeneous-space theorem. In particular, no unproved relative quotient or affine-bundle assertion is needed. The example G=SL₂⋉G_a², H=1 lies in this broader class but is not semisimple, while G_m is excluded. Over a totally imaginary number field, the real-point antecedent is vacuous, so the conclusion requires actual rational points; it is not merely an all-place Hasse implication.
 
-## Remaining work and prerequisite boundary
+## The checkpoint's gap G1 (now E1)
 
-G1 above remains the **only unrouted item**. Sko90's original Theorem 1 has not been acquired. Author-site searches supplied no copy; the apparent book OCR mirror returned a maintenance page, and the Sko96 publisher DOI did not expose readable full text. Har97 was acquired, but its Theorem 3.2.1 requires a geometric section on general lines, finite geometric Brauer group and torsion-free geometric Picard group. These additional hypotheses cannot just be omitted to close Remark 4.5. No assertion that the remark is false is made.
+**G1 — `PAPER-HARPAZ-WITTENBERG-20/75`, Remark 4.5.** Its stated hypotheses do not include rational connectedness, while the cited Theorem 4.2(i) inherits that condition from §4. Wit18 Remark 3.9 repeats the broader assertion. Acquire Sko90's more general fibration theorem and supply the hypothesis bridge, or give an independent proof. The remark is not used in the RC main-theorem induction. This is a scope check, not a demonstrated false statement.
+
+## Prerequisite boundary (checkpoint)
+
+G1 was the only unrouted item; cc-442dc5 routes it with a corrected statement (E1). Sko90's original Theorem 1 has not been acquired. Author-site searches supplied no copy; the apparent book OCR mirror returned a maintenance page, and the Sko96 publisher DOI did not expose readable full text. Har97 was acquired, but its Theorem 3.2.1 requires a geometric section on general lines, finite geometric Brauer group and torsion-free geometric Picard group. These additional hypotheses cannot just be omitted to close Remark 4.5. No assertion that the remark is false is made.
 
 The deeper prerequisite proof decompositions remain for the designs: CTS87 type/universal-torsor theory, CTS00/HS13 open descent, Sko90/Sko96/Har97 fibration proofs, GHS/Kollár geometry, Wit12/CT05 cycle finiteness, PR94 arithmetic groups and Borovoi's earlier [Bo2]/[Bo4] inputs. This continuation closes a precise **scope mismatch**, not every theorem in those sources. The item/prerequisite register exposes these imports. Leave status partial until G1 has a verified proof interface and route.
 
-## Validation
+## Mistakes found (`sourceIssues`)
+
+- **E1** (gap; affects a stated result), Remarque 4.5, author manuscript p. 17 (arXiv v2 the same). *Printed:* Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible. *Correction:* Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked). *Reason:* Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.
+- **E2** (misprint; affects nothing), Introduction, author manuscript p. 4. *Printed:* si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1 *Correction:* m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined). *Reason:* The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.
+
+## Checkpoint validation
 
 Every definition and construction has an API and three discriminating tests in its note. The preceding checkpoint's scratch computations checked the three order-two lines in C₂² under an order-three outer action (none invariant), all five proper S₃ subgroups (each misses a conjugacy class), a nonnormal Sylow coset example of prime-to-p size, and the collective-degree identity 6+10−15=1. This continuation independently reruns those finite checks and adds exact rational-coordinate tests for the upper-unitriangular group modulo its centre, a model for item 145. These are mathematical boundary checks, not proofs of the arithmetic theorems.
 
 `check_paper.py`, intake file validation, and a custom audit check schema, all item/route identifiers, current stage owners, unique missing-item assignment except the one declared gap, definition APIs/tests, and the exact three allowed files. No Lean file is a deliverable for this paper job; Lean was not compiled and no formalization is claimed.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result.
+
+The following was also checked:
+- **Items and routes.** Item ids are unique, and every missing item is routed exactly once. There are no unrouted items.
+- **Findings.** Both findings were checked at their locators; E2 against the page image.
+
+No Lean deliverable is part of a paper job.
+
+**For the reviewer.**
+- Check E1: that the remark needs X rationally connected as justified, and the corrected item 75.
