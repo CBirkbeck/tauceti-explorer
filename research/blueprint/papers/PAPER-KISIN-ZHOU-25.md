@@ -2,6 +2,8 @@
 
 Issue [#1069](https://github.com/CBirkbeck/tauceti-explorer/issues/1069). Status: **complete**. Implementation and proof closure are not claimed.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #1070, job `REV-PAPER-KISIN-ZHOU-25`): **accepted**, all twelve routes accepted, all fourteen recorded mistakes confirmed at their locators. Two presentation defects were repaired in place — the run-together spacing throughout the source block and the findings, and leaked process text (the extraction's session id and an internal revision note) in seven `reason` fields. No item, status, route or locator changed. See [REV-PAPER-KISIN-ZHOU-25.md](../reviews/REV-PAPER-KISIN-ZHOU-25.md).
+
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoint, whose report follows below as history.
 - **The paper.** M. Kisin and R. Zhou, *Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties*, Ann. of Math. 202 (2025), 1077–1156.
   - arXiv v2 (the latest arXiv version) was re-fetched; its SHA-256 (62d26eb9…) matches the checkpoint.
