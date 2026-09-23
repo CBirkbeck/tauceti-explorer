@@ -47354,7 +47354,7 @@
   {
    "id": "PAPER-GAO-HABEGGER-19/E1",
    "kind": "misprint",
-   "locator": "Theorem 3.2, p.13 (arXiv v3; published Annals version not collated)",
+   "locator": "Theorem 3.2, p.13 (arXiv v3; the same text is on p.541 of the published version)",
    "printed": "\"For v ∈ V(K) we let Y_v denote the projection of V ∩ ({v} × A) to A.\"",
    "correction": "Y_v is the projection of Y ∩ ({v} × A) to A.",
    "reason": "The fibre of Y over v is meant; V ∩ ({v} × A) makes no sense since V is a factor of V × A, and the proof of Proposition 3.1 uses Y_v as the fibre of Y.",
@@ -47362,41 +47362,41 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.541)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E2",
    "kind": "misprint",
-   "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; the same text is on p.543 of the published version)",
    "printed": "\"In other words, the finite morphism S̄″ → S̄′ is unramified above S′ ∖ Z. So we get a finite étale covering of S ∖ Z of degree [F(P) : F].\"",
-   "correction": "A finite étale covering of S′ ∖ Z.",
+   "correction": "A finite étale covering of S̄′ ∖ Z (the paragraph writes S′ for S̄′ throughout; S′ itself is not defined there).",
    "reason": "Z is a finite subset of S′(k), the curve with function field F; the covering S̄″ → S̄′ lives over S′, not over S.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.543)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E3",
    "kind": "misprint",
-   "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Proposition 3.1, p.14 (arXiv v3; the same text is on p.543 of the published version)",
    "printed": "\"Define a morphism ψ : V × A → V × (A/B) by ψ(v, t) = (v, [N] ∘ φ(P)).\"",
    "correction": "ψ(v, t) = (v, [N] ∘ φ(t)).",
    "reason": "ψ is a function of (v, t); P is not a variable here, and the next sentence uses ψ(Σ′) ⊆ V × {0}, which needs [N]φ(t) = 0 for the second coordinates t of Σ′.",
@@ -47404,20 +47404,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.543)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E4",
    "kind": "misprint",
-   "locator": "Proof of Lemma 5.2, p.19 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 5.2, p.19 (arXiv v3; the same text is on p.549 of the published version)",
    "printed": "\"We define c₁ = max{2, |γ₁|₂, |γ₁|₂} ≥ 2 and observe |γ|₂ ≤ c₁^{l(γ)} for all γ ∈ Γ.\"",
    "correction": "c₁ = max{2, |γ₁|₂, |γ₁^{-1}|₂, |γ₂|₂, |γ₂^{-1}|₂}.",
    "reason": "Elements of Γ are reduced words in γ₁^{±1}, γ₂^{±1}; submultiplicativity gives |γ|₂ ≤ c₁^{l(γ)} only if c₁ bounds all four letters, and γ₂ does not appear in the printed maximum.",
@@ -47425,20 +47425,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.549). A helper agent checked the corrected constant with the free generators [[1,2],[0,1]] and [[1,0],[4,1]] in PARI/GP; the printed constant already fails at the second generator. |·|₂ must be the operator norm."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E5",
    "kind": "misprint",
-   "locator": "Proof of Lemma 5.2, p.20 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 5.2, p.20 (arXiv v3; the same text is on p.550 of the published version)",
    "printed": "\"Now suppose x ∈ 𝒳 with exp(x) ∈ V and γ ∈ G with H(γ) ≤ T.\"",
    "correction": "γ ∈ Γ with H(γ) ≤ T.",
    "reason": "The count is over the free group Γ (the next sentences count \"elements in Γ of height at most T\"); G denotes a closed subgroup of T^n later in the proof.",
@@ -47446,20 +47446,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.550)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E6",
    "kind": "misprint",
-   "locator": "Proof of Proposition 5.4, p.24 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Proposition 5.4, p.24 (arXiv v3; the same text is on p.554 of the published version)",
    "printed": "\"then all points of Z₁ have order N in their respective fibers as β is fiberwise a group isomorphism.\"",
    "correction": "\"as b₁ is fiberwise a group isomorphism.\"",
    "reason": "Z₁ = b₁^{-1}(ξ) is a fibre of the Betti map b₁ on 𝒜_{Δ₁}; no map β is defined.",
@@ -47467,20 +47467,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.554)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E7",
    "kind": "misprint",
-   "locator": "Proof of Lemma 5.8, Case 2, p.28 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 5.8, Case 2, p.28 (arXiv v3; the same text is on p.560 of the published version)",
    "printed": "\"there exist by induction an abelian scheme 𝒞 over S and a homomorphism ψ : 𝒜/ℬ → 𝒞 whose kernel has dimension φ(Y) and contains φ(Y).\"",
    "correction": "\"whose kernel has dimension dim φ(Y)\".",
    "reason": "The dimension count on the next line uses dim ker(ψ) = dim φ(Y).",
@@ -47488,20 +47488,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.560)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E8",
    "kind": "gap",
-   "locator": "Proof of Lemma 5.8, Cases 1 and 2, pp.26–28 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 5.8, Cases 1 and 2, pp.26–28 (arXiv v3; the same text is on pp.558–560 of the published version)",
    "printed": "\"Our proof is by induction on dim 𝒜. The small possible value is 2 as we require g ≥ 1.\" … Case 1: \"We observe that dim ℬ = dim B_s + 1 ≤ (dim 𝒜_s − 1) + 1 = dim 𝒜 − 1. By induction there is an abelian scheme 𝒞 …\" … Case 2: \"Now since dim(𝒜/ℬ) = dim 𝒜 − dim B_s ≤ dim 𝒜 − 1, there exist by induction …\"",
    "correction": "Two subcases lie outside the induction and need separate one-line arguments. In Case 1 with B_s = 0, ℬ is the zero section, so [N]Y lies in it, Y is a component of 𝒜[N] (so dim Y = 1), and 𝒞 = 𝒜 with [N] works. In Case 2 with B_s = 𝒜_s, Z_s = 𝒜_s, so Y = 𝒜, and the zero homomorphism to the relative-dimension-0 scheme 𝒞 = S works. In all other subcases ℬ, resp. 𝒜/ℬ, has relative dimension ≥ 1 and the induction applies as written.",
    "reason": "The induction hypothesis is stated for abelian schemes of relative dimension g ≥ 1 (dim ≥ 2). If B_s = 0 in Case 1, ℬ has relative dimension 0 and dim ℬ = 1. If B_s = 𝒜_s in Case 2, 𝒜/ℬ has relative dimension 0. In both, the hypothesis cannot be invoked. The lemma remains true by the arguments above.",
@@ -47509,20 +47509,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.558–560). The quoted gap also includes the false sentence 'Note that dim Y ≥ 2 since dim Z_s ≥ 1, so we are not in the minimal case' (p.28): for g = 1 and Y = 𝒜, Case 2 occurs in the minimal case. The proposed repair covers it."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E9",
    "kind": "misprint",
-   "locator": "Proof of Theorem 5.1, p.29 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem 5.1, p.29 (arXiv v3; the same text is on p.561 of the published version)",
    "printed": "\"Clearly, U ∖ Σ is an uncountable set as U is open in S^an and non-empty.\" … \"M equal to the set of s obtained from U∖Σ\"",
    "correction": "π(U) ∖ Σ is uncountable, because π(U) is a non-empty open subset of S^an (π|_Y is flat, hence open).",
    "reason": "U is an open subset of Y^an ∩ 𝒜_Δ, while Σ ⊆ S(ℂ) is the countable set of non-extendable points; the set M fed into Lemma 5.8 is a set of base points.",
@@ -47530,20 +47530,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.561)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E10",
    "kind": "misprint",
-   "locator": "Proof of Lemma 6.4, p.33 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 6.4, p.33 (arXiv v3; the same text is on p.565 of the published version)",
    "printed": "\"If c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2g}, then we have c_i ∈ ℝ and √−1c_i ∈ ℝ\"",
    "correction": "c₁v₁ + ⋯ + c_kv_k ∈ ℝ^{2k}.",
    "reason": "Lemma 6.4 lives in ℂ^{2k} with real part ℝ^{2k}; g does not occur in it.",
@@ -47551,20 +47551,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.565)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E11",
    "kind": "misprint",
-   "locator": "Proof of Proposition 6.9, p.37 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Proposition 6.9, p.37 (arXiv v3; the same text is on p.570 (where 'now' is corrected to 'no' but Z is not corrected to Z′) of the published version)",
    "printed": "\"We write Z′ = Z ×_S S′ which comes with a closed immersion Z′ → 𝒜′. Observe that Z may now longer be irreducible.\"",
    "correction": "\"Observe that Z′ may no longer be irreducible.\"",
    "reason": "Z is irreducible by hypothesis; the base change Z′ may split, as the next sentences about the components Z′_1,…,Z′_r assume.",
@@ -47572,20 +47572,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator. The published version corrects 'now' to 'no' but not Z to Z′ (p.570)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E12",
    "kind": "gap",
-   "locator": "Proof of Proposition 6.9, p.38 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Proposition 6.9, p.38 (arXiv v3; the same text is on p.571 of the published version)",
    "printed": "\"Recall that Z_s and thus each Z_s − [k](σ(s)) with k ∈ ℤ is equidimensional of dimension dim Z − 1. All irreducible components that appear have degree bounded by a constant independent of the auxiliary prime ℓ. By (6.4) and Proposition 6.7 the degree deg(W) is bounded from above by a constant c ≥ 1 that is independent of ℓ.\"",
    "correction": "Proposition 6.7 must be applied to the possibly reducible sets V_k = Z_s − [k]σ(s), with δ = deg Z_s the sum of the component degrees. Its proof still works: a union V′ ∪ V″ of sets cut out by forms {f} and {g} of degrees ≤ δ′, δ″ is cut out by the products {fg} of degree ≤ δ′ + δ″. So Lemma 6.8 extends to an algebraic set whose component degrees sum to δ, and the rest of the proof of Proposition 6.7 never uses irreducibility of the V_i.",
    "reason": "Proposition 6.7 is stated for irreducible V₁,…,V_m. For a general Z the fibre Z_s can be reducible (after the base change of the proof, Z is replaced by a component whose fibre is a union of components of Z_s). Expanding ⋂_k (⋃_j V_{kj}) into irreducible intersections gives J^ℓ terms, so the irreducible case alone does not give a bound independent of ℓ. In the application to Proposition 6.1 with n ≥ 2, Z_s = Z′ is irreducible, and for n = 1 the fibres are finite; only the general statement needs the extension.",
@@ -47593,20 +47593,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.571). The repair works: Proposition 6.7's proof does not use irreducibility of the V_i, and in the application the relevant fibre is irreducible for n ≥ 2 and finite for n = 1."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E13",
    "kind": "misprint",
-   "locator": "§7, pp.39–40 (notation before Lemma 7.1 and its proof) (arXiv v3; published Annals version not collated)",
+   "locator": "§7, pp.39–40 (notation before Lemma 7.1 and its proof) (arXiv v3; the same text is on pp.572, 573 and 575 of the published version)",
    "printed": "\"we sometimes write φ_{1j}(z) for φ_{1j}(w,x) and φ_{2j}(z) for φ_{2j}(w,x) if z = (w,x,y)\"; \"has absolute value at least ε = |δ(z₀)|/2 > 0\"; (7.7) \"where M(·) is the matrix above and z̃₁, …, z̃_n lie on the line segment\"",
    "correction": "φ_{2j}(z) = φ_{2j}(w,y); ε = |δ₀(z₀)|/2; z̃₁, …, z̃_m.",
    "reason": "φ₂ is defined on U₀ × U₂ and takes (w,y); the non-vanishing determinant is δ₀ of (7.2); there is one intermediate point per coordinate j = 1,…,m, and n indexes the sequence z_n.",
@@ -47614,20 +47614,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.572, 573 and 575)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E14",
    "kind": "misprint",
-   "locator": "Proof of Lemma 8.2, pp.44–45 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Lemma 8.2, pp.44–45 (arXiv v3; the same text is on pp.579–580 of the published version)",
    "printed": "\"By (8.6) there are at most C possibilities for ψ_N(w′, x′, y′), when (x, y, z) is fixed.\" … \"ψ_N(w^α, x^α, w^α) = Nφ₁(w^α, x^α) − φ₂(w^α, y^α)\" … \"hence (w^α, x^α, w^α) is eventually constant\"",
    "correction": "\"when (w, x, y) is fixed\"; ψ_N(w^α, x^α, y^α) and (w^α, x^α, y^α).",
    "reason": "The coordinates of U′ ⊆ U₀ × U₁ × U₂ are (w, x, y); the right-hand side of the display already uses y^α.",
@@ -47635,20 +47635,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (pp.579–580)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E15",
    "kind": "misprint",
-   "locator": "§10.2 (proof of Theorem 1.4), p.52 (arXiv v3; published Annals version not collated)",
+   "locator": "§10.2 (proof of Theorem 1.4), p.52 (arXiv v3; the same text is on p.588 of the published version)",
    "printed": "\"The first inequality in (1.1) follows from the definition of h_{𝒜,ι}(·) and as the absolute logarithmic Weil height is non-negative.\"",
    "correction": "\"The first inequality in Theorem 1.4′ follows from the definition of h_{𝒜,L′}(·)\".",
    "reason": "(1.1) is the single inequality h_{S̄,M}(π(P)) ≤ c(1 + ĥ_{𝒜,L}(P)); the chain h_{S̄,M}(π(P)) ≤ h_{𝒜,L′}(P) ≤ c(1 + ĥ) is Theorem 1.4′, and the naive height defined on p.5 is h_{𝒜,L′}.",
@@ -47656,20 +47656,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.588)."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E16",
    "kind": "misprint",
-   "locator": "Proof of Theorem 11.1, p.53 (arXiv v3; published Annals version not collated)",
+   "locator": "Proof of Theorem 11.1, p.53 (arXiv v3; the same text is on p.590 of the published version)",
    "printed": "\"But we have h_S(ρ(t))/h_{S′}(t) → deg ρ = [K′ : K] for t ∈ S′(Q̄) as h_{S′}(ρ(t)) → ∞\" … \"Silverman's Theorem applied to x ∈ A(K′) implies ĥ_𝒜(σ_x(t))/h_{S′}(t) → ĥ_{K′,A_{K′}}(x) as h_S(t) → ∞ for t ∈ S′(Q̄).\"",
    "correction": "\"as h_{S′}(t) → ∞\" in both places.",
    "reason": "h_{S′} is defined on S′ and h_S on S; t ∈ S′(Q̄), so the expressions h_{S′}(ρ(t)) and h_S(t) do not typecheck. The limit is taken as the height of t on S′ (equivalently of ρ(t) on S) tends to infinity.",
@@ -47677,20 +47677,20 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.590). The same proof also writes ĥ_{K′,A′} for ĥ_{K′,A_{K′}}."
   },
   {
    "id": "PAPER-GAO-HABEGGER-19/E17",
    "kind": "misprint",
-   "locator": "Appendix C, corollary of Proposition C.1, p.59 (arXiv v3; published Annals version not collated)",
+   "locator": "Appendix C, corollary of Proposition C.1, p.59 (arXiv v3; the same text is on p.597 of the published version)",
    "printed": "\"Then the hypersurface defined by a generic choice of a section in H⁰(ℙⁿ, 𝒪(d)) vanishing at P is hyperbolic for d ≥ g.\"",
    "correction": "H⁰(ℙ^M, 𝒪(d)).",
    "reason": "A ⊆ ℙ^M throughout Appendix C; n is not defined there.",
@@ -47698,15 +47698,225 @@
    "known": "new",
    "searched": [
     "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
-    "Annals of Mathematics 189 (2019), 527–604 article page: no erratum listed; the typeset PDF was not accessible here, so the published text was not collated",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
     "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
    ],
    "owner": "PAPER-GAO-HABEGGER-19",
    "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
    "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Confirmed at the arXiv v3 locator, on the page image; the same text is in the published version (p.597)."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E18",
+   "kind": "error",
+   "locator": "§1, p.2 (arXiv v3; published p.528)",
+   "printed": "\"ĥ_{K,A,L}(P) = 0 if and only if P ∈ (A^{K̄/k} ⊗_k K̄)(K̄) + A_tor\"",
+   "correction": "ĥ_{K,A,L}(P) = 0 iff P ∈ τ(A^{K̄/k}(k)) + A_tor: only the constant (k-rational) points of the trace, plus torsion.",
+   "reason": "For K = Q̄(t) and the constant curve E₀: y² = x³ − x, the point P = (t, √(t³ − t)) lies in (E₀ ⊗ K̄)(K̄), but x([n]P) has degree n² in t (PARI ellxn gives degrees 1, 4, 9, …, 36 for n ≤ 6), so ĥ(P) > 0. The sentence is a remark in the introduction and is not used later.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent; the reviewer checked the page image and the degree computation."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E19",
+   "kind": "gap",
+   "locator": "Proof of Proposition 4.1(ii)–(iii), pp.16–18 (arXiv v3; published pp.545–547)",
+   "printed": "\"f_s^*ω_i(s) = Σ_j (a_ij(s)ω_j⁰ + b_ij(s)ω̄_j⁰)\" used in (4.3) along the paths γ_Q, and \"Therefore, a fiber of b equals a fiber of the trivialization. As these fibers are complex analytic we obtain part (ii)\"",
+   "correction": "Define β(ξ, s) = exp_s(Ω(s)ξ) with the holomorphic relative exponential of the frame ω(s). It is a real-analytic inverse of (b, π), which gives (iii), and b^{-1}(ξ) is the image of the holomorphic section s ↦ exp_s(Ω(s)ξ), which gives (ii).",
+   "reason": "f_s is only a diffeomorphism, so the displayed identity holds in cohomology, not as forms, and the third equality of (4.3) fails on non-closed paths. A trivialization with holomorphic leaves need not have the Betti fibres as leaves: on E × Δ, f(Q, s) = (Q + s·c(Q), s) with c(z) = ε(e^{2πix} − 1) satisfies every stated property, but its leaves are not the horizontal Betti fibres. Proposition 4.1 itself is true, and later sections use only its statement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent; the reviewer checked pp.16–18 on the page images and the counterexample's properties."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E20",
+   "kind": "error",
+   "locator": "§3.1, p.12 (arXiv v3; published p.541)",
+   "printed": "\"Let W₀ be an irreducible closed subvariety of A^{K̄/k}, B an abelian subvariety of A″, and P ∈ A″(K̄). We can map ψ((W₀ ⊗_k K̄) × (P + B)) ⊆ A to the generic fiber of 𝒜; its Zariski closure is a generically special subvariety of 𝒜.\"",
+   "correction": "P ∈ A″_tor, as in Proposition 3.1.",
+   "reason": "For a non-torsion P the image is not generically special: in a non-isotrivial elliptic scheme take W₀ a point, B = 0 and P non-torsion; the closure of P is a multisection with no torsion point.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E21",
+   "kind": "misprint",
+   "locator": "Appendix B, first paragraph and Proposition B.1, p.58 (arXiv v3; published p.595)",
+   "printed": "\"Let A be an abelian variety over K̄.\" followed by Proposition B.1, which uses [K(P):K] and extends A to an abelian scheme over S.",
+   "correction": "A is an abelian variety over K = k(S). For Proposition B.3 (A over K̄) apply B.1 to A (or A/B) over a finite extension F, replacing S by a smooth dense open subset of its normalization in F.",
+   "reason": "[K(P):K] and the extension of A to an abelian scheme 𝒜 → S require A to be defined over K.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E22",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 5.1, general case, p.29 (arXiv v3; published p.561)",
+   "printed": "\"We conclude (A^{ℂ(S)/ℂ} × S) + 𝒞 = ℬ.\"",
+   "correction": "(A^{ℂ(S)/ℂ} × S) + 𝒞 = 𝒜.",
+   "reason": "Both summands are subgroup schemes of 𝒜 with relative dimensions adding up to that of 𝒜; the next paragraph writes P ∈ Y ⊆ 𝒜 as P = Q + R with Q ∈ A^{ℂ(S)/ℂ} × S and R ∈ 𝒞, which is the '= 𝒜' statement.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E23",
+   "kind": "gap",
+   "locator": "Proof of Proposition 6.1(ii), case n = 1, p.32 (arXiv v3; published p.565)",
+   "printed": "\"If n = 1, then dim Z_s = 0 and hence P is smooth in Z_s. … Now as P is smooth in Z_s and s is smooth in S, P is also smooth in Z.\"",
+   "correction": "Use the transversality T_P𝒜_s ∩ ⋂_i ker df_i = 0 that the Bertini paragraph provides; by the Jacobian criterion the intersection (6.2) is then smooth of dimension n at P and smooth over S.",
+   "reason": "For a zero-dimensional fibre, 'P smooth in Z_s' holds for the reduced fibre only and does not give smoothness of Z at P (compare y² = t³ over the t-line). §8.2 needs Z to be smooth over S at P.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E24",
+   "kind": "misprint",
+   "locator": "Theorem A.3, p.56 (arXiv v3; published p.593)",
+   "printed": "\"h^B_{S,𝓜}(P) ≤ c(1 + ĥ^B_{𝒜,𝓛}(P)) for all P ∈ X*(k̄₀)\"",
+   "correction": "h^B_{S̄,𝓜}(π(P)) ≤ c(1 + ĥ^B_{𝒜,𝓛}(P)); likewise h^B_{S̄,𝓜}(t_n) in §A.3 (p.57).",
+   "reason": "𝓜 is a line bundle on S̄ and P is a point of 𝒜, so h^B_{S,𝓜}(P) does not typecheck; the theorem is announced as the analogue of Theorem 1.4, whose (1.1) bounds h_{S̄,M}(π(P)).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E25",
+   "kind": "gap",
+   "locator": "Proof of Proposition 9.1, p.49 (arXiv v3; published pp.585–586)",
+   "printed": "\"For any irreducible component X′₀ of X′ the restriction ρ|_{X′₀}: X′₀ → X is dominant and dim X′₀ = dim X. So Silverman's height inequality [47] applies; … Then we can take U_N … with U_N ⊆ ρ(U′_N) and c′(N) = c′(N, X′₀).\"",
+   "correction": "Use the global two-sided comparison e^{-1}h_{𝒜′}(R) − O(1) ≤ h_𝒜(ρ(R)) ≤ h_{𝒜′}(R) + O(1) for all R ∈ 𝒜′(Q̄). It follows from the Height Machine on S̄′, whose embedding is given by a power e of ρ̄*𝒪(1). Then h_𝒜([2^N]ρQ) ≥ (c/e)4^N h_𝒜(ρQ) − c″(N), with c/e independent of N.",
+   "reason": "The inequality proved on X′₀ is for h_{𝒜′}, and must be transferred at R = [2^N]Q, which lies on [2^N]X′₀, not on the dense open subset of X′₀ where Silverman's inequality holds. Applying Silverman to [2^N]X′₀ → [2^N]X instead would make the constant depend on N. The conclusion stands with the global comparison.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent; the reviewer checked p.49 and re-derived the comparison."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E26",
+   "kind": "misprint",
+   "locator": "§8.3, conservation of number, p.46 (arXiv v3; published p.581)",
+   "printed": "\"So deg Y″_t ≤ D^{2^{k+1}} for all t ∈ S(ℂ)\" … \"flat of relatively dimension 0 over S\" … \"Y = ℙ^M, T = S\"",
+   "correction": "S′ in all four places.",
+   "reason": "Y″ ∈ Σ_{k+1} is a closed subvariety of 𝒜′ ⊆ ℙ^M × S′, and the same paragraph says Y″ is flat over S′.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by a helper agent of the review and checked by the reviewer on the page image."
+  },
+  {
+   "id": "PAPER-GAO-HABEGGER-19/E27",
+   "kind": "misprint",
+   "locator": "Published version only: section headings on pp.541, 560 and 567 (arXiv v3 pp.12, 28 and 34 are correct)",
+   "printed": "\"3.1. Proposition 2.1 implies Proposition 1.3\", \"3.2. Proof of Proposition 2.1\" (p.541); \"End of the proof of Theorem 4.1\" (p.560); \"Verification of (v) in Proposition 5.1\" (p.567)",
+   "correction": "Proposition 3.1; Theorem 5.1; Proposition 6.1.",
+   "reason": "The headings refer to the statements proved in those sections; arXiv v3 has the correct numbers, so the misprints were introduced in production.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 1801.05762 versions (v3, 28 January 2019, is the latest)",
+    "Annals of Mathematics 189 (2019), 527–604: the published PDF (annals.math.princeton.edu, annals-v189-n2-p03-s.pdf) was read at this place; no erratum is listed on the article page",
+    "Crossref metadata for 10.4007/annals.2019.189.2.3: no update or correction relation"
+   ],
+   "owner": "PAPER-GAO-HABEGGER-19",
+   "file": "research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json",
+   "citation": "Gao–Habegger, \"Heights in families of abelian varieties and the Geometric Bogomolov Conjecture\", Annals of Mathematics 189 (2019), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAO-HABEGGER-19",
+   "reviewReason": "Found by the helper agents' word diff of the two versions; checked by the reviewer against the published text."
   },
   {
    "id": "PAPER-GHOSH-SARNAK-22/E1",
@@ -53652,9 +53862,9 @@
    "owner": "PAPER-JIANG-ZHANG-20",
    "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
    "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "Checked on the page image of p. 762; still present in print. The parts must sum to 𝔫, and (2.9), p. 755, has 𝔫 − 2ℓ − 1."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E2",
@@ -53673,9 +53883,9 @@
    "owner": "PAPER-JIANG-ZHANG-20",
    "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
    "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "Checked on the page images of pp. 819–820 and in the TeX. The third type of rank-one operator moves a constituent τ_j|det|^{s±α_j} of τ (B.6) past the tempered part σ_0 of σ (B.2). τ(φ_i) belongs to σ, and (B.7) pairs it with τ_j. The next sentences treat M(w″, τ_j ⊗ σ_0, s − α_j) and L(s − α_j, τ_j × σ_0), and the shift ±α_j is τ_j's exponent. The misprint is still present in the published version."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E3",
@@ -53696,9 +53906,9 @@
    "owner": "PAPER-JIANG-ZHANG-20",
    "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
    "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "Checked on the page images of pp. 774–775 and 781 and on reference [43], p. 823. A web search (September 2026) finds no published version; arXiv:2508.09066 still cites it as a 2018 preprint. Second checker: Verified in the published text, which still defers these proofs. It now cites the joint work as [43] 'in preparation'; arXiv v4 had '[44] ... preprint 2018'. Sections 5.3–5.4 use (4.49) through (5.11). Appendix A proves convergence only of the inner U⁻_{a,η}-integral (A.5), for the compactly supported sections (A.6)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E4",
@@ -53718,9 +53928,9 @@
    "owner": "PAPER-JIANG-ZHANG-20",
    "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
    "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "Page images of pp. 740 and 753 show the same text as v4 (reference numbers renumbered). The Chen–Zou abstract was read on arxiv.org (versions and journal note)."
   },
   {
    "id": "PAPER-JIANG-ZHANG-20/E5",
@@ -53739,9 +53949,471 @@
    "owner": "PAPER-JIANG-ZHANG-20",
    "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
    "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "Checked on the page image of p. 756. No proof is given; Section 6.1 (pp. 794–795) writes out the analogous tower argument only for residual representations."
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E6",
+   "kind": "misprint",
+   "locator": "Section 2.2, the paragraph after Theorem 2.1, p. 753 (published only; arXiv v4, p. 16, is correct)",
+   "printed": "'The multiplicities of the discrete automorphic representations of classical groups depend on the multiplicity property of local Arthur packets, which is known for the p-adic and complex cases for general local Arthur parameters. However, for the general local Arthur packets, which is what we need in this paper, the multiplicity property holds for all local fields.'",
+   "correction": "'However, for the generic local Arthur packets, which is what we need in this paper, the multiplicity property holds for all local fields.'",
+   "reason": "The v4 TeX reads 'For the generic local Arthur packets that is what we need in this paper'; copy-editing changed 'generic' to 'general'. The printed sentence contradicts the preceding one (general parameters are known only in the p-adic and complex cases), and the next sentence concludes about generic global packets. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E7",
+   "kind": "error",
+   "locator": "Section 2.4, Proposition 2.5, p. 759 (published); arXiv v4: p. 22 (the same)",
+   "printed": "'Then the classical group H^{O_ℓ}_{ℓ⁻} = H^{w_0}_{ℓ⁻} is defined by an 𝔩⁻-dimensional non-degenerate subspace (W_{𝔩⁻}, q) of (V, q) with a (𝔡_0 − 1)-dimensional F-anisotropic kernel if y_{−κ} belongs to the G_{E/F}(1) × G_{n−ℓ}-orbit of a non-zero vector in the F-anisotropic kernel (V_0, q) of (V, q); … with a (𝔡_0 + 1)-dimensional F-anisotropic kernel if y_{−κ} does not belong to …'",
+   "correction": "Replace y_{−κ} by y_κ (= w_0) in both places. Equivalently: the anisotropic kernel of W_{𝔩⁻} = V_(ℓ) ∩ w_0^⊥ has dimension 𝔡_0 − 1 if (V_0, q) represents q(w_0, w_0) = (−1)^{𝔫+1}κ, and 𝔡_0 + 1 otherwise.",
+   "reason": "V_(ℓ) = W_{𝔩⁻} ⊕ ⟨w_0⟩ and V_(ℓ) ≅ H^{𝔯−ℓ} ⊕ V_0. By Witt cancellation, W_{𝔩⁻} has Witt index 𝔯 − ℓ (kernel of dimension 𝔡_0 − 1) iff V_0 ≅ ⟨q(w_0)⟩ ⊕ W_0, i.e. iff V_0 represents q(w_0). Equivalently, W_{𝔩⁻} = H′ ⊕ ⟨y_{−κ}⟩ with q(y_{−κ}) = −q(y_κ), whose kernel is that of V_0 ⊕ ⟨−q(w_0)⟩. Scaling by G_{E/F}(1) changes norms only by norms or squares, so the printed rule tests whether V_0 represents −q(w_0). Counterexample: F = Q, V = H² ⊕ ⟨1⟩ (𝔫 = 5, 𝔯 = 2, V_0 = ⟨1⟩), ℓ = 1, κ = 1. Then w_0 = e_2 + ½e_{−2} has norm 1 and W_{𝔩⁻} = ⟨e′_1, e_2 − ½e_{−2}⟩ ≅ ⟨1, −1⟩ is split (kernel of dimension 0 = 𝔡_0 − 1). But y_{−1} has norm −1, which is not a square, so it is in the orbit of no vector of V_0, and the printed rule gives 𝔡_0 + 1 = 2. κ = −1 gives the opposite failure. The authors' commented-out remark in the v4 TeX (Section 4.3: G^{w_0}_{m⁻} is anisotropic when '(−1)^{𝔪+1}κ is not represented by (W_0, q)') uses the corrected criterion. Proposition 2.5 is not cited elsewhere, so nothing downstream depends on it. Checked on the page image.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E8",
+   "kind": "misprint",
+   "locator": "Section 4.6, (4.47), p. 780 (published); arXiv v4: p. 45 (the same)",
+   "printed": "'ρ = … As ⊗ ξ^m if H_{m+a} is a unitary group.'",
+   "correction": "ρ = As^{(−1)^𝔪} in the notation of Section 2.2: As^+ if 𝔪 = dim W is even, As^− = As ⊗ ω_{E/F} if 𝔪 is odd.",
+   "reason": "ξ is not defined in Section 4; elsewhere it is the L-embedding of the endoscopic datum. No fixed ξ can work with the exponent m = [𝔪/2]: 𝔪 = 1 gives m = 0 but needs the twisted Asai factor. L(2s + 1, τ, ρ) is the second normalizing factor of the intertwining operator for GL_a × U(W) ⊂ U(W_{𝔪+2a}), and Proposition 5.2 needs L(s, τ_i, ρ) to have a pole at s = 1 for τ_i of the parity opposite to φ_σ. With κ = 1, parameters of U(N′) have every summand of sign (−1)^{N′−1}, so (τ_i, 2) ⊞ φ_σ is a parameter of U(𝔪 + 2a) iff η_{τ_i} = (−1)^𝔪, i.e. iff L(s, τ_i, As^{(−1)^𝔪}) has a pole. Sanity check: U(1,1) with Siegel Levi E^× has normalizing factor L(2s, χ|_{A_F^×}) = L(2s, χ, As^+) (𝔪 = 0). Checked on the page image and in the TeX ('\\Asai\\otimes \\xi^m').",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E9",
+   "kind": "misprint",
+   "locator": "Section 4.6, the remarks after (4.47), p. 780 (published only; arXiv v4, p. 45, reads 'G.C.D.')",
+   "printed": "'Formally, one may take the greatest common denominator of the ramified local zeta integrals as the definition …'",
+   "correction": "'the greatest common divisor (g.c.d.) of the ramified local zeta integrals', i.e. the normalized generator of the fractional ideal of C[q^{±s}] they span.",
+   "reason": "The v4 TeX has 'the G.C.D. of the ramified local zeta integrals'; copy-editing expanded it wrongly. The local L-factor defined this way is the g.c.d. (divisor) in the sense of Jacquet–Piatetski-Shapiro–Shalika. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E10",
+   "kind": "misprint",
+   "locator": "Section 2.1, last paragraph, p. 750 (published); arXiv v4: p. 13 (the same)",
+   "printed": "'For a number field F, G_n is a pure inner F-form of an F-quasisplit G*_n if it is obtained by inner twisting by elements in the pointed set H¹(F, G_n).'",
+   "correction": "'… by elements in the pointed set H¹(F, G*_n).'",
+   "reason": "Pure inner forms of G*_n are the twists of G*_n by cocycles in H¹(F, G*_n) ([Vog93], [GGP12, §2]); twisting by H¹(F, G_n) presupposes G_n. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E11",
+   "kind": "misprint",
+   "locator": "Section 2.4, Lemma 2.4, p. 759 (published); arXiv v4: p. 22 (the same)",
+   "printed": "'there exists an element g in G_{𝔫−2ℓ}(F) = Isom(V_(ℓ), q)°(F)'",
+   "correction": "G_{n−ℓ}(F) = Isom(V_(ℓ), q)°(F)",
+   "reason": "Groups are indexed by n = [𝔫/2] (Section 2.1, 'G_n = Isom(V, q)° … with n = [𝔫/2]'), and dim V_(ℓ) = 𝔫 − 2ℓ gives index n − ℓ, as the sentence before (2.14) has ('the action of the product G_{E/F}(1) × G_{n−ℓ}'). Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E12",
+   "kind": "error",
+   "locator": "Section 2.3, (2.7)–(2.9) and the paragraph after (2.9); Section 2.4, before (2.11), pp. 754–757 (published); arXiv v4: pp. 17–21 (the same)",
+   "printed": "'In this case, the F-algebraic group H^{O_ℓ} is the classical group H^{O_ℓ}_{ℓ⁻} = Isom(W^{O_ℓ}, q)°, where (W^{O_ℓ}, q) is an 𝔩⁻-dimensional non-degenerate subspace … 𝔩⁻ = 𝔫 − 2ℓ − 1' and 'the F-rational nilpotent orbits O_ℓ in the F-stable nilpotent orbit O^{st}_{p_ℓ} are in one-to-one correspondence with the G_{E/F}(1) × G_{n−ℓ}-orbits of F-anisotropic vectors in (E^{𝔫−2ℓ}, q)'",
+   "correction": "State these for 1 ≤ ℓ ≤ 𝔯, and define the ℓ = 0 case separately as the paper uses it (Gan–Gross–Prasad's restriction case): for an F-anisotropic w_0 ∈ V, F^{O_0}(C_π) is the space of restrictions of forms in C_π to H^{w_0}_{0⁻}(A) = Isom(V ∩ w_0^⊥, q)°(A), and 'O_0' is the G_{E/F}(1) × G_n-orbit of w_0.",
+   "reason": "For ℓ = 0, p_0 = [1^𝔫] is the zero orbit, a single F-rational orbit, so the orbit correspondence fails. Also V_{p_0} = 1, and (2.7)–(2.8) give F^{ψ_{O_{p_0}}}(φ) = φ and H^{O_{p_0}} = G_n, not a group of dimension-(𝔫 − 1) type. (2.11)–(2.12) do not make sense for ℓ = 0 (no y_ℓ); only (2.13), the stabilizer of the vector J w_0, does. The paper nevertheless uses ℓ = 0 as the restriction case: for anisotropic G_n only p_0 is relevant, yet Conjecture 2.3 and Theorem 5.7 with ℓ_0, ℓ* = 0 pair π with σ on a group of dimension-(𝔫 − 1) type. The intended meaning is recoverable, so nothing downstream fails.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E13",
+   "kind": "misprint",
+   "locator": "Section 4.1, (4.3), p. 765, and (4.9), p. 766; Section 4.5, the formula after (4.42), p. 778 (published); arXiv v4: pp. 29–30, 43 (the same)",
+   "printed": "(4.3) 'E(h, φ, s) = E(h, φ_{τ⊗σ}, s) = Σ_{δ ∈ P_â(F)\\H_{a+m}(F)} φ_s(δg)'; (4.9) 'Z(s, φ_π, φ_{τ⊗σ}, ψ_{ℓ,w_0}) := P^{ψ_{ℓ,w_0}}(E(φ_{τ⊗σ}, s), φ_π)'; after (4.42): 'φ_s^{ψ_{Z_a,κ}}(h) = ∫_{[Z_a]} φ_s(z) ψ_{Z_a,κ}(z) dz'",
+   "correction": "(4.3): φ_s(δh). (4.9): Z(s, φ_{τ⊗σ}, φ_π, ψ_{ℓ,w_0}), the argument order used everywhere else. After (4.42): φ_s(zh).",
+   "reason": "Variable and argument-order slips; the intended formulas are clear from (4.29) and the surrounding text. Checked on the page images.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E14",
+   "kind": "misprint",
+   "locator": "Section 4.4, the line after (4.25), p. 772 (published); arXiv v4: p. 37 (the same)",
+   "printed": "'where H^η_m is a subgroup of G^{w_0}_{m−1} and P^1_β is the mirabolic subgroup of G_{E/F}(β)'",
+   "correction": "H^η_m is a subgroup of G^{w_0}_{m⁻}.",
+   "reason": "(4.25) is a statement about C_{β−1,η}\\G^η_{m⁻} ⊂ G^{w_0}_{m⁻}; no group G^{w_0}_{m−1} occurs. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E15",
+   "kind": "misprint",
+   "locator": "Section 4.7, pp. 781–782 (published); arXiv v4: p. 46 (the same)",
+   "printed": "'First, P_j is the standard parabolic subgroup of SO_{4a+2m} with Levi subgroup isomorphic to GL_ℓ × SO_{4n+2m−2ℓ}(W_ℓ). … The inner period over π is arisen from the open double coset of P_j\\SO_{4n+2m}/G·N_ℓ.'",
+   "correction": "The ambient group must be one group throughout; it is written both SO_{4a+2m} and SO_{4n+2m}. A Levi subgroup GL_ℓ × SO(W_ℓ) of it has SO-factor of dimension (ambient dimension) − 2ℓ, and, since P_j is then used as the parabolic of the Eisenstein series (G^η = G ∩ η^{-1}P_jη, open coset of P_j\\SO/G·N_ℓ), its Levi is presumably GL_j × SO(W_j), with GL_ℓ × SO(W_ℓ) being the Levi of the parabolic that normalizes N_ℓ.",
+   "reason": "An internal inconsistency in the same paragraph (checked on the page images of pp. 781–782). The subsection is an explanatory remark in the notation of [45], and no result depends on it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E16",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5: Case (1), H_m split odd orthogonal with G^{O_κ}_{κ⁻} split, p. 798; Case (2), ω_{τ,ν} = λ_0, p. 799 (arXiv v4: same text)",
+   "printed": "p. 798: 'one has F^{O_κ}_{κ⁻}(Σ_ν) = 0 for κ > a/2 + 𝔯_m, and for κ = a/2 + 𝔯_m − 1, F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ μ_{a/2} ⊕ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ μ^{−1}_{a/2}. Since 𝔯_m = m, we have that G^{O_κ}_{κ⁻} is isomorphic to the split special even orthogonal SO_a'. p. 799: 'one has F^{O_κ}_{κ⁻}(Σ_ν) = 0 for κ > a/2 + m, and for κ = a/2 + m − 1, F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind μ_1 ⊗ μ_2 ⋯ ⊗ μ_{a/2−1} ⊗ 1'",
+   "correction": "κ = a/2 + 𝔯_m (= a/2 + m) in both places.",
+   "reason": "In both cases H_m = SO_{2m+1} is split (𝔪 = 2m + 1, 𝔯_m = m) and G_n is even orthogonal with 𝔫 = a. So ℓ_0 = (𝔫 − 𝔪 − 1)/2 = a/2 − m − 1 and κ_0 = a − ℓ_0 − 1 = a/2 + m. The stabilizer G^{O_κ}_{κ⁻} of an anisotropic vector in V_{(κ)} (dim 2a + 𝔪 − 2κ) has dimension 2a + 2m − 2κ. This equals a (the SO_a whose torus carries the displayed a/2 characters, split or with an anisotropic SO_2) exactly when κ = a/2 + m; at κ = a/2 + m − 1 it would be SO_{a+2}. As printed, the vanishing range 'κ > a/2 + 𝔯_m' also leaves κ = a/2 + 𝔯_m unaddressed. Checked on the page images of pp. 798–799 and in the TeX.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E17",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5, Case (1), p. 798 (arXiv v4: same text)",
+   "printed": "'and if H_m is odd unitary, then 𝔯_m = m and G^{O_κ}_{κ⁻} is isomorphic to the quasi-split odd unitary U_{a+1}.'",
+   "correction": "the quasi-split even unitary group U_a.",
+   "reason": "Here H_m = U_{2m+1} (𝔪 = 2m + 1) and G_n = U_𝔫 with 𝔫 = N = a. Integrality of ℓ_0 = (a − 𝔪 − 1)/2 forces a even, as the proof itself says for Case (1). At κ = a/2 + 𝔯_m, V_{(κ)} has dim_E 2a + 𝔪 − 2κ = a + 1, so the stabilizer of an anisotropic vector is U_a. This matches 𝔪⁻ = 𝔫 = a in (5.9) and the a/2 characters μ_1, …, μ_{a/2} of its torus (E_ν^×)^{a/2} in the displayed Ind μ_1 ⊗ ⋯ ⊗ μ_{a/2}. U_{a+1} would need an additional U_1-character.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E18",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Lemma 6.5, Case (2), (6.6), p. 799 (arXiv v4: same text)",
+   "printed": "'(6.6) F^{O_κ}_{κ⁻}(Σ_ν) ≺ Ind^{G^{O_κ}_{κ⁻}}_{B_{G,a}} μ_1 ⊗ μ_2 ⋯ ⊗ μ_{[a/2]−1} ⊗ 1, where 1 is the trivial character of U_1(F_ν).'",
+   "correction": "Ind μ_1 ⊗ μ_2 ⊗ ⋯ ⊗ μ_{[a/2]} ⊗ 1.",
+   "reason": "Here H_m = U_{2m} is quasi-split, a is odd, κ = [a/2] + m, and the stabilizer is the quasi-split U_a (dimension 2a + 2m − 2κ − 1 = a). Its maximal torus is (E_ν^×)^{[a/2]} × U_1. τ_ν has Satake parameter {μ_i, μ_i^{−1} (1 ≤ i ≤ [a/2]), 1} (ω_{τ,ν} = 1), and all [a/2] characters appear in the inducing data of Σ_ν and of τ_1 on the same page. With μ_{[a/2]} dropped, the displayed representation lives on U_{a−2} and could not transfer to τ_ν as the lemma asserts. Compare the orthogonal case ω_{τ,ν} = λ_0 on the same page, where exactly one pair (1, λ_0) is absorbed by the anisotropic torus.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E19",
+   "kind": "misprint",
+   "locator": "Section 6.1, proof of Proposition 6.4, p. 796 (arXiv v4: pp. 61–62)",
+   "printed": "'Take the element ε = diag{−I_κ, I_{a+𝔯_𝔪−κ−1}, −1, I_{𝔪−2𝔯_𝔪}, −1, I_{a+𝔯_𝔪−κ−1}, −I_κ}. It is easy to check that ε ∈ H_{a+m} and it stabilizes w_0. Note that the stabilizer of w_0 is SO(V_{(κ)} ∩ w_0^⊥, q) ⋊ ⟨ε⟩, which is isomorphic to O(V_{(κ)} ∩ w_0^⊥, q).'",
+   "correction": "ε sends w_0 to −w_0. It stabilizes the line F w_0 and the character ψ_{κ,w_0}, and ε normalizes SO(V_{(κ)} ∩ w_0^⊥, q), and SO(V_{(κ)} ∩ w_0^⊥, q) ⋊ ⟨ε⟩ ≅ O(V_{(κ)} ∩ w_0^⊥, q) stabilizes ψ_{κ,w_0} and the line F w_0, not the vector w_0.",
+   "reason": "ε has −1 at the positions of e_{a+𝔯_𝔪} and e_{−(a+𝔯_𝔪)}, so εw_0 = −w_0 for w_0 = e_{a+𝔯_𝔪} + (−1)^{𝔫+1}(x/2)e_{−(a+𝔯_𝔪)} (2.14). No element of H_{a+m} in the Levi GL_1^κ × SO(V_{(κ)}) can fix w_0 and act with determinant −1 on V_{(κ)} ∩ w_0^⊥, since its SO(V_{(κ)})-component has determinant 1. The proof needs only what holds: ε ∈ H_{a+m}(F) fixes ψ_{κ,w_0}(v) = ψ_E(Σ z_{i,i+1} + q(y_κ, w_0)) (2.12), because both y_κ and w_0 change sign, and conjugation by ε is the outer automorphism of SO(V_{(κ)} ∩ w_0^⊥). The next paragraph indeed says 'since ε stabilizes ψ_{κ,w_0}'. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E20",
+   "kind": "misprint",
+   "locator": "Section 7.1, proof of Theorem 7.1, last paragraph, p. 808 (arXiv v4: p. 75)",
+   "printed": "'Because the direct sum decomposition of F^{O_{κ_0}}_n(E_{τ⊗σ}) is multiplicity free, it follows that F^{O_{κ_0}}_n(E_{τ⊗σ}) must be of the form F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π ⊕ π⋆ ... then we must have F^{O_{κ_0}}_n(E_{τ⊗σ}) ≅ π.'",
+   "correction": "E_{τ⊗σ′} throughout this paragraph, with σ′ = σ^{w_q^{ℓ_0}}. Conjecture 6.7 then holds with the datum (H_m, σ′).",
+   "reason": "In this proof σ is the representation of Conjecture 2.3 with ⟨F^{ψ_{O_{ℓ_0}}}(φ_π), \\bar φ_σ⟩_{H_m} ≠ 0. Theorem 5.3 then gives F^{ψ_{O_{κ_0}}}(E_{τ⊗σ′}) ≠ 0, and the decomposition and identification are carried out for F^{O_{κ_0}}_n(E_{τ⊗σ′}) (p. 808). The conclusion switches to E_{τ⊗σ}. The two differ when H_m is even special orthogonal and ℓ_0 is odd, where w_q acts by the outer automorphism. Section 6.2 labels the other way round (σ′ pairs with π), so the proof mixes the conventions. The theorem is unaffected, since σ′ ∈ A_cusp(H_m) has an H_m-relevant generic parameter. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E21",
+   "kind": "error",
+   "locator": "Section 7.2, before Corollary 7.2, p. 809, and the parallel sentence after (6.8), p. 802 (arXiv v4: p. 75; pp. 67–68)",
+   "printed": "'In this case, Conjecture 2.3 holds automatically without (H_m, σ). The residual representation is E_τ on the F-quasisplit H*_a(A). The automorphic descent of Ginzburg-Rallis-Soudry in [23] shows that D^{O_{κ_0}}_n(τ; ∅) = F^{O_{κ_0}}_n(E_τ) is a non-zero cuspidal automorphic representation of G*_n(A).'",
+   "correction": "This holds when the first-occurrence space is trivial: G*_n = SO_{2n+1} or U_{2n+1} (𝔪 = 0), and SO_{2n} (𝔪 = 1, H_0 = SO_1 = 1). For G*_n = U_{2n}, a generic π has first occurrence ℓ_0 = n − 1 with p_{ℓ_0} = [(2n−1)1] and H_m = U_1 (m = 0, 𝔪 = 1). Conjecture 2.3 holds with the datum (U_1, χ) for a character χ of U_1(F)\\U_1(A) with non-zero Bessel period, as in the U_{2n} case of Section 7.3. The residue is E_{τ⊗χ} on U_{4n+1}, and Corollary 7.2 follows from Theorem 7.1 with this datum. The statement of Corollary 7.2 stands.",
+   "reason": "For G*_n = U_{2n}, a = N = 2n and H*_a = U_{4n}. Every partition p_κ = [(2κ+1)1^{4n−2κ−1}] of U_{4n} has stabilizer U_{4n−2κ−1} of odd dimension, never U_{2n}. Equivalently, ℓ_0 = (𝔫 − 𝔪 − 1)/2 is not an integer for 𝔫 = 2n, 𝔪 = 0. So F^{O_{κ_0}}_n(E_τ) with E_τ on H*_a does not produce a representation of U_{2n}. Every Bessel partition [(2ℓ+1)1^{2n−2ℓ−1}] of U_{2n} has 𝔪 ≥ 1, so a non-trivial H_m = U_𝔪 always occurs.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E22",
+   "kind": "gap",
+   "locator": "Section 5.3, proof of Proposition 5.6 (arXiv v4: p. 54). Corrected in the published version, p. 790.",
+   "printed": "arXiv v4: 'By Proposition 5.5, there exists a smooth factorizable section φ_{τ⊗σ′} such that the finite product of the local zeta integral Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is nonzero at s = 1/2. Hence the normalized Z*_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ*}}) is also nonzero at 1/2.'",
+   "correction": "Since Z*_S = Z_S / L_S, one needs L_S(s, τ, π, σ; ρ) = Π_{ν∈S} L(s, τ_ν, π_ν, σ_ν; ρ) to be holomorphic at s = ½. The published proof supplies this: by the generic unitary duals of τ_ν, π_ν and σ_ν, as in Appendix B, each L(s, τ_ν, π_ν, σ_ν; ρ) is holomorphic for Re(s) ≥ ½.",
+   "reason": "If L_S had a pole at ½, then Z_S(½) ≠ 0 would give Z*_S(½) = 0. Local L-factors have no zeros, so only the numerator L(s + ½, τ_ν × π_ν) of (4.47) matters. Its poles satisfy Re(s + ½) ≤ α + β < 1 when the exponents of τ_ν and of the localized parameter of π are < ½ ((B.5)–(B.6)), and this gives holomorphy for Re(s) ≥ ½. The published text (p. 790, 'By using the structures of generic unitary dual of τ_ν, π_ν, and σ_ν ... is holomorphic for Re(s) ≥ 1/2') adds exactly this step. The gap is known: the published version corrects it.",
+   "affects": "the proof",
+   "known": "corrected in the published version, Ann. of Math. 191 (2020), Section 5.3 (the printed proof of Proposition 5.6 supplies the missing step); the gap is in arXiv v4",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E23",
+   "kind": "misprint",
+   "locator": "Appendix B, Proposition B.1, p. 818 (arXiv v4: p. 85)",
+   "printed": "'that is, the induced representations displayed in (B.2) are irreducible for all pure inner forms H_m and σ_0 ∈ Π̃_φ(H_{n_0}).'",
+   "correction": "σ_0 ∈ Π̃_{φ_0}(H_{n_0}).",
+   "reason": "σ_0 runs through the tempered packet of φ_0 (the text before (B.2), p. 817). φ is a parameter of H*_m, not of H_{n_0}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E24",
+   "kind": "misprint",
+   "locator": "Appendix A, proof of Proposition A.1, p. 816 (arXiv v4: the paragraphs before (A.20) and (A.21))",
+   "printed": "'Because M = I_m and X′E_1 = Y′E_2 in (A.14)'; 'due to AE_1 = (ι(ĝ) − I_a)E_2 in (A.14)'; 'As A = 0_{(a−ℓ)×(a−ℓ)} and AE_1 = (ι(ĝ) − I_a)E_2 in (A.14)'",
+   "correction": "'Because h = I_𝔪 and X′E_1 = Y′E_2', and I_{a−ℓ} in place of I_a (twice).",
+   "reason": "(A.14) reads X′E_1 = h · Y′E_2 and AE_1 = (ι(ĝ) − I_{a−ℓ})E_2, and h = I_𝔪 was chosen on p. 814. There is no M, and g ∈ GL_{a−ℓ}(E_ν).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E25",
+   "kind": "misprint",
+   "locator": "Appendix A, first paragraph, p. 810 (arXiv v4: p. 77)",
+   "printed": "'From Proposition 5.4, Z_S(s, φ_{τ⊗σ′}, φ_π, ψ_{O_{κ_0}}) converges absolutely for Re(s) large, has a meromorphic continuation to s ∈ C, and is holomorphic at s = 1/2.'",
+   "correction": "Proposition 5.4 concerns Z*_S = Z_S / L_S and proves only its meromorphy and its holomorphy at ½. Z_S is then meromorphic, and it is holomorphic at ½ because L_S(s, τ, π, σ; ρ) is (published proof of Proposition 5.6, p. 790). The absolute convergence of the local integrals is the deferred input of E3. (The subscript κ_0 stands for κ* of Section 5.)",
+   "reason": "Compare the statement of Proposition 5.4 (p. 787), which is about Z*_S and says nothing on convergence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-JIANG-ZHANG-20/E26",
+   "kind": "gap",
+   "locator": "Section 5.5, the paragraph before Theorem 5.7 and Theorem 5.7, p. 791 (published); arXiv v4: pp. 55–56 (the same)",
+   "printed": "Because σ̄ is isomorphic to the contragredient σ∨ of σ, it follows that L(s, τ × σ∨) is holomorphic and non-zero at s = 1/2, and so is L(s, τ × σ). … Then the tensor product L-function L(s, π×σ) = L(s, τ × σ) must be holomorphic and non-zero at s = 1/2",
+   "correction": "State the conclusion as L(s, τ × σ∨) holomorphic and non-zero at s = 1/2, which is what the argument proves for the sesquilinear period ⟨F^{ψ_{O_ℓ}}(φ_π), φ_σ⟩; for the bilinear GGP period of π ⊠ σ the conclusion is L(1/2, τ × σ) ≠ 0. For orthogonal groups σ∨ ≅ σ (up to the Õ-twist, with the same L-function), so nothing changes there; for unitary groups the two central values differ in general.",
+   "reason": "For unitary groups BC(σ)∨ ≅ BC(σ)^c, so L(1/2, τ × σ∨) = L(1/2, τ × BC(σ)^c) = L(1/2, τ^∨ × BC(σ)), which is a different central value from L(1/2, τ × BC(σ)); already for GL₁ × GL₁ these are L(1/2, χμ) and L(1/2, χμ⁻¹) for conjugate-self-dual characters, which can vanish independently. The printed 'and so is L(s, τ × σ)' is therefore unjustified for unitary groups; it is harmless for orthogonal groups. The statement is plausibly true with the matching convention, which is how [GGP12, Conj. 24.1] is formulated (bilinear period of π ⊠ σ).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the published version, Ann. of Math. 191 (2020), 739–827 (free on the Annals site), read in full by the review",
+    "Crossref for doi:10.4007/annals.2020.191.3.2, 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+    "the Annals article page (annals.math.princeton.edu/2020/191-3/p02), 23 September 2026: no erratum linked",
+    "arXiv 1508.03205: versions v1–v4 (v4 of 19 November 2019)"
+   ],
+   "owner": "PAPER-JIANG-ZHANG-20",
+   "file": "research/blueprint/papers/PAPER-JIANG-ZHANG-20.result.json",
+   "citation": "Dihua Jiang–Lei Zhang, \"Arthur parameters and cuspidal automorphic modules of classical groups\", Annals of Mathematics 191 (2020), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-JIANG-ZHANG-20",
+   "reviewReason": "raised by the first checker and verified by the coordinator on the page image and against the GGP conventions"
   },
   {
    "id": "PAPER-KALETHA-16/E01",
