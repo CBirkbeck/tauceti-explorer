@@ -81875,17 +81875,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The rescaling must use the tilded elements already constructed; its product is E_K because λ=φ(b)/b."
   },
   {
    "id": "PAPER-LIU-WANG-22/E2",
@@ -81893,43 +81894,45 @@
    "locator": "Proof of Lemma 3.32, arXiv v4 p. 21",
    "printed": "THH_{2j}(O_K/𝕊_{W(k)}[z_0, z_1]) is a successive extension of O_K u_0^{2l}t_{z_0−z_1}^{[2j−2l]} for l = 0, 1, …, j. … HH_{2j}(W(k)/𝕊_{W(k)}[z_0, z_1]) is a successive extension of O_K t_{E_K(z_0)}^{[2l]}t_{z_0−z_1}^{[2j−2l]} for j = 0, 1, …, k.",
    "correction": "… of O_K u_0^l t_{z_0−z_1}^{[j−l]} for l = 0, 1, …, j. … HH_{2j}(O_K/W(k)[z_0, z_1]) is a successive extension of O_K t_{E_K(z_0)}^{[l]}t_{z_0−z_1}^{[j−l]} for l = 0, 1, …, j (and likewise in the displayed map that follows).",
-   "reason": "u_0 and t_{z_0−z_1} have degree 2, so u_0^{2l}t^{[2j−2l]} lies in degree 4j, not 2j; the relative HH meant is that of O_K over W(k)[z_0, z_1] (Corollary 3.31(2)), and the range 'j = 0, …, k' should run over l.",
+   "reason": "u_0 and t_{z_0−z_1} have degree 2, so u_0^{2l}t^{[2j−2l]} lies in degree 4j, not 2j; the relative HH meant is that of O_K over W(k)[z_0, z_1] (Corollary 3.30(2)), and the range 'j = 0, …, k' should run over l.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Every u and divided-power generator has degree2; the printed exponents give degree4j. The target is relative HH of O_K over W(k)[z0,z1]. Also correct the old finding’s own Corollary3.31(2) citation to3.30(2)."
   },
   {
    "id": "PAPER-LIU-WANG-22/E3",
    "kind": "misprint",
    "locator": "Proof of Proposition 3.29, arXiv v4 p. 20",
-   "printed": "Put R′ = W(k)[{δ^k(h)}_{k≥0}]. Then R′ is stable under δ. … Note that R′ is dense by (3.24) and Lemma 3.27.",
+   "printed": "Put R′ = W(k)[{δ^k(h)}_{k≥0}]. Then R′ is stable under δ. … Note that R′ is dense by (3.25) and Lemma 3.27.",
    "correction": "Put R′ = W(k)[z_0, z_1][{δ^k(h)}_{k≥0}].",
-   "reason": "Lemma 3.27 says the W(k)[z_0, z_1]-subalgebra generated by the f^{(k)} is dense, and (3.24) puts f^{(k)} in W(k)[z_0, z_1][h, …, δ^{k−1}(h)]; without z_0, z_1 the ring R′ is not shown to be dense. Adding them keeps R′ δ-stable since δ(z_i) = 0.",
+   "reason": "Lemma 3.27 says the W(k)[z_0, z_1]-subalgebra generated by the f^{(k)} is dense, and (3.25) puts f^{(k)} in W(k)[z_0, z_1][h, …, δ^{k−1}(h)]; without z_0, z_1 the ring R′ is not shown to be dense. Adding them keeps R′ δ-stable since δ(z_i) = 0.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The dense algebra in Lemma3.27 contains z0,z1. Equation3.25, not3.24, places the f^(k) in that larger algebra. Adding z0,z1 preserves δ-stability."
   },
   {
    "id": "PAPER-LIU-WANG-22/E4",
@@ -81937,21 +81940,22 @@
    "locator": "Corollary 3.35, arXiv v4 p. 22",
    "printed": "… generated by W(k)[z_0, z_1] and {ι(δ^k(h))}_{k≥0} under either the 𝒩-topology or the (p, 𝒩)-topology.",
    "correction": "{δ^k(h)}_{k≥0}, regarded in D_{W(k)[z_0,z_1]}((E_K(z_0), z_0 − z_1))^∧_𝒩 through the embedding TP_0(O_K/𝕊_{W(k)}[z_0, z_1]) → HP_0(O_K/W(k)[z_0, z_1]) of Lemma 3.32 and Corollary 3.30 (as in Theorem 1.3).",
-   "reason": "ι is defined nowhere in the paper; v4's comment says the original Theorem 3.24 was moved to Appendix A, and Theorem 1.3, which restates the corollary, writes δ^k(φ(z_0 − z_1)/φ(E_K(z_0))) without ι.",
+   "reason": "The embedding through Lemma3.32 and Corollary3.30 is intended; the symbol ι is not defined in the active v4 text. A historical explanation is not needed.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "No active definition of ι precedes this corollary in v4. The embedding of Lemma3.32 gives the needed interpretation; do not assert a version-history explanation as proved."
   },
   {
    "id": "PAPER-LIU-WANG-22/E5",
@@ -81963,17 +81967,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The upper index l is undefined and must be n. The power j−1 matches u^(n); the printed j merely multiplies a valid basis by the unit−μbar, so it does not destroy the basis theorem."
   },
   {
    "id": "PAPER-LIU-WANG-22/E6",
@@ -81985,17 +81990,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The summation variable must be distinct from the fixed row index. The common basis sign can be changed by a unit, but the formal convention must agree with E8 and the global sign audit E28."
   },
   {
    "id": "PAPER-LIU-WANG-22/E7",
@@ -82007,17 +82013,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "With the displayed β, the two squares have bottom map ηR−ηL. Reversing that arrow repairs each square, but this is not a complete sign repair: Lemma6.12 separately claims d(z)=+t. See E28."
   },
   {
    "id": "PAPER-LIU-WANG-22/E8",
@@ -82029,39 +82036,41 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "For n=1 the printed sum is−t while its asserted formal value is t. The alternating exponent j−1 gives the claimed binomial expansion."
   },
   {
    "id": "PAPER-LIU-WANG-22/E9",
    "kind": "misprint",
    "locator": "Proof of Lemma 6.19, arXiv v4 p. 38",
    "printed": "This implies that ξ_0 − z_0^p ∈ (p, 𝒩^{≥(p−2)/e_K+1}), yielding the second claim.",
-   "correction": "ξ_0 − z_0^{p−1} ∈ (p, 𝒩^{≥(p−2)/e_K+1})",
-   "reason": "The expansion just given is ξ_0 = z_0^{p−1} − ((p−1)/2)z_0^{p−2}f^{(0)} + …, and the claim being proved is ξ_0 ≡ z_0^{p−1}.",
-   "affects": "nothing",
+   "correction": "ξ_0 + z_0^{p−1} ∈ (p,N^{≥(p−2)/e_K+1}), after correcting the binomial sign in E27.",
+   "reason": "The exponent p is a slip, but the original proposed correction still has the wrong sign. With ξ=−δ(f)/f, the actual congruence is ξ+z0^(p−1)∈(p,N^{≥(p−2)/e+1}); see E27. This finding is confirmed with the amended correction.",
+   "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The exponent p is a slip, but the original proposed correction still has the wrong sign. With ξ=−δ(f)/f, the actual congruence is ξ+z0^(p−1)∈(p,N^{≥(p−2)/e+1}); see E27. This finding is confirmed with the amended correction."
   },
   {
    "id": "PAPER-LIU-WANG-22/E10",
@@ -82073,17 +82082,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The binomial expansion has exponent n′−i and nonleading indices i≤n′−2; n is not the binomial degree."
   },
   {
    "id": "PAPER-LIU-WANG-22/E11",
@@ -82095,17 +82105,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "This case uses n=pe(j−1)/(p−1) and the cocycle z0^(n−1)σ^j dz; the copied j exponent names the wrong class."
   },
   {
    "id": "PAPER-LIU-WANG-22/E12",
@@ -82117,17 +82128,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Substitute n=e(m−1)+1 into Proposition8.4’s exponent: the variable is j, not an undefined a."
   },
   {
    "id": "PAPER-LIU-WANG-22/E13",
@@ -82139,17 +82151,18 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "For p2,d=1 all α_(i,l) lie in topological degree1 by Theorem8.18, irrespective of ramification index i."
   },
   {
    "id": "PAPER-LIU-WANG-22/E14",
@@ -82161,17 +82174,18 @@
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "For p3, (ω−1)^2=−3ω, so3/(ω−1)^2=−ω² and the error from−1 has valuation1/2. The weaker residue congruence is exactly sufficient for Hensel; no counterexample to Proposition8.23 follows."
   },
   {
    "id": "PAPER-LIU-WANG-22/E15",
@@ -82183,17 +82197,501 @@
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv 2012.15014 listing (v1 30 December 2020, v2 9 June 2021, v3 1 August 2021, v4 10 August 2022 'Refereed version; the constant term of the Eisenstein polynomial is obtained directly, and the original section 9 is removed; the original Theorem 3.24 is moved to the new appendix A') and the v4 TeX source and PDF",
-    "the published article page, Invent. Math. 230 (2022) 851–932, https://link.springer.com/article/10.1007/s00222-022-01134-9 (abstract, dates and Appendix A with Theorem A.1 checked against v4; the full text is paywalled and was not read)",
-    "the Publisher Correction, Invent. Math. 230 (2022) 933, https://doi.org/10.1007/s00222-022-01147-4, which corrects only the authors' affiliations",
-    "Crossref metadata for DOI 10.1007/s00222-022-01134-9 (its only update relation is that Publisher Correction)"
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
    ],
    "owner": "PAPER-LIU-WANG-22",
    "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
    "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The proof is referring to its own diagram6.6; the source TeX duplicates the label E:thh-cobar. Diagram6.14 belongs to the later proof."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E16",
+   "kind": "error",
+   "locator": "arXiv v4 Definition3.20,p18",
+   "printed": "δ(xy)=xδ(y)+yδ(x)+pδ(x)δ(y).",
+   "correction": "Use x^pδ(y)+y^pδ(x)+pδ(x)δ(y).",
+   "reason": "Expanding φ(xy)=φ(x)φ(y) forces the p-th powers. For p3 and φ=id on Z3, δ(2)=−2 and δ(4)=−20, while the printed right side at x=y=2 is4. PDF image and TeX agree.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Expanding φ(xy)=φ(x)φ(y) forces the p-th powers. For p3 and φ=id on Z3, δ(2)=−2 and δ(4)=−20, while the printed right side at x=y=2 is4. PDF image and TeX agree."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E17",
+   "kind": "error",
+   "locator": "arXiv v4 §4,p22",
+   "printed": "(M⊗_S N)^i=⊕_(j+k=i)M^j⊗_(S0)N^k.",
+   "correction": "Quotient that direct sum by all homogeneous S-balancing relations.",
+   "reason": "Set S=k[t] and M=N=S with deg(t)=1. The printed degree1 space has dimension2, whereas S⊗_S S≃S has dimension1. This matters for the Hopf-algebroid tensor construction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Set S=k[t] and M=N=S with deg(t)=1. The printed degree1 space has dimension2, whereas S⊗_S S≃S has dimension1. This matters for the Hopf-algebroid tensor construction."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E18",
+   "kind": "gap",
+   "locator": "arXiv v4 Definition2.4,p10",
+   "printed": "TP_p ≃ (THH^{tC_p})^{hT}, citing Nikolaus–Scholze LemmaII.4.2.",
+   "correction": "Assume the underlying THH spectrum is bounded below for this comparison and the resulting completed TC formula.",
+   "reason": "The primary Nikolaus–Scholze PDF, printedp48, explicitly requires bounded below. Section2’s E∞-algebras are not stated connective. Actual O_K applications are connective; the general comparison is underjustified as written, not disproved here for every unbounded input.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The primary Nikolaus–Scholze PDF, printedp48, explicitly requires bounded below. Section2’s E∞-algebras are not stated connective. Actual O_K applications are connective; the general comparison is underjustified as written, not disproved here for every unbounded input."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E19",
+   "kind": "misprint",
+   "locator": "arXiv v4 Lemma6.10 proof,p34",
+   "printed": "z^{m1}z^{m2} ≡ z^{m1+m2−e}E_K(z) mod p.",
+   "correction": "Insert μbar^(−1) on the right.",
+   "reason": "E_K(z) modp=μbar z^e and μ need not1. Multiplication by this unit leaves the filtration argument intact. The extraction had silently repaired this without recording the source slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "E_K(z) modp=μbar z^e and μ need not1. Multiplication by this unit leaves the filtration argument intact. The extraction had silently repaired this without recording the source slip."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E20",
+   "kind": "error",
+   "locator": "arXiv v4 Lemma6.11(2),p35",
+   "printed": "ε(t^[i])=0 for all i≥0.",
+   "correction": "ε(t^[0])=1 and ε(t^[i])=0 for i>0.",
+   "reason": "The divided-power relation t^[0]=1 and unitality force ε(1)=1. The printed statement includes i0.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The divided-power relation t^[0]=1 and unitality force ε(1)=1. The printed statement includes i0."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E21",
+   "kind": "error",
+   "locator": "arXiv v4 §6 before Lemma6.19,p37",
+   "printed": "ν(a) is the smallest j with a∈N^{≥j}; ν(ab)=ν(a)+ν(b) since both associated gradeds are integral.",
+   "correction": "Use the largest finite filtration order or supremum, ν(0)=∞. In general only ν(ab)≥ν(a)+ν(b); equality requires nonzero product of initial forms.",
+   "reason": "The smallest admissible index is0 for every integral filtered element. Moreover Lemma6.11 gives a divided-power algebra over k in the modp associated graded, where t≠0 but t^p=p!t^[p]=0. It is not an integral domain. The particular products used later need separate checks.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The smallest admissible index is0 for every integral filtered element. Moreover Lemma6.11 gives a divided-power algebra over k in the modp associated graded, where t≠0 but t^p=p!t^[p]=0. It is not an integral domain. The particular products used later need separate checks."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E22",
+   "kind": "error",
+   "locator": "arXiv v4 §5,p30 and §6,p35",
+   "printed": "The algebraic first page is identified with E1(THH), and the refined first page with the cobar complex.",
+   "correction": "H(gr(cobar)) is the descent E2 in the first case and cohomology of the graded cobar complex in the second. Differentials change the filtration index.",
+   "reason": "Equations5.21–5.22 and the refined definition explicitly take cohomology. A chain group and its cohomology are not interchangeable. The introduction’s p6 diagram already uses E2(THH).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Equations5.21–5.22 and the refined definition explicitly take cohomology. A chain group and its cohomology are not interchangeable. The introduction’s p6 diagram already uses E2(THH)."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E23",
+   "kind": "misprint",
+   "locator": "arXiv v4 Lemma6.28 proof,p39",
+   "printed": "2f^(2)=−(f^(1))²+δ²(h)E_K(z0)^4.",
+   "correction": "Replace δ²(h) by δ(h).",
+   "reason": "Equation3.22 at k1 gives δ^1(h); Lemma4.11 supplies the needed filtration for either iterate, so the estimate is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Equation3.22 at k1 gives δ^1(h); Lemma4.11 supplies the needed filtration for either iterate, so the estimate is unchanged."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E24",
+   "kind": "error",
+   "locator": "arXiv v4 Propositions6.32,6.43 and Lemma6.36,pp40–45",
+   "printed": "n≥0, l=v_p(n), respectively l=v_p(n−pej/(p−1)), followed by a finite nonzero differential.",
+   "correction": "Restrict to nonzero valuation argument. Treat n=0 or zero charge as permanent-cycle cases separately.",
+   "reason": "v_p(0)=∞ does not define the displayed finite page or n/p^l. In particular1 has zero differential; Proposition7.1 expressly identifies the zero-charge surviving classes.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "v_p(0)=∞ does not define the displayed finite page or n/p^l. In particular1 has zero differential; Proposition7.1 expressly identifies the zero-charge surviving classes."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E25",
+   "kind": "error",
+   "locator": "arXiv v4 Propositions6.32 and6.43,pp40,45",
+   "printed": "d^{q−1/e}(...) is nonzero in E^q, where q=(p^(l+1)−1)/(p−1).",
+   "correction": "Its nonzero value belongs to page E^{q−1/e}; its class vanishes on the following E^q page.",
+   "reason": "The next page is the homology of the differential page. Every image of that differential is zero there. The printed page45 image confirms the superscript, not an OCR artefact.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The next page is the homology of the differential page. Every image of that differential is zero there. The printed page45 image confirms the superscript, not an OCR artefact."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E26",
+   "kind": "misprint",
+   "locator": "arXiv v4 Proposition7.1 proof,p47",
+   "printed": "can(z^{pej/(p−1)}σ^j)=μbar^(−j)z^{ej/(p−1)}u^j.",
+   "correction": "can(μbar^(−j)z^{ej/(p−1)}u^j)=z^{pej/(p−1)}σ^j.",
+   "reason": "can has source TC^- and target TP. The displayed use reverses them; can(u)=E_K(z)σ gives the corrected identity.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "can has source TC^- and target TP. The displayed use reverses them; can(u)=E_K(z)σ gives the corrected identity."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E27",
+   "kind": "error",
+   "locator": "arXiv v4 Lemmas6.19–6.20,pp37–38; Lemma8.2 and Proposition8.4,pp50–51; compare Lemma8.13 proof,p55",
+   "printed": "δ(f)=−f(z0^(p−1)−...), ξ=−δ(f)/f≡+z0^(p−1); Frobenius leading coefficient −μbar^(−p(j−1)).",
+   "correction": "The binomial expansion has leading +z0^(p−1)f. Keeping ξ and μtilde definitions gives ξ≡−z0^(p−1) and coefficient −μtilde in Lemma6.20. The local Frobenius leading coefficient in8.2/8.4 must be positive. Audit all iterates and cobar conventions before accepting the complete differential formulas.",
+   "reason": "For p3, φzi=zi³ gives δ(z0−z1)=z0 z1(z0−z1), hence ξ=−z0 z1. With e>1, its difference from+z0² has initial term−2z0² in filtration2/e, strictly below1+1/e, so the claimed congruence fails. Proposition8.4’s negative sign would also contradict the positive coefficient explicitly used in the proof of8.13. Pages38,51,55 were visually checked. This disproves intermediate formulas, not the main additive TC groups.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "For p3, φzi=zi³ gives δ(z0−z1)=z0 z1(z0−z1), hence ξ=−z0 z1. With e>1, its difference from+z0² has initial term−2z0² in filtration2/e, strictly below1+1/e, so the claimed congruence fails. Proposition8.4’s negative sign would also contradict the positive coefficient explicitly used in the proof of8.13. Pages38,51,55 were visually checked. This disproves intermediate formulas, not the main additive TC groups."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E28",
+   "kind": "error",
+   "locator": "arXiv v4 Lemma6.12 and proof,p36; diagrams6.6,6.14,pp33,36",
+   "printed": "The proof takes d(z)=z1−z0, while the lemma asserts d(z)=t_(z0−z1).",
+   "correction": "Choose one cobar convention globally: d=η_L−η_R gives d(z)=+t; d=η_R−η_L gives−t. Modify the comparison maps coherently.",
+   "reason": "By definition t has initial form z0−z1. At odd p these signs differ. Repairing only the squares as in E7 leaves the differential assertion inconsistent. OPEN-SIGN tracks the global correction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "By definition t has initial form z0−z1. At odd p these signs differ. Repairing only the squares as in E7 leaves the differential assertion inconsistent. OPEN-SIGN tracks the global correction."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E29",
+   "kind": "misprint",
+   "locator": "arXiv v4 Proposition8.4 proof,pp52–53",
+   "printed": "d(β)=d(z0^(n−2)σ^j dz); T_m(λz^(l−1)σ^j dz)=λm z^(mj−1)σ^j dz; l=p(n−me(j−1)).",
+   "correction": "Use n−1, ml−1, and l=p(n−e(j−1)), respectively.",
+   "reason": "The preceding cocycle is z0^(n−1). Equation6.35 sends exponent l−1 to ml−1. Comparing ml=p(mn−me(j−1)) cancels m. These slips do not settle the separate Frobenius sign issue.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The preceding cocycle is z0^(n−1). Equation6.35 sends exponent l−1 to ml−1. Comparing ml=p(mn−me(j−1)) cancels m. These slips do not settle the separate Frobenius sign issue."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E30",
+   "kind": "error",
+   "locator": "arXiv v4 §8 after Remark8.17,p57",
+   "printed": "b∈[(p−1)i+1,pi] is the unique index satisfying8.16.",
+   "correction": "Use b∈[p(i−1)+1,pi−1], with the given congruence mod(p−1).",
+   "reason": "For i1 the printed interval is{p}, which is excluded by p∤b. The corrected interval has p−1 successive integers and excludes multiples of p; exactly one has the specified residue class. The inequalities determine a unique l.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "For i1 the printed interval is{p}, which is excluded by p∤b. The corrected interval has p−1 successive integers and excludes multiples of p; exactly one has the specified residue class. The inequalities determine a unique l."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E31",
+   "kind": "misprint",
+   "locator": "arXiv v4 Proposition8.11 proof,p54",
+   "printed": "For d|j, λ has the form λ′μbar^{pd/(p−1)}.",
+   "correction": "Use a scalar multiple of (μbar^{pd/(p−1)})^{j/d}, with the root choice fixed in β.",
+   "reason": "The equation is λ^{p−1}=μbar^{pj}; the displayed fixed root only solves the degree d equation. The claimed polynomial-module conclusion uses its powers.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "The equation is λ^{p−1}=μbar^{pj}; the displayed fixed root only solves the degree d equation. The claimed polynomial-module conclusion uses its powers."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E32",
+   "kind": "misprint",
+   "locator": "arXiv v4 §5 Equations5.13–5.17,pp28–29",
+   "printed": "D and the cofree adjunction are described using Γ-modules.",
+   "correction": "Use Γ-comodules; D is A-linear, not ordinary Γ-linear.",
+   "reason": "D(1)=0 and D(t)=1 rule out Γ-linearity. The preceding paragraph explicitly identifies Ext in comodule categories, and the coaction formula for the adjunction has precisely that type.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "D(1)=0 and D(t)=1 rule out Γ-linearity. The preceding paragraph explicitly identifies Ext in comodule categories, and the coaction formula for the adjunction has precisely that type."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E33",
+   "kind": "misprint",
+   "locator": "arXiv v4 Definition4.3(1),p23",
+   "printed": "the image of m_i in N^k",
+   "correction": "the homogeneous component of n_i in N^k",
+   "reason": "Only n_i are introduced in the graded definition; m_i belong to the preceding filtered definition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Only n_i are introduced in the graded definition; m_i belong to the preceding filtered definition."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E34",
+   "kind": "error",
+   "locator": "arXiv v4 Lemma6.12 proof after diagram6.14,p36",
+   "printed": "β is k[z]-linear under η_L.",
+   "correction": "β is k-linear with the displayed values on the monomial basis; it is not k[z]-linear.",
+   "reason": "β(dz)=t and β(z dz)=z0 t−t^[2], whereas z0β(dz)=z0t. The nonzero divided-power generator t^[2] obstructs the stated linearity. This does not apply to the different k[z]-linear map in6.6, whose polynomial variable is u.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "β(dz)=t and β(z dz)=z0 t−t^[2], whereas z0β(dz)=z0t. The nonzero divided-power generator t^[2] obstructs the stated linearity. This does not apply to the different k[z]-linear map in6.6, whose polynomial variable is u."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E35",
+   "kind": "misprint",
+   "locator": "arXiv v4 Theorem8.21 proof,p58",
+   "printed": "(E_K(z)^2σ−φ(E_K(z)u))/2=δ(E_K(z))σ.",
+   "correction": "The displayed integral quotient is −δ(E_K(z))σ.",
+   "reason": "Using φ(u)=σ and δ(E)=(φ(E)−E²)/2 gives the negative sign. It disappears after reduction mod2, which is the subsequent calculation.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "Using φ(u)=σ and δ(E)=(φ(E)−E²)/2 gives the negative sign. It disappears after reduction mod2, which is the subsequent calculation."
+  },
+  {
+   "id": "PAPER-LIU-WANG-22/E36",
+   "kind": "gap",
+   "locator": "arXiv v4 Propositions6.34 and6.43,pp41,45; compare Lemma6.36,p42",
+   "printed": "The differential formula is stated for all e_K and all nonzero charges.",
+   "correction": "For e_K=1, valuation-zero charges are removed by the associated graded cobar differential before the initial E1 page; apply the later-page formula only to surviving classes.",
+   "reason": "If e_K=1 and p∤n, l=0 and the displayed page is1−1/e_K=0, while the refined sequence was defined starting at1/e_K=1. Lemma6.36 itself requires l≥1 when e_K=1. The omitted initial-stage qualification must be supplied.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent 2026-09-23 search: arXiv2012.15014 version history, current v4 PDF (all65 pages), and selected v4 TeX passages. Earlier versions were not read in full.",
+    "Publisher correction DOI10.1007/s00222-022-01147-4, one-page PDF read in full: author affiliations only. Main published PDF endpoint returned an HTML challenge; mathematical published-version agreement remains unverified.",
+    "Crossref API record for DOI10.1007/s00222-022-01134-9: updated-by lists only the8August2022 affiliation correction.",
+    "Wang Guozhen homepage https://wangguozhen-fudan.github.io/ inspected, including its TC notes entry; no linked mathematical erratum found. Ruochuan Liu’s listed BICMR homepage could not be retrieved (timeout); not counted as read.",
+    "Web searches for the exact paper title with sign/correction/errata, and Liu Wang cyclic homology errata, found no mathematical correction. This is a bounded search, not proof of novelty."
+   ],
+   "owner": "PAPER-LIU-WANG-22",
+   "file": "research/blueprint/papers/PAPER-LIU-WANG-22.result.json",
+   "citation": "Ruochuan Liu–Guozhen Wang, \"Topological cyclic homology of local fields\", Inventiones Mathematicae (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LIU-WANG-22",
+   "reviewReason": "If e_K=1 and p∤n, l=0 and the displayed page is1−1/e_K=0, while the refined sequence was defined starting at1/e_K=1. Lemma6.36 itself requires l≥1 when e_K=1. The omitted initial-stage qualification must be supplied."
   },
   {
    "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24/E1",
