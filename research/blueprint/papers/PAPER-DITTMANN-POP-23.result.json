@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-DITTMANN-POP-23",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Characterizing finitely generated fields by a single field axiom",
     "authors": "Philip Dittmann and Florian Pop",
@@ -15,12 +15,25 @@
     "readSections": [
       "Full author-version PDF pp.1–19, §§1–5 and references reread by codex-c83e7a on 2026-09-22.",
       "Full author-version PDF pp.1–19 reread by codex-hjdg0j on 2026-09-22; pp.7 and 11 also visually inspected. Same SHA-256.",
-      "All19 pages of the same archived final author version freshly reread by codex-c83e7a on2026-09-23, including all proofs and references."
+      "All 19 pages of the same archived final author version freshly reread by codex-c83e7a on 2026-09-23, including all proofs and references.",
+      "arXiv v2 TeX source, read in full (continuation cc-442dc5, 23 September 2026)",
+      "AKNS arXiv 1610.04768, §2.9 and Proposition 2.28 (continuation cc-442dc5)"
     ],
     "publicationMatch": "Title, authors, DOI, venue and conclusions agree with publisher metadata; arXiv labels v2 final version, posted after acceptance. Publisher-format PDF not acquired: guessed annals-v198-n3-p04-p.pdf returned 404. No line-by-line publication collation claimed.",
-    "previousCheckpoint": "Latest merged continuation:codex-hjdg0j PR1933/1935, following codex-c83e7a PR1668 and codex-a71f92 PR1662. All143 inherited item IDs,120 API IDs and120 proposed test IDs preserved."
+    "previousCheckpoint": "Latest merged continuation:codex-hjdg0j PR1933/1935, following codex-c83e7a PR1668 and codex-a71f92 PR1662. All 143 inherited item IDs,120 API IDs and 120 proposed test IDs preserved.",
+    "continuations": [
+      {
+        "agent": "Claude Code",
+        "session": "cc-442dc5",
+        "date": "2026-09-23",
+        "inputCommit": "d2c523a (tauceti-explorer main, 23 September 2026)",
+        "readExtent": "The arXiv v2 TeX source (D_P-2023-04-27.tex, 116,353 bytes; e-print SHA-256 1a17b348325732c75bf8e1ef68a99e27df02b1fadcb9e17cafc0baa82e4f57d3) was read in full with the v2 PDF (same SHA-256 as the checkpoint's). AKNS (arXiv 1610.04768) was read at §2.9, Proposition 2.28, Examples 2.9 and Lemma 2.17. Crossref was checked for the paper and for the three bibliography entries of E12–E14. The other cited suppliers were not re-read; they enter as items stated as the paper uses them.",
+        "preservedItemIds": "all 152 slugs",
+        "newItemIds": "niceness-definability, function-field-fundamental-equality"
+      }
+    ]
   },
-  "summary": "Extracts the finite-generation, Pfister-form, higher-cohomological and valuation-theoretic chain leading to uniform definability of geometric prime divisors, parametric bi-interpretability with the integers and a single parameter-free ring sentence characterizing a finitely generated field among such fields. Distinguishes all-characteristic higher Pfister theory from the characteristic-not-two upstream roadmap, reuses actual patch compactness and prescribed-pole theorems, and records unresolved original-source proof leaves. The preceding continuation adds eight exact library imports, decomposes the henselian-generator proof into five reusable lemmas, and supplies explicit downstream uses for all forty definition/construction APIs. The arithmetic polynomial normalization uses an explicit purely-inseparable-then-separable assembly, not an assumed general excellence theorem. This continuation adds eight exact Mathlib suppliers and six separate proof inputs, proves the selected-family valuation adapter at the mathematical level, exposes a direct height-one intersection proof, and corrects its owner to the already planned AutomorphicCongruences:L4. Thirteen source findings are structured without claiming independent review. This continuation supplies direct proofs of valuation dimension drop and divisorial discreteness, with separate geometric and mixed-characteristic Gauss subfields, the arbitrary-valued finite-extension inequality, and the ordered-group cyclicity step. All143 prior items and13 unreviewed source findings are preserved; nine proof inputs are added. Source closure remains partial.",
+  "summary": "Dittmann and Pop prove that every finitely generated field K is characterized among finitely generated fields by one sentence in the language of rings (Theorem 1.1), and that every infinite one is bi-interpretable with ℤ (Theorem 1.2). In characteristic two and Kronecker dimension above three they assume resolution of singularities above F_2. The core is Theorem 1.3: for each d ≥ 3 the geometric prime divisors of finitely generated fields of Kronecker dimension d are uniformly first-order definable. The proof has four stages. First, anisotropic 'nice' Pfister forms are detected at prime divisors, through the cohomological local–global principles of Jannsen and Kerz–Saito and Gabber's prime-to-2 alterations (§§2–3). Then compactness of the patch topology isolates one divisor (Proposition 3.10, Theorem 4.2). Next, a definable finitely generated normal subring is built (§5). Finally the result of Aschenbrenner–Khélif–Naziazeno–Scanlon (AKNS) gives bi-interpretability. 154 items (29 library, 6 planned, 119 missing) are routed to a Part II of LogicAndDefinabilityInNumberTheory (finitely generated field definability), a Part II of Tau Ceti's QuadraticFormInvariants (higher Pfister forms), a Part II of AdicCoefficientsAndComparisons (prime-to-degree alterations) and four source routes. Seventeen mistakes are recorded. Among them:\n- a false cohomological-dimension bound in Proposition 3.2(3);\n- a missing bridge from AKNS Proposition 2.28, which concerns finitely generated structures, to finitely generated fields;\n- an unargued first-order definition of niceness;\n- the dimensions one and two of Theorem 1.2, which §5 does not treat.\nEach has a repair.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -66,7 +79,7 @@
           "TauCeti.ValuationSpectrum.compactSpace_patchTopology",
           "TauCeti.ValuationSpectrum.isClopen_patchTopology_basicOpen"
         ],
-        "note": "Read through line220; imports Boolean-product compactness rather than replanning it.",
+        "note": "Read through line 220; imports Boolean-product compactness rather than replanning it.",
         "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/AdicSpace/PatchPresentation.lean#L65"
       },
       {
@@ -89,7 +102,7 @@
           "TauCeti.Place.integers_ofValuationSubring",
           "TauCeti.Place.existsUnique_integers_eq"
         ],
-        "note": "Actual statements at217 and289–339 read; no separability/perfectness assumption.",
+        "note": "Actual statements at 217 and 289–339 read; no separability/perfectness assumption.",
         "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/FieldTheory/FunctionField/Place/OfValuationSubring.lean#L217"
       },
       {
@@ -375,7 +388,7 @@
       "kind": "definition",
       "name": "Definability with parameters",
       "statement": "For a language L, an L-structure M, a parameter set A⊆M and a finite index set I, S⊆M^I is A-definable when an L-formula with constants from A has realization set exactly S.",
-      "locator": "§1, Theorems1.2–1.3; AKNS §2.1",
+      "locator": "§1, Theorems 1.2–1.3; AKNS §2.1",
       "status": "library",
       "note": "",
       "prerequisites": [
@@ -498,7 +511,7 @@
       "kind": "definition",
       "name": "Constant field",
       "statement": "For a field F its constant subfield κ is the relative algebraic closure in F of its prime field. For finitely generated F it is a number field in characteristic zero and a finite field in positive characteristic.",
-      "locator": "§1, p.1; §3, Proposition3.2",
+      "locator": "§1, p.1; §3, Proposition 3.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -797,9 +810,9 @@
       "kind": "theorem",
       "name": "Residue-dimension characterization of prime divisors",
       "statement": "Let K be a finitely generated field and v any valuation with dim_Kr(Kv)=dim_Kr(K)−1. Then the valuation ring is a DVR and Kv is finitely generated over its prime field. Thus v is a prime divisor in the paper’s sense. The proof covers geometric and arithmetic valuations and does not assume discreteness in advance.",
-      "locator": "§1, p.2, citation EP Theorem3.4.3",
+      "locator": "§1, p.2, citation EP Theorem 3.4.3",
       "status": "missing",
-      "note": "The exact criterion has a direct proof in both characteristic cases. Finite generation of K is essential: Fp(t^{1/p^∞}) has residue Fp and transcendence degree1 but value group Z[1/p], which is not discrete. No new full reading of Engler–Prestel is claimed.",
+      "note": "The exact criterion has a direct proof in both characteristic cases. Finite generation of K is essential: Fp(t^{1/p^∞}) has residue Fp and transcendence degree 1 but value group Z[1/p], which is not discrete. No new full reading of Engler–Prestel is claimed.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/prime-divisor",
         "PAPER-DITTMANN-POP-23/geometric-gauss-subfield",
@@ -824,7 +837,7 @@
       "kind": "definition",
       "name": "Uniform definable family of valuation rings",
       "statement": "For fixed d a ring formula val_d(X,Y), with a fixed finite parameter tuple Y, defines all geometric prime-divisor rings of every H_d field K: each such ring is a fiber, and each parameter fiber is either such a ring or the empty set.",
-      "locator": "§1, Theorem1.3; Poonen Definition3.1",
+      "locator": "§1, Theorem 1.3; Poonen Definition 3.1",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -886,13 +899,14 @@
       "kind": "theorem",
       "name": "Uniform definability of geometric prime divisors",
       "statement": "For each d>=3 a formula val_d as in uniform-family exists for every field satisfying H_d. The empty-fiber alternative holds for every parameter tuple, not only for admissible tuples.",
-      "locator": "Theorem1.3; Recipe4.3",
+      "locator": "Theorem 1.3; Recipe 4.3",
       "status": "missing",
       "note": "",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/uniform-family",
         "PAPER-DITTMANN-POP-23/valuation-filter",
-        "PAPER-DITTMANN-POP-23/single-divisor"
+        "PAPER-DITTMANN-POP-23/single-divisor",
+        "PAPER-DITTMANN-POP-23/niceness-definability"
       ],
       "proofSteps": [
         "Translate admissible test data and anisotropy into the ring language.",
@@ -907,7 +921,7 @@
       "kind": "definition",
       "name": "Interpretation by a definable quotient",
       "statement": "An interpretation of B in A is a definable finite-power domain M⊆A^m with a surjection f:M→B whose equality kernel and pullbacks of the basic relation and function graphs of B are definable in A. Parameters are allowed and tracked. Equivalently pullbacks of every B-definable finite-power set are A-definable.",
-      "locator": "AKNS §2.2; invoked at §1 Theorem1.2 and §5",
+      "locator": "AKNS §2.2; invoked at §1 Theorem 1.2 and §5",
       "status": "planned",
       "note": "",
       "prerequisites": [
@@ -1048,7 +1062,7 @@
       "kind": "theorem",
       "name": "Finitely generated fields and integer arithmetic",
       "statement": "Every infinite finitely generated field K is parametrically bi-interpretable with (Z,+,×). Assume resolution above F_2 only when char K=2 and dim_Kr(K)>3.",
-      "locator": "Theorem1.2; §5, final proof",
+      "locator": "Theorem 1.2; §5, final proof",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1061,7 +1075,7 @@
       "proofSteps": [
         "Use low-dimensional-biinterpretability when dim_Kr(K)<=2.",
         "In H_d with d>=3, construct the definable normalization R_T and its fraction-pair bi-interpretation with K.",
-        "Apply AKNS Theorem3.1 to the infinite finitely generated R_T and compose bi-interpretations."
+        "Apply AKNS Theorem 3.1 to the infinite finitely generated R_T and compose bi-interpretations."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "D"
@@ -1071,7 +1085,7 @@
       "kind": "theorem",
       "name": "Single field axiom",
       "statement": "For each finitely generated field K, subject to resolution above F_2 if char K=2 and dim_Kr(K)>3, there exists a parameter-free sentence θ_K in the ring language such that every finitely generated FIELD L satisfies θ_K exactly when L≅K.",
-      "locator": "Theorem1.1; final sentence of §5",
+      "locator": "Theorem 1.1; final sentence of §5",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1092,7 +1106,7 @@
       "kind": "theorem",
       "name": "Finite-field base case",
       "statement": "For a finite field K of size q=p^n, the ring sentence saying characteristic p and exactly q elements characterizes K up to field isomorphism among fields. No bi-interpretation with Z is asserted for a finite field.",
-      "locator": "Theorem1.1, finite case; §1 reduction to infinite fields",
+      "locator": "Theorem 1.1, finite case; §1 reduction to infinite fields",
       "status": "missing",
       "note": "Elementary expansion of the finite case, not a claim of an effective uniform formula in q.",
       "prerequisites": [
@@ -1168,7 +1182,7 @@
       "kind": "definition",
       "name": "Shifted Kato cohomology convention",
       "statement": "For i>=0 set H^{i+1}(F)=H^{i+1}(F,Z/2(i)); in characteristic two this is H^1(F,Ω^i_log), not ordinary H^{i+1}(G_F,μ_2^{⊗i}).",
-      "locator": "§2, p.4 and footnote2",
+      "locator": "§2, p.4 and footnote 2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1287,7 +1301,7 @@
       "id": "PAPER-DITTMANN-POP-23/cohomology-residue",
       "kind": "construction",
       "name": "Discrete valuation residue",
-      "statement": "In the coefficient/valuation regimes used in Facts2.1–2.3, a discrete valuation w of F has a boundary ∂_w:H^{i+1}(F)→H^i(Fw), factoring through restriction to the w-henselization. In mixed residue characteristic two the required hypotheses must be supplied separately; no unrestricted residue map is inferred.",
+      "statement": "In the coefficient/valuation regimes used in Facts 2.1–2.3, a discrete valuation w of F has a boundary ∂_w:H^{i+1}(F)→H^i(Fw), factoring through restriction to the w-henselization. In mixed residue characteristic two the required hypotheses must be supplied separately; no unrestricted residue map is inferred.",
       "locator": "§2(b), p.4, Ka2 p.149",
       "status": "missing",
       "note": "",
@@ -1368,7 +1382,7 @@
       "kind": "construction",
       "name": "Fields obtained from global constant places",
       "statement": "For a relatively algebraically closed global subfield k_1⊂K and a place v of k_1, take k_{1v} to be its henselization at finite v, its real closure at real v, and its algebraic closure at complex v inside the completion. Let K_v=Kk_{1v}, embedded in the corresponding function field over the completion. Keep henselian and completed fields distinct.",
-      "locator": "§2, p.4 preceding Fact2.1",
+      "locator": "§2, p.4 preceding Fact 2.1",
       "status": "missing",
       "note": "The PDF's displayed tensor defining the completed compositum has a notation mismatch; the original Jannsen formulation uses completed base change.",
       "prerequisites": [
@@ -1429,7 +1443,7 @@
       "kind": "theorem",
       "name": "Jannsen local–global injectivity over a global base",
       "statement": "Let K be finitely generated of Kronecker dimension d>=1, char K≠2, and k_1⊂K a relatively algebraically closed global subfield. Then α∈H^{d+1}(K) is zero iff its restrictions to H^{d+1}(K_v) vanish for every place v of k_1.",
-      "locator": "Fact2.1; Jannsen Theorem0.4, with transcendence dimension d−1",
+      "locator": "Fact 2.1; Jannsen Theorem 0.4, with transcendence dimension d−1",
       "status": "missing",
       "note": "Original theorem statement checked in published Jannsen pp.2–3; full 71-page proof not claimed read.",
       "prerequisites": [
@@ -1437,7 +1451,7 @@
         "PAPER-DITTMANN-POP-23/cohomology-restriction"
       ],
       "proofSteps": [
-        "Apply Jannsen Theorem0.4 to completed global-base function fields.",
+        "Apply Jannsen Theorem 0.4 to completed global-base function fields.",
         "Relate the henselian/real algebraic base changes to the completions in the permitted setting; injectivity of the required map is a distinct comparison input.",
         "The original higher Hasse proof and this comparison still need full dependency auditing."
       ],
@@ -1448,8 +1462,8 @@
       "id": "PAPER-DITTMANN-POP-23/kato-complex",
       "kind": "construction",
       "name": "Arithmetic Bloch–Ogus complex",
-      "statement": "For the excellent normal integral d-dimensional schemes in Facts2.2–2.3, form the homological complex with degree a term ⊕_{x:dim closure{x}=a}H^{a+1}(κ(x)); its top term is H^{d+1}(κ(X)) and top differential is the sum of codimension-one residues. The residue differentials satisfy d²=0.",
-      "locator": "§2, pp.4–5; Kato Proposition1.7",
+      "statement": "For the excellent normal integral d-dimensional schemes in Facts 2.2–2.3, form the homological complex with degree a term ⊕_{x:dim closure{x}=a}H^{a+1}(κ(x)); its top term is H^{d+1}(κ(X)) and top differential is the sum of codimension-one residues. The residue differentials satisfy d²=0.",
+      "locator": "§2, pp.4–5; Kato Proposition 1.7",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1509,15 +1523,15 @@
       "kind": "theorem",
       "name": "Kerz–Saito divisorial detection",
       "statement": "Let R be a finite field of characteristic≠2, or the henselian valuation ring of a global field at a finite place with residue characteristic≠2. For X proper, regular, integral, flat over R of positive dimension d, and K=κ(X), α∈H^{d+1}(K) vanishes iff its restrictions to the henselizations at all codimension-one points vanish.",
-      "locator": "Fact2.2; Kerz–Saito Theorem8.1",
+      "locator": "Fact 2.2; Kerz–Saito Theorem 8.1",
       "status": "missing",
-      "note": "R is not assumed an arbitrary valuation ring; theorem8.1 statement and its reduction proof read, prerequisite theorem proofs remain open.",
+      "note": "R is not assumed an arbitrary valuation ring; theorem 8.1 statement and its reduction proof read, prerequisite theorem proofs remain open.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/kato-complex",
         "PAPER-DITTMANN-POP-23/cohomology-restriction"
       ],
       "proofSteps": [
-        "Apply Kerz–Saito Theorem8.1 to the proper regular model with invertible coefficient 2.",
+        "Apply Kerz–Saito Theorem 8.1 to the proper regular model with invertible coefficient 2.",
         "Top-degree exactness in the Kato complex detects a class by codimension-one residues.",
         "Residues factor through the corresponding henselizations; global zero clearly restricts to zero."
       ],
@@ -1529,7 +1543,7 @@
       "kind": "theorem",
       "name": "Divisorial detection in characteristic two",
       "statement": "Let K be finitely generated of characteristic two and Kronecker dimension d>0; for d>3 assume resolution above F_2. On a projective smooth F_2-model X of K, α∈H^{d+1}(K) vanishes iff its restrictions to the henselizations at all x∈X^(1) vanish.",
-      "locator": "Fact2.3; Jannsen Theorem0.10; Kato/Suwa in low dimension",
+      "locator": "Fact 2.3; Jannsen Theorem 0.10; Kato/Suwa in low dimension",
       "status": "missing",
       "note": "The low-dimensional unconditional input and existence of the indicated model are distinct proof obligations.",
       "prerequisites": [
@@ -1550,7 +1564,7 @@
       "kind": "theorem",
       "name": "Odd-degree persistence of mod-two classes",
       "statement": "For a finite separable odd-degree extension E/F, restriction on the mod-two cohomology in question is injective, since cor∘res=[E:F] acts as the identity. The application is in characteristic≠2.",
-      "locator": "Proposition3.4(1), Case2",
+      "locator": "Proposition 3.4(1), Case 2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1567,8 +1581,8 @@
       "id": "PAPER-DITTMANN-POP-23/odd-degree-alteration",
       "kind": "theorem",
       "name": "Prime-to-two regular alteration",
-      "statement": "For the integral projective model X_v over the excellent henselian DVR R of residue characteristic≠2 used in Proposition3.4, obtain a projective regular integral alteration X̃→X_v with finite odd-degree function-field extension, in the precise Gabber/ILO ExposéX Theorem2.4 regime.",
-      "locator": "Proposition3.4(1), p.9; ILO X.2.4",
+      "statement": "For the integral projective model X_v over the excellent henselian DVR R of residue characteristic≠2 used in Proposition 3.4, obtain a projective regular integral alteration X̃→X_v with finite odd-degree function-field extension, in the precise Gabber/ILO ExposéX Theorem 2.4 regime.",
+      "locator": "Proposition 3.4(1), p.9; ILO X.2.4",
       "status": "missing",
       "note": "de Jong arbitrary-degree alterations do not imply this prime-to-two statement. Original theorem and proof are acquisition gaps.",
       "prerequisites": [],
@@ -1704,7 +1718,7 @@
       "kind": "theorem",
       "name": "Pfister isotropy and hyperbolicity",
       "statement": "In either characteristic convention, a positive-fold quadratic Pfister form q_a is isotropic iff it is hyperbolic. In characteristic≠2 this exceeds the upstream result restricted to at most two folds.",
-      "locator": "§3, p.6; EKM Corollary9.10",
+      "locator": "§3, p.6; EKM Corollary 9.10",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1713,7 +1727,7 @@
         "PAPER-DITTMANN-POP-23/pfister-roundness"
       ],
       "proofSteps": [
-        "Use roundness and EKM Proposition9.8(2) to remove one binary outer factor.",
+        "Use roundness and EKM Proposition 9.8(2) to remove one binary outer factor.",
         "For a single nonsingular binary factor, an isotropic vector gives a hyperbolic plane.",
         "Induct on the fold number, in both characteristic conventions."
       ],
@@ -1787,7 +1801,7 @@
       "kind": "theorem",
       "name": "Vanishing of the Pfister symbol",
       "statement": "q_a is isotropic over F iff e(q_a)=0 in H^{i+1}(F). The proof uses the symbol comparison and the Arason–Pfister dimension criterion, not merely a formal norm-residue isomorphism.",
-      "locator": "Fact3.1(1); EKM Fact16.2, Theorem23.7(1)",
+      "locator": "Fact 3.1(1); EKM Fact 16.2, Theorem 23.7(1)",
       "status": "missing",
       "note": "Original EKM proofs remain to be acquired.",
       "prerequisites": [
@@ -1809,7 +1823,7 @@
       "kind": "theorem",
       "name": "Naturality of the Pfister symbol",
       "statement": "For every field extension E/F, e((q_a)_E)=res_E/F(e(q_a)).",
-      "locator": "Fact3.1(2)",
+      "locator": "Fact 3.1(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1828,7 +1842,7 @@
       "kind": "construction",
       "name": "Henselization of an arbitrary valued field",
       "statement": "For a valuation w of F, the w-henselization F_w is a separable algebraic immediate extension with its canonical extended henselian valuation, initial among compatible henselian valued extensions. Higher-rank valuations are permitted.",
-      "locator": "§2(b); Proposition3.2; Lemma3.9",
+      "locator": "§2(b); Proposition 3.2; Lemma 3.9",
       "status": "missing",
       "note": "No pinned arbitrary-valuation henselization construction found; p-adic Hensel lemmas are narrower.",
       "prerequisites": [],
@@ -1886,7 +1900,7 @@
       "kind": "theorem",
       "name": "Unit Pfister isotropy and residue isotropy",
       "statement": "Let (F,w) be nontrivially henselian and non-dyadic, and all entries ε_j of a Pfister form be w-units. Then q_ε is isotropic over F iff its residue form is isotropic over Fw. Smoothness of the unit quadric and Hensel lifting give one direction; reduction of a minimally valued coordinate gives the other.",
-      "locator": "Proposition3.2 proof, equation(*)",
+      "locator": "Proposition 3.2 proof, equation(*)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1907,7 +1921,7 @@
       "kind": "theorem",
       "name": "Principal-unit Pfister factor",
       "statement": "Under the preceding non-dyadic henselian unit hypotheses, if w(ε_1−1)>0 then q_{ε_1,ε_0} is isotropic, and so is any Pfister form having it as a factor.",
-      "locator": "Proposition3.2(1)",
+      "locator": "Proposition 3.2(1)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -1925,7 +1939,7 @@
       "kind": "theorem",
       "name": "Independent valuation classes and anisotropy",
       "statement": "In a non-dyadic henselian field (F,w), let ε be a unit tuple and π_s,…,π_1∈F× have linearly independent images in wF/2wF. Then residue isotropy of q_ε, isotropy of q_ε over F, and isotropy of q_{π,ε} over F are equivalent.",
-      "locator": "Proposition3.2(2)",
+      "locator": "Proposition 3.2(2)",
       "status": "missing",
       "note": "In odd characteristic the tensor expansion carries (−1)^{|χ|}; these signs have value zero and do not change the distinct-value proof. Each block has N+1 coordinates; see E10.",
       "prerequisites": [
@@ -1944,7 +1958,7 @@
       "kind": "theorem",
       "name": "Kronecker dimension drops under a valuation",
       "statement": "For any field F of finite Kronecker dimension and any nontrivial valuation v, dim_Kr(Fv)<dim_Kr(F). No finite-generation, rank-one, discreteness or henselianity hypothesis is required. The direct residue-lifting proof separates equal and mixed characteristic and does not require the full Abhyankar inequality.",
-      "locator": "Proposition3.2(3), proof p.7",
+      "locator": "Proposition 3.2(3), proof p.7",
       "status": "missing",
       "note": "The exact dimension-drop input is now proved mathematically below. The general Engler–Prestel theorem is not claimed as newly read or formalized.",
       "prerequisites": [
@@ -1965,7 +1979,7 @@
       "kind": "theorem",
       "name": "Positive-characteristic C-field bound",
       "statement": "If E has characteristic p>0 and finite absolute transcendence degree e, it is C_{e+1}; in particular every quadratic form over E in more than 2^{e+1} variables is isotropic.",
-      "locator": "Proposition3.2(3), Case1",
+      "locator": "Proposition 3.2(3), Case 1",
       "status": "missing",
       "note": "The source uses the usual algebraic-extension-stable C-field theorem; original proof remains a gap.",
       "prerequisites": [
@@ -1983,8 +1997,8 @@
       "id": "PAPER-DITTMANN-POP-23/real-place-finite-descent",
       "kind": "theorem",
       "name": "Finite-stage descent of real-place isotropy",
-      "statement": "In the characteristic-zero residue case of Proposition3.2(3), choose a residue field of representatives E⊂F and lift the unit coefficients to η∈E. If the original form is isotropic after every real closure of the constant field, there is a finitely generated E'⊂E containing η for which e(q_η) vanishes after every completion/real-closure base change of its constant field. The real-place step uses a projective system of finite bad-place sets and cohomology continuity.",
-      "locator": "Proposition3.2(3), Case2 and Claim",
+      "statement": "In the characteristic-zero residue case of Proposition 3.2(3), choose a residue field of representatives E⊂F and lift the unit coefficients to η∈E. If the original form is isotropic after every real closure of the constant field, there is a finitely generated E'⊂E containing η for which e(q_η) vanishes after every completion/real-closure base change of its constant field. The real-place step uses a projective system of finite bad-place sets and cohomology continuity.",
+      "locator": "Proposition 3.2(3), Case 2 and Claim",
       "status": "missing",
       "note": "Includes the coefficient-field and continuity inputs, not established by a name search.",
       "prerequisites": [
@@ -2007,7 +2021,7 @@
       "kind": "theorem",
       "name": "Dimension-bound isotropy of unit Pfister forms",
       "statement": "Let F be a nontrivially henselian non-dyadic valued field of finite Kronecker dimension r, with constant field k. For a unit tuple ε_r,…,ε_0, if q_ε is isotropic over Fk_v for every real closure k_v of k, then q_ε is isotropic over F.",
-      "locator": "Proposition3.2(3)",
+      "locator": "Proposition 3.2(3)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2029,7 +2043,7 @@
       "kind": "definition",
       "name": "Niceness relative to a global subfield",
       "statement": "For a presented (d+1)-fold Pfister form q_a over an H_d field K and a global subfield k_1⊂K with a_1,a_0∈k_1×, call it k_1-nice if q_{a_1,a_0} is isotropic over k_{1v} whenever v is real, dyadic, has v(a_0)≠0, or has v(a_1)<0. Nice means k_1-nice for some global subfield.",
-      "locator": "Definition3.3(1)–(2)",
+      "locator": "Definition 3.3(1)–(2)",
       "status": "missing",
       "note": "These two clauses define one predicate and its existential abbreviation; presentation dependence is explicit.",
       "prerequisites": [
@@ -2092,7 +2106,7 @@
       "kind": "theorem",
       "name": "Divisorial detection of a nice anisotropic form",
       "statement": "For H_d(K), a global subfield k_1⊂K and an anisotropic k_1-nice q_a, some prime divisor w of K has q_a anisotropic over K_w.",
-      "locator": "Proposition3.4(1)",
+      "locator": "Proposition 3.4(1)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2118,8 +2132,8 @@
       "id": "PAPER-DITTMANN-POP-23/nice-parity",
       "kind": "theorem",
       "name": "Parity and residue restrictions at detecting divisors",
-      "statement": "Under Proposition3.4's hypotheses, if q_a is anisotropic over K_w for a prime divisor w, then w is non-dyadic, w(a_0)=0, w(a_1)>=0, and at least one of w(a_i),1<=i<=d, is odd in the normalized value group Z.",
-      "locator": "Proposition3.4(2)",
+      "statement": "Under Proposition 3.4's hypotheses, if q_a is anisotropic over K_w for a prime divisor w, then w is non-dyadic, w(a_0)=0, w(a_1)>=0, and at least one of w(a_i),1<=i<=d, is odd in the normalized value group Z.",
+      "locator": "Proposition 3.4(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2139,7 +2153,7 @@
       "kind": "theorem",
       "name": "Abundance of nice binary tails",
       "statement": "For a finite separable extension l_1/k_1 of global fields and a finite set Σ of finite places of k_1, there are a_1,a_0∈k_1× whose valuations vanish at every v∈Σ such that q_{a_1,a_0} is k_1-nice and remains anisotropic over l_1.",
-      "locator": "Lemma3.5",
+      "locator": "Lemma 3.5",
       "status": "missing",
       "note": "Proof uses completely split places, weak and strong approximation, and openness of local norm groups in both global-field characteristics; those inputs need precise suppliers.",
       "prerequisites": [
@@ -2161,11 +2175,12 @@
       "kind": "theorem",
       "name": "Separating parameters adapted to a geometric divisor",
       "statement": "For H_d(K) and a geometric prime divisor w, there is a global subfield k_1 and an algebraically independent tuple u_{d−1},…,u_2 such that w is trivial on k_1(u) and Kw/k_1(u) is finite separable. Every u_d∈K with w(u_d)=1 extends u to a separating transcendence basis of K/k_1.",
-      "locator": "Lemma3.6",
+      "locator": "Lemma 3.6",
       "status": "missing",
       "note": "The inseparable-part argument uses the defectless fundamental equality for one-variable function fields; not general defectlessness of all valued fields.",
       "prerequisites": [
-        "PAPER-DITTMANN-POP-23/prime-divisor"
+        "PAPER-DITTMANN-POP-23/prime-divisor",
+        "PAPER-DITTMANN-POP-23/function-field-fundamental-equality"
       ],
       "proofSteps": [
         "Lift a separating residue transcendence basis and choose the constant/global subfield separately in each characteristic.",
@@ -2180,7 +2195,7 @@
       "kind": "definition",
       "name": "Test form for a distinguished element",
       "statement": "For H_d(K), global k_1⊂K, algebraically independent t_{d−1},…,t_2 over k_1 and a_d∈K×, a k_1,t-test form is a k_1-nice q_{a_d,…,a_0} with a_i=t_i−ε_i for 2<=i<d, where ε_i∈k_1× are units at every finite place v with v(a_1)>0.",
-      "locator": "Definition3.7",
+      "locator": "Definition 3.7",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2240,7 +2255,7 @@
       "kind": "theorem",
       "name": "Abundant test forms at a prescribed divisor",
       "statement": "For H_d(K), geometric w, and global k_1 plus algebraically independent t such that w is trivial on k_1(t) and Kw/k_1(t) is finite separable, there is a Zariski open dense U⊂(k_1×)^{d−2} such that for each ε∈U a k_1-nice tail can be chosen so that every a_d with w(a_d) odd yields an anisotropic k_1,t-test form over K_w.",
-      "locator": "Proposition3.8",
+      "locator": "Proposition 3.8",
       "status": "missing",
       "note": "One tail per epsilon works for all odd-valuation a_d; requires finite normalization, its étale locus and the local power-series embedding. The paper correctly chooses Σ so every ε_i is a Σ-unit: this means a unit outside Σ. Thus Σ contains every nonunit place, and Lemma 3.5 makes a_1 a unit at each of them. This is a clarification, not a source error.",
       "prerequisites": [
@@ -2366,9 +2381,9 @@
       "kind": "theorem",
       "name": "Open locus of henselian embeddings",
       "statement": "For a finite extension E/F the set of valuations w on F such that E admits an F-embedding into F_w is patch-open. If nonempty, E/F is separable; at each such w a henselian generator and derivative-unit condition give a clopen neighborhood.",
-      "locator": "Lemma3.9(1)",
+      "locator": "Lemma 3.9(1)",
       "status": "missing",
-      "note": "Uses Kuhlmann–Novacoski Theorem1.2 for the generator; original proof not read.",
+      "note": "Uses Kuhlmann–Novacoski Theorem 1.2 for the generator; original proof not read.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/henselization",
         "PAPER-DITTMANN-POP-23/patch-field-dictionary",
@@ -2388,7 +2403,7 @@
       "kind": "theorem",
       "name": "Open locus of henselian isotropy",
       "statement": "For a quadratic form q over F the valuations w such that q is isotropic over F_w form a patch-open subset: an isotropic vector is defined over a finite subextension E/F of F_w and the embedding-open locus of E supplies a neighborhood.",
-      "locator": "Lemma3.9(2)",
+      "locator": "Lemma 3.9(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2406,7 +2421,7 @@
       "kind": "construction",
       "name": "Quadratic changes of transcendence parameters",
       "statement": "For u_{d−1},…,u_2 algebraically independent over global k_1, put t_i=u_i²−u_i. Then k_1(u)/k_1(t) is finite separable, generated by these quadratic equations, and their relative algebraic closures in K agree. This construction is used in every characteristic.",
-      "locator": "Notations4.1(1); Proposition3.10; Theorem4.2(2)",
+      "locator": "Notations 4.1(1); Proposition 3.10; Theorem 4.2(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2466,7 +2481,7 @@
       "kind": "construction",
       "name": "Auxiliary quadratic root fields",
       "statement": "Fix a_d∈K×. For θ∈K× and τ∈K choose roots α²−α=a_d/θ² and β²−β=τ²/a_d in an algebraic closure, and set K_θ=K(α), K_τ=K(β), K_{θ,τ}=K(α,β). These are finite separable extensions (possibly trivial); different root choices give K-isomorphic fields.",
-      "locator": "Notations4.1(3)",
+      "locator": "Notations 4.1(3)",
       "status": "missing",
       "note": "",
       "prerequisites": [],
@@ -2523,8 +2538,8 @@
       "id": "PAPER-DITTMANN-POP-23/detecting-nonnegative",
       "kind": "theorem",
       "name": "Nonnegative coefficients in the auxiliary detection argument",
-      "statement": "In Proposition3.10 fix N>0, θ=(a_{d−1}⋯a_1)^N and a detecting divisor w̃ of L(α). Then w̃(a_i)>=0 for i<d. Negative value of t_i−ε_i would make it a square times a principal unit and force isotropy.",
-      "locator": "Proposition3.10, Claim1",
+      "statement": "In Proposition 3.10 fix N>0, θ=(a_{d−1}⋯a_1)^N and a detecting divisor w̃ of L(α). Then w̃(a_i)>=0 for i<d. Negative value of t_i−ε_i would make it a square times a principal unit and force isotropy.",
+      "locator": "Proposition 3.10, Claim 1",
       "status": "missing",
       "note": "Use a'_i=1−1/u_i−ε_i/u_i²; the printed plus sign on epsilon is a harmless-to-principal-unit but not literal algebraic identity.",
       "prerequisites": [
@@ -2546,7 +2561,7 @@
       "kind": "theorem",
       "name": "Arbitrarily strong coefficient domination",
       "statement": "With the same data, w̃(a_d)>N w̃(a_i) for every i<d and w̃(a_d)>0. If w̃(a_d)<2w̃(θ), the root equation again makes a_d a square times a principal unit.",
-      "locator": "Proposition3.10, Claim2",
+      "locator": "Proposition 3.10, Claim 2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2567,8 +2582,8 @@
       "id": "PAPER-DITTMANN-POP-23/compact-detecting-valuation",
       "kind": "theorem",
       "name": "Compactness produces an infinitely dominating valuation",
-      "statement": "If the anisotropy hypotheses of Proposition3.10 hold for every N>0, the nested patch-closed nonempty sets of valuations w on L for which q_a is anisotropic over L_w, w(a_i)>=0 and w(a_d)>Nw(a_i) have a common point w_a.",
-      "locator": "Proposition3.10, pp.12–13",
+      "statement": "If the anisotropy hypotheses of Proposition 3.10 hold for every N>0, the nested patch-closed nonempty sets of valuations w on L for which q_a is anisotropic over L_w, w(a_i)>=0 and w(a_d)>Nw(a_i) have a common point w_a.",
+      "locator": "Proposition 3.10, pp.12–13",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2590,7 +2605,7 @@
       "kind": "construction",
       "name": "Coarsening at an infinitely large coefficient",
       "statement": "For a valued field (F,w) and a∈F with γ=w(a)>0, put p={x∈F: γ<=Nw(x) for some positive integer N}, with zero included. This is a prime ideal of O_w. Localization (O_w)_p is a valuation ring coarsening w. If b≠0, w(b)>=0 and Nw(b)<γ for every N>0, b becomes a unit; a stays in the maximal ideal.",
-      "locator": "Proposition3.10, p.13",
+      "locator": "Proposition 3.10, p.13",
       "status": "missing",
       "note": "",
       "prerequisites": [],
@@ -2648,7 +2663,7 @@
       "kind": "theorem",
       "name": "Henselizations under valuation coarsening",
       "statement": "For a coarsening w_L of w_a, compatible embeddings identify L_{w_L} with a subfield of L_{w_a}; consequently anisotropy over the latter implies anisotropy over the former.",
-      "locator": "Proposition3.10, p.13(a)",
+      "locator": "Proposition 3.10, p.13(a)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2665,10 +2680,10 @@
       "id": "PAPER-DITTMANN-POP-23/coarsening-constant-trivial",
       "kind": "theorem",
       "name": "Triviality on the lower-dimensional base",
-      "statement": "The coarsened w_L in Proposition3.10 is trivial on k_1(t). Nontriviality on k_1, then on k_1(t), each contradicts dimension-unit-isotropy for the unit tail. Since L/k_1(t) has transcendence degree one, w_L is a prime divisor.",
-      "locator": "Proposition3.10, Claim3",
+      "statement": "The coarsened w_L in Proposition 3.10 is trivial on k_1(t). Nontriviality on k_1, then on k_1(t), each contradicts dimension-unit-isotropy for the unit tail. Since L/k_1(t) has transcendence degree one, w_L is a prime divisor.",
+      "locator": "Proposition 3.10, Claim 3",
       "status": "missing",
-      "note": "",
+      "note": "The source's 'q_a is isotropic over F_v' should read q_ε: a_d need not lie in F (E15).",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/coarsening-prime",
         "PAPER-DITTMANN-POP-23/coarsening-henselian-inclusion",
@@ -2689,7 +2704,7 @@
       "kind": "theorem",
       "name": "Refined positive odd divisor detection",
       "statement": "Let H_d(K), L/K finite separable, a_d∈K×, k_1 global and u algebraically independent, t=u²−u. If a k_1,t-test form q_a stays anisotropic over L(α), α²−α=a_d/(a_{d−1}⋯a_1)^{2N}, for every N>0, then a prime divisor w_L of L trivial on k_1(t) satisfies w_L(a_d)>0 odd and q_a is anisotropic over L_{w_L}.",
-      "locator": "Proposition3.10",
+      "locator": "Proposition 3.10",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2709,7 +2724,7 @@
       "kind": "definition",
       "name": "The relative constant field k_t",
       "statement": "For k_1 and t=u²−u as above, k_t is the relative algebraic closure of k_1(t) in K; it equals k_u. Then K/k_t is a one-variable function field with k_t relatively algebraically closed in K.",
-      "locator": "Notations4.1(2)",
+      "locator": "Notations 4.1(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2769,7 +2784,7 @@
       "kind": "definition",
       "name": "Universal auxiliary anisotropy set",
       "statement": "For the fixed test data a, define b_a={τ∈K: q_a is anisotropic over K_{θ,τ} for every θ∈k_t×}. The universal quantifier ranges over the definable relative subfield, not all of K×.",
-      "locator": "Notations4.1(4)",
+      "locator": "Notations 4.1(4)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2831,7 +2846,7 @@
       "kind": "definition",
       "name": "Multiplicative stabilizer of the anisotropy set",
       "statement": "Set O_a={x∈K: for every τ∈b_a, xτ∈b_a}. No assertion that this is a valuation ring is built into its definition.",
-      "locator": "Notations4.1(4)",
+      "locator": "Notations 4.1(4)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -2891,9 +2906,9 @@
       "kind": "definition",
       "name": "Finite set of detecting divisors",
       "statement": "V_a consists of prime divisors w of K trivial on k_t for which w(a_d)>0 and q_a is anisotropic over K_w. It is finite because positive valuations of a fixed rational function on its normal proper curve have finite support.",
-      "locator": "Notations4.1(5); Theorem4.2 proof",
+      "locator": "Notations 4.1(5); Theorem 4.2 proof",
       "status": "missing",
-      "note": "",
+      "note": "The source writes D_{K|k_a} for D_{K|k_t} twice on p. 14 (E16).",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/relative-constant-field",
         "PAPER-DITTMANN-POP-23/test-form",
@@ -2955,7 +2970,7 @@
       "kind": "definition",
       "name": "Odd-threshold valuation ball",
       "statement": "For w∈V_a put b_w={τ∈K: 2w(τ)>w(a_d)}. With w normalized and w(a_d)=2m+1>0 this is {τ:w(τ)>=m+1}, including zero.",
-      "locator": "Notations4.1(5)",
+      "locator": "Notations 4.1(5)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3016,7 +3031,7 @@
       "kind": "theorem",
       "name": "A valuation ball recovers its ring",
       "statement": "For a nontrivial discrete valuation w and any integer threshold c, the multiplicative stabilizer of {τ:w(τ)>=c} equals O_w. In particular it recovers O_w from b_w above.",
-      "locator": "Notations4.1(5)",
+      "locator": "Notations 4.1(5)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3034,8 +3049,8 @@
       "id": "PAPER-DITTMANN-POP-23/anisotropy-union",
       "kind": "theorem",
       "name": "Auxiliary anisotropy is a union of balls",
-      "statement": "For data of Notations4.1 in an H_d field, b_a=⋃_{w∈V_a}b_w. The reverse inclusion uses Hensel roots of both auxiliary equations; the forward inclusion applies refined-detection to L=K_τ and uses odd parity to obtain a strict inequality.",
-      "locator": "Theorem4.2(1), first equality",
+      "statement": "For data of Notations 4.1 in an H_d field, b_a=⋃_{w∈V_a}b_w. The reverse inclusion uses Hensel roots of both auxiliary equations; the forward inclusion applies refined-detection to L=K_τ and uses odd parity to obtain a strict inequality.",
+      "locator": "Theorem 4.2(1), first equality",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3058,7 +3073,7 @@
       "kind": "theorem",
       "name": "Stabilizer equals an intersection of valuation rings",
       "statement": "For the same data, O_a=⋂_{w∈V_a}O_w. If x has negative valuation at one w, weak approximation constructs y∈b_w with minimal w-value but xy outside every b_{w'}; this proves the nontrivial inclusion. Empty V_a gives b_a=empty and O_a=K.",
-      "locator": "Theorem4.2(1), second equality",
+      "locator": "Theorem 4.2(1), second equality",
       "status": "missing",
       "note": "Requires independent finite valuations and weak approximation, not the false claim that stabilization of any union equals the intersection of all stabilizers.",
       "prerequisites": [
@@ -3079,7 +3094,7 @@
       "kind": "theorem",
       "name": "One prescribed pole in a function field",
       "statement": "For fields k⊂F with F a one-variable function field and k relatively algebraically closed in F, every place P and natural n>=2g admit f≠0 with ord_P(f)=−n and ord_Q(f)>=0 for every Q≠P. For n>0 this gives pole divisor nP.",
-      "locator": "Theorem4.2(2), Riemann–Roch input",
+      "locator": "Theorem 4.2(2), Riemann–Roch input",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -3098,7 +3113,7 @@
       "kind": "theorem",
       "name": "Isolation of one geometric prime divisor",
       "statement": "For every geometric prime divisor w of H_d(K), choose k_1,u and test data with V_a={w}. Choose an odd m>=2g and a function with sole pole mP, take a_d=1/f, and use test-abundance. Then O_w is the multiplicative stabilizer of b_a.",
-      "locator": "Theorem4.2(2)",
+      "locator": "Theorem 4.2(2)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3121,14 +3136,15 @@
       "kind": "construction",
       "name": "First-order valuation-ring filter",
       "statement": "Express admissibility of all test parameters and the definition of O_a in the ring language. Retain a fiber only if O_a is a proper valuation subring (for every x≠0, x or x^{-1} belongs); otherwise define the empty fiber. A finite intersection of the pairwise independent divisor rings is a proper valuation ring only when it is a single one.",
-      "locator": "Recipe4.3",
+      "locator": "Recipe 4.3",
       "status": "missing",
       "note": "Includes a finite-intersection lemma and parameter guard; neither is hidden in an informal instruction to check valuation.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/stabilizer-intersection",
         "PAPER-DITTMANN-POP-23/global-subfield-definability",
         "PAPER-DITTMANN-POP-23/relative-independence",
-        "PAPER-DITTMANN-POP-23/quadratic-extension-formulas"
+        "PAPER-DITTMANN-POP-23/quadratic-extension-formulas",
+        "PAPER-DITTMANN-POP-23/niceness-definability"
       ],
       "proofSteps": [
         "Use the explicit formula or construction in the statement; the API below specifies its projections, semantic comparisons and downstream laws. Those laws are planning contracts, not implementation claims."
@@ -3184,7 +3200,7 @@
       "kind": "theorem",
       "name": "Uniform divisors in Kronecker dimensions one and two",
       "statement": "In dimension one, prime divisors of global fields are uniformly definable; geometric ones occur precisely for global function fields. In dimension two, geometric prime divisors are uniformly definable by Pop's curve-over-global-field theorem after choosing a global subfield on which the divisor is trivial.",
-      "locator": "Remark4.4, Rumely IntroductionI–II and Pop2017 Theorem1.2",
+      "locator": "Remark 4.4, Rumely Introduction I–II and Pop 2017 Theorem 1.2",
       "status": "missing",
       "note": "Original Rumely and Pop proofs not yet read; must keep arithmetic places of number fields out of the geometric family.",
       "prerequisites": [
@@ -3203,14 +3219,14 @@
       "kind": "theorem",
       "name": "First-order detection of Kronecker dimension",
       "statement": "For every nonnegative integer d there is a ring sentence which, among finitely generated fields, holds exactly in those of Kronecker dimension d.",
-      "locator": "§4 opening; Poonen Theorem2.3 citing Pop2002",
+      "locator": "§4 opening; Poonen Theorem 2.3 citing Pop 2002",
       "status": "missing",
       "note": "",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/kronecker-dimension"
       ],
       "proofSteps": [
-        "Import the fixed-dimension sentence from the results summarized in Poonen Theorem2.3.",
+        "Import the fixed-dimension sentence from the results summarized in Poonen Theorem 2.3.",
         "Separate characteristic-zero and positive-characteristic Kronecker shifts."
       ],
       "implementationStatus": "unchecked",
@@ -3221,7 +3237,7 @@
       "kind": "theorem",
       "name": "Uniform definition of constants",
       "statement": "There is a ring formula ψ(t), independent of the finitely generated field K, whose solutions are exactly the relative algebraic closure κ of the prime field in K.",
-      "locator": "§5 Proposition5.1; Poonen Theorem1.3",
+      "locator": "§5 Proposition 5.1; Poonen Theorem 1.3",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3229,7 +3245,7 @@
         "PAPER-DITTMANN-POP-23/definable-set"
       ],
       "proofSteps": [
-        "Use Poonen Theorem1.3, whose proof is in the selected §5 reading.",
+        "Use Poonen Theorem 1.3, whose proof is in the selected §5 reading.",
         "Record its internal elliptic/global-subfield ingredients as remaining source leaves."
       ],
       "implementationStatus": "unchecked",
@@ -3239,17 +3255,17 @@
       "id": "PAPER-DITTMANN-POP-23/global-subfield-definability",
       "kind": "theorem",
       "name": "Uniform family of maximal global subfields",
-      "statement": "The relatively algebraically closed global subfields k_1 of a finitely generated field K form a uniformly definable family. In characteristic zero the unique such field is κ; in positive characteristic use Poonen Proposition4.10. A dimension-one filter excludes other subfields.",
-      "locator": "§4 opening and Notations4.1(1); Poonen Lemma3.7, Proposition4.10",
+      "statement": "The relatively algebraically closed global subfields k_1 of a finitely generated field K form a uniformly definable family. In characteristic zero the unique such field is κ; in positive characteristic use Poonen Proposition 4.10. A dimension-one filter excludes other subfields.",
+      "locator": "§4 opening and Notations 4.1(1); Poonen Lemma 3.7, Proposition 4.10",
       "status": "missing",
-      "note": "Poonen Theorem1.4 by itself states absolute dependence, not this family; the extraction supplies the actual locators.",
+      "note": "Poonen Theorem 1.4 by itself states absolute dependence, not this family; the extraction supplies the actual locators.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/constant-definability",
         "PAPER-DITTMANN-POP-23/dimension-definability"
       ],
       "proofSteps": [
         "In characteristic zero use the definable constant field.",
-        "In positive characteristic use Poonen Proposition4.10's family.",
+        "In positive characteristic use Poonen Proposition 4.10's family.",
         "Apply the dimension-one and relative-algebraic-closure conditions to select the intended global subfields."
       ],
       "implementationStatus": "unchecked",
@@ -3260,14 +3276,14 @@
       "kind": "theorem",
       "name": "Definable algebraic independence over a global subfield",
       "statement": "For each n, a formula in the ring language augmented with a predicate for a relatively algebraically closed global subfield L detects whether an n-tuple in a finitely generated extension K/L is algebraically dependent over L; negate it for independence.",
-      "locator": "§4 opening; Poonen Lemma5.3",
+      "locator": "§4 opening; Poonen Lemma 5.3",
       "status": "missing",
       "note": "",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/global-subfield-definability"
       ],
       "proofSteps": [
-        "Use Poonen Lemma5.3 with an explicit predicate for the global subfield.",
+        "Use Poonen Lemma 5.3 with an explicit predicate for the global subfield.",
         "Replace that predicate by its uniform defining formula and negate dependence."
       ],
       "implementationStatus": "unchecked",
@@ -3278,7 +3294,7 @@
       "kind": "construction",
       "name": "First-order translation through quadratic extensions",
       "statement": "For fixed Pfister length and parameters defining K_θ,K_τ, express isotropy and anisotropy after their compositum by finitely many ring formulas on basis coordinates, splitting the cases of a root already in the field, a genuine quadratic extension, and collapse of the second extension. The translation is equivalent to anisotropy over the root FIELD, not over a reducible quotient algebra.",
-      "locator": "§4 opening and Notations4.1(3)–(4)",
+      "locator": "§4 opening and Notations 4.1(3)–(4)",
       "status": "missing",
       "note": "Necessary explicit bridge; the paper treats bounded finite-extension interpretation as standard.",
       "prerequisites": [
@@ -3340,7 +3356,7 @@
       "kind": "construction",
       "name": "Integral closure generated by a transcendence basis",
       "statement": "For a transcendence basis T of finitely generated K over its prime field, let R_T be the integral closure in K of the subring generated by T. Writing κ for constants and A=κ in characteristic p or O_κ in characteristic zero, the same ring is the integral closure of A[T] in K.",
-      "locator": "Proposition5.1",
+      "locator": "Proposition 5.1",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3400,7 +3416,7 @@
       "kind": "theorem",
       "name": "Finiteness of the normalization ring",
       "statement": "R_T is finite as an A[T]-module and is consequently a finitely generated integral domain over the prime ring; its fraction field is K. The required finiteness is for arbitrary finite extensions in positive characteristic, including inseparable ones.",
-      "locator": "Proposition5.1 proof; Eisenbud Corollary13.13 and Proposition13.14",
+      "locator": "Proposition 5.1 proof; Eisenbud Corollary 13.13 and Proposition 13.14",
       "status": "missing",
       "note": "Separability-only integral-closure theorems do not cover the full statement.",
       "prerequisites": [
@@ -3420,7 +3436,7 @@
       "kind": "construction",
       "name": "Normalization over the constant field",
       "statement": "S_T is the integral closure of κ[T] in K. Let W_T be the geometric prime divisors w of K with T⊂O_w. This W_T is a rank-one family, distinct from the maximal-rank flags used later in characteristic zero.",
-      "locator": "Proposition5.1 proof, p.16",
+      "locator": "Proposition 5.1 proof, p.16",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3481,7 +3497,7 @@
       "kind": "theorem",
       "name": "Geometric normalization as a divisorial intersection",
       "statement": "S_T=⋂_{w∈W_T}O_w. One inclusion uses integrality of valuation rings; the other uses the intersection of height-one localizations of the normal noetherian domain S_T. Consequently S_T is definable using the uniform divisor formula.",
-      "locator": "Proposition5.1 proof, p.16; Matsumura Theorem11.5(ii)",
+      "locator": "Proposition 5.1 proof, p.16; Matsumura Theorem 11.5(ii)",
       "status": "missing",
       "note": "The underlying Krull-domain intersection input needs its own library check.",
       "prerequisites": [
@@ -3504,7 +3520,7 @@
       "kind": "definition",
       "name": "Full-rank geometric valuation flags",
       "statement": "In characteristic zero let e=trdeg(K/κ). A geometric prime e-divisor is a valuation trivial on κ with ordered value group Z^e in lexicographic order, obtained by composing e geometric rank-one residue valuations. Its final residue field κ_w is a finite extension of κ. Denote by G_T those for which T⊂O_w.",
-      "locator": "Proposition5.1 proof, p.16",
+      "locator": "Proposition 5.1 proof, p.16",
       "status": "missing",
       "note": "Uses a new symbol G_T to resolve the printed reuse of rank-one W_T in the subsequent V_T formula.",
       "prerequisites": [
@@ -3565,7 +3581,7 @@
       "kind": "construction",
       "name": "Definable residue field",
       "statement": "If O_w⊂F is a definable valuation ring, its maximal ideal is definable from nonunits, and the quotient O_w/m_w with its residue map is interpretable as a definable quotient in F.",
-      "locator": "Fact5.2",
+      "locator": "Fact 5.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3625,7 +3641,7 @@
       "kind": "theorem",
       "name": "Definability of composite valuations",
       "statement": "If O_{w'}⊂F and O_{w''}⊂Fw' are definable, the composite valuation ring is the inverse image of O_{w''} under O_{w'}→Fw'. It is definable in F after translating through the residue interpretation; an iterated fixed-length family remains uniform.",
-      "locator": "Fact5.2",
+      "locator": "Fact 5.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3644,7 +3660,7 @@
       "kind": "definition",
       "name": "Arithmetic refinements of geometric flags",
       "statement": "In characteristic zero set V_T={v∘w: w∈G_T, v a finite prime of the number field κ_w=Kw, and each t∈T lies in O_{v∘w}}. Its members are full-rank arithmetic valuation rings, not merely discrete rank-one rings.",
-      "locator": "Proposition5.1 end; Lemma5.3",
+      "locator": "Proposition 5.1 end; Lemma 5.3",
       "status": "missing",
       "note": "The full-rank interpretation is required by finiteness of κ_w; the printed W_T notation is ambiguous.",
       "prerequisites": [
@@ -3706,7 +3722,7 @@
       "kind": "theorem",
       "name": "Arithmetic normalization from composed valuations",
       "statement": "In characteristic zero, R_T=⋂_{v∘w∈V_T}O_{v∘w}. Reduce finite extensions to K_0=κ(T) using prolongation of valuation rings and integral-closure detection, then detect every nonintegral coefficient of a polynomial with a residue-specialization flag.",
-      "locator": "Lemma5.3",
+      "locator": "Lemma 5.3",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3728,7 +3744,7 @@
       "kind": "theorem",
       "name": "Flags detect a nonintegral polynomial coefficient",
       "statement": "For K_0=κ(T), a finite place v of κ and f=cg with g∈O_v[T] having nonzero reduction, choose a tuple ζ over an algebraic closure of κv where gbar(ζ)≠0, lift its nonzero coordinates to prime-to-residue-characteristic roots of unity, and use the associated full-rank geometric flag plus a prolongation v'. Then g is a unit for v'∘w and nonintegrality of c forces nonintegrality of f.",
-      "locator": "Lemma5.3, proof of Claim",
+      "locator": "Lemma 5.3, proof of Claim",
       "status": "missing",
       "note": "Choose ζ in the torus, possible since a nonzero polynomial cannot vanish on every torus point over an infinite algebraic closure; this makes the roots-of-unity lifting literal.",
       "prerequisites": [
@@ -3747,7 +3763,7 @@
       "kind": "theorem",
       "name": "Definability of the finitely generated normalization ring",
       "statement": "For H_d(K) and transcendence basis T, R_T is a parameter-definable finitely generated domain with fraction field K. In characteristic p it is S_T; in characteristic zero use V_T and arithmetic-intersection.",
-      "locator": "Proposition5.1",
+      "locator": "Proposition 5.1",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3771,7 +3787,7 @@
       "kind": "theorem",
       "name": "Uniformity for fixed dimension",
       "statement": "For each fixed d the formula defining R_T can be chosen uniformly for H_d fields, with the elements of T among its parameter variables. This does not assert a parameter-free definition of each normalization.",
-      "locator": "Remark5.4",
+      "locator": "Remark 5.4",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3789,7 +3805,7 @@
       "kind": "construction",
       "name": "Interpretation of a fraction field",
       "statement": "For an integral domain R, represent Frac(R) by pairs (a,b)∈R×(R\\{0}), modulo (a,b)~(c,d) iff ad=bc; field operations and equality have definable graphs. The quotient is an interpretation, not necessarily a definable subset of R itself.",
-      "locator": "AKNS Examples2.9(4); §5 final proof",
+      "locator": "AKNS Examples 2.9(4); §5 final proof",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -3870,14 +3886,14 @@
       "kind": "theorem",
       "name": "Integer arithmetic in an infinite finitely generated domain",
       "statement": "Every infinite finitely generated integral domain, in the ring language, is parametrically bi-interpretable with Z. This theorem is about finite ring generation and is applied to R_T, not directly to K as a ring.",
-      "locator": "AKNS Theorem3.1; §5 final proof",
+      "locator": "AKNS Theorem 3.1; §5 final proof",
       "status": "missing",
       "note": "AKNS §3.2 proof read; its normalization and interpretation lemmas remain explicit source-audit leaves.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/biinterpretation"
       ],
       "proofSteps": [
-        "Use AKNS Theorem3.1; its §3.2 proof reduces through Noether normalization and finite extensions to one-dimensional arithmetic.",
+        "Use AKNS Theorem 3.1; its §3.2 proof reduces through Noether normalization and finite extensions to one-dimensional arithmetic.",
         "The graph comparison for polynomial rings is controlled by evaluation and the selected coding lemmas.",
         "Unaudited §3.1/coding and global-number-field leaves remain explicit."
       ],
@@ -3889,14 +3905,14 @@
       "kind": "theorem",
       "name": "Bi-interpretability yields quasi-finite axiomatizability",
       "statement": "Let L be a finite language and A a finitely generated L-structure bi-interpretable with Z. For a finite generating tuple a there is a formula φ_A(x) such that, for every finitely generated L-structure B and tuple b, B⊨φ_A(b) iff an L-isomorphism A→B sends a to b. Existentially quantifying x gives the corresponding sentence within this class.",
-      "locator": "AKNS §2.9, Proposition2.28",
+      "locator": "AKNS §2.9, Proposition 2.28",
       "status": "missing",
-      "note": "Keep the finite-generation-of-L-structure premise. AKNS Lemma2.29 imports a coding/standardness argument whose external proof is not yet audited.",
+      "note": "Keep the finite-generation-of-L-structure premise. AKNS Lemma 2.29 imports a coding/standardness argument whose external proof is not yet audited.",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/biinterpretation"
       ],
       "proofSteps": [
-        "Use AKNS Proposition2.28 for a finitely generated structure in a finite language.",
+        "Use AKNS Proposition 2.28 for a finitely generated structure in a finite language.",
         "Its coding and rigidity lemmas produce a formula fixing the image of a generating tuple.",
         "Existentially quantify that tuple to obtain one sentence; constants are not left in the concluding language."
       ],
@@ -3908,7 +3924,7 @@
       "kind": "theorem",
       "name": "From field generation to the ring-language sentence",
       "statement": "Expand the ring language by total inversion with graph (x=0∧y=0)∨xy=1. A finitely generated field is finitely generated in this finite expanded language; definitional expansion preserves parametric bi-interpretability. Apply qfa-theorem there and eliminate inversion by its unique ring-definable graph. The resulting parameter-free ring sentence characterizes K among finitely generated fields.",
-      "locator": "§5 final sentence, explicit bridge to AKNS Proposition2.28",
+      "locator": "§5 final sentence, explicit bridge to AKNS Proposition 2.28",
       "status": "missing",
       "note": "Authored proof bridge making the source's compressed final implication valid; no claim that an infinite field is finitely generated as a ring.",
       "prerequisites": [
@@ -3929,7 +3945,7 @@
       "kind": "theorem",
       "name": "Discreteness of one-variable valuation rings",
       "statement": "Let k and F be fields with k→F and IsFunctionField k F. Every proper valuation subring A⊊F containing the image of k is a discrete valuation ring.",
-      "locator": "Proposition3.10, last step; pinned OfValuationSubring.lean, theorem at line217",
+      "locator": "Proposition 3.10, last step; pinned OfValuationSubring.lean, theorem at line 217",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -3947,7 +3963,7 @@
       "kind": "theorem",
       "name": "Places recover their valuation rings",
       "statement": "Under the preceding hypotheses there is a unique place P of F/k whose ring of integers is A.",
-      "locator": "Notations4.1 and Theorem4.2, curve/place dictionary; pinned OfValuationSubring.lean lines289–339",
+      "locator": "Notations 4.1 and Theorem 4.2, curve/place dictionary; pinned OfValuationSubring.lean lines 289–339",
       "status": "library",
       "note": "",
       "prerequisites": [
@@ -3969,12 +3985,12 @@
       "kind": "theorem",
       "name": "Regular projective model of a one-variable field",
       "statement": "For a finitely generated extension F/k of transcendence degree one, normalization of P¹_k in F gives a regular projective integral k-curve with function field F and closed points corresponding to the places of F/k. Over imperfect k, do not replace regular by smooth without additional assumptions.",
-      "locator": "Notations4.1(5), Theorem4.2 proof",
+      "locator": "Notations 4.1(5), Theorem 4.2 proof",
       "status": "planned",
       "note": "",
       "prerequisites": [],
       "proofSteps": [
-        "Import upstream AlgebraicCurves Layer12B–D and its point/place order dictionary."
+        "Import upstream AlgebraicCurves Layer 12B–D and its point/place order dictionary."
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "V",
@@ -3987,7 +4003,7 @@
       "kind": "theorem",
       "name": "Finiteness of normalization over arithmetic polynomial rings",
       "statement": "Let A be a field or the ring of integers of a number field, T a finite tuple of independent variables, and E/Frac(A[T]) a finite field extension. The integral closure of A[T] in E is a finite A[T]-module, without a separability restriction.",
-      "locator": "Proposition5.1; Eisenbud Corollary13.13 and Proposition13.14",
+      "locator": "Proposition 5.1; Eisenbud Corollary 13.13 and Proposition 13.14",
       "status": "planned",
       "note": "Same existing A0-extension owner. The reviewed audit already identifies the purely inseparable polynomial result; this continuation imports it explicitly. General excellent-scheme normalization is a different, broader target.",
       "prerequisites": [
@@ -4018,7 +4034,7 @@
       "kind": "theorem",
       "name": "Existing separable finite-normalization theorem",
       "statement": "Let A be an integrally closed noetherian domain, K its fraction field, L/K a finite separable extension, and C an integral closure of A in L with compatible algebra structures. Then C is a finite A-module.",
-      "locator": "Proposition5.1 input, separable special case; Mathlib DedekindDomain/IntegralClosure.lean",
+      "locator": "Proposition 5.1 input, separable special case; Mathlib DedekindDomain/IntegralClosure.lean",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -4060,7 +4076,7 @@
       "kind": "theorem",
       "name": "Roundness of quadratic Pfister forms",
       "statement": "For every quadratic Pfister form in either characteristic, its nonzero represented values form its similarity-factor group. Tensoring a regular round quadratic form by a binary bilinear Pfister factor preserves roundness.",
-      "locator": "EKM Proposition9.8(1), Corollary9.9; input to Fact3.1",
+      "locator": "EKM Proposition 9.8(1), Corollary 9.9; input to Fact 3.1",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4079,7 +4095,7 @@
       "kind": "theorem",
       "name": "Arason–Pfister dimension bound",
       "statement": "For every field F and n>=1, a nonzero anisotropic nonsingular quadratic form with Witt class in I_q^n(F) has dimension at least 2^n, where I_q^n=I(F)^{n−1} I_q(F).",
-      "locator": "Fact3.1; EKM Theorem23.7(1)",
+      "locator": "Fact 3.1; EKM Theorem 23.7(1)",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4098,7 +4114,7 @@
       "kind": "theorem",
       "name": "Graded quadratic Witt invariant",
       "statement": "For n>=1 over every field F, the invariant e_n:I_q^n(F)→H^n(F,Z/2(n−1)) is surjective with kernel I_q^{n+1}(F), and agrees on n-fold Pfister forms with the symbol invariant. In characteristic two this uses Kato's quadratic/logarithmic comparison.",
-      "locator": "Fact3.1; EKM Fact16.2",
+      "locator": "Fact 3.1; EKM Fact 16.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4118,7 +4134,7 @@
       "kind": "theorem",
       "name": "Completely split places outside a finite set",
       "statement": "For a finite separable extension l/k of global fields and a finite set Σ of places of k, there is a finite place outside Σ splitting completely in l; in fact infinitely many such places exist.",
-      "locator": "Lemma3.5, first and second choices of places",
+      "locator": "Lemma 3.5, first and second choices of places",
       "status": "planned",
       "note": "Use the identity Frobenius class in the Galois closure. These already-owned prime-distribution theorems are imports, not re-planned in the Dittmann–Pop extension.",
       "prerequisites": [],
@@ -4138,7 +4154,7 @@
       "kind": "theorem",
       "name": "Global approximation with one exceptional pole",
       "statement": "For a global field k, finite nonempty prescribed set S of places, local open conditions at S, and an auxiliary place v0 outside S, choose an element satisfying those conditions and integral at every finite place outside S∪{v0}.",
-      "locator": "Lemma3.5, Strong Approximation step",
+      "locator": "Lemma 3.5, Strong Approximation step",
       "status": "missing",
       "note": "Function-field branch is already available. Only the number-field off-a-finite-place variant and its local-open adapters remain for ownership/signature audit; do not rebuild the function-field theorem or upstream weak approximation.",
       "prerequisites": [
@@ -4156,14 +4172,14 @@
       "kind": "theorem",
       "name": "Henselian generator with simple reduction",
       "statement": "If a finite extension E/F embeds in the henselization of (F,w), choose a primitive generator η which is a valuation unit and whose monic minimal polynomial has integral coefficients and unit derivative at η. Then there is x∈F with w(x−η)>0.",
-      "locator": "Lemma3.9(1); Kuhlmann–Novacoski Theorem1.2",
+      "locator": "Lemma 3.9(1); Kuhlmann–Novacoski Theorem 1.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/henselian-simple-reduction"
       ],
       "proofSteps": [
-        "Use the CRT residue-one generator η and its simple minimal polynomial; this is the residue-degree-one specialization of the fully read Kuhlmann–Novacoski Theorem1.2 proof.",
+        "Use the CRT residue-one generator η and its simple minimal polynomial; this is the residue-degree-one specialization of the fully read Kuhlmann–Novacoski Theorem 1.2 proof.",
         "Take x=1, since w(η−1)>0. The more general residue approximation follows from immediacy."
       ],
       "implementationStatus": "unchecked",
@@ -4174,7 +4190,7 @@
       "kind": "theorem",
       "name": "Étale specialization and Laurent-series embedding",
       "statement": "Let l/k(t_2,…,t_{d−1}) be finite separable. After restricting a dense open of the torus, its normalization is finite étale; at a point ε∈(k×)^{d−2} in that open, each point above ε has finite separable residue k_ε/k and completed local ring k_ε[[t_2−ε_2,…,t_{d−1}−ε_{d−1}]]. Consequently l embeds into the iterated Laurent-series field in those parameters.",
-      "locator": "Proposition3.8, proof first paragraph",
+      "locator": "Proposition 3.8, proof first paragraph",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4193,7 +4209,7 @@
       "kind": "theorem",
       "name": "Integral closure detected by prolonged valuation rings",
       "statement": "Let E/F be a finite field extension and B an intersection of valuation rings O_v in F. The integral closure of B in E equals the intersection of every valuation ring of E prolonging one of these v.",
-      "locator": "Lemma5.3, reduction to K=κ(T)",
+      "locator": "Lemma 5.3, reduction to K=κ(T)",
       "status": "missing",
       "note": "The empty selected family gives B=F and intersection E, consistent with finite algebraicity. No assumption Frac(B)=F is needed. All prolongations are essential; preserve the split-prime negative example in the report.",
       "prerequisites": [
@@ -4217,7 +4233,7 @@
       "kind": "theorem",
       "name": "Uniform global-field prime and integer predicates",
       "statement": "In global fields, the relevant finite-prime valuation rings form a uniformly ring-definable family; in number fields their intersection is the ring of integers and is uniformly definable. Interpret the same formulas in finite residue-number-field quotients.",
-      "locator": "Proposition5.1 after Fact5.2; Rumely Introduction I–III; Poonen Theorem2.2",
+      "locator": "Proposition 5.1 after Fact 5.2; Rumely Introduction I–III; Poonen Theorem 2.2",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4235,9 +4251,9 @@
       "kind": "theorem",
       "name": "The dimensions one and two base cases",
       "statement": "Every infinite finitely generated field of Kronecker dimension at most two is parametrically bi-interpretable with Z, without a resolution-of-singularities assumption.",
-      "locator": "Theorems1.1–1.2 reduction and Remark4.4",
+      "locator": "Theorems 1.1–1.2 reduction and Remark 4.4",
       "status": "missing",
-      "note": "",
+      "note": "§5 proves bi-interpretability only under (H_d), d ≥ 3; for dimensions one and two the proof of Proposition 5.1 applies with Remark 4.4 in place of Theorem 1.3 (E18).",
       "prerequisites": [
         "PAPER-DITTMANN-POP-23/small-dimension-inputs",
         "PAPER-DITTMANN-POP-23/domain-biinterpretability",
@@ -4255,7 +4271,7 @@
       "kind": "theorem",
       "name": "Independent prescribed function-field orders",
       "statement": "For fields k⊂F, any finite set of distinct places of F/k and integers r_P admit a nonzero g∈F with ord_P(g)=r_P at every chosen place.",
-      "locator": "Lemma3.5 / Theorem4.2 proof input; TauCeti/FieldTheory/FunctionField/Place/Approximation.lean:132",
+      "locator": "Lemma 3.5 / Theorem 4.2 proof input; TauCeti/FieldTheory/FunctionField/Place/Approximation.lean:132",
       "status": "library",
       "note": "Actual pinned statement read; additive infinity conventions require the indicated bridge from library multiplicative valuations.",
       "prerequisites": [],
@@ -4273,7 +4289,7 @@
       "kind": "theorem",
       "name": "Function-field strong approximation",
       "statement": "For IsFunctionField k F with k relatively algebraically closed in F, a proper set S of places, finite s⊆S, targets f_P and integer precisions r_P admit x∈F satisfying v_P(x−f_P)≤exp(−r_P) for P∈s and x∈O_P for P∈S\\s. The multiplicative inequality includes exact hits.",
-      "locator": "Lemma3.5 / Theorem4.2 proof input; TauCeti/FieldTheory/FunctionField/Consequences/StrongApproximation.lean:88",
+      "locator": "Lemma 3.5 / Theorem 4.2 proof input; TauCeti/FieldTheory/FunctionField/Consequences/StrongApproximation.lean:88",
       "status": "library",
       "note": "Actual pinned statement read; additive infinity conventions require the indicated bridge from library multiplicative valuations.",
       "prerequisites": [],
@@ -4291,7 +4307,7 @@
       "kind": "theorem",
       "name": "Existing finite polynomial normalization in a purely inseparable extension",
       "statement": "Let k be any field, P=k[X_i : i∈I] for finite I, K=Frac(P), and M/K a finite purely inseparable extension. With compatible algebra maps, any integral closure C of P in M is finite as a P-module. No perfectness assumption on k is required.",
-      "locator": "Proposition5.1 input; TauCeti IntegralClosure/PurelyInseparable.lean:167–173",
+      "locator": "Proposition 5.1 input; TauCeti IntegralClosure/PurelyInseparable.lean:167–173",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -4309,7 +4325,7 @@
       "kind": "theorem",
       "name": "Existing finite normal envelope",
       "statement": "A finite field extension E/F embeds in a finite normal extension N/F: take its normal closure inside an algebraic closure of E, with the induced compatible F- and E-algebra structures.",
-      "locator": "Proposition5.1 normalization input; Mathlib Normal/Closure.lean:143–187",
+      "locator": "Proposition 5.1 normalization input; Mathlib Normal/Closure.lean:143–187",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -4401,7 +4417,7 @@
       "kind": "theorem",
       "name": "Existing valuative criterion for integrality",
       "statement": "For any commutative ring R, subring B and x∈R, if every valuative relation v on R bounded by one on B also has v(x)≤v(1), then x is integral over B. The quantifier is over ALL such valuative relations.",
-      "locator": "Lemma5.3 input comparison; TauCeti Valuation/IntegralOfValuationLeOne.lean:112–114",
+      "locator": "Lemma 5.3 input comparison; TauCeti Valuation/IntegralOfValuationLeOne.lean:112–114",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -4419,7 +4435,7 @@
       "kind": "theorem",
       "name": "Existing minimal-polynomial comparison over a normal domain",
       "statement": "Let R be an integrally closed domain, K=Frac(R), S a domain with compatible R- and K-algebra structures, and s∈S integral over R. Then minpoly K s is the coefficientwise image of minpoly R s. In particular its coefficients lie in R.",
-      "locator": "Kuhlmann–Novacoski Lemma3.3(i) input; Mathlib Minpoly/IsIntegrallyClosed.lean:55–60",
+      "locator": "Kuhlmann–Novacoski Lemma 3.3(i) input; Mathlib Minpoly/IsIntegrallyClosed.lean:55–60",
       "status": "library",
       "note": "",
       "prerequisites": [],
@@ -4437,7 +4453,7 @@
       "kind": "theorem",
       "name": "Finite conjugate-prime data for a henselian subextension",
       "statement": "Let (F,w) be any valued field, fix a prolongation to F^sep, and let E/F be finite inside F_w. If A=O_w and C is its integral closure in E, the maximal ideals of C over m_A form a finite family of distinct pairwise comaximal ideals. The chosen p has C_p=O_{w|E} and C/p=κ(w). Among F-embeddings of E into a finite Galois hull, the identity is the unique one inducing the chosen prolongation; each other embedding induces a different prime of C.",
-      "locator": "Kuhlmann–Novacoski setting(1), Definition3.1, Lemmas2.5,3.2 specialized to E⊂F_w",
+      "locator": "Kuhlmann–Novacoski setting(1), Definition 3.1, Lemmas 2.5,3.2 specialized to E⊂F_w",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4456,7 +4472,7 @@
       "kind": "theorem",
       "name": "CRT element with residue one at the chosen prime",
       "statement": "In henselian-prime-orbit, there exists η∈C congruent to 1 modulo p and to 0 modulo each other maximal ideal of C over m_A. Thus η is a unit in C_p, and every nonidentity F-embedding σ of E has σ(η) reducing to zero at the fixed prolongation to a Galois hull.",
-      "locator": "Kuhlmann–Novacoski proof of Theorem1.2, p.11, residue-degree-one specialization",
+      "locator": "Kuhlmann–Novacoski proof of Theorem 1.2, p.11, residue-degree-one specialization",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4474,7 +4490,7 @@
       "kind": "theorem",
       "name": "Primitivity of the CRT henselian element",
       "statement": "The η constructed by henselian-crt-generator generates E/F. Indeed no nonidentity F-embedding of E into a normal hull fixes η, so [F(η):F]=[E:F] by separability.",
-      "locator": "Kuhlmann–Novacoski Theorem1.2 proof, p.11",
+      "locator": "Kuhlmann–Novacoski Theorem 1.2 proof, p.11",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4492,7 +4508,7 @@
       "kind": "theorem",
       "name": "Simple unit root in the conjugate polynomial",
       "statement": "For η above and n=[E:F], its monic minimal polynomial h belongs to A[X], and its reduction at m_A is X^(n−1)(X−1). Consequently h(η)=0, w(η)=w(h′(η))=0, w(h(1))>0 and w(h′(1))=0. The assertions include n=1 and h(1)=0, with w(0)=∞.",
-      "locator": "Kuhlmann–Novacoski Lemma3.3(i), pp.10–11; Theorem1.2, specialized to residue degree one",
+      "locator": "Kuhlmann–Novacoski Lemma 3.3(i), pp.10–11; Theorem 1.2, specialized to residue degree one",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4512,7 +4528,7 @@
       "kind": "theorem",
       "name": "Finite clopen inequalities giving henselian embeddability",
       "statement": "For a finite E/F embedded in F_w, choose h from henselian-simple-reduction. The set of valuations v with v(a_i)≥0 for every coefficient a_i of h, v(h(1))>0, and v(h′(1))=0 is a patch-clopen neighborhood of w on which E embeds into F_v.",
-      "locator": "Dittmann–Pop Lemma3.9(1), with the residue-one generator from Kuhlmann–Novacoski",
+      "locator": "Dittmann–Pop Lemma 3.9(1), with the residue-one generator from Kuhlmann–Novacoski",
       "status": "missing",
       "note": "",
       "prerequisites": [
@@ -4798,7 +4814,7 @@
       "kind": "theorem",
       "name": "A unique dominant valuation survives a finite sum",
       "statement": "For a valuation v:R→Γ₀ on a ring, a finite sum and an index j in its support, if v(f_i)<v(f_j) for every other index, then v(Σf_i)=v(f_j). In the paper’s additive convention, the unique least valuation survives. In particular a sum with a unique least finite additive valuation is nonzero.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "library",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [],
@@ -4816,7 +4832,7 @@
       "kind": "theorem",
       "name": "A field generated by finitely many algebraic elements is finite",
       "statement": "For fields F⊂E and a finite set S⊂E whose elements are algebraic over F, the intermediate field F(S) is finite-dimensional over F. No separability hypothesis is required.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "library",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [],
@@ -4834,7 +4850,7 @@
       "kind": "theorem",
       "name": "A nontrivial cyclic value group gives a DVR",
       "statement": "For a field valuation v with nontrivial cyclic actual value group, the valuation subring is a discrete valuation ring. The hypothesis is on the actual value group of v, not an ambient ordered group which may contain unused directions.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "library",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [],
@@ -4853,7 +4869,7 @@
       "kind": "theorem",
       "name": "Restriction of a field valuation to the prime field",
       "statement": "Let v be any field valuation, written additively on nonzero elements, with residue field κ_v. If F and κ_v have the same characteristic, v is trivial on the prime field. If char F=0 and char κ_v=p>0, then v(p)>0 and v(q)=ord_p(q)·v(p) for every nonzero q∈Q. No rank, discreteness or henselianity hypothesis is imposed.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [],
@@ -4870,7 +4886,7 @@
       "kind": "theorem",
       "name": "Algebraically independent residues lift to a unit subfield",
       "statement": "Suppose v is trivial on a subfield k⊂F, so k embeds in the residue field. If units x_1,…,x_s have residues algebraically independent over k, then x is algebraically independent over k, v is trivial on k(x), and the residue map identifies k(x) with k(x̄). If t∈F has v(t)>0, the tuple(x,t) is algebraically independent over k.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [
@@ -4878,7 +4894,7 @@
       ],
       "proofSteps": [
         "For a nonzero polynomial P over k, reduction of P(x) is P(x̄)≠0. Thus P(x) is a unit and cannot vanish. Ratios give the field and residue identifications.",
-        "For a nonzero polynomial Σ_j P_j(x)t^j, each nonzero coefficient P_j(x) has value0, so the nonzero summands have distinct values j*v(t). The unique least value survives by dominant-valuation-sum.",
+        "For a nonzero polynomial Σ_j P_j(x)t^j, each nonzero coefficient P_j(x) has value 0, so the nonzero summands have distinct values j*v(t). The unique least value survives by dominant-valuation-sum.",
         "This argument holds for every finite residue-independent tuple, even when the residue field is not finitely generated."
       ],
       "implementationStatus": "unchecked",
@@ -4889,7 +4905,7 @@
       "kind": "construction",
       "name": "A one-variable valued subfield in the geometric case",
       "statement": "Let K be finitely generated over its prime field k, let v be a nontrivial valuation with char Kv=char K, and suppose trdeg_k Kv=trdeg_k K−1=s. Lift a residue transcendence basis x̄ of length s to units x and choose t with v(t)>0. Then F0=k(x,t)⊂K has K/F0 finite, vF0=Z*v(t) and residue field k(x̄). Equivalently, K is a one-variable algebraic function field over k(x), and its valuation ring is proper and contains k(x).",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [
@@ -4955,7 +4971,7 @@
       "kind": "construction",
       "name": "A Gauss valued rational subfield above a prime",
       "statement": "Let K be finitely generated over Q, let v have residue characteristic p>0 and suppose trdeg_Fp Kv=trdeg_Q K=s. Lift a residue transcendence basis x̄ of length s to units x. Then F0=Q(x)⊂K has K/F0 finite, vF0=Z*v(p) and residue field Fp(x̄). For every nonzero polynomial P∈Q[X], v(P(x))=min_a ord_p(P_a)*v(p), the minimum taken over nonzero coefficients.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [
@@ -4965,9 +4981,9 @@
       ],
       "proofSteps": [
         "Let m be the least p-adic order of a nonzero coefficient of P. Multiplying by p^−m gives coefficients integral at p and a nonzero reduction polynomial.",
-        "Algebraic independence of x̄ makes this polynomial nonzero after residue evaluation. The scaled value is0, proving the stated Gauss formula and algebraic independence of x over Q.",
+        "Algebraic independence of x̄ makes this polynomial nonzero after residue evaluation. The scaled value is 0, proving the stated Gauss formula and algebraic independence of x over Q.",
         "The equality of transcendence degrees makes K algebraic over Q(x); finite field generation and finite-algebraic-adjoin make the extension finite.",
-        "For fractions subtract the two Gauss values. A value-zero ratio can be scaled to a ratio of polynomials with coefficient minimum0, whose residue is the ratio of their nonzero reductions. This identifies the residue field with Fp(x̄), not just a subfield of it.",
+        "For fractions subtract the two Gauss values. A value-zero ratio can be scaled to a ratio of polynomials with coefficient minimum 0, whose residue is the ratio of their nonzero reductions. This identifies the residue field with Fp(x̄), not just a subfield of it.",
         "For s=0 this is the usual p-adic valuation on Q. Nothing requires henselianity or completion, and the initial valuation on K need not have rank one."
       ],
       "implementationStatus": "unchecked",
@@ -5021,7 +5037,7 @@
       "kind": "theorem",
       "name": "The fundamental inequality for one arbitrary valuation extension",
       "statement": "For a finite field extension E/F with a valuation w on E and its restriction v to F, let Γ_F⊂Γ_E be their actual value groups and κ_F⊂κ_E their residue fields. Then e=[Γ_E:Γ_F] and f=[κ_E:κ_F] are finite and e*f≤[E:F]. No discreteness, rank-one, henselianity or separability assumption is needed.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [
@@ -5042,7 +5058,7 @@
       "kind": "theorem",
       "name": "A finite-index cyclic subgroup forces an ordered value group to be cyclic",
       "statement": "Let Γ be a linearly ordered abelian group and β>0. If the subgroup Zβ has finite index e in Γ, then Γ is nontrivial cyclic and order-isomorphic to Z. In particular a valuation extending a discrete valuation across a finite field extension has a nontrivial cyclic actual value group, by valuation-extension-ef.",
-      "locator": "§1 p.2 and Proposition3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
+      "locator": "§1 p.2 and Proposition 3.2(3) p.7 of arXiv2012.01307v2; direct proof refinement supplied in this continuation",
       "status": "missing",
       "note": "A mathematical proof interface; no Lean implementation claimed.",
       "prerequisites": [
@@ -5056,6 +5072,52 @@
       ],
       "implementationStatus": "unchecked",
       "routingGroup": "V"
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/niceness-definability",
+      "kind": "theorem",
+      "name": "First-order expressibility of niceness and the test-form unit condition",
+      "statement": "There is a ring formula ν(a_1, a_0, ε, z), uniform over all fields K satisfying (H_d) for fixed d, such that whenever the parameters z define a relatively algebraically closed global subfield k_1 ⊂ K (global-subfield-definability), K ⊨ ν(a_1, a_0, ε, z) holds exactly when a_1, a_0, ε_i ∈ k_1^×, the Pfister form q_{a_1,a_0} is k_1-nice (Definition 3.3), and every ε_i is a v-unit at every finite place v of k_1 with v(a_1) > 0 (Notations/Remarks 4.1(1)(c)). Hence the admissible test data of Recipe 4.3(1) form a uniformly definable family.",
+      "locator": "Notations/Remarks 4.1(1)(c), p. 14, and Recipe 4.3(1), p. 15; E17",
+      "status": "missing",
+      "note": "The paper asserts that the data of Notations/Remarks 4.1 are uniformly first-order definable (Recipe 4.3(1)) but does not say why niceness is, although it quantifies over the places of k_1 (E17). The proof steps are this continuation's repair.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/nice-form",
+        "PAPER-DITTMANN-POP-23/test-form",
+        "PAPER-DITTMANN-POP-23/global-subfield-definability",
+        "PAPER-DITTMANN-POP-23/rumely-global-definitions",
+        "PAPER-DITTMANN-POP-23/quadratic-extension-formulas"
+      ],
+      "proofSteps": [
+        "The finite places of k_1 are uniformly definable (Rumely): their valuation rings O_v form a definable family with parameters, so 'v(a_0) ≠ 0', 'v(a_1) < 0', 'v(a_1) > 0', 'ε_i ∈ O_v^×' and 'v dyadic' (2 ∉ O_v^×) are first-order.",
+        "For a finite place v, q_{a_1,a_0} is isotropic over the henselization k_{1v} iff it has a primitive vector x ∈ k_1^4 with q(x) of large enough value, a Hensel bound depending only on v(4a_1a_0); with O_v definable this is first-order.",
+        "At the real places: in the paper's convention q_{a_1,a_0} = ⟨1, −a_1, −a_0, a_1a_0⟩ is anisotropic at an ordering iff a_1 and a_0 are both negative there. So the real condition says that no ordering of k_1 has a_1, a_0 < 0, which by the Positivstellensatz is −1 = σ_0 − σ_1a_1 − σ_2a_0 + σ_3a_1a_0 with sums of squares σ_i; in a global field every sum of squares is a sum of four, so this is first-order.",
+        "Combine the clauses, quantifying over the definable family of places of k_1."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "D",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/function-field-fundamental-equality",
+      "kind": "theorem",
+      "name": "Fundamental equality for function fields in one variable, without separability",
+      "statement": "Let K ⊇ K′ be function fields in one variable over a field k_0 with [K : K′] finite, and let w′ be a place of K′ trivial on k_0. Then Σ_{w|w′} e(w|w′) f(w|w′) = [K : K′], the sum running over the places w of K above w′. In particular, if w′ has a unique prolongation w (for instance if K|K′ is purely inseparable), then e(w|w′) f(w|w′) = [K : K′].",
+      "locator": "Lemma 3.6, proof, p. 10, citing Chevalley, Ch. IV, §1, Theorem 1",
+      "status": "missing",
+      "note": "Lemma 3.6 applies it to a purely inseparable extension K|K_s. Tau Ceti has only the separable case, TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable (TauCeti/FieldTheory/FunctionField/Place/Extension/Fundamental.lean:77, read at f790474), whose docstring says the unconditional form waits on separability-free finiteness of normalization, which AlgebraicModuliForArithmeticGeometry:A0-extension owns.",
+      "prerequisites": [
+        "PAPER-DITTMANN-POP-23/finite-normalization-generic"
+      ],
+      "proofSteps": [
+        "The valuation ring O_{w′} is a DVR with fraction field K′; its integral closure S in K is finite over O_{w′} (finite normalization, separability-free).",
+        "Apply Mathlib's Ideal.sum_ramification_inertia_eq_finrank to the finite extension of Dedekind domains O_{w′} ⊆ S."
+      ],
+      "implementationStatus": "unchecked",
+      "routingGroup": "G",
+      "library": [],
+      "planned": []
     }
   ],
   "prerequisites": [
@@ -5072,7 +5134,7 @@
     {
       "citation": "Kuhlmann–Novacoski, Henselian Elements, J. Algebra 418 (2014), 44–65.",
       "link": "https://arxiv.org/abs/1311.6155",
-      "why": "The full Theorem1.2 proof has now been read and its residue-degree-one use decomposed into prime-orbit, CRT, primitivity, simple-reduction and patch-neighborhood items. Its decomposition/inertia and integral-closure localization background remains an imported source-audit task; the remainder of the paper is not extracted."
+      "why": "The full Theorem 1.2 proof has now been read and its residue-degree-one use decomposed into prime-orbit, CRT, primitivity, simple-reduction and patch-neighborhood items. Its decomposition/inertia and integral-closure localization background remains an imported source-audit task; the remainder of the paper is not extracted."
     },
     {
       "citation": "Pop, Elementary equivalence versus isomorphism, II, Algebra & Number Theory 11 (2017), 2091–2111.",
@@ -5098,6 +5160,26 @@
       "citation": "Milne, Lectures on Étale Cohomology, Theorem 15.2 and Lemma 15.3, pp.105–106.",
       "link": "https://www.jmilne.org/math/CourseNotes/LECc.pdf",
       "why": "The coefficient-field proof was read completely. The transcendence-degree cohomology inequality is stated with a reference-only proof; that proof and the local/henselian comparison remain to be read in the supplier task."
+    },
+    {
+      "citation": "M. Kerz and S. Saito, Cohomological Hasse principle and motivic cohomology for arithmetic schemes, Publ. Math. IHÉS 115 (2012), 123–183",
+      "link": "https://doi.org/10.1007/s10240-011-0038-y",
+      "why": "Theorem 8.1, the divisorial Hasse principle of Fact 2.2 (lgp-good-model)."
+    },
+    {
+      "citation": "L. Illusie, Y. Laszlo and F. Orgogozo (eds.), Travaux de Gabber sur l'uniformisation locale et la cohomologie étale des schémas quasi-excellents, Astérisque 363–364 (2014), Exposé X",
+      "link": "https://doi.org/10.24033/ast.935",
+      "why": "Theorem X.2.4, prime-to-ℓ alterations, used in Proposition 3.4 (odd-degree-alteration)."
+    },
+    {
+      "citation": "V. Cossart and O. Piltant, Resolution of singularities of threefolds in positive characteristic II, J. Algebra 321 (2009), 1836–1976",
+      "link": "https://doi.org/10.1016/j.jalgebra.2008.11.030",
+      "why": "Smooth projective models in characteristic two and dimension three (§2, before Fact 2.3)."
+    },
+    {
+      "citation": "K. Kato, A Hasse principle for two dimensional global fields, J. reine angew. Math. 366 (1986), 142–181",
+      "link": "https://doi.org/10.1515/crll.1986.366.142",
+      "why": "The Kato complex and its dimension-two case (§2, Fact 2.3 for d = 2)."
     }
   ],
   "routes": [
@@ -5179,9 +5261,10 @@
       "items": [
         "PAPER-DITTMANN-POP-23/valuation-prolongation-integrality",
         "PAPER-DITTMANN-POP-23/finite-normalization-generic",
-        "PAPER-DITTMANN-POP-23/root-coefficient-descent"
+        "PAPER-DITTMANN-POP-23/root-coefficient-descent",
+        "PAPER-DITTMANN-POP-23/function-field-fundamental-equality"
       ],
-      "reason": "A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add the selected-family valuation-prolongation adapter in this owner. The height-one intersection theorem imports AutomorphicCongruences:L4; only normalization and selected-family integral-closure adapters remain here."
+      "reason": "A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add the selected-family valuation-prolongation adapter in this owner. The height-one intersection theorem imports AutomorphicCongruences:L4; only normalization and selected-family integral-closure adapters remain here. The fundamental equality for one-variable function fields without separability, used for a purely inseparable extension in Lemma 3.6, also belongs here: it follows from the separability-free finite normalization this layer owns and Mathlib's sum of ramification times inertia."
     },
     {
       "route": "part-ii",
@@ -5240,10 +5323,11 @@
         "PAPER-DITTMANN-POP-23/global-approximation-input",
         "PAPER-DITTMANN-POP-23/etale-specialization-input",
         "PAPER-DITTMANN-POP-23/rumely-global-definitions",
-        "PAPER-DITTMANN-POP-23/low-dimensional-biinterpretability"
+        "PAPER-DITTMANN-POP-23/low-dimensional-biinterpretability",
+        "PAPER-DITTMANN-POP-23/niceness-definability"
       ],
       "reason": "LD.0–LD.6 cover interpretation, valued-field elimination and motivic/local arithmetic, but no layer proves uniform definability of all geometric prime divisors of finitely generated fields or their single-sentence characterization.",
-      "brief": "Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Import the general height-one intersection theorem from the early algebraic portion of Automorphic congruences and reverse main-conjecture divisibilities (AutomorphicCongruences:L4), without depending on its later automorphic conclusions. Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief."
+      "brief": "Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Import the general height-one intersection theorem from the early algebraic portion of Automorphic congruences and reverse main-conjecture divisibilities (AutomorphicCongruences:L4), without depending on its later automorphic conclusions. Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief. Include the first-order expressibility of k_1-niceness and of the test-form unit condition (niceness-definability), which the paper asserts without proof (E17), and prove Theorem 1.2 in Kronecker dimensions one and two by the same normalization argument (E18)."
     },
     {
       "route": "part-ii",
@@ -5306,7 +5390,9 @@
         "lgp-characteristic-two",
         "odd-degree-alteration"
       ],
-      "remaining": "Read the original full Jannsen/KS, Suwa and ILO proof chains; check completed-versus-henselian comparison, finite wild coefficient passage, alteration base changes and degree/separability. Jannsen is already queued, not a duplicate prerequisite request."
+      "remaining": "Read the original full Jannsen/KS, Suwa and ILO proof chains; check completed-versus-henselian comparison, finite wild coefficient passage, alteration base changes and degree/separability. Jannsen is already queued, not a duplicate prerequisite request.",
+      "status": "deferred",
+      "resolution": "Cited suppliers (Jannsen, Kerz–Saito, Suwa, Gabber/ILO). They are items stated as the paper uses them; the sources are listed under prerequisites (Jannsen is already queued as PAPER-JANNSEN-16). Their proofs belong to the owning layers' blueprints."
     },
     {
       "id": "DP23-G2",
@@ -5314,7 +5400,9 @@
         "lgp-characteristic-two",
         "resolution-f2"
       ],
-      "remaining": "Acquire Cossart–Piltant's 2009 threefold resolution and the precise low-dimensional use. Separate smooth proper models from the TWO-CLAUSE resolution hypothesis; do not impose the global assumption in characteristic two dimension three."
+      "remaining": "Acquire Cossart–Piltant's 2009 threefold resolution and the precise low-dimensional use. Separate smooth proper models from the TWO-CLAUSE resolution hypothesis; do not impose the global assumption in characteristic two dimension three.",
+      "status": "deferred",
+      "resolution": "Cossart–Piltant is a cited supplier, now listed under prerequisites. The resolution hypothesis is used exactly as (H_d) states it: assumed only in characteristic two with d > 3."
     },
     {
       "id": "DP23-G3",
@@ -5326,7 +5414,9 @@
         "henselian-generator-input",
         "henselian-prime-orbit"
       ],
-      "remaining": "The equicharacteristic-zero coefficient-field argument is now sourced and separated. Finish the exact nonreal local-field cd_2 bound and henselization/completion comparison, the transcendence-degree proof referred to by Milne, cohomology continuity and real-place descent; retain EKM subform/cancellation and Kato graded quadratic-Witt tasks. Kuhlmann–Novacoski decomposition-field and integral-closure localization foundations remain open. Do not restore the false cd(E′) bound in E6."
+      "remaining": "The equicharacteristic-zero coefficient-field argument is now sourced and separated. Finish the exact nonreal local-field cd_2 bound and henselization/completion comparison, the transcendence-degree proof referred to by Milne, cohomology continuity and real-place descent; retain EKM subform/cancellation and Kato graded quadratic-Witt tasks. Kuhlmann–Novacoski decomposition-field and integral-closure localization foundations remain open. Do not restore the false cd(E′) bound in E6.",
+      "status": "closed",
+      "resolution": "The false cd bound is recorded as E6 with its repair (nonreal-local-cd-bound). The remaining inputs (coefficient fields, cohomology of direct limits, EKM and Kato) are cited facts stated as items."
     },
     {
       "id": "DP23-G4",
@@ -5339,7 +5429,9 @@
         "domain-biinterpretability",
         "qfa-theorem"
       ],
-      "remaining": "Read original Rumely/Pop/Poonen internal inputs and AKNS coding/one-dimensional proof leaves. Fully verify that the same definable-normalization construction supplies low-dimensional bi-interpretability, not just a single-sentence result."
+      "remaining": "Read original Rumely/Pop/Poonen internal inputs and AKNS coding/one-dimensional proof leaves. Fully verify that the same definable-normalization construction supplies low-dimensional bi-interpretability, not just a single-sentence result.",
+      "status": "closed",
+      "resolution": "Rumely, Pop 2017 and Poonen are cited suppliers stated as items. The low-dimensional bi-interpretability is recorded as E18 with its argument (low-dimensional-biinterpretability)."
     },
     {
       "id": "DP23-G5",
@@ -5349,7 +5441,9 @@
         "krull-intersection",
         "valuation-prolongation-integrality"
       ],
-      "remaining": "The residue-dimension criterion and arbitrary finite-extension e*f inequality now have direct mathematical proofs, including the mixed-characteristic Gauss subfield. The earlier selected-family integrality and height-one arguments remain supplied. Remaining: the exact number-field approximation off one finite place, normalization algebra/fraction-field towers, and typed Lean adapters for the new residue-basis/value-group constructions and the earlier extension, multiplicity, associated-prime and height-one arguments. General excellence is not inferred; the height-one theorem remains owned by AutomorphicCongruences:L4."
+      "remaining": "The residue-dimension criterion and arbitrary finite-extension e*f inequality now have direct mathematical proofs, including the mixed-characteristic Gauss subfield. The earlier selected-family integrality and height-one arguments remain supplied. Remaining: the exact number-field approximation off one finite place, normalization algebra/fraction-field towers, and typed Lean adapters for the new residue-basis/value-group constructions and the earlier extension, multiplicity, associated-prime and height-one arguments. General excellence is not inferred; the height-one theorem remains owned by AutomorphicCongruences:L4.",
+      "status": "deferred",
+      "resolution": "Implementation adapters and the number-field approximation are design and blueprint work for the routes."
     },
     {
       "id": "DP23-G6",
@@ -5358,12 +5452,16 @@
         "coefficient-detection",
         "inverse-language-bridge"
       ],
-      "remaining": "Independent review of the explicit full-rank flag repair, torus specialization, and finite inverse-language bridge. Check any formula-level uniformity across finite residue-number-field interpretations."
+      "remaining": "Independent review of the explicit full-rank flag repair, torus specialization, and finite inverse-language bridge. Check any formula-level uniformity across finite residue-number-field interpretations.",
+      "status": "closed",
+      "resolution": "This continuation checked the full-rank flag correction (E3), the torus specialization (E4) and the inverse-language bridge (E7) against the TeX source and AKNS."
     },
     {
       "id": "DP23-G7",
       "items": [],
-      "remaining": "Acquire the publisher-format DP paper and collate the structured source findings against v2. Preserve E1–E4 IDs shared with the separate errata file, without self-review. Complete the inherited Part II signature audit and remaining full-source proof tasks before marking complete. On2026-09-23 the public Annals PDF guess again returned404; the current article page and author lists expose the same19-page final author copy. No publisher-format collation is claimed."
+      "remaining": "Acquire the publisher-format DP paper and collate the structured source findings against v2. Preserve E1–E4 IDs shared with the separate errata file, without self-review. Complete the inherited Part II signature audit and remaining full-source proof tasks before marking complete. On 2026-09-23 the public Annals PDF guess again returned 404; the current article page and author lists expose the same 19-page final author copy. No publisher-format collation is claimed.",
+      "status": "unavailable",
+      "resolution": "The typeset Annals text is paywalled. arXiv v2 is the authors' final version; the locators follow it."
     }
   ],
   "sourceArchives": [
@@ -5373,9 +5471,9 @@
       "sha256": "b5d1e7c33744a03ff22bb7d314359c861542e0bd6bd57f4517e5494d495c5f05",
       "readSections": [
         "§§2.2–2.3 interpretations and bi-interpretations",
-        "Examples2.9(4) localization",
-        "§2.9 Proposition2.28 and Lemmas2.29–2.30",
-        "Theorem3.1 and §3.2 proof"
+        "Examples 2.9(4) localization",
+        "§2.9 Proposition 2.28 and Lemmas 2.29–2.30",
+        "Theorem 3.1 and §3.2 proof"
       ],
       "notRead": "§3.1 and the earlier coding/model-theoretic lemmas on which the selected proof rests; external arithmetic inputs.",
       "accessed": "2026-09-21",
@@ -5386,10 +5484,10 @@
       "url": "https://math.mit.edu/~poonen/papers/uniform.pdf",
       "sha256": "3042f2c17cc0ea7dd388712bbb2c12f0526e003179485509555ff983db013554",
       "readSections": [
-        "Theorems1.1–1.4",
-        "Theorem2.2(1–8), Theorem2.3, Definition3.1",
-        "Lemmas3.6–3.7",
-        "Proposition4.10 and §5 including Lemma5.3"
+        "Theorems 1.1–1.4",
+        "Theorem 2.2(1–8), Theorem 2.3, Definition 3.1",
+        "Lemmas 3.6–3.7",
+        "Proposition 4.10 and §5 including Lemma 5.3"
       ],
       "notRead": "Earlier elliptic-curve/Moret-Bailly and definability proof inputs.",
       "accessed": "2026-09-21",
@@ -5400,9 +5498,9 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p01-p.pdf",
       "sha256": "26dde9260f6475e4f6acbfbe651e18fac0d443a5f318fbf3974efc9f809f7d71",
       "readSections": [
-        "Coefficient convention(0.2), Conjecture1, Theorem0.4",
-        "Conjecture3 and Theorem0.10",
-        "Definition4.18 and adjacent Theorem4.19 statement"
+        "Coefficient convention(0.2), Conjecture 1, Theorem 0.4",
+        "Conjecture 3 and Theorem 0.10",
+        "Definition 4.18 and adjacent Theorem 4.19 statement"
       ],
       "notRead": "The full higher-dimensional Hasse proofs; already queued as PAPER-JANNSEN-16.",
       "accessed": "2026-09-21",
@@ -5413,7 +5511,7 @@
       "url": "https://arxiv.org/pdf/1010.5930v3",
       "sha256": "8f887a2b55bc9a71eb44ae75056488aa50df7867f8202aca1ccdad239bb5a483",
       "readSections": [
-        "§8 setup, coefficient complex(8.1), Theorem8.1 and its proof, adjacent Theorem8.2"
+        "§8 setup, coefficient complex (8.1), Theorem 8.1 and its proof, adjacent Theorem 8.2"
       ],
       "notRead": "Proof ingredients in §§3–7.",
       "accessed": "2026-09-21",
@@ -5424,9 +5522,9 @@
       "url": "https://www.math.ucla.edu/~merkurev/Book/Kniga-final/Kniga.pdf",
       "sha256": "0b547b09ee83c370a932e2c2117fe1757bb8b342ca0af9d73526b5edffb842e6",
       "readSections": [
-        "§9.B definitions, Proposition9.8, Corollaries9.9–9.10 and proof",
-        "§16 Proposition16.1, Fact16.2 and its original-reference discussion",
-        "§23.A Theorem23.7 and proof, surrounding Corollaries23.4–23.9"
+        "§9.B definitions, Proposition 9.8, Corollaries 9.9–9.10 and proof",
+        "§16 Proposition 16.1, Fact 16.2 and its original-reference discussion",
+        "§23.A Theorem 23.7 and proof, surrounding Corollaries 23.4–23.9"
       ],
       "notRead": "The complete subform theorem, Witt theory and original Kato/Voevodsky proofs cited by these selections.",
       "accessed": "2026-09-21",
@@ -5437,10 +5535,10 @@
       "url": "https://arxiv.org/pdf/1311.6155",
       "sha256": "19bcd00d932899fdd8ba63b56aff45cee048fa8d6667de154206d23c63058a62",
       "readSections": [
-        "PDF pp.1–3,5,7–13: setting(1), Theorems1.2–1.3, Definition3.1, Lemmas2.5,3.2,3.3 and full proof of Theorem1.2; selected adjacent proof material.",
+        "PDF pp.1–3,5,7–13: setting(1), Theorems 1.2–1.3, Definition 3.1, Lemmas 2.5,3.2,3.3 and full proof of Theorem 1.2; selected adjacent proof material.",
         "codex-hjdg0j reread PDF pp.7,9–13, including Theorem 1.2 proof and identity-index slip; no claim to reread the other selections."
       ],
-      "notRead": "Raynaud local-rings inputs cited in Lemma3.2, full proofs of the remaining valuation/Galois background, and the rest of the paper. Lemma2.5 is stated by reference, not proved there.",
+      "notRead": "Raynaud local-rings inputs cited in Lemma 3.2, full proofs of the remaining valuation/Galois background, and the rest of the paper. Lemma 2.5 is stated by reference, not proved there.",
       "accessed": "2026-09-22",
       "provenanceSession": "codex-c83e7a; same PDF hash, additional proof reading"
     },
@@ -5581,10 +5679,10 @@
     "previousStructuralComparison": "8c1784e9ccdc6dfef9fef5207ee3cdc02a5977b3",
     "reviewedLayers": [
       "HL.0–HL.7 (AUDIT-03)",
-      "QuadraticFormInvariants Layers1,4,7a (AUDIT-05)",
+      "QuadraticFormInvariants Layers 1,4,7a (AUDIT-05)",
       "AdicCoefficientsAndComparisons:L5 (AUDIT-18)",
       "AlgebraicModuliForArithmeticGeometry:A0-extension",
-      "AlgebraicCurves Layer12 (AUDIT-01)",
+      "AlgebraicCurves Layer 12 (AUDIT-01)",
       "MotivicEtaleKTheory:M.5d (AUDIT-30)",
       "AutomorphicCongruences:L4 (AUDIT-23)"
     ],
@@ -5592,7 +5690,7 @@
       "LogicAndDefinabilityInNumberTheory",
       "CrystallineCohomology:CR.4"
     ],
-    "ownership": "Inherited codex-a71f92/codex-c83e7a audit: Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer4, AlgebraicCurves Layer12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields.",
+    "ownership": "Inherited codex-a71f92/codex-c83e7a audit: Read full LD and HL layer descriptions, upstream Multiquadratic and GlobalQuadraticForms roadmaps, the QF scope/Layer 4, AlgebraicCurves Layer 12, M.5/M.5a–d and CR.4 suppliers, A0-extension and L5. Current L5 decomposition has arbitrary-degree de Jong alterations, not Gabber odd-degree control. New-roadmap and packet paths plus reserved IDs checked; none owns the proposed finitely-generated-field or higher-Pfister extension. No retired FoundationsAndLibraryIntegration supplier is adopted despite stale legacy layer requires fields.",
     "continuation": "Preceding codex-c83e7a continuation: Fresh eleven-owner extracts and documents, reviewed library audit, new-roadmap/packet files and reserved IDs fetched. A0-extension audit explicitly identifies the previously omitted purely inseparable polynomial theorem. LD.0/LD.1 and A0-extension signatures reread; full 211-roadmap portfolio rechecked for competing owners. Existing Part II names and routing retained. codex-hjdg0j read LD, A0-extension and AutomorphicCongruences owner documents; checked current A0-extension and L4 reviewed audits, searched full pinned trees and current roadmap/packet/decomposition metadata. L4 explicitly already plans the generic height-one intersection, so it is now a planned import with its proof leaves routed there. Other inherited supplier reading is not claimed as reread.",
     "valuationContinuation": {
       "agent": "Codex",
@@ -8163,7 +8261,7 @@
           }
         ]
       },
-      "owner": "Existing source route LogicAndDefinabilityInNumberTheory:LD.1. Full owner README read. No reviewed LD.0/LD.1 entries exist in library-coverage.json; this absence is recorded, not treated as evidence of nonexistence. Relevant AlgebraicCurves Layer0 and LocalFieldsRamification Layer0 targets were checked with their one-variable/complete-field scope.",
+      "owner": "Existing source route LogicAndDefinabilityInNumberTheory:LD.1. Full owner README read. No reviewed LD.0/LD.1 entries exist in library-coverage.json; this absence is recorded, not treated as evidence of nonexistence. Relevant AlgebraicCurves Layer 0 and LocalFieldsRamification Layer 0 targets were checked with their one-variable/complete-field scope.",
       "positiveReads": "The three new Mathlib signatures were read directly, along with the already credited TauCeti.isDiscreteValuationRing_of_isFunctionField and the trdeg-one bridge.",
       "scopeBoundary": "TauCeti.Place.ramificationIdx_mul_relativeDegree_le_finrank and its independence proof were read. They require discrete function-field places and cannot establish discreteness of the initial arbitrary valuation. No exact arbitrary-valued finite-extension e*f theorem was found in the searched Mathlib valuation and Tau Ceti field/ring-theory files.",
       "overlap": "Cross-paper item statements were screened for valuation dimension, residue/value-group finiteness, Abhyankar and fundamental inequality. Found local/Amice/perfectoid consumers but no more precise general supplier replacing the existing LD.1 source route."
@@ -8173,194 +8271,273 @@
     {
       "id": "PAPER-DITTMANN-POP-23/E1",
       "kind": "misprint",
-      "locator": "§3, definition of Pfister forms, p.6, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "locator": "§3, definition of Pfister forms in characteristic two, p. 6 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "⟨⟨a_i⟩⟩ ⊗ … ⟨⟨a_1⟩⟩ ⊗ ⟨⟨a_0]]",
       "correction": "In characteristic 2 the factors ⟨⟨a_j⟩⟩ (j ≥ 1) are the bilinear Pfister forms ⟨1, −a_j⟩_b of [EKM, 9.B], and q_a is their product with the quadratic form ⟨⟨a_0]]: a nonsingular quadratic form of dimension 2^{i+1}.",
       "reason": "With ⟨⟨a⟩⟩ read as the quadratic form x_1² − a x_2² just defined, the tensor product in characteristic 2 is not defined (quadratic forms do not multiply there), and that form is totally singular, being (x_1 + √a x_2)². The reference [EKM, 9.B] has the bilinear factors. Noted by the extraction (item pfister-two).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E2",
       "kind": "misprint",
-      "locator": "Proof of Claim 1 in the proof of Proposition 3.10, p.12, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "locator": "proof of Proposition 3.10, Claim 1, p. 12 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "a′_i = 1 − 1/u_i + ε_i/u_i²",
       "correction": "a′_i = 1 − 1/u_i − ε_i/u_i².",
       "reason": "Dividing u_i² − u_i − ε_i by u_i² gives the minus sign. Either way a′_i is a principal w̃-unit (w̃(u_i) < 0 and w̃(ε_i) = 0), so the argument is unaffected. Noted by the extraction (item detecting-nonnegative).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E3",
       "kind": "misprint",
-      "locator": "§5, proof of Proposition 5.1, Case 2 (char K = 0), pp.16–17, and the proof of Lemma 5.3, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "locator": "proof of Proposition 5.1, Case 2, and proof of Lemma 5.3, pp. 16–17 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "w ∈ W_T",
       "correction": "In Case 2 and Lemma 5.3, W_T should denote {w ∈ D^e_{K|κ} : T ⊂ O_w}, the full-rank geometric flags containing T, not the rank-one divisors of p.16.",
       "reason": "For a rank-one geometric prime divisor w the residue field κw has transcendence degree e − 1 over κ, so it is not a number field and the finite primes P_fin(κw) used next do not apply; the construction needs the rank-e flags just introduced. The symbol is reused for two different sets. Noted by the extraction (items maximal-geometric-flags, arithmetic-flags).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E4",
       "kind": "gap",
-      "locator": "Proof of Lemma 5.3, Claim, p.17, in arXiv 2012.01307v2 (27 April 2023, the final author version, SHA-256 f9f26f7d…2c1f); the published Annals text (198 (2023), 1203–1227) was not collated",
+      "locator": "proof of Lemma 5.3, Claim, p. 17 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "Then ζ is an e-tuple of roots of unity",
       "correction": "Choose ζ in the torus, with all coordinates nonzero and ḡ(ζ) ≠ 0 (possible because ḡ is a nonzero polynomial over the infinite field κv^alg); then each coordinate is a root of unity of order prime to char(κv) and has a Teichmüller-type lift.",
       "reason": "An element of the algebraic closure of a finite field is a root of unity only if it is nonzero, and a nonvanishing point of ḡ may have zero coordinates. Noted by the extraction (report, §5).",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E6",
       "kind": "error",
-      "locator": "arXiv v2, Proposition 3.2(3), Case 2 Claim, p.7",
+      "locator": "proof of Proposition 3.2(3), Case 2, Claim, p. 7 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "cd(E′) ⩽ dim(E′) + 1",
       "correction": "Bound the nonreal base change E′k′_v directly by cd_2(k′_v)+trdeg(E′/k′)≤dim(E′)+1, using the nonreal local-field theorem and the transcendence-degree inequality.",
-      "reason": "E′ can be formally real, for example Q. Its absolute Galois group has an order-two subgroup and cd_2(E′)=∞, so the printed intermediate bound is false. The intended vanishing after nonreal base change has the corrected proof input nonreal-local-cd-bound; its general source proof remains explicitly open.",
+      "reason": "E′ can be formally real (it contains ℚ whenever the residue field does, and may have orderings), and then cd₂(E′) = ∞, so the printed intermediate bound is false. What the argument needs holds: for a non-real place v′ of k′, k′_{v′} is a henselian p-adic field (cd₂ = 2) or algebraically closed, and cd₂(E′k′_{v′}) ≤ cd₂(k′_{v′}) + trdeg(E′|k′) ≤ dim(E′) + 1. nonreal-local-cd-bound records this.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E7",
       "kind": "gap",
-      "locator": "arXiv v2, final deduction, p.18",
+      "locator": "final sentence of §5, p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "[AKNS, Proposition 2.28]",
       "correction": "Apply the finite-language QFA theorem after adjoining total inversion to the field language, and then eliminate that definable function. Retain the existing inverse-language-bridge item.",
-      "reason": "A finitely generated field need not be a finitely generated ring: Q is not. In the finite field language with total inversion, it is finitely generated as a structure; the inverse graph has a unique value for every element. The prior extraction identified this omitted bridge. The AKNS original reading is inherited, not newly reread.",
+      "reason": "AKNS §2.9 works with a finitely generated L-structure A in a finite language L, and Proposition 2.28 gives a formula characterizing A among finitely generated L-structures (read in arXiv 1610.04768, p. 20). A finitely generated field is not a finitely generated ring unless it is finite (ℚ is not), so applied in the ring language the proposition says nothing about finitely generated fields. In the language with total inversion, whose graph is ring-definable, K is a finitely generated structure and remains bi-interpretable with ℤ; the resulting sentence translates back to the ring language. inverse-language-bridge records the bridge.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E8",
       "kind": "misprint",
-      "locator": "Kuhlmann–Novacoski, arXiv:1311.6155 PDF p.11, Theorem 1.2 proof",
+      "locator": "Kuhlmann–Novacoski, Henselian elements, Theorem 1.2, proof (arXiv 1311.6155, p. 11), as used in the proof of Lemma 3.9(1), p. 11 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "σ_iη ≠ η for 1 ≤ i ≤ n",
       "correction": "Exclude the identity embedding from both nonfixing ranges (choose σ_1=id and use 2≤i≤n, and 2≤i≤k for the residue embeddings).",
-      "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument.",
+      "reason": "The identity fixes η. Nonidentity residue embeddings separate the nonzero generator, and the remaining embeddings send it to residue zero. This preserves the primitive-generator argument. This slip is in the cited paper [K-No], not in Dittmann–Pop's text.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv https://arxiv.org/abs/1311.6155, publisher https://doi.org/10.1016/j.jalgebra.2014.07.004 and title/author correction searches, 2026-09-22; no correction located. Finding scoped to the downloaded author PDF; published text not collated."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E9",
       "kind": "misprint",
-      "locator": "arXiv v2, Lemma 3.9(2) proof, p.11",
+      "locator": "proof of Lemma 3.9(2), p. 11 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "q_a",
       "correction": "The open set V_{E|F} is a neighborhood of the valuation w, not of the quadratic form q_a.",
       "reason": "V_{E|F} is a subset of Val_F, and the chosen point is w∈V_a. The immediately preceding argument supplies that neighborhood.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E10",
       "kind": "misprint",
-      "locator": "arXiv v2, Proposition 3.2(2) proof, p.7",
+      "locator": "proof of Proposition 3.2(2), p. 7 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "q_{π,ε}(y) = ∑_χ π^χ q_ε(x_χ)",
       "correction": "In characteristic different from two insert (−1)^{|χ|} in each summand for the paper’s convention ⟨⟨π_i⟩⟩=⟨1,−π_i⟩. Every block has N+1 coordinates; replace the subsequent F^N by F^{N+1}.",
       "reason": "For one outer factor the tensor is q_ε(x_0)−π_1q_ε(x_1). Signs are valuation units, so the distinct-value anisotropy proof is unchanged. The source defines N=2^{r+1}−1 while q_ε has 2^{r+1} variables.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E11",
       "kind": "misprint",
-      "locator": "arXiv v2, Proposition 3.10 proof, final sentence p.12",
+      "locator": "proof of Proposition 3.10, p. 12 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "w̃ = w̃_N",
       "correction": "Use the restriction w̃_N|L in V_{a,N}.",
       "reason": "The constructed valuation is on L(α), whereas V_{a,N} consists of valuations on L. Its restriction preserves the inequalities, and anisotropy over the larger henselization implies anisotropy over the restricted one.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E12",
       "kind": "misprint",
-      "locator": "arXiv v2, bibliography p.18",
+      "locator": "bibliography, entry [Du], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "808–923",
       "correction": "[Du] ends at p.823, not p.923.",
-      "reason": "Checked the original journal’s article metadata: https://doi.org/10.2307/2275432",
+      "reason": "Crossref metadata for doi 10.2307/2275432 gives pages 808–823.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E13",
       "kind": "misprint",
-      "locator": "arXiv v2, bibliography p.18",
+      "locator": "bibliography, entry [Ka], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "493–51",
       "correction": "[Ka] ends at p.510.",
-      "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/BF01389226",
+      "reason": "Crossref metadata for doi 10.1007/BF01389226 gives pages 493–510.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     },
     {
       "id": "PAPER-DITTMANN-POP-23/E14",
       "kind": "misprint",
-      "locator": "arXiv v2, bibliography p.18",
+      "locator": "bibliography, entry [P1], p. 18 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
       "printed": "385–308",
       "correction": "[P1] ends at p.408.",
-      "reason": "Checked the original journal’s article metadata: https://link.springer.com/article/10.1007/s00222-002-0238-7",
+      "reason": "Crossref metadata for doi 10.1007/s00222-002-0238-7 gives pages 385–408.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04, checked 2026-09-22; no correction link found.",
-        "arXiv https://arxiv.org/abs/2012.01307 lists v2 (2023-04-27) as latest; v2 read in full. Publisher text not acquired.",
-        "Dittmann author publication list https://pdittmann.net/ and title/author erratum searches, 2026-09-22; no correction found."
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E15",
+      "kind": "misprint",
+      "locator": "proof of Proposition 3.10, Claim 3, p. 13 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+      "printed": "Finally, since q_{a_1,a_0} is isotropic over k_{1v} for all archimedean places of k_1, it follows that q_a is isotropic over F_v := F k_{1v} for all archimedean places v of k_1.",
+      "correction": "q_ε is isotropic over F_v, where ε = (a_{d−1}, …, a_1, a_0).",
+      "reason": "F is the relative algebraic closure of k_1(t) in L_{w_L}, so a_d need not lie in F and q_a is not defined over F. The next sentence applies Proposition 3.2(3) to q_ε, which contains q_{a_1,a_0} as a Pfister factor and is therefore isotropic over F_v.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E16",
+      "kind": "misprint",
+      "locator": "Notations/Remarks 4.1(2) and proof of Theorem 4.2(1), p. 14 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+      "printed": "w ∈ D_{K|k_a} are in bijection with the closed points P ∈ C … Since V_a ⊂ D_{K|k_a} is finite",
+      "correction": "D_{K|k_t} in both places.",
+      "reason": "Only k_t = k_u is defined, and D_{K|k_t} is introduced in the same item as the set of prime divisors of K|k_t.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E17",
+      "kind": "gap",
+      "locator": "§4, opening paragraph, p. 13, and Recipe 4.3(1), p. 15 (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+      "printed": "1) Consider the uniformly first-order definable k_1, u = (u_i)_{d>i>1}, k_1 ⊂ k_t ⊂ K, and further a := (a_d, …, a_1, a_0) and q_a as in Notations/Remarks 4.1.",
+      "correction": "Add that the conditions of Notations/Remarks 4.1(1)(c) are uniformly first-order: q_{a_1,a_0} is k_1-nice and every ε_i is a v-unit at the finite places v of k_1 with v(a_1) > 0. One way:\n- the finite places of k_1 are uniformly definable (Rumely);\n- isotropy of q_{a_1,a_0} over a henselization k_{1v} is a Hensel-type condition in O_v;\n- at real places, q_{a_1,a_0} = ⟨1, −a_1, −a_0, a_1a_0⟩ is anisotropic exactly where a_1 and a_0 are both negative, and 'no ordering of k_1 makes both negative' is −1 = σ₀ − σ₁a_1 − σ₂a_0 + σ₃a_1a_0 with each σ_i a sum of four squares.\nniceness-definability records this.",
+      "reason": "The opening of §4 lists the first-order inputs used: isotropy of Pfister forms over K and K(√−1), the Kronecker dimension, the global subfields and algebraic independence. Niceness quantifies over all places of k_1 and is not among them. Without it, the family of Recipe 4.3 is not shown to be definable, and Theorem 1.3 rests on that.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
+      ]
+    },
+    {
+      "id": "PAPER-DITTMANN-POP-23/E18",
+      "kind": "gap",
+      "locator": "§5, p. 15 (and the final proof, p. 17) (arXiv v2, the final author version of 27 April 2023; the published Annals pagination was not seen)",
+      "printed": "We will now prove that every field satisfying Hypothesis (H_d) is bi-interpretable with the ring ℤ",
+      "correction": "Theorem 1.2 also covers infinite finitely generated fields of Kronecker dimension one and two, which (H_d), d ≥ 3, excludes. For them the same argument works:\n- for a number field, R_T = O_K is definable by Rumely;\n- otherwise, run the proof of Proposition 5.1 with Remark 4.4 in place of Theorem 1.3.",
+      "reason": "§5 is written only under (H_d), d ≥ 3. The introduction attributes dimensions one and two to [P2] and [Ru] for the definability of prime divisors, but the paper does not say where Theorem 1.2 is proved in those dimensions. low-dimensional-biinterpretability records the case.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2012.01307 abstract page: v2 of 27 April 2023 is the latest version and is marked 'final version'",
+        "Crossref metadata for 10.4007/annals.2023.198.3.4 (Ann. of Math. 198 (2023), 1203–1227): no update or correction relation (checked 23 September 2026)",
+        "Annals article page https://annals.math.princeton.edu/2023/198-3/p04 (22–23 September 2026): no correction link; the typeset PDF was not available",
+        "Dittmann's publication list https://pdittmann.net/ and title/author searches for an erratum (none found)"
       ]
     }
   ],
@@ -8380,9 +8557,9 @@
       "rankTwoCounterexample": 24,
       "scope": "Finite Laurent-polynomial, residue, coset and ordering regressions only. The general valuation inequality, transcendence argument and infinite-tower counterexample are justified by the written proofs, not enumeration."
     },
-    "priorRegressionScope": "The prior checkpoint reports3055 finite checks. Its report does not embed the program, so this continuation preserves that attributed result and does not claim an unchanged-program rerun.",
+    "priorRegressionScope": "The prior checkpoint reports 3055 finite checks. Its report does not embed the program, so this continuation preserves that attributed result and does not claim an unchanged-program rerun.",
     "lean": "No Lean file requested or compiled. All implementationStatus values remain unchecked.",
-    "sourceIssues": "All13 inherited sourceIssues remain unchanged and unreviewed. No new source error is asserted.",
+    "sourceIssues": "E1–E4 and E6–E14 rechecked against the v2 TeX source (E5 was withdrawn earlier and is not reused); E15–E18 added by cc-442dc5.",
     "structural": {
       "result": "PASS",
       "items": 152,
@@ -8396,7 +8573,7 @@
       "apiEntries": 126,
       "tests": 126,
       "inputHashes": 512,
-      "checks": "Preserved143 item IDs,120 API names,120 test names and all13 unreviewed source findings; valid acyclic dependencies, all use/gap references, exact missing-item routing, existing planned stages and input hashes."
+      "checks": "Preserved 143 item IDs,120 API names,120 test names and all 13 unreviewed source findings; valid acyclic dependencies, all use/gap references, exact missing-item routing, existing planned stages and input hashes."
     },
     "topologicalOrder": [
       "PAPER-DITTMANN-POP-23/ring-language",
@@ -8554,6 +8731,7 @@
     ],
     "newDiagnosticTotal": 217382,
     "paperChecker": "PASS:152-item paper extraction.",
-    "intake": "PASS:only the three authorized deliverable files; no path or schema problems."
+    "intake": "PASS:only the three authorized deliverable files; no path or schema problems.",
+    "continuation": "cc-442dc5: scripts/check_paper.py and intake.py check-files pass; ids unique, prerequisites resolve, every missing item routed exactly once; every sourceIssues locator checked against the v2 text layer."
   }
 }
