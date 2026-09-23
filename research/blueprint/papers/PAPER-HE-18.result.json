@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-HE-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "Cocenters of p-adic groups, I: Newton decomposition",
     "authors": "Xuhua He",
@@ -10,8 +10,8 @@
     "arxiv": "1610.04791v3",
     "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/803823BBCAD2701B79B7C5C7BF72C1B5/S205050861800001Xa.pdf/cocenters_of_p_adic_groups_i_newton_decomposition.pdf",
     "readSections": [
-      "All27 published pages, proofs and references, reread in this continuation.",
-      "Fresh visual inspection of published p13 confirms the first intersection is printed nonempty; the text-extraction equality sign is not promoted to a source issue."
+      "All 27 published pages, every proof and the references, read in full by cc-fb70e5 on 2026-09-23, and compared page by page with arXiv:1610.04791v3: the two agree at every locator of the findings below.",
+      "Earlier checkpoints' reading records are kept in source.continuationReading and source.followUpReading."
     ],
     "sha256": "ff209fcfa35803cafab4c2634f1b951a72efea3528fbd095fb1282f4f66b6ac9",
     "accessDate": "2026-09-22",
@@ -163,7 +163,26 @@
         }
       ],
       "unusedReconnaissance": "Casselman1995 pp16–17,27 read; this is not used as a proof of unimodularity. HN14 downloaded but not freshly reread; earlier reading remains attributed to previous workers. Original Lang56 download failed; Muller is the actual new finite-type proof source."
-    }
+    },
+    "rereads": [
+      {
+        "agent": "Claude Code — cc-fb70e5",
+        "date": "2026-09-23",
+        "sha256": "a445314fa1b34f5f8ca6ae24ed6316ad9be96457486c267475d184f85e0aa250",
+        "pages": 27,
+        "note": "Cambridge stamps each download with a footer carrying the date and the requesting IP, so the hash of the same article differs between downloads; this is the file this session read. The arXiv comparison copy is 605d7e9c… (v3), byte-identical to the one the first checkpoint took."
+      }
+    ],
+    "inputsReadHere": [
+      {
+        "name": "haines-rapoport-08",
+        "url": "https://arxiv.org/pdf/0804.3788",
+        "sha256": "56bc9b5fd49e3f3ab2ea3c976417f558d6760b17e69c467dcaaf279116d381f8",
+        "date": "2026-09-23",
+        "pages": 11,
+        "note": "Haines–Rapoport, 'On parahoric subgroups', the appendix to Pappas–Rapoport cited as [10]; read at its opening hypotheses (a connected reductive group over a strictly henselian discretely valued field) and at Proposition 13, for finding E8."
+      }
+    ]
   },
   "summary": "Continuation of the He18 extraction with explicit integral compact-open volume, finite-sum convolution and local-unit proofs; a twisted-commutator proof without stable-subgroup assumptions; the actual rational-character apartment and finite affine kernel; and compatible Lang solutions via finite inverse systems. All earlier items, routes, source findings and central-twist/rigid-presentation repairs are preserved. Actual BT/congruence producers and the HN14 transfer remain open, so the extraction stays partial.",
   "conventions": {
@@ -2306,7 +2325,7 @@
       "id": "PAPER-HE-18/C10",
       "kind": "theorem",
       "name": "Finite Ω-cosets under an explicit guard",
-      "statement": "If the fibre of Ω→Ω_θ over κ is finite, then all w with κ(w)=κ belong to finitely many Wa-cosets. Finite order of θ alone does not imply this hypothesis.",
+      "statement": "If (1 − θ)Ω is finite — equivalently, if the fibres of Ω → Ω_θ are finite — then the elements of a θ-twisted conjugacy class of W̃ lie in finitely many W_a-cosets. The hypothesis holds for θ = id and whenever Ω is finite, and it is not implied by the finite order of θ: the image in W̃/W_a ≅ Ω of the twisted class of w′ is κ(w′) + (1 − θ)Ω, not the θ-orbit of κ(w′).",
       "locator": "Corrected §2.1(a) p.9; source issue E1",
       "status": "missing",
       "library": [],
@@ -3468,7 +3487,7 @@
       "kind": "theorem",
       "name": "Product decomposition of invariant distributions",
       "statement": "Restriction induces J(G)≅∏_νHom_R(H̄_R(ν),R), not an infinite direct sum. Conversely an arbitrary family defines j(f) by the finite sum over the nonzero Newton components of f.",
-      "locator": "Corrected §5.2 p.20; source issue E2",
+      "locator": "Corrected §5.2 p.20 and Theorem 22 p.23; source issue E2",
       "status": "missing",
       "library": [],
       "planned": [],
@@ -4626,7 +4645,7 @@
       "id": "PAPER-HE-18/F6",
       "kind": "theorem",
       "name": "Failure of arbitrary-ring Howe finite generation",
-      "statement": "For F5 and X=I=Z2×, every sufficiently deep n (indeed any I_n⊆I) gives a restriction image J(I)|_(H_R(G,I_n)) that surjects onto Ann(t)=V by evaluation at 1_I. It is therefore not finitely generated. This refutes Theorem20 over its printed arbitrary R, and any finite-generation reading of Theorem18 in that scope.",
+      "statement": "For the datum of F5 with X = I = Z_2^×, evaluation at 1_I carries the invariant distributions supported on I onto Ann_R(t) = V, which is not a finitely generated R-module. So Theorem 20 does not hold over the arbitrary commutative Z[1/p]-algebra R of the paper's setup, nor does any finite-generation reading of Theorem 18 there; what the paper's proof does give is that the restriction is a submodule of a free R-module of rank N_ν[I : I_n].",
       "locator": "Source-derived counterexample; E3",
       "status": "missing",
       "library": [],
@@ -7244,43 +7263,43 @@
   "gaps": [
     {
       "id": "PAPER-HE-18/G1",
-      "title": "Actual local Iwahori–Weyl/translation and central-kernel comparison",
+      "title": "The Iwahori–Weyl group of the actual group, not of a quasi-split model",
+      "detail": "Finding E8: §1.1 takes the translation lattice of W̃ to be X_*(Z)_{Gal(F̄/F)} for Z = Z_G(A) and cites Haines–Rapoport's Proposition 13, which is over a strictly henselian base with a torus centralizer and inertia coinvariants. A design job builds the lattice as Λ = Z(F)/Z_0 with its affine action on the apartment, from Bruhat–Tits and Richarz, or over F̆ with the torus T = Z_G(S) that §4.3 introduces, transported by W̃ ≅ (W̃̆)^σ. It must not assume Z is a torus: for G = GL_m(D) it is (D^×)^m, and §0.3 says the non-quasi-split case is the subtle one.",
       "neededBy": [
         "PAPER-HE-18/A2",
         "PAPER-HE-18/C2",
         "PAPER-HE-18/C5",
         "PAPER-HE-18/C7",
         "PAPER-HE-18/R6"
-      ],
-      "detail": "Tits79 Section1.2 and Richarz16 now give the actual rational-character lattice, compact affine kernel and full-apartment action (A8/A9). C18 defines Newton displacement without a splitting. Finish declaration-level construction from BT and transfer of HN14 reduced/finite-action statements to the actual extended datum; no cocharacters of a nontorus minimal Levi are assumed."
+      ]
     },
     {
       "id": "PAPER-HE-18/G2",
-      "title": "Bruhat–Tits and congruence model source closure",
+      "title": "Bruhat–Tits foundations that the paper quotes",
+      "detail": "The paper rests on Bruhat–Tits II 5.1.20 (A ≅ Ă^σ), 5.2.7 (the parahoric of Z), 5.2.12 (the double Tits system) and on Tits §§1.2 and 3.1 (the affine root groups and the product decompositions Π_{a∈Φ̆′} X_{α_a} × T_0 ≅ Ĭ), and on Richarz's length comparison between F and F̆. None of these is proved here. A design job plans them — the root filtration with its product bijections, the σ-fixed apartment, the θ- and Ω-stability of the standard objects, and the containment g_1^{-1}I_ng_1 ⊆ I_{n−1} used in Lemma 17 — as sources of the reductive-group layers the routes name, and imports them.",
       "neededBy": [
         "PAPER-HE-18/A3",
         "PAPER-HE-18/A7",
         "PAPER-HE-18/L3",
         "PAPER-HE-18/L5",
         "PAPER-HE-18/L11"
-      ],
-      "detail": "The main paper and Richarz cite BT II 5.1.20/5.2.7/5.2.12 and Tits79 §§1.2,3.1. Those long foundational sources were not read fully here. Supply precise root-filtration product bijections, θ/Ω stability, nonreduced root shifts and g1⁻¹I_ng1⊆I_(n−1), at integer barycentric depths."
+      ]
     },
     {
       "id": "PAPER-HE-18/G3",
-      "title": "Integral Haar/convolution foundations",
+      "title": "The integral Haar measure and convolution",
+      "detail": "The measure µ_G of §1.2, with values in Z[1/p], is quoted from Vignéras I§2, and the explicit convolution formula 1.2(a) with the multiplicity µ_{G×G}(p^{-1}(KgK))/µ_G(KgK) is stated without proof. Items H14–H24 supply an explicit construction — normalised compact-open volume, finite-sum integration with arbitrary module coefficients, compact support and associativity of the convolution, coefficient base change, unimodularity from the extended Iwahori generators, and invariance under an Iwahori-stabilising automorphism — and Proposition 1 is reproved from asymmetric local units in H22 and H23. A design job plans that package rather than the citation, and must keep the p-power denominators: this is not a real-valued Haar measure.",
       "neededBy": [
         "PAPER-HE-18/H3",
         "PAPER-HE-18/H4",
         "PAPER-HE-18/H11",
         "PAPER-HE-18/R10"
-      ],
-      "detail": "The integral-volume, finite-sum convolution, base-change, local-unit and twisted-commutator arguments are now supplied explicitly in H14–H24; N22 supplies reductive unimodularity from the actual extended Iwahori datum. This removes Vigneras I§2 as a necessary dependency of the chosen proof. Remaining: implement the SR.1 adapters and close the actual local Iwahori producers already tracked in G1/G2; no standalone integral-Haar proof gap remains.",
-      "resolutionStatus": "explicit proof supplied relative to existing local datum"
+      ]
     },
     {
       "id": "PAPER-HE-18/G4",
-      "title": "He–Nie finite-parabolic and affine geometric proof frontier",
+      "title": "He–Nie's minimal length theory",
+      "detail": "Theorem 4 (every element reduces to a minimal length element), Theorem 6 (π is a bijection on straight classes), Theorem 7 with Remark 8 (the standard triple) and [16, Corollary 2.8] (a minimal element with central Newton point lies in W_Pτ) are imported from He–Nie, and their proofs — the Newton axis, the gradient descent to an axis alcove, the finite-parabolic partial conjugation and the axis-alcove factorisation — are not given here. A design job plans them from He–Nie, together with the partial-conjugation results of He that their Theorem 2.5 cites; items C13–C16 record what has to be planned.",
       "neededBy": [
         "PAPER-HE-18/C5",
         "PAPER-HE-18/C7",
@@ -7289,307 +7308,269 @@
         "PAPER-HE-18/C15",
         "PAPER-HE-18/C16",
         "PAPER-HE-18/R6"
-      ],
-      "detail": "The author-final HN14 introduction and §§1–3.4 were read including proofs. Proposition2.4 omits details via He–Nie's finite-Weyl paper; Theorem2.5 cites He's partial-conjugation results. Read and decompose those inputs, verify the hyperplane/axis steps and the transfer back from finite-order reduced action. This is not discharged by reading an obsolete arXiv theorem number."
+      ]
     },
     {
       "id": "PAPER-HE-18/G5",
-      "title": "Newton separation: conditional proof supplied",
+      "title": "The Newton separation argument",
+      "detail": "The proof of Theorem 3 in §2.6 has the two defects recorded as findings E7 and E11 (the elements y, y′ run over W̃, not W_a; θ^{nl} for θ^{n_0l}), and one step it does not justify: the final chain ends with 2N_0 + 2♯(W_0) < l ⩽ ℓ(t^{l(λ_2−y_0λ_1)}), which needs λ_2 − y_0λ_1 to be non-central, since ℓ(t^μ) = 0 for a nonzero central μ — for instance μ = (1,1) in GL_2 — while the paper only observes λ_2 − y_0λ_1 ≠ 0. The missing step is the standard compatibility between the Kottwitz invariant and the central component of the Newton point: ν_1 and ν_2 have the same Ω_θ-factor, which fixes that component, so the difference of the Newton points is non-central. Items N18 and N19 carry the repaired comparison.",
       "neededBy": [
         "PAPER-HE-18/N7",
         "PAPER-HE-18/N8"
-      ],
-      "detail": "N18/N19 now give the complete finite-multiplier/affine comparison argument. The standalone G5 step is resolved relative to the explicit actual-group producers; full extraction closure still requires C2/A5/A7 from G1 and the standard-triple source chain. Do not resume with a separate equal-central-average lemma.",
-      "resolutionStatus": "conditional argument supplied"
+      ]
     },
     {
       "id": "PAPER-HE-18/G6",
-      "title": "Lang lifting and Frobenius-equivariant congruence counting",
+      "title": "Lang's theorem and the Frobenius-equivariant counting",
+      "detail": "Finding E5: the lifting of σ-fixed cosets in Lemma 15 and the level-n counting in Lemma 16 need the relevant congruence intersections to be k̄-points of connected pro-unipotent groups, so that Lang's theorem applies, and need the root-filtration decompositions to be σ-equivariant. Items L19–L23 supply finite-type Lang surjectivity, the finite solution torsors, the compatible solutions in the inverse limit and the fixed-coset consequence; what a design job must still construct is the connected Frobenius-equivariant model of Ĭ_n ∩ gĬ_ng^{-1} and the depth-shifted root counts. The referees of the paper had already found a mistake in an earlier version of this proof, which is recorded in its acknowledgements.",
       "neededBy": [
         "PAPER-HE-18/L4",
         "PAPER-HE-18/L6",
         "PAPER-HE-18/L7",
         "PAPER-HE-18/L8",
         "PAPER-HE-18/L10"
-      ],
-      "detail": "L19–L22 now give finite-type Lang, finite solution torsors, compatible inverse-limit solutions using the pinned finite-system theorem, and the exact fixed-coset argument. Remaining: construct the actual connected Frobenius-equivariant intersection quotients, prove completeness/identification with their inverse limit, the depth-shift comparison and the level contracted-product bijection. Reading Tits/BT product charts does not itself close these producers."
+      ]
     },
     {
       "id": "PAPER-HE-18/G7",
-      "title": "General central twist: finite-core argument supplied",
+      "title": "The twisted finiteness hypothesis, and the compact core that replaces it",
+      "detail": "Finding E1: for θ ≠ id with Ω infinite — the GL_n twisted-endoscopy case the paper is written for, and G_m with inversion — a θ-twisted conjugacy class meets infinitely many W_a-cosets, so Corollary 9 fails and X_ν is not compact. Every statement that needs a compact core (Theorem A, Theorem C(2), the bound of Theorem 20) must therefore either carry the hypothesis that (1 − θ)Ω is finite — automatic for θ = id and for Ω finite, hence for G semisimple — or use the replacement this extraction records: by C17 every minimal element of a Newton fibre is θ-conjugate by an element of Ω into one chosen Ω-coset, and N20 shows the resulting core Y(ν,τ_0) is compact open with G ·_θ Y(ν,τ_0) = G(ν). A design job plans the replacement, not the printed claim.",
       "neededBy": [
         "PAPER-HE-18/C11",
         "PAPER-HE-18/F2",
         "PAPER-HE-18/F3",
         "PAPER-HE-18/F4"
-      ],
-      "detail": "C17 Ω-normalizes all minimal representatives into a finite fixed coset. L18 supplies the exact same-level transport, yielding N20/F2/F3/F4. This removes the finite-minima guard from class finiteness and the field-valued Howe argument. The Ω-normalizer/barycentric producer is explicitly assigned to A3/G2, and cardinalities remain G6. Arbitrary-ring dual finite generation is still false.",
-      "resolutionStatus": "conditional argument supplied"
+      ]
     },
     {
       "id": "PAPER-HE-18/G8",
-      "title": "Independent checking of proposed source repairs",
+      "title": "Coefficients: where a field is needed and where duals may be used",
+      "detail": "Findings E2, E3 and E6 all come from the same place: the paper works over an arbitrary commutative Z[1/p]-algebra R, deliberately, but the distribution arguments use duality as if R were a field. A design job must plan (i) the indexing objects as products, not direct sums (E2); (ii) the finiteness of Theorem 20 and of Howe's conjecture over a field of characteristic ≠ p, with the general-R statement only as 'a submodule of a free module of rank N_ν[I : I_n]' (E3, and item F6 for the counterexample); and (iii) the kernel of Theorem 23 by a direct computation with compactly supported test functions and arbitrary target modules (E6, items R12–R17), since Hom_{Z[1/p]}(Z[1/p]/ℓ, Z[1/p]) = 0 makes the dual argument unavailable.",
       "neededBy": [
         "PAPER-HE-18/R13",
         "PAPER-HE-18/R15",
         "PAPER-HE-18/R16",
         "PAPER-HE-18/F6",
         "PAPER-HE-18/R18"
-      ],
-      "detail": "The direct cosheaf/coinvariant proof and the symbolic counterexamples are written in full in the report; finite diagnostics are not Lean proofs or independent verification. All sourceIssues await a different worker's review. No reviewer object or self-confirmed verdict is supplied."
+      ]
     },
     {
       "id": "PAPER-HE-18/G9",
-      "title": "Finite-type Lang proof suppliers",
+      "title": "Algebraic-group suppliers for the Lang argument",
+      "detail": "The finite-field Lang surjectivity imported in L19 rests on the existence of a closed orbit and on the orbit-dimension formula (Humphreys 8.3 and 4.1), on the geometric irreducibility of a connected smooth group and on a faithful linear embedding. These are quoted, not planned here; a design job takes them from the upstream algebraic-group layers rather than restating them.",
       "neededBy": [
         "PAPER-HE-18/L19"
-      ],
-      "detail": "Muller01 is fully read, but its closed-orbit existence and orbit-dimension formula (Humphreys8.3 and4.1), geometric irreducibility of a connected smooth group, and faithful linear embedding remain explicit algebraic-group supplier obligations. Reuse the upstream ReductiveGroups embedding, dimension and component layers and the existing Kisin–Zhou R14 Lang owner; do not infer completed Lean proofs from the short proof source."
+      ]
     }
   ],
   "sourceIssues": [
     {
       "id": "PAPER-HE-18/E1",
       "kind": "error",
-      "locator": "§2.1(a) p.9; Corollary9 p.12; §5.2 p.20; Theorem23 pp.24–25",
-      "printed": "Each θ-twisted conjugacy class of W̃ intersects only finitely many Wa cosets.",
-      "correction": "For the finite-minimal-element and defined-X_ν compactness claims, add a finite-fibre condition on Ω→Ω_θ (ordinary θ=id is safe), or replace the argument and compact core. Ordinary finite θ-orbits do not control twisted Ω-orbits. The continuation supplies C17/N20: replace X_ν by the finite core in one chosen Ω-coset. L18 preserves the level, and C12 recovers finite class fibres. The full minimal-element assertion remains false without its guard.",
-      "reason": "For G=G_m(F), θ inversion, W̃=Ω=Z, Wa=1, all lengths zero and θ has order2. Twisted conjugation sends m to m+2k; π records parity and Newton0. Thus every parity class contains infinitely many minimal elements and X_ν is the noncompact union of all corresponding valuation cosets. This does not refute the Newton partition, finiteness of conjugacy-CLASS fibres, or existence of a different compact core. In Theorem23 finite ordinary θ-saturation of Ω labels likewise need not be twisted-conjugacy stable.",
+      "locator": "§2.1(a), p. 9, with Corollary 9, p. 12, Theorem A/§0.3, p. 3, and §5.2, p. 20 (both versions)",
+      "printed": "(a) Each θ-twisted conjugacy class of W̃ intersects only finitely many W_a cosets. [Justified by: 'Since the action of θ on V is of finite order, each θ-orbit on Ω is a finite set.']",
+      "correction": "The statement needs a hypothesis: that (1 − θ)Ω is finite — equivalently, that the fibres of Ω → Ω_θ are finite. It holds automatically for θ = id and whenever Ω is finite (for instance G semisimple), but not in general.",
+      "reason": "The image in W̃/W_a ≅ Ω of the θ-twisted conjugacy class of w′ is κ(w′) + (1 − θ)Ω, not the θ-orbit of κ(w′), because w ·_θ w′ = w w′ θ(w)^{-1} changes the W_a-coset by ω − θ(ω). Two instances. (i) G = G_m and θ inversion: W̃ = Ω = Z, W_a = 1, all lengths are 0, twisted conjugation sends m to m + 2k, so each of the two classes 2Z and 1 + 2Z meets infinitely many W_a-cosets; every element is of minimal length in its class, so Corollary 9 fails and X_ν is the set of elements of F^× of a fixed parity of valuation, which is not compact. (ii) The case the paper is written for: G = GL_n with the twisted-endoscopy automorphism g ↦ J·(ᵗg)^{-1}·J^{-1} that preserves the standard Iwahori. Then Ω ≅ Z through the valuation of the determinant, θ acts on it by −1, and the twisted class of 1 contains τ^{2k} for every k, where τ generates Ω; all of these have length 0, hence are of minimal length, and all have the same invariants π = (0,0). So again Corollary 9 and the compactness of X_ν fail. The Newton decomposition of Theorem 3 itself is unaffected, and the compactness can be restored by replacing X_ν with a compact core inside one chosen Ω-coset, which the items of this extraction do (see C17 and N20): every minimal element of a Newton fibre is θ-conjugate by an element of Ω into that coset.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/C10",
-        "PAPER-HE-18/C11",
-        "PAPER-HE-18/C12",
-        "PAPER-HE-18/N1",
-        "PAPER-HE-18/F2",
-        "PAPER-HE-18/F3",
-        "PAPER-HE-18/F4",
-        "PAPER-HE-18/R16"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E2",
-      "kind": "error",
-      "locator": "§5.2 p.20 and Theorem22 p.23 (published; also arXiv v3 §§5.2,6.3)",
-      "printed": "J(G) = ⊕_ν J(G(ν)); the restriction target in Theorem22 is ⊕_(P,τ) JP(Pτ̇).",
-      "correction": "Replace both infinite direct sums of distributions by products. Test functions and the rigid presentation domain still use algebraic direct sums. The finite rigid/nonrigid decomposition remains a direct sum.",
-      "reason": "Hom_R(⊕M_i,R)=∏Hom_R(M_i,R). For ordinary G_m and ω=1, Haar integration is nonzero on every valuation coset. It is a legitimate functional because each compactly supported input meets finitely many cosets, but its family of restrictions is not finitely supported.",
+      "kind": "misprint",
+      "locator": "§5.2, p. 20, and Theorem 22, p. 23 (both versions)",
+      "printed": "By the Newton decomposition G = ⊔_{ν∈ℵ} G(ν), we have that J(G) = ⊕_{ν∈ℵ} J(G(ν)) and J(G(ν)) = H̄_R(ν)^*. … The restriction map J(G) → ⊕_{(P,τ)∈StP} J_P(Pτ̇) gives a bijection from J(G)^rig to the R-submodule of ⊕_{(P,τ)∈StP} J_P(Pτ̇) consisting of …",
+      "correction": "Both indexing objects are products, not direct sums: J(G) = ∏_{ν∈ℵ} J(G(ν)), and the target of the restriction map in Theorem 22 is ∏_{(P,τ)∈StP} J_P(Pτ̇).",
+      "reason": "Distributions are the R-dual, and Hom_R(⊕_i M_i, R) = ∏_i Hom_R(M_i, R); ℵ = Ω_θ × V^+ and StP are infinite. A concrete witness: for G = G_m with θ = id and ω = 1 the strata are the sets ϖ^m O_F^× indexed by m ∈ Z, and Haar integration over F^× is an invariant distribution that is nonzero on every stratum, so its family of restrictions has infinite support. The mathematics of both statements is the intended one — a family of local distributions, compatible on overlaps, glues — and the finiteness needed later is produced by the truncation to a finite θ-stable Ω_0 in the proof of Theorem 23.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/H13",
-        "PAPER-HE-18/N17",
-        "PAPER-HE-18/R3",
-        "PAPER-HE-18/R14",
-        "PAPER-HE-18/R15"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E3",
       "kind": "error",
-      "locator": "Theorems18/20 and §5.2–5.3 pp.20–21; printed arbitrary commutative Z[1/p]-algebra R",
-      "printed": "J(G(ν))|_(H_R(G,I_n)) is generated by N_ν[I:I_n] elements.",
-      "correction": "Retain finite generation for the level cocenter, and use a coefficient field of characteristic ≠p for distribution finiteness. C17/L18 repair the finite representative argument for central twists. Arbitrary-ring distribution finite generation remains false, and restriction to a submodule is not generally surjective on R-duals.",
-      "reason": "Take Q2×,θ=id, R=F3⊕V with V=⊕_N F3 e_m square-zero, t=e_0,ω(g)=(1+t)^v2(g). This is an allowed open-kernel character. For I=Z2×, evaluation at 1_I maps the restricted invariant distributions supported on I onto Ann(t)=V: j_b(f)=b∫_I f for b∈V is invariant and has j_b(1_I)=b. V is not finitely generated as an R-module. All sufficiently deep levels have 1_I as a test, so Theorem20 fails even for θ=id. 'Finite dimensional' in Theorem18 additionally has no vector-space meaning for arbitrary R; its finite-generation interpretation fails in this example.",
+      "locator": "Theorem 20, pp. 20–21, and through it Theorem 18/Theorem D, p. 20, over the printed coefficient ring (both versions)",
+      "printed": "Then there exists a constant N_ν ∈ N such that for any n ∈ N with ω(I_{n−1}) = 1, J(G(ν))|_{H_R(G,I_n)} is generated by N_ν[I : I_n] elements.",
+      "correction": "What the proof gives is that the restriction is a submodule of a free R-module of rank N_ν[I : I_n]; finite generation of the restriction needs R to be a field (or a Noetherian coefficient ring), and that is the form in which Theorem 18 uses it.",
+      "reason": "The proof produces a surjection ⊕_w H_R(G,I_n)_w ↠ H̄_R(G,I_n;ν) from a free module of rank N_ν[I : I_n] and then dualises; the R-dual of a module generated by N elements embeds in R^N but need not be generated by N elements. An instance inside the paper's own hypotheses (R is any commutative Z[1/p]-algebra and ω any character with open kernel): take G = Q_2^×, θ = id, R = F_3 ⊕ V with V = ⊕_{m∈N} F_3·e_m square-zero, t = e_0 and ω(g) = (1 + t)^{v_2(g)}, whose kernel Z_2^× = I is open. For b ∈ Ann_R(t) = V the functional j_b(f) = b∫_I f is (θ,ω)-invariant, and evaluation at 1_I carries the invariant distributions supported on I onto V, which is not a finitely generated R-module.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/F1",
-        "PAPER-HE-18/F2",
-        "PAPER-HE-18/F3",
-        "PAPER-HE-18/F4",
-        "PAPER-HE-18/F5",
-        "PAPER-HE-18/F6"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E4",
-      "kind": "error",
-      "locator": "§6.4 p.24, definition of the (P,Q,x)-graph; also arXiv v3 §6.4",
-      "printed": "H_(P,τ),(Q,γ),x = {(f, −^ẋ f); f supported in Pτ̇ ∩ ẋQγ̇θ(ẋ)⁻¹}.",
-      "correction": "The second entry must be −T_(ẋ⁻¹)f, with its ω(ẋ)⁻¹ factor. The same inverse transport gives the compatibility equation on functionals.",
-      "reason": "The printed forward action need not land in H_R(Qγ̇). For upper Iwahori I in GL2(Q_p), x=diag(p,1), U=I∩xIx⁻¹ and u=[[1,0],[p,1]], u∈U but xux⁻¹ has lower-left1 and lies outside I. Page24 image inspected; this is not a PDF extraction artifact.",
+      "kind": "misprint",
+      "locator": "§6.4, p. 24, the definition of the (P,Q,x)-graph, and through it Theorem 23 (both versions)",
+      "printed": "H_{(P,τ),(Q,γ),x} = {(f, −^{ẋ}f); f ∈ H_R(Pτ̇) with support in Pτ̇ ∩ ẋQγ̇θ(ẋ)^{-1}}. We call it the (P,Q,x)-graph in H_R(Pτ̇) ⊕ H_R(Qγ̇).",
+      "correction": "The second entry is −^{ẋ^{-1}}f, with the factor ω(ẋ)^{-1} that the twisted action carries.",
+      "reason": "The twisted action of §1.3 is ^x f(g) = ω(x) f(x^{-1} g θ(x)), so the support of ^x f is x·supp(f)·θ(x)^{-1}. For f supported in Pτ̇ ∩ ẋQγ̇θ(ẋ)^{-1} the printed ^{ẋ}f is supported in ẋPτ̇θ(ẋ)^{-1} ∩ ẋẋQγ̇θ(ẋ)^{-1}θ(ẋ)^{-1}, which has no reason to lie in Qγ̇, so the pair need not lie in H_R(Pτ̇) ⊕ H_R(Qγ̇) as claimed. With ẋ^{-1} the support is ẋ^{-1}·supp(f)·θ(ẋ) ⊆ ẋ^{-1}(ẋQγ̇θ(ẋ)^{-1})θ(ẋ) = Qγ̇. The direction is the same one the proof of Theorem 22 uses — there the θ-twisted conjugation by ẋ is said to send Qγ̇ ∩ ẋ^{-1}Pτ̇θ(ẋ) to Pτ̇ ∩ ẋQγ̇θ(ẋ)^{-1} — and the same one condition (∗) has on distributions, where ^{ẋ} on a distribution is ^{ẋ^{-1}} on functions by §1.4.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/R11",
-        "PAPER-HE-18/R14",
-        "PAPER-HE-18/R16",
-        "PAPER-HE-18/R18"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E5",
       "kind": "gap",
-      "locator": "Lemma15 proof p.17; Lemma16 proof pp.17–18",
-      "printed": "Ĭ_n ∩ gĬ_ng⁻¹ is a pro-p subgroup of Ĭ_n. Thus any element ... can be lifted ...",
-      "correction": "Provide connected smooth/pro-unipotent models for the intersection, Lang surjectivity on finite quotients and compatible inverse-limit lifting. Also prove the root-depth quotient comparisons used for counting are Frobenius-equivariant.",
-      "reason": "Abstract pro-p structure does not imply a fixed-coset lifting theorem: a fixed coset need not have a fixed representative without vanishing of the relevant nonabelian H¹. Over k̄ the root groups are not literally finite-residue profinite pro-p groups. Richarz's rank-one Lang argument supports the unshifted count, but the depth/intersection transport still needs proof. No false-Lemma15 claim is made. Concrete obstruction: H=Z/p² additively, sigma(x)=(1+p)x, J=pZ/p². The entire quotient H/J is fixed, but H^sigma=J maps only to its zero coset. Thus even finite p-groups do not justify the printed implication. L19–L22 supply a sufficient connected-model route.",
+      "locator": "proof of Lemma 15, pp. 16–17, and the counting in the proof of Lemma 16, pp. 17–18 (both versions)",
+      "printed": "Note that Ĭ_n ∩ gĬ_ng^{-1} is a pro-p subgroup of Ĭ_n. Thus any element in (Ĭ_n/(Ĭ_n ∩ gĬ_ng^{-1}))^σ can be lifted to an element in Ĭ_n^σ = I_n.",
+      "correction": "Being a pro-p group does not give the lifting; the argument needs the intersection to be the group of k̄-points of a connected (pro-)unipotent group, so that Lang's theorem makes σ − 1 surjective on it, and the root-filtration product decompositions used for the count have to be σ-equivariant.",
+      "reason": "Lifting a σ-fixed coset to a σ-fixed representative is the vanishing of a nonabelian first cohomology H^1(σ, Ĭ_n ∩ gĬ_ng^{-1}), which is not implied by the abstract pro-p condition: for a finite p-group with an automorphism the twisted classes need not be trivial. What makes it work is that these groups are k̄-points of connected pro-unipotent groups, which is where Lang's theorem applies; the paper itself gives the product decompositions Π_{a∈Φ̆′} X_{α_a+n} × T_n ≅ Ĭ_n that a proof would use, two paragraphs later. The acknowledgements record that a referee already found a mistake in an earlier version of the proof of Lemma 16, so this part of the argument has been reworked once.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/L4",
-        "PAPER-HE-18/L5",
-        "PAPER-HE-18/L6",
-        "PAPER-HE-18/L7",
-        "PAPER-HE-18/L8",
-        "PAPER-HE-18/L10"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E6",
       "kind": "gap",
-      "locator": "Theorem23 proof pp.25–26, R-dual separation and finite-dimensional passage",
-      "printed": "Since both spaces are finite dimensional, the kernel ... consists precisely of the elements vanishing on V.",
-      "correction": "Replace the R-valued-dual argument by the direct compact-test/coinvariant presentation in R12–R17, or justify appropriate field and dual-separation hypotheses. Do not use a finite-dimensional argument for arbitrary R.",
-      "reason": "For R=Z[1/p] and a prime ℓ≠p, Hom_R(R/ℓR,R)=0 although R/ℓR≠0. R-duals cannot detect all relations. The proof also uses the unsafe finite Ω truncation from E1. The corrected kernel theorem has a proposed direct proof using all test charts, finite support and arbitrary target modules, with no dual faithfulness assumption.",
-      "affects": "the proof",
+      "locator": "proof of Theorem 23, pp. 25–26, over the printed coefficient ring (both versions)",
+      "printed": "Since both spaces are finite dimensional, the kernel of the map (⊕_{(P,τ)∈StP_0} H_R(Pτ̇, I_n) → H̄_R^{rig}) consists precisely of the elements vanishing on V. … Taking the dual, we see that the elements vanishing on V are spanned by …",
+      "correction": "The dual argument needs R to be a field; over a general commutative Z[1/p]-algebra the R-dual does not detect the relations, and the proof has to be replaced by a direct computation with compactly supported test functions and arbitrary target modules.",
+      "reason": "For R = Z[1/p] and a prime ℓ ≠ p one has Hom_R(R/ℓR, R) = 0 with R/ℓR ≠ 0, so 'vanishing on the dual' does not imply 'zero', and no finite-dimensionality is available either. §§6.3–6.4 are written in the language of finite-dimensional spaces throughout, so a field of coefficients is presumably intended there; but the Hecke algebra of this paper is defined over an arbitrary commutative Z[1/p]-algebra, precisely so that the mod-ℓ case is covered, and Theorem 23 is stated in that generality.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/R13",
-        "PAPER-HE-18/R15",
-        "PAPER-HE-18/R16",
-        "PAPER-HE-18/R17"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E7",
-      "kind": "gap",
-      "locator": "Theorem3 proof §2.6 p.13",
-      "printed": "I ż I ⊂ ⋃_(y∈Wa,ℓ(y)≤N0) I ẏ I; the last inequality bounds ℓ(t^(l(λ2−y0λ1))) below by l.",
-      "correction": "Retain the fixed Ω factors in finite endpoint subword sets (N18), and compare full affine translation vectors for two repeated endpoint pairs (N19). This proves the required separation, including central directions, relative to the explicit full-apartment and local Bruhat producers; no root-length positivity claim is needed.",
-      "reason": "The source has z∈W̃, not necessarily Wa, so the asserted length ball can miss its entire double coset. Also a nonzero central translation (e.g.(1,1) for GL2) has length0. Equal κ may supply a missing central comparison, but this needs an argument. These observations identify a proof gap; they do not disprove the Newton partition.",
+      "kind": "misprint",
+      "locator": "proof of Theorem 3, §2.6, p. 13, in the two displays after the definition of N_0 (both versions)",
+      "printed": "IżI, (∪_{w∈W_{K_1}} IẇI)(Iθ^{nl}(ż)^{-1}I)(∪_{w∈W_{K_2}} IẇI) ⊂ ∪_{y∈W_a; ℓ(y)⩽N_0} IẏI … In particular, for l = 2N_0 + 2♯(W_0) + 1, there exists y, y′ ∈ W_a with ℓ(y), ℓ(y′) ⩽ N_0 such that t^{lλ_2} = y t^{lλ_1} y′.",
+      "correction": "The elements y and y′ run over W̃, not over W_a.",
+      "reason": "The element z is chosen with g ∈ IżI for z ∈ W̃, and the paper says so; its Ω-part need not be trivial, so IżI is not contained in ∪_{y∈W_a} IẏI. Nothing else in the argument uses membership in W_a: the decompositions y = y_0t^χ and y′ = t^{χ′}y′_0 with y_0, y′_0 ∈ W_0 and χ, χ′ ∈ X_*(Z)_{Gal(F̄/F)}, and the length estimates that follow, are available for elements of W̃.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-7e92bd: reread all published pages, searched the exact title with erratum/correction and Newton/compact/Omega terms, and inspected primary publication/author/arXiv results. No official correction found. The finite-core and finite-affine-error proofs here are proposed repairs awaiting independent review.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/N6",
-        "PAPER-HE-18/N7",
-        "PAPER-HE-18/N8"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E8",
       "kind": "gap",
-      "locator": "§1.1 p.6, X_*(Z)_Gal lattice and citation [10, Proposition13]",
-      "printed": "W̃ ≅ X_*(Z)_Gal(F̄/F) ⋊ W0.",
-      "correction": "Use the actual quotient N_G(A)(F)/Z0 and a proved apartment-translation adapter. State the extra hypotheses for a torus cocharacter model. Haines–Rapoport Proposition13 is over a strictly henselian field with torus centralizer and inertia coinvariants.",
-      "reason": "For general G/F the centralizer Z of a maximal F-split torus is a minimal Levi, not necessarily a torus; GL_m(D) supplies a concrete nontorus case. The cited proposition does not directly supply the printed total-Galois-coinvariant formula over arbitrary F. Richarz's actual quotient, Kottwitz kernel and Frobenius-fixed comparison are the appropriate checked starting point. This is not a claim that every possible abstract semidirect description is false.",
+      "locator": "§1.1, p. 6, with the citation of [10, Proposition 13] (both versions)",
+      "printed": "Set V = X_*(Z)_{Gal(F̄/F)} ⊗ R … and by [10, Proposition 13], W̃ ≅ X_*(Z)_{Gal(F̄/F)} ⋊ W_0 = {t^λ w; λ ∈ X_*(Z)_{Gal(F̄/F)}, w ∈ W_0}.",
+      "correction": "Z = Z_G(A) is not a torus when G is not quasi-split, so X_*(Z) has to be read as the lattice Λ = Z(F)/Z_0 of the Iwahori–Weyl group, or the identification has to be made over F̆ with the torus T = Z_G(S) that §4.3 introduces, and then transported by W̃ ≅ (W̃̆)^σ.",
+      "reason": "Haines–Rapoport's Proposition 13 is stated for a connected reductive group over a strictly henselian discretely valued field, with T the centralizer of a maximal split torus there (a torus, since the group is quasi-split over such a field) and with coinvariants for the inertia; F is not strictly henselian and A is a maximal F-split torus, whose centralizer is a minimal Levi subgroup — for G = GL_m(D) with D a division algebra it is (D^×)^m, which is not a torus, so Hom(G_m, Z) is not a lattice. The paper's §0.3 makes the point that the non-quasi-split case is exactly the subtle one, so quasi-splitness cannot be read into the setup; and §4.3 supplies the objects a correct statement needs, namely S a maximal F̆-split torus defined over F containing A, the isomorphism W̃ ≅ (W̃̆)^σ and Richarz's length comparison.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/A1",
-        "PAPER-HE-18/A2",
-        "PAPER-HE-18/C2",
-        "PAPER-HE-18/C5",
-        "PAPER-HE-18/C7",
-        "PAPER-HE-18/N7",
-        "PAPER-HE-18/R6"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E9",
       "kind": "misprint",
-      "locator": "§2.4(2) p.10; Lemma17 and proof pp.18–19; §6.2 p.22",
-      "printed": "sws < w; s ∈ S; the rotated products end in 1_(I_ng1I_n); conjugation by τ induces the automorphism on W_P.",
-      "correction": "Use swθ(s)<w, s∈S̃, retain θ(g1) in the rotated right factors, and use Ad(τ)θ on W_P.",
-      "reason": "Each correction is forced by the preceding twisted-conjugation definition and the factorization used in the proof. The condition τ̇θ(P)τ̇⁻¹=P need not imply τ̇Pτ̇⁻¹=P. These slips must not become ordinary-conjugation hypotheses in the extracted twisted results.",
+      "locator": "§2.4(2), p. 10; Lemma 17 and its proof, pp. 18–19; §6.2, p. 22 (both versions)",
+      "printed": "(2) G ·_θ IẇI = G ·_θ IṡẇI ∪ G ·_θ Iṡẇθ(ṡ)I for s ∈ S̃ with sws < w. — LEMMA 17. Let n ∈ N with ω(I_{n−1}) = 1. Let w ∈ W̃ and s ∈ S. — If ℓ(swθ(s)) = ℓ(w), then swθ(s) > sw and 1_{I_n g_2 I_n} 1_{I_n g_1 I_n} ∈ H_R(G,I_n)_{swθ(s)}. — Then the conjugation action of τ induces a length-preserving automorphism on W_P.",
+      "correction": "swθ(s) < w; s ∈ S̃; 1_{I_n g_2 I_n} 1_{I_n θ(g_1) I_n} in both places where the rotated product is used; and the automorphism induced by Ad(τ̇) ∘ θ.",
+      "reason": "Each is forced by the twisted setting the paper works in. The reduction of §2.4(2) is applied in the proof of Proposition 5 in the form sw′θ(s) < w′, and ordinary sws < w is not what makes the two cells appear. S is never defined in this paper — §1.1 defines S̃, the simple reflections at the walls of a_C — and Lemma 17 is applied in §4.5 to s ∈ S̃. The rotated product is produced two lines earlier as 1_{I_n g_2 I_n} 1_{I_n θ(g_1) I_n}, and the θ must stay: the commutator relation of §1.3 is 1_X 1_{X′} − ω(X)^{-1} 1_{X′} 1_{θ(X)}. And the standard-pair condition is τ̇θ(P)τ̇^{-1} = P, which makes Ad(τ̇) ∘ θ, not Ad(τ̇), an automorphism of P and of W_P.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/N4",
-        "PAPER-HE-18/L12",
-        "PAPER-HE-18/L13",
-        "PAPER-HE-18/R4",
-        "PAPER-HE-18/R5"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     },
     {
       "id": "PAPER-HE-18/E10",
       "kind": "misprint",
-      "locator": "§4.3 pp.17–18; §5.3 p.21",
-      "printed": "(g1 i1⁻¹, i1 g1 i2⁻¹, …); I ṡ I/I = (Ĭ_n ṡ Ĭ_n/Ĭ_n)^σ; a finite union of J(G(ν)).",
-      "correction": "In the contracted-product action the second entry uses g2 and the final entry uses i_k⁻¹. The fixed-coset left side is I_n ṡ I_n/I_n. Distribution spaces are contained in a finite SUM, and passage from a finer level to a coarser one is by restriction image, not a literal subset of functionals with different domains.",
-      "reason": "The multiplication map must be invariant under the contracted action, which requires the next factor, not a repeated g1. Lemma15 identifies the level-n quotient. A sum of two supported distributions can occupy two strata and does not lie in their set-theoretic union.",
+      "locator": "proof of Lemma 16, pp. 17–18, in the contracted-product action and in the last paragraph; §5.3, p. 21 (both versions)",
+      "printed": "Define the action of Ĭ^k on Ĭṡ_1Ĭ × ··· × Ĭṡ_kĬ by (i_1,…,i_k)·(g_1,…g_k) = (g_1i_1^{-1}, i_1g_1i_2^{-1},…, i_{k−1}g_ki_k^{-1}). — By Lemma 15, IṡI/I = (Ĭ_nṡĬ_n/Ĭ_n)^σ is the set of k-valued points of an affine space of dimension ℓ̆(s). — Therefore J(G ·_θ X) is a subset of a finite union of J(G(ν)).",
+      "correction": "(g_1i_1^{-1}, i_1g_2i_2^{-1}, …, i_{k−1}g_ki_k^{-1}); I_nṡI_n/I_n = (Ĭ_nṡĬ_n/Ĭ_n)^σ; and a finite sum of the J(G(ν)).",
+      "reason": "The action has to move each factor: the printed second entry repeats g_1, and only (g_1i_1^{-1}, i_1g_2i_2^{-1}, …) is the contracted-product action the multiplication map is invariant under. Lemma 15 is a statement about level n and the conclusion drawn is ♯I_nṡI_n/I_n = q^{ℓ̆(s)}, so the left-hand side is the level-n quotient (the two are isomorphic by the display just above, which is why nothing breaks). And a sum of two invariant distributions supported in two different strata lies in neither of them, so the correct containment is in the sum of finitely many J(G(ν)); the same sentence's passage from level K to the finer level I_n is an inclusion of restriction images rather than of sets of functionals with a common domain.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Cambridge published PDF and Forum of Mathematics, Pi Volume6 (2018) contents; no correction located in the inspected listing.",
-        "arXiv1610.04791 history (v1 2016-10-15, v2 2016-11-21, v3 2018-03-08) and selected passages of v3; these principal issues persist in the compared version.",
-        "Xuhua He's HKU selected-publications page and targeted title+erratum/correction searches on 2026-09-22; no relevant correction located. No author contact; this is not an exhaustive assertion that none exists.",
-        "2026-09-22 codex-c83e7a: reread all27 published pages; bounded exact-title erratum/correction and arXiv1610.04791 correction searches, fresh arXiv version history, Cambridge article page and author selected-publications page found no correction. This is not an exhaustive negative bibliographic claim."
-      ],
-      "affectedItems": [
-        "PAPER-HE-18/L7",
-        "PAPER-HE-18/L6",
-        "PAPER-HE-18/F4"
-      ],
-      "note": "Recorded finding awaiting independent review; 'new' means no correction located in the searches listed, not an assertion of priority."
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/E11",
+      "kind": "misprint",
+      "locator": "proof of Theorem 3, §2.6, p. 13, twice in the two displays after the definition of N_0 (both versions)",
+      "printed": "(∪_{w∈W_{K_1}} IẇI)(Iθ^{nl}(ż)^{-1}I)(∪_{w∈W_{K_2}} IẇI)",
+      "correction": "θ^{n_0l}(ż)^{-1}.",
+      "reason": "n_0 is the integer fixed two paragraphs earlier by (x_iθ)^{n_0} = t^{λ_i}, and the two displays that precede these — the identity g h_1θ(h_1)···θ^{n_0l−1}(h_1)θ^{n_0l}(g)^{-1} = h_2θ(h_2)···θ^{n_0l−1}(h_2) and the first nonemptiness display — both carry θ^{n_0l}. A bare n is not defined in this proof; the letter is used for other things elsewhere in the paper.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/E12",
+      "kind": "misprint",
+      "locator": "§1.2, p. 6, twice in the definition of the measure (both versions)",
+      "printed": "we define a Z[1/p]-valued Haar measure µ_G by µ_G(K, µ) = [K : K ∩ I′]/[I′ : K ∩ I′] for any open compact subgroup K of G. … Thus µ_G(K, µ) ∈ Z[1/p] for all K.",
+      "correction": "µ_G(K).",
+      "reason": "The second argument is the measure being defined, so the notation is circular; the value depends only on K, and every later use in the paper — 1/µ_G(K), µ_G(K)^2/µ_G(Kgg′K), µ_G(I_n) in Proposition 13 — is written with one argument.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
+    },
+    {
+      "id": "PAPER-HE-18/E13",
+      "kind": "misprint",
+      "locator": "§1.2(a), p. 7, in the sentence after the convolution formula (both versions)",
+      "printed": "Since the volume of each double coset of K is a power of p, µ_G(p^{-1}(KgK))/µ_G(KgK) ∈ Z[1/p].",
+      "correction": "µ_{G×G}(p^{-1}(KgK))/µ_G(KgK).",
+      "reason": "p : X × Y → XY is the multiplication map, so p^{-1}(KgK) is a subset of G × G and is measured by the product measure; the displayed formula just above, which this sentence is about, writes µ_{G×G}(p^{-1}(KgK))/µ_G(KgK) correctly.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Crossref for 10.1017/fmp.2018.1 on 2026-09-23: no update-to, updated-by or correction relation",
+        "the Cambridge Core article page and the Forum of Mathematics, Pi volume 6 listing: no corrigendum",
+        "arXiv:1610.04791, all three versions; v3 read in full and compared at each locator, where it agrees with the published text unless a finding says otherwise",
+        "the author's page and the sequels of this paper (Cocenters of p-adic groups II, arXiv:1611.06825; III, with Ciubotaru, arXiv:1703.00378): no correction notice"
+      ]
     }
   ],
   "libraryAudit": {
@@ -10298,59 +10279,26 @@
     "note": "The internal graph is explicit but not proof-closed. Planned stages are imports; source-derived corrections await independent review. G1–G9 identify the remaining proof frontier; G3 now has explicit relative proofs."
   },
   "validation": {
-    "continuation": {
-      "agent": "Codex — codex-7e92bd",
-      "diagnostics": {
-        "protectedMiddleProducts": 216,
-        "omegaNormalizations": 405,
-        "affineIdentities": 108,
-        "centralLengthZeroRegression": "passed"
-      },
-      "lean": "No Lean file written or compiled; paper job only.",
-      "note": "Finite diagnostics supplement the symbolic proofs; previous diagnostics are historical, not rerun."
-    },
-    "continuationC83e7a": {
-      "diagnostics": [
-        {
-          "name": "Twisted convolution automorphism and integral identity",
-          "cases": 2160,
-          "result": "PASS",
-          "scope": "All S3 basis pairs, six inner twists, trivial/sign characters, five pro-p normalization/coefficient pairs; includes p=3,R=F2 with volume(G)=0."
-        },
-        {
-          "name": "Asymmetric local-unit commutator formula",
-          "cases": 108,
-          "result": "PASS",
-          "scope": "S3 with U=<12> and theta=Ad(123), so theta(U) differs from U; all translating x,y and F3,F5,F7."
-        },
-        {
-          "name": "Abstract pro-p fixed-coset obstruction",
-          "cases": 5,
-          "result": "PASS",
-          "scope": "Z/p^2, sigma=1+p, J=pZ/p^2: all quotient cosets fixed but fixed points map only to zero."
-        },
-        {
-          "name": "Lang fibers are left fixed-group torsors",
-          "cases": 14,
-          "result": "PASS",
-          "scope": "Every nonempty Lang fiber of each S3 inner automorphism; no false surjectivity assertion for abstract finite groups."
-        },
-        {
-          "name": "Compatible additive Lang equations",
-          "cases": 150,
-          "result": "PASS",
-          "scope": "Truncated coefficient towers of lengths1..4 with targets in F2/F3 and solutions in F4/F27; projection compatibility checked, finite-field Lang surjectivity is not asserted."
-        }
-      ],
-      "schema": "PASS: scripts/check_paper.py; authorized-path intake reports 3 files, 0 problems.",
-      "lean": "Not run: paper job has no Lean deliverable. No formalization is claimed.",
-      "structural": {
-        "result": "PASS",
-        "items": 123,
-        "internalEdges": 316,
-        "inputHashes": 466,
-        "checks": "Unique IDs; resolved prerequisites; acyclic graph; exactly one route per nonlibrary item; real planned stages; definition APIs, uses and tests; source-issue and gap references; exact input blob and SHA256 hashes."
-      }
-    }
+    "agent": "Claude Code — cc-fb70e5",
+    "continues": [
+      "codex-c83e7a (PR 1761, PR 1932 and the merged checkpoint)"
+    ],
+    "readIndependently": [
+      "the published paper in full, all 27 pages including the references, and arXiv:1610.04791v3 in full for the comparison",
+      "Haines–Rapoport, 'On parahoric subgroups' (arXiv:0804.3788), at its hypotheses and Proposition 13, for finding E8"
+    ],
+    "mathematicalChecks": [
+      "Every finding was checked at its locator in the published PDF and in arXiv v3; the glyph-level ones in rendered clips of the page, which is how µ_G(K, µ), θ^{nl}, y ∈ W_a, 'sws < w', 'IṡI/I' and the (P,Q,x)-graph were read off the printed text rather than the PDF text layer.",
+      "Finding E1 was verified in two instances computed from the definitions: G_m with θ inversion (twisted conjugation sends m to m + 2k on W̃ = Ω = Z, so each class meets infinitely many W_a-cosets and every element has length 0, hence is minimal), and GL_n with the twisted-endoscopy automorphism preserving the standard Iwahori (Ω ≅ Z by the valuation of the determinant, θ acts by −1, and the twisted class of 1 contains τ^{2k} for all k, all of length 0 and all with π = (0,0)).",
+      "Finding E4 was verified by support bookkeeping from the definition ^x f(g) = ω(x) f(x^{-1} g θ(x)): supp(^{ẋ}f) = ẋ·supp(f)·θ(ẋ)^{-1} does not lie in Qγ̇, while supp(^{ẋ^{-1}}f) does; this is also the direction of condition (∗) and of the set-level statement in the proof of Theorem 22.",
+      "Finding E3's instance was checked: for R = F_3 ⊕ V with V = ⊕_N F_3 square-zero and t = e_0, Ann_R(t) = V, which is not finitely generated, and ω(g) = (1+t)^{v_2(g)} is a character of Q_2^× with open kernel Z_2^×.",
+      "The gap recorded in G5 was verified: ℓ(t^μ) = 0 for a nonzero central μ (for example (1,1) in GL_2), so the last inequality of §2.6 needs λ_2 − y_0λ_1 to be non-central, which follows from the equality of the Ω_θ-factors through the compatibility of κ with the central component of the Newton point.",
+      "The repair the earlier checkpoint proposed for E1 was checked in the G_m instance: with τ_0 = 0 the core is O_F^×, compact open, and G ·_θ O_F^× is exactly the set of elements of even valuation, that is G(ν)."
+    ],
+    "checks": [
+      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-HE-18.result.json: ok with status complete",
+      "python3 research/blueprint/intake.py check-files on the three deliverables: no problems"
+    ],
+    "lean": "Not written or compiled: this is a paper extraction job. The APIs and tests in the items are specifications."
   }
 }
