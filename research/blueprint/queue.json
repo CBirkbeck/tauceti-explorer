@@ -6390,7 +6390,8 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1372"
   },
   {
    "id": "PAPER-DOR-23",
@@ -6622,8 +6623,9 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1385"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1385",
+   "finishedAt": "2026-09-23T20:40:48Z"
   },
   {
    "id": "PAPER-BINYAMINI-22",
