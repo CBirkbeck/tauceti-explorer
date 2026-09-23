@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-CESNAVICIUS-22",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Grothendieck–Serre in the quasi-split unramified case",
     "authors": "Kęstutis Česnavičius",
@@ -17,7 +17,7 @@
     ],
     "publishedComparison": "Publisher PDF DOI and theorem numbering matched; Lemma 6.3 statement/proof opening and Theorems 9.1,9.3,9.5 with proofs compared. Publisher lacks the p.20 correction. Remaining publisher pages were not reread in full. arXiv v7 history explicitly identifies the added footnote; its PDF is dated November 9,2022. No byte/text identity is asserted."
   },
-  "summary": "The quasi-split unramified Grothendieck–Serre theorem is reduced through geometric presentation, excision and affine-line torsors to corrected field and Whitehead arguments. The two proposed Part II directions import relative reductive-group foundations and scheme/descent foundations without rebuilding them. The full main paper is read and its numbered results are split below. Complete (cc-442dc5): seven mistakes are recorded, three already corrected in print (the p. 20 footnote, Gille 2005, Gille 2026) and four new. The new gap in the loop-coset step of Proposition 8.4 is repaired by one added item. Supplier proofs remain for the design jobs; this is not a formalization.",
+  "summary": "Independent review: 150 items, 9 library, 10 planned and 131 missing, with eight unique routes. The main quasi-split unramified Grothendieck–Serre theorem retains its stated scope. Correct Remark 3.3’s dimension claim, add finite presentation to Lemma 6.3, restrict the orthogonal twisting assertion, and repair the local loop-lifting proof. Thirteen source findings are independently confirmed. Extraction remains partial because supplier decomposition, ownership scope requests and precise API signatures are unresolved; no formalization is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -39,7 +39,10 @@
       "mathlib:IsAdicComplete.henselianRing",
       "mathlib:CategoryTheory.Sheaf.H",
       "mathlib:CategoryTheory.Sheaf.H.equiv₀",
-      "mathlib:CategoryTheory.Sheaf.H.map"
+      "mathlib:CategoryTheory.Sheaf.H.map",
+      "mathlib:Module.nonempty_basis_of_flat_of_finrank_eq",
+      "mathlib:Module.free_of_flat_of_finrank_eq",
+      "mathlib:CommRing.Pic.subsingleton_iff"
     ]
   },
   "conventions": [
@@ -139,7 +142,11 @@
           "item": "PAPER-CESNAVICIUS-22/regular-strict-ufd",
           "how": "Supplies Regular local ring with the stated conventions to Strict henselizations of regular local rings are factorial."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/weak-regular-sequence",
@@ -192,8 +199,7 @@
         }
       ],
       "library": [
-        "mathlib:RingTheory.Sequence.IsWeaklyRegular",
-        "mathlib:RingTheory.Sequence.IsRegular"
+        "mathlib:RingTheory.Sequence.IsWeaklyRegular"
       ],
       "sourceEvidence": {
         "sourceIds": [
@@ -211,7 +217,12 @@
           "item": "PAPER-CESNAVICIUS-22/cm-miracle-flat",
           "how": "Supplies Paper-convention regular sequence with the stated conventions to Fiberwise Cohen–Macaulay flatness in the presentation lemma."
         }
-      ]
+      ],
+      "note": "IsRegular was inspected for the comparison API; it is not the definition matching the paper because it adds a nonzero terminal quotient.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/graded-proj",
@@ -293,7 +304,11 @@
           "item": "PAPER-CESNAVICIUS-22/relative-proj",
           "how": "Supplies Absolute graded Proj scheme with the stated conventions to Finite-type relative Proj."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/field-reductive",
@@ -374,7 +389,11 @@
           "item": "PAPER-CESNAVICIUS-22/relative-reductive",
           "how": "Supplies Pinned field reductive-group predicate with the stated conventions to Relative reductive group."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/field-sc",
@@ -447,7 +466,11 @@
           "item": "PAPER-CESNAVICIUS-22/central-structure",
           "how": "Supplies Pinned field simply-connected semisimple predicate with the stated conventions to Derived group and central covers."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/field-borel",
@@ -521,7 +544,11 @@
           "item": "PAPER-CESNAVICIUS-22/quasi-pinning",
           "how": "Supplies Pinned field Borel subgroup predicate with the stated conventions to Quasi-pinning."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/henselian",
@@ -599,7 +626,11 @@
           "item": "PAPER-CESNAVICIUS-22/gille-errata-anisotropy",
           "how": "Supplies Henselian pair carrier with the stated conventions to Repair of the centralizer-quotient anisotropy step."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/sheaf-cohomology",
@@ -687,7 +718,11 @@
           "item": "PAPER-CESNAVICIUS-22/affine-vector-acyclic",
           "how": "Supplies Abelian sheaf cohomology carrier with the stated conventions to Affine vector-group acyclicity."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/torsor",
@@ -838,7 +873,11 @@
           "item": "PAPER-CESNAVICIUS-22/filtered-affine-h1",
           "how": "Supplies Right fppf torsor and nonabelian H1 with the stated conventions to Affine vanishing for vector-filtered groups."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-reductive",
@@ -966,7 +1005,11 @@
           "item": "PAPER-CESNAVICIUS-22/guo-parahoric",
           "how": "Supplies Relative reductive group with the stated conventions to Reductive integral model and maximal parahoric."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasi-pinning",
@@ -1065,7 +1108,11 @@
           "item": "PAPER-CESNAVICIUS-22/finite-presentation-limits",
           "how": "Supplies Quasi-pinning with the stated conventions to Descend finite-presentation group and torsor data."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasi-split",
@@ -1143,7 +1190,11 @@
           "item": "PAPER-CESNAVICIUS-22/quasisplit-total",
           "how": "Supplies Paper-convention quasi-split reductive group with the stated conventions to Quasi-split implies total isotropy."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/central-structure",
@@ -1232,7 +1283,11 @@
           "item": "PAPER-CESNAVICIUS-22/aut-out-split",
           "how": "Supplies Derived group and central covers with the stated conventions to Pinned split automorphism extension."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unipotent-radical",
@@ -1325,7 +1380,11 @@
           "item": "PAPER-CESNAVICIUS-22/guo-radical-contraction",
           "how": "Supplies Parabolic unipotent radical with the stated conventions to Unipotent-radical contraction in local approximation."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/weil-restriction",
@@ -1408,7 +1467,11 @@
           "item": "PAPER-CESNAVICIUS-22/shapiro",
           "how": "Supplies Affine finite-type Weil restriction with the stated conventions to Finite étale Shapiro for torsors."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/semilocal-base",
@@ -1484,7 +1547,14 @@
           "item": "PAPER-CESNAVICIUS-22/split-descent",
           "how": "Supplies Semilocal regular Dedekind-base input with the stated conventions to Generic splitness descends."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unramified-local",
@@ -1555,7 +1625,14 @@
           "item": "PAPER-CESNAVICIUS-22/integer-unramified-example",
           "how": "Supplies Unramified regular local ring with the stated conventions to Integer-base criterion."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/geometric-regularity",
@@ -1636,7 +1713,14 @@
           "item": "PAPER-CESNAVICIUS-22/popescu",
           "how": "Supplies Geometrically regular algebra with the stated conventions to Popescu approximation."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/weighted-projective",
@@ -1714,7 +1798,14 @@
           "item": "PAPER-CESNAVICIUS-22/weighted-chart",
           "how": "Supplies Weighted projective space with the stated conventions to Weight-one affine chart."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/weighted-blowup",
@@ -1792,7 +1883,14 @@
           "item": "PAPER-CESNAVICIUS-22/blowup-equal-weights",
           "how": "Supplies Weighted blowup of sections with the stated conventions to Equal weights recover ordinary blowup."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/presentation-square",
@@ -1861,13 +1959,20 @@
           "item": "PAPER-CESNAVICIUS-22/presentation-flat",
           "how": "Supplies Affine-line presentation neighborhood with the stated conventions to Flat affine-line presentation."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/torsor-twisting",
       "kind": "definition",
       "name": "Twisting and transport of torsors",
-      "statement": "For G-torsor E, its inner automorphism group ^E G acts on Isom_G(E,E'); twisting gives a pointed-set bijection from H1(S,^E G) to H1(S,G) sending the neutral class to [E].",
+      "statement": "For a right G-torsor E, let ^E G=Aut_G(E). Contracted product with E gives a bijection H1(S,^E G)→H1(S,G), inverse to the appropriate Isom_G(E,−) torsor construction, sending the neutral class to [E]. It is a pointed bijection only when the target is pointed at [E].",
       "locator": "§9.5; Guo20 §4.1–4.2",
       "status": "missing",
       "ownershipGroup": "SF1",
@@ -1881,19 +1986,19 @@
       "implementationStatus": "unchecked",
       "api": [
         {
-          "name": "GrothendieckSerre.torsor_twisting.api1",
-          "role": "characterisation",
-          "statement": "Expose the equivalence and its inverse Isom torsor."
+          "name": "Torsor.twistEquiv",
+          "role": "equivalence",
+          "statement": "For a right G-torsor E, contracted product and Isom_G(E,−) induce mutually inverse bijections between ^E G-torsors and G-torsors up to isomorphism; the neutral twisted class corresponds to E."
         },
         {
-          "name": "GrothendieckSerre.torsor_twisting.api2",
+          "name": "Torsor.twistEquiv_baseChange",
           "role": "compatibility",
-          "statement": "Commute twisting with base change."
+          "statement": "For f:S′→S, pullback of the torsor obtained by twisting a ^E G-torsor F is canonically the twist of f*F by f*E, compatibly with the Isom-torsor inverse."
         },
         {
-          "name": "GrothendieckSerre.torsor_twisting.api3",
-          "role": "functoriality",
-          "statement": "Distinguish all-inner-form kernel triviality from a single group's kernel triviality."
+          "name": "Torsor.injective_iff_innerFormKernel",
+          "role": "characterisation",
+          "statement": "Restriction H1(S,G)→H1(S′,G) is injective if and only if, for every G-torsor E on S, restriction H1(S,^E G)→H1(S′,f*^E G) has trivial kernel."
         }
       ],
       "tests": [
@@ -1984,7 +2089,14 @@
           "item": "PAPER-CESNAVICIUS-22/model-uniqueness",
           "how": "Supplies Twisting and transport of torsors with the stated conventions to Uniqueness of reductive models from adjoint-form injectivity."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unipotent-filtration",
@@ -2070,7 +2182,14 @@
           "item": "PAPER-CESNAVICIUS-22/filtered-affine-h1",
           "how": "Supplies Vector-group filtration with the stated conventions to Affine vanishing for vector-filtered groups."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/support-cohomology",
@@ -2146,7 +2265,14 @@
           "item": "PAPER-CESNAVICIUS-22/local-cohom-flat",
           "how": "Supplies Cohomology with supports with the stated conventions to Flat-neighborhood local-cohomology base change."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "excision"
+        ],
+        "comparison": "Sheaf.H is an existing carrier. Supported quasi-coherent/fppf comparison, flat excision and multiplicative-type H2 injectivity are separate absent contracts; reviewed SF.2 records those boundaries."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/total-isotropy",
@@ -2230,7 +2356,14 @@
           "how": "Supplies Totally isotropic reductive group with the stated conventions to Totally isotropic affine-line torsors are trivial."
         }
       ],
-      "note": "Over a connected semilocal ring that is not local, total isotropy does not give a proper parabolic subgroup over the whole ring (E4 has an example); it gives one over each local ring."
+      "note": "Over a connected semilocal ring that is not local, total isotropy does not give a proper parabolic subgroup over the whole ring (E4 has an example); it gives one over each local ring.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/whitehead-subgroup",
@@ -2312,7 +2445,14 @@
           "item": "PAPER-CESNAVICIUS-22/split-torus-elementary",
           "how": "Supplies Elementary subgroup and Whitehead quotient with the stated conventions to Split torus points lie in the elementary subgroup."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/laurent-cosets",
@@ -2383,7 +2523,14 @@
           "item": "PAPER-CESNAVICIUS-22/loop-coset-surjective",
           "how": "Supplies Loop-group coset space with the stated conventions to Surjectivity of residue loop cosets."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "gluing"
+        ],
+        "comparison": "Laurent-series algebra is present. RF4 and GS0 gluing has the Fargues–Fontaine/divisor setup; it is not the general semilocal P1 formal torsor square or the local-parabolic coset lifting theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/isotrivial-radical",
@@ -2459,7 +2606,14 @@
           "item": "PAPER-CESNAVICIUS-22/linear-embedding",
           "how": "Supplies Isotrivial radical condition with the stated conventions to Linearity criterion for reductive groups."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasitrivial-borel-torus",
@@ -2488,7 +2642,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/semilocal-torus-h1",
@@ -2517,7 +2678,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/sc-reduction",
@@ -2550,7 +2718,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS87-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/avoidance",
@@ -2575,7 +2750,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-avoidance-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-dimension",
@@ -2602,7 +2784,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-smooth",
@@ -2631,7 +2820,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-bertini-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-incidence",
@@ -2657,7 +2853,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-degrees",
@@ -2685,13 +2888,20 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-bertini-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-equality",
       "kind": "theorem",
       "name": "Nonempty intersections attain the dimension bound",
-      "statement": "Under Lemma 3.2(iii), if (Y_j\\Z)∩⋂_{l∈I}H_l is nonempty, its dimension equals dim(Y_j\\Z)−|I|.",
+      "statement": "Under Lemma 3.2(iii), additionally assume Y_j\\Z is pure-dimensional. If (Y_j\\Z)∩⋂_{l∈I}H_l is nonempty, its dimension equals dim(Y_j\\Z)−|I|. The extra purity hypothesis repairs the false unrestricted assertion in Remark 3.3; see E8.",
       "locator": "Remark 3.3",
       "status": "missing",
       "ownershipGroup": "GEO",
@@ -2699,7 +2909,7 @@
         "PAPER-CESNAVICIUS-22/bertini-incidence"
       ],
       "proofSteps": [
-        "Cutting by |I| equations gives the reverse dimension bound."
+        "At a component of the nonempty intersection, apply the dimension lower bound for |I| equations on a pure-dimensional finite-type k-scheme. Combine it with the upper bound of Lemma 3.2(iii). Without purity the maximal-dimensional components may disappear entirely, as E8 shows."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
@@ -2711,7 +2921,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/weighted-chart",
@@ -2738,7 +2955,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/blowup-away",
@@ -2764,7 +2988,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/blowup-equal-weights",
@@ -2791,7 +3022,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-proj-geometry",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-avoid",
@@ -2821,7 +3059,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-center",
@@ -2851,7 +3096,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-smooth",
@@ -2881,7 +3133,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-boundary",
@@ -2911,7 +3170,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-y-smooth",
@@ -2941,7 +3207,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-w",
@@ -2971,7 +3244,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-finite",
@@ -3001,7 +3281,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projection-degrees",
@@ -3028,7 +3315,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-avoid",
@@ -3057,7 +3351,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-center",
@@ -3086,7 +3387,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-smooth",
@@ -3115,7 +3423,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-boundary",
@@ -3144,7 +3459,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-y-smooth",
@@ -3173,7 +3495,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-w",
@@ -3202,7 +3531,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-finite",
@@ -3232,7 +3568,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-relative-projection-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-projection-degrees",
@@ -3258,7 +3601,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/curve-fibration",
@@ -3287,7 +3637,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-relative-projection-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/curve-torsor-data",
@@ -3317,7 +3674,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/curve-unipotent-reduction",
@@ -3350,7 +3714,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS79-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/curve-compatible-pinning",
@@ -3377,7 +3748,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/field-curve-torsor",
@@ -3404,7 +3782,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/pinned-isom-etale",
@@ -3431,7 +3816,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "etale-components"
+        ],
+        "comparison": "Finite/étale morphism properties do not establish the indicated unibranch component or normal generic-section extension theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/finite-etale-isom-lift",
@@ -3460,7 +3852,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-regularity-chain",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "etale-components"
+        ],
+        "comparison": "Finite/étale morphism properties do not establish the indicated unibranch component or normal generic-section extension theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/constant-curve-torsor",
@@ -3489,7 +3888,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/point-count-cover",
@@ -3516,7 +3922,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-presentation-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/curve-residue-simple",
@@ -3541,7 +3954,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-presentation-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/thickening-embedding",
@@ -3575,13 +3995,20 @@
         "PAPER-CESNAVICIUS-22/gap-cthk-granularity",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "The printed step (E1) takes the Cohen-structure isomorphism for a k_m-isomorphism; this item states what the author's post-publication footnote proves instead."
+      "note": "The printed step (E1) takes the Cohen-structure isomorphism for a k_m-isomorphism; this item states what the author's post-publication footnote proves instead.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/presentation-flat",
       "kind": "theorem",
       "name": "Flat affine-line presentation",
-      "statement": "Let R be semilocal, C/R flat affine with Cohen–Macaulay pure one-dimensional fibers, Y⊂C finite over R, and Z⊂C_sm finite over R. For every finite closed residue field k_m and d≥1 assume #Z_km(degree d)<#A1_km(degree d). There exist open C'⊂C containing Y and Z, and quasi-finite flat R-map f:C'→A1_R, étale along Z, mapping Z isomorphically onto a closed Z'⊂A1_R with Z=C'×A1 Z'.",
+      "statement": "Let R be semilocal, C/R finitely presented, flat and affine with Cohen–Macaulay pure one-dimensional fibers, Y⊂C finite over R, and Z⊂C_sm finite over R. For every finite closed residue field k_m and d≥1 assume #Z_km(degree d)<#A1_km(degree d). There exist open C'⊂C containing Y and Z, and quasi-finite flat R-map f:C'→A1_R, étale along Z, mapping Z isomorphically onto a closed Z'⊂A1_R with Z=C'×A1 Z'.",
       "locator": "Lemma 6.3, principal conclusion",
       "status": "missing",
       "ownershipGroup": "GEO",
@@ -3606,13 +4033,21 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-presentation-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "note": "Finite presentation is an explicit repair of the printed statement (E10), not an assumption silently inferred from the word curve. The smooth affine curves used in Proposition 6.5 satisfy it.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/presentation-thickenings",
       "kind": "theorem",
       "name": "All infinitesimal neighborhoods agree",
-      "statement": "Let R be semilocal, C/R flat affine with Cohen–Macaulay pure one-dimensional fibers, Y⊂C finite over R, and Z⊂C_sm finite over R. For every finite closed residue field k_m and d≥1 assume #Z_km(degree d)<#A1_km(degree d). For the chosen f of Lemma 6.3, the induced maps on every infinitesimal neighborhood of Z⊂C' and Z'⊂A1_R are isomorphisms.",
+      "statement": "Let R be semilocal, C/R finitely presented, flat and affine with Cohen–Macaulay pure one-dimensional fibers, Y⊂C finite over R, and Z⊂C_sm finite over R. For every finite closed residue field k_m and d≥1 assume #Z_km(degree d)<#A1_km(degree d). For the chosen f of Lemma 6.3, the induced maps on every infinitesimal neighborhood of Z⊂C' and Z'⊂A1_R are isomorphisms.",
       "locator": "Lemma 6.3, final assertion",
       "status": "missing",
       "ownershipGroup": "GEO",
@@ -3632,7 +4067,15 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "note": "Finite presentation is an explicit repair of the printed statement (E10), not an assumption silently inferred from the word curve. The smooth affine curves used in Proposition 6.5 satisfy it.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/point-count-weak",
@@ -3658,7 +4101,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/finite-line-monic",
@@ -3683,7 +4133,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/presented-curve-torsor",
@@ -3712,7 +4169,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/torsor-patching",
@@ -3740,7 +4204,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-mb-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/flat-excision",
@@ -3768,7 +4239,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-cohomological-excision",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "excision"
+        ],
+        "comparison": "Sheaf.H is an existing carrier. Supported quasi-coherent/fppf comparison, flat excision and multiplicative-type H2 injectivity are separate absent contracts; reviewed SF.2 records those boundaries."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unipotent-excision-kernel",
@@ -3797,7 +4275,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unipotent-excision-surjective",
@@ -3829,7 +4314,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-giraud",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/radical-central-filtration",
@@ -3857,7 +4349,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/affine-line-torsor",
@@ -3890,7 +4389,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasisplit-total",
@@ -3917,7 +4423,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/p1-vector-trivial",
@@ -3946,7 +4459,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-p1-cohomology",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/p1-torsor-pullback",
@@ -3979,7 +4499,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-linearity-quotient",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/residue-radical-lifts",
@@ -4006,7 +4533,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "gluing"
+        ],
+        "comparison": "Laurent-series algebra is present. RF4 and GS0 gluing has the Fargues–Fontaine/divisor setup; it is not the general semilocal P1 formal torsor square or the local-parabolic coset lifting theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/local-parabolic-loop-lifts",
@@ -4020,10 +4554,10 @@
         "PAPER-CESNAVICIUS-22/radical-affine-space"
       ],
       "proofSteps": [
-        "Reduce to reduced R: the nilradical N is nilpotent, so N·R((t)) is a nilpotent ideal and G(R((t))) → G(R_red((t))) is onto because G is smooth and affine; the residue fields do not change.",
-        "Treat connected components separately. If the component of m is local there is nothing to spread out.",
-        "Otherwise no prime is both minimal and maximal, so prime avoidance gives g outside m and outside every minimal prime, and inside every other maximal ideal; g is a nonzerodivisor. Multiply g by an element outside m so that U and the isomorphism A^d ≅ U spread out over R_g.",
-        "Lift the coordinates of the given point to y ∈ g^N·R((t))^d. For N at least the g-denominators of the polynomial map A^d → U ⊂ G ⊂ A^M, the image of y has coordinates in R((t)); since R((t)) → R_g((t)) is injective, it satisfies the equations of G, so lies in G(R((t))). It reduces to the given point at m and to 1 at every other maximal ideal, where g vanishes."
+        "Write G=Spec R[z_1,…,z_M]/(h_1,…,h_s), with identity coordinates e_j. Affine smoothness supplies finite presentation. Spread the pointed polynomial map A^d_(R_m)→G_(R_m) over R_g. Multiplying the spreading denominator by a Chinese-remainder separator makes g lie outside m and inside every other maximal ideal. Do not require g to be a nonzerodivisor.",
+        "The coordinate polynomials f_j over R_g have constant coefficients e_j. Choose N large enough that every positive-degree coefficient of f_j(g^N x) has a representative in gR. Lift these coefficients to polynomials F_j over R with constant coefficients exactly e_j.",
+        "Each h_i(F(x)) has zero constant coefficient and vanishes after localization at g. Finitely many relations and coefficients allow one D such that g^D kills every coefficient of every h_i(F). Replacing x by g^D x kills these relations in R[x] itself: every monomial has positive degree. Thus F′ defines A^d_R→G; after localization it equals f(g^(N+D)x), and every positive-degree coordinate coefficient still lies in gR.",
+        "For a∈k_m((t))^d, lift the coefficients of g_m^(−N−D)a to a tuple x∈R((t))^d, keeping its common finite lower Laurent bound. Then F′(x) has the requested reduction at m and the identity at all other maximal ideals. No injectivity of R((t))→R_g((t)) or reduction modulo nilpotents is used."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
@@ -4031,10 +4565,17 @@
           "main"
         ],
         "locator": "Proposition 8.4 proof, claim (2)",
-        "match": "Not in the paper: supplied by cc-442dc5 to repair the step recorded as E4."
+        "match": "The statement was supplied by cc-442dc5. Independent reviewer Codex — codex-c83e7a replaces its localization-injectivity argument by the finite polynomial dilation proof recorded here."
       },
       "gaps": [],
-      "note": "Added by cc-442dc5. The paper's claim (2) lifts elements of R_u(P)(k_m((t))) for a single proper parabolic P over R, which total isotropy does not supply when R is semilocal but not local (E4)."
+      "note": "Added by cc-442dc5. The paper's claim (2) lifts elements of R_u(P)(k_m((t))) for a single proper parabolic P over R, which total isotropy does not supply when R is semilocal but not local (E4). The previous proof could introduce a zero divisor when multiplying the spreading denominator. The revised proof works with that possibility.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "gluing"
+        ],
+        "comparison": "Laurent-series algebra is present. RF4 and GS0 gluing has the Fargues–Fontaine/divisor setup; it is not the general semilocal P1 formal torsor square or the local-parabolic coset lifting theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/loop-coset-surjective",
@@ -4069,7 +4610,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "Corrected statement (cc-442dc5, E4). The printed argument assumes a proper parabolic over R, which Definition 8.1 supplies only over the local rings. The Noetherian hypothesis is what the repair uses; Proposition 8.4 itself is reduced to Noetherian R by a limit argument."
+      "note": "Corrected statement (cc-442dc5, E4). The printed argument assumes a proper parabolic over R, which Definition 8.1 supplies only over the local rings. The Noetherian hypothesis is what the repair uses; Proposition 8.4 itself is reduced to Noetherian R by a limit argument.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "gluing"
+        ],
+        "comparison": "Laurent-series algebra is present. RF4 and GS0 gluing has the Fargues–Fontaine/divisor setup; it is not the general semilocal P1 formal torsor square or the local-parabolic coset lifting theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/affine-line-triviality",
@@ -4106,7 +4654,14 @@
         "PAPER-CESNAVICIUS-22/gap-formal-gluing",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "Statement as printed. The printed proof of claim (2) needs a proper parabolic over R (E4); the repair goes through loop-coset-surjective in its corrected Noetherian form. For quasi-split G, as in Theorem 9.1, the printed argument applies directly."
+      "note": "Statement as printed. The printed proof of claim (2) needs a proper parabolic over R (E4); the repair goes through loop-coset-surjective in its corrected Noetherian form. For quasi-split G, as in Theorem 9.1, the printed argument applies directly.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/unramified-gs",
@@ -4143,7 +4698,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-popescu-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/perfect-field-example",
@@ -4169,7 +4731,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/integer-unramified-example",
@@ -4196,7 +4765,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/local-main",
@@ -4224,7 +4800,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/split-descent",
@@ -4255,7 +4838,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/local-split-main",
@@ -4283,7 +4873,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/completion-factorization",
@@ -4312,7 +4909,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasisplit-descent-conditional",
@@ -4346,7 +4950,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS79-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quasisplit-descent-equichar",
@@ -4375,7 +4986,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-equichar-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/so-injective",
@@ -4408,7 +5026,14 @@
         "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "The proof twists SO_n by SO_n-torsors, whose twists are the SO(E). The printed claim that every inner form of SO_n is an SO(E) is false for even n ≥ 4 but is not used beyond these twists (E7)."
+      "note": "The proof twists SO_n by SO_n-torsors, whose twists are the SO(E). The printed claim that every inner form of SO_n is an SO(E) is false for even n ≥ 4 but is not used beyond these twists (E7).",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "orthogonal"
+        ],
+        "comparison": "Existing ring/field quadratic forms and orthogonal linear algebra do not prove the semilocal O/SO fppf torsor classification and generic injectivity/cancellation interface."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/o-injective",
@@ -4440,7 +5065,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "orthogonal"
+        ],
+        "comparison": "Existing ring/field quadratic forms and orthogonal linear algebra do not prove the semilocal O/SO fppf torsor classification and generic injectivity/cancellation interface."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quadratic-isometry",
@@ -4472,7 +5104,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "orthogonal"
+        ],
+        "comparison": "Existing ring/field quadratic forms and orthogonal linear algebra do not prove the semilocal O/SO fppf torsor classification and generic injectivity/cancellation interface."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/relative-proj",
@@ -4550,7 +5189,11 @@
           "item": "PAPER-CESNAVICIUS-22/weighted-blowup",
           "how": "Supplies Finite-type relative Proj with the stated conventions to Weighted blowup of sections."
         }
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/p1-cohom-basechange",
@@ -4577,31 +5220,42 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-p1-cohomology"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/semilocal-pic",
       "kind": "theorem",
       "name": "Semilocal Picard vanishing",
-      "statement": "An invertible module over a semilocal ring is free of rank 1; hence Pic(Spec R)=0.",
-      "locator": "Lemma 2.1 proof",
-      "status": "missing",
+      "statement": "For a commutative ring R with finitely many maximal ideals, an invertible R-module has a basis indexed by Fin 1; its module-theoretic Picard group is trivial. The comparison with H1(Spec R,G_m) is a separate torsor interface.",
+      "locator": "CES22 Lemma 2.1 proof; pinned Mathlib/RingTheory/LocalRing/Module.lean:396–426 and RingTheory/PicardGroup.lean:526–547, including the semilocal Subsingleton instance.",
+      "status": "library",
       "ownershipGroup": "SF1",
       "prerequisites": [],
       "proofSteps": [
-        "Choose generators modulo all maximal ideals and combine them by Chinese remainders; apply Nakayama."
+        "Import the finite-flat constant-rank-one basis theorem, using the finite/flat/residue-rank instances of invertible modules. The semilocal Picard Subsingleton instance is already in the pinned PicardGroup.lean; do not rebuild it."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
         "sourceIds": [
           "main"
         ],
-        "locator": "Lemma 2.1 proof",
-        "match": "Statement and proof or construction read in the indicated source passages; transitive closure is not implied."
+        "locator": "CES22 Lemma 2.1 proof; pinned Mathlib/RingTheory/LocalRing/Module.lean:396–426 and RingTheory/PicardGroup.lean:526–547, including the semilocal Subsingleton instance.",
+        "match": "Independent reviewer read the actual pinned statements and the existing semilocal Picard instance."
       },
-      "gaps": [
-        "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      "gaps": [],
+      "library": [
+        "mathlib:Module.nonempty_basis_of_flat_of_finrank_eq",
+        "mathlib:Module.free_of_flat_of_finrank_eq",
+        "mathlib:CommRing.Pic.subsingleton_iff"
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual pinned source statements read; source-file blobs checked against the recorded pinned repository trees. Comparison-only IsRegular is separated from the matching weak-regular definition."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/shapiro",
@@ -4628,7 +5282,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/torus-gs",
@@ -4655,7 +5316,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS87-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/multiplicative-h2-injective",
@@ -4682,7 +5350,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS87-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "excision"
+        ],
+        "comparison": "Sheaf.H is an existing carrier. Supported quasi-coherent/fppf comparison, flat excision and multiplicative-type H2 injectivity are separate absent contracts; reviewed SF.2 records those boundaries."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/torus-purity",
@@ -4709,7 +5384,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-CTS79-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/regular-strict-ufd",
@@ -4737,7 +5419,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-regularity-chain",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/cm-miracle-flat",
@@ -4764,7 +5453,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-presentation-algebra",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "curve-presentation"
+        ],
+        "comparison": "Existing finite-field, monic-polynomial and quasi-finite morphism APIs are ingredients; they do not give this finite-locus simultaneous presentation. The missing CM flatness interface is in the reviewed R03.3 audit."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/finite-components-unibranch",
@@ -4789,7 +5485,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-unibranch-components",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "etale-components"
+        ],
+        "comparison": "Finite/étale morphism properties do not establish the indicated unibranch component or normal generic-section extension theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/normal-etale-section",
@@ -4814,7 +5517,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-unibranch-components",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "etale-components"
+        ],
+        "comparison": "Finite/étale morphism properties do not establish the indicated unibranch component or normal generic-section extension theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/projective-borel-quotient",
@@ -4843,7 +5553,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/aut-out-split",
@@ -4871,7 +5588,11 @@
         "locator": "Theorem 9.3 proof; SGA3 XXIV1.3",
         "match": "Statement and proof or construction read in the indicated source passages; transitive closure is not implied."
       },
-      "gaps": []
+      "gaps": [],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "comparison": "Actual owner layer description read in the acquisition snapshot; it covers the indicated carrier/interface. No implementation claim."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/aut-out-borel",
@@ -4898,7 +5619,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/central-cohom-sequence",
@@ -4927,7 +5655,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-giraud",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/affine-vector-acyclic",
@@ -4953,7 +5688,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "excision"
+        ],
+        "comparison": "Sheaf.H is an existing carrier. Supported quasi-coherent/fppf comparison, flat excision and multiplicative-type H2 injectivity are separate absent contracts; reviewed SF.2 records those boundaries."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/local-cohom-flat",
@@ -4980,7 +5722,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-cohomological-excision",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "excision"
+        ],
+        "comparison": "Sheaf.H is an existing carrier. Supported quasi-coherent/fppf comparison, flat excision and multiplicative-type H2 injectivity are separate absent contracts; reviewed SF.2 records those boundaries."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/mb-stack-patching",
@@ -5008,7 +5757,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-mb-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/mb-quasiaffine-descent",
@@ -5034,7 +5790,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-mb-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/formal-loop-gluing",
@@ -5062,7 +5825,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-formal-gluing",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "gluing"
+        ],
+        "comparison": "Laurent-series algebra is present. RF4 and GS0 gluing has the Fargues–Fontaine/divisor setup; it is not the general semilocal P1 formal torsor square or the local-parabolic coset lifting theorem."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/linear-embedding",
@@ -5089,7 +5859,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-linearity-quotient",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/reductive-quotient-affine",
@@ -5116,7 +5893,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-linearity-quotient",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/p1-affine-maps",
@@ -5141,7 +5925,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-p1-cohomology",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/radical-affine-space",
@@ -5168,7 +5959,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-sga-relative",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "relative-groups"
+        ],
+        "comparison": "Tau Ceti supplies field group predicates. Upstream Layer 8 owns relative carriers; these application statements and parabolic torsor adapters are not furnished by those predicates. RG2.0a is retained as the unique Weil-restriction owner."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/popescu",
@@ -5196,7 +5994,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-popescu-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/finite-presentation-limits",
@@ -5225,7 +6030,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-popescu-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "regularity"
+        ],
+        "comparison": "Pinned regular-local and localization algebra does not supply this geometric-regularity/semilocal GS package. Popescu name hits in Gabriel–Popescu category theory are unrelated."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/equichar-gs",
@@ -5252,13 +6064,20 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-equichar-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/orthogonal-h1",
       "kind": "theorem",
       "name": "Quadratic forms and orthogonal torsor classes",
-      "statement": "Over semilocal R with 2 invertible, isometry classes of rank-n nondegenerate quadratic spaces are classified by H1(R,O_n) after choosing the split reference form; inner forms of SO_n are SO(E).",
+      "statement": "Over a semilocal ring R with 2 invertible, rank-n nondegenerate quadratic spaces are classified by H1(R,O_n), after choosing the split reference form. Twisting SO_n by an SO_n-torsor gives SO(E) for its descended oriented quadratic space E. This assertion concerns pure inner twists, not every inner form (E7).",
       "locator": "Corollary 9.6 proof",
       "status": "missing",
       "ownershipGroup": "GS",
@@ -5280,7 +6099,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "orthogonal"
+        ],
+        "comparison": "Existing ring/field quadratic forms and orthogonal linear algebra do not prove the semilocal O/SO fppf torsor classification and generic injectivity/cancellation interface."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/quadratic-cancellation",
@@ -5308,7 +6134,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "orthogonal"
+        ],
+        "comparison": "Existing ring/field quadratic forms and orthogonal linear algebra do not prove the semilocal O/SO fppf torsor classification and generic injectivity/cancellation interface."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/cthk-presentation",
@@ -5338,33 +6171,48 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/cthk-generic-projection",
       "kind": "theorem",
       "name": "Open conditions for finite and étale projection",
       "statement": "In CTHK97's affine-embedding setup, the coefficient choices making projection finite on the prescribed divisor and étale at the marked smooth points contain a nonempty open in the affine parameter space.",
-      "locator": "CTHK97 Lemmas 3.2.1–3.2.2,3.3.1,3.4.1",
+      "locator": "CTHK97 Lemma 3.2.1, Theorem 3.2.2, Lemmas 3.3.1 and 3.4.1, author PDF pp.14–16",
       "status": "missing",
       "ownershipGroup": "GEO",
       "prerequisites": [],
       "proofSteps": [
         "Use integrality for generic linear projections and tangent/Jacobian incidence codimension estimates.",
-        "The selected proof covers these sublemmas; a finer one-declaration decomposition is still required."
+        "The selected proof covers these sublemmas; a finer one-declaration decomposition is still required.",
+        "In Lemma 3.4.1 use dim E^d, not the final misprinted dim E^(d−1), for the bad Jacobian locus (E11)."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
         "sourceIds": [
           "cthk97"
         ],
-        "locator": "CTHK97 Lemmas 3.2.1–3.2.2,3.3.1,3.4.1",
+        "locator": "CTHK97 Lemma 3.2.1, Theorem 3.2.2, Lemmas 3.3.1 and 3.4.1, author PDF pp.14–16",
         "match": "Statement and proof or construction read in the indicated source passages; transitive closure is not implied."
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-cthk-granularity",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/cthk-separation",
@@ -5392,7 +6240,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-cthk-granularity",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/cthk-finite-shrink",
@@ -5406,8 +6261,8 @@
         "PAPER-CESNAVICIUS-22/cthk-separation"
       ],
       "proofSteps": [
-        "Use the finite-module Nakayama argument to obtain surjectivity of the coordinate map, then shrink.",
-        "Remove the closed unwanted loci without losing the marked points."
+        "In Lemma 3.5.1 the displayed residue coordinate-ring map is surjective, not an isomorphism (E12). Étaleness and radiciality at the finite marked fiber give equal residue fields and surjectivity on the Artinian local factors. Apply Nakayama to the finite cokernel over k[U_1,…,U_(d−1)], then shrink to obtain the closed immersion.",
+        "In Lemma 3.6.1, the pullback map to φ(T) is étale along T; it need not be étale on its entire source (E13). The section T→φ^−1(φ(T)) is open because the map is unramified along the section. Its complement is closed; finiteness makes φ(T) closed. Remove the unwanted inverse-image locus and finally intersect with the étale locus, retaining every marked point."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
@@ -5420,7 +6275,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-cthk-granularity",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/bertini-gabber",
@@ -5446,7 +6308,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-bertini-primary",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projection"
+        ],
+        "comparison": "Absolute Proj and incidence ingredients do not supply prescribed-locus finite/imperfect-field Bertini, weighted blowups or the semilocal presentation tuple. LPV.3 has a different base-field/pencil scope."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gille-p1-restriction",
@@ -5479,14 +6348,21 @@
         "PAPER-CESNAVICIUS-22/gap-gille-harder",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "Gille's 2002 proof has the gap recorded as E2, repaired in Gil05."
+      "note": "Gille's 2002 proof has the gap recorded as E2, repaired in Gil05.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gille-anisotropic-p1",
       "kind": "theorem",
       "name": "Anisotropic projective-line case",
       "statement": "For semisimple k-group G and a G-torsor on P1_k trivial at infinity, if its generic inner form is anisotropic then the torsor is trivial and G is anisotropic.",
-      "locator": "Gil02 Lemma 3.7, pp.238–239",
+      "locator": "Gil02 Theorem 3.7, pp.237–238 (not a lemma)",
       "status": "missing",
       "ownershipGroup": "GS",
       "prerequisites": [
@@ -5504,12 +6380,19 @@
           "gil02",
           "gil05"
         ],
-        "locator": "Gil02 Lemma 3.7, pp.238–239",
+        "locator": "Gil02 Theorem 3.7, pp.237–238 (not a lemma)",
         "match": "Statement and proof or construction read in the indicated source passages; transitive closure is not implied."
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gille-parabolic-type",
@@ -5538,7 +6421,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-gille-harder",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/p1-torus-classification",
@@ -5567,7 +6457,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-gille-harder",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/harder-p1",
@@ -5595,7 +6492,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-gille-harder",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "projective-line"
+        ],
+        "comparison": "Projectivization of vector spaces and absolute Proj do not give the stated P1 torsor/vector-bundle or anisotropic classification theorem; proper-curve coherent base change is an upstream import."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/opposite-generation",
@@ -5623,7 +6527,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-gille-tits",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/whitehead-factorization",
@@ -5657,7 +6568,14 @@
         "PAPER-CESNAVICIUS-22/gap-gille-tits",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
       ],
-      "note": "Gille's 2009 proof has the gap recorded as E3, repaired in his 2026 errata."
+      "note": "Gille's 2009 proof has the gap recorded as E3, repaired in his 2026 errata.",
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/whitehead-congruence",
@@ -5671,7 +6589,7 @@
         "PAPER-CESNAVICIUS-22/whitehead-factorization"
       ],
       "proofSteps": [
-        "Use the integral big cell, the opposite radicals and the split-torus elementary inclusion in the source proof."
+        "Use a one-parameter unipotent subgroup in the special fiber, conjugate its tangent direction by rational points, and use absolute simplicity and Zariski density to span the Lie algebra. Lift finitely many conjugating points by smoothness over the henselian DVR. The resulting product map from affine space has invertible differential at zero; the henselian étale lifting criterion places the congruence kernel in the elementary subgroup. This is the argument on Gil09 p.54, not an integral-big-cell proof."
       ],
       "implementationStatus": "unchecked",
       "sourceEvidence": {
@@ -5684,7 +6602,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gille-errata-anisotropy",
@@ -5714,7 +6639,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/split-torus-elementary",
@@ -5742,7 +6674,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-gille-tits",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/anisotropic-integral-points",
@@ -5770,7 +6709,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-general-henselian-BT",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/guo-parahoric",
@@ -5798,7 +6744,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-general-henselian-BT",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/guo-weak-approx",
@@ -5828,7 +6781,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-guo-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/guo-open-normal",
@@ -5854,7 +6814,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-guo-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/guo-radical-contraction",
@@ -5881,7 +6848,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/guo-complete-dvr",
@@ -5911,7 +6885,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-general-henselian-BT",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "Whitehead-BT"
+        ],
+        "comparison": "Homotopy Whitehead hits are unrelated. Field algebraic groups and the existing local-field building programme do not establish the general henselian-DVR anisotropic/Whitehead statements."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/dedekind-gs",
@@ -5944,7 +6925,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-guo-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/model-uniqueness",
@@ -5974,7 +6962,14 @@
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-guo-transitive",
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "GS"
+        ],
+        "comparison": "No matching semilocal Grothendieck–Serre result found. Local-field RG2 theory and semiglobal flag proposals have different bases and torsor scope; upstream relative groups are imported."
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/filtered-affine-h1",
@@ -6002,7 +6997,14 @@
       },
       "gaps": [
         "PAPER-CESNAVICIUS-22/gap-coverage-final-pass"
-      ]
+      ],
+      "reviewAudit": {
+        "by": "REV-PAPER-CESNAVICIUS-22",
+        "searchFamilies": [
+          "descent"
+        ],
+        "comparison": "Group-action torsors and the affine Hopf normal-subgroup fppf quotient torsor square do not provide general scheme H1 twisting, purity or flat-neighborhood stack patching. Semilocal Picard vanishing is the exception and has been reclassified library."
+      }
     }
   ],
   "prerequisites": [
@@ -6163,7 +7165,6 @@
         "PAPER-CESNAVICIUS-22/torsor-patching",
         "PAPER-CESNAVICIUS-22/unipotent-excision-kernel",
         "PAPER-CESNAVICIUS-22/unipotent-excision-surjective",
-        "PAPER-CESNAVICIUS-22/semilocal-pic",
         "PAPER-CESNAVICIUS-22/torus-gs",
         "PAPER-CESNAVICIUS-22/torus-purity",
         "PAPER-CESNAVICIUS-22/normal-etale-section",
@@ -6282,7 +7283,7 @@
         "DeformationAndDerivedPatchingAlgebra",
         "LefschetzPencilsAndVanishingCycles"
       ],
-      "brief": "Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), which is the first prerequisite. Import its schemes, smooth/étale/flat morphisms and generic descent; import finite-type relative Proj and coherent-curve interfaces from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer 2); import regular sequences, Cohen–Macaulay and dimension-flatness algebra from Deformation and derived patching algebra (DeformationAndDerivedPatchingAlgebra:R03.3). Reuse tangent/jet/incidence interfaces of Lefschetz pencils and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.3) where their scope matches; do not identify a finite-extension rational point with a point over the original finite field. Build one geometric-presentation library: arbitrary-base avoidance (3.1); arbitrary-field prescribed-locus Bertini (3.2) with separable reduced marked points, simultaneous incidence inequalities, and iterative degrees divisible by the characteristic exponent; weighted projective charts and section blowups (3.4–3.5), importing rather than rebuilding Proj; the seven separate weighted projection assertions over fields (3.6) and semilocal Dedekind bases (3.7), keeping total and fiberwise codimension distinct. The first final target is Proposition 4.1: for smooth positive-relative-dimensional A/O, finitely many points and a closed total-codimension≥2 locus, find an affine neighborhood with a smooth relative-curve map to an affine open in a disjoint union of affine O-spaces, with that locus finite over the target. The second final target is Lemma 6.3: over semilocal R, for a flat affine curve with pure one-dimensional Cohen–Macaulay fibers, finite retained Y and finite Z in the smooth locus satisfying the finite-residue degree-point inequalities, find an affine neighborhood and quasi-finite flat map to A1_R that is cartesian and an isomorphism over Z, étale along Z, and agrees on every infinitesimal neighborhood. Supply the finite-cover point-count lemma 6.1, simple residue-extension lemma 6.2 and monic-polynomial remark 6.4. Read CTHK97 §3 to closure and use the corrected p.20 argument for imperfect fields: construct embeddings of first-order thickenings by geometric presentation and disjoint translates, not an unjustified base-linear Cohen isomorphism. No generic rational-section or Grothendieck–Serre torsor target belongs to this geometry supplier. Do not assert nonflat base change for weighted blowups. The current partial extraction exposes the unverified GLL15, Gab01, EGA and commutative-algebra proof obligations; close them before declaring the design blueprint closed."
+      "brief": "Start after Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations), which is the first prerequisite. Import its schemes, smooth/étale/flat morphisms and generic descent; import finite-type relative Proj and coherent-curve interfaces from Stable reduction (tauceti:TauCetiRoadmap/StableReduction, Layer 2); import regular sequences, Cohen–Macaulay and dimension-flatness algebra from Deformation and derived patching algebra (DeformationAndDerivedPatchingAlgebra:R03.3). Reuse tangent/jet/incidence interfaces of Lefschetz pencils and vanishing cycles (LefschetzPencilsAndVanishingCycles:LPV.3) where their scope matches; do not identify a finite-extension rational point with a point over the original finite field. Build one geometric-presentation library: arbitrary-base avoidance (3.1); arbitrary-field prescribed-locus Bertini (3.2) with separable reduced marked points, simultaneous incidence inequalities, and iterative degrees divisible by the characteristic exponent; weighted projective charts and section blowups (3.4–3.5), importing rather than rebuilding Proj; the seven separate weighted projection assertions over fields (3.6) and semilocal Dedekind bases (3.7), keeping total and fiberwise codimension distinct. The first final target is Proposition 4.1: for smooth positive-relative-dimensional A/O, finitely many points and a closed total-codimension≥2 locus, find an affine neighborhood with a smooth relative-curve map to an affine open in a disjoint union of affine O-spaces, with that locus finite over the target. The second final target is Lemma 6.3: over semilocal R, for a finitely presented flat affine curve with pure one-dimensional Cohen–Macaulay fibers, finite retained Y and finite Z in the smooth locus satisfying the finite-residue degree-point inequalities, find an affine neighborhood and quasi-finite flat map to A1_R that is cartesian and an isomorphism over Z, étale along Z, and agrees on every infinitesimal neighborhood. Supply the finite-cover point-count lemma 6.1, simple residue-extension lemma 6.2 and monic-polynomial remark 6.4. Read CTHK97 §3 to closure and use the corrected p.20 argument for imperfect fields: construct embeddings of first-order thickenings by geometric presentation and disjoint translates, not an unjustified base-linear Cohen isomorphism. No generic rational-section or Grothendieck–Serre torsor target belongs to this geometry supplier. Do not assert nonflat base change for weighted blowups. The current partial extraction exposes the unverified GLL15, Gab01, EGA and commutative-algebra proof obligations; close them before declaring the design blueprint closed. Apply E8’s purity guard if using the optional dimension equality. Correct CTHK97’s dimension, residue-map and étale-neighborhood slips E11–E13. Supplier closure and declaration-sized API signatures remain required before this route is ready for design intake."
     },
     {
       "route": "part-ii",
@@ -6364,7 +7365,7 @@
         "tauceti:TauCetiRoadmap/StableReduction",
         "tauceti:TauCetiRoadmap/QuadraticFormInvariants"
       ],
-      "brief": "Begin with Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups) as the first prerequisite, especially its Layer 8 relative theory and Layer 9 split pinned integral models; do not rebuild those foundations, or the field predicates already present at the pinned commit. Import affine finite-type Weil restriction and Shapiro from Reductive groups, Part II (ReductiveGroupsPartII:RG2.0a); import torsors, twisting, torus purity, flat-neighborhood patching, supported cohomology and formal gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1, SF.2, SF.4). Import geometric presentation from the separately proposed SchemeAndStackFoundationsPartIIArithmeticPresentation and proper-curve cohomology/base change from Stable reduction (tauceti:TauCetiRoadmap/StableReduction:Layer 2). Build the exact reduction sequence: quasi-trivial Borel tori and Proposition 2.2's simply-connected reduction with the factorial strict-henselization hypothesis; curve lifting 4.2; compatible quasi-pinning and finite étale equating 5.1–5.2; presented-curve torsors 6.5; affine-line reduction 7.4; total isotropy 8.1 and the projective-line/Whitehead proof of 8.4. Proposition 8.4 must assume semilocal R, totally isotropic semisimple simply-connected G and triviality outside an R-finite closed subset. Read Gille02 with the 2005 correction, Gille09 with the 2026 correction and Guo20, including the general henselian-DVR anisotropic-point input; request the necessary extension of the existing Bruhat–Tits supplier rather than create another building or claim finite-residue local-field coverage is sufficient. The main target 9.1 is trivial kernel of H1(R,G)→H1(Frac R,G) for quasi-split reductive G, with O Dedekind and R regular semilocal flat over O with geometrically regular fibers. Prove local Theorem 1.2, completion factorization 1.3 with the stated product order, and generic splitness descent 9.3. Theorem 9.5 is a separate conditional target: every form of G_ad must have H1 injectivity; its unconditional equicharacteristic consequence imports the full Fedorov–Panin/Panin theorem, not merely 9.1. For 9.6 require 2 invertible, import field quadratic-form foundations from Quadratic forms and cohomological invariants (tauceti:TauCetiRoadmap/QuadraticFormInvariants), and build the semilocal orthogonal-torsor/cancellation adapter to prove injectivity for split SO_n and O_n and isometry descent for perfect quadratic forms. Do not assume arbitrary orthogonal inner forms are quasi-split. Conjectures 1.1 and 9.4 are not theorem targets. Keep all source gaps and the BT generality gap explicit until resolved. For claim (2) of 8.4 over a semilocal R that is not local, total isotropy gives proper parabolics only over the local rings (E4): prove the per-maximal-ideal loop lifting lemma (local-parabolic-loop-lifts) and the corrected Noetherian loop-coset surjectivity, reducing 8.4 to Noetherian R by a limit argument."
+      "brief": "Begin with Reductive groups (tauceti:TauCetiRoadmap/ReductiveGroups) as the first prerequisite, especially its Layer 8 relative theory and Layer 9 split pinned integral models; do not rebuild those foundations, or the field predicates already present at the pinned commit. Import affine finite-type Weil restriction and Shapiro from Reductive groups, Part II (ReductiveGroupsPartII:RG2.0a); import torsors, twisting, torus purity, flat-neighborhood patching, supported cohomology and formal gluing from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations:SF.1, SF.2, SF.4). Import geometric presentation from the separately proposed SchemeAndStackFoundationsPartIIArithmeticPresentation and proper-curve cohomology/base change from Stable reduction (tauceti:TauCetiRoadmap/StableReduction:Layer 2). Build the exact reduction sequence: quasi-trivial Borel tori and Proposition 2.2's simply-connected reduction with the factorial strict-henselization hypothesis; curve lifting 4.2; compatible quasi-pinning and finite étale equating 5.1–5.2; presented-curve torsors 6.5; affine-line reduction 7.4; total isotropy 8.1 and the projective-line/Whitehead proof of 8.4. Proposition 8.4 must assume semilocal R, totally isotropic semisimple simply-connected G and triviality outside an R-finite closed subset. Read Gille02 with the 2005 correction, Gille09 with the 2026 correction and Guo20, including the general henselian-DVR anisotropic-point input; request the necessary extension of the existing Bruhat–Tits supplier rather than create another building or claim finite-residue local-field coverage is sufficient. The main target 9.1 is trivial kernel of H1(R,G)→H1(Frac R,G) for quasi-split reductive G, with O Dedekind and R regular semilocal flat over O with geometrically regular fibers. Prove local Theorem 1.2, completion factorization 1.3 with the stated product order, and generic splitness descent 9.3. Theorem 9.5 is a separate conditional target: every form of G_ad must have H1 injectivity; its unconditional equicharacteristic consequence imports the full Fedorov–Panin/Panin theorem, not merely 9.1. For 9.6 require 2 invertible, import field quadratic-form foundations from Quadratic forms and cohomological invariants (tauceti:TauCetiRoadmap/QuadraticFormInvariants), and build the semilocal orthogonal-torsor/cancellation adapter to prove injectivity for split SO_n and O_n and isometry descent for perfect quadratic forms. Do not assume arbitrary orthogonal inner forms are quasi-split. Conjectures 1.1 and 9.4 are not theorem targets. Keep all source gaps and the BT generality gap explicit until resolved. For claim (2) of 8.4 over a semilocal R that is not local, total isotropy gives proper parabolics only over the local rings (E4): prove the per-maximal-ideal loop lifting lemma (local-parabolic-loop-lifts) and the corrected Noetherian loop-coset surjectivity, reducing 8.4 to Noetherian R by a limit argument. Orthogonal twists in the H1 argument are pure inner twists by SO_n-torsors; do not restate all inner forms as quadratic-space groups (E7). Use the revised finite-polynomial dilation proof of local-parabolic-loop-lifts; a spread-out denominator need not be a nonzerodivisor."
     }
   ],
   "gaps": [
@@ -6377,8 +7378,9 @@
         "PAPER-CESNAVICIUS-22/multiplicative-h2-injective",
         "PAPER-CESNAVICIUS-22/sc-reduction"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTS87 Theorems 4.1 and 4.3 are items torus-gs and multiplicative-h2-injective."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTS87 Theorems 4.1 and 4.3 are items torus-gs and multiplicative-h2-injective.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-CTS79-primary",
@@ -6389,8 +7391,9 @@
         "PAPER-CESNAVICIUS-22/curve-unipotent-reduction",
         "PAPER-CESNAVICIUS-22/quasisplit-descent-conditional"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTS79 Corollary 6.9 is item torus-purity."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTS79 Corollary 6.9 is item torus-purity.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-avoidance-primary",
@@ -6399,8 +7402,9 @@
       "neededBy": [
         "PAPER-CESNAVICIUS-22/avoidance"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. GLL15 Theorem 5.1 underlies item avoidance (Lemma 3.1)."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. GLL15 Theorem 5.1 underlies item avoidance (Lemma 3.1).",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-bertini-primary",
@@ -6411,8 +7415,9 @@
         "PAPER-CESNAVICIUS-22/bertini-smooth",
         "PAPER-CESNAVICIUS-22/bertini-degrees"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. Gab01 and Jou83 are item bertini-gabber."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. Gab01 and Jou83 are item bertini-gabber.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-cthk-granularity",
@@ -6424,8 +7429,9 @@
         "PAPER-CESNAVICIUS-22/cthk-finite-shrink",
         "PAPER-CESNAVICIUS-22/thickening-embedding"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTHK97 §3 was read by the checkpoint; splitting its sublemmas is design work."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. CTHK97 §3 was read by the checkpoint; splitting its sublemmas is design work.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-proj-geometry",
@@ -6436,8 +7442,9 @@
         "PAPER-CESNAVICIUS-22/weighted-blowup",
         "PAPER-CESNAVICIUS-22/blowup-equal-weights"
       ],
-      "status": "deferred",
-      "resolution": "An upstream request: relative Proj is owned by Stable reduction, Layer 2, and the weighted grading and base-change interface is requested there."
+      "status": "open",
+      "historicalResolution": "An upstream request: relative Proj is owned by Stable reduction, Layer 2, and the weighted grading and base-change interface is requested there.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-relative-projection-algebra",
@@ -6447,8 +7454,9 @@
         "PAPER-CESNAVICIUS-22/relative-projection-finite",
         "PAPER-CESNAVICIUS-22/curve-fibration"
       ],
-      "status": "deferred",
-      "resolution": "The proof of Variant 3.7 (pp. 13–14) was checked by cc-442dc5: the reduction to finitely generated K, why A is not zero-dimensional (in characteristic 0, A is smooth over Z), the choice of a new height-one prime, and the gluing of Spec O and Spec R along Spec K. Matsumura 12.2 and 12.6 and the EGA spreading-out results remain cited suppliers."
+      "status": "open",
+      "historicalResolution": "The proof of Variant 3.7 (pp. 13–14) was checked by cc-442dc5: the reduction to finitely generated K, why A is not zero-dimensional (in characteristic 0, A is smooth over Z), the choice of a new height-one prime, and the gluing of Spec O and Spec R along Spec K. Matsumura 12.2 and 12.6 and the EGA spreading-out results remain cited suppliers.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-presentation-algebra",
@@ -6471,8 +7479,9 @@
         "PAPER-CESNAVICIUS-22/regular-strict-ufd",
         "PAPER-CESNAVICIUS-22/finite-etale-isom-lift"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-sga-relative",
@@ -6486,8 +7495,9 @@
         "PAPER-CESNAVICIUS-22/radical-affine-space",
         "PAPER-CESNAVICIUS-22/aut-out-borel"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. SGA 3 is the upstream Reductive groups foundation."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. SGA 3 is the upstream Reductive groups foundation.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-unibranch-components",
@@ -6497,8 +7507,9 @@
         "PAPER-CESNAVICIUS-22/finite-components-unibranch",
         "PAPER-CESNAVICIUS-22/normal-etale-section"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-mb-transitive",
@@ -6509,8 +7520,9 @@
         "PAPER-CESNAVICIUS-22/mb-stack-patching",
         "PAPER-CESNAVICIUS-22/torsor-patching"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-cohomological-excision",
@@ -6520,8 +7532,9 @@
         "PAPER-CESNAVICIUS-22/local-cohom-flat",
         "PAPER-CESNAVICIUS-22/flat-excision"
       ],
-      "status": "deferred",
-      "resolution": "The argument of Lemma 7.2(a) was checked by cc-442dc5: j_* of a quasi-coherent sheaf is quasi-coherent because S is Noetherian, and local cohomology modules are I-power torsion, which is what Stacks 05E9 needs. The Stacks tags remain cited suppliers."
+      "status": "open",
+      "historicalResolution": "The argument of Lemma 7.2(a) was checked by cc-442dc5: j_* of a quasi-coherent sheaf is quasi-coherent because S is Noetherian, and local cohomology modules are I-power torsion, which is what Stacks 05E9 needs. The Stacks tags remain cited suppliers.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-giraud",
@@ -6532,8 +7545,9 @@
         "PAPER-CESNAVICIUS-22/central-cohom-sequence",
         "PAPER-CESNAVICIUS-22/unipotent-excision-surjective"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-formal-gluing",
@@ -6543,8 +7557,9 @@
         "PAPER-CESNAVICIUS-22/formal-loop-gluing",
         "PAPER-CESNAVICIUS-22/affine-line-triviality"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. It is not needed if Proposition 8.4 is first reduced to Noetherian R by the limit argument recorded under E4, since Lemma 7.1 then does the gluing."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. It is not needed if Proposition 8.4 is first reduced to Noetherian R by the limit argument recorded under E4, since Lemma 7.1 then does the gluing.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-linearity-quotient",
@@ -6555,8 +7570,9 @@
         "PAPER-CESNAVICIUS-22/reductive-quotient-affine",
         "PAPER-CESNAVICIUS-22/p1-torsor-pullback"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-p1-cohomology",
@@ -6567,8 +7583,9 @@
         "PAPER-CESNAVICIUS-22/p1-vector-trivial",
         "PAPER-CESNAVICIUS-22/p1-affine-maps"
       ],
-      "status": "deferred",
-      "resolution": "An upstream request to Stable reduction, Layer 2. Γ(P¹_R, O) = R is what makes maps P¹_R → GL_n/G constant in Lemma 8.3; the MFK94 citation is not needed for that."
+      "status": "open",
+      "historicalResolution": "An upstream request to Stable reduction, Layer 2. Γ(P¹_R, O) = R is what makes maps P¹_R → GL_n/G constant in Lemma 8.3; the MFK94 citation is not needed for that.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-gille-harder",
@@ -6580,8 +7597,9 @@
         "PAPER-CESNAVICIUS-22/gille-parabolic-type",
         "PAPER-CESNAVICIUS-22/gille-p1-restriction"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. The 2005 correction is recorded as E2."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. The 2005 correction is recorded as E2.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-gille-tits",
@@ -6592,8 +7610,9 @@
         "PAPER-CESNAVICIUS-22/split-torus-elementary",
         "PAPER-CESNAVICIUS-22/whitehead-factorization"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. The 2026 correction is recorded as E3."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. The 2026 correction is recorded as E3.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-general-henselian-BT",
@@ -6604,8 +7623,9 @@
         "PAPER-CESNAVICIUS-22/anisotropic-integral-points",
         "PAPER-CESNAVICIUS-22/guo-complete-dvr"
       ],
-      "status": "deferred",
-      "resolution": "The request for an owner or a scope extension of the Bruhat–Tits supplier stands; it is a design decision, not extraction."
+      "status": "open",
+      "historicalResolution": "The request for an owner or a scope extension of the Bruhat–Tits supplier stands; it is a design decision, not extraction.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-guo-transitive",
@@ -6617,8 +7637,9 @@
         "PAPER-CESNAVICIUS-22/dedekind-gs",
         "PAPER-CESNAVICIUS-22/model-uniqueness"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-popescu-transitive",
@@ -6629,8 +7650,9 @@
         "PAPER-CESNAVICIUS-22/finite-presentation-limits",
         "PAPER-CESNAVICIUS-22/unramified-gs"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-equichar-primary",
@@ -6640,8 +7662,9 @@
         "PAPER-CESNAVICIUS-22/equichar-gs",
         "PAPER-CESNAVICIUS-22/quasisplit-descent-equichar"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. Only the equicharacteristic consequence of Theorem 9.5 uses it."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. Only the equicharacteristic consequence of Theorem 9.5 uses it.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-quadratic-primary",
@@ -6654,8 +7677,9 @@
         "PAPER-CESNAVICIUS-22/o-injective",
         "PAPER-CESNAVICIUS-22/quadratic-isometry"
       ],
-      "status": "deferred",
-      "resolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. E7 concerns the first sentence of the proof of Corollary 9.6."
+      "status": "open",
+      "historicalResolution": "Deferred to the design job: a cited supplier's proof, and the consuming items state what is used. E7 concerns the first sentence of the proof of Corollary 9.6.",
+      "resolution": "Not resolved by independent review; retain the named source/interface obligation. Merely assigning it to a later design job does not establish coverage."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-coverage-final-pass",
@@ -6794,8 +7818,8 @@
         "PAPER-CESNAVICIUS-22/model-uniqueness",
         "PAPER-CESNAVICIUS-22/filtered-affine-h1"
       ],
-      "status": "resolved",
-      "resolution": "cc-442dc5 read the author PDF line by line (all 32 pages) and checked the list of numbered statements against the items: every numbered result is an item. The pass found E4–E7 and added one item (local-parabolic-loop-lifts). Splitting cited suppliers' statements into declaration-sized pieces is design work, recorded in the supplier gaps above."
+      "status": "open",
+      "resolution": "All 150 submitted items and the main paper were checked independently, but the admitted supplier/granularity gaps and nondeclarative API entries prevent a complete coverage claim."
     },
     {
       "id": "PAPER-CESNAVICIUS-22/gap-lean-prototypes",
@@ -6832,8 +7856,46 @@
         "PAPER-CESNAVICIUS-22/isotrivial-radical",
         "PAPER-CESNAVICIUS-22/relative-proj"
       ],
-      "status": "deferred",
-      "resolution": "No Lean deliverable is part of a paper job; the API and test statements are for the design job to validate."
+      "status": "resolved",
+      "historicalResolution": "No Lean deliverable is part of a paper job; the API and test statements are for the design job to validate.",
+      "resolution": "No Lean compilation is required by this paper-review issue. This is an execution boundary, not a missing mathematical input. The distinct API-specification gap is recorded separately."
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/gap-api-precision",
+      "title": "Declaration-sized API specifications",
+      "status": "open",
+      "detail": "The 29 definitions/constructions have 87 API entries and 87 test outlines, but most proposed names end in api1/api2/api3 and several entries only say to expose or compare unspecified data. Replace these by actual named mathematical signatures, with hypotheses, maps and equations; promote used nontrivial API facts to prerequisite items. Examples: weighted-blowup base change needs its exact flatness condition, total-isotropy must name the base-change morphisms, and quasi-pinning needs preservation equations. Three twisting API entries have been made precise by this review.",
+      "neededBy": [
+        "PAPER-CESNAVICIUS-22/regular-local",
+        "PAPER-CESNAVICIUS-22/weak-regular-sequence",
+        "PAPER-CESNAVICIUS-22/graded-proj",
+        "PAPER-CESNAVICIUS-22/field-reductive",
+        "PAPER-CESNAVICIUS-22/field-sc",
+        "PAPER-CESNAVICIUS-22/field-borel",
+        "PAPER-CESNAVICIUS-22/henselian",
+        "PAPER-CESNAVICIUS-22/sheaf-cohomology",
+        "PAPER-CESNAVICIUS-22/torsor",
+        "PAPER-CESNAVICIUS-22/relative-reductive",
+        "PAPER-CESNAVICIUS-22/quasi-pinning",
+        "PAPER-CESNAVICIUS-22/quasi-split",
+        "PAPER-CESNAVICIUS-22/central-structure",
+        "PAPER-CESNAVICIUS-22/unipotent-radical",
+        "PAPER-CESNAVICIUS-22/weil-restriction",
+        "PAPER-CESNAVICIUS-22/semilocal-base",
+        "PAPER-CESNAVICIUS-22/unramified-local",
+        "PAPER-CESNAVICIUS-22/geometric-regularity",
+        "PAPER-CESNAVICIUS-22/weighted-projective",
+        "PAPER-CESNAVICIUS-22/weighted-blowup",
+        "PAPER-CESNAVICIUS-22/presentation-square",
+        "PAPER-CESNAVICIUS-22/torsor-twisting",
+        "PAPER-CESNAVICIUS-22/unipotent-filtration",
+        "PAPER-CESNAVICIUS-22/support-cohomology",
+        "PAPER-CESNAVICIUS-22/total-isotropy",
+        "PAPER-CESNAVICIUS-22/whitehead-subgroup",
+        "PAPER-CESNAVICIUS-22/laurent-cosets",
+        "PAPER-CESNAVICIUS-22/isotrivial-radical",
+        "PAPER-CESNAVICIUS-22/relative-proj"
+      ]
     }
   ],
   "supportingSources": [
@@ -6974,7 +8036,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply the precise statements and compatible APIs of these existing-owner paper items: Right fppf torsor and nonabelian H1; Twisting and transport of torsors; Vector-group filtration; Flat-neighborhood patching for torsors; Kernel triviality for filtered smooth groups; Surjectivity for centrally filtered groups; Semilocal Picard vanishing; Generic injectivity for torus torsors; Codimension-two purity for torus torsors; Extend generic sections of finite étale schemes; Central nonabelian obstruction sequence; Moret-Bailly patching for quasi-affine-diagonal stacks; Effective quasi-affine patching; Affineness of GLn/G; Descend finite-presentation group and torsor data; Affine vanishing for vector-filtered groups. Reuse finer accepted packet nodes where available; these are requests, not claims of formalization.",
+      "need": "Supply the precise statements and compatible APIs of these existing-owner paper items: Right fppf torsor and nonabelian H1; Twisting and transport of torsors; Vector-group filtration; Flat-neighborhood patching for torsors; Kernel triviality for filtered smooth groups; Surjectivity for centrally filtered groups; Generic injectivity for torus torsors; Codimension-two purity for torus torsors; Extend generic sections of finite étale schemes; Central nonabelian obstruction sequence; Moret-Bailly patching for quasi-affine-diagonal stacks; Effective quasi-affine patching; Affineness of GLn/G; Descend finite-presentation group and torsor data; Affine vanishing for vector-filtered groups. Reuse finer accepted packet nodes where available; these are requests, not claims of formalization.",
       "neededBy": [
         "PAPER-CESNAVICIUS-22/torsor",
         "PAPER-CESNAVICIUS-22/torsor-twisting",
@@ -6982,7 +8044,6 @@
         "PAPER-CESNAVICIUS-22/torsor-patching",
         "PAPER-CESNAVICIUS-22/unipotent-excision-kernel",
         "PAPER-CESNAVICIUS-22/unipotent-excision-surjective",
-        "PAPER-CESNAVICIUS-22/semilocal-pic",
         "PAPER-CESNAVICIUS-22/torus-gs",
         "PAPER-CESNAVICIUS-22/torus-purity",
         "PAPER-CESNAVICIUS-22/normal-etale-section",
@@ -7059,13 +8120,13 @@
     }
   ],
   "coverage": {
-    "mainPaper": "All author-version sections and proofs read line by line; every numbered result is an item. Seven mistakes are recorded under sourceIssues.",
-    "sourceClosure": "supplier proofs deferred to the design jobs (see gaps)",
+    "mainPaper": "All 32 author-version pages and all 150 submitted items independently checked. Thirteen source findings confirmed; transitive supplier extraction and exact API coverage remain open.",
+    "sourceClosure": "Open mathematical supplier and granularity obligations, not discharged by deferral to a design job.",
     "definitions": 29,
     "items": 150,
-    "library": 8,
+    "library": 9,
     "planned": 10,
-    "missing": 132,
+    "missing": 131,
     "tests": 87,
     "testsExecuted": 0
   },
@@ -7108,6 +8169,14 @@
       {
         "path": "TauCeti/Algebra/AlgebraicGroup/Borel/Basic.lean",
         "scope": "Candidate, algebraically closed and general-field IsBorel definitions and isBorel_iff."
+      },
+      {
+        "path": "Mathlib/RingTheory/LocalRing/Module.lean",
+        "scope": "Independent review: finite-flat constant-rank freeness and the existing semilocal Picard triviality instance, at the pinned Mathlib commit."
+      },
+      {
+        "path": "Mathlib/RingTheory/PicardGroup.lean",
+        "scope": "Independent review: finite-flat constant-rank freeness and the existing semilocal Picard triviality instance, at the pinned Mathlib commit."
       }
     ],
     "negativeSearches": "Searched both pinned trees for Grothendieck–Serre, total isotropy, weighted blowup, Popescu, quasi-split, torsors and general reductive/affine-group interfaces. Field algebraic-group foundations do exist; no exact target matching the semilocal GS, arithmetic presentation, or general henselian-DVR theorems was located. A negative search is not a completeness proof.",
@@ -7260,8 +8329,16 @@
         "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
         "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
         "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
-      ]
+        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked author p.20 image and correction footnote, CTHK97 Theorem 3.1.1/Corollary 3.1.2, and the explicit F_p(s) coefficient-field obstruction. The statement is only an abstract Cohen isomorphism; base linearity is the failed use.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E2",
@@ -7274,8 +8351,16 @@
       "known": "Gille, Errata: « Torseurs sur la droite affine », Transform. Groups 10 (2005), 267–269, pp. 268–269",
       "searched": [
         "Gille's publication list (math.univ-lyon1.fr/~gille): erratum05.pdf, read",
-        "CES22's citation of Gil05 at the locator"
-      ]
+        "CES22's citation of Gil05 at the locator",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Gil02 printed p.239 image and all three pages of the 2005 erratum. Properness extends the generic type-I parabolic section over the regular curve P1; specialization at infinity gives the missing k-parabolic.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E3",
@@ -7287,24 +8372,40 @@
       "affects": "the proof",
       "known": "Gille, Errata et compléments (math.univ-lyon1.fr/~gille/prenotes/errata.pdf), dated 26 May 2026, p. 4, pointed out by A. Zidani",
       "searched": [
-        "Gille's errata page, version of 26 May 2026, read"
-      ]
+        "Gille's errata page, version of 26 May 2026, read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Gil09 p.54, the author errata p.4, and Guo arXiv v3 Lemma 3.4/Proposition 3.5 on p.7. The anisotropy bridge and replacement Borel–Tits reference are required; Proposition 6 is the older numbering.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E4",
       "kind": "gap",
       "locator": "Proof of Proposition 8.4, claim (2), author PDF p. 25 (the published version p. 24)",
       "printed": "For the claim (2), we first note that the isotropicity assumption implies that G has a proper parabolic subgroup P ⊂ G (see Definition 8.1).",
-      "correction": "Definition 8.1 gives a proper parabolic only over each local ring of R. Either strengthen the hypothesis for semilocal R as the author later does (each simple factor contains G_m over its own finite étale base; automatic for quasi-split G, the case Theorem 9.1 uses), or keep the hypothesis and work one maximal ideal at a time. For each m take a proper parabolic P_m of G_{R_m} and an opposite P_m^−. For Noetherian R, spread them out over R_g with g a nonzerodivisor of R_red outside m and inside the other maximal ideals, and lift points of R_u(P_m^±)(k_m((t))) to G(R((t))) through coordinates in g^N·R((t)). The lifts are 1 at the other maximal ideals. A limit argument reduces Proposition 8.4 to Noetherian R. The items state this repair.",
-      "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), since the patching over each local ring is unique. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R.",
+      "correction": "Definition 8.1 gives parabolics over the local rings. The author’s later stronger semilocal isotropy assumption supplies them globally. Alternatively retain the printed hypothesis: for Noetherian R use a local parabolic and its opposite at each maximal ideal, the corrected finite-polynomial dilation proof of local-parabolic-loop-lifts, and products of lifts that are identity at the other maximal ideals. Descend the finite data to a Noetherian semilocal base for the general case. Theorem 9.1 uses quasi-split groups, which already have a global Borel.",
+      "reason": "Example: let Ō be the semilocal ring of A¹_Q at two closed points with residue fields L₁ (cyclic cubic) and L₂ = Q(i), and R = {f ∈ Ō : f(q₁), f(q₂) ∈ Q}, a one-dimensional Noetherian semilocal domain with residue fields Q, Q. Milnor patching of M₆(Ō) with M₂(D) and M₃(H) gives an Azumaya R-algebra A of degree 6, where D is a cubic division algebra split by L₁ and H = (−1,−1)_Q. Here A is split over Frac R, and A_{R_{m₁}} ≅ M₂(D′), A_{R_{m₂}} ≅ M₃(H′), by lifting block matrix units along the local normalization, as detailed below. So G = SL₁(A), simply connected of type A₅, is totally isotropic. An R-parabolic would have a single type, since Dyn(G) is constant, proper on both closed fibres SL₂(D) and SL₃(H). Their parabolics are the flags of reduced dimensions in {3} and in {2, 4} respectively, so there is none. Theorem 9.1 is unaffected: it applies Proposition 8.4 to quasi-split G, which has a Borel over R. For the local matrix decompositions in the pinched-ring example, lift a conjugating matrix from the residue splitting field to the local normalization (GL_6 surjects onto its residue GL_6). Conjugated standard block matrix units then belong to the fiber-product algebra and give M_2(D′) or M_3(H′). This supplies the local isotropy assertion; uniqueness of patching alone is not the justification.",
       "affects": "the proof",
       "known": "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025), p. 26: the post-publication footnotes to the proof of Lemma 3.5.5 (which cites [Čes22, proof of Proposition 8.4]) and to Remark 3.5.6 say that for semilocal A the total isotropy assumption should be strengthened, because it supplies a parabolic 'only after base change to each local ring'.",
       "searched": [
         "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
         "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
         "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
-      ]
+        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked author p.25 image against Definition 8.1 and both post-publication footnotes in the later survey p.26. They explicitly identify the local-versus-semilocal gap. The extraction repair is corrected below by polynomial dilation; its earlier nonzerodivisor argument is not accepted.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E5",
@@ -7319,8 +8420,16 @@
         "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
         "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
         "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
-      ]
+        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the final display and following sentence on author p.25: the residue fields are indexed k_m, while the printed final product drops m.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E6",
@@ -7335,8 +8444,16 @@
         "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
         "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
         "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
-      ]
+        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked author p.28 image: y is produced by the displayed splitting into Aut(G,B), so Out(G,B) cannot be its target.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     },
     {
       "id": "PAPER-CESNAVICIUS-22/E7",
@@ -7344,15 +8461,143 @@
       "locator": "Proof of Corollary 9.6, first sentence, author PDF p. 28 (the published version p. 27)",
       "printed": "Every inner form of SO_n is an SO(E) for a nondegenerate quadratic space E over R of rank n.",
       "correction": "Every twist of SO_n by an SO_n-torsor is an SO(E) for such an E; these are the only twists the argument uses.",
-      "reason": "For even n ≥ 4, inner forms also come from central simple algebras with orthogonal involution. Over R = Q (allowed in Theorem 9.1 with O = Q), take H = (−1,−1) and H′ = (−1,3), non-isomorphic quaternion algebras ramified at {2, ∞} and {2, 3}. Then SO(H ⊗ H′, γ ⊗ γ′) ≅ (SL₁(H) × SL₁(H′))/μ₂ is an inner form of split SO₄. It is not an SO(E): for E of trivial discriminant, SO(E) ≅ (SL₁(C) × SL₁(C))/μ₂ with isomorphic factors. For odd n every form is an SO(E), and the proof only twists by H¹(R, SO_n).",
+      "reason": "Checked author p.28 image. Independently, over R=real numbers the inner form (SL2×SL1(H))/diagonal μ2 has Lie algebra sl2(R)⊕su2. Its Killing form has signature (2,4), whereas a rank-four quadratic space gives SO(p,q), whose signatures are (0,6), (3,3), or (4,2). Hence it is not SO(E). It is an inner form by twisting one factor of split SO4 by the Hamilton-quaternion PGL2 torsor. Only SO_n-torsor twists are required by the proof.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv 2009.05299 listing, 23 September 2026: v7 (8 November 2022) is the latest version; its comment mentions only the footnote on p. 20",
         "Crossref metadata for doi 10.1017/fmp.2022.5, 23 September 2026: no update-to, updated-by or relation entries",
         "Published version (Forum Math. Pi 10 (2022) e9): the same text at the locator",
-        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read"
-      ]
+        "Česnavičius, Problems about torsors over regular rings, arXiv 2201.06424v4 (5 May 2025): all post-publication footnotes read",
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked author p.28 image. Independently, over R=real numbers the inner form (SL2×SL1(H))/diagonal μ2 has Lie algebra sl2(R)⊕su2. Its Killing form has signature (2,4), whereas a rank-four quadratic space gives SO(p,q), whose signatures are (0,6), (3,3), or (4,2). Hence it is not SO(E). It is an inner form by twisting one factor of split SO4 by the Hamilton-quaternion PGL2 torsor. Only SO_n-torsor twists are required by the proof.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E8",
+      "kind": "error",
+      "locator": "CES22 Remark 3.3, author p.8 and published p.8",
+      "printed": "the inequality is actually an equality",
+      "correction": "Add that Y_j\\Z is pure-dimensional, or require a surviving component of maximal dimension. Keep Lemma 3.2(iii)’s unrestricted upper bound.",
+      "reason": "Over Q take X=P3, A=V(x3), C=V(x0,x1), Y=A∪C, Z=V(x2,x3)⊂A, Z1=Z, Z0=∅, t=1 and H=V(x2^N+x3^N), for any N≥1. All Lemma 3.2 conclusions hold: H is pure-dimensional and smooth off Z, and the incidence inequality holds. A∩H is supported on Z, while C∩H is a nonempty finite étale degree-N scheme disjoint from Z. Thus dim(Y\\Z)=2 but dim((Y\\Z)∩H)=0, whereas the asserted equality gives 1. This persists in arbitrarily large degree. The subsequent projection construction uses the upper bound, not this false equality.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over Q take X=P3, A=V(x3), C=V(x0,x1), Y=A∪C, Z=V(x2,x3)⊂A, Z1=Z, Z0=∅, t=1 and H=V(x2^N+x3^N), for any N≥1. All Lemma 3.2 conclusions hold: H is pure-dimensional and smooth off Z, and the incidence inequality holds. A∩H is supported on Z, while C∩H is a nonempty finite étale degree-N scheme disjoint from Z. Thus dim(Y\\Z)=2 but dim((Y\\Z)∩H)=0, whereas the asserted equality gives 1. This persists in arbitrarily large degree. The subsequent projection construction uses the upper bound, not this false equality.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E9",
+      "kind": "misprint",
+      "locator": "CES22 Proposition 3.6 proof, author pp.10 and 12",
+      "printed": "Y ∩ π(π^−1(x_i)); of (vii); (i)–(v)",
+      "correction": "On p.10 write Y∩π^−1(π(x_i)); x_i lies in X, not the projection target. On p.12 the displayed empty intersection is condition (iv), not (vii). The deduction of (vii) on p.10 also uses (vi) to retain the whole finite Y-fiber inside W, so cite (i)–(vi).",
+      "reason": "Page images confirm all three slips. The maps in the first expression have the wrong domains; the p.12 display is literally assertion (iv); containment in W in the final affine shrinking uses the avoidance assertion (vi). The item statements already use the correctly typed fibers.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Page images confirm all three slips. The maps in the first expression have the wrong domains; the p.12 display is literally assertion (iv); containment in W in the final affine shrinking uses the avoidance assertion (vi). The item statements already use the correctly typed fibers.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E10",
+      "kind": "error",
+      "locator": "CES22 Lemma 6.3 statement, author p.19 and published p.18",
+      "printed": "a flat affine R-scheme C",
+      "correction": "Require C/R finitely presented as well as flat and affine. Prop.6.5’s smooth affine relative curve has this property.",
+      "reason": "Set R=Q, C=Spec Q[[t]], Y=V(t)=Spec Q and Z=∅. The fibers are Cohen–Macaulay and pure of dimension one; Y is R-finite and the finite-residue-field point condition is vacuous. Every open containing Y is all of this local spectrum. A quasi-finite map C→A1_Q would be of finite type, hence make Q[[t]] a finitely generated Q-algebra. This is impossible: Q[[t]] is uncountable and every such algebra is countable. The proof’s two sets of closed points outside Y cannot be chosen here. Section 1.7 supplies no standing finite-presentation convention. The main theorem’s actual curve application is unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: arXiv 2009.05299 version history, latest v7 (8 November 2022), and the current author PDF; the printed passages persist.",
+        "2026-09-23: Cambridge DOI 10.1017/fmp.2022.5 article page and published PDF; the page has no erratum/correction match. Targeted title/erratum and Remark 3.3/Lemma 6.3 searches found no correction of these passages.",
+        "The later survey arXiv 2201.06424v4 p.26 corrects the distinct local-versus-semilocal parabolic issue E4. This is a bounded correction search, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Set R=Q, C=Spec Q[[t]], Y=V(t)=Spec Q and Z=∅. The fibers are Cohen–Macaulay and pure of dimension one; Y is R-finite and the finite-residue-field point condition is vacuous. Every open containing Y is all of this local spectrum. A quasi-finite map C→A1_Q would be of finite type, hence make Q[[t]] a finitely generated Q-algebra. This is impossible: Q[[t]] is uncountable and every such algebra is countable. The proof’s two sets of closed points outside Y cannot be chosen here. Section 1.7 supplies no standing finite-presentation convention. The main theorem’s actual curve application is unaffected.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E11",
+      "kind": "misprint",
+      "locator": "CTHK97 Lemma 3.4.1 proof, author-hosted bo.pdf p.16, final paragraph",
+      "printed": "dim T′i < dim E^(d−1)",
+      "correction": "The ambient parameter space is E^d, so replace d−1 by d.",
+      "reason": "For X=A2 with its standard embedding and one marked point, E has dimension 2 and the nonétale linear maps form the determinant-zero locus in E², of dimension 3. It is not of dimension less than dim E=2; it is less than dim E²=4, which is the bound used earlier in the same proof.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+        "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+        "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For X=A2 with its standard embedding and one marked point, E has dimension 2 and the nonétale linear maps form the determinant-zero locus in E², of dimension 3. It is not of dimension less than dim E=2; it is less than dim E²=4, which is the bound used earlier in the same proof.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E12",
+      "kind": "misprint",
+      "locator": "CTHK97 Lemma 3.5.1 proof, author-hosted bo.pdf p.19, first display and following sentence",
+      "printed": "is an isomorphism",
+      "correction": "The displayed map k[U_1,…,U_d]/a k[U_1,…,U_d]→B/aB is surjective. That suffices to kill the finite cokernel by Nakayama.",
+      "reason": "Already with d=1, X=A1, Z={0}, marked point 0, and φ the identity, the displayed map is k[U]→k, evaluation at zero. It is surjective and not injective. The printed proof’s next step only needs surjectivity; the geometric-presentation statement is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+        "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+        "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Already with d=1, X=A1, Z={0}, marked point 0, and φ the identity, the displayed map is k[U]→k, evaluation at zero. It is surjective and not injective. The printed proof’s next step only needs surjectivity; the geometric-presentation statement is unchanged.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
+    },
+    {
+      "id": "PAPER-CESNAVICIUS-22/E13",
+      "kind": "error",
+      "locator": "CTHK97 Lemma 3.6.1 proof, author-hosted bo.pdf p.19, opening sentence",
+      "printed": "φ|φ^−1(φ(T)) : φ^−1(φ(T)) → φ(T) is étale",
+      "correction": "This map is étale along its section T, which suffices to make T open in the preimage. Do not assert étaleness at every other point of that preimage.",
+      "reason": "Over Q let X=A1, Z=T={0}, marked point 0, and φ(x)=x(x−1)²; realize φ as a linear projection after the graph embedding into A2, as the source permits. All conditions 1–4 of Theorem 3.2.2 hold, and φ is étale at 0. But φ^−1(0) contains the nonreduced double point at 1, where the map is not étale. Along T the section remains open, so removing the complementary closed locus proves the desired shrinking lemma.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: current author-hosted https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf, pp.16 and 19, inspected as page images.",
+        "2026-09-23: Bruno Kahn publications page https://webusers.imj-prg.fr/~bruno.kahn/preprints/prep.html, entry 12, links this PDF without an erratum; Colliot-Thélène publication list and targeted title/erratum/lemma searches found no correction.",
+        "Finding is certified for the author-hosted version. A separate scan of the 1997 printed volume was not compared."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over Q let X=A1, Z=T={0}, marked point 0, and φ(x)=x(x−1)²; realize φ as a linear projection after the graph embedding into A2, as the source permits. All conditions 1–4 of Theorem 3.2.2 hold, and φ is étale at 0. But φ^−1(0) contains the nonreduced double point at 1, where the map is not étale. Along T the section remains open, so removing the complementary closed locus proves the desired shrinking lemma.",
+        "by": "REV-PAPER-CESNAVICIUS-22"
+      }
     }
   ],
   "continuations": [
@@ -7363,5 +8608,20 @@
       "date": "2026-09-23",
       "readingBoundary": "The author PDF of 8 November 2022 (SHA-256 984748e9…, re-downloaded and matched) was read line by line, all 32 pages. Gille 2002 (p. 239, page image), Gille 2005 and Gille's 2026 errata (p. 4) were read at the cited lemmas. The author's survey arXiv 2201.06424v4 was searched for post-publication corrections, and arXiv and Crossref for later versions."
     }
-  ]
+  ],
+  "review": {
+    "verdict": "revise",
+    "by": "independent-review-REV-PAPER-CESNAVICIUS-22",
+    "note": "Completed independent review. Six corrected source routes accepted; the two Part II design routes require the documented supplier/coverage/API work before intake. See the separate review report and each sourceIssues.review."
+  },
+  "independentReview": {
+    "job": "REV-PAPER-CESNAVICIUS-22",
+    "agent": "Codex",
+    "session": "codex-c83e7a",
+    "date": "2026-09-23",
+    "inputCommit": "9ef669fd08f4f27081b2e6f40f1bba8b1d2d05d0",
+    "reading": "All 32 main-author PDF pages and all 150 submitted items, proof outlines and 29 definition API/test lists. Published relevant pages checked; not a full second reading of the published PDF. Supporting primary readings: CTHK97 §3 pp.13–19; Gil02 pp.231,236–239 as images; all three Gil05 erratum pages; Gil09 p.54; consolidated Gille errata p.4; Guo v3 p.7; later Česnavičius survey p.26. Other original extraction readings retain their original attribution and are not represented as independent fresh readings.",
+    "search": "Each of the 132 originally missing items was searched in both pinned Lean source trees and the atlas via an item-specific name pattern plus independently chosen mathematical search families. One exact baseline result was recovered; 131 contracts remain missing. Read the six relevant reviewed audit entries, all cited planned/source layers, and both Part II briefs.",
+    "sourceIssues": "13 confirmed: four known corrections (E1–E4) and nine findings with no correction located in the bounded searches. E11–E13 are certified for the author-hosted CTHK97 version; the printed volume was not separately compared."
+  }
 }

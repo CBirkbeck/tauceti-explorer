@@ -1,0 +1,53 @@
+{
+  "paper": "PAPER-CESNAVICIUS-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept the four scheme/regular-map/component/affine-target source contracts in SF.0. Preserve their explicit source prerequisites; this does not assert that Popescu is already in either library."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Accept the descent/torsor contracts in SF.1 after removing semilocal-pic, already in Mathlib. General purity/patching requirements remain explicit source obligations, not duplicate torsor carriers."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the five supported/quasi-coherent/multiplicative-type cohomology source contracts in SF.2. Existing Sheaf.H and upstream proper-curve base change are imports, not planned anew."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Accept the arbitrary-base formal-gluing source contract in SF.4. Existing RF4/GS0 statements are specialized to their Fargues–Fontaine/divisor setting; require compatibility rather than duplicate that specialized construction."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept the two regular-local/CM algebra source contracts in R03.3, with corrected finitely presented curve hypotheses. The reviewed audit distinguishes existing regular-sequence carriers from missing CM/factoriality chains."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept RG2.0a as the single affine finite-locally-free Weil-restriction owner and the place for its Shapiro interface. No general nonaffine representability is inferred."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "Reject for design intake pending revision. The Part II direction is justified, but the extraction admits undecomposed CTHK projection/separation/shrinking and unverified GLL/Gabber/relative-projection chains, and its API contracts are not yet precise. The brief now has the essential finite-presentation and purity repairs E8/E10 and the CTHK proof repairs E11–E13."
+    },
+    {
+      "route": 8,
+      "verdict": "reject",
+      "reason": "Reject for design intake pending revision. The GS extension does not duplicate upstream relative group theory, but the general henselian Bruhat–Tits scope request and CTS/SGA/Gille/Guo/Popescu/equicharacteristic/cancellation extraction chains remain open. The corrected local-loop proof and pure-inner-twist restriction are concrete improvements; they do not close those remaining obligations."
+    }
+  ],
+  "notes": [
+    "Finished independent review by Codex — codex-c83e7a of another worker’s extraction; no authorship conflict. Corrected four authorized deliverables only.",
+    "150 items: 9 library, 10 planned, 131 missing; every missing item routed exactly once. All original items and API/test lists checked. Source findings E1–E13 confirmed individually.",
+    "Clear fixes applied in place: purity guard, finite presentation, pure inner twists, twisting base point, polynomial dilation, actual Whitehead congruence proof, supplier locators, and semilocal Picard baseline reuse.",
+    "Status restored to partial. Deferring unverified supplier extraction and declaration granularity is not closure. The API precision obligation is mathematical specification work; lack of a Lean compilation is not itself a defect in this paper-review job.",
+    "Review report records exact source-reading limits, correction searches, route decisions and resumption tasks. No Lean file required or compiled."
+  ]
+}
