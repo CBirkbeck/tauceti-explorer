@@ -10,7 +10,7 @@ The result has **274 items: 2 library, 52 planned and 220 missing**. The missing
 - two existing proposals, reused;
 - five source routes.
 
-The paper was read in full, and thirty-five mistakes are recorded under `sourceIssues`: 23 misprints, 6 errors and 6 gaps. None of them overturns a main theorem.
+The paper was read in full, and thirty-five mistakes are recorded under `sourceIssues`: 23 misprints, 6 errors and 6 gaps. None of them overturns a main theorem. (The review of this extraction, issue #1227, confirmed all thirty-five and added one more misprint, E36, so the file now carries thirty-six: 24 misprints, 6 errors and 6 gaps. See `research/blueprint/reviews/REV-PAPER-GUO-REINECKE-24.md`.)
 
 ## What the paper proves
 
