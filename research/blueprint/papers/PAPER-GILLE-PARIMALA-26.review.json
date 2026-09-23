@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-GILLE-PARIMALA-26",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Accept the vector-scheme convention and CTS79 Hartogs/coherence/reflexivity chain as SF.0 sources; reuse Module.IsReflexive and import the R03.3 freeness corollary."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Reject this atomic route pending direct source verification of torsor gluing (152) and finite-flat group linear quotients (153). The corrected purity proof itself was checked against CTS79 and is retained; do not discard that completed part."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Accept the specific affine additive-torsor acyclicity input in SF.2; no new cohomology carrier is proposed."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "Reject pending the distinct Lipman 1969 and 1978 inputs and their precise model/limit proofs. The owner direction is appropriate, and existing Model/local-ring carriers must be imported."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Accept affine finite-locally-free Weil restriction and smooth/etale comparisons in RG2.0a. Keep inseparable restriction separate from reductivity preservation."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Accept the generalized valued-point topology, etale chart and rank-one henselian point-descent interfaces in RG2.0. Preserve local compactness only for the original local-field hypotheses."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Accept the normal integral generic-point fundamental-group surjection as IG.0 source material, using its finite-etale Galois-category interface."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Accept the SNC coordinate-parameter Abhyankar interface in IG.1. The extraction excludes the invalid arbitrary-regular-sequence and prime-to-p-degree shortcuts now registered as E21–E22."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Accept the dimension≤2 finite-reflexive-module freeness corollary in R03.3, imported by SF.0. The zero module is included and no arithmetic coefficient-ring restriction is introduced."
+    },
+    {
+      "route": 10,
+      "verdict": "reject",
+      "reason": "Reject until the six named source/closure gaps are completed. Retain the exact final theorem and corrected Tits order, import the four general upstream interfaces removed here, and keep optional Proposition 3.11 off the main chain. Forty-two literal interfaces do not replace a complete theorem dependency graph."
+    }
+  ],
+  "notes": "Complete independent review by Codex codex-hjdg0j of work by codex-c83e7a, codex-a71f92 and Claude Code cc-442dc5. Extraction restored to partial, all 152 IDs preserved: 7 library, 8 planned, 137 missing. Four parent interfaces corrected; 42 uses/API/test records added (84 theorem clauses,126 planning tests); locators 89 and 148 corrected; all 19 inherited source findings confirmed with scoped reasons and E20–E22 added. Six explicit gaps remain. No Lean file requested or compiled; nothing is claimed formalised."
+}
