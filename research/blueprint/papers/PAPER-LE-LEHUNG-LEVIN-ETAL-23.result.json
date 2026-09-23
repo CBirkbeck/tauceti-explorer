@@ -15874,10 +15874,13 @@
       "statement": "If Γ is profinite and r:Γ→G_n(Qpbar) is continuous for the p-adic subspace topology, then its image lies in G_n(K) for some finite extension K/Qp.",
       "locator": "CHT Lemma2.1.5 first paragraph of proof, PDF10–11",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L75"
+      ],
       "implementationStatus": "unchecked",
-      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations.",
-      "proofOutline": "The compact image is Baire. Its intersections with G_n(K), as K ranges through the countably many finite extensions inside Qpbar, are closed subgroups covering it. One has interior, hence finite index. Adjoining the entries of finitely many coset representatives gives a common finite K. Baire and countability of finite p-adic extensions remain named proof suppliers."
+      "note": "Source refinement by Codex — codex-7e92bd, 23 September 2026; no Lean implementation. Owner: ArithmeticGaloisRepresentations. Continuation cc-fb70e5: prerequisites A85 and L75 added; the two named suppliers are no longer open.",
+      "proofOutline": "The compact image is Baire. Its intersections with G_n(K), as K ranges through the countably many finite extensions inside Qpbar, are closed subgroups covering it. One has interior, hence finite index. Adjoining the entries of finitely many coset representatives gives a common finite K. Both proof suppliers are now explicit: the Baire step is the pinned L75 (a compact Hausdorff space is a Baire space, and one of countably many closed covering sets has interior) and the countable cover is A85."
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A38",
@@ -17368,6 +17371,48 @@
       ],
       "prerequisites": [],
       "note": "Reuse the existing isotypicComponent carrier. The tensor-evaluation and special-block rank identification remain the explicit consumer adapter A82, rather than being claimed as these declarations themselves."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L75",
+      "kind": "theorem",
+      "name": "Existing Baire category theorem in the form: one of countably many closed covering sets has interior",
+      "statement": "In a nonempty Baire space X, if (f i) is a countable family of closed sets whose union is the whole space, then some f i has nonempty interior. A compact Hausdorff space is a Baire space, being locally compact and T2, so this applies to the compact image of a profinite group.",
+      "locator": "Pinned Mathlib/Topology/Baire/Lemmas.lean:257 (nonempty_interior_of_iUnion_of_closed, hypotheses [Countable ι], IsClosed (f i) for all i, and union = univ, in a nonempty BaireSpace) with the instance Mathlib/Topology/Baire/LocallyCompactRegular.lean:23 (BaireSpace.of_t2Space_locallyCompactSpace); supplier of LLHLM23 A37 and of CHT Lemma 2.1.5.",
+      "status": "library",
+      "library": [
+        "mathlib:nonempty_interior_of_iUnion_of_closed",
+        "mathlib:BaireSpace.of_t2Space_locallyCompactSpace"
+      ],
+      "prerequisites": [],
+      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Read in the Mathlib source at the pinned commit 082e2d3, statements and hypotheses as quoted."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L76",
+      "kind": "theorem",
+      "name": "Existing Krasner's lemma for complete nonarchimedean fields",
+      "statement": "Let L be a normed field over K with IsKrasner K L. If x, y in L are such that the minimal polynomial of x over K is separable and splits in L, y is integral over K, and ‖x − y‖ < ‖x − x'‖ for every conjugate root x' ≠ x of x, then x lies in K(y). The hypothesis IsKrasner K L holds whenever K is a complete nontrivially normed ultrametric field and L is an algebraic normed K-algebra.",
+      "locator": "Pinned Mathlib/Analysis/Normed/Field/Krasner.lean:63 (IsKrasner.krasner) with the class at :56 and the instance IsKrasner.of_completeSpace at :117; supplier of A85.",
+      "status": "library",
+      "library": [
+        "mathlib:IsKrasner.krasner",
+        "mathlib:IsKrasner.of_completeSpace"
+      ],
+      "prerequisites": [],
+      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Read in the Mathlib source at 082e2d3; the statement above is the pinned one, including the splitting hypothesis."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85",
+      "kind": "theorem",
+      "name": "Countably many finite extensions of Q_p inside a fixed algebraic closure",
+      "statement": "Fix an algebraic closure Qpbar of Q_p. The set of subfields K ⊂ Qpbar that are finite over Q_p is countable. Indeed, for each n ≥ 1 the degree-n subfields are countably many, and the union over n of countable sets is countable. Nothing stronger is claimed here: the finiteness of the number of extensions of a given degree is true but is not needed by A37, which needs only a countable cover.",
+      "locator": "LLHLM23 A37's named supplier ('countability of finite p-adic extensions'); CHT Lemma 2.1.5 first paragraph of proof, PDF10–11.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L76"
+      ],
+      "proofOutline": "Q_p has characteristic 0, so every finite K ⊂ Qpbar is separable and, by the primitive element theorem, K = Q_p(x) for some x whose minimal polynomial f over Q_p has degree n = [K:Q_p]. Since Q is dense in Q_p, choose a monic g in Q[X] of degree n whose coefficients are close enough to those of f. Root continuity makes some root y of g close to x, closer than the distance from x to any other conjugate root of x; Krasner's lemma (L76, applied with the complete field Q_p and the algebraic normed algebra Qpbar, which supplies IsKrasner) then gives x ∈ Q_p(y), and comparing degrees gives K = Q_p(y). So K is generated by a root of a polynomial over Q, and the set of such roots inside Qpbar is countable, being a countable union of finite sets. Hence the degree-n subfields are countably many, and so are all finite subfields.",
+      "implementationStatus": "Not implemented. Stated as the countability half of A37's cover; the Krasner input is pinned (L76).",
+      "note": "Continuation cc-fb70e5, 23 September 2026: supplies the two proof suppliers A37 names. No Lean implementation. Owner: ArithmeticGaloisRepresentations."
     }
   ],
   "prerequisites": [
@@ -18060,7 +18105,8 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A47",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A50",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A52",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A85"
       ],
       "reason": "Actual polarized representations, their signs and integral lattices precede polarized deformation functors. Reuse this existing common carrier and import it into GlobalGaloisDeformations G7."
     },
@@ -19470,7 +19516,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A80",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A81"
       ],
-      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. Remaining supplier obligations: Baire/countability of finite p-adic extensions; self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58."
+      "detail": "The Speh realization interface is now explicit in A79–A81 and corrected A78: Pi_i=pi_i|det|^((m_i+b_i−n−1)/2) is regular algebraic cuspidal and polarized; A80 imports its Galois representation from AG2.2; the rank-n local Langlands normalization leaves only ε^(−j), with geometric Frobenius polynomial factors q_w^j. A77 now includes Hausdorffness and an arbitrary-group image-algebra proof. These discharge the former unproved existence/algebraicity and even-b_i half-twist hypotheses at the source-interface level. The residual-positive-rank argument A62 and Whittaker consequence A73 can consume the resulting decomposition. A74–A76 already supply the coefficient/type dictionary and the actual Hecke-image point criterion. A37's two named suppliers are now closed: L75 pins Mathlib's Baire lemma in the form 'one of countably many closed covering sets has interior', with the compact-Hausdorff instance, and A85 proves countability of the finite extensions of Q_p inside a fixed algebraic closure from the pinned Krasner lemma L76. Remaining supplier obligations: self-dual-lattice quadratic-extension lemma; algebraic density/trace pairing; cofinal complete-local conjugators; principal-unit Hensel; residual polynomial recognition and split-prime Chebotarev; finite-O module topology; compact additive character duality/completeness, compatible Haar/Fubini, smooth globalization continuity and finite-place Flath factorization for A66–A73. The BC sign and BLGGT monodromy statements remain imports from existing owners. The withdrawn White preprint is not used as an unchecked replacement for these suppliers. None of these source-interface repairs certifies formal implementation. A54 now uses the explicit special-block inertia rank formula A82 and the nilpotent chain/rank suppliers A83–A84, built from pinned L69–L71. The unnecessary Clifford-orbit classification requirement is removed. The whole-isotypic versus multiplicity-space factor dim θ is explicit in A58."
     },
     {
       "id": "unitary-base-change-source-version",
