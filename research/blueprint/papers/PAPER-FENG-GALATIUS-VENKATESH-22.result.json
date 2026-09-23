@@ -772,7 +772,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 259 reads ‘for any 2g-dimensional abelian variety A, the dimension of any commutative Q-subalgebra of End(A)⊗Q is at most g’, and both halves are off: for a g-dimensional abelian variety the bound is 2g, the subalgebra acting faithfully on H₁(A, Q), so for a 2g-dimensional A it would be 4g. Semisimplicity is also needed, and the CM-order claim is about the subalgebra’s intersection with End(A), not End(A) itself — for A = E × E with E of CM type, End(A)⊗Q = M₂(K) is not commutative. The paper only applies this to L_R/L_Z with its O_E-action, where the intended statement is correct. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E2",
@@ -787,7 +792,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves. ‘Hom(O^+_q, R) … the set of real embeddings of O_q’ mis-names the object it has just defined, O_q being a CM order with no real embeddings; and q = p^n is a prime power, not a prime, so ‘the unique prime above q’ must be the unique prime above p, which is the one ramified in K_q/K^+_q. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E3",
@@ -802,7 +812,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §4.2 fixes L_Z of rank [K_q : Q] = φ(q) and calls it ‘2g = dim_Q(E)’, so ST(L, b) is an abelian variety of dimension φ(q)/2 and the functor does not land in 𝒜_{φ(q)}. The printed bound g ⩾ φ(q) is therefore weaker than what is proved, and the reduction should be to g = φ(q)/2; the statement as printed is true but not sharp, which is why this reaches nothing. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E4",
@@ -817,7 +832,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. §6.3 fixes a CM field E and lets H be its Hilbert class field; no K is introduced there, and since both w_{στ} and σw_τ extend στ, the element w_{στ}^{−1}σw_τ fixes E. So the group is Gal(H/E), which is abelian, making the superscript redundant rather than wrong. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E5",
@@ -832,7 +852,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively by the definition itself. The objects are triples (V, π, s) with π : V → M and s : M → V, and the printed condition ‘s ∘ π = id_M’ is not even well typed — s ∘ π is an endomorphism of V. The short exact sequence displayed immediately after, T → V → M with s drawn as a section of π, fixes the intended π ∘ s = id_M. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E6",
@@ -847,7 +872,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The line before reads ‘Pr ∘ (σ − id) ∘ β^{2k−1}[(L, b)] = β^{2k−1}[(X, q)]’ and the diagram that follows maps it to tr(β^{2k−1}([X] − 1)); the classes in play live in degree 4k − 2. The exponent k − 1 in the sentence is a slip for 2k − 1. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E7",
@@ -862,7 +892,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 7.8 is stated for Γ = Gal(H_∞/Q), and G is introduced only in §7.5 for the unramified-outside-p group; and the inverse limit is of the finite-level sequences of Theorem 7.1 for Gal(H_q/Q), not of (7.23), which is the G-sequence of Lemma 7.13, proved later and for a different pair of groups. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E8",
@@ -877,7 +912,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the remark’s own argument shows what was meant. Since the prime above p is principal and splits completely in H_q, |℘(q)| = [H_q : K_q] = #Cl(K_q)[p^∞], so ℘(q) is a singleton exactly when p is regular — strictly stronger than Vandiver. What the argument that follows actually characterises is the set of primes fixed by complex conjugation: if Vandiver holds, c acts by −1 on Gal(H_q/K_q), so c fixes τ𝔭 only for τ² = 1. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E9",
@@ -892,7 +932,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves. Q_p/Z_p(2k) is the 2k-th cyclotomic twist, so the Z_p^×-action is via χ_cyc^{2k}, as the rest of the same footnote presumes; and there is no Theorem 3.3 — (3.3) is the Betti–Hodge map of Theorem 3.5, which is what gives injectivity of c_B in degree 4k − 1. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E10",
@@ -907,7 +952,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the paper’s own introduction corroborates the strict inequality. Theorem 8.1 prints ‘divisible by each prime p ⩾ max_j(n_j)’, while the argument caps with ch_{n_j}(ω) = s_{n_j}/n_j! and so needs every ch_{n_j} to be Z_(p)-integral, which fails at n_j = p: by Theorem 3.5 the Adams summand is a retract of KSp(Z)^∧_p, and the class b_p with ⟨ch_p, b_p⟩ = 1/p! lifts, so ch_p is not p-integral on 𝒜_g for large g. For the distinguished index n_i = p cannot occur, p never dividing the numerator of B_{p+1} by Kummer’s congruence, but n_j = p for another part can, and then the cap product is not defined integrally. The one-part statement in the introduction, on p. 229, already reads ‘in the range when p > 2k’. So the boundary case p = max_j n_j is unproved, though not shown false — which is exactly how the finding puts it. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E11",
@@ -922,7 +972,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Theorem 8.4 is stated for a p-complete connected spectrum E, and the application is to τ_{⩾1}KSp(Z), which is of finite type but not p-complete; conversely for the p-complete E = ΣHZ_p the space X = K(Z_p, 1) with Z_p discrete has H₁(X; Z_p) = Z_p ⊗_Z Z_p ≠ Z_p = π₁(E), and Lemma 8.5’s finite-type hypothesis fails there. The other two corrections are plain: ‘integral indecomposables’ names the quotient I/(I² + Σ_k β_k(I_k²)), not the submodule, as Example 8.3 itself computes, and (8.2) needs i ⩾ 1 since I has no degree-0 part while KSp₀(Z) ⊗ Z_p = Z_p. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E12",
@@ -937,7 +992,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. The k-invariant 𝒫¹ : K(Z/p, 2) → K(Z/p, 2p) of the deloop connects π₂(Ω^∞ΣE) = π₁(X) to π_{2p−1}(Ω^∞ΣE) = π_{2p−2}(X), which is inside the truncation range, so ‘the shortest possible k-invariant is 𝒫¹’ does not make τ_{⩽2p−2}X a product of Eilenberg–MacLane loop spaces. The witness is standard: for E = ΣS^∧_p with p odd, α₁ ∈ π_{2p−3}(S) is detected by 𝒫¹, so τ_{⩽2p−1}QS² has non-trivial k-invariant and τ_{⩽2p−2}QS¹ does not split as claimed. The finding is careful to add that the conclusion of Theorem 8.4 is not contradicted in that example — the Hurewicz image of α₁ survives in the indecomposables — so what fails is the argument, not the theorem. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E13",
@@ -952,7 +1012,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Example (i) is the projective PEL Shimura variety and (ii) the family of curves with its Jacobians, so the two consequences are attached to the wrong examples: volumes of Shimura varieties belong to (i) and the Torelli map to (ii). Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E14",
@@ -967,7 +1032,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Pro-p completion lands in p-finite simplicial sets, which have finitely many components, so for X = ∐_{n∈N} Spec C the comparison fails on H₀ although H¹(−; F_p) = 0: property (iii) needs the degreewise finite-dimensionality that the criterion of A.2.2 states. That is not a formality for the objects actually used — Z(S⁰) ⊗ C has Sing^an ≃ ∐_g BSp_{2g}(Z) by Proposition A.13, whose H⁰ is infinite-dimensional — so the per-g finiteness quoted in A.5 does not suffice, and defining Et_p componentwise, as the finding proposes, is the natural repair; it is compatible with the Γ^op- and Aut(C)-functoriality, which preserve the grading by dimension. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E15",
@@ -982,7 +1052,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition A.1 asks that X({∗}) be a terminal simplicial set, i.e. a point in each degree, but the Γ-objects the paper builds do not satisfy that: for S = {∗} the category 𝒫_{{∗}}(R) has object set N with exactly one morphism between any two objects, so its nerve is contractible rather than a point, and the same holds for SP_{{∗}}(Z) and for Z({∗}), a Čech nerve. Segal’s own convention asks only for contractibility, and the homotopy theory is unaffected. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E16",
@@ -997,7 +1072,12 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves. A smooth surjection need not have smooth target — V = {xy = 0} ⊂ A² with U = V × A¹ → V is one, and V(C)^an is not a manifold — so either V must be assumed smooth, as it is in the application, or the argument must use only that f^an is a topological submersion. And the Čech nerve has U₀ = U, so U_n is the (n + 1)-fold fibre product, as Examples A.11 and A.4 say. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     },
     {
       "id": "PAPER-FENG-GALATIUS-VENKATESH-22/E17",
@@ -1012,7 +1092,23 @@
         "Crossref record of doi:10.1007/s00222-022-01127-8: no correction or update relation; a Crossref search for a correction found none",
         "arXiv 2007.15078: v3 (8 May 2022, 'revised') is the last version; its TeX matches the published text up to layout and four small corrections in §8 and Appendix A",
         "The published version (open access, CC BY 4.0) was read in full"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves. The Rosati involution is defined by the polarization ℒ, so defining it ‘by φ’ and then requiring the image of φ to be symmetric for it is circular; and |𝒜_g(C)| has continuum many path components, so one restricts to their union, not to a single one. Checked at the recorded page in the published open-access text (Invent. math. 230, 225–319). Provenance limitation: Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified; the published text was read through a rendering proxy, with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Crossref records no correction to doi:10.1007/s00222-022-01127-8.",
+        "by": "REV-PAPER-FENG-GALATIUS-VENKATESH-22"
+      }
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1267,
+    "job": "REV-PAPER-FENG-GALATIUS-VENKATESH-22",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published open-access text (Invent. math. 230 (2022), 225–319), read at every finding’s locator with the journal page map rebuilt from the running heads (94 marks, pp. 226–319). Springer’s PDF endpoint returns a JavaScript challenge page to every request made here, so the recorded SHA-256 could not be re-verified in this environment and the text was obtained through a rendering proxy. The seven declarations of the single library item were opened at the pinned commits; all twenty-six stage ids cited by the routes and the planned items, including the three Tau Ceti layer anchors, were checked against the atlas; and the Part II title was compared with its parent’s.",
+    "changes": "All 17 sourceIssues carry a review verdict and all are confirmed. Nothing else changed: no item, status, route, locator or quotation was altered.",
+    "lean": "none"
+  }
 }
