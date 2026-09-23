@@ -7254,7 +7254,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both halves. Page 38 prints `they are not quasi-finite over the rank 0 loci $X^{=0}_1$ and $X^{=0}_{\\mathrm{par}}$', where §6.4 defines only $X^{=r}_n$ and $X^{=r}_{\\mathrm{par},n}$, so the second symbol needs the level-of-reduction subscript that the first one carries. On p. 53 each of the five listed expressions closes two parentheses after $/\\mathrm{Ha}^n$ where only one is open, for instance `$\\mathrm{colim}\\,H^0(X^{\\geq1}_1,\\Omega^{(k,r+n(p-1))}(-D)/\\mathrm{Ha}^n))$'; the superscript and the $(-D)$ are balanced on their own, so the extra bracket is unmistakable. All six items are typographical.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E52",
@@ -7269,7 +7274,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, all nine, each located on its page: `sufaces' (p. 38), `locally free shaves' (p. 41), `We keep writting' (p. 42), `contains a mutliplicative group' (p. 45), the unclosed bracket after `as in the proof of proposition 7.4.1.1.' (p. 48), the doubled closing bracket in $\\Omega^{(k,p^2+p))}(-D)$ in Remarks 8.1.1 and 8.1.2 (pp. 51–52), `the top and bottom vertical lines of this diagram' (p. 51), $\\Omega^{k,r}(-D)$ without its brackets (p. 52) and `we would have deduce that' (p. 52). The weight in the two remarks is right as $p^2+p$, since $(p+1)+(p^2-1)=p^2+p$, so only the bracket is wrong; and in the p. 51 diagram the rows carry the cohomology of $X_1$ and of $X_{\\mathrm{par},1}$ while the columns are $T_1$, so `vertical lines' can only mean the rows. None has mathematical content.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E53",
@@ -7284,7 +7294,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `On the components where $G\\to G'$ has kernel a group of $p$-rank two, the map $p_2^\\star\\Omega^{(k,r)}\\to p_1^\\star\\Omega^{(k,r)}$ factors through $p^{(k+2r)}p_1^\\star\\Omega^{(k,r)}$'. The kernel has order $p^3$ inside $G[p]\\cong\\mu_p^2\\times(\\Z/p)^2$ at an ordinary point, so the only two possibilities are multiplicative rank 1 with étale rank 2 and multiplicative rank 2 with étale rank 1. The first is the case the proof has just treated, which it names `kernel a group of étale rank two', and $p$-rank standardly means the étale rank, so as printed the second paragraph names the same case again. The finding's reading, étale rank one, is the only one that leaves the two cases exhaustive, and it matches the divisibility asserted there. A naming slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E54",
@@ -7299,7 +7314,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on the p. 40 half, which is the finding's own locator: the page prints `which implies that the map $p_2^\\star\\mathcal O_{X_{\\mathrm{par}}}\\to p_1^!\\mathcal O_{X_{\\mathrm{par}}}$ factors through $pp_2^!\\mathcal O_{X_{\\mathrm{par}}}$ at these points'. Since §7.1 sets $p_1:X_{\\mathrm{Kli}(p)}\\to X$ and $p_2:X_{\\mathrm{Kli}(p)}\\to X_{\\mathrm{par}}$, the functor $p_1^!$ takes sheaves on $X$ and $p_1^!\\mathcal O_{X_{\\mathrm{par}}}$ is ill-typed; the claim two lines earlier is stated for $p_2^\\star\\Omega^{(k,r)}\\to p_2^!\\Omega^{(k,r)}$ and the third term of the same sentence already has $p_2^!$. The p. 43 half is printed as quoted too, and is recorded separately as E55; the two findings agree.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E55",
@@ -7314,7 +7334,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `The right square is commutative because it is obtained by tensoring the normalized fundamental class $p_2^\\star\\mathcal O_{X_1}\\to p_2^!\\mathcal O_{X_1}$ with the morphism $\\Omega^{(k,r)}\\to\\Omega^{(k,r+(p-1))}$.' In §7.4 the map is $p_2:X_{\\mathrm{Kli}(p)_1}\\to X_{\\mathrm{par},1}$, so its fundamental class is a map between sheaves pulled back from $X_{\\mathrm{par},1}$; the parallel sentence for the first diagram on p. 42 reads $p_1^\\star\\mathcal O_{X_1}\\to p_1^!\\mathcal O_{X_1}$ and is correct as it stands, which is plainly where the wrong subscript came from. E54 lists the same slip alongside its p. 40 counterpart.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E56",
@@ -7329,7 +7354,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page. In the first diagram of exact triangles the left vertical arrow is labelled $p_2^\\star\\mathrm{Ha}$ and the right one $p_1^\\star\\mathrm{Ha}$, and in the second the labels are $p_1^\\star\\mathrm{Ha}$ and $p_2^\\star\\mathrm{Ha}$. The right-hand column of the first diagram consists of sheaves on $X_1$ — it runs $\\Omega^{(k,r)}\\to\\Omega^{(k,r+(p-1))}\\to\\Omega^{(k,r+(p-1))}|_{X^{\\leq1}_1}$ — so the map there is multiplication by $\\mathrm{Ha}(G)$ itself, whereas $p_1^\\star\\mathrm{Ha}$ is a section over $X_{\\mathrm{Kli}(p)_1}$ and cannot label an arrow between sheaves on $X_1$. The same applies to the second diagram with $\\mathrm{Ha}(G')$ on $X_{\\mathrm{par},1}$. A label slip; the diagrams commute with the corrected labels, which is what §6.4's description of $X^{\\leq1}_1$ as the vanishing locus of $\\mathrm{Ha}(G)$ requires.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E57",
@@ -7344,7 +7374,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the proof of Lemma 7.4.2.3 opens `Over $X^{=1,oo}_{\\mathrm{par},1}$ we consider $K(\\lambda)$ the kernel of the quasi-polarization'. The lemma is the statement that $X^{=1}_{\\mathrm{par},1}$ decomposes into the two kinds of components $X^{=1,oo}_{\\mathrm{par},1}$ and $X^{=1,m-et}_{\\mathrm{par},1}$, so those pieces are its conclusion and cannot be the domain its proof starts from; neither symbol occurs earlier in the paper. The argument that follows — classify $K(\\lambda)$, then $\\ker F$ inside it, then apply Lemma 7.4.2.1 — is exactly an argument over all of $X^{=1}_{\\mathrm{par},1}$. E58 records a separate gap in the same proof, about the semi-abelian case at the boundary; the two findings are about different clauses and do not conflict.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E58",
@@ -7379,7 +7414,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `Let $A=Y^{=1}_{\\mathrm{par},1}$ and $\\hat A$ be the completion of $Y_{\\mathrm{par},1}$ along this locally closed subscheme. Let $B=Y^{=1}_1$ and $\\hat B$ be the completion of $Y_1$ along $B$. The ideal of definition of $\\hat A$ and $\\hat B$ are $(p,\\mathrm{Ha}.\\omega^{(1-p)})$.' By the notation of §6.4 the subscript 1 is reduction mod $p$, so $Y_1$ and $Y_{\\mathrm{par},1}$ are $\\F_p$-schemes on which $p$ is already zero and the printed ideal of definition makes no sense; and the proof goes on to use that $\\hat B$ is regular and $p_1$ finite flat onto it, which is a statement about the $p$-adic formal completion of the $\\Z_p$-scheme. Completing $Y_{\\mathrm{par}}$ and $Y$ instead, as the finding proposes, makes both the ideal and the flatness argument correct and changes nothing else.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E60",
@@ -7394,7 +7434,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page, which prints $\\mu':\\C^2\\xrightarrow{\\psi\\otimes1}e^\\star\\Omega^1_{\\tilde A}\\otimes\\C\\xrightarrow{d\\xi^{-1}}e^\\star\\Omega^1_{\\tilde A/L}\\otimes\\C$ with the first label $\\psi\\otimes1$. The sentence immediately before introduces $\\mu:W(l)^2\\simeq e^\\star\\Omega^1_{\\tilde A}$ as the trivialisation in the formula $T_1^{oo}f(\\tilde A,\\mu)=p^{-2-r}\\sum f(\\tilde A/L,\\mu')$, and no $\\psi$ is defined anywhere as a trivialisation of $e^\\star\\Omega^1$, so $\\mu\\otimes1$ is the only thing the arrow can be. The rest of the construction — inverting $d\\xi$ after tensoring with $\\C$, then reading off the elementary divisors $(p,\\varpi)$ — is unaffected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E61",
@@ -7409,7 +7454,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed in all the listed places: the display before Proposition 7.4.2.2 and the proposition itself have $T_1:p_2^\\star\\Omega^{(k,r)}|_{X^{=0}_{\\mathrm{par},1}}\\to p_1^!\\Omega^{(k,r)}|_{X^{=0}_1}$, and the same restriction reappears in §8.1. §6.4 gives $X^{=r}_n$ only as a locally closed subset, with no scheme structure, whereas the schematic structures the paper actually specifies are for $X^{\\leq1}$ (the vanishing of $\\mathrm{Ha}$) and $X^{\\leq0}$ (the vanishing of $\\mathrm{Ha}'$). The correspondence is obtained by tensoring with $\\mathcal O_{X^{=0}_1}$ for the ideal generated by $p$ and lifts of $\\mathrm{Ha}$ and $\\mathrm{Ha}'$ — which is the proof's own description on p. 49, and is $X^{\\leq0}_1$ — and the third column of the long exact sequences on pp. 49 and 51 is already printed with $X^{\\leq0}$. So the $=0$ superscripts in these places are the slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E62",
@@ -7424,7 +7474,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page. The displayed definition prints the superscript as the two upright digits $00$, in $T_1^{00}f(\\tilde A,\\mu)=\\frac1{p^{2+r}}\\sum_{L\\subset\\tilde A[p],\\,L^\\perp\\ \\mathrm{biconnected}}f(\\tilde A/L,\\mu')$, while six lines below the same operator appears as $T_1^{oo}f(\\tilde A,\\mu)\\bmod p=0$, and the diagram on p. 47, Remark 7.4.2.1 and the proof of Corollary 7.4.2.1 all use $oo$. The notation comes from the decomposition $S=S^{et}\\amalg S^m\\amalg S^{oo}$ of Lemma 7.4.2.1, so the intended superscript is unambiguous. A font slip in one display.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E63",
@@ -7439,7 +7494,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `Corollary 7.4.2.1. — We have $T=T_1\\circ T_2=T_1^{et}\\circ T_2^{et}$ as endomorphisms of $H^\\star(X^{=1}_1,\\omega^{(k,r)})$'. §6.2.1 defines $\\Omega^{(k,r)}=\\mathrm{Sym}^k\\omega_G\\otimes\\det{}^r\\omega_G$ and reserves $\\omega^r$ for $\\Omega^{(0,r)}$; a bundle $\\omega^{(k,r)}$ is never defined, and this is its only occurrence in the paper. The sheaf that $T_1$ and $T_2$ act on throughout §7 is $\\Omega^{(k,r)}$. A notational slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E64",
@@ -7454,7 +7514,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We have established in lemma 7.1.1 that the composite $\\Theta_{k,r}\\circ\\Psi_{k,r}$ is divisible by $p^{2+r}$ when $r\\geq1$'. Lemma 7.1.1 states the divisibility under $k+2r\\geq2+r$, and the normalisation on p. 39 is made `Under the assumption $k+2r\\geq2+r$ (which holds if $r\\geq2$)', so the hypothesis recalled here is not the one that was proved. The condition is $k+r\\geq2$, and the finding is right that nothing turns on it in this proof, where $r\\geq p^2+p$ is in force.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E65",
@@ -7469,7 +7534,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on both counts, from the page. The proof prints `Set $M_2=p_2^\\star\\Omega^1(\\mathrm{Spec}\\,A)$, $M_3=p_1^\\star\\Omega^1(\\mathrm{Spec}\\,A)$, $M_1=p_1^!\\Omega^1(\\mathrm{Spec}\\,A)$' and then `Let $\\mathfrak p_1,\\cdots,\\mathfrak p_r$ be the minimal prime ideals in $\\mathrm{Spec}\\,A/I$'. $M_1$ is used only as the target of $\\Theta_{k,r}$, whose target is $p_1^!\\Omega^{(k,r)}$, so $\\Omega^1$ is the wrong sheaf there while $M_2$ and $M_3$ need $\\Omega^1$ for the sentence $d\\Psi(M_2)\\subset\\mathfrak p_iM_3$; and the letter $r$ is simultaneously the number of minimal primes and the weight, which collides in the very next display $\\bigcap_ip^r\\mathfrak p_i^k$. The finding's repairs are the minimal ones and leave the Artin–Rees argument untouched. Its third remark, that `when $r\\geq1$' should be Lemma 7.1.1's hypothesis, duplicates E64 and agrees with it.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E66",
@@ -7484,7 +7554,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the last paragraph of the proof of Proposition 7.4.2.2 says `the map of the lemma for the level $K_1$ is obtained by base change from the same map at level $K_2$' and `The map of the lemma is supported on the $p$-rank 0 locus'. What is being proved is a proposition, as the same paragraph says in `constants that fulfill the conclusion of our proposition', and p. 49 refers to the correspondence as `the map … of the proposition'. The only lemma in the vicinity is Lemma 7.4.2.6, which asserts $\\ker F\\subset L$ and involves no map. A wording slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E67",
@@ -7499,7 +7574,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the weight is decidable. The resolution displayed at the head of the proof uses $\\Omega^{(k,r+(p-1)n)}$, and the complex derived from it three lines later uses $\\Omega^{(k,r+(p-1)n)}$ again, but the two sentences in between print $\\mathrm{colim}_{n,\\times\\mathrm{Ha}}\\Omega^{(k,r+(p^2-1)n)}(-D)$ and $\\mathrm{colim}_n\\Omega^{(k,r+(p^2-1)n)}(-D)/(\\mathrm{Ha})^n$. Since $\\mathrm{Ha}(G)\\in H^0(X_1,\\omega^{p-1})$, multiplication by $\\mathrm{Ha}$ raises the weight by $p-1$; $p^2-1$ is the weight of the second Hasse invariant $\\mathrm{Ha}'$, which is not the section used in this colimit. So the two middle sentences carry the wrong exponent, as the finding says.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E68",
@@ -7514,7 +7594,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `the data of $h'$ provides a deformation $\\tilde G[p^m]_{T'}$ to $T'$ of $\\tilde G^D[p^n]|_T$'. The map being deformed is $\\psi_T:\\tilde G^D[p^m]|_T\\to H^D_m|_T$, introduced on the previous page, and the extension produced is $\\psi_{T'}:\\tilde G^D[p^m]|_{T'}\\to H^D_m|_{T'}$, so what Illusie's theorem needs is a deformation of $\\tilde G^D[p^m]|_T$; the printed phrase names a deformation of one object as a deformation of a different one, and the exponent $n$ is the truncation level of $X^{\\geq1}_n$, unrelated to $m$. The finding's repair is the only reading under which the sentence is about the source of $\\psi_T$. A typographical slip in a routine step.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E69",
@@ -7529,7 +7614,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `The non vanishing locus of this section is the open subscheme $(Z')^m$ of $Z$ where $C/H_{m-1}$ is of multiplicative type.' The section is $s\\in H^0(Z',\\mathcal L^{(p-1)})$, constructed on $Z'$, the closed subscheme of $Z$ where $C[p^{m-1}]=H_{m-1}$, so its non-vanishing locus is open in $Z'$ and only locally closed in $Z$. The very next sentence uses the correct version, factoring $(Z')^m\\to X^{\\geq1}_{\\mathrm{Kli}}(p^{m-1})_1$ through `the affine open immersion $(Z')^m\\hookrightarrow Z'$'. A dropped prime. E70 records a separate gap in the construction of $\\mathcal L$ on the same page; the two are about different clauses.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E70",
@@ -7564,7 +7654,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed. Page 55 prints `By Illusie's deformation theory ([37], thm VII, 4.2.5)', and entry $[37]$ on p.\\u202f111 is `Complexe cotangent et d\\u00e9formations I, Lecture Notes in Mathematics, Vol.\\u202f239, Springer-Verlag, Berlin, 1971'. Chapter VII, `D\\u00e9formations \\u00e9quivariantes de $G$-sch\\u00e9mas et d\\u00e9formations de sch\\u00e9mas en groupes', is in the second volume, LNM 283 (1972); volume I contains chapters I\\u2013IV. So the chapter cited is not in the volume cited. The entry can stay as it is for its other use on p.\\u202f16, where `[37], prop.\\u202f3.2.9' for the cotangent complex of an lci morphism is in volume I, which is the reason a second entry is the right fix rather than changing $[37]$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E72",
@@ -7579,7 +7674,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and the omission lets in objects the paper does not intend. The definition prints `$L\\subset G[p^2]$ is totally isotropic, $L[p]$ is of rank $p^3$ and $L\\cap H_m=\\{0\\}$', with no bound on the order of $L$. Every subgroup of $G[p]$ is totally isotropic in $G[p^2]$ for the $p^2$-Weil pairing, since for $x=p\\tilde x\\in G[p]$ and $y\\in G[p]$ one has $e_{p^2}(x,y)=e_{p^2}(\\tilde x,y)^p=e_{p^2}(\\tilde x,py)=1$; so an $L\\subset G[p]$ of order $p^3$ complementary to $H_1$ satisfies all three printed conditions and is not what is wanted. Lemma 10.1.1, immediately below, decomposes $L$ into a $\\mathrm{BT}_1$ of height 2 and an \\u00e9tale part locally $\\Z/p^2$, giving order $p^4$, and footnote 16 on p.\\u202f60 calls it `the universal rank $p^4$ subgroup'. So the Lagrangian condition is meant and is missing. The finding is also right to keep the $L[p]$ condition, which excludes the Lagrangians of type $(\\Z/p^2)^2$, and to keep the \\u00e9tale-local description out of a definition over a base where $p$ is nilpotent.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E73",
@@ -7594,7 +7694,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the classical fact is stated for a finite flat $M\\to S$, and the proof that follows reads `By assumption, $G$ is killed by $p$ and it follows that the Frobenius map $F:G\\to G^{(p)}$ factors into a map $G\\to\\ker(V:G^{(p)}\\to G)$. We have to prove that the morphism $G\\to\\ker(V:G^{(p)}\\to G)$ is faithfully flat.' In \\u00a710.1 the letter $G$ is the abelian surface of the triples $(G,H_m,L)$ with $L\\subset G[p^2]$, which is not killed by $p$, so the hypothesis invoked is false for the $G$ in scope and the argument is about $M$. The finding is right to stop the substitution there: the next paragraph's $L[p]\\oplus H_1=G[p]$ does mean the abelian surface. A letter slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E74",
@@ -7609,7 +7714,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: the sentence before names $K(\\lambda')$ and its multiplicative subgroup $K(\\lambda')^m$, and the defining condition is then written $\\ker(G'\\to G)\\cap K(\\lambda)^m=\\{0\\}$ with the prime dropped. On $\\mathfrak X$ the polarization $\\lambda$ of $G$ is principal, so $K(\\lambda)=0$ and the printed condition would be vacuous, which is not what the surrounding text constructs \\u2014 it is defining the open and closed piece where $\\ker(G'\\to G)$ is not multiplicative. A dropped prime.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E75",
@@ -7644,7 +7754,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as to substance. The proof ends by deducing flatness from the regularity of $\\mathfrak Y^{\\geq1}_{\\mathrm{Kli}}(p^m)$ and the Cohen\\u2013Macaulayness of $\\mathfrak C_{\\mathfrak Y}(p^m)$, which is miracle flatness; that is Theorem 23.1 of Matsumura's Commutative Ring Theory, entry $[53]$, whose results are numbered by section, so there is no Theorem 2.3.1 in it. The text layer of the page truncates at the bracketed reference number, so I am taking the printed `chap.\\u202f23, thm.\\u202f2.3.1' from the finding's render; the section number 23 that it does print is right, which is what makes the transposition to `2.3.1' the natural reading. E75 records the separate gap in the same proof, that the Cohen\\u2013Macaulayness itself is not established; the two do not conflict.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E77",
@@ -7659,7 +7774,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I verified the exponents independently by calibrating against the paper's own analogous computation. Page 60 prints the ring as $W(\\bar\\F_p)[[X,Y,Z,X',Y',Z']]/((1+X')^p-1-X,(1+Z')^{p^2}-1-Z,Y'-Y)$, and the diagram at the top of p.\\u202f61 has left vertical $\\mathrm{diag}(p^2,p)$ and right vertical $\\mathrm{diag}(1,p)$. Writing the Serre\\u2013Tate parameter as a matrix $M$ and the commutativity as $\\alpha\\circ q=q'\\circ\\beta$ with $\\alpha=\\mathrm{diag}(1,p)$ on the target and $\\beta$ the left vertical, the $(1,1)$ entry gives $1+X=(1+X')^{p^2}$ and the $(2,1)$ entry gives $1+Z=(1+Z')^{p}$. The same computation applied to the corresponding diagram on p.\\u202f39, where $\\beta=\\mathrm{diag}(p,p)$, reproduces the relations printed there, $(1+X')^p-1=X$ and $(1+Z')^p-1=Z$, which confirms the convention. So the two exponents are interchanged on p.\\u202f60 and the diagram on p.\\u202f61 is right as printed, exactly as the finding says. The conclusion, that division by $p^3$ preserves integrality of the trace, is unaffected.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E78",
@@ -7674,7 +7794,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, and the sentence contradicts its own parenthesis: `the intersection of the boundary and the non-ordinary locus is of codimension 1 in the special fiber and the boundary is flat over $\\mathrm{Spf}\\,\\Z_p$ (in other words, in the spectrum of the local rings \\u2026 the intersection of the boundary and the non-ordinary locus is of codimension at least 2)'. Codimension 1 and codimension at least 2 cannot both be meant in the same ambient space; the reading that makes both true is the finding's, codimension 1 inside the boundary and hence 2 inside $\\mathfrak C^1(p^m)$, which is also the count the argument needs in order to extend the fundamental class. HAL v3's different wording at the same place is consistent with this being a rephrasing that lost a qualifier.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E79",
@@ -7689,7 +7814,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: $U_2\\in\\mathrm{Hom}(\\mathrm R\\Gamma(X^{=1}_1,\\Omega^{(k,r)}),\\mathrm R\\Gamma(X^{m-et,=1}_{\\mathrm{par},\\mathrm{Kli}}(p),\\Omega^{(k,r)}))$, with no reduction subscript on the target, while $U_1$ two lines above carries $(p)_1$ on its source and the correspondence diagram above has $X^{m-et,=1}_{\\mathrm{par},\\mathrm{Kli}}(p)_1$ as its vertex. Everything in \\u00a710.5.2 is over the special fibre. A dropped subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E80",
@@ -7704,7 +7834,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `The universal isogeny over $\\mathfrak C^1(p^\\infty)$ or $C^1(p^m)_n$ induces an isomorphism $q_2^\\star H_m\\to q_1^\\star H_m$'. By \\u00a710.2 the map $q_2$ lands in $X^{m-et}_{\\mathrm{par},\\mathrm{Kli}}(p^m)$, whose universal subgroup is $H'_m\\subset G'$, so $q_2^\\star H_m$ names a pullback of a sheaf that does not live on the target of $q_2$; the diagram in \\u00a710.4 is $H_m\\to H'_m$ over $G\\to G'$. As the finding notes, only the prime is missing, since an isomorphism may be written either way round and the printed direction is the one matching the contravariant $q_2^\\star\\mathcal F^\\kappa_{m,n}\\to q_1^\\star\\mathcal F^\\kappa_{m,n}$.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E81",
@@ -7719,7 +7854,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on all three parts, from the page. The proof of Lemma 11.1.1.3 prints `$\\Theta:s_2^\\star\\Omega^{(k,r)}\\to s_1^!\\Omega^{(k,r)}$ factors through $p^{6+2r+k}p_1^!\\Omega^{(k,r)}$', mixing the correspondence's own projections $s_1,s_2$ with the $p_1$ of \\u00a77.1, which is not in play here. It also prints $s_2(G,H,L,L')=((G/L)/L',(G/L[p])/L')$, whose second component cannot be parsed as written since $L'\\subset(G/L)[p^2]$ is not a subgroup of $G/L[p]$; and it prints $G[p]/L\\subset L'$ and $(G,L)\\mapsto(G/L,G[p]/L)$, where $L$ has order $p^4$ and is not contained in $G[p]$, so the quotient is undefined and the image $(G[p]+L)/L$ is meant \\u2014 which is what the author himself writes in the condition on $L'$ on the same page. All three are notational, and the divisibility computation is unaffected. E82 records the second of the three separately and agrees.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E82",
@@ -7734,7 +7874,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We have two projections $s_1(G,H,L,L')=(G,H)$, $s_2(G,H,L,L')=((G/L)/L',(G/L[p])/L')$.' Read as written the second component is a quotient of $G/L[p]$, but $L'$ lies in $(G/L)[p^2]$ and is not a subgroup of $G/L[p]$, so the expression has no meaning; what is needed is a Klingen structure on $(G/L)/L'$, i.e.\\ the image of $(G/L)[p]$ there. A bracketing slip. E81 lists the same slip among three of its kind; the two agree.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E83",
@@ -7824,7 +7969,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: point 6 of Theorem 11.2.1 reads `$eH^i(\\mathfrak X,\\Omega^{(k,2)}(-D))\\to eH^i(\\mathfrak X^{\\geq1},\\Omega^{(k,r)}(-D))$ is bijective for $i=0$ and injective if $i=1$', with the weight changing across a map that has to be the restriction. Point 5 states the corresponding statement for $r\\geq3$ with the same weight on both sides, and point 6 is the $r=2$ case that survives the weaker hypothesis, which is how it is used in Theorem 11.3.1(4). A slip in one subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E88",
@@ -7839,7 +7989,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `Finally, we deduce 7 by another application of proposition 2.2.2.' Point 7 asserts that $f\\mathrm R\\Gamma(\\mathfrak X^{\\geq1}_{\\mathrm{Kli}}(p),\\Omega^{(k,r)}(-D))$ is perfect of amplitude $[0,1]$, and Proposition 2.2.2 on p. 9 is Nakayama's lemma for complexes, which upgrades a mod-$\\mathfrak m_R$ quasi-isomorphism to a quasi-isomorphism and cannot produce perfectness on its own. The statement that does is Proposition 2.2.1 on the same page: an object of $C^{\\mathrm{flat}}(R)$ in degrees $[a,b]$ whose reduction has finite cohomology is quasi-isomorphic to a perfect complex in those degrees. For $r\\geq3$ point 7 is also a formal consequence of points 4 and 5 together with the properness of $\\mathfrak X$, so the gap is real only at $r=2$, which is the case the paper goes on to need. The finding's replacement is the right one and uses only results already available at that point.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E89",
@@ -7854,7 +8009,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed on all four items, each printed as quoted. (i) The resolution on p. 71 twists twice by $-D$ in its middle and right terms, `$\\mathrm{colim}_l\\mathcal F^\\kappa_{m,n}(-D)\\otimes\\omega^{2+lp^{n-1}(p-1)}(-D)$', where the model resolution on p. 70 has a single twist. (ii) The exact sequence on pp. 72 and 73 prints the quotient as $\\mathcal F^k_{1,1}(-D)$ without the $\\otimes\\omega^2$ that §10.7 gives it. (iii) The bottom-right corner of the $(U^m)'$ diagram on p. 72 prints $\\mathcal F^\\kappa_{1,1}$ where the other three corners are in the fixed integral weight $k$. (iv) $\\Omega^{(k,r)}$ appears four times in a section whose first sentence is `We specialize to $r=2$'. All four are notational. This finding overlaps E93 (item ii) and E95 (item iii), which record those two slips on their own; the three agree, and E92 concerns a different corner of the same diagram.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E90",
@@ -7909,7 +8069,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page, where the index order is legible: the top-right entry of the first diagram prints $H^0(X_{\\mathrm{Kli}}(p)^{\\geq1}_1,\\mathrm{colim}\\,\\mathcal F^k_{1,1}\\otimes\\omega^{2+l(p-1)}(-D)/\\mathrm{Ha}^l)$, with the $\\geq1$ after $\\mathrm{Kli}(p)$, while the two entries below it in the same column and the surrounding text all write $X^{\\geq1}_{\\mathrm{Kli}}(p)_1$. No space $X_{\\mathrm{Kli}}(p)^{\\geq1}_1$ is defined, and the meaning is not in doubt. A placement slip.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E93",
@@ -7924,7 +8089,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed, twice: `$0\\to K\\Omega^{(k,2)}(-D)\\to\\Omega^{(k,2)}(-D)\\to\\mathcal F^k_{1,1}(-D)\\to0$' on p. 72 and again on p. 73. §10.7 states the sequence as $0\\to K\\Omega^{(k,r)}\\to\\Omega^{(k,r)}\\to\\mathcal F^k_{n,n}\\otimes\\omega^r\\to0$, and §9.4 defines $K\\Omega^{(k,r)}=K\\Omega^{(k,0)}\\otimes\\omega^r$, so at $n=1$, $r=2$ the quotient is $\\mathcal F^k_{1,1}\\otimes\\omega^2$. The diagram immediately below the first occurrence uses $\\mathcal F^k_{1,1}\\otimes\\omega^2(-D)$ in its top row, which settles the intent. A dropped tensor factor.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E94",
@@ -7939,7 +8109,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as printed: `We have two projections $z_1:C_m\\to X^{\\geq1}_{\\mathrm{Kli}}(p)_1$ defined by $z_1(G,H_1,G_m)=(G,H_1)$ and $z_2:C\\to X^{\\geq1}_{\\mathrm{Kli}}(p)_1$ defined by $z_2(G,H_1,G_m)=(G_m,\\mathrm{Im}(H_1))$.' The correspondence introduced two sentences earlier is $C_m$, $z_2$ is evaluated on its triples, and the lift in the next sentence is written $z_2:C_m\\to X^{\\geq1}_{\\mathrm{Kli}}(p^m)_1$; no object $C$ is in scope. A dropped subscript.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E95",
@@ -7954,7 +8129,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed from the page: the bottom-right corner of the $(U^m)'$ diagram prints $\\mathrm R\\Gamma(X^{\\geq1}_{\\mathrm{Kli}}(p)_1,\\mathcal F^\\kappa_{1,1}\\otimes\\omega^2(-D))$ with the universal-weight $\\kappa$, while the other three corners carry the fixed integral weight $k$ and the bottom arrow is the endomorphism $U^m$ of $\\mathrm R\\Gamma(X^{\\geq1}_{\\mathrm{Kli}}(p)_1,\\mathcal F^k_{1,1}\\otimes\\omega^2(-D))$ whose local finiteness is being established. The vertical arrows land in $\\mathcal F^k_{m,1}$, so the whole diagram is in weight $k$. A font slip in one corner. E89 lists the same item; the two agree.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E96",
@@ -7969,7 +8149,12 @@
     "The author's version on V. Pilloni's homepage (https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf, 17 June 2019, 113 pp., SHA-256 4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58), which is post-referee but precedes the journal's final revision (15 October 2019), and HAL hal-01393374v3 (6 January 2018) at the same place; the published Duke text is paywalled and could not be compared",
     "Crossref for doi:10.1215/00127094-2019-0075 (no relation, update-to or updated-by record; no update records), the errata and addenda of Duke Math. J. since June 2019, the Project Euclid article page, zbMATH 07226649 (Zbl 1481.11051) and the author's homepage: no erratum or correction",
     "Later work citing the paper, searched for reported errors: Boxer–Calegari–Gee–Pilloni (arXiv:1812.09269v3), Boxer–Pilloni, Higher Hida theory for Siegel modular forms (Invent. Math. 2026) and Higher Coleman theory (arXiv:2002.06845v2), Loeffler–Pilloni–Skinner–Zerbes (arXiv:1905.08779v5), Loeffler–Zerbes (arXiv:2003.05960v4, arXiv:2106.14511v2, arXiv:2110.13102v3, ICM 2022), Grossi (arXiv:2106.05666v4), Calegari–Geraghty (arXiv:1907.08691v1), and the citing works listed by Semantic Scholar, OpenAlex and OpenCitations; none reports a mistake in the paper"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed, and I redid the computation. The proof prints `Let us assume that $c,f$ are units for example. We deduce that $\\mathrm{HT}(e_2)=\\frac ac\\mathrm{HT}(e_3)$ and that $\\mathrm{Fil}^{\\mathrm{can}}_\\epsilon$ is generated by $\\mathrm{HT}(e_2)$, a direct factor is provided by the submodule generated by $\\mathrm{HT}(e_4)$.' With the printed matrix the columns are $\\mathrm{HT}(e_2)=(a,b)$ and $\\mathrm{HT}(e_3)=(c,d)$, and the relation $ad-bc=0$ with $c$ invertible gives exactly $\\mathrm{HT}(e_2)=(a/c)\\mathrm{HT}(e_3)$, so the first half is right; but that same relation makes $\\mathrm{HT}(e_2)$ a multiple of $\\mathrm{HT}(e_3)$, and $a$ need not be a unit, so the rank-one sheaf generated by $\\mathrm{HT}(e_2)$ and $\\mathrm{HT}(e_3)$ is generated by $\\mathrm{HT}(e_3)$. The complement is right as printed, since $\\det(\\mathrm{HT}(e_3),\\mathrm{HT}(e_4))=cf-de$ is the unit the proof has just assumed. So the one symbol to change is the generator, as the finding says.",
+    "by": "Claude Code, session cc-7b31c4, issue #1327"
+   }
   },
   {
    "id": "PAPER-PILLONI-20/E97",
