@@ -588,3 +588,14 @@ print(f'{checks} checks passed: corrected Gaussian integrals/derivatives, Cayley
 ```
 
 Repository validation passed: `check_paper` reports ok; intake reports 3 files, 0 problems; all 9 paper-checker and 7 source-issue unit tests pass. Coverage checks confirm each of 130 missing items is routed exactly once and definitions/constructions have API/tests and theorems have proof outlines. No Lean file is part of this issue, and none was compiled. Passing schema checks does not close G1–G7.
+
+## Review (REV-PAPER-ZHANG-21, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its eleven routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-ZHANG-21.md`. The review read the published text in full again.
+
+- **Statements and locators:** 53 statements and 69 locators corrected.
+- **Library citations:** confirmed.
+- **The extraction's repairs:** sound, except item 101, which was incomplete and has now been completed.
+- **New items:** 28 (3 planned, 25 missing).
+- **Brief:** the JacquetRallis brief now lists the corrections its layers must respect.
+- **Source issues:** E1–E28 are confirmed, and four were reclassified. E29–E60 are new. The main one: the proof of Proposition 4.12(i) (and 2.7(i)) needs q ≥ n + 1, and a counterexample exists at q = n = 3. So the printed AFL proof (Theorem 15.1(a)) has a gap at p = n. The FL at q = n is covered by Beuzart-Plessis.
