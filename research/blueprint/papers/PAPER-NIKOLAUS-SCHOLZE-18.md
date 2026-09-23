@@ -225,14 +225,14 @@ Locators are in the corrected published text; every new finding is also in arXiv
   - *Correction:* passing to the colimit … in this filtered colimit
   - *Why:* |X_•| is the union (colimit) of its skeleta, as the next sentence says.
 - **E20** (misprint; affects nothing), pp. 204, 205 and 207 of the printed version (four displayed formulas of the introduction).
-  - *Printed:* HC(A) (p. 204, twice) and TC(A) (pp. 205, 207)
+  - *Printed:* ⁻HC(A) (p. 204, twice) and ⁻TC(A) (pp. 205, 207): the superscript minus set before the name and lifted clear of it, instead of after it
   - *Correction:* HC⁻(A) and TC⁻(A)
-  - *Why:* Typesetting losses of the superscript minus, listed by the Acta correction. *Known:* Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected.
+  - *Why:* Misplaced superscripts, not lost ones, listed by the Acta correction ('technical typesetting problems'): in the correction's own rendering the rejected form draws the minus before 'HC' and 9.2pt above the baseline, the accepted one after 'HC' at 4.8pt. *Known:* Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected.
 - **E21** (misprint; affects nothing), pp. 215–218 of the printed version (six displays of §I.1).
-  - *Printed:* Nm
-  - *Correction:* Nm_G, Nm_δ, Nm_f, Nm_f, Nm_G, Nm_f (in the order listed by the correction)
-  - *Why:* Lost subscripts, listed by the Acta correction. *Known:* Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected.
-- **E22** (misprint; affects nothing), pp. 240, 260 (four times), 281, 284 and the bibliography of the printed version.
+  - *Printed:* Nm with its subscript detached: set to the right of the symbol and 6.4pt below the baseline, instead of 1.5pt below and adjacent
+  - *Correction:* Nm_G, Nm_δ, Nm_f, Nm_G, Nm_G, Nm_f (p. 215 third display, p. 216 first, p. 217 first and second, p. 218 first and second, in the order the correction lists them)
+  - *Why:* Misplaced subscripts, not lost ones, listed by the Acta correction; the six subscripts are G, δ, f, G, G, f in the correction's order. *Known:* Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected.
+- **E22** (misprint; affects nothing), printed version: p. 240 line −9 and p. 260 lines 7, 8, −15, −3 — the five occurrences the correction lists — and the end of the bibliography; the online version also cites the reference on pp. 281 and 284, which the correction does not list.
   - *Printed:* [?]
   - *Correction:* [91] Blumberg–Mandell, The homotopy theory of cyclotomic spectra, Geom. Topol. 19 (2015), 3105–3147 (reference [19] in the renumbered online version)
   - *Why:* A missing bibliography entry, listed by the Acta correction. *Known:* Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218 (DOI 10.4310/ACTA.2019.v222.n1.a2); the online version is corrected.

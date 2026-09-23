@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-NIKOLAUS-SCHOLZE-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source of RefinedTraceMethods:RT.2, carrying 107 of the 130 missing items — the whole of Chapters I–III and the parts of IV that build TC. RT.2's own description plans THH by cyclic realisation with the circle action as coherent data, Tate constructions with the norm sequence and multiplicative structure, cyclotomic spectra as Frobenius maps to Tate constructions, TC/TC⁻/TP with the bounded-below formula, and agreement with the classical genuine theory: that is this paper's subject, so a source route into the existing layer is right and a Part II would be wrong. RefinedTraceMethods has origin campaign, so the route is admissible, and the 22 planned items listed alongside are named as items the paper is a good source for, which section 16 allows."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of RefinedTraceMethods:RT.1 for the two Hochschild-homology items (the cyclic bar construction for an ordinary ring and the HKR comparison the paper cites). RT.1 is the algebraic Hochschild layer of the same roadmap, so the split from route 1 puts each item in the layer that owns it rather than lumping the chapter together."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of EnhancedDerivedSheaves:E5:abstract and E5:presentability for the ∞-categorical infrastructure the paper develops rather than cites: symmetric monoidal Dwyer–Kan localisation, the Verdier-quotient uniqueness of the multiplicative structure on Tate constructions, lax equalizers, coalgebras for endofunctors and their coreflection. E5:abstract plans symmetric monoidal and stable ∞-categories and E5:presentability Ind-completion and homotopy fixed points, so these items extend layers that exist rather than needing new ones."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of StableHomotopyKTheory:H.1 and H.2 for the simplicial and realisation material of Appendices B and C: the cyclic and paracyclic categories, the cofinality of Δ^op → Λ_∞^op, and Bousfield–Kan homotopy colimits. H.1–H.2 plan nerves, realisations and Quillen's theorems, which is where this belongs."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of KTheoryFiniteLocalFields:L.5 for the eight items of §IV.4 and the TC(F_p) computation. L.5 plans THH, TR and TC of perfect fields, and the paper's §IV.4 is exactly that computation from Bökstedt periodicity, so the route lands in the layer that will need it."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of StableHomotopyKTheory for power operations and the Segal conjecture for C_p, taking the 16 items of §III.1's input and §IV.1. The route is correctly formed: the title is exactly '<parent title>, Part II: <topic>' for the atlas's title of StableHomotopyKTheory ('Homotopy foundations for algebraic K-theory'), the area 'topology' is a galaxy id, and the 486-word brief states the final theorems as the paper states them — including the corrected Steenrod shifts of E5 — and names the roadmaps it imports from. The reason for a Part II rather than new layers in the parent is sound and checkable: nothing in the atlas plans the Steenrod algebra, the Adams spectral sequence, extended powers or power operations, RT.2 needs none of them, and the parent's summary disclaims 'all of stable homotopy theory'."
+    }
+  ],
+  "notes": "Accept. 162 items over the whole paper — introduction, Chapters I–IV and Appendices A–C — with 0 library, 32 planned and 130 missing, every missing item routed exactly once and 23 planned items named as sources, which section 16 permits. I reproduced all three hashes the source block records: the published Acta PDF 8b1856fa…, the Acta correction 0b98fb63… and arXiv v2 12b6cdbd…. The locators hold: of the 180 name-and-page checks I could run mechanically, 169 land on exactly the page given and the other 11 are all cases where the locator points at a proof that runs onto the next page, each confirmed by reading that page. The routing checks out: all seven named stages exist in data/atlas.json, all five source roadmaps have origin campaign, and the Part II route's title, area and brief satisfy section 16. The claim that no item is library is right — neither library has spectra, stable ∞-categories or the cyclic category, and the report names the nearest declarations (Mathlib's tateCohomology, quasicategories, Localization.Monoidal) without overstating them. The 25 findings are the strongest part of the extraction and I checked every one of the 19 new findings against the text: E1 (the fibre-product identification in Proposition II.3.4) is confirmed, with its KU counterexample sound and the paper's own Remark II.1.3 stating the same restriction to p-complete bounded below objects; E2's half-open cover of Δ/T and E16's 'filtered' colimit over the sifted N(Λ_∞^op) are both real gaps with correct repairs; and E3–E15 and E17–E19 are misprints quoted verbatim, including the P^k_p/P^n_p slip, the Hom^surj/Hom^inj clash, the r = 0 that should be r = 1, and the Bousfield–Kan hocolim written with X(i_n) instead of X(i_0). Three of the six findings taken from the Acta correction were corrected in place. E21's list of subscripts had one wrong entry — the fourth is Nm_G, not Nm_f — and E20's and E21's 'printed' described the scripts as lost when the correction's own rendering shows them misplaced (the minus drawn before HC and 9.2pt up; the subscript detached and 6.4pt down), which I checked in the content stream of the correction PDF. E22's locator now separates the five occurrences the correction lists (p. 240 line −9, p. 260 lines 7, 8, −15, −3) from pp. 281 and 284, where only the online version cites the reference. E24 was checked in both directions: the online text reads 'E = C^⊗_act' and 'pointwise tensor product', while arXiv v2 still reads 'Day convolution', so the finding is about the printed and arXiv texts, as its locator says. Nothing was rejected and no item was deleted."
+}
