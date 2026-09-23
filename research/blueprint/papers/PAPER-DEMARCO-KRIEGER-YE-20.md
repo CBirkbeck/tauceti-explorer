@@ -2,9 +2,9 @@
 
 Laura DeMarco, Holly Krieger and Hexi Ye, *Uniform Manin–Mumford for a family of genus 2 curves*, [Annals of Mathematics 191 (2020), 949–1001](https://doi.org/10.4007/annals.2020.191.3.5); arXiv [1901.09945](https://arxiv.org/abs/1901.09945).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 49 items (4 library, 8 planned, 37 missing), 3 routes, 12 prerequisite entries and 8 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 53 items (4 library, 9 planned, 40 missing), 3 routes, 12 prerequisite entries and 13 recorded source issues. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) corrected it in place; its changes are listed at the end.
 
-**Source.** arXiv v2 (3 December 2019, the latest and post-referee version; 49 pages), [PDF](https://arxiv.org/pdf/1901.09945v2), SHA-256 `8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8`, read in full on 2026-09-22. The typeset Annals PDF was not accessible, so locators refer to v2 and the published text was not collated.
+**Source.** arXiv v2 (3 December 2019, the latest and post-referee version; 49 pages), [PDF](https://arxiv.org/pdf/1901.09945v2), SHA-256 `8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8`, read in full on 2026-09-22. Locators refer to v2. The review later read the published Annals version, which is freely available from the journal site; its differences are listed at the end.
 
 ## What the paper proves
 
@@ -46,7 +46,9 @@ The method treats the Lattès heights ĥ_t (the Néron–Tate height pushed down
 
 No new roadmap id is minted.
 
-## Source issues (`sourceIssues` E1–E8)
+## Source issues (`sourceIssues` E1–E13)
+
+E9–E13 were added by the review, and the corrections of E5 and E7 were revised; see the end.
 
 - **E7** (error, affects the proof of Theorem 7.1).
   - **Claim.** The proof asserts that at every finite place the potentials of µ_{t_i,v} are constant on disks of radius η_v = min{1, |t₁(t₁−1)|_v, |t₂(t₂−1)|_v}, so a non-archimedean term of Proposition 7.3 vanishes.
@@ -60,7 +62,7 @@ No new roadmap id is minted.
   - **E2:** a sign in (2.16).
   - **E3:** "lim_{t→∞}" should be "lim_{n→∞}" in (4.1).
   - **E4:** the constant 1/8 in the proof of Theorem 1.5 should be 1/16.
-  - **E5:** the constant in (7.5) should be −log c(ε′), not −½ log c(ε′).
+  - **E5:** (7.5) is misprinted; the review's corrected form is at the end.
   - **E6:** the application of Proposition 4.4 on p.41 drops the 1 from the maximum.
 
 The Theorem 3.1 energy integrals, the constant α = 1/512, the Lemma 6.1 case analysis and the counting in Theorem 8.1 were recomputed and are correct. No erratum is listed on the Annals page, and Crossref has no correction relation.
@@ -87,3 +89,56 @@ Links and reasons are in the JSON.
   - Tau Ceti f790474: `EllipticCurve/CanonicalHeight.lean:124, 338`.
 - Planned layer ids were checked against `data/atlas.json`. Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Independent review corrections (REV-PAPER-DEMARCO-KRIEGER-YE-20, 23 September 2026)
+
+The review read the whole of arXiv v2 (the same SHA-256) and the published version: Ann. Math. 191 (2020) 949–1001, 53 pages, from annals.math.princeton.edu, SHA-256 `7a4bd817…07df`. Statuses and routes were confirmed, and all eight recorded issues were confirmed.
+
+**The published version** has the same text at every recorded mistake, but differs from v2 in three ways:
+- **Numbering.** It inserts Remark 1.3, so v2's Conjecture 1.3 and Theorems 1.4–1.9 become Conjecture 1.4 and Theorems 1.5–1.10, and Proposition 1.8 becomes 1.9.
+- **§8.4.** New: Proposition 8.3 (no uniform bound on the order of common torsion images).
+- **§9.5.** New: Proposition 9.2 (no uniform bound on the order of the torsion points in Theorem 1.1).
+
+The locators of the main items now also give the published numbering and pages.
+
+**Items corrected in place:**
+- **Item 2.** Now includes the curve-in-an-abelian-variety form of Raynaud's theorem that p.2 uses.
+- **Item 4.** Its note now requires t₁ transcendental.
+- **Items 15–16 (the Berkovich line).** The hyperbolic metric needs r₁ ≥ r₂. The Laplacian is distribution-valued. The positivity of the mutual energy is misprinted in the paper (E9).
+- **Item 18.** The metric is unique only up to constants; the height is unique.
+- **Item 19.** Adds the equality case of Proposition 2.2 and the continuity of E_v, which the proof of Theorem 1.5 uses.
+- **Item 22.** States its hypotheses.
+- **Item 26.** (3.1) holds for |t(t − 1)|_v ≥ 1.
+- **Item 27.** Gives the ranges of (3.4)–(3.5) and the proof of the diameter formula.
+- **Items 29 and 31.** Restore the hypotheses C > 1, a ≥ b and M > 1.
+- **Item 34.** Starts on p.27.
+- **Item 40.** Counts multiplicity.
+- **Item 46.** Records where the origins lie and describes ker Φ exactly.
+- **Item 49.** Now covers Néron–Tate heights on abelian varieties, including their invariance under torsion translation.
+
+**New items:**
+- **50.** Standard projections of arbitrary elliptic curves; missing, to DY.6.
+- **51.** The hyperelliptic involution and Weierstrass points of genus-2 curves; planned by Tau Ceti AlgebraicCurves layers 10–11.
+- **52–53.** Propositions 8.3 and 9.2 of the published version; missing, to DY.6 and the uniformity Part II. The Part II brief now mentions Proposition 9.2 and the Tau Ceti imports.
+
+**Revised issues:**
+- **E5.** The corrected (7.5) is Σ_v −r_v log η_v ≤ **4**(h(t₁) + h(1 − t₁) + h(t₂) + h(1 − t₂)) − log c(ε′). The extraction's version, with coefficient 2, is still false: K = ℚ(ω), t₁ = 2, t₂ = −ω is a counterexample. The next display on p.41 is right.
+- **E6.** The paper's own ε′ < ε/16 already absorbs the missing term.
+- **E7.** Confirmed as an error that matters, and the repair (η_v times |2|_v above 2) was checked.
+  - The reason is reworded. Supersingularity is not what puts the 3-torsion in the bad disk.
+  - The loss is shown not to be O(1/|F|): for |t_i(t_i − 1)|_v = 1 above 2, ĥ_{t_i} · h_{F,η} ≥ (1/3) log 2 whatever F is.
+- **E8.** The reason is narrowed: the identity holds for the partner of Q and fails for the other four Weierstrass points.
+
+**Five new issues, all confirmed:**
+- **E9** (misprint, p.12). "(ν₁, ν₂)_v ≥ 0 with equality iff ν₁ = ν₂" should be (ν, ν)_v ≥ 0 with equality iff ν = 0.
+- **E10** (misprint, p.8). Type II and III points are distinguished by whether r lies in |ℂ_v^×|, not by whether r is rational.
+- **E11** (gap, p.10). The justification of (2.7) gives only the direction measures ⇒ height. The converse follows from equidistribution or [PST].
+- **E12** (misprint, (3.5), p.17). The middle range is printed backwards, so it is empty.
+- **E13** (misprint, (5.4)–(5.5), p.29). i = 0, …, n should be n − 1.
+
+**Noted but not registered:**
+- the Diag in (2.14) must be the diagonal of ℂ_v × ℂ_v;
+- the curve C after Conjecture 1.3 is singular only when the branch sets meet;
+- "Néron-Tate canonical height on ĥ_{E_t}" (p.47);
+- the missing weights r_v in "2h(x) = Σ_v |log|x|_v|" (p.41);
+- the bound 16|S| in §9.3, which is true but loose (the exact count is 4|S| − 2|S ∩ branch values|).
