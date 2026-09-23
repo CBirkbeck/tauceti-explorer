@@ -600,7 +600,8 @@
    ],
    "avoidAccountOf": "PAPER-CALMES-ETAL-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALMES-ETAL-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1056"
   },
   {
    "id": "PAPER-CIUBOTARU-HARRIS-26",
@@ -1094,8 +1095,9 @@
    ],
    "avoidAccountOf": "PAPER-SMITH-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-SMITH-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1082"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1082",
+   "finishedAt": "2026-09-23T16:11:18Z"
   },
   {
    "id": "PAPER-FU-24",
@@ -1132,7 +1134,8 @@
    ],
    "avoidAccountOf": "PAPER-FU-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1084"
   },
   {
    "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -1246,8 +1249,9 @@
    ],
    "avoidAccountOf": "PAPER-DASGUPTA-KAKDE-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DASGUPTA-KAKDE-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1090"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1090",
+   "finishedAt": "2026-09-23T16:11:21Z"
   },
   {
    "id": "PAPER-YU-23",
@@ -2180,8 +2184,9 @@
    ],
    "avoidAccountOf": "PAPER-GAMBURD-MAGEE-RONAN-19",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1140"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1140",
+   "finishedAt": "2026-09-23T16:11:24Z"
   },
   {
    "id": "PAPER-TSIMERMAN-18",
@@ -9677,7 +9682,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #79"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_ModularForms",
@@ -11265,8 +11271,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #122"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #122",
+   "finishedAt": "2026-09-23T16:11:27Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_AdoIwasawa",
@@ -11740,8 +11747,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #135"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #135",
+   "finishedAt": "2026-09-23T16:11:30Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_StandardDistributions",
