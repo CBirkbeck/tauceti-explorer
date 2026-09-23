@@ -4130,7 +4130,8 @@
    ],
    "avoidAccountOf": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1249"
   },
   {
    "id": "PAPER-GAN-SAVIN-23",
@@ -6244,7 +6245,8 @@
    ],
    "avoidAccountOf": "PAPER-CANNING-LARSON-PAYNE-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-CANNING-LARSON-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1363"
   },
   {
    "id": "PAPER-BHATT-MATHEW-23",
