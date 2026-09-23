@@ -59131,9 +59131,9 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Checked on the page image (p. 8) and in main.tex. The preceding sentence defines SL_{2,s}(C), the short root SL_2 centralizing SL_{2,l}(C), and SL_{2,r} is never defined. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E2",
@@ -59153,14 +59153,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Checked on the page image. §2.6 and item (3) of the same list say the centralizer of a long root SL_2 is a short root SL_2. The assignment is also forced by Proposition 3.2(i): L^∨ ⊂ G_2(C) is the short-root GL_2 (L contains the long root β), so φ_τ for δ_Q(τ) lands in SL_{2,s}. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E3",
    "kind": "misprint",
-   "locator": "§3.1, Proposition 3.1(iii), third case, p. 9 (arXiv v1); checked on the page image",
+   "locator": "§3.1, Proposition 3.1(iii), third bullet, p. 9 (arXiv v1)",
    "printed": "“χ³ = 1 but χ ≠ 1 and s = ±1/2, in which case one has: 0 → J_P(1/2, st_{χ^{−1}}) → I_P(1/2, st_χ) → J_Q(1/2, π(χ, χ^{−1})) → 0.”",
    "correction": "The middle term is I_P(1/2, χ): 0 → J_P(1/2, st_{χ^{−1}}) → I_P(1/2, χ) → J_Q(1/2, π(χ, χ^{−1})) → 0.",
    "reason": "Part (iii) concerns τ = χ one-dimensional, and its other two cases have I_P(1/2, 1) and I_P(1/2, χ) in the middle. The representation I_P(1/2, st_χ) is treated in part (ii), third case, with a different composition series (submodule π_gen[χ], quotient J_P(1/2, st_χ)).",
@@ -59175,9 +59175,9 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Checked on the page image. Part (iii) concerns τ = χ, and I_P(1/2, st_χ) is decomposed differently in (ii)(c). Aubert–Xu (arXiv:2208.12391v3, §9.3.38), citing Muić, give I_α(1/2, η_3^{±1}∘det) = J_β(1, π(η_3^{±1}, η_3^{∓1})) + J_α(1/2, δ(η_3^{∓1})), confirming the middle term and the submodule. The extraction's kind, affects and correction of the middle term are right. The correction is incomplete only because the quotient in the same display is also misprinted."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E4",
@@ -59197,14 +59197,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Checked on the page image and in main.tex (the pair is typed (B_K, \\tau) twice). J = B_K^ι is defined with ι. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E5",
    "kind": "misprint",
-   "locator": "§4.4, see-saw diagram (4.1), p. 16 (arXiv v1); checked on the page image",
+   "locator": "§4.4, diagram (4.1), p. 16 (arXiv v1)",
    "printed": "“G_E := Spin_4^E”",
    "correction": "G_E := Spin_8^E.",
    "reason": "§4.3, on the same page, defines G_E as 'the simply connected quasi-split group Spin_8^E', and g_E = sl_3 ⊕ t_E ⊕ F³ ⊗ E ⊕ (F³ ⊗ E)^* has dimension 8 + 2 + 9 + 9 = 28 = dim D_4. §5.1 speaks of 'the representation R_J(E) of Spin_8^E'.",
@@ -59219,14 +59219,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Checked on the page image. §4.3 on the same page defines G_E as the simply connected quasi-split Spin_8^E, and dim g_E = 8 + 2 + 9 + 9 = 28 = dim D_4. §5.1 speaks of R_J(E) as a representation of Spin_8^E. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E6",
    "kind": "misprint",
-   "locator": "§7, Theorem 7.2, p. 23 (arXiv v1)",
+   "locator": "§7, Theorem 7.2, p. 23 (arXiv v1); checked on the page image",
    "printed": "The parts are labelled “(i) … (ii) … (ii) If p ≠ 3, then the map τ ↦ Θ(τ) defines an injection”.",
    "correction": "The third part is (iii).",
    "reason": "The proof says 'As for (iii) …'.",
@@ -59241,14 +59241,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The page image shows (i), (ii), (ii), and the proof says 'As for (iii) …'. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E7",
    "kind": "misprint",
-   "locator": "Proof of Theorem 8.5(i), p. 28 (arXiv v1)",
+   "locator": "Proof of Theorem 8.5(i), p. 28 (arXiv v1); checked on the page image",
    "printed": "“Recall that π_gen[1] is generic while π_sc[1] is not. It follows, from Lemma 8.1 part (ii), that π_gen[1] is a summand of θ(St^+).”",
    "correction": "Lemma 8.1 part (i).",
    "reason": "Genericity is detected by Whittaker functionals, and Lemma 8.1(i) gives Hom_V(Θ(τ^ε), ψ_V) ≅ Hom_{U⋊Z/2Z}(τ^ε, ψ ⊗ 1), which is nonzero for St^+ by the definition of τ^+. Part (ii) concerns the degenerate coefficients ψ_E.",
@@ -59263,14 +59263,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Only Lemma 8.1(i), Hom_V(Θ(τ^ε), ψ_V) ≅ Hom_{U⋊Z/2Z}(τ^ε, ψ ⊗ 1), sees Whittaker functionals. It gives Hom_V(Θ(St^−), ψ_V) = 0, so the generic π_gen[1] ⊂ θ(St^+) ⊕ θ(St^−) (Theorem 8.2(iii)) lies in θ(St^+). Part (ii) concerns the degenerate characters ψ_E. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E8",
    "kind": "misprint",
-   "locator": "Proof of Theorem 8.5(v), case (b), pp. 28–29 (arXiv v1)",
+   "locator": "Proof of Theorem 8.5(v), case (b), pp. 28–29 (arXiv v1); checked on the page image",
    "printed": "“Moreover, π_deg cannot lift to a generic representation of PGSp_6 and hence must lift to the nondegenerate summand [SWe].”",
    "correction": "“… must lift to the degenerate summand”.",
    "reason": "The sentence rules out the generic summand of Ind_{P_3}^{PGSp_6}(τ_1), leaving the degenerate one. The next sentence confirms it: 'By Proposition 6.6, it follows that π_gen cannot lift to the degenerate summand'.",
@@ -59285,9 +59285,9 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Ind_{P_3}(τ_1) = generic ⊕ degenerate summands (Proposition 10.3(i)). Corollary 11.2(ii) (from [SWe]/[GS04]) rules out the generic one for the nongeneric π_deg. The next sentence ('π_gen cannot lift to the degenerate summand' by Proposition 6.6) only makes sense if π_deg took the degenerate summand. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E9",
@@ -59307,14 +59307,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Recomputed independently. r_3(s) = s − ⟨s, α_3^∨⟩α_3 forces α_3 = (−1, 1, 1). q_printed(r_3 s) − q_printed(s) = (5/4)((Σs)² − s_1²) ≠ 0. For a|s|² + b(Σs)², the r_3-defect is (a − b)((Σs)² − s_1²), so invariance holds exactly when a = b. (I + J)^{−1} = I − J/4. On cocharacters, the reflection in (0, 2, 2) for the printed form is u ↦ (u_1, u_1 − u_3, u_1 − u_2), which is the transpose of r_3. The positive-chamber statement is correct. E9's kind (error: the stated invariance on characters is false), affects (nothing uses q) and correction are right. The adjacent sentence on root hyperplanes is also wrong; recorded separately as a new issue."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E10",
    "kind": "gap",
-   "locator": "§11.4, p. 37 (arXiv v1)",
+   "locator": "§11.4, p. 37 (arXiv v1); checked on the page image",
    "printed": "“We are now ready to compute Π_{S,ψ_S}. Firstly, we have Π_{N_2,ψ_2} ≅ ind_J^{G_2}(C_c(M_2°(F)) ⊗ ρ_ψ) as G_2 × PGL_2-modules.”",
    "correction": "Needed: a proof, or a reference, for this computation of the twisted Jacquet module of the E_7 minimal representation along N_2.",
    "reason": "The isomorphism is stated with no argument or citation. Proposition 11.7 rests on it, and through Lemma 12.1 so do Propositions 12.2–12.3 and Theorem 12.4, the Howe duality theorem for tempered generic representations of G_2 × PGSp_6. The published version was not accessible, so it is not known whether a proof was added.",
@@ -59329,14 +59329,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The isomorphism is asserted ('Firstly, we have') with no argument or citation. The nearest material computes only the untwisted Jacquet module: Prop. 13.7, from [GS99, Prop. 8.1], and [SWe, §3]. [SWe, Lemma 4.5] computes a different twisted module, Π_{V,ψ_V} (Prop. 11.5). So the gap is real. The statement is very plausible: the orbit analysis above predicts exactly this answer, and the second step of Prop. 11.7 (the PGL_2-coinvariants of C_c(M_2°) being I_ψ̄(1/2), together with Lemma 11.6, whose proof I checked) is classical. So affects = the proof, not a stated result. Reach: Prop. 11.7 → Lemma 12.1 (fourth isomorphism and the one-dimensionality) → Props. 12.2 and 12.3 → Theorem 12.4 for generic tempered π → Cor. 12.5 → Theorem 15.1 and Theorem 1.2(iii) in the generic tempered case. The remark after Prop. 12.2 does not provide an independent route except for generic supercuspidal τ: [SWe, Theorem 4.4] proves uniqueness of Shalika functionals only for supercuspidal irreps. E10's kind, affects and reason are right; the correction is sharpened here. Searched: arXiv:2102.00372: only v1 exists; published version (Invent. Math. 232 (2023)) not accessible; the sequel arXiv:2209.07346v2 does not mention Shalika periods."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E11",
    "kind": "misprint",
-   "locator": "Proof of Theorem 12.4(i), p. 39 (arXiv v1)",
+   "locator": "Proof of Theorem 12.4(i), p. 39 (arXiv v1); checked on the page image",
    "printed": "“The proof for generic π is the same, using Lemmas 6.2(i) and 6.3(ii), as well as Proposition 12.3.”",
    "correction": "Lemmas 6.2(i) and 6.3(i).",
    "reason": "The argument copied is Corollary 6.8's, which uses Lemma 6.3(i) (π tempered if and only if τ is). Lemma 6.3(ii) concerns non-tempered representations and plays no role for tempered π.",
@@ -59351,14 +59351,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Corollary 6.8's proof, which this one copies, uses Lemma 6.2(i) (Θ(π)_nc has finite length) and Lemma 6.3(i) (π tempered ⇔ τ tempered, so the cosocle θ(π) is tempered and Prop. 12.3 applies to it). Lemma 6.3(ii) concerns non-tempered π and is irrelevant for tempered π. Kind, affects and correction are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E12",
    "kind": "gap",
-   "locator": "Proof of Lemma 13.8, p. 48, and §14.3, p. 51 (arXiv v1)",
+   "locator": "Proof of Lemma 13.8, p. 48, and §14.3, p. 51 (arXiv v1); checked on the page images",
    "printed": "“The remaining non-tempered representations of H (associated to standard modules induced from P_123, P_13, P_1 or P_3) are easily dealt with using r_{P_1}(Π) and r_{P_3}(Π). We leave details to the reader.” and, for the finiteness of Θ(σ)_nc, “We leave the details to the reader and only consider the top pieces in the filtration of the two Jacquet modules.”",
    "correction": "Needed: the omitted cases, namely standard modules for P_123, P_13, P_1 and P_3 in Lemma 13.8, and the non-top pieces of the filtrations of Propositions 13.1 and 13.3 in §14.3.",
    "reason": "These cases are asserted and not written. Theorem 14.1(c) (Θ(σ) = 0 for the remaining non-tempered σ) depends on them, and so does Lemma 6.2(ii) for H_J = PGSp_6. That lemma enters the Howe duality and dichotomy theorems.",
@@ -59373,14 +59373,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The gap is real: these cases are asserted and not written. The extraction's list of consequences is incomplete. (i) supplies the second sentence of Theorem 14.1(b) and all of Theorem 14.1(c), hence Lemma 6.3(i) for PGSp_6 (σ nontempered ⇒ π nontempered) and Lemma 6.2 for nontempered σ. (ii) supplies Lemma 6.2(ii) for tempered σ. Lemmas 6.2 and 6.3 enter Theorems 6.1, 12.4 and 15.1. The omitted steps look routine (the P_3 and P_1 cases separate by central and second-adjointness exponents, as in the written P_2 case), so the kind 'gap' and affects 'the proof' are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E13",
    "kind": "gap",
-   "locator": "§13.4, Case P_1 and Proposition 13.6, pp. 44–45 (arXiv v1)",
+   "locator": "§13.4, Case P_1 and Proposition 13.6, pp. 44–45 (arXiv v1); checked on the page image",
    "printed": "“Case P_1: This case is not in the literature; however, it is similar to the computation of the Jacquet module of the minimal representation of E_8 with respect to a maximal parabolic subgroup of F_4 in [SWo, §5].”",
    "correction": "Needed: a proof of the three-step filtration of r_{P_1}(Π) as a G_2 × GSp_4-module, and in particular the identification of the pieces from the orbits Ω_1 and Ω_2.",
    "reason": "The paper describes the orbit structure and states Proposition 13.6 by analogy with Savin–Woodbury, which treats a different group; no proof is given. Proposition 13.6 is used in Lemma 13.8, in the finiteness argument of §14, and in Proposition 15.6.",
@@ -59395,14 +59395,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The gap is real: no argument is given, only an analogy with a different group. Reviewer check: given the displayed sequence and action, the stabilizer computation reproduces exactly δ(g_1,g_2) = |g_1|^{−1/2}|det g_2|^{1/2} in (2) and no twist in (3), and δ_{Q_1}, δ_{Q_2} are correct. The exponents of the top piece are consistent with the infinitesimal character of the E_7 minimal representation. So what is missing is the sequence and the action, not the bookkeeping. The result is used in Lemma 13.8 (omitted cases), §14.2 and Prop. 15.6."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E14",
    "kind": "misprint",
-   "locator": "Proposition 13.7, notes to (1), pp. 46–47 (arXiv v1)",
+   "locator": "Proposition 13.7, notes to (1), pp. 46–47 (arXiv v1); checked on the page image",
    "printed": "“The center of M_2 acts trivially on both Π_{D_5} and Π_{A_1}, the minimal and a principal series representation of the two factors of M_3.”",
    "correction": "“… of the two factors of the Levi 𝓜_2” (of E_7, of type D_5 × A_1).",
    "reason": "Π_{D_5} and Π_{A_1} live on the factors of the E_7 Levi 𝓜_2 attached to P_2, which the preceding paragraph gives as type D_5 × A_1. M_3 ≅ GL_3 plays no role here.",
@@ -59417,14 +59417,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The printed symbol is calligraphic ℳ_3 (TeX \\mathcal M_3), the Levi of 𝒫_3 of type E_6, not M_3 ≅ GL_3. Π_{D_5} and Π_{A_1} live on the two factors of ℳ_2, which the preceding paragraph gives as type D_5 × A_1. The extraction's correction is right; its 'printed' should show ℳ_3."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E15",
    "kind": "misprint",
-   "locator": "Proof of Lemma 13.8, p. 48 (arXiv v1)",
+   "locator": "Proof of Lemma 13.8, p. 48 (arXiv v1); checked on the page image",
    "printed": "“It follows that J_P(τ_1) ⊗ σ is a quotient of Π, where J_P(τ_2) is the unique irreducible quotient of I_P(τ_2). But, by Lemma 13.4, J_P(τ_2) does not lift to σ.”",
    "correction": "“It follows that J_P(τ_2) ⊗ σ is a quotient of Π …”.",
    "reason": "The preceding step shows that Θ(σ) is a quotient of I_P(τ_2), and the rest of the sentence is about J_P(τ_2).",
@@ -59439,14 +59439,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The previous sentence makes Θ(σ) a quotient of I_P(τ_2), and the rest of the sentence concerns J_P(τ_2). (See also the new issue on this paragraph's placement of B̄.)"
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E16",
    "kind": "misprint",
-   "locator": "Theorem 14.1, final sentence, p. 49 (arXiv v1)",
+   "locator": "Theorem 14.1, final sentence, p. 49 (arXiv v1); checked on the page image",
    "printed": "“In particular, if π ⊗ σ ∈ Irr(G_2 × PGSp_6) is such that π ⊗ τ is a quotient of the minimal representation Π, then π nontempered ⟺ σ nontempered.”",
    "correction": "“… such that π ⊗ σ is a quotient …”.",
    "reason": "τ is not defined in the statement.",
@@ -59461,9 +59461,9 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "τ is not defined in the statement."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E17",
@@ -59483,14 +59483,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "B is a division algebra, so PB^× is compact and SO_3^* is anisotropic. τ is undefined here, and ρ is meant."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E18",
    "kind": "misprint",
-   "locator": "§15.1, the list of four facts, p. 52 (arXiv v1)",
+   "locator": "§15.1, second of the four facts, p. 52 (arXiv v1); checked on the page image",
    "printed": "“If π is tempered and θ(π) ≠ 0, then θ(π) is irreducible and tempered (Theorem 15.1(v)).”",
    "correction": "Theorem 15.1(ii) and (iv).",
    "reason": "Theorem 15.1(v) is about non-tempered π. Irreducibility of θ(π) is (ii), and preservation of temperedness is (iv).",
@@ -59505,14 +59505,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Theorem 15.1(v) concerns non-tempered π. θ(π) is irreducible by (ii), being the unique irreducible quotient, and tempered by (iv)."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E19",
    "kind": "misprint",
-   "locator": "References, [GG06], p. 55 (arXiv v1)",
+   "locator": "References, [GG06], p. 55 (arXiv v1); checked on the page image",
    "printed": "“[GG06] W.T. Gan and N. Gurevich, Nontempered A-packets of G_2: Liftings from S̃L_2. American J. Math. 170 (2006), 1105–1185.”",
    "correction": "Amer. J. Math. 128 (2006), no. 5, 1105–1185 (https://doi.org/10.1353/ajm.2006.0040).",
    "reason": "Crossref gives volume 128. Volume 170 is that of the next entry, [GG09] (Israel J. Math. 170 (2009)).",
@@ -59527,14 +59527,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Crossref (api.crossref.org/works/10.1353/ajm.2006.0040) gives volume 128, issue 5, pp. 1105–1185, 2006."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E20",
    "kind": "gap",
-   "locator": "§5.4, Proposition 5.4, p. 18 (arXiv v1)",
+   "locator": "§5.4, Proposition 5.4, p. 18 (arXiv v1); checked on the page image",
    "printed": "“On the other hand, we may understand the restriction of I_E(s) to G_2 using Mackey theory. The following is a key technical result:” followed by the statement of Proposition 5.4, with no proof.",
    "correction": "Needed: the Mackey-theoretic proof. It requires the G_2-orbits on Spin_8^E/P_E and their stabilizers, which give the five pieces ind_N^{G_2} ψ̄_E, I_P(s/2 + 1/4, C_c^∞(PGL_2)), m_E · I_P(s/2 + 1/4, ind_N^{PGL_2} ψ), m_E · I_Q(s + 1) and I_P(s + 1), together with the exponents.",
    "reason": "Stated without proof or reference in arXiv v1. Proposition 5.5 rests on it, and through Lemma 6.4 so do the dichotomy theorem and Propositions 6.6–6.7. The published version, 22 journal pages longer, was not accessible, so it is not known whether a proof was added.",
@@ -59549,14 +59549,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Confirmed: no proof, sketch or citation in arXiv v1. The result it supports is not routine. Each piece of a Mackey filtration of I_E(s)|_{G_2} is compactly induced from an orbit stabilizer with a positive-valued character (|det|^s times modulus factors, trivial on unipotent elements). So the nondegenerate characters ψ̄_E in I_0 and ψ in J_2 need a further identification (a root exchange or Fourier argument, cf. Lemma 11.4) beyond the orbit count. A consistency check passes: for the closed orbit G_2/P, with P ⊂ P_E, δ_{P_E}|_M = |det|^5 and δ_P = |det|^3 give the normalized exponent s + 5/2 − 3/2 = s + 1, matching J_4 = I_P(s + 1). Reach: Proposition 5.5 rests on it. Through Proposition 5.5 so do §6.3 (weak dichotomy), (6.5) and Lemma 6.4, and hence Theorem 6.1, Propositions 6.6–6.7, Corollary 6.8, Theorem 7.2(i)–(ii), Theorem 8.5 and the later uses of Propositions 6.6–6.7 (§§12, 15). The results are presumably true, so 'the proof' is the right reach. Whether the published version adds a proof is unknown (closed access)."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E21",
    "kind": "gap",
-   "locator": "§8.2, Lemma 8.1, p. 24, and §8.4, Lemma 8.3, p. 26 (arXiv v1)",
+   "locator": "§8.2, Lemma 8.1, pp. 24–25, and §8.4, Lemma 8.3, p. 26 (arXiv v1); checked on the page images",
    "printed": "“The following lemma summarizes some basic computations.” (Lemma 8.1) and “Then the following lemma follows by a standard computation” (Lemma 8.3).",
    "correction": "Needed: proofs of the Whittaker and ψ_E coefficients of the E_6 ⋊ Z/2Z minimal representation (Lemma 8.1), and of Π_{[U,U],ψ} ≅ ind_{GL_2⋊Z/2Z}^{PGL_3⋊Z/2Z}(C_c(M_2(F))) (Lemma 8.3).",
    "reason": "Both are stated without proof or reference. Lemma 8.1 underlies Theorem 8.5(i), (iii) and (v), and Lemma 8.3 underlies Proposition 8.4 (Θ(τ^−) ≠ 0 for self-dual supercuspidal τ).",
@@ -59571,14 +59571,14 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "Confirmed: both are stated without proof or reference. Refinement: without Z/2Z, Lemma 8.1(ii) is the J = M_3(F) case of Gross–Savin's Lemma 2.9, cited in Lemma 6.4. The unproved content of Lemma 8.1 is mainly the Z/2Z refinement. It fixes which extension is called τ^+. It is used for θ(τ^−) = 0 in Theorem 8.2(ii) (via 'the previous discussion'), for Theorem 8.5(i) (printed as part (ii), E7) and for Theorem 8.5(iii), hence (v). Lemma 8.3 feeds only Proposition 8.4, i.e. Θ(τ^−) ≠ 0 for self-dual supercuspidal τ, which exist only when p = 2. So that half of the gap affects Theorem 8.5(i)–(ii) only for p = 2. Kind and affects are right."
   },
   {
    "id": "PAPER-GAN-SAVIN-23/E22",
    "kind": "gap",
-   "locator": "§15.1, Theorems 15.2 and 15.3, pp. 52–53 (arXiv v1)",
+   "locator": "§15.1, Theorems 15.2 and 15.3, pp. 52–53 (arXiv v1); checked on the page image",
    "printed": "“We can in fact determine the theta lift θ(π) explicitly if π is tempered and noncuspidal. … To achieve this, we shall use the following four facts: … More precisely we have:” followed by Theorems 15.2 and 15.3, with no proofs.",
    "correction": "Needed: the case analysis deriving each identification from the four facts listed and the cuspidal supports computed in §13.",
    "reason": "The explicit lifts are asserted after a list of the ingredients, and the deduction is not written. Corollary 15.7 and part of Theorem 1.3(ii) use them.",
@@ -59593,9 +59593,639 @@
    "owner": "PAPER-GAN-SAVIN-23",
    "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
    "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "The gap is real: the deductions are not written, and (c)–(e) are not among the listed facts. Parts are routine: e.g. 'I_Q(τ) irreducible ⟺ I_2(τ⊗τ) irreducible' follows by comparing Props. 3.2 and 10.1, and the unique tempered constituents give (ii)–(v) once the cuspidal support is known. Corollary 15.7 and Theorem 1.3(ii) depend on these theorems."
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E23",
+   "kind": "error",
+   "locator": "§2.1, p. 6 (arXiv v1)",
+   "printed": "A nonzero element x ∈ O is said to be of rank 1 if N(x) = 0. Otherwise it is of rank 2, in which case the subalgebra F[x] of O generated by x over F is isomorphic to the separable quadratic F-algebra F[t]/(t² − Tr(x)t + N(x)).",
+   "correction": "State it for trace-zero elements. A nonzero x ∈ O_0 has rank 1 if N(x) = 0 (then x² = 0). Otherwise it has rank 2, and F[x] ≅ F[t]/(t² + N(x)) is a separable quadratic F-algebra. For general x ∉ F, F[x] ≅ F[t]/(t² − Tr(x)t + N(x)), which is separable iff Tr(x)² ≠ 4N(x).",
+   "reason": "Checked on the page image. The claim fails for x = 1: N(1) = 1 ≠ 0, but F[1] = F. It also fails for x = 1 + n with 0 ≠ n ∈ O_0 and N(n) = 0, which exists because N is isotropic on O_0 for split O. Since n̄ = −n and n² = −N(n) = 0, N(x) = (1+n)(1−n) = 1 and Tr(x) = 2, so F[x] = F ⊕ Fn ≅ F[t]/(t − 1)², which is not separable. The paper uses the notion only for trace-zero elements (V_1 ⊂ V_2 ⊂ O_0 in §2.4) and for quadratic subalgebras (§2.5), where the corrected statement holds (char F = 0).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E24",
+   "kind": "misprint",
+   "locator": "§3.1, Proposition 3.1(i), first bullet, p. 9 (arXiv v1)",
+   "printed": "I_P(s, τ) is reducible if and only if τ^∨ ≅ τ (so ω_τ² = 1) and one of the following holds: • ω_τ = 1 and s = 1/2, in which case there is a non-split short exact sequence of length 2, …",
+   "correction": "ω_τ = 1 and s = ±1/2 (s real, as throughout §3), as in the corresponding case of Proposition 3.2(i).",
+   "reason": "Checked on the page image. Normalized induction commutes with contragredients, so I_P(−s, τ) ≅ I_P(s, τ^∨)^∨. For τ ≅ τ^∨, I_P(−1/2, τ) is therefore reducible too, and the 'if and only if' fails at s = −1/2 as printed. Every other case of Propositions 3.1–3.2 lists ±s. Real s is also needed: for s = 1/2 + πi/log q, I_P(s, τ) = I_P(1/2, τ ⊗ μ∘det) with μ the unramified quadratic character, and this is reducible by the same case.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E25",
+   "kind": "misprint",
+   "locator": "§3.1, Proposition 3.1(iii), second and third bullets, p. 9 (arXiv v1)",
+   "printed": "0 → J_Q(1/2, st_χ) → I_P(1/2, χ) → J_Q(1/2, π(1, χ)) → 0 and 0 → J_P(1/2, st_{χ^{−1}}) → I_P(1/2, st_χ) → J_Q(1/2, π(χ, χ^{−1})) → 0",
+   "correction": "The quotients are J_Q(1, π(1, χ)) and J_Q(1, π(χ, χ^{−1})) (and the second middle term is I_P(1/2, χ), E3): 0 → J_Q(1/2, st_χ) → I_P(1/2, χ) → J_Q(1, π(1, χ)) → 0 and 0 → J_P(1/2, st_{χ^{−1}}) → I_P(1/2, χ) → J_Q(1, π(χ, χ^{−1})) → 0.",
+   "reason": "Checked on the page image, and by exponents. δ_P = |det|³ = 2ρ_P = 9α+6β gives det_M = 3α+2β, and δ_Q = |det|^5 = 2ρ_Q = 10α+5β gives det_L = 2α+β. I_P(1/2, χ) is a quotient of Ind_B(χ|·| × χ) in the paper's coordinates of §2.3, whose real exponent is α+β or its W-conjugate 2α+β, a short root. With χ_i unitary, every exponent of I_Q(s, π(χ_1, χ_2)) has real part in W·s(2α+β). So a constituent of I_P(1/2, χ) can only be J_Q(1, ·); J_Q(1/2, ·) has exponents half as long (checked numerically over the 12 Weyl elements). The Langlands quotient of Ind_B(χ|·| × χ) is J_Q(1, π(1, χ)) for χ quadratic and J_Q(1, π(χ, χ^{−1})) for χ cubic, because the dominant exponent 2α+β = det_L is orthogonal to β. This matches the χ = 1 case of the same proposition (J_Q(1, π(1, 1))). It also matches Aubert–Xu (arXiv:2208.12391v3, (9.3.18) and §9.3.38), who, citing Muić, write J_β(1, π(1, η_2)) and J_β(1, π(η_3^{±1}, η_3^{∓1})). The notation J_Q(1/2, π(·,·)) does not recur later in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E26",
+   "kind": "misprint",
+   "locator": "§3.2, Proposition 3.2(iii), second bullet, p. 11 (arXiv v1)",
+   "printed": "0 → J_P(1/2, st_χ) → I_Q(1/2, χ) → J_Q(1/2, π(1, χ)) → 0.",
+   "correction": "0 → J_P(1/2, st_χ) → I_Q(1/2, χ) → J_Q(1, π(1, χ)) → 0.",
+   "reason": "Checked on the page image. The argument is the same as for Proposition 3.1(iii). I_Q(1/2, χ) is a quotient of I_Q(π(χ|·|, χ)), which has real exponent α+β, and s_α(α+β) = 2α+β = det_L. Its Langlands quotient is therefore J_Q(1, π(1, χ)), the same representation as in Proposition 3.1(iii)(b). The two propositions together must give the four constituents π_gen[χ], J_P(1/2, st_χ), J_Q(1/2, st_χ), J_Q(1, π(1, χ)) of Ind_B(χ|·| × χ), as in Aubert–Xu (9.3.19).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E27",
+   "kind": "misprint",
+   "locator": "§3.3, p. 11 (arXiv v1)",
+   "printed": "in which case one has π ↪ I_P(−s + 1/2, χ_1^{−1}), with s ≥ 1.",
+   "correction": "π ↪ I_P(−s_1 + 1/2, χ_1^{−1}), with s_1 ≥ 1.",
+   "reason": "Checked on the page image. The variable s is undefined here. When χ_1 = χ_2 and s_1 = s_2 + 1, the GL_2 principal series π(χ_1^{−1}|·|^{−s_1}, χ_1^{−1}|·|^{−s_1+1}) has the one-dimensional submodule (χ_1^{−1}|·|^{−s_1+1/2})∘det. The unique irreducible submodule π of I(−s_1, −s_2, χ_1^{−1}, χ_1^{−1}) lies in every nonzero submodule, in particular in I_P(−s_1 + 1/2, χ_1^{−1}). The condition s ≥ 1 is the displayed s_1 = s_2 + 1 ≥ 1.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E28",
+   "kind": "misprint",
+   "locator": "§4.2, p. 15 (arXiv v1)",
+   "printed": "The centralizer of Aut(J) in g_J is sl_3 ⊕ F^3 ⊗ 1_J ⊕ F^3 ⊗ 1_J which one recognizes to be g_F",
+   "correction": "sl_3 ⊕ (F^3 ⊗ 1_J) ⊕ (F^3 ⊗ 1_J)^*",
+   "reason": "Checked on the page image and in main.tex. The summand F^3 ⊗ 1_J is printed twice; the second copy lies in (F^3 ⊗ J)^*, as in the definitions of g_J and g_E. With it the centralizer has dimension 8 + 3 + 3 = 14 = dim G_2 and equals g_F (J = F, Lie(M_F) = 0). The centralizer of Aut(J) in Lie(M_J) is 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E29",
+   "kind": "error",
+   "locator": "§8.1, p. 24 (arXiv v1); checked on the page image",
+   "printed": "“The only nongeneric and self-dual representations of PGL_3 are the Langlands quotients J_B(μ), where B = TU is the normalizer of U and μ = χ|−|^{1/2} ⊗ 1 ⊗ χ|−|^{−1/2} is a character of T such that χ² = 1. In this case, θ(τ) is irreducible by [GS04], and we define τ^+ by setting θ(τ^+) = θ(τ) and θ(τ^−) = 0.”",
+   "correction": "The nongeneric self-dual irreducible representations of PGL_3 are the trivial representation 1 = J_B(|·| ⊗ 1 ⊗ |·|^{−1}) and the J_B(μ) above. For τ = 1 the extensions 1^± must be labelled by the same convention: θ(1^+) = θ(1), θ(1^−) = 0. This needs θ(1) irreducible and nonzero, which Theorem 8.2(ii) asserts and [GS04]'s functoriality for non-supercuspidal representations supports.",
+   "reason": "By Langlands classification, a nongeneric self-dual irreducible representation of PGL_3 has a reducible standard module with self-dual exponents of product 1. For {χ|·|^{1/2}, 1, χ|·|^{−1/2}} (χ² = 1) this gives the J_B(μ). For {|·|, 1, |·|^{−1}} it gives the trivial representation, which the paper omits. Ind(χ St_2 ⊗ 1) is irreducible and generic. The trivial representation has φ_1 = |·| ⊕ 1 ⊕ |·|^{−1}, which contains the trivial representation, so Theorems 8.2(ii) and 8.5(i) make claims about 1^± that the paper never defines. Every other τ^ε in Theorem 8.5 is well defined.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E30",
+   "kind": "error",
+   "locator": "§8.3, Theorem 8.2(i), p. 25, and §8.5, Theorem 8.5(iii), p. 27 (arXiv v1); checked on the page images",
+   "printed": "Theorem 8.2(i): “If τ ≠ τ^∨, then θ(τ^+) is irreducible and nonzero. If τ is generic, or supercuspidal, or a discrete series representation, or tempered, so is θ(τ^+). When τ is not supercuspidal, then θ(τ^+) is not supercuspidal and its L-parameter is obtained by composing φ_τ with the inclusion SL_3(C) ⊂ G_2(C).” Theorem 8.5(iii): “θ(τ^ε) is generic if and only if τ is generic and ε = +.” (proof: “These summarize what we already know from Theorem 8.2.”)",
+   "correction": "Restrict the implication 'τ generic (and ε = +) ⇒ θ(τ^+) generic' in Theorem 8.2(i) and Theorem 8.5(iii) to τ tempered or, more generally, to τ for which the G_2 standard module with L-parameter φ_τ composed with SL_3(C) ⊂ G_2(C) is irreducible. The converse direction (θ(τ^ε) generic ⇒ τ generic and ε = +) is correct as stated, by Lemma 8.1(i).",
+   "reason": "Take τ = Ind_B^{PGL_3}(|·| ⊗ μ ⊗ |·|^{−1}μ^{−1}) with μ unitary, μ ≠ 1 and μ² ≠ 1. No ratio of the three characters is |·|^{±1}, so τ is irreducible, generic and nontempered, with τ ≇ τ^∨. In §3.3's bookkeeping, the G_2 principal series with χ_i = χ ∘ β_i^∨ equal to (|·|, μ, |·|^{−1}μ^{−1}) carries the parameter φ_τ composed with SL_3(C) ⊂ G_2(C). It is reducible because χ_1 = |·| (reducibility along the long root β_1, whose GL_2-Levi induced representation is reducible). By the standard module conjecture (for principal series: the unique generic constituent is a subrepresentation), the Langlands quotient carrying that L-parameter is nongeneric. So 'θ(τ^+) generic' and 'L-parameter of θ(τ^+) = φ_τ composed with SL_3(C) ⊂ G_2(C)' cannot both hold. [GS04] proves that lifts of non-supercuspidal representations respect Langlands functoriality (abstract), and Theorem 1.3(iii) repeats it, so the genericity clause is the one that fails. This is consistent with Lemma 8.1(i): Θ(τ^+) keeps a Whittaker functional through its generic constituent while its cosocle is nongeneric. Theorem 8.5(v) is unaffected, since it uses (iii) only for discrete series τ. arXiv 2102.00372 has only v1. The published version (Invent. Math. 232 (2023)) is closed access and was not read. GS04's abstract (Cambridge Core page) was read.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E31",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 8.5(i), p. 28 (arXiv v1); checked on the page image",
+   "printed": "“Moreover, in the last case of Theorem 8.2, where τ is a self-dual supercuspidal representation (so p = 2), we deduce by Proposition 6.6 again that π_deg is nonzero irreducible.”",
+   "correction": "“… we deduce by Proposition 8.4 that π_deg = Θ(τ^−) is nonzero, and by Proposition 6.6 that it is irreducible.”",
+   "reason": "Theorem 8.2 leaves π_deg of 'unknown length' (possibly 0). Proposition 6.6 gives only uniqueness of the tempered quotient. Nonvanishing is exactly Proposition 8.4 (Θ(τ^−) ≠ 0), whose stated purpose in §8.4 is this, but the proof of Theorem 8.5 never cites it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E32",
+   "kind": "misprint",
+   "locator": "Theorem 8.5, final sentence, p. 27 (arXiv v1); checked on the page image",
+   "printed": "“Moreover, for π ∈ Irr(G_2), Θ(π) is a finite length representation of PGL_3 with a unique irreducible quotient (if nonzero).”",
+   "correction": "“… a finite length representation of PGL_3 ⋊ Z/2Z …”.",
+   "reason": "Read literally as a PGL_3-representation, the claim is false. If θ(π) = τ^+ = Ind_{PGL_3}^{PGL_3⋊Z/2Z} τ with τ ≇ τ^∨, its restriction to PGL_3 is τ ⊕ τ^∨, which has two irreducible quotients. The proof and the dual pair are for H = PGL_3 ⋊ Z/2Z.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E33",
+   "kind": "misprint",
+   "locator": "§6.5, p. 21 (arXiv v1); checked on the page image",
+   "printed": "“Choose E so that Hom_N(π, ψ_E) ≠ 0. We may now apply Lemma 6.4 with the chosen τ and E to deduce that d := dim Hom_{G_2}(I_E(1/2), π) = dim Hom_{G_2}(R_D(E), π) = dim Hom_N(π, ψ_E) ≠ 0” (and likewise for R_{H_3(M_2(F))}(E)).",
+   "correction": "Choose E with Hom_N(π^∨, ψ_E) ≠ 0 and apply Lemma 6.4 to (π^∨, τ^∨). This gives d := dim Hom(I_E(1/2), π) = dim Hom(R_D(E), π) = dim Hom_N(π^∨, ψ_E) ≠ 0, the first equality by Proposition 5.5.",
+   "reason": "Lemma 6.4 for (π, τ) gives dim Hom_N(π, ψ_E) = dim Hom(R_J(E), π^∨), with π^∨, and Proposition 5.5 gives dim Hom(I_E(1/2), π) = dim Hom_N(π^∨, ψ_E). The printed line mixes π and π^∨. The numbers agree anyway: −1 ∈ M ≅ GL_2 acts by −1 on N/Z ≅ Sym^3 ⊗ det^{−1}, so ψ̄_E lies in the M-orbit of ψ_E, and dim Hom_N(π, ψ_E) = dim Hom_N(π^∨, ψ_E) for unitarizable π.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E34",
+   "kind": "gap",
+   "locator": "Lemma 6.4, p. 21; §6.5, p. 21; proofs of Propositions 6.6–6.7, p. 22 (arXiv v1); checked on the page images",
+   "printed": "Lemma 6.4: “For J = D^+, M_3(F) or H_3(M_2(F)), let τ ∈ Irr(H_J) be tempered …” with E not quantified. §6.5: “Choose E so that Hom_N(π, ψ_E) ≠ 0. We may now apply Lemma 6.4 …”, followed by “one deduces by Proposition 5.3 …”.",
+   "correction": "E must embed in J, and for J = D^+ it must be a cubic field, as Proposition 5.3 (which assumes E is a field) also requires. Add: if π is a quotient of Θ_D(τ), then Hom_N(π, ψ_E) = 0 unless E is a field, because (Π_D)_{N,ψ_E} ≅ ind_{H_{J,E}}^{H_J}(1) (Gross–Savin, Lemma 2.9) is 0 when E does not embed in D. So the E chosen in §6.5 and in Propositions 6.6–6.7 for J = D^+ is automatically a field.",
+   "reason": "For J = D^+ the see-saw (4.1) and H_{J,E} exist only for cubic fields E ⊂ D. In §6.5, E is chosen only by Hom_N(π, ψ_E) ≠ 0, which by Lemma 3.4 could a priori be a split or partly split algebra. Then both Lemma 6.4 (J = D^+) and Proposition 5.3 would be inapplicable. The missing step is short, so the results stand.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E35",
+   "kind": "gap",
+   "locator": "Proposition 5.5 and proof of Lemma 5.6, pp. 18–19 (arXiv v1); checked on the page images",
+   "printed": "Proposition 5.5: “Suppose that π ∈ Irr(G_2) is tempered or has cuspidal support along Q.” Proof of Lemma 5.6: “Since π is tempered, the center of M = GL_2 acts on R_P̄(π)) by characters χ such that |χ(z)| = |z|^t where t ≤ 0. … The other cases are dealt with in the same way.”",
+   "correction": "Add the case of cuspidal support along Q. Then r_P̄(π) = 0, since P and Q are not associate, so Ext^i(J_1, π) = Ext^i(J_2, π) = Ext^i(J_4, π) = 0. J_3 = m_E · I_Q(s + 1) has cuspidal support in the torus, while π lies in a Bernstein component (L, σ) with σ supercuspidal, so Ext^i(J_3, π) = 0.",
+   "reason": "The proof treats only tempered π. The second hypothesis is never addressed, though it is easy. Proposition 5.5 is applied only to tempered π (§6.3, (6.5)), so nothing downstream is affected. Minor slips on the same line: 'Frobenius reciprocity' is second adjointness, and 'R_P̄(π))' should read 'r_P̄(π)'.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E36",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 8.4, p. 27 (arXiv v1); checked on the page image",
+   "printed": "“Let Θ(ρ^+_ψ̄) and Θ(ρ^−_ψ̄) be the theta lifts of their contragredients to O_3, via the Weil representation on C_c(M°_2(F)) with respect to ψ. … Then Θ(ρ^−_ψ) ≅ st^− while Θ(ρ^+_ψ) is the principal series representation with the trivial representation as a quotient and st^+ as a submodule.”",
+   "correction": "Θ(ρ^−_ψ̄) ≅ st^− and Θ(ρ^+_ψ̄) is the principal series with quotient 1 and submodule st^+, since these are the objects appearing in the SL_2-coinvariants.",
+   "reason": "The coinvariant decomposition uses Θ(ρ_ψ̄^±), but the identifications are printed for Θ(ρ_ψ^±). Changing ψ to ψ̄ can twist the S̃L_2 → PGL_2 lift by the quadratic character χ_{−1}. The argument is unaffected either way: τ^− is supercuspidal (so the 1-dimensional quotient is irrelevant), and every generic representation of GL_2, e.g. st ⊗ χ_{−1}, is a quotient of τ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E37",
+   "kind": "misprint",
+   "locator": "§7, Proposition 7.1(iii), p. 23 (arXiv v1), against §3.4 (2), third bullet, p. 13; checked on the page image",
+   "printed": "“(iii) If τ = χ is a nontrivial unramified cubic character, then Θ(χ) = π_sc[χ] and Θ(χ²) = π_sc[χ²] the two depth 0 supercuspidal representations introduced in §3.4 (2) (third bullet point).”",
+   "correction": "“… Θ(χ) and Θ(χ²) are the two depth-0 supercuspidal representations π_sc[ω] and π_sc[ω²] of §3.4 (2), third bullet …” (the paper does not say which is which).",
+   "reason": "§3.4 (2), third bullet, p. 13, names these representations π(ω) = π_sc[ω] and π(ω²) = π_sc[ω²], after the characters ω, ω² of A_φ = μ_3. The symbols π_sc[χ], π_sc[χ²] are not defined anywhere.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E38",
+   "kind": "misprint",
+   "locator": "§9, p. 29 (arXiv v1); checked on the page image",
+   "printed": "“The group PGSp6 acts faithfully on J = ∧²F⁶ ⊗ i^{−1}, and we shall (partially) describe how the parabolic subgroups act on this module.”",
+   "correction": "J = ∧²F⁶ ⊗ ν^{−1}, where ν is the similitude character.",
+   "reason": "The twist must kill the centre: z ∈ Z(GSp_6) acts on ∧²F⁶ by z² = ν(z). Also, the computations on pp. 30–31 (M_2 acting on x_12 by det(αβ), on V_4 by α x ᵗβ) hold only with the ν^{−1} twist. 'i' is not defined. Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E39",
+   "kind": "error",
+   "locator": "§9, p. 30 (arXiv v1); checked on the page image",
+   "printed": "“Thus the root hyperplanes are si − sj = 0 and si + sj = 0 for short and long roots, respectively. This looks like a D3 root system;”",
+   "correction": "The root hyperplanes (kernels of the nine positive coroots) are s_i − s_j = 0 and s_i + s_1 + s_2 + s_3 = 0 for the short roots (six), and s_i + s_j = 0 (i < j) for the long roots (three). In cocharacter coordinates the positive coroots are e_i − e_j, (1, 1, 1) + e_i and e_i + e_j.",
+   "reason": "C_3 has 9 positive roots; the list has 6. The listed set is not stable under the paper's own reflection r_3(s) = (s_1 + s_2 + s_3, −s_3, −s_2): (s_1 − s_2)∘r_3 = s_1 + s_2 + 2s_3. Equivalently, r_3 acts on cocharacters by u ↦ (u_1, u_1 − u_3, u_1 − u_2) and maps α_2^∨ = (1, −1, 0) to (1, 1, 2). The later results are unaffected. The chamber condition uses only the simple coroots. Prop. 10.3(ii) lists the complete reducibility conditions: the coroot (1, 1, 1) + e_i gives χ_i, and e_i + e_j gives χ_k^{−1}, since χ_1χ_2χ_3 = 1. Not among E1–E22; E9 covers only the quadratic form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E40",
+   "kind": "misprint",
+   "locator": "§9, p. 31 (arXiv v1); checked on the page image",
+   "printed": "“the Levi factor M2 acts faithfully on the 4-dimensional subspace V4 = ⟨x13, x23, x14, x24⟩ preserving the quadratic form x ↦ (x, x, x56). If we identify x = ax14 + bx13 + cx24 + d23 with the matrix”",
+   "correction": "M_2 acts on V_4 by similitudes of x ↦ (x, x, x_56) = 2 det(x), with multiplier det(αβ); it preserves the trilinear form because it acts on x_56 by det(αβ)^{−1}. Also 'x = a x_14 + b x_13 + c x_24 + d x_23'.",
+   "reason": "(α, β) acts on V_4 by x ↦ α x ᵗβ (as the paper says a line later), so det(x) ↦ det(α)det(β)det(x). The intended meaning, an action by similitudes consistent with M_2 ≅ GSO_4 on p. 40, is clear. Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E41",
+   "kind": "misprint",
+   "locator": "§10.1, p. 31 and §10.2, p. 32 (arXiv v1); checked on the page images",
+   "printed": "“I2(τ ⊗ τ) = Ind^{PGSp6}_{P2} τ ⊗ τ and I2(s, τ ⊗ τ) = Ind^{G2}_{P2}(|det|^s τ) ⊗ (|det|^s τ)” and “I13(τ ⊗ 1) = Ind^{PGSp6}_{P13} τ ⊗ 1 and I13(s, τ ⊗ 1) = Ind^{G2}_{P13}(|det|^s τ) ⊗ 1”",
+   "correction": "Ind^{PGSp_6}_{P_2} and Ind^{PGSp_6}_{P_13}.",
+   "reason": "P_2 and P_13 are parabolic subgroups of PGSp_6, not of G_2. The unparametrized versions on the same lines use Ind^{PGSp_6}. The extraction's items already use PGSp_6 silently. Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E42",
+   "kind": "gap",
+   "locator": "§10, opening paragraph, p. 31, and Proposition 10.4, p. 33 (arXiv v1); used in Proposition 15.6, p. 54; checked on the page images",
+   "printed": "“Observe that Langlands parameterization of irreducible representations is known for all of Levi factors of parabolic subgroups of PGSp6(F) (by Gan and Takeda [GT] for M1 ≅ GSp4). Thus, following Shahidi [Sh], reducibility points of generalized principal series can be computed using L-functions of Langlands parameters.” and “Proposition 10.4. Assume that τ is a supercuspidal representation of GSp4(F) with trivial central character such that the parameter std ∘ ϕτ contains the trivial representation ... Then I1(s, τ) is reducible if and only if s = ±1/2”",
+   "correction": "For non-generic supercuspidal τ, Proposition 10.4 needs an input that the paper does not supply. One option: the Plancherel measure of I_1(s, τ) on PGSp_6 depends only on φ_τ, hence equals that of the generic member of the L-packet computed by Shahidi, and Silberger's theory then gives the reducibility point and the discrete series subquotient. Another option is a direct argument for the Saito–Kurokawa τ_ρ, the only non-generic case used (Prop. 15.6). Alternatively, state Proposition 10.4 for generic τ and prove the τ_ρ case separately.",
+   "reason": "Shahidi's theorem [Sh] applies only to generic supercuspidal inducing data. The only Plancherel-measure result for non-generic supercuspidals of GSp_4 in [GT] (Main Theorem (vi), checked in arXiv:0706.0952) concerns the Levi GSp_4 × GL_r of GSpin_{2r+5}, a type-B group, not M_1 ≅ GSp_4 in PGSp_6. Proposition 10.4 is stated for every supercuspidal τ with trivial central character and std∘φ_τ ∋ 1, and it has no proof beyond the quoted sentence. It is applied in Prop. 15.6 to τ_ρ, which §15.1 calls 'a nongeneric supercuspidal representation of SO_5'; θ(π_ρ) = δ_1(τ_ρ) needs I_1(1/2, τ_ρ) to be reducible with a discrete series constituent. For τ_ρ, std∘φ_{τ_ρ} = 1 ⊕ (φ_ρ ⊗ S_2) does contain the trivial representation. The statement is expected to hold, since Plancherel measures are invariants of tempered L-packets; so affects = the proof, not a stated result. Not among E1–E22. Searched: arXiv:2102.00372: only v1 exists; published version (Invent. Math. 232 (2023)) not accessible.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E43",
+   "kind": "misprint",
+   "locator": "§11.2, p. 34 (arXiv v1); checked on the page image",
+   "printed": "“Let ρψ be the unique irreducible representation of the 2-fold cover J̃, such that the center of U/[U, U] ≅ U2α+β acts by ψ.”",
+   "correction": "“such that the centre of U/Z(U) (Z(U) = [U, [U, U]] = U_{3α+β}U_{3α+2β}), which is U_{2α+β}, acts by ψ”.",
+   "reason": "U is 3-step nilpotent with U/[U, U] ≅ U_α × U_{α+β} abelian and [U, U]/[U, [U, U]] ≅ U_{2α+β} (§2.4; item g2-parabolics). The Heisenberg quotient is U/Z(U), matching the preceding sentence 'the quotient of J by the center of U is the Jacobi group'. Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E44",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 11.3, p. 36 (arXiv v1); checked on the page image",
+   "printed": "“V′ = U · Uβ = N′ · Uα+β, which is a maximal unipotent subgroup of G2 and hence conjugate to V (by the simple reflection wβ). ... V′ ⊃ [V′, V′] = V′1 ⊃ V′2 = [V′, V′1] ⊃ V′3 ⊃ {1}, then V/V′2 is the Heisenberg group in question with center V′1/V′2 = Uα.”",
+   "correction": "V′ = U · U_{−β} = N′ · U_{α+β}; the lower central series is V′ ⊃ V′_1 ⊃ V′_2 ⊃ V′_3 ⊃ V′_4 = U_{3α+β} ⊃ {1}; and V′/V′_2 is the Heisenberg group, with centre V′_1/V′_2 = U_α.",
+   "reason": "N′ contains U_{−β}, so N′·U_{α+β} = U·U_{−β} = w_β V w_β^{−1}; U·U_β is V itself. The maximal unipotent subgroup of G_2 has nilpotency class 5 (root heights 1–5), so its lower central series has one more step. V′/V′_2 has root groups U_{α+β}, U_{−β} and centre U_α = w_β(U_{α+β}). The argument is unaffected. (The conjugating element 'w_α · w_β' is correct under the convention X ↦ w^{−1}Xw, so it is not recorded.) Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E45",
+   "kind": "error",
+   "locator": "Remark after Proposition 12.2, p. 39 (arXiv v1); checked on the page image",
+   "printed": "“Remark: This proposition is proved in [SWe] using the uniqueness of Shalika functional, however, the proof of this uniqueness is difficult.”",
+   "correction": "[SWe] proves the statement only for generic supercuspidal τ ([SWe, Prop. 4.6], using [SWe, Theorem 4.4], uniqueness of Shalika functionals for supercuspidal irreps of GSp_6). For other tempered τ, Proposition 12.2 is new and rests on Lemma 12.1, hence on Proposition 11.7.",
+   "reason": "Read in arXiv:0908.3340v2: Theorem 4.4 assumes σ supercuspidal, and Lemma 4.5 and Proposition 4.6 assume σ generic supercuspidal. The remark overstates the overlap. This matters for E10's reach: E10 is bypassed only for generic supercuspidal τ. Not among E1–E22.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E46",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 13.3, p. 41 (arXiv v1); checked on the page image",
+   "printed": "“Hence r_Q(I_Q(χ)) ⊗ I_2(χ ⊗ χ) is a quotient of r_{P_2}(Π).”",
+   "correction": "“… is a quotient of r_Q(Π).”",
+   "reason": "The Jacquet functor r_Q is applied on the G_2 side to the quotient I_Q(χ) ⊗ I_2(χ⊗χ) of Π. The result is a quotient of r_Q(Π), the module whose character δ is being determined. r_{P_2} would act on the PGSp_6 side.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E47",
+   "kind": "gap",
+   "locator": "Proof of Proposition 13.3, p. 41 (arXiv v1); checked on the page image",
+   "printed": "“This proposition is entirely similar to Proposition 6.8 in [GS99], which treated the case of non-split form of H, except the character δ was not determined there. … Now determining δ is an easy exercise using r_Q(I_Q(χ)).”",
+   "correction": "Needed: the orbit computation of r_Q(Π) for split PGSp_6 (the analogue of Props. 13.5–13.7), including the character δ in (2).",
+   "reason": "The split case is not proved. It is referred to the non-split form of [GS99], and δ is left as an exercise. For P_2 the paper itself notes that the split case has an extra piece not present in [GS99]; for Q no comparison is made. Lemma 13.4 uses the second component |·| of δ. Reviewer checks support the statement: the exponents of (1) are consistent with the infinitesimal character of the E_7 minimal representation, and (2) and (3) with the stated δ are consistent with functoriality for G_2(C) ⊂ Spin_7(C). This is the same kind of gap as E13.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E48",
+   "kind": "misprint",
+   "locator": "§13.4, Case P_1, p. 44 (arXiv v1); checked on the page image",
+   "printed": "“Let ν be the similitude character of GSp_6.”",
+   "correction": "“Let ν be the similitude character of GSp_4 (≅ M_1).”",
+   "reason": "ν is evaluated on m ∈ M_1 ≅ GSp_4 in δ_{P_1}(m) = |ν(m)|³, in the action on C_c(Ω), in ν(g_1,g_2) = det g_2 on L_1 ⊂ GSp_4 and in |ν|^{1/2} in Prop. 13.6. The paper later calls ν 'the similitude character of GSp_4' (§10.4). The item prop-13-6 notes this, but no sourceIssue records it.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E49",
+   "kind": "error",
+   "locator": "Proof of Lemma 13.8, p. 47, against Proposition 13.7, notes to (3), p. 47 (arXiv v1); checked on the page images",
+   "printed": "“Consider i = 3. Then, using the (second) Frobenius reciprocity for induction from B̄ to GL_2, the first factor of M_2, we have Ext^i_{M_2}(Ind_{P×B̄}^{G_2×GL_2}(C_c(GL_2)), τ_1^∨ ⊗ τ_2^∨) ≅ Ext^i_{T×GL_2}(Ind_P^{G_2}(C_c(GL_2)), r_B(τ_1^∨) ⊗ τ_2^∨)”, whereas Proposition 13.7 says “In (3), B̄ is the subgroup of the second factor GL_2 of M_2 … The first factor GL_2 of M_2 acts by right translations on C_c(GL_2).”",
+   "correction": "With B̄ in the second factor, as in Prop. 13.7: Ext^i_{M_2}(piece (3), τ_1^∨ ⊗ τ_2^∨) ≅ Ext^i_{GL_2×T}(Ind_P^{G_2}(C_c(GL_2)), τ_1^∨ ⊗ r_B(τ_2^∨)). The P_2 case goes through unchanged, since τ_2 is also a positive twist of a tempered representation. In the P_23 case the i = 3 term should still vanish, but by a different reason: τ_2 is now the principal-series factor, and its exponent on the second GL_1 is nonzero because s_1 > s_2 > 0. In the P_12 case the i = 3 term can be nonzero (e.g. τ_2 a Steinberg twist by |det|^{1/2}), so the paper's P_12 argument must be rerun with τ_1 and τ_2 exchanged: Θ(σ) is then a quotient of I_P(τ_1), followed by Lemma 13.4. The conclusion Θ(σ) = 0 is not affected.",
+   "reason": "Three facts put B̄ in the second factor, against the Lemma 13.8 proof. First, the Ω-model: the A_1 factor of ℳ_2, i.e. the second SL_2, since (1)'s notes make the first SL_2 lie in D_5, acts on M_2(O) from the right, and the stabilizer of a point of Ω_2 contains a Borel of the right-acting factor. Second, the functoriality check: I_13(τ⊗1) has P_2-cuspidal data with τ on the first factor (GL_2 on ⟨e_1,e_2⟩) and ω_τ on e_3, which is what (3) with B̄ in the second factor produces. Third, with B̄ in the first factor, (3) would pair I_P(τ) with τ on GSp_2, whose SO_7-parameter Ad φ_τ ⊕ … does not match. The proof of Lemma 13.8 applies second adjointness in the first factor throughout, so its i = 3 steps for P_23 and P_12 are argued for the wrong factor.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E50",
+   "kind": "error",
+   "locator": "§13.4, Case P_2 and the paragraph after Proposition 13.7, pp. 46–47 (arXiv v1); checked on the page images",
+   "printed": "“where (g,(α,β)) ∈ G_2 × (GL_2 × GL_2)/GL_1^∇ acts on f ∈ C_c(Ω) by ((g,(α,β))·f)(X) = δ′(αβ)·f(ᾱ(g^{−1}X)β) for some (unknown) character δ′.” (the displayed 2×2 matrix of octonions abbreviated as X, g^{−1} applied entrywise) and “This also assumes that we have explicated the character δ′ appearing in the action on C_c(Ω). To that end, observe that (3) (or any unknown twist) gives a correspondence of generic principal series representations of G_2 and PGSp_6 that has to be compatible with the one in Lemma 13.4, and this determines δ′ uniquely.”",
+   "correction": "No character δ′ of M_2 makes the displayed action yield (2) and (3). The twist on each orbit has to be computed, the kind of twist that is not a character of M_2. The sentence 'this determines δ′ uniquely' should be replaced by that computation. Propositions 13.7(2) and (3) as stated appear correct; they pass the functoriality checks.",
+   "reason": "Reviewer computation. Take the point X_0 of Ω_2 with first column (v_1; v_2), a basis of the null plane V_2, and second column 0. Its stabilizer is S = {(g,[α,β]) : g ∈ P, β ∈ B̄, ᾱ = β_11^{−1}ℓ(g)^⊤}, where ℓ(g) is the matrix of g on V_2; ᾱ may be read as transpose or as adjugate. On S, det α·det β = det ℓ(g)·β_22/β_11. Every character of M_2 is a power of det α·det β. So the displayed action gives C_c(Ω_2) ≅ c-ind_S(|det ℓ|^e|β_22/β_11|^e). The untwisted (3) is c-ind_S(δ_R^{1/2}|_S) = c-ind_S(|det ℓ|^{3/2}|β_22/β_11|^{1/2}), with R = P × (GL_2×B̄)/GL_1^∇, which needs e = 3/2 and e = 1/2 at once. Similarly on the stabilizer of v ⊗ E_11 in Ω_1 (g ∈ Q, α, β ∈ B̄, α_11β_11 = det ℓ), the stated (2) gives |det ℓ|^{5/2}|α_22β_22|^{3/2}, while the display gives |det ℓ|^e|α_22β_22|^e. The same computation with the paper's explicit characters |det m|² and |ν(m)|³ reproduces Props. 13.5 and 13.6 exactly, so the method is sound. Conversely (3) as stated gives I_P(τ) ↔ I_2(τ ⊗ Ind(ω_τ)), which has the cuspidal data of I_13(τ⊗1) (Lemma 13.4). And (2) gives SO_7-parameters {ξ^{±1}|·|^{±1/2}, |·|^{±1}, 1} on both sides, as G_2(C) ⊂ Spin_7(C) requires. So the derivation offered for (2) and (3) fails, while the statements survive.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E51",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 15.6, p. 55 (arXiv v1); checked on the page image",
+   "printed": "“… or r_{P_1}(θ(π)) is a supercuspidal representation of the Levi factor L_1 = GSp_4.” and “… is of the form π_ρ for some ρ ∈ Irr(PGL_2) by Lemma 15.4(iii).”",
+   "correction": "“… of the Levi factor M_1 ≅ GSp_4” and “ρ ∈ Irr_sc(PGL_2)”.",
+   "reason": "In §13.4, L_1 denotes the Levi subgroup GL_1 × GL_2 of Q_1 ⊂ GSp_4, while the Levi factor of P_1 is M_1 ≅ GSp_4. Lemma 15.4(iii) produces ρ ∈ Irr_sc(PGL_2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-SAVIN-23/E52",
+   "kind": "misprint",
+   "locator": "Corollary 15.7, p. 55 (arXiv v1); checked on the page image",
+   "printed": "“If π ∈ Irr(G_2) is a discrete series representation which does not lift to PGL_3 or PD^×, … any discrete series representation of G_2 lifts to a discrete series of exactly one of PD^×, PGL_3 or PGSp_6. That lift is Whittaker generic iff and only if π is.”",
+   "correction": "Read PGL_3 ⋊ Z/2Z for PGL_3, as in Theorem 1.3(ii) ('precisely one of the three groups'), with genericity for PGL_3 ⋊ Z/2Z in the sense of §8.2. Also 'iff and only if' should be 'if and only if'.",
+   "reason": "With PGL_3 taken literally the last sentence is false. A nongeneric discrete series π_deg = θ_B(τ^−), with τ a self-dual discrete series of PGL_3 whose parameter has no trivial summand, is nonzero by Theorem 8.5(i), and its lift τ^− restricts to the generic τ on PGL_3. With PGL_3 ⋊ Z/2Z the statement matches Theorem 8.5(iii).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2102.00372: v1 (31 January 2021) is the only version",
+    "Crossref for doi:10.1007/s00222-022-01165-2 (Invent. Math. 232 (2023), 1–78), 23 September 2026: no update-to or relation entries",
+    "the published version is closed access and could not be read, so whether print differs from arXiv v1 here is not established"
+   ],
+   "owner": "PAPER-GAN-SAVIN-23",
+   "file": "research/blueprint/papers/PAPER-GAN-SAVIN-23.result.json",
+   "citation": "Gan–Savin, \"Howe duality and dichotomy for exceptional theta correspondences\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-SAVIN-23",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-GAO-GE-KUHNE-26/E1",
