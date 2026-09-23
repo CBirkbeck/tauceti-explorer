@@ -1,0 +1,1762 @@
+{
+ "paper": "PAPER-DISEGNI-22",
+ "protocol": "paper-v1",
+ "status": "complete",
+ "source": {
+  "title": "The universal p-adic Gross–Zagier formula",
+  "authors": "Daniel Disegni",
+  "venue": "Inventiones mathematicae 230 (2022), no. 2, 509–649",
+  "doi": "10.1007/s00222-022-01133-w",
+  "arxiv": "2001.00045",
+  "url": "https://arxiv.org/abs/2001.00045v4",
+  "readSections": [
+   "Read in full in arXiv:2001.00045v4 (23 February 2024), whose abstract page carries the comment \"89 pages, 1 figure. New in this version: a correction as Appendix B (to appear separately in Invent. math.)\" and the journal reference Invent. math. 230 (2022), 509–649: §1 Introduction and statements of the main results; §2 Automorphic and Galois representations; §3 Sheaves on Hida families; §4 Pairings; §5 Selmer sheaves and p-adic heights; §6 Universal Heegner class; §7 The main theorems, and a conjecture; Appendix A p-adic semilocal constructions; Appendix B Correction; and the bibliography.",
+   "Sources read: the arXiv e-print archive of v4, sha256 24d867874a39fd374d8820069c76e972d9260b7bc6b0b5617e2bafdcc86d330c, whose main file univ-corr-arxiv.tex (6803 lines, sha256 ca60c39e761b3e5b5dd0d4c6423c0eba4703b9065850ce5909a95b58d7399f2e) uses smfart.cls with smfenum.sty, smfhyperref.sty and smfthm.sty; and the compiled PDF of v4, sha256 c50d0cd394a5e803c0b7adef5700b425f4f304679415b2c666cd351eefcd9602.",
+   "Numbering: the SMF class numbers theo/prop/conj/coro/lemm/defi/rema/exem and the enonce environment on a single counter within each subsection, with a separate equation counter also within subsection; the lettered theoA environment is numbered A–H and the customthm/customconj environments carry the manual labels B^ord and Pf. The numbering was re-derived from the LaTeX and checked against all 68 typed cross-references printed in the PDF: 107 numbered statements (37 Lemmas, 26 Propositions, 15 Remarks, 12 Definitions, 8 lettered Theorems, 4 Theorems, 4 Corollaries, 1 Construction), with the two apparent mismatches explained (one is an external citation to Howard, the other is the misprint recorded as E2 below)."
+  ]
+ },
+ "summary": "Disegni proves a p-adic Gross–Zagier formula in three linked forms and deduces arithmetic consequences. Fix a prime p, a totally real field F, a CM quadratic extension E/F, an incoherent totally definite quaternion algebra B over F_A split at p, and the groups G, H = Res_{E/Q}G_m, (G×H)' = (G×H)/Z with their towers of quaternionic Shimura curves X, Y, Z and the diagonal embedding e' : Y' → Z. For an ordinary, locally distinguished automorphic representation Π = π ⊗ χ of (G×H)'(A) of cohomological weight W over a p-adic field, the Abel–Jacobi images of the CM 0-cycles with coefficients in the local system attached to W give a functional P_Π : Π → H^1(E,V_Π). Theorem B computes the p-adic height of P_Π ⊗ P_{Π^∨} against the automorphic inner product as the derivative at s = 0 of the cyclotomic p-adic L-function of V_{(π,χ)}, times an explicit interpolation factor and the normalised product of local toric integrals Q. Theorem C constructs a universal Heegner class 𝓟 over a locally distinguished Hida family X for (G×H)', valued in a sheaf of Nekovář Selmer groups, and proves that it specialises to the Heegner classes at every classical point, answering the generalisation of a question of Howard. Theorem D is the interpolated formula over X, an identity between the height of 𝓟 and the normal derivative of the two-variable p-adic L-function; Theorem B for all weights is deduced from it by density of the trivial-weight points where the formula is known and by multiplicity one. The applications are the p-adic Beilinson–Bloch–Kato conjecture in analytic rank one (Theorem A), an Iwasawa main conjecture for derivatives (Theorem E), the generic non-vanishing of p-adic heights on self-dual CM motives (Theorem F) and along an exceptional classical Hida family (Theorem G), a universal Waldspurger formula for coherent totally definite quaternion algebras (Theorem H), a conjecture à la Bertolini–Darmon for the leading term of 𝓟 in terms of Pfaffian height regulators, and a new proof of the theorem of Greenberg–Stevens. The technical core is Appendix A, which constructs semilocal operators at p∞ intertwining ordinary, anti-ordinary and toric parts of a locally algebraic representation and computes the local toric periods of the resulting vectors in terms of Deligne–Langlands gamma factors. The paper needs: Hida theory for the four groups and their eigenvarieties; the Galois representations of Hilbert modular forms with local–global compatibility and the nearly ordinary filtration; pseudocharacters and Azumaya algebras over an eigenvariety; the local Langlands correspondence in analytic families; Nekovář's Selmer complexes and height pairings in families, with Venerucci's conormal refinement; the étale Abel–Jacobi map for 0-cycles with coefficients; Saito–Tunnell multiplicity one and the local toric integrals of Waldspurger; the two-variable p-adic L-function of Disegni's companion paper; the Euler system bounds of Fouquet; and, for the applications, Katz's p-adic L-function, Hsieh's μ-invariant theorem, Hida's anticyclotomic main conjecture and the Bertolini–Darmon rigid-analytic formula. Appendix B of arXiv v4 is a published Correction, to appear separately in Inventiones: after a correction to Disegni's companion paper on nonsplit primes, Theorems A, B and B^ord hold only under the extra condition (★) — every p-adic place of F nonsplit in E is inert and χ is unramified there — and Theorems D and E hold for Hida* families rather than Hida families. Every item below states the corrected form.",
+ "items": [
+  {
+   "id": "PAPER-DISEGNI-22/1",
+   "kind": "definition",
+   "name": "Incoherent reductive group over a global field",
+   "statement": "An F-incoherent reductive group G over a global field F is a collection of reductive groups G_v/F_v, one for each place v, such that for every place w there is a genuine reductive group G(w)/F with G(w)×_F F_v ≅ G_v for all v ≠ w and with G(w)×_F F_w and G_w non-isomorphic inner forms of each other. For a finite extension F/F_0, an F-incoherent reductive group over F_0 is a collection G_{v_0}/F_{0,v_0} of the form Res_{F_{v_0}/F_{0,v_0}} G_{F,v_0} for an F-incoherent group G_F over F; one writes G = Res_{F/F_0} G_F. All but finitely many G_{v_0} are unramified, so the restricted product G(A^S) is defined; when F_0 = Q and G_{F,∞} is anisotropic modulo its centre one redefines G(A^S) := G(A^{S∞}) × G_∞ with G_∞ = G_p(Q_p) carrying the Zariski topology.",
+   "locator": "§2.1.1 (Incoherent reductive groups), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/2",
+   "kind": "definition",
+   "name": "The incoherent quaternionic group, its companions, and the embedding e",
+   "statement": "B is a quaternion algebra over F_A with ramification set Σ ⊔ {v | ∞} satisfying |Σ| ≡ [F:Q] − 1 (mod 2); G(A) := B^× is the incoherent group over Q with G_v = B_v^×. With H := Res_{E/Q}G_m and Z := Res_{F/Q}G_m one considers the five groups G, H, G×H, (G×H)' := (G×H)/Z and H' := H/Z, written collectively G_*. If E_v/F_v is nonsplit for every v ∈ Σ there is a unique B^×-conjugacy class of F_A-embeddings E_A ↪ B; fixing one gives e : H ↪ G and a diagonal H' ↪ (G×H)'.",
+   "locator": "§1.2.1 (Algebraic groups and Shimura varieties), display (1.2.1), and §2.1.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/3",
+   "kind": "definition",
+   "name": "Hecke algebras of a coherent or incoherent group and the involution ι",
+   "statement": "For a ring A, 𝓗_{G,A} := C_c^∞(G(A^{p∞}),A) and 𝓗^S_{G,A} := C_c^∞(G(A^{Sp∞}),A), with bi-U-invariant subalgebras 𝓗_{G,U,A}, 𝓗^S_{G,U,A}; S is U-spherical when U_v is maximal for v ∉ S. For a smooth A-module M the spherical Hecke algebra acting on M is 𝓗^{sph}_G := lim_{(S,U)} 𝓗^S_{G,U}(M) ⊂ End_A(M) when the limit over U-spherical pairs stabilises. It carries the involution ι induced by g ↦ g^{T,−1} on G and h ↦ h^{−1} on H, and on the torus by t ↦ t ν(t)^{−1}, ν the reduced norm (for G) or N_{E/F} (for H); ι preserves T^+_{G_*}.",
+   "locator": "§2.1.2 (Hecke algebras) and §2.1.4 (Involutions), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/4",
+   "kind": "definition",
+   "name": "Congruence subgroups at p and the semigroup T^+",
+   "statement": "For v | p: U^1_1(ϖ_v^r) = {(a b; c d) ∈ GL_2(O_{F,v}) : a−1 ≡ d−1 ≡ c ≡ 0 mod ϖ_v^r} and U(ϖ_v^r) the further condition b ≡ 0. With ε_v ∈ F_v^× such that E_v = F_v(√ε_v) and v(ε_v) ≥ 1, V_{v,r} := V_{F,v,r}(1+ϖ^r O_{E,w}) in the split case and V_{F,v,r}(1+√ε_v ϖ^r O_{E,w}) in the nonsplit case, U_{v,r} := U^1_1(ϖ_v^{r}); K_{p,r} and K_p(p^{r}) are the images of U_{p,r}×V_{p,r} and U_p(p^{r})×V_{p,r} in (G×H)'. N_{G,0} is the unipotent upper-triangular integral subgroup, T_{G_*} the diagonal torus, T^+_{G_*} the normaliser of N_{G_*,0} in T_{G_*}, so that T^+_{G,v} = {diag(t_1,t_2) : v(t_1) ≥ v(t_2)}.",
+   "locator": "§2.1.3 (Subgroups of G_*) and §2.1.5 (Congruence subgroups), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/5",
+   "kind": "definition",
+   "name": "Highest-weight character of an algebraic representation and its dual",
+   "statement": "For an irreducible left (resp. right) algebraic representation W of G_* over L, σ_W is the character by which T_{G_*} acts on the line W^{N_{G_*}} of highest-weight vectors (resp. on W_{N_{G_*}}). One has σ_{W^∨}(t) = σ_W(t^ι) for the involution t ↦ t ν(t)^{−1}.",
+   "locator": "§2.2.1 (Highest-weight character), display (2.2.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/6",
+   "kind": "definition",
+   "name": "Cohomological weights and algebraic representations of the quaternionic group",
+   "statement": "A cohomological weight for G over L is a tuple w̲ = (w; (w_σ)_{σ: F ↪ L}) of [F:Q]+1 integers of the same parity with w_σ ≥ 2. The associated representation is W_{G,w̲} := ⊗_{σ} Sym^{w_σ−2} Std_σ ⊗ Nm_σ^{(w−w_σ+2)/2}, with dual W_{G,w̲^∨}, w̲^∨ = (−w;(w_σ)). Concretely W_{G,w̲} is the space of tuples of homogeneous polynomials p_σ ∈ L[x_σ,y_σ] of degree w_σ−2 with g·p_σ(x,y) = det(σg)^{(w−w_σ+2)/2} p_σ((x,y)σg); it carries the O_L-lattice of tuples with integral coefficients. Then σ_{W,v}(diag(t_1,t_2)) = ∏_{σ: F_v ↪ L} σ(t_1)^{(w+w_σ−2)/2} σ(t_2)^{(w−w_σ+2)/2}. If L/Q_p is Galois, W_{G,w̲} descends to the fixed field L(w̲) of the stabiliser of w̲.",
+   "locator": "§2.2.2 (Quaternionic special case), displays (2.2.2)–(2.2.5), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/7",
+   "kind": "definition",
+   "name": "Cohomological weights and algebraic characters of the torus H",
+   "statement": "A cohomological weight for H is a tuple l̲ = (l;(l_σ)_{σ: F ↪ L}) of [F:Q]+1 integers of the same parity; after choosing an extension σ' of each σ to E, W_{H,l̲} := ⊗_σ σ'^{l_σ} ⊗ σ∘Nm_{E_p/F_p}^{(l−l_σ)/2}, a one-dimensional L-space with E_p^×-action, with an O_{E,p}^×-stable lattice.",
+   "locator": "§2.2.3 (Toric special case), display (2.2.6), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/8",
+   "kind": "definition",
+   "name": "The Shimura data and the towers X, Y, X×Y, Z, Y'",
+   "statement": "For an infinite place τ of F let G_τ = Res_{F/Q}G_F(τ) be the τ-nearby coherent group and h_{G,τ} : S = Res_{C/R}G_m → G_R Carayol's Hodge cocharacter; h_H is the unique cocharacter with e_R ∘ h_H = h_G. Products and projections give Shimura data for all five groups, hence towers X_{*,τ}/τE_* with reflex field E_* = E except E_G = F, and these descend to towers X_*/E_*: X/F, Y/E, X×_F Y/E, Z/E, Y'/E, the first three of dimension one and Y, Y' of dimension zero. Complex uniformisations: X_{U,τ}(C) ≅ B(τ)^× \\ 𝔥^± × B^{∞×}/U ∪ {cusps}, Y_V(E^{ab}) ≅ E^× \\ E_{A^∞}^×/V, and Z_K ≅ X_U × Y_V/Δ_{U,V}.",
+   "locator": "§2.3.1 (Shimura varieties), displays (1.2.2) and (2.3.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "ShimuraData:D4",
+    "ShimuraVarieties:V1",
+    "ShimuraVarieties:V8",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "note": "The coherent quaternionic Shimura curves and their canonical models are planned by ShimuraVarieties V1/V8 and by HilbertModularVarietiesAndShimuraCurves R18.1; ShimuraData D4 plans data and morphisms. What is not planned is the incoherent case — the τ-nearby groups and the compatible system of towers attached to an incoherent G — which is the separate item incoherent-group."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/9",
+   "kind": "theorem",
+   "name": "Free action at sufficiently small level and the étale covering",
+   "statement": "Lemma 2.3.1. If U_*^p is sufficiently small (independently of n) then (1) Ḡ_n := U_{*,p}/U_{*,p,n}(Z_{G_*}(Q) ∩ U_*)_p acts freely on X_{U_*^p U_{*,p,n}}, so that X_{*,U_*^pU_{*,p,n}} → X_{*,U_*} is étale with Galois group Ḡ_{*,n}; (2) Z_{G_*}(Q) ∩ U_* acts trivially on the lattice W^∘.",
+   "locator": "Lemma 2.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (proof: Carayol, Lemme 1.4.1.1, plus the cohomological-weight condition)",
+   "status": "planned",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:H3",
+    "HilbertModularVarietiesAndShimuraCurves:R18.1"
+   ],
+   "note": "H3 plans the arithmetic quotient and unit actions and R18.1 the quaternionic moduli; the neatness statement and the triviality of the action of the global units of cohomological weight are exactly what those layers must supply."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/10",
+   "kind": "construction",
+   "name": "Automorphic étale local systems on the Shimura tower",
+   "statement": "For an irreducible right algebraic representation W of G_* over L, a sufficiently small U_*, a U_{*,p}-stable lattice W^∘ and U_{*,p,n} acting trivially on W^∘/p^n, the quotient (X_{*,U_*^pU_{*,p,n}} × W^∘/p^n)/Ḡ_{*,n} is a locally constant étale O_L/p^n-module 𝓦^n on X_{*,U_*}; 𝓦^∘ := lim_n 𝓦^n and 𝓦 := 𝓦^∘ ⊗ L. 𝓦 is compatible with pullback in the tower and independent of W^∘ up to isomorphism; for a noncompact X_* the construction is performed on the open part and pushed forward to the compactification.",
+   "locator": "§2.3.2 (Automorphic local systems), display (2.3.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.4"
+   ],
+   "note": "R18.4 plans étale and Betti cohomology with algebraic local systems on the Hilbert/quaternionic towers together with the integral Hecke modules; the construction of the local system from a lattice and a neat level is its input."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/11",
+   "kind": "definition",
+   "name": "p-adic automorphic representation of weight W (Emerton's point of view)",
+   "statement": "Definition 2.4.1. With G_*(A) redefined as G_*(A^∞) × G_{*,∞}, where G_{*,∞} = G_*(Q_p) with the Zariski topology, a regular algebraic cuspidal automorphic representation of G_*(A) over L of weight W is an irreducible admissible locally algebraic representation π factoring as π = π^∞ ⊗ W, with G_*(A^∞) acting smoothly and G_{*,∞} algebraically, occurring as a subrepresentation of 𝓗^•(X̄_*, 𝓦^∨) = colim_U H^•(X̄_{*,U},𝓦^∨) ⊗ W.",
+   "locator": "Definition 2.4.1 with Remark 2.4.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/12",
+   "kind": "definition",
+   "name": "Ordinary automorphic representation and its ordinary part",
+   "statement": "Definition 2.4.3. π of weight W = W_{G_*,w̲} is ordinary at v | p with unit character α_v^∘ if there is a smooth character α_v of T_v with π_v the unique irreducible subrepresentation of Ind(α_v·(|·|_v,|·|_v^{−1})) and α_v^∘ := α_v σ_{W,v} : T_v → O_L^×; equivalently, for r large the U^1_1(ϖ_v^r)-fixed vectors of π_v ⊗ W contain a unique line of simultaneous eigenvectors for the U_x = [U^1_1(ϖ_v^r) diag(x,1) U^1_1(ϖ_v^r)] with eigenvalue α^∘(x). That line is π_v^{ord} := L w_v ⊗ W^{N_v}, and π^{ord} := π^{p∞} ⊗ ⊗_{v|p} π_v^{ord}, on which T^+ acts by U_t ↦ α^∘(t). π is ordinary if it is so at all v | p. All automorphic representations of H(A^∞) are ordinary by convention, and π ⊗ χ is ordinary if π and χ are.",
+   "locator": "Definition 2.4.3 with displays (2.4.1)–(2.4.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/13",
+   "kind": "theorem",
+   "name": "Galois representations attached to Hilbert modular forms (Ohta–Carayol–Saito)",
+   "statement": "Theorem 2.5.1. For π of weight W over L and S ⊇ {ramified places} ∪ {v | p} there is a 2-dimensional absolutely irreducible ρ_π : G_{F,S} → Aut(V_π) with Tr ρ(Fr_v) = q_v^{−1} λ_{π_v}(T_v) for v ∉ S, and: (1) ρ_v is unramified for almost all v, potentially semistable for v | p, and the attached Weil–Deligne representation r_v matches π_v under local Langlands normalised à la Hecke, L(s,r_v) = L(s+1/2,π_v); (2) r_v satisfies weight–monodromy, its monodromy filtration being pure of weight w−1, and the filtration is trivial iff π_v is not special; (3) ρ is odd at every archimedean place; (4) for v | p and σ : F_v ↪ L̄ the σ-Hodge–Tate weights of ρ_v ⊗ L̄ are −1−(w+w_σ−2)/2 and −(w−w_σ+2)/2, and if π is ordinary at v there is a unique exact sequence 0 → V^+_{π,v} → V_{π,v} → V^−_{π,v} → 0 of G_{F,v}-representations with both terms one-dimensional and G_{F,v} acting on V^+_{π,v} by α^∘_{π,v} χ_cyc,v.",
+   "locator": "Theorem 2.5.1 with display (2.5.2), Disegni, arXiv:2001.00045v4 (23 February 2024) (Carayol; T. Saito, Theorems 2.2 and 2.4; Tian–Xiao, Proposition 6.7)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicGaloisRepresentations:R19.2",
+    "AutomorphicGaloisRepresentations:R19.4",
+    "AutomorphicGaloisRepresentations:R19.5"
+   ],
+   "note": "R19.2 plans Hilbert and quaternionic Galois representations, R19.4 local–global compatibility away from p and R19.5 compatibility at the coefficient prime, including Hodge–Tate weights and the nearly ordinary filtration."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/14",
+   "kind": "theorem",
+   "name": "Carayol's decomposition of the homology of the Shimura tower",
+   "statement": "Proposition 2.5.2. For U_* ⊂ G_*(A^∞), an irreducible right algebraic W over L and a sufficiently large finite Galois L'/L there is a Gal(L'/L)-equivariant isomorphism of 𝓗_{G_*,U_*,L}[G_{E_*,S}]-modules 𝓗_d(X̄_{*,U_*},𝓦) ⊗_L L' ≅ ⊕_π π^{∨,U_*} ⊗ V_π, the sum over automorphic representations of G_*(A) of weight W over L'. Here G_{E_*} is redefined as G_F × G_E when G_* = G×H or (G×H)'.",
+   "locator": "Proposition 2.5.2, display (2.5.3), Disegni, arXiv:2001.00045v4 (23 February 2024) (Carayol, Sur les représentations l-adiques…, for G_* = G; the general case follows with class field theory)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicGaloisRepresentations:R19.2",
+    "HilbertModularVarietiesAndShimuraCurves:R18.4"
+   ],
+   "note": "R18.4 plans the integral Hecke modules and pairings on the quaternionic cohomology and R19.2 the attached Galois representations; their joint content is the isotypic decomposition used here."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/15",
+   "kind": "definition",
+   "name": "Weight space, the ordinary Iwasawa algebra and its classical points",
+   "statement": "Definition 3.1.1. For U_*^p ⊂ G_*(A^{p∞}) set Z_{G_*,U^p_*} ⊂ Z_{G_*}(Q) as in the text, T̄_{G_*,U^p_*,0} := T_{G,0}/closure(Z_{G_*,U_*}) and Λ^∘_{G_*,U^p_*} := Z_p⟦T̄_{G_*,0}⟧. For an irreducible algebraic W, I_{G_*,U^p_*,W,r,L} := ([t] − σ_W^{−1}(t))_{t ∈ T̄_{G_*,U^p_*,r}}; these form a fundamental system of neighbourhoods of 0, Λ^∘_{G_*,U^p_*,W,r} ≅ O_L[T̄_{G_*,U^p_*,0}/T̄_{G_*,U^p_*,r}] via [t] ↦ σ_W^{−1}(t)[t̄], and Λ_{G_*,U^p_*} = (lim_r Λ_{G_*,U^p_*,W,r}) ⊗ L. The weight space is 𝔚_{G_*,U^p_*} := Spec Λ_{G_*,U^p_*} ⊗ Q_p, with the zero-dimensional ind-subschemes 𝔚^{cl,W}_{·,r}, 𝔚^{cl,W}, 𝔚^{cl} of classical points. Writing T̄_{G_*,U^p_*,0} ≅ Δ × Z_p^{d(G_*)} one has d(G) = d(H) = [F:Q]+1+δ and d((G×H)') = 2[F:Q]+1+δ, δ = δ_{F,p} the Leopoldt defect of F at p.",
+   "locator": "§3.1.1 (Weight spaces), Definition 3.1.1 with displays (3.1.1)–(3.1.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/16",
+   "kind": "construction",
+   "name": "Ordinary completed homology of the Shimura tower",
+   "statement": "For an irreducible right algebraic W with lattice W^∘, 𝓗_d(X̄_{*,U_*^pU_{*,r}},𝓦^∘)^{ord} := (H_d^{ét}(X̄_{*,U_*^pU_{*,r}},𝓦^∘) ⊗_{O_L[T^+_{G_*}]} (W^{∘,∨})_{N_0})^{ord} for the action of T^+_{G_*} by U_t ⊗ t, and M^∘_{G_*,U^p_*,W} := lim_r 𝓗_d(X̄_{*,U^p_*U_{*,p,r}},𝓦^∘)^{ord}, M_{G_*,U^p_*,W} := M^∘ ⊗_{O_L} L, which is independent of W^∘. With ordinary Hecke algebras 𝓗^{?,ord}_{G_*,U^p_*,A} := 𝓗^?_{G_*,U^p_*,A} ⊗_A A[T_{G_*}] ⊗_{Z_p[T^+_{G_*,0}]} Λ^∘_{G_*,U^p_*}, the module M^∘ ⊗ A is an 𝓗^{ord}-module with [t] acting by U_t.",
+   "locator": "§3.1.2 (Ordinary completed homology) and §3.1.3, display (3.1.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/17",
+   "kind": "theorem",
+   "name": "Freeness, weight-independence and Hida control for G and H",
+   "statement": "Proposition 3.1.2, parts 1–3 for G_* = G and H. M^∘_{G_*,U^p_*,W} is a projective Λ^∘_{G_*,U^p_*} ⊗ O_L-module of finite type; there are natural 𝓗^{ord}-equivariant isomorphisms j_W : M_{G_*,U^p_*} ⊗ O_L ≅ M_{G_*,U^p_*,W} induced by cap product with the highest-weight vector; and M_{G_*,U_*,W,r} := M ⊗_{Λ} Λ_{W,r} ≅ 𝓗_d(X̄_{*,r},𝓦)^{ord}.",
+   "locator": "Proposition 3.1.2 with displays (3.1.5)–(3.1.7), Disegni, arXiv:2001.00045v4 (23 February 2024) (Hida, On p-adic Hecke algebras for GL_2 over totally real fields, §8; Hida, Control of nearly ordinary Hecke algebras, Theorem 1.2)",
+   "status": "planned",
+   "planned": [
+    "PadicFamilies:L0",
+    "PadicFamilies:L0a",
+    "PadicFamilies:L5"
+   ],
+   "note": "L5 plans exactly Hida control on the integral Hilbert automorphic/cohomology modules over the integral weight algebras, L0 the finite flatness of the ordinary Hecke algebras and L0a the ordinary projector. The abelian case G_* = H is the completed group algebra of a ray class group."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/18",
+   "kind": "theorem",
+   "name": "Ordinary completed homology of the product and of the quotient (G×H)'",
+   "statement": "Proposition 3.1.2, part 1 for G×H and (G×H)'. By Künneth M^∘_{G×H,U^p×V^p} = M^∘_{G,U^p} ⊗̂ M^∘_{H,V^p}, a projective Λ^∘_{G×H} = Λ^∘_G ⊗̂ Λ^∘_H-module of finite type; and for K^p the image of U^p × V^p, M^∘_{(G×H)',K^p} = M^∘_{G×H,U^p×V^p}/(F^×_{A^∞}/F^× · ((U^p ∩ F^×_{A^{p∞}}) ∩ (V^p ∩ F^×_{A^{p∞}}))). This last is a quotient by a free action of a finite group, so M^∘_{(G×H)',K^p} is of finite type over Λ^∘_{(G×H)',K^p} and M_{(G×H)',K^p} is projective over Λ_{(G×H)'} after inverting p, the quotient map admitting a section there.",
+   "locator": "Proposition 3.1.2 part 1 and display (3.1.8), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/19",
+   "kind": "definition",
+   "name": "The ordinary Hecke algebra, the ordinary eigenvariety and its classical points",
+   "statement": "T^{sph,ord}_{G_*,U^p_*,A} is the image of 𝓗^{?,ord}_{G_*,U^p_*,A} in End_A(M^∘_{G_*,U^p_*} ⊗ A), independent of the spherical Hecke algebra chosen; 𝓔^{ord}_{G_*,U_*^p} := Spec T^{sph,ord}_{G_*,U^p_*,Q_p} with κ_{G_*} : 𝓔^{ord} → 𝔚 and the ind-subschemes 𝓔^{ord,cl,(W)}_{(r)} := 𝔚^{cl,(W)}_{(r)} ×_{𝔚,κ} 𝓔^{ord} of classical points. 𝓜_{G_*,U^p_*} is the coherent sheaf attached to M_{G_*,U^p_*}. For G_* = (G×H)' the subscripts are omitted; (3.1.8) gives a closed immersion 𝓔^{ord}_{K^p} ↪ 𝓔^{ord}_{G×H,U^p×V^p}. A Hida family is an irreducible component X ⊂ 𝓔^{ord}_{K^p}, with X^{cl} := X ∩ 𝓔^{ord,cl}.",
+   "locator": "§3.1.4 (Ordinary eigenvarieties) with displays (3.1.9)–(3.1.10) and §1.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/20",
+   "kind": "theorem",
+   "name": "The ordinary Hecke algebra is finite flat over the Iwasawa algebra",
+   "statement": "Proposition 3.1.3. T^{sph,ord}_{G_*,U^p_*} is finite flat over Λ^∘_{G_*,U^p_*}, hence semi-local, and its maximal ideals are in bijection with G_{F_p}-orbits of characters λ̄ : T^{sph,ord}_{G_*,U^p_*} → F̄_p.",
+   "locator": "Proposition 3.1.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "PadicFamilies:L0",
+    "PadicFamilies:L5"
+   ],
+   "note": "L0 plans finite generation and finite flatness of the ordinary cuspidal Hecke algebras over the weight Iwasawa algebra with the exact level and residual-localization hypotheses; L5 the totally real instantiation."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/21",
+   "kind": "theorem",
+   "name": "Zariski-density of the classical points of a fixed weight",
+   "statement": "Lemma 3.1.4. For an irreducible algebraic representation W of G_*, the set 𝓔^{ord,cl,W}_{G_*,U_*} of classical points of weight W is Zariski-dense in 𝓔^{ord}_{G_*,U^p_*}.",
+   "locator": "Lemma 3.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (reduced, via finiteness of κ, to the density of 𝔚^{cl,W} in 𝔚)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/22",
+   "kind": "construction",
+   "name": "The eigenvariety and universal character of the torus H",
+   "statement": "M_{H,V^p} = Ĥ_0(Ȳ_{V^p}) = Z_p⟦Y_{V^p}(Ē)⟧ ⊗ Q_p, a principal homogeneous space for Γ_{E,V^p} = E^× \\ E^×_{A^∞}/V^p, so 𝓔_{H,V^p} = Spec Z_p⟦Γ_{E,V^p}⟧_{Q_p}, whose classical points parametrise locally algebraic characters of Γ_{E,V^p}. 𝓜_{H,V^p} is a trivial line bundle and factors as χ^{−1}_{H,univ} ⊗ χ_univ, the Galois action being by the universal character χ_univ : G_E → Γ_{E,V^p} → Z_p⟦Γ_E⟧^× and the H(A^∞)-action by the inverse automorphic character.",
+   "locator": "§3.1.5 (Abelian case), displays (3.1.11)–(3.1.12), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/23",
+   "kind": "theorem",
+   "name": "The fibres of 𝓜_G at classical points and the attached automorphic representation",
+   "statement": "Proposition 3.1.5. For a classical x ∈ 𝓔^{ord,cl,W}_{G,U^p} of weight W and level r, with U = U^pU_{p,r}: (1) (𝓜_{G,U^p})_x ≅ 𝓗_1(X_{U,F̄},𝓦_{G,w̲})^{ord} ⊗_{𝓗^{sph},λ_x} Q_p(x) as 𝓗^{ord}-modules; (2) there is a unique automorphic representation π_x of G(A) over Q_p(x) with spherical character λ_x^p, weight W and unit character α_x^∘ = λ_{p}(U_·), and π_x^{ord,U^p} ≅ Hom_{Q_p(x)[G_{F,S}]}((𝓜_{G,U^p})_x, ρ_x).",
+   "locator": "Proposition 3.1.5 with displays (3.1.13)–(3.1.14), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/24",
+   "kind": "theorem",
+   "name": "The fibre of 𝓜_{K^p} at a classical point and the vanishing of the central character",
+   "statement": "Corollary 3.1.6. For z = (x,y) ∈ 𝓔^{ord,cl}_{K^p} and L = Q_p(z): ω_z := χ_{y|F^×_{A^{∞}}} ω_x = 1, and 𝓜_{K^p,z} ≅ ((π_x^{p,∨})^{U^p} ⊗_L χ_{H,y}^{−1,p}) ⊗_L (V_{x|G_{E,S}} ⊗_L χ_y) as 𝓗^{K_S}_{S,L} ⊗ L[G_{E,S}]-modules, the Galois group acting trivially on the first two factors.",
+   "locator": "Corollary 3.1.6, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/25",
+   "kind": "theorem",
+   "name": "Étaleness of the weight map at classical points",
+   "statement": "Proposition 3.1.7. κ : 𝓔^{ord}_{K^p} → 𝔚_{K^p} is étale over a neighbourhood of the classical points 𝔚^{cl}_{K^p}; in particular 𝓔^{ord}_{K^p} is regular at every z ∈ 𝓔^{ord,cl}_{K^p}.",
+   "locator": "Proposition 3.1.7, Disegni, arXiv:2001.00045v4 (23 February 2024) (via finite flatness and strong multiplicity one)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/26",
+   "kind": "theorem",
+   "name": "Isomorphic endomorphism Azumaya algebras come from a twist by a line bundle",
+   "statement": "Lemma 3.2.1. Let X be an integral scheme and 𝓥_1, 𝓥_2 vector bundles of rank n > 0 with an isomorphism F : End_{O_X}(𝓥_1) → End_{O_X}(𝓥_2). Then there are an invertible O_X-module 𝓛 and an isomorphism g : 𝓥_1 ≅ 𝓥_2 ⊗ 𝓛 with F(T) ⊗ id_𝓛 = g T g^{−1} for every section T.",
+   "locator": "Lemma 3.2.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (via Knus–Ojanguren: every automorphism of an Azumaya algebra is Zariski-locally inner)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/27",
+   "kind": "theorem",
+   "name": "Uniqueness of a representation with a given irreducible pseudocharacter",
+   "statement": "Lemma 3.2.2. Let X be an integral scheme and 𝓣 : G_{F,S} → O(X) an irreducible pseudocharacter of dimension n, and let 𝓥_1, 𝓥_2 be representations of G_{F,S} with trace 𝓣. Then there are a line bundle 𝓛 with trivial Galois action and a G_{F,S}-equivariant isomorphism 𝓥_1 ≅ 𝓥_2 ⊗ 𝓛. (Input: 𝓐 := O_X[G]/Ker 𝓣 is Azumaya of rank 4 by Rouquier, and the natural maps 𝓐 → End(𝓥_i) are isomorphisms by Saltman; the irreducibility locus of a pseudocharacter is open.)",
+   "locator": "Lemma 3.2.2 with §3.2.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (Rouquier, Théorème 5.1; Saltman, Corollary 2.9; Chenevier §7.2.3)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/28",
+   "kind": "theorem",
+   "name": "The residual representation attached to a maximal ideal of the Hecke algebra",
+   "statement": "Lemma 3.2.3. For a character λ̄ : T^{sph,ord}_{G,U^p} → F̄_p there is a unique semisimple ρ̄ : G_{F,S} → GL_2(F̄_p) with Tr ρ̄(Fr_v) = q_v^{−1} λ̄(T_v) for all v ∉ S. Consequently 𝓔^{ord}_{G,U^p} decomposes as the disjoint union of the 𝓔^{ord}_{G,U^p,𝔪}, and a connected subset has a well-defined residual representation.",
+   "locator": "Lemma 3.2.3 with display (3.2.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicGaloisRepresentations:R19.6",
+    "PadicFamilies:L4"
+   ],
+   "note": "R19.6 plans the determinant law from Hecke operators and Frobenius polynomials together with its residual specialisations; L4 the decomposition of the ordinary Hecke algebra into residual components."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/29",
+   "kind": "theorem",
+   "name": "The rank-two Galois representation over a Hida family (Hida–Wiles)",
+   "statement": "Proposition 3.2.4, except for the filtration in the residually reducible case. For an irreducible component X_G ⊂ 𝓔_G there are an open X'_G ⊃ X^{cl}_G and a locally free O_{X'_G}-module 𝓥_G of rank two with a G_{F,S}-action such that 𝓥_{G,x} ≅ V_{π_x} for all x ∈ X^{cl}_G; 𝓥_G is unique up to automorphisms and twists by line bundles with trivial Galois action.",
+   "locator": "Proposition 3.2.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Hida and Wiles; see Fouquet §3.2.3)",
+   "status": "planned",
+   "planned": [
+    "PadicFamilies:L4",
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "note": "L4 plans the ordinary big Galois representation on the Hecke component, first as a pseudorepresentation and then as a representation under the residual hypotheses, together with arithmetic specialization."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/30",
+   "kind": "theorem",
+   "name": "The ordinary filtration over a Hida family, including the residually reducible case",
+   "statement": "Proposition 3.2.4, the filtration. Up to shrinking X'_G there is an exact sequence 0 → 𝓥^+_{G,v} → 𝓥_{G,v} → 𝓥^−_{G,v} → 0 of O_{X'_G}[G_{F_v}]-modules with 𝓥^±_{G,v} locally free of rank one and G_{F_v} acting on 𝓥^+_{G,v} by the character attached by local class field theory to α^∘_{|F_v^×}⟨·⟩_{F_v}. The proof is unconditional on the residual representation: with 𝓦^?_v := Hom(𝓥^+_{0,v},𝓥^?_{0,v}) one has H^0(F_v,𝓦^−_{v,x}) = H^2(F_v,𝓦^−_{v,x}) = 0, hence H^2(F_v,𝓦_{v,x}) = 0 and dim H^1(F_v,𝓦_{v,x}) = 1+2[F_v:Q_p] for all classical x; Proposition 5.2.3(3) then makes H^0(F_v,𝓦_v) a line bundle near X^{cl}_G, and 𝓥^+_{G,v} := H^0(F_v,𝓦_v) ⊗ 𝓥^+_{0,v}.",
+   "locator": "Proposition 3.2.4 with displays (3.2.4)–(3.2.7) and the remark preceding its proof, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/31",
+   "kind": "theorem",
+   "name": "Schur's lemma over the Hida family",
+   "statement": "Proposition 3.2.5. In the situation of Proposition 3.2.4 the natural injection O_{X'_G} → End_{O_{X'_G}[G_{F,S}]}(𝓥_G) is an isomorphism over an open X''_G ⊂ X_G containing X^{cl}.",
+   "locator": "Proposition 3.2.5, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/32",
+   "kind": "theorem",
+   "name": "Constancy of the local level along a Hida family",
+   "statement": "Lemma 3.3.1. For v ∉ Σ ∪ S_p the function x ↦ m_{x,v}, the v-level of π_{x,v} (the least m with π_{x,v}^{U_1(ϖ_v^m)} ≠ 0), is constant on X_G^{cl}; the common value is the v-level m_v of X_G, and one may assume U_v = U_1(ϖ_v^{m_v(X_G)}) (X_G is v-new).",
+   "locator": "Lemma 3.3.1 with §3.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (Carayol; Saha, Conductors in p-adic families, Theorem 3.4)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/33",
+   "kind": "theorem",
+   "name": "Descent of an irreducible component to its new level",
+   "statement": "Lemma 3.3.2. Let 'X_G ⊂ 𝓔^{ord}_{G,U^{p}{}'} be an irreducible component with U^{p}{}' = ∏ U'_v; let U^p = ∏ U_v with U_v = U_1(ϖ_v^{m_v}) ⊇ U'_v for v ∉ Σ ∪ S_p and U_v = U'_v otherwise. Then there is a unique irreducible component X_G ⊂ 𝓔^{ord}_{G,U^p} whose image under 𝓔^{ord}_{G,U^p} ⊂ 𝓔^{ord}_{G,U^{p}{}'} is 'X_G.",
+   "locator": "Lemma 3.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/34",
+   "kind": "theorem",
+   "name": "A uniform level at the ramification set Σ along a Hida family",
+   "statement": "Lemma 3.3.3. For v ∈ Σ there is a compact open U'_v ⊂ U_v such that π_{x',v}^{U'_v} = π_{x',v} for every classical x' ∈ X_G. (Proof: the Galois family 𝓥_G gives a map f : X_G → 𝔛_v to the Bernstein variety of GL_2(F_v) compatible with local Langlands; on each connected component the inertial class is either supercuspidal, in which case the fibres differ by an unramified twist, or Steinberg-type, in which case the classical points land in the closed Steinberg stratum, the remaining case being excluded because only special and supercuspidal representations lie in the image of Jacquet–Langlands.)",
+   "locator": "Lemma 3.3.3, Disegni, arXiv:2001.00045v4 (23 February 2024) (Disegni, Local Langlands correspondence…in analytic families, Theorem 3.2.1)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/35",
+   "kind": "theorem",
+   "name": "The H'_Σ-invariants are a direct summand",
+   "statement": "Lemma 3.3.4. 𝓥 := 𝓜^{H'_Σ}_{K_0^{p}{}'} is a direct summand of 𝓜_{K_0^{p}{}'}: the compact group H'_Σ = ∏_{v ∈ Σ} E_v^×/F_v^× acts on the locally free sheaf through a finite quotient, so the inclusion splits.",
+   "locator": "Lemma 3.3.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/36",
+   "kind": "theorem",
+   "name": "The geometric incarnation 𝓥 of the universal Galois representation",
+   "statement": "Proposition 3.3.5. There is an open X^{(1)} ⊂ X containing all classical points over which 𝓥 = 𝓜^{H'_Σ}_{K_0^{p}{}'} is locally free of rank 2, and for z = (x,y) ∈ X^{cl}, 𝓥_z ≅ V_x ⊗ χ_y as a G_{F,E,S}-representation. (The two extra factors in 𝓥_z ≅ (π_x^{∨,Σp,U_0^{Σp}} ⊗ χ_y^{−1,Σp}) ⊗ (π^∨_{x,Σ} ⊗ χ^{−1}_{y,Σ})^{H'_Σ} ⊗ (V_x ⊗ χ_y) are one-dimensional, the first by the theory of local newforms and the second by the local distinction hypothesis (ε_v)'.)",
+   "locator": "Proposition 3.3.5 with display (3.3.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/37",
+   "kind": "theorem",
+   "name": "Comparison of the geometric and the abstract universal representation",
+   "statement": "Corollary 3.3.6. There are an open X^{(2)} ⊂ X^{(0)} ∩ X^{(1)} containing X^{cl} with End_{O_{X^{(2)}}[G_{F,E,S}]}(𝓥) = O_{X^{(2)}}, an invertible sheaf 𝓛 with trivial Galois action, and a G_{F,E,S}-equivariant isomorphism 𝓥 ≅ 𝓛 ⊗ 𝓥', where 𝓥' = (𝓥_G ⊠ χ_univ)_{|X^{(0)}}.",
+   "locator": "Corollary 3.3.6 with §3.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/38",
+   "kind": "theorem",
+   "name": "Openness of the locus where a square map of free modules specialises to an isomorphism",
+   "statement": "Lemma 3.3.7. For a ring R and a map T : M → N of free R-modules of the same rank, the set of x ∈ Spec R at which T ⊗ R/𝔭_x is an isomorphism is open, being the complement of V(det T).",
+   "locator": "Lemma 3.3.7, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "library",
+   "library": [
+    "mathlib:Matrix.isUnit_iff_isUnit_det",
+    "mathlib:LinearMap.isUnit_iff_isUnit_det",
+    "mathlib:PrimeSpectrum.isOpen_basicOpen"
+   ],
+   "note": "The locus is the basic open set D(det T) of Spec R and a square matrix over a commutative ring is invertible exactly when its determinant is; both facts are in Mathlib at the pinned commit."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/39",
+   "kind": "theorem",
+   "name": "Cofinal levels, the universal representation and the factorisation of 𝓜",
+   "statement": "Proposition 3.3.8. Fix a finite Σ' disjoint from Σ ∪ S_p and let 𝓤 be the set of U^{p}{}' = ∏ U'_v ⊂ U^p with U'_v as in Lemma 3.3.3 for v ∈ Σ and U'_v = U_v for v ∉ Σ' ∪ Σ ∪ S_p. Then: (1) there are a cofinal sequence (U^p_i{}') ⊂ 𝓤, opens X_i ⊂ X^{(2)} containing X^{cl}, integers r_i and G_{F,E}-equivariant maps T_i : 𝓥^{⊕r_i} → 𝓜^{H'_Σ}_{K^p_i{}'} that are isomorphisms over X_i, built from Casselman's oldform degeneracy operators; (2) for each U^{p}{}' ∈ 𝓤 there is an open X_{U^{p}{}'} ⊃ X^{cl} over which Π^{K^{p}{}',ord}_{H'_Σ} := Hom_{O_X[G_{F,E,S}]}(𝓜^{H'_Σ}_{K^{p}{}'},𝓥) is locally free and 𝓜^{H'_Σ}_{K^{p}{}'} ≅ (Π^{K^{p}{}',ord}_{H'_Σ})^∨ ⊗ 𝓥, with Π^{K^{p}{}',ord}_{H'_Σ} ⊂ Π^{K^{p}{}'',ord}_{H'_Σ} for U^{p}{}'' ⊂ U^{p}{}'; (3) Π^{K^{p}{}',ord}_{H'_Σ} is generated over 𝓗_{G×H,Σ'}^{K^{p}{}'} by Π^{K_0^{p}{}',ord}_{H'_Σ}; (4) for z = (x,y) ∈ X^{cl}, (Π^{K^{p}{}',ord}_{H'_Σ})_z ≅ (π_x^{U^{p}{}',ord})_{H'_Σ} ⊗ χ_y.",
+   "locator": "Proposition 3.3.8 with displays (3.3.2)–(3.3.3), Disegni, arXiv:2001.00045v4 (23 February 2024) (Casselman, On some results of Atkin and Lehner)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/40",
+   "kind": "definition",
+   "name": "The universal ordinary representation",
+   "statement": "Definition 3.3.9. With X^{(3)} := X_{U^{p}{}'} and Π^{K^{p}{}',ord}_{H'_Σ} as above, the universal ordinary representation Π^{K^{Sp},ord}_{H'_Σ} is the O_{X^{(3)}}[(B^×_{Σ'} × E^×_{Σ'})/F^×_{Σ'}]-submodule of 'Π^{K^{Sp},ord}_{H'_Σ} := colim_{U^{p}{}'' ∈ 𝓤} Π^{K^{p}{}'',ord} generated by Π^{K^{p}{}',ord}_{H'_Σ}.",
+   "locator": "Definition 3.3.9 with §3.3.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/41",
+   "kind": "theorem",
+   "name": "The local Langlands correspondence in analytic families for GL_2",
+   "statement": "To a family 𝓥_G of representations of ∏_{v ∈ Σ'} G_{F_v} on a rank-two locally free sheaf over a Noetherian Q-scheme Y, the correspondence of [LLC] attaches a family π_{G,Σ'}(𝓥_G) of representations of GL_2(F_{Σ'}) on a torsion-free sheaf over Y, co-Whittaker in the sense of [LLC, Definition 4.2.2] and so with a unique Whittaker model; it is compatible with the Bernstein-variety map of supercuspidal supports, and if a smooth finitely generated admissible module has the right fibres at a dense set of points then it agrees with π_{G,Σ'}(𝓥_G) up to a line bundle over an open subset ([LLC, Theorem 4.4.3]). The normalisation of [LLC] differs from Theorem 2.5.1(1) by a Tate twist.",
+   "locator": "§3.3.4 and Theorem 3.3.10 (used as an input), Disegni, arXiv:2001.00045v4 (23 February 2024); Disegni, Local Langlands correspondence, local factors, and zeta integrals in analytic families, J. Lond. Math. Soc. (2) 101 (2020), 735–764, Theorems 3.2.1 and 4.4.3",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/42",
+   "kind": "theorem",
+   "name": "Local–global compatibility for the universal ordinary representation",
+   "statement": "Theorem 3.3.10. There are an open X^{(4)} ⊂ X^{(3)} containing X^{cl}, a line bundle Π^{K^{Sp}{}',S,ord}_{H'_Σ} over X^{(4)} and an isomorphism of O_{X^{(4)}}[GL_2(F_{Σ'}) × E^×_{Σ'}]-modules Π^{K^{Sp}{}',ord}_{H'_Σ} ≅ (π_{G,Σ'}(𝓥_G) ⊗_{O_{X^{(3)}}} χ_{H,univ,Σ'}) ⊗ Π^{K^{Sp}{}',S,ord}_{H'_Σ}.",
+   "locator": "Theorem 3.3.10 with display (3.3.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/43",
+   "kind": "definition",
+   "name": "ε-symmetric and ε-hermitian pairings",
+   "statement": "For ε ∈ {±1}, a ring or sheaf of rings R and R-modules M, J, an R-bilinear (,) : M ⊗ M → J is ε-symmetric if (m,m') = ε(m',m). If R carries an involution ι, writing (·)^ι for ⊗_{R,ι}R and m ↦ m ⊗ 1, an (R,ι)-sesquilinear (,) : M ⊗ M^ι → J is ε-hermitian if (m,n) = ε·ι((n^ι,m^ι)^ι). The prefix 'skew-' means ε = −1.",
+   "locator": "§4.1.1 (Pairings, symmetries and involutions), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/44",
+   "kind": "theorem",
+   "name": "The involution ι and duality of ordinary parts",
+   "statement": "Lemma 4.1.1. For an irreducible algebraic W of G_* over L: (1) σ_{W^∨}(t) = σ_W(t^ι) for all t ∈ T_{G_*}; (2) if π^{ord} is the ordinary part of an automorphic representation of G_*(A^∞) over L of weight W, unramified of level U^S_*, there is an isomorphism of 𝓗^{sph,ord}_{G_*,U^S}-modules π^{∨,U^S_*,ord} ≅ (π^{U^S_*,ord})^ι; (3) there is an identification (𝓔^{cl,W}_{G_*})^ι = 𝓔^{cl,W^∨}_{G_*} with π^{ord}_{ι(x)} = (π_x)^{∨,ord}. In the proof of (2) the displayed relation for the local components must be read as an embedding π_v^∨ ↪ Ind(α_v^ι·(|·|_v,|·|_v^{−1})), not an isomorphism (Correction, Errata).",
+   "locator": "Lemma 4.1.1, Disegni, arXiv:2001.00045v4 (23 February 2024); the corrected symbol in the third-last line of its proof is recorded in Appendix B, Errata",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/45",
+   "kind": "construction",
+   "name": "The pairing on Hom-spaces induced by a duality of homology",
+   "statement": "Construction 4.1.2. Let A be a ring, G a group and M_1, M_2, V_1, V_2, A(d) be A[G]-modules, projective of finite type over A; write V^D := Hom(V,A(d)). Given f_i ∈ π_i := Hom(M_i,V_i), an identification V_2^D ≅ V_1 and a perfect pairing ⟨,⟩ : M_1 × M_2 → A(d) with induced u_{⟨,⟩} : M_2^D → M_1, one sets (f_1,f_2)_{⟨,⟩} := f_1 ∘ u_{⟨,⟩}(f_2^D) ∈ End_{A[G]}(V_1).",
+   "locator": "Construction 4.1.2 with display (4.1.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/46",
+   "kind": "construction",
+   "name": "Poincaré duality pairings on the homology of the Shimura tower",
+   "statement": "Fixing lattices W^∘, W^{∨,∘} and the invariant pairing ⟨,⟩^W : W ⊗ W^∨ → L, integral up to a bounded denominator p^{−|W|}, one has ⟨,⟩_{U_*,W} : H_d(X̄_{*,U_*},𝓦) × H_d(X̄_{*,U_*},𝓦^∨) → H_0(X̄_{*,U_*},𝓦⊗𝓦^∨) → L(d), satisfying ⟨xT,y⟩ = ⟨x,yT^ι⟩ for T ∈ 𝓗^p_{G_*,U_*} and the projection formula ⟨p_{U'/U,*}x,y⟩_{W,U} = ⟨x,p^*_{U'/U}y⟩_{W,U'}.",
+   "locator": "§4.1.3 and §4.1.4 (Homological dualities /1), displays (4.1.2)–(4.1.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/47",
+   "kind": "theorem",
+   "name": "Trace and group-algebra promotions of a bilinear form",
+   "statement": "Lemma 4.1.3. Let R be a ring, S a finite R-algebra, M a finite S-module. (1) If S/R is étale there is a natural isomorphism α : Hom_R(M,R) → Hom_S(M,S), λ ↦ (m ↦ (s ↦ λ(sm))) composed with S ≅ Hom_R(S,R) given by the trace. (2) If S = R[T] for a finite abelian group T there is an isomorphism β : Hom_R(M,R) → Hom_{R[T]}(M,R[T]), λ ↦ (m ↦ Σ_t λ(tm)[t^{−1}]). If S = R[T] is étale over R then α(λ) = |T|^{−1}β(λ). Explicitly ⟨,⟩ ↦ ⟨⟨x,y⟩⟩ := Σ_{t ∈ T} ⟨x,ty⟩[t^{−1}].",
+   "locator": "Lemma 4.1.3 with §4.1.5, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/48",
+   "kind": "construction",
+   "name": "The Λ_H-valued pairing on the completed homology of the torus",
+   "statement": "Applying Lemma 4.1.3(2) with M = M_{H,V^p,r,W} ⊗ M_{H,V^p,r,W^∨}, R = L and S = Λ_{H,V^p,r} ≅ L[T̄_{H,0}/T̄_{H,r}], the Poincaré pairings give ⟨⟨,⟩⟩_{V^p,W,r} and, in the limit, a well-defined ⟨⟨,⟩⟩_{V^p,W} : M_{H,V^p,W} ⊗_{Λ_H} M^ι_{H,V^p,W^∨} → Λ_H ⊗ L = O_{𝓔_H} ⊗ L.",
+   "locator": "§4.1.5, display (4.1.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/49",
+   "kind": "definition",
+   "name": "The normalised automorphic inner product and its ordinary modification",
+   "statement": "With v(U_*) = vol(X_{*,U_*}(C)) for the hyperbolic metric dxdy/2πy² (resp. the counting metric for H), so that deg p_{U'_*,U_*} = v(U'_*)/v(U_*) and v(U^p_*) := v(U^p_*U_{*,0}(p^r)_p)/p^{dr[F:Q]}, Construction 4.1.2 applied to the Poincaré pairings gives (,)_{π,U_*} : π^{U_*} × π^{∨,U_*} → L, and the limit (,)_π := lim_{U_*} (dim W · v(U_*))^{−1}(,)_{π,U_*} : π × π^∨ → L is well defined. For an ordinary π one sets (f_1,f_2)^{ord}_π := dim W · (w_a^{ord}f_1, f_2)_π on π^{ord} × π^{∨,ord}.",
+   "locator": "§4.1.6 (Automorphic inner products), displays (4.1.5)–(4.1.8), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/50",
+   "kind": "construction",
+   "name": "The twisted Poincaré pairing on ordinary homology",
+   "statement": "⟨x,y⟩^{ord}_{U^p_*,W,r} := ⟨x, y w_a^{ord}⟩_{U^p_*U_{*,p,r},W} on 𝓗_1(X̄_{*,U^p_*,r},𝓦)^{ord} ⊗ 𝓗_1(X̄_{*,U^p_*,r},𝓦^∨)^{ord} → L(1).",
+   "locator": "§4.1.7 (Homological dualities /3), display (4.1.9), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/51",
+   "kind": "theorem",
+   "name": "Comparison of the ordinary automorphic pairing with the twisted Poincaré pairing",
+   "statement": "Lemma 4.1.4. For an ordinary π, identifying π^{ord} = Hom_{L[G_{E_*}]}(𝓗_1(X̄_{*,U^p_*,r},𝓦)^{ord},V_π) for large r, the pairing produced by Construction 4.1.2 from ⟨,⟩^{ord}_{U_*,W,r} satisfies (,)^{ord}_π = v(U_*)^{−1}(,)_{⟨,⟩^{ord}_{U_*,W,r}}.",
+   "locator": "Lemma 4.1.4, display (4.1.10), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/52",
+   "kind": "theorem",
+   "name": "Hecke equivariance and the Λ-valued Poincaré pairing in the ordinary tower",
+   "statement": "Lemma 4.1.5. The pairings ⟨⟨,⟩⟩_{W,r} satisfy ⟨⟨x_rT,y_r⟩⟩ = ⟨⟨x_r,y_rT^ι⟩⟩ for T ∈ 𝓗^{ord}_{G,r}, and the limit ⟨⟨,⟩⟩_{Λ,U^p_*,W} : M_{G_*,U^p_*,𝓦} ⊗_{𝓗^{ord}_G} M^ι_{G_*,U^p_*,𝓦^∨} → Λ_{G_*,U^p_*}(d) ⊗ L is well defined.",
+   "locator": "Lemma 4.1.5 with display (4.1.11), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/53",
+   "kind": "theorem",
+   "name": "Independence of the Λ-valued pairing from the weight",
+   "statement": "Lemma 4.1.6. The square relating ⟨⟨,⟩⟩_{Λ,U^p_*,W} on M_{G_*,U^p_*,𝓦} ⊗ M^ι_{G_*,U^p_*,𝓦^∨} and ⟨⟨,⟩⟩_{Λ,U^p_*} on M_{G_*,U^p_*} ⊗ M^ι_{G_*,U^p_*}, whose left vertical map is j_W ⊗ j_{W^∨} from Proposition 3.1.2(2) and whose right vertical map is [t] ↦ σ_W^{−1}(t)[t], commutes.",
+   "locator": "Lemma 4.1.6, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/54",
+   "kind": "theorem",
+   "name": "Skew-hermitian dualities over the Hida family",
+   "statement": "Proposition 4.1.7. Let X^{(5)} ⊃ X^{cl} be the intersection of X^{(4)} with the locus where X → Spec Λ_{Q_p} is étale. There exist: a perfect, G_E-equivariant, skew-hermitian pairing 𝓜^{H'_Σ}_{K^{p}{}'} ⊗_{O_{X^{(5)}}} 𝓜^{H'_Σ,ι}_{K^{p}{}'} → O_{X^{(5)}}(1); a perfect, G_E-equivariant, skew-hermitian pairing 𝓥 ⊗ 𝓥^ι → O_{X^{(5)}}(1); and a perfect pairing ((,)) := v(K^{p}{}')^{−1}(,)_{⟨⟨,⟩⟩_{K^{p}{}'}} : Π^{K^{p}{}'}_{H'_Σ} ⊗_{O_{X^{(5)}}} (Π^{K^{p}{}'}_{H'_Σ})^ι → O_{X^{(5)}}, deduced from the first two through Construction 4.1.2 and Proposition 3.3.8(2).",
+   "locator": "Proposition 4.1.7 with displays (4.1.12)–(4.1.14), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/55",
+   "kind": "theorem",
+   "name": "Specialisation of the family pairing to the ordinary automorphic pairing",
+   "statement": "Proposition 4.1.8. For global sections f_1 of Π^{K^{p}{}',ord}_{H'_Σ} and f_2 of its ι-twist: (1) if f_{i,W,r} are the specialisations of f_i then ((f_1,f_2))|_{X^{cl,W}_r} = ((f_{1,W,r},f_{2,W,r}))_{W,r}; (2) if the maps f_{i,x} factor through the projections to 𝓗_1(Z̄_{K^{p}{}',r},𝓦^?)^{ord}_{H'_Σ} = M^{H'_Σ}_{K^{p}{}',W,r} and coincide with the specialisations of f_{i,W,r}, then ((f_1,f_2))_{W,r}(x) = (f_{1,x},f_{2,x})^{ord}_π = dim W · (w_a^{ord}f_1,f_2)_π.",
+   "locator": "Proposition 4.1.8 with display (4.1.15), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/56",
+   "kind": "definition",
+   "name": "The normalising local L-value 𝓛(V_{(π,χ),v},0)",
+   "statement": "For a place v of F, 𝓛(V_{(π,χ),v},0) := ζ_{F,v}(2) L(V_v,0)/(L(1,η_v) L(ad(V_{π,v}),1)) times 1 if v is finite and π^{−[F:Q]} if v = ∞, where V_v is the restriction to G_{E_v} of the Galois representation attached to Π (the Hodge structure of W if v = ∞), η is the quadratic character of E/F, and the virtual motive is written V_{(π,χ),v} := (V_{π,v} ⊗ Ind_{F_v}^{E_v}χ_v) ⊖ ad(V_π)(1).",
+   "locator": "§1.2.6 (Local toric periods), display (1.2.5), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/57",
+   "kind": "definition",
+   "name": "The normalised local and global toric pairings Q",
+   "statement": "For finite v, Q_{v,(,)_v,dt_v}(f_{1,v},f_{2,v}) := 𝓛(V_{(π,χ),v},0)^{−1} ∫_{H'_v} (Π_v(t)f_{1,v},f_{2,v})_v dt_v, an absolutely convergent integral and an explicit generator of Π_v^{*,H'_v} ⊗ (Π_v^∨)^{*,H'_v}; for v = ∞, ∫_{H'_∞}Π_∞(t)dt_∞ := vol(H'_∞,dt_∞)·p_{H'_∞} : W → W_{H'_∞} = W^{H'_∞}. The quotient Q_{v,dt_v}(f_{1,v}⊗f_{2,v}/f_{3,v}⊗f_{4,v}) := Q_{v,(,)_v,dt_v}(f_{1,v},f_{2,v})/(f_{3,v},f_{4,v})_v is independent of (,)_v and equals vol(O_{E,v}^×/O_{F,v}^×,dt_v) when everything is unramified. Fixing measures with vol(H'(Q)\\H'(A),dt) = 1, Q(f_1⊗f_2/f_3⊗f_4) := ∏_v Q_{v,dt_v}(f_{1,v}⊗f_{2,v}/f_{3,v}⊗f_{4,v}).",
+   "locator": "§1.2.6, displays (1.2.6)–(1.2.8), and §4.2 with displays (4.2.1)–(4.2.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "GrossZagierAndArithmeticHeights:GZ.4"
+   ],
+   "note": "GZ.4 plans exactly the normalized toric matrix-coefficient integrals with their convergence or regularization, rationality under coefficient embeddings, invariance under rescaling of the local pairings and measures, and the unramified value making the product finite."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/58",
+   "kind": "theorem",
+   "name": "Tunnell–Saito multiplicity one and the epsilon dichotomy",
+   "statement": "The space Π^{*,H'(A)} = Hom_{H'(A)}(Π,L) is nonzero if and only if, for every v, ε^G_v(V) := ε(V_v)χ_v(−1)η_v(−1)ε(B_v) = +1, where ε(B_v) = +1 or −1 according as B_v is split or not; in that case it is one-dimensional and the global root number is ε(V) = −1. Conversely, for V with ε(V) = −1 there is a unique incoherent totally definite B satisfying all the (ε_v). The condition (ε_∞) is equivalent to (wt).",
+   "locator": "§1.2.5 (Multiplicity one), display (1.2.4), Disegni, arXiv:2001.00045v4 (23 February 2024) (Waldspurger; Tunnell; H. Saito)",
+   "status": "planned",
+   "planned": [
+    "GrossZagierAndArithmeticHeights:GZ.4"
+   ],
+   "note": "GZ.4 plans Saito–Tunnell multiplicity one and the epsilon dichotomy for a quadratic étale algebra in a quaternion algebra, split and nonsplit tori treated separately, with the archimedean discrete-series contribution."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/59",
+   "kind": "definition",
+   "name": "Locally distinguished representations and Hida families",
+   "statement": "Definition 1.2.1: Π is locally distinguished by H' if it satisfies (ε_v) for all v. Definition 1.3.1: a Hida family X for (G×H)' is locally distinguished if for every (equivalently one) classical point z of weight satisfying (wt) the Galois representation 𝓥_z attached to Π_z satisfies (ε_v), for all v ∤ p∞.",
+   "locator": "Definitions 1.2.1 and 1.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/60",
+   "kind": "theorem",
+   "name": "The toric pairing as a product of zeta integrals in the split case",
+   "statement": "When E = F ⊕ F, so that G = GL_2(F), Kirillov models with the pairing (f,f^∨) = ζ(2)L(1,π×π^∨)^{−1}∫_{F^×}f(y)f^∨(y)d^×y identify Q_{(,)_,dt}(f ⊗ e_χ, f^∨ ⊗ e_{χ^{−1}}) up to constants in L^× with the product (L(1/2,π⊗χ_1)^{−1}I(f,χ_1,1/2))·(L(1/2,π⊗χ_1)^{−1}I(f^∨,χ_1,1/2)) of two GL_2 × GL_1 zeta integrals, where χ = (χ_1,χ_2), χ_2 = ω^{−1}χ_1.",
+   "locator": "§4.2.1, display (4.2.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/61",
+   "kind": "theorem",
+   "name": "The unramified value of the toric pairing (Waldspurger)",
+   "statement": "Lemma 4.2.1. If B is split, E/F unramified and π, χ unramified, then for a maximal compact K ⊂ (G × E^×)/F^× and v ∈ Π^K, w ∈ (Π^∨)^K one has Q_{(,),dt}(v,w) = vol(O_E^×/O_F^×,dt)·(v,w).",
+   "locator": "Lemma 4.2.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (Waldspurger, Compositio Math. 54 (1985), Lemme 14)",
+   "status": "planned",
+   "planned": [
+    "GrossZagierAndArithmeticHeights:GZ.4"
+   ],
+   "note": "GZ.4 plans the unramified value of the normalized toric integral, which is exactly this computation."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/62",
+   "kind": "theorem",
+   "name": "The toric pairing on the line of H'-invariants when B is nonsplit",
+   "statement": "Lemma 4.2.2. If B is nonsplit, so that Π is finite-dimensional and H' compact, then on the line Π^{H'} ⊗ Π^{∨,H'} one has Q_{(,),dt} = 𝓛(V_{(π,χ),v},0)^{−1} vol(E^×/F^×,dt)·(,).",
+   "locator": "Lemma 4.2.2 with §4.2.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/63",
+   "kind": "definition",
+   "name": "The ordinary toric pairing Q^{ord}",
+   "statement": "Definition 4.3.1. With μ^+_v the character by which E_v^× acts on V^+_{π,v} ⊗ χ_v, j_v the fixed purely imaginary element, μ^+(j) := ∏_{v|p}μ^+_v(j_v), and the normalised volumes vol^∘(H'_v,dt_v) := vol(O^×_{E,v}/O^×_{F,v},dt_v)/(e_v L(1,η_v)^{−1}), vol^∘(H'_{v,∞},dt_{v,∞}) := vol(H'_{v,∞},dt_{v,∞})/2^{[F_v:Q_p]}, one sets Q^{ord}_{dt_{p∞}}(f_{1,p∞}⊗f_{2,p∞}/f_{3,p∞}⊗f_{4,p∞}) := μ^+(j)·vol^∘(H'_{p∞},dt_{p∞})·(f_{1,p∞}⊗f_{2,p∞})/(f_{3,p∞}⊗f_{4,p∞}), and Q^{ord} := Q^{p∞}_{dt^{p∞}} · Q^{ord}_{dt_{p∞}}.",
+   "locator": "Definition 4.3.1 with displays (4.3.1)–(4.3.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/64",
+   "kind": "theorem",
+   "name": "Nonvanishing of the ordinary toric functional",
+   "statement": "Remark 4.3.2. If Π is locally distinguished, so that Q_{dt} is nonzero, then Q^{ord}_{dt} is also nonzero.",
+   "locator": "Remark 4.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/65",
+   "kind": "theorem",
+   "name": "Decomposition of Q^{ord} into local factors",
+   "statement": "Lemma 4.3.3. For f_1,f_3 ∈ Π^{K^p,ord}_{H'_Σ}, f_2,f_4 ∈ Π^{∨,K^p,ord}_{H'_Σ} with (f_3,f_4)^{ord} ≠ 0, Q^{ord}(f_1⊗f_2/f_3⊗f_4) equals ∏_{v ∈ Σ'}Q_{v,dt_v}(·) times ∏_{v ∈ Σ} vol(E_v^×/F_v^×,dt)𝓛(V_{(π,χ),v},0)^{−1}(f_{1,v}⊗f_{2,v})/(f_{3,v}⊗f_{4,v}) times the away-from-Sp∞ ratio times Q^{ord}_{p∞,dt_{p∞}}(·).",
+   "locator": "Lemma 4.3.3, display (4.3.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/66",
+   "kind": "theorem",
+   "name": "Comparison of the toric pairing with its ordinary variant",
+   "statement": "Proposition 4.3.4. For an ordinary Π = π ⊗ χ = Π^∞ ⊗ W of (G×H)'(A), with w_a^{ord} and γ^{ord}_{H'} the operators of Propositions A.2.1 and A.2.4 and e_p(V_{(π,χ)}) the p-part of the interpolation factor, one has Q(γ^{ord}_{H'}(f_1) ⊗ γ^{ord}_{H'}(f_2) / w_a^{ord}(f_3) ⊗ f_4) = e_p(V_{(π,χ)})·dim W·Q^{ord}(f_1⊗f_2/f_3⊗f_4).",
+   "locator": "Proposition 4.3.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/67",
+   "kind": "theorem",
+   "name": "Interpolation of the local L-factors of a family of Weil–Deligne representations",
+   "statement": "Lemma 4.4.1. Let X be a Q-scheme and r' = (r,N) a Weil–Deligne representation of W_F on a rank-two locally free sheaf, with a dense X^{cl} at whose points r'_x is pure. Then there are an open X'' ⊃ X^{cl} and functions L(0,r')^{−1}, L(1,r',ad) ∈ O(X'') specialising at every point of X'' to L(0,r'_x)^{−1} and L(1,ad(r'_x)).",
+   "locator": "Lemma 4.4.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/68",
+   "kind": "theorem",
+   "name": "Interpolation of the local toric pairings",
+   "statement": "Proposition 4.4.2. In the situation of Lemma 4.4.1, let π = π(r') be the module attached to r' by the local Langlands correspondence in families, ω its central character and χ : E^× → O(X)^× with ωχ|_{F^×} = 1, Π = π ⊗ χ, Π^∨ = π(ρ^*(1)) ⊗ χ^{−1}. Then there are an open X' ⊃ X^{cl}, an O^×-submodule (Π ⊗_{O^×}Π^∨)^× specialising to the locus where (f_3,f_4) ≠ 0, and a map of O-modules 𝓠_{dt} : (Π ⊗_O Π^∨) ⊗_{O^×}(Π ⊗_{O^×}Π^∨)^{×,−1} → 𝓚 which is E^×/F^×-equivariant in the first two variables and denominator-invariant in the last two, and whose specialisation at every x ∈ X^{cl} is Q_{dt}.",
+   "locator": "Proposition 4.4.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/69",
+   "kind": "theorem",
+   "name": "The interpolated global toric functional 𝓠 over the Hida family",
+   "statement": "Theorem 4.4.3. With Π := Π^{K^{p}{}',ord}_{H'_Σ} over X^{(5)} and the submodule (Π ⊗_{𝓚}Π^ι)^× defined by (f_3,f_4) ≠ 0 and (f_{3,v},f_{4,v})_v ≠ 0 for v ∈ Σ', there are an open X^{(6)} ⊂ X^{(5)} containing X^{cl} and a map of O^×-modules 𝓠 : (Π ⊗_O Π^ι) ⊗_{O^×}(Π ⊗_{O^×}Π^ι)^{×,−1} → 𝓚_X such that 𝓠(Π_{Σ'}(t_1)f_1 ⊗ Π^ι_{Σ'}(t_2)f_2 / Π(h)f_3 ⊗ f_4) = 𝓠(f_1⊗f_2 / f_3 ⊗ Π^ι(h)f_4) for t_i ∈ E^×_{Σ'}/F^×_{Σ'} and h ∈ 𝓗_{S,K_{Σ'}}, and 𝓠_{|x} = Q^{ord} for every x ∈ X^{cl}.",
+   "locator": "Theorem 4.4.3 with display (4.4.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/70",
+   "kind": "definition",
+   "name": "Admissible and ind-admissible modules and their continuous cochains",
+   "statement": "For a complete Noetherian local ring (R^∘,𝔪) and a topological group G, an R^∘[G]-module M is admissible of finite type if it is of finite type over R^∘ and the action G × M → M is continuous for the 𝔪-adic topology, and ind-admissible if it is the union of its finite-type admissible submodules. C^•_cont(G,M) is defined in the usual way in the first case and as the colimit in the second; RΓ(G,M) is its image in D(_R Mod), with cohomology H^i(G,M). For R = R^∘[𝓢^{−1}] and M = M^∘ ⊗_{R^∘} R one has C^•_cont(G,M) ≅ C^•_cont(G,M^∘) ⊗_{R^∘} R.",
+   "locator": "§5.1.1–§5.1.2, display (5.1.1), Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Selmer complexes, (3.4.1), (3.7.4))",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/71",
+   "kind": "construction",
+   "name": "Continuous cohomology of ind-admissible sheaves on the category 𝓒_{R^∘}",
+   "statement": "Remark 5.1.1. Let 𝓒 = 𝓒_{R^∘} be the category of schemes isomorphic to open subschemes of Spec R^∘ with open immersions as maps. For any object X of 𝓒 the condition of ind-admissibility is defined for all quasi-coherent O_X[G]-modules, the functors RΓ(G,−) are defined on them, and both are compatible with restriction along open immersions. For complete Noetherian local R^∘_1, R^∘_2 with R^∘ = R^∘_1 ⊗̂ R^∘_2 there is a functor ⊗̂ : 𝓒_{R^∘_1} × 𝓒_{R^∘_2} → 𝓒_{R^∘} given on objects by Spec R^∘_1[1/f_1] ⊗̂ Spec R^∘_2[1/f_2] := Spec (R^∘_1⊗̂R^∘_2)[1/f_1⊗1,1/1⊗f_2] and glueing.",
+   "locator": "Remark 5.1.1 and §5.1.3 with display (5.1.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/72",
+   "kind": "theorem",
+   "name": "RΓ(G,−) as an exact functor on ind-admissible complexes",
+   "statement": "Proposition 5.1.2. RΓ(G,−) extends to bounded-below complexes of ind-admissible O_X[G]-modules with values in bounded-below complexes of O_X-modules and descends to an exact functor D^+(_{O_X[G]}^{ind-adm}Mod) → D^+(_{O_X}Mod). For i = 0,1 the functors M ↦ H^i(G,M) on ind-admissible R-modules are the derived functors of M ↦ M^G.",
+   "locator": "Proposition 5.1.2 and §5.1.5, Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Selmer complexes, (3.5.6), (3.6.2)(v))",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/73",
+   "kind": "theorem",
+   "name": "Base change for continuous cohomology",
+   "statement": "Proposition 5.1.3. Let M be an ind-admissible O_X[G]-module and N an O_X-module of finite projective dimension. Then there is a natural isomorphism RΓ(G,M) ⊗^L_{O_X} N ≅ RΓ(G, M ⊗^L_{O_X} N) in D^b(_{O_X}Mod). This applies when N = O_Y for a local complete intersection Y ⊂ X, or when X is regular and N is coherent. If R ↠ R' = R/I then C^•_cont(G,M') is the same computed over R or R'; more generally the functor on O_Y[G]-modules for a closed Y ⊂ X is the restriction of the one on O_X[G]-modules.",
+   "locator": "Proposition 5.1.3 with §5.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/74",
+   "kind": "theorem",
+   "name": "Base change at a nonsingular point and the specialisation spectral sequence",
+   "statement": "Corollary 5.1.4. For an ind-admissible O_X[G]-module M flat over O_X and a nonsingular x ∈ X there is an isomorphism RΓ(G,M) ⊗^L_{O_X} κ(x) ≅ RΓ(G, M ⊗_{O_X} κ(x)) in D^b(_{κ(x)}Mod), hence a second-quadrant spectral sequence Tor_{−p}(H^q(G,M),κ(x)) ⇒ H^{q−p}(G, M ⊗_{O_X}κ(x)).",
+   "locator": "Corollary 5.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/75",
+   "kind": "definition",
+   "name": "The finiteness condition (F) and the p-cohomological dimension",
+   "statement": "A profinite group G satisfies (F) if H^i(G,M) is finite for every finite discrete F_p[G]-module and every i ≥ 0; cd_p(G) := sup{i : H^i(G,M) ≠ 0 for some finite discrete F_p[G]-module M}. For a number field E and a finite set S of places, G_{E,S} satisfies (F) with cd_p = 3; for a local field E_w, G_{E_w} satisfies (F) with cd_p = 2.",
+   "locator": "§5.2.1 (Finiteness conditions), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "ArithmeticGaloisDuality:R02.3",
+    "SelmerIwasawaCohomology:L0"
+   ],
+   "note": "R02.3 plans global finiteness and cohomology with restricted ramification, including the finiteness of H^i(G_{E,S},M) for finite modules and the cohomological dimension; L0 imports it."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/76",
+   "kind": "theorem",
+   "name": "Finiteness and vanishing of the cohomology of ind-admissible sheaves",
+   "statement": "Lemma 5.2.1. If G satisfies (F) then the cohomology groups of ind-admissible O_X[G]-modules of finite type are O_X-modules of finite type, and the cohomology of any ind-admissible O_X[G]-module vanishes in degrees above cd_p(G).",
+   "locator": "Lemma 5.2.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Selmer complexes, (4.2.5), (4.2.10), (4.2.6))",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/77",
+   "kind": "theorem",
+   "name": "Cohomology commutes with countable projective limits of admissible modules",
+   "statement": "Lemma 5.2.2. Let G be a profinite group satisfying (F) and M = lim_n M_n the limit of a countable projective system of admissible R^∘-modules of finite type. Then H^i(G,M) → lim_n H^i(G,M_n) is an isomorphism for all i.",
+   "locator": "Lemma 5.2.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/78",
+   "kind": "theorem",
+   "name": "Support of higher cohomology and specialisation of H^{i_0} and H^0",
+   "statement": "Proposition 5.2.3. Let G satisfy (F) with cd_p(G) = e < ∞, M an ind-admissible O_X[G]-module of finite type, x ∈ X nonsingular, i_0 ≥ 0 with H^i(G, M ⊗_R κ(x)) = 0 for all i ≥ i_0+1. Then (1) for i ≥ i_0+1 the support of H^i(G,M) is a proper closed subset not containing x; (2) H^{i_0}(G,M) ⊗_{O_X} κ(x) → H^{i_0}(G, M ⊗_R κ(x)) is an isomorphism; (3) if moreover i_0 = 1 and dim_{κ(y)} H^1(G, M ⊗ κ(y)) is constant on a dense open subset and equals its value at x, then H^0(G,M) ⊗_R κ(x) → H^0(G, M ⊗_{O_X} κ(x)) is an isomorphism.",
+   "locator": "Proposition 5.2.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/79",
+   "kind": "definition",
+   "name": "Greenberg data and the strict condition away from p",
+   "statement": "Definition 5.3.1. A Greenberg datum (M,(M^+_w)_{w ∈ Sp}) over X consists of an ind-admissible O_X[G_{E,Sp}]-module M, finite and locally free over O_X, together with, for each w ∈ Sp, a short exact sequence 0 → M^+_w → M_w → M^−_w → 0 of ind-admissible O_X[G_w]-modules, finite and locally free over O_X. At w ∤ p only the strict condition M^+_w = 0 is used.",
+   "locator": "Definition 5.3.1 with §5.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "SelmerIwasawaCohomology:L2"
+   ],
+   "note": "L2 plans local conditions defined as submodules or maps of complexes, with the unramified, strict, relaxed and Greenberg conditions defined separately and the filtration stable under a decomposition group at p. What L2 does not plan is the version over a base scheme X with ind-admissible sheaves, which is the separate item selmer-complex-over-X."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/80",
+   "kind": "definition",
+   "name": "The Selmer complex of a Greenberg datum over a base, and its exact sequences",
+   "statement": "For a Greenberg datum over X the Selmer complex R̃Γ_f(E,M) is the image in D(^{ft}_{O_X}Mod) of Cone(C^•_cont(G_{E,Sp},M) ⊕ ⊕_w C^•_cont(E_w,M^+_w) → ⊕_w C^•_cont(E_w,M_w))[−1] for the map ⊕_w res_w − i^+_{w,*}; its cohomology is H̃^i_f(E,M). There is an exact triangle R̃Γ_f(E,M) → RΓ(E,M) → ⊕_{w ∈ Sp} RΓ(E_w,M^−_w), whence 0 → H^0(G_{E,Sp},M) → ⊕_{w ∈ Sp}H^0(E_w,M^−_w) → H̃^1_f(E,M) → H^1_f(E,M) → 0, with H^1_f(E,M) := Ker(H^1(G_{E,Sp},M) → ⊕_w H^1(E_w,M^−_w)) the Greenberg Selmer group.",
+   "locator": "§5.3.2 with displays (5.3.1)–(5.3.3), Disegni, arXiv:2001.00045v4 (23 February 2024) (after Nekovář, Selmer complexes)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/81",
+   "kind": "theorem",
+   "name": "Perfectness of the Selmer complex over the base",
+   "statement": "Proposition 5.3.2. The Selmer complex R̃Γ_f(E,M) and all terms of the exact triangle belong to D^{[0,3]}_{perf}(_{O_X}Mod).",
+   "locator": "Proposition 5.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/82",
+   "kind": "construction",
+   "name": "Nekovář's p-adic height pairing over a base and its specialisation",
+   "statement": "Given strict Greenberg data M, M^ι over X and a perfect pairing M ⊗_{O_X} M^ι → O_X(1) of O_X[G_{E,Sp}]-modules under which M^+_w and M^{+,ι}_w are exact orthogonals, and a profinite abelian Γ_F, Nekovář's construction gives h_M : H̃^1_f(E,M) ⊗_{O_X} H̃^1_f(E,M^ι) → O_X ⊗̂ Γ_F. Proposition 5.3.3: for a regular x ∈ X and P_1 ⊗ P_2, h_{M ⊗ κ(x)}(P_{1,x},P_{2,x}) = (h_M(P_1,P_2))(x).",
+   "locator": "§5.3.3 with display (5.3.4) and Proposition 5.3.3, Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Selmer complexes, §11.1; Venerucci, thesis, Appendix C, Lemma 0.16)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/83",
+   "kind": "construction",
+   "name": "Venerucci's conormal-valued height pairing and its symmetry",
+   "statement": "For a local complete intersection Y ⊂ X with restricted data M_Y^?, there is a height pairing h_{M_Y/M_X} : H̃^1_f(E,M_Y) ⊗_{O_Y} H̃^1_f(E,M_Y^ι) → 𝓝^*_{Y/X}. Proposition 5.3.4: (1) if Γ_F is a profinite abelian quotient of G_{E,Sp}, X = Y ⊗̂_{Spec Q_p} Spec Z_p⟦Γ_F⟧_{Q_p} and M^?_X = M^?_Y ⊗ Z_p⟦Γ_F⟧ with the tautological character (resp. its inverse), then h_{M_Y/M_X} = h_{M_Y}; (2) if an involution ι of X stabilises Y with M^ι_X = M_X ⊗_{O_X,ι}O_X and likewise for the M^+_{X,w}, if the duality is ε-hermitian, if d_{Y/X}ι = ε' id on 𝓝^*_{Y/X} and if there is an O_Y-linear isomorphism c : H̃^1_f(E,M^ι_Y) → H̃^1_f(E,M_Y), then (z,z') ↦ h_{M_Y/M_X}(z,cz') is εε'-symmetric. In the application Y = X, X = X^♯, M_Y = 𝓥, M_X = 𝓥^♯, and h_{𝓥/𝓥^♯} = ½ h_𝓥.",
+   "locator": "§5.3.3 with displays (5.3.5)–(5.3.6) and Proposition 5.3.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Venerucci, thesis, Appendix C, §0.21)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/84",
+   "kind": "definition",
+   "name": "Tate 0-cycles with coefficients in a local system",
+   "statement": "For a variety X/E and an étale local system 𝓦 of R[G_E]-modules, 𝓩_0(X,𝓦) := ⊕_{x ∈ X closed} H^0(x,𝓦) with H^0(x,𝓦) := H^0(x̄,𝓦)^{G_E}; elements are written Σ_{x̄'}[x̄'] ⊗ ξ_{x̄'}. For dim X = 0 the fundamental class is [X] := Σ_{x̄' ∈ X(Ē)}[x̄'] ⊗ 1; the support |a| of a Tate cycle is the support of the divisor Σ[x̄'] over the x̄' with ξ_{x̄'} ≠ 0. For 𝓦 = R, 𝓩_0(X,R) is the usual module of 0-cycles and CH_0(X,R) its quotient by rational equivalence.",
+   "locator": "§6.1.1 (Tate cycles), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/85",
+   "kind": "construction",
+   "name": "The e-Abel–Jacobi map of a Tate 0-cycle on a curve",
+   "statement": "For a Tate cycle a on a curve X with class cl̄(a) ∈ H^2(X̄,𝓦(1)) and a Galois-equivariant idempotent e acting on the right with cl̄(a)e = 0, applying e to 0 → H^1(X̄,𝓦(1)) → H^1(X̄−|a|,𝓦(1)) → H^2_{|a|}(X̄,𝓦(1)) → H^2(X̄,𝓦(1)) and pulling back along a gives an extension 0 → H^1(X̄,𝓦(1))e → E_a → R → 0 of G_E-representations; AJ e : 𝓩_0(X,𝓦) → H^1(G_E, H_1(X̄,𝓦)e) sends a to its class. For 𝓦 = R and e acting by correspondences it factors through CH_0(X,R)e.",
+   "locator": "§6.1.2 (Abel–Jacobi map), displays (6.1.1)–(6.1.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "GeneralizedHeegnerCycles:GH.1"
+   ],
+   "note": "GH.1 plans the étale Abel–Jacobi map from the cycle class and the Hochschild–Serre filtration, including independence of choices; the coefficient-system and support-localisation form used here is its curve case with a projector."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/86",
+   "kind": "construction",
+   "name": "CM cycles on Z_K with coefficients, and the Hodge modification",
+   "statement": "For V' ⊂ H'(A^∞) and K ⊂ (G×H)'(A^∞) with K ∩ H'(A^∞) ⊇ V, the diagonal e'_{V',K} : Y'_{V'} → Z_K is y ↦ [(e(ỹ),ỹ)]. If W satisfies (wt) then W^{H'} is a line, and any ξ ∈ W^{H'} gives Q_p → e'^*𝓦, whence pushforwards e'_{W,K,V',*} : 𝓩_0(Y'_{V'},Z_p) → 𝓩_0(Z_K,𝓦^∘) ⊗ W^∨_{H'}. One sets Δ_{W,(K,V')} := e'_{W,K,V,*}[Y'_{V'}] and Δ^∘_{W,(K,V')} := |Y'_{V'}(Ē)|^{−1}Δ_{W,(K,V')} for W ≠ Q_p, while for W = Q_p one takes Δ^∘_{(K,V')} := |Y'_{V'}(Ē)|^{−1}(Δ_{(K,V')} − deg(Δ_{(K,V')})·ξ_Hodge) in CH_0(Z_K)_{Q_p}, with ξ_Hodge the Hodge class.",
+   "locator": "§6.2.1–§6.2.2 with display (6.2.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/87",
+   "kind": "theorem",
+   "name": "Compatibility under pushforward and homological triviality of the CM cycle",
+   "statement": "Lemma 6.2.1. The image of Δ^∘_{W,(K'',V'')} under pushforward in 𝓩_0(Z_K,𝓦) (or CH_0(Z_K)_{Q_p} when W = Q_p) is independent of V'', K'' with V'' ⊂ K'' ∩ H'(A^∞) and K' ⊂ K, and cl̄(Δ^∘_{W,(K,V')}) = 0 in H^2(Z̄_K,𝓦(1)).",
+   "locator": "Lemma 6.2.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/88",
+   "kind": "construction",
+   "name": "The Heegner classes P_W, P_Π and P^{ord}_Π",
+   "statement": "P_{W,(K,V')} := AJ(Δ^∘_{W,(K,V')}) ∈ H^1(G_{E,Sp}, H_1(Z̄_K,𝓦)); these are compatible under pushforward and give P_W ∈ lim_K H^1(G_{E,Sp},H_1(Z̄_K,𝓦)), invariant under H'(A^∞). Via Carayol's injection Π ↪ colim_K Hom_{L[G_E]}(𝓗_1(Z̄_K,𝓦),V_Π) and biduality, P_W yields for each ordinary Π of weight W a map P_Π : Π → H^1(G_{E,Sp},V_Π), whose restriction to Π_{H'_∞} is the functional of the introduction, and P^{ord}_Π := P_Π γ^{ord}_{H'} : Π^{ord} → H^1(G_{E,Sp},V_Π).",
+   "locator": "§1.2.4 with display (1.2.3), and §6.2.3 with displays (6.2.2)–(6.2.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/89",
+   "kind": "theorem",
+   "name": "Conjecture on the geometric origin of the Heegner classes",
+   "statement": "Remark 6.2.2. It is conjectured that (i) there are a variety N_{W,(K,V')}/E of odd dimension 2d_W+1, a homologically trivial cycle 𝔷_{W,(K,V')} ∈ CH_{d_W}(N_{W,(K,V')})_0 and a map λ : H^{2d_W+1}(N̄_{W,(K,V')},Q_p(d+1)) → H_1(Z̄_K,𝓦) with P_{W,(K,V')} = λ(AJ(𝔷)); and (ii) the classes P_{W,(K,V')} lie in H^1_f(E,H_1(Z̄_K,𝓦)), so that P_Π takes values in H^1_f(E,V_Π). For G = GL_{2/Q}, (i) holds with a Kuga–Sato variety, generalising Nekovář's Proposition II.2.4; the obstruction in general is that Z is not of PEL type when F ≠ Q.",
+   "locator": "Remark 6.2.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/90",
+   "kind": "definition",
+   "name": "The universal Heegner class 𝓟_W",
+   "statement": "Definition 6.3.1. With d_r := |Y'_r(Ē)|, d^∘ = d_r ∏_{v|p}q_v^{−r_v} ∈ Z_{≥1} and M^∘_{K^{p}{}',W} = lim_r 𝓗_1(Z̄_{W,r},𝓦^∘)^{ord}, the universal Heegner point of weight W is 𝓟_W := P_W γ^{ord}_{H'} ∈ d^{∘,−1}H^1(G_{E,Sp},M^∘_{K^p,W}), where γ^{ord}_{H'} : lim_{K_p}𝓗_1(Z̄_{K^{p}{}'K_p},𝓦)^{H'(A)} → M_{K^{p}{}',W} is the operator of Proposition A.2.4. One writes 𝓟 := 𝓟_{Q_p}.",
+   "locator": "Definition 6.3.1 with display (6.3.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/91",
+   "kind": "theorem",
+   "name": "Independence of the universal Heegner class from the weight",
+   "statement": "Proposition 6.3.2. Under the identification H^1(E,M^∘_{K^{p}{}'} ⊗_{Z_p}O_L) ≅ H^1(E,M^∘_{K^{p}{}',W}) induced by the isomorphism j_W of Proposition 3.1.2(2), one has j_{W,*}(𝓟) = 𝓟_W.",
+   "locator": "Proposition 6.3.2 with display (6.3.2), Disegni, arXiv:2001.00045v4 (23 February 2024) (using Lemma A.4.2)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/92",
+   "kind": "theorem",
+   "name": "Vanishing of the local cohomology away from p at classical points",
+   "statement": "Lemma 6.4.1. For z ∈ X^{cl} with V = 𝓥_{|z} and a place w ∤ p of E, H^i(E_w,V) = 0 for all i.",
+   "locator": "Lemma 6.4.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/93",
+   "kind": "theorem",
+   "name": "Bloch–Kato and Greenberg Selmer groups agree at classical points of regular weight",
+   "statement": "Lemma 6.4.2. If Π_z satisfies (wt) then H^1_{f,BK}(E,V) = H^1_{f,Gr}(E,V), where the left side is defined by the Bloch–Kato local conditions at all w ∈ Sp and the right side by the ordinary filtration.",
+   "locator": "Lemma 6.4.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/94",
+   "kind": "theorem",
+   "name": "Support of the local cohomology sheaves away from p",
+   "statement": "Lemma 6.4.3. For a finite place w ∤ p of E the sheaves H^1(E_w,𝓥) and H^1(E_w,𝓜^{H'_Σ}_{K^{p}{}'}) are supported in a closed subset of X (resp. X^{(3)}) disjoint from X^{cl}; one writes X^{(3,w)} ⊃ X^{cl} for the open complement in X^{(3)} of the support of H^1(E_w,𝓥).",
+   "locator": "Lemma 6.4.3 with display (6.4.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/95",
+   "kind": "theorem",
+   "name": "Vanishing of the singular localisation of 𝓟 at the places above p",
+   "statement": "Lemma 6.4.4. For a place w | p of E the image loc^−_w(𝓟) of 𝓟 in H^1(E_w, 𝓜^{H'_Σ,−}_{K^{p}{}',w}) vanishes over X^{(3)}. (The proof twists by a square root of the determinant, writes the maximal pro-p abelian extension E_∞/E as an increasing union of E_n totally ramified at p, applies Howard's argument at the finite levels, and passes to the limit by Lemma 5.2.2.)",
+   "locator": "Lemma 6.4.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Howard, Variation of Heegner points in Hida families, proof of Proposition 2.4.5, primes v | p)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/96",
+   "kind": "theorem",
+   "name": "The universal class is a section of the Selmer sheaf",
+   "statement": "Corollary 6.4.5. With X^{(3,f)} := ∩_{w ∈ S}X^{(3,w)} ⊃ X^{cl}, the class 𝓟 defines a section 𝓟 ∈ H̃^1_f(E,𝓜^{H'_Σ}_{K^{p}{}'})(X^{(3,f)}) = H^1_f(E,𝓜^{H'_Σ}_{K^{p}{}'})(X^{(3,f)}).",
+   "locator": "Corollary 6.4.5, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/97",
+   "kind": "definition",
+   "name": "The exceptional locus of a Hida family",
+   "statement": "For w | v | p let μ^±_w : E_w^× → O(X)^× be the characters giving the Galois action on 𝓥^±. X^{exc,v} ⊂ X is the closed subset where μ^−_w = 1 for some (equivalently every) w | v; X^{exc} := ∪_{v|p}X^{exc,v}, X^{cl,exc,(v)} := X^{cl} ∩ X^{exc,(v)} and X^{cl,n-exc,(v)} := X^{cl} − X^{cl,exc,(v)}. A representation Π = Π_{|z} is exceptional at v if z ∈ X^{exc,v}.",
+   "locator": "§6.4.7 with display (6.4.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/98",
+   "kind": "theorem",
+   "name": "Characterisation of exceptional representations and the exceptional defect",
+   "statement": "Lemma 6.4.6. For an ordinary Π = π ⊗ χ over a p-adic field with weights w̲, l̲: (1) for v | p the following are equivalent: Π is exceptional at v; e_v(V_{(π,χ)}) = 0; π_v is special of the form St ⊗ α_v, χ_w·α_v∘N_{E_w/F_v} = 1 for some (all) w | v, and w_σ = 2, l_σ = 0 for all σ inducing v. (2) With S_p^{exc} = S_p^{exc,s} ⊔ S_p^{exc,ns} the set of exceptional places (split, resp. nonsplit in E): (a) the kernel of H̃^1_f(E,V_Π) ↠ H^1_f(E,V_Π) has dimension 2|S_p^{exc,s}| + |S_p^{exc,ns}|; (b) if B is split at all v | p then ε^G_v(V_Π) = −1 ⟺ v ∈ S_p^{exc,ns}.",
+   "locator": "Lemma 6.4.6, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/99",
+   "kind": "theorem",
+   "name": "Heegner classes lie in the Bloch–Kato Selmer group",
+   "statement": "Proposition 6.4.7. If Π is not exceptional, or has trivial weight, then P_Π takes values in H^1_f(E,V_Π) ⊂ H^1(G_{E,Sp},V_Π). (For non-exceptional Π this follows from Corollary 6.4.5, Theorem C and Lemma A.2.5: ∂P_Π γ^{ord}_{H'} = 0 and γ^{ord}_{H'} is not annihilated.)",
+   "locator": "Proposition 6.4.7, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/100",
+   "kind": "definition",
+   "name": "The enhanced ordinary Heegner class",
+   "statement": "For z = (x,y) ∈ X^{cl} with representation Π, P̃^{ord}_Π := 𝓟_{|z} ∈ H̃^1_f(E,V_Π); its image under H̃^1_f(E,V_Π) → H^1_f(E,V_Π) is P^{ord}_Π, and by Lemma 6.4.6 that map fails to be an isomorphism precisely when Π is exceptional.",
+   "locator": "§6.4.8 with display (6.4.3), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/101",
+   "kind": "definition",
+   "name": "The cyclotomic space 𝓔_Z and the Galois group Γ_F",
+   "statement": "Γ_F := F^×_{A^∞}/F^× Ô^{p,×}_F, identified by class field theory with the Galois group of the maximal abelian extension of F unramified outside p, and 𝓔_{Z/L} := Spec(Z_p⟦Γ_F⟧_L); a point s ∈ 𝓔_{Z/L} is a p-adic character χ_{F,s} of Γ_F, s = 0 being the trivial character. The p-adic cyclotomic character of a number field E is χ_{cyc,E} = χ_{cyc,Q}∘N_{E/Q} with χ_{cyc,Q}(x) = |x|_{A^∞}⟨x_p⟩_p.",
+   "locator": "§1.1.2 and §1.6 (Notation), display (1.6.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/102",
+   "kind": "definition",
+   "name": "The p-adic and archimedean interpolation factors e_v, e_∞, e_{p∞}",
+   "statement": "With γ(W,ψ_v)^{−1} = L(W)/(ε(W,ψ_v)L(W^*(1))) the inverse Deligne–Langlands factor, ψ the standard additive character, ψ_{E,w} = ψ_v ∘ Tr_{E_w/F_v}, ad(V_{π,v})(1)^{++} := Hom(V^−_{π,v},V^+_{π,v}) and d_v a generator of the different: e_v(V_{(π_x,χ_y)}) := |d_v|^{−1/2}·(∏_{w|v}γ(ιWD(V^+_{π,v|G_{E,w}} ⊗ V_{χ,w}),ψ_{E,w})^{−1})/(γ(ιWD(ad(V_{π,v})(1))^{++},ψ_v)^{−1})·𝓛(V_{(π^ι,χ^ι),v})^{−1}; e_∞ := i^{(w+l)[F:Q]} and e_{p∞} := e_∞·∏_{v|p}e_v. When w+l = 0 these lie in ι Q_p(x_0,y_0) and one sets e_{p∞}(V_{(π,χ)}) := ι^{−1}e_{p∞}(V_{(π^ι,χ^ι)}).",
+   "locator": "§1.4.2 with displays (1.4.1)–(1.4.4), Disegni, arXiv:2001.00045v4 (23 February 2024) (Fontaine's functor ιWD; Tate's normalisations of L- and ε-factors)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/103",
+   "kind": "theorem",
+   "name": "The multivariable p-adic L-function on the Hida family",
+   "statement": "Theorem 1.4.1. There is a meromorphic function 𝓛_p(𝓥^♯) ∈ 𝓚(X^♯_0) on the ordinary eigenvariety for G_0 × H, whose polar locus 𝒟 does not meet X^{cl}_0, uniquely characterised by: for every z = (x,y) ∈ X^{♯,cl}_0(C) − 𝒟(C) corresponding to π_x ⊗ χ_y of weights (w̲_x,l̲_y) with |l_{y,σ}| < w_{x,σ} and |w_x+l_y| ≤ w_{x,σ} − |l_{y,σ}| − 2 for all σ, 𝓛_p(𝓥)(x,y) = e_{p∞}(V_{(π_x,χ_y)})·𝓛(V_{(π_x,χ_y)},0), the product over all places of the normalised local factors.",
+   "locator": "Theorem 1.4.1 with display (1.4.5), Disegni, arXiv:2001.00045v4 (23 February 2024); Disegni, p-adic L-functions via local-global interpolation: the case of GL_2 × GU(1), Canad. J. Math.",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/104",
+   "kind": "definition",
+   "name": "The cyclotomic p-adic L-function of V and its derivative",
+   "statement": "For an ordinary Hilbert modular form π_0 and a Hecke character χ of E, 𝓛_p(V_{(π_0,χ)},s) := 𝓛_p(𝓥^♯)(z_s) ∈ 𝓚(𝓔_{Z/L}), where z_s is the family V_{π|G_E} ⊗ χχ_{F,s|G_E}. If ε(V) = −1 then 𝓛_p(V_{(π_0,χ)},0) = 0 and one writes 𝓛'_p(V_{(π_0,χ)},0) = d𝓛_p(V_{(π_0,χ)})(0) ∈ T_0𝓔_{Z/L} = Γ_F ⊗̂ L. The normal derivative along X_0 ⊂ X^♯_0 is d^♯𝓛_p(𝓥) := d_{X_0/X^♯_0}𝓛_p(𝓥^♯) ∈ 𝓚(X_0) ⊗̂ Γ_F.",
+   "locator": "§1.1.2, display (1.1.1), and §1.4.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/105",
+   "kind": "construction",
+   "name": "The p-adic height pairings on V and on the Hida family",
+   "statement": "For ordinary π the restriction V_w is reducible, 0 → V^+_w → V_w → V^−_w → 0, with V^+_w and V^{ι,+}_w exact orthogonals under a fixed V ⊗ V^ι → L(1); this gives h_V : H̃^1_f(E,V) ⊗ H̃^1_f(E,V^ι) → L ⊗̂ Γ_F. Over a locally distinguished Hida family the dualities 𝓥 ⊗ 𝓥^ι → O_X(1) interpolate this, and together with the deformation to a Hida family X^♯ for G × H give h_{𝓥/𝓥^♯} : H̃^1_f(E,𝓥) ⊗_{O_X} H̃^1_f(E,𝓥^ι) → 𝓝^*_{X/X^♯} ≅ O_X ⊗̂ Γ_F. For trivial W the pairing h_V agrees with the p-adic height pairings on abelian varieties in the literature.",
+   "locator": "§1.2.7 with displays (1.2.9)–(1.2.11) and §1.4.1 with displays (1.4.6)–(1.4.7), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/106",
+   "kind": "definition",
+   "name": "Condition (★) of the Correction",
+   "statement": "Let S_{p,ns} be the set of p-adic places of F that are nonsplit in E. A Hecke character χ of E satisfies (★) if for each v ∈ S_{p,ns} the place v is inert in E and χ_v is unramified. This is the hypothesis under which the corrected form of [Disegni, The p-adic Gross–Zagier formula on Shimura curves, II: nonsplit primes] proves the trivial-weight p-adic Gross–Zagier formula, and it is therefore required in Theorems A, B and B^ord.",
+   "locator": "Appendix B (Correction), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/107",
+   "kind": "definition",
+   "name": "Hida* families",
+   "statement": "Assume no p-adic place of F is ramified in E. Define M^*_{K^p} as M_{K^p} in §1.3.1 but with the limit taken only over subgroups K_p containing N_{G,0} × ∏_{v ∈ S_{p,ns}}O^×_{E,v}, and 𝓔^{ord,*}_{K^p} as 𝓔^{ord}_{K^p} with M_{K^p} replaced by M^*_{K^p}; equivalently 𝓔^{ord,*}_{K^p} is the closure of the set of classical points of 𝓔^{ord}_{K^p} corresponding to representations satisfying (★). A Hida* family for (G×H)' is an irreducible component of 𝓔^{ord,*}_{K^p}. Theorems D and E hold for Hida* families rather than Hida families.",
+   "locator": "Appendix B (Correction), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/108",
+   "kind": "theorem",
+   "name": "Theorem A: the p-adic Beilinson–Bloch–Kato conjecture in analytic rank one",
+   "statement": "Theorem A, as corrected. Let π_0 be a Hilbert modular form over L of weight w̲ and χ a Hecke character of E over L of weight l̲, V := V_{π_0|G_E} ⊗ V_χ, and assume (wt) |l_σ| < w_σ for all σ; (sd) ω_{π_0}ω_χ = 1; (ε) ε(V) = −1; (ord) π_0 is ordinary; (n-exc) V is not exceptional; and, by the Correction, (★). Then (1) 𝓛'_p(V_{(π_0,χ)},0) ≠ 0 ⟹ dim_L H̃^1_f(E,V) ≥ 1, with an explicit nonzero element of H̃^1_f(E,V) = H^1_f(E,V) whose p-adic height is also nonzero; (2) for a stable lattice T ⊂ V, if moreover the conditions of [Fouquet, Theorem B(i)] hold, then (a) dim_L H̃^1_f(E,V) = 1 and (b) 𝓛'_p(V_{(π_0,χ)},0) ⪰_{Z_p} R_T·|H̃^2_f(E,T)_tors| in L ⊗̂ Γ_F, where R_T is the regulator of the height pairing on H̃^1_f(E,T) ⊗ H̃^1_f(E,T^*(1)). Here m_1 ⪰_A m_2 means m_1 ⊆ m_2.",
+   "locator": "Theorem A (§1.1.3), with the hypothesis (★) added in Appendix B, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/109",
+   "kind": "theorem",
+   "name": "A variant of Theorem A for self-dual Hilbert modular forms",
+   "statement": "Suppose π_0 is ordinary with ω_{π_0} = 1 and ε(V_{π_0}) = −1, that either [F:Q] is odd or π_{0,v} is not a principal series for some v ∤ p∞, and that π_{0,v} is not Steinberg for any v | p. If L'_p(V_{π_0},0) ≠ 0 for Dimitrov's p-adic L-function, then conclusions (1) and (2)(a) of Theorem A hold with (E,V) replaced by (F,V_{π_0}); the proof chooses an auxiliary CM extension E and reduces to Theorem A.",
+   "locator": "§1.1.4 (A variant for selfdual Hilbert modular forms), Disegni, arXiv:2001.00045v4 (23 February 2024) (Dimitrov, Automorphic symbols, p-adic L-functions and ordinary cohomology of Hilbert modular varieties)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/110",
+   "kind": "theorem",
+   "name": "Theorem B: the p-adic Gross–Zagier formula for arbitrary weight",
+   "statement": "Theorem B, as corrected. Let Π = π ⊗ χ be an ordinary, locally distinguished, non-exceptional automorphic representation of (G×H)'(A) over L satisfying (★), and V = V_Π. Then the image of P_Π lies in H^1_f(E,V) and, for f_1 ∈ Π_{H'_∞}, f_2 ∈ Π^∨_{H'_∞}, f_3 ∈ Π, f_4 ∈ Π^∨ with (f_3,f_4)_Π ≠ 0, h_V(P_Π(f_1),P_{Π^∨}(f_2))/(f_3,f_4)_Π = e_{p∞}(V_{(π,χ)})^{−1}·𝓛'_p(V_{(π,χ)},0)·Q(f_1⊗f_2/f_3⊗f_4).",
+   "locator": "Theorem B (§1.2.8), with (★) added in Appendix B, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/111",
+   "kind": "theorem",
+   "name": "Theorem B^ord: the p-adic Gross–Zagier formula for ordinary forms",
+   "statement": "Theorem B^ord, as corrected. Let Π = π ⊗ χ be an ordinary, locally distinguished representation of (G×H)'(A) over L satisfying (★) — exceptional Π allowed — with V = V_Π and P̃^{ord}_Π the enhanced Heegner class. Then for f_1 ∈ Π^{ord}_{H'_∞}, f_2 ∈ Π^{∨,ord}_{H'_∞}, f_3 ∈ Π^{ord}, f_4 ∈ Π^{∨,ord} with (f_3,f_4)^{ord} ≠ 0, h_V(P̃^{ord}_Π(f_1),P̃^{ord}_{Π^∨}(f_2))/(f_3,f_4)^{ord}_Π = 𝓛'_p(V_{(π,χ)},0)·Q^{ord}(f_1⊗f_2/f_3⊗f_4).",
+   "locator": "Theorem B^ord (§7.1.1) with display (7.1.1), and Appendix B, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/112",
+   "kind": "theorem",
+   "name": "Equivalence of Theorem B and Theorem B^ord in the non-exceptional case",
+   "statement": "Lemma 7.1.2. If Π is not exceptional then Theorem B^ord is equivalent to Theorem B. (The comparison uses Proposition 4.3.4 and the nondegeneracy of the ordinary pairing.)",
+   "locator": "Lemma 7.1.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/113",
+   "kind": "theorem",
+   "name": "Comparison with the one-variable p-adic L-function at a point of trivial weight",
+   "statement": "Lemma 7.1.3. For z = (x,y) of weights (0;(2,…,2)) and (0;(0,…,0)), with A the modular abelian variety attached to π_{0,x} and 𝓛_p(V_{(A,χ)}) the p-adic L-function of [Disegni, nonsplit primes, Theorem A], the pullback of 𝓛_p(𝓥^♯) along j_{(x,y)} : 𝓔_Z → {x} × 𝓔^{ord}_H, χ_F ↦ π_{0,x} ⊗ χ_y·χ_{F∘N_{E_A^×/F_A^×}}, equals 𝓛_p(V_{(A,χ)}).",
+   "locator": "Lemma 7.1.3 with display (7.1.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/114",
+   "kind": "theorem",
+   "name": "Density of the classical points of trivial weight satisfying (p-crys), in a Hida* family",
+   "statement": "Lemma 7.1.4, as corrected. In a Hida* family, the classical points of trivial weight that satisfy (p-crys) — that is, V_{x|G_{F_v}} potentially crystalline for all v | p, equivalently π_{x,v} a principal series — are dense. The last paragraph of the printed proof of Lemma 7.1.4 applies verbatim. Condition (ram), the sufficient ramification of χ_{y,p}, is no longer relevant, because the corrected [nonsplit, Theorem B] does not require it.",
+   "locator": "Lemma 7.1.4 (printed form, §7.1.3) and Appendix B (Correction), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/115",
+   "kind": "theorem",
+   "name": "The equivalence of the universal and the pointwise formulas",
+   "statement": "Proposition 7.1.5. Let X' = X'_{K^{p}{}'} := X^{(6)} ∩ X^{(3,f)} ⊃ X^{cl}. The following are equivalent: (1) Theorem D holds over X'_{K^{p}{}'} for all K^{p}{}' ⊂ K^p; (2a) Theorem B^ord holds at all points of X^{cl} satisfying (wt); (2b) Theorem B^ord holds at all points of X^{cl,p-crys,Q_p,ram}; (3a) Theorem B holds at all points of X^{cl,n-exc} satisfying (wt); (3b) Theorem B holds at all points of X^{cl,p-crys,Q_p,ram}. The specialisation input is that the conormal map 𝓝^*_{X/X^♯} → 𝓝^*_{X/X×𝓔_Z} is multiplication by ½, so h_𝓥 specialises to ½h_V and d^♯𝓛_p(𝓥) to ½𝓛'_p(V,0).",
+   "locator": "Proposition 7.1.5 with §7.1.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/116",
+   "kind": "theorem",
+   "name": "Theorem C: the universal Heegner class and Howard's question",
+   "statement": "Theorem C (not affected by the Correction). Let X be a locally distinguished Hida family for (G×H)'. There are an open X' ⊂ X containing X^{cl} and a map 𝓟_{K^{p}{}'} : Π^{K^{p}{}',ord}_{H'_Σ} → H^1_f(G_{E,Sp},𝓥) of sheaves over X' such that (1) 𝓟_{K^{p}{}'} is invariant under the away-from-pΣ Hecke algebra of H'; (2) for every z ∈ X^{cl} whose representation Π_z satisfies (wt), 𝓟_{K^{p}{}'|z} = P^{ord}_{Π_z,K^{p}{}'} under the natural map H^1(G_{E,Sp},𝓥)_{|z} → H^1(G_{E,Sp},V_{Π_z}). Part (2) answers, in this generality, Howard's question whether his big class interpolates Heegner cycles at all classical points.",
+   "locator": "Theorem C (§1.3.3) proved in §6.4.6, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/117",
+   "kind": "theorem",
+   "name": "Theorem D: the universal p-adic Gross–Zagier formula",
+   "statement": "Theorem D, as corrected: for Hida* families. Let X be a locally distinguished Hida* family for (G×H)', Π^{(ι)} := Π^{K^{p}{}',ord,(ι)}_{H'_Σ}, O := O_X, 𝓚 := 𝓚_X. Then there is an open X' ⊂ X containing X^{cl} over which all the constructions can be made and h_{𝓥/𝓥^♯}(𝓟(f_1),𝓟^ι(f_2))/((f_3,f_4)) = d^♯𝓛_p(𝓥^♯)·𝓠(f_1⊗f_2/f_3⊗f_4), an equality of 𝓚 ⊗̂_{Z_p}Γ_F-valued O-linear functionals on (Π ⊗_O Π^ι) ⊗_{O^×}(Π ⊗_O Π^ι)^{×,−1}. The formula also holds at exceptional classical points, in the form of Theorem B^ord.",
+   "locator": "Theorem D (§1.4.3), with Hida* in place of Hida by Appendix B, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/118",
+   "kind": "theorem",
+   "name": "Theorem E: an Iwasawa main conjecture for derivatives",
+   "statement": "Theorem E, as corrected: for Hida* families. Let X be a locally distinguished Hida* family for (G×H)' satisfying the further conditions of [Fouquet, Theorem B(iii)], X' the open subset of Theorem D, which may be assumed regular, and 𝓡 ⊂ O_{X'} ⊗̂ Γ_F the regulator of the height pairing h_{𝓥/𝓥^♯} over X'. Then d^♯𝓛_p(𝓥) ⪰_{O_{X'}} 𝓡·char_{O_{X'}}(H̃^2_f(E,𝓥)_{O_{X'}-tors}).",
+   "locator": "Theorem E (§1.5.1), with Hida* in place of Hida by Appendix B, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/119",
+   "kind": "theorem",
+   "name": "Theorem F: generic non-vanishing of p-adic heights for self-dual CM motives",
+   "statement": "Theorem F (not affected by the Correction, since its hypotheses force S_{p,ns} = ∅). Let 𝓔^{ord,sd}_H ⊂ 𝓔^{ord}_H be the closed subspace cut out by χ_{|F_A^×} = η·χ_{cyc,F}, a torsor under 𝓔^{ord}_{H'}, smooth of dimension [F:Q], and let Y ⊂ 𝓔^{ord,sd}_H be an irreducible component of type −1, i.e. with ε(1,χ_x) = −1 for all x ∈ Y^{cl}. Suppose every prime v | p of F splits in E, that E/F is ramified, and that p ∤ 2D_F h_E^−. Then there is a nonempty open Y' ⊂ Y such that for all y ∈ Y^{cl} ∩ Y', H^1_f(E,χ_y) ≠ 0 and the p-adic height pairing H^1_f(E,χ_y) ⊗ H^1_f(E,χ_y^{−1}(1)) → Q_p(y) ⊗̂ Γ_F is non-vanishing.",
+   "locator": "Theorem F (§1.5.2) proved in §7.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/120",
+   "kind": "theorem",
+   "name": "Theorem G: non-vanishing along an exceptional classical Hida family",
+   "statement": "Theorem G (not affected by the Correction). Let X_0 be a Hida family for PGL_{2/Q}, X^♯_0 the Hida family for GL_{2/Q} containing it, and 𝓥_0, 𝓥^♯_0 the associated rank-two G_Q-representations. Suppose X_0 contains a point corresponding to an elliptic curve A with split multiplicative reduction at p and L(A,1) ≠ 0. Then (1) a universal Heegner class 𝓟_0 is non-vanishing along X_0; (2) H̃^1_f(Q,𝓥_0) has generic rank one, generated by 𝓟_0; (3) the p-adic height pairing h_{𝓥_0/𝓥^♯_0} is non-vanishing.",
+   "locator": "Theorem G (§1.5.3) proved in §7.3.6, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/121",
+   "kind": "theorem",
+   "name": "Theorem H: a universal Waldspurger formula",
+   "statement": "Theorem H. Let B be a totally definite quaternion algebra over F, G the associated coherent group, E ↪ B a fixed CM extension, and X a locally distinguished Hida family for (G×H)', whose Shimura varieties are all zero-dimensional. With 𝓟 : Π^{K^p,ord}_{H'_Σ} → O_X the universal toric period interpolating the P^{ord}_{Π_z}, ((,)) the interpolated pairing and 𝓠 as in §4.4, there is an open X' ⊂ X containing X^{cl} such that 𝓟(f_1)·𝓟^ι(f_2)/((f_3,f_4)) = 𝓛_p(𝓥^♯)_{|X}·𝓠(f_1⊗f_2/f_3⊗f_4), an equality of 𝓚-valued O-linear functionals. It follows from its specialisations at classical points satisfying (wt), which are known by modifying Waldspurger's formula as in Theorem B^ord.",
+   "locator": "Theorem H (§7.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/122",
+   "kind": "definition",
+   "name": "Pfaffian regulators of a skew-symmetric pairing",
+   "statement": "Let L be a field of characteristic zero, M and T finite-dimensional L-spaces, h : M ⊗ M → T skew-symmetric, r = dim M. If r is even, Pf^+(M,h) ∈ (Sym^{r/2}T)/L^× is the Pfaffian of (h(x_i,x_j)) for any basis. If r is odd, the enhanced Pf^−(M,h) ∈ (M ⊗ Sym^{(r−1)/2}T)/L^× is defined by prescribing ∂^e Pf^− for every basis ∂_1,…,∂_d of T^∨ and every e with Σe_i = (r−1)/2: with I the support of e and M_I the sum over i ∈ I of the radicals of ∂_i h, one sets ∂^ePf^− := 0 if dim M_I ≥ 2 and ∂^ePf^−(M,h) := x ⊗ ∂^ePf^+(M̄,h̄) if dim M_I = 1 with generator x and M̄ = M/M_I. In the even case Pf^+(M,h)² is the discriminant R(M,h); in the odd case, given a symmetric h^♯ : M ⊗ M → T^♯, h^♯(Pf^−,Pf^−) is the image of the discriminant of h ⊕ h^♯. A lattice in M lifts the ambiguity to a unit.",
+   "locator": "§7.3.1 with Remarks 7.3.1 and 7.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/123",
+   "kind": "theorem",
+   "name": "Conjecture Pf: leading terms of universal Heegner classes and toric periods",
+   "statement": "Conjecture Pf. Let G be incoherent (ε := −1) or coherent totally definite (ε := +1), X a locally distinguished Hida family, z ∈ X^{cl} a classical point at which 𝓟 is defined on a neighbourhood, V = 𝓥_{|z}, h^∥ := h^□_{z/X} : H̃^1_f(E,V) ⊗ H̃^1_f(E,V) → T^*_zX the Nekovář–Venerucci height pairing twisted by the complex conjugation, which is skew-symmetric, and Pf^{∥,±}(V) := Pf^±(H̃^1_f(E,V),h^∥). Put r̃ := dim_L H̃^1_f(E,V). Then (−1)^{r̃} = ε, 𝓟 vanishes to order at least ⌊r̃/2⌋ at z, and for any generator ℘ of (Π^{ord})^{*,H'(A^{p∞})} and all f ∈ Π^{ord}, (d^∥_z)^{⌊r̃/2⌋}𝓟(f) = Pf^{∥,ε}(V)·℘(f) in [H̃^1_f(E,V)^{(1+ε)/2} ⊗ Sym^{⌊r̃/2⌋}T^*_zX]/Q_p(z)^×.",
+   "locator": "Conjecture Pf (§7.3.2) with display (7.3.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/124",
+   "kind": "theorem",
+   "name": "The parity part of Conjecture Pf",
+   "statement": "The parity statement (−1)^{r̃} = ε follows from Nekovář's parity theorem (−1)^r = ε(V) for r = dim H^1_f(E,V) together with Lemma 6.4.6(2): ε = ε(V)·(−1)^{r^{exc,ns}} and r̃ = r + 2r^{exc,s} + r^{exc,ns}, where r^{exc,s} and r^{exc,ns} count the exceptional places above p that are split, resp. nonsplit, in E.",
+   "locator": "§7.3.4 with displays (7.3.2)–(7.3.3), Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Selmer complexes, Theorem 12.2.3)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/125",
+   "kind": "theorem",
+   "name": "Comparison of Conjecture Pf with the Fornea–Gehrmann plectic invariants",
+   "statement": "§7.3.5. Let A/F be a modular elliptic curve whose set of places of multiplicative reduction above p consists of r primes v_1,…,v_r inert in E, and assume Sha(A_E)[p^∞] finite, so that r̃ = r + r_A. Granting the conjectural relations of Fornea–Guitart–Masdeu for the element Q_A ∈ ⊗_i E_{v_i}^× ⊗̂ Q_p — namely that ℓ^a_{exc,⊗}(Q_A) vanishes unless r_A = r and r_A^+ + r^+ = r, in which case it is the determinant of (x̂^a_{i,v_j}) — Theorem A of Fornea–Gehrmann, (d^a_z)^r𝓟(f^∘) ≐ ℓ^a_{exc,⊗}(Q_A), is equivalent to the anticyclotomic projection of Conjecture Pf. The verification uses the explicit description H̃^1_f(E,V) = H^1_f(E,V) ⊕ ⊕_i Q_p[q_{v_i}] with h^a(q_v,q_{v'}) = 0 and h^a(x,q_v) = log^a_{A,v}(x̂_v), the isotropy of the ±-eigenspaces for the complex conjugation, and pf(0 M; −M^T 0) = ±det M.",
+   "locator": "§7.3.5 with displays (7.3.4)–(7.3.6), Disegni, arXiv:2001.00045v4 (23 February 2024) (Fornea–Gehrmann, Plectic Stark–Heegner points, Theorem A; Fornea–Guitart–Masdeu, Plectic p-adic invariants, Conjectures 1.3 and 1.5)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/126",
+   "kind": "theorem",
+   "name": "A new proof of the Greenberg–Stevens exceptional-zero formula",
+   "statement": "Remark 7.3.4. Combining Theorem D — or rather Theorem B^ord, whose hypothesis (★) holds in this setting because p is inert in E and χ = 1 is unramified — with the precise form of the identity h_{𝓥_0/𝓥^♯_0}(𝓟_0,𝓟_0^ι)(x_0) = c·ℓ(q)·L(A_E,1)/Ω_{A_E} gives a new proof of the theorem of Greenberg–Stevens: for an elliptic curve A/Q with split multiplicative reduction at p and p-adic L-function L_p(V_pA) ∈ Z_p⟦Γ_Q⟧_{Q_p}, L'_p(V_pA,0) = (ℓ(q)/ord_p(q))·L(A,1)/Ω_A.",
+   "locator": "Remark 7.3.4 with display (7.3.7), Disegni, arXiv:2001.00045v4 (23 February 2024) (Greenberg–Stevens, Invent. Math. 111 (1993), 407–447)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/127",
+   "kind": "theorem",
+   "name": "The Bertolini–Darmon rigid-analytic Gross–Zagier formula at an exceptional point",
+   "statement": "In the situation of Theorem G, with E imaginary quadratic in which p is inert, the primes dividing the conductor of A split, and L(A,η,1) ≠ 0, so that A has split multiplicative reduction over E with Tate parameter q ∈ E_p^×, there is c ∈ Q_p^× with 𝓟_{0,E}(x_0) ⊗ 𝓟_{0,E}^ι(x_0) = c·(L(A_E,1)/Ω_{A_E})·[q] ⊗ [q] in H̃^1_f(Q,V_pA_E)^{⊗2}. Combined with Nekovář's Kolyvagin method this gives generic rank one, and with the Barré-Sirieix–Diaz–Gramain–Philibert theorem (q is not a root of unity times an algebraic number, so ℓ(q) ≠ 0) it gives the non-vanishing of the height.",
+   "locator": "§7.3.6 with display (7.3.7), Disegni, arXiv:2001.00045v4 (23 February 2024) (Bertolini–Darmon, Ann. of Math. 146 (1997), 111–147, as reformulated in their survey, Theorem 5.4; Nekovář, Kolyvagin's method for Chow groups of Kuga–Sato varieties; Barré-Sirieix–Diaz–Gramain–Philibert)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/128",
+   "kind": "theorem",
+   "name": "Nekovář's Kolyvagin method for Chow groups of Kuga–Sato varieties",
+   "statement": "A non-vanishing Heegner-type class in the Selmer group of a modular Galois representation over an imaginary quadratic field bounds the Selmer rank by one; the paper applies this to deduce that H̃^1_f(Q,𝓥_0) has generic rank one once 𝓟_0 is shown to be non-vanishing.",
+   "locator": "Used in the proof of Theorem G, §7.3.6, Disegni, arXiv:2001.00045v4 (23 February 2024) (Nekovář, Kolyvagin's method for Chow groups of Kuga–Sato varieties, Invent. Math. 107 (1992), 99–125)",
+   "status": "planned",
+   "planned": [
+    "GeneralizedHeegnerCycles:GH.5",
+    "HeegnerPointEulerSystems:HE.6"
+   ],
+   "note": "GH.5 plans the higher-weight Kolyvagin system and its arithmetic hypotheses, that is Nekovář's method for Chow groups of Kuga–Sato varieties; HE.6 the clean rank-one descent it specialises to."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/129",
+   "kind": "theorem",
+   "name": "Fouquet's dihedral Iwasawa theory for nearly ordinary quaternionic automorphic forms",
+   "statement": "For a nearly ordinary quaternionic automorphic form over a totally real field and a CM extension E/F, under the hypotheses of [Fouquet, Theorem B]: (i) if a Heegner class is non-torsion then the Selmer group H̃^1_f(E,V) has dimension one and the characteristic ideal of H̃^2_f(E,T)_tors divides the index of the class; and (iii) the corresponding two-variable statement over a Hida family, bounding char(H̃^2_f(E,𝓥)_tors) in terms of the universal class. These are the Euler-system inputs of Theorems A(2) and E, and they generalise Kolyvagin's bounds on Tate–Shafarevich groups.",
+   "locator": "Used in Theorem A(2) and Theorem E, Disegni, arXiv:2001.00045v4 (23 February 2024) (Fouquet, Dihedral Iwasawa theory of nearly ordinary quaternionic automorphic forms, Compos. Math. 149 (2013), 356–416, Theorem B)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/130",
+   "kind": "theorem",
+   "name": "Cornut–Vatsal non-vanishing of CM points in the anticyclotomic tower",
+   "statement": "The results of Cornut–Vatsal on the geometric distribution of CM points in quaternionic Shimura towers imply that, under mild conditions, the universal class 𝓟 is non-torsion over X.",
+   "locator": "Remark 1.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024) (Cornut–Vatsal, CM points and quaternion algebras, Doc. Math. 10 (2005), 263–309)",
+   "status": "planned",
+   "planned": [
+    "HeegnerPointEulerSystems:HE.8",
+    "HeegnerPointEulerSystems:HE.8c"
+   ],
+   "note": "HE.8 plans exactly the geometric CM-point distribution and non-vanishing inputs of Cornut–Vatsal in the modular and quaternionic setting, and HE.8c pins their hypotheses over a totally real base."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/131",
+   "kind": "theorem",
+   "name": "The Katz p-adic L-function of a CM field",
+   "statement": "For each p-adic CM type Σ of E and each connected component Y^♯ of 𝓔^{ord}_H there is L_Σ ∈ O(Y^♯), characterised by its values at the points y whose algebraic part is t ↦ ∏_{σ ∈ Σ}σ(t)^w σ(t/t^c)^{k_σ} with either w ≥ 1, or w < 1 and w+k_σ > 0 for all σ ∈ Σ, the value being related to L(1,χ_y). For a given y ∈ 𝓔^{ord,sd}_H there is a unique Σ whose interpolation range contains y, and one writes L_p(χ_y,s) := L_Σ(y(s)).",
+   "locator": "Used in the proof of Theorem F, §7.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Katz, p-adic L-functions for CM fields, Invent. Math. 49 (1978), 199–297; Hida–Tilouine)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicPadicLFunctions:L3"
+   ],
+   "note": "L3 plans Katz's p-adic L-function on the actual Hecke-character space of a CM field with a p-ordinary CM type, with the CM periods, the Eisenstein measure and the comparison of CM evaluations with critical Hecke L-values."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/132",
+   "kind": "theorem",
+   "name": "Non-vanishing of the normal derivative of the Katz p-adic L-function",
+   "statement": "Under the hypotheses of Theorem F — all v | p split in E, E/F ramified, p ∤ 2D_F h_E^− — the normal derivative d^♯L_Σ ∈ 𝓝^*_{Y/Y^♯} of the Katz p-adic L-function along the self-dual subvariety is non-vanishing; Y'_Σ denotes the complement of its zero locus.",
+   "locator": "Used in the proof of Theorem F, §7.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Burungale, On the μ-invariant of the cyclotomic derivative of a Katz p-adic L-function, J. Inst. Math. Jussieu 14 (2015), 131–148)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/133",
+   "kind": "theorem",
+   "name": "Hsieh's non-vanishing of the anticyclotomic Katz L-function",
+   "statement": "For a suitable component Y_2 ⊂ 𝓔^{ord,sd}_H the restriction L_{Σc|Y_2} is non-vanishing, which together with the density of classical points of a given weight produces a classical y' with L(1,χ') ≐ L_p(χ',0) ≠ 0.",
+   "locator": "Used in the proof of Theorem F, §7.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Hsieh, On the μ-invariant of anticyclotomic p-adic L-functions for CM fields, J. Reine Angew. Math. 688 (2014), 67–100)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicPadicLFunctions:L3h"
+   ],
+   "note": "L3h plans Hsieh's anticyclotomic square-root distribution for a Hilbert representation over a totally real field and a CM extension, with Theorem B's μ = 0 and its hypotheses; the non-vanishing used here is its consequence."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/134",
+   "kind": "theorem",
+   "name": "Hida's anticyclotomic main conjecture for self-dual Hecke characters of a CM field",
+   "statement": "On a component Y_2 ⊂ 𝓔^{ord,sd}_H satisfying the hypotheses of [Hida, Quadratic exercises in Iwasawa theory], the anticyclotomic main conjecture holds, so that for a classical y' ∈ Y_2^{cl} the non-vanishing L_p(χ',0) ≠ 0 is equivalent to H^1_f(E,χ') = 0. Together with the sign-change lemma of Burungale–Disegni, which produces from a component of type −1 a component Y_2 of type +1 still satisfying Hida's hypotheses, and with the fact that an anticyclotomic character is of the form χ_0^c χ_0^{−1}, this supplies the claim in the proof of Theorem F.",
+   "locator": "Used in the proof of Theorem F, §7.1.4, Disegni, arXiv:2001.00045v4 (23 February 2024) (Hida, Anticyclotomic main conjectures, Doc. Math. 2006, 465–532, and Quadratic exercises in Iwasawa theory, IMRN 2009, 912–952; Burungale–Disegni, Ann. Inst. Fourier 70 (2020), Lemma 2.5; Hida, Hilbert modular forms and Iwasawa theory, Lemma 5.3.1)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/135",
+   "kind": "theorem",
+   "name": "The Jacquet–Langlands correspondence and the map of eigenvarieties",
+   "statement": "For appropriate tame levels there is a closed immersion ι_JL : 𝓔^{ord}_{G×H} → 𝓔^{ord}_{G_0×H} onto a union of irreducible components, induced by the Jacquet–Langlands correspondence between automorphic representations of the quaternionic group and of G_0 = Res_{F/Q}GL_2; locally, π_{x,v} = JL_v(π'_{x,v} ⊗ Q̄_p), and only special and supercuspidal representations lie in the image of JL_v.",
+   "locator": "§1.4.2 and §3.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "note": "R17.1 plans the quaternionic local transfer with its image, and R17.3 the global Jacquet–Langlands correspondence; the induced map of ordinary eigenvarieties is their combination with PadicFamilies L5."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/136",
+   "kind": "definition",
+   "name": "p-adic locally algebraic admissible representations",
+   "statement": "Definition A.1.1. With G_p = G(Q_p) p-adically topologised, G_∞ = G(Q_p) with the Zariski topology, G = G_p × G_∞ and G_Δ the diagonal, a locally algebraic representation of G over L is a product of a smooth admissible representation of G_p and an algebraic representation of G_∞. For L/Q_p finite, such a Π is p-adic if for every compact open K ⊂ G_Δ there is a family of O_L-lattices Π^{K,∘} ⊂ Π^K with Π^{K',∘} ∩ Π^K = Π^{K,∘} for all K' ⊂ K. The typical example is colim_{K_p}H^i(Y_{K^pK_p},𝓦) ⊗ W^∨.",
+   "locator": "Definition A.1.1 with §A.1.1 and display (A.1.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/137",
+   "kind": "definition",
+   "name": "p-adic locally algebraic coadmissible representations",
+   "statement": "Definition A.1.2. For a valued field (L,|·|) and G' one of the groups above, 𝓓_{G',K} = 𝓗_{G',K} = C_c^∞(K\\G'/K,L) and 𝓓_{G'} = lim_K 𝓓_{G',K}; a coadmissible G'-representation over (L,|·|) is a topological right 𝓓_{G'}-module M such that for every compact G^∘ ⊂ G' there are topological 𝓓_{G^∘,K}-modules M_K with M_K ≅ M_{K'} ⊗_{𝓓_{G^∘,K'}}𝓓_{G^∘,K} for K' ⊂ K and M ≅ lim_K M_K. For L/Q_p finite, M is p-adic locally algebraic coadmissible if it is coadmissible for the trivial norm and its restriction to G_Δ is coadmissible for the p-adic norm. The typical example is lim_{K_p}H_i(Y_{K^pK_p},𝓦) ⊗ W^∨.",
+   "locator": "Definition A.1.2, Disegni, arXiv:2001.00045v4 (23 February 2024) (Schneider–Teitelbaum, Algebras of p-adic distributions and admissible representations, p. 152)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/138",
+   "kind": "construction",
+   "name": "Hida's ordinary projector on admissible and coadmissible modules",
+   "statement": "For Π = Π_p ⊗ W p-adic locally algebraic admissible, with Π^{N_{0,(r)}} := Π^{N_{0,(r)}} ⊗ W^N and Hecke-stable lattices, Π^{∘,N_0} is stable under U_{p∞} and e^{ord} := lim_n U_{p∞}^{n!} is a well-defined idempotent whose image Π^{∘,ord} is the maximal split O_L-submodule of Π^{∘,N_0} on which U_{p∞} acts invertibly; Π^{ord} := e^{ord}Π^{N_0}. If Π_p and W are irreducible then dim Π^{ord} ∈ {0,1}, and Π is ordinary in the second case, independently of the lattices. Dually, for a p-adic locally algebraic coadmissible right module M = M_p ⊗ W^∨ one obtains M^{(∘),ord} := M^{(∘)}_{N_0}e^{ord}. Both retain the action of the operators U_{t,p∞}.",
+   "locator": "§A.1.3 (Ordinary parts of admissible or coadmissible G_*-modules), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "planned",
+   "planned": [
+    "PadicFamilies:L0a"
+   ],
+   "note": "L0a plans exactly the finite and profinite ordinary projector: the Fitting decomposition, the eventual constancy of U^{n!}, the inverse-limit construction, invertibility on the image and topological nilpotence on the complement, with exactness under the actual hypotheses."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/139",
+   "kind": "definition",
+   "name": "The purely imaginary element j_v, the embedding E_v ↪ B_v, and the elements w_r, γ_r",
+   "statement": "For v | p with ramification degree e_v, uniformiser ϖ_v with ∏_v ϖ_v^{e_v} = p, and θ_v with O_{E,v} = O_{F,v}[θ_v] in the nonsplit case: j_v := (−1_w,1_{w^c}) if E_v = E_w^× × E_{w^c}^×, and j_v := θ_v^c − θ_v if E_v is a field. The embedding E_v ↪ B_v is t ↦ diag(t_w,t_{w^c}) in the split case and a+θb ↦ ((a+b Tr_vθ_v, b Nm_vθ_v),(−b, a)) otherwise. For r ≥ 0, w_{r,v} := ((0,1),(−p^r,0)) ∈ GL_2(F_v) and γ_{r,v} := ((p^r,1),(0,1)) if v splits, ((p^r Nm_v(θ_v),0),(0,1)) if v is nonsplit, with w_r := ∏_v w_{r,v} and γ_r := ∏_v γ_{r,v}.",
+   "locator": "§A.1.4 (Special group elements, and further notation) with display (A.1.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/140",
+   "kind": "definition",
+   "name": "Anti-ordinary parts",
+   "statement": "With w = ((0,1),(−1,0)) ∈ G_{*,Δ}, N^− := w^{−1}Nw and U^-_{p∞} := U_{w^{−1}diag(p,1)w,p∞}, the anti-ordinary part of a p-adic admissible locally algebraic Π is π^a := π_p^a ⊗ W^{N^−} ⊂ π, the ordinary part for N^− and U^-_{p∞}; since π^w ≅ π, π^a and π^{ord} have the same dimension. Dually, for coadmissible M the anti-ordinary part is the quotient M^a := M_p^a ⊗ W_{N^−}.",
+   "locator": "§A.2.1 (Ordinary and anti-ordinary parts), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/141",
+   "kind": "theorem",
+   "name": "The Atkin–Lehner-type operator from ordinary to anti-ordinary parts",
+   "statement": "Proposition A.2.1. For an algebraic W of G_∞: (1) for a p-adic locally algebraic admissible π there is an isomorphism w_a^{ord} : π^{ord} → π^a, f ↦ lim_r p^{r[F:Q]}w_{r,p}w_{0,∞}^ι U_p^{−r}f, the sequence being constant as soon as f_p ∈ π_p^{U^1_1(p^r)}; (2) for a coadmissible M there is a map w_a^{ord} : M^{ord} → M^a, m_p ⊗ m_∞ ↦ lim_r p^{r[F:Q]}[m U_p^{−r}w_{r,p}]_{N_0^−} ⊗ [m_∞w_{0,∞}^ι]_{N^−}. Its local components w^{ord}_{a,v} : π_v^{ord} → π_v^a and w^{ord}_{a,v,∞} : W_v^{N_v} → W_v^{N_v^−} are defined in the same way.",
+   "locator": "Proposition A.2.1 with display (A.2.1), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/142",
+   "kind": "theorem",
+   "name": "Nondegeneracy of the ordinary pairing",
+   "statement": "Lemma A.2.2. For an ordinary representation π of G and a nondegenerate G-invariant (,) : π ⊗ π^∨ → L, the pairing (f_1,f_2)^{ord} := (w_a^{ord}f_1,f_2) on π^{ord} ⊗ π^{∨,ord} is nondegenerate.",
+   "locator": "Lemma A.2.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/143",
+   "kind": "theorem",
+   "name": "The Hecke-algebra identity behind the toric-to-ordinary operator",
+   "statement": "Lemma A.2.3. For all r ≥ 1 there is an identity of Hecke operators for (G×H)'_v: V'_{v,r+1}(Σ_{t ∈ V'_{v,r}/V'_{v,r+1}}t)·γ_{r+1,v}K_{v,r} = V'_{v,r+1}γ_{r,v}·U_{ϖ_v}K_{v,r}.",
+   "locator": "Lemma A.2.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/144",
+   "kind": "theorem",
+   "name": "The semilocal operator γ^{ord}_{H'} intertwining ordinary and toric parts",
+   "statement": "Proposition A.2.4. Let W be an algebraic representation of (G×H)'_∞ of the shape W_σ = Sym^{k_σ−2}Std·det^{(w−k_σ+2)/2} ⊗ σ^{(l_σ−w)/2}(σ^c)^{(−l_σ−w)/2}, and set c(W_σ) := j_v^{−w−k_σ+2}·binom(k_σ−2,(k_σ−2−l_σ)/2)·(1 if v splits, θ^{c,(k−2−l)/2}θ^{(k−2+l)/2} otherwise), c(W) := ∏_σ c(W_σ). (1) For a p-adic locally algebraic admissible Π = Π_p ⊗ W of (G×H)' there is a map γ^{ord}_{H'} : Π^{ord} → Π_{H'}, f ↦ lim_r H'[p^{r[F:Q]}c(W)^{−1}γ_{r,p∞}U_{p∞}^{−r}f], the sequence being constant once f_p ∈ Π^{K_{p,r}}. (2) For a coadmissible M = M_p ⊗ W^∨ there is γ^{ord}_{H'} : M^{H'} → M^{ord}, m ↦ lim_r [p^{r[F:Q]}c(W)^{−1}m γ_{r,p∞}]_{N_{0,r}}e^{ord}U_{p∞}^{−r}. The local components γ^{ord}_{H',v} and γ^{ord}_{H',v,∞} are defined in the same way.",
+   "locator": "Proposition A.2.4 with displays (A.2.2)–(A.2.4), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/145",
+   "kind": "theorem",
+   "name": "γ^{ord}_{H'} annihilates exactly the exceptional representations",
+   "statement": "Lemma A.2.5. For an ordinary, distinguished, irreducible representation Π = π ⊗ χ of (G×H)' the following are equivalent: Π is exceptional; e_v(V_{(π,χ)}) = 0; there is a nonzero P ∈ Π^{*,H'} with P^{ord} := Pγ^{ord}_{H'} = 0; P^{ord} = 0 for every P ∈ Π^{*,H'}.",
+   "locator": "Lemma A.2.5 with §A.2.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/146",
+   "kind": "theorem",
+   "name": "The Tate integral as an inverse gamma factor",
+   "statement": "Lemma A.3.1. For characters μ : F_v^× → C^× and ψ : F_v → C^× with ψ ≠ 1, and a Haar measure d^×y on F_v^×, ∫_{F_v^×}μ(y)ψ(y)d^×y = (d^×y/d^×_ψy)·μ(−1)·γ(μ,ψ)^{−1}, where d_ψ y is the selfdual measure and d^×_ψ y = d_ψ y/|y|.",
+   "locator": "Lemma A.3.1, Disegni, arXiv:2001.00045v4 (23 February 2024) (Disegni, nonsplit primes, Lemma A.1.1; Tate's thesis)",
+   "status": "planned",
+   "planned": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.1"
+   ],
+   "note": "AL.1 plans Tate's local zeta integrals with their functional equation, gamma factors and selfdual measures; this identity is the evaluation of such an integral."
+  },
+  {
+   "id": "PAPER-DISEGNI-22/147",
+   "kind": "definition",
+   "name": "Refined representations and their ordinary lines",
+   "statement": "Definition A.3.2. A refined representation (π,α) of G_v over L is a smooth irreducible infinite-dimensional π together with a character α : F_v^× → L^× such that π embeds into the un-normalised induction Ind(|·|α, |·|^{−1}ωα^{−1}) for some central character ω; π admits a refinement iff it is neither supercuspidal nor one-dimensional. A refined Π = π ⊗ χ of (G×H)'_v requires ωχ|_{F_v^×} = 1. Then π^{ord} ⊂ π^{N_0} is the line on which U_t acts by α(t), Π^{ord} := π^{ord} ⊗ χ, and the attached Weil–Deligne representation has a unique filtration 0 → V_π^+ → V_π → V_π^− → 0 with WD_{F_v} acting on V_π^+ through α|·|. The ordinary pairing is (f,f^∨)^{ord}_π := (w_a^{ord}f,f^∨).",
+   "locator": "Definition A.3.2 with §A.3.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/148",
+   "kind": "theorem",
+   "name": "The local ordinary pairing as an adjoint gamma factor",
+   "statement": "Lemma A.3.3. Let (π,α) be a refined representation of G_p over C with central character ω, α^∨ = αω^{−1}, ad(V_π)^{++}(1) = Hom(V_π^−,V_π^+)(1). Fix ψ of level 0 and Kirillov models of ιπ_v and π_v^∨ for ψ_v, −ψ_v; let f_v^{(∨)}(y) := 1_{O_{F,v}}(y)α_v^{(∨)}|·|_v(y) ∈ π_v^{ord}, and let (,)_{π,v} be the Kirillov pairing ∫_{F^×}f(y)f^∨(y)d^×_ψ y. Then (f,f^∨)^{ord}_{π,v} = ω_v(−1)·γ(ad(V_π)^{++}(1),ψ)^{−1}.",
+   "locator": "Lemma A.3.3 with displays (A.3.1)–(A.3.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/149",
+   "kind": "theorem",
+   "name": "The local toric period of the ordinary vectors and the factor e_v",
+   "statement": "Proposition A.3.4. Let Π = π ⊗ χ be a refined representation of (G×H)'_v over L with Weil–Deligne representation V = V_{π|WD_{E_v}} ⊗ χ, and γ^{ord}_{H'} = γ^{ord}_{H',v}. Then Q_{dt}(γ^{ord}_{H'}f_1 ⊗ γ^{ord}_{H'}f_2 / w_a^{ord}f_3 ⊗ f_4) = e_v(V_{(π,χ)})·Q^{ord}_{dt}(f_1⊗f_2/f_3⊗f_4), where e_v(V_{(π,χ)}) = 𝓛(V_{(π,χ)},0)^{−1}·ι^{−1}(|d|_v^{−1/2}γ(ad(ιV_π^{++})(1),ψ_v)·∏_{w|v}γ(ιV^+_{|WD_{E_w}},ψ_{E_w})^{−1}), independently of ι : L ↪ C and of ψ.",
+   "locator": "Proposition A.3.4, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/150",
+   "kind": "definition",
+   "name": "Polynomial models and the invariant pairing on the algebraic weight",
+   "statement": "§A.4.1. The representation W of (G×H)'_{v,∞} is identified with the homogeneous polynomials p(x,y) of degree k−2 over L, the action being p.(g,h)(x,y) = det(g)^{(w−k+2)/2}σ(h)^{(l−w)/2}σ^c(h)^{(−l−w)/2}p(g(x,y)^T) on the right and the transposed formula on the left, and the fixed invariant pairing is (x^{k−2−a}y^a, x^{a'}y^{k−2−a'}) = (−1)^a binom(k−2,a)^{−1}δ_{a,a'}. With respect to this model the bounded denominator of the invariant pairing is |W| = ord_p binom(k−2,(k−2+l)/2).",
+   "locator": "§A.4.1 with displays (A.4.1)–(A.4.2), Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/151",
+   "kind": "theorem",
+   "name": "The archimedean value of the operator w_a^{ord}",
+   "statement": "Lemma A.4.1. For W as above viewed as a left representation of G_{v,∞} only, W^N is spanned by x^{k−2}, W_N by the image of y^{k−2}, and (w_a^{ord}(x^{k−2}),x^{k−2}) = 1.",
+   "locator": "Lemma A.4.1, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/152",
+   "kind": "theorem",
+   "name": "Unitarity of the algebraic part of γ^{ord}_{H'}",
+   "statement": "Lemma A.4.2. For a decomposition M_p = M_{p,0} ⊗ W_p of a locally algebraic coadmissible right (G×H)'_p-representation and the corresponding factorisation γ^{ord}_{H'} = lim_r (p^{r[F:Q]}γ_{r,p}U_p^{−r}) ⊗ γ_{r,p}U_p^{−r} ⊗ c(W)^{−1}γ^ι_{0,∞}, the operator ^{alg}γ^{ord}_{H'} := lim_r γ_{r,p}U_p^{−r} ⊗ c(W)^{−1}γ^ι_{0,∞} : W^{H'} ⊗ W^{∨,H'} → W^N ⊗ W_N is unitary: for any invariant pairing on W ⊗ W^∨ and ξ ∈ W^{H'}, ξ^∨ ∈ W^{∨,H'}, the images of ξ ⊗ ξ^∨ and of ^{alg}γ^{ord}_{H'}(ξ ⊗ ξ^∨) under the induced pairings coincide. This is what justifies the constant c(W) and what proves Proposition 6.3.2.",
+   "locator": "Lemma A.4.2 with §A.4.2, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  },
+  {
+   "id": "PAPER-DISEGNI-22/153",
+   "kind": "theorem",
+   "name": "The archimedean comparison of the toric pairing and its ordinary variant",
+   "statement": "Proposition A.4.3. For a representation W of (G×H)'_{v,∞} over L and all f_1,f_3 ∈ W^N, f_2,f_4 ∈ W^{∨,N} with f_3,f_4 ≠ 0, Q_{dt}(γ^{ord}_{H'}f_1 ⊗ γ^{ord}_{H'}f_2 / w_a^{ord}f_3 ⊗ f_4) = dim W · Q^{ord}_{dt}(f_1⊗f_2/f_3⊗f_4).",
+   "locator": "Proposition A.4.3, Disegni, arXiv:2001.00045v4 (23 February 2024)",
+   "status": "missing"
+  }
+ ],
+ "prerequisites": [
+  {
+   "citation": "Daniel Disegni, \"The p-adic Gross–Zagier formula on Shimura curves, II: nonsplit primes\", J. Inst. Math. Jussieu 22 (2023), no. 5, 2199–2240",
+   "link": "https://doi.org/10.1017/S1474748021000608",
+   "why": "Theorem B of this paper in the trivial-weight case is the input from which everything else is interpolated; Theorem A of that paper is the one-variable p-adic L-function compared in Lemma 7.1.3. The correction to that paper is the sole reason for Appendix B of the present one, so its corrected statement — the formula for ordinary, locally distinguished, potentially crystalline, non-exceptional Π of trivial weight satisfying (★) — must be established before any of Theorems A, B, B^ord, D and E can be planned."
+  },
+  {
+   "citation": "Daniel Disegni, \"The p-adic Gross–Zagier formula on Shimura curves\", Compos. Math. 153 (2017), no. 10, 1987–2074",
+   "link": "https://doi.org/10.1112/S0010437X17007308",
+   "why": "The split-prime half of the same trivial-weight input, together with the conventions for the automorphic inner product, the local toric integrals and the comparison of p-adic height pairings on abelian varieties that the present paper reuses without reproving."
+  },
+  {
+   "citation": "Daniel Disegni, \"p-adic L-functions via local-global interpolation: the case of GL_2 × GU(1)\", Canad. J. Math. 75 (2023), no. 4, 1010–1046",
+   "link": "https://doi.org/10.4153/S0008414X22000256",
+   "why": "Theorem 1.4.1, the two-variable p-adic L-function 𝓛_p(𝓥^♯) with its interpolation property, is quoted from this paper; the entire right-hand side of Theorems D and H is that function, and its uniqueness characterisation fixes all the normalisations."
+  },
+  {
+   "citation": "Jan Nekovář, \"Selmer complexes\", Astérisque 310 (2006), viii+559",
+   "link": "https://smf.emath.fr/publications/complexes-de-selmer",
+   "why": "Sections 3–4 supply continuous cochains of ind-admissible modules, §11.1 the p-adic height pairing, and Theorem 12.2.3 the parity theorem used in §7.3.4. Section 5 of the present paper is an extension of this theory to sheaves over an eigenvariety and cannot be planned without it."
+  },
+  {
+   "citation": "Rodolfo Venerucci, \"p-adic regulators and p-adic families of modular forms\", Thesis, Università di Milano (2012), Appendix C",
+   "link": "https://air.unimi.it/retrieve/handle/2434/219975/275017/phd_unimi_R08514.pdf",
+   "why": "Lemma 0.16 gives the specialisation of the height pairing at a regular point and §0.21 constructs the height pairing valued in the conormal sheaf of a local complete intersection; Proposition 5.3.4 and hence the whole formulation of Theorem D depend on it."
+  },
+  {
+   "citation": "Olivier Fouquet, \"Dihedral Iwasawa theory of nearly ordinary quaternionic automorphic forms\", Compos. Math. 149 (2013), no. 3, 356–416",
+   "link": "https://doi.org/10.1112/S0010437X12000619",
+   "why": "Theorem B(i) and B(iii) are the Euler-system bounds used in Theorem A(2) and Theorem E; the hypotheses of that theorem are carried verbatim into the statements here and are not reproved."
+  },
+  {
+   "citation": "Haruzo Hida, \"Control of nearly ordinary Hecke algebras\", preprint (2009); and \"On p-adic Hecke algebras for GL_2 over totally real fields\", Ann. of Math. (2) 128 (1988), 295–384",
+   "link": "https://www.math.ucla.edu/~hida/",
+   "why": "Theorem 1.2 of the first and §8 of the second give the freeness and control theorems quoted as Proposition 3.1.2 for G; the whole of §3.1 rests on them."
+  },
+  {
+   "citation": "Daniel Disegni, \"Local Langlands correspondence, local factors, and zeta integrals in analytic families\", J. Lond. Math. Soc. (2) 101 (2020), 735–764",
+   "link": "https://doi.org/10.1112/jlms.12292",
+   "why": "Theorem 3.2.1 (the map to the Bernstein variety) and Theorem 4.4.3 (recognition of a family from its fibres) are what make Lemma 3.3.3 and Theorem 3.3.10 possible, and the co-Whittaker formalism fixes the normalisations of the interpolated local factors in §4.4."
+  },
+  {
+   "citation": "Henri Carayol, \"Sur les représentations l-adiques associées aux formes modulaires de Hilbert\", Ann. Sci. École Norm. Sup. (4) 19 (1986), 409–468; and \"Sur la mauvaise réduction des courbes de Shimura\", Compositio Math. 59 (1986), 151–230",
+   "link": "http://www.numdam.org/item/ASENS_1986_4_19_3_409_0/",
+   "why": "The construction of the Galois representations of Hilbert modular forms, local–global compatibility away from p, and the isotypic decomposition of the homology of the quaternionic tower (Proposition 2.5.2), together with the neatness lemma quoted as Lemma 2.3.1."
+  },
+  {
+   "citation": "J.-L. Waldspurger, \"Sur les valeurs de certaines fonctions L automorphes en leur centre de symétrie\", Compositio Math. 54 (1985), 173–242",
+   "link": "http://www.numdam.org/item/CM_1985__54_2_173_0/",
+   "why": "Lemme 10 and Lemme 14 are used directly (the local dichotomy in Lemma 6.4.6 and the unramified toric value in Lemma 4.2.1), and the classical formula is the input to Theorem H."
+  },
+  {
+   "citation": "Benjamin Howard, \"Variation of Heegner points in Hida families\", Invent. Math. 167 (2007), 91–128",
+   "link": "https://doi.org/10.1007/s00222-006-0007-0",
+   "why": "The proof of Proposition 2.4.5 at the primes above p is quoted verbatim in the proof of Lemma 6.4.4, and Theorem C answers the question Howard raises about the interpolation of Heegner cycles."
+  },
+  {
+   "citation": "Nicholas M. Katz, \"p-adic L-functions for CM fields\", Invent. Math. 49 (1978), 199–297, with Hida–Tilouine, Ann. Sci. École Norm. Sup. 26 (1993), 189–259",
+   "link": "https://doi.org/10.1007/BF01389083",
+   "why": "The Katz p-adic L-function attached to a p-adic CM type, its interpolation range and the uniqueness of the CM type containing a given self-dual point are the backbone of the proof of Theorem F."
+  },
+  {
+   "citation": "Haruzo Hida, \"Anticyclotomic main conjectures\", Doc. Math. Extra Vol. (2006), 465–532, and \"Quadratic exercises in Iwasawa theory\", Int. Math. Res. Not. IMRN 2009, 912–952; Ming-Lun Hsieh, J. Reine Angew. Math. 688 (2014), 67–100; Ashay Burungale, J. Inst. Math. Jussieu 14 (2015), 131–148; Ashay Burungale and Daniel Disegni, Ann. Inst. Fourier 70 (2020), 2077–2101",
+   "link": "https://doi.org/10.1093/imrn/rnn151",
+   "why": "The four inputs of the proof of Theorem F: the anticyclotomic main conjecture on a suitable component, the non-vanishing of the anticyclotomic Katz L-function, the non-vanishing of the normal derivative of the Katz L-function, and the sign-change lemma producing a component of type +1."
+  },
+  {
+   "citation": "Massimo Bertolini and Henri Darmon, \"A rigid analytic Gross–Zagier formula and arithmetic applications\", Ann. of Math. (2) 146 (1997), 111–147, with their survey \"The p-adic L-functions of modular elliptic curves\" (2001), Theorem 5.4",
+   "link": "https://doi.org/10.2307/2951833",
+   "why": "The exceptional-zero evaluation of the Heegner class at the elliptic-curve point that drives the whole proof of Theorem G and the new proof of Greenberg–Stevens in Remark 7.3.4."
+  },
+  {
+   "citation": "Michele Fornea and Lennart Gehrmann, \"Plectic Stark–Heegner points\", arXiv:2104.12575; Michele Fornea, Xavier Guitart and Marc Masdeu, \"Plectic p-adic invariants\", arXiv:2104.12566",
+   "link": "https://arxiv.org/abs/2104.12575",
+   "why": "Theorem A of the first and Conjectures 1.3, 1.5 of the second are the higher-rank evidence for Conjecture Pf discussed in §7.3.5; the comparison there is an equivalence conditional on those conjectures, not a proof of either."
+  },
+  {
+   "citation": "Peter Schneider and Jeremy Teitelbaum, \"Algebras of p-adic distributions and admissible representations\", Invent. Math. 153 (2003), 145–196",
+   "link": "https://doi.org/10.1007/s00222-002-0284-1",
+   "why": "The notion of coadmissible module over the distribution algebra, on which Definition A.1.2 and the whole treatment of completed homology as a coadmissible representation are modelled."
+  },
+  {
+   "citation": "Raphaël Rouquier, \"Caractérisation des caractères et pseudo-caractères\", J. Algebra 180 (1996), 571–586; David J. Saltman, \"Lectures on division algebras\", CBMS 94 (1999); Max-Albert Knus and Manuel Ojanguren, \"Théorie de la descente et algèbres d'Azumaya\", LNM 389 (1974); Gaëtan Chenevier, J. Reine Angew. Math. 570 (2004), 143–217",
+   "link": "https://doi.org/10.1006/jabr.1996.0083",
+   "why": "Théorème 5.1, Corollary 2.9, the local innerness of automorphisms of Azumaya algebras and the openness of the irreducibility locus are the four ingredients of Lemmas 3.2.1–3.2.2, which supply the family Galois representation in the residually reducible case."
+  }
+ ],
+ "routes": [
+  {
+   "route": "part-ii",
+   "parent": "GrossZagierAndArithmeticHeights",
+   "roadmap": "UniversalPadicGrossZagierFormula",
+   "title": "Gross–Zagier formulas and arithmetic heights, Part II: universal p-adic Gross–Zagier formulas over Hida families",
+   "area": "arithmeticgeometry",
+   "brief": "Disegni, Invent. math. 230 (2022), 509-649, proves the p-adic Gross-Zagier formula for Hilbert modular forms of arbitrary cohomological weight twisted by Hecke characters of a CM extension, and interpolates it into a single identity over a Hida family for (G x H)'. GrossZagierAndArithmeticHeights plans the complex Gross-Zagier and Waldspurger formulas (GZ.5, GZ.8) and one p-adic statement only, the split ordinary logarithm/toric formula of GZ.9, which explicitly refuses to be identified with a p-adic height derivative formula and excludes the exceptional-zero case; so the p-adic height side, its universal form and its exceptional-zero branch are new work in that roadmap's direction.\n\nImport, never re-plan:\n- GZ.0 for normalisations and GZ.3-GZ.5 for the Hodge class, the rational automorphic realisations, Saito-Tunnell multiplicity one, the normalised local toric integrals and the Waldspurger formula;\n- SelmerComplexesAndPadicHeights, the Part II of SelmerIwasawaCohomology proposed by PAPER-DISEGNI-LIU-24 and extended by this extraction, for Nekovar's Selmer complexes over a base and the height pairings;\n- PadicFamilies L0/L0a/L4/L5 for Hida theory and the big Galois representation, AutomorphicGaloisRepresentations R19.2-R19.6 for the Galois representations of Hilbert modular forms, HilbertModularVarietiesAndShimuraCurves R18.1-R18.4 for the quaternionic towers and their cohomology, GL2AutomorphicRepresentationsAndTransfer R16-R17 for local Langlands and Jacquet-Langlands, AutomorphicPadicLFunctions L0-L3h for the p-adic L-functions, GeneralizedHeegnerCycles GH.1 for the etale Abel-Jacobi map, HeegnerPointEulerSystems HE.8 for the Euler-system bounds.\n\nConstruct: incoherent reductive groups and their Shimura towers in Emerton's p-adic formulation; the Heegner cycles with coefficients in an automorphic local system and the functionals P_Pi; the sheaves V, V_w^{pm} and the universal ordinary representation over a locally distinguished Hida family, with the local-global compatibility of Theorem 3.3.10 and the skew-hermitian dualities of Proposition 4.1.7; the semilocal operators w_a^{ord} and gamma_{H'}^{ord} of Appendix A with the local toric period computation in terms of gamma factors (Proposition A.3.4), which is the technical heart; the interpolated toric functional Q (Theorem 4.4.3); the universal Heegner class and its Selmer property (Theorem C); the Pfaffian regulators and Conjecture Pf of section 7.3 with the Fornea-Gehrmann comparison.\n\nThe final theorems are Theorem B (the p-adic Gross-Zagier formula for arbitrary weight, under condition (star) of the Correction), Theorem D (the universal formula over a Hida* family), Theorem A (the p-adic Beilinson-Bloch-Kato conjecture in analytic rank one), Theorem E (an Iwasawa main conjecture for derivatives), Theorems F and G (non-vanishing of p-adic heights), Theorem H (the universal Waldspurger formula) and the new proof of Greenberg-Stevens in Remark 7.3.4. Every statement must carry the corrected hypotheses of Appendix B: condition (star) for Theorems A, B and B^{ord}, and Hida* families for D and E.",
+   "reason": "GZ.8 proves the complex Gross–Zagier formula and GZ.9 the split ordinary p-adic logarithm/toric formula, which its own description forbids identifying with a p-adic height derivative formula and which excludes the exceptional-zero case. The p-adic height side of the formula, its extension to arbitrary cohomological weight and to CM extensions of a totally real field, its interpolation over a Hida family, and the Bertolini–Darmon exceptional-zero branch are therefore new layers in the direction of GrossZagierAndArithmeticHeights, not a re-planning of it.",
+   "items": [
+    "PAPER-DISEGNI-22/1",
+    "PAPER-DISEGNI-22/2",
+    "PAPER-DISEGNI-22/3",
+    "PAPER-DISEGNI-22/4",
+    "PAPER-DISEGNI-22/5",
+    "PAPER-DISEGNI-22/6",
+    "PAPER-DISEGNI-22/7",
+    "PAPER-DISEGNI-22/11",
+    "PAPER-DISEGNI-22/12",
+    "PAPER-DISEGNI-22/35",
+    "PAPER-DISEGNI-22/36",
+    "PAPER-DISEGNI-22/37",
+    "PAPER-DISEGNI-22/39",
+    "PAPER-DISEGNI-22/40",
+    "PAPER-DISEGNI-22/42",
+    "PAPER-DISEGNI-22/43",
+    "PAPER-DISEGNI-22/44",
+    "PAPER-DISEGNI-22/45",
+    "PAPER-DISEGNI-22/46",
+    "PAPER-DISEGNI-22/47",
+    "PAPER-DISEGNI-22/48",
+    "PAPER-DISEGNI-22/49",
+    "PAPER-DISEGNI-22/50",
+    "PAPER-DISEGNI-22/51",
+    "PAPER-DISEGNI-22/52",
+    "PAPER-DISEGNI-22/53",
+    "PAPER-DISEGNI-22/54",
+    "PAPER-DISEGNI-22/55",
+    "PAPER-DISEGNI-22/59",
+    "PAPER-DISEGNI-22/63",
+    "PAPER-DISEGNI-22/64",
+    "PAPER-DISEGNI-22/65",
+    "PAPER-DISEGNI-22/66",
+    "PAPER-DISEGNI-22/67",
+    "PAPER-DISEGNI-22/68",
+    "PAPER-DISEGNI-22/69",
+    "PAPER-DISEGNI-22/84",
+    "PAPER-DISEGNI-22/86",
+    "PAPER-DISEGNI-22/87",
+    "PAPER-DISEGNI-22/88",
+    "PAPER-DISEGNI-22/89",
+    "PAPER-DISEGNI-22/90",
+    "PAPER-DISEGNI-22/91",
+    "PAPER-DISEGNI-22/92",
+    "PAPER-DISEGNI-22/93",
+    "PAPER-DISEGNI-22/94",
+    "PAPER-DISEGNI-22/95",
+    "PAPER-DISEGNI-22/96",
+    "PAPER-DISEGNI-22/97",
+    "PAPER-DISEGNI-22/98",
+    "PAPER-DISEGNI-22/99",
+    "PAPER-DISEGNI-22/100",
+    "PAPER-DISEGNI-22/105",
+    "PAPER-DISEGNI-22/106",
+    "PAPER-DISEGNI-22/107",
+    "PAPER-DISEGNI-22/108",
+    "PAPER-DISEGNI-22/109",
+    "PAPER-DISEGNI-22/110",
+    "PAPER-DISEGNI-22/111",
+    "PAPER-DISEGNI-22/112",
+    "PAPER-DISEGNI-22/114",
+    "PAPER-DISEGNI-22/115",
+    "PAPER-DISEGNI-22/116",
+    "PAPER-DISEGNI-22/117",
+    "PAPER-DISEGNI-22/118",
+    "PAPER-DISEGNI-22/119",
+    "PAPER-DISEGNI-22/120",
+    "PAPER-DISEGNI-22/121",
+    "PAPER-DISEGNI-22/122",
+    "PAPER-DISEGNI-22/123",
+    "PAPER-DISEGNI-22/124",
+    "PAPER-DISEGNI-22/125",
+    "PAPER-DISEGNI-22/126",
+    "PAPER-DISEGNI-22/127",
+    "PAPER-DISEGNI-22/136",
+    "PAPER-DISEGNI-22/137",
+    "PAPER-DISEGNI-22/139",
+    "PAPER-DISEGNI-22/140",
+    "PAPER-DISEGNI-22/141",
+    "PAPER-DISEGNI-22/142",
+    "PAPER-DISEGNI-22/143",
+    "PAPER-DISEGNI-22/144",
+    "PAPER-DISEGNI-22/145",
+    "PAPER-DISEGNI-22/147",
+    "PAPER-DISEGNI-22/148",
+    "PAPER-DISEGNI-22/149",
+    "PAPER-DISEGNI-22/150",
+    "PAPER-DISEGNI-22/151",
+    "PAPER-DISEGNI-22/152",
+    "PAPER-DISEGNI-22/153"
+   ]
+  },
+  {
+   "route": "part-ii",
+   "parent": "SelmerIwasawaCohomology",
+   "roadmap": "SelmerComplexesAndPadicHeights",
+   "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: p-adic height pairings and bi-extensions of cycles",
+   "area": "iwasawa",
+   "brief": "PAPER-DISEGNI-LIU-24 proposed this Part II for Nekovar's p-adic height pairing and the bi-extensions of algebraic cycles of Appendices A-B of Disegni-Liu, Invent. math. 236 (2024), 219-371. This extraction reuses that candidate and adds the part of Nekovar's theory that varies in families, which section 5 of the present paper sets up and which SelmerIwasawaCohomology L0-L4 does not plan: L2 constructs the Selmer complex as a mapping fibre for a lattice T over a p-adic ring, not for a sheaf over a base.\n\nImport, never re-plan: SelmerIwasawaCohomology L0-L4 for continuous cohomology, local conditions, Selmer complexes and Iwasawa cohomology; ArithmeticGaloisDuality R02.1, R02.3 and D7 for topological coefficients, global finiteness and derived continuous cohomology; PadicMeasuresIwasawaAlgebras L1 and L5 for completed group rings, determinants and specialisation.\n\nConstruct: admissible and ind-admissible R[G]-modules over a complete Noetherian local ring and their continuous cochains, with the localisation isomorphism; the category C_{R^o} of open subschemes of Spec R^o, on which ind-admissibility and RGamma(G,-) are defined and compatible with restriction, and the completed-product functor; the exact functor RGamma(G,-) on bounded-below ind-admissible complexes; base change against a module of finite projective dimension, its corollary at a nonsingular point with the specialisation spectral sequence, the finiteness condition (F) with cd_p, the projective-limit lemma and the support/specialisation statements of Proposition 5.2.3, including the H^0 statement that produces an ordinary filtration over a residually reducible Hida family; Greenberg data over a base and the Selmer complex of one, its perfectness in D^{[0,3]}, the exact triangle and the four-term sequence relating the Nekovar and Greenberg Selmer groups; Nekovar's height pairing over the base with its specialisation at a regular point, and Venerucci's height pairing valued in the conormal sheaf of a local complete intersection, with the comparison to the cyclotomic pairing and the symmetry criterion that turns an epsilon-hermitian duality into an epsilon epsilon'-symmetric pairing.",
+   "reason": "This reuses the candidate id, title and area proposed by PAPER-DISEGNI-LIU-24 for Nekovář's p-adic height pairing, rather than proposing a second height-pairing roadmap. Section 5 of the present paper is the family version of the same theory — continuous cohomology of ind-admissible sheaves over the category of open subschemes of Spec R°, Greenberg data and Selmer complexes over a base, and Venerucci's conormal-valued height pairing — which SelmerIwasawaCohomology L2 does not plan, since it works with a single lattice T over a p-adic ring.",
+   "items": [
+    "PAPER-DISEGNI-22/70",
+    "PAPER-DISEGNI-22/71",
+    "PAPER-DISEGNI-22/72",
+    "PAPER-DISEGNI-22/73",
+    "PAPER-DISEGNI-22/74",
+    "PAPER-DISEGNI-22/76",
+    "PAPER-DISEGNI-22/77",
+    "PAPER-DISEGNI-22/78",
+    "PAPER-DISEGNI-22/80",
+    "PAPER-DISEGNI-22/81",
+    "PAPER-DISEGNI-22/82",
+    "PAPER-DISEGNI-22/83"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "PadicFamilies",
+   "stages": [
+    "PadicFamilies:L0",
+    "PadicFamilies:L4",
+    "PadicFamilies:L5"
+   ],
+   "reason": "L0 plans ordinary Hecke algebras and their finite flatness, L5 the Hida control theorem on the integral Hilbert automorphic modules over totally real fields, and L4 the ordinary big Galois representation with its local ordinary filtration, saturation and arithmetic specialisation. This source adds, in that setting: the weight space of an arbitrary one of the five groups G, H, G×H, (G×H)', H' with the Leopoldt defect in its dimension formula; the ordinary completed homology of the quaternionic tower and the Künneth-plus-quotient step producing the projective Λ_{(G×H)'}-module M_{(G×H)',K^p}; the ordinary eigenvariety with its classical ind-subscheme, the étaleness of the weight map at classical points and the resulting regularity; the identification of the fibres of the sheaf 𝓜 with the ordinary parts of the corresponding automorphic representations, including the vanishing of the central character over the quotient group; the completed group algebra description of the abelian eigenvariety for H with its universal character; the constancy of the conductor along a component and the descent of a component to its new level; Schur's lemma for the family representation; and, most importantly, the construction of the ordinary filtration 0 → 𝓥^+_v → 𝓥_v → 𝓥^−_v → 0 over a Hida family with no hypothesis on the residual representation, which L4's statement obtains only when the residual hypotheses justify passing from a pseudorepresentation to a representation.",
+   "items": [
+    "PAPER-DISEGNI-22/15",
+    "PAPER-DISEGNI-22/16",
+    "PAPER-DISEGNI-22/18",
+    "PAPER-DISEGNI-22/19",
+    "PAPER-DISEGNI-22/21",
+    "PAPER-DISEGNI-22/22",
+    "PAPER-DISEGNI-22/23",
+    "PAPER-DISEGNI-22/24",
+    "PAPER-DISEGNI-22/25",
+    "PAPER-DISEGNI-22/30",
+    "PAPER-DISEGNI-22/31",
+    "PAPER-DISEGNI-22/32",
+    "PAPER-DISEGNI-22/33"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicGaloisRepresentations",
+   "stages": [
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "reason": "R19.6 plans the determinant law built from Hecke operators and Frobenius polynomials and its representability over a localised completed Hecke algebra under absolute residual irreducibility. This source adds the geometric form used over an eigenvariety: over an integral scheme, an irreducible pseudocharacter has an open irreducibility locus, the quotient O_X[G]/Ker(𝓣) is Azumaya of rank n², the natural maps to the endomorphism algebras of any two representations with that trace are isomorphisms, and hence any two such representations differ by a twist by a line bundle with trivial Galois action. The underlying Azumaya statement — an isomorphism of endomorphism algebras of two vector bundles is inner up to a line bundle, because automorphisms of an Azumaya algebra are Zariski-locally inner — is also not in the atlas; Tau Ceti's Skolem–Noether theorem is the field case only.",
+   "items": [
+    "PAPER-DISEGNI-22/26",
+    "PAPER-DISEGNI-22/27"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "GL2AutomorphicRepresentationsAndTransfer",
+   "stages": [
+    "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.3"
+   ],
+   "reason": "R16.2 plans local smooth representation theory and R16.3 local Langlands for GL₂, and SmoothRepresentationsOfLocalGroups SR.5 plans Helm's integral co-Whittaker families for ℓ ≠ p. This source adds the analytic-families correspondence of Disegni's J. Lond. Math. Soc. paper, which is what the present paper actually uses and which is a different theorem from Helm's: to a rank-two family of Weil–Deligne representations over a Noetherian Q-scheme it attaches a co-Whittaker family of smooth GL₂(F)-representations, with the map to the Bernstein variety of supercuspidal supports and the recognition theorem identifying, up to a line bundle over an open subset, any smooth admissible family with the right fibres on a dense set. The paper's Lemma 3.3.3 — a single compact open subgroup of the ramified quaternionic group fixes every classical member of a Hida family — is the application of that correspondence to the three possible inertial classes.",
+   "items": [
+    "PAPER-DISEGNI-22/41",
+    "PAPER-DISEGNI-22/34"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicPadicLFunctions",
+   "stages": [
+    "AutomorphicPadicLFunctions:L0",
+    "AutomorphicPadicLFunctions:L1",
+    "AutomorphicPadicLFunctions:L5"
+   ],
+   "reason": "L0 plans ray-class character spaces, locally algebraic Hecke characters and the conditional construction principle for a distribution interpolating period-normalised algebraic values; L1 the cohomological GL₂/F input; L5 the comparison of periods and conventions and the statement of the Coates–Perrin-Riou/Panchishkin problem. This source supplies a worked instance of exactly that shape which the atlas does not otherwise plan: the two-variable p-adic L-function 𝓛_p(𝓥^♯) on the ordinary eigenvariety for G₀ × H over a totally real field, with its precise interpolation formula e_{p∞}(V_{(π,χ)})·𝓛(V_{(π,χ)},0) over the explicit critical range, the polar locus disjoint from the classical points, the full list of local factors 𝓛(V_{(π,χ),v},0) and of inverse Deligne–Langlands gamma factors entering e_v and e_∞, the cyclotomic space Γ_F with its Leopoldt-sensitive dimension, the restriction defining 𝓛_p(V_{(π₀,χ)},s) and its derivative, and the comparison of that restriction at a point of trivial weight with the one-variable p-adic L-function of a modular abelian variety. It also adds the non-vanishing of the normal derivative of Katz's p-adic L-function along the self-dual subvariety, which L3 constructs but whose derivative it does not study.",
+   "items": [
+    "PAPER-DISEGNI-22/101",
+    "PAPER-DISEGNI-22/102",
+    "PAPER-DISEGNI-22/103",
+    "PAPER-DISEGNI-22/104",
+    "PAPER-DISEGNI-22/113",
+    "PAPER-DISEGNI-22/132"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "HeegnerPointEulerSystems",
+   "stages": [
+    "HeegnerPointEulerSystems:HE.8"
+   ],
+   "reason": "HE.8 plans the anticyclotomic Heegner classes over Q, Howard's divisibility and the BCGS comparison. This source adds Fouquet's dihedral Iwasawa theory of nearly ordinary quaternionic automorphic forms over a totally real field, whose Theorem B(i) and B(iii) are the Euler-system inputs of Theorem A(2) and Theorem E of this paper: a one-dimensional Selmer group and a bound on the characteristic ideal of the torsion of H̃²_f, at finite level and in the two-variable family, under hypotheses stated on the residual representation and the ramification. Nothing in HE.8 currently covers the totally real, nearly ordinary, quaternionic case, and these bounds are quoted, not proved, in the present paper.",
+   "items": [
+    "PAPER-DISEGNI-22/129"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "ModularIwasawaMainConjectures",
+   "stages": [
+    "ModularIwasawaMainConjectures:L6"
+   ],
+   "reason": "L6 is the milestone that exposes the separately owned main-conjecture branches through a common interface and names their proof owners. This source adds the branch that Theorem F of this paper consumes and that L6's table does not list: the anticyclotomic main conjecture for self-dual Hecke characters of a CM field over a totally real field, in Hida's form, on a component of the self-dual character space satisfying his hypotheses, together with the sign-change argument of Burungale–Disegni that moves from a component of type −1 to a component of type +1 still satisfying those hypotheses, and the identification of an anticyclotomic character as χ₀^c χ₀^{−1}. The equivalence used is between the non-vanishing of the Katz L-function at a classical point and the vanishing of the Bloch–Kato Selmer group of the corresponding character.",
+   "items": [
+    "PAPER-DISEGNI-22/134"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "GrossZagierAndArithmeticHeights",
+   "stages": [
+    "GrossZagierAndArithmeticHeights:GZ.4",
+    "GrossZagierAndArithmeticHeights:GZ.5"
+   ],
+   "reason": "GZ.4 plans the normalised toric matrix-coefficient integrals with their convergence, rationality and unramified value, and GZ.5 the coherent theta kernels and the Waldspurger formula with its adjoint L-value and zeta/eta factors. This source adds the three local computations the present paper needs in that same layer: the exact normalising factor 𝓛(V_{(π,χ),v},0) = ζ_{F,v}(2)L(V_v,0)/(L(1,η_v)L(ad(V_{π,v}),1)), with its archimedean variant, written as the local factor of a virtual motive; the identification, when E_v = F_v ⊕ F_v, of the normalised toric integral with a product of two GL₂ × GL₁ zeta integrals in Kirillov models; and the value of the toric pairing on the line of H'-invariants when B_v is nonsplit, where the integral degenerates to 𝓛(V_{(π,χ),v},0)^{−1} vol(E_v^×/F_v^×) times the invariant pairing. These are local statements about the same object GZ.4 owns, not new layers.",
+   "items": [
+    "PAPER-DISEGNI-22/56",
+    "PAPER-DISEGNI-22/60",
+    "PAPER-DISEGNI-22/62"
+   ]
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PAPER-DISEGNI-22/E1",
+   "kind": "gap",
+   "affects": "a stated result",
+   "locator": "Theorems A, B (§§1.1.3, 1.2.8), Theorem B^ord (§7.1.1), Theorems D and E (§§1.4.3, 1.5.1) and Lemma 7.1.4 (§7.1.3), as printed in the body of the published paper, Invent. math. 230 (2022), 509–649, and unchanged in arXiv:2001.00045v4; the correction is Appendix B of v4",
+   "printed": "Theorem A: \"Let π₀ be a Hilbert modular form over L of weight w̲, and let χ be a Hecke character of E over L of weight l̲ … Suppose that: (wt) … (sd) … (ε) … (ord) … (n-exc) …\"; Theorem D: \"Let X be a locally distinguished Hida family for (G×H)'\"",
+   "correction": "Theorems A, B and B^ord hold only under the extra condition (★): for each p-adic place v of F that is nonsplit in E, v is inert in E and χ_v is unramified. Assuming that no p-adic place of F is ramified in E, Theorems D and E hold for Hida* families — the irreducible components of the space 𝓔^{ord,*}_{K^p} built from the completed homology M^*_{K^p} whose limit is taken only over K_p ⊇ N_{G,0} × ∏_{v ∈ S_{p,ns}} O^×_{E,v}, equivalently the closure of the classical points satisfying (★) — rather than for Hida families. Theorems C, F and G are unaffected. In §7.1, Lemma 7.1.4 must be replaced by the statement that in a Hida* family the classical points of trivial weight satisfying (p-crys) are dense; condition (ram) is no longer relevant.",
+   "reason": "The body of the paper deduces Theorem D from the case of trivial weight, which is quoted as [Disegni, The p-adic Gross–Zagier formula on Shimura curves, II: nonsplit primes, Theorem B], and then deduces Theorems A, B and B^ord from Theorem D through Proposition 7.1.5 and Lemma 7.1.2. Appendix B of arXiv v4 records that, after a correction, that companion paper proves its Theorem B only for representations of trivial weight that in addition satisfy (★); the density argument of Lemma 7.1.4 therefore no longer produces a dense set of points at which the formula is known inside an arbitrary Hida family, and the interpolation argument of Proposition 7.1.5 only runs inside the closure of the points satisfying (★). The author states that the original proofs otherwise apply verbatim and that the last paragraph of the proof of Lemma 7.1.4 proves the replacement density statement. The hypotheses of Theorems F and G are consistent with this: Theorem F assumes every v | p splits in E, so S_{p,ns} is empty and (★) is vacuous, and the proof of Theorem G uses only Theorem C and Bertolini–Darmon, while the Greenberg–Stevens application of Remark 7.3.4 has F = Q, p inert in E and χ = 1 unramified, so (★) holds there.",
+   "known": "Corrected by the author in Appendix B (\"Correction\") of arXiv:2001.00045v4, 23 February 2024, whose abstract-page comment reads \"New in this version: a correction as Appendix B (to appear separately in Invent. math.)\". Any formalisation must use the corrected hypotheses, which the items of this extraction state.",
+   "searched": [
+    "Appendix B of arXiv:2001.00045v4, read in full",
+    "the arXiv abstract page for 2001.00045, whose v4 comment announces the correction and whose journal reference is Invent. math. 230 (2022), 509–649",
+    "the body of v4, which is otherwise unchanged: Theorems A, B, B^ord, D and E are printed without (★) and without Hida*"
+   ]
+  },
+  {
+   "id": "PAPER-DISEGNI-22/E2",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§7.3.6 (Applications to non-vanishing / 2: exceptional families), first sentence of the proof of Theorem G, arXiv:2001.00045v4",
+   "printed": "Let E be an imaginary quadratic field, with associated quadratic character η, satisfying the following: p is inert in A, all other primes dividing the conductor of A split in E, and the twisted L-value L(A, η, 1) ≠ 0.",
+   "correction": "\"p is inert in A\" should read \"p is inert in E\"",
+   "reason": "A is an elliptic curve over Q and \"inert in A\" is meaningless; E is the imaginary quadratic field being chosen. The rest of the proof requires exactly that p be inert in E: it is what makes A have split multiplicative reduction over E with a Tate parameter q ∈ E_p^×, and it is the hypothesis under which the Bertolini–Darmon rigid-analytic formula quoted immediately afterwards applies. It is also the condition under which, in Remark 7.3.4, condition (★) of the Correction holds for this family.",
+   "known": "new",
+   "searched": [
+    "Appendix B of arXiv:2001.00045v4, whose Errata list only the footnote-12 citation and the symbol in the proof of Lemma 4.1.1",
+    "the arXiv abstract page for 2001.00045, which lists no further erratum beyond the Appendix B correction",
+    "the text of v4, the latest version, where the sentence is unchanged"
+   ]
+  },
+  {
+   "id": "PAPER-DISEGNI-22/E3",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Proof of Lemma 6.4.4 (§6.4.6, the vanishing of loc^−_w(𝓟)), last sentence, arXiv:2001.00045v4",
+   "printed": "Since H^1(E_w, 𝓜̃^−_w) = lim_n H^1(E_w, 𝓜̃^−_{n,w}) by Proposition 5.2.2, the lemma is proved.",
+   "correction": "\"Proposition 5.2.2\" should read \"Lemma 5.2.2\"",
+   "reason": "The statement invoked — that continuous cohomology commutes with countable projective limits of admissible modules of finite type over a profinite group satisfying (F) — is 5.2.2, and 5.2.2 is a lemma, not a proposition. In the SMF class used by the paper, theorems, propositions, lemmas and definitions share a single counter within each subsection, so the number 5.2.2 is unambiguous and no other statement can be meant; the only statement of §5.2 that could be confused with it, Proposition 5.2.3, is about supports and specialisation, not about limits. A mechanical audit of the LaTeX source comparing the capitalised word introducing each \\ref with the environment carrying the target label found this as the unique mismatch among the 68 typed cross-references of the paper.",
+   "known": "new",
+   "searched": [
+    "Appendix B of arXiv:2001.00045v4, whose Errata do not mention it",
+    "the arXiv abstract page for 2001.00045, which lists no further erratum",
+    "a mechanical cross-reference-type audit of the LaTeX source of v4, which found no other mismatch and no duplicate or undefined label"
+   ]
+  },
+  {
+   "id": "PAPER-DISEGNI-22/E4",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "Footnote 12, attached to the sentence introducing Theorem C in §1.3.3, arXiv:2001.00045v4",
+   "printed": "these classes are identical to the P_Π(f) from (1.2.3): see [nek-heeg, §I.2]",
+   "correction": "the citation should point to Proposition II.2.4(2) of Nekovář, \"On the p-adic height of Heegner cycles\", Math. Ann. 302 (1995), 609–686, not to §I.2",
+   "reason": "The footnote asserts that Howard's Abel–Jacobi classes of Heegner cycles in a Chow group agree with the classes P_Π(f) defined by the étale Abel–Jacobi map of §6.1.2; the statement comparing the two realisations is Nekovář's Proposition II.2.4(2), which is also the result generalised in Remark 6.2.2 of the present paper, while §I.2 of that paper contains no such comparison.",
+   "known": "Corrected by the author in the Errata of Appendix B of arXiv:2001.00045v4, which records the change and credits M. H. Nicole for pointing it out. The body of v4 still prints the uncorrected citation.",
+   "searched": [
+    "Appendix B (Errata) of arXiv:2001.00045v4, read in full",
+    "the body of v4, where the footnote is unchanged"
+   ]
+  },
+  {
+   "id": "PAPER-DISEGNI-22/E5",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "Third-last line of the proof of Lemma 4.1.1 (§4.1.2), the displayed description of the local components of the contragredient, arXiv:2001.00045v4",
+   "printed": "π_v^∨ ≅ Ind(α_v^ι · (| |_v, | |_v^{−1}))",
+   "correction": "the symbol ≅ should be ↪, that is π_v^∨ embeds into the un-normalised induction as its unique irreducible subrepresentation",
+   "reason": "Definition 2.4.3 defines an ordinary π_v as the unique irreducible subrepresentation of Ind(α_v·(| |_v,| |_v^{−1})), and by the parity conditions on the weights that subrepresentation is always infinite-dimensional and in general proper, so the printed isomorphism is false as stated. Only the embedding is used, since the argument reads off the unit character of the contragredient from the character by which the torus acts on the ordinary line, which is determined by the embedding.",
+   "known": "Corrected by the author in the Errata of Appendix B of arXiv:2001.00045v4 (\"In the third-last line of the proof of Lemma 4.1.1, the symbol '≅' should be replaced by '↪'\"). The body of v4 still prints '≅'.",
+   "searched": [
+    "Appendix B (Errata) of arXiv:2001.00045v4, read in full",
+    "the body of v4, where the display is unchanged"
+   ]
+  },
+  {
+   "id": "PAPER-DISEGNI-22/E6",
+   "kind": "gap",
+   "affects": "nothing",
+   "locator": "Appendix B (Correction), the itemised list of the effects of the correction on the main results, arXiv:2001.00045v4",
+   "printed": "Theorem A holds for π₀ ⊗ χ under the extra assumption (★). • Theorem B, as well as Theorem B^ord of §7.1.1, hold for Π = π ⊗ χ under the extra assumption (★). • Theorem C is not affected. • … Then Theorem D and Theorem E hold for Hida* families rather than Hida families. • Theorem F is not affected. • Theorem G is not affected, and the related alternative proof of the theorem of Greenberg–Stevens mentioned in Remark 7.3.4 remains valid.",
+   "correction": "The list should also say what happens to Theorem H, the universal Waldspurger formula of §7.2, which is the eighth lettered theorem of the paper and is not mentioned. Theorem H is in fact unaffected.",
+   "reason": "The lettered theoA environment is numbered A–H in order of appearance: Theorem A in §1.1.3, B in §1.2.8, C in §1.3.3, D in §1.4.3, E, F and G in §1.5, and H in §7.2; the Correction enumerates A, B, B^ord, C, D, E, F and G and stops. A reader applying the Correction cannot tell from it whether Theorem H is restricted. It is not: §7.2 deduces Theorem H from its specialisations at all classical points satisfying (wt), which are known by modifying Waldspurger's classical formula, and those points are dense by Lemma 3.1.4 — the density of classical points of a fixed weight — not by Lemma 7.1.4, which is the statement the Correction has to replace. Neither the paper on nonsplit primes nor condition (★) enters the proof of Theorem H at any point. The omission is in the enumeration, not in the mathematics.",
+   "known": "new",
+   "searched": [
+    "Appendix B of arXiv:2001.00045v4, read in full; it lists Theorems A, B, B^ord, C, D, E, F and G and no other",
+    "§7.2 of v4, whose proof sketch of Theorem H cites only Waldspurger and Theorem B^ord's method, not the paper on nonsplit primes",
+    "the arXiv abstract page for 2001.00045, which announces the Appendix B correction and no other erratum"
+   ]
+  }
+ ]
+}
