@@ -67686,14 +67686,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. The cited [Kot85, (4.3.3)], p.213 (numdam copy), reads c(bσ)^n c^{−1} = c·(nν)(π)·c^{−1}·σ^n in G(L)⋊⟨σ⟩, and expanding (bσ)^n gives n factors. The paper's own (1.1.4.1), p.7, has r factors. With G = G_m, b = p, c = 1 the printed left side is p^{r+1} and the right side is p^r. The same slip is in the 2018 version (Kisin's newton2.pdf, SHA-256 f3f2b164…, p.5). There the same sentence also had 'fixed field of σ^n', which the 2021 author PDF corrected to σ^r while leaving σ^r(b). I found no later version or erratum; I relied on E1's search record and did not search independently for the Duke text."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E2",
@@ -67715,14 +67716,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page images of pp.11–12. The counterexample holds. Take G = GL_3, M = GL_1×GL_2, μ = (0,1,0) (G-minuscule, factoring through M) and b_M = diag(p,1,1). Then b_M is basic in M, with Newton point (1,0,0) central in M. The pair is G-admissible: ν = (1,0,0) = μ̄, and κ_G = 1 = |μ|. But κ_M(b_M) = (1,0) and κ_M(μ) = (0,1). N_G(M) preserves the eigenspaces of Z_M = {diag(a,b,b)}, of dimensions 1 and 2, so N_G(M) = M. Therefore no w ∈ N_G(M)/M works, while the transposition (12) ∈ W(G,T) does. The proof fails at exactly one step: Proposition 1.1.13 produces an element of W(G*,T*), not of N_{G*}(M*)/M*. Everything else in the proof is compatible with the corrected statement. Corollary 1.1.15 is never cited by number. Its intended use is the step 'By Lemma 1.1.13, there exists w ∈ W(G,T)' in the proof of Corollary 1.1.17 (p.13), where G may be non-quasi-split, and that step needs exactly the corrected form. So Corollary 1.1.17, Proposition 1.2.5 and the main theorems stand. VERIFY.md records no known erratum. Defence considered: W(G,M) is explicitly defined as N_G(M)/M and the proof explicitly identifies it with N_{G*}(M*)/M*, so this is not a notational slip."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E3",
@@ -67744,14 +67746,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. The hypothesis is that ([b],{μ_X^{-1}}_p) is admissible, so κ_G([b]) = (μ_X^{-1})^♯. As printed, the conclusion would force κ_G([b]) = μ_x^♯ = −(μ_X^{-1})^♯, i.e. 2μ_X^♯ = 0 in π_1(G)_{Γ_p}. That fails e.g. for G = GSp_{2g}, where π_1(G) = Z and μ^♯ = ±1, so the printed conclusion can never hold there. The parenthesis '(in which case μ_x^{-1} ∈ X_*(T))' points to the intended form. The proof ends with 'Then [b_bas(μ_T^{-1})] maps to [b]' and replaces μ_T by μ_x. Proposition 1.3.10 (p.18, checked on the image) quotes the result as '[b_bas(μ_x^{-1})] ∈ B(T_{Q_p}) maps to [b]'. So this is a slip with clear meaning."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E4",
@@ -67773,22 +67776,23 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. As printed the definition is circular. Read literally it is even vacuous: s = 1, ι_1 = ι satisfies it for every ι. The immediately preceding paragraph defines 'strictly accommodating', and that notion is otherwise never used, so the intended word is clear. This is the extraction's reading, and it matches the structure of Noot's definition recalled from [Noo09, 2.3]."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E5",
-   "kind": "gap",
-   "locator": "Proof of Lemma 2.2.8, p.28, in the author PDF https://math.berkeley.edu/~swshin/HT.pdf (41 pp., created 27 January 2021, SHA-256 fd22990b…52db), the latest version found; the published text, Duke Math. J. 171 (2022), 1559–1614, was not collated",
-   "printed": "G′ = G × T",
-   "correction": "Take G′ = G ×_{G^ab} T, the pairs (g, t) with the same image in G^ab. This lies in GSp(V ⊕ V, ψ ⊕ ψ), and X′ = X × {h_T} still maps into it because h^ab is constant on X. The kernel of G′ → G is T ∩ G^der, which dies in G^ab, so the composite I_{s′_0} → T → G^ab does factor through I_{s_0}. The rest of the proof then goes through.",
-   "reason": "Read literally, the construction fails at two points. First, G × T acting on V ⊕ V does not preserve ψ ⊕ ψ up to a scalar when the similitude factors of g and t differ, so it is not a subgroup of G_{V′}. Second, the claimed factorization fails. The CM automorphisms (1, t), t ∈ T, act trivially on A_{s_0} and by t on A_T, and they preserve the tensors cutting out G × T. So 1 × T lies in I_{s′_0}, and also in the kernel of I_{s′_0} → I_{s_0}. But under I_{s′_0} → T → G^ab it maps onto G^ab, as T is a maximal torus of G. So the map does not factor through I_{s_0} unless G^ab = 1. The same happens over Q_ℓ, so the justification \"as this is true over Q_ℓ\" fails too. Surjectivity of I_{s′_0} → I_{s_0} alone cannot give a factorization. What is needed is that the kernel maps trivially, and the fibre product above provides this. Lemma 2.2.8 is used in the proof of Proposition 2.2.2 (p.28). Noted by the extraction (source discrepancy 7, item T23) as a descent gate; the analysis and the fibre-product repair are given here.",
+   "kind": "error",
+   "locator": "Proof of Lemma 2.2.8, p.28",
+   "printed": "Let G′ = G×T, equipped with the symplectic representation V′ = V ⊕ V. Let X′ = X×{h_T}. … By Corollary 2.1.9, I_{s′_0} → I_{s_0}, is surjective, so the map I_{s′_0} → G^ab factors through I_{s_0}, as this is true over Q_ℓ for any ℓ ≠ p.",
+   "correction": "Take G′ = G ×_{G^ab} T = {(g, t) : g^ab = t^ab}. It is connected reductive, since as a variety it is ≅ G^der × T via (d, t) ↦ (dt, t). Because c factors through G^ab, G′ ⊂ GSp(V ⊕ V, ψ ⊕ ψ). Take X′ = the G′(R)-orbit of (h_0, h_T); X × {h_T} can be a finite union of such orbits. ker(G′ → G) = 1 × (T ∩ G^der) is central and dies in G^ab. So on I_{s′_0} ⊗ Q_ℓ ⊂ G′_{Q_ℓ} the composite I_{s′_0} → T → G^ab agrees with I_{s′_0} → I_{s_0} → G^ab, kills ker(I_{s′_0} → I_{s_0}), and factors through the surjection I_{s′_0} → I_{s_0}. The rest of the proof is unchanged.",
+   "reason": "Checked on the page image, and the existing analysis is right. (1) For (g,t) ∈ G×T acting on V⊕V, ψ⊕ψ is scaled by c(g) on the first summand and by c(t) on the second, so G×T ⊄ G_{V′} = GSp(V′). (2) (1,t) ∈ Z_{G×T}(Q) acts on A_{s′} ~ A_s × A_T trivially on the first factor and by t on the CM factor, so 1×T ⊂ I_{s′_0}, inside ker(I_{s′_0} → I_{s_0}). Under I_{s′_0} → T → G^ab it maps onto G^ab, which is non-trivial, since c factors through G^ab and c(a) = a² on scalars. The map therefore does not factor through I_{s_0}, and the same computation over Q_ℓ shows the justification 'as this is true over Q_ℓ' is false. REVISION: the kind should be 'error', not 'gap'. The printed step is not merely unjustified: as printed it is false (a failing step), and the lemma survives only with a changed construction. It is not a misprint either, since nothing in the text indicates the fibre product. For the defence: the clause 'after possibly conjugating the map T → G by a point of G^ad(Q)' is pointless for G×T (every (h_0,h_T) lies in X×{h_T}), which hints that the authors had a smaller group in mind. The same kind of slip, a product group not contained in GSp(V⊕V′), occurs in §2.2.7 (new entry). Lemma 2.2.8 is used in §2.2.7, p.28.",
    "affects": "the proof",
    "known": "Existing repository errata E5 (cc-fb70e5, 2026-09-22); no external correction located in the searches recorded.",
    "searched": [
@@ -67802,14 +67806,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Revised on re-reading; independent check: I checked this on the p.28 image and endorse the proposed revision from gap to error. (1) By §1.3.1 (p.15), G_{V′} = GSp(V′, ψ′). On V′ = V ⊕ V with ψ ⊕ ψ, an element (g, t) ∈ G × T scales the first summand by c(g) and the second by c(t). So (1, a), with a ∈ G_m ⊂ T a scalar, is a similitude only if a² = 1. Hence G × T ⊄ G_{V′}, and the asserted '(G′, X′) ↪ (G_{V′}, H_{V′})' is false. (2) Grant the construction anyway. Then 1 × T is central in G′ and fixes the tensors. It acts on A_{s′_0} ~ A_{s_0} × A_T trivially on A_{s_0} and through T on A_T. So 1 × T ⊂ ker(I_{s′_0} → I_{s_0}), yet I_{s′_0} → T → G^ab maps it onto G^ab, because T is a maximal torus. G^ab ≠ 1: c factors through G^ab and c(a) = a² on the scalars G_m ⊂ G. So the composite does not factor through I_{s_0}. Over Q_ℓ the two composites are (g, t) ↦ t^ab and (g, t) ↦ g^ab, which differ, so the justification 'as this is true over Q_ℓ' is also false. Surjectivity of I_{s′_0} → I_{s_0} never gives a factorization by itself; the kernel has to die. The printed steps are false, not merely unjustified, so the kind is error. It is not a misprint, because nothing in the text points to the fibre product. The lemma survives with the fibre-product construction; I checked each step below. G ×_{G^ab} T lies in GSp(V ⊕ V), because c factors through G^ab. It is connected: (d, t) ↦ (dt, t) is an isomorphism of varieties G^der × T ≅ G ×_{G^ab} T. (h_0, h_T) factors through it, because points of X have a common image in G^ab. The kernel of the map to G is 1 × (T ∩ G^der), which is central and is killed by t ↦ t^ab. I_{s′_0}(Q_ℓ) ⊂ G′(Q_ℓ), where the two composites agree, so the kernel of the faithfully flat map I_{s′_0} → I_{s_0} maps trivially and the map descends. One remark in the first reading's reason does not discriminate: the clause about conjugating T → G by G^ad(Q) is also idle for the fibre product, since (h_0, h_T) always lies in its X′. So that clause is no evidence for which group the authors intended. Lemma 2.2.8 is used in §2.2.7 (p.28)."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E6",
@@ -67831,14 +67836,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. Both counterexamples are valid. (a) S = Spec k[ε]/(ε²) with k ≠ F_2: σ: ε ↦ uε (u ∈ k^×, u ≠ 1) is a k-automorphism fixing the unique k-point, which is dense; W = {1}; but σ ≠ id. (b) The affine line with doubled origin over an infinite field k is irreducible, reduced and of finite type. The automorphism σ swapping the two origins fixes the dense set of other k-points; W = {1}; but σ ≠ id. So the final step of the proof ('Γ_{w_0} is dense … and it follows that σ = w_0') needs S reduced and separated. The only application, in the proof of Proposition 2.2.13 (p.30), is to the torus T_0 over algebraically closed k, which is reduced and separated. The stated lemma is false; its use is fine."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E7",
@@ -67860,22 +67866,23 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. D ⊂ S is a divisor, so D − S is empty; the abelian scheme is given over U and extends semi-abelianly over S, which forces U = S − D. The sheaf of rings j_*O_U is not a log structure; the intended one is the sheaf of functions invertible on U. The same paragraph also uses 'U_{K,ét}' before K is introduced (A.3). That slip is equally harmless."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E8",
    "kind": "error",
-   "locator": "§1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated",
-   "printed": "There is a unique [b_μ]",
-   "correction": "Require an actual ordinary class, or assume G/Q_p quasi-split. A greatest admissible class need not attain the Hodge average.",
-   "reason": "C03–C09 give D^×, μ_m=(m+1,m): the inner-twist bijection b↦bJ shifts κ by 1 and both Newton slopes by 1/2. An ordinary class would give GL2 slopes (m+3/2,m+1/2), impossible for two distinct rank-one summands. Its unique admissible class is basic, ν=(m+1/2,m+1/2). This addresses the local universal assertion; the global model hypotheses still need separate audit.",
+   "locator": "§1.3.15, p.20; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated; also Introduction, Theorem 3, p.3 (the introduction's form of Corollary 1.3.16 / §1.3.15, p.20)",
+   "printed": "There is a unique [b_μ] ∈ B(G_{Q_p}, {μ^{-1}}) with N_ξ(ν̄_G([b_μ])) = μ̄^{-1} (which, of course, does not depend on the choice of B* or T*). The corresponding subset S_[b_μ] ⊂ 𝒮_K(F̄_p) is the μ-ordinary stratum. | Also: Theorem 3. If the special fibre of S is locally integral then the μ-ordinary locus is dense in the special fibre.",
+   "correction": "Uniqueness holds by (1.1.2.3); existence does not. Assume G_{Q_p} quasi-split, in which case [b_μ] exists and satisfies (1.1.3.1) (C02, N16); otherwise assume that [b_μ] exists and satisfies (1.1.3.1). Corollaries 1.3.16 and 1.3.18 and Theorem 3 of the Introduction need the same hypothesis. Also: Theorem 3 (and Corollary 1.3.16): 'Suppose G_{Q_p} is quasi-split. If the special fibre of S is locally integral then the μ-ordinary locus is dense in the special fibre.' This matches the abstract and Theorems 4–5. Alternatively, keep G general but assume that a class [b_μ] with N_ξ(ν̄_G([b_μ])) = μ̄^{-1} exists, and in §1.3.15 replace 'There is a unique [b_μ]' by 'If G_{Q_p} is quasi-split, there is a unique [b_μ]' (it can fail otherwise, e.g. G_{Q_p} = D^×). Record as an additional locator of ledger E8, not as a separate entry.",
+   "reason": "§1.3.15 allows non-quasi-split G_{Q_p} ('As in (1.1.5) we fix an inner twisting ξ'). For G_{Q_p} = D^×, D the quaternion division algebra, realise D^×(L) as GL_2(L) with Frobenius Ad(Π)∘σ, Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2) that raises κ by 1 and both Newton slopes by 1/2. A class with ν = μ̄^{-1} = (0, −1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1, which is impossible. So B(D^×, {μ^{-1}}) is the single basic class, with ν = (−1/2, −1/2). This happens inside the paper's setting: the Shimura curve of an indefinite quaternion algebra over Q ramified at an odd p is of Hodge type with G_{Q_p} = D^×, in agreement with Čerednik–Drinfeld (every point of its special fibre is supersingular). For Theorem 3 and Corollary 1.3.16 the example shows the μ-ordinary locus is undefined rather than that a density assertion is false, since that special fibre is not locally integral.",
    "affects": "a stated result",
    "known": "The scope distinction is explicitly stated in Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5; the concrete quaternion proof is supplied here. No final KMPS collation.",
    "searched": [
@@ -67884,22 +67891,23 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image (p.20) and in two independent readings. The D^× computation was redone: b ↦ bΠ identifies B(D^×) with B(GL_2), raising κ by 1 and the Newton slopes by 1/2, and a slope of multiplicity 1 in a 2-dimensional isocrystal is an integer. The global instance (a quaternionic Shimura curve ramified at p) is of Hodge type. For quasi-split G_{Q_p} everything holds: [b_μ] is the image of κ_{T*}^{-1}([μ^{-1}]). The same place also has: Quotation checked on the p.3 image. Theorem 3 is the introduction's form of Corollary 1.3.16 (p.20), which uses the μ-ordinary stratum S_[b_μ] of §1.3.15. §1.3.15 asserts for arbitrary G_{Q_p}, without proof, that 'There is a unique [b_μ] ∈ B(G_{Q_p},{μ^{-1}}) with N_ξ(ν̄_G([b_μ])) = μ̄^{-1}'. Uniqueness is fine by (1.1.2.3). Existence fails for non-quasi-split G. Independent check: take B an indefinite quaternion algebra over Q ramified at p, G = B^× (PEL, hence Hodge type), G_{Q_p} = D^×, G* = GL_2, μ = (1,0). Identify D^×(L) = GL_2(L) with Frobenius Ad(Π)∘σ, where Π = [[0,1],[p,0]] and Π² = p. Then b ↦ bΠ is a bijection B(D^×) → B(GL_2), because (bΠ)σ(bΠ)⋯ = (b·σ_D(b)⋯)·(Πσ(Π)⋯). It raises κ by 1, and it adds the central (1/2,1/2) to Newton points. A class with ν = (0,−1) would give a 2-dimensional isocrystal with the distinct slopes 1/2 and −1/2, each of multiplicity 1. That is impossible, since slope r/s in lowest terms occurs with multiplicity divisible by s. Hence [b_μ] does not exist. The only admissible class is basic, with ν = (−1/2,−1/2), and a check against (1.1.5.2) shows no non-basic class is admissible. So 'the μ-ordinary locus' in Theorem 3 is undefined for such data, and the proof, which goes through §1.3.15, covers only the case where [b_μ] exists. With G_{Q_p} quasi-split everything holds: [b_μ] is the image of κ_{T*}^{-1}([μ^{-1}]), and (1.1.3.1) holds by 1.1.3. Case for the defence: (i) p.2 presents Theorem 3 as a generalisation of Wedhorn and Wortmann, whose setting is hyperspecial, hence quasi-split. (ii) In the D^× test case the hypothesis of Theorem 3 fails at parahoric level: the Čerednik–Drinfeld model is semistable, with nodes where two components meet, so its special fibre is not locally integral. The test case therefore shows that the statement is ill-defined, not that a density assertion is false. No non-quasi-split example with a locally integral special fibre and no [b_μ] is exhibited, so 'false' should not be claimed; 'not established / not well-defined as stated' is accurate. (iii) Reading 'μ-ordinary' as 'the maximal element of B(G,{μ^{-1}})' would need (1.1.3.1) for that class, which the paper does not supply in the non-quasi-split case. On the claim's secondary point: whenever [b_μ] exists, (1.1.3.1) does hold, at least when G is an extended pure inner form of G* (as for D^×). Twisting by a basic x chosen in the Levi M* = Cent(μ̄*) puts a representative of [b_μ] in the Q_p-Levi J_x(M*) with central Q_p-rational Newton point. That point is a routine omission, not part of the mistake. Scope: this is the same defect as ledger E8 (§1.3.15, already 'error / a stated result'), not an independent mistake. It should be recorded by extending E8's locator to Theorem 3 (p.3) and Corollary 1.3.16 (p.20; also Corollary 1.3.18, which applies Corollary 1.3.16), and not counted a second time. One inaccuracy in the claim's correction: Theorem 1 has no quasi-split hypothesis. It assumes that ν_b has a Q_p-rational representative, and quasi-split is a special case."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E9",
-   "kind": "gap",
-   "locator": "Corollary 1.3.13 proof, p.19; 41-page Berkeley author PDF SHA256 fd22990bc3eff8a726375cf8f0c9015828c39f1c32b0717347a9ef23ce9b52db; final Duke text not collated",
-   "printed": "C_D,L is equivalent to Rep_L G_s0",
-   "correction": "Use the actual Tannakian group H⊂G_s0, restriction of representations and descent of all required invariant morphisms. Evaluation followed by forgetting Frobenius gives a Vec_L-valued fibre functor; F-Isoc(s0) itself remains Q_p-linear.",
-   "reason": "Preservation of selected tensors only embeds the monodromy group into their stabilizer. For a constant unit object with no extra chosen tensors, the generated category has trivial group but the linear stabilizer is G_m. The printed equivalence does not follow. S11 lists the remaining invariant-tensor extension, idempotent and descent arguments. This does not refute the final tensor-functor theorem.",
+   "kind": "error",
+   "locator": "Proof of Corollary 1.3.13, p.19",
+   "printed": "Pulling isocrystals back to s0 induces an L-fibre functor ω_{s0} : C_{𝒟,L} → F-Isoc(s0) which takes 𝒟 to D_{s0}, and C_{𝒟,L} is equivalent to the category Rep_L G_{s0} where G_{s0} = Aut_{{s_α,cris,s0}} D_{s0}, the group of automorphisms of D_{s0} respecting the tensors s_α,cris,s0.",
+   "correction": "Let H = Aut^⊗(ω_{s0}) ⊂ G_{s0}, where ω_{s0}: C_{D,L} → Vec_L is 'pull back to s0 and forget φ'. Then C_{D,L} ≃ Rep_L H, and H ⊂ G_{s0} by Prop. 1.3.12. Define ω_L as W ↦ W^D followed by restriction Rep_L G_{s0} → Rep_L H ≃ C_{D,L}. For the descent step, take {s_α} to include a spanning set of (V^⊗)^G. Every G-invariant tensor is a Hodge cycle, so Prop. 1.3.12 applies to every morphism e of Rep_{Q_p} G.",
+   "reason": "The printed equivalence is false, not merely unproved, in cases the corollary covers. Take a CM Hodge-type datum (T, h), for instance T = Res_{K/Q} G_m acting on V = K (K imaginary quadratic, the CM elliptic-curve datum). Then 𝒮_K ⊗ F̄_p is finite and a connected component S is a point. In Isoc(F̄_p) ⊗ L the simple objects have rank one and are indexed by slope, so the Tannakian group of ⟨D_s0⟩ over L is the image of the Newton (slope) cocharacter: G_m (supersingular, scalars) or a 1-dimensional torus (ordinary). But G_s0 ≅ T_L has dimension 2. The ledger's unit-object example is outside the setting, since 𝒟 is H^1 of an abelian scheme; the CM case is inside it. Kind revised from gap to error: the claimed intermediate equivalence fails, while the proof is repairable as stated.",
    "affects": "the proof",
    "known": "No external correction located in the bounded searches recorded; author version only.",
    "searched": [
@@ -67908,14 +67916,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Revised on re-reading; independent check: Checked on the p.19 image: 'C_{D,L} is equivalent to the category Rep_L G_{s0} where G_{s0} = Aut_{{s_α,cris,s0}} D_{s0}'. The Tannakian formalism gives only C_{D,L} ≃ Rep_L H, with H = Aut^⊗ of the L-valued fibre functor (pull back to s0, forget φ). Since the s_α,cris,s0 are values of global morphisms 1 → D^⊗ (Prop. 1.3.12), H ⊂ G_s0, but nothing forces equality. The CM case is covered by the corollary, and there the equality fails. Take (T,h) with T = Res_{K/Q} G_m ⊂ GL_2 = GSp_2, K imaginary quadratic (a Hodge-type datum; the paper itself uses such torus data in 1.3.10), K_p maximal and p unramified. Then a connected component of 𝒮_K ⊗ F̄_p is a point s0, and D_{s0} is H^1_cris of a CM elliptic curve. By Dieudonné–Manin, End(E_λ) ⊗_{Q_p} L is a matrix algebra, so ⟨D_{s0}⟩ ⊗ L is semisimple with rank-one simple objects indexed by slope. H is therefore the torus with character group generated by the slopes: G_m for slopes {1/2} (acting by scalars) and for {0,1}. But G_{s0} ≅ T_L (P(s0) is trivial by Steinberg) has dimension 2. The two categories are not tensor-equivalent, so the printed intermediate claim is false in this case, not merely unproved. The ledger's unit-object example is indeed outside the setting (D is H^1 of an abelian scheme). Corollary 1.3.13 is still true (in the CM case it is the F-isocrystal with T-structure given by b_{s0}), and the proof can be repaired. Also, the target of ω_{s0} should be Vec_L: F-Isoc(s0) is only Q_p-linear."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E10",
@@ -67932,14 +67941,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Not a mistake: the two formulas define the same group. Aut(A_s0), the automorphisms in the prime-to-p isogeny category, lies in End_Q(A_s0)^× = Aut_Q(A_s0)(Q). I_s0 is a closed Q-subgroup of Aut_Q(A_s0). A Q-point of Aut_Q(A_s0) that satisfies the Q-rational equations of I_s0 over Q_p lies in I_s0(Q). Hence I_s0(Q_p) ∩ Aut(A_s0) = I_s0(Q) ∩ Aut(A_s0), which is the expression on p.22. Writing Q would match the notation I(Z_(p)) better, but the printed formula is correct. Independent check: Checked on the image: p.21 has 'I_{s0}(Z_(p)) = I_{s0}(Q_p) ∩ Aut(A_{s0})' and p.22 (end of the proof of Lemma 2.1.4) has 'I_{s0}(Z_(p)) = I_{s0}(Q) ∩ Aut(A_{s0})'. These define the same group. Aut(A_{s0}) in the prime-to-p isogeny category lies in (End(A_{s0}) ⊗ Z_(p))^× ⊂ Aut_Q(A_{s0})(Q) ⊂ Aut_Q(A_{s0})(Q_p), so the p.21 intersection makes sense. I_{s0} is a closed Q-subgroup of Aut_Q(A_{s0}), cut out by polynomial equations with Q-coefficients. A Q-point that lies in I_{s0}(Q_p) satisfies those equations, so it lies in I_{s0}(Q). Hence I_{s0}(Q_p) ∩ Aut(A_{s0}) = I_{s0}(Q) ∩ Aut(A_{s0}). The p.21 formula is correct as printed, only less idiomatic, so it should not be recorded as a mistake. I agree with the first reading's rejection."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E11",
@@ -67956,14 +67966,15 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "ω_L sends V to 𝒟 and is a tensor functor, so V^{⊗n}⊗V^{*⊗m} goes to 𝒟^{⊗n}⊗𝒟^{*⊗m}. Already (m,n) = (0,1) shows the printed exponents are swapped. The definition of V_{m,n} agrees with the convention of §1.3.4 (V^{⊗n}⊗V^{*⊗m}). Only the membership in C_𝒟 is used, and it holds either way."
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E12",
@@ -67980,14 +67991,718 @@
     "Final Duke PDF URL returned 1158-byte HTML, not article text; no final-version collation claimed.",
     "Existing repository errata E1–E7 by cc-fb70e5 read and preserved as prior findings, not an independent review.",
     "Kisin–Zhou arXiv:2103.09945v2 Definition 2.2.4 and Remark 2.2.5 explicitly allow failure of ordinary existence for non-quasi-split G.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Berkeley author PDF re-fetched (SHA-256 fd22990b…, matching). The Duke text is not openly available (Unpaywall lists no copy, no arXiv version was found), and Crossref lists no correction for 10.1215/00127094-2021-0063.",
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
    "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the page image. As printed, the last paragraph gives κ_T(γ_{m,s0}) = m log_p q·μ_x^♯, while Lemma 2.3.10 (μ = μ_x^{-1}) gives m log_p q·(μ_x^{-1})^♯ for s0'. These differ, since the similitude character sends μ_x to a nonzero cocharacter of G_m. Corollary 1.1.17 cannot produce μ_T ∈ {μ_X}_p with Nμ_T = ν_{δ_{s0}}, because κ_G([b_{s0}]) = (μ_X^{-1})^♯. With the inverse used throughout, every step goes through as written, so the slip is a sign misprint with clear intended meaning. I agree with the ledger's reclassification to 'nothing'."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E13",
+   "kind": "misprint",
+   "locator": "Definition 1.1.7, p.8",
+   "printed": "if there exists a representatives b′ ∈ T′(L) (resp. µ′ ∈ X_*(T′)) of [b] (resp. {µ′})",
+   "correction": "…T′-special if there exist representatives b′ ∈ T′(L) (resp. μ′ ∈ X_*(T′)) of [b] (resp. {μ}) such that ([b′]_{T′}, μ′) is an admissible pair for T′.",
+   "reason": "μ′ must be a representative of {μ}. As printed it represents its own class {μ′}, which is vacuous. Lemma 1.1.8 ('for any μ′ ∈ X_*(T′) in {μ}') and its proof confirm the intended meaning. Also a grammatical slip, 'a representatives'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on a zoomed image of p.8: 'if there exists a representatives b′ ∈ T′(L) (resp. µ′ ∈ X_*(T′)) of [b] (resp. {µ′})'. The parallel construction requires μ′ to represent the given class {μ}. As printed, μ′ represents its own class {μ′}, which is vacuous and would make every admissible ([b],{μ}) with a torus representative of [b] trivially special. Lemma 1.1.8 ('for any μ′ ∈ X_*(T′) in {μ}') and its proof ('let μ′ ∈ X_*(T′) be a representative for {μ}') confirm the intended reading, and so does the later use of special pairs. 'a representatives' is also a grammatical slip. The meaning is clear and no argument is affected."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E14",
+   "kind": "misprint",
+   "locator": "Lemma 1.1.10, p.8 (statement), as used in the proof of Proposition 1.1.13, p.11",
+   "printed": "Then there is a quasi-split absolutely simple adjoint group H′_0 over F′ equipped with a Borel subgroup B′_0 and a maximal torus T′_0 ⊂ B′_0 with the following properties:",
+   "correction": "Lemma 1.1.10: '… a quasi-split absolutely simple adjoint group H′_0 over F′, split over an unramified extension of F′ (so that H′ = Res_{F′/Q_p}H′_0 is unramified), equipped with …'",
+   "reason": "Proposition 1.1.13 (p.11) invokes the lemma as 'By (1.1.10), we can find an unramified group G′ …' and then applies the unramified case to G′. The printed statement makes only F′ unramified. Without the added condition, H′_0 could be a ramified quasi-split outer form over F′, and the application would fail. The proof of the lemma (p.9) establishes the missing conclusion. In both the cyclic case and the D_4 triality case, the map Γ_{σ′_0} → Aut(D_0) defining H′_0 is chosen to factor through the Galois group of an unramified extension of F′. The omission is harmless.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.8 image. The statement of Lemma 1.1.10 asks only that F′/Q_p be unramified; it does not ask that H′_0 split over an unramified extension of F′. Proposition 1.1.13 (p.11) reads 'By (1.1.10), we can find an unramified group G′ …' and then applies the unramified case, which needs a reductive Z_p-model of G′. The printed statement does not give this. If H_0 is a ramified outer form, a ramified quasi-split outer form of H_0 over F′ with the same image in Aut(D_0) could satisfy (1.1.10.1)–(1.1.10.2) equally well. The proof on p.9 does produce the needed property. In the cyclic case the map Γ_{σ′_0} → Aut(D_0) is chosen to factor through the Galois group of an unramified extension of F′. In the D_4 case with image S_3 it is chosen with image A_3 ≅ Z/3, again through an unramified extension. So H′_0 is unramified, and Res_{F′/Q_p}H′_0 is unramified because F′/Q_p is. The statement omits a conclusion that its proof establishes and that the only application uses."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E15",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 1.1.10, p.9, paragraph 'The Γ_p-orbit of α^∨(σ,d_0) …'",
+   "printed": "consists of simple coroots α^∨(σ′, d′_0) where d′_0 ∈ D_0 is in the Γ_σ-orbit of α^∨, and σ′ : F → Q̄_p is arbitrary.",
+   "correction": "… where d′_0 ∈ D_0 is in the Γ_σ-orbit of d_0 (under ρ_σ) …",
+   "reason": "Γ_σ acts on the vertices of D_0, and the orbit meant is that of the vertex d_0; α^∨ is not an element of D_0. The next sentence says 'if d_{0,1},…,d_{0,r} ∈ D_0 comprise the Γ_σ-orbit of d_0'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.9 image: the text reads 'where d′_0 ∈ D_0 is in the Γ_σ-orbit of α^∨'. Γ_σ acts on the vertex set of D_0 through ρ_σ : Γ_σ → Aut(D_0), so the orbit must be that of a vertex, and α^∨ is not a vertex. The same paragraph shows the intended object: 'if d_{0,1}, …, d_{0,r} ∈ D_0 comprise the Γ_σ-orbit of d_0'. The averaging formula that follows uses the orbit of d_0 and is correct. This is a one-symbol slip with a clear meaning."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E16",
+   "kind": "gap",
+   "locator": "Proof of Proposition 1.1.13, unramified case, p.10",
+   "printed": "More precisely, the Satake transform is used to show that μ′ ⪯_G μ (in the notation of 1.1.1), and the minuscule nature of μ allows us to conclude that μ′ is conjugate to μ.",
+   "correction": "After 'μ′ ⪯_G μ', add: 'moreover μ′ and μ have the same image in π_1(G), since the Kottwitz map G(L) → π_1(G) is trivial on G(W) and N(L) and g^{−1}b_Mσ(g) = (m^{−1}b_Mσ(m))·n″ with n″ ∈ N(L). Hence μ − μ′_dom is a nonnegative integral combination of simple coroots, and minusculity of μ forces μ′_dom = μ.'",
+   "reason": "In 1.1.1, ν_1 ⪯ ν_2 means that ν_2 − ν_1 is a nonnegative (rational) linear combination of positive coroots. With that order, 'μ′ ⪯ μ and μ minuscule' does not imply that μ′ is conjugate to μ. For example, for G = PGL_2 we have 0 ⪯ ϖ^∨ = α^∨/2 with ϖ^∨ minuscule. The missing input (equality in π_1(G)) is true and takes one line. Defence: the Satake-transform argument of [LR87, 5.2] in fact gives the integral order, and the paper cites [Kot03] and [Kis17] for alternative proofs of the conjugacy. So the claim is right and only its justification, as written, is incomplete.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.10 image. The order ⪯_G of 1.1.1 (p.5) asks that ν_2 − ν_1 be a nonnegative linear combination of positive coroots with rational coefficients. It has to be rational there, because Newton points are fractional. With that order, 'μ′ ⪯_G μ and μ minuscule' does not imply that μ′ is conjugate to μ. Example: G = PGL_2, μ = ϖ^∨ (t ↦ diag(t,1)) and μ′ = 0. Then μ − μ′ = α^∨/2, so 0 ⪯ ϖ^∨, but 0 is not conjugate to ϖ^∨. The missing input is that μ′ and μ have the same image in π_1(G), and it is available in context. G is unramified, so the Kottwitz map w_G : G(L) → π_1(G) kills G(W) and N(L). With g = nm we get g^{−1}b_Mσ(g) = (m^{−1}b_Mσ(m))·n″ with n″ ∈ N(L). This element lies in G(W)μ(p)G(W), and m^{−1}b_Mσ(m) lies in M(W)μ′(p)M(W) ⊂ G(W)μ′(p)G(W). Hence μ^♮ = μ′^♮. So μ − μ′_dom is in the coroot lattice, with nonnegative rational and hence integral coefficients on the simple coroots. A minuscule dominant μ is minimal among dominant coweights in its class modulo coroots, so μ′_dom = μ. In the paper's defence, the sentence explains an argument that is cited ([LR87, Lem. 5.2]; alternatives [Kot03], [Kis17]), and that argument gives the integral order. Only the paraphrase, which pins down the order 'in the notation of 1.1.1', is insufficient."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E17",
+   "kind": "error",
+   "locator": "Proof of Proposition 1.1.13, reduction to adjoint G, p.10",
+   "printed": "The kernel of the first map is the image of X_*(Z_G)_{Γ_p} → π_1(M)_{Γ_p}.",
+   "correction": "Replace the sentence by: 'After ⊗Q, coinvariants are exact, and the kernel of π_1(M) → π_1(M̃) is X_*(Z_G). Hence the kernel of the first map becomes, after ⊗Q, the image of X_*(Z_G)_{Γ_p} ⊗ Q.' Then continue: if x lies in both kernels, then x ⊗ 1 comes from (X_*(Z_G) ⊗ Q)_{Γ_p} and dies in (π_1(G) ⊗ Q)_{Γ_p}. Now X_*(Z_G)_Q → π_1(G)_Q is injective, because Z_G^0 → G^ab is an isogeny, and Q-coinvariants are exact, so x ⊗ 1 = 0 and x is torsion. By [CKV15, 2.5.12(2)], x = 0. ",
+   "reason": "Taking coinvariants is only right exact, so the printed claim fails in general. Counterexample: G = SU(4)/μ_2, quasi-split over Q_p and split by a quadratic E/Q_p. Γ_p acts on X_*(T) through the diagram involution θ of A_3, and M = T is standard (the centralizer of the maximal split torus). Here X_*(Z_G) = 0. X_*(T) = Q^∨ + Zϖ_2^∨ has basis α_1^∨, α_2^∨, ϖ_2^∨. Since θα_1^∨ = α_3^∨ = 2ϖ_2^∨ − α_1^∨ − 2α_2^∨, we get (θ−1)X_*(T) = Z·2(ϖ_2^∨ − α_1^∨ − α_2^∨). So x = ϖ_2^∨ − α_1^∨ − α_2^∨ has order 2 in π_1(T)_{Γ_p}. Its image in π_1(M̃)_{Γ_p} = (P^∨)_{Γ_p} is ϖ_3^∨ − ϖ_1^∨ = 0. Thus the kernel is nonzero, while the image of X_*(Z_G)_{Γ_p} is 0. The case M = G is even simpler: π_1(G) = Z/2 ⊂ π_1(G^ad) = Z/4, with θ = −1, gives the zero map Z/2 → Z/2 on coinvariants. The conclusion drawn ('so the intersection must be a torsion group') still holds by the argument in the correction. So this is a false intermediate statement that does not break the proof. (Here x maps to the generator of π_1(G)_{Γ_p}, so it is not in the second kernel, which is consistent.)",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.10 image, and I re-derived the counterexample. Take G = SU(4)/μ_2, quasi-split over Q_p and split by a quadratic E/Q_p, with M = T the centralizer of a maximal split torus; this is a standard Levi. Then M̃ = T^ad and Z_G ≅ μ_2, so X_*(Z_G) = 0. In fundamental-coweight coordinates P^∨ = Z^3, X_*(T) = {(a,b,c) : a + c even} ⊃ Q^∨, and Γ_p acts through θ, which swaps a and c. So (θ−1)X_*(T) = {(d,0,−d) : d even}. The vector x = (−1,0,1) = ϖ_2^∨ − α_1^∨ − α_2^∨ lies in X_*(T) and has order 2 in X_*(T)_Γ. But x = (θ−1)ϖ_1^∨ is 0 in (P^∨)_Γ. So the kernel of π_1(M)_Γ → π_1(M̃)_Γ is nonzero, while the image of X_*(Z_G)_Γ is 0. (x maps to the nonzero element of π_1(G)_Γ = Z/2, which is consistent with CKV15.) The case M = G fails too: Z/2 → Z/4 → Z/2, with θ = −1 on Z/4, is the zero map on coinvariants. The cause is that coinvariants are only right exact. The printed claim is not idle. The next sentence ('so the intersection must be a torsion group') is deduced from it, so the proof of Proposition 1.1.13 fails at this step as written. That makes 'affects: the proof' the right reach, by the same standard as E5 and E9 (a printed step fails, the result survives after a repair). The conclusion does survive, as the correction shows, so no stated result is affected."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E18",
+   "kind": "gap",
+   "locator": "Proof of Corollary 1.1.15, p.11",
+   "printed": "We replace ξ by gξg^{−1} so that ξ(P) = P*. Put M* := ξ(M) so that ξ|_M : M ≅ M* is an inner twisting.",
+   "correction": "'… there exists g ∈ G*(Q̄_p) such that P* := gξ(P)g^{−1} is Q_p-rational and M* := gξ(M)g^{−1} is a Q_p-rational Levi factor of P* (Levi factors of P* are R_u(P*)(Q̄_p)-conjugate and one of them is rational). Replacing ξ by int(g)∘ξ, we have ξ^{−1}σ(ξ) = int(g_σ) with g_σ ∈ N_G(P) ∩ N_G(M) = M, so ξ|_M : M ≅ M* is an inner twisting.'",
+   "reason": "Making ξ(P) rational does not make ξ(M) rational. Example: G = G* = GL_2, P = upper-triangular B, M the diagonal torus, and ξ = int(u) with u = (1 a; 0 1), a ∈ Q̄_p∖Q_p. Then ξ(P) = B is rational, but ξ(M) = uMu^{−1} is not defined over Q_p. The next sentence ('We may assume that B* ⊂ P* and T* ⊂ M*') needs M* to be Q_p-rational. The fix is routine.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.11 image. Having ξ(P) = P* rational does not make ξ(M) rational. If ξ has ξ(P) = P* and u ∈ R_u(P*)(Q̄_p), then int(u)∘ξ is again an inner twisting with the same property, and it moves ξ(M) to uξ(M)u^{−1}. Concretely, take G = G* = GL_2, P = B upper triangular, M the diagonal torus, and ξ = int(u) with u = (1 a; 0 1) and a ∈ Q̄_p∖Q_p. Then ξ(P) = B, but σ(ξ(M)) = ξ(M) would need u^{−1}σ(u) ∈ N(T), that is σ(a) = a for all σ, which fails. The proof then needs M* to be a Q_p-Levi (B(M*)_b, κ_{M*}, and 'B* ⊂ P*, T* ⊂ M*'), and only a rational M* makes ξ|_M an inner twisting. The repair is one extra normalization. P* has a Q_p-rational Levi factor, and all Levi factors of P* are R_u(P*)(Q̄_p)-conjugate, so after composing ξ with int(u) for some u ∈ R_u(P*)(Q̄_p) we have ξ(M) rational. Then ξ^{−1}σ(ξ) = int(g_σ) with g_σ ∈ N_G(P) ∩ N_G(M) = M, so ξ|_M is an inner twisting. The step is routine, and the proof is otherwise sound."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E19",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 1.1.17, p.13",
+   "printed": "By Lemma 1.1.13, there exists w ∈ W(G, T), such that ([b_M], {w · μ}) is M-admissible.",
+   "correction": "By Corollary 1.1.15 (with W(G,M) replaced by W(G,T) as in the correction of E2), there exists w ∈ W(G,T) such that ([b_M], {w·μ}) is M-admissible. (When G is quasi-split, Proposition 1.1.13 suffices.)",
+   "reason": "1.1.13 is a Proposition, and it assumes G quasi-split. §1.1.16–1.1.17 explicitly allow non-quasi-split G ('We continue to allow G to be non-quasi-split'). Remark 1.1.14 announces 1.1.15 as the extension to non-quasi-split groups, and 1.1.15 is cited nowhere else. So the reference should be 1.1.15. As printed, 1.1.15 gives only w ∈ N_G(M)/M, which is false in general (E2); its proof, however, yields w ∈ W(G,T), which is exactly what is used here. With E2 corrected, the step is valid.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.13 image. 1.1.13 is a Proposition, not a Lemma, and it assumes G quasi-split: §1.1.9 says 'From here until (1.1.13) we are concerned with quasi-split groups'. §1.1.16 says 'We continue to allow G to be non-quasi-split', Corollary 1.1.17 treats elliptic T′ exactly for non-quasi-split G, and Proposition 1.2.5 (p.14) applies 1.1.17 to non-quasi-split G_{Q_p}. The step's hypotheses are exactly those of Corollary 1.1.15: M a Q_p-rational Levi, μ minuscule, [b_M] ∈ B(M)_b, and ([b_M],{μ}) G-admissible because b_M is σ-conjugate to b. Remark 1.1.14 announces 1.1.15 as the extension of 1.1.13 to non-quasi-split groups, and the text layer shows that 1.1.15 is cited nowhere. So the intended reference is 1.1.15. The printed conclusion w ∈ W(G,T) is the form that the proof of 1.1.15 yields, not its printed statement (w ∈ N_G(M)/M, false by E2). With E2 corrected, the step is valid."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E20",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 1.2.5, p.14, first paragraph",
+   "printed": "By (1.1.17), there exist a maximal torus T_p ⊂ G_{Q_p} (chosen to be elliptic if G_{Q_p} is not quasi-split so that the transfer to M_{[b]} exists)",
+   "correction": "By (1.1.17), applied to a maximal torus T′ ⊂ J_b that is chosen elliptic if G_{Q_p} is not quasi-split (so that a transfer j : T′ ↪ M_[b] exists by [Kot86, §10]), there exist the maximal torus T_p := j(T′) ⊂ G_{Q_p} and a representative μ_p ∈ X_*(T_p) of {μ_X}_p such that …",
+   "reason": "It is the torus T′ ⊂ J_b that must be elliptic (§1.1.16). Read literally, the phrase is impossible unless [b] is basic. T_p ⊂ M_{[b]} contains the Q_p-rational central cocharacter ν_G([b]) of M_{[b]}, which lies in the maximal split subtorus of T_p. If T_p were elliptic in G_{Q_p}, that subtorus would be central in G, so [b] would be basic. The meaning is clear from 'so that the transfer to M_{[b]} exists'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.14 image. Corollary 1.1.17 produces a torus j(T′) ⊂ M_[b] ⊂ G_{Q_p}, where T′ ⊂ J_b has a transfer j. By §1.1.16 the transfer exists when G is quasi-split or when T′ is elliptic, and T′ is a torus of J_b. Read literally, 'T_p ⊂ G_{Q_p} elliptic' is impossible unless [b] is basic. By (1.1.3.1), some multiple rν_G([b]) is a Q_p-rational cocharacter into Z(M_[b])^0 ⊂ T_p, so its image is a split subtorus of T_p. If T_p/Z_G were anisotropic, that subtorus would lie in Z_G, so ν_G([b]) would be central and [b] basic. The clause 'so that the transfer to M_[b] exists' shows the intended meaning: T′ ⊂ J_b is elliptic, or equivalently T_p = j(T′) is elliptic in M_[b], since J_b is an inner form of M_[b]. The rest of the proof is unaffected."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E21",
+   "kind": "misprint",
+   "locator": "§1.3.5, p.17",
+   "printed": "𝒮_K = 𝒮_K(G,X) ↪ 𝒪_{E,(v)} ⊗_{Z_(p)} 𝒮_𝒦. the normalization of the Zariski closure of Sh_K in 𝒪_{E,(v)} ⊗ 𝒮_𝒦.",
+   "correction": "𝒮_K → 𝒪_{E,(v)} ⊗_{Z_(p)} 𝒮_𝒦 (finite, and a closed embedding on generic fibres), with 𝒮_K the normalization of the Zariski closure of Sh_K.",
+   "reason": "The hooked arrow claims an embedding, but the normalization of the closure is only finite and need not be a closed immersion or injective on the special fibre. §2.1.1 describes the same map correctly: 'we have a finite map 𝒮_K → 𝒪_E,(v) ⊗ 𝒮_𝒦, which is an embedding on generic fibres'. The proof of 1.3.7 uses only finiteness.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.17 (§1.3.5) shows '𝒮_K = 𝒮_K(G,X) ↪ 𝒪_{E,(v)} ⊗_{Z_(p)} 𝒮_𝒦.' followed by 'the normalization of the Zariski closure of Sh_K in 𝒪_{E,(v)} ⊗ 𝒮_𝒦'. The normalization map is finite and birational onto the closure. It is a closed immersion exactly when the closure is already normal, and the paper neither claims nor proves that. §2.1.1 (p.21) states the construction's actual property: 'a finite map 𝒮_K → 𝒪_{E,(v)} ⊗ 𝒮_𝒦, which is an embedding on generic fibres'. So the hooked arrow overstates the construction. The meaning is clear from the words that follow and from §2.1.1, and later arguments (e.g. the proof of 1.3.7) use only finiteness. Minor notational slip."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E22",
+   "kind": "misprint",
+   "locator": "Lemma 1.3.6, p.17",
+   "printed": "Let S be the spectrum of a discrete valuation ring R of mixed characteristic (0, p), with generic point η, and a map s : η → 𝒮_K. Then the following are equivalent (i) s extends to S → 𝒮_K. (ii) 𝒜_η has good reduction.",
+   "correction": "Add: R is an 𝒪_{E,(v)}-algebra, and s is a morphism of 𝒪_{E,(v)}-schemes (equivalently, the valuation of R restricts to v on E ⊂ Frac R).",
+   "reason": "𝒮_K is an 𝒪_{E,(v)}-scheme, so (i) forces 𝒪_{E,(v)} ⊂ R compatibly with E → Frac R, which means the valuation of R is centred at v on E. If E has a second place v' | p and s induces a valuation centred at v', then A_η can have good reduction (e.g. a CM point after a finite extension) although s cannot extend, so (ii) ⇏ (i). The proof's first step ('By construction, (i) is equivalent to s extending to a map S → 𝒮_𝒦') silently assumes S is over 𝒪_{E,(v)}. Every application satisfies the hypothesis: O_{L'} with L' = E_vL in 1.3.7, and 𝒪_{E_T,(v')} with v'|v in 1.3.10. The intended meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Confirmed on p.17. The lemma takes an arbitrary mixed-characteristic DVR R and a map s: η → 𝒮_K. Since 𝒮_K is an 𝒪_{E,(v)}-scheme, (i) forces 𝒪_{E,(v)} → R compatible with E → Frac R (s lands in the generic fibre Sh_K, an E-scheme). Suppose E has a second place v' | p and R's valuation restricts to v' on E. Pick y ∈ E with v(y) = 0 and v'(y) > 0. Then 1/y ∈ 𝒪_{E,(v)} but 1/y ∉ R, so s cannot extend. Yet A_η can have good reduction: take a CM point over a number field F, enlarged so that the CM abelian variety has good reduction at a place w | v', and R = 𝒪_{F,(w)}. So (ii) ⇒ (i) fails as literally stated. The proof's first step ('(i) is equivalent to s extending to S → 𝒮_𝒦') tacitly assumes R is an 𝒪_{E,(v)}-algebra compatibly with s. KP18 states its extension property for DVRs R ⊃ 𝒪_E. Every use in the paper satisfies the implicit hypothesis: 1.3.7 (𝒪_{L'}, L' = E_v L), 1.3.10 (𝒪_{E_T,(v')} with v' | v), and p.27 (points over Q̄_p via the fixed embedding)."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E23",
+   "kind": "misprint",
+   "locator": "End of the proof of Proposition 1.3.7, p.18 (first display)",
+   "printed": "H^1_dR(𝒜_s/L̄) ≅ L̄ ⊗ D_{s0} ≅ H^1_dR(𝒜'_s/L̄)",
+   "correction": "H^1_dR(𝒜_s/L̄) ≅ L̄ ⊗ D_{s0} ≅ H^1_dR(𝒜_{s'}/L̄)",
+   "reason": "The composite must be compared with the parallel transport (1.3.7.1) H^1_dR(𝒜_s/L̄) ≅ H^1_dR(𝒜_{s'}/L̄) between the two lifts s, s'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.18 (top) shows 'H^1_dR(𝒜_s/L̄) ≅ L̄ ⊗ D_{s0} ≅ H^1_dR(𝒜'_s/L̄)', with the prime on 𝒜 and subscript s. The proof compares two lifts s, s' ∈ Û^an(L̄), and the composite must equal the parallel transport (1.3.7.1) H^1_dR(𝒜_s/L̄) ≅ H^1_dR(𝒜_{s'}/L̄). No object 𝒜'_s is defined. Subscript slip."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E24",
+   "kind": "error",
+   "locator": "Proof of Proposition 1.3.10, p.18",
+   "printed": "Fix a place v'|p of E_T lying above v.",
+   "correction": "Let v' be the place of E_T induced by ι_p (it lies above v, because ι_p induces v on E ⊂ E_T). Then Lemma 1.3.9 for (T, h_x), applied with ι_p, gives [b_{s0}]_T = [b_bas(μ_x^{-1})]_T, whose image in B(G_{Q_p}) is [b].",
+   "reason": "(1.2.5) gives [b] as the image of [b_bas(μ_x^{-1})] with μ_x read in X_*(T_{Q̄_p}) through ι_p. A point s0 ∈ 𝒮_0(F̄_p) over 𝒪_{E_T,(v')} lifts through an embedding E_T ↪ L̄ inducing v'. By Lemma 1.3.9 for T its class is b_bas(τμ_x^{-1}) with ι_p∘τ inducing v', and this depends on v', not only on v. Example: G = GSp_6 (E = Q), T the CM torus of a sextic CM field K with generic Galois closure, CM type Φ, and p = 𝔭𝔭̄𝔮𝔮̄ with f(𝔭) = 1, f(𝔮) = 2. By Shimura–Taniyama, ι_pΦ = {ψ1,ψ2,ψ3} (H_𝔭 = {ψ1}, H_𝔮 = {ψ2,ψ3}) gives an ordinary reduction. The place of the reflex field E_T induced by ι_p∘τ, with τ swapping only φ3 ↔ φ̄3, gives slopes (0,½,½,½,½,1). Both places lie above v = p. So for [b] ordinary, the printed choice can produce s0 with [b_s0] ≠ [b], and the step 'But then we must have [b_s0] = [b]' fails. The repair is one line and the proposition is unaffected. Defence: ι_p was fixed just before Lemma 1.3.9, so the authors very likely meant the ι_p-place; the text nevertheless allows any v' above v.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.18 shows 'Fix a place v'|p of E_T lying above v'. In 1.2.5 (p.14), μ_T = μ_x is pinned down through ι_p ('the unique cocharacter, which, after base-change along ι_p, is identified with int(g_p)(μ_p)'), and [b] is the image of [b_bas(μ_x^{-1})] computed through ι_p. Lemma 1.3.9 for the datum (T, h_x) with model over 𝒪_{E_T,(v')} requires an embedding Q̄ → Q̄_p inducing v' on E_T, say ι_p∘τ. For a torus, B(T) = X_*(T)_{Γ_p}, and the class forced by admissibility is the image of τμ_x^{-1}. That image depends on the place v' (the double coset Γ_p τ Γ_{E_T}), not only on v. So '[b_{s0}] = [b]' holds only when v' is the place induced by ι_p. I checked the first reading's example. Take G = GSp_6 (E = Q), K sextic CM with Galois group (Z/2)^3 ⋊ S_3, and p = 𝔭𝔭̄𝔮𝔮̄ with f(𝔭) = 1, f(𝔮) = 2 (allowed by Chebotarev). Take Φ with ι_pΦ = {ψ1, ψ2, ψ3}, where H_𝔭 = {ψ1} and H_𝔮 = {ψ2, ψ3}. Shimura–Taniyama then gives slopes 1, 0, 1, 0 at 𝔭, 𝔭̄, 𝔮, 𝔮̄: ordinary. Take τ fixing φ1, φ2 and swapping φ3 ↔ φ̄3. Then ι_pτΦ = {ψ1, ψ2, ψ̄3} gives slopes (0, ½, ½, ½, ½, 1). So ι_p∘τ induces a different place of E_T, also above v = p, where the proof's conclusion fails for ordinary [b]. The fix is one line (take v' induced by ι_p, which lies over v since E ⊂ E_T), and Prop. 1.3.10 stands. The authors may well have meant this place, but the text allows any v' | v, so the step as written can fail."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E25",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 1.3.13, p.19",
+   "printed": "Let S be a connected component of 𝒮_K.",
+   "correction": "Let S be a connected component of 𝒮_K ⊗_{𝒪_{E,(v)}} F̄_p.",
+   "reason": "F-Isoc(S) is defined only for S of characteristic p, the corollary is about 𝒮_K ⊗ F̄_p, and the proof then chooses s0 ∈ S(F̄_p). 𝒮_K itself is flat over 𝒪_E,(v).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.19 shows 'Let S be a connected component of 𝒮_K.' The corollary concerns 𝒮_K ⊗ F̄_p, F-Isoc(S) (1.3.11) is defined only for S of characteristic p, 𝒟 lives on 𝒮_K ⊗_{𝒪_{E,(v)}} F̄_p (1.3.11), and the proof picks s0 ∈ S(F̄_p). 𝒮_K is flat over 𝒪_{E,(v)}, and its connected components need not have connected geometric special fibre. The meaning is clear."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E26",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 1.3.13, p.19",
+   "printed": "the scheme of L-linear maps from V_L to D_{s0} taking s_α to s_{α,cris,0}.",
+   "correction": "taking s_α to s_{α,cris,s0}.",
+   "reason": "Subscript slip: the tensors are s_α,cris,s0 of Prop. 1.3.7.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.19 shows 'taking s_α to s_{α,cris,0}'. The tensors are the s_{α,cris,s0} of Prop. 1.3.7, as in the preceding line, which defines G_{s0}. Subscript slip."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E27",
+   "kind": "error",
+   "locator": "Corollary 1.3.18 and its proof, p.20",
+   "printed": "Suppose that p > 2, and that G splits over a tamely ramified extension, and K_p is a special parahoric. Then the embedding G ↪ 𝒢_V can be chosen such that S_[b_μ] is dense in 𝒮_{K,k(v)}. Proof. This follows from Corollary 1.3.16 and [KP18, Cor. 0.3].",
+   "correction": "Suppose p > 2, G splits over a tamely ramified extension, p ∤ |π_1(G^der)|, and K_p = K°_p is the parahoric attached to a point x ∈ B(G, Q_p) that is a special vertex of B(G, Q_p^ur) (a very special parahoric; this forces G_{Q_p} to be quasi-split, so [b_μ] exists and satisfies (1.1.3.1)). Then, choosing the embedding as in KP18 §4.1.5, 𝒮_{K,k(v)} is normal (KP18, Cor. 0.3), hence locally integral, and Cor. 1.3.16 applies.",
+   "reason": "KP18 Cor. 0.3 (Publ. IHÉS 128, p.124; checked in the KP18 text) gives normality of the special fibre only 'If K°_p is associated to a point x which is a special vertex in B(G, Q_p^ur)'. It is stated under the introduction's standing assumptions, which include 'p does not divide the order |π_1(G^der)|' (p.122). Neither condition appears in Cor. 1.3.18. A parahoric that is special over Q_p need not be special over Q_p^ur. For the Shimura curve of an indefinite quaternion algebra B/Q ramified at an odd prime p, G_Qp = D^× splits over Q_{p^2} (tame), and K_p = O_D^× is the unique parahoric (the building is a point, so it is special). Over Q_p^ur, however, K_p becomes an Iwahori subgroup of GL_2. There [b_μ] does not exist (E8), and the Čerednik–Drinfeld special fibre has ordinary double points, so it is not locally integral. So the corollary fails in this case when 'special' has its usual meaning over Q_p. Defence: the authors may intend 'special' in KP18's sense (special over Q_p^ur). On that reading only the π_1 hypothesis is missing, and that hypothesis is not automatic for Hodge type (e.g. G^der ≅ SU(1,5)/μ_3 acting through Λ^3, where π_1 = Z/3).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The p.20 image shows the quoted statement and proof. KP18 Cor. 0.3 (p.124 of the KP18 text) gives normality of the special fibre only 'If K°_p is associated to a point x which is a special vertex in B(G, Q_p^ur)'. It sits under the Introduction's standing assumptions (p.122): p > 2, abelian type, tame, and p ∤ |π_1(G^der)|. KMS assume only 'K_p is a special parahoric', which in the usual sense (Tits) means special in B(G, Q_p). By KP18's footnote, special over Q_p^ur (very special) points exist only for quasi-split G_{Q_p}. Counterexample on the Q_p reading: B/Q an indefinite quaternion algebra ramified at an odd p, G = B^× with V = B (Hodge type), and K_p = O_D^× = the stabilizer of O_D ⊂ D. G_{Q_p} = D^× splits over Q_{p^2} (tame), and O_D^× is the unique parahoric; the reduced building is a point, so it is special over Q_p. Over Q_p^ur it becomes Iwahori, not special. π_1(G^der) = 1. Every point of the special fibre is supersingular (basic), and the Čerednik–Drinfeld special fibre has ordinary double points. So no μ-ordinary locus is dense for any choice of embedding; indeed [b_μ] does not even exist here (E8). On the KP18 reading of 'special', the π_1 hypothesis is still missing: SU(1,5)/μ_3 acting through Λ^3 is Hodge type with π_1 = Z/3 and p = 3 > 2. KP18 Cor. 4.6.26 drops that hypothesis, but only for its abelian-type construction, which is not shown there to agree with the normalization of the closure used by KMS. The cited result does not cover the corollary's hypotheses, and on the natural reading the corollary is false."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E28",
+   "kind": "gap",
+   "locator": "§2.1.5, p.22 and §2.1.7, p.23",
+   "printed": "and it fixes the crystalline components {s_α,cris,s0} as these are φ-invariant. Hence γ_{m,s0} ∈ I_{s0}(Q).  /  the isocrystal D_{s0} has a natural descent to an F-isocrystal D_{m,s0} over Q_{q^m}, and the φ-invariant tensors {s_α,cris,s0} belong to D^⊗_{m,s0}.",
+   "correction": "Insert: since s0 is F_q-rational, for an automorphism τ of L̄ extending σ^r, the conjugate s^τ of a lift s of s0 is again a lift of s0, and the s_α,ét are defined over E. By the characterization in Prop. 1.3.7, (1 ⊗ σ^r)(s_α,cris,s0) = s_α,cris,s0 on D_{s0} = D(A_0)_Q ⊗_{Q_q} L. Hence s_α,cris,s0 ∈ D_{m,s0}^⊗, and the linear map γ_{m,cris,s0} = φ^{rm} fixes them, since they are φ-invariant.",
+   "reason": "φ-invariance alone does not imply invariance under the linear q^m-Frobenius φ_0^{rm} ⊗ 1. For example, let D_0 = Q_p e with φ_0(e) = ue, u ∈ Z_p^× \\ {1} (q = p, m = 1). Lang's theorem gives λ ∈ L with σ(λ)u = λ, and λ ∉ Q_p. Then λe ∈ D_s0 is φ-invariant but is moved by the Frobenius endomorphism (multiplication by u). The needed rationality does hold, by canonicity (Prop. 1.3.7), but the paper gives only the φ-invariance reason. The conclusion γ_{m,s0} ∈ I_s0(Q) is correct.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Both quotations are confirmed on the images (p.22 §2.1.5 and p.23 §2.1.7). γ_{m,s0} acts on D_{s0} = D_{m,s0} ⊗_{Q_{q^m}} L as the linear map φ_m^{rm} ⊗ 1, whereas φ^{rm} = φ_m^{rm} ⊗ σ^{rm}. A φ-invariant tensor t is fixed by γ exactly when (1 ⊗ σ^{rm})t = t, i.e. when t ∈ D_{m,s0}^⊗. So φ-invariance alone does not give the conclusion. The first reading's toy example is correct. Take D_0 = Q_p e, φ_0 e = u e with u ∈ Z_p^× \\ {1}, and use Lang to pick λ ∈ W(F̄_p)^× with σ(λ)u = λ (then λ ∉ Q_p). The vector λe is φ-invariant, but the linear Frobenius multiplies it by u. The needed rationality, s_α,cris,s0 ∈ D_{m,s0}^⊗, is asserted in 2.1.7 without argument. It is true: s0 is F_q-rational, and transporting a lift s along an automorphism of L̄ extending σ^r yields another lift of s0 (the s_α,ét are defined over E). By the canonicity in Prop. 1.3.7, (1 ⊗ σ^r) then fixes s_α,cris,s0. The conclusion γ_{m,s0} ∈ I_{s0}(Q) is correct. The missing step is a gap in the proof, not an error."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E29",
+   "kind": "misprint",
+   "locator": "§2.1.8, p.24",
+   "printed": "We call an element γ ∈ H(F) neat if γ is semi-simple and the Zariski closure of ⟨x⟩, the group of points generated by x, is connected (that is a torus).",
+   "correction": "the Zariski closure of ⟨γ⟩, the group generated by γ, is connected (that is, a torus).",
+   "reason": "The element being defined is γ, and x does not occur elsewhere in the definition.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The image of p.24 shows 'the Zariski closure of ⟨x⟩, the group of points generated by x, is connected'. The element being defined is γ ∈ H(F), and x appears nowhere else in the definition. Its use in Cor. 2.1.9 ('γ_{m,s0} ... is neat') confirms that the definition is about γ."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E30",
+   "kind": "misprint",
+   "locator": "§2.2.6, definition of strictly accommodating, first and second bullets, p.26",
+   "printed": "For some totally really field K, … If (G^s, V^s) is of type D^R, then every for any character χ : Z_G → G_m, over Q̄, …",
+   "correction": "'For some totally real field K' and 'then, for every character χ : Z_G → G_m over Q̄, …'.",
+   "reason": "Checked on the page image. These are two word-level slips in the definition that the accommodating case depends on. The meaning is clear: Res_{K/Q} with K totally real, as in Deligne and Noot, and a condition on every character of Z_G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Both slips are on the p.26 image: 'For some totally really field K' and 'then every for any character χ : Z_G → G_m, over Q̄'. They are word-level typos in the definition of strictly accommodating, and the meaning is unambiguous: K totally real, and the condition holds for every character of Z_G."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E31",
+   "kind": "misprint",
+   "locator": "§2.2.7, proof of Proposition 2.2.2 (accommodating case), pp.26–27",
+   "printed": "The subalgebra Q^n ⊂ End_{Q̄} V_{Q̄} which acts by scalars on each factor W_i, descends to a product of fields L = ∏_{i=1}^k L_i ⊂ End_Q V",
+   "correction": "The subalgebra Q̄^n ⊂ End_{Q̄} V_{Q̄} which acts by scalars on each factor W_i descends to …",
+   "reason": "Checked on the page image (the text layer also has 'Qn'). The Q̄-subalgebra acting by scalars on the isotypic components is Q̄^n. It is Gal(Q̄/Q)-stable, since Galois permutes the W_i, so it descends to an étale Q-algebra L = ∏ L_i of dimension n. The Q-algebra Q^n does not 'descend' to a product of fields L_i; its Galois invariants are just Q^k.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "A 400 dpi zoom of p.26 (last line) shows 'ℚ^n' without a bar, while the adjacent End_{ℚ̄} V_{ℚ̄} carry bars. The subalgebra of End_{Q̄} V_{Q̄} acting by scalars on the isotypic components W_1, …, W_n is the Q̄-algebra Q̄^n. It is Gal(Q̄/Q)-stable, because Galois permutes the W_i, so it descends to an étale Q-algebra L = ∏_{i=1}^k L_i of dimension n, with k the number of Galois orbits. The Q-span Q^n of the idempotents is not a Q̄-subspace and cannot 'descend' to fields L_i of degree equal to the orbit sizes. The meaning is clear."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E32",
+   "kind": "error",
+   "locator": "§2.2.7, proof of Proposition 2.2.2, construction of (G″, X″, ι″), p.27",
+   "printed": "Identifying G′^ad and G^ad, let G″ be the connected component of the identity of G′ ×_{G^ad} G, … we set V″ = V ⊕ V′, where V″ is equipped with the symplectic form ψ″ = ψ ⊕ ψ′, and consider the embedding ι″ : (G″, X″) → (G_{V″}, H_{V″}) induced by ι and ι′.",
+   "correction": "Let G″ be the identity component of {(g′, g) ∈ G′ ×_{G^ad} G : c′(g′) = c(g)} = (G′ ×_{G^ad} G) ∩ GSp(V″, ψ″), where c and c′ are the similitude characters. (h_0′, h_0) factors through G″, because c∘h_0 = c′∘h_0′. G″ surjects onto G and G′ with central kernels, and G″^der ≅ G′^der. The rest of the proof is unchanged.",
+   "reason": "Checked on the page image. G_{V″} = GSp(V″, ψ″) (§1.3.1, p.15). G contains the scalars G_m, via the weight of X, and they map trivially to G^ad, so (1, a) ∈ G′ ×_{G^ad} G for a ∈ G_m, and {1}×G_m lies in the identity component G″. But (1, a) acts on V ⊕ V′ by (a, 1) and scales ψ″ by a² on V and by 1 on V′. It is not a symplectic similitude unless a = ±1. So G″ ⊄ G_{V″}, and 'the embedding ι″ : (G″,X″) → (G_{V″}, H_{V″})', to which 'our previous constructions' are then applied, does not exist as printed. In Noot's Mumford–Tate setting the corresponding group, the Mumford–Tate group of A × A′, automatically satisfies c = c′; the slip comes from reformulating with Shimura data. It is the same kind of slip as in the proof of Lemma 2.2.8 (E5), and the repair is routine.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "I checked this on the p.27 image. G_{V″} = GSp(V″, ψ″) (§1.3.1), and a Hodge-type embedding must land there, which the integral-model construction ('our previous constructions') needs. G contains the scalars G_m: for h ∈ X ⊂ H_V, h(r) = r on V_R, and G is defined over Q (compare p.25 and §2.1.3). The scalars map trivially to G^ad, so {1} × G_m ⊂ G′ ×_{G^ad} G, and being connected it lies in G″. The element (1, a) acts on V ⊕ V′ as a on V and 1 on V′, so it scales ψ ⊕ ψ′ by a² on V and by 1 on V′. It is not a symplectic similitude unless a = ±1. So G″ ⊄ G_{V″}, and the printed embedding ι″ does not exist. The step as printed is false, hence an error; the repair is routine and I checked it. c∘h = Nm_{C/R} (or its inverse, consistently) for every point of every Siegel space, so (h_0′, h_0) satisfies c′ = c. The subgroup cut out by c′(g′) = c(g) still surjects onto G and G′ (lift g^ad into G′^der, then multiply by a scalar a with a² = c(g)). It contains the graph of G′^der → G^der, which is its derived group, so G″^der ≅ G′^der still holds. The kernels of the projections, Z_{G′} ∩ ker c′ and Z_G ∩ ker c, are central, so the maps I_{s_0} ← I_{s″_0} → I_{s′_0} and the argument on p.28 are unchanged. Proposition 2.2.2 survives."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E33",
+   "kind": "misprint",
+   "locator": "§2.2.7, proof of Proposition 2.2.2, p.27",
+   "printed": "Thus, the projections V″ → V′, V″ → V′, are G″ invariant elements of End(V″)",
+   "correction": "the projections V″ → V, V″ → V′ (as idempotents of End(V″)) are G″-invariant",
+   "reason": "Checked on the page image. The same projection is printed twice. The preceding sentence ('the projections of V″ onto V and V′') and the maps I_{s0} ← I_{s0″} → I_{s0′} that follow need both projectors.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The p.27 image reads 'the projections V″ → V′, V″ → V′, are G″ invariant elements of End(V″)'. The same projection is printed twice. The preceding sentence ('projections of V″ onto V and V′') and the two maps I_{s_0} ← I_{s″_0} → I_{s′_0} need both idempotents."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E34",
+   "kind": "gap",
+   "locator": "§2.2.7, proof of Proposition 2.2.2 (reduction to the accommodating case), p.28",
+   "printed": "Replacing γ″ by a power, as above, we may assume that γ″^ab ∈ G″^ab(Q), the image of γ, lifts to z ∈ Z_{G″}(Q) and write γ″ = γ″_1 z. … Since z and γ commute, γ″_1 is again a Weil point. … this is a consequence of the corresponding statement for the image of γ″_1 in I_{s′_0}, which is the accommodating case considered above.",
+   "correction": "Also replace γ″ by γ″^N, taking z^N as the lift of its abelianization, so that γ″_1 becomes γ″_1^N. Choose N to kill the component group of the diagonalizable group Zariski closure of ⟨γ″_1⟩. Then γ″_1^N is neat, and so is its image in I_{s′_0}. Passing from γ″^N back to γ″ is legitimate by [Noo09, Prop. 3.2], since γ″ is neat. Then apply the accommodating case to the image of γ″_1^N.",
+   "reason": "The accommodating case was proved only for neat Weil points: neatness gives the 'faiblement net' condition needed for [Noo09, Lem. 2.5, 2.6] (p.27). The proof shows that γ″_1 is a Weil point but never that it, or its image in I_{s′_0}, is neat, and neatness is not inherited from γ″. Two lifts z differ by an element of the finite group Z_{G″} ∩ G″^der, and multiplying a neat element by a torsion central element can create eigenvalue ratios that are non-trivial roots of unity. For example, if −1 ∈ Z ∩ G^der does not lie in the torus S = closure of ⟨γ″_1⟩, then the closure of ⟨−γ″_1⟩ is S ∪ (−S). So the reduction as written applies the accommodating case outside its hypotheses. For the defence: the text already replaces γ″ by powers 'as above', and the fix is one more power.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "I checked pp.25, 27 and 28. Proposition 2.2.2, and the accommodating case proved on p.27, concern neat Weil points: neatness is what gives the 'faiblement net' input to [Noo09, Lem. 2.5, 2.6]. The reduction on p.28 proves that γ″_1 = γ″z^{-1} is a Weil point and then applies 'the accommodating case considered above' to its image in I_{s′_0}. It never checks that this element is neat, and neatness is not automatic. The lift z ∈ Z_{G″}(Q) of γ″^ab is determined only up to the finite group (Z_{G″} ∩ G″^der)(Q). A cleanest witness: if γ″ is central and ε ≠ 1 lies in that group (for example −1 when G^der = Sp), then z = γ″ε is an admissible lift and γ″_1 = ε^{-1} is a non-trivial torsion element, which is not neat. The conclusion is not in danger: one more power fixes it, and the paper already uses 'replacing γ″ by a power', justified by [Noo09, Prop. 3.2] since γ″ is neat. But the hypothesis of the case being invoked is never checked, so this is a gap in the proof."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E35",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.2.8, p.28",
+   "printed": "This follows, for example, from the fact that the action of G(Q_ℓ) preserves the corresponding decomposition on ℓ-adic Tate modules for any ℓ ≠ p.",
+   "correction": "… the action of G′(Q_ℓ) preserves the corresponding decomposition V′_{Q_ℓ} = V_{Q_ℓ} ⊕ V_{Q_ℓ} on ℓ-adic Tate modules …",
+   "reason": "Checked on the page image. The group whose ℓ-adic points contain I_{s′_0} ⊗ Q_ℓ, and which must preserve the decomposition of V′ = V ⊕ V, is G′, not G.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The p.28 image reads 'the action of G(Q_ℓ) preserves the corresponding decomposition on ℓ-adic Tate modules'. The relevant group is G′: I_{s′_0} ⊗ Q_ℓ ≅ I_{ℓ,s′_0} ⊂ G′_{Q_ℓ}, and it is G′ acting on V′ = V ⊕ V whose action preserves the decomposition matching A_{s′_0} ~ A_{s_0} × A_T. G acts on V alone, so 'G(Q_ℓ)' says nothing about the decomposition. The prime was dropped, and the meaning is clear. (The same holds with the corrected G′ of D-E5.)"
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E36",
+   "kind": "error",
+   "locator": "Proof of Proposition 2.2.13, p.29",
+   "printed": "Indeed, let M be the connected component of the identity in the centralizer of γ in G. Then M is a Levi subgroup of G, and T_1, T_2 ⊂ M are maximal tori, so conjugate in M.",
+   "correction": "Delete 'M is a Levi subgroup of G'. M is a connected reductive group containing T_1 and T_2 as maximal tori, so they are conjugate in M(k).",
+   "reason": "Checked on the page image. Here γ ∈ T_1(k) ∩ T_2(k) is arbitrary, and the identity component of the centralizer of a semisimple element need not be a Levi subgroup. Take G = GSp_4 = GSp(W_1 ⊕ W_2) with W_i symplectic planes and γ = (1 on W_1, −1 on W_2). Then M = GSp(W_1) ×_{G_m} GSp(W_2) has dimension 7 and a 1-dimensional centre, while every proper Levi subgroup of GSp_4 has a central torus of dimension ≥ 2. The assertion is false as stated but idle: conjugacy of maximal tori in the connected group M is all that is used, and in all three applications (p.30) γ is neat or central in I_0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "I checked this on the p.29 image. The observation takes an arbitrary γ ∈ T_1(k) ∩ T_2(k). The identity component of the centralizer of a semisimple element is in general only a pseudo-Levi subgroup. Counterexample: G = GSp(W_1 ⊕ W_2) = GSp_4, with W_i symplectic planes and γ = (1 on W_1, −1 on W_2) ∈ Sp_4. Then M = GSp(W_1) ×_{G_m} GSp(W_2) = {(g_1, g_2) ∈ GL_2 × GL_2 : det g_1 = det g_2}, which is connected of dimension 7 with a 1-dimensional connected centre. A proper Levi subgroup L = Z_G(S), with S a non-central torus, has a central torus of dimension ≥ 2, and M ≠ G. So M is not a Levi subgroup. The false clause is idle. The argument uses only that T_1 and T_2 are maximal tori of the connected group M, hence M(k)-conjugate. In the applications on p.30, γ is central in I_0 (so M = I_0) or a neat Weil point (so M is the centralizer of a torus, hence a Levi subgroup)."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E37",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.2.13, p.30",
+   "printed": "Let γ ∈ T(Q) be a Weil point. By Proposition 2.2.2, there exists an element g ∈ Aut′(G)(k) which conjugates j_ℓ(γ) to j_{ℓ′}(γ).",
+   "correction": "Let γ ∈ T(Q) be a neat Weil point.",
+   "reason": "Checked on the page image. Proposition 2.2.2 applies only to neat Weil points, and a few lines later only the neat Weil points are used ('By Lemma 2.2.10, the set of neat Weil points in T(Q) is Zariski dense'). The Lemma 2.2.11 argument needs only a dense set, so restricting to neat points costs nothing.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "The p.30 image reads 'Let γ ∈ T(Q) be a Weil point. By Proposition 2.2.2, …'. Proposition 2.2.2 is stated only for neat Weil points. It cannot simply be extended through powers, because [Noo09, Prop. 3.2] needs neatness. The next sentences use only neat Weil points: 'By Lemma 2.2.10, the set of neat Weil points in T(Q) is Zariski dense', which is the Γ fed to Lemma 2.2.11. The word 'neat' was omitted, the meaning is clear, and nothing depends on it."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E38",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.2.13, p.30",
+   "printed": "By the observation above, applied with I in place of G, after conjugating each j_ℓ by an element of I_0(k) … It follows by Lemma 2.2.11 that σ|_T is induced by a point g ∈ Aut′(G)(k). … As σ and g are automorphisms of I_0 which agree on T, they differ by conjugation by an element of t ∈ T(k).",
+   "correction": "'It follows by Lemma 2.2.11 that σ|_{T_0} is induced by …'; 'As σ and g are automorphisms of I_0 which agree on T_0, they differ by conjugation by an element t ∈ T_0(k).' (Keep 'applied with I in place of G', which is correct.)",
+   "reason": "Checked on the page image. σ = j_{ℓ′} ∘ j_ℓ^{-1} is an automorphism of I_0 preserving T_0, the tori being conjugated are maximal tori of I_0, and the conjugating element must lie in T_0(k) ⊂ I_0(k). T ⊂ I is only identified with T_0 via j_ℓ. The defence: I ≅ I_0 and T ≅ T_0 via j_ℓ, so the meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "I checked the p.30 image, and the claim needs narrowing. (a) 'applied with I in place of G' is correct as printed. Apply the observation to I_k with the maximal tori T and j_ℓ^{-1}(T_0), which both contain the central γ_{m,s_0}. If h ∈ I(k) conjugates T onto j_ℓ^{-1}(T_0), then j_ℓ∘int(h) = int(j_ℓ(h))∘j_ℓ, i.e. j_ℓ is conjugated by j_ℓ(h) ∈ I_0(k), exactly as the text says. (b) The real slips are these. σ = j_{ℓ′}∘j_ℓ^{-1} is an automorphism of I_0 preserving T_0, and T ⊂ I is not a subgroup of I_0. So 'σ|_T' should be σ|_{T_0} (Lemma 2.2.11 is applied with S = T_0 and Γ = j_ℓ(neat Weil points)), 'agree on T' should be 'agree on T_0', and 'an element of t ∈ T(k)' should be 'an element t ∈ T_0(k)'. The identification of T with T_0 depends on ℓ, which is exactly what σ compares, so this is not a harmless convention. The meaning is nevertheless clear."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E39",
+   "kind": "misprint",
+   "locator": "§2.3.8, remark after Conjecture 2.3.8, p. 33",
+   "printed": "When K_p is hyperspecial this conjecture is proved in [Kis10].",
+   "correction": "When K_p is hyperspecial (and p > 2) this conjecture is proved in [Kis17, (2.2.3), (2.2.5)].",
+   "reason": "[Kis10] (Integral models for Shimura varieties of abelian type) constructs integral models; the CM-lifting/Langlands–Rapoport result is in [Kis17] (mod p points on Shimura varieties of abelian type), which assumes p > 2. The introduction (p.3) correctly credits [Kis17] for this conjecture: 'When G is unramified this conjecture was proved by one of us [Kis17]'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on a zoomed p.33 image: 'When K_p is hyperspecial this conjecture is proved in [Kis10].' The bibliography (p.40) gives [Kis10] = 'Integral models for Shimura varieties of abelian type' (JAMS 2010). That paper constructs 𝒮_{K_p} and contains no CM-lifting theorem. The result is in [Kis17] = 'mod p points on Shimura varieties of abelian type' (JAMS 2017). I checked it there. Thm (2.2.3) and Cor (2.2.5) say: for any maximal torus T ⊂ I_x there is a point x′ in the isogeny class of x with a lift to a special point x̃′ such that T ↪ Aut_Q A_{x′} lifts to A_{x̃′} and MT(A_{x̃′}) ⊂ T. That is an isogeny CM lift with respect to T. The introduction (p.3) correctly credits [Kis17]. [Kis17] assumes p > 2 (Thm (0.3); §1.1 'In this section we assume that p > 2'). The remark omits this, as does the introduction."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E40",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.3.10, final assertion, p. 33",
+   "printed": "For ℓ ≠ p, the eigenvalues of β acting on V_ℓ(A_{s0}) all belong to Z_ℓ^×",
+   "correction": "For ℓ ≠ p, the eigenvalues of β acting on V_ℓ(A_{s0}) are ℓ-adic units (they lie in Z̄_ℓ^×); therefore …",
+   "reason": "β ∈ T(Q) acts semisimply with algebraic eigenvalues that need not lie in Q_ℓ. What the argument uses, boundedness of β in T(Q_ℓ), follows from both γ and γ_{m,s0} being p-units.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on a zoomed p.33 image: 'all belong to Z_ℓ^×' (no bar). β ∈ T(Q) acts semisimply on V_ℓ(A_{s0}) with eigenvalues that are algebraic numbers in Q̄_ℓ, generally not in Q_ℓ. For example, take T = Res_{K/Q}G_m with ℓ inert in K. Then the eigenvalues of β ∈ K^× ∖ Q^× are β and β̄ in K_λ ∖ Q_ℓ. What is true, and what the argument needs, is that they are ℓ-adic units. That holds because γ and γ_{m,s0} are p-units, so β generates a bounded subgroup of T(Q_ℓ). The rest of the proof is unaffected."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E41",
+   "kind": "error",
+   "locator": "Lemma 2.3.13 and its proof, p. 34 (used in the proof of Corollary 2.3.14, p. 35)",
+   "printed": "Suppose that s0 ∈ S_{K_p}(F̄_p), T ⊂ I_{s0} a maximal torus, and that s0 admits a Q̄-isogeny CM lift (j, x, s0′) with respect to T. … Then P^T is a T-torsor … Since j is conjugate to i_ℓ by an element of G(Q̄_ℓ), P^T_ℓ(s0, s0′) is non-empty.",
+   "correction": "Add to the hypotheses of Lemma 2.3.13, or build into the definition of a CM lift with respect to T, the following: for m sufficiently divisible, γ_{m,s0} ∈ T(Q) acts on A_{s0′} through j as γ_{m,s0′}. With this, an element of G(Q̄_ℓ) conjugating i_ℓ to j lies in P_ℓ^T(Q̄_ℓ), and the rest of the proof goes through. The lift constructed in the proof of Proposition 2.3.11 has this property (the claim γ_{m,s0} = γ_{m,s0′} proved there). So Corollaries 2.3.14 and 2.3.15 hold if the proof of 2.3.14 starts from that lift.",
+   "reason": "P_ℓ(s0,s0') ⊂ Isog_ℓ consists of isomorphisms carrying γ_{m,ℓ,s0} to γ_{m,ℓ,s0'}. A G(Q̄_ℓ)-element conjugating i_ℓ to j carries γ_{m,ℓ,s0} = i_ℓ(γ_{m,s0}) to j(γ_{m,s0}), which equals γ_{m,ℓ,s0'} = j(γ_{m,s0'}) only if γ_{m,s0} = γ_{m,s0'} in T(Q). So the step quoted from the proof is incomplete, and the condition is also necessary. If f ∈ P^T(R), R ≠ 0, then f∘γ_{m,s0} = γ_{m,s0'}∘f (f is an isogeny over F̄_p) and f∘γ_{m,s0} = j(γ_{m,s0})∘f (T-equivariance), so γ_{m,s0} = γ_{m,s0'}. Counterexample to the lemma as stated: G = GL_2 = GSp_2 (modular curve, hyperspecial level; PEL type C, so Conjecture 2.3.4 holds by Lemma 2.3.5), s0 ordinary with End^0 = K imaginary quadratic, and T = I_{s0} = Res_{K/Q}G_m. Take (j,x,s0') from Proposition 2.3.11 and let c be complex conjugation on T. By Skolem–Noether, j∘c is GL_2(Q)-conjugate to j, so (j∘c, x, s0') is again a Q̄-isogeny CM lift in the sense of §2.3.7: same image torus, same CM point, still Q̄_ℓ-conjugate to every i_ℓ, still Q̄-isogenous. For it, T-equivariance forces γ_{m,s0} = c(γ_{m,s0}), i.e. γ_{m,s0} ∈ Q^×, which is false for ordinary s0. So P^T = ∅. The defence that the paper only applies the lemma to the lift of Proposition 2.3.11 saves the corollaries, but not the lemma as stated. The printed proof of Corollary 2.3.14 also starts from an unspecified lift.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.34 image. The lemma asserts that P^T is a T-torsor, and the proof argues that it is non-empty, so non-emptiness is part of the claim. By 2.3.2–2.3.3, P_ℓ(s0,s0′) ⊂ Isog_ℓ consists of tensor-preserving isomorphisms that also carry γ_{m,ℓ,s0} to γ_{m,ℓ,s0′} (m sufficiently divisible). T acts on A_{s0} through T ⊂ I_{s0}. For m divisible, γ_{m,s0} is central in I_{s0}, so it lies in T(Q). T acts on A_{s0′} through j (2.3.9). Let γ′ ∈ T(Q) be the element that acts on A_{s0′} as γ_{m,s0′}. An element g ∈ G(Q̄_ℓ) with int(g)∘i_ℓ = j carries i_ℓ(γ_{m,s0}) to j(γ_{m,s0}), and that equals γ_{m,ℓ,s0′} = j(γ′) only if γ_{m,s0} = γ′. So the quoted step skips a condition. The condition is also necessary. If f ∈ P^T(R) with R ≠ 0, then f∘γ_{m,s0} = γ_{m,s0′}∘f because f is in Isog, and f∘γ_{m,s0} = j(γ_{m,s0})∘f by T-equivariance, so γ′ = γ_{m,s0}. Counterexample: take G = GL_2 = GSp_2 (the modular curve with K_p = GL_2(Z_p); PEL type C, so Conjecture 2.3.4 holds by Lemma 2.3.5). Let s0 be an ordinary elliptic curve with End^0 = K imaginary quadratic, and T = I_{s0} = Res_{K/Q}G_m. Let (j,x,s0′) be any Q̄-isogeny CM lift (Prop. 2.3.11 gives one), and let c be the non-trivial automorphism of T. By Skolem–Noether, j∘c = int(g)∘j with g ∈ GL_2(Q). So j∘c is still Q̄_ℓ-conjugate to every i_ℓ and has the same image torus. h_x still factors through that torus, the image of Sh_{K_{T,p}}(h_x) in Sh(G,X) does not change, and P(s0,s0′) does not change either. Hence (j∘c,x,s0′) is again a Q̄-isogeny CM lift in the sense of 2.3.7, and its γ′ is c(γ′_j). If both lifts had P^T ≠ ∅, then γ_{m,s0} = γ′_j = c(γ′_j) = c(γ_{m,s0}), so π^m ∈ Q for the Frobenius π of s0. That is impossible for ordinary s0, because (π) and (π̄) are powers of the two distinct primes above p. So one of the two lifts has P^T = ∅. Starting from the lift of Prop. 2.3.11, which has γ′ = γ_{m,s0}, it is the twisted one. The defence that the paper applies the lemma only to the lift built in Prop. 2.3.11 saves Corollaries 2.3.14 and 2.3.15, but not the lemma as stated. Also, the proof of 2.3.14 only says 'a Q̄-isogeny CM lift … say (j,x,s0′)'."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E42",
+   "kind": "misprint",
+   "locator": "Statement of Lemma 2.3.13, p. 34",
+   "printed": "whose class in H^1(Q_v, G) is trivial for every place v of G.",
+   "correction": "… is trivial for every place v of Q.",
+   "reason": "The places are those of Q; the proof and Corollary 2.3.14 ('For every place v of Q') confirm this.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.34 image: '… is trivial for every place v of G.' The classes live in H^1(Q_v, G), so v runs over the places of Q. The proof treats v = ∞, ℓ ≠ p and p, and Corollary 2.3.14 says 'For every place v of Q'."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E43",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.3.11, p. 34",
+   "printed": "Recall from the preceding lemma that the q^m-Frobenius γ_{m,s0} ∈ I_{s0}(Q) is contained in T(Q).",
+   "correction": "For m sufficiently divisible, γ_{m,s0} is central in I_{s0} (all endomorphisms of A_{s0} are defined over some F_{q^m}), hence lies in the maximal torus T(Q). Lemma 2.3.10, applied to s0′, gives γ_{m,s0′} ∈ T(Q).",
+   "reason": "In Proposition 2.3.11, s0 is an arbitrary point with T ⊂ I_{s0}; nothing makes it the reduction of a special point with respect to T. Both memberships are needed and both are true, so the misattributed citation is harmless.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.34 image. In Proposition 2.3.11, s0 is an arbitrary point and T ⊂ I_{s0} an arbitrary maximal torus. Lemma 2.3.10 is stated in the setting of 2.3.9: its point is the reduction of a point of Sh_{K_{T,p}}(h_x), with T acting through that special point. So the lemma applies to s0′, not to s0. The membership γ_{m,s0} ∈ T(Q) still holds for m sufficiently divisible. All endomorphisms of A_{s0} are defined over a finite field, so γ_{m,s0} commutes with I_{s0}. It is semisimple and lies in the identity component, hence it is central there and lies in every maximal torus. This is also the only reason behind the first assertion of Lemma 2.3.10, which is given without proof there. So the reference invokes the right fact under hypotheses that do not hold here. Both memberships (for s0 and for s0′) are used in the final step, and both are true. Harmless."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E44",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.3.13, p. 35",
+   "printed": "If s̃0, s̃′0 ∈ 𝒮_{K_p} are lifts of s̃0, s̃′0 then this G-torsor may also be identified with Isom_{s_α}(V_ℓ(A_{s̃0}), V_ℓ(A_{s̃′0})).",
+   "correction": "If s̃0, s̃′0 ∈ 𝒮_{K_p} are lifts of s0, s0′ then …",
+   "reason": "The sentence is self-referential as printed. The lifts are of the characteristic-p points s0, s0'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on a zoomed p.35 image: 'If s̃0, s̃′0 ∈ 𝒮_{K_p} are lifts of s̃0, s̃′0 then …'. As printed, the sentence is self-referential. The lifts are characteristic-0 points of 𝒮_{K_p} lifting the F̄_p-points s0, s0′, whose ℓ-adic torsor is the one under discussion."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E45",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 2.3.14, p. 35, first sentence",
+   "printed": "Proof. By Corollary 2.3.11 s0 admits a Q̄-isogeny CM lift with respect to T",
+   "correction": "By Proposition 2.3.11 …",
+   "reason": "2.3.11 is a Proposition; the corollary itself says 'With the assumptions of Proposition 2.3.11'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.35 image: 'Proof. By Corollary 2.3.11 s0 admits a Q̄-isogeny CM lift …'. The paper has no Corollary 2.3.11. 2.3.11 is a Proposition (p.33), and the statement of Corollary 2.3.14 itself says 'With the assumptions of Proposition 2.3.11'."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E46",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 2.3.14, p. 35, last sentence",
+   "printed": "If s″0 ∈ 𝒮_{K_p}(F̄_p) is a point admitting a lift to Sh_{K_{T,p}}(h_x), then P(s0, s″0) is a trivial I_{s0}-torsor by [Kis17, Prop. 4.2.6], so (j′, x′, s″0) is an isogeny CM lift with respect to T.",
+   "correction": "If s0″ ∈ 𝒮_{K_p}(F̄_p) is a point admitting a lift to Sh_{K_{T,p}}(h_{x′}) (T embedded via j′), then …",
+   "reason": "By §2.3.7, the triple (j', x', s0'') is a CM lift only if s0'' lifts to the torus Shimura variety attached to h_{x'}, which factors through j'(T_R). A lift to Sh(h_x) gives back the old CM point, not the twisted one to which [Kis17, 4.2.6] applies.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on a zoomed p.35 image: 'admitting a lift to Sh_{K_{T,p}}(h_x)'. By 2.3.7, (j′,x′,s0″) is a CM lift only if s0″ lifts to the torus Shimura variety of h_{x′}, which factors through j′(T_R). This is also what [Kis17, 4.2.6] gives, which I checked. The twisted map i_ω identifies Sh(G′,X′) with Sh(G′_ω, X′_ω), where X′_ω = {ω h′ ω^{-1}}, and on it the abelian variety is the twist A_P. So P(s0,s0″) is trivial for points on the twisted locus Sh(h_{x′}). A point lifting to the old Sh(h_x) is a reduction of the old CM locus, where P(s0,s0″) is the I_{s0}-torsor induced from P^T. That torsor is not trivial in general, which is why the twist was made. Meaning clear from the construction."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E47",
+   "kind": "misprint",
+   "locator": "Remark 2.3.16(3), p. 36",
+   "printed": "In that case the analogue of P(s0, s′0) is a torsor under the group of units in a product of (possibly skew) fields.",
+   "correction": "… is a torsor under the group of units of a semisimple Q-algebra (a product of matrix algebras over (possibly skew) fields) …",
+   "reason": "The endomorphism-only automorphism group is the unit group of End_B(A_{s0})⊗Q, e.g. M_g(D_{p,∞}) for A_{s0} = E^g supersingular with B = Q, which is not a product of skew fields. Both triviality arguments given (Zariski density of Q-points of the open invertible locus; 'a product of inner forms of GL_n', up to Weil restriction) work for any semisimple algebra, so the conclusion stands.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.36 image. When only endomorphisms are respected, the analogue of P(s0,s0′) is a torsor under Aut_B(A_{s0}) = (End_B(A_{s0}) ⊗ Q)^×. End_B(A_{s0}) ⊗ Q is a semisimple Q-algebra: a product of matrix algebras over division algebras, not in general a product of skew fields. For example, on the genus-2 Siegel variety (B = Q), a supersingular A_{s0} ≅ E×E has End^0 = M_2(D_{p,∞}). Both arguments for triviality still work: a torsor under the units of a semisimple algebra is a non-empty open subscheme of an affine space over Q, so it has a Q-point; and the group is a product of Weil restrictions of inner forms of GL_n. The authors' own phrase 'inner forms of GL_n' fits the correct description, so the slip is only in the wording. The conclusion stands."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E48",
+   "kind": "misprint",
+   "locator": "Appendix A, introductory paragraph, p. 37",
+   "printed": "The main tool is Faltings' comparison theorem [Fal02] p. 62",
+   "correction": "Replace 'p. 62' by the location in [Fal02] = Astérisque 279, pp. 185–270, e.g. the comparison result used in the proof of Proposition A.6 as [Fal02, §5, Cor. 4, Rem. 1] (cf. [Fal02, p. 258]).",
+   "reason": "The bibliography gives [Fal02] the page range 185–270, so 'p. 62' cannot refer to it. It is probably a preprint pagination.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.37 image: 'The main tool is Faltings' comparison theorem [Fal02] p. 62'. The bibliography (p.40) gives [Fal02] = 'Almost étale extensions', Astérisque 279 (2002), 185–270, and the paper itself cites it elsewhere by that pagination ('[Fal02, p. 258]' in A.1 and Lemma A.4). So 'p. 62' is not a page of the cited publication. It is probably the pagination of a preprint or offprint. The reference is still identifiable as the §5 comparison result used in the proof of Proposition A.6."
+  },
+  {
+   "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22/E49",
+   "kind": "gap",
+   "locator": "Proof of Corollary A.7, p. 39",
+   "printed": "such that for i = 0, 1 there is a dense open immersion U_i ↪ S_i, with S_i proper and semi-stable, and (S_i\\U_i) ∪ S_i ⊗_{𝒪_K} k is a normal crossings divisor in S_i. … Thus we may replace U by U_i, and S by S_i, and assume that S is proper and semi-stable, and S_0 ∪ D ⊂ S is a normal crossing divisor. Then the required map is obtained by restricting the map s_0 : 1 → ℰ^{log ⊗} of Proposition A.6 to U.",
+   "correction": "The reduction step must also make A ×_U U_i extend to a semi-abelian scheme over S_i. One way: take a proper S̄ ⊃ U over which A extends semi-abelianly, and apply [dJ96, 6.5] to S̄ with Z = S̄∖U (and likewise to build U_1). Then the S_i map to S̄ and the extension pulls back. In the application such an S̄ is a toroidal compactification [MP19]. In general one can first pass to the finite étale cover of U trivializing A[N] (N ≥ 3, p ∤ N; this is harmless for proper descent) and use a toroidal compactification of the moduli space [FC] (A polarizable) to get such an S̄. Alternatively, Raynaud's criterion gives semi-abelian reduction at the generic points of S_i∖U_i, and one then extends across the normal-crossings boundary of the regular S_i.",
+   "reason": "Proposition A.6 is stated in the setting of A.2–A.3, which requires the abelian scheme over U to extend to a semi-abelian scheme over S. That hypothesis produces E^log via [MP19, 1.3.5] and underlies Lemma A.4. [dJ96, Thm 6.5] only provides a semi-stable compactification S_i of U_i, and the pulled-back abelian scheme need not extend semi-abelianly across the new boundary S_i∖U_i. Example: the Legendre family over U = Spec W[λ, 1/λ(1−λ)] with S = U, D = ∅. The choice U_0 = U, S_0 = P^1_W (after a finite extension) satisfies everything the proof asks of de Jong's theorem, but the curve has non-unipotent (−1 times unipotent) monodromy, hence additive reduction, at λ = ∞. So the reduction step as written can fail. The statement of Corollary A.7 is very likely true with the repair above. By p.19, Proposition 1.3.12 (and so this appendix) is used only in (1.3.14) and (1.3.16).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1215/00127094-2021-0063, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "file": "research/blueprint/papers/PAPER-KISIN-MADAPUSIPERA-SHIN-22.result.json",
+   "citation": "Kisin–Madapusi Pera–Shin, \"Honda-Tate theory for Shimura varieties\", Duke Mathematical Journal (2022)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
+   "reviewReason": "Checked on the p.39 image, and against A.2–A.3 (pp.37–38). Proposition A.6 is stated in the setting of A.2–A.3. That setting requires the abelian scheme over U to extend to a semi-abelian scheme over S, which produces E^log through [MP19, 1.3.5] and hence E^vlog and Lemma A.4. Corollary A.7 assumes this only for the original S ('as above'). The proof replaces (U,S) by (U_i,S_i), where the S_i are the compactifications given by [dJ96, 6.5]. Nothing ensures that A ×_U U_i extends semi-abelianly over the new boundary S_i∖U_i. Since S_i is proper and S need not be, S_i does not in general map to S, so the extension cannot simply be pulled back. Example (p > 2): the Legendre family y² = x(x−1)(x−λ) over U = S = Spec W[λ, 1/λ(1−λ)], with D = ∅. The choice U_1 = U_0 = U and S_0 = S_1 = P^1_W meets every requirement the proof places on de Jong's output: P^1_W is smooth over W, and the disjoint sections 0, 1, ∞ together with the special fibre form a strict normal crossings divisor. But at λ = ∞ the curve is the quadratic twist by the uniformizer of an I_2 curve. It has type I_2^* (additive) reduction, with local monodromy −(unipotent), so it does not extend semi-abelianly over the generic point of the ∞-section, and Proposition A.6 cannot be applied. In the application to Proposition 1.3.12 the base is the non-proper integral model, so new boundary really occurs. The statement of A.7 is very likely true with a repair, so this is a gap in the proof. Per p.19, Proposition 1.3.12 is only used in §1.3 (Cor. 1.3.13, (1.3.14), (1.3.16))."
   },
   {
    "id": "PAPER-KISIN-PAPPAS-18/E1",
