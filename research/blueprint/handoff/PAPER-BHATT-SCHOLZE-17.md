@@ -1,15 +1,24 @@
 # PAPER-BHATT-SCHOLZE-17 handoff
 
-Codex, session codex-c83e7a. Refs #1300. Status: partial.
+Status: complete. Claude Code, session cc-442dc5, continuing the merged Codex checkpoints. Issue #1300. Date: 23 September 2026.
 
-Read all61 pages of final arXiv1507.06490v3, including §§2–12, acknowledgments and bibliography. The published95-page PDF was not obtained and is not claimed identical. Read author PDF1–4; v1PDF16–17 and v2PDF26–27 for acknowledged corrections; Mathew1404.2156v1 PDF19–24; Keelmath/9901149 PDF1–2 and7–12. Source hashes and exact scopes are in the result.
+## Saved
 
-The result has 265 items (23 library, 35 planned, 207 missing), 18 routes, 231 API statements and 231 mathematical acceptance specifications. All missing items have exactly one route. The26 source findings await independent review. Preserve their ids and the distinction between known v1/v2 repairs and newly recorded v3 slips.
+- **Items.** 266 items. Every missing item is routed exactly once, and every numbered statement is an item.
+  - New: Question 10.6, as a statement-only item.
+  - Theorem 1.2 is mapped to Theorem 4.1.
+- **Mistakes.** Twenty-six, against arXiv v3. The version of record is not openly available.
+  - **Reclassified to affect nothing.** Twelve.
+  - **Unchanged.** E16 affects the proof. E23 and E24 are corrected in v3, and E24 still affects a stated result.
+- **Gaps.**
+  - Q-Tor is recorded as a finding.
+  - Q-source is unavailable.
+  - The rest are deferred.
 
-Resume with published-version collation and independent source-issue review. Then close original Rydh/RG/BGR/BST and formal-existence inputs; Keel/Artin contraction and gluing; Quillen/TT/Bhatt14/de Jong devissage; Mathew/Lurie coherent descent/group completion; Zhu general-group comparisons; BBE and the Witt pushout proof. The JSON gaps identify consumers and remaining hypotheses. The explicit G717 incidence formula and Q1146 Tor2 witness are supplied; independently verify them and finish their surrounding proofs. Split remaining bundled source comparisons to declaration size before marking complete.
+## Resume
 
-Keep general perfect schemes, Picard objects, classical sites and positivity in SchemeAndStackFoundations. Reuse ArcTopologyAndDescent from the newly landed PAPER-BHATT-MATHEW-21 for scheme h/v sites, universal descent and valuation reductions; its later arc-perfect-complex results consume the earlier GS0 geometry. Witt vector-bundle/fibre descent stays in GS0. Keep descendability in EDS:E5:abstract and animation in EDS:E5:animation; no late concrete spectrum comparison is an early prerequisite. Reuse the existing K-family split between low determinants, general K, supports, group completion, spectra and K2. Preserve the independent geometric and spectral determinant routes. The only new candidate is CrystallineCohomologyWittHDescentPartII for singular/nonproper ordinary Witt h-descent, separate from the existing convergent/log tensor-section continuation.
+The job is complete. For a reviewer: check E16 (p. 47) and E24.
 
-Do not replace proper pfp by ordinary finite presentation, perfect-algebra Tor-independence by module flatness, the signed Picard groupoid by ungraded object classes, the object-core truncation bound by its mapping-space bound, or the rank-two stable K2 pullback by an unstated universal unstable extension. Question10.6 and Remark11.24 remain recorded only as questions posed in2017. The current research status is not asserted.
+## Validation
 
-Only the result JSON, paper report and this handoff are authorized. No Lean file was written or compiled. Checks passed: paper schema, deliverable scope, source/input/module digests, internal and alternate dependency graphs, route/status/API consistency and11 mathematical diagnostic groups including3583 partition pairs. Final CI outcomes are on the PR.
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass. Only the two named deliverables and this handoff change. No Lean deliverable is part of a paper job.
