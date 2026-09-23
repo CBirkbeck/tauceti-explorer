@@ -6498,9 +6498,9 @@
    "owner": "PAPER-ANSCHUTZ-LEBRAS-23",
    "file": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
    "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
+   "reviewReason": "Confirmed verbatim in the source: Theorem 4.9.5 reads 'Let R be a quasi-regular semiperfectoid ring. Then the prismatic Dieudonne functor M_prism(-): BT(R) -> DM^adm(R) from the category of p-divisible groups over R to the category of admissible prismatic Dieudonne crystals over R is essentially surjective.' The functor displayed is the non-calligraphic one, whose target is the category of prismatic Dieudonne modules; the crystal-valued functor is the calligraphic one. The entry's diagnosis of the deliberate overloading of DM^adm is right."
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E2",
@@ -6520,9 +6520,9 @@
    "owner": "PAPER-ANSCHUTZ-LEBRAS-23",
    "file": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
    "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
+   "reviewReason": "Confirmed, and the source shows the mechanism. The sentence reads 'Recall the following definition, which already appeared in \\Cref{sec:abstr-divid-prism-remark-cais-lau-principal} before', and that label sits on the Cais-Lau proposition (4.1.26, published 4.26), while the definition being recalled is Definition 4.1.24 (published 4.24). So the defect is a wrong \\Cref target rather than a mistyped word: the paper uses cleveref, which generates 'Proposition' from the target's environment, which is why the printed text says Proposition. Worth knowing for anyone fixing it."
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E3",
@@ -6542,9 +6542,9 @@
    "owner": "PAPER-ANSCHUTZ-LEBRAS-23",
    "file": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
    "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
+   "reviewReason": "Confirmed verbatim: the example imposes the relations 'p x_{i,j} - f x_{i,j+1}' and then displays 'p^{i}x_{i,0}=p^{i}fx_{i,1}=\\ldots = f^{i}x_{i,i}\\neq 0'. Each substitution trades one p for one f, so the second term must be p^{i-1} f x_{i,1}; as printed the total degree jumps by one. The entry's correction and reason are right, and the conclusion (unbounded p^infty-torsion) is unaffected."
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E4",
@@ -6564,9 +6564,9 @@
    "owner": "PAPER-ANSCHUTZ-LEBRAS-23",
    "file": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
    "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
+   "reviewReason": "Confirmed verbatim, in both copies: the introduction's crystal definition reads 'whose linearization phi^* M -> M has its cokernel is killed by I^pris' and the module definition the same with I. The body definitions are correct - 'has its cokernel killed by I^pris' at label sec:abstr-divid-prism-definition-prismatic-dieudonne-crystals and 'has its cokernel killed by I' at the module definition - so the stray word is confined to the two introductory copies, exactly as the entry says."
   },
   {
    "id": "PAPER-ANSCHUTZ-LEBRAS-23/E5",
@@ -6585,9 +6585,9 @@
    "owner": "PAPER-ANSCHUTZ-LEBRAS-23",
    "file": "research/blueprint/papers/PAPER-ANSCHUTZ-LEBRAS-23.result.json",
    "citation": "Anschütz–Le Bras, \"Prismatic Dieudonné Theory\", Forum of Mathematics, Pi (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ANSCHUTZ-LEBRAS-23",
+   "reviewReason": "Confirmed, and the erratum was read rather than cited. Forum of Mathematics Pi 13 (2025) e3 (doi:10.1017/fmp.2024.30) says: 'There is a mistake in the proof of Proposition 5.23 of the published version. The content of this proposition was already known to be true by a different proof... Also, the arguments of this fallacious proof are not used anywhere else in the paper, so this mistake does not affect any of the results stated in the paper.' It identifies the same key step the entry quotes - topological nilpotence of the divided Frobenius on the kernel of A_crys(R) -> W(R) - calls it 'not true', and gives Senger's counterexample R = F_p[x^{1/p^infty}]/x with the element sum_k p[x]^{1/p^k}/p^k fixed by the divided Frobenius. The entry's classification (error, affects the proof) and its 'known' field naming the erratum are both right. Its added observation is also correct: the paper proves a genuine topological-nilpotence statement elsewhere, at the label sec:essent-surj-divided-varphi-topological-nilpotent-on-the-kernel (Lemma 4.9.3, published 4.88), so the reader has to keep the two apart."
   },
   {
    "id": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E1",
@@ -51188,398 +51188,653 @@
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E1",
    "kind": "misprint",
-   "locator": "Lemma 2.1.8, proof, last line, p. 10 (arXiv v2; not present in v1)",
+   "locator": "Lemma 2.1.8, proof, last line, p. 10 (arXiv v2; not present in v1); independently checked in arXiv v2 only",
    "printed": "so h is an isomorphism, and we may take f to be the projection of N⊕N′ onto N′.",
    "correction": "f is h^{-1} followed by the projection of N ⊕ N′ onto N.",
    "reason": "f was introduced as a continuous splitting A′/p → N of the inclusion N ⊂ A′/p; the projection onto N′ kills N, so it cannot restrict to the identity on N.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p10: a retraction of the inclusion of N must project to N, not its complement N′; the indicated continuous splitting has the required type."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E2",
    "kind": "misprint",
-   "locator": "2.3.9, p. 18 (arXiv v2)",
+   "locator": "2.3.9, p. 18 (arXiv v2); independently checked in arXiv v2 only",
    "printed": "note that H^1(X,Ω^1_{X/C}) is isomorphic to the global 1-forms on Alb(X)",
    "correction": "H^0(X, Ω^1_{X/C}) is isomorphic to the global 1-forms on Alb(X).",
    "reason": "Pullback along α_X identifies H^0(Alb(X), Ω^1) with H^0(X, Ω^1); H^1(X, Ω^1) has dimension h^{1,1}, which differs from q = h^{1,0} already for P^1 × E (h^{1,1} = 2, q = 1).",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p18: the degree-one Hodge space used is H^0(Ω^1). For P^1×E with E elliptic, h^(1,1)=2 whereas h^(0,1)=1, so the printed H^1 is not interchangeable with H^0."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E3",
    "kind": "misprint",
-   "locator": "Lemma 3.1.2, proof of (ii)⇒(i), p. 21",
+   "locator": "Lemma 3.1.2, proof of (ii)⇒(i), p. 21; independently checked in arXiv v2 only",
    "printed": "where αi, βi ∈ Z^1(H,Fp) and ni ∈ Ni.",
    "correction": "n_i ∈ N.",
    "reason": "N_i is not defined; c ∈ Z^2(H, N) is written as a sum of cup products tensored with elements of N.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p21: the central coordinates n_i lie in the single coefficient group N; no N_i family is defined."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E4",
    "kind": "misprint",
-   "locator": "Proposition 3.1.9, proof, p. 23",
+   "locator": "Proposition 3.1.9, proof, p. 23; independently checked in arXiv v2 only",
    "printed": "is precisely Ẽ^{i,j}_2, and so Ẽ^{i,j}_3 = (E^{i,j}_3)_{i+2j}.",
    "correction": "Ẽ^{i,j}_3 = (Ē^{i,j}_3)_{i+2j}.",
    "reason": "Ẽ_3 is defined as a subquotient of the Ē spectral sequence; the base case r = 3 of the induction ('(Ē^{i,j}_r)_{i+2j} maps isomorphically to E^{i,j}_r') uses this equality together with the splitting Ẽ_3 ≅ E_3.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p23: the source spectral sequence in this comparison is the barred finite-quotient sequence. Its weight summand must carry the bar; an abstract isomorphism does not identify the two displayed subspaces without that comparison."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E5",
    "kind": "misprint",
-   "locator": "Lemma 3.2.12, proof, p. 27",
+   "locator": "Lemma 3.2.12, proof, p. 27; independently checked in arXiv v2 only",
    "printed": "is generated by the function z_1^{−|J|} f, whose expansion contains the term a_I u_2^{j_2}…u_n^{j_n}.",
    "correction": "a_J u_2^{j_2} ⋯ u_n^{j_n}.",
    "reason": "Substituting z_i = z_1u_i gives z_1^{−|J|} f = Σ_I a_I z_1^{|I|−|J|} u_2^{i_2}⋯u_n^{i_n}; the term of lower total degree |J| − j_1 comes from I = J with coefficient a_J ≠ 0, which drives the induction on |J|.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p27 and the page image: J is the chosen exponent multi-index; the coefficient attached to its monomial must be a_J."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E6",
    "kind": "misprint",
-   "locator": "Proposition 3.2.14, proof, second paragraph, p. 28",
+   "locator": "Proposition 3.2.14, proof, second paragraph, p. 28; independently checked in arXiv v2 only",
    "printed": "In fact the differential ωr ⊗ ωs defined there is in H^0(X,Ω^d_X(log D))",
    "correction": "ω_r ⊗ ω_T.",
    "reason": "The form defined in the proof of Proposition 3.2.7 is ω_r ⊗ ω_T with ω_T = dz_1/z_1 ∧ ⋯ ∧ dz_t/z_t; no ω_s is defined.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p28: the vertical top form has subscript T. This typography does not repair the separate absolute/relative gluing issue E21."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E7",
    "kind": "misprint",
-   "locator": "Corollary 2.2.13, p. 15 (also v1)",
+   "locator": "Corollary 2.2.13, p. 15 (also v1); independently checked in arXiv v2 only",
    "printed": "If Y is an abelian scheme, then the same statement holds for i ≤ p − 2.",
    "correction": "If Y is an abelian variety (and D = ∅).",
    "reason": "Y is a proper smooth scheme over the field C; the proof passes to an abelian scheme model, as in Proposition 2.2.11.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Rejected as a terminology misprint. An abelian variety over C is an abelian scheme over Spec C, so the phrase is legitimate. The proposed parenthetical D=empty concerns a different, substantive proof-hypothesis omission; that is recorded separately as E30. Replacing scheme by variety alone makes no mathematical correction."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E8",
    "kind": "misprint",
-   "locator": "3.3.11, p. 33 (also v1)",
+   "locator": "3.3.11, p. 33 (also v1); independently checked in arXiv v2 only",
    "printed": "Fix a fan Σ, in X^∗(Z(C)/Z(Z))_Q so that the resulting torus embedding is smooth",
    "correction": "a fan in X_∗(Z(C)/Z(Z))_Q.",
    "reason": "In 3.2.8 fans are collections of cones in X_*(T)_Q, the cocharacter space, as for all torus embeddings.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p34: cones specifying torus embeddings lie in the rational cocharacter space, not the character space. This also matches the pinned toric-lattice convention."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E9",
    "kind": "misprint",
-   "locator": "Corollary 3.3.19, p. 36 (also v1)",
+   "locator": "Corollary 3.3.19, p. 36 (also v1); independently checked in arXiv v2 only",
    "printed": "Let X be an irreducible symmetric domain, and let L/Q be a quadratic extension.",
    "correction": "L/Q an imaginary quadratic extension, as in Corollary 3.3.10, which the proof applies.",
    "reason": "For real quadratic L a group split over L is split over R, but complex conjugation must act on Δ(G) by the opposition involution, which is nontrivial for types A_n (n ≥ 2), D_n (n odd) and E_6; so no such G exists for those domains.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p36: the construction invokes Corollary3.3.10 with an imaginary quadratic field. A real quadratic splitting field would force splitting after extension to R, excluding the intended non-split real domains."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E10",
    "kind": "misprint",
-   "locator": "Corollary 3.3.10, proof, p. 33 (also v1)",
+   "locator": "Corollary 3.3.10, proof, p. 33 (also v1); independently checked in arXiv v2 only",
    "printed": "and whose Q-rank is equal to the R-rank of G_{0,R}.",
    "correction": "whose Q-rank equals the R-rank of G_R.",
    "reason": "The Q-rank of G is at most the R-rank of G ⊗ R ≅ G_R, which is smaller than that of the quasi-split G_{0,R} unless G_R is quasi-split; the paper's own parenthetical note says the count is the split rank of G_R, which is what Lemma 3.3.8(2) needs.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p33: the parenthetical identifies the prescribed real form G_R, whereas the printed equality uses the quasi-split inner form G_0,R. The rank of the prescribed local form is the quantity controlled by the construction; do not infer the global theorem from an unspecified local-global principle."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E11",
    "kind": "misprint",
-   "locator": "Theorem 4, p. 5 (arXiv v2; v1 reads 'W ⊂ X any Zariski open')",
+   "locator": "Theorem 4, p. 5 (arXiv v2; v1 reads 'W ⊂ X any Zariski open'); independently checked in arXiv v2 only",
    "printed": "Let i < p − 2, and W ⊂ X a Zariski open. Then the image of the map H^i(X,Fp) → H^i(W,Fp) has dimension at least h^{0,i}_X",
    "correction": "W ⊂ X a dense Zariski open.",
    "reason": "For W = ∅ the image is 0 while h^{0,i}_X can be positive (i = g for an abelian variety); Corollary 2.2.13, of which Theorem 4 is a case, assumes W dense.",
-   "affects": "nothing",
+   "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p5: without a nonempty/dense-open hypothesis W may be empty, and the restriction image is zero even when h^(0,i)>0. On the integral varieties under consideration a nonempty Zariski open is dense."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E12",
    "kind": "error",
-   "locator": "3.3.9, second paragraph, p. 33 (also v1)",
+   "locator": "3.3.9, second paragraph, p. 33 (also v1); independently checked in arXiv v2 only",
    "printed": "If G is of type B or C or Dn with n even, then G^ad_R is split, and (2) means that G0 is a split group, or (in this context) that G is quasi-split.",
    "correction": "For these types −1 ∈ W_G, so complex conjugation acts trivially on Δ(G); (2) says that the F-rank of G_0 equals the R-rank of G_0 ⊗ R, which is n for C_n (Sp_{2n}(R) is split, so G_0 is split), 2 for SO(2n−1, 2) and SO(2n−2, 2), and n/2 for SO^*(2n) (n even); only in type C does (2) mean G_0 split.",
    "reason": "The Hermitian real forms of types B_n and D_n are SO(2n−1, 2), SO(2n−2, 2) and SO^*(2n), of real rank 2, 2 and ⌊n/2⌋, below the absolute rank n once n ≥ 3 (B) or n ≥ 4 (D); a group of real rank 2 and absolute rank n is not split, and SO(2n−1, 2) (n ≥ 3) is not even quasi-split since B_n has no outer forms.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p33: SO(m,2) has real rank2 and SO*(2n) real rank floor(n/2), so these Hermitian real forms need not be split. The symplectic case is different. The proposed repair still omitted the separate type-A error E27."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E13",
    "kind": "error",
-   "locator": "Proposition 3.2.14, statement, p. 28 (also v1)",
+   "locator": "Proposition 3.2.14, statement, p. 28 (also v1); independently checked in arXiv v2 only",
    "printed": "Let V ⊂ X^an be an analytic open subset containing D^an, and V′ ⊂ V a non-empty Zariski open subset of V. Then the map H^d(U, Fp) → H^d(U ∩ V′, Fp) is nonzero.",
    "correction": "V′ ⊂ V a dense Zariski open subset (it suffices that V′ be dense in the connected components of V meeting D^an).",
    "reason": "Take V = N ⊔ B with N a neighbourhood of D^an and B a small ball in U^an disjoint from N. Then V′ = B is Zariski open in V (its complement N is a union of components, cut out locally by 0 or 1), but U ∩ V′ = B is contractible and H^d(B, F_p) = 0 for d ≥ 1. The proof tacitly uses that Z = V − V′ has codimension 1, i.e. that V′ is dense; Corollary 3.2.17, the only use, applies it to a dense V′.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed at v2 p28 and image: take an analytic neighbourhood N of the boundary and a disjoint small ball B in U. V=N disjoint-union B and V′=B satisfy nonempty analytic-Zariski openness, but positive-degree cohomology restricts to zero on B. Density in V is required. E23 shows that density alone is not sufficient."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E14",
    "kind": "gap",
-   "locator": "Proposition 3.2.7 (p. 25), Theorem 3.3.17 (p. 35) and Corollary 3.3.19 / Theorem 3 (pp. 36, 4) (also v1)",
+   "locator": "Proposition 3.2.7 (p. 25), Theorem 3.3.17 (p. 35) and Corollary 3.3.19 / Theorem 3 (pp. 36, 4) (also v1); independently checked in arXiv v2 only",
    "printed": "Proposition 3.2.7: Suppose that p > dimU + ½(dimU_s̄ + 1), and that U → S has unramified good reduction at p. Theorem 3.3.17: If Σ ≠ c(Σ) then we assume that p > dimX + ½(dimZ + 1)",
    "correction": "Add the hypothesis p > dim U + 2 to Proposition 3.2.7 and p > dim X + 2 to Theorem 3.3.17 and Corollary 3.3.19 (non-tube case); it follows from the printed bounds when dim U_s̄ (resp. dim Z) is at least 3, and for classical non-tube X the bound p > (3/2) dim X implies it except when dim X = 3, p = 5.",
    "reason": "Proposition 3.2.7 applies Proposition 2.3.3 with i = d = dim U, which needs d < p − 2 (D ≠ ∅, and for D = ∅ still d ≤ p − 2); Theorem 3.3.17 applies Corollary 3.2.17, whose hypotheses include Proposition 3.2.14's p > d + 2. For S an abelian surface and t = 1, p = 5 satisfies 5 > 3 + 1 but not 5 > 5; for X the complex 3-ball (SU(3,1), dim Z = 1) p = 5 satisfies p > (3/2)·3 and p > 3 + 1 but not p > 5. At i = p − 2 the torsion-freeness of H^{i+1}_{Δ̄} needed by Corollary 2.2.6 is not supplied.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed as a proof-range gap, not a counterexample to the main algebraic theorem. The degree-d restriction step requires d<p−2, while p>d+(t+1)/2 need not imply it for t<3. For g=2,t=1,d=3,p=5 the printed bound holds and the needed strict bound fails. The boundary-neighbourhood proposition also explicitly requires p>d+2. Record the conservative extra bound until the excluded cases are proved separately."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E15",
    "kind": "gap",
-   "locator": "Proposition 2.3.10(2) and Corollary 2.3.12, p. 19 (arXiv v2; not in this form in v1)",
+   "locator": "Proposition 2.3.10(2) and Corollary 2.3.12, p. 19 (arXiv v2; not in this form in v1); independently checked in arXiv v2 only",
    "printed": "Let p be a prime of good unramified reduction for X … If the special fiber of X° is generically smooth over its image under α°_X, then ed(Y/U; p) ≥ dim α_X(X)",
    "correction": "Add p > max{dim α_X(X) + 1, 3} to Proposition 2.3.10(2), and p > max{dim X + 1, 3} to Corollary 2.3.12.",
    "reason": "The proof ends by applying Theorem 2.3.8, which assumes p > max{dim X + 1, 3} (its Corollary 2.2.13 input needs p > max{i + 1, 3}). As printed, Corollary 2.3.12 asserts ed(Y/X; p) = 2 for an abelian surface X at p = 2 or 3 with good unramified reduction, which the argument does not reach (Corollary 2.3.5 needs p ≥ g + 2 = 4).",
    "affects": "a stated result",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed as a proof-range gap: Proposition2.3.10 invokes the cup-product lower bound without retaining its prime hypothesis. Using degree i=dim α_X(X) directly gives the corrected p>max(i+1,3); Corollary2.3.12 takes i=dim X. The eventual p sufficiently large assertion survives."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E16",
    "kind": "gap",
-   "locator": "Theorem 3.3.17, proof, p. 35 (also v1)",
+   "locator": "Theorem 3.3.17, proof, p. 35 (also v1); independently checked in arXiv v2 only",
    "printed": "the theorem follows from Corollary 3.2.17 if c(Σ) ≠ Σ and from Corollary 3.2.18 if c(Σ) = Σ.",
-   "correction": "Complete the admissible fan Σ to a smooth complete fan Σ′ ⊃ Σ, apply Proposition 3.2.14 to ξ_K(Σ′) → C_K, and in its proof choose the T-fixed point x_0 in a top-dimensional cone of Σ (subdivided by the blow-ups); state Proposition 3.2.14 and Corollaries 3.2.17–3.2.18 for torus embeddings with an arbitrary smooth fan and V a neighbourhood of the boundary of that embedding.",
+   "correction": "Retain the gap. Choose a full-dimensional cone and its finite face subfan; prove a local smooth completion and run the fixed-point blow-up argument in the chosen chart, preserving the required dense-open and neighbourhood comparisons. Do not claim the whole arithmetic fan has a finite complete enlargement or that the theorem holds for every smooth fan.",
    "reason": "Proposition 3.2.14 (and so 3.2.17–3.2.18) assumes X/S proper and V ⊃ D^an, but ξ_K(Σ) → C_K is not proper: Σ is a cone decomposition of the positive cone, not a complete fan (for the modular curve it is the ray R_{≥0}, giving the disc chart A^1 ⊃ G_m rather than P^1), and V_K is a neighbourhood of D_K(Σ) only. The argument of 3.2.14 uses V only near one torus-fixed point of the boundary, so the correction repairs it.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed gap, but the original suggested repair was too broad. A positive-cone arithmetic fan is not complete and may be infinite. It cannot in general be enlarged into a finite complete fan. Moreover arbitrary smooth fans can lack fixed points (E22). The proof must work with a chosen full-dimensional finite cone subfan and establish the required neighbourhood comparison; that repaired argument is not certified here."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E17",
    "kind": "gap",
-   "locator": "Corollary 3.2.17, proof, last paragraph, p. 29 (also v1); Definition 3.2.15",
+   "locator": "Corollary3.2.17, proof, arXiv v2 pp29–30; Definition3.2.15, p29.",
    "printed": "Shrinking Y and Ṽ′ as necessary, we can assume that Y is Stein. By Andreotti-Frankel [AF59], dim Y < d implies that H^d(Y, Fp) = 0.",
-   "correction": "Define the analytic (p-)essential dimension of 3.2.15 through compressions Ṽ′ → Y with Y Stein and Y_1 → Y an Ē-covering (every compression coming from an affine algebraic Ē-cover, as in Theorem 3.3.17 via [FKW21, 2.1.4], is of this kind), or supply the reduction to that case.",
+   "correction": "Keep ordinary ed_an as Definition3.2.15 (with the typographical dimension correction E24). Introduce the distinct restricted invariant ed_(Stein,G) for the argument actually given. Supply either a valid reduction from all analytic compressions to this class or, for the algebraic application, a direct comparison from algebraic compressions. Neither implication follows merely by changing the definition.",
    "reason": "Shrinking Y to a Stein open replaces Ṽ′ by an analytic, not Zariski, open, where the nonvanishing proved in the first paragraph is not available; Zariski opens need not be Stein (on a two-dimensional complex torus without curves they are complements of finite sets and carry only constant functions), and a compact Y can have H^d(Y, F_p) ≠ 0 although dim Y < d (a compact Riemann surface when d = 2). Moreover 3.2.15 allows any finite Y_1 → Y, while the proof needs the Ē-class to factor through H^d(Y), which requires an Ē-covering.",
    "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed gap at the end of v2 pp29–30. Pulling back a small Stein analytic open need not preserve the dense analytic-Zariski open required by the nonvanishing theorem. Also a general finite cover in Definition3.2.15 is not automatically the indicated group torsor. The Stein-group-torsor restriction defines a different invariant; it does not repair the stated ordinary analytic invariant by definition. A direct comparison from algebraic compressions is a separate obligation."
   },
   {
    "id": "PAPER-FARB-KISIN-WOLFSON-24/E18",
    "kind": "gap",
-   "locator": "Corollary 3.2.17, proof, p. 29 (also v1)",
+   "locator": "Corollary3.2.17, proof, arXiv v2 pp29–30 (the invocation is on p30).",
    "printed": "By Andreotti-Frankel [AF59], dim Y<d implies that H^d(Y,Fp)=0.",
    "correction": "For a possibly singular Stein space Y of dimension n, H^k(Y, F_p) = 0 for k > n by Narasimhan (On the homology groups of Stein spaces, Invent. Math. 2 (1967)); Andreotti–Frankel give it for Stein manifolds.",
-   "reason": "The Y of Definition 3.2.15 is an arbitrary (reduced) analytic space; Andreotti–Frankel's Morse-theoretic argument is for Stein manifolds, and removing the singular locus destroys the Stein property.",
-   "affects": "nothing",
+   "reason": "The Y of Definition 3.2.15 is an arbitrary (reduced) analytic space; Andreotti–Frankel's Morse-theoretic argument is for Stein manifolds, and removing the singular locus may destroy the Stein property.",
+   "affects": "the proof",
    "known": "new",
    "searched": [
-    "arXiv listing 2110.05534 (v1 11 Oct 2021, v2 27 Feb 2024) and the TeX source of v2",
-    "Mark Kisin's preprint page (essdim3.pdf, the 2021 version)",
-    "Crossref metadata for DOI 10.1215/00127094-2023-0071 (no update-to/correction relation)",
-    "Project Euclid landing page of Duke Math. J. 173(15) (not retrievable here)"
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
    ],
    "owner": "PAPER-FARB-KISIN-WOLFSON-24",
    "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
    "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Confirmed citation-scope gap. Benoist, On the Artin vanishing theorem for Stein spaces (2025), §1.1.1 pp2757–2758 explicitly distinguishes the smooth Andreotti–Frankel theorem from the singular Narasimhan/Hamm extension. Singular Stein vanishing is valid, but its proof is an additional supplier. Removing a singular locus may destroy Steinness; for example removing the origin from C² does. The original wording incorrectly said it always destroys it."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E19",
+   "kind": "error",
+   "locator": "§2.2.14, pp15–16 (arXiv v2)",
+   "printed": "unique specialization",
+   "correction": "Choose the generic point of one irreducible component of the special fibre of a smooth presentation. Its local ring is the required unramified DVR; uniqueness and the assertion for an arbitrary special-fibre point are unnecessary.",
+   "reason": "For Spec Z[x], the generic point specializes to every point over p. The local ring at (p,x) has dimension2, so is not a DVR; the local ring at (p) is the appropriate DVR. Smoothness supplies this choice, not a unique specialization.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "For Spec Z[x], the generic point specializes to every point over p. The local ring at (p,x) has dimension2, so is not a DVR; the local ring at (p) is the appropriate DVR. Smoothness supplies this choice, not a unique specialization."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E20",
+   "kind": "error",
+   "locator": "§2.2.14, footnote2, p15 (arXiv v2)",
+   "printed": "No open substack",
+   "correction": "Delete the footnote’s universal exclusion of pairs with nonempty boundary.",
+   "reason": "Take M=Spec Z with the universal three-pointed genus-zero pair (P^1_Z,{0,1,∞}). The relative normal-crossings boundary is nonempty, yet every characteristic-zero fibre has unramified good reduction at every prime. Thus even the whole stack is a counterexample to the parenthetical. The generic-point theorem is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Take M=Spec Z with the universal three-pointed genus-zero pair (P^1_Z,{0,1,∞}). The relative normal-crossings boundary is nonempty, yet every characteristic-zero fibre has unramified good reduction at every prime. Thus even the whole stack is a counterexample to the parenthetical. The generic-point theorem is unaffected."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E21",
+   "kind": "error",
+   "locator": "Proposition3.2.7, proof, p25 (arXiv v2)",
+   "printed": "glue to give",
+   "correction": "Use the relative logarithmic top form and wedge its local lifts with the top base form; the resulting absolute top form glues.",
+   "reason": "On overlapping torsor trivializations z′=g(s)z gives dlog z′=dlog z+dlog g. Hence the absolute vertical form is not independent of the trivialization. Terms added from the base vanish when wedged with its top form, proving the nonvanishing actually needed.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "On overlapping torsor trivializations z′=g(s)z gives dlog z′=dlog z+dlog g. Hence the absolute vertical form is not independent of the trivialization. Terms added from the base vanish when wedged with its top form, proving the nonvanishing actually needed."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E22",
+   "kind": "error",
+   "locator": "Lemma3.2.12, p27 (arXiv v2)",
+   "printed": "D_0",
+   "correction": "Require a nonempty relative zero-dimensional torus stratum, equivalently a full-dimensional cone, and work over an integral base or componentwise.",
+   "reason": "For S=Spec C, T=G_m² and X=A^1×G_m, the boundary is {0}×G_m and there are no zero-dimensional T-orbits. In the completion along that boundary take Z defined by y−1. Every blow-up centre D_0 is empty, so every D_0^i is empty and contained in Z^i. The asserted noncontainment never holds.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "For S=Spec C, T=G_m² and X=A^1×G_m, the boundary is {0}×G_m and there are no zero-dimensional T-orbits. In the completion along that boundary take Z defined by y−1. Every blow-up centre D_0 is empty, so every D_0^i is empty and contained in Z^i. The asserted noncontainment never holds."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E23",
+   "kind": "error",
+   "locator": "Proposition3.2.14, p28 (arXiv v2)",
+   "printed": "T=1",
+   "correction": "Add positive torus rank (and preserve E13 density). The boundary-fixed-point argument must have a boundary stratum to use.",
+   "reason": "Let S be an elliptic curve over Q with good reduction at5, base changed to C, let T be trivial and X=U=S. Then D is empty, d=1 and 5>d+2. A small analytic disc V in S contains D, and V′=V is dense analytic-Zariski open in V. But H^1(S,F_5)→H^1(V,F_5)=0, contradicting the proposition.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Let S be an elliptic curve over Q with good reduction at5, base changed to C, let T be trivial and X=U=S. Then D is empty, d=1 and 5>d+2. A small analytic disc V in S contains D, and V′=V is dense analytic-Zariski open in V. But H^1(S,F_5)→H^1(V,F_5)=0, contradicting the proposition."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E24",
+   "kind": "misprint",
+   "locator": "Definition3.2.15, p29 (arXiv v2)",
+   "printed": "ed(V_1/V_2;p)",
+   "correction": "Include dim Y=e in the compression definition and replace the undefined denominator V_2 by V.",
+   "reason": "Without relating e to dim Y the displayed minimization does not define dimension. The proof immediately uses dim Y<d; V is the base used throughout, and V_2 is never introduced. Item106 already supplied the intended dimension clause.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Without relating e to dim Y the displayed minimization does not define dimension. The proof immediately uses dim Y<d; V is the base used throughout, and V_2 is never introduced. Item106 already supplied the intended dimension clause."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E25",
+   "kind": "misprint",
+   "locator": "Corollary3.2.18, proof, p30 (arXiv v2)",
+   "printed": "are injective",
+   "correction": "The first cohomology map is surjective; retain injectivity only for the restriction to a dense algebraic open.",
+   "reason": "The next sentence of the proof correctly uses surjectivity. For U=G_m² and p=3, H^2((Z/3)^2,F_3) has dimension3 whereas H^2(U,F_3) has dimension1. The comparison therefore cannot be injective. Surjectivity onto the exterior algebra is exactly what the argument needs.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "The next sentence of the proof correctly uses surjectivity. For U=G_m² and p=3, H^2((Z/3)^2,F_3) has dimension3 whereas H^2(U,F_3) has dimension1. The comparison therefore cannot be injective. Surjectivity onto the exterior algebra is exactly what the argument needs."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E26",
+   "kind": "error",
+   "locator": "§3.3.2, p30 (arXiv v2)",
+   "printed": "is transitive",
+   "correction": "The Galois action is transitive on connected components of the Dynkin diagram of a Q-simple adjoint group.",
+   "reason": "The split Q-simple adjoint group PGSp_4 has diagram C_2. Galois fixes each of its two vertices, so its action on vertices is not transitive. Its action on the single connected component is transitive. The later argument uses components.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "The split Q-simple adjoint group PGSp_4 has diagram C_2. Galois fixes each of its two vertices, so its action on vertices is not transitive. Its action on the single connected component is transitive. The later argument uses components."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E27",
+   "kind": "error",
+   "locator": "§3.3.9, p33 (arXiv v2)",
+   "printed": "type A_n",
+   "correction": "For a unitary group arising from a vector hermitian form, impose the required rational-versus-real Witt-index equality separately.",
+   "reason": "Over L=Q(i), the hermitian form diag(1,−1,1,−3) is a hyperbolic plane plus an anisotropic plane: 3 is not a norm from Q(i), because its 3-adic valuation is odd. Its Q-Witt index is1, while its real signature is(2,2), of real rank2. Its adjoint unitary group is an ordinary vector-form group of type A_3 and splits over L, but does not satisfy the rank condition. E12’s correction of the B/C/D discussion does not remove this counterexample.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "Over L=Q(i), the hermitian form diag(1,−1,1,−3) is a hyperbolic plane plus an anisotropic plane: 3 is not a norm from Q(i), because its 3-adic valuation is odd. Its Q-Witt index is1, while its real signature is(2,2), of real rank2. Its adjoint unitary group is an ordinary vector-form group of type A_3 and splits over L, but does not satisfy the rank condition. E12’s correction of the B/C/D discussion does not remove this counterexample."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E28",
+   "kind": "misprint",
+   "locator": "Corollary3.3.19, proof, p36 (arXiv v2)",
+   "printed": "central isogeny",
+   "correction": "Use a central quotient of the whole Hodge-type group and a central isogeny on derived groups; prove the principal-level comparison with the actual compatible levels.",
+   "reason": "The source target G is adjoint, whereas a Hodge-type lift carries a nontrivial weight torus in its centre. The map of whole groups kills that positive-dimensional torus and is not an isogeny. The derived-group interface is the appropriate one, already used by item140. The external Kisin/cover-comparison proof is not certified by this typing correction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "The source target G is adjoint, whereas a Hodge-type lift carries a nontrivial weight torus in its centre. The map of whole groups kills that positive-dimensional torus and is not an isogeny. The derived-group interface is the appropriate one, already used by item140. The external Kisin/cover-comparison proof is not certified by this typing correction."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E29",
+   "kind": "error",
+   "locator": "§3.3.12, p34 (arXiv v2)",
+   "printed": "fundamental group",
+   "correction": "Replace Γ by its effective image on X^+, unless a faithful-action hypothesis has been established.",
+   "reason": "For the Hilbert datum G=Res_(F/Q) GL_2 with F real quadratic, a sufficiently large power of a totally positive nontorsion unit belongs to any chosen compact open level. Its scalar matrix acts trivially on the Hermitian domain, even when the level is neat. Thus the deck group of the simply connected domain is Γ modulo this kernel. ShimuraData:D5 and ShimuraVarieties:V0/V1 already require this effective quotient.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "For the Hilbert datum G=Res_(F/Q) GL_2 with F real quadratic, a sufficiently large power of a totally positive nontorsion unit belongs to any chosen compact open level. Its scalar matrix acts trivially on the Hermitian domain, even when the level is neat. Thus the deck group of the simply connected domain is Γ modulo this kernel. ShimuraData:D5 and ShimuraVarieties:V0/V1 already require this effective quotient."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E30",
+   "kind": "gap",
+   "locator": "Corollary2.2.13, abelian clause, p15 (arXiv v2)",
+   "printed": "D=∅",
+   "correction": "For the stronger endpoint i≤p−2 obtained from the cited abelian-scheme prismatic argument, retain D=∅ or provide a new log-boundary torsion-freeness argument.",
+   "reason": "The proof invokes Proposition2.2.11 and Corollary2.2.6, whose abelian application has empty boundary. An abelian underlying Y does not alone identify the log-prismatic cohomology of (Y,D) with the exterior algebra used there. E7’s terminology objection is invalid; this is the actual missing proof hypothesis. No counterexample to the stronger logarithmic statement is asserted.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "The proof invokes Proposition2.2.11 and Corollary2.2.6, whose abelian application has empty boundary. An abelian underlying Y does not alone identify the log-prismatic cohomology of (Y,D) with the exterior algebra used there. E7’s terminology objection is invalid; this is the actual missing proof hypothesis. No counterexample to the stronger logarithmic statement is asserted."
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/E31",
+   "kind": "error",
+   "locator": "§3.3.1, p30 (arXiv v2)",
+   "printed": "not trivial",
+   "correction": "Restrict nontriviality of the cocharacter to the relevant nontrivial adjoint factors; permit the torus Shimura data allowed by the axioms.",
+   "reason": "The datum (G_m,h=1) satisfies the Deligne axioms: its adjoint group is trivial, the adjoint Hodge and Cartan conditions are vacuous, and its weight is rational. Its cocharacter is trivial. The atlas explicitly includes torus test data at ShimuraData:D5. The positive-dimensional adjoint application is unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-23: arXiv https://arxiv.org/abs/2110.05534 lists v1 (2021-10-11) and v2 (2024-02-27). All 40 v2 pages were independently read. The downloaded 31-page v1 was not read completely, so this review makes no independent claim about all v1 occurrences.",
+    "2026-09-23: author copy https://www.math.uchicago.edu/~farb/papers/thirdessdim.pdf is byte-identical to arXiv v2. Kisin https://people.math.harvard.edu/~kisin/preprints.html and Wolfson https://jpwolfson.com/papers/ were checked; no correction of these passages was located.",
+    "2026-09-23: title plus erratum/correction searches found no correction. The DOI10.1215/00127094-2023-0071 Project Euclid article was not retrieved as readable full text; the UC institutional copy has a cover plus the arXiv text, not the 48-page journal typesetting. These findings concern v2, not a verified journal transcription. The search is bounded and says nothing about unpublished correspondence."
+   ],
+   "owner": "PAPER-FARB-KISIN-WOLFSON-24",
+   "file": "research/blueprint/papers/PAPER-FARB-KISIN-WOLFSON-24.result.json",
+   "citation": "Farb–Kisin–Wolfson, \"Essential dimension via prismatic cohomology\", Duke Mathematical Journal (2024)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-FARB-KISIN-WOLFSON-24",
+   "reviewReason": "The datum (G_m,h=1) satisfies the Deligne axioms: its adjoint group is trivial, the adjoint Hodge and Cartan conditions are vacuous, and its weight is rational. Its cocharacter is trivial. The atlas explicitly includes torus test data at ShimuraData:D5. The positive-dimensional adjoint application is unaffected."
   },
   {
    "id": "PAPER-FENG-24/E1",
