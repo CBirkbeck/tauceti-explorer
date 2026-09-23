@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-BENOIST-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source additions to SchemeAndStackFoundations:SF.2, which owns étale sites and scheme cohomology — the right owner for the Brauer/Kummer sequences, cycle class maps and the Picard-of-punctured-locus material. Eight items, no duplication of the equivariant machinery that route 6 owns."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "MotivesAndAlgebraicCycles:MC.2 owns cycle classes and Chow groups, which is where the Borel–Haefliger and Krasnov cycle class maps belong. Correctly kept distinct from the equivariant-topology construction of the same classes."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "MotivesAndAlgebraicCycles:MC.7 for the remaining cycle-theoretic input. Same owner, different layer, and the split is along the layer descriptions rather than arbitrary."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "AlgebraicModuliForArithmeticGeometry:R09.1 together with its A0-extension, for the family/moduli input behind the Noether–Lefschetz construction of §5. Both stages exist and the item is a single well-identified addition."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras, title extended exactly ('Semisimple algebras, Artin-Wedderburn, and the structure of their modules' + ', Part II: period and index arithmetic'). The parent's Layer 6 and the pinned library already give the Brauer group, scalar extension, division representatives, TauCeti.Algebra.index and exists_isSplittingField_finrank_eq_index — I read all of these and they are correctly cited — but not period, the gcd characterisation of index, or extension divisibility. Putting that arithmetic in a shared Part II rather than inside the real-surface consumer is right, since the quaternion-form and twisted-sheaf consumers need the same interface. The brief is explicit that these are proof obligations beyond the existing API, not replacement definitions."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/AlgebraicTopology, title extended exactly. The parent's Stages 5–6 own ordinary local-coefficient cohomology, transfer and manifold duality; nothing in the atlas owns integral C2-equivariant cohomology, fixed-locus decompositions, sign local systems of double covers or the Benoist–Wittenberg localization theorem, which is the bulk of what this paper runs on. The brief imports the ordinary owners rather than restating them, and — a good sign of an extraction that has read its own findings — it instructs builders to construct the proper Gysin map 'with the dimension twist M(d′−d), not the degree twist printed in Benoist (2.1)', which is precisely finding E11."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/HodgeStructures, title extended exactly. Accepted specifically because it JOINS an existing proposal rather than raising a rival: PAPER-BAKKER-KLINGLER-TSIMERMAN-20 (46 items) and PAPER-GAO-HABEGGER-19 (3 items) propose this same roadmap id with identical parent and identical title, which is what allows the maintainer to merge them. Route 7's reason names the Bakker–Klingler–Tsimerman proposal explicitly and says it must be preserved and not re-extracted or treated as accepted. It does not mention Gao–Habegger; that is a documentation gap only, since id, parent and title already agree. The tranche itself — real infinitesimal Noether–Lefschetz criteria, Griffiths' derivative formula, the geometric weight-two variation — is the part Benoist actually needs and is not covered by the other two."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/QuadraticFormInvariants, title extended exactly, and likewise a join: PAPER-JANNSEN-16 proposes the same id with identical parent and title. The parent's stated scope stops at the local-field u = 4 endpoint and excludes the general torsion/Pfister theory, so orderings, Harrison spaces, the Elman–Lam u-invariant and Springer's theorem are genuinely new. The brief again encodes this review's findings, asking for 'a finitely generated descent field enlarged to contain a transcendence basis' (finding E9) and for the builder to 'verify the simultaneous parameter determinant, not just the two individual nonproportionality tests' (finding E10)."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The new roadmap RealSurfacePeriodIndex, 89 items, and the one route that needed the most scrutiny. I accept it. Nothing in the atlas owns Benoist's ramified-cover geometry or the real-evaluation obstruction, and the reason does not merely assert this: it names the near misses and says how each differs — RP.2–RP.3 are Brauer–Manin and descent, K2SymbolsBrauer is K2 norm symbols, and the Charles K3 proposal is different geometry. I confirmed the name is free, unreserved, and not proposed by any other paper. The brief states the final theorems exactly, including the delicate even-n criterion ('equality exactly when SOME Kummer lift of (n/2)α has vanishing degree-one component on the nonzero evaluation locus Θ, and index 2n otherwise'), it names what to import rather than rebuild, and it carries two guards that show the extraction understood the paper: 'Do not strengthen R to an arbitrary real closed field' — which is exactly what Proposition 0.7 proves impossible — and the 'partial-resolution/Stein-factor distinction', which is finding E1."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "ShimuraData:D3 for the general VHS/local-system/filtered-bundle definition, imported rather than rebuilt in route 7. A single item to the correct existing owner."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-d67081, 23 September 2026, of the extraction by cc-442dc5. Verdict accept: no item, status or route changed. All 187 items, 10 routes and 19 recorded mistakes were checked against the published text, re-fetched from Numdam and hashed to 8dfc0f22…98d3b, matching the record. Of the 19 recorded mistakes, 18 are confirmed and one is REJECTED. E16 records 'kernel' as printed in the proof of Proposition 7.1 and asks for the cokernel of the Picard cycle class map instead — but p. 103 already prints 'the cokernel of Krasnov's cycle class map … is torsion-free', and every occurrence of 'kernel' in the paper (pp. 70, 71, 80) is unrelated to that map. The finding's correction is the printed text, so recording it would have placed a non-existent mistake in the public errata register. Two further mistakes were corrected in place. E13 quoted the point as (0:−1:1:1); the paper prints [0 : −1 : 1 : 0], which I verified on the page image and which is the only one of the two lying on Q = {z² = w² − u² − v²}. With the quotation repaired the finding stands. E10's locator attributed its passage to the proof of Theorem 0.13; it is in the proof of Theorem 0.12, and no proof of Theorem 0.13 appears on p. 96. Several confirmations were obtained by independent computation rather than by reading alone: E10 by expanding y_j = (1+z_j)² + (w+z_j)² in m/m² to show the printed hypothesis (α ≠ 0, β ≠ 0) is compatible with the degeneracy α + β = −c; E1 by checking that the fibre of {rv² = sw²} over R ∩ D is the whole P¹, which the paper's own p. 77 concedes by defining S⁰ as the finite-flat locus; E6 by composing Lemma 7.2's (1, −φ) convention with diagram (7.4); and E12 by observing the printed target H²(T, O_T) forces the preceding group to be H¹, not H⁰. Three findings are confirmed against the paper contradicting itself elsewhere — E5 (p. 82 handles the curve classes that p. 85 drops), E15 (p. 106 says 'non-zero' where p. 107 omits it) and E1. All 13 library citations were read at the pinned commits and all say what the citing item claims; all 13 planned items name atlas layers that exist; all 161 missing items are routed exactly once. Run-together numbering was repaired in 335 places, with the SHA-256 hashes and § marks deliberately untouched. On the routes: the new roadmap RealSurfacePeriodIndex is justified, its name is free and unreserved, and its brief states the final theorems exactly. Two of the four Part IIs join existing proposals with identical id, parent and title — DegeneratingHodgeStructures with PAPER-BAKKER-KLINGLER-TSIMERMAN-20 and PAPER-GAO-HABEGGER-19, QuadraticFormsRealFunctionFields with PAPER-JANNSEN-16 — which is the behaviour PROTOCOL 15 asks for. The extraction names only the first of the three co-proposers; the others agree in id, parent and title, so the merge is unaffected, but the maintainer should know all three exist. Every change is listed in research/blueprint/reviews/REV-PAPER-BENOIST-19.md."
+}
