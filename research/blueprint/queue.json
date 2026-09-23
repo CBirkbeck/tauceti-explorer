@@ -4111,8 +4111,8 @@
    ],
    "avoidAccountOf": "PAPER-NAKAMURA-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-NAKAMURA-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1244"
+   "state": "external",
+   "note": "claimed on GitHub issue #1244"
   },
   {
    "id": "PAPER-LI-23",
@@ -5035,7 +5035,8 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1295"
   },
   {
    "id": "PAPER-BENOIST-WITTENBERG-20",
@@ -5227,8 +5228,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-NIZIOL-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-NIZIOL-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1305"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1305",
+   "finishedAt": "2026-09-23T23:28:06Z"
   },
   {
    "id": "PAPER-COLMEZ-NIZIOL-25",
