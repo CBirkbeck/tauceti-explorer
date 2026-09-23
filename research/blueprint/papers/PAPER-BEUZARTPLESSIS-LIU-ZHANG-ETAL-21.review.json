@@ -1,0 +1,22 @@
+{
+ "paper": "PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "AutomorphicSpectralTheory owns the automorphic L²-spectrum and its decomposition over cuspidal data (AS.4), but only for compactly supported test functions; the Schwartz algebra, its multipliers and the isolation of cuspidal components extend that roadmap in its own direction and are used by every relative trace formula that needs cuspidal test functions (here Jacquet–Rallis; later papers in the queue by Beuzart-Plessis–Chaudouard–Zydor use the same device). The title begins with the parent's exact atlas title and is shared, under the same id, with Beuzart-Plessis–Chaudouard–Zydor (2022) and Beuzart-Plessis–Chaudouard (2025); the brief names E16, E19, E21, E23, E25, E34, E35 and E36."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "PAPER-ZHANG-21 proposed JacquetRallisRelativeTraceComparison as the owner of Jacquet–Rallis relative transfer and trace comparison, a Part II of EndoscopicTransferAndUnitaryTraceComparison; the Jacquet–Rallis setup, smooth transfer and the fundamental lemma used here are its local layers, and the global coarse trace formulas, the comparison of geometric sides and the spectral applications to Gan–Gross–Prasad are the same comparison carried to the spectral side, so they coalesce there rather than in a second roadmap. The title begins with the parent's exact atlas title and matches the candidate's, which Zhang (2021), Beuzart-Plessis–Chaudouard–Zydor (2022), Leslie (2025) and Beuzart-Plessis–Chaudouard (2025) also use; the brief names E1, E39, E40, E43 and E45."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "PAPER-JIANG-ZHANG-20 proposed GanGrossPrasadConjecturesForClassicalGroups as the single owner of the Gan–Gross–Prasad framework and named this paper among its consumers; the definitions and the conjectures this paper states or cites belong there. The id and title match the candidate that Jiang–Zhang (2020), Nelson–Venkatesh (2021), Beuzart-Plessis–Chaudouard–Zydor (2022), Liu et al. (2022) and Beuzart-Plessis–Chaudouard (2025) also use; the brief names E11 and E45."
+  }
+ ],
+ "notes": "Independent review REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21 by Claude Code, session cc-2aeb03; the extraction was written by Claude Code (cc-39fac3, #2043). arXiv:1912.07169v3, the authors' final version the extraction read (PDF and TeX source, both hashes matching), was read in full on page images in six ranges against every item, with the TeX source for formulas. Corrected in place: 98 item fields (41 statements, 36 locators, 17 names, 4 kinds) and 3 notes; 20 bundled items split, one numbered result per item, as the protocol requires; 65 items added (1 planned) for the split-off results, definitions, constructions and cited inputs; no item removed. The briefs of all three routes carry the confirmed corrections. Prerequisites: the 25 cited works, checked against Crossref, plus Jacquet–Shalika (1981), used for Theorem 1.3. Mistakes: E1–E9 confirmed, E1 and E4 revised as the independent checks upheld. 40 new claims were checked a second time, independently: 39 confirmed, 1 rejected; one duplicate was folded, and the rest are E10–E47. The main new ones: Proposition 4.7 is applied to archimedean test functions in the completed Schwartz space, which Chaudouard–Zydor do not cover and the paper's density argument does not give, and Theorems 1.8–1.10 and 4.14 rest on it (E39); Theorem 4.14(4) is false as printed for non-automorphic π (E45); Remark 2.16's description of the infinitesimal characters and of the kernel fails for SU(2), and the 'only if' half of its conjecture for SU(3) (E19); the set of involutions of a root datum need not be finite, so Lemma 2.10 needs θ finite (E16); an error in the proof of Proposition 3.17 for M = G (E36); gaps in the proofs of Lemmas 2.18, 3.12, 3.13 and Proposition 4.13 (E21, E34, E35, E43). Theorems 1.1, 1.3 and 1.4 stand."
+}

@@ -10,6 +10,29 @@ The machine-readable extraction is [PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.resul
 - 25 prerequisite entries;
 - 9 recorded source issues.
 
+## Independent review (REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21.md`; the counts in the sections below it are
+the earlier ones and are superseded by these.
+
+- **Items: 128** (7 planned, 121 missing), each missing item routed once.
+  - 20 bundled items split, one numbered result per item; 65 items added for the split-off results and for definitions,
+    constructions and cited inputs the proofs use.
+  - 98 fields corrected: 41 statements, 36 locators, 17 names, 4 kinds. None removed.
+- **Routes.** All three stand; their briefs carry the confirmed corrections.
+- **Prerequisites.** The 25 cited works checked against Crossref, and Jacquet–Shalika (1981) added.
+- **Mistakes: 47 confirmed** (33 misprints, 7 gaps, 7 errors); 2 reach a stated result and 8 a proof.
+  - **E1–E9** are confirmed; E1 and E4 are revised.
+  - **E10–E47** are new, each checked independently. The main ones:
+    - **E39:** Proposition 4.7 is applied to archimedean test functions in the completed Schwartz space, which
+      Chaudouard–Zydor do not cover; Theorems 1.8–1.10 and 4.14 rest on this extension.
+    - **E45:** Theorem 4.14(4) needs π cuspidal automorphic.
+    - **E19, E25:** the infinitesimal characters are only contained in ⋃_ϑ h*_{ϑ,C} ⊕ Y*_ϑ (SU(2)).
+    - **E16, E36:** errors in the proofs of Lemma 2.10 (θ must be finite) and Proposition 3.17 (M = G).
+    - **E21, E34, E35, E43:** gaps in Lemmas 2.18, 3.12, 3.13 and Proposition 4.13, all fillable.
+  - Theorems 1.1, 1.3 and 1.4 stand.
+
 ## Sources read
 
 - **arXiv v3** (June 2021), read in full from its TeX source, with the PDF used for numbering and pages. Numbers and pages below are those of the arXiv PDF.
