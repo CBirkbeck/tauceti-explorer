@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-KISIN-PAPPAS-ZHOU-26",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "agent": "Codex",
   "session": "codex-c83e7a",
   "source": {
@@ -25,7 +25,7 @@
       "All references"
     ]
   },
-  "summary": "A 203-item extraction of the complete published paper, separating normal integral local models, classical Schubert tangent geometry, corrected display connections, very-good embedding existence and all-abelian-type integral models at odd p. Eight unique ownership routes reuse the existing root/local-model/tensor/Shimura candidates and isolate genuinely additional integral representation,diamond and shtuka directions. Original prerequisite proof closure and several construction expansions remain explicit gaps; this is a partial checkpoint, not formalization.",
+  "summary": "Kisin, Pappas and Zhou construct integral models of Shimura varieties of abelian type with parahoric level at every odd prime, étale locally isomorphic to the local models and with a local-model diagram (Theorem 7.2.21). The paper also corrects a gap in Kisin–Pappas 2018: the connection isomorphism behind the tensor deformation argument needs a very good Hodge embedding, and §§4–6 show such embeddings exist in enough cases, through a curve-spanning theorem for tangent spaces of affine Schubert varieties. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and fourteen findings are recorded. Seven are the paper's printed corrections of Kisin–Pappas 2018 and Pappas 2023. In characteristic p the proof of Proposition 4.2.10(2) is incomplete (E9), though Theorem 4.2.3 stands. Not formalised.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3613,7 +3613,7 @@
       "prerequisites": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/R03"
       ],
-      "note": "The printed example repeats a variable and calls a reducible surface normal. P95 Example4.5(a) distinguishes its regular total model from the two-component special fiber; the tangent obstruction remains valid.",
+      "note": "The printed example repeats a variable and calls a reducible surface normal. P95 Example4.5(a) distinguishes its regular total model from the two-component special fiber; the tangent obstruction remains valid. (cc-442dc5) Recorded as finding E8.",
       "gaps": [
         "G-models"
       ],
@@ -3985,7 +3985,7 @@
       "prerequisites": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/R08"
       ],
-      "note": "",
+      "note": "(cc-442dc5) The weight-pair reading and the nonzero-X_α reading differ in characteristic p (finding E9).",
       "gaps": [
         "G-reps"
       ],
@@ -4054,7 +4054,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R10",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R01"
       ],
-      "note": "",
+      "note": "(cc-442dc5) The weight notation is finding E10; the characteristic-p point is E9.",
       "gaps": [
         "G-reps"
       ],
@@ -4120,7 +4120,7 @@
       "kind": "theorem",
       "name": "FM root tangent upper bound",
       "statement": "The α-root component of the tangent of Gr^FM_≤μ is bounded by the pole interval specified by l_α; the Schubert tangent component inherits this upper bound.",
-      "locator": "Lemma4.2.10",
+      "locator": "Proposition 4.2.10(2)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -4129,7 +4129,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R06",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R32"
       ],
-      "note": "",
+      "note": "(cc-442dc5) The printed locator 'Lemma 4.2.10' is Proposition 4.2.10. In characteristic p the printed proof bounds l only over pairs realised by a nonzero X_α, which include all pairs with ω minuscule; that suffices for R19 (finding E9).",
       "gaps": [
         "G-models"
       ],
@@ -4226,7 +4226,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R13",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R02"
       ],
-      "note": "The source coordinate line P=Z^n is incompatible with its spin weight; use Z^n+Z·(1/2,…,1/2) for the abstract B weight lattice and restrict to the group character lattice as needed.",
+      "note": "The source coordinate line P=Z^n is incompatible with its spin weight; use Z^n+Z·(1/2,…,1/2) for the abstract B weight lattice and restrict to the group character lattice as needed. (cc-442dc5) Recorded as finding E11.",
       "gaps": [
         "G-roots"
       ],
@@ -4290,7 +4290,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R13",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R02"
       ],
-      "note": "",
+      "note": "(cc-442dc5) The printed last simple root is finding E12.",
       "gaps": [
         "G-roots"
       ],
@@ -4322,7 +4322,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R13",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R02"
       ],
-      "note": "Do not copy the repeated e_(n−1) in the printed last root or the unverified q=s−t sign after swapping half-spin labels.",
+      "note": "Do not copy the repeated e_(n−1) in the printed last root or the unverified q=s−t sign after swapping half-spin labels. (cc-442dc5) Recorded as finding E12: with the printed half-spin weights the last coordinate of μ is (t − s)/2.",
       "gaps": [
         "G-roots"
       ],
@@ -4395,7 +4395,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R17",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R18"
       ],
-      "note": "The A1 regression λ=μ=(1,−1) gives k_α=2,k_(−α)=0 and detects the printed sign error.",
+      "note": "The A1 regression λ=μ=(1,−1) gives k_α=2,k_(−α)=0 and detects the printed sign error. (cc-442dc5) Recorded as finding E13; the published regression is λ = μ = (1, 0) for GL_2.",
       "gaps": [
         "G-roots"
       ],
@@ -4765,7 +4765,7 @@
       "kind": "theorem",
       "name": "Curve spanning at all points without D-quaternionic factors",
       "statement": "Under the hypotheses of R29 and with no D^H factor, the tangent space at every geometric special-fiber point is curve-spanned.",
-      "locator": "Theorem4.4.3(2)",
+      "locator": "Theorem4.4.3(2); Theorem 1.2.3 (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -5361,7 +5361,8 @@
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/F08",
-        "PAPER-KISIN-PAPPAS-ZHOU-26/F05"
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F05",
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F34"
       ],
       "note": "",
       "gaps": [
@@ -8233,7 +8234,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S16",
         "PAPER-KISIN-PAPPAS-ZHOU-26/V04"
       ],
-      "note": "The printed sentence on p79 is garbled; reconstruct the positivity/approximation statement from the displayed forms and its original Deligne input before marking closure complete.",
+      "note": "The printed sentence on p79 is garbled; reconstruct the positivity/approximation statement from the displayed forms and its original Deligne input before marking closure complete. (cc-442dc5) The garbled published sentence is finding E14, reconstructed from arXiv v3 p.82.",
       "gaps": [
         "G-global"
       ],
@@ -8814,7 +8815,7 @@
       "kind": "theorem",
       "name": "Integral models for every abelian-type datum at odd p",
       "statement": "For an abelian-type Shimura datum (G2,X2), p>2 and connected parahoric K2p, Theorem7.2.21 constructs integral models over O_E2(v2) at sufficiently small away-p level, forming the stated finite étale tower.",
-      "locator": "Theorem7.2.21, opening assertion",
+      "locator": "Theorem7.2.21, opening assertion; Theorem 1.1.1 (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -8850,7 +8851,7 @@
       "kind": "theorem",
       "name": "Abelian-type pro-level extension property",
       "statement": "For every DVR R of mixed characteristic(0,p) over the stated reflex integer ring, S_(K2p°)(R)→Sh_(K2p°)(R[1/p]) is a bijection for the pro-level tower in S32.",
-      "locator": "Theorem7.2.21(1)",
+      "locator": "Theorem7.2.21(1); Theorem 1.1.1(1) (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -8882,7 +8883,7 @@
       "kind": "theorem",
       "name": "Étale-local geometry of all abelian-type models",
       "statement": "For every sufficiently small away-p compact open K2^p, the integral scheme S_(K2p°K2^p) is étale locally isomorphic to M_loc_(G2°,μ_h2).",
-      "locator": "Theorem7.2.21(2)",
+      "locator": "Theorem7.2.21(2); Theorem 1.1.1(2) (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -8915,7 +8916,7 @@
       "kind": "construction",
       "name": "Abelian-type adjoint local-model diagram",
       "statement": "The integral model in S32 has the G_ad-torsor and equivariant smooth local-model map of relative dimension dim G_ad. Use the smooth center quotient S12, retaining its possible disconnectedness.",
-      "locator": "Theorem7.2.21(3), diagram(7.2.22)",
+      "locator": "Theorem7.2.21(3), diagram(7.2.22); Theorem 1.1.1(3) (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -9212,7 +9213,7 @@
       "kind": "theorem",
       "name": "Connected local-model diagram in all cases",
       "statement": "For every abelian-type datum at p>2 in S32, the adjoint local-model torsor reduces to the connected parahoric group with a smooth equivariant local-model map, including D^H and the p-divisible A-index cases.",
-      "locator": "Corollary7.2.24",
+      "locator": "Corollary7.2.24; Corollary 1.1.2 (introduction form)",
       "status": "missing",
       "implementationStatus": "unchecked",
       "prerequisites": [
@@ -9770,6 +9771,54 @@
         "Follow the named source proof with the listed inputs; unresolved original-source closure is recorded in the named gates."
       ],
       "closureStatus": "open: G-global"
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/F34",
+      "kind": "theorem",
+      "name": "Canonical comparison over a frame with enlarged ideal",
+      "statement": "Let F = (S, I, φ, φ_1) be a frame with frame morphisms D_k → F → D_k (the second ι) composing to the identity, let I′ be the kernel of S → W(k) → k, and suppose I ⊂ I′ and φ_1 extends to φ′_1: I′ → S, so that F′ = (S, I′, φ, φ′_1) is a frame. For a pair (M, M_1) over F with an isomorphism ψ: M_0 ⊗_{W(k)} S → M whose base change along ι is the identity, there is an isomorphism c_S: M̃_{0,1} ⊗_{W(k)} S → M̃_1 of finite free S-modules (5.1.12), functorial in (M, M_1, ψ) and compatible with base change.",
+      "locator": "Lemma 5.1.11",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F08",
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F04",
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F02"
+      ],
+      "note": "",
+      "gaps": [
+        "G-display"
+      ],
+      "sources": [
+        {
+          "sourceId": "kpz-published",
+          "locator": "Lemma 5.1.11",
+          "match": "Published statement read by cc-442dc5; added as a numbered statement without its own item."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/S43",
+      "kind": "theorem",
+      "name": "Multiplier exact sequences for a Hodge-type group",
+      "statement": "Let (G, X) be of Hodge type with G^ad simple, G^c the subgroup generated by G^der and the largest compact subtorus Z_{G,0} of Z_G, and Z^c_G the subgroup generated by Z_{G^der} and Z_{G,0}. Then 1 → G^c → G → G_m → 1 and 1 → Z^c_G → Z_G → G_m → 1 are exact, the maps to G_m being the symplectic multiplier of some (equivalently any) Hodge embedding.",
+      "locator": "Lemma 7.2.5",
+      "status": "missing",
+      "implementationStatus": "unchecked",
+      "prerequisites": [
+        "PAPER-KISIN-PAPPAS-ZHOU-26/S16"
+      ],
+      "note": "",
+      "gaps": [
+        "G-global"
+      ],
+      "sources": [
+        {
+          "sourceId": "kpz-published",
+          "locator": "Lemma 7.2.5",
+          "match": "Published statement read by cc-442dc5; added as a numbered statement without its own item."
+        }
+      ]
     }
   ],
   "routes": [
@@ -9911,6 +9960,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/F06",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F07",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F08",
+        "PAPER-KISIN-PAPPAS-ZHOU-26/F34",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F09",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F10",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F11",
@@ -10009,6 +10059,7 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S14",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S15",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S16",
+        "PAPER-KISIN-PAPPAS-ZHOU-26/S43",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S17",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S18",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S19",
@@ -10153,7 +10204,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S23",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S24",
         "PAPER-KISIN-PAPPAS-ZHOU-26/D04"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Bruhat–Tits, Edixhoven, tame fixed-point, Néron-model and Levin results are cited suppliers."
     },
     {
       "id": "G-models",
@@ -10196,7 +10249,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/V03",
         "PAPER-KISIN-PAPPAS-ZHOU-26/V09",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R32"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Pappas–Zhu, Levin, AGLR, FHLR and Haines–Richarz are cited suppliers; splitting long constructions is design work."
     },
     {
       "id": "G-roots",
@@ -10219,7 +10274,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/R24",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R27",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R31"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E11–E13 record the B/D coordinate misprints and the Corollary 4.2.19 sign; with them the case checks and Proposition 4.2.13's inequality k_α ≥ j_α go through as printed. Declaration-level proofs are formalisation work."
     },
     {
       "id": "G-reps",
@@ -10232,7 +10289,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/V08",
         "PAPER-KISIN-PAPPAS-ZHOU-26/I10",
         "PAPER-KISIN-PAPPAS-ZHOU-26/R32"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E9: the adjacent-weight criterion fails in characteristic p (GL_2, highest weight (p, 0)), but it holds for minuscule weights, which is all Theorem 4.2.3 needs. Jantzen and the Kostant lattice are cited suppliers."
     },
     {
       "id": "G-display",
@@ -10284,7 +10343,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/E02",
         "PAPER-KISIN-PAPPAS-ZHOU-26/E04",
         "PAPER-KISIN-PAPPAS-ZHOU-26/F33"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Zink, Lau, Bültel–Pappas and Hoff are cited suppliers. E1 records the KP18 Lemma 3.1.9 construction that §5.1 replaces; Lemma 5.1.11 now has its own item (F34)."
     },
     {
       "id": "G-purity",
@@ -10292,7 +10353,9 @@
       "consumers": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/F14",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S03"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Anschütz Proposition 10.3 and PR24 Appendix A are cited suppliers."
     },
     {
       "id": "G-tensors",
@@ -10301,14 +10364,18 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S02",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S03",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S07"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "The absolute-Hodge and integral comparison theorems are cited suppliers."
     },
     {
       "id": "G-siegel",
       "detail": "Read Zh20§6.3 and the exact integral Siegel lattice-chain construction. Supply its representability, universal isogeny chain and nonprincipal-polarization hypotheses; PELModuli M2 only supplies the stated good-level case.",
       "consumers": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/S38"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Zhou's parahoric Siegel lattice-chain moduli (Zh20 §6.3) is a cited supplier."
     },
     {
       "id": "G-diamonds",
@@ -10322,7 +10389,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/I08",
         "PAPER-KISIN-PAPPAS-ZHOU-26/I09",
         "PAPER-KISIN-PAPPAS-ZHOU-26/I10"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Scholze–Weinstein and the DvHKZ appendix are cited suppliers."
     },
     {
       "id": "G-shtukas",
@@ -10337,7 +10406,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/I06",
         "PAPER-KISIN-PAPPAS-ZHOU-26/I07",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S37"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "DvHKZ, PR24 and PR26 are cited suppliers."
     },
     {
       "id": "G-prismatic",
@@ -10345,7 +10416,9 @@
       "consumers": [
         "PAPER-KISIN-PAPPAS-ZHOU-26/I05",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S37"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "The DvHKZ appendix and its prismatic sources are cited suppliers."
     },
     {
       "id": "G-components",
@@ -10362,7 +10435,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S39",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S40",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S41"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "KP18 §§4.3–4.6 is a cited supplier; E5 records the conjugated component levels the paper applies."
     },
     {
       "id": "G-global",
@@ -10381,7 +10456,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S27",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S29",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S42"
-      ]
+      ],
+      "status": "recorded",
+      "resolution": "E14 reconstructs Lemma 7.2.8's garbled sentence from arXiv v3. Deligne, Satake, Zarhin and KP18 are cited suppliers; Lemma 7.2.5 now has its own item (S43)."
     },
     {
       "id": "G-shimura",
@@ -10399,7 +10476,9 @@
         "PAPER-KISIN-PAPPAS-ZHOU-26/S31",
         "PAPER-KISIN-PAPPAS-ZHOU-26/S32",
         "PAPER-KISIN-PAPPAS-ZHOU-26/E01"
-      ]
+      ],
+      "status": "deferred",
+      "resolution": "Declaration-sized splitting is design work; E2, E3 and E5 record the KP18 corrections that §7 applies."
     }
   ],
   "sourceArchives": [
@@ -10500,6 +10579,15 @@
       "accessed": "2026-09-22",
       "first": "ON A CONJECTURE OF PAPPAS AND RAPOPORT\nPATRICK DANIELS, POL VAN HOFTEN, DONGRYUL KIM, AND MINGJIA ZHANG\nAbstract. We prove a conjecture of Pappas and Rapoport about the existence\nof “canonical” integral models of Shimura varieties of Hodge type with quasi-\nparahoric level structure at a prime p. For these integral models, we moreover\nshow uniformization of isogeny classes by integral local Shimura varieties and\nprove a conjecture of Kisin and Pappas on local model diagrams.\nContents\n1.\nIntroduction\n1\n2.\nPreliminaries\n6\n3.\nThe moduli stack of quasi-parahoric shtukas\n16\n4.\nConjectural canonical ",
       "readScope": "PDF36–40 and49–52 read:4.2.3,4.3.3–4.3.4,AppendixA3.1–A3.5. Earlier prismatic sections not read."
+    },
+    {
+      "id": "cam-repository",
+      "url": "https://www.repository.cam.ac.uk/bitstreams/0e19314e-a580-4923-9d91-22f699fc3c42/download",
+      "accessed": "2026-09-23",
+      "pdf": true,
+      "pages": 89,
+      "sha256": "b3e4bf8beb8a21bca37e7c00298d8e96c2cce4121e1b06d0e164645891481f31",
+      "readScope": "The published version (Forum Math. Pi 14 (2026) e14 header, 89 pages), as deposited in the Cambridge repository and listed by Unpaywall; the publisher's PDF URL returned HTML to cc-442dc5. Its hash differs from the checkpoint's copy because of the repository's PDF processing. Used by cc-442dc5 for §1.3, §§4.1–4.3, §5.1, §7.2 and §7.3, with pp.31, 35, 37–38, 41, 50 and 79 rendered and read."
     }
   ],
   "inspection": {
@@ -12222,7 +12310,7 @@
     "counts": {
       "library": 14,
       "planned": 13,
-      "missing": 176
+      "missing": 178
     },
     "definitionsAndConstructions": 67,
     "apiStatements": 201,
@@ -12313,5 +12401,200 @@
       "G-components/G-global/G-siegel/G-shimura: exact descent,cover and integral moduli suppliers",
       "Replace all remaining consumer contracts and grouped bibliographic leads with original-source declaration-sized nodes before complete"
     ]
+  },
+  "sourceIssues": [
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E1",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), Lemma 3.1.9 and Lemma 3.1.12",
+      "printed": "the connection isomorphism c constructed in the proof of Lemma 3.1.9 from a normal decomposition M = L ⊕ T, and Lemma 3.1.12 for that c",
+      "correction": "The construction depends on the normal decomposition and is not canonical, and Lemma 3.1.12 fails for it. Use the canonical c of Lemma 5.1.15 (via Lemma 5.1.11), following Hoff.",
+      "reason": "Remark 5.1.17: the diagram does not determine c because its horizontal maps need not be injective, even when Ŵ(R) is p-torsion free. The later KP18 results that depend on c are E2.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, Remark 5.1.17 and §1.3.1; first pointed out by M. Hoff ([Ho23, Rem. 2.29]).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E2",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), 3.2.12, Lemma 3.2.14, Propositions 3.2.17 and 3.3.13, Theorem 4.2.7, Corollaries 4.2.12–4.2.13 and Theorem 4.6.23",
+      "printed": "the isomorphism Ψ_{R_G} of 3.2.12 for an arbitrary (good) Hodge embedding, and the results using it",
+      "correction": "Ψ_{R_G} exists only when the Hodge embedding is very good (Definition 5.2.5). Add that hypothesis to the listed results, whose proofs are otherwise unchanged. Theorem 4.2.7 is replaced by Theorem 7.1.3 and Theorem 4.6.23 by Theorem 7.2.21 (Theorem 1.1.1), refined by Corollary 7.2.24.",
+      "reason": "The horizontality of the tensors s̃_a claimed in 3.2.12 depends on the construction of c corrected in E1. Remark 7.1.4(1) notes that the same hypothesis (C) was omitted in earlier versions of [KZ25].",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, §1.3.1 and Remark 7.1.4(1).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E3",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), proof of Theorem 4.2.7",
+      "printed": "the morphism q^loc is a G-torsor",
+      "correction": "q^loc is isomorphic to the action morphism G × M^loc → M^loc, which is smooth as the composite of (g, m) ↦ (g, g·m) with a projection; the rest of the proof is unchanged.",
+      "reason": "Only smoothness of q^loc is used.",
+      "affects": "the proof",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, §7.3.1(1).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E4",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), proof of Lemma 3.1.17",
+      "printed": "p^{-m}φ^m(x) → 0 for the topology τ on Ŵ(A)[1/p]",
+      "correction": "Ŵ(A)[1/p] is not complete for τ. It is p-adically complete and separated ([Zi01, Prop. 2.3, 2.4]), and p^{-m}φ^m(x) → 0 p-adically, by Zink's logarithmic coordinates for p > 2.",
+      "reason": "Convergence in an incomplete topology does not finish the argument; the p-adic statement does. Credited to M. Hoff.",
+      "affects": "the proof",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, §7.3.1(2).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E5",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), Lemma 4.6.13 and Corollary 4.6.15",
+      "printed": "the description of Sh_{K°_{2,p}}(G_2, X_2) as a union of connected Shimura varieties at the level K°_p",
+      "correction": "The component indexed by j ∈ J has level jK°_p j^{-1}: Sh_{K°_{2,p}}(G_2, X_2) ≅ ⨆_{j∈J} [Sh_{K°_p}(G, X)^{j,+} × 𝒜(G_{2,Z(p)})]/𝒜(G_{Z(p)})°, and the integral model of Corollary 4.6.15 uses the Zariski closures of the Sh_{K°_p}(G, X)^{j,+}.",
+      "reason": "The stabilizer of j𝒜(G_{2,Z(p)}) is jK°_p j^{-1} ∩ 𝒜̃(G_{Z(p)})°. Credited to Yu Luo and Peihang Wu.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, §7.3.1(3).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E6",
+      "kind": "error",
+      "locator": "Kisin–Pappas, Integral models of Shimura varieties with parahoric level structure, Publ. Math. IHÉS 128 (2018) ([KP18]), 4.6.21",
+      "printed": "H♯ is defined for any (H, Y) with H of classical type",
+      "correction": "H♯ need not satisfy the third defining condition in general; it does when (H^ad, Y^ad) is of abelian type.",
+      "reason": "Footnote 8 of §7.2.3.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, footnote 8 (§7.2.3).",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E7",
+      "kind": "error",
+      "locator": "Pappas, On integral models of Shimura varieties, Math. Ann. 385 (2023) ([P23]), §4.5, Proposition 4.5.3, §8 and Theorem 8.1.6",
+      "printed": "the constructions and results without the hypothesis that (G, μ) ↪ (GL(Λ), μ_d) is very good",
+      "correction": "Add that hypothesis. The independence in Theorem 8.1.6 holds for models built from different very good Hodge embeddings.",
+      "reason": "Proposition 4.5.3's claim that c respects the tensors rests on the construction of c corrected in E1.",
+      "affects": "a stated result",
+      "known": "Corrected in print in this paper: Kisin–Pappas–Zhou, Forum Math. Pi 14 (2026) e14, §7.3.2.",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026: §1.3, Remark 5.1.17, Remark 7.1.4, footnote 8 (§7.2.3) and §7.3. The corrected papers themselves were not re-read."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E8",
+      "kind": "error",
+      "locator": "Remark 4.1.5(2), p.31",
+      "printed": "Consider the normal surface X = Spec k[x, y, x]/(x² + xyz).",
+      "correction": "X = Spec k[x, y, z]/(x² + xyz), which is not normal: x² + xyz = x(x + yz), so X is the union of two smooth surfaces meeting along x = yz = 0, and its local ring at the origin is not a domain.",
+      "reason": "Normality is never used. The rest of the remark holds for this X: T_0X is 3-dimensional, a formal curve (f, g, h) with f(f + gh) = 0 has f = 0 or f = −gh, so f has no t-term, and the tangent cone is Spec k[x, y, z]/(x²). This matches the checkpoint's reading of [P95, Ex. 4.5], a special fibre with two smooth components meeting non-transversally.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.31 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E9",
+      "kind": "error",
+      "locator": "§4.2.9 and proof of Proposition 4.2.10(2), p.35",
+      "printed": "(ϖ, ϖ′) ∈ W(α) if X_α v_{ϖ′} ≠ 0 for some weight vector … Equivalently, (ϖ, ϖ′) ∈ W(α) if and only if ϖ′ and ϖ′ + α are weights of V(ϖ); … If we let ν and v ∈ V(ν) range over all such pairs with X_α v ≠ 0, then (ϖ, ϖ′ − α) range over all elements of W(α).",
+      "correction": "The equivalence fails in characteristic p, and the printed proof bounds l only over the pairs realised by a nonzero X_α. Every pair with ϖ minuscule is realised, so the argument gives l ≤ j_α (the minimum over ϖ ∈ S of Proposition 4.2.13) for (α, ⟨λ, α⟩ − l) ∈ Φ^FM. With k_α ≥ j_α from the proof of Proposition 4.2.13, this still gives Φ^cur = Φ^tan = Φ^FM, so Theorem 4.2.3 stands.",
+      "reason": "Here k is algebraically closed of characteristic p (§4.1.1). Take G = GL_2, α = e_1 − e_2 and ϖ = (p, 0). The Weyl module V(ϖ) has basis v_0, …, v_p with v_i of weight (p − i, i) and X_α v_i = (p − i + 1) v_{i−1}, so X_α v_1 = p·v_0 = 0 although (p − 1, 1) and (p, 0) are weights. The two readings of W(α) differ, and neither makes the last sentence of the proof true: V(ν)* is the induced module H⁰(ϖ), not V(ϖ). For ν minuscule, adjacent weights span the standard representation of the root SL_2, on which X_α is nonzero in every characteristic, so the pairs with ϖ ∈ S are realised. Proposition 4.2.10(2) for general λ ≼ μ, and the equalities with l_α in (4.2.12), Proposition 4.2.13, Remark 4.2.16 and Corollary 4.2.19, rest on the printed step and are not established by it in characteristic p. The results used later need only k_α = j_α.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.35–37 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E10",
+      "kind": "misprint",
+      "locator": "Definition 4.2.6, §4.2.9 and proof of Proposition 4.2.10(2), pp.34–35; Proposition 4.3.9, p.41",
+      "printed": "ν ∈ X_*(T)^+ a dominant weight; ϖ ∈ X_*(T)^+ is a dominant cocharacter; ϖ = −w_0ν ∈ X_*(T)^+; and, in Proposition 4.3.9, λ ∈ X^*(T)_+",
+      "correction": "ν, ϖ ∈ X^*(T)^+ are dominant weights (characters), and λ ∈ X_*(T)^+ is a dominant cocharacter.",
+      "reason": "ϖ is the highest weight of V(ϖ) and is paired with the cocharacters λ and μ; §4.2.11 uses X^*(T)^+ for the same weights, and elsewhere λ ≼ μ are dominant cocharacters.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.35, 41 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E11",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.2.3 (§4.2.15), types B_n and D_n, pp.37–38",
+      "printed": "Type B_n. We identify P^∨ and P with Z^n … ϖ_n = (1/2, …, 1/2); and, in types B_n and D_n, ϖ_i = Σ_{j=1}^{i} e_i",
+      "correction": "P = Z^n + Z·(1/2, …, 1/2) (P^∨ = Z^n), and ϖ_i = Σ_{j=1}^{i} e_j.",
+      "reason": "The spin weight ϖ_n printed in the same display is not in Z^n. Type C_n prints ϖ_i = Σ e_j correctly. The case check pairs μ − ν with the displayed ϖ_i and is correct with them.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.37–38 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E12",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 4.2.3 (§4.2.15), types D^R_n and D^H_n, pp.38–39",
+      "printed": "α_n = e_{n−1} + e_{n−1}; and, for type D^H_n, μ = sϖ^∨_{n−1} + tϖ^∨_n with q = s − t and μ = (r/2, …, r/2, q/2)",
+      "correction": "α_n = e_{n−1} + e_n. With the printed ϖ_{n−1} = (1/2, …, 1/2, −1/2) and ϖ_n = (1/2, …, 1/2), μ = (r/2, …, r/2, −q/2); equivalently take q = t − s.",
+      "reason": "The case check uses only ⟨μ − ν, ϖ_i⟩ for i ≤ n − 2 and the hypotheses for ϖ_{n−1} and ϖ_n, none of which involves the last coordinate of μ, and swapping s and t is the diagram automorphism exchanging the half-spin labels.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.38–39 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E13",
+      "kind": "misprint",
+      "locator": "Corollary 4.2.19, p.40",
+      "printed": "k_α = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_α",
+      "correction": "k_{−α} = min_{ϖ∈S} ⟨μ, ϖ⟩ − ⟨λ, ϖ_α⟩ = l_{−α}.",
+      "reason": "Lemma 4.2.18 minimizes over (ϖ, ϖ′) ∈ W(−α), which by Remark 4.2.16 for −α gives k_{−α}; both uses (the proof of Proposition 4.3.9 and Remark 4.3.14) read k_{−α}. As printed it is false whenever ⟨λ, α⟩ ≠ 0: for GL_2 and λ = μ = (1, 0), the minimum is 0 = k_{−α} while k_α = k_{−α} + ⟨λ, α⟩ = 1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.39–41 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031."
+      ]
+    },
+    {
+      "id": "PAPER-KISIN-PAPPAS-ZHOU-26/E14",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 7.2.8, p.79",
+      "printed": "Bil_{H^c}(V) ⊗_Q F ≅ ∏_{σ:F→R} Bil_{H^c_{R,σ}}(V_{R,σ}) … we have h = ∏_{σ:F→R,σ} ×V_{R,σ} → R. We also have an isomorphism Let h ∈ X; then considering h as a H′_{R,σ} is the weight homomorphism for h_σ. … We choose Ψ ∈ Bil_{H^c} ∩ ∏_{σ∈F} U_σ.",
+      "correction": "Bil_{H^c}(V) ⊗_Q R ≅ ∏_σ Bil_{H^c_{R,σ}}(V_{R,σ}). Restore the sentence of arXiv v3 (p.82): h = ∏_σ h_σ for some h_σ: S → H′_{R,σ}, and h_σ(i) is a Cartan involution of H′_{R,σ}/w_σ(R)^×, where w_σ: G_m → H′_{R,σ} is the weight homomorphism of h_σ. Choose Ψ ∈ Bil_{H^c}(V) whose image in Bil_{H^c}(V) ⊗_Q R lies in ∏_σ U_σ.",
+      "reason": "The published sentence was garbled in typesetting (arXiv v3 has it intact, with H′_{F,σ} for H′_{R,σ}). Such a Ψ exists because Bil_{H^c}(V) is dense in its real extension and ∏_σ U_σ is open and non-empty ([De79, 1.1.18(a)]). The argument is otherwise as printed.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Published version (Cambridge repository copy, SHA-256 b3e4bf8b…) read by cc-442dc5 on 23 September 2026, pp.79 rendered and read; arXiv v3 (SHA-256 d0834555…, matching the checkpoint) compared. arXiv v3 (9 April 2026) is the latest version, and Crossref lists no correction or update for 10.1017/fmp.2026.10031.",
+        "arXiv v3 p.82, the same proof, rendered and compared."
+      ]
+    }
+  ],
+  "summaryBefore": "A 203-item extraction of the complete published paper, separating normal integral local models, classical Schubert tangent geometry, corrected display connections, very-good embedding existence and all-abelian-type integral models at odd p. Eight unique ownership routes reuse the existing root/local-model/tensor/Shimura candidates and isolate genuinely additional integral representation,diamond and shtuka directions. Original prerequisite proof closure and several construction expansions remain explicit gaps; this is a partial checkpoint, not formalization.",
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-442dc5",
+    "issue": 1342,
+    "date": "2026-09-23",
+    "status": "complete",
+    "reading": "The published version (Cambridge repository copy) read at §1.3, §§4.1–4.3, §5.1, §7.2 and §7.3, with pp.31, 35, 37–38, 41, 50 and 79 rendered; arXiv v3 compared; every numbered statement checked against the items.",
+    "changes": "sourceIssues added (E1–E14); Lemmas 5.1.11 and 7.2.5 added; Theorem 1.1.1, Corollary 1.1.2 and Theorem 1.2.3 mapped to their items; R12's locator corrected; gap statuses recorded; status complete."
   }
 }
