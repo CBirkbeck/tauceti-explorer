@@ -1,4 +1,88 @@
-# Benoist–Wittenberg I: extraction and routing checkpoint
+# Benoist–Wittenberg (2020): the integral Hodge conjecture for real varieties, I, extraction and routing
+
+Issue [#1296](https://github.com/CBirkbeck/tauceti-explorer/issues/1296). Status: **complete**. Implementation and proof closure are not claimed.
+
+- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
+- **The paper.** O. Benoist and O. Wittenberg, *On the integral Hodge conjecture for real varieties, I*, Invent. Math. 222 (2020), 1–77.
+  - The author-hosted published PDF was re-fetched; its SHA-256 (daeb43ec…) matches the checkpoint.
+  - Crossref registers no erratum.
+- **Items.** The result has **193 items: 7 library, 9 planned and 177 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Mistakes.** Ten are recorded under `sourceIssues`.
+
+## This continuation (cc-442dc5)
+
+**New items.** Questions 2.1 (Voisin), 2.6, 2.16 and 4.9 had no items. They are now statement-only items.
+
+**Findings rechecked.** These affect a stated result.
+- **E1.** Theorem A(ii) and Theorem 3.16(ii) are false for a curve with a real point. The genus-one real curve y² = x³ − x makes the left side false and the right side true. The corrected scope (d ≥ 2 or X(R) = ∅) is in `main-even-genus`.
+- **E3.** The Example 4.4 construction is impossible.
+  - The action: f² = diag(ζ, ζ^(−1), ζ², ζ^(−2), ζ³, ζ^(−3), 1), so Λ_2 is spanned by x0x4, x1x5, x2² and x3². The antilinear action T of f on it satisfies T² = −1.
+  - The consequence: no f-stable Y of the stated form exists.
+
+**New finding.**
+- **E10.** Remarks 5.10 (i) and (ii) announce the computations of CH_1(X) and CH_1(X)_tors without giving them.
+
+**Reclassified to affect nothing.**
+- **E4.** The Lemma 2.14 sign. Negation preserves the admissible subgroup.
+
+**Gaps.**
+- GAP-DIMENSION is resolved.
+- GAP-CAMPEDELLI and GAP-QUARTIC are recorded as findings.
+- The other nineteen are deferred as cited suppliers' proofs or design work.
+
+**Why the status is now complete.**
+- Every numbered statement is an item.
+- Every missing item is routed exactly once, and the mistakes are recorded.
+
+## Mistakes found (`sourceIssues`)
+
+- **E1** (error; affects a stated result), Inventiones mathematicae 222 (2020), Theorem 3.16 (ii), p. 55, and its introduction form Theorem A (ii), p. 4. *Printed:* dim(X) > 0 *Correction:* Part (ii) needs dim(X) ≥ 2 whenever X(R) ≠ ∅. The hypothesis dim(X) > 0 of Theorem 3.16, and the hypothesis d ≥ 1 of Theorem A, are too weak: the case dim(X) = 1 with X(R) ≠ ∅ must be excluded. Part (i) is not affected by this counterexample.
+- **E2** (misprint; affects nothing), Inventiones mathematicae 222 (2020), §2.2, the paragraph introducing the constant classes, immediately before Example 2.5. *Printed:* k ≥ 0 *Correction:* "let k > 0 be even": both assertions fail for k = 0.
+- **E3** (error; affects a stated result), Published version, Example4.4 p.59; same data in arXiv v3 partie_1.tex lines3990–4023. *Printed:* Zariski dense *Correction:* No stable smooth complete intersection exists for the displayed action and one equation from each Λ_i. Replace the construction; its intended real-empty surface consequence remains unproved here.
+- **E4** (misprint; affects nothing), Published version, Lemma2.14 proof p.43. *Printed:* δ=ι*(γ−π*α) *Correction:* δ=−ι*(γ−π*α). The lemma and equation(2.5) retain their statements.
+- **E5** (misprint; affects nothing), Published version, §1.2.6 p.19, final ordinary real-locus pushforward. *Printed:* H^p(X(R)) *Correction:* The source of that pushforward is H^p(Y(R)), with the printed coefficient field F2; its target remains H^(p−c)(X(R)).
+- **E6** (misprint; affects nothing), Published version, Lemma3.4 proof p.48, first sentence. *Printed:* ψ *Correction:* Use ψ′ for the map whose image is M*, as in the lemma statement.
+- **E7** (misprint; affects nothing), Published version, §3.6.2 p.55, introductory definition of φ=ψ∘cl. *Printed:* Pic(X) *Correction:* The domain is CH_1(X). Pic(X)=CH_1(X) is only the surface case.
+- **E8** (misprint; affects nothing), Published version, Proposition2.15 proof p.44, last sentence. *Printed:* P^k(R) *Correction:* Use P^k(C) inside the equivariant cohomology group to which Theorem1.26 is applied.
+- **E9** (misprint; affects nothing), Published version, §2.1 p.37, sentence immediately after equation(2.1). *Printed:* H^{2k} *Correction:* Retain the subscript G in the group containing the admissible equivariant Hodge classes.
+- **E10** (gap; affects a stated result), Published version, Remarks 5.10 (i) and (ii), pp.71–72. *Printed:* CH_1(X) ≃ Z ⊕ Z/2Z ⊕ (R/Z)^30; CH_1(X)_tors ≃ Z/2Z ⊕ (Q/Z)^30 for x0⁴ + x1⁴ = x2⁴ + x3⁴ + x4⁴ *Correction:* Treat both as announced computations: (i) needs the structure of the real points of the intermediate Jacobian of the quartic threefold of Proposition 5.7, and (ii) needs the analogue of Lemma 5.9 and [29, Proposition 7.7] for the displayed Fermat-type quartic.
+
+The reasons and the places searched are in the JSON.
+
+## Gaps: status after this continuation
+
+- **GAP-DIMENSION** (resolved). E1 records the d = 1 counterexample; main-even-genus carries the corrected scope.
+- **GAP-SEMIALG** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-COMPARE** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-STEENROD** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-DUAL-LIMIT** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-EFFACEABILITY** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-GERSTEN** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-ABEL-JACOBI** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-QUADRATIC** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-PICARD** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-DIAGONAL** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-SURFACES** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-CAMPEDELLI** (recorded). E3: the construction of Example 4.4 is impossible as printed.
+- **GAP-SPECIALIZATION** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-QUARTIC** (recorded). E10 records the two unwritten Remark 5.10 computations. The Betti number and fixed-point inputs are cited suppliers.
+- **GAP-PART-II** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-VOISIN** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-REMARKS** (deferred). The secondary remarks rest on cited sources; the Lemma 2.14 sign is E4.
+- **GAP-FOUNDATION-GRANULARITY** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-INTEGRATION-ORDER** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-KARPENKO** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+- **GAP-MANGOLTE** (deferred). A cited supplier's proof or design work; the paper uses it as a black box.
+
+## Validation (cc-442dc5)
+
+`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+
+## Checkpoint history (unchanged)
+
+The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E4, or the earlier gap statuses, this continuation supersedes it.
+
+## Benoist–Wittenberg I: extraction and routing checkpoint
 
 Issue #1296 · third checkpoint · Codex, session codex-c83e7a · 2026-09-22.
 Builds on merged PRs #1675 (codex-a71f92) and #1975 (cc-7b31c4).
@@ -16,7 +100,7 @@ of asserting existence of the impossible complete intersection. A separate sign
 correction repairs Lemma2.14 without changing its conclusion. Both findings await
 independent review under PROTOCOL §18.
 
-## Source and read extent
+### Source and read extent
 
 The primary source is the [published 77-page article](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf),
 Inventiones222(2020),1–77, DOI10.1007/s00222-020-00965-8. Its SHA-256 is
@@ -32,7 +116,7 @@ coordinate action, lift, eigencharacters and claimed stable family. Other suppor
 paper reads listed in the JSON retain their earlier-worker provenance; they were
 not all repeated here. Reid §2.1 and Godeaux §6 remain unread primary proofs.
 
-## Example4.4: the displayed construction is obstructed (E3)
+### Example4.4: the displayed construction is obstructed (E3)
 
 Write g=f². The printed action and chosen lift give weights
 `w=(1,7,2,6,3,5,0)` modulo8 on the coordinates. A quadratic monomial x_i x_j
@@ -90,7 +174,7 @@ Hodge-theoretic results follows from this computation. Generic Koszul and cohere
 cohomology infrastructure remains shared; its exact supplying nodes are still
 `GAP-FOUNDATION-GRANULARITY`, not a new duplicate roadmap.
 
-## Lemma2.14: exceptional self-intersection sign (E4)
+### Lemma2.14: exceptional self-intersection sign (E4)
 
 With ξ=c1(O_E(1)), the normal bundle of the exceptional divisor is O_E(−1).
 The line-bundle normalization follows from
@@ -107,7 +191,7 @@ The upward induction in equation(2.5) then works unchanged. The theorem item now
 includes this exact proof step and a separate sign adapter; the sign question is
 removed from `GAP-REMARKS` while the general Gysin implementation remains open.
 
-## Other source findings
+### Other source findings
 
 E1 and E2 from the preceding checkpoint are retained: the even-genus equivalence
 requires dimX≥2 when X(R) is nonempty, and the constant ω^{2k} paragraph requires
@@ -130,8 +214,7 @@ queries found no matching correction on2026-09-22. The earlier statement that no
 erratum exists is withdrawn: absence from that search is not proof of absence.
 No message has been sent to the authors.
 
-## Ownership decisions
-
+### Ownership decisions
 
 | Route | Existing owner or shared extension | Missing items |
 | --- | --- | ---: |
@@ -145,7 +228,7 @@ No message has been sent to the authors.
 
 The two Part II IDs are the **same proposals already recorded in PAPER-BENOIST-19**, not competing owners. Their matching parent IDs, titles and areas are retained. They have not been treated as accepted atlas layers merely because a paper checkpoint proposes them. Integration should coalesce their source briefs.
 
-### Sites, support and coniveau
+#### Sites, support and coniveau
 
 SF.2 owns the site/cohomology/comparison direction. It receives the exact real étale comparison and a named cohomology-with-supports/Cousin-resolution suffix. The CHK signature is precise: an infinite base field, an étale-stable category closed under the required projective-line construction, localization, étale excision and the key lemma; support homotopy invariance supplies the latter. Purity identifies the E1 terms and twists, whereas strict effaceability supplies the flasque resolution and E2 identification. These are distinct proof steps. See [CHK §5](https://webusers.imj-prg.fr/~bruno.kahn/preprints/bo.pdf).
 
@@ -153,7 +236,7 @@ The coniveau in SchemeKTheoryOperations:S.4 and MotivicEtaleKTheory:M.6/M.6a is 
 
 SF.5 receives intermediate Euler-characteristic indices and the finite-map/algebraic-equivalence congruences, using its existing Chow/intersection/Riemann–Roch direction. Kollár's index is the generator of the ideal of coherent Euler characteristics with bounded support dimension; over a nonempty real variety the zero-cycle index is one or two. The finite-cover genus argument uses a congruence modulo the target point index, not an equality of Euler characteristics. See [Kollár Proposition4, Lemma5 and Proposition14](https://arxiv.org/pdf/1312.3923v2).
 
-### Cycle realizations and selected Hodge cases
+#### Cycle realizations and selected Hodge cases
 
 MC.0 owns correspondences and decomposition-of-diagonal actions. Universal zero-cycle support belongs there. MC.2 owns real-equivariant/Borel–Haefliger realizations, their proper-pushforward and cup compatibilities, admissible subgroups, norm and real-component maps, and the Bloch torsion realization. The geometric étale cycle map remains an import from EDC.3; general Chow operations remain SF.5's.
 
@@ -161,7 +244,7 @@ MC.7 already explicitly includes proof-scoped selected integral Hodge cases for 
 
 The correct integration order needs finer sublayers than the current broad stage labels. SF.2's early sites/comparison precede M.5; its norm-residue-dependent coniveau suffix follows it. MC.2's early cycle maps precede MC.7's divisor/zero-cycle cases, which supply later compatibility applications. Do not create a blanket SF.2↔M.5 or MC.2↔MC.7 stage cycle. The 189-item dependency graph is acyclic; the fine-grained atlas integration is an explicit open task.
 
-### Shared equivariant topology
+#### Shared equivariant topology
 
 All eight upstream Algebraic Topology stage descriptions were read. They provide ordinary chains, products, local coefficients, finite-cover descent and manifold duality, not C2 fixed-locus equivariant cohomology or Steenrod squares. The same Part II already proposed for Benoist19 receives the semialgebraic extension, sign twists, equivariant purity, parity decompositions, γ-splittings, corrected self-dual sequence, affine/Lefschetz bounds and the Wu pushforward formula.
 
@@ -169,15 +252,14 @@ General real-closed definable geometry is imported from LogicAndDefinabilityInNu
 
 The brief preserves the exact endpoints: finite Borel approximation uses i<n; Proposition1.7 requires j≡d−1 mod2; Proposition1.8 uses p<i−d; weak Lefschetz distinguishes i=d+1 from i>d+1. It also retains the γ factor in the dual real-block pairing. These details come from [§1 of BW](https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf).
 
-### Shared quadratic-form extension
+#### Shared quadratic-form extension
 
 The three real-function-field inputs reuse Benoist19's QuadraticFormsRealFunctionFields proposal: the no-real-curve two-square theorem, the level/sign-symbol comparison, and the anisotropic-quadric seven-square bound. They import upstream quadratic forms, M.5 norm-residue and the existing higher-Pfister direction. The scalar field is any real closed R, not only ℝ. The precise Witt/Pfister proofs remain open prerequisites.
 
 The new local equation computations stay in MC.7; the exceptional sign
 adapter stays in MC.2. No eighth route or generic Koszul owner is introduced.
 
-## Conventions and regression boundaries
-
+### Conventions and regression boundaries
 
 The JSON uses concrete mathematical objects, not theorem-shaped opaque properties.
 
@@ -189,7 +271,7 @@ The JSON uses concrete mathematical objects, not theorem-shaped opaque propertie
 - Lemma5.6 is stated under the full §5.4 hypotheses, because its proof uses the vanishing supplied by real integral HC and universal support.
 - Proposition5.7's quartic torsion formula remains conditional over arbitrary R. Unconditional conclusions over ℝ need Part II. The full Chow group and Fermat calculation in Remark5.10 are assertions with additional unwritten calculations, not closed proofs.
 
-## Library audit, gaps and validation
+### Library audit, gaps and validation
 
 The checked pins remain Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and
 TauCetif790474821cf4256814db967cb154e7af3d0c369. Seven existing library items
