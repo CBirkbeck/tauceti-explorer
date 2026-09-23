@@ -4999,7 +4999,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-NIZIOL-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1306"
   },
   {
    "id": "REV-PAPER-COLMEZ-NIZIOL-25",
@@ -6468,8 +6469,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CESNAVICIUS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1389"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1389",
+   "finishedAt": "2026-09-23T05:02:44Z"
   },
   {
    "id": "REV-PAPER-CESNAVICIUS-22",
