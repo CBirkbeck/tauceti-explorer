@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-BOXER-CALEGARI-GEE-ETAL-25",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ML.2 assembles potential automorphy and ML.3 owns symmetric powers, Sato–Tate and their analytic consequences, so Theorems A–C and 6.2.1 and the p–r switch (Proposition 6.2.3, Theorem 6.2.4) are sources there, as PAPER-QIAN-23 routed its endpoints. The review added Jacquet–Shalika and the ACC+ inputs of Theorems 6.2.1 and 7.1.1, and named the planned Sato–Tate analytic step and Chebotarev. It also corrected the items for Proposition 6.2.3 and the Moret-Bailly construction: E29, a false GU_m image; E30, crystallinity at r; E32, F^avoid."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "R01.4 and G7 own residual-image facts and adequacy. The Taylor–Wiles image conditions and Lemmas 5.2.2–5.2.6 are applications. The review corrected the coefficient fields of Lemmas 5.2.4 and 5.2.6 and recorded E27, E28 and E31. It also added the big-image bookkeeping and the group-theoretic inputs."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Grunwald–Wang-type globalisation of characters and the Brauer obstruction to m-th roots are restricted-ramification and Poitou–Tate statements (R02.2, R02.4). Lemma 5.3.3 needs F totally imaginary, and the item now says so."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "PA.5 owns very weakly compatible systems and their transport. Symmetric powers of compatible systems (item 145) are planned there."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R23.1 plans Moret-Bailly with prescribed local opens, splitting and disjointness, which is Proposition 4.5.1."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "L7 owns local lifting rings, ordinary conditions and component relations. The review added the ρ_{n,m,0} identities, the compatibility of ∼ and ordinarity with Sym and ⊗, and Geraghty's ordinarity criterion. It keeps BLGGT14's ∼ in L7, as PAPER-BOXER-CALEGARI-GEE-25 did; the Newton–Thorne reviews' placement in PolarizedAutomorphyLifting should be reconciled in favour of L7."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "No layer plans Breuil's S-modules with monodromy, the rank-one extension computations, the Emerton–Gee stacks or generic reducedness of crystalline lifting rings, so the Part II is justified. The review corrected the §2 locators (a page late throughout) and the conditional Remarks 2.5.6–2.5.7. It added the Breuil-module, Liu, Kisin, CEGS and Emerton–Gee inputs, and recorded E14–E19."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Kept separate. PolarizedAutomorphyLifting is polarized, and AutomorphyLiftingBeyondTaylorWiles is conditional lifting over arbitrary number fields; Theorem 3.2.1 is unconditional, unpolarized and relies on Caraiani–Newton's weight-0 compatibility at p with arbitrary ramification, which no layer plans. The review added Caraiani–Newton's support propagation and the base-change reduction of ACC+ §6.5.12."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The coalescence with Qian's Dwork Part II is right: the paper uses the same family and adds a unitary case, crystalline ordinarity and a second switch. The review corrected E_λ (a pullback j^*, not j_*) and the Moret-Bailly construction. It added Qian's Hodge–Tate and monodromy inputs, Lewis, the Fermat cohomology, the Poincaré-duality pairing, [HSBT10] and the unwritten m = 2 construction, and recorded E7, E21–E24, E29, E31 and E32."
+    }
+  ],
+  "notes": "Accept after corrections made in place. The review was done by Claude Code (session cc-38267a) against the published open-access version and the arXiv v3 TeX, with three checkers (§§1–2, §§3–4, §§5–7). The coordinator verified every substantive finding on the page images or by computation. 54 items were corrected or annotated; the material ones are 6, 33, 53, 80, 83, 86, 98 and 105. 37 items were added, giving 146 in total (5 library, 36 planned, 105 missing). Source issues: E1–E13 are confirmed, with E7 restated without a sign convention; E14–E32 are new. None affects Theorems A–D or 6.2.1 once repaired. The substantive ones:\n- E29: in Proposition 6.2.3(13) the image GU_m(𝔽_{p²}) contradicts det r_aux = ε^{−m(m−1)/2} for m > 2, and the proof of Theorem 6.2.4 asserts that false image.\n- E30: Proposition 6.2.3 lacks the crystallinity of r_𝔯 at v | r.\n- E28: Lemma 5.2.6 needs absolute irreducibility.\n- E27: Lemma 5.2.6's α must be a square.\n- E31: the m = 2 disjointness in Lemma 5.2.4 is too weak.\n- E32: the second F^avoid is too small.\n- E23: Proposition 4.4.2 needs η compatible with the pairings on ∧^n.\n- E18, E19, E24: gaps in proofs."
+}

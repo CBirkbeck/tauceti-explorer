@@ -184,3 +184,35 @@ Twenty-seven entries, all with DOIs confirmed on Crossref, except:
 ## Checks
 
 `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BOXER-CALEGARI-GEE-ETAL-25.result.json` reports no errors. Every planned stage id exists in `data/atlas.json`.
+
+## Review (REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25, 23 September 2026)
+
+The review accepted the extraction and all nine routes after corrections made in place. It was done by Claude Code (session cc-38267a), and the full record is `research/blueprint/reviews/REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25.md`. Three checkers read the published version and the arXiv v3 TeX against page images; the coordinator verified every substantive finding.
+
+- **Corrected or annotated: 54 items.** The material ones:
+  - 6: the complex conjugate in the Bianchi coefficient system;
+  - 33: Remarks 2.5.6–2.5.7 are conditional on Breuil–Mézard;
+  - 53: E_λ is a pullback j^*;
+  - 80 and 83: the coefficient fields of Lemmas 5.2.4 and 5.2.6;
+  - 86: Lemma 5.3.3 needs F totally imaginary;
+  - 98: the hypotheses of Proposition 6.2.3;
+  - 105: the Moret-Bailly construction.
+
+  The §2.2 locators ran a page late and were corrected.
+- **New: 37 items** (13 planned, 24 missing), 146 in total. They include:
+  - the Breuil-module, Liu, Kisin, CEGS and Emerton–Gee inputs of §2;
+  - Caraiani–Newton's support propagation;
+  - Qian's inputs, Lewis, the Fermat cohomology and the pairing on W̄_λ;
+  - the unwritten m = 2 construction of R_aux;
+  - the ρ_{n,m,0} identities, Jacquet–Shalika, the Sato–Tate analytic step, symmetric powers of compatible systems, and Chebotarev.
+- **Routes:** all accepted.
+  - Route 8, weight-0 crystalline automorphy lifting, is kept separate from PolarizedAutomorphyLifting and AutomorphyLiftingBeyondTaylorWiles.
+  - BLGGT14's ∼ stays in L7 (route 6). The Newton–Thorne placements in PolarizedAutomorphyLifting should be reconciled with it.
+- **Source issues:** E1–E13 are confirmed, and E7 is restated without a sign convention. E14–E32 are new.
+  - The substantive ones are in the potential automorphy argument:
+    - E29: the GU_m image in Proposition 6.2.3(13) contradicts (8b), and the proof of Theorem 6.2.4 asserts it;
+    - E30: crystallinity at r is missing;
+    - E27, E28: Lemma 5.2.6 needs a square α and absolute irreducibility;
+    - E31, E32: disjointness is too weak;
+    - E23: Proposition 4.4.2 needs η compatible with the pairings.
+  - All have direct repairs, and none affects Theorems A–D or 6.2.1.
