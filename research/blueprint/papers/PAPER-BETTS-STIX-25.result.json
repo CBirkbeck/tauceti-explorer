@@ -1,0 +1,1399 @@
+{
+  "paper": "PAPER-BETTS-STIX-25",
+  "protocol": "paper-v1",
+  "status": "complete",
+  "source": {
+    "title": "Galois sections and p-adic period mappings",
+    "authors": "L. Alexander Betts and Jakob Stix",
+    "venue": "Annals of Mathematics 201 (2025), no. 1, 79–166",
+    "doi": "10.4007/annals.2025.201.1.2",
+    "arxiv": "2204.13674",
+    "url": "https://arxiv.org/pdf/2204.13674",
+    "sha256": "7d4b7d49c09b979ce4485251ea6f77527fcdb7c516ed7296d20c42e947ef0c18",
+    "readDate": "2026-09-23",
+    "version": "arXiv v1 (28 April 2022, the only arXiv version, 59 pages), read in full. Stix's hosted preprint (SHA-256 7aa79403eff72d06b481424ab4c1f34a8cde68edd62f0d0923ad89cca082f565, dated 29 April 2022) has the same text. The published Annals text (received 20 July 2022, revised 24 May 2024) is not openly available and was not compared; locators and numbering are arXiv v1's. Pages 28, 38 and 46 were checked on page images.",
+    "readSections": [
+      "arXiv v1: §1 (1.1–1.2), §2 (2.1–2.3), §3 (3.1–3.5), §4 (4.1–4.2.1), §5 (5.1–5.3), §6 (6.1–6.5), §7 (7.1–7.2), Appendix A, references."
+    ]
+  },
+  "summary": "Betts and Stix prove that for a number field K with no CM subfield and a curve Y/K of genus ≥ 2, the image of the Selmer sections in Y(K_v) is finite for every finite place v (Theorem A), and hence that each local projection of the finite descent locus is finite (Theorem B). The method recasts Lawrence–Venkatesh as an obstruction. A Selmer section restricts the cohomology local systems of an abelian-by-finite family to a global symplectic pair interpolating the local ones (Theorem 7.1). For every self-conjugate v, a Kodaira–Parshin family has finite Lawrence–Venkatesh locus (Theorem 6.5); this rests on model-free v-adic period maps, which control D_pst via Scholze's relative comparison and Shimizu's horizontal semistability, and on a symplectic principal trichotomy. As the maintainer routed it, the new mathematics goes to a Part II of the anabelian roadmap (GaloisSectionsPadicPeriodMaps); Lawrence–Venkatesh machinery is sourced into LV.1, LV.2, LV.3 and LV.7, relative p-adic Hodge theory into PadicHodgeTheory P8, and the Chern-class compatibility into CohomologyComparisons CP.6. Complete (cc-442dc5): every numbered statement is an item, and every missing item is routed exactly once. Six findings are recorded, including a counterexample to Proposition 6.7(c) as printed for non-reduced A (not used), and two proof gaps with easy repairs. The published revision was not available for comparison. Not formalised.",
+  "items": [
+    {
+      "id": "PAPER-BETTS-STIX-25/1",
+      "kind": "definition",
+      "name": "Galois sections of a curve",
+      "statement": "For a smooth projective geometrically connected curve Y/K of genus ≥ 2 over a number field, Sec(Y/K) is the set of π_1^ét(Y_K̄)-conjugacy classes of splittings of 1 → π_1^ét(Y_K̄) → π_1^ét(Y) → G_K → 1 (1.1); each y ∈ Y(K) gives one, and the Section Conjecture predicts that these are all, each arising from a unique y.",
+      "locator": "arXiv v1 §1, (1.1), p.1",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/2",
+      "kind": "definition",
+      "name": "Selmer sections and the localisation maps",
+      "statement": "A section s is Selmer when, for every place u of K, its restriction s|G_u to a decomposition group is the section of a K_u-rational point y_u ∈ Y(K_u). Sec^Sel(Y/K) is the set of Selmer sections, and for finite u, loc_u: Sec^Sel(Y/K) → Y(K_u) sends s to the unique y_u giving s|G_u.",
+      "locator": "arXiv v1 Definition 1.1, p.1",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/3",
+      "kind": "theorem",
+      "name": "Theorem A",
+      "statement": "Let K be a number field containing no CM subfield and Y/K a smooth projective curve of genus ≥ 2. Then for every finite place v of K the image of loc_v: Sec^Sel(Y/K) → Y(K_v) is finite.",
+      "locator": "arXiv v1 Theorem A, p.1",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: Theorem 7.1 and Lemma 6.4 put the image in Y(K_v)^LV_{X,S}; Theorem 6.5 makes that finite for the Kodaira–Parshin family; with no CM subfield every place is self-conjugate (Remark 2.18(1))."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/4",
+      "kind": "definition",
+      "name": "Modified adelic points and the finite descent locus",
+      "statement": "Y(A_K)_• is the product of Y(K_v) over finite v with π_0(Y(K_v)) over archimedean v [Sto07, §2]; the finite descent locus Y(A_K)_•^{f-cov} ⊆ Y(A_K)_• contains Y(K) and is conjecturally equal to it [Sto07, Conjecture 9.1].",
+      "locator": "arXiv v1 §1, p.2",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeightsRationalPointsAndObstructions:RP.3"
+      ],
+      "note": "RP.3 plans descent sets and their comparison with finite étale descent."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/5",
+      "kind": "theorem",
+      "name": "Harari–Stix: finite descent and Selmer sections (cited)",
+      "statement": "Y(A_K)_•^{f-cov} is exactly the image of Sec^Sel(Y/K) under the total localisation map loc: Sec^Sel(Y/K) → Y(A_K)_• [HS12, Theorem 11].",
+      "locator": "arXiv v1 §1, p.2",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/6",
+      "kind": "theorem",
+      "name": "Theorem B",
+      "statement": "Let K be a number field containing no CM subfield and Y/K a smooth projective curve of genus ≥ 2. Then for every finite place v of K the projection of Y(A_K)_•^{f-cov} to Y(K_v) is finite.",
+      "locator": "arXiv v1 Theorem B, p.2",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/7",
+      "kind": "theorem",
+      "name": "The Lawrence–Venkatesh argument as an obstruction (Remark 1.3)",
+      "statement": "[LV20] essentially proves (1°) Y(K) ⊆ Y(K_v)^LV_{X,S} for every abelian-by-finite family, suitable S and finite v | p, and (2°) for some finite v | p and odd prime q, Y(K_v)^LV_{X_q,S} is finite for all suitable S. With bookkeeping, Theorem A follows for 100% of places when K has no CM subfield (Remark 6.23(I)); the original method never covers places ramified over Q, places above 2, or places of bad reduction.",
+      "locator": "arXiv v1 Remark 1.3 and footnote 1, p.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Footnote 1: [LV20, §3.4] treats residue disks centred at K-points only; §5 extends it to K_v-points."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/8",
+      "kind": "definition",
+      "name": "The non-symplectic locus (Remark 1.4)",
+      "statement": "Y(K_v)^{LV°}_{X,S} is defined as in Definition 1.2 with 'symplectic' omitted throughout; Y(K_v)^LV_{X,S} ⊆ Y(K_v)^{LV°}_{X,S}. For Y of genus 3 over Q the original argument needs the Kodaira–Parshin family with q ≥ 23 (relative dimension ≥ 55), whereas the symplectic formulation works with q = 11 (relative dimension 25).",
+      "locator": "arXiv v1 Remark 1.4, p.3",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5 against Remark 6.23(III): d_q = (g − 1/2)(q − 1) gives 55 and 25."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/9",
+      "kind": "theorem",
+      "name": "Local systems constrain Selmer sections (Remark 1.5)",
+      "statement": "Any v-adic obstruction to K-rational points coming from a Q_p-local system on Y also constrains the image of loc_v: Sec^Sel(Y/K) → Y(K_v), by restricting the corresponding π_1^ét(Y)-representation along the section.",
+      "locator": "arXiv v1 Remark 1.5, pp.3–4",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/10",
+      "kind": "definition",
+      "name": "Purity and integrality",
+      "statement": "A q-Weil number of weight n is algebraic with |ι(α)| = q^{n/2} for all complex embeddings ι. An unramified representation of G_u (u ∤ p∞) is pure of weight n if the geometric Frobenius eigenvalues are q_u-Weil numbers of weight n, and integral if the characteristic polynomial of geometric Frobenius has coefficients in Z.",
+      "locator": "arXiv v1 Definition 2.1, p.7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.1",
+        "WeightsInEtaleCohomology:R34.1"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/11",
+      "kind": "theorem",
+      "name": "Example 2.2: étale cohomology is pure outside S",
+      "statement": "For a smooth proper variety X over a number field K there is a finite set S of places, containing those above p∞, outside which H^n_ét(X_K̄, Q_p) is unramified, pure and integral of weight n (smooth proper base change and [Del74, Théorème 1.6]).",
+      "locator": "arXiv v1 Example 2.2, p.7",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.4",
+        "MordellLawrenceVenkatesh:LV.1"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/12",
+      "kind": "definition",
+      "name": "Symplectic representations and GSp-irreducibility",
+      "statement": "A symplectic Galois representation is (V, L, ω) with L one-dimensional and ω: ∧²V → L a perfect Galois-equivariant alternating pairing (usually L = Q_p(−1)); it is GSp-irreducible if V has no non-zero G_K-stable isotropic subspace, i.e. the image does not lie in a proper parabolic subgroup of GSp.",
+      "locator": "arXiv v1 §2.1, Definition 2.3, p.7",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/13",
+      "kind": "theorem",
+      "name": "Lemma 2.4: symplectic Faltings lemma (cited)",
+      "statement": "Let S contain the places above p∞, n ≥ 0 and d > 0. Up to isomorphism there are only finitely many GSp-irreducible symplectic representations (V, L, ω) of G_K with V of rank 2d, unramified, pure and integral of weight n outside S [LV20, Lemma 2.6].",
+      "locator": "arXiv v1 Lemma 2.4, Remark 2.5, pp.7–8",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The Lawrence–Venkatesh roadmap's LV.1 plans Faltings's lemma in its semisimple form (LV Lemma 2.3); this paper uses the symplectic version, so it is a source for LV.1."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/14",
+      "kind": "definition",
+      "name": "De Rham representations",
+      "statement": "For a G_v-representation V, D_dR(V) := (B_dR ⊗_{Q_p} V)^{G_v} has K_v-dimension ≤ dim V, with equality defining de Rham representations; these form a full ⊗-subcategory Rep^dR(G_v) closed under subobjects, with a ⊗-functorial Hodge filtration F^• on D_dR(V).",
+      "locator": "arXiv v1 §2.2.1, p.8",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.2"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/15",
+      "kind": "definition",
+      "name": "Filtered discrete (ϕ, N, G_v)-modules",
+      "statement": "A (ϕ, N, G_v)-module is a Q_p^nr-vector space with bijective semilinear Frobenius ϕ, linear monodromy N and a semilinear G_v-action, with Nϕ = pϕN and N, ϕ commuting with G_v; it is discrete if point stabilisers are open. A filtered discrete one is (D_pst, D_dR, c_BO) with D_dR a filtered K_v-vector space and c_BO: K̄_v ⊗ D_pst ≅ K̄_v ⊗ D_dR a G_v-equivariant isomorphism; they form the ⊗-category MF(ϕ, N, G_v).",
+      "locator": "arXiv v1 Definitions 2.6–2.7, pp.8–9",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.2"
+      ],
+      "note": "R06.2 plans filtered (φ, N)-modules with descent data."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/16",
+      "kind": "definition",
+      "name": "D_pst and D_pH",
+      "statement": "D_pst(V) := lim_w (B_st ⊗ V)^{G_w} (colimit over open G_w ≤ G_v) is a discrete (ϕ, N, G_v)-module of dimension ≤ dim V, with equality for de Rham V [Ber02, Théorème 0.7]; then c_BO is an isomorphism and D_pH(V) := (D_pst(V), D_dR(V), c_BO). B_st is identified with its image in B_dR independently of a choice of p-adic logarithm, as in [Shi20]. Example 2.8: a proper smooth O_v-scheme gives one through crystalline cohomology and Berthelot–Ogus.",
+      "locator": "arXiv v1 §2.2.2, Example 2.8, p.9",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/17",
+      "kind": "theorem",
+      "name": "Theorem 2.9 (Fontaine, Berger)",
+      "statement": "V ↦ D_pH(V) is a fully faithful ⊗-functor Rep^dR_{Q_p}(G_v) ↪ MF(ϕ, N, G_v) [Fon94b, Théorème 5.6.7(v)], [Ber02, Théorème 0.7].",
+      "locator": "arXiv v1 Theorem 2.9, p.9",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/18",
+      "kind": "definition",
+      "name": "p-adic Hodge cohomology",
+      "statement": "For a variety X over a finite extension L_w of K_v, H^•_pH(X/L_w) := (H^•_pst(X/Q_p^nr), H^•_dR(X/L_w), c_dR ∘ c_BO) with H^•_pst := D_pst(H^•_ét(X_{L̄_w}, Q_p)) and c_dR Scholze's comparison isomorphism (3.8); it is contravariantly functorial in X (Proposition 3.19(2)).",
+      "locator": "arXiv v1 Example 2.10, Remark 2.11, pp.9–10",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:R06.5"
+      ],
+      "note": "Remark 2.11: functoriality is proved for this particular c_dR, not quoted from [Tsu02]."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/19",
+      "kind": "construction",
+      "name": "Restriction and induction of filtered (ϕ, N, G_v)-modules",
+      "statement": "For L_w/K_v finite in K̄_v: restriction D ↦ D|G_w := (D_pst|G_w, L_w ⊗ D_dR, c_BO), a ⊗-functor, and induction Ind_{G_w}^{G_v} D := (Ind D_pst, D_dR as a K_v-space, c'_BO), a lax ⊗-functor right adjoint to restriction. Example 2.12: H^•_pH(X_{L_w}/L_w) ≅ H^•_pH(X/K_v)|G_w (2.1) and, for X over L_w, H^•_pH(X/K_v) ≅ Ind H^•_pH(X/L_w) (2.2).",
+      "locator": "arXiv v1 §2.2.3, Example 2.12, pp.10–11",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/20",
+      "kind": "definition",
+      "name": "Automorphism groups of (ϕ, N, G_v)-modules and the modules M(Φ)",
+      "statement": "Aut(D) is the functor R ↦ R-linear automorphisms of R ⊗ D commuting with ϕ, N and G_v; for a symplectic (ϕ, N, G_v)-module, Aut^GSp(D) ⊆ Aut(D) preserves ω up to a similitude factor; scalars give a central G_m. Aut(D_pst) acts on Res^{K_v}_{Q_p} of the flag variety G of filtrations on D_dR (Remark 2.14), and M(Φ) := (D_pst, D_dR, c_BO) with the filtration Φ in place of the given one.",
+      "locator": "arXiv v1 Definition 2.13, Remark 2.14, p.11",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/21",
+      "kind": "theorem",
+      "name": "Lemma 2.15: the orbit lemma",
+      "statement": "M(Φ_1) ≅ M(Φ_2) as filtered discrete (ϕ, N, G_v)-modules if and only if Φ_1, Φ_2 lie in one Aut(D_pst)(Q_p)-orbit; so the Φ with M(Φ) in a fixed isomorphism class lie in a Q_p-subvariety of Res^{K_v}_{Q_p} G of dimension ≤ dim_{Q_p} Aut(D_pst).",
+      "locator": "arXiv v1 Lemma 2.15, p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generalises the Lawrence–Venkatesh orbit lemma (LV.4) from filtered φ-modules."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/22",
+      "kind": "theorem",
+      "name": "Proposition 2.16: dimension bounds",
+      "statement": "(1) For a (ϕ, N, G_v)-module D of Q_p^nr-dimension d, Aut(D) is a Q_p-algebraic group of dimension ≤ d². (2) For a symplectic one of rank 2d, Aut^GSp(D) is a Q_p-algebraic group of dimension ≤ d(2d + 1) + 1.",
+      "locator": "arXiv v1 Proposition 2.16, p.12",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof's injectivity of Q_p^nr ⊗ End(D) → End(D) must also use ϕ (E2)."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/23",
+      "kind": "definition",
+      "name": "Self-conjugate places",
+      "statement": "Finite places v, v′ of K are conjugate if their restrictions to every CM subfield E of K are exchanged by complex conjugation; v is self-conjugate if conjugate to itself. If K has no CM subfield every finite place is self-conjugate; otherwise v is self-conjugate iff its restriction to the maximal CM subfield is conjugation-invariant; the friendly places of [LV20] are the self-conjugate places unramified over Q (Remark 2.18).",
+      "locator": "arXiv v1 Definition 2.17, Remark 2.18, p.13",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Generalises LV.1's friendly places."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/24",
+      "kind": "theorem",
+      "name": "Proposition 2.19: Hodge–Tate weights of pure characters",
+      "statement": "Let χ: G_K → Q̄_p^× be unramified and pure of weight n outside a finite set and de Rham at all p-adic places, and let r_v be its Hodge–Tate weight at v | p. If v and v′ are conjugate, r_v + r_{v′} = n; in particular for self-conjugate v, n is even and r_v = n/2.",
+      "locator": "arXiv v1 Proposition 2.19, pp.13–14",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof via class field theory and the Serre torus [Ser89, II-34]: N_{K/Q}: S_K → G_m is an isogeny when K has no CM subfield, and N_{K/E}, N_{E^+/Q} otherwise. Hodge–Tate weight convention: r with (C_p(r) ⊗ V)^{G_v} ≠ 0."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/25",
+      "kind": "theorem",
+      "name": "Remark 2.20: pure characters at self-conjugate places",
+      "statement": "Under Proposition 2.19's hypotheses, if v is self-conjugate then χ|G_v = χ_0·χ_cyc^{−n/2} with χ_0 of finite order.",
+      "locator": "arXiv v1 Remark 2.20, p.14",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/26",
+      "kind": "theorem",
+      "name": "Corollary 2.21: average Hodge–Tate weight",
+      "statement": "Let L/K be finite, V a G_L-representation de Rham above p and unramified and pure of weight n outside finitely many places, and v a self-conjugate place of K above p. Then Σ_{w|v} [L_w : K_v] Σ_i i·dim_{L_w} gr^i_F D_dR,w(V) = n·[L : K]·dim V / 2.",
+      "locator": "arXiv v1 Corollary 2.21, pp.14–15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Proof: apply Proposition 2.19 to det Ind_{G_L}^{G_K} V."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/27",
+      "kind": "construction",
+      "name": "Parallel transport on rigid neighbourhoods",
+      "statement": "If (E, ∇) is a vector bundle with flat connection on Y^an and U_{y_0} ∋ y_0 is admissible open with H^0_dR(U_{y_0}) = K_v over which (E, ∇) ≃ (O, d)^m, there is a unique T^∇_{y_0}: (O ⊗ E_{y_0}, d) ≅ (E, ∇)|U_{y_0} that is the identity at y_0; its fibres give parallel transport T^∇_{y_0,y}. Such neighbourhoods always exist [Shi20, Theorem 9.7].",
+      "locator": "arXiv v1 §3.1, p.15",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "LV.3 plans transport on residue disks of a good model; this is the model-free version."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/28",
+      "kind": "definition",
+      "name": "The v-adic period map",
+      "statement": "For a filtered vector bundle with flat connection on Y^an (filtration not necessarily Griffiths transverse) and U_{y_0} as above, the period map Φ_{y_0}: U_{y_0} → G^an_{y_0} to the flag variety of filtrations on E_{y_0} classifies the pullback of F^• along T^∇_{y_0}: Φ_{y_0}(y) is the filtration on E_{y_0} pulled back from E_y by T^∇_{y_0,y}.",
+      "locator": "arXiv v1 Definition 3.1, pp.15–16",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.3"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/29",
+      "kind": "theorem",
+      "name": "Proposition 3.2: the analytified flag variety",
+      "statement": "For a finite-dimensional K_v-space V and dimension data (d_i), the rigid analytification G^an of the flag variety represents S ↦ {exhaustive separated filtrations on O_S ⊗ V with each gr^i a vector bundle of rank d_i}.",
+      "locator": "arXiv v1 Proposition 3.2, p.16",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Analytification itself is AdicSpacesPartII R1's."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/30",
+      "kind": "definition",
+      "name": "Relative de Rham cohomology and Gauss–Manin",
+      "statement": "For π: X → Y smooth proper of smooth K_v-varieties, H^i_dR(X/Y) is a vector bundle with Hodge filtration and flat Gauß–Manin connection [KO68], with fibres H^i_dR(X_y/K_v) by base change.",
+      "locator": "arXiv v1 §3.1, p.16",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "MordellLawrenceVenkatesh:LV.2"
+      ],
+      "note": "A4 plans relative H¹_dR with Gauss–Manin for abelian schemes, which is the case the paper applies."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/31",
+      "kind": "theorem",
+      "name": "Theorem 3.3: period maps control D_pst",
+      "statement": "Let π: X → Y be smooth proper of smooth K_v-varieties and U ⊆ Y^an a closed polydisc over which H^i_dR(X/Y)^an has a full basis of horizontal sections. For y_0, y ∈ U(K_v) there is a unique isomorphism of (ϕ, N, G_v)-modules T_{y_0,y}: D_pst(H^i_ét(X_{y_0,K̄_v})) ≅ D_pst(H^i_ét(X_{y,K̄_v})) compatible, through c_dR ∘ c_BO, with 1 ⊗ T^∇_{y_0,y} on K̄_v ⊗ H^i_dR.",
+      "locator": "arXiv v1 Theorem 3.3, pp.16–17, proved in §3.5",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Unlike LV.4, no good reduction is assumed; the proof uses Scholze's relative comparison and Shimizu's theory."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/32",
+      "kind": "theorem",
+      "name": "Proposition 3.5: period maps and local Galois representations",
+      "statement": "With M^i(Φ) := (H^i_pst(X_{y_0}/Q_p^nr), H^i_dR(X_{y_0}/K_v), c_dR ∘ c_BO) filtered by Φ, for every y ∈ U_{y_0}(K_v) H^i_pH(X_y/K_v) ≃ M^i(Φ_{y_0}(y)) as filtered discrete (ϕ, N, G_v)-modules; since D_pH is fully faithful, Φ_{y_0}(y) determines the isomorphism class of H^i_ét(X_{y,K̄_v}, Q_p).",
+      "locator": "arXiv v1 Proposition 3.5, p.17",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/33",
+      "kind": "definition",
+      "name": "The pro-étale site and its period sheaves",
+      "statement": "For a smooth K_v-analytic space U, the pro-étale site U_proét [Sch13, Def. 3.9; Sch16] carries O_U, Ẑ_{p,U}, B^+_dR,U and the structural de Rham sheaf OB_dR,U, a filtered O_U-algebra with a flat Griffiths-transverse connection extending d, with B^+_dR,U = (F⁰OB_dR,U)^{∇=0}.",
+      "locator": "arXiv v1 §3.2, p.18",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:P8"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/34",
+      "kind": "definition",
+      "name": "Local systems, filtered bundles and OB_dR-bundles (Definition 3.6)",
+      "statement": "Loc(U, Ẑ_p) (Ẑ_p-local systems), Loc(U, B^+_dR), FMIC(U, O_U) (filtered vector bundles with flat Griffiths-transverse connection) and FMIC(U, OB_dR) (filtered OB_dR-vector bundles with flat connection), with the base-change ⊗-functors (3.1) Loc(U, Ẑ_p) → Loc(U, B^+_dR) → FMIC(U, OB_dR) ← FMIC(U, O_U).",
+      "locator": "arXiv v1 Definition 3.6, (3.1), footnote 12, pp.18–19",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/35",
+      "kind": "theorem",
+      "name": "Proposition 3.7: full faithfulness",
+      "statement": "Loc(U, B^+_dR) → FMIC(U, OB_dR) and FMIC(U, O_U) → FMIC(U, OB_dR) are fully faithful, and the essential image of the second lies in that of the first.",
+      "locator": "arXiv v1 Proposition 3.7, Remark 3.8, pp.19–20",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Extracted from the proof of [Sch13, Theorem 7.6]; Remark 3.8 compares with Scholze's OB^+_dR formulation."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/36",
+      "kind": "definition",
+      "name": "De Rham pairs",
+      "statement": "A de Rham pair on U is (𝔼, E, c) with 𝔼 a Ẑ_p-local system, E ∈ FMIC(U, O_U) and c: OB_dR ⊗ 𝔼 ≅ OB_dR ⊗ E an isomorphism in FMIC(U, OB_dR) (𝔼 and E are associated [Sch13, Def. 7.5]); they form a ⊗-category, and 𝔼 is de Rham if it is the first component of one. Pullback along f: V → U preserves de Rham pairs (Proposition 3.11).",
+      "locator": "arXiv v1 Definition 3.9, Remark 3.10, Proposition 3.11, p.20",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/37",
+      "kind": "construction",
+      "name": "Derived pushforward of de Rham pairs",
+      "statement": "For π: V → U smooth proper: R^iπ_*𝔼 is a Ẑ_p-local system ([DLLZ19, Cor. 6.3.5], [Sch13, Prop. 8.2]); R^iπ_dR* E := R^iπ_* DR_{V/U}(E) is a filtered O_U-module with Gauß–Manin connection defined by the extension 0 → π^{-1}Ω¹_U ⊗ DR_{V/U}(E)[−1] → DR_V(E)/σ² → DR_{V/U}(E) → 0 (cf. [Kat70, (3.2.4)]); likewise for OB_dR-bundles, with comparison maps η_𝔼 and η_E compatible with connection and filtration.",
+      "locator": "arXiv v1 §3.2.2, footnote 15, pp.20–22",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/38",
+      "kind": "theorem",
+      "name": "Theorem 3.12: Scholze's relative comparison",
+      "statement": "For π: V → U smooth proper of smooth rigid spaces over K_v and a de Rham pair (𝔼, E, c) on V: (1) R^iπ_dR* E is a filtered vector bundle with flat connection; (2) η_𝔼 and η_E become isomorphisms after completing for the filtration; (3) there is a unique c̃: OB_dR ⊗ R^iπ_*𝔼 ≅ OB_dR ⊗ R^iπ_dR* E compatible with R^iπ_dR*(c) after completion. So R^iπ_*(𝔼, E, c) is a de Rham pair.",
+      "locator": "arXiv v1 Theorem 3.12, Remark 3.13, p.22",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "PadicHodgeTheory:P8"
+      ],
+      "note": "[Sch13, Theorems 1.10 and 8.8]; P8 plans the proper-smooth comparison with connection. Remark 3.13: whether η are isomorphisms before completing is left open."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/39",
+      "kind": "theorem",
+      "name": "Lemma 3.14: completion is harmless",
+      "statement": "If M_0, M_1 ∈ FMIC(U, OB_dR) lie in the essential image of Loc(U, B^+_dR), every filtered OB^∧_dR-linear map M_0^∧ → M_1^∧ compatible with connections is the completion of a unique morphism M_0 → M_1, which is an isomorphism iff its completion is.",
+      "locator": "arXiv v1 Lemma 3.14, Remark 3.15, pp.22–23",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Remark 3.15 sketches why B^+_dR,U is complete for its filtration, via [Sch13, Lemmas 3.18, 4.10(v)]."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/40",
+      "kind": "theorem",
+      "name": "Proposition 3.16: cup products",
+      "statement": "For π smooth proper and a pairing of de Rham pairs (𝔼_1, E_1, c_1) ⊗ (𝔼_2, E_2, c_2) → (𝔼_3, E_3, c_3) whose pushforwards are local systems, the cup products on R^iπ_* and R^iπ_dR* form a pairing of de Rham pairs R^iπ_*(…) ⊗ R^jπ_*(…) → R^{i+j}π_*(…).",
+      "locator": "arXiv v1 Proposition 3.16, pp.23–24",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/41",
+      "kind": "theorem",
+      "name": "Proposition 3.17: base change",
+      "statement": "For a commuting square (3.4) with π, π′ smooth proper and a de Rham pair on V whose pushforwards are local systems, R^iπ_dR* E and R^iπ′_dR* g*E are filtered vector bundles with flat connection and the base-change maps (3.5) form a morphism of de Rham pairs f*R^iπ_*(𝔼, E, c) → R^iπ′_* g*(𝔼, E, c).",
+      "locator": "arXiv v1 Proposition 3.17, pp.24–25",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/42",
+      "kind": "theorem",
+      "name": "Proposition 3.18: algebraic versus analytic pushforwards",
+      "statement": "For π: X → Y smooth proper of smooth K_v-varieties: (1) for E ∈ FMIC(X), R^iπ_dR*(E)^an → R^iπ^an_dR*(E^an) is an isomorphism; (2) for a Z_p-local system 𝔼, R^iπ^an_*(𝔼̂^an) is a Ẑ_p-local system and R^iπ_ét*(𝔼)^{∧,an} → R^iπ^an_*(𝔼̂^an) is an isomorphism [Sch13, Thms 9.1, 9.3, Cor. 3.17, Prop. 8.2].",
+      "locator": "arXiv v1 §3.3, Proposition 3.18, pp.25–26",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/43",
+      "kind": "construction",
+      "name": "The comparison isomorphism c_dR",
+      "statement": "For smooth proper X/L_w, applying Theorem 3.12 to X^an → Sp(L_w) and the unit pair and taking sections over lim Sp(L′_w) gives c_dR: B_dR ⊗ H^i_ét(X_{L̄_w}, Q_p) ≅ B_dR ⊗ H^i_dR(X/L_w) (3.8), B_dR-linear, G_w-equivariant and strictly compatible with filtrations. This (Scholze's) c_dR is the one used throughout (Remark 3.4).",
+      "locator": "arXiv v1 Remark 3.4, §3.4, (3.8), pp.17, 26",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Remark 3.4: Nizioł's comparison of comparison maps [Niz20] does not cover Scholze's."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/44",
+      "kind": "theorem",
+      "name": "Proposition 3.19: formal compatibilities of c_dR",
+      "statement": "(1) c_dR on H^• is an isomorphism of graded algebras; (2) it is natural in X; (3) it commutes with base change along finite L_{w_2}/L_{w_1}; (4) it respects Künneth isomorphisms.",
+      "locator": "arXiv v1 Proposition 3.19, p.27",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/45",
+      "kind": "theorem",
+      "name": "Proposition 3.20: duality, cycle and Chern classes",
+      "statement": "There is a G_v-equivariant filtered isomorphism a: B_dR(−1) ≅ B_dR⟨−1⟩ such that: (5) c_dR matches the étale and de Rham trace maps on H^{2n} via a^{⊗n}; (6) it matches the Poincaré duality pairings; (7) c_dR ⊗ a^{⊗−r} identifies étale and de Rham cycle classes of codimension-r cycles (3.10); (8) it identifies étale and de Rham Chern classes of vector bundles.",
+      "locator": "arXiv v1 Proposition 3.20, Remark 3.21, pp.27–28",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The proof of (8) as printed applies (2) and (7) to the non-proper total space of a line bundle (E3). Remark 3.21: a is probably the canonical choice, not proved."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/46",
+      "kind": "theorem",
+      "name": "Theorem 3.22: horizontal de Rham local systems",
+      "statement": "Let U be a closed polydisc or spherical polyannulus over K_v and (𝔼, E, c) a de Rham pair on U with E having a full basis of horizontal sections. For y_0, y ∈ U(K_v) there is a unique isomorphism of (ϕ, N, G_v)-modules T_{y_0,y}: D_pst(𝔼_{ȳ_0}) ≅ D_pst(𝔼_ȳ) compatible, through c_BO and the fibre comparisons c_{y_0}, c_y, with 1 ⊗ T^∇_{y_0,y}.",
+      "locator": "arXiv v1 Theorem 3.22, pp.28–29, proof pp.31–32",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Theorem 3.3 is the special case of the de Rham pair (R^iπ^an_* Ẑ_p, R^iπ^an_dR* O, c_dR). Also in [Bet22, Theorem 6.1]."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/47",
+      "kind": "theorem",
+      "name": "Lemma 3.23: reduction to spherical polyannuli",
+      "statement": "If Theorem 3.22 holds for spherical polyannuli over all finite K_v/Q_p, it holds for closed polydiscs: embed a polyannulus through y_0 and y when the residue field is not F_2; otherwise use the unramified extensions of degrees 2 and 3, whose Galois groups generate G_v.",
+      "locator": "arXiv v1 Lemma 3.23, p.29",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/48",
+      "kind": "definition",
+      "name": "Shimizu's horizontal semistable periods",
+      "statement": "For R_v = O_v⟨t_1^{±1},…,t_n^{±1}⟩ and G_{R_v} = Aut(R̄_v[p^{-1}]/R_v[p^{-1}]) (a profinite group mapping onto G_v), Shimizu's ring B^∇_st(R_v) with ϕ, N and G_{R_v}-action has (B^∇_st)^{G_{R_w}} = L_{w,0} [Shi20, Cor. 4.10]; D^∇_pst(E) := lim_w (B^∇_st ⊗ E)^{G_{R_w}} is a discrete (ϕ, N, G_v)-module of dimension ≤ rank E, and E is potentially horizontal semistable when equality holds [Shi20, Def. 4.15].",
+      "locator": "arXiv v1 §3.5, Definition 3.24, p.30",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/49",
+      "kind": "theorem",
+      "name": "Lemma 3.25 and Corollary 3.26",
+      "statement": "If E is potentially horizontal semistable, then for a K_v-point y with lift ỹ*, E_ỹ is potentially semistable and ρ_ỹ: D^∇_pst(E) → D_pst(E_ỹ) is an isomorphism [Shi20, Lemma 4.4]; hence T_{y_0,y} := ρ_ỹ ∘ ρ_{ỹ_0}^{-1} is a canonical isomorphism D_pst(E_{ỹ_0}) ≅ D_pst(E_ỹ).",
+      "locator": "arXiv v1 Lemma 3.25, Corollary 3.26, p.30",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/50",
+      "kind": "theorem",
+      "name": "Lemma 3.27: local systems as G_{R_v}-representations",
+      "statement": "Finite étale coverings of U = Sp(R_v[p^{-1}]) form a Galois category with fibre functor Hom_U(Ũ, −), so Ẑ_p-local systems on U are equivalent to continuous G_{R_v}-representations on finitely generated Z_p-modules, E ↦ H^0(Ũ, E); a lift ỹ of a K_v-point identifies H^0(Ũ, E)_ỹ ≅ E_ȳ (Remark 3.28), and G_{R_v} is de Jong's algebraic fundamental group (Remark 3.29).",
+      "locator": "arXiv v1 Lemma 3.27, Remarks 3.28–3.29, p.31",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/51",
+      "kind": "definition",
+      "name": "Abelian-by-finite families",
+      "statement": "An abelian-by-finite family X → Y′ → Y over a scheme Y is a surjective finite étale Y′ → Y and a polarised abelian scheme X → Y′ (polarisation λ) [LV20, Definition 5.1].",
+      "locator": "arXiv v1 Definition 4.1, p.32",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.2"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/52",
+      "kind": "construction",
+      "name": "Étale cohomology of a fibre and the polarisation pairing",
+      "statement": "Over a field K of characteristic 0: H^k_ét ≅ ∧^k_{H^0_ét} H^1_ét, and H^•_ét = ∏_{y′} Ind ∧^• H^1_ét(X_{ȳ′}) (4.1). c^ét_1(λ) := ½ c^ét_1((1, λ)*P) ∈ H^2_ét(1)^{G_K} gives an H^0-linear G_K-equivariant pairing ω̌^ét_λ on H^ét_1 := Hom_{H^0}(H^1, H^0).",
+      "locator": "arXiv v1 §4.1.1, (4.1), pp.32–33",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/53",
+      "kind": "theorem",
+      "name": "Lemma 4.2",
+      "statement": "ω̌^ét_λ: ∧²_{H^0} H^ét_1 → H^0_ét(1) is perfect, i.e. H^ét_1 ≅ H^1_ét(1). Hence ω^ét_λ: ∧²_{H^0} H^1_ét → H^0_ét(−1) is a perfect pairing and (H^1_ét, H^0_ét(−1), ω^ét_λ) is a symplectic H^0_ét-module.",
+      "locator": "arXiv v1 Lemma 4.2, p.33",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Via the Weil pairing on the Tate module up to sign ([OSZ21, Lemma 2.6])."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/54",
+      "kind": "definition",
+      "name": "Symplectic modules and symplectic pairs",
+      "statement": "For a finite-dimensional Q_p-algebra A with continuous G_K-action, a symplectic A-module is (V, L, ω) with V finite locally free, L free of rank 1 and ω: ∧²_A V → L a perfect G_K-equivariant A-linear pairing (Definition 4.3). A symplectic pair is (A, V); these form a category SP(Rep_{Q_p}(G_K)) (Definition 4.4), and similarly in other ⊗-categories. Example 4.5: H^{≤1}_ét(X_{y,K̄}, Q_p) := (H^0_ét, H^1_ét) for y ∈ Y(K).",
+      "locator": "arXiv v1 Definitions 4.3–4.4, Example 4.5, pp.33–34",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/55",
+      "kind": "theorem",
+      "name": "De Rham side: Lemma 4.6",
+      "statement": "H^•_dR ≅ ∧^•_{H^0_dR} H^1_dR ≅ ∏_{y′} ∧^• H^1_dR(X_{y′}/K(y′)) (4.2); c^dR_1(λ) ∈ F¹H²_dR gives ω̌^dR_λ: ∧²_{H^0_dR} H^dR_1 → H^0_dR⟨1⟩, which is perfect (by comparison with Lemma 4.2), so (H^1_dR, H^0_dR⟨−1⟩, ω^dR_λ) is a symplectic H^0_dR-module in filtered vector spaces and F¹H¹_dR is a Lagrangian H^0_dR-submodule.",
+      "locator": "arXiv v1 §4.1.2, (4.2), Lemma 4.6, pp.34–35",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/56",
+      "kind": "theorem",
+      "name": "The symplectic pair of p-adic Hodge cohomology",
+      "statement": "Over K_v, c_dR (Propositions 3.19–3.20) identifies c^ét_1(λ) with c^dR_1(λ), so ω̌^ét_λ and ω̌^dR_λ correspond, and H^{≤1}_pH(X_y/K_v) := (H^0_pH, H^1_pH) is a symplectic pair in MF(ϕ, N, G_v) with pairing ω^pH_λ.",
+      "locator": "arXiv v1 §4.1.3, p.35",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/57",
+      "kind": "theorem",
+      "name": "Lemma 4.7: relative de Rham Chern classes",
+      "statement": "For π: X → Y smooth of smooth varieties over a field of characteristic 0 and a line bundle L on X there is c^dR_1(L)/Y ∈ F¹H^0(Y, H²_dR(X/Y))^{∇=0} whose fibre at every y ∈ Y(L) is c^dR_1(L|X_y).",
+      "locator": "arXiv v1 Lemma 4.7, footnote 18, pp.35–36",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Built from dlog: O_X^× → Ω^•_{X/K}[1] and the Leray spectral sequence [Har75, §7.7]."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/58",
+      "kind": "theorem",
+      "name": "Lemma 4.8 and Remark 4.9",
+      "statement": "The relative pairing ω^dR_λ: ∧² H^1_dR → H^0_dR⟨−1⟩ on Y is perfect. On a closed polydisc U_{y_0} over which H^0_dR and H^1_dR have full bases of flat sections, parallel transport for i = 0, 1 respects the algebra, module and pairing structures; in particular Y′ → Y becomes trivial over U_{y_0}, (Y′)^an|U_{y_0} ≅ U_{y_0} × (Y′_{y_0})^an.",
+      "locator": "arXiv v1 Lemma 4.8, Remark 4.9, pp.36–37",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/59",
+      "kind": "definition",
+      "name": "The Lagrangian period domain",
+      "statement": "H_{y_0} ⊆ G_{y_0} is the K_v-variety of Lagrangian H^0_dR(X_{y_0}/K_v)-submodules of H^1_dR(X_{y_0}/K_v); by Lemma 4.8 the period map of an abelian-by-finite family lands in H^an_{y_0}.",
+      "locator": "arXiv v1 §4.2, p.37",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.3"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/60",
+      "kind": "definition",
+      "name": "The symplectic pairs M^{≤1}(Φ)",
+      "statement": "For Φ ∈ H_{y_0}(K_v), M^1(Φ) := (H^1_pst(X_{y_0}/Q_p^nr), H^1_dR(X_{y_0}/K_v), c_dR ∘ c_BO) with F^i = H^1_dR (i ≤ 0), Φ (i = 1), 0 (i ≥ 2); it is a symplectic module over M^0 := (H^0_pst, H^0_dR, c_dR ∘ c_BO), and M^{≤1}(Φ) := (M^0, M^1(Φ)).",
+      "locator": "arXiv v1 Definition 4.10, p.37",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/61",
+      "kind": "theorem",
+      "name": "Proposition 4.11",
+      "statement": "For an abelian-by-finite family over a smooth K_v-variety Y, y_0 ∈ Y(K_v) and a closed polydisc U_{y_0} over which H^0_dR and H^1_dR have full bases of horizontal sections, D_pH(H^{≤1}_ét(X_{y,K̄_v}, Q_p)) ≃ M^{≤1}(Φ_{y_0}(y)) as symplectic pairs in MF(ϕ, N, G_v) for every y ∈ U_{y_0}(K_v) (diagram of §4.2).",
+      "locator": "arXiv v1 Proposition 4.11, p.37",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/62",
+      "kind": "theorem",
+      "name": "Decomposition of the period domain (Lemma 4.12)",
+      "statement": "With the closed points y′_i of Y′_{y_0} and L_{w_i} := K_v(y′_i), H_{y_0} = ∏_i Res^{L_{w_i}}_{K_v} H_{y′_i}, H_{y′_i} := LGrass(H^1_dR(X_{y′_i}/L_{w_i})) (4.3), and for Φ = ∏ Φ′_i, M^1(Φ) = ∏_i Ind^{G_v}_{G_{w_i}} M^1_i(Φ′_i) compatibly with symplectic structures over M^0 ≅ ∏_i Ind^{G_v}_{G_{w_i}} 1.",
+      "locator": "arXiv v1 §4.2.1, (4.3), Lemma 4.12, p.38",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: the lemma prints H^1_dR(X_{y′_0}/L_{w_i}) for X_{y′_i} (E4)."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/63",
+      "kind": "definition",
+      "name": "Complex period maps",
+      "statement": "For Y smooth connected over C, a simply connected étale neighbourhood U_{y_0} of y_0 and a filtered flat bundle E, the complex period map Φ_{ỹ_0}: U_{y_0} → G^an_{y_0} classifies the pullback of F^• along the Riemann–Hilbert trivialisation T^∇_{ỹ_0}.",
+      "locator": "arXiv v1 §5.1, p.39",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.3"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/64",
+      "kind": "theorem",
+      "name": "Lemma 5.1",
+      "statement": "The Zariski closure of the image of the complex period map does not depend on the simply connected étale neighbourhood U_{y_0}.",
+      "locator": "arXiv v1 Lemma 5.1, p.39",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/65",
+      "kind": "theorem",
+      "name": "Lemma 5.2",
+      "statement": "The Zariski closure of the image of Φ_{ỹ_0} contains the monodromy orbit π_1(Y^an, y_0)·h_0 of the point h_0 given by F^•E_{y_0}; on the universal cover the orbit lies in the image itself.",
+      "locator": "arXiv v1 Lemma 5.2, footnote 19, pp.39–40",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.3"
+      ],
+      "note": "LV Lemma 3.1, which LV.3 plans."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/66",
+      "kind": "theorem",
+      "name": "Proposition 5.3: v-adic and complex Zariski closures agree",
+      "statement": "Let Y be smooth geometrically connected over K_v, y_0 ∈ Y(K_v), (E, ∇, F^•) an algebraic filtered flat bundle, and ι: K_v ↪ C. The Zariski closure Z_v ⊆ G_{y_0} of the image of the v-adic period map and the closure Z_∞ ⊆ G_{y_0,C} of the image of the complex period map satisfy Z_∞ = Z_{v,C}.",
+      "locator": "arXiv v1 Proposition 5.3, p.40",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "[LV20, §3.4] does this for y_0 ∈ Y(K); here y_0 need only be K_v-rational."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/67",
+      "kind": "theorem",
+      "name": "Lemmas 5.4–5.6 and Remark 5.7: the formal germ",
+      "statement": "The Zariski closure of the v-adic image does not depend on the neighbourhood (Lemma 5.4). With a trivialisation E = O^m and the unique T ∈ GL_m(K_v[[t]]) with dT = −ωT, T|_{t=0} = I (5.1) [Kat70, Prop. 8.9], both period maps are given by T_1 ∧ ⋯ ∧ T_{m_i}, so Z_v and Z_∞ are the scheme-theoretic images of Φ̂_{y_0} over K_v and C (Lemmas 5.5, 5.6); Φ̂_{y_0} is intrinsic and defined over any subfield over which the data are (Remark 5.7).",
+      "locator": "arXiv v1 Lemmas 5.4–5.6, Remark 5.7, pp.40–42",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/68",
+      "kind": "definition",
+      "name": "Full monodromy",
+      "statement": "X → Y′ → Y over a smooth connected complex Y has full monodromy if the Zariski closure of the monodromy image in GL(H^1_B(X_{y_0}, Q)) contains ∏_{y′_0} Sp(H^1_B(X_{y′_0}, Q)); over a field of characteristic 0 this is defined through a complex embedding ι.",
+      "locator": "arXiv v1 Definition 5.8, p.42",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.3",
+        "MordellLawrenceVenkatesh:LV.10"
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/69",
+      "kind": "theorem",
+      "name": "Lemma 5.9",
+      "statement": "If Y is smooth geometrically connected over K_v and X → Y′ → Y has full monodromy for some ι: K_v ↪ C, then for every y_0 ∈ Y(K_v) the v-adic period map Φ_{y_0}: U_{y_0} → H^an_{y_0} has Zariski-dense image.",
+      "locator": "arXiv v1 Lemma 5.9, p.43",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/70",
+      "kind": "theorem",
+      "name": "Corollary 5.10 and Remark 5.11",
+      "statement": "If Y is a smooth curve over K_v, X → Y′ → Y has full monodromy and U_{y_0} is a closed disc as above, then any C_0 ⊆ U_{y_0}(K_v) with Φ_{y_0}(C_0) not Zariski-dense in H_{y_0} is finite; by compactness a subset C ⊆ Y(K_v) whose images are non-dense for all y_0 is finite.",
+      "locator": "arXiv v1 Corollary 5.10, Remark 5.11, p.43",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/71",
+      "kind": "definition",
+      "name": "The adelic Lawrence–Venkatesh locus",
+      "statement": "Y(A_K)^LV_X ⊆ Y(A_K) is the set of (y_u) for which some symplectic pair (A, V) of G_K-representations satisfies H^{≤1}_ét(X_{y_u,K̄_u}, Q_p) ≅ (A|G_u, V|G_u) for every place u (it interpolates the y_u); Y(K_v)^LV_X is its projection.",
+      "locator": "arXiv v1 Definition 6.1, p.43",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/72",
+      "kind": "definition",
+      "name": "S-good pairs and the Lawrence–Venkatesh locus",
+      "statement": "(A, V) is S-good if A is unramified outside S; V is unramified, pure and integral of weight 1 outside S; and V is de Rham above p with Hodge–Tate weights in {0, 1}. For suitable S (containing the places above p∞ and of bad reduction), Y(K_v)^LV_{X,S} is the set of y_v ∈ Y(K_v) with H^{≤1}_ét(X_{y_v,K̄_v}, Q_p) ≅ (A|G_v, V|G_v) for some S-good (A, V). Requiring A to be an Artin representation changes nothing (Remark 6.3).",
+      "locator": "arXiv v1 Definitions 1.2 and 6.2, Remark 6.3, pp.2, 43–44",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/73",
+      "kind": "definition",
+      "name": "The Lawrence–Venkatesh locus in the period domain",
+      "statement": "H_{y_0}(K_v)^LV_{X,S} is the set of Φ ∈ H_{y_0}(K_v) with M^0 ≅ D_pH(A|G_v) and M^1(Φ) ≅ D_pH(V|G_v) for some S-good (A, V). Φ_{y_0} maps U_{y_0}(K_v) ∩ Y(K_v)^LV_{X,S} into it, so Y(K_v)^LV_{X,S} is finite once (i) every Φ_{y_0} has Zariski-dense image and (ii) H_{y_0}(K_v)^LV_{X,S} is not Zariski-dense.",
+      "locator": "arXiv v1 Definition 1.7, §1.1.2, p.5",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/74",
+      "kind": "theorem",
+      "name": "Lemma 6.4",
+      "statement": "If S contains the places above p∞ and of bad reduction and (A, V) interpolates y ∈ Y(A_K)^LV_X, then (A, V) is S-good; hence Y(K_v)^LV_X ⊆ Y(K_v)^LV_{X,S}.",
+      "locator": "arXiv v1 Lemma 6.4, footnotes 20–21, p.44",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/75",
+      "kind": "theorem",
+      "name": "Theorem 6.5",
+      "statement": "If v is self-conjugate, there is an abelian-by-finite family X → Y′ → Y for which Y(K_v)^LV_{X,S} is finite for all suitable S.",
+      "locator": "arXiv v1 Theorem 6.5, p.44, proof §6.5, p.53",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Take the Kodaira–Parshin family with q as in Proposition 6.20."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/76",
+      "kind": "theorem",
+      "name": "Mordell from Theorem 6.5",
+      "statement": "Y(K) ⊆ Y(K_v)^LV_{X,S} for every abelian-by-finite family (interpolate by H^{≤1}_ét(X_{y,K̄}, Q_p), S-good by Lemma 6.4), so Theorem 6.5 reproves the Mordell conjecture.",
+      "locator": "arXiv v1 §6, after Theorem 6.5, p.44",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/77",
+      "kind": "theorem",
+      "name": "Remark 6.6: the algebra of a fibre",
+      "statement": "H^0_ét(X_{y_v,K̄_v}, Q_p) = ∏_{Y′_{y_v}(K̄_v)} Q_p, so Q̄_p-algebra maps ψ from it are the K̄_v-points of Y′_{y_v}, i.e. a closed point y′_v with a K_v-embedding of K_v(y′_v); [G_v : G_{w_ψ}] ≥ 4 means [K_v(y′_v) : K_v] ≥ 4.",
+      "locator": "arXiv v1 Remark 6.6, p.46",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/78",
+      "kind": "theorem",
+      "name": "Proposition 6.7: the principal trichotomy (corrected)",
+      "statement": "Let v be self-conjugate and (A, V) a symplectic pair of G_K-representations, V of rank 2d > 0 over A, de Rham above p with Hodge–Tate weights in {0, 1} at v, unramified and pure of weight 1 outside a finite set; Σ = Σ_A the Q̄_p-points of A. Then (a) some ψ ∈ Σ has [G_v : G_{w_ψ}] ≥ 4 and V_ψ GSp-irreducible for G_ψ; or (b) some ψ with [G_v : G_{w_ψ}] ≥ 4 has a non-zero isotropic G_ψ-stable W ≤ V_ψ with dim F¹D_dR,w_ψ(W) ≥ ½ dim W; or (c) the number of ψ ∈ Σ with [G_v : G_{w_ψ}] < 4 is ≥ #Σ/(d + 1), which is ≥ dim_{Q_p}(A)/(d + 1) when A is étale.",
+      "locator": "arXiv v1 Proposition 6.7, pp.46–47; Proposition 1.8, pp.5–6; Remark 1.9, p.6",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: as printed, (c) has dim_{Q_p}(A), which fails for non-reduced A (E1). Every use has A étale. Proposition 1.8 states (b) with a local G_{w_ψ}-subrepresentation, a weaker conclusion."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/79",
+      "kind": "definition",
+      "name": "Types (a), (b), (c) and their loci",
+      "statement": "Type (a): an S-good (A, V) with some ψ, [G_v : G_{w_ψ}] ≥ 4, V_ψ GSp-irreducible; type (b): a pair of G_v-representations with some ψ, index ≥ 4, and a non-zero isotropic G_{w_ψ}-subrepresentation of average Hodge–Tate weight ≥ 1/2; type (c): an algebra A with #{ψ : index < 4} ≥ dim(A)/(d + 1). Y(K_v)^LV_{X,S,(a)}, Y(K_v)^LV_{X,(b)}, Y(K_v)^LV_{X,(c)} are the corresponding loci, and for self-conjugate v, Y(K_v)^LV_{X,S} lies in their union.",
+      "locator": "arXiv v1 Definition 6.8, p.47",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/80",
+      "kind": "theorem",
+      "name": "Proposition 6.9",
+      "statement": "For y_0 ∈ Y(K_v), the set H_{y_0}(K_v)^LV_{X,S,(a)} of Φ with M^{≤1}(Φ) ≅ (D_pH(A|G_v), D_pH(V|G_v)) for an S-good pair of type (a) is not Zariski-dense in H_{y_0}.",
+      "locator": "arXiv v1 Proposition 6.9, pp.48–49",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/81",
+      "kind": "theorem",
+      "name": "Corollary 6.10",
+      "statement": "If X → Y′ → Y has full monodromy, Y(K_v)^LV_{X,S,(a)} is finite.",
+      "locator": "arXiv v1 Corollary 6.10, p.48",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/82",
+      "kind": "definition",
+      "name": "The sets T_i and their finiteness (Lemma 6.12)",
+      "statement": "T_i is the set of isomorphism classes of symplectic 1-modules D of rank 2d_i in MF(ϕ, N, G_{w_i}) for which there are L/K of degree ≤ δ := deg(Y′ → Y) unramified outside S, a v-adic place w_i of L with L_{w_i} ≅ K_v(y′_i), and a GSp-irreducible symplectic G_L-representation V, de Rham above p and unramified, pure and integral of weight 1 outside S, with D ≅ D_pH,w_i(V|G_{w_i}). Each T_i is finite (Hermite–Minkowski and Lemma 2.4).",
+      "locator": "arXiv v1 Definition 6.11, Lemma 6.12, p.48",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/83",
+      "kind": "theorem",
+      "name": "Lemma 6.13",
+      "statement": "If [L_{w_i} : K_v] ≥ 4, the set H_{y′_i}(L_{w_i})_(a) of Lagrangians Φ′_i with M^1_i(Φ′_i) ∈ T_i is not Zariski-dense in Res^{L_{w_i}}_{K_v} H_{y′_i} (though it may be dense in H_{y′_i}, Remark 6.14).",
+      "locator": "arXiv v1 Lemma 6.13, Remark 6.14, pp.48–49",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: [L_{w_i} : K_v]·d_i(d_i + 1)/2 ≥ 2d_i² + 2d_i > d_i(2d_i + 1)."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/84",
+      "kind": "theorem",
+      "name": "Proposition 6.15",
+      "statement": "The set H_{y_0}(K_v)^LV_{X,(b)} of Φ with M^{≤1}(Φ) ≅ (D_pH(A), D_pH(V)) for a symplectic pair of de Rham G_v-representations of type (b) is not Zariski-dense in H_{y_0}.",
+      "locator": "arXiv v1 §6.3, Proposition 6.15, pp.49–52",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Corrected statement: the text writes M^1(Φ) for the pair M^{≤1}(Φ) (E5)."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/85",
+      "kind": "theorem",
+      "name": "Corollary 6.16",
+      "statement": "If X → Y′ → Y has full monodromy, Y(K_v)^LV_{X,(b)} is finite.",
+      "locator": "arXiv v1 Corollary 6.16, p.50",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/86",
+      "kind": "theorem",
+      "name": "Lemma 6.17",
+      "statement": "If [L_{w_i} : K_v] ≥ 4, the set H_{y′_i}(L_{w_i})_(b) of Lagrangians Φ′_i for which M^1_i(Φ′_i) has a non-zero isotropic filtered (ϕ, N, G_{w_i})-submodule D with dim F¹D_dR ≥ ½ dim D_pst is not Zariski-dense in Res^{L_{w_i}}_{K_v} H_{y′_i}.",
+      "locator": "arXiv v1 Lemma 6.17, (6.1), pp.50–51",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Via (6.1), K̄_v ⊗ Res H_{y′_i} ≅ LGrass(K̄_v ⊗ H^1_pst)^r with the r factors related by σ_j ⊗ ϕ^{m_j}, and Sublemma 6.18. Generalises LV Lemma 6.3 from φ-modules."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/87",
+      "kind": "theorem",
+      "name": "Sublemma 6.18",
+      "statement": "Let (V, ω) be a symplectic space over a field F and r ≥ 4. The r-tuples of Lagrangians (Φ_s) for which some non-zero isotropic W ≤ V has dim(Φ_j ∩ W) ≥ ½ dim W for all j lie in a proper Zariski-closed subset of LGrass(V, ω)^r.",
+      "locator": "arXiv v1 Sublemma 6.18, Remark 6.19, p.51",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: the four Lagrangians Φ_1, Φ_2 and the graphs of ψ_3(e_α) = f_α and ψ_4(e_α) = λ_αf_α (distinct λ_α) admit no such W. [LV20, Lemma 6.4] needs r ≥ 5 but no isotropy."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/88",
+      "kind": "definition",
+      "name": "The Kodaira–Parshin family (cited)",
+      "statement": "For an odd prime q, [LV20, §7] constructs an abelian-by-finite family X_q → Y′_q → Y of constant relative dimension d_q = (g − 1/2)(q − 1) with full monodromy [LV20, §8.2.3], and Y′_{q,y}(K̄_v) ≅ Surj^{out,*}(π_1^ét(Y_K̄_v − y), Aff(q)) G_v-equivariantly (surjections non-trivial on an inertia generator at y, up to conjugation).",
+      "locator": "arXiv v1 §6.4, pp.52",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "MordellLawrenceVenkatesh:LV.8",
+        "MordellLawrenceVenkatesh:LV.10"
+      ],
+      "note": "Footnote 23: [LV20, Lemma 2.11] is stated without the quotient by conjugation, which acts freely since Aff(q) has trivial centre."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/89",
+      "kind": "theorem",
+      "name": "Proposition 6.20",
+      "statement": "If q − 1 is divisible neither by 4 nor by any odd prime divisor of q_v(q_v + 1)(q_v³ − 1), and q − 1 ≥ 9n_v with n_v the number of extensions of K_v of degree 2 or 3 in K̄_v, then Y(K_v)^LV_{X_q,(c)} = ∅.",
+      "locator": "arXiv v1 Proposition 6.20, pp.52–53",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: G_v-fixed subgroups of M = H^1_ét(Y_K̄_v, Z/k), k = (q − 1)/2, for G_w of index 2 or 3 are isotropic for the Weil pairing since gcd(k, q_v^i − 1) = 1, i ≤ 3, and the chain ζ(2g)n_v/k^g < 9n_v/(8k^g) ≤ 1/(4k^{g−1}) < 1/(d_q + 1) holds."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/90",
+      "kind": "theorem",
+      "name": "Remark 6.21",
+      "statement": "n_v is bounded in terms of K; if v ∤ 6 then n_v = 7 (three quadratic and four cubic extensions of K_v in K̄_v).",
+      "locator": "arXiv v1 Remark 6.21, p.53",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/91",
+      "kind": "theorem",
+      "name": "Corollary 6.22",
+      "statement": "For every finite place v of K there is an abelian-by-finite family of constant positive relative dimension with full monodromy and Y(K_v)^LV_{X_q,(c)} = ∅ (a Kodaira–Parshin family, q chosen by Dirichlet's theorem).",
+      "locator": "arXiv v1 Corollary 6.22, p.53",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/92",
+      "kind": "theorem",
+      "name": "Dirichlet's theorem",
+      "statement": "For a positive integer m and a unit a mod m, and every n, there is a prime q > n with q ≡ a mod m.",
+      "locator": "arXiv v1 used in Corollary 6.22, p.53",
+      "status": "library",
+      "library": [
+        "mathlib:Nat.forall_exists_prime_gt_and_eq_mod"
+      ],
+      "planned": [],
+      "note": "Read at Mathlib 082e2d3, Mathlib/NumberTheory/LSeries/PrimesInAP.lean:442."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/93",
+      "kind": "theorem",
+      "name": "Remark 6.23: which (v, q) work",
+      "statement": "The paper's proof gives finiteness of Y(K_v)^LV_{X_q,S} when (1) v is self-conjugate; (2) q − 1 is prime to 4 and to the odd primes dividing q_v ∏_{i≤3}(q_v^i − 1); (3) n_v ζ(2g) 2^g/(q − 1)^g < 1/((g − 1/2)(q − 1) + 1), with n_v replaceable by 2 at good reduction. [LV20] needs friendly v ∤ 2, i ≤ 7 in (2), 4 in place of n_v, and a good model (1°–4°). (I) For K without CM subfield, 1°–4° hold at 100% of places for suitable q; (II) they fail at ramified places, places above 2 and bad places; (III) for genus 3 the least q is 23 for 1°–4° and 11 for (1)–(3).",
+      "locator": "arXiv v1 Remark 6.23, pp.53–54",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Checked by cc-442dc5: the values 23 and 11 in (III). For (I), see E6."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/94",
+      "kind": "construction",
+      "name": "The relative symplectic pair R^{≤1}π_ét*Q_p",
+      "statement": "For π: X → Y an abelian-by-finite family, ∧^•_{π_*Q_p} R¹π_ét*Q_p ≅ R^•π_ét*Q_p; the relative Chern class c^ét_1(λ)/Y ∈ H^0(Y, R²π_ét*Q_p(1)), built from the Kummer sequence and the Leray spectral sequence, gives a perfect pairing ω_λ: ∧² R¹π_ét*Q_p → π_ét*Q_p(−1), so (π_ét*Q_p, R¹π_ét*Q_p) is a symplectic pair of Q_p-local systems whose fibres are H^{≤1}_ét(X_ȳ, Q_p).",
+      "locator": "arXiv v1 §7.1, p.55",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/95",
+      "kind": "construction",
+      "name": "Representations attached to a section",
+      "statement": "With A, V the π_1^ét(Y, η̄)-representations of π_ét*Q_p and R¹π_ét*Q_p, a section s gives the symplectic pair (A_s, V_s) of G_K-representations by restriction along s; its isomorphism class depends only on the conjugacy class of s and not on the base point η̄.",
+      "locator": "arXiv v1 §7.2, (†), p.56",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/96",
+      "kind": "theorem",
+      "name": "Proposition 7.2",
+      "statement": "If s|G_u is the section of y_u ∈ Y(K_u), then (A_s|G_u, V_s|G_u) ≅ H^{≤1}_ét(X_{y_u,K̄_u}, Q_p) as symplectic pairs of G_u-representations.",
+      "locator": "arXiv v1 Proposition 7.2, p.56",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/97",
+      "kind": "theorem",
+      "name": "Theorem 7.1",
+      "statement": "For every abelian-by-finite family X → Y′ → Y, the image of loc_v: Sec^Sel(Y/K) → Y(K_v) lies in Y(K_v)^LV_X; indeed (A_s, V_s) interpolates the adelic point of a Selmer section s.",
+      "locator": "arXiv v1 Theorem 7.1, pp.54, 56",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/98",
+      "kind": "definition",
+      "name": "Filtered derived categories",
+      "statement": "SKom(A) is the category of decreasing sequences of complexes; filtered quasi-isomorphisms are termwise, graded quasi-isomorphisms are those on gr^i := cone(F^{i+1} → F^i); FD(A) localises at the filtered ones (as in [SS16], [BMS19]), while [Sch13] and [GP18] localise at the graded ones (Remark A.4). Cohomology objects H^j(A) are sequences, filtered only in good cases (§A.1). For the large pro-étale site one works with κ-small sheaves (Remark A.5).",
+      "locator": "arXiv v1 Appendix A, Remarks A.1, A.4, A.5, pp.56–58",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/99",
+      "kind": "theorem",
+      "name": "Lemma A.2 (Deligne)",
+      "statement": "If A is a filtered complex with filtration bounded below in each degree and its spectral sequence degenerates at the first page, then each H^j(A) is filtered [Del71, Prop. 1.3.2].",
+      "locator": "arXiv v1 Lemma A.2, p.57",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/100",
+      "kind": "theorem",
+      "name": "Lemma A.3",
+      "statement": "If A → B is a graded quasi-isomorphism in SKom(A) and A has filtered cohomology objects, then (1) so does B, and (2) H^j(A)^∧ → H^j(B)^∧ is an isomorphism for all j.",
+      "locator": "arXiv v1 Lemma A.3, pp.57–58",
+      "status": "missing",
+      "library": [],
+      "planned": []
+    }
+  ],
+  "coverage": {
+    "counts": {
+      "library": 1,
+      "planned": 19,
+      "missing": 80
+    }
+  },
+  "prerequisites": [
+    {
+      "citation": "K. Shimizu, A p-adic monodromy theorem for de Rham local systems, Compositio Math. 158 (2022), 2157–2205",
+      "link": "https://doi.org/10.1112/s0010437x2200776x",
+      "why": "[Shi20]: full bases of horizontal sections (Theorem 9.7), horizontal semistable periods and potentially horizontal semistable local systems (Definitions 4.7, 4.15, Lemmas 4.4, 8.9, Proposition 4.9), behind Theorem 3.22."
+    },
+    {
+      "citation": "D. Harari and J. Stix, Descent obstruction and fundamental exact sequence, in The Arithmetic of Fundamental Groups (PIA 2010), Springer 2012, 147–166",
+      "link": "https://doi.org/10.1007/978-3-642-23905-2_7",
+      "why": "[HS12, Theorem 11]: the finite descent locus is the image of the Selmer sections (Theorem B)."
+    },
+    {
+      "citation": "M. Stoll, Finite descent obstructions and rational points on curves, Algebra & Number Theory 1 (2007), 349–391",
+      "link": "https://doi.org/10.2140/ant.2007.1.349",
+      "why": "Modified adelic points and the finite descent locus."
+    },
+    {
+      "citation": "L. A. Betts, Local constancy of pro-unipotent Kummer maps, Proc. LMS 127 (2023), 836–888",
+      "link": "https://doi.org/10.1112/plms.12554",
+      "why": "[Bet22, Theorem 6.1, Lemma 6.4]: the same horizontal constancy result and the Galois-category argument of Lemma 3.27."
+    },
+    {
+      "citation": "N. Katz and T. Oda, On the differentiation of de Rham cohomology classes with respect to parameters, J. Math. Kyoto Univ. 8 (1968)",
+      "link": "https://doi.org/10.1215/kjm/1250524135",
+      "why": "Relative de Rham cohomology and the Gauß–Manin connection as a connecting map (§§3.1, 3.2.2)."
+    },
+    {
+      "citation": "H. Diao, K.-W. Lan, R. Liu and X. Zhu, Logarithmic adic spaces: some foundational results (2019)",
+      "link": "arXiv:1912.09836",
+      "why": "[DLLZ19, Corollary 6.3.5]: R^iπ_*𝔼 is a local system for π smooth proper."
+    }
+  ],
+  "routes": [
+    {
+      "route": "part-ii",
+      "parent": "AnabelianGeometryAndNonabelianChabauty",
+      "roadmap": "GaloisSectionsPadicPeriodMaps",
+      "title": "Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings",
+      "area": "arithmeticgeometry",
+      "brief": "Design GaloisSectionsPadicPeriodMaps, the Part II of Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty) following Betts and Stix. Final theorems, exactly as the paper states them: Theorem A — for a number field K with no CM subfield and a smooth projective curve Y/K of genus ≥ 2, the image of loc_v: Sec^Sel(Y/K) → Y(K_v) is finite for every finite place v; Theorem B — the projection of the finite descent locus Y(A_K)_•^{f-cov} to Y(K_v) is finite; Theorem 6.5 — for self-conjugate v some abelian-by-finite family has finite Lawrence–Venkatesh locus Y(K_v)^LV_{X,S}; Theorem 7.1 — Selmer sections localise into Y(K_v)^LV_X. Cover: Selmer sections and the attached symplectic pairs (A_s, V_s) (§7); symplectic pairs, S-good pairs and the adelic, local and period-domain Lawrence–Venkatesh loci (§§1, 4, 6); self-conjugate places and the average Hodge–Tate weight (Proposition 2.19, Corollary 2.21); filtered discrete (ϕ, N, G_v)-modules with restriction, induction and automorphism groups (Lemma 2.15, Proposition 2.16, proved with Frobenius as well as G_v); the model-free control of D_pst by period maps (Theorems 3.3, 3.22, Proposition 3.5, Proposition 4.11); the principal trichotomy with #Σ_A in (c); the finiteness of types (a) and (b) and the emptiness of type (c) for Kodaira–Parshin families (Propositions 6.9, 6.15, 6.20). Import rather than re-plan: from The Mordell conjecture after Lawrence and Venkatesh (MordellLawrenceVenkatesh) the Faltings lemmas (LV.1), abelian-by-finite families and their cohomology (LV.2), Lagrangian period domains, period maps and the complex–v-adic comparison extended to K_v-points (LV.3), the Lagrangian general-position lemma (LV.7), and Kodaira–Parshin families with full monodromy (LV.8–LV.10); from p-adic Hodge theory (PadicHodgeTheory) D_pst, filtered (ϕ, N)-modules and Berger's theorem (R06.2, R06.3) and Scholze's relative comparison with Shimizu's horizontal semistability (P8); from Cohomology comparisons (CohomologyComparisons) the Chern-class compatibility (CP.6); from Anabelian geometry and nonabelian Chabauty the Galois sections of NC.0; from Heights, rational points and obstructions (HeightsRationalPointsAndObstructions) the finite descent locus (RP.3) together with the Harari–Stix theorem; purity from Deligne's weights (DeligneWeightsAndPurity DWP.4). Keep the Section Conjecture a conjecture and Theorem A's no-CM hypothesis visible.",
+      "reason": "The maintainer routed the paper to a new Part II, GaloisSectionsPadicPeriodMaps (DESIGN-BETTS-STIX), of the anabelian roadmap. Its new mathematics is the obstruction-theoretic reading of Lawrence–Venkatesh applied to Selmer sections. The Lawrence–Venkatesh method is extended to every self-conjugate place: no good reduction is needed, which requires (ϕ, N, G_v)-modules and relative p-adic Hodge theory in place of crystalline cohomology. The route also covers the symplectic principal trichotomy. NC.0–NC.6 do not go there, and the Lawrence–Venkatesh roadmap plans only the good-reduction, friendly-place argument for K-points.",
+      "items": [
+        "PAPER-BETTS-STIX-25/2",
+        "PAPER-BETTS-STIX-25/3",
+        "PAPER-BETTS-STIX-25/5",
+        "PAPER-BETTS-STIX-25/6",
+        "PAPER-BETTS-STIX-25/7",
+        "PAPER-BETTS-STIX-25/8",
+        "PAPER-BETTS-STIX-25/9",
+        "PAPER-BETTS-STIX-25/19",
+        "PAPER-BETTS-STIX-25/20",
+        "PAPER-BETTS-STIX-25/21",
+        "PAPER-BETTS-STIX-25/22",
+        "PAPER-BETTS-STIX-25/23",
+        "PAPER-BETTS-STIX-25/24",
+        "PAPER-BETTS-STIX-25/25",
+        "PAPER-BETTS-STIX-25/26",
+        "PAPER-BETTS-STIX-25/31",
+        "PAPER-BETTS-STIX-25/32",
+        "PAPER-BETTS-STIX-25/46",
+        "PAPER-BETTS-STIX-25/47",
+        "PAPER-BETTS-STIX-25/54",
+        "PAPER-BETTS-STIX-25/56",
+        "PAPER-BETTS-STIX-25/60",
+        "PAPER-BETTS-STIX-25/61",
+        "PAPER-BETTS-STIX-25/62",
+        "PAPER-BETTS-STIX-25/71",
+        "PAPER-BETTS-STIX-25/72",
+        "PAPER-BETTS-STIX-25/73",
+        "PAPER-BETTS-STIX-25/74",
+        "PAPER-BETTS-STIX-25/75",
+        "PAPER-BETTS-STIX-25/76",
+        "PAPER-BETTS-STIX-25/77",
+        "PAPER-BETTS-STIX-25/78",
+        "PAPER-BETTS-STIX-25/79",
+        "PAPER-BETTS-STIX-25/80",
+        "PAPER-BETTS-STIX-25/81",
+        "PAPER-BETTS-STIX-25/82",
+        "PAPER-BETTS-STIX-25/83",
+        "PAPER-BETTS-STIX-25/84",
+        "PAPER-BETTS-STIX-25/85",
+        "PAPER-BETTS-STIX-25/86",
+        "PAPER-BETTS-STIX-25/89",
+        "PAPER-BETTS-STIX-25/90",
+        "PAPER-BETTS-STIX-25/91",
+        "PAPER-BETTS-STIX-25/93",
+        "PAPER-BETTS-STIX-25/94",
+        "PAPER-BETTS-STIX-25/95",
+        "PAPER-BETTS-STIX-25/96",
+        "PAPER-BETTS-STIX-25/97"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "MordellLawrenceVenkatesh",
+      "stages": [
+        "MordellLawrenceVenkatesh:LV.1"
+      ],
+      "reason": "The symplectic form of Faltings's lemma ([LV20, Lemma 2.6]) and GSp-irreducibility belong beside the semisimple Faltings lemma that LV.1 already plans; this paper uses them in place of LV Lemma 2.3.",
+      "items": [
+        "PAPER-BETTS-STIX-25/12",
+        "PAPER-BETTS-STIX-25/13"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "MordellLawrenceVenkatesh",
+      "stages": [
+        "MordellLawrenceVenkatesh:LV.2"
+      ],
+      "reason": "LV.2 plans abelian-by-finite families with their de Rham bundle, Lagrangian F¹ and Gauss–Manin connection. This paper supplies the étale and de Rham symplectic module structures with perfect polarisation pairings (Lemmas 4.2, 4.6), relative de Rham Chern classes (Lemma 4.7) and transport compatible with them (Lemma 4.8).",
+      "items": [
+        "PAPER-BETTS-STIX-25/52",
+        "PAPER-BETTS-STIX-25/53",
+        "PAPER-BETTS-STIX-25/55",
+        "PAPER-BETTS-STIX-25/57",
+        "PAPER-BETTS-STIX-25/58",
+        "PAPER-BETTS-STIX-25/51"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "MordellLawrenceVenkatesh",
+      "stages": [
+        "MordellLawrenceVenkatesh:LV.3"
+      ],
+      "reason": "LV.3 plans period maps on residue disks centred at K-points and the transfer of Zariski density from the complex side. This paper redoes it around K_v-rational centres without a model: parallel transport on rigid neighbourhoods, the analytified flag variety, Proposition 5.3 with its lemmas, Lemma 5.9 and Corollary 5.10. As the paper's footnote 1 notes, the K_v-centred version is needed even for [LV20]'s own argument.",
+      "items": [
+        "PAPER-BETTS-STIX-25/27",
+        "PAPER-BETTS-STIX-25/29",
+        "PAPER-BETTS-STIX-25/64",
+        "PAPER-BETTS-STIX-25/66",
+        "PAPER-BETTS-STIX-25/67",
+        "PAPER-BETTS-STIX-25/69",
+        "PAPER-BETTS-STIX-25/70",
+        "PAPER-BETTS-STIX-25/28",
+        "PAPER-BETTS-STIX-25/59",
+        "PAPER-BETTS-STIX-25/63",
+        "PAPER-BETTS-STIX-25/65",
+        "PAPER-BETTS-STIX-25/68"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "MordellLawrenceVenkatesh",
+      "stages": [
+        "MordellLawrenceVenkatesh:LV.7"
+      ],
+      "reason": "Sublemma 6.18 is the isotropic, r ≥ 4 version of the general-position lemma LV Lemma 6.4 that LV.7 plans for r ≥ 5.",
+      "items": [
+        "PAPER-BETTS-STIX-25/87"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicHodgeTheory",
+      "stages": [
+        "PadicHodgeTheory:P8"
+      ],
+      "reason": "P8 owns the relative period sheaves on the pro-étale site and the proper-smooth comparison with connection and tensor compatibility. The paper's relative p-adic Hodge theory belongs there, not in a Diophantine roadmap: de Rham pairs and their full faithfulness, pullback and pushforward, completion, cup-product and base-change compatibilities, and algebraic versus analytic pushforwards. So do the resulting comparison isomorphism c_dR, Shimizu's horizontal semistable period ring with its specialisation lemmas, and the filtered-derived-category lemmas. Theorem 3.12 itself is planned there.",
+      "items": [
+        "PAPER-BETTS-STIX-25/34",
+        "PAPER-BETTS-STIX-25/35",
+        "PAPER-BETTS-STIX-25/36",
+        "PAPER-BETTS-STIX-25/37",
+        "PAPER-BETTS-STIX-25/39",
+        "PAPER-BETTS-STIX-25/40",
+        "PAPER-BETTS-STIX-25/41",
+        "PAPER-BETTS-STIX-25/42",
+        "PAPER-BETTS-STIX-25/43",
+        "PAPER-BETTS-STIX-25/44",
+        "PAPER-BETTS-STIX-25/48",
+        "PAPER-BETTS-STIX-25/49",
+        "PAPER-BETTS-STIX-25/50",
+        "PAPER-BETTS-STIX-25/98",
+        "PAPER-BETTS-STIX-25/99",
+        "PAPER-BETTS-STIX-25/100"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "CohomologyComparisons",
+      "stages": [
+        "CohomologyComparisons:CP.6"
+      ],
+      "reason": "CP.6 plans the compatibility of comparison maps with traces, cup products and first Chern classes. Proposition 3.20 proves these for Scholze's c_dR, which the paper needs for the polarisation pairings.",
+      "items": [
+        "PAPER-BETTS-STIX-25/45"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PAPER-BETTS-STIX-25/E1",
+      "kind": "error",
+      "locator": "arXiv v1 Proposition 6.7(c) and its proof, pp.46–47; Proposition 1.8(c), p.6",
+      "printed": "c) the number of ψ ∈ Σ satisfying [G_v : G_{w_ψ}] < 4 is ≥ (1/(d+1)) dim_{Q_p}(A). … So A would also satisfy (c) because #Σ ≤ dim_{Q_p}(A).",
+      "correction": "Replace dim_{Q_p}(A) by #Σ_A in (c), or assume A reduced (hence étale over Q_p), where #Σ_A = dim_{Q_p}(A). This is what the proof shows, and every application has A ≅ H^0_ét(X_{y_v,K̄_v}, Q_p), which is étale.",
+      "reason": "The reduction step needs #Σ ≥ dim A, the opposite of what it cites. A counterexample to (c) as printed: K = Q (every place self-conjugate), E/Q an elliptic curve, A = Q_p[ε]/(ε³) with trivial Galois action, V = A ⊗_{Q_p} H^1_ét(E_Q̄, Q_p), L = A(−1), and ω the A-linear extension of the Weil pairing. This is a symplectic pair with V of rank 2 (d = 1), de Rham with Hodge–Tate weights {0, 1} and pure of weight 1 outside a finite set. Σ_A has one point, fixed by G_v, so (a) and (b) fail, and (c) asks 1 ≥ 3/2. The pair is also S-good, so Proposition 1.8 fails in the same way.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E2",
+      "kind": "gap",
+      "locator": "arXiv v1 proof of Proposition 2.16(1), p.12",
+      "printed": "Since each ψ_i commutes with the action of G_v on D, we thus have Σ_i σ(αλ_i)ψ_i = 0 for all α ∈ Q_p^nr and all σ ∈ G_v. Taking a suitable linear combination of this identity then shows that Σ_i tr_{Q_p^nr/Q_p}(αλ_i)ψ_i = 0",
+      "correction": "Use also that the ψ_i commute with ϕ, which is semilinear for the Frobenius of Q_p^nr: conjugating by ϕ gives Σ Frob(λ_i)ψ_i = 0. The group generated by Frobenius and the image of G_v is dense in Gal(Q_p^nr/Q_p), so averaging gives the trace to Q_p, and the injectivity of Q_p^nr ⊗ End(D) → End_{Q_p^nr}(D) follows.",
+      "reason": "G_v acts on Q_p^nr only through Gal(Q_p^nr/K_{v,0}), so G_v alone only yields traces to K_{v,0}. With G_v alone the step is false: for K_v = Q_{p²} and D = Q_p^nr with its natural G_v-action, the G_v-equivariant Q_p^nr-linear endomorphisms are Q_{p²}, and Q_p^nr ⊗_{Q_p} Q_{p²} → Q_p^nr is not injective. With ϕ they are Q_p.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E3",
+      "kind": "gap",
+      "locator": "arXiv v1 proof of Proposition 3.20(8), p.28 (and footnote 18, p.35)",
+      "printed": "But in this case the projection V → X from the total space of V induces an isomorphism on étale and de Rham cohomology, and the first Chern class of V is none other than the cycle class of the zero section in V. So we are done by (2) and (7).",
+      "correction": "Stay among smooth proper varieties. A line bundle on the smooth variety X is O(D_1 − D_2) with D_1, D_2 effective divisors, and in each theory c_1(O(D)) = cl(D_1) − cl(D_2); then (8) follows from (7). Alternatively use the projective completion P(V ⊕ O).",
+      "reason": "The comparison isomorphism (3.8) and properties (2) and (7) are constructed and proved only for smooth proper varieties (§3.4, Proposition 3.19). The total space of a line bundle is not proper, so (2) and (7) cannot be applied to it. The conclusion is used in §4.1.3 to match c^ét_1(λ) with c^dR_1(λ).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E4",
+      "kind": "misprint",
+      "locator": "arXiv v1 Lemma 4.12, p.38",
+      "printed": "factorising as the product ∏_i Φ′_i of Lagrangian L_{w_i}-subspaces Φ′_i of H^1_dR(X_{y′_0}/L_{w_i})",
+      "correction": "… of H^1_dR(X_{y′_i}/L_{w_i}).",
+      "reason": "The factors are indexed by the closed points y′_i of Y′_{y_0}, as in the paragraph before the lemma and in (4.3).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E5",
+      "kind": "misprint",
+      "locator": "arXiv v1 §6.3, definition of H_{y_0}(K_v)^LV_{X,(b)} and (∗) in the proof of Proposition 6.15, pp.49, 51",
+      "printed": "M^1(Φ) ≅ (D_pH(A), D_pH(V))",
+      "correction": "M^{≤1}(Φ) ≅ (D_pH(A), D_pH(V)), an isomorphism of symplectic pairs as in Proposition 6.9.",
+      "reason": "The right side is a pair (algebra, module), and the proof then uses the algebra part to identify ψ with a point of Y′_{y_0}, as for type (a).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E6",
+      "kind": "gap",
+      "locator": "arXiv v1 Remark 6.23(I), p.54",
+      "printed": "choose an auxiliary prime number r_0 ≥ 100 strictly greater than all odd prime divisors of [K′ : Q], and let q be the least prime number congruent to 3 modulo 4 and congruent to 2 modulo all odd primes less than r_0. Then … K′ is linearly disjoint from Q(ζ_{q−1})",
+      "correction": "Also take r_0 larger than every prime ramified in K′. Then K′ ∩ Q(ζ_{q−1}) is unramified everywhere, since Q(ζ_{q−1}) = Q(ζ_{(q−1)/2}) is ramified only at primes ≥ r_0, so it is Q.",
+      "reason": "K′ ∩ Q(ζ_{q−1}) can be Q(√±r) for a prime r ≥ r_0 dividing q − 1, if [K′ : Q] is even and r ramifies in K′. The stated choice of r_0 does not exclude this.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-source",
+      "detail": "The published Annals text (revised May 2024) could not be read.",
+      "status": "unavailable",
+      "resolution": "Locators and findings are for arXiv v1 and Stix's identical preprint; the review, or a later reader with access, should compare the published numbering and check whether E1–E6 persist."
+    },
+    {
+      "id": "G-inputs",
+      "detail": "Cited theorems — [LV20] Lemmas 2.3, 2.6, §§7–8, [Sch13] Theorems 7.6, 8.8, 9.1, 9.3, [Shi20], [HS12, Theorem 11], [Fon94b], [Ber02], [KO68], [Del74] — were read only as the paper states them.",
+      "status": "deferred",
+      "resolution": "Suppliers named in the routes; prerequisites list the ones the atlas lacks."
+    }
+  ]
+}
