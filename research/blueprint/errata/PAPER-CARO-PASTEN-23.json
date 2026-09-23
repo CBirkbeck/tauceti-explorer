@@ -7,32 +7,44 @@
       "kind": "error",
       "locator": "Lemma 3.15, pp.10–11, and its use in the proof of Theorem 9.1, (9.8), p.35, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
       "printed": "\"Lemma 3.15. With the previous notation, we have Σ_{x∈D(k)} Σ_{j=1}^{r} #{y ∈ C̃_j(k^alg) : ν_j(y) = x} ≤ (q + 1)r + 2q^{1/2} · Σ_{j=1}^{r} g_g(C_j).\"",
-      "correction": "The count of geometric branches over k-points needs an extra term for the non-rational branches through rational singular points. For a geometrically integral curve C with normalization of genus g and arithmetic genus p_a, one has Σ_{x∈C(k)} #ν^{−1}(x) ≤ #C̃(k) + 2 Σ_x δ_x ≤ q + 1 + 2g q^{1/2} + 2(p_a − g). The constant q + 4q^{1/2} + 3 in Theorem 9.1 and in Theorems 1.5, 1.7, 10.1 and Corollaries 1.11, 1.14, 1.15, obtained from Lemma 3.15 in (9.8), is not established by the v2 argument.",
+      "correction": "The branch-count lemma is false as stated in v2. For a geometrically integral curve of normalization genus g, add 2(p_a−g): Σ_{x∈C(k)} #ν⁻¹(x) ≤ q+1+2g√q+2(p_a−g). More generally a safe bound for the reduced curve D is r(q+1)+2√q Σ_j g(C_j)+2δ(D), where δ(D) is the total geometric normalization defect, including intersections of conjugate components. The weighted application in (9.8) needs corresponding singularity/intersection accounting. This diagnoses a missing argument for the v2 constant, not a counterexample to the surface theorem itself.",
       "reason": "Counterexample. Let D ⊂ P² over k = F_3 be the projective closure of y² = x²(x − 1). It is geometrically integral (r = 1) with normalization P¹, parametrized by x = t² + 1, y = t(t² + 1), so g_g = 0 and the right side is q + 1 = 4. D(F_3) consists of (0,0), (1,0), (2,1), (2,2) and the point at infinity. The origin is an ordinary node with tangent cone y² + x² = 0. Since −1 is not a square in F_3, its two branches t = ±i are defined only over F_9. The left side is therefore 2 + 4 = 6 > 4. The proof's flaw: Lemma 3.17 correctly relates the product of Z*_{D,k}(ζT) over ζ ∈ μ_d to the zeta functions of the C̃_j over k′. But the zeros and poles of Z*_{D,k} cannot be read off from that product. Here Z*_{D,k}(T) = (1 + T)/((1 − T)²(1 − qT)), and the extra factor (1 + T)/(1 − T) disappears under T ↦ −T. The bound with q + 1 + 2g q^{1/2} + 2(p_a − g) follows from Weil's bound for C̃ together with b_x ≤ δ_x + 1 ≤ 2δ_x at singular points, and it is attained in the example. The general reducible, weighted sum in (9.8) needs the analogous count, including intersections of Frobenius-conjugate components. Noted by the extraction (gap G1, items bad-branch-bound and global-sum-source), which checked the page image.",
       "affects": "a stated result",
-      "known": "Apparently corrected in the published version, which was not seen: Balakrishnan–Caro (arXiv 2501.03483v2, Theorem 2.1) quote the published Corollary 1.15 as #W_2(Q) ≤ #W_2(F_p) + 6·(p−1)/(p−2)·(p + 4p^{1/2} + 5), where v2 has p + 4√p + 3.",
+      "known": "The published acknowledgements at https://link.springer.com/article/10.1007/s00222-023-01217-1 explicitly acknowledge a referee finding an error in an earlier Lemma 3.15. Balakrishnan–Caro, https://arxiv.org/pdf/2501.03483v2, Theorem 2.1, p. 3, cite the published Corollary 1.15 with p+4√p+5 rather than v2’s p+4√p+3. Thus this is an acknowledged earlier-version problem; the precise final lemma/proof and whether it fixes this exact counterexample were not collated.",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the v2 lemma is false: enumerated the five projective F₃-points, checked the single nonsplit node, and counted six geometric branches against the bound four. Checked the normalization parametrization and the cancelling zeta factor. Strengthened known-status evidence using the published acknowledgements; did not infer an unobserved final repair. The surface constant’s v2 proof is affected, but the example is not a surface counterexample.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E2",
       "kind": "misprint",
       "locator": "Remark 4.7, p.13, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
-      "printed": "\"Let m = 2 and let φ : V^k_2 → A²_k be the map induced by the k-algebra morphism k[s_1, s_2] → E^k_2 = k[z]/(z³), s_1 ↦ z mod z³, s_2 ↦ 0. The map φ is a closed immersion supported at x which is ω_i-integral for i = 1, 2\" (with ω_1 = ds_1 + s_1²ds_2, ω_2 = ds_1 + s_2²ds_2).",
-      "correction": "s_1 ↦ 0, s_2 ↦ z mod z³. Then φ pulls ω_1 back to 0 and ω_2 back to z²dz, which is zero in Ω¹_{E^k_2/k} = (k[z]/(z²))dz, so φ is ω_i-integral for i = 1, 2 and the bound (4.4), m ≤ 2, is attained.",
-      "reason": "With s_1 ↦ z and s_2 ↦ 0, both forms pull back to dz, which is nonzero in (k[z]/(z²))dz, so φ is not ω_1- or ω_2-integral and the example does not show sharpness. With the coordinates exchanged, the restrictions of ω_1 to the lines s_1 = ±s_2 are (1 ± s²)ds, nonvanishing at the origin, so (4.4) gives m ≤ 2 and the corrected jet attains it. Noted by the extraction (gap G2, item sharp-example-source), which checked the page image.",
+      "printed": "\"Let m = 2 and let φ : V^k_2 → A²_k be the map induced by the k-algebra morphism k[s_1, s_2] → E^k_2 = k[z]/(z³), s_1 ↦ z mod z³, s_2 ↦ 0. The map φ is a closed immersion supported at x which is ω_i-integral for i = 1, 2\" (with ω_1 = ds_1 + s_1²ds_2, ω_2 = ds_1 + s_2²ds_2). The same remark also prints Ω¹_(E₂/k) = (k[z]/(z,3z²))dz = (k[z]/(z²))dz.",
+      "correction": "Exchange the coordinates: s₁ ↦ 0 and s₂ ↦ z mod z³. Also correct the differential-module presentation to Ω¹_(E₂/k) = (k[z]/(z³,3z²))dz = (k[z]/(z²))dz, under the stated characteristic restriction char(k) ≠ 2,3. The two pullbacks are 0 and z²dz = 0, and the bound m ≤ 2 is attained.",
+      "reason": "The printed jet pulls both forms back to dz ≠ 0. The exchanged jet is still a closed immersion and gives the two zero pullbacks in the correct module. On each of the two branches s₁ = ±s₂, the restriction of either form has a nonzero constant coefficient at the origin, so each contributes one to (4.4). The extra printed relation z = 0 in the differential module is also wrong: the relation comes from z³ = 0 and d(z³) = 3z²dz. Both slips were checked in the page image.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the nonintegral printed jet and the sharpness of the exchanged jet. Added the adjacent missed misprint z in place of z³ in the differential-module presentation; the displayed quotient otherwise contradicts its own last equality. The characteristic exclusions in Remark 4.7 are retained.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E3",
@@ -44,11 +56,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at §5, p. 16. Adding codimensions gives 2n−r₁−r₂ as the codimension, hence r₁+r₂−n as the dimension. For two divisors on a surface the result is a zero-cycle, detecting the printed dimension immediately.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E4",
@@ -60,27 +78,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from the paper’s definitions: the coefficient of t^(2n−1) in ∏(t−γ_i)² is −2Σγ_i; trace is the negative of that coefficient. Equation (5.1) then gives the positive sum required by the arithmetic–geometric mean calculation.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E5",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Proof of Lemma 5.5(i), p.18, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
       "printed": "\"If (i) holds we consider the ample divisor H = X and note that Lemma 5.3 gives deg_H(X) = deg(X³)_A = cdeg(X) = c_1²(X). Thus, condition (5.4) in case (i) simplifies to p > 2c_1²(X)/3, which is implied by (5.3).\" (Here (5.3) is p > c_1²(X).)",
-      "correction": "With n = 3 and H = X, condition (5.4) reads p > (3!/3³) · c_1²(X)³ / c_1²(X) = 2c_1²(X)²/9. Lemma 5.5(i) should assume p > max(c_1²(X), 2c_1²(X)²/9). The hypothesis p > (128/9)c_1²(X)² of Theorem 9.1(i), under which the lemma is used (Lemma 9.10), implies this.",
+      "correction": "A sufficient repair of Lemma 5.5(i) is to strengthen its hypothesis to p > max{s,2s²/9}, where s = c₁²(X). Substitution of n=3, H=X in (5.4) gives (3!/3³)s³/s = 2s²/9, not 2s/3. The original hypothesis may still suffice by another argument; no counterexample to the lemma is claimed. The main Theorem 9.1(i) assumes p > (128/9)s², which implies the repaired condition and preserves its invocation in Lemma 9.10.",
       "reason": "The substitution gives 2s²/9 with s = c_1²(X), not 2s/3. For s ≥ 5, (5.3) does not imply it; for example s = 6 and p = 7 satisfy p > s but not p > 2s²/9 = 8. So the proof of case (a) under (i), which applies Lemma 5.4, is not justified by (5.3) alone. The lemma may still hold at the printed threshold, but the argument does not show it. The main theorems assume the stronger bound. Checked on the page image. Noted by the extraction (gap G3, item semiinjective-source).",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the arithmetic error and the missing implication in case (a). Checked s=6, p=7 as a counterexample to the numerical implication, not to the geometric lemma. Changed kind to gap and described the stronger bound as a sufficient repair; case (b) still uses p>s. Checked the actual later invocation in Lemma 9.10 and its stronger main-theorem hypotheses.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E6",
@@ -92,27 +122,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the allowed endpoint M=1, yielding λ=0. Since 0<r<1, the remaining inequalities in the proof remain valid at that endpoint; only the strict lower bound needs changing.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E7",
       "kind": "error",
       "locator": "§7.1–7.2, the series Ψ^{[m]}, Lemma 7.4 and the definitions of Log^t and Exp^t, pp.23–24, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
       "printed": "\"Given an integer m, let Ψ^{[m]} = (Ψ^{[m]}_1, ..., Ψ^{[m]}_n) be the power series expansion of the morphism [m] : A → A of multiplication by m in terms of t.\" \"From [11] III.5.3 Proposition 2(i) we get Lemma 7.4. The terms of degree less than m in Ψ^{[m]}_j vanish for each j = 1, ..., n.\" \"Log^t_j(y) = Σ_{m≥1} ((−1)^m/m) · Ψ^{[m]}_j(y), Exp^t_j(x) = Σ_{m≥1} (1/m!) · ψ^{[m]}_j(x)\", with ψ^{[m]}_j the homogeneous part of degree m of Ψ^{[m]}_j.",
-      "correction": "Take Ψ^{[m]} to be the m-th finite difference of the multiplication maps, Ψ^{[m]} = Σ_{i=0}^{m} (−1)^{m−i} C(m,i) [i], the series of Bourbaki III.5.3. Take Log^t_j(y) = Σ_{m≥1} ((−1)^{m−1}/m) Ψ^{[m]}_j(y). With these changes Lemma 7.4 is Bourbaki's statement. Lemma 7.2 still holds, as Ψ^{[m]} is an integral combination. Exp^t is the exponential, and the proofs of Lemmas 7.5–7.7 go through as written.",
-      "reason": "As defined, Ψ^{[m]} is multiplication by m, whose linear term is m·t_j, so Lemma 7.4 fails already for the additive formal group and m = 2. Then Log^t_j has linear term Σ_m (−1)^m y_j, which does not converge coefficientwise. The printed Exp^t is also wrong in general. For the one-dimensional formal group with logarithm f(t) = t + at² + bt³, the printed Exp^t (degree-m parts of [m], weighted by 1/m!) has cubic coefficient 6a² − 4b, while the true exponential f^{−1} has 2a² − b; the finite differences give the correct 2a² − b, checked by exact computation to degree 4. The sign: with finite differences, Σ ((−1)^{m−1}/m) Ψ^{[m]} equals the logarithm f, while the printed (−1)^m/m gives −f, which is not inverse to Exp^t as Lemma 7.7(ii) asserts. The bounds used later (|b_{j,α}| ≤ ‖α‖^{[K:Q_p]}, m!c_{j,α} ∈ R) hold for the corrected series, so the main results are unaffected. Checked on the page image. Noted by the extraction (gap G4, items formal-low-degree-source, formal-log-source and formal-exp), which proposed a different repair; the finite-difference reading is given here.",
+      "correction": "Replace the multiplication-map series by the coefficientwise finite differences Δ_m(t) = Σ_{i=0}^m (−1)^(m−i) binom(m,i)[i](t), for m≥1. Use Log(t) = Σ_{m≥1}(−1)^(m−1)Δ_m(t)/m and Exp(t) = Σ_{m≥1}[Δ_m(t)]_m/m!, where [ ]_m means homogeneous degree m. These formulas have identity linear term, are mutual inverses, and satisfy the claimed denominator bounds. This repair is verified here by formal polynomial interpolation; no claim is made to have directly read Bourbaki III.5.3–5.4.",
+      "reason": "For the printed definition, [m](t) has linear term mt in every characteristic-zero formal group. Thus Lemma 7.4 fails and the proposed logarithm’s linear terms are (−1)^m t, which do not tend to zero. To verify the repair at all orders, let L and E be the normalized formal logarithm and exponential over K. The degree-d part of [z](t)=E(zL(t)) is polynomial in z of degree at most d. Newton interpolation at z=0 gives [z]=Σ_m binom(z,m)Δ_m coefficientwise. Differentiating at zero gives L=Σ_m(−1)^(m−1)Δ_m/m. The leading z^m coefficient in degree m is E_m(t), so [Δ_m]_m=m!E_m and Δ_m has no terms of degree below m. Since Δ_m is an integral linear combination of integral [i], these identities prove the bounds of Lemmas 7.5–7.6. Exact computation through degree four with L(t)=t+at²+bt³+ct⁴ verifies both identities; the printed exponential’s cubic coefficient is 6a²−4b, whereas E has 2a²−b. The all-order interpolation argument, not that finite check alone, establishes the repair.",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the linear-term contradiction directly and independently proved the finite-difference repair by Newton interpolation in the multiplication parameter. Symbolic degree-four computations agree. Removed the unsupported assertion that Bourbaki was directly collated. Checked the coefficient estimates and Lemma 7.7’s use of the formal inverse identities; the repair supplies those identities and estimates.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E8",
@@ -124,27 +166,39 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the ambient dimension is arbitrary n in Theorem 9.1(ii), whose denominator is deg(H^n). Specialization preserves that top self-intersection; the displayed cubes only have the intended degree interpretation when n=3.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E9",
       "kind": "gap",
       "locator": "Proof of Lemma 9.7, p.31, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
       "printed": "\"Thus, we can take v_1, v_2 ∈ ker(f) ∩ R^n which are K-linearly independent. After scaling, we can assume that v_1, v_2 ∈ R^n are primitive. If there are b_1, b_2 ∈ R^× with b_1v_1 + b_2v_2 ∈ pR^n ⊆ R^n then there are c_1, c_2 ∈ R such that b_1v_1 + b_2v_2 = ϖc_1v_1 + ϖc_2v_2 which is not possible since v_1, v_2 are K-linearly independent. Hence the images of v_1, v_2 in k^n are k-linearly independent.\"",
-      "correction": "Take v_1, v_2 to be two members of an R-basis of the saturated lattice ker(f) ∩ R^n. That lattice is a direct summand of R^n of rank n − 1 ≥ 2, so any basis of it reduces to k-linearly independent vectors.",
+      "correction": "Let L = ker(f) ∩ R^n and take v₁,v₂ from an R-basis of L. The quotient R^n/L identifies with the image of f and is torsion-free, so L is saturated and a direct summand over the DVR. Its rank is n−1 when f≠0 (as in the hyperplane application), and n when f=0; either way it is at least two. A basis extends to R^n and therefore reduces to linearly independent vectors.",
       "reason": "The step from b_1v_1 + b_2v_2 ∈ ϖR^n to b_1v_1 + b_2v_2 ∈ ϖ(Rv_1 + Rv_2) assumes that Rv_1 + Rv_2 is saturated in R^n. For v_1 = e_1 and v_2 = e_1 + ϖe_2 in R³, both are primitive and K-independent, but v_2 − v_1 = ϖe_2 and their reductions coincide. The lemma itself holds by the corrected choice, so nothing later changes. Checked on the page image. Noted by the extraction (gap G5, item primitive-proof-source).",
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the saturation gap using v₁=e₁, v₂=e₁+ϖe₂, both in the kernel of the third-coordinate functional: independent over K, primitive over R, dependent modulo ϖ. Proved the repair from the torsion-free quotient; included the harmless zero-functional case instead of asserting rank n−1 for every linear map.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E10",
@@ -156,11 +210,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the union in §9.4 disagrees with the intersection in Lemma 9.6, p. 31. A one-dimensional analytic subgroup cannot contain the open n-dimensional residue disk for n≥3. The rest of the proof uses exactly the intersection containment.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E11",
@@ -172,11 +232,17 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing the displayed inequality with Proposition 9.14 on the same page. Translation preserves m and the ramification parameters, so both the leading 1 and the multiplicative factor must remain. The printed m=0 bound would even exclude the chosen point ξ₀.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E12",
@@ -188,27 +254,107 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed that only the residue-disk partition is an equality: summing Proposition 9.14 gives ≤. The final removal of terms outside Z is an equality because Lemma 9.11 gives m(x)=0 there.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
     },
     {
       "id": "PAPER-CARO-PASTEN-23/E13",
       "kind": "error",
       "locator": "Corollary 10.5, p.37, in arXiv 2102.01055v2 (10 February 2021, the latest arXiv version, 39 pp.; PDF SHA-256 d7398c4b…67f7); the published article, Invent. Math. 234 (2023), 1197–1250 (54 pp., substantially revised), was not accessible and was not collated, so this finding concerns v2",
       "printed": "\"Corollary 10.5. For every curve C of genus g ≥ 3 we have that C^{(2)} has ample canonical divisor. In particular, C^{(2)} is a surface of general type. Proof. Since θ is ample and all the V_ξ are effective, we get the result from Lemma 10.4.\"",
-      "correction": "For C not hyperelliptic, K_{C^{(2)}} is ample: θ = j^*Θ is ample because j is then a closed immersion (Lemma 10.7), and V is nef because the V_ξ move. For every C of genus g ≥ 3, C^{(2)} is of general type, since θ is nef and big.",
-      "reason": "For C hyperelliptic, j : C^{(2)} → J contracts the curve E = {x + ιx} ≅ P¹ of the g¹_2, so θ.E = 0 and θ is not ample. For g = 3, Lemma 10.4 gives K_{C^{(2)}} ≡ θ, so K.E = 0 and the canonical divisor is not ample. The corollary is used only in the proof of Corollary 1.15, which assumes C not hyperelliptic and needs only general type. Checked on the page image. Noted by the extraction (gap G5, item ample-symmetric-source).",
+      "correction": "Under §10.3’s assumptions (smooth projective curve, algebraically closed k, char(k)≠2), C^(2) is of general type for every g≥3. Its canonical divisor is ample for g≥4, and for g=3 when C is nonhyperelliptic. For hyperelliptic g=3 it is nef and big but not ample. In the nonhyperelliptic application in Corollary 1.15 the needed conclusion remains valid.",
+      "reason": "For a hyperelliptic genus-three curve, the Abel map contracts the pencil E={x+ιx}≅P¹. Hence θ·E=0 and K≡θ has zero intersection with E, contradicting ampleness. To justify the corrected positive statements, π:C×C→C^(2) is finite and π*V is the sum of the two point-fibre divisors, an ample divisor on C×C; thus V is ample. The pullback θ=j*Θ is nef and big because j is generically finite onto its image, and is ample when j is a closed immersion (the nonhyperelliptic case). Now K≡θ+(g−3)V gives all the stated cases. Mere effectivity of V would not justify the original ampleness inference.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the hyperelliptic genus-three counterexample and the scope of §10.3. Changed affects from nothing to a stated result: the corollary’s literal ampleness claim fails even though its later use survives. Strengthened the repair using the finite pullback proof that V is ample; this also proves ampleness for all curves of genus at least four.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E14",
+      "kind": "gap",
+      "locator": "arXiv 2102.01055v2, proof of Lemma 4.8, p. 14; m≥0 is allowed in Theorem 4.4, p. 13. Published counterpart not collated.",
+      "printed": "After choosing s₁ with φ#(s₁)=z mod z^(m+1), the proof asserts s₁ ∈ m_(S,x) ∖ m_(S,x)² because φ# is local.",
+      "correction": "Treat m=0 separately by taking any regular system of parameters s₁,s₂; then ker(φ#)=m_(S,x)=(s₁,s₂). For m≥1 the printed construction works: z is nonzero in (z)/(z²), so a preimage cannot lie in m_(S,x)².",
+      "reason": "When m=0 the target is k[z]/(z)=k and the prescribed image z is zero. The chosen preimage could be s₁=0, or any element of m², so locality alone does not force it to be a parameter. The existence assertion remains true; only this boundary case is missing from the proof. Theorem 4.4’s m=0 inequality is also immediate.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Located and confirmed the boundary case flagged but not relocated by the original errata worker. The proof uses z∉(z²), which is true for m≥1 and false for m=0. The separate regular-parameter choice repairs the lemma without changing its statement.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
+    },
+    {
+      "id": "PAPER-CARO-PASTEN-23/E15",
+      "kind": "misprint",
+      "locator": "arXiv 2102.01055v2, proof of Lemma 3.17 and opening sentence of the proof of Lemma 3.15, p. 11. Published counterparts not collated.",
+      "printed": "The nonzero case in S_n is printed with T^m, before n=md is introduced. The next proof calls the relevant poles of Z*_(D,k)(T) modulus q and zeros modulus q^(1/2).",
+      "correction": "In the S_n case distinction keep T^n, which becomes T^(md) after n=md. For the zeta variable T, Weil poles have modulus q⁻¹ (and 1), and zeros have modulus q^(−1/2). The moduli q and q^(1/2) describe reciprocal roots/poles. These notational fixes do not repair the cancellation error in E1.",
+      "reason": "Summing ζ^n over d-th roots of unity multiplies the coefficient of the existing monomial T^n by d; it never changes the exponent. The following sentence correctly has T^(md). For the moduli, even Z_(P¹)(T)=1/((1−T)(1−qT)) has its nontrivial pole at T=1/q, not at q. The earlier proof’s inference about all poles and zeros still fails for the independent reason in E1.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "Inventiones mathematicae: Crossref record of DOI 10.1007/s00222-023-01217-1, checked 22 September 2026: no erratum or other update is registered; the Springer PDF and full text returned a client challenge",
-        "arXiv 2102.01055: v1 (1 February 2021) and v2 (10 February 2021, the latest)",
-        "the authors' pages (H. Pasten at mat.uc.cl, J. Caro): no copy of the published version or erratum found, 22 September 2026",
-        "web search for an erratum or correction, 22 September 2026: none found; J. Balakrishnan and J. Caro, \"A refined Chabauty–Coleman bound for surfaces\", arXiv 2501.03483v2, was read for how it quotes the published version"
-      ]
+        "23 September 2026: https://arxiv.org/abs/2102.01055 still lists v2, 10 February 2021, as the latest revision; downloaded and read v2 at every finding locator.",
+        "23 September 2026: https://link.springer.com/article/10.1007/s00222-023-01217-1, including the public acknowledgements. The authors thank a referee for finding a mistake in an earlier Lemma 3.15. The main body is subscription content; the PDF endpoint returned HTML. No separate correction notice was found.",
+        "23 September 2026: https://api.crossref.org/works/10.1007/s00222-023-01217-1 has no update-to or updated-by field and an empty relation object. This does not prove that every preprint error survives in print.",
+        "23 September 2026: read https://sites.google.com/view/jerson-caro/ and searched the paper title/author names with erratum and correction. Pasten’s indexed publications page https://www.mat.uc.cl/~hector.pasten/papers.html links the arXiv copy; the live page failed. No public typeset main body or separate erratum was obtained.",
+        "23 September 2026: read Balakrishnan–Caro, arXiv 2501.03483v2, Theorem 2.1, p. 3, https://arxiv.org/pdf/2501.03483v2. It cites the published Corollary 1.15 with p + 4√p + 5. This is later coauthor evidence for a changed published bound, not a direct collation of the final CP proof."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "New adjacent notation findings from direct reading of p. 11. Checked the root-of-unity sum and P¹ zeta function. Kept these separate from the acknowledged substantive lemma error and explicitly avoided presenting them as a repair of its proof.",
+        "by": "REV-ERRATA-PAPER-CARO-PASTEN-23"
+      }
+    }
+  ],
+  "reviewScope": {
+    "by": "REV-ERRATA-PAPER-CARO-PASTEN-23",
+    "reviewer": "Codex — codex-7e92bd",
+    "originalAuthor": "Claude Code — cc-fb70e5",
+    "date": "2026-09-23",
+    "scope": "All fifteen verdicts concern the directly read arXiv v2 passages. Published acknowledgements and later coauthor quotation were read for E1; the typeset main body was not obtained. No verdict asserts that an unobserved published passage repeats the preprint mistake.",
+    "newness": "New means no correction found in the listed public checks for that preprint passage. E1 is an acknowledged earlier-version error; the exact final repair remains uncollated."
+  },
+  "sourceProvenance": [
+    {
+      "id": "CP-v2",
+      "url": "https://arxiv.org/pdf/2102.01055v2",
+      "version": "10 February 2021; 39 PDF pages",
+      "retrieved": "2026-09-23",
+      "sha256": "d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7"
+    },
+    {
+      "id": "BC-v2",
+      "url": "https://arxiv.org/pdf/2501.03483v2",
+      "version": "3 February 2025; 25 PDF pages; Theorem 2.1 p. 3",
+      "retrieved": "2026-09-23",
+      "sha256": "9a83eb14f5566b3f13026ab85394babecf327ffb92622606aa382d47d7b03e79"
     }
   ]
 }
