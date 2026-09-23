@@ -4211,8 +4211,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5205,7 +5205,8 @@
    ],
    "avoidAccountOf": "PAPER-FARB-KISIN-WOLFSON-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FARB-KISIN-WOLFSON-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1309"
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-23",
@@ -5281,8 +5282,9 @@
    ],
    "avoidAccountOf": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1313"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1313",
+   "finishedAt": "2026-09-23T19:57:54Z"
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -7330,8 +7332,9 @@
    ],
    "avoidAccountOf": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1425"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1425",
+   "finishedAt": "2026-09-23T19:57:57Z"
   },
   {
    "id": "PAPER-HARPAZ-WITTENBERG-20",
