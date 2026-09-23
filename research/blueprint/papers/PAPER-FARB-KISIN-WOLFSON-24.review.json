@@ -1,0 +1,97 @@
+{
+  "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The essential-dimension direction is appropriate, but the ordinary analytic theorem and local arithmetic-fan comparison remain open. Generic foundations have been removed from its private ownership."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The odd-prime Heisenberg computation extends upstream profinite cohomology. Import existing FactorSet/classification/maximal-pro-p carriers, and plan only the cohomology/weight/Baer/scalar/comparison increments. The corrected brief specifies multiplicative HS and finite-filtration requirements."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "The ALB proposal with this identifier was checked and already owns the abelian prismatic computation. The exact mod-p Breuil–Kisin endpoint specialization still needs its primary proof; no new live stage is inferred from a matching candidate identifier."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "C4/C5 were checked: PEL integral compactifications do not supply the Hodge-type boundary theorem. The extension is in the right direction, but its exact Madapusi Pera proof/model/prime contracts remain unverified."
+    },
+    {
+      "route": 5,
+      "verdict": "reject",
+      "reason": "The Kisin17/KMPS22 briefs confirm the common integral-model candidate. The adjoint Hodge lift and principal-level comparison need their exact source contracts and compatible levels; a whole-group isogeny cannot substitute for a derived isogeny."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "PR06 Theorem1 and its proof were read. The corrected brief records the exceptional place and common distinguished-orbit count, not a minimum of local ranks, and reuses the existing proposed global-arithmetic owner checked in KMPS22/Kisin17."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Logarithmic Cartier and Deligne–Illusie are source material for existing DD.3/DD.6, with the degree truncation and W_2 lift retained."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Completed scalar extension and the separated concentration/exactness statements feed DD.1. They do not assert exactness of arbitrary completion."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The relative/log prismatic, Frobenius and étale comparisons serve existing PR.1/PR.4/PR.8; the restriction argument imports these suppliers."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "The Kummer-étale/log-purity inputs belong to the existing T6:log-sites supplier, with their log and coefficient hypotheses preserved."
+    },
+    {
+      "route": 11,
+      "verdict": "accept",
+      "reason": "Albanese/Picard and spreading/model inputs are already the SF.3/SF.4 direction. Their external proof leaves stay visible; this source acceptance is not an implementation claim."
+    },
+    {
+      "route": 12,
+      "verdict": "accept",
+      "reason": "Unipotent approximation belongs in AA.4. The corrected input fixes K_{U,p}=U(Z_p) and separates the additional pro-p-completion comparison."
+    },
+    {
+      "route": 13,
+      "verdict": "accept",
+      "reason": "Deligne-torus, Hodge/abelian-type and reductive-model interfaces serve D0/D4; they use the correct derived-group and effective-action conventions."
+    },
+    {
+      "route": 14,
+      "verdict": "reject",
+      "reason": "Generic analytic topology is assigned to the complex comparison direction, but singular-Stein constant-coefficient vanishing and finite analytic trace are not supplied by C1 coherent vanishing. The new extension needs exact primary proof contracts."
+    },
+    {
+      "route": 15,
+      "verdict": "accept",
+      "reason": "Generic K(pi,1), torus comparison/Künneth and normal-crossings compactification interfaces belong to SF.2/SF.4, rather than a private essential-dimension foundation."
+    },
+    {
+      "route": 16,
+      "verdict": "accept",
+      "reason": "The reviewed A0-extension explicitly owns higher-dimensional proper-flat coherent cohomology/base change and the semicontinuity application; the curve-only StableReduction citation was too narrow."
+    },
+    {
+      "route": 17,
+      "verdict": "accept",
+      "reason": "Multiplication torsors, degree-one realizations and complex uniformization have the existing A3/A4/A5 owner. The exterior-cohomology application consumes those suppliers."
+    },
+    {
+      "route": 18,
+      "verdict": "accept",
+      "reason": "The relative torus-torsor carrier already belongs to ShimuraCompactifications:C0. Keep only the FKW-specific calculations in the essential-dimension consumer."
+    }
+  ],
+  "notes": "Completed independent review by Codex codex-c83e7a of issue1309. All143 original items and18 original source findings checked against the fully read40-page arXivv2;150 corrected/split items,16 pinned source blobs,18 routes. Five routes are rejected pending the named proof contracts. Source findings:30 confirmed, one rejected. The extraction remains partial. No Lean file or compilation is claimed."
+}
