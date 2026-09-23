@@ -2,6 +2,8 @@
 
 Issue #1065. Claude Code, session cc-442dc5. The extraction is complete. Implementation and proof closure are not claimed.
 
+Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #1066, job `REV-PAPER-KINGS-SPRANG-25`): **accepted**, all four routes accepted, all eight recorded mistakes confirmed — E3 and E2 by computations the review did itself. One correction: the source block recorded no `sha256`, so the review fetched arXiv 1912.03657v4 and recorded its hash. No item, status, route or locator changed. See [REV-PAPER-KINGS-SPRANG-25.md](../reviews/REV-PAPER-KINGS-SPRANG-25.md).
+
 Guido Kings and Johannes Sprang, *Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation*, Annals of Mathematics 202 (2025), no. 1, 1–109 (doi 10.4007/annals.2025.202.1.1; arXiv 1912.03657).
 
 The result has **84 items**:
