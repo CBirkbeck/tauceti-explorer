@@ -1,0 +1,22 @@
+{
+  "paper": "PAPER-DEMARCO-KRIEGER-YE-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "DY.2 plans nonarchimedean escape rates and reduction on the Berkovich carrier. DY.4 plans the dynamical energy and equidistribution for semipositive adelic metrics. DY.6 asks for proven unlikely-intersection cases as source-bound endpoints with Lattès examples. The paper's escape rates, canonical measures, Arakelov–Zhang energy estimates, Theorems 1.4–1.8, 7.1 and 8.1, Corollary 8.2, the new standard-projection item and Proposition 8.3 of the published version all belong there. Theorem 7.1 must be stated with the repaired η_v above 2 (sourceIssues E7) and (7.5) in its corrected form (E5)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Nothing in the atlas plans potential theory on the Berkovich line (Laplacian, Hsia kernel, mutual energy) or the Boucksom–Jonsson hybrid space. TB.0 constructs Berkovich spectra of Banach rings, the right home for the hybrid space. TB.1 and TB.6 own the metric tree and local measures and heights, so a source route is right."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Uniform Manin–Mumford and Bogomolov for bielliptic genus-2 curves are special cases of the uniform bounds already in this Part II (Kühne; Gao–Ge–Kühne), so the route coalesces with the four other papers under this id. The brief now also asks for Proposition 9.2 of the published version and imports hyperelliptic curves and Weierstrass points from Tau Ceti AlgebraicCurves layers 10–11. A helper agent checked that Stoll's curve y² = x⁶ + 130x³ + 13 is bielliptic, so the brief's B ≥ 34 is right."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1127).\n\nSources:\n- the whole of arXiv v2 (the same SHA-256 as the extraction's);\n- the published Annals version (Ann. Math. 191 (2020) 949–1001, from annals.math.princeton.edu, SHA-256 7a4bd817…07df), which the extraction could not reach. It was collated at every recorded mistake, and it renumbers from Remark 1.3 on (Theorems 1.4–1.9 become 1.5–1.10) and adds Propositions 8.3 and 9.2.\n\nMethod: the reading was split across three read-only helper agents of this session (§§1–2 and 8.2–9; §§3–6; §§7–8.1 with Proposition 3.5). Every discrepancy and new finding was then checked by the reviewer at the page image, by hand, or with PARI/GP.\n\nStatuses:\n- Mathlib (082e2d3): WeierstrassCurve at Weierstrass.lean:77, WeierstrassCurve.ψ at DivisionPolynomial/Basic.lean:401, Projectivization.logHeight at Height/Projectivization.lean:51.\n- Tau Ceti (f790474): canonicalHeight at CanonicalHeight.lean:124 and :338.\n- The planned layers (DY.1, DY.4, TB.0–TB.1, RP.0, RP.5, Tau Ceti AlgebraicCurves 7 and JacobianChallenge D–F) are right.\n\nItems corrected in place: 2, 4, 15, 16, 18, 19, 22, 26, 27, 29, 31, 34, 40, 46 and 49, and published numbering was added to items 4–9 and 42. New items:\n- 50: standard projections, to DY.6;\n- 51: the hyperelliptic involution and Weierstrass points, planned by Tau Ceti AlgebraicCurves 10–11;\n- 52: Proposition 8.3 of the published version, to DY.6;\n- 53: Proposition 9.2 of the published version, to the uniformity Part II.\n\nSource issues: E1–E8 are confirmed, and every one appears unchanged in the published version.\n- E4 is backed by an explicit instance in ℚ(√2, √3, √5, √7).\n- E5's correction was itself wrong. (7.5) needs coefficient 4 and −log c(ε′); K = ℚ(ω), t₁ = 2, t₂ = −ω breaks the extraction's version.\n- E6's correction now uses the paper's own ε′ < ε/16.\n- E7 is an error that matters, and its repair is right. Its reason is corrected: supersingularity is not the mechanism, and the loss is shown to be a constant (1/3) log 2, not O(1/|F|).\n- E8's reason is narrowed to the four Weierstrass points outside the fibre of Q.\n\nNew issues:\n- E9: the misprinted positivity of the mutual energy;\n- E10: type II/III points and 'rational radius';\n- E11: the justification of (2.7) proves only the easy direction;\n- E12: the empty middle range of (3.5);\n- E13: the index range in (5.4)–(5.5).\n\nNone affects a stated theorem. check_paper.py reports ok, and every missing item is routed exactly once."
+}
