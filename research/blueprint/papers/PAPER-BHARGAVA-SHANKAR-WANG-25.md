@@ -1,150 +1,78 @@
 # PAPER-BHARGAVA-SHANKAR-WANG-25: Squarefree values of polynomial discriminants II
 
-Manjul Bhargava, Arul Shankar and Xiaoheng Wang, *Squarefree values of polynomial discriminants II*, [Forum of Mathematics, Pi 13 (2025), e17](https://doi.org/10.1017/fmp.2025.9); arXiv [2207.05592](https://arxiv.org/abs/2207.05592).
+Manjul Bhargava, Arul Shankar and Xiaoheng Wang, [Forum of Mathematics, Pi 13 (2025), e17](https://doi.org/10.1017/fmp.2025.9), [arXiv:2207.05592](https://arxiv.org/abs/2207.05592).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1350). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-BHARGAVA-SHANKAR-WANG-25.result.json](PAPER-BHARGAVA-SHANKAR-WANG-25.result.json): 75 items (1 library, 2 planned, 72 missing), 7 routes, 15 prerequisite entries and 11 recorded source issues.
+Original extraction: Claude Code — cc-fb70e5, issue #1350, PR #1914.
+Independent review: Codex — codex-a71f92, issue #1351, 23 September 2026.
 
-**Source.** The published open-access article (CC BY 4.0), 57 pages, SHA-256 `1cdd11c0f7ea39deda07685ddd55a47720f94dfd0a5b1ce2769e4d39352f55d3`, read in full on 2026-09-22. Part I ([PAPER-BHARGAVA-SHANKAR-WANG-22](PAPER-BHARGAVA-SHANKAR-WANG-22.md)) was compared wherever Part II relies on it.
+Status: **partial; independent verdict revise**. The [result JSON](PAPER-BHARGAVA-SHANKAR-WANG-25.result.json) retains all 75 original item IDs: 1 library, 1 planned, 73 missing; seven routes and eighteen source findings. The [review](../reviews/REV-PAPER-BHARGAVA-SHANKAR-WANG-25.md) gives the item ledger, exact checks and remaining obligations.
 
-## What the paper proves
+## Source and scope
 
-Order integral binary n-ic forms f = a₀xⁿ + ⋯ + aₙyⁿ by H(f) = max|aᵢ|.
+The complete published 57-page article, including all proofs, Appendix A and references, was read. Public PDF: [Cambridge version of record](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/FD680BEF350C0140B682AB604D45F415/S2050508625000095a.pdf/squarefree_values_of_polynomial_discriminants_ii.pdf), CC BY 4.0; review-download SHA-256 `cabacefc16eefd171b1d0958cba20c1a9d3f4f7056e93365fedb5ff166e5e345`. Page 15 was also inspected as a rendered page.
 
-- **Theorem 1.** The density with squarefree discriminant exists and is an explicit Euler product. It is about 38.97% for n = 2, 24.64% for n = 3, and 20.83% for n ≥ 4. The paper prints 21.18% for n = 4, which is wrong (E1).
-- **Theorem 2.** The density with R_f maximal is ζ(2)⁻¹ζ(3)⁻¹ ≈ 50.57% for n ≥ 3. This is the arithmetic Bertini theorem that Poonen conjectured for P¹_ℤ, proved for every fixed n.
-- **Theorem 6.** Both counts hold with a power saving.
-- **Theorem 3.** There are ≫ X^{1/2+1/(n−1)} S_n-fields of degree n with discriminant below X. This improves Part I's X^{1/2+1/n}.
-- **Theorem 4.** Nakagawa's retracted lower bound for unramified Aₙ-extensions of quadratic fields holds.
+The author's 4 April 2025 prepublication PDF and arXiv v1 were checked at selected locators only. No applicable published correction was found in the publisher's correction metadata, Crossref, arXiv history or the authors' pages. This is a scoped search, not proof that no correction exists. The earlier Ash–Brakenhoff–Zarrabi text was not obtained; the quartic mistake is attributed only to the BSW II text actually read.
 
-**Strategy.** Everything rests on the tail estimate, Theorem 5.
+## Results and proof boundary
 
-1. **Strong divisibility (p² | Δ(f + pg) for all g).** Bhargava's geometric sieve.
-2. **Weak divisibility, n odd (§§3.4, 4).** As in Part I, an explicit map σ_m sends f into pairs of symmetric matrices 2 ⊗ Sym²(n), inside the subspace W₀, where the Q-invariant equals m.
-   - The Q-invariant is the hyperdeterminant of format 2 × g × (g + 1).
-   - The fundamental domain splits into the main body, where distinguished points are rare (large sieve, Proposition 4.3), the shallow cusp (Ho–Shankar–Varma), and the deep cusp, where |Q| > M saves 1/M.
-3. **Weak divisibility, n even (§§3.5, 5, 6).** Binary forms need not be determinants, so f is replaced by xf, whose pencil has singular B.
-   - A new q-invariant takes the value m.
-   - §5 proves a skew-box version of Eskin–Katznelson's count of singular symmetric matrices.
-   - §6 fibers over the row space of B. Main body: large sieve with a fixed B₀ (Lemma 6.7). Shallow cusp: a long case analysis (Lemmas 6.12–6.23). Deep cusp: an upper bound for |q| (Proposition 6.26).
-4. **The sieve (§7, Theorem 7.1)** and the local densities (Appendix).
+The paper's targets are squarefree-discriminant and maximal-order densities for integral binary n-ic forms ordered by coefficient height, power-saving counts, and lower bounds of order X^{1/2+1/(n−1)} for degree-n S_n fields and associated unramified A_n-extensions of quadratic fields.
 
-## What the atlas already has
+The squarefree quartic factor is incorrect as printed: for odd p its corrected factor equals the degree n≥5 factor,
+`(1−1/p)²(1+1/p)(1+1/p−1/p²)`.
+At p=3 this is 176/243, not 1600/2187. The p=2 quartic factor is 3/8. The old decimal Euler product was not independently recomputed in this review.
 
-- **Library.** Mathlib `NumberField.discr`. Mathlib's `Polynomial.discr` covers only the dehomogenized form. Tau Ceti's Stickelberger congruence covers only number fields.
-- **Planned.**
-  - InverseGaloisAndArithmeticFundamentalGroups IG.2: Hilbert irreducibility.
-  - AdelicAlgebraicGroups AA.3: Siegel sets.
-- **Elsewhere.** The monic analogues of the invariant theory, the geometric sieve and Minkowski reduction are items of Part I (routed to ST.0–ST.3 and GN.3). The design jobs should coalesce them.
+The proof strategy uses strong/weak divisibility, the Q-invariant of pairs of symmetric matrices, odd-degree orbit counts, and an even-degree passage from f to xf with a q-invariant. The latter requires singular-matrix counts, main/shallow/deep-cusp estimates and a squarefree sieve. The original extraction's assertion that all main results stand after an easy repair is withdrawn: the defects below expose unfinished proof obligations, not counterexamples to the main field-counting targets.
 
-## Routes
+## Library and ownership
 
-1. **Source of ArithmeticStatistics ST.0 and ST.1** (26 items).
-   - **ST.0 (families, heights and local densities):**
-     - binary forms, height and discriminant;
-     - Stickelberger's congruence;
-     - strong and weak divisibility;
-     - ν₀, ν₁, αₙ(p), βₙ(p) and Lenstra's density.
-   - **ST.1 (integral invariant theory and orbit parametrizations):**
-     - the ring R_f;
-     - the representation 2 ⊗ Sym²(n): invariants, J_f[2]-stabilizers, distinguished orbits and the orbit criterion for even n;
-     - U_g and Proposition 3.1 (castling);
-     - the Q-invariant, Propositions 3.2–3.4, Theorem 3.5 (Q² | Δ) and the corrected Proposition 3.6;
-     - σ_m and Theorem 3.7, |Q| on lattices, and Proposition 3.8;
-     - the even construction, the q-invariant, and Proposition 3.9.
-2. **Source of ArithmeticStatistics ST.2** (29 items). The whole tail machinery:
-   - odd n: averaging, Propositions 4.4–4.8 and Theorem 4.2;
-   - even n: the auxiliary sets, Lemmas 6.1–6.2, the row-space fibering, Proposition 6.3, Lemmas 6.4–6.7, Theorem 6.6 (corrected), the shallow cusp (Theorem 6.11), and the deep cusp (Lemma 6.25 corrected, Proposition 6.26, Theorem 6.24);
-   - Theorem 5, Corollary 6.27 and Theorem 7.1.
+The single library item is the signed integer `NumberField.discr`; the field ordering uses its absolute value. Raw source files were checked at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The univariate `Polynomial.discr` and number-field/basis versions of Stickelberger are nearby inputs, not the general binary-form statements.
 
-   RS-07 narrows ST.2 to exactly this: cusp and reducible contributions and uniform tail estimates, consuming GN.4.
-3. **Source of ArithmeticStatistics ST.3** (8 items):
-   - Theorems 1 (corrected), 2 and 6;
-   - the arithmetic Bertini theorem;
-   - quasi-reduction and Lemma 7.2 (corrected);
-   - Theorems 3 and 4.
-4. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.4** (6 items):
-   - Davenport's lemma and Schmidt's bound;
-   - the §5 counts of singular symmetric matrices in skew balls (Theorem 5.3, Propositions 5.4–5.7, Theorem 5.1).
-5. **Source of GN.3** (1 item): Minkowski-reduced bases.
-6. **Source of SieveMethodsAndPrimePatterns SV.2** (1 item): the multidimensional large sieve (Proposition 4.3).
-7. **Source of IG.2** (1 item): Kuba's count of reducible forms.
+AA.3 plans the general Siegel-set supplier. IG.2's qualitative Hilbert irreducibility does **not** already plan the needed quantitative non-S_n box estimate; item 28 is now missing and routed with Kuba's reducible-only count.
 
-No new roadmap or Part II is needed.
+| Route | Owner and boundary | Verdict |
+|---|---|---|
+| 1 | ST.0/ST.1: binary families, local factors, integral invariant theory and orbit parametrizations | reject |
+| 2 | ST.2: application-specific cusp and uniform tail estimates, importing GN.4 | reject |
+| 3 | ST.3: densities and field/class-group applications | reject |
+| 4 | GN.4: generic semialgebraic and skew-lattice estimates; build on upstream lattice-count interfaces | reject |
+| 5 | GN.3: precise Minkowski-reduced-basis definition; coalesce Part I | accept in isolation |
+| 6 | SV.2: generic multidimensional large sieve | reject |
+| 7 | IG.2: reducible count plus the missing quantitative non-S_n extension | reject |
 
-## Source issues (`sourceIssues` E1–E11)
+The overall revise verdict activates no route. No new roadmap or Part II is proposed; no Tau Ceti roadmap is re-planned.
 
-The main theorems stand, except that the n = 4 constant of Theorem 1 is wrong (E1). The deep-cusp argument for even n has a gap with an easy repair (E2, E3).
+## Source findings
 
-- **E1** (error, affects a stated result).
-  - **The problem.** ν₁(n, p) for n ≥ 4 is quoted with (−p)^{−n} where (−p)^{2−n} is correct. Hence αₙ(p) and Theorem 1 are wrong for n = 4.
-  - **Correction.** α₄(p) equals the n ≥ 5 value, and the density is ≈ 20.83%, not 21.18%.
-  - **Evidence.** Exhaustive counts mod p² give α₄(3) = 176/243 and α₄(5) = 2784/3125. The monic check ν₀ + ν₁ = λₙ(p) fails with the printed ν₁.
-  - **Not checked.** Ash–Brakenhoff–Zarrabi could not be read, so whether the slip is theirs is open.
-- **E2** (error, affects the proof). Proposition 3.6, det(A^topA^topᵗ)det(B^topB^topᵗ) | Δ, is false.
-  - **Why.** Over ℂ, det(MMᵗ) = 0 does not force rank M < g.
-  - **Counterexample.** For n = 3, A = [[0,0,1],[0,0,0],[1,0,1]] and B = [[0,1,1],[1,1,0],[1,0,0]] give Δ = 5, while the product is 2.
-  - **What is true.** Δ lies in the ideal of maximal minors, so |Δ| ≪ det(B^topB^topᵗ)^{1/2} on bounded sets.
-- **E3** (error, affects the proof). Lemma 6.25's scaling treats Δ on W_{n+1} as having degree (2n − 2)(n + 1) instead of 2n(n + 1). It also assumes only |Δ(A, B)| > X^{2n−2−κ}, although Δ(A, B) = Δ(f)f(0, 1)².
-  - **Repair.** Discard the O(X^{n+1−κ/(2n−2)}) forms with small |f(0, 1)|, work in dyadic heights, and use E2's bound. Then Theorem 6.24 holds with X^{n+1+κn/(n−1)}.
-  - **Consequence.** In Theorem 5(c) and Corollary 6.27, ξₙ becomes 1/(44n⁵) instead of 1/(88n⁵). ηₙ and Theorems 1–4 and 6 are unchanged.
-- **E4** (error, affects the proof). Theorem 6.6's exponent 1/(4n) is not reached for n = 4: the proof gives 1/21. Nothing downstream changes.
-- **E5** (error, affects nothing). Lemma 7.2 ignores the sign ambiguity of Minkowski bases.
-  - **Counterexample.** f = x³ − x²y + xy² + y³ (disc −44) and f(−x, y) are strongly reduced with the same R_f, but they are not SL₂(ℤ)-equivalent.
-  - **Consequence.** The conclusion should be GL₂(ℤ)-equivalence. Theorem 3 is repaired by choosing B accordingly.
-- **E6** (gap, affects nothing). The proofs define W^{(2)}_m only for odd m. Even m are empty by Stickelberger for binary forms (checked mod 4), which is never said.
-- **E7** (gap, affects nothing). V(ℤ)^red (Galois group ≠ Sₙ) is bounded by citing Kuba, who counts reducible forms only. Irreducible non-Sₙ forms need, e.g., the large sieve.
-- **E8** (gap, affects nothing). The n = 2 case is only asserted ("classical methods"). A proof is given in the entry.
-- **E9** (gap, affects nothing). The normalization (8) needs (m, b₀) = 1, which Part I does not provide. An SL₂ shift repairs it.
-- **E10** (misprints), for example:
-  - Poonen's density lacks its ⁻¹;
-  - "odd" is missing in Theorem 3.7;
-  - (20) should run over j ≤ g (checked symbolically);
-  - "U₁" should be U′;
-  - e_n should be e_{n+1} in Proposition 3.9;
-  - |Δ| is needed in (32);
-  - p^n·#O(b₀) in Lemma 6.7;
-  - T₂ in (48), Y in (58), and min in Lemma 6.21;
-  - m^{2n+ε} in §6.5;
-  - "N ≥ 3" in Corollary 6.27.
-- **E11** (gap, affects nothing). Theorem 7.1's proof omits the conditions at p | N from W_m(Σ) and from γ(Σ, N, m). Theorem 3 applies Theorem 7.1 to a scaled region, not the height box.
+E1–E11 were independently checked and narrowed where needed. In particular:
 
-**Also checked and correct:**
-- α₂, α₃, αₙ (n ≥ 5) and βₙ, by exhaustive counts;
-- the constants of Theorems 1 (n = 2, 3) and 2;
-- the Appendix congruence Δ ≡ −4a₀a₂³Δ(a₂x^{n−2} + ⋯) (n = 3, …, 6);
-- Q² | Δ on pairs (n = 3, 5);
-- the (19)–(20) bookkeeping;
-- Lemma 4.7, Propositions 4.4 and 6.9, and the balances in Theorem 6.6 and Proposition 6.18.
+- E1: quartic local factor, confirmed by exhaustive mod-4/mod-9 counts and a general unique-double-root count.
+- E2: Proposition 3.6 is a false stated divisibility: the exact n=3 example has discriminant 5 and alleged divisor 2. Only a bounded-real maximal-minor estimate is retained.
+- E3: the degree of Δ on W_{n+1} is 2n(n+1). The proposed repair needs a restricted family and logarithmic slack; it does not prove the original unrestricted deep-cusp estimate.
+- E4: the displayed degree-four main-body optimization saves 1/21, not 1/16. This is a proof gap, not a counterexample to the stronger bound.
+- E5: the cubic sign counterexample is valid under Part II's **unweighted** embedding norm. Its reduction is certified over all integers, not by a finite search. The repair retains both x-reflection and an overall sign; ordinary GL2 equivalence is not established uniformly in even degree.
+- E6: even weakly divisible families are empty; this is an explanatory omission, not a substantive missing hypothesis in Theorem 3.7.
+- E7–E9: distinguish non-S_n from reducible, supply the n=2 sieve with Δ=0 separated, and complete the coprime-leading-coefficient normalization.
+- E10: retain the individually located typos, but remove the alleged missing-odd error. The max/min typo occurs in the proof of Lemma 6.21, not its statement.
+- E11: inclusion–exclusion needs good local conditions at p dividing N; extending to a region requires boundary control.
 
-Crossref records no correction notice or update relation.
+Seven additional findings:
 
-## Prerequisites not yet covered
+- E12: the last canonical ring-basis coefficient is a_{n−2}θ, not a_{n−1}θ or a_{n−1}.
+- E13: the reflected |Q| is |f(0,1)|m/gcd(2,f(0,1)); for x⁴+6y⁴ the value is 3, not 6, while |q| remains 1.
+- E14: Proposition 5.2 needs the j=0 constant term to count the origin.
+- E15: Proposition 5.5 needs d(γΛ), not d(Λ), for a lower-rank lattice.
+- E16: the unrestricted squarefree-modulus sum diverges on Δ=0.
+- E17: the quadratic isotropy equation in Lemma 6.23 needs twice the off-diagonal coefficient and the basis must run through e_{n+1}.
+- E18: row-contained lattices are not disjoint full-rank strata, and the deep-cusp top-block condition cannot be imposed on every matrix with the same row space.
 
-- Part I (extracted as PAPER-BHARGAVA-SHANKAR-WANG-22).
-- Ash–Brakenhoff–Zarrabi 2007.
-- Bhargava's geometric sieve.
-- Bhargava–Gross–Wang 2017 and AIT II.
-- Ho–Shankar–Varma 2018.
-- Eskin–Katznelson 1995.
-- Schmidt 1968, and Davenport 1951.
-- Huxley 1968 and Kowalski (large sieve).
-- Kuba 2009.
-- Sato–Kimura 1977.
-- Nakagawa 1989–1991.
-- Birch–Merriman 1972 and Wood 2011.
-- Poonen 2004.
-- Bhargava 2010 and Bhargava–Shankar 2015.
+Every finding records its locator, exact scope, correction search and independent verdict. The original diagnostic claims not rerun by this reviewer are explicitly attributed to the original worker.
 
-Links and reasons are in the JSON.
+## Required revision
+
+Follow the seven `reviewGaps` in the result JSON. Split compound items into declarations; expose the Jacobian/torsor/castling and quantitative sieve suppliers; repair the full-rank restricted deep-cusp argument with honest parameters; and give a valid uniform family/multiplicity proof for the field counts. The primitive-basis sign repair alone is insufficient. The coefficient dilation T·f fixes 1 while multiplying every other displayed basis vector by T, so it is not lattice homothety.
+
+The fifteen prerequisite entries remain as leads, not certificates that their contents have been extracted. In particular, ABZ, the full arithmetic-invariant-theory suppliers, uniform geometric sieve, Eskin–Katznelson, large-sieve sources and Nakagawa's corrected arguments need explicit contracts.
 
 ## Checks
 
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-WANG-25.result.json`: ok.
-- Every missing item appears in exactly one route, and no route takes a planned or library item.
-- Stage ids were checked against `data/atlas.json` and against the accepted restructures:
-  - RS-07 narrows ST.0–ST.3 and SV.2, and the routed items fit the narrowed scopes;
-  - RS-29 keeps IG.2;
-  - GN.3, GN.4 and AA.3 are untouched, and no cited roadmap is retired.
-- Mathlib citation read at 082e2d3: `NumberTheory/NumberField/Discriminant/Defs.lean:36`.
-- Prerequisite DOIs were checked against Crossref.
-- No Lean was written or compiled; none is a deliverable of this job.
+Paper schema, stable IDs, unique routing of all 73 missing items, exact diagnostics, repository paper/queue/intake unit tests and submission-scope validation passed. The review contains a reproducible Python-standard-library diagnostic script. No Lean file was written or compiled; none is a deliverable of this review.

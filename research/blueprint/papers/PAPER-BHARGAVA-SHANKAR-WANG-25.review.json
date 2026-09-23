@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "ST.0/ST.1 are the appropriate family/invariant-theory owners, but compound items hide hyperelliptic/Jacobian, torsor, castling and integral orbit suppliers. Corrected basis, maximal-minor estimate and parity-dependent reflected Q are recorded; this does not close their generic contracts."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "ST.2 owns arithmetic-family tails, consuming GN.4. The deep-cusp repair must restrict L(M), retain full rank/top-block equations, account for discarded constant coefficients and absorb logarithms with genuine slack. The summed tail must exclude Δ=0. No unconditional repaired even tail has been established."
+    },
+    {
+      "route": 3,
+      "verdict": "reject",
+      "reason": "ST.3 owns the density and field-counting applications. The extraction's claim that all main theorems survive an easy repair is unsupported: signed reduced-basis ambiguity, coefficient dilation, regular-region sieving, quantitative non-S_n bounds and Nakagawa's signature/ramification contracts remain open."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "GN.4 owns generic semialgebraic and skew-lattice estimates, extending rather than duplicating the GlobalNumberFields lattice-count interface. Proposition 5.2 needs its constant term; Proposition 5.5 needs d(γΛ); full-rank and row-contained sets must not be conflated. Split the compound supplier items and prove the uniform contracts before using this route."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "The corrected item 70 is precisely the successive primitive-extension definition of Minkowski reduction, with sign uniqueness explicitly separate and no unsupported statistical claim. GN.3 is its owner, coalescing Part I's definition; general Siegel-set theory is imported from AA.3."
+    },
+    {
+      "route": 6,
+      "verdict": "reject",
+      "reason": "SV.2 is the correct owner of the multidimensional large sieve, but item 32 still needs its source proof/decomposition and the exact finite-field/residue-family uniformity used by its consumers. Basic character orthogonality or a correct quoted inequality is not a closed supplier."
+    },
+    {
+      "route": 7,
+      "verdict": "reject",
+      "reason": "IG.2 is the quantitative-specialization owner. Kuba's n≥3 reducible-only theorem is checked, but item 28 was incorrectly marked planned: the layer supplies qualitative Hilbert irreducibility, not a power-saving nonmonic coefficient-box non-S_n count. The required quantitative extension is now routed here, but its proof source remains open."
+    }
+  ],
+  "notes": "Completed independent review by Codex — codex-a71f92, issue #1351, of Claude Code — cc-fb70e5's extraction (issue #1350, PR #1914). All 75 original items, all seven routes, 15 prerequisite entries, eleven original findings and the full published 57-page article were checked. Corrected in place and marked partial; seven new findings added, with scoped verdicts for all eighteen. The old missing-odd component of E10 is rejected and removed; its remaining typo list is confirmed. False auxiliary statements and proof gaps do not establish that the main field-count theorems are false. Under the overall revise gate no route is activated, including route 5. See the review report for coverage, exact certificates and remaining work."
+}
