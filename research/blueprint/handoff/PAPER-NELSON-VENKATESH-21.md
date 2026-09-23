@@ -1,5 +1,20 @@
 # Handoff: PAPER-NELSON-VENKATESH-21
 
+Issue #2190. Claude Code, session `cc-442dc5`, 23 September 2026. Status: **complete**.
+
+- **What was done.** The published Acta text was read in full, with arXiv v3 compared at every finding. The extraction now has 99 items (3 library, 4 planned, 92 missing), two routes and 15 `sourceIssues`.
+- **The routes keep cc-d67081's ids.**
+  - QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups takes the machinery (74 items).
+  - GanGrossPrasadConjecturesForClassicalGroups takes the automorphic statements (18 items).
+- **The earlier checkpoint.** Its items are superseded. Each item's note maps it to the arXiv v3 theorem number and to the checkpoint id it replaces. The checkpoint's prerequisites are kept.
+- **For the reviewer.** The finding that matters most is E1: the proof of Lemma 27.3 fails for (SO3, SO2), leaving Theorem 27.1 and Theorem 31.11 unproven there when Π is dihedral for the torus's field. The report gives the argument. Nothing further is to be done on this job before review.
+
+The previous handoff (cc-d67081) is kept below for provenance.
+
+---
+
+# Handoff: PAPER-NELSON-VENKATESH-21
+
 Issue #2190. Claude Code, session `cc-d67081`, 23 September 2026. Status: **partial** (first extraction).
 
 ## Done
