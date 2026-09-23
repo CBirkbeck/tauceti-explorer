@@ -1,29 +1,69 @@
 # PAPER-ABE-25 handoff
 
-Codex — codex-a71f92; issue #1214. Partial checkpoint, 2026-09-22.
+Second checkpoint · issue #1214 · Codex codex-c83e7a · 2026-09-23.
+Builds on merged #1951 by codex-a71f92. Status partial; no Lean compilation.
 
-## Done
+## Saved work
 
-- Read every page of the published 18-page paper, all proofs and references; inspected pages 613 and 621 as images.
-- Read the selected Lu–Zheng and Laumon passages listed in the report/JSON. Full source URLs, retrieval dates and PDF hashes are recorded.
-- Extracted 98 interfaces: 7 library, 8 planned, 83 missing. Exactly one route for each missing interface; two existing-layer source routes and four Part II briefs.
-- 36 definitions/constructions, 108 API statements, 108 proposed unit tests; 184 acyclic item-dependency edges.
-- Checked pinned library statements and relevant accepted audits; reused existing representation-ring, categorical K0 and Euler–Poincaré code.
-- Recorded five review candidates: weighted different formula, Fourier degree/sign, nonreduced fixed-scheme comparison, Lu–Zheng coefficient-scope gap, and a minor typo.
-- Exact elementary certificate passed; no Lean file or elaboration is claimed.
+107 items: 10 library, 8 planned, 89 missing; 204 acyclic edges; six unchanged
+routes. Every missing item is routed once. All 37 definitions/constructions
+have API/use lists and three tests each (111 total). Six source findings
+await independent review. Every published pages 605–622 was reread; images
+613,616,621 checked. Main PDF matches the previous exact hash.
+
+## Proofs completed in this continuation
+
+- B17–B20 and B08/B09: finite Swan reductions form a compatible adic system;
+  finite generation and exact reduction follow by lifting generators. For an
+  exact input sequence, E_n=(M′∩ℓ^nM)/ℓ^nM′ has zero transition from n+c,
+  where ℓ^c kills the torsion of M″. Finite-fibre inverse limits prove integral
+  exactness. Do not assume quotient reduction preserves the injection.
+- The output of a lattice is a lattice: use exactness for multiplication by
+  ℓ, then finite torsion-free modules over the coefficient DVR are free.
+- A21: the fixed-length henselian repair is proved by flat base change of a
+  composition series, with unchanged residue field. Keep the nilpotents;
+  the whole fixed scheme need not equal its closed fibre.
+
+These results remain conditional on the actual projective Swan modules and
+compatible quotient isomorphisms (G-SWAN), and on the preceding spreading
+input A20. Nearby-cycle perfectness and adic trace comparison are not solved
+by the module argument. B08/B09 drop G-ADIC but retain G-SWAN; A21 drops its
+local gap while A20 retains the unresolved strict-local/spreading suppliers.
+
+## Source correction
+
+E6: §3.3’s dimension-independent negative Milnor sign should be
+(−1)^dimX μ. Saito v4 pp.45–46 gives the Milnor formula and constant-sheaf
+characteristic-cycle sign. For f(u,v)=uv in odd characteristic with the
+simultaneous sign involution, the critical length is 1 and the corrected
+identity Fourier trace is +1. The curve case remains −μ. This is a concluding
+remark correction, not a change to the nonidentity Artin theorem.
+
+Saito v4 Theorem 4.9 statement/proof and Lemma 4.11 were read; its transitive
+proof infrastructure remains open. Both pages of the 2019 correction and the
+one-page CCcor2 were read; they concern Radon/Chern-class formulas. E1–E5
+are preserved without adding review verdicts. The author homepage is empty;
+correction novelty remains qualified. No author contact.
 
 ## Resume
 
-1. Obtain Kato–Saito–Saito (1988), Conjecture 5.1 and Lemma 5.3, including proofs. The attempted DOI/JSTOR access returned HTML. Do not treat the nonidentity virtual trace identity as positivity or Qℓ descent.
-2. Read Orgogozo's 2.1/7.1/8.1/8.3 and the cited EGA/SGA limit, strict-local and constructibility inputs. Further split A12–A16 into the actual supplier lemmas.
-3. Complete the projective Swan module/tower, integral exactness, adic perfectness and equivariant strictification proofs. Read Serre19.2, Ferrand and the relevant Kashiwara–Schapira totalization result.
-4. Close the group-ring-perfect Fourier comparison from the original Laumon proof infrastructure and Abe2022 6.4–6.5; then the SGA5/Fulton local trace computation.
-5. Independently verify E1–E5. The report gives explicit counterchecks and explains the limited impact. The author-page novelty search is incomplete because access failed.
-6. Finish Katz and the sign-sensitive higher-dimensional Milnor interpretation. Keep §3.2's W(k)[1/p]-rationality assertion marked conjectural.
-7. Rerun current-main ownership checks before final closure. Use stage-prefix dependencies to avoid a false arithmetic/Fourier cycle. Do not duplicate the pending microlocal continuation.
+1. Follow WORKERS and claim afresh. Refresh current inputs and preserve IDs.
+2. Obtain Kato–Saito–Saito 1988 Conjecture 5.1/Lemma 5.3. Public bibliographies located
+   no PDF and the DOI browser request failed. The reduction, positivity and
+   Qℓ descent remain unread; a virtual trace equality does not replace them.
+3. Supply G-SWAN from Serre’s original theorem with quotient change and the
+   correct geometric-trait hypotheses. Do not repeat the completed inverse-
+   limit exactness proof.
+4. Continue geometric G-ADIC, Orgogozo/strict-local ULA inputs, equivariant
+   strictification, local Fourier group-ring-perfect comparison and local
+   intersection trace. All 12 named gaps retain some open obligations.
+5. Preserve the six existing routes and the stage-prefix dependency discipline.
+   Reuse finite inverse-set existence/projectivity from the pins; generic
+   cohomological limits and derived completion stay with their existing owners.
 
 ## Checks
 
-Paper checker, supplemental dependency/route/API audit, all nine paper-checker unit tests and three-file intake check passed (zero problems). Current-main instructions, owner documents and accepted coverage were rechecked; no overlapping deliverable exists. The PR records final results. No additional deliverable or Lean file is authorized for this issue.
-
-This checkpoint deliberately remains partial: the 12 JSON gaps identify what has not been established. The next worker can continue from the stable item IDs without repeating the full main-paper reading.
+Paper, intake and custom ID/DAG/route/API/use/test/gap checks passed. New exact
+653-case diagnostics passed; they test only elementary algebra. The first
+checkpoint’s certificate is retained as prior evidence and was not rerun.
+No Lean file authorized or compiled. Submit only result, report and handoff.
