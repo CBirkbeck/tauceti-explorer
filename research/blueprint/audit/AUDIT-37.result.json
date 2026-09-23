@@ -1568,7 +1568,7 @@
          "name": "IsPrimitiveRoot",
          "library": "mathlib",
          "file": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
-         "line": 68,
+         "line": 63,
          "fit": "related"
         }
        ],
