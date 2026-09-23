@@ -1,0 +1,47 @@
+{
+  "paper": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "AdelicAlgebraicGroups AA.3 plans rational parabolics, Siegel sets, their finiteness and reduction theory; the reduced-form dictionary, rational Siegel pullback, the Siegel preimages and images under the Hodge-form map, and the fundamental set (now planned there) refine it."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "LogicAndDefinabilityInNumberTheory LD.0 and LD.6 plan the o-minimal structures and definable geometry; the o-minimality inputs, definable manifolds with corners (Appendix A) and definable extension and quotient facts belong there. Compact-corners item carries the repair for E17."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "ShimuraData D3 plans the general polarized variation of Hodge structure."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ShimuraVarieties V3 plans Borel's algebraicity theorem, which §4.6 reproves; the alternative proof needs the comparisons recorded as E58 and E59."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "AlgebraicModuliForArithmeticGeometry R09.7d plans the smooth normal-crossing compactification that §4.1 uses."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "ComplexComparisonPartII C0 and C4 plan analytic spaces, proper images and the analytic/algebraic graph comparison used in §§4.6 and 5."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "No layer plans definable structures on general arithmetic quotients Γ\\G/M with fixed-K Siegel charts and their morphisms (§§2–3 with the 2023 erratum); the title already begins with the parent's atlas title. The brief names E5, E6, E8, E18, E19, E23 and E42."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "No layer plans definability of period maps near a normal-crossing boundary and the algebraicity of Hodge loci (§§4–5); the title already begins with the parent's atlas title, 'Hodge structures (pure, mixed, and polarized)'. The brief names E1, E3, E7, E46, E49, E53, E54, E56, E58, E59 and E60."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-BAKKER-KLINGLER-TSIMERMAN-20 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a, #1670; codex-a71f92) and Claude Code (cc-fb70e5, #1840; completed by cc-442dc5). The published JAMS text (23 pages, pp. 917–939) was read in full on page images in five ranges against every item, with the authors' 2023 erratum (JAMS 36, doi:10.1090/jams/1025) read in full and the authors' copy compared where the print was in doubt. Corrected in place: 87 item fields (45 statements, 42 locators) and 3 notes; six items removed as not in the paper (the extraction's own repair lemmas determinant-coordinate-control, basis-change-offdiagonal and buffered-transition-graph, the library-support items cholesky-reconstruction and matrix-adjugate-inverse, and the audit example local-outer-boundary-obstruction), their content kept in the notes of the items they support and in E1; 29 items added for definitions, constructions and cited inputs the proofs use, two of them planned (Baily–Borel at ShimuraVarieties V2, fundamental sets at AdelicAlgebraicGroups AA.3); briefs of routes 7 and 8 name the confirmed corrections; prerequisites rebuilt as 24 cited works with DOIs or stable links. Statuses: all 10 library declarations opened at the pinned commits and all planned stages checked in the atlas. Mistakes: E1–E29 confirmed, eight revised as the independent checks upheld (E1: Theorem 4.1 is false on the whole polydisk and the proof fails at the reduction on p. 929; E7 now a gap; E8, E10, E17, E26, E27, E28), and E3's reach set to the proof. 38 new claims were checked a second time, independently: 33 confirmed, 1 reclassified, 4 rejected; three were folded into E11, E27 and E59, and the rest are E30–E60, four of them in the erratum itself (E30–E33). The main new ones: roughly polynomial functions do not form a ring as defined (E46); the Claim on p. 933 is false for every basis (E60); Theorem 4.8 is applied outside the splitting it is stated for (E49, E54) and Lemma 4.10's lower bound is proved only for large y_n (E53); §4.6 needs that f is a period map and that the Theorem 1.1 and Baily–Borel structures agree (E58, E59). With the erratum, Theorems 1.3 and 1.6 are not affected."
+}
