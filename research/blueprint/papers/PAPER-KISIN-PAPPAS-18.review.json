@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-KISIN-PAPPAS-18",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ReductiveGroupsPartII RG2.0a–RG2.5 plan buildings, valued root data, parahoric group schemes and decompositions; §§1.1–1.3's Bruhat–Tits constructions and the cited Bruhat–Tits, Landvogt, Prasad–Yu, Edixhoven and Anantharaman inputs refine those layers."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "SchemeAndStackFoundations plans the descent and torsor foundations used in §§1.4 and 4.4."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "AbelianSchemesAndArithmeticModuli plans abelian schemes up to isogeny, twisting and Hom groups (§4.4, §4.5)."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "LefschetzPencilsAndVanishingCycles plans nearby cycles, used in §4.7."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "No layer plans minuscule integral highest-weight lattices and their Bruhat–Tits stabilizers; shared with other extractions. Title corrected to 'Reductive algebraic groups, Part II: …', the parent's atlas title."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "No layer plans extension of parahoric torsors over the punctured two-dimensional disc (§1.4); the id is shared with the Česnavičius extraction. Title corrected to the parent's atlas title; the brief names E17 and E21."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "No layer plans the Pappas–Zhu local models and their embeddings into Grassmannians (§2); the id is shared with Kisin–Zhou (2025) and Kisin–Pappas–Zhou (2026). Title corrected to the parent's atlas title 'Geometric Satake over the Fargues–Fontaine curve'; the brief names E29, E31, E33."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "No layer plans deformations of p-divisible groups with crystalline or étale tensors at parahoric level (§3); shared id. Title corrected; the brief names E41, E43, E46, E51 alongside the authors' own corrections E1, E2, E5."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "No layer plans integral models of Hodge- and abelian-type Shimura varieties at parahoric level (§4); shared id. Title corrected to 'Complex Shimura varieties and canonical models, Part II: …'; the brief names E58 and E70 alongside the authors' corrections E3, E6, E7."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "No layer plans parahoric centers and the Haines–Lusztig test functions of §4.7 (the atlas has no Bernstein-centre stage); kept as its own Part II of SmoothRepresentationsOfLocalGroups."
+    }
+  ],
+  "notes": "Independent review REV-PAPER-KISIN-PAPPAS-18 by Claude Code, session cc-2aeb03; the extraction was written by Codex (codex-c83e7a) and completed by Claude Code (cc-fb70e5). The published Numdam PDF the extraction read (98 pages, SHA-256 e2b4a076…, re-fetched and matching) was read again in full on page images in six ranges, against every item; the sequel Kisin–Pappas–Zhou (2026), §§1.3.1 and 7.3, was read for the authors' own corrections. Corrected in place: 97 item fields (73 statements, 21 locators, 2 kinds, 1 name); item D07 removed (its content is Kisin–Pappas–Zhou's, not this paper's); 105 items added for definitions, constructions and cited inputs the proofs use; five Part II titles set to their parents' exact atlas titles; prerequisites rebuilt as 22 cited papers with DOIs. Statuses: all 14 library declarations opened at the pinned commits and all planned stages checked. Mistakes: E1–E7 confirmed, with the revisions the readings proposed and the independent checks upheld (E2's locator extended to 3.3.11; E3 widened to Proposition 4.2.2, Corollary 4.2.4, Lemma 4.5.9 and Theorem 4.6.23; E4 a misprint affecting nothing; E6 extended to (4.6.20); E7 affecting nothing; the credit to Yu Luo and Peihang Wu moved to E6). 75 further claims were checked a second time, independently: 73 confirmed (3 reclassified) and 2 rejected; they are E8–E80. The main new ones: Lemma 1.4.6 fails as proved for finite k (E17); the construction (1.2.23)–(1.2.24) needs the product over embeddings (E13); Corollaries 4.2.12–4.2.13 need 𝒢 = 𝒢° (E58); Proposition 3.3.13 needs an extra hypothesis (E51); errors in the proofs of Proposition 2.3.7 (E29) and Lemma 3.2.9 (E41). Checks: scripts/check_paper.py ok; intake check-files ok."
+}
