@@ -1,22 +1,58 @@
 # Kisin–Zhou: Frobenius conjugacy classes and independence of ℓ
 
-**Partial research checkpoint — Codex, session codex-c83e7a, 22 September 2026.** This extraction contains 192 items: 19 library items, 23 planned imports and 150 missing items, each missing item assigned exactly one of eleven routes. Its 89 definitions and constructions carry 267 proposed API statements and 267 specified tests. Nine separate exact Python checks passed. None of these numbers means the mathematical prerequisites are closed or formalized.
+**Partial research checkpoint — Codex, session codex-c83e7a, 23 September 2026.** The extraction now contains **210 items: 23 library, 25 planned and 162 missing**, with one owner route for each missing item. Its 92 definitions/constructions carry 276 API statements and 276 specified tests. All 192 previous item IDs and statuses are preserved. The 18 additions develop the finite orbit-dominance proof and an elementary same-field curve construction. Four additions reuse declarations read at the pinned Mathlib commit.
 
-The entire 63-page arXiv revised preprint was read, including references. The principal results and the arguments in every section are extracted. Several source inputs remain consumer contracts rather than complete declaration-sized recursive proofs. The result therefore remains `partial`. The handoff names the unresolved work, including final-text comparison, a Frobenius-orbit coroot step and the precise finite-field Bertini reduction.
+All 63 pages of [arXiv:2103.09945v2](https://arxiv.org/pdf/2103.09945v2) were freshly read, including references. Its SHA-256 remains `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`. The [publisher](https://annals.math.princeton.edu/2025/202-3/p03) records Annals 202 (2025), 1077–1156, DOI 10.4007/annals.2025.202.3.3, and a final revision dated 19 November 2024. The acquired preprint is dated 7 October 2024. The final journal text has **not** been obtained or compared. All fourteen source findings below are scoped to the inspected preprint, and have no independent-review verdict.
 
-## Source and scope
+The main theorem gives a common rational point of **Conj_G(Q)** for the Frobenius classes of a good-reduction abelian variety at an odd residue characteristic, for every ℓ≠p, after the common finite extension making the realizations factor through the Mumford–Tate group. It does not prove the Mumford–Tate conjecture or automatically produce an element of G(Q). The rational-representative refinement retains its simply connected derived-group and quasi-split-at-p hypotheses and its possible one-prime exception. No ℓ=p or bad-reduction theorem is asserted here.
 
-The target is Mark Kisin and Rong Zhou, *Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties*, Annals of Mathematics 202 (2025), no. 3, 1077–1156, [DOI 10.4007/annals.2025.202.3.3](https://annals.math.princeton.edu/2025/202-3/p03). The read source is [arXiv:2103.09945v2](https://arxiv.org/abs/2103.09945v2), dated 7 October 2024. Its PDF has SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`. The publisher records a final revision on 19 November 2024. Title, authors and subject agree, but this checkpoint does **not** certify that every statement and locator matches that final revision. A guessed publisher PDF URL returned 404; the Cambridge author URL failed certificate verification. No verification was disabled to retrieve it.
+The job remains partial: the new finite combinatorics is distinct from its valued-root realization; the local curve proof is distinct from the rational-object stack atlas. Integral models, displays, component descent, companion suppliers and the global arithmetic arguments retain the explicit gates at the end.
 
-The revised preprint must not be replaced by the older author version without reconciling its numbering and assumptions. The revised proof explicitly adds the very-good embedding condition omitted in KP18 and earlier versions. It also moves substantial local-model and integral-model construction into Kisin–Pappas–Zhou. KPZ arXiv v1 was acquired for the cited period, but its numbering already differs from some Kisin–Zhou references. The read passages are identified below; the later KPZ publication is not silently substituted for them.
+## The finite Frobenius-orbit step
 
-The main theorem concerns an abelian variety A over a number field E embedded in C, after the finite extension that makes its ℓ-adic realizations factor through its Mumford–Tate group G. For every good-reduction place v with residue characteristic p>2, there is a point γ in **Conj_G(Q)** agreeing with the Frobenius quotient point for every ℓ≠p. The output is a rational point of the scheme of geometric semisimple conjugacy classes. It does not assert a rational representative in G(Q). The hypothesis does not include the Mumford–Tate conjecture: absolute Hodge cycles provide the factorization after a finite extension, without identifying the algebraic monodromy group with G.
+The old C03 and C04 contracts are now connected to a proof tree. C25 owns the generic **nonnegative integral** root-cone relation; C02 imports it for Schubert strata. This direction avoids making a generic root theorem depend on local-model geometry. Rational Newton dominance is a separate relation.
 
-The geometric theorem, 5.1.4, proves the analogous statement at every finite-field point of the integral Shimura stack of a strongly acceptable triple. The ordinary lifting theorem, 4.4.6, gives an actual lift of an ordinary point to a special point, carrying I_x(Q) in the isogeny category. This is stronger than merely finding a CM point whose reduction lies in the same isogeny class. The paper proves existence here; this extraction does not add a uniqueness theorem or an integral automorphism action.
+For C03, write μ−λ=∑nᵢaᵢ with nᵢ≥0. Choose a maximal positive root β=∑mᵢaᵢ with mᵢ≤nᵢ. The finite set is nonempty because some nᵢ>0. For each simple aᵢ, maximality implies either β+aᵢ is not a root or mᵢ=nᵢ. In the first case the obtuse-sum criterion gives a nonnegative simple-coroot pairing for β; in the second case
 
-Corollary 6.3.4 adds G_der simply connected and G_Qp quasi-split. It then gives γ₀ in G(Q), elliptic over R, conjugate to actual Frobenius over Q_ℓ for all but at most one ℓ≠p. The possible exceptional prime can be chosen from a positive-density set, while γ₀ can change with that choice. The conjectural removal of these qualifications is not a target. Neither ℓ=p nor bad reduction is covered by the main theorem extracted here. There is no type-D exclusion or neat-Weil restriction in the general quotient-class theorem.
+λ+β=μ−∑ⱼ≠ᵢ(nⱼ−mⱼ)aⱼ
 
-## Proof architecture and conventions
+has nonnegative pairing because off-diagonal simple pairings are nonpositive. Thus λ+β is dominant and bounded by μ. This is the full Waldspurger argument in Rapoport's Lemma 2.3, reread on printed pp.157–158. The two sign/root-sum leaves are already `RootPairing.root_add_root_mem_of_pairingIn_neg` and `RootPairing.Base.pairingIn_le_zero_of_ne` in the pin (L20–L21).
+
+One must choose a suitable **orbit**, not add separate upper bounds for arbitrary choices. A useful rejection example is A₄ with diagram reversal: let the simple pairings of λ be (1,0,0,1), let μ−λ have simple-root coordinates (1,1,1,1), and choose α=(1,1,1,0). Both λ+α and λ+σα are dominant and bounded by μ, but α+σα=(1,2,2,1) exceeds μ−λ. This example only tests the generic inference; it is not claimed to meet the paper's minuscule local-model hypotheses or contradict Proposition 5.2.3.
+
+C14–C19 instead apply C03 to a folded root system. Work with the **coroot** system R=Σ∨ in the application. For each orbit O of simple roots set β_O=∑ₐ∈O a, counting each distinct member once. Invariant integral cone coefficients are constant on O. They become integer coefficients of β_O, without division by the orbit size.
+
+When R is simply laced and each simple orbit is orthogonal, [Stembridge's four-page folding note](https://websites.umich.edu/~jrs/papers/folding.pdf), condition (1) and Claims 1, 3, 4, proves that the β_O form a crystallographic base and that folded roots are exactly root-orbit sums. Products of commuting reflections give the fixed Weyl subgroup; length descent proves surjectivity. For finite R, positive definiteness gives the root-orbit height induction. The condition on simple orbits is essential to this invocation.
+
+C16 handles the excluded adjacent case directly. In A₂ₙ, put fᵢ=eᵢ−e₂ₙ₊₂₋ᵢ. Diagram reversal sends eₐ−e_b to e₂ₙ₊₂₋b−e₂ₙ₊₂₋ₐ. Listing index positions shows that the orbit sums are exactly
+
+±fᵢ, ±fᵢ±fⱼ,
+
+with simple roots fᵢ−fᵢ₊₁ and fₙ: the Bₙ system. The fᵢ are orthogonal with squared norm 2. A fixed root eᵢ−e₂ₙ₊₂₋ᵢ and the two-root orbit through the middle coordinate both yield fᵢ. Use the latter lift when the short restricted-root convention is required. For an invariant λ the folded simple pairings are the original dᵢ off the middle and **2dₙ** at the middle. They are integral and have exactly the same signs. This factor is not the orthogonal-orbit norm formula.
+
+C17 reduces a cycle of irreducible components to the return automorphism on one component. The diagonal transport scales every squared norm by the cycle length, which cancels in coroot pairings. The upstream oriented Dynkin classification supplies the reduction: non-simply-laced irreducible diagrams have no nonidentity length-preserving automorphism; nontrivial A, D, E₆ actions are orthogonal except the even-A reversal. D₄ triality is included. The classification and lattice apparatus are imported, not replanned.
+
+C18 now transports both the integral cone and the dominant integral-weight condition. Apply C03 in the folded datum and lift its positive root to an orbit: this proves C19, the existence of β=∑orb(α) with λ<λ+β≤μ and λ+β dominant. Common central directions do not enter the coroot difference. **G-roots now concerns only the remaining local-group adapter:** the exact identification of this coweight with the short relative-root rank-one subgroup and affine-flag translation in BT84 §4.1.4. The finite calculation does not prove that valued-root statement.
+
+## A curve over the original residue field
+
+The scheme input C11 now has a direct proof over any field. Suppose Y is smooth near y∈Y(k), and U meets its component densely. By the standard-smooth Jacobian presentation, choose an affine integral neighbourhood V of y and an étale map π:V→Aᵐ_k; translate its coordinates so π(y)=0. The chart theorem and its proof were read at [Stacks tag 054L](https://stacks.math.columbia.edu/tag/054L).
+
+Assume first m≥1. Put Z=V∖U. Every component of Z has dimension at most m−1. Its image closure in Aᵐ has dimension at most m−1, by the function-field dimension inequality. Thus a nonzero polynomial h vanishes on π(Z). If Z is empty, take h=1.
+
+Choose B≥2 larger than every individual exponent in the support of h, and take the polynomial graph
+
+a(T) = (T, T^B, T^(B^2), ..., T^(B^(m−1))).
+
+Here the exponent on coordinate i is Bⁱ. Base-B expansion is injective on the bounded support, so distinct monomials of h stay distinct after substitution: h(a(T))≠0. The first coordinate is T, hence a is a closed immersion. This argument concerns polynomials, not their values on the finite set k-points. For example over F₂, X²Y−XY² vanishes on every rational line through the origin, but B=3 produces T⁵+T⁷. The strict exponent bound matters: B=2 kills Y−X².
+
+Form D=V×_(Aᵐ)A¹. Its projection to A¹ is étale by the pinned base-change instance (L22), so D is a smooth curve. The point (y,0) is k-rational. Take its unique connected component C; smoothness makes components disjoint and open, so C is an integral curve. A smooth rational point makes that integral variety geometrically integral, by [Stacks tag 0CDW](https://stacks.math.columbia.edu/tag/0CDW). This is not a valid inference for an arbitrary connected singular curve.
+
+The map C→A¹ is nonempty and étale, hence open and dominant. Consequently h(a(T)) cannot vanish on all of C. Where it is nonzero, the V-coordinate lies outside Z, proving that C meets U in a dense open. The marked point maps to y over exactly k. If the smooth component has dimension zero, its rational neighbourhood is Spec(k), U contains y, and the constant map A¹→y supplies the required curve morphism.
+
+C20–C24 and C25 have separate statements, dependency edges and, for the new constructions, APIs and tests. C11 no longer depends on C10: the scheme lemma is independent of the atlas. C12 still needs C10 to obtain a chart carrying the **same rational stack object**, together with Lang lifting and the local-model curve. Those gates remain. The construction proves a one-point curve meeting one dense open; it makes no projective or multipoint Bertini assertion. Poonen's projective Corollary 3.4 remains a comparison source, not a prerequisite of this local repair.
+
+## The rest of the extraction
 
 ### Local group theory
 
@@ -56,7 +92,7 @@ C01–C13 isolate the special-fiber geometry. Schubert dominance uses a **nonneg
 
 The essential curve theorem provides a smooth geometrically connected curve over the original F_q and an F_q-rational marked preimage of the lower-stratum point. The three rank-one constructions are split SL₂, standard SU₃ and the nonstandard ramified SU₃ parahoric. The last uses x↦u_−(x,−x²/2), which explains the odd-prime restriction in that calculation. The matrix identity and its conjugated integrality were verified symbolically with Laurent polynomials. This checks an algebraic step; it does not prove the closed-immersion or geometric stratum assertions.
 
-Two gaps in this bridge are deliberately visible. Rapoport's read Stembridge lemma gives a single positive-coroot step. It does not by itself justify summing a Frobenius orbit of those steps. Kisin–Zhou's orbit-sum assertion needs its exact root-action argument. Also, the read Poonen Corollary 3.4 assumes a smooth projective geometrically integral ambient variety; the stack proof obtains a smooth scheme chart. The local/quasiprojective reduction giving a curve through the same rational point and meeting the required open must be supplied explicitly. An arbitrary finite extension is not a substitute: it replaces Frobenius by a power, and distinct classes can have the same power.
+The finite combinatorial and local scheme-curve steps are expanded above; their geometric and stack adapters retain the named gates.
 
 Chin's Theorem 4.6 applies to an irreducible or semisimple lisse sheaf on a smooth finite-field curve that is **plain of characteristic p**. This means algebraic Frobenius eigenvalues which are units at every finite place away from p, not only at the coefficient prime currently in use. The original sheaf need not have finite-order determinant: a plain constant rank-one twist reduces to that case, companions are constructed, and the twist is undone. The system is actual sheaves at coefficient places with matching polynomials, not merely a list of polynomials.
 
@@ -66,15 +102,13 @@ All algebraic representations separate geometric semisimple classes. One faithfu
 
 Finally, the abelian application uses a totally real restriction-of-scalars datum with diagonal multiplier, followed by a **central product** with a torus. This second construction is a quotient by an inverse diagonal center, not a fiber product with unspecified maps to that center. Its conjugacy quotient contains Conj_G injectively and Galois-equivariantly. The finite extension realizing the integral Shimura point has residue degree one at v; it need not be unramified. Applying the geometric theorem then descends the common class back to G. The real compact-form argument must choose a semisimple lift: absolute values of eigenvalues alone do not put an arbitrary nonsemisimple matrix into a compact group.
 
-## Baseline and ownership decisions
+## Pinned baseline and ownership
 
-The pins are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Thirty cited declaration records include exact statement slices and file hashes. The Witt, isocrystal, reductive-group, torus, character/cocharacter, dominant-chamber and abelian-variety carriers are reused. Rank-one isocrystal classification is not promoted to full Dieudonné–Manin. An isogeny predicate is not a rational isogeny category. A divided-power structure is not a PD envelope or crystalline site.
+The pins remain Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The 30 earlier declaration records are retained; four new records include exact source slices and file hashes. L20–L21 are the root-sum and off-diagonal pairing facts. L22 is `AlgebraicGeometry.Etale.etale_isStableUnderBaseChange`; L23 is `AlgebraicGeometry.Etale.iff_smoothOfRelativeDimension_zero`. None of these supplies a folded root system or the local curve theorem automatically.
 
-The additional checks found the pinned Coxeter Bruhat order and its partial-order structure. Its file expressly leaves a converse subword direction outside that file; no full affine-geometric theorem is inferred. Mathlib's Burnside fixed-point count supplies E13's finite-action argument. API names in this checkpoint are planning proposals even when their underlying carrier is a library item.
+The reviewed R09.4 and LPV.3 audits were read. The root roadmap's classification and lattice ownership boundaries were checked against the pinned documents. Searches of the root-system and multivariate-polynomial sources did not find the finite folding or bounded Kronecker adapter. Nearby complete He18, He21, Zhu17 and Abe25 extractions and the now-complete KPZ26 extraction were screened for these exact item statements. Existing candidate IDs are reused; a complete extraction is not automatically an accepted design or a proved supplier. The new SF.0 route only adds general coordinate, dimension and component lemmas. The final refresh also screened Calegari–Geraghty20, Witaszek22 and Zhang21 changes. KPZ26 F10/F34 and S35/S37 are recorded as precise display and connected-diagram supplier leads, with version/adapter gates retained. No upstream roadmap or library file is changed.
 
-The inspection snapshot contains 290 blob-verified files, including all 211 roadmap extracts, acquired proposals/packets and all current integrated decompositions. They were screened by mathematical terms; this does not claim a full reading of every document. Exact relevant stages and finer nodes were read, including RG2, GS0, GlobalShtukas GS.0–7, DWP.3, LPV.3, ET.0, R07.4/6, R09.4, BG0/1 and the R01.5/VB0 finer nodes. The two nearby upstream documents, ReductiveGroups and RootSystems, were read fully earlier in this session. Their work is not replanned.
-
-The reviewed audit identifies the same boundaries: B(G) and higher-rank slopes are unbuilt beyond the point-isocrystal carrier; GS0 does not provide local-model schemes; GS.6's full function-field correspondence remains unbuilt; R34.2 imports abelian weights from DWP.1. Exact RG2/R07.4 keys were absent from the acquired reviewed aggregate, so there is no invented reviewed absence verdict for them. The VB0 finer node contains a ring-versus-field wording issue and a slope convention; it is a lead with an explicit adapter gate, not a silently exact import.
+The current inspected repository manifest has 560 blob/SHA-256 verified files at `6202b8a96ae94d876d072ffe7ea6cf049da2318e`. This is a bounded ownership and conflict screen, not a claim to have read every file fully. The publication guard checks all those inputs and the original three deliverable blobs again.
 
 ### Route 1: BunGAndNewtonStrata
 
@@ -120,7 +154,7 @@ Items: C10.
 
 GS0 owns loop/Schubert, Witt and v-sheaf geometry. The flat proper O_E local-model scheme, good integral Hodge embeddings and same-residue-field curves add a distinct integral-model layer. GlobalShtukas GS.1 supplies classical equal-characteristic flag geometry; it does not assert the mixed-characteristic integral extension.
 
-Begin with Geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0), importing its loop, bounded Schubert and Witt comparison geometry; import classical equal-characteristic flags from GlobalShtukasAndFunctionFieldLanglands GS.1 and valued roots/parahorics from ReductiveGroupsPartII RG2.1–4. Define acceptable local model triples and good integral Hodge embeddings. Construct the proper flat O_E local model with generic flag fiber and reduced admissible special fiber, using the exact KPZ/AGLR/Levin hypotheses. Prove good embedding existence for p>2 with the prime-to-p derived fundamental-group and R-smooth centralizer conditions, including the symplectic trace and lattice criteria. Identify the special fiber with the equal-characteristic Schubert union and prove Kisin–Zhou5.2.3: every rational lower-stratum point admits a smooth geometrically connected curve with a rational marked preimage over the SAME finite field and dense open in a higher stratum. Import the positive-coroot step from RootSystemsDominancePartII, and close its Frobenius-orbit strengthening before using it. Prove all three rank-one curves, the closed rank-one flag embedding and the connected-stabilizer Lang lift. Do not infer this curve property for arbitrary normal schemes. The final-text and original-source gates remain binding.
+Begin with Geometric Satake over the Fargues–Fontaine curve (GeometricSatakeAndFusion GS0), importing its loop, bounded Schubert and Witt comparison geometry; import classical equal-characteristic flags from GlobalShtukasAndFunctionFieldLanglands GS.1 and valued roots/parahorics from ReductiveGroupsPartII RG2.1–4. Define acceptable local model triples and good integral Hodge embeddings. Construct the proper flat O_E local model with generic flag fiber and reduced admissible special fiber, using the exact KPZ/AGLR/Levin hypotheses. Prove good embedding existence for p>2 with the prime-to-p derived fundamental-group and R-smooth centralizer conditions, including the symplectic trace and lattice criteria. Identify the special fiber with the equal-characteristic Schubert union and prove Kisin–Zhou5.2.3: every rational lower-stratum point admits a smooth geometrically connected curve with a rational marked preimage over the SAME finite field and dense open in a higher stratum. Import the positive-coroot step from RootSystemsDominancePartII, and close its Frobenius-orbit strengthening before using it. Prove all three rank-one curves, the closed rank-one flag embedding and the connected-stabilizer Lang lift. Do not infer this curve property for arbitrary normal schemes. The final-text and original-source gates remain binding. C14–C19 now supply the finite orbit-sum choice. The remaining G-roots obligation is the valued-root/coroot normalization of its short relative-root subgroup, especially the even-A adjacent case.
 
 Items: M01, M02, M03, M04, M05, M06, M07, M08, M09, M10, C01, C02, C04, C05, C06, C07, C08, C09, C13.
 
@@ -150,25 +184,50 @@ Items: E02, E09, E12, E13, E14, A01, A02, A03, A04, A10, A13, A14, A15.
 
 ### Route 10: RootSystemsDominancePartII
 
-The upstream root roadmap supplies positive roots, lowering, Coxeter and chamber theory and must not be replanned. The Stembridge dominance-step contract is not one of its stated targets, and a search found no matching pinned theorem. This narrow continuation supplies the reusable integral order lemma, with the Frobenius-orbit adaptation checked in its local-model consumer.
+Extend the existing proposed owner for integral dominance by the reusable finite diagram-folding and invariant-step proof. Upstream RootSystems supplies classification; LieHighestWeight supplies lattice interfaces; Mathlib supplies the obtuse-sum and simple-pairing leaves.
 
-Build on Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its finite reduced crystallographic root data, bases, positive roots and chamber API, including pinned dominant representatives and Bruhat carriers where they match. Define or reuse the nonnegative INTEGRAL coroot dominance order, distinguish it from rational dominance, and prove the exact Stembridge step in Rapoport00 Lemma 2.3: between distinct comparable dominant integral cocharacters one can add a positive coroot while staying dominant and below the upper endpoint. Decompose the maximal eligible coroot proof into the root-sum and simple-pairing lemmas it uses. Test PGL2 parity and rank-two examples. Export this one generic lemma to the local-model curve proof; that consumer must separately establish its Frobenius-orbit sum strengthening. Do not duplicate the upstream chamber or root-lowering construction.
+Build on Root systems (tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems), importing its finite reduced crystallographic root data, bases, positive roots and chamber API, including pinned dominant representatives and Bruhat carriers where they match. Define or reuse the nonnegative INTEGRAL coroot dominance order, distinguish it from rational dominance, and prove the exact Stembridge step in Rapoport00 Lemma 2.3: between distinct comparable dominant integral cocharacters one can add a positive coroot while staying dominant and below the upper endpoint. Decompose the maximal eligible coroot proof into the root-sum and simple-pairing lemmas it uses. Test PGL2 parity and rank-two examples. Export this one generic lemma to the local-model curve proof; that consumer must separately establish its Frobenius-orbit sum strengthening. Do not duplicate the upstream chamber or root-lowering construction. This continuation also proves invariant dominance by folding the COROOT root system: use Stembridge2008 only when simple orbits are orthogonal; treat adjacent A_(2n) explicitly by the B_n coordinate roots f_i and f_i±f_j. Reduce component permutations and non-simply-laced return maps using the upstream finite Dynkin classification, not a second classification. Prove integer pairing and cone transport before applying the ordinary Stembridge lemma to the folded datum. Export the existential orbit-sum choice; it does not justify summing arbitrary individually allowable steps.
 
-Items: C03.
+Items: C03, C14, C15, C16, C17, C18, C19, C25.
 
 ### Route 11: LefschetzFiniteFieldBertiniPartII
 
-LPV.3 expressly allows a finite field extension to obtain a pencil and warns against claiming an F_q-point. Kisin–Zhou needs a curve through a prescribed rational point over the original F_q. This is additional finite-field Bertini strength, not an automatic consequence of the existing layer.
+LPV.3 permits a field extension; the consumer needs its exact rational residue field. The explicit local etale graph proof gives that additional conclusion and removes the previous unsupported application of projective Poonen3.4.
 
-Extend Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles LPV.3), importing its projective incidence, tangent-space and jet conditions together with AlgebraicModuliForArithmeticGeometry scheme foundations. Prove Poonen finite-field Bertini with prescribed local conditions, then Corollary 3.4 for a smooth projective geometrically integral variety and a prescribed finite set of closed points. Supply the precise quasiprojective/local reduction used by Kisin–Zhou5.2.7: through a specified F_q-rational point of the relevant smooth scheme, construct a smooth geometrically connected curve meeting the designated dense open, without extending F_q. The read Corollary 3.4 alone has a projectivity hypothesis; resolve this gap by an explicit argument rather than dropping it. Keep the rational-point atlas theorem in AlgebraicModuliForArithmeticGeometry R09.4 and local-model rank-one curves in GeometricSatakeLocalModelsPartII. Test that replacing F_q by F_(q^n) changes the Frobenius to its nth power and therefore is not a valid substitute here.
+Extend Lefschetz pencils, nearby cycles and vanishing cycles (LefschetzPencilsAndVanishingCycles LPV.3) by the same-field local curve supplier needed in Kisin–Zhou. Its first layer is elementary and does not require projective Bertini: at a smooth rational point choose an etale chart, contain the image of the proper boundary in V(h), and pull back the graph T -> (T,T^B,...), choosing B larger than every individual exponent of h. Prove support-exponent injectivity, retain the rational marked component, and use etale openness and the smooth rational-point criterion for geometric integrality. Import standard-smooth coordinates and dimension/component lemmas from SchemeAndStackFoundations SF.0 and pinned etale base change. Handle dimension zero by a constant map from A1. Export C11 over the original field. Do not infer a projective curve, a multipoint curve, or a Lefschetz pencil from this local statement. Poonen3.4 remains a projective comparison source; its stronger global theorem is not a dependency of this local repair.
 
-Items: C11.
+Items: C11, C20, C24.
 
-## Open source gates
+### Route 12: SchemeAndStackFoundations
 
-These are required continuation tasks. A successful JSON checker does not close them. In particular, grouped prerequisite-paper leads in the JSON are explicitly incomplete and must be expanded before a complete extraction is claimed.
+SF.0 owns smooth and etale scheme morphisms and their local coordinate geometry. Add the precise standard-smooth coordinate and boundary/component lemmas needed by the local curve proof; the reusable curve selection remains in the existing finite-field curve continuation.
 
-- **G-version**: Compare the fully read arXiv2103.09945v2 (7 October2024) against the final Annals revision (19 November2024). Resolve explicit printed anomalies: torsion versus torsion-free in4.2.3(5), missing right mod-a base change in3.2.5, Tate-lattice base/tensor labels in3.3.2.1, nonnegative in5.2.1, full loop field in5.2.5, and H^1/H_1 conventions. Reconcile KPZ locators across versions; v1 Proposition 7.2.18 contains the needed torsion-free output.
+Existing stages: SchemeAndStackFoundations:SF.0.
+
+Items: C21, C22, C23.
+
+## Source findings in the inspected preprint
+
+All findings have the full section-18 fields in `sourceIssues`: exact locator, printed expression, correction, reason, reach and searched sources. The publisher landing page, arXiv history/current bytes, author access attempts and a bounded erratum search produced no located correction. The author PDF failed TLS verification; the author homepage timed out; no verification was disabled. The earlier guessed publisher PDF URL returned 404. “New” records that bounded search, not a claim of priority. None has an independent-review verdict.
+
+- **E1 — misprint; affects nothing.** arXiv2103.09945v2, p9,§2.2.2; final Annals text not compared. Replace the final sigma(w) with sigma(u). Twisted conjugation acts by u^-1 w sigma(u). For sigma=id,w=1 in the cyclic groupC3, the printed set is allC3, whereas the conjugacy class is {1}; the preceding B(G) definition uses the correct variable.
+- **E2 — misprint; affects nothing.** arXiv2103.09945v2, p23,§3.2.5, reference to Definition3.1.6; final Annals text not compared. Use property(2), the closed immersion of local models. Definition3.1.6 onp19 has only clauses(1),(2); clause(2) is exactly the asserted good-embedding condition.
+- **E3 — misprint; affects the proof.** arXiv2103.09945v2, p23,§3.2.5, canonical comparison c; final Annals text not compared. Reduce the right side to W_hat(A_G/a_G) as well, with the same coefficient maps. The left module is over the quotient Witt coefficient ring, and the next tensor-preservation condition compares the reduced tensors. The previously read KPZv1 equation5.2.1 gives both sides over the quotient.
+- **E4 — misprint; affects the proof.** arXiv2103.09945v2, p25,equation(3.3.2.1) and its following tensor label; final Annals text not compared. Tensor the etale Tate lattice over Z_p. The tensors transported from that lattice are s_(alpha,et); s_(alpha,0) denotes the crystalline tensors on the target. T_p(G)^vee is a Z_p lattice, with no given breve-Z_p module structure. In§3.3.3 the induced breve-Z_p isomorphism explicitly transports s_(alpha,et) to s_(alpha,0). Keep the crystalline lift tilde-s on the right.
+- **E5 — misprint; affects a stated result.** arXiv2103.09945v2, p34,Proposition4.2.3(5); final Annals text not compared. Use torsion-free. The immediately following Lemma4.2.4 requires torsion-free coinvariants, as does the later application. KPZv1 Proposition7.2.18(5), already read in the preceding checkpoint, supplies the torsion-free output. The extracted S19 already uses this corrected contract.
+- **E6 — misprint; affects a stated result.** arXiv2103.09945v2, p48,§5.2.1, integral dominance; final Annals text not compared. Require a nonnegative integral linear combination of positive coroots. Without nonnegativity both a nonzero coroot and its negative belong to the integer span, giving both comparison directions for distinct dominant endpoints (e.g.0 and2 in PGL2). The Bruhat-compatible order requires the positive integral cone.
+- **E7 — misprint; affects a stated result.** arXiv2103.09945v2, p52,Lemma5.2.5, hypothesis on t_lambda; final Annals text not compared. Use t_lambda in G(F_q((t))) for the loop element; the conjugator g remains in the positive-loop parahoric. The earlier proof onp49 chooses a loop-field lift, andp52 conjugates integral subgroups inside the loop field. Requiring a nontrivial torus translation to be integral would exclude the needed stratum representatives.
+- **E8 — misprint; affects the proof.** arXiv2103.09945v2, p55,§6.1.1, Hodge types of Betti cohomology; final Annals text not compared. For the stated H^1 and the dual Tate comparison in§6.1.3, use cohomological types ((1,0),(0,1)). If choosing H_1 instead, change the realization and dual conventions consistently throughout. The negative types belong to homology. The displayed§6.1.3 comparison is with T_l(A)^vee, hence cohomology. This local type correction does not settle the entire geometric-Frobenius/multiplier convention gate.
+- **E9 — misprint; affects the proof.** arXiv2103.09945v2, p58,proof of Lemma6.2.6(2), diagonal conjugacy; final Annals text not compared. The premise is h^-1 g h=gprime and its first-coordinate consequence is h_1^-1 g h_1=gprime. Both errors disappear by projecting the diagonal tuple conjugacy equation to the first factor. The existence of a conjugator and the quotient injection remain valid.
+- **E10 — error; affects the proof.** arXiv2103.09945v2, p60,proof of Lemma6.3.3, compactness step; final Annals text not compared. Choose a SEMISIMPLE lift of the quotient class before deducing compactness from unit-modulus eigenvalues; carry the central rescaling through the subsequent lift. The unipotent matrix [[1,1],[0,1]] has eigenvalues1 and maps to the identity semisimple quotient class, but its nth power has upper-right entryn and is unbounded. Thus arbitrary lifts do not satisfy the stated compactness inference. This is a proof qualification, not a counterexample to the real elliptic representative theorem.
+- **E11 — gap; affects the proof.** arXiv2103.09945v2, p53,proof of Corollary5.2.7; repeated onp54; final Annals text not compared. Supply the local smooth-chart curve argument C20–C24, or a proved reduction to the projective hypotheses of that corollary. The cited Poonen statement assumes a smooth projective geometrically integral ambient variety; the obtained Y is only a smooth scheme chart. The etale polynomial graph proof given here establishes exactly the needed one-point/dense-open conclusion over the original field. It does not prove a projective or multipoint Bertini theorem.
+- **E12 — gap; affects the proof.** arXiv2103.09945v2, pp49–50,proof of Proposition5.2.3, choice of orbit sum; final Annals text not compared. Choose the coroot orbit by applying the ordinary dominance step to the folded coroot root system, with integral/chamber transport and the adjacent-even-A case checked. C14–C19 supply that finite combinatorial proof; the BT relative-root normalization remains G-roots. Separate upper bounds cannot in general be added while retaining the same upper bound. In A4 with reversal, lambda simple pairings(1,0,0,1), mu-lambda=(1,1,1,1), alpha=(1,1,1,0), both individual steps are dominant and bounded, but their sum(1,2,2,1) exceeds the difference. This tests only the generic inference; no claim is made that these endpoints satisfy the paper's minuscule local-model hypotheses. An existential suitable orbit does exist and is proved here.
+- **E13 — misprint; affects nothing.** arXiv2103.09945v2, p59,proof of Theorem6.2.7, auxiliary level and special fiber; final Annals text not compared. Use K_1^p subset H_1(A_f^p) containing the image of K^p, and S_(K_1)(H_1,X_1) for the reduction. The ambient Shimura datum and p-level have already changed to H_1 and K_(1,p). The point is in Sh_(K_1)(H_1,X_1), and the immediately following sentence names its integral model with K_1.
+- **E14 — gap; affects the proof.** arXiv2103.09945v2, p60,proof of Lemma6.3.3, last sentence; final Annals text not compared. Prove a real lift with the required semisimple quotient class, then multiply back by the central element z used to define gamma_1. An arbitrary real lift of the image in G/w(G_m) does not suffice. Multiplying a lift by a nontrivial element of w(G_m)(R) preserves its image in the quotient but can change its class in Conj_G. For example scalar matrices in GL2 all map to the identity of PGL2 while their eigenvalues differ. The necessary compatible real lift and central rescaling remain in G-global; no counterexample to the stated elliptic-representative theorem is asserted.
+
+## Remaining source gates
+
+- **G-version**: Fresh arxivv2 bytes are unchanged, all63 pages reread. SourceIssues now records image-confirmed slips and proof qualifications, with proposed corrections; the final Annals November2024 revision has not been acquired and KPZ locator reconciliation remains. Do not certify these preprint findings as present in the final publication.
 - **G-local**: Read and decompose He14,He16,He–Nie18,He–Rapoport17,He–Zhou20 and Haines–Rapoport08 at the cited results. Prove the straight-representative/length, ordinary existence, integral conjugacy and full-fixer component adapters. Keep maximal acceptable class distinct from mu-ordinary in inner forms.
 - **G-neron**: Expand the torus Neron lft/finite-type/identity models, schematic closure and R-smoothness using Edixhoven/BLR and the exact KP18/BT root charts. Verify component kernels and fppf exactness, and the rank-one SU3 closed embedding beyond the explicit primitive SL2 lattice check.
 - **G-models**: Read the precise KPZ,AGLR,FHLR,Levin and Scholze–Weinstein theorems proving local-model scheme representability, reducedness, normal/Cohen–Macaulay components, good embeddings and globally very good covers. KPZ v1 pp52–53,82–84 were read selectively, not its full proof. Resolve numbering changes and the ordinary-smooth implies very-good citation.
@@ -176,228 +235,243 @@ These are required continuation tasks. A successful JSON checker does not close 
 - **G-tensors**: Complete Deligne absolute-Hodge, Blasius–Wintenberger, KMPS singular-base tensor extension and rank/centralizer suppliers. Reconcile integral etale/crystalline tensor normalizations and prove the rational group/action comparisons. A merged KMPS checkpoint is evidence of a candidate owner, not a proved import.
 - **G-components**: Continue KP18 §4.5.6 and§4.6 and KPZ component descent beyond the star-product definition actually read. Prove topology, closure, group action, finite coset J, reflex-field unramified descent and all component transport maps. Split the multi-step action/gluing proofs to declaration size.
 - **G-functoriality**: Acquire Pappas–Rapoport canonical integral-model/shtuka results and the exact completed-local identification theorem. Prove the extension maps, derived-isomorphism completion comparison, neutral component isomorphism and matched-multiplier fiber-product compatibility; avoid substituting a derived isogeny.
-- **G-roots**: Rapoport00 Lemma 2.3 and its proof on pp157–158 were read. Its ordinary positive-coroot step does not state the Frobenius-orbit SUM claim on KZ p50. Prove that extra choice/inequality with all diagram-action hypotheses, rather than summing separate inequalities.
-- **G-curves**: Verify the rank-one flag closed embedding and Lang reduction through finite-type stabilizer/congruence quotients. Poonen04 Corollary 3.4 was read and is projective; provide the quasiprojective/local curve-through-point reduction needed in5.2.7. Same residue field and geometric connectedness cannot be replaced by a finite extension. The exact SU3 identities were checked, not the full geometric proof.
+- **G-roots**: The ordinary and finite sigma-invariant dominance lemmas now have proof graphs C03,C14–C19, including even-A adjacent folding. Remaining: identify the Sigma-coroot orbit coweight with the short relative-root rank-one subgroup and its affine flag translation, using the exact BT84 §4.1.4 normalization. Do not treat the finite Dynkin calculation as this valued-root theorem.
+- **G-curves**: C11 now has an explicit same-field etale graph proof C20–C24, removing the Poonen projectivity mismatch. Remaining: rank-one flag closed embedding, generic stratum membership, Lang lifting through connected finite-type stabilizer/congruence quotients, and compatibility with the adjoint local-model diagram. C10 retains the independent rational-object stack atlas gate.
 - **G-stacks**: Read LMB Theorem 6.3 with its exact hypotheses and construct the smooth scheme atlas carrying the specified F_q-rational object. Prove quotient-stack level descent and the residue-degree-one realization; coarse points do not suffice.
 - **G-companions**: Chin04 §2.1 and§§4.2–4.6 were read; complete its prerequisite§4.1 and the exact Laurent Lafforgue theorem, determinant twisting and coefficient-field descent. Import DWP.3 finite-field closed-point density and R01.5 semisimple recognition. Verify that E08 gives plainness at every non-p valuation, not merely at one coefficient place.
 - **G-global**: Complete invariant-quotient construction/finiteness, the reductive extension of Steinberg6.6, number-field Chebotarev, totally-real approximation/Krasner, rational torus transfer, and Langlands–Rapoport5.6/Kottwitz90 p188. Choose a semisimple lift for the compact-form argument and retain the one-prime exception.
 - **G-weights**: Pin the dual Tate versus H^1, geometric versus arithmetic Frobenius and multiplier conventions. Import the actual DWP.1 abelian Weil/Rosati theorem and prove preservation of non-p units under all algebraic representation operations.
 
-## Source acquisition and actual reading
+## Acquisition, validation and handoff
 
 - [cambridge](https://www.dpmms.cam.ac.uk/~rz240/l-indep_v2.pdf): TLS certificate verification failed; no PDF acquired.
-- [arxiv](https://arxiv.org/pdf/2103.09945): All 63 pages read, including all sections and references. Images of pages23,25,34,48,52,53,55 inspected. Page60 text read; its image was generated but not inspected. SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`.
+- [arxiv](https://arxiv.org/pdf/2103.09945v2): All63 pages freshly read including references. Images19,9,23,25,34,48,49,50,52,53,55,58,59,60 inspected; bytes match prior hash. SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`.
 - [published](https://annals.math.princeton.edu/wp-content/uploads/annals-v202-n3-p03-p.pdf): Guessed publisher PDF URL returned404. Publisher landing-page metadata and arXiv identity agree; final text has NOT been compared.
 - [chin](https://arxiv.org/pdf/math/0206147): PDF pages 5,11,12,13 read: definition of plainness,§§4.2–4.6 and beginning of§5. The rest was not read. SHA-256 `c0e3b107c6c5e8067bc01208e7bdea8c4196387c91bf74afa21c6c6baa0b3e40`.
-- [poonen](https://math.mit.edu/~poonen/papers/bertini.pdf): PDF pages 10–11 read: Theorem 3.3,Corollaries3.4–3.6 and follow-on applications. The proof of Theorem 1.2/1.3 was not read. SHA-256 `52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d`.
+- [poonen](https://math.mit.edu/~poonen/papers/bertini.pdf): Previously acquired PDF pp1–3,10–11 read this continuation; original Theorem1.2 proof not read. Its projective Corollary3.4 is a comparison source, not a prerequisite of the new local etale proof. SHA-256 `52bbee7fc56a181b5c745d729a9125e4bfd702a5a860058043874bfba0d17e9d`.
 - [steinberg](https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf): PDF pages16–17 read: printed pp65/64 in scan order,Corollary 6.6 and surrounding invariant-quotient discussion. The reductive central-torus extension was not independently sourced. SHA-256 `bda20c4a4b3cf4a7e9e5b17a4eacd0147d0c9370063ab3a3778114a53c8349b9`.
 - [kpz](https://arxiv.org/pdf/2409.03689v1): arXiv2409.03689v1. PDF pages44,52,53,82,83,84 read. The earlier attempted4.3.9 locator is different in this version; it does not verify KZ ordinary-smooth citation. The full 88-page paper was not read. SHA-256 `b508c1ea29f8c8aeeb656ee0af95851af08d8e2ef381fef4462133db772dc8fe`.
-- [rapoport](https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/satake.pdf): PDF pages 5–6 (printed157–158) read, including Stembridge Lemma 2.3 and its full displayed proof. Other pages not read. SHA-256 `8dfb39087041244845bb0fdd57cdd52c1bda3d70b8eebc02711df7cb90d2f71d`.
+- [rapoport](https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/satake.pdf): Previously acquired PDF pp5–6 (printed157–158) freshly reread, including the complete Waldspurger proof of Lemma2.3. No claim of full14-page read. SHA-256 `8dfb39087041244845bb0fdd57cdd52c1bda3d70b8eebc02711df7cb90d2f71d`.
 - [kp18](https://www.numdam.org/item/10.1007/s10240-018-0100-0.pdf): Published Numdam PDF page75 (printed195),§4.5.6 star-product definition and surrounding action discussion read. Other 97 pages not read. SHA-256 `e2b4a0763f216be82da950f4c0dd2800adea8a0d911b12bfacf2b7e493b4618b`.
+- [stembridge-folding-2008](https://websites.umich.edu/~jrs/papers/folding.pdf): All4 pages read through web PDF extraction on2026-09-23, especially condition(1),Claims1,3,4 and their proofs. The direct download returned403, so no local PDF hash is asserted.
+- [stacks-054L](https://stacks.math.columbia.edu/tag/054L): statement and proof SHA-256 `7db38acd7659e6f9009849fedabc267a7bce5c128c9d800ec46ea93409b15013`.
+- [stacks-0CDW](https://stacks.math.columbia.edu/tag/0CDW): statement and proof SHA-256 `12e232b5ac61fcdae41b78a44c142231467860f75e4a58d52446882e8e959794`.
 
-## Validation and continuation
+The semantic checker verifies ID preservation, the acyclic item graph, one route per missing item, API/test coverage, source-issue shape, exact pinned statement slices, input hashes and real atlas stages. The paper and intake path checks pass. The embedded exact Python script runs independently; its 85,551 assertions cover eleven folded root systems, 7,908 admissible endpoint pairs, dominance transport, positive root lifts, the rejected arbitrary-sum inference, bounded exponent encoding, finite-field line traps and selected source corrections. These finite checks support the separately written general proofs; they do not replace them. The nine inherited exact checks were also rerun.
 
-`check_paper.py` passes. A separate semantic validator checks unique IDs, the acyclic item dependency graph, exactly one route for every missing item, all definition/construction APIs and tests, the pinned declaration hashes, all 290 input blob and SHA-256 hashes, and real galaxy IDs for the new routes. The intake path check is run on the two deliverables and handoff after all three files exist. No suggested Lean file is authorized by this paper issue, so no Lean file was written or compiled.
-
-The nine executed checks cover faithful-polynomial collision, Frobenius-power collision, the S₃ coset derangement count, integral versus rational coroot order, the exact SU₃ source matrix identity, the Hermitian equation, nonstandard parahoric integrality after conjugation, an ordinary versus averaged slope example, and invertibility of 2. The 267 proposed API tests are specifications and were not Lean-checked.
-
-Preserve item IDs in the continuation. Resolve source/version and curve gates first, then complete the original local-model/display, component/functoriality and global arithmetic suppliers. Reconcile the reused KMPS candidate IDs with its accepted design state before integration. No roadmap files or upstream documents are changed by this paper job.
+The 276 API tests are specifications. No Lean file was authorized, written or compiled. The complete supplier closure still needs the listed gates. Resume with final-text comparison and the BT/local-model/stack adapters; preserve the finite folding and local étale curve work rather than extracting the same contracts again.
 
 ## Item index
 
-The JSON contains the mathematical statements, dependency edges, API, tests and source gates. The following index makes the section coverage reviewable without treating a source locator as a planet name.
-
-| ID | Item | Status | Locator |
-|---|---|---|---|
-| L01 | Witt-vector coefficient carrier | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L02 | Frobenius on the Witt fraction field | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L03 | Point-valued isocrystal | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L04 | Morphism of point-valued isocrystals | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L05 | Rank-one isocrystal classification | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L06 | Connected reductive group predicate | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L07 | Algebraic torus predicate | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L08 | Geometric character lattice | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L09 | Cocharacter lattice and pairing | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L10 | Perfect character-cocharacter pairing | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L11 | Closed dominant chamber of a root pairing | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L12 | Unique dominant representative in a Weyl orbit | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L13 | Abelian variety over a field | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L14 | Geometric isogeny | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L15 | Divided-power structure | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L16 | Finite free cocharacter lattice | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L17 | Galois invariance of the pairing | library | §§2.1–2.4 and §§3.2–3.4 (coefficient, root and group carriers); §6.1 (abelian carriers) |
-| L18 | Coxeter Bruhat order | library | §2.1.2 |
-| L19 | Burnside fixed-point count | library | Proof of 5.1.4, finite-group descent step |
-| P01 | Hodge-type Shimura datum | planned | §§4.1,6.1 |
-| P02 | Reflex field and generic canonical tower | planned | §§4.1–4.2 |
-| P03 | Contravariant Dieudonne module | planned | §§3.2–3.4 |
-| P04 | Height-one Breuil–Kisin module | planned | Proof of 3.4.5 |
-| P05 | Barsotti–Tate classification | planned | 3.4.5, Kisin10 |
-| P06 | Serre–Tate deformation | planned | Proofs of 4.1.9 and 4.1.11 |
-| P07 | Integral crystalline and etale comparison | planned | §§3.3–3.4 |
-| P08 | Absolute Hodge tensors | planned | §§4.1.5–4.1.8,6.1 |
-| P09 | General algebraic quotient stacks | planned | §§4.1.1,4.2.5,5.2.7 |
-| P10 | Affine Weil restriction | planned | §§2.4,3.1,6.2 |
-| P11 | Finite-field abelian Frobenius weights | planned | §§5.3.2–5.3.3,6.3 |
-| P12 | Rational and stable conjugacy | planned | §§5.1,6.3 |
-| P13 | Semisimple Frobenius recognition | planned | Proof of 5.3.5 |
-| P14 | Finite-dimensional isocrystal slopes | planned | §§2.2,3.4 |
-| P15 | Rank of the tensor isogeny group | missing | Proofs of 4.1.11 and 4.4.10; KMPS22 |
-| N01 | Iwahori–Weyl group | planned | 2.1.2 |
-| N02 | Iwahori–Weyl exact sequences | missing | 2.1.2 |
-| N03 | Algebraic fundamental group and Kottwitz invariant | planned | 2.1.2–2.1.3 |
-| N04 | Affine and linear Frobenius actions | missing | 2.1.2–2.1.3 |
-| N05 | Affine-root Coxeter and translation length | planned | 2.1.2–2.1.5 |
-| N06 | Translation length formula | missing | 2.1.5 |
-| N07 | Newton point of an extended Weyl element | missing | 2.1.3 |
-| N08 | Sigma-straight element | missing | 2.1.4 |
-| N09 | Newton criterion for straightness | missing | 2.1.4 |
-| N10 | Newton centralizer Levi | missing | 2.1.6 |
-| N11 | Straight translation has central Levi cocharacter | missing | Lemma 2.1.7 |
-| N12 | Centrality of an absolute cocharacter lift | missing | Lemma 2.1.9 |
-| N13 | Mu-admissible set | missing | 2.1.10,2.3.2 |
-| N14 | Sigma-conjugacy classes B(G) | planned | 2.2.1 |
-| N15 | Straight Weyl classes classify B(G) | missing | 2.2.1; He14 Theorem 3.7 |
-| N16 | Acceptable Newton set B(G,mu) | planned | 2.2.2 |
-| N17 | Mu-ordinary class | missing | Definition 2.2.4 |
-| N18 | Unique maximum versus ordinary existence | missing | Remark 2.2.5; HN18 |
-| N19 | Straight translation representative of the ordinary class | missing | Proposition 2.2.6 |
-| N20 | Ordinary existence under a derived isogeny | missing | Lemma 2.2.8(1) |
-| N21 | Ordinary membership under a derived isogeny | missing | Lemma 2.2.8(2) |
-| N22 | Full fixer and connected parahoric | planned | 2.3.1 |
-| N23 | Associated parahorics under adjoint identification | missing | 2.3.1 |
-| N24 | Parahoric Iwahori decomposition | planned | 2.3.2 |
-| N25 | Ordinary admissible element lies in a translation cell | missing | Proposition 2.3.3(1) |
-| N26 | Integral conjugacy of an ordinary admissible element | missing | Proposition 2.3.3(2) |
-| R01 | Neron lft model of a torus | missing | 2.4.1 |
-| R02 | Finite-type and identity torus submodels | missing | 2.4.1 |
-| R03 | Torus closure in a split restriction model | missing | 2.4.1 |
-| R04 | R-smooth torus | missing | Definition 2.4.2 and following discussion |
-| R05 | Closed immersion of Neron lft models | missing | Proposition 2.4.4(1) |
-| R06 | Closed immersion of finite-type torus models | missing | Proposition 2.4.4(2) |
-| R07 | Weil restrictions of tame tori are R-smooth | missing | Proposition 2.4.6(1) |
-| R08 | R-smoothness under torus extensions | missing | Proposition 2.4.6(2) |
-| R09 | Closed fixer embedding with equal derived groups | missing | Proposition 2.4.8 |
-| R10 | Fixer embedding after field extension | missing | Proposition 2.4.10 |
-| R11 | Primitive root-lattice embedding in rank one | missing | 2.4.11 |
-| R12 | Integral kernel of a central torus quotient | missing | Proposition 2.4.13 |
-| R13 | Smooth fppf exact parahoric quotient | missing | Proposition 2.4.13 |
-| M01 | Local model triple | missing | 3.1.1 |
-| M02 | Acceptable reductive group | missing | 3.1.2 |
-| M03 | Local Hodge embedding | missing | 3.1.3 |
-| M04 | Integral local model | missing | 3.1.4 |
-| M05 | Local-model strata and components | missing | 3.1.4 |
-| M06 | Good integral Hodge embedding | missing | Definition 3.1.6 |
-| M07 | Existence of a good integral embedding | missing | Proposition 3.1.9 |
-| M08 | Closed local-model map under Weil restriction | missing | Lemma 3.1.10 |
-| M09 | Trace symplectic embedding | missing | Proposition 3.1.12 |
-| M10 | Admissible lattice criterion | missing | Proposition 3.1.14 |
-| D01 | Dieudonne tensors and Hodge lattice | missing | 3.2.1–3.2.2 |
-| D02 | Tensor orbit deformation ring | missing | 3.2.2–3.2.5 |
-| D03 | Zink Witt ring and augmentation ideal | missing | 3.2.3 |
-| D04 | Display of a p-divisible group | missing | 3.2.3; Zink |
-| D05 | Adapted deformation | missing | Definition 3.2.4 |
-| D06 | Frobenius-image tensor torsor | missing | 3.2.5, equation 3.2.5.1 |
-| D07 | Very good integral embedding | missing | 3.2.5; KPZ Definition 5.2.5 |
-| D08 | Independence of defining tensors in very goodness | missing | 3.2.5; KPZ Lemma 5.2.3 |
-| D09 | Tensor-preserving display section | missing | 3.2.6 |
-| D10 | Versal adapted deformation criterion | missing | Proposition 3.2.7 |
-| D11 | Integral crystalline tensors and trivialization | missing | Proposition 3.3.2(1) |
-| D12 | Generic filtration comes from a group cocharacter | missing | Proposition 3.3.2(2)(i) |
-| D13 | Cocharacter filtration lifts the special filtration | missing | Proposition 3.3.2(2)(ii) |
-| D14 | Adaptedness recognition from comparison tensors | missing | Proposition 3.3.4 |
-| D15 | Ordinary Levi has connected fixer | missing | 3.4.1–3.4.2 |
-| D16 | Central cocharacter filtration reduces correctly | missing | Proposition 3.4.3 |
-| D17 | Sigma-centralizer and its isogeny action | planned | 3.4.4 |
-| D18 | Ordinary central-filtration Breuil–Kisin lift | missing | Proof of Proposition 3.4.5 |
-| D19 | Ordinary adapted lift exists | missing | Proposition 3.4.5, existence |
-| D20 | Entire sigma-centralizer action lifts rationally | missing | Proposition 3.4.5, action |
-| S01 | Shimura stack at non-neat level | missing | 4.1.1 |
-| S02 | Normal Hodge integral model | missing | 4.1.2–4.1.3 |
-| S03 | Global good Hodge embedding | missing | Proposition 4.1.4 |
-| S04 | Lift-independent crystalline tensors | missing | 4.1.5–4.1.8; KMPS1.3.7 |
-| S05 | Completed normalization branch and adapted ring | missing | Proposition 4.1.9(1) |
-| S06 | Adapted deformation detects the chosen branch | missing | Proposition 4.1.9(2) |
-| S07 | Tensors distinguish normalization points | missing | Proposition 4.1.9(3) |
-| S08 | Tensor-preserving rational isogeny group | missing | 4.1.10 |
-| S09 | Special lift at a very good ordinary point | missing | Proposition 4.1.11 |
-| S10 | Ordinary points are very good | missing | Lemma 4.1.13 |
-| S11 | Integral extension property | missing | Proposition 4.1.15(1) |
-| S12 | Hodge local-model diagram | missing | Proposition 4.1.15(2) |
-| S13 | Compact central torus Zc | missing | 4.2.1 |
-| S14 | Strongly acceptable Shimura triple | missing | Definition 4.2.2 |
-| S15 | Auxiliary Hodge cover | missing | Proposition 4.2.3 |
-| S16 | Auxiliary derived fundamental group | missing | Proposition 4.2.3(1) |
-| S17 | Globally very good auxiliary embedding | missing | Proposition 4.2.3(3) |
-| S18 | Auxiliary center is R-smooth and quasi-tame | missing | Proposition 4.2.3(4) |
-| S19 | Auxiliary abelianized coinvariants are torsion-free | missing | Proposition 4.2.3(5), corrected required contract |
-| S20 | Very-special fixer is connected | missing | Lemma 4.2.4 |
-| S21 | Semidirect quotient star product | missing | §4.2.8; KP18 §4.5.6, published p.195 |
-| S22 | Integral model from neutral components | missing | §4.2.8–4.2.10 |
-| S23 | Strongly acceptable local singularity comparison | missing | Theorem 4.2.6(1) |
-| S24 | Strongly acceptable DVR extension property | missing | Theorem 4.2.6(2) |
-| S25 | Adjoint local-model diagram | missing | Theorem 4.2.6(3) |
-| S26 | Extension of maps of Hodge integral models | missing | Proposition 4.3.2(1) |
-| S27 | Derived-isomorphic map preserves completions | missing | Proposition 4.3.2(2) |
-| S28 | Neutral-component integral isomorphism | missing | Proposition 4.3.4 |
-| S29 | Integral Siegel map for an arbitrary Hodge embedding | missing | Proposition 4.3.6 |
-| S30 | Matched-multiplier fiber product datum | missing | 4.3.7 |
-| S31 | Connected fixer of the fiber product | missing | Lemma 4.3.8(1) |
-| S32 | Good embedding of the fiber product | missing | Lemma 4.3.8(2) |
-| S33 | Ordinary locus of the integral Shimura model | missing | Definition 4.4.1 and 4.4.2–4.4.3 |
-| S34 | Ordinary locus is open and dense under normality | missing | Proposition 4.4.4 |
-| S35 | Product comparison of universal abelian objects | missing | 4.4.7–4.4.8 |
-| S36 | Exact isogeny-group sequences for the fiber product | missing | Lemma 4.4.10 |
-| S37 | Ordinary special-point lift for a strongly acceptable triple | missing | Theorem 4.4.6, existence |
-| S38 | Rational isogeny action on the ordinary special lift | missing | Theorem 4.4.6, action |
-| S39 | Ordinary rational Frobenius representative | missing | Corollary 4.4.13 |
-| S40 | Auxiliary reflex-field splitting | missing | Proposition 4.2.3(2) |
-| C01 | Equal-characteristic local-model Schubert realization | missing | 5.2.1 |
-| C02 | Integral Schubert dominance | missing | 5.2.1, p.48 |
-| C03 | Stembridge positive-coroot step | missing | Proof of 5.2.3; Rapoport00 Lemma2.3 |
-| C04 | Frobenius-stable rank-one step | missing | Proof of 5.2.3, p.49 |
-| C05 | Split SL2 Schubert curve | missing | Proof of 5.2.3, Case1 |
-| C06 | Standard SU3 Schubert curve | missing | Proof of 5.2.3, Case2 |
-| C07 | Nonstandard ramified SU3 Schubert curve | missing | Proof of 5.2.3, Case3 |
-| C08 | Rational lift of a positive-loop orbit | missing | Lemma 5.2.5, corrected ambient loop field |
-| C09 | Same-residue-field curve in the local model | missing | Proposition 5.2.3 |
-| C10 | Rational-point smooth atlas for the relevant stack | missing | Proof of 5.2.7; LMB Theorem6.3 |
-| C11 | Finite-field Bertini curve through a point | missing | Proof of 5.2.7; Poonen04 Corollary3.4 |
-| C12 | Same-residue-field curve on the Shimura stack | missing | Corollary 5.2.7 |
-| E01 | Group-valued etale local system from the Shimura tower | missing | 5.1.1–5.1.3 |
-| E02 | Scheme of semisimple conjugacy classes | missing | 5.1.1 |
-| E03 | Frobenius quotient point | missing | 5.1.3 |
-| E04 | Compatible lisse systems on a finite-field scheme | missing | 5.3.1 |
-| E05 | Plain eigenvalues in characteristic p | missing | Chin04 §2 and Theorem4.6, used in 5.3.5 |
-| E06 | Constant rank-one twist | missing | Chin04 §4.2–4.3 |
-| E07 | Chin companions for plain sheaves on curves | missing | Chin04 Theorem4.6, used in 5.3.5 |
-| E08 | All algebraic representations have unit Frobenius eigenvalues | missing | Lemma 5.3.3 |
-| E09 | Algebraicity of the quotient Frobenius point | missing | 5.3.2 |
-| E10 | Curve recognition from an open subset | missing | Proof of 5.3.5 |
-| E11 | Representation-wise Frobenius independence | missing | Proposition 5.3.5 |
-| E12 | Algebraic characters separate semisimple classes | missing | Proof of 5.1.4; Steinberg65 Corollary6.6 |
-| E13 | A proper subgroup misses a conjugacy class | missing | Proof of 5.1.4, finite-group step |
-| E14 | Rational descent from degree-one primes | missing | Proof of 5.1.4 |
-| E15 | Rational common Frobenius class on a Shimura stack | missing | Theorem 5.1.4 |
-| A01 | Mumford–Tate group of an abelian variety | missing | Definition 6.1.2 |
-| A02 | Mumford–Tate group is connected reductive | missing | 6.1.2 |
-| A03 | Changing complex embedding changes only the inner form | missing | 6.1.2 |
-| A04 | Common finite field of Galois factorization | missing | 6.1.3; Lemma 6.1.4 |
-| A05 | Diagonal-multiplier restriction datum | missing | 6.2.2–6.2.3 |
-| A06 | A compact element becomes hyperspecial-integral | missing | Lemma 6.2.1 |
-| A07 | Totally real field with the needed local extension | missing | Proposition 6.2.4 |
-| A08 | Central-product strongly acceptable enlargement | missing | 6.2.5 |
-| A09 | The enlargement is strongly acceptable | missing | Lemma 6.2.6(1) |
-| A10 | Injective Galois-equivariant conjugacy quotient map | missing | Lemma 6.2.6(2) |
-| A11 | Frobenius-preserving extension and Shimura realization | missing | Proof of 6.2.7 |
-| A12 | Independence of ell for abelian Frobenius classes | missing | Theorem 6.2.7 (=Theorem1.1) |
-| A13 | Real elliptic representative of the common class | missing | Lemma 6.3.3 |
-| A14 | Rational representative with one possible exceptional prime | missing | Corollary 6.3.4 |
-| A15 | Choice of exceptional prime | missing | Remark 6.3.5(3) |
-| S41 | Adelic level-action group A(G) | missing | 4.2.8, first display |
-| S42 | Prime-to-p integral level-action group | missing | 4.2.8, second display |
-| S43 | Neutral adelic level-action subgroup | missing | 4.2.8, third display |
-| S44 | Neutral integral level-action subgroup | missing | 4.2.8, fourth display |
-| P16 | Closed-point Chebotarev for curves | planned | Proof of5.3.5; Deligne Weil I §6.13 |
-| C13 | Closed rank-one flag embedding | missing | Proof of5.2.3, p.50; PR08 §6.a.1 |
-| R14 | Lang surjectivity and rational torsors | missing | Proofs of5.2.5 and5.2.7 |
+| ID | Item | Status |
+|---|---|---|
+| L01 | Witt-vector coefficient carrier | library |
+| L02 | Frobenius on the Witt fraction field | library |
+| L03 | Point-valued isocrystal | library |
+| L04 | Morphism of point-valued isocrystals | library |
+| L05 | Rank-one isocrystal classification | library |
+| L06 | Connected reductive group predicate | library |
+| L07 | Algebraic torus predicate | library |
+| L08 | Geometric character lattice | library |
+| L09 | Cocharacter lattice and pairing | library |
+| L10 | Perfect character-cocharacter pairing | library |
+| L11 | Closed dominant chamber of a root pairing | library |
+| L12 | Unique dominant representative in a Weyl orbit | library |
+| L13 | Abelian variety over a field | library |
+| L14 | Geometric isogeny | library |
+| L15 | Divided-power structure | library |
+| L16 | Finite free cocharacter lattice | library |
+| L17 | Galois invariance of the pairing | library |
+| L18 | Coxeter Bruhat order | library |
+| L19 | Burnside fixed-point count | library |
+| P01 | Hodge-type Shimura datum | planned |
+| P02 | Reflex field and generic canonical tower | planned |
+| P03 | Contravariant Dieudonne module | planned |
+| P04 | Height-one Breuil–Kisin module | planned |
+| P05 | Barsotti–Tate classification | planned |
+| P06 | Serre–Tate deformation | planned |
+| P07 | Integral crystalline and etale comparison | planned |
+| P08 | Absolute Hodge tensors | planned |
+| P09 | General algebraic quotient stacks | planned |
+| P10 | Affine Weil restriction | planned |
+| P11 | Finite-field abelian Frobenius weights | planned |
+| P12 | Rational and stable conjugacy | planned |
+| P13 | Semisimple Frobenius recognition | planned |
+| P14 | Finite-dimensional isocrystal slopes | planned |
+| P15 | Rank of the tensor isogeny group | missing |
+| N01 | Iwahori–Weyl group | planned |
+| N02 | Iwahori–Weyl exact sequences | missing |
+| N03 | Algebraic fundamental group and Kottwitz invariant | planned |
+| N04 | Affine and linear Frobenius actions | missing |
+| N05 | Affine-root Coxeter and translation length | planned |
+| N06 | Translation length formula | missing |
+| N07 | Newton point of an extended Weyl element | missing |
+| N08 | Sigma-straight element | missing |
+| N09 | Newton criterion for straightness | missing |
+| N10 | Newton centralizer Levi | missing |
+| N11 | Straight translation has central Levi cocharacter | missing |
+| N12 | Centrality of an absolute cocharacter lift | missing |
+| N13 | Mu-admissible set | missing |
+| N14 | Sigma-conjugacy classes B(G) | planned |
+| N15 | Straight Weyl classes classify B(G) | missing |
+| N16 | Acceptable Newton set B(G,mu) | planned |
+| N17 | Mu-ordinary class | missing |
+| N18 | Unique maximum versus ordinary existence | missing |
+| N19 | Straight translation representative of the ordinary class | missing |
+| N20 | Ordinary existence under a derived isogeny | missing |
+| N21 | Ordinary membership under a derived isogeny | missing |
+| N22 | Full fixer and connected parahoric | planned |
+| N23 | Associated parahorics under adjoint identification | missing |
+| N24 | Parahoric Iwahori decomposition | planned |
+| N25 | Ordinary admissible element lies in a translation cell | missing |
+| N26 | Integral conjugacy of an ordinary admissible element | missing |
+| R01 | Neron lft model of a torus | missing |
+| R02 | Finite-type and identity torus submodels | missing |
+| R03 | Torus closure in a split restriction model | missing |
+| R04 | R-smooth torus | missing |
+| R05 | Closed immersion of Neron lft models | missing |
+| R06 | Closed immersion of finite-type torus models | missing |
+| R07 | Weil restrictions of tame tori are R-smooth | missing |
+| R08 | R-smoothness under torus extensions | missing |
+| R09 | Closed fixer embedding with equal derived groups | missing |
+| R10 | Fixer embedding after field extension | missing |
+| R11 | Primitive root-lattice embedding in rank one | missing |
+| R12 | Integral kernel of a central torus quotient | missing |
+| R13 | Smooth fppf exact parahoric quotient | missing |
+| M01 | Local model triple | missing |
+| M02 | Acceptable reductive group | missing |
+| M03 | Local Hodge embedding | missing |
+| M04 | Integral local model | missing |
+| M05 | Local-model strata and components | missing |
+| M06 | Good integral Hodge embedding | missing |
+| M07 | Existence of a good integral embedding | missing |
+| M08 | Closed local-model map under Weil restriction | missing |
+| M09 | Trace symplectic embedding | missing |
+| M10 | Admissible lattice criterion | missing |
+| D01 | Dieudonne tensors and Hodge lattice | missing |
+| D02 | Tensor orbit deformation ring | missing |
+| D03 | Zink Witt ring and augmentation ideal | missing |
+| D04 | Display of a p-divisible group | missing |
+| D05 | Adapted deformation | missing |
+| D06 | Frobenius-image tensor torsor | missing |
+| D07 | Very good integral embedding | missing |
+| D08 | Independence of defining tensors in very goodness | missing |
+| D09 | Tensor-preserving display section | missing |
+| D10 | Versal adapted deformation criterion | missing |
+| D11 | Integral crystalline tensors and trivialization | missing |
+| D12 | Generic filtration comes from a group cocharacter | missing |
+| D13 | Cocharacter filtration lifts the special filtration | missing |
+| D14 | Adaptedness recognition from comparison tensors | missing |
+| D15 | Ordinary Levi has connected fixer | missing |
+| D16 | Central cocharacter filtration reduces correctly | missing |
+| D17 | Sigma-centralizer and its isogeny action | planned |
+| D18 | Ordinary central-filtration Breuil–Kisin lift | missing |
+| D19 | Ordinary adapted lift exists | missing |
+| D20 | Entire sigma-centralizer action lifts rationally | missing |
+| S01 | Shimura stack at non-neat level | missing |
+| S02 | Normal Hodge integral model | missing |
+| S03 | Global good Hodge embedding | missing |
+| S04 | Lift-independent crystalline tensors | missing |
+| S05 | Completed normalization branch and adapted ring | missing |
+| S06 | Adapted deformation detects the chosen branch | missing |
+| S07 | Tensors distinguish normalization points | missing |
+| S08 | Tensor-preserving rational isogeny group | missing |
+| S09 | Special lift at a very good ordinary point | missing |
+| S10 | Ordinary points are very good | missing |
+| S11 | Integral extension property | missing |
+| S12 | Hodge local-model diagram | missing |
+| S13 | Compact central torus Zc | missing |
+| S14 | Strongly acceptable Shimura triple | missing |
+| S15 | Auxiliary Hodge cover | missing |
+| S16 | Auxiliary derived fundamental group | missing |
+| S17 | Globally very good auxiliary embedding | missing |
+| S18 | Auxiliary center is R-smooth and quasi-tame | missing |
+| S19 | Auxiliary abelianized coinvariants are torsion-free | missing |
+| S20 | Very-special fixer is connected | missing |
+| S21 | Semidirect quotient star product | missing |
+| S22 | Integral model from neutral components | missing |
+| S23 | Strongly acceptable local singularity comparison | missing |
+| S24 | Strongly acceptable DVR extension property | missing |
+| S25 | Adjoint local-model diagram | missing |
+| S26 | Extension of maps of Hodge integral models | missing |
+| S27 | Derived-isomorphic map preserves completions | missing |
+| S28 | Neutral-component integral isomorphism | missing |
+| S29 | Integral Siegel map for an arbitrary Hodge embedding | missing |
+| S30 | Matched-multiplier fiber product datum | missing |
+| S31 | Connected fixer of the fiber product | missing |
+| S32 | Good embedding of the fiber product | missing |
+| S33 | Ordinary locus of the integral Shimura model | missing |
+| S34 | Ordinary locus is open and dense under normality | missing |
+| S35 | Product comparison of universal abelian objects | missing |
+| S36 | Exact isogeny-group sequences for the fiber product | missing |
+| S37 | Ordinary special-point lift for a strongly acceptable triple | missing |
+| S38 | Rational isogeny action on the ordinary special lift | missing |
+| S39 | Ordinary rational Frobenius representative | missing |
+| S40 | Auxiliary reflex-field splitting | missing |
+| C01 | Equal-characteristic local-model Schubert realization | missing |
+| C02 | Integral Schubert dominance | missing |
+| C03 | Stembridge positive-coroot step | missing |
+| C04 | Frobenius-stable rank-one step | missing |
+| C05 | Split SL2 Schubert curve | missing |
+| C06 | Standard SU3 Schubert curve | missing |
+| C07 | Nonstandard ramified SU3 Schubert curve | missing |
+| C08 | Rational lift of a positive-loop orbit | missing |
+| C09 | Same-residue-field curve in the local model | missing |
+| C10 | Rational-point smooth atlas for the relevant stack | missing |
+| C11 | Same-field local curve through a smooth rational point | missing |
+| C12 | Same-residue-field curve on the Shimura stack | missing |
+| E01 | Group-valued etale local system from the Shimura tower | missing |
+| E02 | Scheme of semisimple conjugacy classes | missing |
+| E03 | Frobenius quotient point | missing |
+| E04 | Compatible lisse systems on a finite-field scheme | missing |
+| E05 | Plain eigenvalues in characteristic p | missing |
+| E06 | Constant rank-one twist | missing |
+| E07 | Chin companions for plain sheaves on curves | missing |
+| E08 | All algebraic representations have unit Frobenius eigenvalues | missing |
+| E09 | Algebraicity of the quotient Frobenius point | missing |
+| E10 | Curve recognition from an open subset | missing |
+| E11 | Representation-wise Frobenius independence | missing |
+| E12 | Algebraic characters separate semisimple classes | missing |
+| E13 | A proper subgroup misses a conjugacy class | missing |
+| E14 | Rational descent from degree-one primes | missing |
+| E15 | Rational common Frobenius class on a Shimura stack | missing |
+| A01 | Mumford–Tate group of an abelian variety | missing |
+| A02 | Mumford–Tate group is connected reductive | missing |
+| A03 | Changing complex embedding changes only the inner form | missing |
+| A04 | Common finite field of Galois factorization | missing |
+| A05 | Diagonal-multiplier restriction datum | missing |
+| A06 | A compact element becomes hyperspecial-integral | missing |
+| A07 | Totally real field with the needed local extension | missing |
+| A08 | Central-product strongly acceptable enlargement | missing |
+| A09 | The enlargement is strongly acceptable | missing |
+| A10 | Injective Galois-equivariant conjugacy quotient map | missing |
+| A11 | Frobenius-preserving extension and Shimura realization | missing |
+| A12 | Independence of ell for abelian Frobenius classes | missing |
+| A13 | Real elliptic representative of the common class | missing |
+| A14 | Rational representative with one possible exceptional prime | missing |
+| A15 | Choice of exceptional prime | missing |
+| S41 | Adelic level-action group A(G) | missing |
+| S42 | Prime-to-p integral level-action group | missing |
+| S43 | Neutral adelic level-action subgroup | missing |
+| S44 | Neutral integral level-action subgroup | missing |
+| P16 | Closed-point Chebotarev for curves | planned |
+| C13 | Closed rank-one flag embedding | missing |
+| R14 | Lang surjectivity and rational torsors | missing |
+| L20 | Obtuse roots have a root sum | library |
+| L21 | Distinct simple roots have nonpositive pairing | library |
+| L22 | Etale morphisms survive base change | library |
+| L23 | Etale means smooth relative dimension zero | library |
+| P17 | Finite Dynkin classification and coordinate models | planned |
+| P18 | Integral lattice and dominant weight interface | planned |
+| C14 | Root sums over distinct diagram orbits | missing |
+| C15 | Folding with orthogonal simple-root orbits | missing |
+| C16 | Adjacent folding of even A type | missing |
+| C17 | Reduction of general diagram folding to components | missing |
+| C18 | Invariant integral dominance equals folded dominance | missing |
+| C19 | Dominant orbit-sum step | missing |
+| C20 | Polynomial graph avoiding a closed subset | missing |
+| C21 | Etale coordinates at a rational smooth point | missing |
+| C22 | Proper boundary has a proper image closure in a coordinate chart | missing |
+| C23 | The component through a smooth rational point is geometrically integral | missing |
+| C24 | Pullback of an avoiding polynomial graph gives the required curve | missing |
+| C25 | Integral root-cone dominance | missing |
