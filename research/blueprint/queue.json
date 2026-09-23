@@ -31096,7 +31096,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-HACON-WITASZEK-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1860"
   },
   {
    "id": "REV-ERRATA-PAPER-HACON-WITASZEK-23",
@@ -31204,8 +31205,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2178"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2178",
+   "finishedAt": "2026-09-23T11:32:36Z"
   },
   {
    "id": "REV-ERRATA-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
