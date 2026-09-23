@@ -4938,7 +4938,8 @@
    ],
    "avoidAccountOf": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1293"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-20",
