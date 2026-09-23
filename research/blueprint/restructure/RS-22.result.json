@@ -132,5 +132,12 @@
       "reason": "Import the local Weil group and its Weil topology from the existing Tau Ceti roadmap; a global Galois product action is not this carrier."
     }
   ],
-  "owners": []
+  "owners": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RS-22",
+    "date": "2026-09-23",
+    "notes": "Claude Code, session cc-442dc5, independently reviewed the proposal; the author was Codex, session codex-c83e7a. The reviewer read both member documents and all thirteen layer descriptions, the eight family leads, and the linked stages: FA.4, FA.6, EDC.5, SF.1, VS1, ES7:equal-characteristic, the GeometricSatakeAndFusion stages, and Tau Ceti ClassFieldTheory Layer 9. It also read every other restructuring proposal that touches these layers (RS-05, RS-17, RS-20, RS-21 and RS-25; all only add incoming links). Duplication: the four flagged pairs are distinct constructions on different curves. GS.1/HS0 and GS.2/HS0 put Beilinson–Drinfeld/shtuka geometry on a finite-field curve against Hecke correspondences on the Fargues–Fontaine curve. GS.2/HS2 puts global shtukas against framed local Hecke fibres. GS.4/HS1 puts the classical Drinfeld lemma and a global Galois action against the divisor Drinfeld lemma (VS1) and a local Weil action. So an empty owners list is right. GS.1's classical equal-characteristic geometric Satake is not planned by GeometricSatakeAndFusion, which is the Fargues–Scholze Satake over the Fargues–Fontaine curve (its GS4:classical-Satake-comparison is a trace comparison only). Nothing lost: every layer is kept, and no consumer changes. Links: all thirteen endpoints exist in data/atlas.json. Nine are new edges (FA.6→GS.3, FA.4→GS.5, FA.4→GS.6, EDC.5→GS.3, SF.1→GS.2, HS2→GS.7, HS3→GS.7, ES7:equal-characteristic→GS.7 and Tau Ceti ClassFieldTheory Layer 9→HS1) and four restate existing edges. A whole-atlas reachability check shows that no new edge closes a cycle. No anchors are involved, and no roadmap is extended; the HeckeStacksAndLocalShtukas retitling is applied by scripts/restructure.py for a keep action. The format follows PROTOCOL §15, and check_restructure.py passes. No corrections were needed.",
+    "corrections": []
+  }
 }
