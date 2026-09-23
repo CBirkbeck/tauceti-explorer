@@ -1,10 +1,125 @@
 # PAPER-ANDRE-18-B — direct summands, the unramified reduction and complete-base duality
 
-Status: **partial**. Issue #2188. Agent: **Claude Code — cc-7b31c4**, 23 September 2026. Continues #2210, #2222, #2233 and #2243. No Lean file was requested, created or compiled.
+Status: **complete**. Issue #2188. This continuation: **Claude Code — cc-442dc5**, 23 September 2026. It continues #2210, #2222, #2233, #2243 and #2255. No Lean file was requested, created or compiled.
+
+**Counts.**
+- **Items.** 46 are added to the 142 already extracted, making **188 items**: 23 library, 9 planned and 156 missing.
+- **Routes.** Every missing item has exactly one route. The five routes are unchanged in identity: DirectSummandsAndBigCohenMacaulay 106, PerfectoidSpaces P0 6, PerfectoidSpaces P1–P2 8, the PerfectoidRamification Part II 29, and R03.3 7.
+- **APIs and dependencies.** 31 definitions and constructions have APIs and 93 typed tests. There are 261 acyclic dependency edges.
+- **Findings.** 24 source findings are recorded; none has a review verdict.
+
+All eight coverage gaps G0–G7 are closed, each with its reason in `coverageGaps`. The sections after this one are the earlier checkpoints' reports, kept unchanged except for §5.
+
+## 0A. This continuation: closing G0–G7
+
+### What was read
+
+**The paper.** The published paper was read again in full from a fresh Numdam download; its SHA-256 matches the recorded `34da107d…3d47053`. Its text layer drops the slashes of `≠` and `⊄`, so pages 80, 81 and 84–88 were read as page images. That is how, for example, `C ≠ m_B C` in Definition 4.1.1 and `(π) ∩ A ⊄ p²A` in §4.2 were confirmed.
+
+**Cited passages read** (hashes are in `sourceReadings`):
+- The published companion, *Le lemme d'Abhyankar perfectoïde*: Theorem 0.3.1, Corollary 2.9.3, §3.4.5, §3.6.1–3.6.2, Theorem 4.2.2 and Lemma 4.2.3. Its arXiv v1 was checked for the numbering of §3.6.
+- Scholze 2012: Lemma 6.4 and Corollary 6.7 with its proof.
+- Gabber–Ramero, arXiv v3: 2.2.21–2.2.27, 2.4.35, Remark 3.1.3 and 3.4.2.
+- Heitmann–Ma (arXiv:1703.08281v2): §1.2 and Lemma 3.5. These recall Hochster 2002's partial algebra modifications and his Lemma 5.1. They were used because ScienceDirect returns HTTP 403 for Hochster 2002.
+- André's later *Weak functoriality of Cohen–Macaulay algebras* (arXiv:1801.10010v3): the abstract and Theorem 1.1.1, to place the §4.4 outline.
+
+**Not read.** The following were not accessible, and the items that depend on them say so: Hochster 2002 itself, Bartijn–Strooker 1983, Hochster–Huneke 1995, Berkovich 1990, Matsumura and Bourbaki. For each, the statement is the one André uses, cross-checked against a public recollection where one exists.
+
+**Pinned libraries.** Mathlib `082e2d3` and Tau Ceti `f790474` were searched with `git grep` at the pinned commits, and every cited declaration was opened there.
+
+### What was added
+
+**§3.1, the reductions (G0).**
+- `mod-p-power-injective` makes `A/p^m → B/p^m` injective, because A is integrally closed in `A[1/p]`.
+- `reduction-to-domain` is Hochster's Lemma 3: a prime of B over (0) exists by lying over.
+- `galois-closure-reduction` passes to a Galois extension, whose integral closure is finite by the pinned `IsIntegralClosure.finite`. This is why footnote 4 of §3.2 can say that the Galois case suffices.
+- `discriminant-element` chooses g ∈ A ∖ pA with B[1/(pg)] étale over A[1/(pg)]: generic étaleness in characteristic 0, then removal of the p-part of the discriminant.
+
+**§4.4, the three obstacles (G0).**
+- (1) `coefficient-ring-compatibility` and `perfect-residue-base-change` cover the passage to perfect residue fields.
+- (2) `no-unramified-square` records the example with a checked proof. B′ = Z_p[[T,U]]/(T² − TU + p) ≅ Z_p[[T,V]]/(TV − p) is regular; a parameter T^a·u of F_p[[T]] is not a parameter of B′/p = F_p[[T,U]]/T(T−U), since B′/(p,T^a) surjects onto F_p[[U]]. Given a square of finite injections from unramified A = A′ = Z_p[[S]], finiteness of A′/p → B′/p forces α(S) ∈ pA′, and then the image of S in B′/p vanishes although it equals T^a·u.
+- (3) `discriminant-pullback-obstruction` records when β(g) vanishes.
+
+**§4.4, the positive statement.** `weak-functoriality-regular-target` is the positive weak-functoriality statement. It records the outline and how its notation must be read: T_i and g stand for their images in B′, ramified over B′ by the several-element variant of Remark 2.6.1(4). It also records that André proved weak functoriality for every local homomorphism of complete local domains in 2018 (arXiv:1801.10010).
+
+**Theorem 2.5.2 (G1–G2).** The proof is split into declaration-sized steps.
+1. `coordinate-tower-perfectoid`: formula (10) and companion Exemples 3.2.3.
+2. `scholze-approximation` (planned in P2), then `tube-sharp-approximation`, which gives formula (11). The rational subsets {|T−g| ≤ |ϖ|^i} and {|f_i| ≤ |ϖ|^i} coincide once c ≥ i.
+3. `root-localisation-colimit` gives formulas (12)–(13) through Scholze's Lemma 6.4. Lemma 6.4 needs the numerators to be untilts, which is why step 2 comes first.
+4. `noetherian-stage-model` gives formulas (14)–(17).
+5. The flatness steps:
+   - `flatness-by-fibres` is a general criterion, and its proof is recorded.
+   - `affinoid-rational-flat` is Berkovich 2.2.4, planned in the Tau Ceti AdicSpaces layer 4.
+   - `generic-fibre-flat`, `special-fibre-free` and `noetherian-stage-faithfully-flat`.
+6. `colimit-base-flatness` and `tube-almost-faithfully-flat`.
+
+One point that the paper leaves implicit is now explicit. The approximant g_k with g_k^{p^k} ≡ g modulo ϖ has no T-terms modulo ϖ_j, because p^k-th roots modulo ϖ^{1/p^k} are unique in the perfectoid ring. Without this, the special fibre `(A°_j0/ϖ_j)[T^{1/p^j},U]/(T^{1/p^k} − g_k)` need not be free.
+
+**Corollary 2.6.1.** `flat-colimit-coherent` and `fp-ideal-descent`. Lemma 1.1.2 then applies with K = A°°_∞0, which meets A°_j0 in a nonzero ideal.
+
+**The companion's Abhyankar lemma.** `kummer-perfectoid` is the perfectoidness of Â_∞∞ (see E17). `abhyankar-faithfulness` supplies the faithfulness that Theorem 3.2.1 asserts and the companion's 0.3.1 does not state: the trace is almost surjective, so N ⊗ B° almost zero forces N almost zero.
+
+**Hochster's modifications (G4).**
+- `partial-modification` gives the corrected definition (E16), with an API and tests.
+- `modification-sequence` covers sequences, bad sequences and the modification algebra.
+- `no-bad-sequence-criterion` and `hochster-key-lemma` (Lemma 5.1).
+- `almost-cm-no-bad-sequence` is André's use of the lemma with c = π^{1/p^m}.
+- `completion-balances` is Bartijn–Strooker 1.7.
+- Proposition 4.4.1 now names the two-ring double-sequence version.
+
+**Theorem 0.7.1.** `big-cm-reductions` covers the minimal prime of maximal dimension, completion, the nilradical (which keeps p-torsion-freeness) and the perfect residue field. `cohen-parameter-presentation` presents B over W(k)[[T_1,…,T_n]] with x_1 = p².
+
+**Theorem 0.7.2.** `complete-local-normalization` and `product-flat-noetherian` (Chase). The correction E20 is described below.
+
+**Theorem 4.4.2 (G5).**
+- `purity-perfect-residue`.
+- `cm-completion`, routed to R03.3 with the finite CM substrate.
+- `weak-functoriality-regular-target`.
+- `hh-cm-descent`, the Hochster–Huneke argument written out. C′ is faithfully flat over the regular B′, so B → C′ is pure and ideals are contracted. A relation x_{i+1}b ∈ (x_1,…,x_i)B then gives b ∈ (x_1,…,x_i)C ⊆ (x_1,…,x_i)C′ ∩ B = (x_1,…,x_i)B.
+
+**Library inputs (G7).** Six are library items, each read at the pin:
+- Artin–Rees: `Ideal.exists_pow_inf_eq_pow_smul`.
+- Krull intersection: `Ideal.mem_iInf_smul_pow_eq_bot_iff` and `Ideal.iInf_pow_eq_bot_of_isLocalRing`.
+- Nakayama: `Submodule.eq_bot_of_le_smul_of_le_jacobson_bot`.
+- Faithful flatness by proper ideals: `Module.FaithfullyFlat.iff_flat_and_proper_ideal`.
+- Lying over: `Ideal.exists_ideal_over_prime_of_isIntegral`.
+- Finiteness of integral closure: `IsIntegralClosure.finite`.
+
+These are missing at the pin and are routed: annihilators under flat base change, Tor of filtered colimits, coherent rings, Cohen structure, Nagata finiteness and Chase's theorem.
+
+**G3 and G6 are closed as extraction gaps.**
+- **G3.** André uses Hochster 1983 Theorem 6.1 as a cited theorem, and `unramified-reduction` records it. Splitting Hochster's internal constructions (2.10–2.17, the 1973 socle criterion, coefficient enlargement) is the extraction of Hochster 1983 itself; its prerequisite entry now says so.
+- **G6.** This is a question about the truth of the appendix, not missing extraction. It is recorded as E4, E5 and the new E21, beside the proved complete-base branch.
+
+### New source findings E16–E24 (no review verdicts)
+
+- **E16 (misprint).** The definition of a partial modification multiplies F by `M[T_1,…,T_i]_{≤n−1}`. That is a product of two module-valued polynomials, which is undefined. The multiplier ring is `B[T_1,…,T_i]_{≤n−1}`, as in Hochster's definition recalled by Heitmann–Ma.
+- **E17 (misprint).** §3.1 cites [1, §3.6.2] for the perfectoidness of Â_∞∞. In the published companion, and already in its arXiv v1, that result is §3.6.1. §3.6.2 is a remark on epimorphisms "que nous n'utiliserons pas dans la suite".
+- **E18 (gap, reaches nothing).** Proposition 4.1.2 concludes "M_ℓ ≠ m_B M_ℓ". What is needed, and what the diagram gives, is that the image of 1 is not in m_B M_ℓ. The "entier n arbitrairement grand" in the exponent is a different letter from the degree n of the modifications, and it is m, the exponent in c = π^{1/p^m}, that is chosen large.
+- **E19 (gap, reaches nothing).** The parenthesis "(à travers laquelle B → D se factorise)" is not established. The maps land in π^{−1/p^h}D and depend on the choices, and nothing later uses the factorization.
+- **E20 (error in the proof of Theorem 0.7.2).** The proof takes the product over all factors S_{m,i} of the normalization of S ⊗_R R̂_m and asserts that each T_{m,i} is faithfully flat over R̂_m. That fails for a factor that does not dominate R̂_m.
+  - *Counterexample.* Take R = k[[x,y]] and S = R × R/(x). Then S_{m,2} = k[[y]], its Cohen–Macaulay algebra k[[y]] is killed by x, and so it is not flat over R̂. The product T is therefore not flat.
+  - *Repair.* Use only the factors that receive R̂_m injectively. At least one exists by lying over, and the theorem is unaffected.
+- **E21 (gap, reaches a stated result).** The Applications of A.3 conclude that R → R⁺ splits for R = V[[T_1,…,T_n]] with V an *arbitrary* discrete valuation ring. The only argument goes through the false duality of E5. The correct duality gives only a nonzero map R⁺ → R̂, so the noncomplete case is not established. For a noncomplete V the pure extension V → V̂ has Hom_V(V̂, V) = 0, which shows that maps into R̂ cannot simply be replaced by maps into R. The complete case is proved (`complete-plus-retraction`).
+- **E22 (misprint) and a correction of E12.** Bartijn–Strooker's title is *Modifications monomiales* (Crossref DOI 10.1007/BFb0098932). The earlier E12 had taken the published "Modifications minimales" as the correction of the preprint's "Modifications mnimales"; both are wrong. E12 now covers only "R. Heitman", and its history records the change.
+- **E23 (gap, reaches nothing).** Before (11), f_i is said to be "congru à T − g modulo ϖ". Scholze 6.7(i) gives a congruence modulo ϖ^{1−ε}. The proof uses only the congruence modulo ϖ′, with |ϖ| < |ϖ′|, which holds for small ε.
+- **E24 (misprint).** Mihara's title is *On Tate's acyclicity …* (Crossref).
+
+### Routes
+
+No route was created or renamed.
+- **DirectSummandsAndBigCohenMacaulay** receives the commutative algebra and the big-Cohen–Macaulay material listed above.
+- **PerfectoidRamification** (the companion's Part II, same id and title) receives the Theorem 2.5.2 spine, the perfectoidness of Â_∞∞ and the Abhyankar faithfulness adapter.
+- **PerfectoidSpaces P1–P2** receives the perfectoidness of the coordinate tower.
+- **R03.3** receives the invariance of Cohen–Macaulayness under completion.
+- **Other owners.** Scholze's approximation is planned in PerfectoidSpaces P2, and flatness of affinoid localisation in the Tau Ceti AdicSpaces layer 4.
+- **Imports from the companion.** Items that use the companion's results name its extraction ids under `imports`, so the two papers' design jobs share one owner.
+
+**Why the status is complete.** Every definition, construction and key theorem the paper uses or proves on the way to its main results is now an item with its exact statement and locator. The cited results are items too, or imports of the companion's extraction. Every missing item is routed once. What remains is either review work (the 24 findings, and comparing the statements taken from Heitmann–Ma with Hochster 2002) or belongs to the extraction of another paper (Hochster 1983's internal constructions).
+
+## 0. Checkpoint #2255 (cc-7b31c4): closing most of G0
 
 This checkpoint adds 34 items to the 108-item extraction: **142 items, 17 library, 7 planned, 118 missing**, five ownership routes, 28 definition/construction APIs, 84 typed planning tests and 153 selected dependency edges. All missing items have exactly one route. The whole published paper has now been extracted at declaration size except for the pieces named at the end of G0; G1–G7 remain open at their stated boundaries, so the status stays partial.
-
-## 0. This checkpoint: closing most of G0
 
 G0 asked for the parts of André's own text that earlier checkpoints had read but not turned into items. Those are now extracted, from a fresh reading of the published version.
 
@@ -280,11 +395,11 @@ The five routes remain the existing proposed architecture; this checkpoint added
 
 Keep the valuation and ramified almost ideals distinct, module `!` distinct from algebra `!!`, and product roots `(ϖg)^(1/p^h)` distinct from g-roots alone. Preserve m≥2 for the nonzero pg witness modulo p^m and p² in §4.2. PerfectoidQuotients Q3 does not identify its existential extension with André’s specified normalized one without a proof.
 
-G0 is narrowed to the three pieces listed at the end of §0 above; G1–G2 need the exact perfectoid/Abhyankar and finite-stage flatness suppliers; G4 needs Hochster 2002 partial modifications and Bartijn–Strooker balancing; G5 needs pure completion, compatible coefficient enlargement and the weakly functorial CM argument. G3 now has a source-read reduction but unfinished detailed adapters. G6 is restricted to the noncomplete-base branch. G7 retains the fine baseline and proof closure audit. Keep status partial until these are addressed.
+All the gaps G0–G7 are now closed (§0A and `coverageGaps`), and the status is complete. With the final continuation, the routes hold these missing items: DirectSummandsAndBigCohenMacaulay 106, PerfectoidSpaces P0 6, P1–P2 8, PerfectoidRamification 29 and R03.3 7.
 
 ## 6. Validation
 
-The repository paper checker, intake file validation and whitespace check pass on this revision. The embedded diagnostics were run locally in this checkpoint too: **3,646 retained finite cases and 15,066 square-zero/Laurent-polynomial identities**. They support the earlier explicit algebra computations; they do not establish infinite intersections, cardinalities, Matlis duality or a formalization. Those arguments are supplied mathematically above. The structural check verifies all 142 identities, unique routing of 118 missing items, 28 APIs with 84 allowed-type tests, 153 acyclic dependencies, and absence of unauthorized review verdicts.
+The repository paper checker, intake file validation and whitespace check pass on this revision. The embedded diagnostics were run locally in this checkpoint too: **3,646 retained finite cases and 15,066 square-zero/Laurent-polynomial identities**. They support the earlier explicit algebra computations; they do not establish infinite intersections, cardinalities, Matlis duality or a formalization. Those arguments are supplied mathematically above. The structural check verifies all 188 identities (after the final continuation), unique routing of 156 missing items, 31 APIs with 93 allowed-type tests, 261 acyclic dependencies, the closure of all eight gaps, and absence of unauthorized review verdicts.
 
 No new executable finite test is offered as a proxy for the infinite-module counterexample. No Lean file was compiled. API and test signatures remain planning contracts.
 
@@ -298,17 +413,17 @@ from random import Random
 path = Path('research/blueprint/papers/PAPER-ANDRE-18-B.result.json')
 data = json.loads(path.read_text(encoding='utf-8'))
 items = {x['id']: x for x in data['items']}
-assert len(items) == len(data['items']) == 142
+assert len(items) == len(data['items']) == 188
 assert collections.Counter(x['status'] for x in items.values()) == {
-    'library': 17, 'planned': 7, 'missing': 118
+    'library': 23, 'planned': 9, 'missing': 156
 }
 taken = collections.Counter(i for r in data['routes'] for i in r['items'])
 assert all(taken[i] == 1 for i, x in items.items() if x['status'] == 'missing')
 definitions = [x for x in items.values() if x['kind'] in ('definition', 'construction')]
-assert len(definitions) == 28
+assert len(definitions) == 31
 assert all(x.get('api') and x.get('uses') and len(x.get('tests', [])) >= 3
            for x in definitions)
-assert sum(len(x['tests']) for x in definitions) == 84
+assert sum(len(x['tests']) for x in definitions) == 93
 active, done = set(), set()
 def visit(i):
     assert i in items
@@ -322,10 +437,11 @@ def visit(i):
     done.add(i)
 for i in items:
     visit(i)
-assert sum(len(x.get('dependencies', [])) for x in items.values()) == 153
+assert sum(len(x.get('dependencies', [])) for x in items.values()) == 261
 assert len(data['coverageGaps']) == 8
-assert len(data['sourceIssues']) == 15
-assert data['status'] == 'partial'
+assert all(g['status'] == 'closed' for g in data['coverageGaps'])
+assert len(data['sourceIssues']) == 24
+assert data['status'] == 'complete'
 allowed = {'computation', 'degenerate', 'compatibility', 'characterisation', 'non-example'}
 assert all(t['kind'] in allowed for x in definitions for t in x['tests'])
 assert all('review' not in issue for issue in data['sourceIssues'])
@@ -403,7 +519,7 @@ for p in (2, 3, 5):
     for n in range(1, 21):
         check(smul(({n: 1}, {}), ({}, {-n: 1}), p), eps)
 assert checks == 15066
-print('structure: 142 items, 118 missing routed once, 28 APIs, 84 tests, 153 acyclic edges')
+print('structure: 188 items, 156 missing routed once, 31 APIs, 93 tests, 261 acyclic edges')
 print('finite diagnostics: 3646 retained cases and 15066 square-zero identity checks')
 print('These computations certify neither the general theorems nor Lean elaboration.')
 ```
