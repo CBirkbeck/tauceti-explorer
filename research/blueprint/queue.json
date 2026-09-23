@@ -4919,8 +4919,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BHATT-SCHOLZE-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1300"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1300",
+   "finishedAt": "2026-09-23T07:29:35Z"
   },
   {
    "id": "REV-PAPER-BHATT-SCHOLZE-17",
@@ -5472,8 +5473,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WOOD-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1330"
+   "state": "external",
+   "note": "claimed on GitHub issue #1330"
   },
   {
    "id": "REV-PAPER-WOOD-19",
