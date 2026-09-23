@@ -5050,7 +5050,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-SCHOLZE-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-SCHOLZE-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1301"
   },
   {
    "id": "PAPER-LIU-ZHU-17",
@@ -5274,7 +5275,8 @@
    ],
    "avoidAccountOf": "PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1313"
   },
   {
    "id": "PAPER-KISIN-MADAPUSIPERA-SHIN-22",
@@ -6661,8 +6663,9 @@
    ],
    "avoidAccountOf": "PAPER-CESNAVICIUS-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-CESNAVICIUS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1390"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1390",
+   "finishedAt": "2026-09-23T19:19:11Z"
   },
   {
    "id": "PAPER-HANSEN-KALETHA-WEINSTEIN-22",
