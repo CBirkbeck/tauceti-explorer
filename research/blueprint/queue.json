@@ -1561,8 +1561,9 @@
    ],
    "avoidAccountOf": "PAPER-FINTZEN-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-FINTZEN-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1106"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1106",
+   "finishedAt": "2026-09-23T17:22:14Z"
   },
   {
    "id": "PAPER-ZHANG-21",
@@ -4182,8 +4183,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -4537,7 +4538,8 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-SHANKAR-WANG-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-SHANKAR-WANG-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1275"
   },
   {
    "id": "PAPER-MAULIK-SHANKAR-TANG-22",
@@ -7068,7 +7070,8 @@
    ],
    "avoidAccountOf": "PAPER-CALEGARI-DIMITROV-TANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-CALEGARI-DIMITROV-TANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1415"
   },
   {
    "id": "PAPER-LI-ZHANG-22-B",
@@ -7142,8 +7145,9 @@
    ],
    "avoidAccountOf": "PAPER-CLAUSEN-MATHEW-MORROW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-CLAUSEN-MATHEW-MORROW-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1419"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1419",
+   "finishedAt": "2026-09-23T17:22:17Z"
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
@@ -7367,7 +7371,8 @@
    ],
    "avoidAccountOf": "PAPER-ABE-18",
    "prompt": "research/blueprint/prompts/REV-PAPER-ABE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1431"
   },
   {
    "id": "PAPER-LAFFORGUE-18",
@@ -8506,7 +8511,8 @@
    ],
    "avoidAccountOf": "PAPER-ANDRE-18-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-ANDRE-18-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2189"
   },
   {
    "id": "PAPER-NELSON-VENKATESH-21",
