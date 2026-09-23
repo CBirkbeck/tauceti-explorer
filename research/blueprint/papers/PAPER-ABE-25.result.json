@@ -16,7 +16,8 @@
       "Introduction and conventions, pp.605–607",
       "§1.1–1.6, pp.607–615, including all of the proof of Theorem 1.5",
       "§2.1–2.6, pp.615–620",
-      "§3.1–3.3 and acknowledgements/references, pp.620–622"
+      "§3.1–3.3 and acknowledgements/references, pp.620–622",
+      "Codex codex-c83e7a continuation: every published page 605–622, all proofs and references reread. Images of pp.613,616,621 inspected. Selected arXiv v2 p.14 comparison; not a full version diff."
     ],
     "comparison": {
       "url": "https://arxiv.org/pdf/2405.19601v2",
@@ -25,7 +26,7 @@
     },
     "pageInspection": "Published pp.613 and 621 inspected as page images; source issues are not inferred solely from OCR."
   },
-  "summary": "Abe proves both positivity and Qℓ-realizability of the higher-dimensional local Artin character for regular local rings containing a finite field. The proof combines an equivariant local-Fourier total-dimension identity with a relative Lefschetz–Verdier trace and ULA extension after alteration. Ordinary nearby cycles and cohomological correspondences are existing atlas imports. General-coherent-base extension, categorical relative traces, projective Swan modules and the geometric Artin theorem require continuations. This is a substantive partial extraction: the whole main paper is read, but the external Kato–Saito–Saito reduction and recursive general-base proof leaves remain open.",
+  "summary": "Abe proves both positivity and Qℓ-realizability of the higher-dimensional local Artin character for regular local rings containing a finite field. The proof combines an equivariant local-Fourier total-dimension identity with a relative Lefschetz–Verdier trace and ULA extension after alteration. Ordinary nearby cycles and cohomological correspondences are existing atlas imports. General-coherent-base extension, categorical relative traces, projective Swan modules and the geometric Artin theorem require continuations. This is a substantive partial extraction: the whole main paper is read, but the external Kato–Saito–Saito reduction and recursive general-base proof leaves remain open. Continuation codex-c83e7a proves integral Swan exactness/finite generation conditional on the projective tower, proves the fixed-length henselian repair, and records the dimension-dependent Milnor sign with an explicit nodal surface test. The 1988 reduction and geometric adic-perfectness suppliers remain open.",
   "conventions": {
     "C1": "A is a regular local ring with maximal ideal m and finite group G acting by local automorphisms. A^G is Noetherian, A is finite over A^G, A/Iσ has finite length for every σ≠1, Iσ=(a−σ(a):a∈A), and A^G/(m∩A^G)→A/m is an isomorphism. The main theorem additionally assumes A contains a finite field, hence characteristic p>0; ℓ is invertible in A.",
     "C2": "In the geometric theorem k is algebraically closed of characteristic p>0, ℓ≠p, S is the strict henselization of P¹_t at 0, S′ that of P¹_t′ at ∞′, and η′ its generic point. f:X→S is flat of finite type, X regular, G finite acting by S-automorphisms, the union of the fixed loci for nonidentity elements has underlying set {x}, and f is smooth outside the closed point x. Λ=Qℓ(ζp), with a fixed nontrivial ψ:Fp→Λ×. Nearby-cycle complexes and traces are unshifted cohomological objects; traces mean alternating traces.",
@@ -67,6 +68,17 @@
       "date": "2026-09-22",
       "instructions": "WORKERS, PROTOCOL, UPSTREAM_GUIDE and expansion PROTOCOL byte-identical to the read baseline.",
       "owners": "Relevant main owner documents and library-coverage.json unchanged. Current continuation briefs also read for ArithmeticGaloisRepresentationsGeometricMonodromy, LefschetzFiniteFieldBertiniPartII and UniversalHypersurfaceMonodromy; their global invariant-reduction/Bertini/hypersurface targets do not own projective Swan modules or general-base ULA/Fourier traces. No target deliverable exists on the checked main snapshot."
+    },
+    "continuationSession": "codex-c83e7a",
+    "continuationCommit": "b797e4165c10709b25be2519a424a095fba78c70",
+    "continuationAudit": {
+      "inputCount": 493,
+      "reads": [
+        "Full current ArithmeticGaloisRepresentations roadmap; accepted R01.3 and OrdinaryPadicFamilies:L0a coverage entries; selected LocalFieldsRamification scope, not a full reread.",
+        "Pinned CofilteredSystem.lean lines66–113; Projective.lean lines65–114; Flat/Basic.lean lines280–355; AdicCompletion/Exactness.lean statement/context at lines89–114,181–185.",
+        "Current paper routes screened: generic cohomological limits remain EnhancedDerivedSheaves:E2, generic derived completion remains DerivedDeRhamCohomology:DD.1."
+      ],
+      "decision": "Reuse all six existing routes. Add only the Swan-specific adapters to the existing arithmetic continuation. The generic finite-set inverse-limit existence and module projectivity are pinned library imports, not replanned infrastructure."
     }
   },
   "items": [
@@ -1448,10 +1460,14 @@
       "owner": "AR",
       "dependsOn": [
         "PAPER-ABE-25/A20",
-        "PAPER-ABE-25/L01"
+        "PAPER-ABE-25/L01",
+        "PAPER-ABE-25/L10"
       ],
-      "gaps": [
-        "G-HENSEL"
+      "gaps": [],
+      "proofSteps": [
+        "The map from the finite-stage local ring B to the chosen local ring B′ after strict henselization of the base is flat and local; both have residue field k. Fixed ideals commute with this base change because the action is over the base.",
+        "Take a composition series of the finite-length B-module B/Iσ. Tensor it with B′. Flatness preserves exactness and each simple factor becomes B′/m_BB′=k, a simple B′-module. Hence the full fixed length is unchanged.",
+        "This proves the needed numerical equality without identifying the Artinian fixed scheme with its closed fibre. The existence/spreading of B and the strict-local comparison remain in A20 and G-HENSEL."
       ]
     },
     {
@@ -1848,10 +1864,15 @@
       "owner": "AR",
       "dependsOn": [
         "PAPER-ABE-25/B03",
-        "PAPER-ABE-25/B06"
+        "PAPER-ABE-25/B06",
+        "PAPER-ABE-25/L09"
       ],
       "gaps": [
         "G-SWAN"
+      ],
+      "proofSteps": [
+        "At a common finite quotient Δ, split the finitely generated projective right Swan module off a finite free Zℓ[Δ]-module.",
+        "Its tensor functor is a natural idempotent summand of a finite direct sum of the input. The idempotent preserves injections and kernels; for a surjection, lift then apply the idempotent. This proves exactness without assuming the group ring commutative."
       ]
     },
     {
@@ -1864,11 +1885,11 @@
       "owner": "AR",
       "dependsOn": [
         "PAPER-ABE-25/B06",
-        "PAPER-ABE-25/B07"
+        "PAPER-ABE-25/B07",
+        "PAPER-ABE-25/B18"
       ],
       "gaps": [
-        "G-SWAN",
-        "G-ADIC"
+        "G-SWAN"
       ],
       "planningAPI": [
         {
@@ -1899,22 +1920,32 @@
           "where": "PAPER-ABE-25/B10",
           "how": "Tower independence after rationalization"
         }
+      ],
+      "proofSteps": [
+        "Construct the actual reduction transitions as in B17 and use B18 for finite generation, completeness and reduction comparison. Existence of the projective Swan modules and compatible quotient isomorphisms remains G-SWAN."
       ]
     },
     {
       "id": "PAPER-ABE-25/B09",
       "kind": "theorem",
       "name": "Exactness of the integral Swan construction",
-      "statement": "For a short exact sequence in B08's fixed-tower category, swΛ is exact. Prove the finite-level exactness, control reduction Tor terms and the required Mittag–Leffler/surjectivity condition before concluding exactness of inverse limits.",
+      "statement": "For a short exact sequence of finite Λ-modules with continuous Γ×G-actions trivialized by one chosen compatible Swan tower, the integral functor swΛ of B08 is exact. The proof uses finite-fibre inverse limits and the boundedly vanishing reduction kernels B19. Projective Swan-module existence remains a separate input.",
       "locator": "§2.2 last paragraph",
       "status": "missing",
       "owner": "AR",
       "dependsOn": [
-        "PAPER-ABE-25/B08"
+        "PAPER-ABE-25/B08",
+        "PAPER-ABE-25/B07",
+        "PAPER-ABE-25/B19",
+        "PAPER-ABE-25/L08"
       ],
       "gaps": [
-        "G-SWAN",
-        "G-ADIC"
+        "G-SWAN"
+      ],
+      "proofSteps": [
+        "Write A_n=S_n(M′), B_n=S_n(M), C_n=S_n(M″), D_n=ker(B_n→C_n), K_n=ker(A_n→B_n). These are finite modules, with 0→K_n→A_n→D_n→0 and 0→D_n→B_n→C_n→0 exact.",
+        "Finite nonempty fibres plus L08 make inverse limits right exact in each of these two sequences. Left exactness is pointwise.",
+        "B19 implies lim K_n=0: the nth coordinate comes from the zero transition from n+c. Thus lim A_n≅lim D_n and the desired Swan sequence is exact. This accounts for reduction Tor kernels, rather than assuming they vanish termwise."
       ]
     },
     {
@@ -1929,7 +1960,8 @@
         "PAPER-ABE-25/B02",
         "PAPER-ABE-25/B08",
         "PAPER-ABE-25/L04",
-        "PAPER-ABE-25/A23"
+        "PAPER-ABE-25/A23",
+        "PAPER-ABE-25/B20"
       ],
       "gaps": [
         "G-SWAN"
@@ -1945,7 +1977,8 @@
       "owner": "AR",
       "dependsOn": [
         "PAPER-ABE-25/B09",
-        "PAPER-ABE-25/P05"
+        "PAPER-ABE-25/P05",
+        "PAPER-ABE-25/B20"
       ],
       "gaps": [
         "G-SWAN"
@@ -2601,12 +2634,12 @@
       "id": "PAPER-ABE-25/R04",
       "kind": "theorem",
       "name": "Identity trace and curve Milnor number",
-      "statement": "In the dimension-one case of C2, the identity trace of the Fourier nearby stalk is −μf, where μf is the local different/discriminant exponent of the finite smooth-curve germ. For the higher-dimensional characteristic-cycle interpretation in §3.3, transcribe Saito's Milnor formula and Fulton's sign conventions before generalizing this numerical statement.",
+      "statement": "In dimension one, the identity Fourier trace is −μ_f, with μ_f the different exponent in the smooth-curve setting. In dimension n the corrected formula is (−1)^n μ_f, as R05; the former unresolved sign convention is now explicit. The transitive characteristic-cycle/Fulton suppliers remain G-REMARKS.",
       "locator": "§3.3; Saito 2017 Thm5.9 and Fulton Ex.14.1.5(d)",
       "status": "missing",
       "owner": "AR",
       "dependsOn": [
-        "PAPER-ABE-25/F19"
+        "PAPER-ABE-25/R05"
       ],
       "gaps": [
         "G-REMARKS"
@@ -2740,6 +2773,197 @@
         {
           "where": "PAPER-ABE-25/B01",
           "how": "Perfect-complex and representation Grothendieck groups"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L08",
+      "kind": "theorem",
+      "name": "Compatible choices in finite inverse systems",
+      "statement": "For a directed preorder J and a functor F:Jᵒᵖ→Type with every F(j) finite and nonempty, the set of compatible sections is nonempty. No surjectivity assumption on transition maps is needed.",
+      "locator": "Pinned library statement read",
+      "status": "library",
+      "dependsOn": [],
+      "proofSteps": [
+        "Import the existing finite inverse-system theorem; apply it to finite nonempty fibres when lifting compatible module elements."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "library": [
+        "mathlib:nonempty_sections_of_finite_inverse_system"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L09",
+      "kind": "theorem",
+      "name": "Projective modules lift maps through surjections",
+      "statement": "Over any semiring R, a projective left R-module P has the lifting property for a surjective linear map M→N and any linear map P→N. Use the opposite ring for right modules.",
+      "locator": "Pinned library statement read",
+      "status": "library",
+      "dependsOn": [],
+      "proofSteps": [
+        "Import Module.projective_lifting_property. Finite generation plus a finite free surjection gives a finite free direct-summand presentation."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "library": [
+        "mathlib:Module.projective_lifting_property",
+        "mathlib:LinearMap.exists_rightInverse_of_surjective"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/L10",
+      "kind": "theorem",
+      "name": "Flat tensor preserves exact sequences over a commutative ring",
+      "statement": "Let R be commutative and M flat over R. Tensoring an exact pair N→N′→N″ with M on either side preserves exactness. This library import is used for the commutative henselian comparison, not directly over a noncommutative group ring.",
+      "locator": "Pinned library statement read",
+      "status": "library",
+      "dependsOn": [],
+      "proofSteps": [
+        "Import Module.Flat.lTensor_exact and rTensor_exact, retaining the commutative-ring hypothesis."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "library": [
+        "mathlib:Module.Flat.lTensor_exact",
+        "mathlib:Module.Flat.rTensor_exact"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/B17",
+      "kind": "theorem",
+      "name": "Finite Swan modules commute with coefficient reduction",
+      "statement": "Fix the compatible Swan tower of B04 and a finite Λ-module M. For S_n(M)=sw(M/ℓ^nM), there are compatible isomorphisms S_(n+1)(M)/ℓ^n S_(n+1)(M)≅S_n(M). Every S_n is a finite set, and the transition maps are surjective.",
+      "locator": "§2.2 continuation proof in report",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/B04",
+        "PAPER-ABE-25/B06",
+        "PAPER-ABE-25/B07"
+      ],
+      "proofSteps": [
+        "Choose one quotient Δ_i through which the two relevant reductions factor. Tensor associativity identifies reduction of P_i⊗M/ℓ^(n+1) with P_i⊗M/ℓ^n.",
+        "The chosen tower transition isomorphisms make these comparisons commute when the quotient grows. Finite generation of P_i over Zℓ[Δ_i] implies finiteness of the output on finite input."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR"
+    },
+    {
+      "id": "PAPER-ABE-25/B18",
+      "kind": "theorem",
+      "name": "Effectivity and finite generation of the Swan inverse system",
+      "statement": "For the S_n(M) of B17, S(M)=lim S_n(M) is finite over Λ, is ℓ-adically complete, and S(M)/ℓ^n S(M)≅S_n(M), compatibly with the commuting finite G-action.",
+      "locator": "§2.2 continuation proof in report",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/B17",
+        "PAPER-ABE-25/L08"
+      ],
+      "proofSteps": [
+        "Choose generators of S_1 and lift them compatibly through the surjective transitions. They generate S_n over Λ/ℓ^n by Nakayama.",
+        "The finite kernels K_n of (Λ/ℓ^n)^r→S_n have surjective transition maps: correct any lift using ker(S_(n+1)→S_n)=ℓ^nS_(n+1).",
+        "Apply the finite-fibre section theorem to obtain Λ^r→lim S_n surjective; Λ is complete because it is finite projective over Zℓ. Taking kernels and their surjective reductions gives S/ℓ^nS≅S_n.",
+        "This is the Swan specialization of Stacks087W, whose statement and proof were read. Generic adic-completion machinery is imported, not replanned here."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR"
+    },
+    {
+      "id": "PAPER-ABE-25/B19",
+      "kind": "theorem",
+      "name": "Reduction kernels in a Swan exact sequence become zero after a bounded transition",
+      "statement": "For 0→M′→M→M″→0 of finite Λ-modules in the fixed-tower category, set E_n=ker(M′/ℓ^nM′→M/ℓ^nM). If ℓ^c kills the Zℓ-torsion of M″, every map E_(n+c)→E_n is zero. The corresponding finite Swan-kernel transition is zero as well.",
+      "locator": "§2.2 continuation proof in report",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/B07"
+      ],
+      "proofSteps": [
+        "Identify E_n with (M′∩ℓ^nM)/ℓ^nM′. If x=ℓ^(n+c)y lies in M′, the class of y in M″ is torsion, so ℓ^c y lies in M′ and x lies in ℓ^nM′.",
+        "Compute each comparison at a common sufficiently large quotient of the fixed tower. Exactness identifies the Swan kernel with sw(E_n), and functoriality sends the zero transition to zero.",
+        "The case M′=ℓ^cZℓ⊂M=Zℓ has nonzero E_n for c>0; termwise injectivity would be false."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR"
+    },
+    {
+      "id": "PAPER-ABE-25/B20",
+      "kind": "theorem",
+      "name": "The integral Swan module of a lattice is a lattice",
+      "statement": "Let O be the integer ring of a finite extension of Qℓ and let N be a finite free O-module in the fixed-tower category. Then sw_O(N) is finite free over O. A finite ℓ-power-torsion quotient stays ℓ-power torsion under sw.",
+      "locator": "§2.2 continuation proof in report",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/B18",
+        "PAPER-ABE-25/B09"
+      ],
+      "proofSteps": [
+        "Exactness applied to multiplication by ℓ on N makes multiplication by ℓ injective on sw(N).",
+        "The output is finite by B18; over the DVR O, ℓ-torsion-freeness implies torsion-freeness and hence freeness. Scalar annihilation is preserved by the linear finite-level functor and its limit."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR"
+    },
+    {
+      "id": "PAPER-ABE-25/R05",
+      "kind": "theorem",
+      "name": "Dimension-correct identity trace of the Fourier nearby stalk",
+      "statement": "For a smooth n-dimensional X over a perfect field of characteristic p, constant coefficients of characteristic different from p, and f to a smooth curve with an isolated critical point x, write μ_f=(zero-section,df)_x. Under the Fourier comparison F19, the identity trace on the Fourier nearby stalk equals (−1)^n μ_f. In particular it is −μ_f for curves and +μ_f for surfaces.",
+      "locator": "§3.3 continuation",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/F19",
+        "PAPER-ABE-25/L06"
+      ],
+      "proofSteps": [
+        "Saito v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df).",
+        "Saito v4 p.46 and Lemma4.11(1) give CCΛ=(−1)^n[zero-section]. Combine with the minus sign in Abe Proposition2.5.",
+        "Use finite-coefficient comparisons when passing to Qℓ. This is a concluding-remark adapter; it is not inserted into the main Artin theorem proof."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR",
+      "gaps": [
+        "G-REMARKS"
+      ]
+    },
+    {
+      "id": "PAPER-ABE-25/R06",
+      "kind": "construction",
+      "name": "A nodal surface tests the Milnor sign",
+      "statement": "Let k be algebraically closed of odd characteristic p, let X be the base change of A²_(u,v)→A¹_t, t=uv, to the strict henselization at t=0, and let C2 act by (u,v)↦(−u,−v). Then X is regular and flat over the trait, f is smooth off the origin, and the nonidentity fixed scheme is the reduced origin. The Milnor intersection length is1, so the identity Fourier trace is +1, whereas the dimension-free −μ_f formula gives −1.",
+      "locator": "§3.3 continuation",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-ABE-25/R05",
+        "PAPER-ABE-25/G03"
+      ],
+      "proofSteps": [
+        "The critical ideal is (v,u), of colength1. The fixed ideal is (2u,2v)=(u,v). The polynomial map is flat (torsion-free over the PID k[t]); regularity survives the étale localization.",
+        "Apply R05 with n=2. This countercheck changes only the concluding identity-trace sentence; it is consistent with the theorem restricted to nonidentity σ."
+      ],
+      "proofStatus": "Mathematical argument; no Lean implementation or elaboration claimed.",
+      "owner": "AR",
+      "planningAPI": [
+        {
+          "name": "R06.api1",
+          "statement": "Construct the flat nodal family and C2-action in odd characteristic."
+        },
+        {
+          "name": "R06.api2",
+          "statement": "Compute the fixed ideal and critical ideal separately."
+        },
+        {
+          "name": "R06.api3",
+          "statement": "Export μ=1 and the dimension-correct Fourier Euler sign."
+        }
+      ],
+      "unitTests": [
+        "For p=3 the fixed scheme has length1.",
+        "The involution preserves uv and has no fixed point away from the origin.",
+        "For n=2 the corrected trace is +1; for n=1 the existing curve sign is unchanged."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
+      "uses": [
+        {
+          "where": "PAPER-ABE-25/R05",
+          "how": "Counterchecks the necessity of the dimension sign and E6."
         }
       ]
     }
@@ -2889,10 +3113,16 @@
         "PAPER-ABE-25/F04",
         "PAPER-ABE-25/F20",
         "PAPER-ABE-25/R01",
-        "PAPER-ABE-25/R04"
+        "PAPER-ABE-25/R04",
+        "PAPER-ABE-25/B17",
+        "PAPER-ABE-25/B18",
+        "PAPER-ABE-25/B19",
+        "PAPER-ABE-25/B20",
+        "PAPER-ABE-25/R05",
+        "PAPER-ABE-25/R06"
       ],
       "reason": "R01.3 supplies numerical arithmetic conductors; it does not assert Serre's representation theorem for arbitrary regular local rings or provide chosen projective Swan modules over henselian geometric traits with separably closed residue field.",
-      "brief": "Build on Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations:R01.1, R01.3) for continuous actions, stable lattices and numerical conductors. Import general ramification/valuation infrastructure from Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification) and finite-group character theory from tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory, reusing the pinned split representation ring and character injectivity. The early prefix extends the conductor input to the henselian geometric trait K=Frac(k{t}), k separably closed of characteristic p, and constructs Serre's projective integral Swan modules, chosen quotient-compatible towers, exact torsion/integral Swan functors and lattice/tower-independent rational total-dimension classes. These are early suppliers to local Fourier theory, not consumers of the main theorem. The late prefix defines admissible regular-local actions and aG(σ)=−length(A/Iσ) for σ≠1 with aG(1) fixed by zero augmentation. Import relative trace and local Fourier results from the two geometric continuations; prove Theorem 1.6 for σ≠1 under its full regularity, flatness, isolated-fixed-point and smooth-off-x hypotheses. Read and decompose Kato–Saito–Saito Conjecture 5.1/Lemma 5.3 before deducing that when A contains a finite field, aG is an actual character and is realizable over every Qℓ with ℓ invertible in A. Do not deduce positivity or Qℓ descent from a virtual trace identity alone. Add the Katz/Laumon models and corrected curve identity d(f)=d(q)+e(q)d(g); test tame C2 with x² followed by u³ and the characteristic-two nonreduced fixed-locus example. Keep the W(k)[1/p]-rationality assertion as a conjecture, not a target claimed proved."
+      "brief": "Build on Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations:R01.1, R01.3) for continuous actions, stable lattices and numerical conductors. Import general ramification/valuation infrastructure from Local fields and ramification (tauceti:TauCetiRoadmap/LocalFieldsRamification) and finite-group character theory from tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory, reusing the pinned split representation ring and character injectivity. The early prefix extends the conductor input to the henselian geometric trait K=Frac(k{t}), k separably closed of characteristic p, and constructs Serre's projective integral Swan modules, chosen quotient-compatible towers, exact torsion/integral Swan functors and lattice/tower-independent rational total-dimension classes. These are early suppliers to local Fourier theory, not consumers of the main theorem. The late prefix defines admissible regular-local actions and aG(σ)=−length(A/Iσ) for σ≠1 with aG(1) fixed by zero augmentation. Import relative trace and local Fourier results from the two geometric continuations; prove Theorem 1.6 for σ≠1 under its full regularity, flatness, isolated-fixed-point and smooth-off-x hypotheses. Read and decompose Kato–Saito–Saito Conjecture 5.1/Lemma 5.3 before deducing that when A contains a finite field, aG is an actual character and is realizable over every Qℓ with ℓ invertible in A. Do not deduce positivity or Qℓ descent from a virtual trace identity alone. Add the Katz/Laumon models and corrected curve identity d(f)=d(q)+e(q)d(g); test tame C2 with x² followed by u³ and the characteristic-two nonreduced fixed-locus example. Keep the W(k)[1/p]-rationality assertion as a conjecture, not a target claimed proved. Continuation proof: retain coefficient-reduction compatibility, finite generation of the Swan inverse system and pro-zero reduction kernels. Prove integral exactness by applying the existing finite-set inverse-limit theorem to finite fibres; never assume quotient reduction is left exact. The concluding Milnor interpretation uses (−1)^dimX μ, tested on uv on a surface. Import characteristic-cycle theory from the existing pending microlocal continuation, not from the main theorem."
     }
   ],
   "prerequisites": [
@@ -3041,6 +3271,22 @@
         "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
         "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete."
       ]
+    },
+    {
+      "id": "PAPER-ABE-25/E6",
+      "kind": "error",
+      "locator": "Published §3.3 p.621, first paragraph; same formula in arXiv2405.19601v2 p.14",
+      "printed": "−μ_f",
+      "correction": "For dim X=n the identity Fourier nearby-cycle trace is (−1)^n μ_f, or equivalently (CCΛ,df). The printed negative sign is the curve specialization.",
+      "reason": "Saito arXiv1510.03018v4 Theorem4.9 equation(4.15) gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma4.11(1) gives CCΛ=(−1)^n[zero-section]. Abe Proposition2.5 identifies the Fourier class with −dt(RΦ). In odd characteristic f(u,v)=uv on the regular surface, with involution (u,v)↦(−u,−v), satisfies the theorem geometry and has critical colength1. The identity trace is therefore +1, not −1. The paper’s nonidentity theorem and dimension-one conclusion are unaffected.",
+      "affects": "a stated result",
+      "known": "new (extracting-worker finding awaiting independent review)",
+      "searched": [
+        "Published p.621 inspected as an image; arXiv v2 p.14 compared and history checked on2026-09-23; v2 remains latest.",
+        "Publisher article page and bounded exact DOI/title correction searches found no matching Abe correction.",
+        "Abe homepage https://member.ipmu.jp/tomoyuki.abe/ returned only an empty HTML body; there is no searchable publication/correction list. Novelty remains qualified.",
+        "Saito author publication page links a 2019 correction (both pages read; repairs Proposition7.4 and its proof on pp.670–671) and CCcor2.pdf (read, Chern-class corrections on pp.676–677). No claim is made to have collated all Saito versions."
+      ]
     }
   ],
   "gaps": [
@@ -3051,7 +3297,7 @@
         "PAPER-ABE-25/G07",
         "PAPER-ABE-25/F20"
       ],
-      "detail": "Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions."
+      "detail": "Obtain and read Kato–Saito–Saito, Artin characters for algebraic surfaces, Conjecture 5.1 and Lemma 5.3 with the complete proof. DOI/JSTOR access yielded a non-PDF HTML response; no source text was read. Decompose reduction of arbitrary regular local rings to the geometric setup, the regular-character ambiguity, positivity of the corrected virtual class, and Qℓ rather than Qℓ(ζp) descent. This is the decisive open leaf for both main assertions. Continuation: both Saito author bibliographies were searched but supplied no copy; the DOI browser request failed. The 1988 source remains unread."
     },
     {
       "id": "G-LZ",
@@ -3091,10 +3337,9 @@
         "PAPER-ABE-25/A16",
         "PAPER-ABE-25/A17",
         "PAPER-ABE-25/A20",
-        "PAPER-ABE-25/A21",
         "PAPER-ABE-25/A24"
       ],
-      "detail": "Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step."
+      "detail": "Read EGA IV 8.3.6,8.8.2,18.8.11 and the integral-normalization/strict-local Milnor-fiber arguments. Check descent of regularity/smoothness, lift of specializations, preservation of finite lengths under strict henselization, and the finite connected curve cover derived from the alteration. Verify the repaired E3 step. Continuation: A21 now proves the fixed-length repair by flat base change of a composition series; the finite-stage spreading and strict-local Milnor-fibre suppliers remain open."
     },
     {
       "id": "G-GABBER",
@@ -3109,11 +3354,9 @@
         "PAPER-ABE-25/A22",
         "PAPER-ABE-25/A23",
         "PAPER-ABE-25/A29",
-        "PAPER-ABE-25/B08",
-        "PAPER-ABE-25/B09",
         "PAPER-ABE-25/B16"
       ],
-      "detail": "Prove the finite-level uniform Tor/cohomological bounds, derived reduction comparisons and lim/lim¹ control for the nearby-cycle and Swan towers. Check exactness of the integral Swan functor without dropping Tor terms; completeness plus perfectness is needed for trace detection. Existing adic/enhanced categorical roadmaps are suppliers, not a license to assume these application-specific comparisons."
+      "detail": "The integral Swan finite-generation/reduction/exactness step is now proved in B17–B20, conditional on the G-SWAN projective tower. Still prove uniform Tor/cohomological bounds and derived reduction for nearby cycles, and the adic perfect-complex trace comparison A22/A23/A29/B16. Do not infer those geometric statements from the module argument."
     },
     {
       "id": "G-TRACE",
@@ -3172,9 +3415,11 @@
         "PAPER-ABE-25/R01",
         "PAPER-ABE-25/R02",
         "PAPER-ABE-25/R03",
-        "PAPER-ABE-25/R04"
+        "PAPER-ABE-25/R04",
+        "PAPER-ABE-25/R05",
+        "PAPER-ABE-25/R06"
       ],
-      "detail": "Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes."
+      "detail": "Read Katz1986 §1.6 and its extension/concentration inputs for §3.1. Verify E1/E2 independently. Read Saito2017 Thm5.9 and Fulton Ex.14.1.5(d) with dimension/sign conventions for §3.3; this characteristic-cycle input is a concluding interpretation, not a prerequisite of the main proof. Source the classical Fontaine result and Serre's Qp counterexamples if extracting those historical assertions as separate theorem nodes. Continuation: Saito v4 pp.45–46 establishes the sign convention, and E6 records the missing factor (−1)^dimX. The full characteristic-cycle theorem proof and Fulton intersection comparison remain supplying obligations; do not reclassify them as closed by the sign calculation."
     }
   ],
   "notTheorems": [
@@ -3201,6 +3446,50 @@
       "paperCheckerTests": "9 tests passed",
       "supplemental": "98 unique items; 83 missing each routed once; 184 acyclic dependency edges; 36 definitions/constructions with 108 API statements and 108 tests; all 12 gap references resolve.",
       "lean": "Not run; no Lean deliverable requested."
+    },
+    "continuation": {
+      "agent": "Codex",
+      "session": "codex-c83e7a",
+      "base": "b797e4165c10709b25be2519a424a095fba78c70",
+      "diagnostics": {
+        "status": "pass",
+        "exactCases": 653,
+        "scope": "Finite cyclic reduction-kernel transitions and odd-characteristic uv involution; no Swan existence or geometric cohomology theorem tested."
+      },
+      "lean": "No Lean file authorized or compiled. Planning tests remain unexecuted."
     }
-  }
+  },
+  "continuationSources": [
+    {
+      "url": "https://stacks.math.columbia.edu/tag/087W",
+      "read": "Full statement and proof of compatible finite-adic-system effectivity."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/09B7",
+      "read": "Lemmas10.98.1–2 and proofs; adjacent graded statements screened, not imported."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/02N1",
+      "read": "Full inverse-system exactness statement, then03CA and0598 finite-fibre proof; application below uses existing finite-set library theorem."
+    },
+    {
+      "url": "https://stacks.math.columbia.edu/tag/03QD",
+      "read": "Henselization properties, especially59.32.8; also05WQ and05WP statements/proofs, not a full recursive henselization construction."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1510.03018v4",
+      "sha256": "1f5434a8961168662f88d96b2316803637c047bf20cb6f12247473221c9a5469",
+      "read": "Pages45–46: Theorem4.9 statement/proof and Lemma4.11 including the constant-sheaf sign. Page46 image checked. Its proof invokes previous sections, not read here.",
+      "notEstablished": "Full characteristic-cycle infrastructure not read; both pages of the 2019 corrigendum were read and concern Proposition7.4."
+    },
+    {
+      "url": "https://www.ms.u-tokyo.ac.jp/~t-saito/CCcor2.pdf",
+      "read": "Entire one-page correction; concerns Chern-class factors on published pp.676–677."
+    },
+    {
+      "url": "https://link.springer.com/content/pdf/10.1007%2Fs00222-019-00876-3.pdf",
+      "sha256": "0cff819cae2a83a811e8de60020de35adc388aa612a6fc12eaa62f1024fd0f08",
+      "read": "Both pages1005–1006; correction of Proposition7.4/Radon transform formulas and proof. It does not replace the constant-sheaf characteristic-cycle sign."
+    }
+  ]
 }
