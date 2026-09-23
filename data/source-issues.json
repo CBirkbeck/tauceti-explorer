@@ -54537,6 +54537,72 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-PAN-26/E1",
+   "kind": "misprint",
+   "locator": "Theorem 5.3.8, p. 65",
+   "printed": "For any n >= 0, given a sequence of sections d_{i,j,k} in B^{H_{r(n)}}, i,j,k = 0,1,... such that the norms of d_{i,j,k} p^{(n-1)(i+j+k)} are uniformly bounded, then f = sum_{i,j,k>=0} c_{i,j,k} (y - y_n)^i (log(f_1/f_{1,n}))^j (log(t/t'_n))^k converges",
+   "correction": "the coefficients in the displayed series should be the d_{i,j,k} just introduced (or the hypothesis should be stated for c_{i,j,k})",
+   "reason": "The sequence is introduced and its growth bounded as d_{i,j,k}, and then the series that is asserted to converge is written with c_{i,j,k}, which the theorem never defines. The intended reading is unambiguous - the c_{i,j,k} of the corresponding Lubin-Tate statement, Theorem 5.2.8 on p. 59, play exactly this role there, and this theorem is stated as its Drinfeld-side twin with 'Same proof as [Pan22, Theorem 4.3.9]' - so it is a renaming that was not carried through the display. Checked in a clip of p. 65 rendered at 300 dpi: the hypothesis prints d_{i,j,k} twice and the display prints c_{i,j,k}, so this is not an artifact of PDF text extraction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2209.06366, the only version of which is v1 of 14 September 2022 (127 pages, sha256 0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4, downloaded 2026-09-23): this is the version read, and its locators are used throughout.",
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 121-281, confirmed at annals.math.princeton.edu/2026/203-1 and on the author's own page (doi:10.4007/annals.2026.203.1.3): paywalled and not obtained. Since it is 161 Annals pages against a 127-page 2022 preprint and four years separate them, renumbering and revision are likely, and these findings may not survive into it.",
+    "the author's page at sites.google.com/view/luepan/home, checked 2026-09-23: it links paper II only to the journal DOI, with no preprint or accepted-version PDF, and lists no erratum.",
+    "the author's March 2026 survey arXiv:2603.27937 ('On the locally analytic completed cohomology of modular curves', to appear in the Proceedings of the 2025 International Congress of Basic Science), which recapitulates this work and records no correction to it."
+   ],
+   "owner": "PAPER-PAN-26",
+   "file": "research/blueprint/papers/PAPER-PAN-26.result.json",
+   "citation": "Lue Pan, \"On locally analytic vectors of the completed cohomology of modular curves II\", Annals of Mathematics 203 (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-PAN-26/E2",
+   "kind": "misprint",
+   "locator": "Theorem 5.3.17, part (1) of the first list, p. 67",
+   "printed": "Then there exists a natural continuous operator d-bar^{k+1}_Dr : O^{la,chi}_LT --> O^{la,chi}_LT tensor_{O^{sm}_LT} (Omega^1_LT)^{tensor k+1} which formally can be regarded as (d_{Fl'})^{k+1} satisfying following properties: (1) d-bar^{k+1}_LT is O^{D_p^*-sm}_LT-linear;",
+   "correction": "(1) d-bar^{k+1}_Dr is O^{D_p^*-sm}_LT-linear",
+   "reason": "The theorem constructs d-bar^{k+1}_Dr, and every other occurrence in it - part (2) of the first list, and both parts of the 'Moreover' list on the same page - prints Dr; only this one prints LT. It is more than cosmetic because d-bar^{k+1}_LT is a different operator, constructed in Theorem 5.2.16 on p. 61, and the property asserted here is false of it: that theorem states d-bar^{k+1}_LT is O^{sm}_LT-linear, linear over the GL_2(Q_p)^0-smooth sections, and the two subsheaves O^{sm}_LT and O^{D_p^*-sm}_LT of O^{la}_LT are different, neither containing the other. Indeed if d-bar^{k+1}_LT were linear over the D_p^*-smooth sections its kernel would contain them, whereas Theorem 5.2.16(2) computes that kernel as the GL_2(Z_p)-locally algebraic subsheaf Sym^k V(k) tensor omega^{-k,sm}_LT . t^{n_1}, built from the GL_2-smooth sections. The whole point of Subsection 5.3 is that the two towers exchange the roles of the two groups, which is why a subscript slip of exactly this kind matters when read literally. Checked in a clip of p. 67 rendered at 320 dpi: part (1) unambiguously prints the subscript LT.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2209.06366, the only version of which is v1 of 14 September 2022 (127 pages, sha256 0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4, downloaded 2026-09-23): this is the version read, and its locators are used throughout.",
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 121-281, confirmed at annals.math.princeton.edu/2026/203-1 and on the author's own page (doi:10.4007/annals.2026.203.1.3): paywalled and not obtained. Since it is 161 Annals pages against a 127-page 2022 preprint and four years separate them, renumbering and revision are likely, and these findings may not survive into it.",
+    "the author's page at sites.google.com/view/luepan/home, checked 2026-09-23: it links paper II only to the journal DOI, with no preprint or accepted-version PDF, and lists no erratum.",
+    "the author's March 2026 survey arXiv:2603.27937 ('On the locally analytic completed cohomology of modular curves', to appear in the Proceedings of the 2025 International Congress of Basic Science), which recapitulates this work and records no correction to it."
+   ],
+   "owner": "PAPER-PAN-26",
+   "file": "research/blueprint/papers/PAPER-PAN-26.result.json",
+   "citation": "Lue Pan, \"On locally analytic vectors of the completed cohomology of modular curves II\", Annals of Mathematics 203 (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-PAN-26/E3",
+   "kind": "gap",
+   "locator": "Footnote 3 on p. 58, supporting the second proof of Theorem 5.2.6",
+   "printed": "Here we need a compatibility between the Higgs bundle in Liu-Zhu's work and the Higgs field constructed in [Pan22]. This can be checked on a toric chart. We plan to provide more details in a future work.",
+   "correction": "the compatibility is used but not proved here; a design job that wants the conceptual proof of Theorem 5.2.6 must supply it, or use the first proof instead",
+   "reason": "The author flags this himself, which is why it is recorded as a gap and not as an error. It is worth recording because the surrounding argument is advertised as an improvement over the earlier paper - 1.3.2(2) says the differential equation satisfied by O^{la}_{K^p} is now explained conceptually, as being given by the Kodaira-Spencer class, in a way that works for general Shimura varieties - and that conceptual argument is the one that rests on the unproved compatibility, since it identifies the Higgs field via Liu-Zhu's Theorems 2.1 and 3.8. The conclusion of Theorem 5.2.6 is not in doubt: the proof opens by deducing it from [Pan22, Theorem 4.2.7] through the embedding of the height-zero Lubin-Tate space into a modular curve, and that route is complete. So the reach is nothing for the paper's results, but a blueprint that follows the conceptual route inherits an unproved step.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:2209.06366, the only version of which is v1 of 14 September 2022 (127 pages, sha256 0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4, downloaded 2026-09-23): this is the version read, and its locators are used throughout.",
+    "the published version, Annals of Mathematics 203 (2026), no. 1, 121-281, confirmed at annals.math.princeton.edu/2026/203-1 and on the author's own page (doi:10.4007/annals.2026.203.1.3): paywalled and not obtained. Since it is 161 Annals pages against a 127-page 2022 preprint and four years separate them, renumbering and revision are likely, and these findings may not survive into it.",
+    "the author's page at sites.google.com/view/luepan/home, checked 2026-09-23: it links paper II only to the journal DOI, with no preprint or accepted-version PDF, and lists no erratum.",
+    "the author's March 2026 survey arXiv:2603.27937 ('On the locally analytic completed cohomology of modular curves', to appear in the Proceedings of the 2025 International Congress of Basic Science), which recapitulates this work and records no correction to it."
+   ],
+   "owner": "PAPER-PAN-26",
+   "file": "research/blueprint/papers/PAPER-PAN-26.result.json",
+   "citation": "Lue Pan, \"On locally analytic vectors of the completed cohomology of modular curves II\", Annals of Mathematics 203 (2026)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-PASKUNAS-QUAST-26/E1",
    "kind": "error",
    "locator": "§11, Proposition 11.5 and its proof, pp. 55–56 (published version; arXiv v2, Proposition 11.5, p. 62)",
