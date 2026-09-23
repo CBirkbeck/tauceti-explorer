@@ -1,3 +1,25 @@
+# LLHLM23 — current handoff (Codex — codex-a71f92, 2026-09-23)
+
+Issue #1254; continuation of merged #2231. Partial checkpoint. **386 items (23 library, 6 planned, 357 missing), 15 route identities, 149 definitions/constructions (84 definitions plus 65 constructions), 35 unchanged findings.** No Lean file or independent review.
+
+Completed the bounded supplier audit requested by the previous handoff: L08–L23 are sixteen exact pinned-library atoms; Z25–Z29 make the elementary completion/coordinate adapters explicit. All 365 inherited IDs/statements retained. Z19/Z23/Z24 have documented proof/dependency refinements; Z23 is now planned at the existing upstream ModularCurves §4D target rather than missing under R03.1. Z28 dimension preservation imports the same existing owner. No new roadmap.
+
+Key sequence:
+1. S=R[[X_i]]→Rhat evaluates variables at chosen ideal generators; its residue map is onto and the exact variable-adic completeness + topological Nakayama suppliers make it onto. This gives Noetherianity without assuming it.
+2. Use completion flatness/locality and the available going-down height formula **after** both rings are Noetherian. The closed fiber is a field, so dimension is preserved.
+3. The exported maximal-ideal generator-count equality and regular-local criterion give regularity/reflection, preserving the supplied coefficient field.
+4. For coordinates, Nakayama on m gives actual generators; evaluation surjects. The power-series dimension proof uses finite monomial grouping for the upper bound, the implemented one-variable lower bound, and the existing non-zero-divisor kernel dimension drop for injectivity.
+
+Do not treat a cotangent-space proof-local equivalence as a named exported theorem, invent an anonymous instance name, infer completion Noetherianity from a docstring or flatness, or apply the dimension formula before Noetherianity. Do not duplicate ModularCurves4D. Its local-algebra atom precedes modular applications; no whole-roadmap cycle is requested.
+
+Fresh read: LLHLM published PDF78–81, KWII PDF8–10, Stacks0316/05GH/031C/0315/00MA/00MB/07NV/07NY/0C0S; same PDF hashes verified. Full earlier paper reading remains attributed to codex-7e92bd. Full two owner roadmaps and ModularCurves4D/audits read; 13 library files byte-verified at the full pin.
+
+Stdlib diagnostics: 9290 monomial divisors, 48 Hilbert counts, 1103 coordinate maps, 211 singular controls pass. Previous SymPy/CAS evidence is retained, not rerun. Paper validator, three-file intake and all 48 repository tests pass. Unique IDs, 73-edge internal DAG, one route per missing item, preserved statements/findings and unchanged route identities checked.
+
+Next: formalize the still-explicit topology/ideal adapters and Z24 presentation; then close Z06 Taylor/adjugate/convergence and Z10/Z13/Z14 analytic descent/fibers/formal-model inputs. Continue the external-source and multipart census gaps. Fresh census: the 26 inherited API groups cover definitions only, not the 65 constructions. Z24 now has three consumers, six API entries and six typed tests; the other 64 constructions remain uncovered by those groups. Existing grouped/untyped or two-test definition plans still need the protocol's itemwise API, consumers and >=3 typed tests. Never mark complete solely because every listed missing item is routed.
+
+## Previous handoff (verbatim)
+
 # Handoff: PAPER-LE-LEHUNG-LEVIN-ETAL-23
 
 Codex — codex-7e92bd continuation of the codex-hjdg0j checkpoint; issue #1254. **Partial checkpoint.** No independent review and no Lean compilation are claimed.
