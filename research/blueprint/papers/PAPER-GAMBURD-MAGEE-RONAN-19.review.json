@@ -1,0 +1,22 @@
+{
+  "paper": "PAPER-GAMBURD-MAGEE-RONAN-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "CA.4 owns classical Diophantine equations and elementary descent, and already receives the Markoff equation and its descent from PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22. The Markoff–Hurwitz equation, its moves, the exceptional families, the passage to V(ℤ₊), Proposition 16 and the infinite descent are that kind of mathematics, and neither library has them."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The Part II ArithmeticDynamicsPartIIMarkoff was accepted through PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22, and its design job is #1700. Orbit counting for the Markoff–Hurwitz moves (the free semigroup Λ, multiplicities, acceleration, the renewal equation, linearisation and Theorem 3) extends it naturally. No atlas stage mentions Markoff. The brief states Theorem 3 exactly and imports Theorem 13 from route 3. It has been amended with the corrected positivity argument (E1) and E10–E13."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "A new Part II is justified. Neither pinned library nor any atlas stage has transfer operators, Ruelle–Perron–Frobenius theory, renewal theorems, Kato perturbation or the Schauder–Tychonoff theorem (both libraries and all layer texts were searched). PM.4 stops at the Gauss map, so the extension in its direction is right. No functional-analysis roadmap owns Kato perturbation or Schauder–Tychonoff, so supplying them here is acceptable. The brief states the six final theorems exactly and names its imports. It has been amended with E15–E17 and with the dependence of β₀ = β on E1."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5. The whole of arXiv v3 was read (the SHA-256 matches the extraction), and every display a finding depends on was checked on the page image. The source reading was split across three read-only helper agents of this session (§§1–2, §3, §§4–5). The reviewer then re-read every correction below at its locator before making it, and re-ran the small counterexamples (Lemma 27, E7). Library: `Real.summable_one_div_nat_rpow` (Analysis/PSeries.lean:317) provides item 31. Planned: PM.4 plans the Gauss map of item 30. All 14 prerequisite DOIs resolve on Crossref. Corrections made in place: Item 6: note records that the cited Aut(V) results are about automorphisms of ℂⁿ preserving the polynomial, not of the fibre V(ℂ). Item 12 (Lemmas 19–20): Lemma 20 restricted to unexceptional x (E13). Item 15: locator narrowed to p.21 for Lemma 22. Item 20 (Lemmas 26–27): Lemma 27 and (3.21)–(3.22) stated with the non-strict inequality in coordinates ≤ n − 3 (E12). Item 21 (Lemma 28): ±ε corrected to ±2ε, which is what the proof gives (E11). Item 22 (Lemma 29): error term corrected to O(exp(βa^δ + (1 + δ)a)) as on the page image; locator notes E10. Item 23: note records that the geodesic length is 2 log R + O(1), not log R (E14). Item 34 (Lemma 44): the right side uses L_{ℜ(s)} (E15). Item 40 (Kato): resolvent decomposition corrected to λ_s(1 − λ_s)⁻¹P_s + (1 − L′_s)⁻¹ (E16). Item 41 (§4.3): leading constant corrected to h_{β₀}/(β₀|λ′_{β₀}|) (E16). Item 43 (§5): (5.1) stated for i ≤ n − 2 with the auxiliary bounds on w, and the passage from ∆₀ to ∆ made explicit (E17). Source issues: E1 correction amended (direction of (3.25), propagation of positivity, and the §4.3 dependence); E1–E9 reviewed and confirmed, E6 and E8 with qualifications; eight new issues E10–E17 added and confirmed (Proposition 30 summation, Lemma 28's 2ε, Lemma 27's strictness, Lemma 20's hypothesis, the §1.1 geodesic length, Lemma 44's L_{ℜ(s)}, the §4.3 resolvent formula and constant, and the §5 misprints). Briefs: the Markoff Part II brief now carries the amended E1 repair and E10–E13; the transfer-operator Part II brief records E15–E17 and the dependence of β₀ = β on E1. check_paper.py reports ok, and every missing item is routed exactly once."
+}
