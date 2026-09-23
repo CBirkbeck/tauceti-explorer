@@ -402,3 +402,31 @@ No Lean deliverable is part of a paper job.
 - Check E16's counterexample and E18's exponent comparison.
 - Check E19's reading of Poonen–Voloch's height.
 - Check the reclassifications of E11 and E13.
+
+## Review (REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1096), **accepted** this
+extraction and all eight routes, and needed no correction to the result: the recorded hash of arXiv
+2006.02356v1 reproduces, all 120 missing items are routed exactly once, the seven source-route
+stages and four planned layer ids exist, the Part II title reproduces the parent's atlas title
+exactly with a galaxy-id area and a 237-word brief, and all six library citations resolve at the
+Mathlib pin with file and line. Of 72 name-and-page locator checks 61 land exactly and the other
+eleven were read: each is a proof spanning pages, the external `[6, Lemma 3.3]`, or E19's
+deliberate multi-place locator.
+
+The four questions this report left for the reviewer were answered. **E16**'s certificate
+recomputes exactly — Gram determinant 72000 against the quadruple sum 415200, a ratio of 30/173
+below the printed 1/4 — and no smaller ratio than 1/8 was found in a search over small integer
+pairs, so the proposed d = 2 constant is safe. **E18**'s hypothesis mismatch is real: Lemma 4.7 on
+p.32 assumes `A ≥ B^{4/5}` while (4.71) integrates below it, and the repair comes from inside that
+lemma's own proof. **E19**'s reading of Poonen–Voloch is right: they order by the sup norm of the
+coefficient vector and this paper by the Euclidean ball, and equivalent norms give comparable
+counts but not the same limit, so positivity survives by inscribing a box while the existence of
+the limit does not follow from the citation. The **E11** and **E13** reclassifications stand —
+`g` lives modulo `p^r` and the split is otherwise the intended one, and the paper itself says on
+p.51 that it uses neither convergence claim.
+
+All nineteen findings now carry `review` verdicts in the result; all are confirmed. The G1 version
+boundary stands: arXiv lists only v1 and Crossref records no erratum or relation for
+10.4007/annals.2023.197.3.3, so every verdict is a verdict about v1. The full record is
+[REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md](../reviews/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md).

@@ -2301,7 +2301,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 3.10 on p.12 makes M_{d−2,n} the monomials of degree d−2 and L^{(x,y)}_{i,j,k} is linear, so the p.18 left-hand side has degree d−1 while the right-hand side has degree d. Raising the degree does not repair it: those products vanish on the whole line through x and y, missing X_0^{d−1}X_1 for x=e_0, y=e_1. The correction is what the proof already does, since Psi_P multiplies a degree-(d−2) monomial by the quadratic <c, nu_{2,n}(X)>, so the statement needed is I_d = R[X]_{d−2}·I_2 for the two-point ideal (X_2,…,X_n, X_0X_1).",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E2",
@@ -2323,7 +2328,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition (5.28) on p.60 asks only for a non-trivial real point, so the unit coefficient vector of X_0^d lies in B_{N}(1) ∩ I^loc while every real zero has vanishing gradient, hence it lies in no stratum B^{(lambda)} of (5.30). The printed equality (5.31) therefore fails and the null set of forms with only singular real zeros must be added and shown null.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E3",
@@ -2345,7 +2355,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 3.19 (p.20) and Lemma 3.20 (p.21) print log Delta and (log Delta)^{2 min{r−2,1}}, which vanish at Delta = 1 while the counts do not: d_r(e_0) = 1 by Definition 3.12, and for Lemma 3.20 with r ≥ 3 take x = e_0, y = e_1. (3.24) inherits the same defect. log(2Delta) repairs the endpoint and changes nothing for large Delta.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E4",
@@ -2367,7 +2382,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. With I^loc as in (5.28), f_a = X_0²+X_1²+X_2² in n+1 = 4 variables lies in I^loc through the real zero (0,0,0,1), while a + t(b−a) with b = a + eps·X_3², 0 < eps ≤ 1, is positive definite for every t > 0. The set defining M_a on p.60 is then empty and the maximum undefined, so the closed cone and t = 0 must be allowed.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E5",
@@ -2389,7 +2409,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The assertion on p.23 preceding (3.31) fails for the quartic t_1²t_2², which does not involve t_3 and vanishes identically on the fibres t_1 = 0 and t_2 = 0, so no coordinate takes at most four values on every fibre. The proposed grid bound, O(H_1H_2) zeros of a non-zero quartic in a box with H_1 ≥ H_2 ≥ H_3, returns exactly the printed N_c(Z;L) << Z²/(s_1s_2), since H_j ≍ Z/s_j.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E6",
@@ -2411,7 +2436,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. (4.56) is an estimate for gcd(G(x,y), W/gcd(l,W)), and (4.57) and (4.69) invert it. On the bad set gcd(G,Q)/G can be as small as 1/G: with x = e_0, y = e_0 + q·e_1 for a prime q > w(B) and l = 1, the determinant divided by its printed leading factor is exactly q. Stating both displays for the reciprocals, where the relative error is bounded because 0 < gcd(G,Q)/G ≤ 1, is the repair, and the moment calculation consumes them in that form.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E7",
@@ -2433,7 +2463,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. B_N(u) is the ball in R^N by the definition on p.8, and V(L) = Span_Q(nu_{4,4}(L)) ∩ Z^{N_{4,4}} by (3.33), a rank-15 lattice in R^70; the 5 is the dimension of the point-coordinate space. The count that follows, J^15 det(V(L)*), is the rank-15 one, so the intersection in (3.38)–(3.39) is ill-typed as printed and nothing downstream changes.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E8",
@@ -2455,7 +2490,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition 2.1 lists the monomials with no multinomial weights, so at d = 2, u = (1,1,0,…) one has ||nu(u)||² = 3 < 4 = ||u||^{2d} and the inequality on p.63 is false. The maximum-coordinate monomial gives ||nu(u)|| ≥ (n+1)^{−d/2}||u||^d, which suffices for the volume lower bounds that follow.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E9",
@@ -2477,7 +2517,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The p.14 line prints Lambda_x = R a_1 ⊕ … ⊕ R a_n and the p.18 line prints Lambda_{nu_{2,n}(x)} ∩ Lambda_{nu_{2,n}(y)} = R a_1 ⊕ … ⊕ R a_{N_{2,n}−2}, each equating a discrete lattice with a real vector space. Only the equality of real spans is used, so the missing Span_R is a misprint.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E10",
@@ -2499,7 +2544,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Definition (5.30) gives a zero x with lambda||a|| < ||grad f_a(x)|| ≤ 2 lambda||a||, hence x ∈ D_a(lambda), whereas the neighbourhood argument at the top of p.62 starts from x ∈ D_a(lambda/2). Running it from D_a(lambda) into D_a(C lambda) retains the O(lambda²) conclusion.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E11",
@@ -2521,7 +2571,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the reclassification is right. The vectors b_1, b_2 lie in R^{n+1}(p^r), so the scalar of the p.54 case split must lie in (Z/p^rZ)^×; there is no scalar action of Z/pZ on Z/p^rZ for r > 1. Read with g ∈ (Z/p^rZ)^× the split is the intended one and the first case needs only independent lifts, so nothing downstream changes.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E12",
@@ -2543,7 +2598,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. On p.16 the vector a is introduced as an arbitrary non-zero element of (Q_2(x,y)^⊥)*, and the second case derives d_3(x,y) ≤ ||a||·d_2(x,y). The casewise displays (3.16) and (3.18) therefore bound ||a||, not lambda_1; the minimum over the two cases taken afterwards is the valid inference.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E13",
@@ -2565,7 +2625,12 @@
         "https://pierreleboudec.github.io/works.html",
         "https://williamsawin.com/ and its papers.js (points to arXiv)",
         "Title/author search with erratum, corrigendum and correction on 2026-09-22; no correction located. Published 2022 revision not obtained."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, and the reclassification is right. The paper's own sentence on p.51 is 'We shall use neither of these facts in our work', so the unqualified convergence claim is an unused remark; for the primitive form X_0^d the local factors diverge, so the claim is not generally finite on all of V_{d,n}.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E14",
@@ -2582,7 +2647,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. (3.25) on p.22 prints s_1 ≤ s_2 ≤ max{Z,s_3} while the step at (3.31) on p.23 argues 'since Z ≥ s_2'. Definition (3.23) on p.21 restricts to ||x||, ||y|| ≤ Z, and any rank-3 lattice containing x and y then has lambda_2 ≤ Z, so the terms with s_2 > Z do not occur and the misprint costs nothing.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E15",
@@ -2599,7 +2669,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 3.4 on p.9 states dependence on R alone, but its proof takes the constant from Barroero–Widmer for the family B_R(T) cut by I cones, and nothing in the proof removes the dependence on I. The paper only ever uses I ≤ 2, so no application is affected.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E16",
@@ -2616,7 +2691,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, with the certificate recomputed. For d = 2, n = 3, x = (2,2,−2,2), y = (−3,2,3,−3) the Gram determinant is 72000 and the printed quadruple sum is 415200, a ratio of 30/173 = 0.1734…, below the printed 1/4. The cause is that (i,j) ↦ X_iX_j is two-to-one off the diagonal at d = 2, so each unordered monomial pair is counted up to four times and 1/8 is the right constant; a search over small integer pairs found no smaller ratio. For d ≥ 3 the map is injective and the printed 1/4 stands.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E17",
@@ -2633,7 +2713,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. grad f_a is homogeneous of degree d−1, and (5.30) gives a zero x' ∈ S^n with lambda < ||grad f_a(x')|| ≤ 2 lambda when ||a|| = 1, so x = x'/2 satisfies lambda/2^{d−1} < ||grad f_a(x)|| ≤ lambda/2^{d−2}. The printed upper bound in (5.34) fails when ||grad f_a(x')|| approaches 2 lambda; only the fixed constants in (5.36) and in the choice of L move.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E18",
@@ -2650,7 +2735,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Lemma 4.7 on p.32 assumes A ≥ B^{4/5}, while the partial summation at (4.71) on p.50 needs the sum over ||a_V|| ≤ t for every t ≤ A, including t below B^{4/5}. The missing range is supplied by the proof of Lemma 4.7 itself, whose bounds before simplification hold for all t ≥ 1, so (4.71) survives.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/E19",
@@ -2667,7 +2757,12 @@
         "Annals article page (annals.math.princeton.edu/2023/197-3/p03), 23 September 2026: no correction linked. The published text (revised 22 July 2022) is subscription-only, and Unpaywall and OpenAlex list no open copy, so whether it already repairs this could not be checked",
         "Authors' pages (tdbrowning.github.io/pubs.html, pierreleboudec.github.io/works.html, williamsawin.com), 22–23 September 2026: they link the DOI or arXiv v1; no corrigendum",
         "Later papers citing it, 23 September 2026: Browning–Sawin, arXiv 2510.26191, and Matsuzawa–Suzuki, arXiv 2310.13408; neither mentions a correction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Poonen–Voloch order coefficient vectors by the sup norm, whereas V_{d,n}(A) here is cut out by the Euclidean ball B_{N}(A). Equivalent norms give comparable counts but not the same limit, since the real-solubility locus is a cone whose proportion of a ball and of a cube differ. Positivity, which Propositions 5.2 and 5.3 use, follows from an inscribed box; the existence of the limit asserted by Theorem 1.1 and (1.3) does not.",
+        "by": "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+      }
     }
   ],
   "gaps": [
