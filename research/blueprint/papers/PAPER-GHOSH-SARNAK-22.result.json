@@ -13,7 +13,7 @@
       "The entire arXiv v3 (30 May 2022, 55 pages; §§1–10, Appendices A–B, references), read 2026-09-22. PDF https://arxiv.org/pdf/1706.06712v3, SHA-256 e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d. The authors state that v3 is the final version; the published version has an abridged §10 and \"some additional differences\". The published PDF is paywalled and was not available, so locators are v3 page numbers."
     ]
   },
-  "summary": "Studies the integral points on the Markoff level surfaces V_k : x₁² + x₂² + x₃² − x₁x₂x₃ = k. Γ-descent with a new function Δ gives explicit fundamental sets for the orbits of the Markoff group Γ (Theorem 1.1), so the class numbers h(k) are finite and computable. Local solubility holds exactly when k ≢ 3 mod 4 and k ≢ ±3 mod 9 (Proposition 6.1). Quadratic reciprocity gives infinitely many Hasse failures, ≫ K^{1/2}(log K)^{−1/2} of them (Theorem 1.2(i), Propositions 8.1–8.3). A variance argument over moving planes shows that almost every admissible k is represented, with Zariski-dense integral points (Theorem 1.2(ii)). It combines Blomer–Granville bounds, the δ-method for quaternary quadratic forms and explicit local densities (Appendix B). The paper also treats Zariski density and the perfect, universal forms U₁ and U₂, averages of h(k) (§7), and computations to 5.6×10⁸ with conjectures (§10). Nineteen source issues are recorded; none affects Theorem 1.1 or Theorem 1.2(ii). The atlas has the Markoff descent (CA.4, via PAPER-MARTIN-25), the Markoff-action Part II, local densities (ES.3, planned) and Mathlib's reciprocity, Gauss sums and Hensel lemma. It has none of the level-k theory, the almost-all theorem or the explicit densities.",
+  "summary": "Studies the integral points on the Markoff level surfaces V_k : x₁² + x₂² + x₃² − x₁x₂x₃ = k. Γ-descent with a new function Δ gives explicit fundamental sets for the orbits of the Markoff group Γ (Theorem 1.1), so the class numbers h(k) are finite and computable. Local solubility holds exactly when k ≢ 3 mod 4 and k ≢ ±3 mod 9 (Proposition 6.1). Quadratic reciprocity gives infinitely many Hasse failures, ≫ K^{1/2}(log K)^{−1/2} of them (Theorem 1.2(i), Propositions 8.1–8.3). A variance argument over moving planes shows that almost every admissible k is represented, with Zariski-dense integral points (Theorem 1.2(ii)). It combines Blomer–Granville bounds, the δ-method for quaternary quadratic forms and explicit local densities (Appendix B). The paper also treats Zariski density and the perfect, universal forms U₁ and U₂, averages of h(k) (§7), and computations to 5.6×10⁸ with conjectures (§10). Twenty source issues are recorded (one added at review); none affects Theorem 1.1 or Theorem 1.2(ii). The atlas has the Markoff descent (CA.4, via PAPER-MARTIN-25), the Markoff-action Part II, local densities (ES.3, planned) Mathlib's reciprocity, Gauss sums and Hensel lemma, and the Fricke trace identity (planned in Tau Ceti BelyiMaps Layer 4). It has none of the level-k theory, the almost-all theorem or the explicit densities.",
   "items": [
     {
       "id": "PAPER-GHOSH-SARNAK-22/1",
@@ -190,10 +190,10 @@
       "id": "PAPER-GHOSH-SARNAK-22/20",
       "kind": "theorem",
       "name": "(1.5): non-empty ⇔ Zariski dense for the Markoff level sets",
-      "statement": "For k ≥ 5 not a square, and for k ≤ 0: V_k(ℤ) ≠ ∅ iff V_k(ℤ) is Zariski dense in V_k. Proof: if x̂ ∈ V_k(ℤ) with |x̂₁| ≥ 2, the element (x₁, x₂, x₃) ↦ (x₁, x₁x₂ − x₃, x₂) of Γ preserves the plane x₁ = x̂₁ and acts there by [[x̂₁, −1], [1, 0]] ∈ SL₂(ℤ) of infinite order, so the orbit is infinite and Zariski dense in the conic {x₁ = x̂₁} ∩ V_k (irreducible as k is not a square). As in [CZ06], a proper Zariski closure would lie in finitely many curves, allowing only finitely many such x̂₁ (and likewise x̂₂, x̂₃), so V_k(ℤ) would be finite. For |k| > 20 some |x̂_j| ≥ 2; |k| ≤ 20 is checked directly. For squares k the conclusion fails: V₁(ℤ) and V₉(ℤ) are non-empty finite orbits. When k = k₁² with k₁ having an odd prime factor ≡ 1 (mod 4), V_k(ℤ) has an infinite orbit and is Zariski dense.",
+      "statement": "For k ≥ 5 not a square, and for k ≤ 0: V_k(ℤ) ≠ ∅ iff V_k(ℤ) is Zariski dense in V_k. Proof: if x̂ ∈ V_k(ℤ) with |x̂₁| ≥ 2, the element (x₁, x₂, x₃) ↦ (x₁, x₁x₂ − x₃, x₂) of Γ preserves the plane x₁ = x̂₁ and acts there by [[x̂₁, −1], [1, 0]] ∈ SL₂(ℤ) of infinite order, so the orbit is infinite and Zariski dense in a curve in the plane x₁ = x̂₁: the slice {x₁ = x̂₁} ∩ V_k is an irreducible conic when |x̂₁| ≥ 3 (k ≠ x̂₁² as k is not a square), and for |x̂₁| = 2 it is the pair of lines (x₂ ∓ x₃)² = k − 4, one or both of which contain the orbit (E20). As in [CZ06], a proper Zariski closure would lie in finitely many curves, allowing only finitely many such x̂₁ (and likewise x̂₂, x̂₃), so V_k(ℤ) would be finite. For |k| > 20 some |x̂_j| ≥ 2; |k| ≤ 20 is checked directly. For squares k the conclusion fails: V₁(ℤ) and V₉(ℤ) are non-empty finite orbits. When k = k₁² with k₁ having an odd prime factor ≡ 1 (mod 4), V_k(ℤ) has an infinite orbit and is Zariski dense.",
       "locator": "§1, (1.5), p.3; §5.2.1, p.17, arXiv:1706.06712v3 (final version) (error E6: the paper also lists k = 49 among the finite cases)",
       "status": "missing",
-      "note": "[CL09, Theorem D] proves a stronger statement about Γ-invariant curves. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25)."
+      "note": "[CL09, Theorem D] proves a stronger statement about Γ-invariant curves. Routed to the Part II ArithmeticDynamicsPartIIMarkoff (coalesced with PAPER-MARTIN-25). The printed claim that the closure contains the whole slice fails for |x̂₁| = 2; see E20. [review REV-PAPER-GHOSH-SARNAK-22]"
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/21",
@@ -219,8 +219,11 @@
       "name": "The Fricke trace identity",
       "statement": "For A, B ∈ SL₂(R) over a commutative ring R: tr(A)² + tr(B)² + tr(AB)² − tr(A)tr(B)tr(AB) = tr(ABA⁻¹B⁻¹) + 2 (6.1). So (tr A, tr B, tr AB) ∈ V_{t+2}(R) with t = tr[A, B].",
       "locator": "§6, (6.1), pp.18–19, arXiv:1706.06712v3 (final version)",
-      "status": "missing",
-      "note": "Neither pinned library states it (searched SpecialLinearGroup and Matrix.Trace). Routed to ClassicalArithmeticCompletion CA.4 as a source."
+      "status": "planned",
+      "note": "Planned: Tau Ceti BelyiMaps Layer 4, item 4, \"The Fricke trace identity. For A, B ∈ SL(2,ℝ), tr(ABA⁻¹B⁻¹) = (tr A)² + (tr B)² + (tr AB)² − tr A·tr B·tr(AB) − 2, proved by expanding both sides in the eight matrix entries subject to det A = det B = 1.\" The paper needs it over ℤ and ℤ/pⁿℤ. The planned proof is a polynomial identity, so the blueprint should state it over an arbitrary commutative ring rather than plan it a second time in CA.4. Neither library has it at the pinned commits. [review REV-PAPER-GHOSH-SARNAK-22] Earlier note: Neither pinned library states it (searched SpecialLinearGroup and Matrix.Trace). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/BelyiMaps#layer-4-triangle-groups"
+      ]
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/24",
@@ -540,10 +543,10 @@
       "id": "PAPER-GHOSH-SARNAK-22/57",
       "kind": "theorem",
       "name": "Propositions B.1–B.2, (B.6) and Remark B.3 (δ_p(k) for odd p)",
-      "statement": "For p ≥ 3 and N_l(k) as in (B.1): N₁(k) = χ(k − 4)[3 + χ(k)]/p + 1/p²; for odd l ≥ 3, N_l(k) = 4p^{−(l+1)/2}χ((k − 4)/p^{l−1}) if p^{l−1} | k − 4, and ε_p p^{−(l+1)/2}χ(k/p^{l−1}) if p^{l−1} | k, with ε_p = 1 for p ≥ 5 and ε₃ = −1; for even l ≥ 2, N_l(k) = −p^{−(l+2)/2}{4η_{l−1}(k − 4) + η_{l−1}(k)} if p^{l−1} ∥ k(k − 4), p^{−l/2}(1 − 1/p){4η_l(k − 4) + η_l(k)} if p^l | k(k − 4), and 0 otherwise. So if p^μ ∥ k(k − 4): μ = 0 gives δ_p(k) = 1 + χ(k − 4)(3 + χ(k))/p + 1/p²; p ∥ k gives 1 + 3χ(−1)/p; p ∥ k − 4 gives 1 − 3/p²; μ ≥ 2 gives the formulas of Proposition B.2(d)–(e), with χ((k − 4)/p^μ) in (e) and, for p = 3 and even μ in (d), 1 + χ(k/3^μ) in place of 1 − χ(k/3^μ). In particular δ₃(k) = 0 iff k ≡ 3, 6 (mod 9).",
+      "statement": "For p ≥ 3 and N_l(k) as in (B.1): N₁(k) = χ(k − 4)[3 + χ(k)]/p + 1/p²; for odd l ≥ 3, N_l(k) = 4p^{−(l+1)/2}χ((k − 4)/p^{l−1}) if p^{l−1} | k − 4, and ε_p p^{−(l+1)/2}χ(k/p^{l−1}) if p^{l−1} | k, with ε_p = χ(−1) = (−1/p); for even l ≥ 2, N_l(k) = −p^{−(l+2)/2}{4η_{l−1}(k − 4) + η_{l−1}(k)} if p^{l−1} ∥ k(k − 4), p^{−l/2}(1 − 1/p){4η_l(k − 4) + η_l(k)} if p^l | k(k − 4), and 0 otherwise. So if p^μ ∥ k(k − 4): μ = 0 gives δ_p(k) = 1 + χ(k − 4)(3 + χ(k))/p + 1/p²; p ∥ k gives 1 + 3χ(−1)/p; p ∥ k − 4 gives 1 − 3/p²; μ ≥ 2 gives the formulas of Proposition B.2(d)–(e), with χ((k − 4)/p^μ) in (e) and, for even μ in (d), 1 − χ(−k/p^μ) in place of 1 − χ(k/p^μ); these differ from the printed formulas exactly when p ≡ 3 (mod 4). In particular δ₃(k) = 0 iff k ≡ 3, 6 (mod 9).",
       "locator": "Appendix B.1, (B.1)–(B.6), Propositions B.1–B.2, Remark B.3, pp.45–47, arXiv:1706.06712v3 (final version) (error E15 and misprint E16)",
       "status": "missing",
-      "note": "Corrected statement. Checked against direct counts modulo 3^7, 5^5 and 7^4. Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+      "note": "Corrected statement. Checked against direct counts modulo 3^7, 5^5 and 7^4. Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source. The sign correction applies to every p ≡ 3 (mod 4), not only p = 3: direct counts give δ₇(49) = 34/49, δ₇(147) = 36/49, δ₁₁(121) = 98/121 and δ₁₁(242) = 100/121 (printed 36/49, 34/49, 100/121, 98/121), and N₃(49) = −1/49 at p = 7 (printed +1/49); p = 5 and p = 13 agree with the printed formulas (E15). [review REV-PAPER-GHOSH-SARNAK-22]"
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/58",
@@ -583,21 +586,21 @@
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/62",
-      "kind": "definition",
+      "kind": "theorem",
       "name": "Conjecture 10.1 (size of the class numbers)",
-      "statement": "For every ε > 0, h_M(k) ≪_ε |k|^ε.",
+      "statement": "Conjecture (not proved): For every ε > 0, h_M(k) ≪_ε |k|^ε.",
       "locator": "Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version)",
       "status": "missing",
-      "note": "A conjecture; the best known bound is (c) of Theorem 1.1. Routed to ClassicalArithmeticCompletion CA.4 as a source."
+      "note": "A conjecture; the best known bound is (c) of Theorem 1.1. Routed to ClassicalArithmeticCompletion CA.4 as a source. Kind changed from definition to theorem: the item is a conjectural statement, not a definition; the statement is marked as a conjecture. [review REV-PAPER-GHOSH-SARNAK-22]"
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/63",
-      "kind": "definition",
+      "kind": "theorem",
       "name": "Conjecture 10.2 (number of Hasse failures)",
-      "statement": "#{0 ≤ k ≤ K : h_M(k) = 0, k admissible} ∼ C₀K^θ for some C₀ > 0 and 1/2 < θ < 1 (numerically θ ≈ 0.8875); more generally #{0 ≤ k ≤ K : h_M(k) = t} ∼ C_tK^θ with C_t > 0 for each t ≥ 1, the C_t appearing to decay exponentially in t (n(h)/n(0) ≈ e^{−√(h+1)}).",
+      "statement": "Conjecture (not proved): #{0 ≤ k ≤ K : h_M(k) = 0, k admissible} ∼ C₀K^θ for some C₀ > 0 and 1/2 < θ < 1 (numerically θ ≈ 0.8875); more generally #{0 ≤ k ≤ K : h_M(k) = t} ∼ C_tK^θ with C_t > 0 for each t ≥ 1, the C_t appearing to decay exponentially in t (n(h)/n(0) ≈ e^{−√(h+1)}).",
       "locator": "Conjecture 10.2, (1.7), pp.5, 41–43, arXiv:1706.06712v3 (final version)",
       "status": "missing",
-      "note": "A conjecture; Theorem 1.2 gives ≫ K^{1/2}(log K)^{−1/2} and o(K). Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source."
+      "note": "A conjecture; Theorem 1.2 gives ≫ K^{1/2}(log K)^{−1/2} and o(K). Routed to ExponentialSumsAndCircleMethod ES.3/ES.4 as a source. Kind changed from definition to theorem: the item is a conjectural statement, not a definition; the statement is marked as a conjecture. [review REV-PAPER-GHOSH-SARNAK-22]"
     }
   ],
   "prerequisites": [
@@ -706,7 +709,6 @@
         "PAPER-GHOSH-SARNAK-22/15",
         "PAPER-GHOSH-SARNAK-22/16",
         "PAPER-GHOSH-SARNAK-22/17",
-        "PAPER-GHOSH-SARNAK-22/23",
         "PAPER-GHOSH-SARNAK-22/24",
         "PAPER-GHOSH-SARNAK-22/25",
         "PAPER-GHOSH-SARNAK-22/26",
@@ -718,7 +720,7 @@
         "PAPER-GHOSH-SARNAK-22/61",
         "PAPER-GHOSH-SARNAK-22/62"
       ],
-      "reason": "CA.4 owns classical Diophantine equations and elementary descent, and must preserve local-solubility conditions and prove a bound before a finite search counts as complete. PAPER-MARTIN-25 already sources the coefficient-three Markoff equation, the Vieta involutions and the descent to (1,1,1) there, and that route is accepted. This paper extends the same carrier to every level set x₁² + x₂² + x₃² − x₁x₂x₃ = k. It gives the descent Lemmas 2.1–2.2, the Δ-function, the fundamental sets of Theorem 1.1 and finiteness and computability of h(k), and the Cayley cubic. It also covers polynomial parametric solutions, local solubility (Proposition 6.1, with the Fricke identity and the Gauss-sum count of Lemma 6.4, which rests on CA.1 Gauss sums), the reciprocity obstructions of §8 with Theorem 1.2(i), and the enumeration of §10. All of it is elementary, and none is in either pinned library. Quadratic reciprocity, Gauss sums, Hensel's lemma and sums of two squares are already in Mathlib (library items)."
+      "reason": "CA.4 owns classical Diophantine equations and elementary descent, and must preserve local-solubility conditions and prove a bound before a finite search counts as complete. PAPER-MARTIN-25 already sources the coefficient-three Markoff equation, the Vieta involutions and the descent to (1,1,1) there, and that route is accepted. This paper extends the same carrier to every level set x₁² + x₂² + x₃² − x₁x₂x₃ = k. It gives the descent Lemmas 2.1–2.2, the Δ-function, the fundamental sets of Theorem 1.1 and finiteness and computability of h(k), and the Cayley cubic. It also covers polynomial parametric solutions, local solubility (Proposition 6.1, with the Fricke identity and the Gauss-sum count of Lemma 6.4, which rests on CA.1 Gauss sums), the reciprocity obstructions of §8 with Theorem 1.2(i), and the enumeration of §10. All of it is elementary, and none is in either pinned library. Quadratic reciprocity, Gauss sums, Hensel's lemma and sums of two squares are already in Mathlib (library items). The Fricke trace identity is not part of this route: Tau Ceti BelyiMaps Layer 4 plans it (item 23 is planned), and CA.4 imports it. [review REV-PAPER-GHOSH-SARNAK-22]"
     },
     {
       "route": "source",
@@ -809,7 +811,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The substitution in Lemma 7.1 gives the lower limit a√(a²−4)/(2√(K−a²)) ≍ a²K^{−1/2}. Exact counts by the reviewer, K = 10⁶ … 10¹¹, fitted as K(c₂L² + c₁L + c₀), give c₂ = 0.02108 (1/48 = 0.02083; the printed 1/36 = 0.0278). At K = 10¹⁰, N_a(K) minus the printed main term is −9.4√K, −97√K, −276√K for a = 10, 100, 1000; with −E_a(K) added it is within 1–20√K.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E2",
@@ -824,7 +831,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Every x ≡ (3,0,0) mod 9 has M(x) ≡ 9 mod 27, and every x ≡ (1,0,0) mod 4 has M(x) ≡ 1 mod 8, so those lifts miss k ≡ 18 mod 27 and k ≡ 5 mod 8. The replacement points are exact ℤ₃- and ℤ₂-points, since the required square roots exist. Proposition 6.1 itself holds: M is onto every admissible class modulo 81 and modulo 64, and misses every non-admissible one.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E3",
@@ -839,7 +851,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In the singular case, p | x_j for one j forces p | all three (p odd), and then k ≡ M(x) ≡ 0 mod p, contrary to the assumption p ∤ k; nothing is said about p².",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E4",
@@ -854,7 +871,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: p.13 prints V₂ : (x₁,x₂,x₃) ↦ (x₁, x₁x₃ − x₁, x₃).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E5",
@@ -869,7 +891,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. V₃ acts on (x₁, x₃) by [[1,0],[x₂,−1]], so A = [[x₂² − 1, −x₂],[x₂, −1]]. The reviewer computed V₁V₃-orbits of the base point (k − 4, k − 4, 2): size 3 for k = 3 and 5, infinite for k = 6, 7. The orbit of (−1, 2, 0) at k = 4 is infinite. The parametric families of §5.1(3)–(4) were checked symbolically.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E6",
@@ -884,7 +911,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. M(1,4,8) = 49 and V₁(1,4,8) = (31,4,8) ∈ V₄₉(ℤ); x₂ = 4 gives a hyperbolic element, so the orbit is infinite. V₄₉(ℤ) also has the finite orbit of (0,0,7), which is presumably what the authors had in mind, but \"has only a finite orbit\" is false and k = 49 does not illustrate a failure of (1.5).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E7",
@@ -899,7 +931,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the locator: the printed square is (2x₁ − x₃)².",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E8",
@@ -914,7 +951,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. 11² ≡ 25 (mod 32) and 11 ≡ −1 (mod 12). The reviewer checked that k = 1456 is admissible, not exceptional, and has F⁺_{1456}(ℤ) = ∅, so it is a Hasse failure; 37 is the next ν.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E9",
@@ -929,7 +971,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. 60² − 4 = 3596 = 2²·29·31 has no odd prime factor ≡ ±2 (mod 5). For odd x₁, x₁ ± 2 are odd and ≡ ±2 (mod 5), so the claim holds where the proof uses it.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E10",
@@ -944,7 +991,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the locator.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E11",
@@ -959,7 +1011,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The reviewer counted the families of Proposition 8.1: case (i) has 0.416, 0.414, 0.413, 0.412 and case (ii) 0.097, 0.096, 0.096, 0.096 times √K(log K)^{−1/2} at K = 10⁸, 10¹⁰, 10¹², 10¹⁴. So the proof gives ≫, not the constant 1.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E12",
@@ -974,7 +1031,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: Σ_{√A ≤ a ≤ A} 1/a = ½ log A + O(A^{−1/2}), as (9.13) itself uses.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E13",
@@ -989,7 +1051,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the locator: the modulus is s, the gcd in (9.24).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E14",
@@ -1004,22 +1071,32 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. (s₁, s₂) = (2x₁ + ax₂, x₂) has s₁ − s₂ ≡ (a − 1)x₂ (mod 2), which is always even only for odd a. Both lattices have index 2, so the main terms stand.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E15",
       "kind": "error",
-      "locator": "Proposition B.1(b) and Proposition B.2(d) at p = 3, pp.46–47; Remark B.3 (arXiv v3)",
+      "locator": "Proposition B.1(b) and Proposition B.2(d) for every p ≡ 3 (mod 4), pp.46–47; Remark B.3 (arXiv v3)",
       "printed": "\"(b). if l ≥ 3 is odd, N_l(k) = … p^{−(l+1)/2} χ(k/p^{l−1}) if p^{l−1}|k\" and \"(d). if μ ≥ 2 and p|k, then δ_p(k) = 1 + (1 + 3χ(−1))p^{−1} + p^{−2} − p^{−μ/2−1}(1 − χ(k/p^μ)) if 2|μ\"",
-      "correction": "For p = 3 the k-term has the opposite sign: N_l(k) = −3^{−(l+1)/2}χ(k/3^{l−1}) when 3^{l−1} | k. In (d) with 2 | μ, δ₃(k) = 4/9 − 3^{−μ/2−1}(1 + χ(k/3^μ)). For p ≥ 5 the printed formulas are correct.",
-      "reason": "Direct counts modulo 3⁷ (and by brute force modulo 3⁵) give δ₃(9) = 2/9, δ₃(18) = 4/9 and δ₃(81) = 10/27. The printed formula gives 4/9, 2/9 and 4/9. The N_l with 3 ∤ k and the case of odd μ agree. For p = 5 and p = 7 the formulas agree with direct counts in every case tested. Remark B.3's conclusion (δ₃(k) > 0 unless k ≡ 3, 6 mod 9) still holds, and §9 uses p = 3 only through δ^{(m)} itself, so nothing downstream changes.",
+      "correction": "The k-term of B.1(b) carries the factor χ(−1): N_l(k) = χ(−1)p^{−(l+1)/2}χ(k/p^{l−1}) when p^{l−1} | k. In B.2(d) with 2 | μ, 1 − χ(k/p^μ) becomes 1 − χ(−k/p^μ); for p = 3 this is δ₃(k) = 4/9 − 3^{−μ/2−1}(1 + χ(k/3^μ)). The printed formulas are right for p ≡ 1 (mod 4) and wrong for every p ≡ 3 (mod 4). [review REV-PAPER-GHOSH-SARNAK-22]",
+      "reason": "Direct counts modulo 3⁷ (and by brute force modulo 3⁵) give δ₃(9) = 2/9, δ₃(18) = 4/9 and δ₃(81) = 10/27. The printed formula gives 4/9, 2/9 and 4/9. The N_l with 3 ∤ k and the case of odd μ agree. For p = 5 and p = 7 the formulas agree with direct counts in every case tested. Remark B.3's conclusion (δ₃(k) > 0 unless k ≡ 3, 6 mod 9) still holds, and §9 uses p = 3 only through δ^{(m)} itself, so nothing downstream changes. The review found that the error is not confined to p = 3. Direct counts modulo 7⁴ and 11⁴ give δ₇(49) = 34/49, δ₇(98) = 34/49, δ₇(147) = 36/49 and δ₁₁(121) = 98/121, δ₁₁(242) = 100/121, against the printed 36/49, 36/49, 34/49, 100/121 and 98/121, while δ₁₃(169) = 222/169 and δ₅(25) = 46/25 agree with the printed formulas. N₃ computed from counts modulo p² and p³ is −1/49 for (p, k) = (7, 49) and −1/9 for (3, 9), i.e. χ(−1)p^{−2}χ(k/p²). [review REV-PAPER-GHOSH-SARNAK-22]",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed and extended by the review to every p ≡ 3 (mod 4); the correction above was rewritten accordingly. Counts: δ₃(9) = 2/9, δ₃(18) = 4/9, δ₃(81) = 10/27, δ₃(162) = 4/9 (modulo 3⁷); δ₇(49) = 34/49, δ₇(147) = 36/49 (modulo 7⁴); δ₁₁(121) = 98/121 (modulo 11⁴); p = 5, 13 agree with the printed formulas. Odd μ agrees for all p. Nothing downstream changes: §9.1 uses only C_p(k) ≥ −O(p^{−2}).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E16",
@@ -1034,7 +1111,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. In case (e) p ∤ k, so k/p^μ is not an integer. With χ((k − 4)/p^μ) the formula matches counts modulo 5⁵ for k = 29, 54, 79, 104, 629.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E17",
@@ -1049,7 +1131,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. From counts modulo p^l: for p = 5, (a₁, a₂) = (3, 7) (η₁ = η₂ = μ = 1), N₁, N₂ = 4/5, −1/25 (printed N₂ = −1/125). For p = 3, (4, 5) and (4, 13) (η = 1, μ = 2), N₁, N₂, N₃ = 2/3, 2/9, −1/27 (printed N₂ = −1/27, N₃ = 0). δ₃ = 50/27, as in Proposition B.5(d).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E18",
@@ -1064,7 +1151,12 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Counts modulo 2⁸ and 2⁹ give δ₂ = 3/4 for k = 1, 9 and 9/4 for k = 5, 13 (printed 3/2, 9/2). δ₂(16) = δ₂(32) = 11/8 (printed 5/4, 3/2). δ₂(24) = δ₂(48) = 1 (printed 5/2, 7/4). δ₂(8) = δ₂(40) = 5/2 (as printed). δ₂(20) = 11/4 and δ₂(36) = δ₂(−12) = 7/4. δ₂(2) = δ₂(6) = δ₂(12) = 1. The minimum 3/4, which §9.1 uses, holds.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     },
     {
       "id": "PAPER-GHOSH-SARNAK-22/E19",
@@ -1079,7 +1171,32 @@
         "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
         "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
         "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Counts modulo 2⁹ and 2¹⁰ give δ₂(4,3) = δ₂(4,5) = δ₂(12,3) = 5/4 (θ = 0; printed 1), and δ₂(6,3) = δ₂(10,5) = 3/2 (θ = 3, as printed).",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
+    },
+    {
+      "id": "PAPER-GHOSH-SARNAK-22/E20",
+      "kind": "error",
+      "locator": "§5.2.1, p.17 (arXiv v3)",
+      "printed": "\"Since |x̂₁| ≥ 2, this element in SL₂(ℤ) is of infinite order, so that its orbit is infinite (since it is not acting on the origin) and its Zariski closure contains the conic section {x₁ = x̂₁} ∩ V_k.\"",
+      "correction": "For |x̂₁| ≥ 3 this is right: the slice is an irreducible conic (k ≠ x̂₁²). For |x̂₁| = 2 the slice is the pair of lines (x₂ ∓ x₃)² = k − 4, the element [[±2, −1],[1, 0]] is parabolic, and for x̂₁ = 2 it preserves x₂ − x₃, so the orbit lies on one line and its Zariski closure is that line, not the slice. The argument only needs a curve in the plane x₁ = x̂₁ in the closure, which still holds.",
+      "reason": "At x₁ = 2 the equation becomes x₂² + x₃² − 2x₂x₃ = k − 4, and (x₂, x₃) ↦ (2x₂ − x₃, x₂) maps x₂ − x₃ to itself. Such points exist for k = 4 + w² (e.g. k = 5, the point (2, 1, 0)), which (1.5) allows when k is not a square. The finiteness step \"infinitely many x̂₁ give infinitely many distinct curves\" is unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 1706.06712 versions v1 (June 2017), v2 and v3 (30 May 2022, the final version): the statements listed persist in all of them",
+        "Inventiones mathematicae 229 (2022), 689–749 (10.1007/s00222-022-01114-z): the published PDF is not open access and was not available; no correction notice is listed on the journal page",
+        "Crossref metadata for 10.1007/s00222-022-01114-z: no update or correction relation, and no work registered as updating it"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found and checked by the review: the orbit of (1, 0) under (x₂, x₃) ↦ (2x₂ − x₃, x₂) is (1+n, n), on the line x₂ − x₃ = 1.",
+        "by": "REV-PAPER-GHOSH-SARNAK-22"
+      }
     }
   ]
 }
