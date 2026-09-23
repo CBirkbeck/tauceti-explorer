@@ -722,7 +722,12 @@
         "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
         "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
         "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Page 14 prints 'it can be explicitly described as C⟨(T−a)pm1⟩_{x_a}, the uniform completion of the free seminormed ring C[(T−a)^{±1}]_{x_a} with |T−a| = |(T−a)^{−1}|^{−1} = x_a', so the same ring appears with ± one clause later: an unescaped \\pm in the source, and nothing but the display is affected.",
+        "by": "REV-PAPER-SCHOLZE-26"
+      }
     },
     {
       "id": "PAPER-SCHOLZE-26/E2",
@@ -737,7 +742,12 @@
         "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
         "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
         "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, in all three places. In the proof of Theorem 6.3 on p.36 the ambient space is the Berkovich line A¹_C over the algebraically closed field C, and the sentence reads 'the complements of each of U, U₁, U₂ and V in P¹_A is a finite disjoint union of closed discs'; Lemma 6.5 on p.37 says 'U, V ⊂ A¹_C … whose complements in P¹_A are finite disjoint unions of closed discs', and its proof opens 'Assume that the complement of U in P¹_A is the union of closed discs Z₀,…,Z_d'. No Banach ring A is in scope in either statement, so P¹_C is meant throughout.",
+        "by": "REV-PAPER-SCHOLZE-26"
+      }
     },
     {
       "id": "PAPER-SCHOLZE-26/E3",
@@ -752,7 +762,12 @@
         "Crossref record of doi:10.1090/jams/1068: no update-to or relation entries, and no work declaring an update of it (filter updates:10.1090/jams/1068, 23 September 2026)",
         "arXiv 2412.03382: v1 (4 December 2024, 57 pp.), v2 (19 November 2025) and v3 (22 January 2026), both 'final version, to appear in Journal of the AMS'; v2 and v3 have the recorded passages",
         "The JAMS issue page (J. Amer. Math. Soc. 39 (2026), no. 3), 23 September 2026: published electronically 11 December 2025, no erratum listed for this article; the PDF is paywalled and was not compared"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Example 3.6 on p.16 prints 'Let A be any Banach ring. The map A → B = ∏^Ban_{x∈M(A)} K(x) is an arc-cover. The target is an example of a totally disconnected Banach ring as defined below', while Definition 3.10(i) on the same page requires a totally disconnected ring to be analytic, uniform and to have profinite Berkovich spectrum. For a discrete Banach ring, Z with the trivial norm say, every K(x) is discrete and B is not analytic, so the second sentence needs A analytic. The recorded repair is the paper's own Example 3.4, which arc-covers any nonzero Banach ring by A[T^{±1}]_{1/2} and states that 'locally in the arc-topology we can assume … that A is analytic'.",
+        "by": "REV-PAPER-SCHOLZE-26"
+      }
     }
   ]
 }
