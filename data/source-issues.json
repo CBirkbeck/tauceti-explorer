@@ -568,9 +568,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed, and settled by the paper against itself. The Proposition immediately above (pcc.tex line 10417, the source of this Corollary) reads 'assume that the multiplicity of E'(t) in the semi-simplification of E is mu >= 0. Then the L-function appeared in (i) has a pole of order mu at Z = q^{t-dim(Y)}' - the same t and the same point, with no sign. The Corollary at line 10450 prints E'(-t). The correction is right."
   },
   {
    "id": "PAPER-ABE-18/E2",
@@ -589,9 +589,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 10643: 'f_!\\overline{Q}_p \\cong \\bigoplus q'^+\\chi'_p \\otimes q''^+\\chi'_p'. The two pull-backs are along the two distinct projections q' and q'', so the second factor must carry chi''_p; the primed/double-primed pairing is used consistently on both sides of the ell-adic comparison in the same paragraph."
   },
   {
    "id": "PAPER-ABE-18/E3",
@@ -610,9 +610,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed. The bibliography entry at pcc.tex line 13116 prints 'Publ. Math. de I.H.E.S. 52, p.313-428 (1981)'. Weil II is IHES Publ. Math. 52 (1980), 137-252 (doi 10.1007/BF02684780); both the pages and the year are wrong as printed, and the correction gives the right ones."
   },
   {
    "id": "PAPER-ABE-18/E4",
@@ -621,7 +621,7 @@
    "printed": "For a D^†_{𝔛,Q}-module M, we have F^*(M^σ) ≅ F^*(G^*M^{σ′}) ≅ F′^*(M^{σ′}) … This shows that endowing M with a Frobenius structure with respect to σ is equivalent to endowing M with a Frobenius structure with respect to σ′. Thus, our category Hol(X/K) does not depend on the choice of σ.",
    "correction": "Drop the display. Two lifts σ, σ′ of the Frobenius differ by an element of the finite group Aut(K/Frac W(k)), which σ normalises, so σ^N = σ′^N for some N ≥ 1; hence M admits an s′-th Frobenius structure for σ for some s′ iff it does for σ′, which is what the independence of Hol(X/K) needs.",
    "reason": "Take p ≥ 3, k algebraically closed, R = W(k)[π] with π^{p−1} = −p, σ fixing π and σ′(π) = ωπ with ω ∈ μ_{p−1}, ω ≠ 1, and M = (O, d + π dx) on Spf R{x} with F = F′ : x ↦ x^p. Then F^*(M^σ) = (O, d + pπx^{p−1}dx) and F′^*(M^{σ′}) = (O, d + pωπx^{p−1}dx); a horizontal map between them is multiplication by C·exp((ω − 1)πx^p), whose coefficients (ω − 1)^nπ^n/n! of x^{pn} have absolute value p^{−s_p(n)/(p−1)}, not tending to 0, so C = 0. Thus the displayed isomorphism fails, and M has a Frobenius structure for σ (Dwork's) but none for σ′ with the same s. The conclusion about Hol(X/K), the only thing used later (Lemma 1.4.11(i)), is correct by the argument above.",
-   "affects": "nothing",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.1090/jams/898: no correction, erratum or update relation (23 September 2026)",
@@ -631,9 +631,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed, and the counterexample holds. The display is at pcc.tex line 685 (Remark 1.1.2, label Frobnotdep) exactly as quoted. The first isomorphism needs M^sigma =~ G^*(M^{sigma'}) over Spf R, and for the Dwork module (O, d + pi dx) with sigma(pi) = pi, sigma'(pi) = omega pi the comparison map is multiplication by exp((omega-1) pi x), whose coefficient of x^n has absolute value p^{-s_p(n)/(p-1)}: this does not tend to 0 (take n = p^m), so the function is not a section over the closed unit disc and no such isomorphism exists. I corrected 'affects' from 'nothing' to 'the proof': the display is the whole justification of the remark, and the remark is invoked in the proof of Lemma 1.4.11 ('By Remark \\ref{Frobnotdep}, we get (i)', line 2648). The remark's conclusion is not in doubt, but the proposed repair (sigma^N = sigma'^N for some N, from finiteness of Aut(K/Frac W(k))) is only sketched - it needs sigma to normalise that group and the twisted product tau . sigma tau sigma^{-1} ... to collapse - so it should be read as a suggested route, not a proof."
   },
   {
    "id": "PAPER-ABE-18/E5",
@@ -652,9 +652,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 1103. With the factorisation X ->j Xbar ->fbar Y, the printed middle term j_+ Hom(fbar_+ F, j^! G) applies fbar_+ to a sheaf on X and j^! to a sheaf on Y, so neither is defined; j and fbar have been interchanged. The correction restores the only reading in which both functors are defined and both cited isomorphisms (adjointproperreal for the proper fbar, adjointopenreal for the open j) apply."
   },
   {
    "id": "PAPER-ABE-18/E6",
@@ -673,9 +673,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 1586. f goes X -> Y and f^! goes the other way, and the next sentence of the same paragraph identifies f^! with R(H^0 f^!) on D^b(Hol(Y/K)), whose source is D(Y); the printed source and target are swapped."
   },
   {
    "id": "PAPER-ABE-18/E7",
@@ -694,9 +694,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed at pcc.tex line 2131 (the paper writes phi, the entry varphi; the condition is quoted verbatim otherwise). As printed the condition at a = 1 reads phi = 0, so Hom(X, Y) would be zero for all X, Y. The correction - equality of the two L-structures rather than vanishing, i.e. killing by Ker(L (x)_K L -> L) - is the reading the Lemma and Corollary that follow use."
   },
   {
    "id": "PAPER-ABE-18/E8",
@@ -715,9 +715,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed, and this is a real gap. The proof at pcc.tex line 2653 does put T'_F := (k', R', K', K', s, id), and Definition 1.4.10 requires the last entry to lift the s-th power Frobenius of the residue field; on k' = F_{q^n} with n > 1 that map is x -> x^q, not the identity, so the tuple is not arithmetic and Lemma 1.4.11(ii) does not apply to it. The Corollary's own other tuple, T_{K',F} = (k', R', K', K', s' := [k':k].s, id), shows the author knows the constraint: there id does lift the s'-th Frobenius. The statement is unaffected, as the entry says."
   },
   {
    "id": "PAPER-ABE-18/E9",
@@ -736,9 +736,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 757: 'and (x) has the left adjoint functor \\shom'. In a closed monoidal category Hom(A (x) B, C) =~ Hom(A, Hom(B, C)), so the internal hom is right adjoint to the tensor product, and that is how it is used in 1.1.4 and 1.2.10."
   },
   {
    "id": "PAPER-ABE-18/E10",
@@ -757,9 +757,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed as a missing hypothesis, on the author's own evidence. (Var 3) at pcc.tex line 2788 writes Tr_{f o g} in degree d + e without requiring f o g in M_{d+e}, while section 1.5.7 (line 3235) speaks of 'when the homomorphisms in the diagrams of (Var 2) and (Var 3) are defined' - so the author reads the diagram as conditional. That corroboration is what I rely on; the entry's counterexample is suggestive but not decisive, since whether the disjoint union it builds lies in M_{d+e} depends on reading 'flat of relative dimension d' fibrewise-equidimensionally, which M_d's definition at line 2763 does not settle."
   },
   {
    "id": "PAPER-ABE-18/E11",
@@ -778,9 +778,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 4893: Dtilde_i := (d_{X_i/X})^ o D_{X_i}. The gluing datum beta_phi forces the twists on adjacent Dtilde to differ by the relative dimension of X(phi) with the opposite sign to the one printed, by Lemma 2.1.1(ii). The entry's 'affects: nothing' is right for the reason it gives: by section 1.5.1 (line 2761) the Tate twist is the identity functor when the base carries no Frobenius, so the sign is invisible except for F-structures, and it is a convention, not a false statement."
   },
   {
    "id": "PAPER-ABE-18/E12",
@@ -799,9 +799,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed. Lemma 2.2.4(iii) at pcc.tex line 5029ff reads 'If f is a flat morphism, then for any M in D^b_hol(C'), M is a direct factor of f_+f^+(M)' with no surjectivity, and the proof supplies only 'we can define homomorphisms f_+f^+(M) -> M using the trace map of realizable schemes, and the claim follows easily'. The empty morphism is finite and flat over any C' and has f_+f^+M = 0, so the composite is multiplication by the degree, which must be nowhere zero: 'surjective' is needed, and likewise in the Remark of 2.3.1."
   },
   {
    "id": "PAPER-ABE-18/E13",
@@ -820,9 +820,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed. The estimate at pcc.tex line 6073 is verbatim, and the shortfall is real: Lemma 2.2.16 gives E_1^{i,j} = R^j p_{i A_i *}(M_i) abutting to H^{i+j} of p_{A+}(M), so a weight bound on the E_1 term in cohomological degree j yields weight >= w - w' + j for a term contributing to total degree i + j, short by the simplicial index i of what 'complex of weight >= w - w'' requires. The reach is correctly traced: Theorem 2.3.38 (line 7668) is introduced as 'a direct consequence of' this subsection and is what sections 4.3.3, 4.3.11, 4.3.14 and 4.3.20 use."
   },
   {
    "id": "PAPER-ABE-18/E14",
@@ -841,9 +841,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 4561 ('Thus, we can reduce to the situation where we have a section s: S -> X_0 of f_0'). A smooth surjection onto a point Spec k(s) with k(s) finite need not have a section, and k is only assumed perfect, so the reduction as written is not available; the entry's repair through an etale surjection trivialising X_0 (EGA IV 17.16.3), legitimate because etale pull-back is exact, conservative and commutes with Rf_* by Lemma 2.1.14, is the standard fix. Statement not in doubt."
   },
   {
    "id": "PAPER-ABE-18/E15",
@@ -862,9 +862,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 6871. In the spectral sequence displayed two lines above, E_1^{p,q} = Ext^q(f_{p+} L^omega_{X_p}, L^omega_{Y_p}) => Ext^{p+q}, the trace map Tr_f is an element of Ext^0, which can only come from E_1^{0,0}; and the next sentence, '(Tr_f)_p is nothing but Tr_{f_p}', is the statement that the whole family is determined by the p = 0 term."
   },
   {
    "id": "PAPER-ABE-18/E16",
@@ -883,9 +883,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 4004: 'For an integer i >= 0, let [i] = {0, ..., n} be the ordered set'. The index n is undefined there; [i] = {0, ..., i} is the only reading compatible with the rest of the definition and with the paper's later use of X_1 = X_0 x_X X_0."
   },
   {
    "id": "PAPER-ABE-18/E17",
@@ -904,9 +904,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed at pcc.tex line 5633. The hypothesis prints R^i Hom_{D(X_i)}(C_i, C_i) = 0 'for any i < 0', reusing i for both the simplicial degree and the Ext degree, so as written it constrains objects C_i with i < 0, which do not exist; the BBD 3.2.4 hypothesis the construction needs is vanishing in negative Ext degrees for every simplicial index. I also confirm the entry's first clause: the datum is printed as C_i in D^b(X_.), which should be D^b(X_i)."
   },
   {
    "id": "PAPER-ABE-18/E18",
@@ -925,9 +925,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 9341, including the claim 'We can check easily that ... d_{Gamma' o Gamma} = d_Gamma . d_{Gamma'}'. The BG-example is decisive: for G = Z/2 and Gamma = Spec k with c_Gamma = (u, u) one has d_Gamma = 2, while Gamma o Gamma = Spec k x_{BG} Spec k is a disjoint union of two copies of Gamma, each of generic degree 2 rather than 4, so multiplicativity fails and norm is not a ring homomorphism. The entry is right that the identity does hold in the case section 4.3.17 actually uses."
   },
   {
    "id": "PAPER-ABE-18/E19",
@@ -946,9 +946,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 9142 (the unnumbered Remark after the lemma). The correspondence Gamma = S x {0} x P^1 inside (S x P^1) x_S (S x P^1) is integral of the right dimension with p_2 an isomorphism, and p_1 lands in a divisor, so no non-empty open of Gamma is flat over X and no dense open U of S has the property claimed; the remark needs the components of Gamma to dominate X. The entry correctly limits the damage to Corollary 3.2.1's generality."
   },
   {
    "id": "PAPER-ABE-18/E20",
@@ -967,9 +967,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 9705. C_{X'}Y' is a vector bundle for a regular immersion; for a general l.c.i. morphism the deformation to the normal cone has general fibre Y' of dimension m over a base of dimension n, so a bundle special fibre would need rank m - n, negative as soon as f' is smooth of positive relative dimension - the very case the text admits as l.c.i. The consequence for Lemma 3.2.6 ('N_f x_X U =~ U x A^n') and for its use on f x f for an alteration in Theorem 3.2.1 is correctly traced; the statement is expected to hold."
   },
   {
    "id": "PAPER-ABE-18/E21",
@@ -988,9 +988,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 8797, and the arithmetic is settled by Definition 3.1.3(i) at line 8776: codimension c means dim(target) - dim(Gamma) = c, and a correspondence has dim(Gamma) = dim(X), so c_Gamma has codimension dim(X x_{phi,S} X') - dim(X), which equals dim(X') only when S is a point. The entry's diagonal-over-a-curve example is correct and its note about where cycle classes are used is accurate."
   },
   {
    "id": "PAPER-ABE-18/E22",
@@ -1009,9 +1009,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed, and corroborated twice inside the appendix. The identity is printed at pcc.tex line 12743 with F_x^n; but A.3.1 (line 12700) defines F_x as the automorphism on iota_xbar(E) in D^b_hol(k(x)/T_{k(x)}), whose base tuple has s' = [k(x):k].s by the Corollary of 1.4.11, so F_x is the q^{deg x}-Frobenius - and the L-function defined a few lines below, L_x(E, Z) = det(1 - Z^{deg(x)}F_x; iota_xbar(E))^{-1}, pairs F_x with Z^{deg x} for exactly that reason. Summing over X(k_n) therefore requires F_x^{n/deg x}."
   },
   {
    "id": "PAPER-ABE-18/E23",
@@ -1030,9 +1030,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 12790. The line before it establishes Tr_L(Frob_X^n; RGamma_c(X, E^{(1/beta)})) = 1, and the vanishing on the left uses X(k_n) = empty, so the exponent n must appear in all three terms of the display; F^{(1/beta)} is also E^{(1/beta)} read over K, as the 'first equality holds by the case L = K' clause shows."
   },
   {
    "id": "PAPER-ABE-18/E24",
@@ -1051,9 +1051,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed, and the counterexample is correct. Theorem A.5.1 (label traceformulasta, pcc.tex line 12878) is stated 'for any n > 0' with the right-hand side summed over x in [X(F_q)] only. For X = Spec F_{q^2} as an F_q-scheme and M the unit object, the left side at n = 2 is Tr(F^2) = 2 on the 2-dimensional H^0_c, while [X(F_q)] is empty and the right side is 0. The correction (sum over F_{q^n}-points with #Aut(x)(F_{q^n}) for n > 1) is the standard form, and the entry is right that A.5.4 only ever uses the n = 1 case over each F_{q^d}."
   },
   {
    "id": "PAPER-ABE-18/E25",
@@ -1072,9 +1072,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim at pcc.tex line 12937. As printed the Frobenius trace is taken on rho_+ i_x^+(E) for x an F_{q^d}-point: rho_+ of an object over F_{q^d} is induced from d blocks permuted cyclically by F, so its Frobenius trace vanishes identically for d > 1 and the definition tests nothing beyond F_q-points - far weaker than what section 4 needs from it through Cebotarev density (A.4.1), which compares Frobenius eigenvalues at every closed point. The companion misprint D^b_c(X/Qbar_ell) for the stack is also in the source."
   },
   {
    "id": "PAPER-ABE-18/E26",
@@ -1093,9 +1093,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed. Lemma A.2.2 (pcc.tex line 12518) carries no finite-presentation or qcqs hypothesis, and its proof cites '[EGA VI, 8.10.5]'. There is no EGA VI; 8.10.5 is in EGA IV (third part), and it is the statement that requires the limit-theoretic hypotheses, so both halves of the entry are right."
   },
   {
    "id": "PAPER-ABE-18/E27",
@@ -1114,9 +1114,9 @@
    "owner": "PAPER-ABE-18",
    "file": "research/blueprint/papers/PAPER-ABE-18.result.json",
    "citation": "Abe, \"Langlands correspondence for isocrystals and the existence of crystalline companions for curves\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-18",
+   "reviewReason": "Confirmed verbatim in the proof of A.4.1 (pcc.tex line 12857): the display immediately above compares L(E (x) F^v, Z) with L(E' (x) F^v, Z), and the next sentence returns to L(E' (x) F^v, Z), so the dual is missing only in the middle sentence. The entry's second clause is also right - over a non-algebraically-closed L the pole order is mu.dim_L End(F), which is precisely one of the 'obvious changes' the proof's last sentence waves at - but it does not damage the argument, since the same factor appears on both sides of the comparison and cancels."
   },
   {
    "id": "PAPER-ABE-25/E1",
@@ -8938,14 +8938,16 @@
     "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
     "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
     "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in the Oxford PDF p.14 image. Taylor gives ell^k A/N^k, so its kth-root dimensionless parameter has A^(+1/k). The interval bound is unchanged."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E2",
@@ -8960,14 +8962,16 @@
     "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
     "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
     "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in p.17 image. For each monomial j<=i+j, hence q=sum j<=sum(i+j)=p; A>1 gives the direction used in the estimate."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E3",
@@ -8982,14 +8986,16 @@
     "Web search on 2026-09-22: Bombieri Pila \"arcs and ovals\" erratum",
     "Web search on 2026-09-22: \"Bombieri\" \"Pila\" \"Since p\"",
     "Read the Oxford-hosted author preprint at https://people.maths.ox.ac.uk/pila/Ovals.pdf, especially printed pp.14–17; no existing correction was located in these searches.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed only as an omitted integer-choice justification, not a false theorem. The displayed cutoff is real. Independently checked BP5: floor x>=2d and E is increasing on [floor x,x], so the original constant 11 and threshold survive."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E4",
@@ -9004,19 +9010,21 @@
     "Web search on 2026-09-22: \"Bounds on 2-torsion in class groups\" corrigendum",
     "Read and visually inspected https://www.math.kobe-u.ac.jp/HOME/tani/bstttz.pdf, printed p.4. No existing correction located in the search.",
     "AMS final article/PDF paths and the author publication page were attempted but did not yield the final revision; this record makes no claim about its typography.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in the author-copy p.4 image. A complex disk has area pi R^2; for Q(i), I=O and alpha=1 the area is 2pi. The squared complex factor repairs the proof without changing its theorem."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E5",
    "kind": "misprint",
-   "locator": "BSTTTZ, arXiv:1701.02458v1, §5.1, printed p.7, the sentence introducing the curves E_(±,A,B,C); the corresponding place in the February 2017 author copy was not checked",
+   "locator": "BSTTTZ, arXiv:1701.02458v1, §5.1, printed p.7, the sentence introducing the curves E_(±,A,B,C); also February 2017 author copy p.7.",
    "printed": "where |A| <= |Disc(K)|^(1/3), B <= |Disc(K)|^(2/3), and C <= |Disc(K)|",
    "correction": "|B| <= |Disc(K)|^(2/3) and |C| <= |Disc(K)|.",
    "reason": "A, B and C are the coefficients of +-y^2 = x^3 + Ax^2 + Bx + C obtained by expanding f_beta(m) = Norm(beta - m) for beta ranging over a box symmetric about the origin, so each of them takes both signs; the first is printed with absolute values and the others are not. The deduction that each curve has |Disc(E)| << |Disc(K)|^2, and hence the |Disc(E)|^epsilon factor in the application of Theorem 5.1, needs the absolute values on all three.",
@@ -9027,19 +9035,21 @@
     "The AMS article page for doi:10.1090/jams/945, fetched 2026-09-22: the full-text PDF links (S0894-0347-2020-00945-6.pdf and jams945_AM.pdf) return HTTP 403 to a direct request and, with a browser user agent, resolve to /Account/Login; Crossref records the journal's open-access type as GREEN, i.e. self-archiving only",
     "Crossref for doi:10.1090/jams/945: no update-to, correction or erratum record",
     "The existing E1-E4 records in this file and the whole inherited report, checked for these three places before proposing them",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in arXiv v1 p.7 and the February author copy p.7. Symmetric coefficient bounds require absolute values on B and C. No assertion is made about final JAMS typography."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E6",
    "kind": "misprint",
-   "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.2, printed p.10, the displayed class number formula (checked on a page image); the corresponding place in the February 2017 author copy was not checked",
+   "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.2, printed p.10, the displayed class number formula (checked on a page image); also February 2017 author copy p.11.",
    "printed": "|Pic^0(C)(k)| = |k|^g log|k| Res_(s=1) zeta_C(s)",
    "correction": "|Pic^0(C)(k)| = |k|^g (1 - |k|^(-1)) log|k| Res_(s=1) zeta_C(s).",
    "reason": "Write zeta_C(s) = Z(|k|^(-s)) with Z(T) = P(T)/((1-T)(1-|k|T)) and P(1) = |Pic^0(C)(k)|. The pole at s = 1 comes from the factor 1 - |k|T, and the residue is P(|k|^(-1))/((1 - |k|^(-1)) log|k|); the functional equation P(1/(|k|T)) = |k|^(-g) T^(-2g) P(T) at T = 1 gives P(|k|^(-1)) = |k|^(-g) P(1). Hence P(1) = |k|^g (1 - |k|^(-1)) log|k| Res, and the printed identity omits 1 - |k|^(-1). That factor lies in [1/2, 1), so the remark, which only compares growth in g, is unaffected.",
@@ -9050,19 +9060,21 @@
     "The AMS article page for doi:10.1090/jams/945, fetched 2026-09-22: the full-text PDF links (S0894-0347-2020-00945-6.pdf and jams945_AM.pdf) return HTTP 403 to a direct request and, with a browser user agent, resolve to /Account/Login; Crossref records the journal's open-access type as GREEN, i.e. self-archiving only",
     "Crossref for doi:10.1090/jams/945: no update-to, correction or erratum record",
     "The existing E1-E4 records in this file and the whole inherited report, checked for these three places before proposing them",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in v1 p.10 and author copy p.11. Already for P^1, the residue is 1/((1-q^-1)log q) and Pic^0 has order one, detecting the missing factor. The factor is bounded between 1/2 and 1."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E7",
    "kind": "misprint",
-   "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.3, printed p.10 (checked on a page image); the corresponding place in the February 2017 author copy was not checked",
+   "locator": "BSTTTZ, arXiv:1701.02458v1, §7, Remark 7.3, printed p.10 (checked on a page image); also February 2017 author copy p.11.",
    "printed": "Pic^0(C)(k)[2] subset Pic^0(C)(kbar)[2] and the latter group has size 2^(2g), or 2^g if the characteristic is 2",
    "correction": "... or at most 2^g if the characteristic is 2.",
    "reason": "Over an algebraically closed field of characteristic 2 the 2-torsion of a g-dimensional abelian variety is (Z/2)^f with f the 2-rank, 0 <= f <= g; f = g characterises the ordinary case and a supersingular Jacobian has f = 0. Only the upper bound is used: the remark compares |k|^g with 2^(2g) in odd characteristic and with 2^g in characteristic 2, and concludes that the first bound of Theorem 7.1 wins only for k = F_3. That conclusion is unaffected, and is correct with the corrected statement.",
@@ -9073,94 +9085,229 @@
     "The AMS article page for doi:10.1090/jams/945, fetched 2026-09-22: the full-text PDF links (S0894-0347-2020-00945-6.pdf and jams945_AM.pdf) return HTTP 403 to a direct request and, with a browser user agent, resolve to /Account/Login; Crossref records the journal's open-access type as GREEN, i.e. self-archiving only",
     "Crossref for doi:10.1090/jams/945: no update-to, correction or erratum record",
     "The existing E1-E4 records in this file and the whole inherited report, checked for these three places before proposing them",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in v1 p.10 and author copy p.11. Over algebraic closure in characteristic two, y^2+y=x^3 has inversion (x,y)->(x,y+1), so only the identity is 2-torsion although g=1. Use 2^f<=2^g; the group-scheme rank is different."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E8",
    "kind": "gap",
    "locator": "Author copy §4, first paragraph, p.6 (index-two case of the proof of Theorem 1.1)",
    "printed": "by genus theory, the 2-torsion in the class group of K is bounded by the 2-torsion in the class group of F multiplied by O(2^t) … we obtain a bound of O_ε(|Disc(K)|^{1/4+ε})",
-   "correction": "Use the relative bound that is proved, h_2(K) ≤ 4^{e−1} h_2(F)² (Klüners–Wang, arXiv:2003.12161, Theorem 2.1, with e counting ramified places including real ones). With Theorem 1.1 for F (or Gauss genus theory when F is quadratic) and D_F ≤ D_K^{1/2}, this gives h_2(K) ≪ D_K^{1/2−1/(2n)+ε} for n > 4 and D_K^ε when n = 4, so Theorem 1.1 is unaffected; the D_K^{1/4+ε} bound for this case is not established.",
+   "correction": "Do not import the unverified one-factor estimate. An independently checked sufficient replacement is r_2(E)<=2(r_2(F)+max(t,1)-1), with t counting finite and infinite ramification, hence h_2(E)<=4^(max(t,1)-1)h_2(F)^2. This is an alternative route, not a demonstrated correction of a false source theorem.",
    "reason": "The one-factor bound is asserted without proof or reference. The published relative genus bounds (Cornell; Klüners–Wang) carry the square of h_2(F); the linear form is proved there only when the base 2-rank is zero. The checkpoint already routes the Klüners–Wang replacement (quadratic-relative-rank, quadratic-relative-torsion).",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Klüners–Wang arXiv:2003.12161v2 read at §2 (cc-442dc5); it cites BSTTTZ without comment on this step.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Rejected as an established new error. The source does assert the one-factor estimate, but the supplied argument only exhibits the weaker Kluners–Wang bound; it neither supplies a counterexample nor rules out a sharper relative genus theorem. Keep G2 as an unverified premise and use the independently checked squared-factor replacement. This verdict does not certify the source assertion."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E9",
    "kind": "error",
    "locator": "Author copy Theorem 1.3 and the paragraph before it, pp.2–3; same statement in arXiv v1",
    "printed": "|Sel_2(Jac(C))| = O_ε(|Disc(K)|^ε h_2(K)); (a) |Sel_2(Jac(C))| = O_ε(|Disc(K)|^{1/2−δ_n+ε}); (b) rank(Jac(C)) < c_ε + (1/2−δ_n+ε) log_2|Disc(K)|",
-   "correction": "The ε-factor must be |Disc(C)|^ε: |Sel_2(Jac C)| ≪_{n,ε} |Disc(C)|^ε h_2(K) ≪ |Disc(C)|^ε |Disc(K)|^{1/2−δ_n+ε}. Theorem 1.3 holds in the Disc(C) form that the remark after Theorem 1.3 allows.",
-   "reason": "K = Q[x]/(f) does not see the twists of C. Take f(x) = x³ − N²x: then K ≅ Q³, so Disc(K) = 1 and h_2(K) = 1, and (a) would bound |Sel_2| uniformly over the congruent-number curves y² = x³ − N²x. Their 2-Selmer ranks are unbounded (Heath-Brown 1993–94; Swinnerton-Dyer 2008; Kane 2013). Part (b) is deduced from (a), so it is not established with Disc(K); with Disc(C) both parts follow.",
+   "correction": "Withdraw the field-discriminant-only Selmer bound as a uniform statement over these models. A corrected theorem must retain model bad primes/twist data and prove the exact descent comparison. The proposed Disc(C) estimate is an open G5 target; this review proves neither that replacement nor a counterexample to the rank assertion.",
+   "reason": "Confirmed for the printed Selmer assertion, with the correction narrowed. Kane, published ANT 7 (2013), pp.1253–1254, Theorems 2–3, applies to roots 0,1,-1: the three products are -1,2,2, all nonsquares. Every Selmer rank d>=2 has positive limiting density among squarefree twists, hence the groups are unbounded while Q[X]/(X^3-N^2 X)=Q^3 has discriminant and h_2 equal to one. This disproves part (a), not boundedness of Mordell–Weil ranks, and does not prove the proposed arbitrary-model replacement.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "The JAMS version could not be collated (G0); a later revision may state the Disc(C) form.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed.",
+    "Read Kane publisher PDF https://msp.org/ant/2013/7-5/ant-v7-n5-p09-p.pdf, pp.1253–1254; source SHA-256 recorded in the independent report."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed for the printed Selmer assertion, with the correction narrowed. Kane, published ANT 7 (2013), pp.1253–1254, Theorems 2–3, applies to roots 0,1,-1: the three products are -1,2,2, all nonsquares. Every Selmer rank d>=2 has positive limiting density among squarefree twists, hence the groups are unbounded while Q[X]/(X^3-N^2 X)=Q^3 has discriminant and h_2 equal to one. This disproves part (a), not boundedness of Mordell–Weil ranks, and does not prove the proposed arbitrary-model replacement."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E10",
    "kind": "error",
-   "locator": "Sedunova, On the Bombieri–Pila method over function fields, arXiv:1506.08757v1, Theorem 1, p.1 (cited by BSTTTZ for Theorem 7.1)",
+   "locator": "Sedunova, On the Bombieri–Pila method over function fields, arXiv:1506.08757v1, Theorem 1, p.1 (cited by BSTTTZ for Theorem 7.1); also the published version, DOI 10.4064/aa8613-8-2017, p.321, Theorem 1.",
    "printed": "|S| ≪_{d,ε} |I|^{1/d+ε}, where I is the set of X ∈ F_q[T] with deg X ≤ n and |I| = q^{n+1}",
-   "correction": "Allow the implied constant to depend on q, or state the bound for fixed q.",
+   "correction": "Any valid uniform statement must account for q, the interval convention or an additional threshold. Merely permitting a q-dependent constant is a candidate repair, not a theorem established here.",
    "reason": "For the irreducible degree-2 curve Y² = X and n = 2, every Y of degree ≤ 1 gives a point, so |S| ≥ q², while |I|^{1/2+ε} = q^{3/2+3ε}. For ε < 1/6 no constant depending only on d and ε works as q → ∞.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Sedunova arXiv:1506.08757v1 p.1 read (cc-442dc5); the checkpoint's G9 flagged the same test.",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed.",
+    "Downloaded the public publisher PDF https://www.impan.pl/shop/en/publication/transaction/download/product/111360; its Theorem 1 retains the displayed constant. arXiv:1506.08757 lists only v1; no correction found by title/DOI searches."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed in arXiv v1 p.1 and published Acta Arith. 181.4 (2017), p.321, Theorem 1. For Y^2=X and I={deg<=2}, there are exactly q^2 points and |I|=q^3; their ratio to |I|^(1/2+epsilon) grows as q^(1/2-3epsilon). A fixed-q estimate is not proved by this counterexample."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E11",
    "kind": "gap",
    "locator": "Author copy Theorem 1.7 and Theorem 7.1, second assertion, with its one-sentence proof, pp.3 and 11–12",
    "printed": "if C admits a degree n map to P¹ over k, then |Pic⁰(C)(k)[2]| ≪_n |k|^{(1−1/n)g}",
-   "correction": "Treat the second assertion as not established. The cited input has an ε-loss and a q-dependent constant (E10), so the analogy with §4 can give at most an ε-lossy bound whose constant depends on |k|, and the function-field version of §4 is not written out.",
+   "correction": "Keep the second assertion as an unproved target in this extraction. Supply an exact counting theorem and the deduction with the required epsilon and q quantifiers. No assertion is made that such a deduction is impossible by other arguments.",
    "reason": "The proof reads 'we proceed just as in the proof of Theorem 1.1, but using … Sedunova [16, Theorem 1]'. The printed bound has no ε and a constant depending only on n. Neither follows from that input. The first assertion of Theorem 7.1 is proved in full and is unaffected.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Author copy §7 re-read (cc-442dc5).",
-    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated."
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
    ],
    "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
    "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
    "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Confirmed as a missing implication, not as a counterexample to the theorem. The cited epsilon-loss estimate and its unproved uniformity repair do not by themselves yield the displayed epsilon-free, n-only constant. The function-field conversion, characteristic-two and inseparable cases are also absent. The first section-count bound remains valid."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E12",
+   "kind": "error",
+   "locator": "BSTTTZ February 2017 author copy p.6, final paragraph of §4; arXiv v1 p.6, same argument.",
+   "printed": "g_beta denotes the squarefree part of f_beta; the subsequent Bombieri–Pila exponent is 1/(2n).",
+   "correction": "Keep the full signed norm polynomial Y^2=+/-Norm(X-beta), of total degree n, when [K:Q(beta)] is odd. It is absolutely irreducible even with singularities. Do not assign degree n to its squarefree part.",
+   "reason": "For K=Q(2^(1/9)) (degree nine by Eisenstein) and beta=2^(1/3), Norm(X-beta)=(X^3-2)^3. Its squarefree part has degree three. Bombieri–Pila in a square of side O(sqrt D) on the squarefree model only supplies D^(1/6+epsilon), not D^(1/18+epsilon). The full degree-nine singular curve has odd root multiplicities and is absolutely irreducible, giving the required exponent. The extraction already contains this valid repair but omitted it from sourceIssues.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "For K=Q(2^(1/9)) (degree nine by Eisenstein) and beta=2^(1/3), Norm(X-beta)=(X^3-2)^3. Its squarefree part has degree three. Bombieri–Pila in a square of side O(sqrt D) on the squarefree model only supplies D^(1/6+epsilon), not D^(1/18+epsilon). The full degree-nine singular curve has odd root multiplicities and is absolutely irreducible, giving the required exponent. The extraction already contains this valid repair but omitted it from sourceIssues."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E13",
+   "kind": "gap",
+   "locator": "Sedunova arXiv:1506.08757v1 p.6, proof of Theorem 1, step 2; published Acta Arith. 181.4 (2017) p.329, same step.",
+   "printed": "#{(X,Y) mod f : G(X,Y)=0}=|f|+O_d(sqrt(|f|)) for every sufficiently large irreducible f.",
+   "correction": "Restrict the Weil estimate to geometrically irreducible good reductions, and bound the aggregate cost of exceptional primes in the determinant/sieve argument. Include the coordinate-change and coefficient-height dependence.",
+   "reason": "Over odd F_q, take any irreducible f(T) and G=X^2-Y^2-f(T). Its generic affine conic is absolutely irreducible, but reduction modulo f is two distinct lines and has 2|f|-1 affine points. Irreducible f can have arbitrarily large degree; a threshold depending only on d and epsilon cannot exclude all such bad reductions as G varies. This invalidates the universal reduction estimate used in the proof, not by itself every possible fixed-q final bound.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Sedunova arXiv:1506.08757v1 p.1 read (cc-442dc5); the checkpoint's G9 flagged the same test.",
+    "Rechecked by cc-442dc5 on 23 September 2026: the Taniguchi author copy re-fetched (SHA-256 bba54fd0…); Unpaywall reports no open copy of DOI 10.1090/jams/945 and arXiv lists only v1, so the JAMS text could not be collated.",
+    "Independent search 2026-09-23: title plus erratum/corrigendum/correction; no matching correction located. This is a bounded negative search, not a proof that none exists.",
+    "BSTTTZ author pages https://thornef.github.io/ and https://www.math.kobe-u.ac.jp/HOME/tani/; arXiv:1701.02458 still lists v1. AMS final PDF returned 403. MPG file_3277756 is text-identical to arXiv v1 apart from its displayed date; no final-JAMS collation claimed.",
+    "Downloaded the public publisher PDF https://www.impan.pl/shop/en/publication/transaction/download/product/111360; its Theorem 1 retains the displayed constant. arXiv:1506.08757 lists only v1; no correction found by title/DOI searches."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Over odd F_q, take any irreducible f(T) and G=X^2-Y^2-f(T). Its generic affine conic is absolutely irreducible, but reduction modulo f is two distinct lines and has 2|f|-1 affine points. Irreducible f can have arbitrarily large degree; a threshold depending only on d and epsilon cannot exclude all such bad reductions as G varies. This invalidates the universal reduction estimate used in the proof, not by itself every possible fixed-q final bound."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E14",
+   "kind": "misprint",
+   "locator": "Helfgott–Venkatesh arXiv:math/0405180v2, p.15, Corollary 3.9; p.13, Theorem 3.8 supplies the rank parameter.",
+   "printed": "R >= max(1, rank_Z E(Q))",
+   "correction": "R >= max(1, rank_Z E(K)) for the displayed number-field corollary.",
+   "reason": "Theorem 3.8 counts E(K) and its packing exponent uses rank_Z E(K). Optimizing it with an upper bound R therefore requires that same rank. For a general curve defined over K, E(Q) is not even the supplied base-field point group. The extraction already uses E(K); the BSTTTZ application K=Q is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Read arXiv v2 PDF p.15 as text and page image; current arXiv listing has v2 as latest.",
+    "2026-09-23 search: Helfgott Venkatesh Corollary 3.9 erratum; no matching correction found. The final journal text was not independently collated."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Theorem 3.8 counts E(K) and its packing exponent uses rank_Z E(K). Optimizing it with an upper bound R therefore requires that same rank. For a general curve defined over K, E(Q) is not even the supplied base-field point group. The extraction already uses E(K); the BSTTTZ application K=Q is unaffected."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E15",
+   "kind": "misprint",
+   "locator": "Tsimerman arXiv:1103.5619v3, Lemma 5.3 proof, pp.12–13.",
+   "printed": "L1/L2 is isomorphic to M2; ker(f composed with g).",
+   "correction": "The second quotient is L1/L3 isomorphic to M2; the composite on Cl_T -> Cl_U -> Cl_S is g composed with f.",
+   "reason": "L3 is the inverse image of M1 in L1, with L3/L2=M1 and L1/L2=M. The third-isomorphism theorem gives (L1/L2)/(L3/L2)=L1/L3=M2. The displayed arrows have f:Cl_T->Cl_U and g:Cl_U->Cl_S, so f composed with g has the wrong domain. These are literal slips; negligible-factor exactness and all arithmetic inputs still require G4 closure.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Read pp.12–13 of arXiv v3 as text and page images.",
+    "2026-09-23 arXiv version listing ends at v3; title/author plus erratum/correction search located no matching correction. No final journal collation claimed."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "L3 is the inverse image of M1 in L1, with L3/L2=M1 and L1/L2=M. The third-isomorphism theorem gives (L1/L2)/(L3/L2)=L1/L3=M2. The displayed arrows have f:Cl_T->Cl_U and g:Cl_U->Cl_S, so f composed with g has the wrong domain. These are literal slips; negligible-factor exactness and all arithmetic inputs still require G4 closure."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E16",
+   "kind": "misprint",
+   "locator": "Tsimerman arXiv:1103.5619v3, p.11, proof of Theorem 5.1, final kernel estimate.",
+   "printed": "|E_U[m]| times |U(Q)_tor| <= m^d w_U",
+   "correction": "Use |E_U/m E_U| times |U(Q)_tor|, bounded by m^d w_U.",
+   "reason": "The preceding argument places m E_U in the denominator of the relevant quotient. E_U is free abelian, so E_U[m] is trivial whereas E_U/m E_U has m^rank elements. Already E_U=Z and m=2 distinguishes these cardinalities. Replacing torsion by quotient supplies exactly the intended upper bound; this does not certify the other steps of the torus theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Read pp.12–13 of arXiv v3 as text and page images.",
+    "2026-09-23 arXiv version listing ends at v3; title/author plus erratum/correction search located no matching correction. No final journal collation claimed."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "The preceding argument places m E_U in the denominator of the relevant quotient. E_U is free abelian, so E_U[m] is trivial whereas E_U/m E_U has m^rank elements. Already E_U=Z and m=2 distinguishes these cardinalities. Replacing torsion by quotient supplies exactly the intended upper bound; this does not certify the other steps of the torus theorem."
+  },
+  {
+   "id": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/E17",
+   "kind": "misprint",
+   "locator": "Tsimerman arXiv:1103.5619v3, p.9, displayed conclusion of Theorem 4.7; compare Theorem 3.1 p.6 and Lemmas 4.1–4.5 pp.7–8.",
+   "printed": "(1/2) log(h_T R_T) = (1/2) log f_rho + o(log D_K)",
+   "correction": "Remove the factor 1/2 multiplying log(h_T R_T). The intended formula is log(h_T R_T)=(1/2)log f_rho+o(log D_K).",
+   "reason": "Shyr’s displayed formula in Theorem 3.1 is h_T R_T=rho_T w_T tau_T sqrt(D_T). The subsequent lemmas make rho_T,w_T,tau_T and D_T/f_rho discriminant-negligible. Taking logarithms gives coefficient one on log(h_T R_T), not one half. This is a literal normalization slip in the v3 display; no formal proof of the analytic lemmas is claimed.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read pp.12–13 of arXiv v3 as text and page images.",
+    "2026-09-23 arXiv version listing ends at v3; title/author plus erratum/correction search located no matching correction. No final journal collation claimed."
+   ],
+   "owner": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "file": "research/blueprint/papers/PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20.result.json",
+   "citation": "Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao, \"Bounds on 2-torsion in class groups of number fields and integral points on elliptic curves\", Journal of the American Mathematical Society (2020)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+   "reviewReason": "Shyr’s displayed formula in Theorem 3.1 is h_T R_T=rho_T w_T tau_T sqrt(D_T). The subsequent lemmas make rho_T,w_T,tau_T and D_T/f_rho discriminant-negligible. Taking logarithms gives coefficient one on log(h_T R_T), not one half. This is a literal normalization slip in the v3 display; no formal proof of the analytic lemmas is claimed."
   },
   {
    "id": "PAPER-BHARGAVA-SHANKAR-WANG-22/E1",
