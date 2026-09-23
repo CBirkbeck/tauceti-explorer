@@ -13,7 +13,7 @@
       "The entire published open-access article (CC BY 4.0; §§1–8 and references), read 2026-09-22. PDF from Cambridge Core, SHA-256 7fe1974e52052c23fe63697e7255de8e59f9dffcfee6d58ef71858289ebcf0e8."
     ]
   },
-  "summary": "Proves the Cohen–Lenstra–Martinet conjecture (1.1) for p = 3 and G any transitive permutation 2-group with a transposition (for example D₄): the average of |Cl_K[3]| over G-extensions of any number field tends to an explicit constant (Theorems 1.1, 6.1), about 1.42 for D₄-quartics over ℚ. It also proves that the relative class group average is 1 + 3^{−u}, as the heuristics predict (Theorems 1.2, 6.11), and treats C₂ ≀ H more generally (Theorem 8.1). The strategy sums Datskovsky–Wright's average over quadratic extensions K/F of each index-2 subfield F. That needs a tail estimate uniform in F (Theorem 5.1), built from four ingredients:\n- uniform counts of S₃ cubics and of h₃ over quadratic extensions (Theorem 3.1), using class field theory, the Shintani zeta function, and a new \"propagation of orders\" argument;\n- a relative Ellenberg–Venkatesh lemma (Lemma 2.1);\n- log-free zero-density estimates giving small split primes (§4);\n- an induction on the tower.\nThe atlas plans Shintani zeta functions (AN.8), Hecke L-function basics (AN.4) and Shafarevich's theorem (IG.4), and Mathlib has class numbers, regulators and the unit theorem. It has none of the torsion, counting or average theorems. Six source issues are recorded, including a gap in the proof of Lemma 2.1 with an easy repair and a misprinted constant C_G. The D₄ table of Example 7.2 was reproduced numerically.",
+  "summary": "Proves the Cohen–Lenstra–Martinet conjecture (1.1) for p = 3 and G any transitive permutation 2-group with a transposition (for example D₄): the average of |Cl_K[3]| over G-extensions of any number field tends to an explicit constant (Theorems 1.1, 6.1), about 1.42 for D₄-quartics over ℚ. It also proves that the relative class group average is 1 + 3^{−u}, as the heuristics predict (Theorems 1.2, 6.11), and treats C₂ ≀ H more generally (Theorem 8.1). The strategy sums Datskovsky–Wright's average over quadratic extensions K/F of each index-2 subfield F. That needs a tail estimate uniform in F (Theorem 5.1), built from four ingredients:\n- uniform counts of S₃ cubics and of h₃ over quadratic extensions (Theorem 3.1), using class field theory, the Shintani zeta function, and a new \"propagation of orders\" argument;\n- a relative Ellenberg–Venkatesh lemma (Lemma 2.1);\n- zero-density estimates giving small split primes (§4);\n- an induction on the tower.\nThe atlas plans Shintani zeta functions (AN.8), Hecke L-function basics (AN.4) and Shafarevich's theorem (IG.4), and Mathlib has class numbers, regulators and the unit theorem. It has none of the torsion, counting or average theorems. Sixteen source issues are recorded, including a gap in the proof of Lemma 2.1 with an easy repair and a misprinted constant C_G. The D₄ table of Example 7.2 was reproduced numerically.",
   "items": [
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/1",
@@ -82,7 +82,7 @@
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/7",
       "kind": "theorem",
       "name": "Ellenberg–Venkatesh: small elements lie in subfields, and the torsion lemma ([EV07, Lemmas 2.2–2.3])",
-      "statement": "An element of a number field whose height is smaller than a fixed power of the discriminant of the field it generates lies in a proper subfield ([EV07, Lemma 2.2]). If there are M primes of L of norm < Disc(L)^θ, 0 < θ < 1/(4ℓ([L:ℚ] − 1)), none extended from a proper subfield, then |Cl_L[ℓ]| ≪_{[L:ℚ],θ,ε} Disc(L)^{1/2+ε}/M (2.2).",
+      "statement": "Relative forms, for K/K₀ of degree d. If λ ∈ K^× generates K over K₀, then H(λ) ≫_{[K:ℚ]} Norm(D_{K/K₀})^{1/(2(d−1))} ([EV07, Lemma 2.2]): an element of small height lies in a proper subfield containing K₀. If ℓ ≥ 1, δ < 1/(2ℓ(d − 1)), and p₁, …, p_M are prime ideals of K of norm at most Norm(D_{K/K₀})^δ that are unramified and not extended from any proper subfield of K containing K₀, then |Cl_K[ℓ]| ≪_{[K:ℚ],δ,ε,ℓ} Disc(K)^{1/2+ε}M^{−1} ([EV07, Lemma 2.3]). The paper's (2.2) is the case K₀ = ℚ.",
       "locator": "§2, (2.2), p.7; proof of Lemma 2.1, p.9, citing [EV07], Forum Math. Pi 13 (2025), e19",
       "status": "missing",
       "note": "Imported; used in its relative form. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
@@ -91,8 +91,8 @@
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/8",
       "kind": "theorem",
       "name": "Lemma 2.1 (relative Ellenberg–Venkatesh)",
-      "statement": "Let L/K be an extension with d := [L : K], ℓ ≥ 1 and 0 < θ < 1/(4ℓ(d − 1)). Suppose there are M pairs of distinct primes (℘_i, ℘̄_i) of L and integers a_i, b_i with (1) ℘_i ∩ O_K = ℘̄_i ∩ O_K and Nm_{L/K}(℘_i)^{a_i} = Nm_{L/K}(℘̄_i)^{b_i}; (2) Nm(℘_i)^{a_i} = Nm(℘̄_i)^{b_i} < Disc(L/K)^θ; (3) no intermediate field K ⊆ H ⊊ L from a prime of which powers of both ℘_i and ℘̄_i are extended. Then |Cl_{L/K}[ℓ]| = O_{[L:ℚ],θ,ε}(Disc(L/K)^{1/2+ε}Disc(K)^{(d−1)/2+ε}/M) (2.1). For primes split completely in L/K, (1) and (3) are automatic and (2) reads Nm(℘_i ∩ O_K) < Disc(L/K)^θ.",
-      "locator": "Lemma 2.1, Remark 2.2, p.7; proof pp.8–10, Forum Math. Pi 13 (2025), e19 (misprints E2, E3; gap E1)",
+      "statement": "Let L/K be an extension with d := [L : K], ℓ ≥ 1 and 0 < θ < 1/(4ℓ(d − 1)). Suppose there are M pairs of distinct primes (℘_i, ℘̄_i) of L and positive integers a_i, b_i (the paper says 'integers', E7) with (1) ℘_i ∩ O_K = ℘̄_i ∩ O_K and Nm_{L/K}(℘_i)^{a_i} = Nm_{L/K}(℘̄_i)^{b_i}; (2) Nm(℘_i)^{a_i} = Nm(℘̄_i)^{b_i} < Disc(L/K)^θ; (3) no intermediate field K ⊆ H ⊊ L such that some power of ℘_i and some power of ℘̄_i are each extended from a prime of H. Then |Cl_{L/K}[ℓ]| = O_{[L:ℚ],θ,ε}(Disc(L/K)^{1/2+ε}Disc(K)^{(d−1)/2+ε}/M) (2.1). For primes split completely in L/K, (1) and (3) are automatic and (2) reads Nm(℘_i ∩ O_K) < Disc(L/K)^θ.",
+      "locator": "Lemma 2.1, Remark 2.2, p.7; proof pp.8–10, Forum Math. Pi 13 (2025), e19 (misprints E2, E3, E7, E8; gap E1)",
       "status": "missing",
       "note": "Statement with d = [L : K] as in the proof and the applications (E2). Routed to ArithmeticStatistics ST.3/ST.5 as a source."
     },
@@ -142,14 +142,14 @@
       "planned": [
         "AnalyticNumberTheory:AN.8"
       ],
-      "note": "AN.8 plans Sato–Shintani prehomogeneous-vector-space zeta functions with their functional equations."
+      "note": "AN.8 plans Sato–Shintani prehomogeneous-vector-space zeta functions with their functional equations. 𝔄_F, 𝔅_F, the coefficients c_{αβ}(s) and the signature sgn(R) are as defined on p.12."
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/14",
       "kind": "theorem",
       "name": "Lemmas 3.8–3.11 (vanishing at 0, orders, uniform and convexity bounds for Shintani zeta)",
-      "statement": "If [F : ℚ] ≥ 2 then ξ_{F,α}(0) = 0, since each c_{αβ}(s) vanishes to order [F : ℚ] at s = 1 (Lemma 3.8). For a cubic étale algebra A/F, the orders O ⊂ A with [O_A : O]² = n have Dirichlet series f_A(s) = ζ_F(4s)ζ_F(6s − 1)ζ_A(2s)/ζ_A(4s) (Datskovsky–Wright, Lemma 3.9). For σ > 3/2, ξ_{F,α}(σ + it) ≪_{[F:ℚ],σ,ε} Disc(F)^{1/2+ε}h₂(F) (Lemma 3.10), and for −1/2 ≤ σ ≤ 3/2, ξ_{F,α}(σ + it) = O(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}) by Phragmén–Lindelöf (Lemma 3.11).",
-      "locator": "Lemmas 3.8–3.11 and proofs, pp.13–15, citing [DW86, Theorem 6.1], Forum Math. Pi 13 (2025), e19",
+      "statement": "If [F : ℚ] ≥ 2 then ξ_{F,α}(0) = 0, since each c_{αβ}(s) vanishes to order [F : ℚ] at s = 1 (Lemma 3.8). For a cubic étale algebra A/F, the orders O ⊂ A with [O_A : O]² = n have Dirichlet series f_A(s) = ζ_F(4s)ζ_F(6s − 1)ζ_A(2s)/ζ_A(4s) (Datskovsky–Wright, Lemma 3.9). For σ > 3/2, ξ_{F,α}(σ + it) ≪_{[F:ℚ],σ,ε} Disc(F)^{1/2+ε}h₂(F) (Lemma 3.10), and for −1/2 ≤ σ ≤ 3/2 away from the poles at s = 1 and 5/6 (for example for |t| ≥ 1; the paper states it for all t, E9), ξ_{F,α}(σ + it) = O(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}) by Phragmén–Lindelöf (Lemma 3.11).",
+      "locator": "Lemmas 3.8–3.11 and proofs, pp.13–15, citing [DW86, Theorem 6.1], Forum Math. Pi 13 (2025), e19 (E9)",
       "status": "missing",
       "note": "The Phragmén–Lindelöf interpolation between the bounds at σ = 3/2 and σ = −1/2 was checked. Routed to AnalyticNumberTheory AN.3/AN.4/AN.8 as a source."
     },
@@ -157,8 +157,8 @@
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/15",
       "kind": "theorem",
       "name": "Propositions 3.12, 3.15 and Lemmas 3.13–3.14 (intermediate range: propagation of orders)",
-      "statement": "Σ_{[K:F]=2, Disc(K/F)≤X}h₃(K/F) and N_F(S₃, X) are both ≪_{[F:ℚ],ε} Disc(F)^{1/2+ε}κ_F^{−2}X^{1/2}(Disc(F)h₂(F)^{1/3} + X^{1/2}) with κ_F = Res_{s=1}ζ_F. Lemma 3.13: the orders in F × K and in the non-Galois cubics with resolvent K and disc(L/F) = disc(K/F) have generating series (h₃(K/F)/2)Disc(K/F)^{−s}ζ_F(2s)ζ_F(6s − 1)Σ_{𝔞 ⊆ O_K sq. free, [𝔞] ∈ 3Cl_K + Cl_F}Nm(𝔞)^{−2s}. Lemma 3.14: for X ≥ C Disc(F)^{1/2+δ}κ_F^{−1}, #{𝔞 ⊆ O_F : Nm 𝔞 ≤ X} ≫ κ_FX. Each K therefore contributes ≫ h₃(K/F)Y^{1/2}κ_F/Disc(K/F)^{1/2} orders to N_{O_F,3}(Y), which Proposition 3.6 bounds; S₃ cubics then follow by [DW88, Lemma 6.2].",
-      "locator": "Propositions 3.12, 3.15, Lemmas 3.13–3.14 and proofs, pp.15–19, Forum Math. Pi 13 (2025), e19 (misprint E5 in Lemma 3.14)",
+      "statement": "Σ_{[K:F]=2, Disc(K/F)≤X}h₃(K/F) and N_F(S₃, X) are both ≪_{[F:ℚ],ε} Disc(F)^{1/2+ε}κ_F^{−2}X^{1/2}(Disc(F)h₂(F)^{1/3} + X^{1/2}) with κ_F = Res_{s=1}ζ_F. Lemma 3.13, with the weight |Aut_{O_F}(R)|^{−1} (the paper prints |Aut_F(A)|^{−1}, E10): for the cubic rings R over O_F whose étale algebra A = R ⊗_{O_F} F is F × K or a non-Galois cubic with resolvent K and disc(L/F) = disc(K/F), Σ_R |Aut_{O_F}(R)|^{−1}Disc(R/O_F)^{−s} = (h₃(K/F)/2)Disc(K/F)^{−s}ζ_F(2s)ζ_F(6s − 1)Σ_{𝔞 ⊆ O_K sq. free, [𝔞] ∈ 3Cl_K + Cl_F}Nm(𝔞)^{−2s}. Lemma 3.14: for X ≥ C Disc(F)^{1/2+δ}κ_F^{−1}, #{𝔞 ⊆ O_F : Nm 𝔞 ≤ X} ≫ κ_FX. Each K therefore contributes ≫ h₃(K/F)Y^{1/2}κ_F/Disc(K/F)^{1/2} orders to N_{O_F,3}(Y), which Proposition 3.6 bounds; S₃ cubics then follow by [DW88, Lemma 6.2], summing over all conductors 𝔮 (the proof sums over square-free 𝔮 only, E11).",
+      "locator": "Propositions 3.12, 3.15, Lemmas 3.13–3.14 and proofs, pp.15–19, Forum Math. Pi 13 (2025), e19 (misprint E5 in Lemma 3.14; E10, E11)",
       "status": "missing",
       "note": "The Dirichlet-series identity of Lemma 3.13 was re-derived from Lemma 3.9. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
     },
@@ -166,7 +166,7 @@
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/16",
       "kind": "theorem",
       "name": "Lemma 4.1 (standard properties of ray class L-functions)",
-      "statement": "For a nontrivial ray class character χ of k with q_χ = Nm(𝔣_χ)Disc(k): the number of zeros ρ with |ℑρ − t| ≤ 1 is O_{[k:ℚ]}(log((t + 1)q_χ)); and for −3/2 ≤ ℜ(s) ≤ 2, −L′/L(s, χ) = −(r₁⁺(χ) + r₂)/s − (r₁⁻(χ) + r₂)/(s + 1) − Σ_{|s−ρ|<1}(s − ρ)^{−1} + O_{[k:ℚ]}(log((|s| + 1)q_χ)), via the completed L-function and its functional equation.",
+      "statement": "For a nontrivial ray class character χ of k with q_χ = Nm(𝔣_χ)Disc(k): for t ≥ 0 the number of nontrivial zeros ρ with |ℑρ − t| ≤ 1 is O_{[k:ℚ]}(log((t + 1)q_χ)); and for −3/2 ≤ ℜ(s) ≤ 2, −L′/L(s, χ) = −(r₁⁺(χ) + r₂)/s − (r₁⁻(χ) + r₂)/(s + 1) − Σ_{|s−ρ|<1}(s − ρ)^{−1} (over nontrivial zeros) + O_{[k:ℚ]}(log((|s| + 1)q_χ)), via the completed L-function and its functional equation.",
       "locator": "§4, Lemma 4.1, pp.19–20, citing [IK04, Proposition 5.7], Forum Math. Pi 13 (2025), e19",
       "status": "planned",
       "planned": [
@@ -177,11 +177,11 @@
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/17",
       "kind": "theorem",
-      "name": "Theorem 4.2 (log-free zero density for ray class L-functions)",
+      "name": "Theorem 4.2 (zero-density estimate for ray class L-functions)",
       "statement": "There is c = c([k : ℚ]) > 0 such that for Q, T > 1, 1/2 ≤ σ < 1 and ε > 0, Σ_{Nm 𝔮≤Q}Σ*_{χ mod 𝔮}N_χ(σ, T) ≪_{[k:ℚ],ε} (Disc(k)QT)^{c(1−σ)+ε}, the inner sum over primitive ray class characters of conductor 𝔮 and N_χ(σ, T) counting zeros with ℜρ ∈ (σ, 1), |ℑρ| ≤ T.",
       "locator": "Theorem 4.2, p.20, citing Lemke Oliver–Thorner [Pas17, Proposition A.2] and Thorner–Zaman [TZ21, Theorem 1.2], Forum Math. Pi 13 (2025), e19",
       "status": "missing",
-      "note": "Imported. Routed to AnalyticNumberTheory AN.3/AN.4/AN.8 as a source."
+      "note": "Imported. Routed to AnalyticNumberTheory AN.3/AN.4/AN.8 as a source. The printed bound carries +ε in the exponent, so it is not log-free as stated; [TZ21, Theorem 1.2] would allow ε = 0."
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/18",
@@ -206,7 +206,7 @@
       "kind": "theorem",
       "name": "Brauer–Siegel, Landau and Friedman–Skoruppa inputs",
       "statement": "Res_{s=1}ζ_F(s) ≪_{[F:ℚ],ε} Disc(F)^ε (Landau) and ≫_{[F:ℚ],ε} Disc(F)^{−ε} (Brauer–Siegel/Siegel, ineffective unless ζ_F has no Landau–Siegel zero; Stark), h(F)Rg(F) ≍ Disc(F)^{1/2+o(1)} in bounded degree, and Rg(L)/Rg(K) ≫_{[L:ℚ]} 1 for L ⊇ K (Friedman–Skoruppa).",
-      "locator": "Proof of Lemma 2.4, p.8; §3.2, p.15; §3.4, p.19, citing [Bra47], [Sta74], [FS99], Forum Math. Pi 13 (2025), e19",
+      "locator": "Proof of Lemma 2.4, p.8; §3.2, p.15; §3.4, p.19; proof of Lemma 5.8, p.25, citing [Bra47], [Sta74], [FS99], Forum Math. Pi 13 (2025), e19",
       "status": "missing",
       "note": "Routed to AnalyticNumberTheory AN.3/AN.4/AN.8 as a source."
     },
@@ -215,7 +215,7 @@
       "kind": "theorem",
       "name": "Klüners–Wang inputs: towers and 2-torsion ([KW20, Lemma 2.3, Theorem 2.7])",
       "statement": "If G ⊂ S_{ℓ^r} is an ℓ-group and Gal(E/F) ≃ G, there is a tower F = F₀ ⊂ F₁ ⊂ … ⊂ F_r = E with Gal(F_{i+1}/F_i) = C_ℓ (Lemma 5.4). For a 2-extension F/k, h₂(F) ≪_{[F:ℚ],ε} Disc(F)^εh₂(k)^{[F:k]} (Lemma 5.6).",
-      "locator": "Lemmas 5.4, 5.6, pp.23, citing Klüners–Wang [KW20], Forum Math. Pi 13 (2025), e19",
+      "locator": "Lemmas 5.4, 5.6, p.23, citing Klüners–Wang [KW20], Forum Math. Pi 13 (2025), e19",
       "status": "missing",
       "note": "Imported. Routed to ArithmeticStatistics ST.3/ST.5 as a source."
     },
@@ -343,7 +343,7 @@
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/35",
       "kind": "theorem",
       "name": "Theorem 8.1 (averages for C₂ ≀ H, H arbitrary)",
-      "statement": "For transitive H ⊆ S_n and G = C₂ ≀ H, G-extensions have a unique index-2 subfield F_K, an H-extension. (1) If E^u_k(G, ∞) ≠ ∅ and |E_k(H, X)| ≪ X^{2/3+ε}, then the average of h₃(K/F_K) over E^u_k(G, X) is 1 + 3^{−u}. (2) If E_k(H, ∞) ≠ ∅ and Σ_{F∈E_k(H,X)}h₃(F/k) ≪ X^{2/3+ε}, then the average of h₃(K) over E_k(G, X) tends to an explicit c_{k,G,3}. The hypotheses hold for H ≠ C₂ regular representations realised over k, for nilpotent H without a transposition, and for p-groups with p ≠ 5 odd. Proof: Corollary 3.2 with [BST+20, Theorem 1.1] replaces Theorem 5.1, and [BSW15, Theorem 2] with local conditions at split primes shows that K/k with smaller Galois group contribute o(X).",
+      "statement": "For transitive H ⊆ S_n and G = C₂ ≀ H, G-extensions have a unique index-2 subfield F_K, an H-extension. (1) If E^u_k(G, ∞) ≠ ∅ and |E_k(H, X)| ≪ X^{2/3+ε}, then the average of h₃(K/F_K) over E^u_k(G, X) is 1 + 3^{−u}. (2) If E_k(H, ∞) ≠ ∅ and Σ_{F∈E_k(H,X)}h₃(F/k) ≪ X^{2/3+ε}, then the average of h₃(K) over E_k(G, X) tends to an explicit c_{k,G,3}. The hypotheses of (1) hold for any H ≠ C₂ in its regular representation realised over k and for nilpotent H without a transposition; those of (2) hold for p-groups with p ≠ 5 odd. Proof: Corollary 3.2 with [BST+20, Theorem 1.1] replaces Theorem 5.1, and [BSW15, Theorem 2] with local conditions at split primes shows that K/k with smaller Galois group contribute o(X).",
       "locator": "Theorem 8.1 and proof, pp.40–41, citing [BST+20], [BSW15], [EV06], [Alb20], [KM04], [KW20], Forum Math. Pi 13 (2025), e19",
       "status": "missing",
       "note": "Routed to ArithmeticStatistics ST.3/ST.5 as a source."
@@ -493,7 +493,12 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.9. The boxes control only differences within each block of places above w_i, not the block sums t_i = log|Nm_{L/K}(uα_r/α_s)|_{w_i}; the paper's 'Σt_i = 0, since u, α_r and α_s all have norm 1' gives Σ_i t_i = 0 but not Σ max(x_v, 0) = O(1), and the height is unbounded once K has two or more infinite places, which is the case in the application (K = F₁). Rescaling by units of K alone does not suffice (it moves t only by d·Log of a unit). The proposed repair works: pigeonhole Nm_{L/K}(α_i) in O_K^*/(O_K^*)^d (at most d^{[K:ℚ]} classes), rescale, so that α_r/α_s has relative norm 1 and every t_i = 0, at the cost of a constant.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E2",
@@ -508,7 +513,12 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.7 and 9: the statement sets d := [L : ℚ], the proof 'Let d = [L : K]', and the applications (θ = 1/20 on p.27, θ = 1/24 on p.32, ℓ = 3) need d = [L : K].",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E3",
@@ -523,7 +533,12 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed; the correction is right. Its stated reason is incomplete: the contradiction also needs ℘̄_r to have negative valuation, because condition (3) of Lemma 2.1 forbids both primes being extended, not either one.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E4",
@@ -538,7 +553,12 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.11: ℚ(√2) and ℚ(√−2) both have discriminant of absolute value 8 while h₂(ℚ) = 1. The correct count per discriminant ideal is O(m^ε h₂(F)) (ideals of norm m, sign choices at real places and a bounded number of characters at primes above 2), which is absorbed as claimed. The same passage also writes L/F for the quadratic extension K/F twice. The same slip recurs in the proof of Lemma 5.8 (E14).",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E5",
@@ -553,7 +573,12 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: O_L appears three times in Lemma 3.14 and its proof (p.17) for O_F, and Corollary 5.5 (p.23) cites a nonexistent 'Lemma 5.1' for Theorem 5.1.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     },
     {
       "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E6",
@@ -568,7 +593,212 @@
         "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
         "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
         "arXiv 2110.07712 (v2) was not needed, since the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.30 and 36: the displayed C_G has no 2^{−r₂(F)} weights, while the proof's final display, D_G and C_m have them. An independent PARI computation over quadratic fields with |D| ≤ 30000 gives weighted 3-torsion averages 1.003921 (real F) and 1.054918 (imaginary F), hence 1.4230 with the proof's formula and 1.4167 with the displayed one, matching the extraction; the proof's denominator 0.052320 agrees with the Cohen–Diaz y Diaz–Olivier constant for D₄-quartic fields (≈ 0.05233), which the displayed weights would not give.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E7",
+      "kind": "misprint",
+      "locator": "Lemma 2.1, statement, p.7 (published version)",
+      "printed": "\"Suppose there exist M pairs of distinct prime ideals (℘_i, ℘̄_i) in O_L and integers a_i, b_i such that …\"",
+      "correction": "\"positive integers a_i, b_i\".",
+      "reason": "With a_i = b_i = 0, conditions (1) and (2) hold trivially for every pair of distinct primes above a split prime, and (3) holds for split primes, so M could be taken arbitrarily large and (2.1) would force Cl_{L/K}[ℓ] = 0. For L = ℚ(√−23), K = ℚ, ℓ = 3 this is false, since Cl_L[3] ≅ ℤ/3. The proof uses a_i, b_i ≥ 1.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page image of p.7 against the class number 3 of ℚ(√−23).",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E8",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.1, p.9 (published version)",
+      "printed": "\"… the quotient O_L^*/(O^*O_K^*) is annihilated by d, and we have that [O_L^* : O^*O_K^*] ≤ d^d.\"",
+      "correction": "[O_L^* : O^*O_K^*] ≤ d^{r₁(K)+r₂(K)}, so det U = O_{[L:ℚ]}(1) rather than O_d(1).",
+      "reason": "The quotient is annihilated by d and generated by at most r₁(K) + r₂(K) elements, not d. For K = ℚ(ζ₇)⁺ (a totally real cubic field) and L = K(√2), PARI gives [O_L^* : O^*O_K^*] = |Nm(O_L^*)/(O_K^*)²| = 8 > d^d = 4. The bound is still O_{[L:ℚ]}(1), so the lemma is unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review and checked with PARI/GP (bnfinit, rnfinit, bnfisunit) for K = ℚ(ζ₇)⁺, L = K(√2).",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E9",
+      "kind": "error",
+      "locator": "Lemma 3.11, p.14 (published version)",
+      "printed": "\"For any −1/2 ≤ σ ≤ 3/2 and any t ∈ ℝ, the Shintani zeta function satisfies ξ_{F,α}(σ + it) = O_{[F:ℚ],ε}(h₂(F)Disc(F)^{7/2−2σ+ε}(1 + |t|)^{2[F:ℚ](3/2−σ)+ε}).\"",
+      "correction": "State the bound away from the poles, e.g. for |t| ≥ 1, or for (s − 1)(s − 5/6)(s + 1)^{−2}ξ_{F,α}(s), to which Phragmén–Lindelöf actually applies.",
+      "reason": "By Proposition 3.7, ξ_{F,α} has simple poles at s = 1 and s = 5/6, both inside the strip, so the bound cannot hold for all t. Its use in the proof of Proposition 3.6 bounds horizontal segments that avoid the poles, so nothing downstream changes.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page images of pp.12 and 14.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E10",
+      "kind": "error",
+      "locator": "Lemma 3.13, p.16, and its use on p.18 (published version)",
+      "printed": "\"Σ_{R∈ℛ(K)} |Aut_F(A)|^{−1}/Disc(R/O_F)^s = h₃(K/F)/(2Disc(K/F)^s) ζ_F(2s)ζ_F(6s − 1) Σ … \" with \"A := R ⊗_ℚ F\"",
+      "correction": "Use the weight |Aut_{O_F}(R)|^{−1}, and A := R ⊗_{O_F} F (also on p.18).",
+      "reason": "The sum is over isomorphism classes of rings, and an order of A swapped with another by Aut_F(A) is one class with trivial automorphism group; the orbit–stabiliser identity needs |Aut_{O_F}(R)|^{−1}. For F = ℚ, K = ℚ(i) there are three orders of index 5 in ℚ × K, one fixed by conjugation and two swapped: the printed left side has coefficient 1, the right side 3/2, and the corrected weight gives 3/2. The proof of Proposition 3.15 (p.18) bounds Σ|Aut_{O_F}(R)|^{−1}Disc(R/O_F)^{−s} below by the printed left side and then applies the lemma; with the corrected weight that step is an equality, so Proposition 3.15 is unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; the reviewer recounted the index-5 case: the orders of index 5 in ℤ × ℤ[i] are the three 2-dimensional unital subalgebras of F₅ × F₅ × F₅, one fixed by complex conjugation and two swapped, so two isomorphism classes, and the coefficient of 25^{−s} on the right is (1/2)(1 + 2) = 3/2.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E11",
+      "kind": "gap",
+      "locator": "Proof of Proposition 3.12, p.18 (published version)",
+      "printed": "\"Following the proof of Lemma 6.2 in [DW88], for a square-free ideal 𝔮 of F of norm Nm 𝔮 ≤ X^{1/2}, the number of S₃ cubic fields L/F with quadratic resolvent K/F and disc(L/F) = 𝔮²disc(K/F) is bounded by …\"",
+      "correction": "Sum over all ideals 𝔮 (the conductor), not only square-free ones; the Dirichlet series Σ_𝔮 4^{ω(𝔮)}Nm(𝔮)^{−2s} still converges as needed.",
+      "reason": "Above 3 the conductor of an S₃ cubic can be non-square-free: ℚ(∛3) has discriminant −243 = −3·9² with resolvent ℚ(√−3), so 𝔮 = (9). The printed sum omits such fields; the bound itself survives.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page image of p.18 and by the discriminant of x³ − 3.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E12",
+      "kind": "error",
+      "locator": "§3.4, justification of (3.8), p.19 (published version)",
+      "printed": "\"By the bijection between 3-torsion elements in relative class groups of quadratic extensions and S₃ relative cubic extensions with square-free discriminant ideal [DW88, Section 5], we have …\"",
+      "correction": "The correspondence is with S₃ cubic extensions L/F whose discriminant equals that of the quadratic resolvent, disc(L/F) = disc(K/F).",
+      "reason": "Unramified cyclic cubic extensions of K correspond to cubic L/F with disc(L/F) = disc(K/F), which need not be square-free: ℚ(√−26) has class number 6, and its unramified cubic extension gives a cubic field of discriminant −104 = −8·13. Inequality (3.8) itself is correct.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on p.19 against the class number 6 of ℚ(√−26).",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E13",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 4.3, p.21 (published version)",
+      "printed": "\"As in the statement of the lemma, we set σ₁ = 1 − ε₁/4c\"",
+      "correction": "\"σ₁ = max(1 − ε₁/4c, 1/2)\", as in the statement.",
+      "reason": "The statement (p.20) has the maximum, which Theorem 4.2 needs since it is stated for σ ≥ 1/2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on the page images of pp.20–21.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E14",
+      "kind": "error",
+      "locator": "Proof of Lemma 5.8, p.25 (published version)",
+      "printed": "\"By class field theory, the number N_k(C₂, X) is bounded by the product of h₂(k) and the number of integral ideals with bounded norm.\"",
+      "correction": "The number of quadratic extensions with a given discriminant ideal is ≤ h₂(k)·2^{r₁(k)}·∏_{v|2}|O_v^×/O_v^{×2}| = O_{[k:ℚ]}(h₂(k)); the lemma's statement stands.",
+      "reason": "For k = ℚ(ζ₂₉)⁺ the class number is 1 and the narrow class group is (ℤ/2)³, so k has 7 quadratic extensions with discriminant ideal of norm 1, against the claimed bound 1. This is the same slip as E4.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review and checked with PARI/GP (bnfinit, bnfnarrow for the degree-14 subfield of ℚ(ζ₂₉)).",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E15",
+      "kind": "error",
+      "locator": "§7.2, the general prediction for h₃(K/k), p.39 (published version)",
+      "printed": "\"… the predicted average of h₃(K/k) is (1 + ∏_v|V^{σ_v}|^{−1}) ∏_i (1 + ∏_v|V_i^{σ_v}|^{−1} + ⋯ + ∏_v|V_i^{σ_v}|^{−a_i})\"",
+      "correction": "For W′ = ∏_i V_i^{a_i}, the i-th factor is Σ_{j=0}^{a_i} [a_i choose j]_{q_i} x_i^j with x_i = ∏_v|V_i^{σ_v}|^{−1} and q_i = |End_G(V_i)|.",
+      "reason": "The average of |Hom_G(Cl, V_i^{a_i})| is a sum over submodules Z ⊆ V_i^{a_i}, and those isomorphic to V_i^j are counted by the Gaussian binomial; with E|Sur_G(Cl, V_i^j)| = x_i^j ([WW21]) this gives the corrected factor. The printed formula agrees only when every a_i ≤ 1, which covers Example 7.2 (W′ irreducible).",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; the reviewer checked the count: |Hom_G(Cl, V_i^{a_i})| = Σ_Z |Sur_G(Cl, Z)| over submodules Z ⊆ V_i^{a_i}, of which [a_i choose j]_{q_i} are isomorphic to V_i^j, and the paper's own input from [WW21, Theorem 6.2, Theorem 4.1] gives the average x_i^j of each surjection count.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
+    },
+    {
+      "id": "PAPER-LEMKEOLIVER-WANG-WOOD-25/E16",
+      "kind": "error",
+      "locator": "§1, p.2 (published version)",
+      "printed": "\"… and O_ε(X^{1/2+ε}) quartic fields with any other Galois closure group.\"",
+      "correction": "\"o(X) quartic fields with any other Galois closure group\" (for A₄ the best known bound is about X^{0.778}).",
+      "reason": "O(X^{1/2+ε}) is known for C₄ and V₄ but not for A₄: the best bound for A₄-quartic fields is about X^{0.778}, from Bhargava–Shankar–Taniguchi–Thorne–Tsimerman–Zhao (2020). The point of the sentence, that only D₄ and S₄ have positive density among quartic fields, still holds.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Forum of Mathematics, Pi 13 (2025), e19 (open access, CC BY 4.0): no correction notice on the article page",
+        "Crossref metadata for 10.1017/S2050508625000009: no update or correction relation",
+        "arXiv 2110.07712 (v2) was not needed, since the published version was read"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Found in this review; checked on p.2 against the literature on A₄-quartic counts.",
+        "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
+      }
     }
   ]
 }
