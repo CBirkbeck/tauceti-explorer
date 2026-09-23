@@ -1,7 +1,7 @@
 {
   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
   "protocol": "links-v1",
-  "summary": "Six proposed prerequisite links to CharacterTheory, QuiverRepresentations and QuadraticFormInvariants, plus three scoped overlap recommendations. No incoming prerequisite is asserted. Character indexing is distinguished from direct baseline Wedderburn use; semilinear descent, bicommutant generality, and algebraic/cohomological Brauer carriers remain explicit. This is a source-text link audit, not a library implementation or an approval of the input roadmaps.",
+  "summary": "Five prerequisite links to CharacterTheory and QuadraticFormInvariants, plus a checked reference to the existing QuiverRepresentations link, with three scoped overlaps. Independent review confirms all six original dependencies and removes one duplicate proposal and distinguishes documentary ownership from results already supplied at the pinned TauCeti baseline: radical quotient, semisimple image bicommutant, Brauer group/base change, finite separable splitting and the real classification. Consumer adapters and source-text corrections remain explicit; no implementation completion claim is inferred from a roadmap.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
@@ -20,25 +20,9 @@
       ]
     },
     {
-      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
-      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
-      "reason": "For a finite-dimensional k-algebra A, apply the algebra Wedderburn presentation and canonical block/simple-module indexing to A/J(A). The quiver owner must still prove the passage between simple A-modules and simple A/J(A)-modules and the lifting/projective-cover results; a semisimple-ring primitive-idempotent theorem does not by itself provide those results for A. The target explicitly assigns the Wedderburn side to this supplier.",
-      "confidence": "inferred",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
-          "quote": "the\n  chosen index is in bijection with isomorphism classes of simple `R`-modules (via Layer 1.5)"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
-          "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
-        }
-      ]
-    },
-    {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
       "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
-      "reason": "The Brauer-valued quaternion/Clifford constructions use closure of finite-dimensional central simple K-algebras under tensor product, the product-of-dimensions formula, and the opposite-algebra package. The quadratic-form owner retains the quaternion and parity-sensitive Clifford central-simplicity proofs. Its earlier quaternion Layer 2 explicitly does not require central simplicity, so no link to that earlier layer is asserted.",
+      "reason": "The Brauer-valued quaternion/Clifford constructions use closure of finite-dimensional central simple K-algebras under tensor product, the product-of-dimensions formula, and the opposite-algebra package. The quadratic-form owner retains the quaternion and parity-sensitive Clifford central-simplicity proofs. Its earlier quaternion Layer 2 explicitly does not require central simplicity, so no link to that earlier layer is asserted. The pinned TauCeti.IsSimpleRing.tensorProduct already supplies tensor simplicity (even without finite-dimensionality); this is a reuse/ownership edge, not a request to reimplement that theorem.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -54,7 +38,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
       "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-5-the-brauer-valued-invariants",
-      "reason": "The target uses the actual commutative group structure on the quotient BrauerGroup K, with multiplication induced by tensor product and inverse induced by the opposite algebra, plus scalar-extension homomorphisms for the target base-change comparison. A Brauer equivalence relation or an unstructured quotient alone does not supply these operations.",
+      "reason": "The target consumes the commutative group on the existing Mathlib quotient BrauerGroup K: tensor-product multiplication, opposite-algebra inverse and scalar-extension homomorphisms. At the pinned TauCeti commit these are already supplied by TauCeti.BrauerGroup.instCommGroup and baseChange; their group carriers are BrauerGroup.{u,u} K, with K and L in the same universe for baseChange. Reuse these operations and the quotient API rather than defining another Brauer group. The target retains the quaternion/Clifford and base-change comparison proofs.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -70,7 +54,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
       "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
-      "reason": "The algebra/cohomology comparison requires the Brauer group and splitting predicate, finite separable splitting fields, and base-change homomorphisms. The supplier provides finite separable splitting; the consumer must embed such a field into a chosen separable closure and prove that its finite Galois closure still splits the algebra. A merely finite extension or an abstract group with the right cardinality is insufficient. The naturality square also consumes the named scalar-extension map.",
+      "reason": "The algebra/cohomology comparison consumes finite separable splitting and scalar extension on the existing algebraic Brauer group. At the pinned TauCeti commit, TauCeti.Algebra.exists_isSplittingField_finiteDimensional_isSeparable already supplies L : IntermediateField K (SeparableClosure K), finite-dimensional over K and splitting A. Thus the embedding in this chosen separable closure is included, not new work for the consumer. A different closure needs transport; enlarging to a finite Galois splitting subfield and identifying the cocycle/naturality maps remain comparison tasks. Reuse the existing same-universe BrauerGroup group and baseChange homomorphism.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -86,7 +70,7 @@
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-5-skolem-noether-and-the-centralizer-theorem",
       "target": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#7b-the-comparison-with-h²",
-      "reason": "Use only the L-algebra-automorphism corollary for M_n(L), after removing the coefficient automorphism from the semilinear descent action. If tau_sigma is sigma-semilinear and e_sigma is entrywise sigma, then tau_sigma composed with e_sigma^{-1} is L-linear and hence inner by this supplier. Do NOT apply Skolem-Noether directly to a semilinear automorphism: inner automorphisms fix scalar matrices. Input clarification G4 records the necessary repair to the consumer prose. The noncentral-source generalization is not needed for this matrix-algebra application.",
+      "reason": "Use only the L-algebra-automorphism corollary for M_n(L), after removing the coefficient automorphism from the semilinear descent action. If tau_sigma is sigma-semilinear and e_sigma is entrywise sigma, then tau_sigma composed with e_sigma^{-1} is L-linear and hence inner by this supplier. Do NOT apply Skolem-Noether directly to a semilinear automorphism: inner automorphisms fix scalar matrices. Input clarification G4 records the necessary repair to the consumer prose. The noncentral-source generalization is not needed for this matrix-algebra application. The pinned TauCeti.exists_unit_conj_of_algEquiv has precisely the K-linear automorphism hypothesis; its matrix-algebra specialization does not remove the semilinear correction.",
       "confidence": "inferred",
       "evidence": [
         {
@@ -108,16 +92,36 @@
       ],
       "detail": "Both stages package nilpotence of the Jacobson radical and semisimplicity of the radical quotient for a finite-dimensional algebra. This is a genuine shared finite-dimensional convenience API, not an overlap between all of radical theory and all of quiver theory.",
       "recommendation": "rescope",
-      "proposal": "Keep one finite-dimensional radical/quotient convenience API, supplied by the SemisimpleAlgebras supporting layer or a verified common baseline. Quiver Layer 3 consumes it and retains radical powers, admissible ideals, idempotent lifting, semiperfectness, covers, and basic-algebra/Morita reduction. Do not turn the optional left-right semiprimary cleanup into a prerequisite for all quiver work."
+      "proposal": "Reuse the pinned TauCeti/RingTheory/Jacobson/FiniteDimensional.lean API: isNilpotent_jacobson, isSemisimpleRing_quotient_jacobson and isSemisimpleRing_iff_jacobson_eq_bot for a finite-dimensional algebra over a field. Both roadmap build requests are stale for this shared subproblem. Keep radical powers, admissible ideals, idempotent lifting, covers and Morita reduction with QuiverRepresentations; their ownership is not a claim of library absence. The optional left-right semiprimary cleanup is not a prerequisite for this reuse.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-0-the-jacobson-radical-and-the-semisimplicity-criterion-supporting-api-optional",
+          "quote": "`A ⧸ Ring.jacobson A` is semisimple"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "`A ⧸ Ring.jacobson A` is **semisimple**"
+        }
+      ]
     },
     {
       "stages": [
         "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
         "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality"
       ],
-      "detail": "The stages meet at endomorphism/centralizer and bicommutant APIs, but the currently stated density theorem assumes a simple module whereas the Schur-Weyl tensor space is generally semisimple with several isotypic components. They are not interchangeable theorem statements; a direct dependency would hide a missing intermediate result.",
+      "detail": "The source description states a simple-module density theorem, whereas Schur-Weyl needs a semisimple image-bicommutant statement. That documentary mismatch is real, but the original packet incorrectly treats the intermediate theorem as unbuilt: the pinned TauCeti already proves centralizer_centralizer_range for the image of a semisimple algebra acting on a finite base module, without requiring a faithful representation.",
       "recommendation": "rescope",
-      "proposal": "Expose a separate finite-dimensional semisimple image-bicommutant theorem in the algebra owner, derived componentwise using the simple-module density theorem and the finite isotypic decomposition. Keep the identification of the two tensor-action images and the partition decomposition in SchurWeyl. Work with images in End(V), not a falsely faithful symmetric-group algebra action in small dimension. Add a dependency only after this intermediate output is specified; no such edge is submitted here."
+      "proposal": "Reuse TauCeti.centralizer_centralizer_range from RingTheory/Semisimple/DoubleCentralizer.lean and align the algebra-owner contract with this existing semisimple image theorem. Retain the overlap instead of pretending the currently quoted simple-module stage statement alone supplies the stronger output. SchurWeyl retains the actual tensor-action commutant identification and decomposition; the generic bicommutant theorem alone does not prove both images are mutual centralizers. Work with images, with Maschke providing semisimplicity of the finite symmetric-group algebra over C. No new construction of the generic theorem or new directed edge is requested.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
+          "quote": "for a simple module `M` over a ring `R`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-8-schur-weyl-duality",
+          "quote": "a case of the double-centralizer theorem for the semisimple algebra `ℂ[Sₙ]`"
+        }
+      ]
     },
     {
       "stages": [
@@ -126,7 +130,17 @@
       ],
       "detail": "Both contain the real Brauer group of order two as an endpoint, but SemisimpleAlgebras uses central-simple-algebra classes and ClassFieldTheory uses continuous H2. The latter additionally fixes the real invariant 1/2. Equal abstract groups do not identify the carriers or normalize a comparison.",
       "recommendation": "keep",
-      "proposal": "Keep the algebraic and cohomological calculations with their current owners and compare them through QuadraticFormInvariants 7B, including the Hamilton class and invariant 1/2. Do not make ClassFieldTheory depend on the quaternion-symbol route. If replacing the Frobenius-classification proof by this comparison, first separate the real example from the general Brauer infrastructure: otherwise importing 7B back into the whole of Layer 6 introduces a circular stage-level dependency."
+      "proposal": "Reuse the pinned algebraic computation TauCeti.Quaternion.brauerGroupMulEquiv and its Hamilton-class normalization. It is an equivalence from the existing Mathlib BrauerGroup.{0,0} R to Multiplicative (ZMod 2), not the continuous-H2 invariant map. Keep the cohomological calculation and invariant 1/2 with ClassFieldTheory; comparison through QuadraticFormInvariants 7B must identify the Hamilton class and maps. Avoid importing 7B back into the whole of Layer 6, which would create a cycle. No new real division-algebra classification or algebraic Brauer group is needed.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
+          "quote": "`BrauerGroup ℝ ≃ ℤ/2`, generated by the class of the **Hamilton\n  quaternions** `ℍ[ℝ]`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+          "quote": "the real Brauer group is cyclic of order two, and the nontrivial real class\nhas invariant `1/2`"
+        }
+      ]
     }
   ],
   "examined": [
@@ -195,7 +209,6 @@
     {"roadmapId": "FarguesFontaineDiamonds", "result": "none", "note": "Summary read; full-text scan found no candidate."},
     {"roadmapId": "FiniteFieldsAndCharacterSums", "result": "none", "note": "Summary read; full-text scan found no candidate."},
     {"roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory", "result": "none", "note": "Summary read; full-text scan found no candidate."},
-    {"roadmapId": "FoundationsAndLibraryIntegration", "result": "none", "note": "Summary read; full-text scan found no candidate."},
     {"roadmapId": "FunctionFieldArithmetic", "result": "none", "note": "Summary read; full-text scan found no candidate."},
     {"roadmapId": "GL2AutomorphicRepresentationsAndTransfer", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "GL2ModularityLifting", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
@@ -342,7 +355,12 @@
     {"roadmapId": "tauceti:TauCetiRoadmap/StandardDistributions", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
     {"roadmapId": "tauceti:TauCetiRoadmap/UniversalCovers", "result": "none", "note": "Summary read; full-text scan found no candidate."},
     {"roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective", "result": "none", "note": "Summary and matching contexts read; no exact new link."},
-    {"roadmapId": "MordellLawrenceVenkatesh", "result": "none", "note": "New-roadmap summary and document read; full-text screen and LV.0, LV.1 and LV.4 descriptions read. Semilinear centralizer estimates and Brauer-Nesbitt are not the central-simple-algebra centralizer theorem or the field Brauer group; no exact new supplier link."}
+    {"roadmapId": "MordellLawrenceVenkatesh", "result": "none", "note": "New-roadmap summary and document read; full-text screen and LV.0, LV.1 and LV.4 descriptions read. Semilinear centralizer estimates and Brauer-Nesbitt are not the central-simple-algebra centralizer theorem or the field Brauer group; no exact new supplier link."},
+    {"roadmapId": "AnalyticHabiroStack", "result": "none", "note": "Independent review: summary and full-stage keyword search checked. Analytic/derived idempotent algebras are not primitive ring idempotents; no precise semisimple, central-simple or field-Brauer supplier/consumer found."},
+    {"roadmapId": "AnalyticStacks", "result": "none", "note": "Independent review: summary and full-stage keyword search checked. Analytic/derived idempotent algebras are not primitive ring idempotents; no precise semisimple, central-simple or field-Brauer supplier/consumer found."},
+    {"roadmapId": "QWittVectors", "result": "none", "note": "Independent review: summary and full-stage keyword search checked. Analytic/derived idempotent algebras are not primitive ring idempotents; no precise semisimple, central-simple or field-Brauer supplier/consumer found."},
+    {"roadmapId": "RingStacksAndTransmutation", "result": "none", "note": "Independent review: summary and full-stage keyword search checked. Analytic/derived idempotent algebras are not primitive ring idempotents; no precise semisimple, central-simple or field-Brauer supplier/consumer found."},
+    {"roadmapId": "SolidAnalyticRings", "result": "none", "note": "Independent review: summary and full-stage keyword search checked. Analytic/derived idempotent algebras are not primitive ring idempotents; no precise semisimple, central-simple or field-Brauer supplier/consumer found."}
   ],
   "provenance": {
     "jobId": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -398,17 +416,17 @@
     {
       "id": "G1",
       "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-1-simple-modules-schur-and-isotypic-components",
-      "detail": "The scalar Schur sentence prints End_k(S) instead of the acting-algebra-linear endomorphisms. For A=M_2(k), S=k^2 is simple over A but End_k(S) is M_2(k), not k. Correct the notation and retain finite-dimensionality/algebraic closure before using this as a supplier."
+      "detail": "The scalar Schur sentence prints End_k(S) instead of the acting-algebra-linear endomorphisms. For A=M_2(k), S=k^2 is simple over A but End_k(S) is M_2(k), not k. Correct the notation and retain finite-dimensionality/algebraic closure before using this as a supplier. The pinned TauCeti.endAlgEquivSelfOfIsSimpleModule already has the correct Module.End A S carrier and finite-dimensional/algebraically closed hypotheses; align the prose with it."
     },
     {
       "id": "G2",
       "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
-      "detail": "Reconcile the displayed matrix-ring D in Layer 3 with the standing left-module opposite-endomorphism convention and the intrinsic division-ring convention in Layer 2. A generic noncommutative division ring must not silently be identified with its opposite."
+      "detail": "Reconcile the displayed matrix-ring D in Layer 3 with the standing left-module opposite-endomorphism convention and the intrinsic division-ring convention in Layer 2. A generic noncommutative division ring must not silently be identified with its opposite. With D = Module.End R M acting on the left, the matrix form uses D opposite; the pinned ringEquivEndEnd avoids that convention choice by staying in Module.End D M."
     },
     {
       "id": "G3",
       "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-4-central-simple-algebras-and-their-tensor-products",
-      "detail": "The square-dimension proof needs preservation of central simplicity under field extension. That output is explicitly placed in Layer 6. Name and expose it before the Layer 4 degree construction; an acyclic atlas graph does not validate this prose ordering."
+      "detail": "The square-dimension proof needs preservation of central simplicity under field extension. That output is explicitly placed in Layer 6. Name and expose it before the Layer 4 degree construction; an acyclic atlas graph does not validate this prose ordering. This is a documentary ordering correction, not a missing-library assertion: the pinned TauCeti.IsSimpleRing.tensorProduct_of_isCentral_right already supplies simplicity for L tensor_K A; the existing Brauer base-change constructor packages the scalar extension as a CSA over L."
     },
     {
       "id": "G4",
@@ -418,8 +436,56 @@
     {
       "id": "G5",
       "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-6-the-brauer-group-and-splitting-fields",
-      "detail": "The real example explicitly needs Hamilton centrality/division and the real central-division classification. No exact independent algebraic-classification supplier was identified in this search. Frobenius-Schur indicators for finite groups do not fill that request. The cohomological alternative needs the comparison and a split of the real example to avoid a back-edge through 7B."
+      "detail": "Supersedes the original missing-supplier finding. The pinned TauCeti.nonempty_algEquiv_real_or_quaternion classifies finite-dimensional central division R-algebras as R or Hamilton quaternions. TauCeti.Quaternion.brauerGroupMulEquiv already computes the algebraic Brauer group, and brauerGroupMulEquiv_mk sends Hamilton to ofAdd 1. Reuse these existing results. The continuous-H2 comparison and invariant 1/2 remain distinct maps; importing the comparison into all of Layer 6 would still create a stage cycle."
+    },
+    {
+      "id": "G6",
+      "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem",
+      "detail": "The source stage contract is narrower than the existing semisimple image-bicommutant API. Update the documentary contract to cite TauCeti.centralizer_centralizer_range instead of scheduling a new theorem. The parallel SchurWeyl link packet also contains the stale construction request; this review is scoped to the SemisimpleAlgebras packet."
     }
   ],
-  "status": "complete"
+  "status": "complete",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+    "date": "2026-09-23",
+    "notes": "Accepted after correcting stale baseline claims, separable-closure adapter scope and overlap recommendations. Five edges retained; one valid Quiver edge deduplicated into alreadyRecorded; three overlaps checked with six new literal quotations. All eight own stages considered in completeness searches. No additional direct edge justified by the available source contracts. G1-G4 and documentary G6 remain owner-level corrections; G5 now records existing baseline reuse. See the report for exact hypotheses, library pins and validation limits.",
+    "removed": [
+      {
+        "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+        "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+        "reason": "Exact directed pair already recorded in the QuiverRepresentations link packet; preserved under alreadyRecorded. Mathematical dependency confirmed, not rejected."
+      }
+    ],
+    "added": []
+  },
+  "reviewBaseline": {
+    "worker": "Codex — codex-hjdg0j",
+    "inputRevision": "f9d7f937e0a52bd35d154725f40bf76094f73abc",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "method": "Targeted full declaration statements and surrounding parameters read in pinned source; no Lean compilation. Original provenance remains historical. No reviewed SemisimpleAlgebras entry exists in data/library-coverage.json; AUDIT-43 is a queue specification, not a completed audit.",
+    "activeRoadmaps": 217,
+    "stageRecordsSearched": 2007
+  },
+  "alreadyRecorded": [
+    {
+      "kind": "link",
+      "file": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "reason": "For a finite-dimensional k-algebra A, apply the algebra Wedderburn presentation and canonical block/simple-module indexing to A/J(A). The quiver owner must still prove the passage between simple A-modules and simple A/J(A)-modules and the lifting/projective-cover results; a semisimple-ring primitive-idempotent theorem does not by itself provide those results for A. The target explicitly assigns the Wedderburn side to this supplier.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+          "quote": "the\n  chosen index is in bijection with isomorphism classes of simple `R`-modules (via Layer 1.5)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "and its Wedderburn decomposition indexes the simple\n  modules; over `[IsAlgClosed k]` the blocks are matrix algebras over `k`. Consume\n  [semisimple algebras](../SemisimpleAlgebras/README.md) for the Wedderburn side."
+        }
+      ]
+    }
+  ]
 }
