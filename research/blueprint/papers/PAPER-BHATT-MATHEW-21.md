@@ -192,3 +192,30 @@ statement — at the cost of page numbers, which is why the locators are stateme
 computed from the source by walking `\section` and the shared theorem counter, and cross-checked against the
 paper's own internal references (for instance Theorem 1.7 pointing at Theorem 4.1, and Theorem 1.8 at Theorems 5.4
 and 5.13), which agree.
+
+## Review (REV-PAPER-BHATT-MATHEW-21, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1321](https://github.com/CBirkbeck/tauceti-explorer/issues/1321). **Verdict: accept.** All four
+routes accepted; nothing needed correcting in place.
+
+- **The source is verified.** arXiv v4 re-fetches to the recorded PDF hash `4cdf5593…6620`, byte for
+  byte (64 pages). The published Duke version is genuinely unavailable, not merely unfetched:
+  **Unpaywall reports `is_oa: false`** for the DOI with no open location, and arXiv's history ends at
+  v4.
+- **All 3 mistakes confirmed.** E1 and E2 are settled by the paper against itself — what Remark 3.31
+  calls "Proposition 3.29" is headed **Lemma 3.29** on the same page and called that twice more in
+  between; what the proof of Corollary 6.18 calls "Proposition 6.4" is headed **Theorem 6.4** and
+  cited as such in the introduction.
+- **E3 is the substantive one.** Theorem 1.19 of the introduction, labelled as Theorem 7.3, adds the
+  disjunct "if A is smooth" for arbitrary ℓ-power torsion sheaves; Theorem 7.3 has **no smoothness
+  clause at all**, and the smooth case appears only in Remark 7.4(2), only for **constant** F, and
+  only as something that "can be adapted" — the same remark closing that over p-adic fields "the
+  general case remains out of reach by our methods".
+- **Items and routes:** 146 items (4 library, 3 planned, 139 missing), each missing item routed
+  exactly once; the twelve library declarations opened at the pins; all eight stage ids present.
+  **Nothing in the atlas mentions the arc-, v- or h-topology at all**, and five extractions propose
+  this roadmap with byte-identical id, title and area, so they coalesce on one design job — with the
+  paper that introduces the topology as its home.
+
+Full report: `research/blueprint/reviews/REV-PAPER-BHATT-MATHEW-21.md`.
