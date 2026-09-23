@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-JANNSEN-16",
   "protocol": "paper-v1",
-  "status": "complete",
+  "status": "partial",
   "source": {
     "title": "Hasse principles for higher-dimensional fields",
     "authors": "Uwe Jannsen",
@@ -12,10 +12,11 @@
     "readSections": [
       "The published version (71 pages, PDF SHA-256 26dde9260f6475e4f6acbfbe651e18fac0d443a5f318fbf3974efc9f809f7d71, fetched 2026-09-22 from the Annals website) is the version extracted: statement numbers and pages below are the published ones.",
       "arXiv v2 (70 pages, 4 Dec 2014; e-print SHA-256 de9543f0a71a986166a683154981c67e95b113abfbcc3313ceed34028586812e) was read in full from its TeX source, and a word-level diff located every difference. The published version renumbers §0 (v2 Theorems 0.1, 0.2, 0.5–0.7 and Corollaries 0.3–0.4 become 0.4, 0.6, 0.9–0.11 and 0.7–0.8); restricts Theorems 0.9–0.11 to number fields or resolution of singularities; rewrites §5 (adding Lemma 5.20 and Proposition 5.16); and drops v2's §6 (the alteration route to Theorem 5.12 for ℓ invertible) and §7 (hyperenvelope appendix).",
-      "Checked in detail: §1 (Proposition 1.2 and Lemma 1.3, Theorem 1.5 and its weight hypotheses), §2 (Proposition 2.2, Theorems 2.4, 2.5, 2.10, 2.12–2.13), the induction in Theorem 3.1, Theorem 3.8's cases, Theorem 3.17, §4 (Lemmas 4.14–4.15, 4.20, 4.23–4.24) and the published §5 argument for Theorem 5.12. Cited theorems (Gabber's alterations, Deligne's purity, Rost–Voevodsky, Gillet–Soulé, [Jan15] rigidity, Barbieri-Viale) were used as quoted."
+      "Checked in detail: §1 (Proposition 1.2 and Lemma 1.3, Theorem 1.5 and its weight hypotheses), §2 (Proposition 2.2, Theorems 2.4, 2.5, 2.10, 2.12–2.13), the induction in Theorem 3.1, Theorem 3.8's cases, Theorem 3.17, §4 (Lemmas 4.14–4.15, 4.20, 4.23–4.24) and the published §5 argument for Theorem 5.12. Cited theorems (Gabber's alterations, Deligne's purity, Rost–Voevodsky, Gillet–Soulé, [Jan15] rigidity, Barbieri-Viale) were used as quoted.",
+      "Independent review by Codex — codex-a71f92, 2026-09-23: all 71 published pages, including references, read from the journal PDF; SHA-256 independently matched. Selected corresponding passages of arXiv v2 PDF/TeX checked, not a second full reading of v2. PDF pages 43, 53 and 59 visually inspected. Primary prerequisites are checked as quoted here unless the review explicitly records a separate reading."
     ]
   },
-  "summary": "Jannsen proves Kato's conjectures generalising the Brauer–Hasse–Noether sequence to function fields and varieties over global and finite fields. For a function field F in d variables over a global field K and n invertible in K, H^{d+2}(F, Z/n(d+1)) → ⊕_v H^{d+2}(F_v, Z/n(d+1)) is injective (Theorem 0.4). This gives finite Pythagoras numbers (Corollary 0.7). For X connected smooth proper over K, Kato's complex C^{2,1}(X) satisfies the Hasse principle (Theorem 0.9: over number fields, or with resolution). Over finite fields, H_a(C^{1,0}(X)) = Z/n for a = 0 and 0 otherwise (Theorem 0.10, assuming resolution), with a common generalisation to finitely generated fields (Theorem 0.11). The method: Hochschild–Serre reduction to H²(K, H^d(FK̄)) (Proposition 1.2); Deligne's weights and a Hasse principle for Galois modules of weights ≠ −2 (Theorem 1.5); tori (Theorem 2.5); Gabber's prime-to-ℓ alterations in positive characteristic (Theorem 2.11); a crucial exact sequence for normal-crossings pairs (Theorem 3.1); unramified cohomology (Theorem 3.8); and the identification of coinvariant Kato homology with weight homology built by Gillet–Soulé's method (Theorem 5.12). The published version is weaker than arXiv v2: v2's alteration route to Theorems 0.9–0.11 for n invertible was removed; those cases are Kerz–Saito's. The atlas plans Poitou–Tate, Hochschild–Serre, Deligne weights, Gysin maps, weak Lefschetz, the norm-residue theorem, characteristic-zero resolution and Chow motives. The Kato complexes, conjectures and main theorems go as a source to HL.6, which plans Kato complexes and cohomological Hasse principles and already receives Dittmann–Pop's Jannsen and Kerz–Saito inputs. Supporting inputs go as sources to R02.4, SF.2, HL.2, DWP.10 and CR.4. Gabber's alterations join the candidate PrimeToDegreeAlterations and the Pythagoras bound joins QuadraticFormsRealFunctionFields. Weight homology and Gillet–Soulé's extension of motivic functors become a new Part II of Algebraic cycles, pure and mixed motives. Nine source issues are recorded; the substantive ones are two gaps: the induction in Theorem 3.1 needs reducible divisors, and the published proof of Theorem 5.12 justifies (RS2) by 'characteristic zero' and omits the finite-field Bertini step needed for Theorem 0.10.",
+  "summary": "Independent review: partial extraction / revise. The published prime-to-characteristic Hasse injectivity theorems are kept distinct from Kato's unrestricted conjectures and from the resolution-conditional complex and finite-field results. This revision corrects coefficient, dimension, index and variance errors, separates selected bundled records, records baseline carriers that already exist, and adds independently verified source findings. HL.2, R02.4 and DWP.10 remain useful source destinations after narrowing. The prime-to-degree alteration and real-function-field additions join existing candidates. HL.6's broad bundle, the SF.2 bundle, the CR.4-only logarithmic-purity route, and the new weight-homology brief need further decomposition or proof/ownership checks. Recorded gaps are not formalization claims or proofs of the published main theorems being false.",
   "items": [
     {
       "id": "PAPER-JANNSEN-16/1",
@@ -24,13 +25,13 @@
       "statement": "For a field L and n > 0: H^i(L, Z/nZ(j)) = H^i(L, μ_n^{⊗j}) if char L = 0, and H^i(L, μ_m^{⊗j}) ⊕ H^{i−j}(L, W_rΩ^j_{L,log}) if char L = p > 0, n = m p^r, p ∤ m. Then Br(L)[n] = H²(L, Z/nZ(1)). H^i(L, Q_ℓ/Z_ℓ(j)) = colim_n H^i(L, Z/ℓ^nZ(j)) along Z/ℓ^n(j) ↪ Z/ℓ^{n+1}(j).",
       "locator": "(0.2), (0.3) and (0.5), pp. 2–3",
       "status": "missing",
-      "note": "The same convention as PAPER-DITTMANN-POP-23's item kato-coefficients, routed to HL.2."
+      "note": "Generic continuous cohomology and twist-one roots-of-unity carriers already exist (/75–76); the complete finite/wild coefficient convention, all twists and transition maps remain missing. No blanket absence claim. Keep the still-bundled Brauer and colimit adapters in G2."
     },
     {
       "id": "PAPER-JANNSEN-16/2",
       "kind": "theorem",
       "name": "BK(L, t, ℓ): the norm-residue (Bloch–Kato) isomorphism",
-      "statement": "For every field L, prime ℓ and t ≥ 0, the symbol map h^t_{L,ℓ} : K^M_t(L)/ℓ → H^t(L, Z/ℓZ(t)) is an isomorphism (Bloch–Gabber–Kato for ℓ = char L; Merkurjev–Suslin, Voevodsky, Rost–Voevodsky for ℓ ≠ char L). Consequently H^{t}(L, Q_ℓ/Z_ℓ(t)) is divisible and H^{t+1}(L, Z/ℓ^m(t)) → H^{t+1}(L, Q_ℓ/Z_ℓ(t)) is injective.",
+      "statement": "For every field L, prime ℓ and t ≥ 0, the symbol map h^t_{L,ℓ} : K^M_t(L)/ℓ → H^t(L, Z/ℓZ(t)) is an isomorphism (Bloch–Gabber–Kato for ℓ = char L; Merkurjev–Suslin, Voevodsky, Rost–Voevodsky for ℓ ≠ char L).",
       "locator": "Introduction, p. 3",
       "status": "planned",
       "planned": [
@@ -41,11 +42,11 @@
     {
       "id": "PAPER-JANNSEN-16/3",
       "kind": "theorem",
-      "name": "Conjecture 1 (Kato): injectivity of the global-to-local map",
-      "statement": "K is a global field, F a function field in d variables over K with F/K primary (K separably closed in F); for a place v, F_v = K_v(V ×_K K_v) and F_(v) = F·K_(v) for the Henselization K_(v), where F = K(V). The restriction map α_n : H^{d+2}(F, Z/nZ(d+1)) → ⊕_v H^{d+2}(F_v, Z/nZ(d+1)) is injective. For d = 0 this is the Hasse principle of Brauer–Hasse–Noether; Kato proved it for d = 1.",
+      "name": "Conjectural target: Conjecture 1 (Kato): injectivity of the global-to-local map",
+      "statement": "CONJECTURE AS STATED, not an unconditional theorem supplied by this paper. K is a global field, F a function field in d variables over K with F/K primary (K separably closed in F); for a place v, F_v = K_v(V ×_K K_v) and F_(v) = F·K_(v) for the Henselization K_(v), where F = K(V). The restriction map α_n : H^{d+2}(F, Z/nZ(d+1)) → ⊕_v H^{d+2}(F_v, Z/nZ(d+1)) is injective. For d = 0 this is the Hasse principle of Brauer–Hasse–Noether; Kato proved it for d = 1.",
       "locator": "Conjecture 1, p. 2",
       "status": "missing",
-      "note": "A conjecture (now a theorem for n invertible in K by Theorem 0.4). The corresponding map on Brauer groups is not injective for d ≥ 1 (Sha of a Jacobian)."
+      "note": "Schema kind theorem denotes a mathematical proposition here. Proved cases are separately recorded; keep the unrestricted proposition conjectural."
     },
     {
       "id": "PAPER-JANNSEN-16/4",
@@ -87,19 +88,19 @@
       "id": "PAPER-JANNSEN-16/8",
       "kind": "construction",
       "name": "Kato complexes C^{r,s}(X, Z/nZ) (Kato; Bloch–Ogus)",
-      "statement": "For X excellent (a variety over a field) and n ≥ 1, C^{r,s}(X, Z/nZ): ⋯ → ⊕_{x∈X_a} H^{r+a}(k(x), Z/nZ(s+a)) →∂ ⊕_{x∈X_{a−1}} H^{r+a−1}(k(x), Z/nZ(s+a−1)) → ⋯ → ⊕_{x∈X_0} H^r(k(x), Z/nZ(s)), with X_a the points of dimension a in degree a. Kato defines it via Galois cohomology of discrete valuation fields under condition (∗) (if r = s+1 and p | n then [k(x) : k(x)^p] ≤ s for x ∈ X_0 of characteristic p). For X of finite type over a field L with n invertible it is Bloch–Ogus's E¹_{·,−r}(X, Z/nZ(−s)) of the niveau spectral sequence for étale homology H_a(X, Z/nZ(b)) = H^{−a}(X, Rf^!Z/nZ(−b)) (4.1)–(4.2), with ∂_{y,x} given by Gysin residues at smooth points and by normalization and corestriction (4.3)–(4.4) otherwise; the two definitions agree up to well-defined signs [JSS14]. Special cases: C^{2,1} (global/local fields), C^{1,0} (finite fields), C^{0,0}.",
+      "statement": "For X excellent (a variety over a field) and n ≥ 1, C^{r,s}(X, Z/nZ): ⋯ → ⊕_{x∈X_a} H^{r+a}(k(x), Z/nZ(s+a)) →∂ ⊕_{x∈X_{a−1}} H^{r+a−1}(k(x), Z/nZ(s+a−1)) → ⋯ → ⊕_{x∈X_0} H^r(k(x), Z/nZ(s)), with X_a the points of dimension a in degree a. Kato defines it via Galois cohomology of discrete valuation fields under condition (∗) (if r = s+1 and p | n then [k(x) : k(x)^p] ≤ p^s for x ∈ X_0 of characteristic p). For X of finite type over a field L with n invertible it is Bloch–Ogus's E¹_{·,−r}(X, Z/nZ(−s)) of the niveau spectral sequence for étale homology H_a(X, Z/nZ(b)) = H^{−a}(X, Rf^!Z/nZ(−b)) (4.1)–(4.2), with ∂_{y,x} given by Gysin residues at smooth points and by normalization and corestriction (4.3)–(4.4) otherwise; the two definitions agree up to well-defined signs [JSS14]. Special cases: C^{2,1} (global/local fields), C^{1,0} (finite fields), C^{0,0}.",
       "locator": "Introduction pp. 4–6, and §4, (4.1)–(4.4) and condition (∗), pp. 40–43",
       "status": "missing",
-      "note": "PAPER-DITTMANN-POP-23 routes the arithmetic Kato complex (its item kato-complex) to HL.6, which plans 'Kato complexes and boundary-square-zero'."
+      "note": "Corrected condition (∗), sourceIssue E11. Still a bundled construction: degree convention, residues, normalization/corestriction, square-zero and Bloch–Ogus comparison require separate providers (G1)."
     },
     {
       "id": "PAPER-JANNSEN-16/9",
       "kind": "theorem",
-      "name": "Conjecture 2 (Kato) = Conjecture 4.5: the Hasse principle for C^{2,1}",
-      "statement": "Let K be a global field, n > 0 and X a connected smooth proper variety over K. Then α_{X,n} : C^{2,1}(X, Z/nZ) → ⊕_v C^{2,1}(X_v, Z/nZ), X_v = X ×_K K_v, induces isomorphisms H_a(C^{2,1}(X, Z/nZ)) ≅ ⊕_v H_a(C^{2,1}(X_v, Z/nZ)) for a > 0 and an exact sequence 0 → H_0(C^{2,1}(X, Z/nZ)) → ⊕_v H_0(C^{2,1}(X_v, Z/nZ)) → Z/nZ → 0.",
+      "name": "Conjectural target: Conjecture 2 (Kato) = Conjecture 4.5: the Hasse principle for C^{2,1}",
+      "statement": "CONJECTURE AS STATED, not an unconditional theorem supplied by this paper. Let K be a global field, n > 0 and X a connected smooth proper variety over K. Then α_{X,n} : C^{2,1}(X, Z/nZ) → ⊕_v C^{2,1}(X_v, Z/nZ), X_v = X ×_K K_v, induces isomorphisms H_a(C^{2,1}(X, Z/nZ)) ≅ ⊕_v H_a(C^{2,1}(X_v, Z/nZ)) for a > 0 and an exact sequence 0 → H_0(C^{2,1}(X, Z/nZ)) → ⊕_v H_0(C^{2,1}(X_v, Z/nZ)) → Z/nZ → 0.",
       "locator": "Conjecture 2, p. 5, and Conjecture 4.5, p. 43",
       "status": "missing",
-      "note": "For X = Spec K this is (0.3). Kato proved it for dim X = 1."
+      "note": "Schema kind theorem denotes a mathematical proposition here. Proved cases are separately recorded; keep the unrestricted proposition conjectural."
     },
     {
       "id": "PAPER-JANNSEN-16/10",
@@ -113,11 +114,11 @@
     {
       "id": "PAPER-JANNSEN-16/11",
       "kind": "theorem",
-      "name": "Conjecture 3 (Kato): C^{1,0} of a smooth proper variety over a finite field",
-      "statement": "If X is connected, smooth and proper over a finite field k, then H_a(C^{1,0}(X, Z/nZ)) = Z/nZ for a = 0 and 0 for a ≠ 0.",
+      "name": "Conjectural target: Conjecture 3 (Kato): C^{1,0} of a smooth proper variety over a finite field",
+      "statement": "CONJECTURE AS STATED, not an unconditional theorem supplied by this paper. If X is connected, smooth and proper over a finite field k, then H_a(C^{1,0}(X, Z/nZ)) = Z/nZ for a = 0 and 0 for a ≠ 0.",
       "locator": "Conjecture 3, p. 6",
       "status": "missing",
-      "note": "Known before: dim X ≤ 2 (Colliot-Thélène–Sansuc–Soulé, Gros, Kato), H_3 for threefolds (S. Saito), 0 < a ≤ 3 in general (Colliot-Thélène, Suwa), a ≤ 4 (Jannsen–Saito); for n invertible in k, Kerz–Saito."
+      "note": "Schema kind theorem denotes a mathematical proposition here. Proved cases are separately recorded; keep the unrestricted proposition conjectural."
     },
     {
       "id": "PAPER-JANNSEN-16/12",
@@ -158,8 +159,8 @@
     {
       "id": "PAPER-JANNSEN-16/16",
       "kind": "theorem",
-      "name": "Theorem 1.5: Hasse principles for Galois modules of weights ≠ −2 and ≠ 0",
-      "statement": "Let K be a global field and ℓ ≠ char K. (a) If A ≅ (Q_ℓ/Z_ℓ)^m as a group and is mixed of weights ≠ −2 as a G_K-module, then H²(K, A) ≅ ⊕_v H²(K_v, A) = ⊕_{v∈S or v|ℓ} H²(K_v, A), S a finite set of bad places for A. (b) If T is a finitely generated free Z_ℓ-module with continuous G_K-action, mixed of weights ≠ 0, then for any finite S′ the map H¹(K, T) → ∏_{v∉S′} H¹(K_v, T) is injective.",
+      "name": "Theorem 1.5(a): the divisible-module weight Hasse principle",
+      "statement": "Let K be a global field and ℓ ≠ char K. (a) If A ≅ (Q_ℓ/Z_ℓ)^m as a group and is mixed of weights ≠ −2 as a G_K-module, then H²(K, A) ≅ ⊕_v H²(K_v, A) = ⊕_{v∈S or v|ℓ} H²(K_v, A), S a finite set of bad places for A.",
       "locator": "Theorem 1.5, p. 13, proof pp. 15–16",
       "status": "missing",
       "note": "Generalizes Jannsen's [Jan88] Theorem 3 (pure case) by induction on a filtration with pure quotients; (a) follows from (b) by Poitou–Tate and local duality."
@@ -169,7 +170,7 @@
       "kind": "definition",
       "name": "Definition 1.6 and Remarks 1.7(a)–(d): pure and mixed ℓ-adic Galois representations",
       "statement": "A Q_ℓ-representation V of G_K (K global, ℓ ≠ char K) is pure of weight w if there is a finite S ⊇ {v | ∞} such that V is unramified outside S ∪ {v | ℓ} and for v ∉ S, v ∤ ℓ the eigenvalues of geometric Frobenius Fr_v are algebraic with |ια| = (Nv)^{w/2} for all embeddings ι; mixed if it has a filtration with pure quotients. Q_ℓ(i) is pure of weight −2i; subquotients, tensor products behave as expected; if V is mixed of weights ≠ 0 then V^{G_K} = 0 = V_{G_K}, and similarly T^{G_K} = 0, A_{G_K} = 0 for lattices T and divisible modules A. The notions extend to finitely generated K via smooth sheaves on a model T of finite type over Z (1.7(f)).",
-      "locator": "Definition 1.6, p. 13, and Remarks and Examples 1.7(a)–(d), (f), pp. 13–14",
+      "locator": "Definition 1.6 and Remarks 1.7(a)–(f), pp. 13–15",
       "status": "planned",
       "planned": [
         "DeligneWeightsAndPurity:DWP.0",
@@ -182,20 +183,20 @@
       "kind": "theorem",
       "name": "Remarks 1.7(e)–(f): purity of H^i(X̄, Q_ℓ) (Deligne)",
       "statement": "If X is smooth and proper over a finitely generated field K and ℓ ≠ char K, then H^i_ét(X ×_K K̄, Q_ℓ) is pure of weight i, with bad set the places (or points of a model T) of bad reduction, by smooth and proper base change and Deligne's proof of the Weil conjectures.",
-      "locator": "Remarks and Examples 1.7, p. 14, (e)–(f), p. 14",
+      "locator": "Remarks 1.7(e)–(f), pp. 14–15",
       "status": "planned",
       "planned": [
-        "DeligneWeightsAndPurity:DWP.10",
+        "DeligneWeightsAndPurity:DWP.7",
         "WeightsInEtaleCohomology:R34.5"
       ],
-      "note": "DWP.10 exports weight statements for smooth proper varieties (including a nonprojective input); R34.5 imports Weil I/II."
+      "note": "DWP.7 proves smooth proper purity; R34.5 is a consumer. The extension to finitely generated fields uses a model and smooth/proper base change, not DWP.0 alone."
     },
     {
       "id": "PAPER-JANNSEN-16/19",
       "kind": "theorem",
       "name": "Remark 1.7(g): purity of H^i(X̄, Q_p(j)) in characteristic p",
       "statement": "For Z of finite type over a perfect field of characteristic p, H^i(Z, Z/p^m(j)) := H^{i−j}(Z, W_mΩ^j_{Z,log}) and H^i(Z, Q_p(j)) = (lim_m H^i(Z, Z/p^m(j))) ⊗ Q_p. For X smooth proper over a finite field, H^i(X̄, Q_p(j)) is finite-dimensional and pure of weight i − 2j (Deligne, Katz–Messing, Milne); for X smooth proper over a finitely generated field of characteristic p, Gros–Suwa base change makes H^i(X ×_K K̄, Q_p(j)) pure of weight i − 2j in the sense of 1.7(f).",
-      "locator": "Remarks and Examples 1.7, p. 14, (g), pp. 14–15",
+      "locator": "Remark 1.7(g), pp. 15–16",
       "status": "missing",
       "note": "Needed for the p-part of Theorem 3.1 (ℓ = char K). Katz–Messing is the comparison planned at PadicDifferentialEquationsAndRigidCohomology RD.7."
     },
@@ -204,9 +205,9 @@
       "kind": "theorem",
       "name": "The weight spectral sequence of a normal-crossings compactification (2.1)",
       "statement": "Let U = X ∖ Y with X smooth projective of dimension d over K and Y a simple normal crossings divisor with components Y_1, …, Y_N, Y^{[ν]} = ⊔ Y_{i_1,…,i_ν}, Y^{[0]} = X. There is a spectral sequence E_2^{p,q} = H^p(Y̅^{[q]}, Q_ℓ(−q)) ⇒ H^{p+q}(Ū, Q_ℓ) with E_2^{p,q} pure of weight p + 2q; d_r = 0 for r ≥ 3, so E_∞ = E_3, and the shifted filtration is the weight filtration: H^n(Ū, Q_ℓ) has weights in {n, …, 2n} and H^n/W_{2n−1} = ker(H⁰(Y̅^{[n]}, Q_ℓ(−n)) → H²(Y̅^{[n−1]}, Q_ℓ(−n+1))), on whose (n)-twist G_K acts through a finite quotient.",
-      "locator": "(2.1) and the following discussion, pp. 16–17 ([Jan88] 3.20); as corrected by E1",
+      "locator": "(2.1) and following discussion, pp. 17–18; [Jan90] 3.20; corrected E1",
       "status": "missing",
-      "note": "The printed text says d_r vanishes for r > 3 (E1). For Q_ℓ/Z_ℓ coefficients the higher differentials need not vanish, which is why Proposition 2.2 passes to U⁰."
+      "note": "The source uses an E₂-indexed weight sequence; retain its (p,q) convention. Do not confuse this with the double-complex E₂ corrections in E19."
     },
     {
       "id": "PAPER-JANNSEN-16/21",
@@ -221,17 +222,17 @@
       "id": "PAPER-JANNSEN-16/22",
       "kind": "theorem",
       "name": "Theorem 2.4: the Hasse principle for B = H^d(Ū⁰, Q_ℓ/Z_ℓ(d+1))",
-      "statement": "The restriction map H²(K, B) → ⊕_v H²(K_v, B) is injective for B = H^d(Ū⁰, Q_ℓ/Z_ℓ(d+1)).",
+      "statement": "Let K be a global field, ℓ ≠ char K, U/K smooth geometrically irreducible quasi-projective of dimension d with a smooth projective SNC compactification X, and U⁰=U∖H for a hyperplane transverse to every boundary stratum as in Proposition 2.2. Set B=H^d(U⁰×_K K̄,Q_ℓ/Z_ℓ(d+1)). Then H²(K,B) → ⊕_v H²(K_v,B) is injective.",
       "locator": "Theorem 2.4, p. 20",
       "status": "missing",
       "note": "Five lemma with Theorem 1.5 for A = A_0(d+1) and property (H) for C = I ⊗ Q_ℓ/Z_ℓ(1) from Theorem 2.5."
     },
     {
       "id": "PAPER-JANNSEN-16/23",
-      "kind": "theorem",
-      "name": "Theorem 2.5 and Lemma 2.6: property (H) for tori",
-      "statement": "For a finitely generated free Z-module I with discrete G_K-action and C = I ⊗ Q_ℓ/Z_ℓ(1), property (H) is: (i) H¹(K, C) → ⊕_{v∈S} H¹(K_v, C) surjective for all finite S; (ii) H²(K, C) → ⊕_v H²(K_v, C) injective. Lemma 2.6: (H)(i), resp. (ii), for C is equivalent to the same statements for the ℓ-parts of H¹, resp. H², of the torus T with X_*(T) = I. Theorem 2.5: (a) (H) holds when I is a permutation module; (b) if 0 → I_1 → I_2 → I_3 → 0 is exact with I_3 permutation, then (H) holds for C_1 iff it holds for C_2.",
-      "locator": "Theorem 2.5, p. 21, and Lemma 2.6, pp. 21–23",
+      "kind": "definition",
+      "name": "Property (H) for a twisted lattice",
+      "statement": "Let K be a global field, ℓ ≠ char K, I a finitely generated free Z-module with discrete G_K-action, and C=I⊗Q_ℓ/Z_ℓ(1). Define property (H) by: (i) H¹(K,C)→⊕_{v∈S}H¹(K_v,C) is surjective for every finite S; (ii) H²(K,C)→⊕_v H²(K_v,C) is injective.",
+      "locator": "Immediately before Theorem 2.5, p. 21",
       "status": "missing",
       "note": "Uses Shapiro, Hilbert 90, Brauer–Hasse–Noether over finite extensions, weak approximation and [Jan92] Lemma 2 (T(K) ⊗ Q_ℓ/Z_ℓ → ⊕_{v∈S} T(K_v) ⊗ Q_ℓ/Z_ℓ surjective)."
     },
@@ -256,9 +257,9 @@
     {
       "id": "PAPER-JANNSEN-16/26",
       "kind": "theorem",
-      "name": "Theorems 2.12 and 2.13: injectivity from Henselization to completion",
-      "statement": "Theorem 2.13: if K/k satisfies (SD) (a k-variety with a K-point has a k-point) and F is a set-valued contravariant functor on k-schemes commuting with filtered colimits of k-algebras (FP), then F(k(V)) → F(K(V)) is injective for every geometrically integral k-variety V. Theorem 2.12: hence H^i(F_(v), Z/nZ(j)) → H^i(F_v, Z/nZ(j)) is injective for all n, i, j (Greenberg: K_v/K_(v) satisfies (SD)).",
-      "locator": "Theorem 2.12, p. 25, and Theorem 2.13 (argument due to Colliot-Thélène), p. 25",
+      "name": "Theorem 2.13: strong density and finite-presentation injectivity",
+      "statement": "Let K/k satisfy (SD): every k-variety with a K-point has a k-point. Let F be a contravariant set-valued functor on k-schemes satisfying (FP), compatibility with filtered colimits of k-algebras. For every geometrically integral k-variety V, F(k(V))→F(K(V)) is injective. For set-valued F prove this by starting with two elements having equal images, not by saying an element vanishes.",
+      "locator": "Theorem 2.13 and proof, pp. 25–26",
       "status": "missing",
       "note": "A general statement about étale cohomology and limits, with Greenberg's strong-density theorem as input."
     },
@@ -293,7 +294,7 @@
       "planned": [
         "EtaleDualityAndPerverseSheaves:EDC.4"
       ],
-      "note": "EDC.4 imports affine Artin vanishing and proves weak Lefschetz."
+      "note": "EDC.4 uses imported affine Artin vanishing (its PR196/EtaleBaseChange Layer 6 supplier), not a second proof owner. The exact upstream source-to-declaration adapter remains part of G4; its rational/divisible coefficient consequences need their own limit argument."
     },
     {
       "id": "PAPER-JANNSEN-16/30",
@@ -307,9 +308,9 @@
     {
       "id": "PAPER-JANNSEN-16/31",
       "kind": "definition",
-      "name": "Definition 3.5, Lemma 3.6 and Proposition 3.7: unramified cohomology",
-      "statement": "For F a function field over k and n invertible in k, H^i_nr(F/k, Z/n(j)) ⊆ H^i(F, Z/n(j)) consists of the classes in the image of H^i_ét(Spec A, Z/n(j)) for every discrete valuation ring k ⊂ A ⊂ F; equivalently (Lemma 3.6) the common kernel of all residues δ_λ : H^i(F, Z/n(j)) → H^{i−1}(k(λ), Z/n(j−1)). For X smooth proper over k with F = k(X) (Proposition 3.7), H^i_nr(F/k) = ker(H^i(F) → ⊕_{x∈X¹} H^{i−1}(k(x))) = H⁰_Zar(X, 𝓗^i_n(j)).",
-      "locator": "Definition 3.5, p. 31, Lemma 3.6 and Proposition 3.7, pp. 31–32",
+      "name": "Definition 3.5: unramified cohomology",
+      "statement": "For F a function field over k and n invertible in k, H^i_nr(F/k, Z/n(j)) ⊆ H^i(F, Z/n(j)) consists of the classes in the image of H^i_ét(Spec A, Z/n(j)) for every discrete valuation ring k ⊂ A ⊂ F.",
+      "locator": "Definition 3.5, p. 31",
       "status": "missing",
       "note": "Bloch–Ogus theory. PAPER-BENOIST-WITTENBERG-20 routes the coniveau/Cousin/Zariski-cohomology-sheaf package to SF.2."
     },
@@ -344,10 +345,10 @@
       "id": "PAPER-JANNSEN-16/35",
       "kind": "theorem",
       "name": "Theorem 3.17: injectivity on coinvariants of the Bloch–Ogus residue",
-      "statement": "Let K be finitely generated with perfect hull L, X smooth proper irreducible of dimension d over K and ℓ a prime; assume ℓ invertible in K or RS2(U) for every open U ⊂ X ×_K L. Then (⊕_{y∈X̄⁰} H^d(K̄(y), Q_ℓ/Z_ℓ(d)))_{G_K} → (⊕_{x∈X̄¹} H^{d−1}(K̄(x), Q_ℓ/Z_ℓ(d−1)))_{G_K} is injective.",
+      "statement": "Let K be finitely generated with perfect hull L, X smooth proper irreducible of dimension d > 0 over K and ℓ a prime; assume ℓ invertible in K or RS2(U) for every open U ⊂ X ×_K L. Then (⊕_{y∈X̄⁰} H^d(K̄(y), Q_ℓ/Z_ℓ(d)))_{G_K} → (⊕_{x∈X̄¹} H^{d−1}(K̄(x), Q_ℓ/Z_ℓ(d−1)))_{G_K} is injective.",
       "locator": "Theorem 3.17, p. 35, Cases 3.17.A–C, pp. 35–38; statement as corrected by E4",
       "status": "missing",
-      "note": "The printed hypothesis names RS1(U) where the good-compactification condition RS2(U) of §2 is meant (E4). Its kernel is H̄_d(X) and is independent of the smooth proper model."
+      "note": "Restore the positive-dimensional scope of the surrounding argument; E18 gives the d=0 counterexample to the isolated printed statement."
     },
     {
       "id": "PAPER-JANNSEN-16/36",
@@ -418,11 +419,8 @@
       "name": "Definition 4.18: resolution of singularities (RS)_L",
       "statement": "For a perfect field L: (RS1)_L every integral proper L-variety has a proper birational morphism from a smooth L-variety; (RS2)_L every smooth affine L-variety U has an open immersion into a smooth projective X with X ∖ U a simple normal crossings divisor. (RS)_L means both. RS2(U) at the start of §2 is (RS2) for one U. By Hironaka, (RS)_L holds in characteristic 0.",
       "locator": "Definition 4.18, p. 48, and RS2(U), p. 16",
-      "status": "planned",
-      "planned": [
-        "AlgebraicModuliForArithmeticGeometry:R09.7"
-      ],
-      "note": "R09.7 plans characteristic-zero resolution and normal-crossings compactification. In characteristic p, (RS) is only a hypothesis; the published Theorems 0.9–0.11 assume it there."
+      "status": "missing",
+      "note": "The RS predicates are conditional in characteristic p. R09.7 supplies characteristic-zero embedded resolution and the quasi-projective compactification interface, but an arbitrary-proper RS1 adapter must not be inferred without proof. Route 9 is held for revision."
     },
     {
       "id": "PAPER-JANNSEN-16/44",
@@ -445,9 +443,9 @@
     {
       "id": "PAPER-JANNSEN-16/46",
       "kind": "definition",
-      "name": "Definition 4.22 and Lemma 4.24: homology theories and the function-field criterion",
-      "statement": "A homology theory on a category 𝒞 of finite-type L-schemes closed under open and closed immersions is a family of functors H_a on 𝒞_* (proper maps) with contravariance j^* for open immersions and functorial long exact localization sequences ⋯ → H_a(Y) → H_a(X) → H_a(V) →δ H_{a−1}(Y) → ⋯; morphisms commute with these. Lemma 4.24 (L perfect): for a morphism φ : H → H̃, if for every integral Z of dimension d, H_a(L(Z)) = colim_U H_a(U) and H̃_a(L(Z)) vanish for a ≠ d and φ : H_d(L(Z)) → H̃_d(L(Z)) is an isomorphism, then φ is an isomorphism (via the niveau spectral sequence E¹_{p,q} = ⊕_{x∈X_p} H_{p+q}(k(x)) ⇒ H_{p+q}(X)).",
-      "locator": "Definition 4.22, p. 50, and Lemma 4.24, pp. 50–52; Lemma 4.24 as corrected by E9",
+      "name": "Definition 4.22: a homology theory with localization",
+      "statement": "A homology theory on a category 𝒞 of finite-type L-schemes closed under open and closed immersions is a family of functors H_a on 𝒞_* (proper maps) with contravariance j^* for open immersions and functorial long exact localization sequences ⋯ → H_a(Y) → H_a(X) → H_a(V) →δ H_{a−1}(Y) → ⋯; morphisms commute with these.",
+      "locator": "Definition 4.22, pp. 50–51",
       "status": "missing",
       "note": "General formalism (Bloch–Ogus, Jannsen–Saito) that the weight-homology comparison needs."
     },
@@ -455,7 +453,7 @@
       "id": "PAPER-JANNSEN-16/47",
       "kind": "theorem",
       "name": "Lemma 4.23 and Remark 4.25: Kato homology is a homology theory",
-      "statement": "Let L be a field and r, s, n ≥ 1 with n invertible in L, or r ≠ s + 1, or p = char L | n, r = s + 1 and [L : L^p] ≤ p^s. (a) H^{r,s}_a(X, Z/nZ) := H_a(C^{r,s}(X, Z/nZ)) extends to a homology theory on all L-varieties, via the componentwise split exact sequences 0 → C(Y) → C(X) → C(U) → 0. (b) The same holds for H̄^{r,s}_a(X) := H_a(C^{r,s}(X̄, Z/nZ)_{G_L}). These satisfy condition 4.24(i): H_a(L(X)) = 0 for a ≠ dim X.",
+      "statement": "Let L be a field and r, s ∈ Z and n ≥ 1 with n invertible in L, or r ≠ s + 1, or p = char L | n, r = s + 1 and [L : L^p] ≤ p^s. (a) H^{r,s}_a(X, Z/nZ) := H_a(C^{r,s}(X, Z/nZ)) extends to a homology theory on all L-varieties, via the componentwise split exact sequences 0 → C(Y) → C(X) → C(U) → 0. (b) The same holds for H̄^{r,s}_a(X) := H_a(C^{r,s}(X̄, Z/nZ)_{G_L}). These satisfy condition 4.24(i): H_a(L(X)) = 0 for a ≠ dim X.",
       "locator": "Lemma 4.23, p. 50, and Remark 4.25",
       "status": "missing",
       "note": ""
@@ -472,20 +470,20 @@
     {
       "id": "PAPER-JANNSEN-16/49",
       "kind": "theorem",
-      "name": "Proposition 5.4 and Corollaries 5.5–5.6: vanishing below the top degree",
-      "statement": "If Y_{r+1} is a smooth divisor meeting the connected components of every Y^{[j]} transversally, and in connected sets for j ≤ d − 2 (Bertini gives one when k is infinite), and Z = Y ∪ Y_{r+1}, then H^W_i(X, Z; A) = 0 = H^i_W(X, Z; A) for i ≤ d − 1. H^W_d(X, Z; Z) is finitely generated free with H^W_d(X, Z; A) ≅ H^W_d(X, Z; Z) ⊗ A (same for H^d_W), and H^W_d(X, Z; Q_ℓ/Z_ℓ) is divisible.",
-      "locator": "Proposition 5.4, p. 53, and Corollaries 5.5–5.6, pp. 53–54",
+      "name": "Corrected Proposition 5.4: vanishing after a stratum-meeting divisor",
+      "statement": "Let X/k be smooth proper of pure dimension d≥1, with an ordered SNC divisor Y. Let D be a smooth divisor transverse to every boundary stratum, such that D meets each connected component of Y^[j] in a nonempty connected scheme for j≤d−2 and in a nonempty scheme for j=d−1. Set Z=Y∪D. For every abelian group A, H^W_i(X,Z;A)=0=H_W^i(X,Z;A) for i≤d−1. This is Proposition 5.4 with the missing nonemptiness condition restored; a sufficiently general ample hyperplane supplies it over an infinite field.",
+      "locator": "Proposition 5.4, pp. 53–54; corrected E10",
       "status": "missing",
-      "note": ""
+      "note": "Two disjoint fibres in P¹×P¹ disprove the printed version. The later ample-hyperplane applications satisfy the added condition."
     },
     {
       "id": "PAPER-JANNSEN-16/50",
       "kind": "theorem",
       "name": "Proposition 5.7: Theorem 3.1 as a weight-homology statement",
-      "statement": "For U = X ∖ Y as in §5 there are canonical maps e : H^d_ét(Ū, Z/nZ(d)) → H^W_d(X, Y; Z/nZ); if k is finitely generated and some X ∖ Y_ν is affine, they induce isomorphisms H^d_ét(Ū, Q_ℓ/Z_ℓ(d))_{G_k} ≅ H^W_d(X, Y; Q_ℓ/Z_ℓ) for all primes ℓ (Remark 5.8: in particular for (X, Z) of Proposition 5.4).",
+      "statement": "For U = X ∖ Y as in §5 there are canonical maps e : H^d_ét(Ū, Z/nZ(d)) → H^W_d(X, Y; Z/nZ); if k is finitely generated and some X ∖ Y_ν is affine, they induce isomorphisms H^d_ét(Ū, Q_ℓ/Z_ℓ(d))_{G_k} ≅ H^W_d(X, Y; Q_ℓ/Z_ℓ) for all primes ℓ.",
       "locator": "Proposition 5.7, p. 55, and Remark 5.8, p. 55",
       "status": "missing",
-      "note": "A reformulation of Theorem 3.1."
+      "note": "The affine-complement hypothesis must be retained. The arbitrary-divisor wording of Proposition 5.4 does not supply it; a chosen ample hyperplane does."
     },
     {
       "id": "PAPER-JANNSEN-16/51",
@@ -517,18 +515,18 @@
     {
       "id": "PAPER-JANNSEN-16/54",
       "kind": "theorem",
-      "name": "Theorem 5.13 and Remark 5.15: extending functors on Chow motives to homology theories",
-      "statement": "Let k be perfect with resolution of singularities, 𝒜 an abelian category and C : SP_k → C_{≥0}(𝒜) a covariant functor from smooth proper varieties to non-negative complexes such that each H^C_a : X ↦ H_a(C(X)) extends to a contravariant functor on effective Chow motives CHM^eff(k). Then the H^C_a extend canonically to a homology theory Ĥ^C on all k-varieties: C(V) is the total complex of C applied to the weight complex M(V)· = Cone(M(Ỹ·) → M(Z̃·)) of smooth proper hyperenvelopes of a compactification V ⊂ Z, with spectral sequence (5.14) and Gillet–Soulé's homotopy invariance for hyperenvelopes. A morphism C → C′ induces Ĥ^C → Ĥ^{C′} (Remark 5.15).",
+      "name": "Theorem 5.13: extension of homology of a complex-valued functor",
+      "statement": "Let k be perfect with resolution of singularities, 𝒜 an abelian category, and C:SP_k→C_{≥0}(𝒜) a covariant functor on smooth proper varieties such that each X↦H_a(C(X)) extends to a contravariant functor on the source's effective Chow-motive category. Then the homology functors extend naturally to a homology theory on all k-varieties. Only H_a(C), not C itself, is assumed to factor through motives. Apply C to chosen actual hyperenvelopes and their cone bicomplexes; establish independence through the spectral sequence and the motivic factorization on its E₂ page.",
       "locator": "Theorem 5.13, p. 58, and Remark 5.15, pp. 58–60",
       "status": "missing",
-      "note": "A complex-valued version of [GS96] Theorem 1 / 3.1.1."
+      "note": "E16 corrects the unsupported chain-level factorization claim. Detailed construction is a remaining proof-provider gap, not an added hypothesis that C itself factors through motives."
     },
     {
       "id": "PAPER-JANNSEN-16/55",
       "kind": "theorem",
-      "name": "Proposition 5.16 and Lemma 5.17: the naive theory agrees with the Gillet–Soulé extension",
-      "statement": "Let C : (V_k)_* → C_{≥0}(𝒜) be covariant with functorial pullbacks for open immersions and functorial short exact sequences 0 → C(Y) → C(Z) → C(U) → 0 for closed Y ⊂ Z with complement U, such that H_a(C(X)) extends to CHM^eff(k) for smooth proper X. Then the naive theory H_a(Z) = H_a(C(Z)) and the extension Ĥ of C|_{SP_k} by Theorem 5.13 are canonically isomorphic. Lemma 5.17 (descent): for a hyperenvelope Z· → X, tC(Z·) → C(X) is a quasi-isomorphism.",
-      "locator": "Proposition 5.16, p. 60, and Lemma 5.17, pp. 60–62; as corrected by E9",
+      "name": "Proposition 5.16: comparison with the naive homology theory",
+      "statement": "Under the perfect-field/resolution setting of Theorem 5.13, let C:(V_k)_*→C_{≥0}(𝒜) be covariant for proper maps, with pullbacks for ALL open immersions and functorial short exact localization sequences 0→C(Y)→C(Z)→C(U)→0 for closed Y⊂Z, U=Z∖Y. Suppose the homology of C on smooth proper varieties factors through the specified effective Chow motives. Then the naive homology theory H_a(C(Z)) agrees canonically with the extension of C|SP from Theorem 5.13.",
+      "locator": "Proposition 5.16, pp. 60–61; corrected E9 and E20",
       "status": "missing",
       "note": "Following Gillet's descent theorem [Gil84] 4.1 and SGA 4 Vbis 3.3.3, with the corrected diagram of loc. cit. 3.3.3.3."
     },
@@ -536,22 +534,22 @@
       "id": "PAPER-JANNSEN-16/56",
       "kind": "theorem",
       "name": "Gillet–Soulé: hyperenvelopes induce homotopy equivalences of Chow motives",
-      "statement": "Under resolution of singularities, a proper variety has smooth proper hyperenvelopes, and a hyperenvelope g : W· → Z· of smooth proper simplicial varieties induces a homotopy equivalence g^* : M(Z·) → M(W·) of complexes of Chow motives; hence the weight complex M(V)· of a variety is well defined up to homotopy and representable by a finite complex.",
+      "statement": "Under resolution of singularities, a proper variety has smooth proper hyperenvelopes, and a hyperenvelope g : W· → Z· of smooth proper simplicial varieties induces a homotopy equivalence g_* : M(W·) → M(Z·) of complexes of Chow motives; hence the weight complex M(V)· of a variety is well defined up to homotopy and representable by a finite complex.",
       "locator": "Proof of Theorem 5.13, pp. 58–59 ([GS96] 1.4.1, Lemma 2, Proposition 2)",
       "status": "missing",
-      "note": "The motivic input of Theorems 5.9 and 5.13."
+      "note": "Use covariant motives throughout the proof; the opposite contravariant convention reverses all arrows together. Proper versus projective generators require the adapter in G8."
     },
     {
       "id": "PAPER-JANNSEN-16/57",
       "kind": "definition",
       "name": "Effective Chow motives CHM^eff(k)",
-      "statement": "The category of effective Chow motives over k with Z (or Λ) coefficients generated by smooth proper varieties, with correspondences modulo rational equivalence; its duality with the covariant version ([KMP07] Lemma 1.2).",
+      "statement": "The additive category of integral correspondences modulo rational equivalence on smooth PROJECTIVE varieties over k, followed by idempotent completion, gives effective Chow motives. Fix one variance convention. The full pure-motive category additionally inverts the Tate object; that localization is not part of the effective category.",
       "locator": "§5, pp. 55–63",
       "status": "planned",
       "planned": [
         "MotivesAndAlgebraicCycles:MC.1"
       ],
-      "note": "MC.1 forms the category of correspondences, idempotent completion and Tate objects, fixing one variance convention."
+      "note": "MC.0–MC.1 plan this projective carrier. Jannsen's all-smooth-proper generator category and its comparison with the projective version are a separate unresolved adapter (G8); no rigid self-duality of effective motives is inferred."
     },
     {
       "id": "PAPER-JANNSEN-16/58",
@@ -574,26 +572,239 @@
     {
       "id": "PAPER-JANNSEN-16/60",
       "kind": "theorem",
-      "name": "Poitou–Tate duality and the global-to-local H² sequence",
-      "statement": "For a global field K and a finite (or ℓ-primary torsion) G_K-module N: H¹(K, N) → ⊕_{v|∞} H¹(K_v, N) and H²(K, N) → ⊕_{v∈S} H²(K_v, N) are surjective for finite S, H^i(K, N) ≅ ⊕_{v|∞} H^i(K_v, N) for i ≥ 3, and H²(K, N) → ⊕_v H²(K_v, N) → H⁰(K, N^*)^∨ → 0 is exact with N^* = Hom(N, μ).",
+      "name": "Poitou–Tate degree-two tail with discrete/compact dual conventions",
+      "statement": "For a global field K, prime ℓ≠char K and discrete ℓ-primary torsion G_K-module N, the global-to-local degree-two sequence H²(K,N)→⊕_v H²(K_v,N)→H⁰(K,N*)^∨→0 is exact, where N*=Hom(N,μ_{ℓ∞}) has its compact topology, and real-place terms use the appropriate Tate conventions. Finite N is the finite-coefficient case; passage to arbitrary discrete N requires the compatible limits and duality, not reuse of a finite-module theorem without an adapter.",
       "locator": "Proofs of Proposition 1.2, Lemma 1.3 and Theorem 1.5, pp. 9–16",
       "status": "planned",
       "planned": [
         "ArithmeticGaloisDuality:R02.4"
       ],
-      "note": "R02.4 plans Poitou–Tate duality with the finite-module exact sequence and lattice versions."
+      "note": "R02.4 owns the exact sequence and limit arguments. The additional archimedean surjectivity and high-degree assertions of the old bundle are isolated as missing proof interfaces in G3."
     },
     {
       "id": "PAPER-JANNSEN-16/61",
       "kind": "theorem",
       "name": "Hochschild–Serre spectral sequences for F/FK̄ and F_(v)/FK̄",
-      "statement": "For F a function field over K, E_2^{p,q} = H^p(K, H^q(FK̄, M)) ⇒ H^{p+q}(F, M), functorial in K ⊂ K_(v), with H^q(FK̄, M) = 0 for q > d = cd(FK̄).",
+      "statement": "Let K be global, F/K a primary function field of transcendence degree d, ℓ≠char K, and M a discrete ℓ-primary torsion G_F-module. The exact Galois-group extension gives E₂^{p,q}=H^p(K,H^q(FK̄,M))⇒H^{p+q}(F,M), with compatible restriction maps for the Henselized local extensions. The bound used is cd_ℓ(FK̄)=d (and H^q=0 for q>d), not unqualified cohomological dimension at the residue characteristic.",
       "locator": "Proof of Proposition 1.2, pp. 8–9",
       "status": "planned",
       "planned": [
         "ArithmeticGaloisDuality:R02.2"
       ],
-      "note": "R02.2 builds Hochschild–Serre with edge maps."
+      "note": "R02.2 owns the continuous Hochschild–Serre construction. Field dimension and compatibility with residues/corestriction are separate inputs, retained in G3."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/62",
+      "kind": "theorem",
+      "name": "Theorem 1.5(b): the weight-nonzero lattice Hasse principle",
+      "statement": "Let K be global and ℓ≠char K. If T is finite free over Z_ℓ with continuous G_K-action, and T⊗Q_ℓ is mixed with no weight zero, then for every finite set S′ of places, H¹_cont(K,T)→∏_{v∉S′}H¹_cont(K_v,T) is injective.",
+      "locator": "Theorem 1.5(b), p. 13; proof pp. 15–16",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/63",
+      "kind": "theorem",
+      "name": "Theorem 2.5(a): permutation lattices satisfy (H)",
+      "statement": "For K global, ℓ≠char K and I a finite-rank permutation G_K-lattice, C=I⊗Q_ℓ/Z_ℓ(1) satisfies property (H) of item /23.",
+      "locator": "Theorem 2.5(a), p. 21",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/64",
+      "kind": "theorem",
+      "name": "Theorem 2.5(b): stability across a permutation quotient",
+      "statement": "For an exact sequence 0→I₁→I₂→I₃→0 of finite-rank discrete G_K-lattices with I₃ permutation, K global and ℓ≠char K, property (H) holds for I₁⊗Q_ℓ/Z_ℓ(1) iff it holds for I₂⊗Q_ℓ/Z_ℓ(1).",
+      "locator": "Theorem 2.5(b), pp. 21–23",
+      "status": "missing",
+      "note": "Restrict the weak-approximation argument to ℓ-primary exponents; E12 excludes all n in characteristic p."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/65",
+      "kind": "theorem",
+      "name": "Lemma 2.6: torus comparison for property (H)",
+      "statement": "Let T/K be the torus with cocharacter lattice I, K global, ℓ≠char K, and C=I⊗Q_ℓ/Z_ℓ(1). The surjectivity in (H)(i), respectively injectivity in (H)(ii), is equivalent to the corresponding map on the ℓ-primary parts of H¹(K,T), respectively H²(K,T), with the same local targets.",
+      "locator": "Lemma 2.6, pp. 21–22",
+      "status": "missing",
+      "note": "Tori, their lattice equivalence, Kummer sequences and permutation-torus/Shapiro adapters remain imported proof providers, not new definitions owned by this consequence."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/66",
+      "kind": "theorem",
+      "name": "Theorem 2.12: Henselization-to-completion injectivity",
+      "statement": "For K global, F/K as in Theorem 2.10 and v a place, H^i(F_(v),Z/n(j))→H^i(F_v,Z/n(j)) is injective as stated for all n,i,j. The printed proof directly supplies fixed discrete étale coefficients; application to the characteristic-p logarithmic Hodge–Witt summand needs a separate (FP)/(SD) verification.",
+      "locator": "Theorem 2.12, p. 25; proof p. 26",
+      "status": "missing",
+      "note": "The prime-to-characteristic consequence is usable. The wild-provider gap G4 is explicit; no new source error is confirmed from the absence of its proof here."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/67",
+      "kind": "theorem",
+      "name": "Lemma 3.6: unramified classes as residue kernels",
+      "statement": "For a function field F/k and n invertible in k, and each DVR A with k⊂A⊂F and fraction field F, the image of H^i_ét(Spec A,Z/n(j)) in H^i(F,Z/n(j)) is the kernel of its residue H^i(F,Z/n(j))→H^{i−1}(κ(A),Z/n(j−1)). Thus H^i_nr(F/k,Z/n(j)) is the intersection of these kernels.",
+      "locator": "Lemma 3.6, pp. 31–32",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/68",
+      "kind": "theorem",
+      "name": "Proposition 3.7: a smooth proper model computes unramified cohomology",
+      "statement": "For X smooth proper integral over k, F=k(X) and n invertible in k, H^i_nr(F/k,Z/n(j)) is the kernel of the codimension-one residue sum on X and equals H⁰_Zar(X,𝓗^i_n(j)).",
+      "locator": "Proposition 3.7, p. 32",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/69",
+      "kind": "theorem",
+      "name": "Lemma 4.24: the function-field comparison criterion",
+      "statement": "Let L be perfect and 𝒞 a category of finite-type L-schemes closed under open and closed immersions. Let φ:H→H̃ be a morphism of homology theories. Suppose, for each integral Z of dimension d, the colimit groups H_a(L(Z)) and H̃_a(L(Z)) vanish for a≠d and φ_d is an isomorphism. Then φ is an isomorphism on every scheme of 𝒞.",
+      "locator": "Lemma 4.24, pp. 51–52",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/70",
+      "kind": "construction",
+      "name": "The niveau spectral sequence of a homology theory",
+      "statement": "For a homology theory with localization on finite-type L-schemes, the dimension filtration gives a natural strongly convergent sequence E¹_{p,q}(X)=⊕_{x∈X_p}H_{p+q}(κ(x))⇒H_{p+q}(X), where field groups are colimits over nonempty opens. Construct the filtration, connecting maps and finite-dimensional convergence; an abstract spectral-sequence carrier alone is not this construction.",
+      "locator": "Proof of Lemma 4.24, p. 52, citing Bloch–Ogus and Jannsen–Saito",
+      "status": "missing",
+      "note": "Shared homological formalism: final unique owner and provider decomposition remain G7; route 9 is not accepted."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/71",
+      "kind": "theorem",
+      "name": "Corollary 5.5: top weight homology and change of coefficients",
+      "statement": "Under the corrected Proposition 5.4 hypotheses (item /49), H^W_d(X,Z;Z) is finite free and H^W_d(X,Z;A)≅H^W_d(X,Z;Z)⊗A for every abelian group A. The analogous top weight-cohomology statement holds. Keep the universal-coefficient argument and freeness separate from any general duality claim.",
+      "locator": "Corollary 5.5, p. 54",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/72",
+      "kind": "theorem",
+      "name": "Corollary 5.6: divisible top weight homology",
+      "statement": "Under the corrected Proposition 5.4 hypotheses, H^W_d(X,Z;Q_ℓ/Z_ℓ) is divisible.",
+      "locator": "Corollary 5.6, p. 54",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/73",
+      "kind": "theorem",
+      "name": "Remark 5.15: extending natural transformations",
+      "statement": "If C and C′ satisfy Theorem 5.13 and φ:C→C′ is a natural transformation, then the hyperenvelope/cone construction induces a natural transformation of the extended homology theories.",
+      "locator": "Remark 5.15, p. 60",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/74",
+      "kind": "theorem",
+      "name": "Lemma 5.17: hyperenvelope descent for a localization complex",
+      "statement": "For C under Proposition 5.16 and a hyperenvelope Z_•→X, the augmentation Tot C(Z_•)→C(X) is a quasi-isomorphism. Its proof must cover split Čech envelopes, noetherian-induction localization, and the coskeleton tower, including the convergence bound.",
+      "locator": "Lemma 5.17, pp. 61–62",
+      "status": "missing",
+      "note": "The source switches to C′ without defining a new functor; use C consistently. This is not generic étale hypercover descent."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/75",
+      "kind": "definition",
+      "name": "The continuous-cohomology carrier",
+      "statement": "For a topological representation A:TopRep k G, continuousCohomology n A is the n-th homology of TopRep.homogeneousCochains A, with values in TopModuleCat k.",
+      "locator": "Implicit in §§1–2; library Basic.lean, lines 112–133",
+      "status": "library",
+      "library": [
+        "mathlib:continuousCohomology"
+      ],
+      "note": "Pinned declaration read. This supplies the carrier, not Poitou–Tate, Hochschild–Serre, cohomological dimension or geometric étale comparisons."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/76",
+      "kind": "definition",
+      "name": "The nontrivial roots-of-unity Galois coefficient module",
+      "statement": "For a field K, TauCeti.KummerCoeff K n is Additive(rootsOfUnity n (SeparableClosure K)), with its induced absolute Galois action and discrete topology.",
+      "locator": "Coefficient (0.2), p. 2, twist one; TauCeti Coefficients.lean, lines 113–125",
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.KummerCoeff"
+      ],
+      "note": "Pinned definition and continuous-action instance read. It does not provide all Tate twists or logarithmic Hodge–Witt coefficients."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/77",
+      "kind": "definition",
+      "name": "The abstract spectral-sequence carrier",
+      "statement": "In an abelian category C, CategoryTheory.SpectralSequence C c r₀ consists of pages as homological complexes and isomorphisms from each page's homology to the next page.",
+      "locator": "Implicit in (2.1), Lemma 4.24 and (5.14); Mathlib SpectralSequence/Basic.lean, lines 28–46",
+      "status": "library",
+      "library": [
+        "mathlib:CategoryTheory.SpectralSequence"
+      ],
+      "note": "Does not supply the geometrically constructed weight or niveau sequence or its convergence."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/78",
+      "kind": "definition",
+      "name": "Categorical one-hypercover data",
+      "statement": "CategoryTheory.PreOneHypercover S consists of a family of maps to S and families mapping to their pairwise fibre products, expressed through two compatible projections.",
+      "locator": "Partial precursor to §5 hyperenvelopes; Mathlib Sites/Hypercover/One.lean, lines 34–57",
+      "status": "library",
+      "library": [
+        "mathlib:CategoryTheory.PreOneHypercover"
+      ],
+      "note": "Only a one-stage categorical carrier. No all-degree proper hyperenvelope, residue-field envelope condition, smoothness or motivic descent is claimed."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/79",
+      "kind": "theorem",
+      "name": "All-degree continuous restriction/corestriction and coefficient colimits",
+      "statement": "For profinite G with discrete coefficients, continuous cohomology commutes with filtered coefficient colimits and carries all-degree restriction/corestriction for open subgroups, with cor∘res=[G:H] and naturality. Thus restriction to a finite extension of degree prime to ℓ is injective on ℓ-primary cohomology.",
+      "locator": "Used in §§1–3, especially Theorem 2.10 and Cases 3.17.B–C; upstream Layer 10",
+      "status": "planned",
+      "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "note": "Import the upstream provider, never create a rival inside the alteration roadmap. Coinvariant transfer is a different construction (/80)."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/80",
+      "kind": "theorem",
+      "name": "Coinvariant trace/restriction for an open subgroup",
+      "statement": "For an open subgroup H of a profinite G and a discrete left G-module C, π:C_H→C_G is the natural quotient. The transfer τ:C_G→C_H sends [c] to Σ_{Ht∈H\\G}[tc]. It is independent of representatives, and π∘τ=[G:H] on C_G; τ∘π is the norm, not generally multiplication by the index.",
+      "locator": "Proof of Theorem 5.10, p. 57; corrected E15",
+      "status": "missing",
+      "note": "Finite-field component-module application produces Tr∘Res=degree; distinguish it from cohomological corestriction."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/81",
+      "kind": "theorem",
+      "name": "Finite-field continuous H¹ equals Frobenius coinvariants for torsion modules",
+      "statement": "For k finite and M a discrete TORSION G_k-module, evaluation at arithmetic Frobenius induces H¹_cont(G_k,M)≅M/(Fr−1)M. Do not assert this for every discrete module: trivial Z is a counterexample.",
+      "locator": "Case 3.17.B, p. 37, and Lemma 4.20 proof, p. 49; corrected E14",
+      "status": "missing"
+    },
+    {
+      "id": "PAPER-JANNSEN-16/82",
+      "kind": "definition",
+      "name": "Pythagoras number",
+      "statement": "For a field F, p(F) is the least integer m such that every element expressible as a finite sum of squares is a sum of m squares; write infinity if no such m exists. State the zero/empty-sum convention, and use this definition for Corollary 0.7.",
+      "locator": "Introduction before Corollary 0.7, p. 4",
+      "status": "missing",
+      "note": "One owner with the existing QuadraticFormsRealFunctionFields candidate; not a new copy of the Witt ring."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/83",
+      "kind": "theorem",
+      "name": "Bertini hyperplanes with nonempty stratum intersections",
+      "statement": "For a finite collection of smooth projective strata in a smooth projective variety over an infinite perfect field, choose a sufficiently general ample hyperplane transverse to all strata, avoiding the zero-dimensional strata, meeting each positive-dimensional connected stratum nontrivially, and with connected intersection on strata of dimension at least two. Over a finite field pass to finite extensions of prime-power degree and descend the vanishing statements through trace/restriction.",
+      "locator": "Proposition 2.2, Proposition 5.4 and Theorem 5.10 proofs, pp. 18, 53, 56–57",
+      "status": "missing",
+      "note": "The precise geometric connectedness and finite-extension descent interfaces need source-level decomposition (G9); do not infer nonemptiness from transversality."
+    },
+    {
+      "id": "PAPER-JANNSEN-16/84",
+      "kind": "theorem",
+      "name": "Norm-residue consequence: finite-to-divisible coefficient injection",
+      "statement": "For a field L, prime ℓ and t≥0, the norm-residue statement in degree t gives divisibility of H^t(L,Q_ℓ/Z_ℓ(t)); the coefficient long exact sequence then makes H^{t+1}(L,Z/ℓ^m(t))→H^{t+1}(L,Q_ℓ/Z_ℓ(t)) injective, with image the ℓ^m-torsion. In characteristic ℓ this uses the logarithmic coefficient sequences, not an invertible-prime Kummer argument.",
+      "locator": "Introduction, p. 3, and Lemma 4.15 proof",
+      "status": "missing",
+      "note": "M.5d supplies the characteristic-qualified norm-residue input; coefficient sequences and residue compatibility must be separate."
     }
   ],
   "prerequisites": [
@@ -645,7 +856,7 @@
     {
       "citation": "U. Jannsen, On the Galois cohomology of l-adic representations attached to varieties over local or global fields, Séminaire de Théorie des Nombres Paris 1986–87, Progr. Math. 75 (1988), 165–182",
       "link": "Progr. Math. 75, Birkhäuser (1988), 165–182; no DOI was located",
-      "why": "Theorem 3 (the pure case of Theorem 1.5) and the weight spectral sequence (2.1) (3.20 there)."
+      "why": "Theorem 3: the pure-case input to Theorem 1.5. Not the source of [Jan90] 3.20."
     },
     {
       "citation": "U. Jannsen, Principe de Hasse cohomologique, Séminaire de Théorie des Nombres Paris 1989–90, Progr. Math. 102 (1992), 121–140",
@@ -666,6 +877,26 @@
       "citation": "M. J. Greenberg, Rational points in Henselian discrete valuation rings, Publ. Math. IHÉS 31 (1966), 59–64",
       "link": "https://doi.org/10.1007/BF02684802",
       "why": "Property (SD) for K_v/K_(v) in Theorem 2.12."
+    },
+    {
+      "citation": "U. Jannsen, Mixed Motives and Algebraic K-Theory, Lecture Notes in Mathematics 1400 (1990)",
+      "link": "https://annals.math.princeton.edu/2016/183-1/p01",
+      "why": "[Jan90] 3.20 is the paper's actual source for the normal-crossings weight spectral sequence (2.1); corrects the extraction's [Jan88] attribution."
+    },
+    {
+      "citation": "J.-L. Colliot-Thélène and U. Jannsen, Sommes de carrés dans les corps de fonctions, C. R. Acad. Sci. Paris Sér. I Math. 312 (1991), 759–762",
+      "link": "https://annals.math.princeton.edu/2016/183-1/p01",
+      "why": "[CTJ91] in Jannsen's references: the implication from mod-2 Hasse injectivity to the Pythagoras bound; bibliographic pointer only, original proof still to acquire."
+    },
+    {
+      "citation": "B. Kahn, J. P. Murre and C. Pedrini, On the transcendental part of the motive of a surface (2007), Lemma 1.2",
+      "link": "https://annals.math.princeton.edu/2016/183-1/p01",
+      "why": "[KMP07] convention comparison on p. 63; the precise effective/covariant and proper/projective scope must be read, not inferred from a slogan about duality."
+    },
+    {
+      "citation": "H. Gillet, Homological descent for the K-theory of coherent sheaves (1984), Theorem 4.1; SGA 4, Exposé Vbis, §3.3.3",
+      "link": "https://annals.math.princeton.edu/2016/183-1/p01",
+      "why": "Proof providers explicitly used by Lemma 5.17 for envelope/coskeleton descent; acquire the originals and separate their hypotheses from ordinary étale hypercovers."
     }
   ],
   "routes": [
@@ -708,7 +939,9 @@
         "PAPER-JANNSEN-16/50",
         "PAPER-JANNSEN-16/53",
         "PAPER-JANNSEN-16/58",
-        "PAPER-JANNSEN-16/59"
+        "PAPER-JANNSEN-16/59",
+        "PAPER-JANNSEN-16/81",
+        "PAPER-JANNSEN-16/84"
       ],
       "reason": "HL.6 plans 'Kato complexes and boundary-square-zero' before 'sourced cohomological Hasse principles', and names primary-source selection for Kato–Saito-type theorems as its remaining work. PAPER-DITTMANN-POP-23 already routes Jannsen's global injectivity, the arithmetic Kato complex and Kerz–Saito's divisorial detection to HL.6. This paper is the primary source for that stage: Kato's Conjectures 1–3, the complexes C^{r,s}, and the Hasse principles (Theorems 0.4, 0.6, 0.9–0.11, 2.10, 3.8, 4.8, 4.19). It also supplies their dedicated intermediate results: Proposition 1.2, Lemma 1.3, Proposition 2.2, Theorems 2.4, 3.1 and 3.17, §4, Lemmas 5.20 and 5.25, and the comparison Theorem 5.12, which imports weight homology from the proposed motives Part II."
     },
@@ -721,7 +954,7 @@
       "items": [
         "PAPER-JANNSEN-16/1"
       ],
-      "reason": "HL.2 retains the logarithmic/Artin–Schreier–Witt coefficient interfaces (RS-28), and PAPER-DITTMANN-POP-23 routes the same Kato coefficient convention (its item kato-coefficients) here. The definition of H^i(L, Z/n(j)) with its W_rΩ_log summand, and its Q_ℓ/Z_ℓ colimit, belong with it. (PAPER-BRIGHT-NEWTON-23 routed the same convention to its proposed LocalFieldsPartIIKatoSwanConductors; one of the two routes should import from the other, and HL.2 is the earlier owner.)"
+      "reason": "HL.2 explicitly owns the field-level logarithmic de Rham–Witt/Artin–Schreier–Witt coefficient interface and imports the characteristic-qualified norm-residue supplier. Reuse the continuous-cohomology and roots-of-unity carriers (/75–76). This source route adds Jannsen's finite/wild coefficient convention and transition-map requirements; it does not move scheme-level purity into HL.2. The earlier Bright–Newton proposal is not authority for a second copy of these common coefficients."
     },
     {
       "route": "source",
@@ -731,9 +964,13 @@
       ],
       "items": [
         "PAPER-JANNSEN-16/16",
-        "PAPER-JANNSEN-16/23"
+        "PAPER-JANNSEN-16/23",
+        "PAPER-JANNSEN-16/62",
+        "PAPER-JANNSEN-16/63",
+        "PAPER-JANNSEN-16/64",
+        "PAPER-JANNSEN-16/65"
       ],
-      "reason": "R02.4 plans Poitou–Tate duality with its finite-module exact sequence and lattice/rational versions. Theorem 1.5 (Hasse principle for Galois modules mixed of weights ≠ −2 / ≠ 0) and Theorem 2.5 with Lemma 2.6 (property (H) for tori via Shapiro, Hilbert 90 and Brauer–Hasse–Noether) are global Galois-cohomology consequences of that duality. They need DWP.0 weights as an input."
+      "reason": "R02.4 owns global duality and its discrete/compact/lattice consequences. Add the separated Theorem 1.5(a),(b), property (H), Theorem 2.5(a),(b) and Lemma 2.6 as source consequences. Import representation weights from R34.1/DWP, tori and their character/cocharacter lattice equivalence from their existing algebraic-group owner, and cohomological Shapiro/transfer from the upstream ProfiniteCohomology roadmap. E12 restricts the approximation step to ℓ-primary exponents with ℓ≠char K."
     },
     {
       "route": "source",
@@ -744,7 +981,10 @@
       "items": [
         "PAPER-JANNSEN-16/26",
         "PAPER-JANNSEN-16/31",
-        "PAPER-JANNSEN-16/32"
+        "PAPER-JANNSEN-16/32",
+        "PAPER-JANNSEN-16/66",
+        "PAPER-JANNSEN-16/67",
+        "PAPER-JANNSEN-16/68"
       ],
       "reason": "SF.2 owns étale cohomology of schemes. PAPER-BENOIST-WITTENBERG-20 routes the coniveau, Cousin and Bloch–Ogus–Gabber package there as a named suffix. Unramified cohomology (Definition 3.5, Lemma 3.6, Proposition 3.7), universal exactness of Gersten resolutions, and the injectivity Theorems 2.12–2.13 (étale cohomology commutes with limits, plus Greenberg's strong density) are statements of that package."
     },
@@ -757,7 +997,7 @@
       "items": [
         "PAPER-JANNSEN-16/20"
       ],
-      "reason": "DWP.10 exports weight statements for actual cohomology groups and their Tate twists to arithmetic consumers. The weight spectral sequence of a normal-crossings compactification, with its degeneration at E_3 and the weight filtration of H^n(Ū, Q_ℓ), is such an export (Deligne's ℓ-adic Hodge II, [Jan88] 3.20)."
+      "reason": "DWP.10 is the arithmetic-export destination for the SNC weight spectral sequence and its induced Galois weight filtration. It imports the actual smooth proper purity from DWP.7, mixed-filtration formalism from DWP.8/R34.1 and Gysin maps from EDC.3. The precise construction cited by the paper is [Jan90] 3.20, not [Jan88]. Retain E₂ indexing of (2.1), weights p+2q and vanishing d_r for r≥3; neither this construction nor its degeneration is provided by the generic library spectral-sequence carrier."
     },
     {
       "route": "source",
@@ -769,7 +1009,7 @@
         "PAPER-JANNSEN-16/19",
         "PAPER-JANNSEN-16/28"
       ],
-      "reason": "CR.4 owns de Rham–Witt complexes with localization, étale descent and slope/degree filtrations. The paper's p-part inputs are statements about logarithmic Hodge–Witt cohomology of smooth varieties over perfect fields: Gros's Gysin morphisms, Suwa's purity isomorphisms in twist d and weak Lefschetz, and the p-adic weights of Remark 1.7(g) (H^i(X̄, Q_p(j)) pure of weight i − 2j by Katz–Messing and Milne, with Gros–Suwa base change, importing the Katz–Messing comparison of PadicDifferentialEquationsAndRigidCohomology RD.7)."
+      "reason": "Proposed destination, NOT accepted by this review: CR.4 supplies ordinary/relative de Rham–Witt complexes, but its description does not provide the full geometric logarithmic Gysin/purity/weak-Lefschetz package or the étale p-adic weight/base-change theorem. CR.5's log-structure/log-crystalline theory is a different notion of logarithmic geometry; RD.7's crystalline–rigid comparison is not by itself the required logarithmic étale comparison. Split /19 and /28, check Gros/Suwa/Gros–Suwa/Milne, and resolve a single shared extension owner before design."
     },
     {
       "route": "part-ii",
@@ -780,7 +1020,7 @@
       "items": [
         "PAPER-JANNSEN-16/25"
       ],
-      "brief": "Coalesce with the candidate proposed by PAPER-DITTMANN-POP-23 (same id and title). Add Jannsen's use: Gabber's theorem (ILO14, Exposé X; Jannsen Theorem 2.11) for X separated integral of finite type over a field L with ℓ invertible and a proper closed Y ⊂ X, producing a finite L′/L of degree prime to ℓ, a connected smooth quasi-projective X′ over L′ and a proper surjective X′ → X of generic degree prime to ℓ with strict normal crossings preimage of Y. Export it together with the corestriction argument (restriction to a prime-to-ℓ extension is injective on ℓ-primary cohomology, including coinvariants) used in Theorems 2.10 and 3.17 (Case 3.17.C) and Case 3.8.B. Keep the odd-degree (ℓ = 2) specialization of Dittmann–Pop as a corollary; import L5's alteration infrastructure rather than rebuilding it.",
+      "brief": "Join, do not duplicate, the PrimeToDegreeAlterations candidate already proposed by PAPER-DITTMANN-POP-23. First import Adic coefficients and comparison with schemes (AdicCoefficientsAndComparisons), especially L5's ordinary alteration, compactification and normal-crossing infrastructure. The additional final theorem is Jannsen Theorem 2.11, quoted from ILO14: for X separated integral of finite type over L, ℓ invertible in L, and a proper closed Y⊂X, produce a finite extension L′/L of degree prime to ℓ, a connected smooth quasi-projective X′/L′ and a proper surjective L-map X′→X with function-field degree prime to ℓ, whose reduced inverse image of Y is SNC. Prove Gabber's degree control, not just de Jong's unrestricted-degree alteration. Import all-degree cohomological restriction/corestriction from Tau Ceti's ProfiniteCohomology Layer 10 (/79); construct only the geometric application and its compatibility. Do not assert arbitrary coinvariant injectivity without the separate transfer/trace interface. Export the theorem to HL.6 and recover the odd-degree specialization. Tests must check both degree conditions, Y empty, and boundary reduced structure. ILO14 is a cited proof dependency here, not a volume claimed to have been fully independently audited.",
       "reason": "The same theorem as Dittmann–Pop's route, at a general prime ℓ; one owner avoids a duplicate."
     },
     {
@@ -790,9 +1030,10 @@
       "title": "Quadratic forms and cohomological invariants, Part II: orderings and real function fields",
       "area": "algebraicnt",
       "items": [
-        "PAPER-JANNSEN-16/6"
+        "PAPER-JANNSEN-16/6",
+        "PAPER-JANNSEN-16/82"
       ],
-      "brief": "Coalesce with the candidate proposed by PAPER-BENOIST-19 and extended by PAPER-BENOIST-WITTENBERG-20 (same id and title). Add Colliot-Thélène–Jannsen's bound (C. R. Acad. Sci. 312 (1991); Jannsen Corollary 0.7): for a finitely generated field F of characteristic 0 and transcendence degree d ≥ 2, every sum of squares is a sum of 2^{d+1} squares, so the Pythagoras number is finite; state Pfister's weaker 2^{d+2} bound separately. Import the mod-2 Hasse principle (Jannsen Corollary 0.8) from HigherLocalFieldsAndHigherClassFieldTheory HL.6 and the Milnor conjecture from MotivicEtaleKTheory M.5; import real orderings and Pfister forms from the upstream Quadratic forms and cohomological invariants roadmap. Test Q(x, y).",
+      "brief": "Coalesce with the candidate proposed by PAPER-BENOIST-19 and extended by PAPER-BENOIST-WITTENBERG-20 (same id and title). Add Colliot-Thélène–Jannsen's bound (C. R. Acad. Sci. 312 (1991); Jannsen Corollary 0.7): for a finitely generated field F of characteristic 0 and transcendence degree d ≥ 2, every sum of squares is a sum of 2^{d+1} squares, so the Pythagoras number is finite; state Pfister's weaker 2^{d+2} bound separately. Import the mod-2 Hasse principle (Jannsen Corollary 0.8) from HigherLocalFieldsAndHigherClassFieldTheory HL.6 and the Milnor conjecture from MotivicEtaleKTheory M.5; import the Witt ring, fundamental ideal and low-degree Pfister API from the upstream Quadratic forms and cohomological invariants roadmap. That parent's Layer 4 explicitly excludes general torsion, arbitrary-degree roundness and function-field methods: the shared real-function-field candidate must supply these and the orderings API once, rather than claim to import them from the parent. Test Q(x, y). Include the Pythagoras-number definition /82. Corollary 0.7 uses d=trdeg_Q F≥2; its exact bound is 2^(d+1). The Colliot-Thélène–Jannsen 1991 implication from mod-2 cohomology to this bound is an explicit proof dependency, not proved by merely citing the Milnor conjecture.",
       "reason": "Pythagoras numbers of real function fields are this candidate's direction (orderings, sums of squares, levels); no atlas layer plans them."
     },
     {
@@ -809,9 +1050,18 @@
         "PAPER-JANNSEN-16/52",
         "PAPER-JANNSEN-16/54",
         "PAPER-JANNSEN-16/55",
-        "PAPER-JANNSEN-16/56"
+        "PAPER-JANNSEN-16/56",
+        "PAPER-JANNSEN-16/43",
+        "PAPER-JANNSEN-16/69",
+        "PAPER-JANNSEN-16/70",
+        "PAPER-JANNSEN-16/71",
+        "PAPER-JANNSEN-16/72",
+        "PAPER-JANNSEN-16/73",
+        "PAPER-JANNSEN-16/74",
+        "PAPER-JANNSEN-16/80",
+        "PAPER-JANNSEN-16/83"
       ],
-      "brief": "First prerequisite: Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles), especially MC.0 (correspondences) and MC.1 (Chow motives, with one fixed variance convention); do not replan them. The new object is weight homology: Gillet–Soulé's extension of functors on effective Chow motives to homology theories on all varieties via smooth proper hyperenvelopes and weight complexes (Gillet–Soulé, J. reine angew. Math. 478 (1996); Jannsen, Ann. of Math. 183 (2016), §§4.22–4.24 and 5).\n\nThe final theorems, as in Jannsen (published version):\n- Theorem 5.9: under (RS1) over k^per, a homology theory H^W_*(−, A) on k-varieties with H^W_a(X, A) = A (a = 0), 0 (a ≠ 0) for X smooth proper connected, and H^W_a(X ∖ Y, A) ≅ H_a(⊕_{π_0(Y^{[d]})} A → ⋯ → ⊕_{π_0(X)} A) for simple normal crossings Y.\n- Theorem 5.10: under (RS) over k^per, H^W_a(k(Z), A) = 0 for a ≠ dim Z, including the finite-field norm argument.\n- Theorem 5.13 with Remark 5.15: extension of complex-valued functors C on smooth proper varieties, whose homology factors through CHM^eff(k), to homology theories; morphisms extend.\n- Proposition 5.16 and Lemma 5.17: for a functor with open pullbacks and short exact localization sequences, the naive homology theory agrees with the extension (hyperenvelope descent after Gillet 1984 Theorem 4.1 and SGA 4 Vbis 3.3.3, with Jannsen's corrected diagram of 3.3.3.3).\n\nCover also: Definitions 5.1–5.3 (L^iF(X, Y), R^iG(X, Y), weight homology and cohomology of pairs; H⁰(−, A) is contravariant); Proposition 5.4 and Corollaries 5.5–5.6; the general homology-theory formalism of Definition 4.22 with localization sequences, the niveau spectral sequence and Lemma 4.24 (an isomorphism on function fields in the top degree, with vanishing elsewhere, gives an isomorphism of theories); Gillet–Soulé's hyperenvelope homotopy equivalence (GS96 Proposition 2) and the weight complex M(V)·. Use the corrected cross-references of sourceIssue E9 (Lemma 4.24 refers to Definition 4.22; Proposition 5.16 derives Ĥ via Theorem 5.13).\n\nHypotheses: characteristic 0 uses resolution from AlgebraicModuliForArithmeticGeometry R09.7. In positive characteristic (RS) is a named hypothesis, never a theorem. Keep a separate optional interface for a prime-to-ℓ variant built on PrimeToDegreeAlterations (the route of Jannsen's arXiv v2 §§6–7 and Kerz–Saito), but do not claim it without a checked source.\n\nImport, never re-plan: Chow groups and proper pushforward (SchemeAndStackFoundations SF.5); correspondences and Chow motives (MotivesAndAlgebraicCycles MC.0–MC.1); smooth proper hypercovers and simplicial schemes (the hypercover formalism already used in AdicCoefficientsAndComparisons L5 and EnhancedDerivedSheaves E2); Bertini for hyperplane sections. Export H^W and Lemma 4.24 to HigherLocalFieldsAndHigherClassFieldTheory HL.6, whose Theorem 5.12 compares Kato homology with weight homology.\n\nTests: a curve minus points (H^W_1 = Z^{#points−1}-type computation); P² minus a line and a transversal conic; a finite-field example needing the norm argument; independence of the choice of hyperenvelope and compactification.",
+      "brief": "First prerequisite: Algebraic cycles, pure and mixed motives (MotivesAndAlgebraicCycles), especially MC.0 (correspondences) and MC.1 (Chow motives, with one fixed variance convention); do not replan them. The new object is weight homology: Gillet–Soulé's extension of functors on effective Chow motives to homology theories on all varieties via smooth proper hyperenvelopes and weight complexes (Gillet–Soulé, J. reine angew. Math. 478 (1996); Jannsen, Ann. of Math. 183 (2016), §§4.22–4.24 and 5).\n\nThe final theorems, as in Jannsen (published version):\n- Theorem 5.9: under (RS1) over k^per, a homology theory H^W_*(−, A) on k-varieties with H^W_a(X, A) = A (a = 0), 0 (a ≠ 0) for X smooth proper connected, and H^W_a(X ∖ Y, A) ≅ H_a(⊕_{π_0(Y^{[d]})} A → ⋯ → ⊕_{π_0(X)} A) for simple normal crossings Y.\n- Theorem 5.10: under (RS) over k^per, H^W_a(k(Z), A) = 0 for a ≠ dim Z, including the finite-field norm argument.\n- Theorem 5.13 with Remark 5.15: extension of complex-valued functors C on smooth proper varieties, whose homology factors through CHM^eff(k), to homology theories; morphisms extend.\n- Proposition 5.16 and Lemma 5.17: for a functor with open pullbacks and short exact localization sequences, the naive homology theory agrees with the extension (hyperenvelope descent after Gillet 1984 Theorem 4.1 and SGA 4 Vbis 3.3.3, with Jannsen's corrected diagram of 3.3.3.3).\n\nCover also: Definitions 5.1–5.3 (L^iF(X, Y), R^iG(X, Y), weight homology and cohomology of pairs; H⁰(−, A) is contravariant); Proposition 5.4 and Corollaries 5.5–5.6; the general homology-theory formalism of Definition 4.22 with localization sequences, the niveau spectral sequence and Lemma 4.24 (an isomorphism on function fields in the top degree, with vanishing elsewhere, gives an isomorphism of theories); Gillet–Soulé's hyperenvelope homotopy equivalence (GS96 Proposition 2) and the weight complex M(V)·. Use the corrected cross-references of sourceIssue E9 (Lemma 4.24 refers to Definition 4.22; Proposition 5.16 derives Ĥ via Theorem 5.13).\n\nHypotheses: characteristic 0 uses resolution from AlgebraicModuliForArithmeticGeometry R09.7. In positive characteristic (RS) is a named hypothesis, never a theorem. Do not add the removed arXiv §§6–7 as an optional branch of this published-paper route. Any alteration replacement of RS requires a separately checked Kerz–Saito or v2 extraction.\n\nImport, never re-plan: Chow groups and proper pushforward (SchemeAndStackFoundations SF.5); correspondences and Chow motives (MotivesAndAlgebraicCycles MC.0–MC.1); smooth proper hypercovers and simplicial schemes (the hypercover formalism already used in AdicCoefficientsAndComparisons L5 and EnhancedDerivedSheaves E2); Bertini for hyperplane sections. Export H^W and Lemma 4.24 to HigherLocalFieldsAndHigherClassFieldTheory HL.6, whose Theorem 5.12 compares Kato homology with weight homology.\n\nTests: a curve minus points (H^W_1 = Z^{#points−1}-type computation); P² minus a line and a transversal conic; a finite-field example needing the norm argument; independence of the choice of hyperenvelope and compactification.\n\nIndependent-review gate (not an accepted design brief): use corrected Proposition 5.4 with nonempty curve-stratum intersections (E10), preserve the affine-complement condition of Proposition 5.7, and use π∘Cor∨=degree (E15). Theorem 5.13 assumes only homology factors through motives, so do not apply C directly to abstract motives (E16). Separate the envelope definition, residue-field section condition, smooth proper hyperenvelope existence, compactification, refinement, totalization, coskeleton induction, boundedness and naturality. E2/L5 ordinary hypercover descent does not supply these motivic-envelope conclusions. MC.1's projective generators need an explicit all-smooth-proper comparison. Determine the owner of the general niveau/function-field criterion before creating a new homology-theory implementation. Route held for G7–G9.",
       "reason": "MC.0–MC.4 plan correspondences, pure motives, realizations and geometric mixed motives, but not Gillet–Soulé weight complexes, hyperenvelope descent or weight homology. These are general motivic tools (also used by Kerz–Saito), not specific to Hasse principles, so they get their own owner and HL.6 imports them."
     }
   ],
@@ -826,11 +1076,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. The weights p + 2q and p + 2q − r + 2 differ exactly when r ≠ 2, so every d_r with r ≥ 3 vanishes, which is what E_∞ = E_3 needs; with only r > 3, d_3 is not covered. In the second sentence the subscript 1 is a slip for r, as the following 'for r ≥ 3' shows."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E2",
@@ -842,11 +1097,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. Part (a) concerns β_A : H²(K, A) → ⊕_v H²(K_v, A); α is the map of part (b) on T. The coinvariants are for G_K, the Galois group of the global field K (compare Proposition 1.2)."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E3",
@@ -858,11 +1118,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. No property (G) is stated in the published version; the objects are those produced by Gabber's Theorem 2.11 just above (in v2 the alteration property was once called (G))."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E4",
@@ -874,11 +1139,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. The beginning of Section 2 defines only RS2(U) (a good compactification of U), and Case 3.17.A uses exactly that property. (RS1) is defined later, in Definition 4.18, as a resolution statement for proper varieties, which is not what is used here."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E5",
@@ -890,11 +1160,16 @@
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. Theorem 3.8 and the map (3.9) it reduces to concern H^{d+2}_nr(−, Q_ℓ/Z_ℓ(d+1)), and the later diagrams of the same case (the exact rows with H^{d+2}(F_(v), d+1)) use that degree. The degree-(d+1), twist-d groups are those of Case 3.17.B over finite fields, from which the display seems to have been copied."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E6",
@@ -906,11 +1181,16 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Confirmed the induction is outside the printed irreducibility hypothesis: two transverse smooth divisors can have a disconnected intersection. The componentwise repair is compatible with the Gysin diagram; in dimension one the finite-group H₁ with trivial divisible coefficients vanishes. This is a proof-interface gap, not a counterexample to the Hasse theorem."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E7",
@@ -922,11 +1202,16 @@
       "affects": "the proof",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Confirmed on published p. 65: the characteristic-zero assertion is incompatible with the theorem's finitely generated positive-characteristic scope. The v2 TeX proof instead invokes the RS hypothesis and explicitly refers the finite-field case to Theorem 5.10. The norm argument with prime-to-ℓ degree repairs this step, assuming the stated RS hypothesis."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E8",
@@ -935,30 +1220,501 @@
       "printed": "\"Let K be a finitely generated field with algebraic closure K̄, let X be a smooth proper variety over K, and let n be natural number. Then H_a(C^{0,0}(X ×_K K̄, Z/nZ)_{G_K}) = Z/nZ for a = 0, 0 for a ≠ 0, if resolution of singularities holds over K.\"",
       "correction": "Add 'connected' (equivalently irreducible, X being smooth): \"let X be a connected smooth proper variety over K\".",
       "reason": "For X = Spec K ⊔ Spec K, the complex is concentrated in degree 0 with H_0 = (Z/nZ ⊕ Z/nZ)_{G_K} = (Z/nZ)², not Z/nZ. Theorem 4.19, from which Theorem 0.11 is deduced, assumes X irreducible, and Conjectures 2 and 3 assume X connected.",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently checked at the published locator and against the surrounding argument. For X = Spec K ⊔ Spec K, the complex is concentrated in degree 0 with H_0 = (Z/nZ ⊕ Z/nZ)_{G_K} = (Z/nZ)², not Z/nZ. Theorem 4.19, from which Theorem 0.11 is deduced, assumes X irreducible, and Conjectures 2 and 3 assume X connected."
+      }
     },
     {
       "id": "PAPER-JANNSEN-16/E9",
       "kind": "misprint",
-      "locator": "Cross-references in the published version: p. 7 (history paragraph), Lemma 4.24 (p. 51), Remark 4.25 (p. 52), Proposition 5.16 (p. 61) and the proof of Theorem 5.12 (p. 64)",
-      "printed": "\"shortly after the proofs of Theorem 0.6 and Corollary 0.4 for number fields and d = 2 in [Jan92]\"; \"let 𝒞 be a category of schemes of finite type over L as in 4.20\"; \"Moreover, we will show that 4.22(ii) holds for H^W\"; \"let Ĥ be the homology theory on V_k derived from C_SP via Theorem 5.12\"; \"we first get it for the homology Ĥ constructed above, which however coincides with H̄ by Lemma 5.17\"",
-      "correction": "\"as in 4.22\" (Definition 4.22); \"4.24(ii)\"; \"via Theorem 5.13\"; \"by Proposition 5.16\" (which rests on the descent Lemma 5.17). The published version has no Corollary 0.4. In arXiv v2 the sentence read \"Theorem 0.4\", which did not exist there either, so the intended statement cannot be recovered from the text.",
-      "reason": "Lemma 4.20 is about finite fields, while the category with open and closed immersions is set up in Definition 4.22. The vanishing property Jannsen proves for H^W in Theorem 5.10 is 4.24(ii); Definition 4.22 has a clause (ii), but it is the localization axiom. Theorem 5.12 is the comparison theorem being proved, while the extension construction is Theorem 5.13. The identification of the two homology theories is Proposition 5.16. All five are mechanical renumbering slips of the kind the published version corrected elsewhere, for example in Proposition 4.10 and Theorem 5.10.",
+      "locator": "Published cross-references: p. 7 history paragraph; Lemma 4.24 p. 51; Remark 4.25 p. 52; Proposition 5.16 p. 61",
+      "printed": "The history paragraph names Corollary 0.4; Lemma 4.24 refers to 4.20; Remark 4.25 names 4.22(ii); Proposition 5.16 invokes Theorem 5.12.",
+      "correction": "Use Definition 4.22, Lemma 4.24(ii), and Theorem 5.13 respectively in the last three references. The published Corollary 0.4 does not exist; the intended historical reference is not determined here.",
+      "reason": "The category is defined in 4.22; the function-field vanishing is 4.24(ii); the extension construction is Theorem 5.13. The v2 history paragraph also mislabels Theorem 0.4. The original finding additionally faulted p. 64's use of Lemma 5.17: this is not confirmed as an error, since 5.17 is the descent lemma directly proving Proposition 5.16.",
       "affects": "nothing",
       "known": "new",
       "searched": [
-        "arXiv 0910.2803: v1 (15 Oct 2009) and v2 (4 Dec 2014); v2 read in full from its TeX source",
-        "the published version, Ann. of Math. 183 (2016), 1–71 (received 14 Oct 2009, revised 22 Apr 2015), PDF from the Annals website, compared with v2 by a word-level diff and read in full where it differs (the introduction, §3 case labels, §4 statements and all of §5)",
-        "the Annals article page (https://annals.math.princeton.edu/2016/183-1/p01): no erratum, correction or corrigendum listed",
-        "Crossref metadata for 10.4007/annals.2016.183.1.1: no update or correction relation"
-      ]
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Confirmed only the four references retained in this revised entry. Withdrawn the claim that citing Lemma 5.17 for its comparison consequence is itself a mistake."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E10",
+      "kind": "error",
+      "locator": "Proposition 5.4, pp. 53–54; same statement in arXiv v2 §5",
+      "printed": "The new divisor is required to be transverse to all strata and connected on strata of index at most d−2; vanishing is then asserted through degree d−1.",
+      "correction": "Require nonempty connected intersections with every component of Y^[j] for j≤d−2, and nonempty intersections with every component of Y^[d−1]. A generic ample hyperplane has these properties.",
+      "reason": "Let X=P¹×P¹ over an algebraically closed field, d=2, Y₁={0}×P¹ and D={∞}×P¹. D is smooth connected; its intersection with Y₁ is empty and therefore transverse. The printed j=0 connectedness condition holds. But the weight complex is 0→A²→A, with differential (a,b)↦±a±b, hence H¹_weight=A and H_1_weight=A for nonzero A, contradicting the claimed vanishing. The proof's map ψ_{d−1}:0→A is not surjective. This does not refute the later ample-hyperplane applications.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Let X=P¹×P¹ over an algebraically closed field, d=2, Y₁={0}×P¹ and D={∞}×P¹. D is smooth connected; its intersection with Y₁ is empty and therefore transverse. The printed j=0 connectedness condition holds. But the weight complex is 0→A²→A, with differential (a,b)↦±a±b, hence H¹_weight=A and H_1_weight=A for nonzero A, contradicting the claimed vanishing. The proof's map ψ_{d−1}:0→A is not surjective. This does not refute the later ample-hyperplane applications."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E11",
+      "kind": "misprint",
+      "locator": "Condition (∗), p. 43, compared with Lemma 4.23(a), p. 51",
+      "printed": "[k(x):k(x)^p] ≤ s",
+      "correction": "[k(x):k(x)^p] ≤ p^s.",
+      "reason": "Lemma 4.23 gives p^s explicitly. With k(x)=F_p(t), r=2,s=1, the p-degree is p: the printed bound would exclude the paper's global-field example for every p, whereas the corrected bound admits it.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Lemma 4.23 gives p^s explicitly. With k(x)=F_p(t), r=2,s=1, the p-degree is p: the printed bound would exclude the paper's global-field example for every p, whereas the corrected bound admits it."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E12",
+      "kind": "error",
+      "locator": "Proof of Theorem 2.5(b), p. 23; same in arXiv v2 p. 19",
+      "printed": "Weak approximation is asserted to make K×/(K×)^n→⊕_{v∈S}K_v×/(K_v×)^n surjective for all n.",
+      "correction": "Restrict the argument to n invertible in K, and for this theorem to the ℓ-primary parts with ℓ≠char K.",
+      "reason": "For K=F_p(t), its t-adic completion L=F_p((t)) and n=p, the global quotient is countable but L×/L×p is uncountable. Distinct a,b∈F_p[[t^p]] give distinct p-th-power classes of 1+ta and 1+tb: the derivative of their quotient is (a−b)/(1+tb)², nonzero if a≠b, whereas every p-th power has derivative zero. This is a genuine failure of the all-n auxiliary assertion. Invertible n-th powers are locally open, so ordinary weak approximation gives the needed ℓ-primary version.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: For K=F_p(t), its t-adic completion L=F_p((t)) and n=p, the global quotient is countable but L×/L×p is uncountable. Distinct a,b∈F_p[[t^p]] give distinct p-th-power classes of 1+ta and 1+tb: the derivative of their quotient is (a−b)/(1+tb)², nonzero if a≠b, whereas every p-th power has derivative zero. This is a genuine failure of the all-n auxiliary assertion. Invertible n-th powers are locally open, so ordinary weak approximation gives the needed ℓ-primary version."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E13",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.2, pp. 19–20",
+      "printed": "F^ν/F^{ν−1}; C′=I′⊗Q_ℓ/Z_ℓ; C″=I″⊗Q_ℓ/Z_ℓ; tensoring the lattice extension with Q_ℓ/Z_ℓ(d).",
+      "correction": "Use F^ν/F^{ν+1}, C′=I′⊗Q_ℓ/Z_ℓ(−d), C″=I″⊗Q_ℓ/Z_ℓ(−d), and tensor with twist −d.",
+      "reason": "The filtration is explicitly descending, with F¹/F² in the next display. The endpoint cohomology is H⁰(Y^[d],Q_ℓ/Z_ℓ(−d)), pure of weight 2d, while untwisted permutation modules have weight zero. Proposition 2.2 itself already has the correct −d twist.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: The filtration is explicitly descending, with F¹/F² in the next display. The endpoint cohomology is H⁰(Y^[d],Q_ℓ/Z_ℓ(−d)), pure of weight 2d, while untwisted permutation modules have weight zero. Proposition 2.2 itself already has the correct −d twist."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E14",
+      "kind": "error",
+      "locator": "Case 3.17.B, p. 37, and Lemma 4.20 proof, p. 49; same broad assertion in v2",
+      "printed": "The Frobenius-coinvariant identification with H¹ is stated for every discrete G_k-module.",
+      "correction": "Require M to be a discrete torsion module (in particular the torsion modules actually used here).",
+      "reason": "For M=Z with trivial action and k finite, M_{G_k}=Z but H¹_cont(G_k,Z)=Hom_cont(Zhat,Z)=0: a continuous map from a compact group to discrete Z has finite image. For torsion M every cocycle value has finite orbit and finite exponent, giving the usual evaluation-at-Frobenius description.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: For M=Z with trivial action and k finite, M_{G_k}=Z but H¹_cont(G_k,Z)=Hom_cont(Zhat,Z)=0: a continuous map from a compact group to discrete Z has finite image. For torsion M every cocycle value has finite orbit and finite exponent, giving the usual evaluation-at-Frobenius description."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E15",
+      "kind": "error",
+      "locator": "Proof of Theorem 5.10, p. 57",
+      "printed": "The composite Cor∨∘π is said to be multiplication by (G:H).",
+      "correction": "For π:C_H→C_G and τ=Cor∨:C_G→C_H, the identity is π∘τ=[G:H] on C_G. For left actions use representatives of H\\G in the sum τ([c])=Σ[tc].",
+      "reason": "Take G=C₂, H=1, C=Z² with the two coordinates swapped. Then τπ(a,b)=(a+b,a+b), which is not 2(a,b), while πτ is multiplication by 2 on C_G≅Z. The later Tr∘Res identity uses the corrected order and is valid.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Take G=C₂, H=1, C=Z² with the two coordinates swapped. Then τπ(a,b)=(a+b,a+b), which is not 2(a,b), while πτ is multiplication by 2 on C_G≅Z. The later Tr∘Res identity uses the corrected order and is valid."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E16",
+      "kind": "gap",
+      "locator": "Proof of Theorem 5.13, p. 59",
+      "printed": "C(M(V)_•) is declared well-defined because C(X) depends only on the motive of X.",
+      "correction": "Apply C to chosen actual smooth proper hyperenvelopes and form the cone total complex. Use factorization of H_q(C), not of C, on the spectral sequence's E₂ page to prove quasi-isomorphism under common refinements and then construct the homology theory.",
+      "reason": "The theorem assumes only H_q(C(X)) factors through motives. It does not provide a chain-valued functor on Chow motives. The displayed application of C to an abstract motive complex therefore has no declared domain. The following spectral-sequence comparison indicates a repair, but the extraction must not turn this stronger chain-level premise into an assumption of the theorem.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: The theorem assumes only H_q(C(X)) factors through motives. It does not provide a chain-valued functor on Chow motives. The displayed application of C to an abstract motive complex therefore has no declared domain. The following spectral-sequence comparison indicates a repair, but the extraction must not turn this stronger chain-level premise into an assumption of the theorem."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E17",
+      "kind": "misprint",
+      "locator": "Definition 5.3, p. 53; same in arXiv v2",
+      "printed": "H⁰(−,A) is called covariant; the dual formula and the cochain functor are written with H₀.",
+      "correction": "H⁰(−,A) is contravariant; for a ring A, H⁰(X,A)=Hom_A(H₀(X,A),A), and the cochain complex is C^•H⁰(−,A).",
+      "reason": "Precomposition on Map(π₀(X),A) reverses maps. Remark 5.2 requires exactly this contravariant input. The surrounding definitions determine the superscripts.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Precomposition on Map(π₀(X),A) reverses maps. Remark 5.2 requires exactly this contravariant input. The surrounding definitions determine the superscripts."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E18",
+      "kind": "misprint",
+      "locator": "Isolated statement of Theorem 3.17, p. 35",
+      "printed": "X has dimension d, without saying d>0.",
+      "correction": "Include d>0, as required by its use in the positive-dimensional argument for Theorem 3.8.",
+      "reason": "For X=Spec K with K finitely generated, d=0 and ℓ≠char K, the source is H⁰(K̄,Q_ℓ/Z_ℓ)_{G_K}=Q_ℓ/Z_ℓ while the codimension-one target is zero. Hence the isolated d=0 statement is false. The surrounding application has d>0.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: For X=Spec K with K finitely generated, d=0 and ℓ≠char K, the source is H⁰(K̄,Q_ℓ/Z_ℓ)_{G_K}=Q_ℓ/Z_ℓ while the codimension-one target is zero. Hence the isolated d=0 statement is false. The surrounding application has d>0."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E19",
+      "kind": "misprint",
+      "locator": "Equations (5.14) and (5.18), pp. 59 and 61",
+      "printed": "E¹_{p,q}=H_p(H_q(C(V_•)))",
+      "correction": "With the stated filtration by simplicial degree, E¹_{p,q}=H_q(C(V_p)) and E²_{p,q}=H_p(H_q(C(V_•))).",
+      "reason": "Taking the homology of the simplicial row is the next page after vertical homology. The following paragraph on p. 59 itself calls these the E² terms. This correction concerns only the double-complex sequence, not the paper's independently indexed weight sequence (2.1).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Taking the homology of the simplicial row is the next page after vertical homology. The following paragraph on p. 59 itself calls these the E² terms. This correction concerns only the double-complex sequence, not the paper's independently indexed weight sequence (2.1)."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E20",
+      "kind": "misprint",
+      "locator": "Proposition 5.16(i)–(ii), p. 61, and Lemma 5.17, pp. 61–62",
+      "printed": "Open immersions are taken in the proper-map category (V_k)_*; localization uses C(X) for Y⊂Z; descent uses C′ and a target C′(Z_•[n]).",
+      "correction": "Allow all open immersions in V_k, use C(Z) in the localization sequence, use C consistently in the lemma, and use Tot C(Z_•[n]) as the target of the coskeleton comparison.",
+      "reason": "Proper open immersions alone are open-and-closed embeddings and do not provide the required localization for a general open complement. X is not the middle scheme of the displayed pair. Both sides of a quasi-isomorphism of total complexes must be totalized.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: Proper open immersions alone are open-and-closed embeddings and do not provide the required localization for a general open complement. X is not the middle scheme of the displayed pair. Both sides of a quasi-isomorphism of total complexes must be totalized."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E21",
+      "kind": "misprint",
+      "locator": "Theorem 5.9(ii), p. 55",
+      "printed": "The complex starts with the component group of Y^[e].",
+      "correction": "Use Y^[d], where d=dim X; empty strata contribute zero.",
+      "reason": "There is no e in the theorem's context. Definition 5.3 and the SNC codimension convention place the top stratum in degree d.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: There is no e in the theorem's context. Definition 5.3 and the SNC codimension convention place the top stratum in degree d."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E22",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 5.13, pp. 59–60",
+      "printed": "The map of covariant motives is written g*:M(Z_•)→M(W_•), and f_* is written H(π₁)^{-1}H(π₂).",
+      "correction": "In the covariant convention chosen on p. 58 write g_*:M(W_•)→M(Z_•). With standard composition notation write f_*=H(π₂)∘H(π₁)^{-1}.",
+      "reason": "The preceding map (i_•)_*:M(Y_•)→M(Z_•) fixes covariance. In the roof for f, π₁:i_f→i₁ and π₂:i_f→i₂, so a map H(i₁)→H(i₂) must first invert H(π₁), then apply H(π₂).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independent published-text check: The preceding map (i_•)_*:M(Y_•)→M(Z_•) fixes covariance. In the roof for f, π₁:i_f→i₁ and π₂:i_f→i₂, so a map H(i₁)→H(i₂) must first invert H(π₁), then apply H(π₂)."
+      }
+    },
+    {
+      "id": "PAPER-JANNSEN-16/E23",
+      "kind": "misprint",
+      "locator": "Equation (4.12) and its following defining sentence, p. 46",
+      "printed": "C̄(X,Q_ℓ/Z) → C′(X,Z/nZ), followed by a definition of C̄(X,Q_ℓ/Z) using the finite-coefficient sequence (4.13).",
+      "correction": "Replace C̄(X,Q_ℓ/Z) in both occurrences by C̄(X,Z/nZ); the target C′(X,Z/nZ) is already the correct completion cokernel.",
+      "reason": "Sequence (4.13) defines the Henselized cokernel with Z/n coefficients. It is that finite-coefficient complex which is quasi-isomorphic to the completion cokernel. The Q_ℓ/Z_ℓ version is only introduced later by a direct limit.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-23: journal article page https://annals.math.princeton.edu/2016/183-1/p01 and its current 71-page PDF; no correction link found.",
+        "2026-09-23: https://arxiv.org/abs/0910.2803 lists v1 (2009-10-15) and v2 (2014-12-04), no later version. Selected v2 counterparts checked; the 2016 journal version is later.",
+        "2026-09-23: Crossref https://api.crossref.org/works/10.4007%2Fannals.2016.183.1.1 returned relation={} and no update-to entry.",
+        "2026-09-23: Regensburg institutional record https://epub.uni-regensburg.de/41804/ and title/author searches with erratum/correction terms found no correction. Attempted author pages at jannsen.app.uni-regensburg.de and uni-regensburg.de were inaccessible; this is a search limitation, not evidence they contain no correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-JANNSEN-16",
+        "reason": "Independently reread (4.12) and (4.13), p. 46. Sequence (4.13) defines the Henselized cokernel with Z/n coefficients. It is that finite-coefficient complex which is quasi-isomorphic to the completion cokernel. The Q_ℓ/Z_ℓ version is only introduced later by a direct limit."
+      }
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PAPER-JANNSEN-16",
+    "date": "2026-09-23",
+    "notes": "Full published-paper review. Clear corrections applied; unresolved atomic decomposition, proof-provider and ownership gaps explicitly recorded. Only individually accepted routes may be used."
+  },
+  "gaps": [
+    {
+      "id": "G1",
+      "title": "Atomic extraction of the Kato core",
+      "neededBy": [
+        "PAPER-JANNSEN-16/8",
+        "PAPER-JANNSEN-16/14",
+        "PAPER-JANNSEN-16/15",
+        "PAPER-JANNSEN-16/21",
+        "PAPER-JANNSEN-16/30",
+        "PAPER-JANNSEN-16/34",
+        "PAPER-JANNSEN-16/36",
+        "PAPER-JANNSEN-16/41",
+        "PAPER-JANNSEN-16/42",
+        "PAPER-JANNSEN-16/44",
+        "PAPER-JANNSEN-16/45",
+        "PAPER-JANNSEN-16/47",
+        "PAPER-JANNSEN-16/53",
+        "PAPER-JANNSEN-16/58",
+        "PAPER-JANNSEN-16/59"
+      ],
+      "detail": "Separate each map, degree/twist convention, residue construction, square-zero, finite-support proof, local/global comparison, real-place case and finite/infinite coefficient implication. Lemma 1.3 alone has four conclusions. No single item may stand for the complete chain of imported proofs. HL.6 is the correct destination for the core, but the present route is held rather than represented as blueprint-ready."
+    },
+    {
+      "id": "G2",
+      "title": "Coefficient and finite-group algebra providers",
+      "neededBy": [
+        "PAPER-JANNSEN-16/1",
+        "PAPER-JANNSEN-16/2",
+        "PAPER-JANNSEN-16/17",
+        "PAPER-JANNSEN-16/21",
+        "PAPER-JANNSEN-16/84"
+      ],
+      "detail": "Separate all Tate twists and transition maps, the Brauer comparison, wild logarithmic exact sequences, equivalence of lattices with divisible cofinite torsion modules, Ext¹ base change for a finite group and the integral-lattice descent used on p. 20. Library /75–78 are partial carriers only. Do not infer an all-twist coefficient interface from μ_n alone. Existing Tau Ceti torus cocharacter finite-free/pairing APIs were found and opened; import these rather than planning a bare lattice again. Arithmetic weak-approximation APIs also exist; the prime-to-characteristic quotient/splitting-torus adapters are the missing comparison."
+    },
+    {
+      "id": "G3",
+      "title": "Global/local cohomological dimension and HS compatibility",
+      "neededBy": [
+        "PAPER-JANNSEN-16/14",
+        "PAPER-JANNSEN-16/15",
+        "PAPER-JANNSEN-16/34",
+        "PAPER-JANNSEN-16/41",
+        "PAPER-JANNSEN-16/45",
+        "PAPER-JANNSEN-16/60",
+        "PAPER-JANNSEN-16/61"
+      ],
+      "detail": "Supply actual field cd_ℓ bounds, high-degree localization at real places, H¹ archimedean and H² finite-set surjectivity, compact dual/limit conventions, and compatibility of Hochschild–Serre with residues and corestrictions. The field-constant components in Lemma 4.20 require the tensor-product/induced-module treatment. Do not assert cd_p equals transcendence degree of an arbitrary characteristic-p field."
+    },
+    {
+      "id": "G4",
+      "title": "Strong density and wild specialization",
+      "neededBy": [
+        "PAPER-JANNSEN-16/26",
+        "PAPER-JANNSEN-16/66",
+        "PAPER-JANNSEN-16/29"
+      ],
+      "detail": "Split (SD), (FP), Greenberg's theorem, étale filtered limits and Chevalley/open-image specialization. The source proof uses fixed discrete étale coefficients; verify the logarithmic Hodge–Witt functor's limit and specialization properties before claiming all n. This is an extraction closure gap, not a verified counterexample to Theorem 2.12. EDC.4 imports affine Artin vanishing from its PR196 supplier; record the exact provider rather than duplicate the proof."
+    },
+    {
+      "id": "G5",
+      "title": "Unramified and Gersten scope",
+      "neededBy": [
+        "PAPER-JANNSEN-16/31",
+        "PAPER-JANNSEN-16/32",
+        "PAPER-JANNSEN-16/33",
+        "PAPER-JANNSEN-16/35",
+        "PAPER-JANNSEN-16/67",
+        "PAPER-JANNSEN-16/68"
+      ],
+      "detail": "Read CTHK97 and the p-primary Gersten providers rather than conflate universal exactness with ordinary exactness. Distinguish all DVRs from divisorial valuations, and products of residue fields from a single geometrically integral component. Clarify the direct-sum/finite-support assertions in the arbitrary-valuation argument on pp. 39–40. No source mistake is confirmed for this unresolved scope question."
+    },
+    {
+      "id": "G6",
+      "title": "Geometric logarithmic purity and p-adic weights",
+      "neededBy": [
+        "PAPER-JANNSEN-16/19",
+        "PAPER-JANNSEN-16/28"
+      ],
+      "detail": "Independently source-check and split Gros Gysin maps/transitivity, Suwa purity at the exact twist, affine logarithmic vanishing, Milne/Katz–Messing weights and Gros–Suwa base change. CR.4, CR.5, RD.7 and HL.2 are distinct suppliers; choose one extension owner for the unowned scheme-level package, with explicit imports."
+    },
+    {
+      "id": "G7",
+      "title": "Homology formalism versus motivic descent ownership",
+      "neededBy": [
+        "PAPER-JANNSEN-16/46",
+        "PAPER-JANNSEN-16/54",
+        "PAPER-JANNSEN-16/55",
+        "PAPER-JANNSEN-16/56",
+        "PAPER-JANNSEN-16/69",
+        "PAPER-JANNSEN-16/70",
+        "PAPER-JANNSEN-16/73",
+        "PAPER-JANNSEN-16/74"
+      ],
+      "detail": "Settle one owner for general homology theories, niveau sequences and the function-field criterion. Decompose the GS96/Gillet/SGA4 proof of hyperenvelope descent and independence. Correcting E16's domain problem is not a full construction. E2 and L5 supply ordinary hypercover machinery, not automatic motivic-envelope descent."
+    },
+    {
+      "id": "G8",
+      "title": "Proper/projective motives and resolution adapters",
+      "neededBy": [
+        "PAPER-JANNSEN-16/43",
+        "PAPER-JANNSEN-16/48",
+        "PAPER-JANNSEN-16/54",
+        "PAPER-JANNSEN-16/56",
+        "PAPER-JANNSEN-16/57",
+        "PAPER-JANNSEN-16/58"
+      ],
+      "detail": "Jannsen switches between smooth projective and smooth proper generators. MC.0–MC.1 explicitly begin with projective varieties; R09.7d supplies quasi-projective compactification. Source-check the proper-to-projective correspondence adapter and KMP07 variance convention, as well as arbitrary-proper RS1. Do not manufacture rigid duals within effective motives."
+    },
+    {
+      "id": "G9",
+      "title": "Bertini, connected strata and finite-field descent",
+      "neededBy": [
+        "PAPER-JANNSEN-16/21",
+        "PAPER-JANNSEN-16/49",
+        "PAPER-JANNSEN-16/50",
+        "PAPER-JANNSEN-16/52",
+        "PAPER-JANNSEN-16/59",
+        "PAPER-JANNSEN-16/71",
+        "PAPER-JANNSEN-16/72",
+        "PAPER-JANNSEN-16/80",
+        "PAPER-JANNSEN-16/83"
+      ],
+      "detail": "Prove the nonempty/connected stratum Bertini interface and its exact base hypotheses, then finite-field prime-power extension and norm descent. Keep E10's corrected hypothesis and the independent affine-complement condition. Split the universal-coefficient and freeness arguments."
+    },
+    {
+      "id": "G10",
+      "title": "Primary versus geometrically integral function-field models",
+      "neededBy": [
+        "PAPER-JANNSEN-16/3",
+        "PAPER-JANNSEN-16/4",
+        "PAPER-JANNSEN-16/5",
+        "PAPER-JANNSEN-16/14",
+        "PAPER-JANNSEN-16/24"
+      ],
+      "detail": "In imperfect characteristic, K separably closed in F does not imply a geometrically integral smooth model over K; e.g. F=F_p(t^(1/p))(u) over F_p(t). Provide the purely inseparable constant-field reduction and compatibility maps before using such a model. This is an identified proof-provider gap, not an independently confirmed false main theorem."
+    },
+    {
+      "id": "G11",
+      "title": "Coinvariant Chow-correspondence action",
+      "neededBy": [
+        "PAPER-JANNSEN-16/58",
+        "PAPER-JANNSEN-16/59"
+      ],
+      "detail": "Check the primary BV97 and Gros–Suwa operations and the Galois-equivariant correspondence descent, including dimension/twist signs. An arbitrary cup product does not descend to coinvariants: for C₂ swapping the factors of Z×Z, [e₁]=[e₂] but [e₁²]≠[e₁e₂]. Correspondences defined over k can still act by equivariant operators; construct that action rather than assume a coinvariant ring."
+    },
+    {
+      "id": "G12",
+      "title": "Remaining source-level microchecks",
+      "neededBy": [
+        "PAPER-JANNSEN-16/8",
+        "PAPER-JANNSEN-16/26",
+        "PAPER-JANNSEN-16/33",
+        "PAPER-JANNSEN-16/40",
+        "PAPER-JANNSEN-16/47",
+        "PAPER-JANNSEN-16/58",
+        "PAPER-JANNSEN-16/59"
+      ],
+      "detail": "The line-by-line reading also flagged minor labels on pp. 33, 40–42, 44, 47 and 64–65 and the set-valued proof's use of 'vanishes'. The report records them as continuation checks where no full version/image/type audit was completed. They are not certified findings in sourceIssues. Complete the remaining prerequisite readings and atomic sweep before changing partial to complete."
     }
   ]
 }
