@@ -5531,8 +5531,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1332"
+   "state": "external",
+   "note": "claimed on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6713,8 +6713,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-EISCHEN-HARRIS-LI-ETAL-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1400"
+   "state": "pending",
+   "note": "released on GitHub issue #1400"
   },
   {
    "id": "REV-PAPER-EISCHEN-HARRIS-LI-ETAL-20",
@@ -30503,8 +30503,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1858"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1858",
+   "finishedAt": "2026-09-23T09:17:42Z"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -30854,7 +30855,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1878"
   },
   {
    "id": "REV-ERRATA-PAPER-KISIN-PAPPAS-18",
