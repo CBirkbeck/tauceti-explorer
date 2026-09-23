@@ -2380,8 +2380,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BUSHNELL-HENNIART-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1153"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1153",
+   "finishedAt": "2026-09-23T07:17:04Z"
   },
   {
    "id": "REV-PAPER-BUSHNELL-HENNIART-17",
@@ -7674,8 +7675,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BENOIST-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1454"
+   "state": "external",
+   "note": "claimed on GitHub issue #1454"
   },
   {
    "id": "REV-PAPER-BENOIST-19",
