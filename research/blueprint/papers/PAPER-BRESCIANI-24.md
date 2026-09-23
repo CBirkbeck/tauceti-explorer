@@ -1,14 +1,192 @@
 # Bresciani: birational lifting and section specialization
 
-Agent: Codex. Session: `codex-hjdg0j`, continuing `codex-a71f92` and `codex-c83e7a`. Issue: #1233. **Partial checkpoint.**
+Codex — session `codex-c83e7a`, issue #1233, 2026-09-23. Continues PR #1924
+by codex-hjdg0j and the earlier checkpoints. **Status: partial.**
 
-The published paper was reread completely in this continuation on 22 September 2026. The extraction contains 152 items: 8 library, 8 planned and 136 missing. Every missing item has exactly one proposed route. The Albanese comparison `/58` now has a torsor-aware proof from primary sources and imports the separate geometric, band and neutralization results `/150`–`/152`. Seven findings are recorded under `sourceIssues`. A false preliminary sentence about affine parabolic curves remains the main correctness obstacle. This does **not** establish that the main theorem is false.
+This continuation supplies an explicit local analytic proof of the finite-K/Qp
+Mattuck input used in Lemma 8, its finite-torsion consequence, and the ensuing
+Tate-invariant and H1-injectivity arguments. It identifies the existing owners
+of the generic logarithm and analytic-point constructions. The unresolved
+parabolic reduction is retained; no claim that Theorems A–C are false is made.
 
-## Source
+There are now 168 items: 10 library, 9 planned and 149 missing, with every
+missing item routed exactly once. Fourteen routes comprise eight source routes
+and six Part II routes. The two newly referenced Part II IDs are existing
+Caro–Pasten and Howe–Klevdal proposals. The five new constructions have 15 API
+statements and 15 mathematical test contracts. The older prose API outlines
+remain an explicit granularity task, not a claim of blueprint closure.
 
-Giulio Bresciani, *On the birational section conjecture with strong birationality assumptions*, Inventiones mathematicae 235 (2024), 129–150, [DOI](https://doi.org/10.1007/s00222-023-01220-6). The [published PDF](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf) was fetched on 21 September 2026 at 17:48 UTC: SHA-256 `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148`. Online publication: 26 September 2023. The institutional endpoint failed; the publisher PDF succeeded. ArXiv v3 was downloaded but is not the source of record.
+## Source scope
 
-Read all 22 published pages, pp.129–150: introduction, §§2–7, every numbered result, Theorems A–C, all proofs, footnote 1 and references. The parabolic paragraph on p.141 was also inspected visually.
+All 22 pages of the [published Bresciani paper](https://link.springer.com/content/pdf/10.1007/s00222-023-01220-6.pdf),
+pp.129–150, were reread, including every proof, footnote and reference. Its
+SHA-256 remains `77c20bc77743abd3cabedbe6259a4bd686cb94823481bce724c3517b1c30e148`.
+
+The [Mattuck scan](https://people.dm.unipi.it/lombardo/NonAbelianChabauty/Mat55.pdf)
+has SHA-256 `9d950c3d86f8c8cf1949ec34b42eff49a8f73cbebf199ccfbf01bc6dcd745f94`.
+This pass read published pp.92–100 and 111–119, including the full printed proof
+of Theorem 7 on pp.114–117 and its subsequent remarks. Page 114 was also viewed
+as an image. Pages 101–110 were not read in this continuation. Mattuck proves
+the result more generally over complete ultrametric characteristic-zero fields
+and uses a Jacobian embedding. The replacement below proves the finite-K/Qp
+case that Bresciani needs, with its own dependencies stated.
+
+The January 2, 2022 author revision of
+[Milne's Abelian Varieties](https://mail.jmilne.org/math/xnotes/AVs.pdf),
+SHA-256 `bffdf81c57c77420b5454b31270007989d12f332abea62424be15c424079fc7c`,
+was read on p.1 and throughout pp.9–12, including the complete projectivity
+proof and symmetric ample-line-bundle consequence. This is a selected reading
+of the 49-page revision. The inaccessible current `www` endpoint and the
+downloaded but unread 1986 scan are not represented as additional readings.
+
+## A local logarithm with a controlled radius
+
+Fix a finite extension K/Qp and use the maximum norm on K^g. For a commutative
+analytic group, coordinates at the identity give convergent series
+
+`F(X,Y)=X+Y+O(2)`, `P(X)=[p](X)=pX+R(X)`.
+
+Shrink to a closed ball B_r with radius in |K×| on which multiplication and
+inverse are defined and preserve the ball. Convergent-series coefficient
+bounds give one C such that, for every s≤r,
+
+`|R(x)| ≤ C|x|²`, `|R(x)−R(y)| ≤ Cs|x−y|` on B_s.
+
+The same quadratic bounds hold for F−X−Y. Choose r even smaller so that
+ε=Cr/|p|<1. This works for every p, including 2, and every ramification index.
+The linear term strictly dominates the remainder, so
+
+`|P(x)−P(y)|=|p||x−y|`.
+
+These bounds follow by factoring monomial differences and using the
+ultrametric inequality. They are bounds in the weighted Gauss norm as well
+as bounds on evaluated functions; that distinction controls analytic limits.
+The fixed-radius Banach algebra is the existing
+LocallyAnalyticDistributions:L0 supplier.
+
+Define `L_n=p^(−n)P^[n]`, with superscript [n] denoting n-fold composition.
+Then
+
+`L_(n+1)−L_n = p^(−n−1) R∘P^[n]`,
+
+whose norm at x is at most C|p|^(n−1)|x|². The Gauss-norm bound tends to zero,
+so the sequence converges in the complete analytic Banach algebra to L.
+Its constant term is zero and its linear term is identity. This does not
+infer analyticity from pointwise convergence.
+
+Commutativity makes P^[n] a homomorphism for F. Thus
+
+`L_n(F(x,y))−L_n(x)−L_n(y)`
+
+has norm at most C|p|^n max(|x|,|y|)². Its limit is zero, proving that L
+intertwines the group law and addition. The telescoping differences have
+Lipschitz constants at most Cr|p|^(n−1); hence h=L−id is ε-Lipschitz.
+The strict inequality ε<1 gives
+
+`|L(x)−L(y)|=|x−y|`.
+
+For every y∈B_r, the map x↦y−h(x) preserves B_r and contracts. The pinned
+`ContractingWith.exists_fixedPoint'` supplies its fixed point, which solves
+L(x)=y. Isometry makes the inverse continuous. Applying the same iteration
+inside the vector-valued Tate algebra yields an analytic inverse: the
+coefficient bound gives the contraction for substitution in the Gauss norm,
+and completeness supplies a convergent series. This is also compatible with
+the analytic inversion theorem on Mattuck pp.97–98.
+
+The resulting normalized germ is the already planned formal logarithm, not
+a second object. Compose two normalized logarithms with an inverse; their
+comparison is an additive characteristic-zero formal map, hence linear by
+comparison of mixed coefficients. Its derivative is identity, so it is the
+identity. No large-prime full-residue-disc assertion is used.
+
+The p=2 distinction matters: in the multiplicative coordinate x=u−1,
+F(x,y)=x+y+xy and x=−2 represents the torsion unit −1. The ball 2Z2 contains
+it and cannot admit an injective logarithm. A smaller ball such as 4Z2 does.
+Neither good reduction nor an integral model of A is needed for the identity
+chart over K; arbitrary reduction is retained.
+
+## From the local subgroup to the cohomology injection
+
+For A/K smooth of dimension g, a standard smooth presentation and an analytic
+implicit-function theorem supply an identity chart. Algebraic multiplication
+and inverse become analytic there. The pinned strict inverse-function
+construction provides the underlying local homeomorphism, while the analytic
+comparison is a separate geometric supplier. Pulling B_r back to A(K) and
+then applying L gives an open subgroup U≃O_K^g after scalar rescaling.
+
+Compactness is proved separately. A(K) is projective by Milne Theorem 7.1.
+For P^N(K), normalize a coordinate of maximal absolute value to 1; finitely
+many copies of compact O_K^N cover its K-points. A projective closed subvariety
+has a closed K-point locus, hence is compact. The cosets of U therefore have
+a finite subcover, so [A(K):U] is finite. Since U is torsion-free, A(K)_tors
+injects into the finite quotient. This does not equate its order with the
+quotient's order.
+
+Milne's field projectivity input uses the theorem of the square to construct
+very ample divisors and descends a sum of conjugates from a finite extension;
+tensoring with the pullback under [−1] gives a symmetric ample line bundle.
+Its square, divisor-descent and very-ampleness suppliers remain explicit
+blueprint leaves. No relative projectivity theorem over arbitrary bases is
+asserted.
+
+Let N annihilate the finite torsion group A(K)_tors. For a compatible family
+a_n∈A[n](K), compatibility gives a_n=N a_(Nn)=0. Hence (TA)^G_K=0.
+Finiteness of each individual A[n](K) would not suffice: the inverse system
+Z/p^n with reduction maps has the nonzero compatible family 1.
+
+Finally consider `0→TT→TJ→TA→0`. If a continuous TT-valued cocycle c dies in
+H1(K,TJ), write c(σ)=σj−j for j∈TJ. The image of j in TA is invariant, hence
+zero. Exactness puts j in TT, so c is already a TT-coboundary. This proves
+the desired H1 injection directly. No unchecked inverse limit of long exact
+cohomology sequences is needed.
+
+## Ownership and verification
+
+The local-points continuation retains only the abelian-variety application,
+finite index and finite torsion. Its generic logarithm supplier is the
+existing `AbelianSchemesAndArithmeticModuliPartIIFormalLieTheory` proposal
+from Caro–Pasten. The generic smooth-point chart and projective compactness
+use the early interfaces of Howe–Klevdal's existing
+`AdicSpacesPartIIRigidZariskiGeometry` proposal. The finite-radius Banach
+algebra stays in LocallyAnalyticDistributions:L0; field projectivity is a
+source refinement of AbelianSchemesAndArithmeticModuli A1/A2. These pending
+Part II interfaces are marked missing, not accepted planned stages.
+
+The complete current abelian-scheme, adic Part II and locally analytic
+distribution owner documents were read, along with the relevant candidate
+briefs and AUDIT-08 A1/A2/A4 and AUDIT-25 L0. All eight inherited library
+statements were reread at the pins, plus the two new fixed-point/inverse
+inputs. The existing Lie exponential is over real normed spaces and does not
+provide this p-adic logarithm. Earlier full upstream JacobianChallenge and
+GlobalNumberFields readings retain their original provenance; a partial
+LieGroups reread is not counted as a new complete reading.
+
+The paper checker and three-file intake check passed. The custom audit checks
+168 unique items, 34 explicitly recorded acyclic edges, one route per missing
+item, preservation of all earlier IDs/findings, and the five new structured
+API/test/use contracts. The edge count does not claim that all older prose
+dependencies have been converted to graph edges.
+
+Exact diagnostics passed 5,752 assertions: multiplicative-law iteration,
+valuation bounds, finite-precision bijections on small balls, the 2-adic
+torsion boundary, and countertests for missing Tate-invariant hypotheses.
+These computations are not Lean proofs or geometric verification. No Lean
+file was written or compiled.
+
+The four recorded gaps retain the parabolic proof problem and other source
+readings, and explicitly isolate the new supplier and inherited API closure
+work. The seven earlier source findings remain unchanged, with no new
+independent-review verdict. Current publisher/arXiv/correction searches found
+no main-paper correction; no authors were contacted.
+
+Ownership input snapshot: `5c2f7e81c0b65adb77ea28915eb921e23ba06a69`, 497 verified files.
+
+## Retained mathematical detail and earlier reading provenance
+
+The following material is retained from PR #1924 and its predecessor, with
+their worker/date attribution. Its statements that Mattuck preparation remains
+open are superseded by the decomposition above; recursive supplier closure
+still remains open. Its source-access claims describe those earlier reads.
 
 ## Endpoints and hypotheses
 
@@ -91,7 +269,7 @@ All downloads are dated 21 September 2026. Only the listed portions count as rea
 
 The exact Stix book passages, Tamagawa's original proposition, Koenigsmann's original theorem and the larger prerequisite proof decompositions remain source tasks. Borne–Vistoli Definition3.4 and Propositions3.9–3.11 have now been read directly. Anderson is historical provenance for the original proof, not a dependency of the replacement proof.
 
-## Validation
+## Earlier-checkpoint validation
 
 The paper checker and intake `check-files` are run on the JSON, this report and the handoff; a custom audit checks IDs, statuses, routes and stage existence. No Lean file was requested or supplied; no Lean compilation was run. Preserve `partial`: these routes are checkpoint proposals, not ready for completed-job review or promotion.
 
@@ -161,66 +339,7 @@ The preceding continuation preserved the original 135 IDs and extended them thro
 
 The checkpoint stays partial. The nonsplit degree-two boundary in /81 and /96 remains a real proof-repair task; routing the valid /77 counterexample does not discharge it. TheoremA is not claimed disproved. `/58` is resolved below. Complete the specified Stix/Tamagawa/Koenigsmann passages, Mattuck's proof and general analytic supplier, and the other prerequisite decomposition before declaring source closure.
 
-Reproduce the finite tests with Python 3:
-
-```python
-"""Exact finite tests for the BR24 replacement proof; no formalization claim."""
-from itertools import permutations, product
-checks = 0
-def check(b):
-    global checks
-    assert b
-    checks += 1
-# Dihedral quotient (Z/m) semidirect C2, with nontrivial inversion.
-for m in range(1, 13):
-    def mul(a,b):
-        x,e=a; y,f=b
-        return ((x+(-1)**e*y)%m,(e+f)%2)
-    elems=list(product(range(m),range(2)))
-    for a,b,c in product(elems,repeat=3):
-        check(mul(mul(a,b),c)==mul(a,mul(b,c)))
-    for n in range(-17,18):
-        for h in range(2):
-            check(((n%m,h)==(0,0)) == (n%m==0 and h==0))
-            for v in range(-9,10):
-                for k in range(2):
-                    check(mul((n%m,h),(v%m,k))==((n+(-1)**h*v)%m,(h+k)%2))
-# All subgroups of S3; core = intersection of every subgroup of the same index.
-G=list(permutations(range(3)))
-one=(0,1,2)
-def compose(a,b): return tuple(a[b[i]] for i in range(3))
-def inv(a): return tuple(a.index(i) for i in range(3))
-subs=[]
-for mask in range(1<<len(G)):
-    S={G[i] for i in range(len(G)) if mask>>i&1}
-    if one in S and all(compose(a,b) in S for a,b in product(S,repeat=2)):
-        subs.append(S)
-check(len(subs)==6)
-for K in subs:
-    n=6//len(K)
-    same=[S for S in subs if 6//len(S)==n]
-    C=set.intersection(*same)
-    check(C<=K)
-    for a in G:
-        check({compose(compose(a,c),inv(a)) for c in C}==C)
-    if n==3: check(C=={one})
-# A non-invariant subgroup cannot be used as an action quotient.
-K={(0,0),(1,0)}
-swap=lambda x:(x[1],x[0])
-check({swap(x) for x in K}!=K)
-# Lamplighter obstruction: a period-t finite quotient identifies e0 and et,
-# while the coordinate-zero map detects e0+et in the infinite direct sum.
-for t in range(1,65):
-    support={0,t}
-    quotient=[0]*t
-    for j in support: quotient[j%t]^=1
-    check(not any(quotient))
-    check((0 in support)==True)
-# Kummer restricted-product warning: all exponents 1 remain nonzero mod 2.
-for size in range(1,65):
-    check(sum(1%2!=0 for _ in range(size))==size)
-print(f"{checks} exact assertions passed")
-```
+The earlier split-completion finite regression remains attributed to that checkpoint; it was not rerun in this continuation.
 
 ## Continuation: the Albanese torsor comparison
 
