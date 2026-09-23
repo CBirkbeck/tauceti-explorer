@@ -49,10 +49,29 @@
             "pages": "PDF4–6 conventions; PDF8–10 Proposition2.2, full proof and Corollary2.3"
           }
         ]
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-7e92bd",
+        "date": "2026-09-23",
+        "main": "Fresh published LLHLM23 PDF79–80 and KWII PDF8–10, plus preceding PDF4–6 conventions; prior full-paper read retained.",
+        "sources": [
+          {
+            "title": "Khare–Wintenberger, Serre’s modularity conjecture II",
+            "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+            "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+            "pages": "PDF4–6,8–10"
+          },
+          {
+            "title": "Stacks Project",
+            "url": "https://stacks.math.columbia.edu/tag/0C0S",
+            "pages": "Statements and proofs: 0C0S, 07NY, 00MA, 0315, 00KW. Complete-local Chevalley proof reconstructed here; the KWII Zariski–Samuel reference was not separately read."
+          }
+        ]
       }
     ]
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3412,17 +3431,23 @@
       "status": "missing",
       "note": "Continuation by Codex — codex-hjdg0j. Owner: DeformationAndDerivedPatchingAlgebra. Planning only.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z11"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
       ],
       "proofSteps": [
-        "Let P_i=ker ξ_i and J_i,n=P_i^n R_i[1/π]∩R_i. The map from the domain R_i into its rational-point completion is injective, so ∩_n J_i,n=0.",
-        "Chevalley's theorem in the complete Noetherian LOCAL ring R_i gives, for each maximal-ideal precision q, some n with J_i,n⊂m_i^q. Maximal-ideal cofinality suffices; do not silently claim P_i-adic cofinality from this statement.",
-        "R_i/J_i,n is a finite torsionfree, hence finite free, O-module: R_i/P_i^n is finite over O and saturation removes O-torsion.",
-        "The completed tensor maps to each tensor product of these finite free quotients. The kernels are separated by the maximal-ideal cofinality. Each quotient tensor injects into its K-scalar extension.",
-        "The inverse limit of the K-jet tensors is K[[all rational-point parameters]], using the complete regular equicharacteristic local-ring structure theorem with its given coefficient field K. Thus the original completed tensor embeds in a domain.",
-        "This extracts only the domain and point conclusions needed by LLHLM23. Chevalley, finite-jet comparison and power-series structure remain explicit implementation/source-interface requests."
+        "Construct C and its O-retraction by Z24. For a nonempty family, Z22 embeds C in the generic jet limit; Z21 identifies that limit with a power-series domain over K. C is nonzero by its O-retraction, hence a domain. For the empty family C=O.",
+        "Z15–Z22 expose the saturated-jet, finite-free, cofinality, exact-quotient and generic-completion comparisons used in this argument. They do not import the finite-Q_p theorem Z11 as if it already applied to arbitrary DVRs.",
+        "The detailed source argument is now explicit; regular completion dimension/cotangent and power-series dimension atoms still need exact baseline/supplier closure. No general-field generic-regularity conclusion for arbitrary factors is asserted."
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z12.scope",
+          "statement": "The theorem applies with O=k[[π]] for arbitrary k, including infinite or imperfect fields, provided the stated rational-point local rings are regular.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
@@ -3485,6 +3510,403 @@
         "tauceti:TauCeti.geometricallyConnected_tensorProduct"
       ],
       "note": "Actual declaration read at f790474. This is the ORDINARY tensor product; it is not the completed affinoid product theorem Z09/Z14."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+      "kind": "theorem",
+      "name": "Krull separation for finite local modules",
+      "statement": "If R is Noetherian local, M is a finite R-module and I is a proper ideal of R, then M is I-adically separated.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean:26",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsHausdorff.of_isLocalRing"
+      ],
+      "note": "Read at 082e2d3. Apply to quotients M/N to prove closedness, and to the rational-point local ring to prove injectivity into its completion."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L04",
+      "kind": "theorem",
+      "name": "Finite torsionfree modules over a PID are free",
+      "statement": "For a principal ideal domain O and finite torsionfree O-module M, M has a finite basis.",
+      "locator": "Mathlib/LinearAlgebra/FreeModule/PID.lean:382",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.basisOfFiniteTypeTorsionFree'",
+        "mathlib:Module.free_of_finite_type_torsion_free'"
+      ],
+      "note": "Read with the inherited domain and principal-ideal hypotheses; applies to a DVR, not an arbitrary valuation ring."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05",
+      "kind": "construction",
+      "name": "Continuous evaluation of multivariate power series",
+      "statement": "For commutative rings R,S, a continuous coefficient map into a complete Hausdorff uniform topological ring S with linear topology, and a family satisfying MvPowerSeries.HasEval, evaluation defines a continuous ring homomorphism. It is uniquely specified by its values on polynomials.",
+      "locator": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean:228,262,281",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:MvPowerSeries.eval₂Hom",
+        "mathlib:MvPowerSeries.continuous_eval₂",
+        "mathlib:MvPowerSeries.eval₂_unique"
+      ],
+      "note": "Read actual declarations and standing topological hypotheses. For finitely many variables in a maximal ideal, verify HasEval in the adic topology; a presentation or regular-structure isomorphism does not follow merely from this evaluation API."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
+      "kind": "theorem",
+      "name": "Exactness of completion on finite modules",
+      "statement": "If R is Noetherian, I is an ideal and 0→M→N→P→0 is exact with N finite, I-adic completion preserves exactness.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/Exactness.lean:111–115,184",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:AdicCompletion.map_exact",
+        "mathlib:AdicCompletion.map_injective",
+        "mathlib:AdicCompletion.map_surjective"
+      ],
+      "note": "Read at 082e2d3. This applies over a Noetherian presentation ring; do not apply it to an unproved Noetherian ordinary tensor of two formal power-series rings."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L07",
+      "kind": "theorem",
+      "name": "Finite-module completion as scalar extension",
+      "statement": "For a Noetherian ring R, ideal I and finite R-module M, the natural map R̂⊗_R M→M̂ is an isomorphism.",
+      "locator": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean:320–346",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian",
+        "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian_symm_of"
+      ],
+      "note": "Read at 082e2d3. Together with R≅R̂ this makes a finite module over a complete Noetherian ring complete. It does not commute localization with an arbitrary inverse limit."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z15",
+      "kind": "definition",
+      "name": "Saturated jets at a DVR-valued point",
+      "statement": "Let O be a complete DVR with uniformizer π, fraction field K, and ξ:R→O a local O-algebra retraction from a complete Noetherian local O-algebra with residue field k_O. Put P=ker ξ, A=R[1/π], q=P A, J_n=(q^n)∩R and Q_n=R/J_n for n≥1. Equivalently J_n={x | ∃a≥0, π^a x∈P^n}.",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z15.test_1",
+          "statement": "For R=O[[x]], ξ(x)=0, J_n=(x^n), Q_n has basis 1,x,…,x^(n−1).",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z15.test_2",
+          "statement": "For R=O[[x,y]]/(πy−x²), ξ(x)=ξ(y)=0, y∈J_2 but y∉P²; Q_n has basis y^j,xy^j of weights 2j,2j+1<n.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z15.test_3",
+          "statement": "For R=O[[x]]/(πx), every J_n=(x); the separated-jet assertion requires more than a retraction.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. Uses ordinary ideal localization/comap, not a new saturation carrier.",
+      "api": [
+        {
+          "name": "SaturatedPointJet.ideal",
+          "role": "constructor",
+          "statement": "Form q^n and contract along R→R[1/π]; identify membership with some π-power multiple in P^n."
+        },
+        {
+          "name": "SaturatedPointJet.transition",
+          "role": "functoriality",
+          "statement": "For m≤n construct Q_n→Q_m from J_n⊂J_m; prove identity and composition, compatibility of augmentations to O, and J_1=P."
+        },
+        {
+          "name": "SaturatedPointJet.torsionFree",
+          "role": "characterisation",
+          "statement": "Multiplication by π on Q_n is injective, by saturation; combine with DVR factorization for torsionfreeness."
+        },
+        {
+          "name": "SaturatedPointJet.map",
+          "role": "functoriality",
+          "statement": "A local O-algebra map commuting with the chosen retractions carries J_n into J_n and induces a compatible map of quotient systems. No arbitrary base-change equality is asserted."
+        },
+        {
+          "name": "SaturatedPointJet.genericFiber",
+          "role": "comparison",
+          "statement": "Construct the canonical Q_n⊗_O K ≅ A/q^n, compatible in n; see Z18."
+        },
+        {
+          "name": "SaturatedPointJet.free",
+          "role": "data",
+          "statement": "Under the given Noetherian hypotheses Q_n is finite free over O by Z17; do not choose bases functorially."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Z12 via Z17–Z22",
+          "how": "These finite free quotients separate the integral completed tensor before passage to the formal generic-point product."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z16",
+      "kind": "theorem",
+      "name": "Chevalley cofinality for complete local modules",
+      "statement": "Let (R,m) be complete Noetherian local, M finite, and N_n a descending sequence of submodules with intersection zero. For every q≥1 there exists n such that N_n⊂m^q M.",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79; proof supplied here by stabilization of finite-length images",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L07"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "For each q, the images (N_n+m^qM)/m^qM stabilize in the finite-length module M/m^qM; call the stable image V_q.",
+        "The maps V_(q+1)→V_q are surjective: choose n after stabilization at both levels and lift inside the image of N_n.",
+        "Any v∈V_q extends recursively to a compatible system in all higher V_r. Completeness of M (L07) gives x∈M. For each fixed n the element x belongs to N_n+m^rM for every r; separation of M/N_n (L03) gives x∈N_n.",
+        "Thus x=0, all V_q vanish, and stabilization gives the desired containment. This uses Artinian length, not finiteness of the residue field or compactness of its underlying set."
+      ],
+      "unitTests": [
+        {
+          "name": "Z16.test_1",
+          "statement": "N_n=m^nM gives n=q.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z16.test_2",
+          "statement": "The conclusion only asserts eventual containment toward m^q; it does not say the N_n are m-adically open. For O[[x]], N_n=(x^n) contains no π-power.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. Standard Chevalley lemma used by KWII; the Zariski–Samuel book cited there has not been separately read. The complete proof above is an explicit reconstruction, not a quotation or attribution of this proof to that book."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z17",
+      "kind": "theorem",
+      "name": "Saturated point jets are finite free",
+      "statement": "In Z15, each Q_n is a nonzero finite free O-module, its augmentation ideal is nilpotent of exponent at most n, and its maximal-ideal and π-adic topologies agree.",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L04",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L07"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "P is finitely generated. Each P^j/P^(j+1) is finite over R/P=O, generated by degree-j monomials in generators of P. Induction makes R/P^n finite over O, hence also its quotient Q_n.",
+        "Saturation makes Q_n π-torsionfree. Every nonzero element of O is a unit times a π-power; L04 gives finite freeness. The retraction factors through Q_n and proves it is nonzero.",
+        "J_n⊂P and P^n⊂J_n, so Q_n has quotient O by the nilpotent ideal P/J_n. It is local with maximal ideal (π)+P/J_n. For q≥1, m_Q^(q+n−1)⊂π^qQ⊂m_Q^q, by expanding the power and using (P/J_n)^n=0. L07 gives completeness."
+      ],
+      "unitTests": [
+        {
+          "name": "Z17.test_1",
+          "statement": "The n=1 jet is O.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z17.test_2",
+          "statement": "The saturation test πy=x² gives rank(Q_n)=n; the unsaturated quotient R/P² instead has nonzero π-torsion represented by y.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z18",
+      "kind": "theorem",
+      "name": "Generic jets equal the rational local jets",
+      "statement": "With Z15 notation, Q_n⊗_O K ≅ A/q^n ≅ A_q/(qA_q)^n. These canonical isomorphisms commute with the transition maps and with the augmentation to K.",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z17"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Extension-contraction for localization identifies J_n A=q^n, giving the first isomorphism.",
+        "A/q^n is a finite-dimensional K-algebra with nilpotent ideal q/q^n and quotient K. It is local. Every s outside q becomes a unit: write s=c+z, c∈K×, z nilpotent, and use the finite geometric series. Further localization at q changes nothing."
+      ],
+      "unitTests": [
+        {
+          "name": "Z18.test_1",
+          "statement": "For πy=x², the isomorphism sends x↦X and y↦X²/π modulo X^n.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z18.test_2",
+          "statement": "The π-saturated quotient must be formed integrally before claiming finite freeness; after inverting π the unsaturated and saturated quotients agree.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
+      "kind": "theorem",
+      "name": "Regularity survives completion at a rational point",
+      "statement": "For a Noetherian regular local K-algebra B whose residue map identifies B/m with the given field K, its m-adic completion is Noetherian regular local, has residue field K via that same coefficient map, and has dimension dim B.",
+      "locator": "Stacks 15.44.4 (07NY), 15.44.1 and completion facts in 10.97; applied in KWII PDF9",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Completion is Noetherian and local, with maximal ideal mB̂, unchanged residue field and dimension. The cotangent space is unchanged, so its dimension equals dim B̂; this proves regularity. The missing complete-local structure package is routed here, not asserted to be in the baseline."
+      ],
+      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. The exact dimension and cotangent completion suppliers still need a declaration-level pin audit; source-level proof is read, no library claim."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+      "kind": "theorem",
+      "name": "Power-series coordinates with a specified coefficient field",
+      "statement": "If B is a complete Noetherian regular local K-algebra and K→B/m is an isomorphism, and b_1,…,b_d lift a K-basis of m/m², then evaluation induces a continuous K-algebra isomorphism K[[X_1,…,X_d]]≅B sending X_i to b_i.",
+      "locator": "Stacks 10.160.10(2), tag 0C0S; applied in KWII PDF9",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Nakayama makes the b_i generate m. Lift an element successively modulo m,m²,… by homogeneous polynomials; completeness gives surjectivity of evaluation.",
+        "The power-series source is a Noetherian domain of dimension d; a nonzero kernel would give a quotient of dimension at most d−1 (Stacks 00KW). The target has dimension d by regularity, so the kernel is zero. Preserve the supplied K-algebra structure; no arbitrary coefficient-field choice or perfection assumption is needed."
+      ],
+      "unitTests": [
+        {
+          "name": "Z19.test_1",
+          "statement": "For B=K[[X_1,…,X_d]], the identity parameters give the identity map.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z19.test_2",
+          "statement": "B=K[ε]/ε² fails regularity and its power-series evaluation has nonzero kernel (X²).",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "note": "Owner DeformationAndDerivedPatchingAlgebra:R03.1. The general regular-ring dimension atoms remain to pin-audit; L05 alone does not prove this theorem."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
+      "kind": "construction",
+      "name": "Complete local tensor product and presentation",
+      "statement": "For a finite family of complete Noetherian local O-algebras with fixed residue field k_O, form C=completed_tensor_O R_i in the topology of the sum of maximal ideals. Choosing finite power-series presentations gives C≅O[[all variables]]/(all presentation relations), so C is Noetherian complete local with residue k_O; its continuous O-algebra maps are the compatible families of maps from the factors.",
+      "locator": "DeformationAndDerivedPatchingAlgebra:R03.1; KWII §1 conventions PDF4–6 and §2.3 PDF9",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L05"
+      ],
+      "implementationStatus": "unchecked",
+      "unitTests": [
+        {
+          "name": "Z24.test_1",
+          "statement": "The empty family gives O; O[[x]] completed-tensor_O O[[y]] gives O[[x,y]].",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "planned": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "note": "Existing R03.1 explicitly plans this construction, Noetherianity and locality. Reuse the AdicSpacesPartII:R0 general topological tensor carrier where its hypotheses fit; the coefficient-category presentation and theorem are the R03.1 adapter, not a second carrier."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
+      "kind": "theorem",
+      "name": "Integral tensor jets are exact quotients",
+      "statement": "For a family indexed by a nonempty finite set of cardinality h, with Z15 hypotheses, let C be Z24, H_n=Σ_i J_(i,n)C and D_n=⊗_O,i Q_(i,n). Then C/H_n≅D_n canonically. Each D_n is finite free and π-adically complete; its augmentation ideal has exponent at most h(n−1)+1.",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L07"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The tensor of finite free modules is finite free. Let N be the sum of the augmentation ideals in D_n. By the pigeonhole principle N^(h(n−1)+1)=0, and D_n/N=O; m_D=(π)+N. Thus m_D^(q+h(n−1))⊂π^qD_n⊂m_D^q and D_n is complete local.",
+        "C/H_n is complete local since C is Noetherian complete local. The factor maps define D_n→C/H_n; maps R_i→Q_(i,n)→D_n extend by the completed-tensor universal property to C→D_n killing H_n. Uniqueness on the factor maps proves these are inverse.",
+        "Alternatively compute the quotient in the Noetherian power-series presentation of C using L06. Do not apply finite-module completion exactness directly over the ordinary tensor of infinite power-series algebras."
+      ],
+      "unitTests": [
+        {
+          "name": "Z20.test_1",
+          "statement": "For Q_n=O[X]/X^n and O[Y]/Y^n, D_n has rank n² and augmentation ideal exponent 2n−1.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z20.test_2",
+          "statement": "The common uniformizer is one coefficient: the tensor is over O, not over the residue field or over Z.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z21",
+      "kind": "theorem",
+      "name": "The inverse limit of generic box jets",
+      "statement": "For the family in Z20, suppose the local K-algebras (R_i[1/π])_(q_i) are regular of dimensions d_i. Then lim_n(D_n⊗_O K) is (noncanonically after choosing parameters) K[[X_(i,j) | 1≤j≤d_i]].",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Apply Z23 and Z19 to the point completion for each factor. Z18 identifies the n-th generic jet with K[[X_i]]/(X_i)^n, compatibly in n using the same parameter choice.",
+        "The ordinary tensor of these finite jets is K[all variables]/Σ_i(X_i)^n. Let m be the ideal of all variables. Then m^(h(n−1)+1)⊂Σ_i(X_i)^n⊂m^n, so the box filtration and total-degree filtration are cofinal and have the same inverse limit.",
+        "No equality (lim D_n)[1/π]=lim(D_n[1/π]) is used. Even O[[X]][1/π]→K[[X]] is not surjective: Σ_n π^(−n)X^n has no uniform denominator bound."
+      ],
+      "unitTests": [
+        {
+          "name": "Z21.test_1",
+          "statement": "For h blocks and n≥1 the exponent h(n−1)+1 kills every monomial by pigeonhole; degree h(n−1) need not suffice.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z21.test_2",
+          "statement": "For one block d=1, the generic limit contains series with unbounded negative coefficient valuations.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z22",
+      "kind": "theorem",
+      "name": "The integral completed tensor embeds in generic point jets",
+      "statement": "In Z20, assume each R_i is a domain. The compatible maps C→D_n→D_n⊗_O K define an injective map C→lim_n(D_n⊗_O K).",
+      "locator": "KWII Proposition2.2(ii), author PDF9; explicit proof refinement for LLHLM23 Theorem3.7.1, published PDF79",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "R_i→(R_i[1/π])_(q_i) is injective because R_i is a domain and π≠0. L03 makes the point-local ring inject into its completion, hence ∩_n J_(i,n)=0.",
+        "For each q, Z16 supplies a common n with every J_(i,n)⊂m_i^q. Hence H_n⊂m_C^q. Z20 identifies ker(C→D_n)=H_n.",
+        "Finite freeness makes D_n→D_n⊗_O K injective. A kernel element in the inverse-limit map therefore lies in every m_C^q and is zero since C is separated.",
+        "The retractions R_i→O extend to C→O by Z24; thus C is nonzero. Together with Z21 this gives Z12. The empty family is C=O and is handled separately."
+      ],
+      "unitTests": [
+        {
+          "name": "Z22.test_1",
+          "statement": "For the standard power-series factors, the embedding is the coefficient inclusion O[[all variables]]→K[[all variables]].",
+          "status": "mathematical acceptance test; no Lean compilation"
+        },
+        {
+          "name": "Z22.test_2",
+          "statement": "The torsion example R=O[[x]]/(πx) has x in every saturated J_n and fails the injectivity assertion; the domain hypothesis is not omitted.",
+          "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -3792,9 +4214,19 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/P03",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z11",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z12",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z16",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z17",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
       ],
-      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route.",
+      "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching.",
       "stages": [
         "DeformationAndDerivedPatchingAlgebra:R03.1",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
@@ -4638,7 +5070,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Close their remaining Chevalley, complete regular local power-series, affinoid fiber and general-field completion interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs."
     },
     {
       "id": "split-and-hypotheses",
@@ -5151,9 +5583,12 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U24",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U43",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z24"
       ],
-      "detail": "The source proofs and explicit adapters are recorded, but finalize their declaration-level supplier graph: polynomial Taylor/adjugate identities and convergence for Z06; finite étale normality, Galois component/idempotent descent and purely inseparable topology for Z10; Chevalley maximal-ideal cofinality, finite free jets and regular complete local structure for Z12; arbitrary-field affinoid Nullstellensatz, rational-fiber quotient identities, flat formal-model completion and smooth-generic product regularity for Z13–Z14. Normality plus a rational point is used for connectedness, not a claim that arbitrary regular affinoid products are regular."
+      "detail": "Z15–Z24 now give the complete-local mathematical argument, including Chevalley by finite-length stabilization, finite-free saturated jets, exact integral tensor quotients and cofinal generic box jets. Remaining declaration-level closure: Noetherian/dimension/cotangent completion atoms and power-series dimension in Z19/Z23/Z24; the general completed-tensor carrier is the existing R03.1/R0 construction. Z06 Taylor/adjugate/convergence and Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not reread KWII as a wholly unread source or infer arbitrary localization–inverse-limit commutation."
     }
   ],
   "sourceData": {
@@ -5578,13 +6013,53 @@
         "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean"
       ],
       "conclusions": "Idempotent connectedness and the ordinary tensor-product theorem are built (L01,L02). Neither supplies completed affinoid products. No complete Elkik or completed-tensor domain package was found; existing atomic completion and algebra interfaces remain imports."
+    },
+    "completeLocalContinuation": {
+      "session": "codex-7e92bd",
+      "reviewedRowsRead": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1 AUDIT-17"
+      ],
+      "files": [
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Noetherian.lean",
+          "sha256": "74f44a68b7468a48529c816e799b6b4b2ddf911dcdda5fe891986d09d5c6e858",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Noetherian.lean"
+        },
+        {
+          "file": "Mathlib/LinearAlgebra/FreeModule/PID.lean",
+          "sha256": "8d598b47f02aed4241122a2f88c132fce6b3a26776f24086a5d1d5acb7795aff",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/FreeModule/PID.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/MvPowerSeries/Evaluation.lean",
+          "sha256": "a9f032e25790cfc33033a79bf7623f440f8d7dd8333295b20f63724da5ec3f48",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/MvPowerSeries/Evaluation.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
+          "sha256": "f8ae34efec1ff6b9a06004392922df8df6ff7813b47be565df2173b1acbb56c4",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/Exactness.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
+          "sha256": "d89152b49beebfaca7a489fd261f55d003efbd423c380852ac38e39fd395d120",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean"
+        },
+        {
+          "file": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
+          "sha256": "6ca40a9a028dbe37b0e6d35f519e15fb40bd243ba89a07bbe3689aea9c6deaf6",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/RegularLocalRing/Defs.lean"
+        }
+      ],
+      "scope": "Actual declarations L03–L07 read at 082e2d3 and byte-compared with pinned raw GitHub source. Tau Ceti searched for IsRegularLocalRing and completion/structure/Chevalley terms; no complete regular-local power-series or saturated-jet package found. This bounded search is not a global absence proof. R03.1, R03.3, R03.6 owner statements read; existing tensor construction is planned Z24."
     }
   },
   "validation": {
     "lean": "No Lean file required or compiled; no formalization claim.",
     "correctionChecks": "Exact Python integer/Fraction regression assertions passed for star reversal (2500 products), GL2 central shifts/tensor factors, contraction valuations, tame unipotent counterexample, genericity-depth example and appendix exceptional coefficients; downstream Hodge-bound comparison checked on2431 regular tuples.",
     "appendixChecks": "SymPy1.14.0 over Q(a,b): all7 special-fibre ideals annihilate the3 equations; ten Table1 ambient ideals kill all7 normalization equations, while the double-cover row retains its quadratic relation; all7 relations vanish after W=-t*d21/c22 in Frac(R); t^3 is in the Jacobian ideal of the chart quotient. These are consistency checks, not uniform integral certificates.",
-    "continuation": "Paper/intake validators; unique item/finding IDs; one route per missing item; all 83 definition API references; acyclic recorded item dependencies. Exact Fraction/integer checks: 576 precision-recurrence steps, 210 Newton corrections, 175 precision-loss examples and 5 tensor zero-divisor identities. Reproducible code in report. No Lean compilation. Earlier CAS checks are inherited, not rerun."
+    "continuation": "Paper/intake validators; unique item/finding IDs; one route per missing item; all 83 definition API references; acyclic recorded item dependencies. Exact Fraction/integer checks: 576 precision-recurrence steps, 210 Newton corrections, 175 precision-loss examples and 5 tensor zero-divisor identities. Reproducible code in report. No Lean compilation. Earlier CAS checks are inherited, not rerun.",
+    "completeLocalContinuation": "Paper/intake validators, exact ID and source-finding preservation, one route per missing item, definition API coverage and DAG checks. Fresh SymPy/integer/Fraction diagnostics: 8 symbolic saturation ideals, 1 unsaturated-torsion control, 2600 generic jet products, 24336 transition products, 24336 associativity triples, 5624 box-filtration monomials, 144 adic-topology bounds and 48 denominator controls. Code reproduced in report. These diagnostics do not prove the general theorem; previous appendix CAS/precision checks inherited, not rerun. No Lean file compiled."
   },
   "definitionApiGroups": [
     {
@@ -6058,6 +6533,25 @@
         "A nontrivial finite separable field extension of K is connected but not geometrically connected after a splitting extension."
       ],
       "derivedFrom": "BLGGT AppendixA.1, printed pp. 595–596/PDF95–96"
+    },
+    {
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z15"
+      ],
+      "api": [
+        "Form q^n and contract along R→R[1/π]; identify membership with some π-power multiple in P^n.",
+        "For m≤n construct Q_n→Q_m from J_n⊂J_m; prove identity and composition, compatibility of augmentations to O, and J_1=P.",
+        "Multiplication by π on Q_n is injective, by saturation; combine with DVR factorization for torsionfreeness.",
+        "A local O-algebra map commuting with the chosen retractions carries J_n into J_n and induces a compatible map of quotient systems. No arbitrary base-change equality is asserted.",
+        "Construct the canonical Q_n⊗_O K ≅ A/q^n, compatible in n; see Z18.",
+        "Under the given Noetherian hypotheses Q_n is finite free over O by Z17; do not choose bases functorially."
+      ],
+      "unitTests": [
+        "For R=O[[x]], ξ(x)=0, J_n=(x^n), Q_n has basis 1,x,…,x^(n−1).",
+        "For R=O[[x,y]]/(πy−x²), ξ(x)=ξ(y)=0, y∈J_2 but y∉P²; Q_n has basis y^j,xy^j of weights 2j,2j+1<n.",
+        "For R=O[[x]]/(πx), every J_n=(x); the separated-jet assertion requires more than a retraction."
+      ],
+      "derivedFrom": "KWII Proposition2.2(ii), explicit saturated-point jet construction and its downstream uses Z17–Z22"
     }
   ]
 }
