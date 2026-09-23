@@ -1,5 +1,46 @@
 # LLHLM23 — current handoff
 
+Claude Code — cc-2aeb03, issue #1254, 23 September 2026. **Partial** checkpoint. Census **709 items (120 library, 34
+planned, 555 missing), 24 routes, 91 unreviewed findings**; last ids **N82, U45, M50, K54, P17, G66, B55, V16, Q13, E91**
+(A107, Z105 and L119 unchanged). Every inherited id, finding and `sourceData` entry is preserved.
+
+## Completed in this continuation
+
+- **Coverage.** Every numbered theorem, proposition, lemma, corollary, definition and conjecture of the published PDF now
+  has an item. The four that had none (Lemmas 4.2.8, 4.3.7, 4.3.8, 7.4.4) are M38–M39, M43, M44 and G53. The
+  introduction's results are noted on their body items. The used remarks are items; the unused ones are listed in the
+  report.
+- **Splits.** The `split-and-hypotheses` gap is closed: every bundled item it named, and the remaining bundles found by a
+  scan of all locators (U33, M12, G21, G40, B06, B11, B18, B37, V06, V08, Q08), is split into one item per numbered result
+  or separately proved part. The new items take their parent's route.
+- **Findings.** E62–E91, unreviewed. The ones that matter downstream are E79/E80 (the genericity polynomial of Lemma
+  8.4.11 and Corollary 8.4.12, probably also Lemma 8.5.1 and Corollary 8.5.2), E82 (Theorem 8.4.10(2) omits what later
+  results use), E67 (Proposition 7.2.12's hypotheses) and E70 (Remark 7.4.3(4) rests on the unproved Remark 4.6.3(1)).
+
+## Resume in order
+
+1. The **`analytic-regularity-suppliers` frontier** is still first, as the previous handoff says below.
+2. **E79/E80.** Decide the corrected genericity polynomial for Lemma 8.4.11 and carry it through B28, B43, the §8.5 items
+   and the Theorem 1.5.3/1.5.9 statements (B31, B43). Also check Lemma 9.1.10's genericity polynomial (V11), which the last
+   splitting pass flagged as possibly giving too little depth; it was not verified.
+3. Continue the proof queue by prefix, as below; the new items need `proofSteps` and prerequisite edges where their
+   parents had them.
+4. The item-by-item library audit (`library-item-audit`, now including the new missing items) and shared-owner
+   reconciliation.
+5. Appendix B certificates, now including Q13 (Proposition B.0.2(2), with the flatness and generic-normality checks of
+   E91).
+6. Keep completion and independent review separate. This session is now an author of the extraction and must not review
+   it.
+
+## Verification this pass
+
+`check_paper.py` ok; three-file intake 0 problems. Unique ids; every missing item routed exactly once; no reference to a
+removed id; every definition and construction has at least three API entries and three tests. No Lean file compiled.
+
+---
+
+# Attributed history — LLHLM23 — previous handoff (cc-fb70e5)
+
 Claude Code — cc-fb70e5, issue #1254, 23 September 2026. **Partial** checkpoint. Census unchanged at
 **652 items (120 library, 34 planned, 498 missing), 24 routes, 61 unreviewed findings**; last IDs still
 **A107, Z105, L119, E61**. No item was added, removed or renumbered, and no finding or `sourceData` entry
