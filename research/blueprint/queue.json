@@ -8381,8 +8381,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ANDRE-18-B.md",
-   "state": "pending",
-   "note": "released on GitHub issue #2188"
+   "state": "external",
+   "note": "claimed on GitHub issue #2188"
   },
   {
    "id": "REV-PAPER-ANDRE-18-B",
@@ -12904,8 +12904,9 @@
    ],
    "avoidAccountOf": "RS-19",
    "prompt": "research/blueprint/prompts/REV-RS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #837"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #837",
+   "finishedAt": "2026-09-23T12:35:16Z"
   },
   {
    "id": "RS-20",
@@ -30431,7 +30432,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-COUVEIGNES-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-COUVEIGNES-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1710"
   },
   {
    "id": "ERRATA-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -30729,8 +30731,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-BRESCIANI-24",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-BRESCIANI-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1792"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1792",
+   "finishedAt": "2026-09-23T12:35:25Z"
   },
   {
    "id": "ERRATA-PAPER-CARO-PASTEN-23",
@@ -31026,7 +31029,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1854"
   },
   {
    "id": "ERRATA-PAPER-SHENDE-TSIMERMAN-17",
@@ -31174,7 +31178,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-CESNAVICIUS-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-CESNAVICIUS-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1863"
   },
   {
    "id": "ERRATA-PAPER-HE-21",
@@ -31397,8 +31402,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-HARPAZ-WITTENBERG-20",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1873"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1873",
+   "finishedAt": "2026-09-23T12:35:27Z"
   },
   {
    "id": "ERRATA-PAPER-BHATT-ETAL-23",
