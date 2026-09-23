@@ -5676,7 +5676,7 @@
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E1",
    "kind": "error",
-   "locator": "Published Theorem9.1/Definition9.2 pp48–50; arXiv v4 pp52–54",
+   "locator": "Published Theorem 9.1/Definition 9.2 pp48–50; arXiv v4 pp52–54",
    "printed": "There exists a unique function",
    "correction": "Replace the unique-choice definition by a solution-set/existence interface pending a repaired theorem with extra conditions. The two printed test conditions alone do not determine a vector for n=m=2. Also remove the assertion that all restricted Speh vectors lie in Pi.",
    "reason": "For n=m=2, G'=GL2,V'=1,T'=id and all formal W^0 are left-N'-invariant. With u=[[1,varpi^-1],[0,1]], f=1_(uK')-1_K' is a nonzero right-K'-invariant compact function annihilated by every test integral by left translation (det u=1). Extend f to D=V iota(G') using Psi. Lapid–Mao20 Cor3.13/3.15 supplies a Shalika vector with this restriction; right averaging preserves f. Adding it to the L=1 essential vector gives a second solution. The proof's character claim fails explicitly: (I+tE13)(I+bE32)(I-tE13)=I+bE32+tbE12, so Psi changes by psi(tb). See report for full argument and limits. The continuation verifies the compact-induction hypothesis directly against Lapid–Mao Cor3.13/3.15 and obtains infinitely many independent perturbations using u_r=I+varpi^-r E12. These vectors satisfy precisely the printed right-iota(Kprime) condition; no K^(c_pi)-invariance is claimed. (cc-442dc5) Rechecked. For n = m = 2, V′ = 1, V″ = V and Ψ(g) = ψ(g_12 + g_34). Conjugating V by ι(u′) = 1 + zE_13 sends E_32 to E_32 − zE_12, so Ψ is not preserved, and the step 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′)' in the uniqueness proof fails. If it held, every W∘ι (W ∈ W_Sh(σ)) would be left N′-invariant and square-integrable on GL_2 (Theorem 8.2), hence zero. That contradicts Lapid–Mao's Corollary 3.15, which the paper uses in its own existence proof.",
@@ -5684,7 +5684,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5694,22 +5694,22 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed as a gap in the printed proof, and the targeted step was read on the page image. Page 50 prints, verbatim: 'then φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′) for u′ ∈ N′ and g′ ∈ G′. Therefore, we have W ∘ ι ∈ Π.' Its only stated justification is the preceding clause, that ι(G′) normalises V″ and that the action of ι(N′) on V″ preserves the invariant measure on (V″∩N)\\V″. Measure-invariance is not Ψ-equivariance, and I verified by direct computation that Ψ is genuinely not preserved: in the n = m = 2 case, with E_13E_32 = E_12 one gets (1+tE_13)(1+bE_32)(1−tE_13) = 1 + bE_32 + tbE_12 exactly, so conjugating the V″-element 1+bE_32 by ι(u′) = 1+tE_13 changes Ψ(g) = ψ(g_12 + g_34) by ψ(tb). The printed justification therefore does not establish the step. WHAT I DID NOT VERIFY: that uniqueness itself fails. The extraction's second solution is built from [20, Corollary 3.15] (Lapid–Mao), which I did not fetch or re-derive, so the kind 'error' and the 'affects a stated result' classification rest on that construction and not on this review. What this review establishes is the weaker and firmer claim that the printed proof of the uniqueness statement in Theorem 9.1 has an unjustified step. The extraction's internal consistency argument is worth recording: were the step valid, every W∘ι would be left N′-invariant and square-integrable on GL_2 by Theorem 8.2, hence zero, contradicting the paper's own existence proof on p. 49, which uses [20, Corollary 3.15] to produce a nonzero such vector. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E2",
    "kind": "error",
-   "locator": "Published Lemma7.1 p38 and its compact-mod-center escape claim; v4 pp41–42",
+   "locator": "Published Lemma 7.1 p38 and its compact-mod-center escape claim; v4 pp41–42",
    "printed": "G_n ∩ ⋂_(m>=1) Z_n X_lambda^(>=m) = ∅",
    "correction": "Require lambda≠0 for this escape argument. Handle lambda=0 separately in the ambient L(s,pi)=1 application via absence of spherical cuspidal vectors. Do not export the literal standalone lemma for all cuspidals and all lambda.",
-   "reason": "At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem2.2.",
+   "reason": "At n=1,lambda=0 and an unramified character pi, the Hecke function 1_(varpi o*) acts by pi(varpi)≠0 and is not nilpotent. For lambda=0 central scaling puts every g∈GL_n(F) in Z_n X_0^(>=m). The whole section concerns L=1, so the intended application may survive with the missing zero-level argument; this does not refute Theorem 2.2.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5719,22 +5719,22 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed, and I verified it independently and in a stronger form than the finding states. Page 38 prints 'Observe that the intersection G_n ∩ ⋂_{m≥1} Z_n X_λ^{≥m} is empty.' Page 37 defines X_λ ⊂ M_n(o) as the matrices with a_{i,j} ≡ δ_{i,j} mod p^{λ_i}. For λ = 0 that congruence is modulo p^0 = o and so is vacuous, giving X_0 = M_n(o). Then for ANY g ∈ G_n and any m, choosing N large makes ϖ^N g integral with det(ϖ^N g) = ϖ^{Nn} det g ∈ p^m, so g = ϖ^{−N}·(ϖ^N g) ∈ Z_n X_0^{≥m}. Hence the intersection is all of G_n, not empty — and this holds for every n, not only n = 1. The finding's counterexample to the lemma itself also stands: for n = 1, λ = 0 and π an unramified character (cuspidal, there being no proper parabolic in GL_1), V^{K_{1,0}} is one-dimensional and 1_{ϖo^×} ∈ a_0 acts by π(ϖ) ≠ 0, which is not nilpotent. The proposed repair is right and the extraction is right to say this does not refute Theorem 2.2: in the ambient L(s,π) = 1 application π is ramified, so V^{K_{n,0}} = 0 and a_{0,V} = 0 trivially. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E3",
    "kind": "error",
-   "locator": "Published proof of Lemma8.10 p47; v4 corresponding proof",
-   "printed": "Lemma8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
+   "locator": "Published proof of Lemma 8.10 p47; v4 corresponding proof",
+   "printed": "Lemma 8.10 says the entire Hecke eigenspace is spanned by the set of formal parameter assignments; its proof also counts assignments as a set after coincident parameters are identified.",
    "correction": "The all-parameter spanning statement must be replaced: n=m=2, equal parameters(x,x) admit the additional eigenfunction H(g)=(a-b)q^(-(a-b)/2)x^(a+b) for g=n diag(varpi^a,varpi^b)k. Distinct-parameter spanning and a confluent family at collisions require separate valid statements and proofs.",
    "reason": "Differentiate W_Ze^0(x exp(t),x exp(-t)) at t=0. Every spherical Hecke eigenvalue is even in t, so the derivative has the same eigenvalue; Hecke convolution is a finite sum on right-K-fixed functions. H(1)=0 but H(diag(varpi,1))=q^-1/2 x, while W_Ze^0(x,x)(1)=1. This directly disproves the literal span, beyond the earlier geometric-lemma multiplicity defect.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5744,14 +5744,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Rejected: the counterexample does not work, and I checked both of the routes the finding offers. (1) The differentiation argument gives nothing. For GL_2 the relevant Whittaker values are W^0(diag(ϖ^k,1)) = q^{−k/2} s_k(x_1,x_2), and with (x_1,x_2) = (xe^t, xe^{−t}) one has s_k = x^k Σ_{j=0}^{k} e^{(2j−k)t}, which is invariant under t ↦ −t (send j ↦ k−j). The family is therefore an EVEN function of t and its derivative at t = 0 is zero, so it produces no second eigenfunction. (2) The explicit function fails the boundary condition. Write h_k for the claimed H at diag(ϖ^a,ϖ^b) with k = a−b, so h_k = k·q^{−k/2}x^k, against the true w_k = (k+1)q^{−k/2}x^k. The spherical Hecke recursion is s_{k+1} = (x_1+x_2)s_k − x_1x_2 s_{k−1}; at x_1 = x_2 = x this reads c_{k+1} = 2c_k − c_{k−1} on the coefficients, and I checked exactly that BOTH (k+1) and k satisfy it for k ≥ 1. They are the two solutions of the same three-term recursion, and what separates them is the boundary: the Whittaker support condition forces w_{−1} = 0, and then k = 0 gives q^{1/2}w_1 = λw_0 − x²w_{−1} = 0 whenever w_0 = 0. The candidate has h_0 = 0 but h_1 = q^{−1/2}x ≠ 0, contradicting this for every λ, so it is not a Hecke eigenfunction. It extends to a solution of the recursion only with h_{−1} = −1/x ≠ 0 — precisely the solution the support condition excludes, which is the standard reason the eigenspace is one-dimensional. So for n = m = 2 with equal parameters the Hecke eigenspace is spanned by the single function W^0_Ze(x,x), exactly as Lemma 8.10 asserts, and the finding's claim that the lemma is 'directly disproved' is wrong. The finding's separate aside about multiplicity in the Geometric Lemma when parameters collide is not assessed here and is not confirmed; if it is to be recorded it needs its own statement and its own evidence, since the counterexample offered for it does not exist. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E4",
    "kind": "misprint",
-   "locator": "Published pp52–53, proof and statement of Proposition9.8; same q^-m in v4 pp56–57",
+   "locator": "Published pp52–53, proof and statement of Proposition 9.8; same q^-m in v4 pp56–57",
    "printed": "q^(-m) X^(-d)",
    "correction": "Use q^(-m*d) X^(-d) in every transformed determinant-d summand.",
    "reason": "X=q^-s and replacing s by m-s sends (q^-s)^d to (q^(-(m-s)))^d=q^(-md)X^-d. Already d=0 distinguishes1 fromq^-m. Nonzero coefficient scaling leaves the support bounds unchanged, but the printed finite functional equation needs correction. (cc-442dc5) Checked on the page image of p. 52–53. Reclassified to affect nothing: the left side is by definition Z_m(m − s, …), so the misprinted factor does not enter the support bounds or Proposition 9.6's use.",
@@ -5759,7 +5759,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5769,9 +5769,9 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "The printed text is as quoted: pp. 52–53 display the factor q^{−m}x^{−d} in the transformed summands, including in the statement of Proposition 9.8. I verified the quotation. The corrected exponent q^{−md} — i.e. that the scaling should accumulate with the determinant valuation d rather than being applied once — follows the extraction's derivation, which I did not redo; that part of this verdict rests on the extraction and not on this review. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E5",
@@ -5784,7 +5784,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5794,14 +5794,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed, and it follows from the paper's own definitions two lines earlier. Page 37 defines h = (t + Σ_{i=1}^{∞} x_i t^i)/(1 − t), with an infinite upper limit — I read this on the page image, since the limit is exactly the kind of glyph a text layer drops. Hence 1 + h = (1 + Σ_{i=1}^{∞} x_i t^i)/(1 − t) and F = (−1)^n/(1+h) = (−1)^n(1 − t)/(1 + Σ_{i=1}^{∞} x_i t^i). The displayed F instead prints the FINITE sum Σ_{i=1}^{n}, as does the sentence after it about the coefficients of (1 + Σ_{i=1}^{n} x_i t^i)^{-1}. The two agree only modulo t^{n+1}, so the correction — use the infinite sum, or state the identity as a congruence mod t^{n+1} — is right. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E6",
    "kind": "misprint",
-   "locator": "Published p19 after Figure2 (visually checked)",
+   "locator": "Published p19 after Figure 2 (visually checked)",
    "printed": "[a+1,a] to [a,1]",
    "correction": "The endpoint is (1,r), as in the path definition on p18.",
    "reason": "The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent.",
@@ -5809,7 +5809,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5819,9 +5819,9 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "The quoted endpoint is as printed on p. 19 after Figure 2. The correction, that the endpoint should be (1,r) to match the path definition on p. 18, follows the extraction's reading of that definition; I checked the quotation but did not re-derive the path combinatorics, so the corrected endpoint rests on the extraction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E7",
@@ -5834,7 +5834,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5844,14 +5844,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "The truncated-dual display in §2.5 on p. 11 is as quoted. The correction — keep the indices 2,3,4,5 from p. 10 once the singleton Δ′_1 = [7,7] disappears, rather than silently renumbering — is a consistency point about the example's own labelling, and I verified the quotation; the specific truncations listed rest on the extraction's recomputation of the example. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E8",
    "kind": "misprint",
-   "locator": "Published proof of Proposition4.6 p23",
+   "locator": "Published proof of Proposition 4.6 p23",
    "printed": "[M']+[M'']",
    "correction": "Use [M'] vee [M''] in the final strict-inequality display.",
    "reason": "The entire proposition uses the padded-addition operation vee, not direct sum; the concluding equality follows from the hypothesis only for vee.",
@@ -5859,7 +5859,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5869,14 +5869,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 23, where the display in the proof of Proposition 4.6 prints '[M] ≥ [N′] ∨ [M/N′] > [M′] + [M″] = [M]'. The operation on |C| used throughout this proof and its neighbours is the join: p. 23 itself has '[M/N] = [IM/N] ∨ [M/IM] = [M′]' a few lines above and Corollary 4.7 immediately below reads '[M] = [M_1] ∨ · · · ∨ [M_r]'. The single '+' is the slip, and with '∨' the displayed chain is the intended contradiction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E9",
    "kind": "misprint",
-   "locator": "Published p25 immediately after Lemma5.1",
+   "locator": "Published p25 immediately after Lemma 5.1",
    "printed": "L_1=o^n and L_1=⊕ p^lambda_i",
    "correction": "The second lattice is L_2.",
    "reason": "The previous paragraph fixes L_2⊆L_1 and the following identity uses K_(L1,L2). The standard quotient must be o^n/(⊕p^lambda_i).",
@@ -5884,7 +5884,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5894,14 +5894,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 25: the text prints 'if we set L_1 = o^n and L_1 = ⊕_{i=1}^{n} p^{λ_i}', naming L_1 twice. The second must be L_2: the construction fixes lattices L_1 ⊃ L_2 (p. 25, above Lemma 5.1), and o^n ⊃ ⊕p^{λ_i} is exactly that inclusion. A slipped subscript with no consequence. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E10",
    "kind": "misprint",
-   "locator": "Published Example6.4 p33, first raw count in continued display (visually checked)",
+   "locator": "Published Example 6.4 p33, first raw count in continued display (visually checked)",
    "printed": "-N_(3,5,4,1)(M_pi)",
    "correction": "Use -N_(3,7,4,1)(M_pi).",
    "reason": "The ladder has x=(5,3,2,0),y=(7,6,5,3). The permutation w=(1,4,3,2) gives capacities(3,7,4,1) and negative sign. No permutation gives the printed(3,5,4,1). Capping all capacities at b=4 gives(3,4,4,1) in both cases, so the subsequent computation is unaffected.",
@@ -5909,7 +5909,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5919,14 +5919,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "The quotation is exact: the continued display in Example 6.4 on p. 33 begins '− N_{(3,5,4,1)}(M_π) + N_{(3,5,6,1)}(M_π) + N_{(8,2,4,1)}(M_π) − …'. I verified that the paper prints (3,5,4,1). The corrected index (3,7,4,1) comes from the extraction's recomputation of the example's alternating sum, which I did not redo; that part rests on the extraction. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E11",
    "kind": "gap",
-   "locator": "Published Lemma6.6 p34, converse proof",
+   "locator": "Published Lemma 6.6 p34, converse proof",
    "printed": "c=Card(m)",
    "correction": "Use the degree-one/type-chi specialization for the current proof. To export the full printed generality, replace c by degree-weighted derivative orders and justify constituent-wise equalities along each cuspidal line.",
    "reason": "For one degree-d cuspidal segment, highest derivative drops rank d, not1. The derivative identified with truncation in the displayed proof is not the Card(m)-th ordinary derivative when d>1. The actual §6.3 application has d=1 and is unaffected.",
@@ -5934,7 +5934,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5944,9 +5944,9 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Located at Lemma 6.6 on p. 34, with c = Card(m) as quoted. The substance — that for a cuspidal segment of degree d the highest derivative drops rank by d rather than by 1, so the Card(m)-th ordinary derivative is not the truncation the displayed proof identifies it with once d > 1 — follows the extraction's analysis of the derivative filtration, which I did not re-derive. The extraction's own limitation is the reassuring part and I confirm it: the §6.3 application has d = 1 and is unaffected, so this is a defect of the lemma's stated generality rather than of anything the paper uses. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E12",
@@ -5954,12 +5954,12 @@
    "locator": "Published p50 near the end of uniqueness proof; v4 p54",
    "printed": "D=V' iota(G')",
    "correction": "Use D=V iota(G').",
-   "reason": "Lemma8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.",
+   "reason": "Lemma 8.1(1) gives the latter identity. For n=m=2,V'=1 but D contains the four-dimensional V, so the displayed identity cannot hold. This typo is distinct from the substantive equivariance error E1.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5969,22 +5969,22 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed decisively, on the page images, because the distinction is a prime that a text layer drops. Page 49 defines the object as 'a smooth function φ of D = Vι(G′) by Supp(φ) = Vι(K′) and φ(u · ι(k)) = Ψ(u) for u ∈ V', with a plain V, and writes φ ∈ ind_V^D(Ψ). Page 50 then prints 'Since D = V′ι(G′), it follows that W|_D = 0', with a prime. Since the same page sets V = V′V″ with V′ a proper subgroup, the p. 50 occurrence is a misprint for D = Vι(G′). Nothing depends on it. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E13",
    "kind": "gap",
-   "locator": "Published proof of Lemma9.3 p49; v4 p53",
+   "locator": "Published proof of Lemma 9.3 p49; v4 p53",
    "printed": "Pi ≃ ∫^⊕ pi' dmu(pi')",
    "correction": "Supply a disintegration with multiplicity fields and precisely defined evaluation/intertwining maps on an appropriate dense domain. Explain why the spherical test pairings determine the relevant spectral components, including singular Satake parameters.",
-   "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
+   "reason": "A direct-integral decomposition does not in general supply bounded evaluation operators from the whole Hilbert space to almost every fiber. The proof writes such operators and omits multiplicities, then uses the flawed Lemma 8.10 argument. The n=m=2 counterexample attacks membership in Pi, not this restricted lemma itself.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -5994,14 +5994,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Located in the proof of Lemma 9.3 on p. 49, where the direct-integral decomposition Π ≃ ∫^⊕ π′ dμ(π′) is written and evaluation and intertwining maps are used on it. The observation that a direct-integral decomposition does not by itself provide bounded evaluation operators from the whole Hilbert space to almost every fibre, and that multiplicity fields are omitted, is a real gap in the written argument and I confirm it as such; I did not attempt to supply or refute the disintegration, so the assessment of what a repair needs rests on the extraction. ONE CORRECTION TO THIS FINDING'S OWN REASONING: its reason says the proof 'then uses the flawed Lemma 8.10 argument'. This review rejects E3, so Lemma 8.10 is not shown to be flawed, and that clause is withdrawn. The finding stands on the disintegration point alone. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E14",
    "kind": "misprint",
-   "locator": "Published proof of Proposition9.6 p53",
+   "locator": "Published proof of Proposition 9.6 p53",
    "printed": "W'_Sh(g)=W_Sh^ess(g·iota(a))",
    "correction": "The right side must use an essential solution for the CONTRAGREDIENT representation and inverse psi, with a distinct label. Specify its existence before the comparison. This notation correction alone does not justify the uniqueness argument.",
    "reason": "The left side is declared to lie in W_Sh^(psi^-1)(tilde sigma), while the existing W_Sh^ess belongs to W_Sh^psi(sigma). Right translation preserves its original representation/model and cannot change that type.",
@@ -6009,7 +6009,7 @@
    "known": "new",
    "searched": [
     "2026-09-22: Cambridge published article and linked 2022 volume listing; no attached correction located (https://doi.org/10.1017/fmp.2022.17).",
-    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma7.1, Lemma8.10, Theorem9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
+    "2026-09-22: arXiv 2110.09070 submission history; v4 dated 2022-09-28 is latest displayed. Targeted v4 comparisons of Lemma 7.1, Lemma 8.10, Theorem 9.1/proof and q^-m coefficients retain the issues; other minor slips not all compared across versions.",
     "2026-09-22: exact-title/author searches with erratum, correction and uniqueness; no AKY correction found. Jacquet2012 corrects the older JPSS paper, not AKY.",
     "2026-09-22: Yasuda Hokkaido researcher bibliography inspected around the AKY entry; no correction located. Atobe Kyoto profile's linked personal homepage returned404, so its contents were NOT inspected. This is a bounded search, not proof that no correction exists.",
     "2026-09-22 continuation: exact-title/author erratum, essential uniqueness correction, and arXiv2110.09070 correction queries; published Cambridge text and final v4 p51 inspected. No AKY correction located in these bounded searches. This is not proof of absence.",
@@ -6019,17 +6019,17 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Located in the proof of Proposition 9.6 on p. 53. The type distinction the finding draws is real: the page declares an object in W^{ψ^{-1}}_Sh(σ̃) while W^ess_Sh was defined in W^{ψ}_Sh(σ), and right translation by ι(a) preserves the model and the representation, so it cannot move a vector between them. I read the surrounding argument — which does carry a separate tilded symbol, 'W̃^ess_Sh = CW′_Sh for some constant C', and then 'W^ess_Sh(g) = CW̃′_Sh(g) = CW^ess_Sh(w_{nm} {}^t g^{-1} w′_n · ι(ϖ^{c_π}1_{(n−1)m}))' — so the paper does distinguish the two objects elsewhere. Which symbol is the slipped one at the quoted line rests on the extraction's reading rather than on mine, and I record the finding's own caveat, that the notation correction alone does not justify the uniqueness argument. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E15",
    "kind": "misprint",
-   "locator": "Published Section2.3 p7",
+   "locator": "Published Section 2.3 p7",
    "printed": "cuspidal representation of G_d for some d>=0",
    "correction": "Use d>=1 for nonempty cuspidal segments; G_0 occurs only as the empty representation after derivatives.",
-   "reason": "Section2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.",
+   "reason": "Section 2.1 on p6 explicitly requires positive d; allowing degree0 nonempty segments breaks the total-rank classification.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -6040,14 +6040,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 7: 'a segment Δ is written as Δ = [a,b]_ρ, where a, b ∈ Z with a ≤ b and ρ is a cuspidal representation of G_d for some d ≥ 0'. G_0 is the trivial group and carries no cuspidal representation in the sense used for nonempty segments, so the range should start at d = 1, with G_0 appearing only as the empty representation produced by derivatives. Harmless. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E16",
    "kind": "misprint",
-   "locator": "Published Proposition5.2 proof p27, final paragraph",
+   "locator": "Published Proposition 5.2 proof p27, final paragraph",
    "printed": "span(eprime_1,...,eprime_(n_i))=span(e_1,...,e_(n_i))",
    "correction": "Use prefix b_i=n_1+...+n_i in both spans.",
    "reason": "Membership in the standard parabolic is preservation of cumulative block flags; for partition(1,2), the second required prefix is3, not2.",
@@ -6061,14 +6061,14 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 27. The final paragraph of the proof of Proposition 5.2 prints spans of the first n_i standard vectors, 'Fe′_1 + · · · + Fe′_{n_i} = Fe_1 + · · · + Fe_{n_i}', while the construction earlier on the same page works with the prefix b_i: it sets L_i to be the image of k_s L ∩ (oe_1 + · · · + oe_{b_i}) and displays o^{b_i} = oe_1 + · · · + oe_{b_i} against o^{n_i} = oe_{a_i} + · · · + oe_{b_i}. The prefix of length n_i is not the object in play; b_i = n_1 + · · · + n_i is. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E17",
    "kind": "misprint",
-   "locator": "Published Section6.4 p36, first Mackey display",
+   "locator": "Published Section 6.4 p36, first Mackey display",
    "printed": "The final tensor factor is labeled pi_r with level n_s and quotient Gr_s.",
    "correction": "Replace pi_r by pi_s.",
    "reason": "Only pi_1,...,pi_s are defined in this reduction; each quotient indexed s must act on pi_s.",
@@ -6082,17 +6082,17 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 36. The reduction is stated for π a subquotient of π_1 × · · · × π_s with |λ_π| = |λ_{π_1}| + · · · + |λ_{π_s}|, and the Mackey display's final tensor factor is nonetheless printed with the label π_r while carrying the level and quotient indexed by s. The index r belongs to the other partition used in §7.1; here it should be π_s. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E18",
    "kind": "misprint",
-   "locator": "Published proof of Corollary9.10 p54",
-   "printed": "By Lemma9.4",
-   "correction": "Read Corollary9.4.",
-   "reason": "The numbered result9.4 is explicitly a corollary on p50; no Lemma9.4 exists. This repairs the locator only, not the faulty separation argument.",
+   "locator": "Published proof of Corollary 9.10 p54",
+   "printed": "By Lemma 9.4",
+   "correction": "Read Corollary 9.4.",
+   "reason": "The numbered result9.4 is explicitly a corollary on p50; no Lemma 9.4 exists. This repairs the locator only, not the faulty separation argument.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -6103,16 +6103,16 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed at p. 54: 'By Lemma 9.4, the restriction map W_Ze ↦ W_Ze|_L is injective on W_Ze(σ)^{K(c_π)}.' There is no Lemma 9.4. The cited statement is Corollary 9.4 on p. 50 — 'Let W ∈ W^ψ_Ze(σ). If W is right ι(K′)-invariant, and if W|_L = 0, then W = 0' — which I read on the page image. A cross-reference slip. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22/E19",
    "kind": "gap",
    "locator": "Propositions 9.5 and 9.6 and the paragraph after the proof of Proposition 9.6, pp. 50–54, with Corollary 9.4 and the uniqueness proof of Theorem 9.1, pp. 49–50, in the published version (Forum Math. Pi 10 (2022) e24)",
    "printed": "Since K_{nm,λ_σ} is conjugate to K(c_π), by Propositions 9.5 and 9.6, we complete the proof of Theorem 2.1 for σ = Sp(π, m) such that L(s, π) = 1.",
-   "correction": "For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.\n- Proposition 9.5 rests on Corollary 9.4.\n- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.\nAll three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. That step fails, and the uniqueness itself is false (E1).\nWhat is needed:\n- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);\n- another proof that σ^{K(c_π)} ≠ 0.\nNo counterexample to Theorem 2.1 is known.",
+   "correction": "For σ = Sp(π, m) with L(s, π) = 1 and n, m ≥ 2, the paper does not establish Theorem 2.1.\n- Proposition 9.5 rests on Corollary 9.4.\n- Proposition 9.6 rests on Lemma 9.3 and the uniqueness in Theorem 9.1.\nAll three proofs use the same step: W∘ι lies in Π because φ_Ze is (N′, Ψ)-equivariant. The justification printed for that step does not establish it (E1). Whether the uniqueness statement is itself false depends on E1's second-solution construction, which has not been independently verified.\nWhat is needed:\n- another proof of Corollary 9.4 (injectivity of W ↦ W|_L on right ι(K′)-invariant vectors);\n- another proof that σ^{K(c_π)} ≠ 0.\nNo counterexample to Theorem 2.1 is known.",
    "reason": "Theorem 2.1 for π with L(s, π) = 1 reduces, by Lemma 7.2, to Z(Δ) = Sp(ρ, m), and for n, m ≥ 2 its only proof is §9. The case m = 1 is [14], and for n = 1 σ is a character of GL_m. The counterexample of E1 is right ι(K′)-invariant with all test integrals zero, so the §9 argument cannot separate it. Whether it is K(c_π)-invariant, which would contradict Theorem 2.1, is not known.",
    "affects": "a stated result",
    "known": "new",
@@ -6122,9 +6122,9 @@
    "owner": "PAPER-ATOBE-KONDO-YASUDA-22",
    "file": "research/blueprint/papers/PAPER-ATOBE-KONDO-YASUDA-22.result.json",
    "citation": "Atobe–Kondo–Yasuda, \"Local newforms for the general linear groups over a non-archimedean local field\", Forum of Mathematics, Pi (2022)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
+   "reviewReason": "Confirmed as a gap, with its scope stated precisely. I verified on the page image that Corollary 9.4, Proposition 9.5, Proposition 9.6 and the uniqueness statement of Theorem 9.1 all run through the single step 'φ_Ze(u′g′) = Ψ(u′)φ_Ze(g′) … Therefore, we have W ∘ ι ∈ Π' on p. 50, and I verified by the conjugation computation recorded under E1 that the justification given for that step — normalisation plus invariance of the measure — does not yield the Ψ-equivariance it asserts. So the finding's core claim, that for σ = Sp(π,m) with L(s,π) = 1 and n, m ≥ 2 the printed §9 argument does not establish Theorem 2.1, is confirmed at the level of the proof. WHAT IS NOT ESTABLISHED: that the uniqueness statement is false. That needs E1's second solution, built on Lapid–Mao, which this review did not verify. The finding's correction field originally asserted flatly that 'the uniqueness itself is false (E1)'; this review has softened that clause, because the errata register is public and an assertion that a published theorem is false must meet a higher bar than an assertion that its printed proof has a gap. The finding's own reason field already took the careful line, recording that no counterexample to Theorem 2.1 is known and that whether E1's vector is K(c_π)-invariant is not known; the correction now matches it. No later version or erratum corrects it: arXiv 2110.09070 stops at v4, whose hash the extraction records and which this review re-fetched and confirmed (32326ab8…83a6c), and Crossref's record of doi:10.1017/fmp.2022.17 carries no update-to, updated-by or relation entry (checked 23 September 2026). Verified against the published open-access text, all 56 pages."
   },
   {
    "id": "PAPER-BAKKER-KLINGLER-TSIMERMAN-20/E1",
@@ -85830,7 +85830,7 @@
    "kind": "error",
    "locator": "Published Lemma 3.14 pp. 701–703",
    "printed": "2^d H^(d+1)/(Ω^d φ(Ω)) · 1(gcd(R(k),Ω)=1) + O_A(H^(d+1)/(log H)^A)",
-   "correction": "Count both signs: Σ Λ(|P(k)|) (equivalently Σ log|P(k)| over |P(k)| prime) has the printed main term and error, which is what the proof proves (item 34). For positive primes the main term must carry the proportion of the box with P(k) > 0. §4 needs only the von Mangoldt form: run the dispersion for θ^Λ and bound the mean of θ^Λ − θ by O((log H)^n log x) (item 101), which is small enough because x > (log H)^{A₁} with A₁ > n (item 47). Theorem 1.9 and everything after it stand.",
+   "correction": "Count both signs: Σ Λ(|P(k)|) (equivalently Σ log|P(k)| over |P(k)| prime) has the printed main term and error, which is what the proof proves (item 34). For positive primes the main term must carry the proportion of the box with P(k) > 0. §4 needs only the von Mangoldt form: run the dispersion for θ^Λ and bound the mean of θ^Λ − θ by O((log H)^n log x) (a bound the paper does not state but which holds: the mean over the box of θ^Λ_P(x) − θ_P(x) is ≪ (log H)^n log x), which is small enough because x > (log H)^{A₁} with A₁ > n (item 47). Theorem 1.9 and everything after it stand.",
    "reason": "For d = k = ℓ = 1, P(t) = at + b with 1 ≤ a ≤ H, |b| ≤ H, and the positive-prime sum is Σ_{a≤H} θ(H + a) = (3/2)H² + o(H²), not 2H² (the triangle a + b ≤ 0 has area H²/2). The proof counts k₁ | P(k) in progressions, which does not see the sign of P(k). Lemma 4.9 inherits the error through its use of the lemma; for θ^Λ it holds as printed.",
    "affects": "a stated result",
    "known": "new",
@@ -85841,14 +85841,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the page image: the lemma sums log P(k) over P(k) prime, i.e. positive primes (same notation as θ_P in Definition 1.8; log P(k) is undefined for P(k) < 0; P > 0 means only that the leading coefficient is positive, p. 677). Counterexample d = k = Ω = 1 (all hypotheses hold, R = 0, indicator 1): P = at + b, 1 ≤ a ≤ H, |b| ≤ H, and the sum is Σ_{a≤H} θ(H + a) = (3/2)H² + o(H²), not 2H² + O(H²(log H)^{−A}). Exact computation (C_e1.py, C_e1b.py): ratio of the positive-prime sum to the printed main term = 0.7493 (H = 10⁶, d = k = Ω = 1; predicted 3/4), 0.8744 (d = 1, k = 2; 7/8), 0.7499 (d = k = 1, Ω = 3, R = t + 1; 3/4), 0.9156 (d = 1, k = 3, Ω = 5, R = t + 1; 11/12), 0.691 (d = 2, k = 1, H = 1500; 17/24 ≈ 0.708, slow convergence), while Σ Λ(|P(k)|) gives 1.0000, 0.9998 in every case. Since 1 − ρ_{d,k} ≍ 1/k ≫ (log H)^{−δ}, the lemma fails throughout its range, not only at k = 1. Failing step: with Λ even (needed for Lemma 3.9, E4) the 'transition to the von Mangoldt function' (p. 702) bounds only |P(k)| = ℓ^α with α ≥ 2 and omits P(k) = −ℓ, a positive proportion; with Λ = 0 on non-positive integers the transition is right but Lemma 3.9 fails. The Λ_z main-term computation counts k₁ | P(k) and cannot see the sign. Uses in my range: Lemma 4.1 (p. 704) needs only Σ_{P_i} Λ(P_i(m)) = O(H^{1+d_i}), which the von Mangoldt form gives, so it is unaffected. Lemma 4.9 (p. 713, outside my range) applies the lemma to positive-prime sums Σ* log P(m), so its θ-form inherits the error."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E2",
@@ -85866,14 +85867,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The counterexample is literally correct: M=0, n₀=0, Q=t+1 makes the family {t+1}, and m=0 gives the value 1. But a modulus in 'm≡n₀ (mod M)' is by universal convention nonzero, and negative M is harmless. The paper itself treats M as positive wherever it matters: Definition 1.8 says M∈ℕ and uses φ(M); Theorem 1.9, from which Theorems 1.5 and 1.2 are derived, says 'M be positive integers'; Corollary 1.6, Proposition 2.8 and Corollary 2.9 take M∈ℕ, and ℕ={1,2,…} in this paper. The instructions exclude harmless conventions, and recording this against the authors would be unfair. I judged only the p. 675/677 occurrence. The Proposition 6.7 p. 730 occurrence ('a multiple of 8a₁a₂a₃', where 0 is a multiple) is outside my range, but the same convention argument applies. Independent check: Checked on the images of p. 675 (Theorem 1.2: 'Fix integers n₀ and M'), p. 677 (same standing assumption) and p. 730 (Proposition 6.7: 'Let M be a multiple of 8a₁a₂a₃'). In all three places M is used only as a modulus ('m ≡ n₀ (mod M)', 'P ≡ Q (mod M)', 'coprime to M'). A modulus is read as a positive integer by the standard convention of analytic number theory. Negative M is harmless, since mod M means mod |M|. The paper states the positivity wherever it is used quantitatively: Theorem 1.9 ('n, d_1,…,d_n, M be positive integers', p. 680), from which Theorems 1.5 and 1.2 are derived; Definition 1.8 (M ∈ ℕ, with φ(M) and M^{1−n}); Corollary 1.6; Proposition 2.8; Corollary 2.9. Here ℕ = {1,2,…} (p. 684: 'd_1,…,d_n ∈ ℕ', used on p. 685 as 'd_i ⩾ 1'). The ledger's counterexample for Theorem 1.2 (M = 0, n₀ = 0, Q = t+1) is literally valid, but only under the degenerate reading 'congruence modulo 0 = equality', which no reader would adopt there. For Proposition 6.7, M = 0 does not even give a counterexample. P ≡ Q (mod 0) forces P = Q, and m ≡ n₀ (mod 0) forces m = n₀. (Q_ij(n₀), 0) = 1 forces Q_ij(n₀) = ±1, so the fibre at n₀ is a smooth conic. Every prime divides 0, so the hypothesis gives local points at every prime, hence at ℝ by Hilbert reciprocity. Hasse–Minkowski then gives a ℚ-point, so the conclusion holds. This is a harmless convention, not a mistake that should be recorded against the authors. The first reading's proposed rejection is correct."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E3",
@@ -85891,22 +85893,23 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the 300-dpi image: the inner sum has only 𝒜 ⊂ 𝒥 beneath it, with no ♯𝒜 = r condition, and r does not occur in the summand, so every subset is counted s+1 times. With the restriction, ∏(1 − (1 − Y_m)) expands to the correct inclusion–exclusion, and the next steps (E∏_{𝒜}(1 − Y_m) = ℓ^{−min(♯𝒜, d_k+1)}) give G_ℓ(d_k, s). Brute-force check of Lemma 2.4 for ℓ ∈ {2,3,5}: exact. Lemma 2.4 is correct."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E4",
    "kind": "gap",
-   "locator": "Published §3 pp. 690–695, especially Eq 3.1 and the paragraph defining Λ_z",
-   "printed": "where Λ(n) is the von Mangoldt function; for r∈N we have Λ(r)=−Σ_{d|r}μ(d)logd.",
-   "correction": "Define Λ(n) := Λ(|n|), Λ(0) := 0 and Λ_z(n) := −Σ_{d≤z, d|n} μ(d) log d for all n ∈ ℤ (so E_z is even). Then Corollary 3.3 applies to both halves of S_{E_z}, and the term c = 0 is O(z (log z)^{−A}). Theorem 3.1, Proposition 3.8 and Lemma 3.9 hold as printed under this convention.",
-   "reason": "The paper defines Λ on ℕ only, but G_{k,m} and S_{E_z} sum over values P(k), c of both signs, and the proofs bound S_{E_z} (a sum over |c| ≤ (d+1)M^d H) by Corollary 3.3, a sum over r ∈ ℕ: this is valid only for an even E_z. With Λ(n) = 0 for n ≤ 0, E_z(n) = −Λ_z(n) for n < 0 does not cancel, and Theorem 3.1 would need the proportion of the box where P(k), P(m) > 0 (below 1 when k or m is small).",
+   "locator": "Published §3: definition (3.1) p. 690; Λ_z, E_z p. 691; proof of Proposition 3.8 incl. (3.3) p. 694; proof of Lemma 3.9 p. 695",
+   "printed": "p. 690: \"where Λ(n) is the von Mangoldt function.\" p. 691: \"Recall that for r ∈ ℕ we have Λ(r) = −Σ_{d|r} μ(d) log d. We define the truncated von Mangoldt function Λ_z(r) := −Σ_{d≤z, d|r} μ(d) log d\". p. 694: \"For both choices f = E_z and f = Λ_z we have |f(t)| ≤ Σ_{m|t} log m ≤ (log t)τ(t)\" and \"by Corollary 3.3 we have ‖S_{E_z}‖_∞ ≪_C 𝓜^d H(log H)(log z)^{−C}\" (3.3).",
+   "correction": "Add after (3.1): 'Here Λ(n) := Λ(|n|) for n ∈ ℤ∖{0} and Λ(0) := 0; for all n ∈ ℤ put Λ_z(n) := −Σ_{d≤z, d|n} μ(d) log d (so Λ_z(0) = −Σ_{d≤z} μ(d) log d) and E_z := Λ − Λ_z, both even.' In the proof of Proposition 3.8, use |f(t)| ≤ τ(|t|)log|t| for t ≠ 0 and |f(0)| ≤ z log z. For (3.3), write S_{E_z}(α) = E_z(0) + T(α) + T(−α) with T(α) = Σ_{1≤c≤B} E_z(c)e^{icα}, apply Corollary 3.3 to T, and bound E_z(0) = Σ_{d≤z} μ(d)log d ≪_C z(log z)^{−C} (Lemma 3.2 at α = 0 plus partial summation). Theorem 3.1, Proposition 3.8 and Lemma 3.9 then hold as printed with this convention. Lemma 3.10 already uses it.",
+   "reason": "G_{k,m}(H;d) sums Λ(P(k))Λ(P(m)) over P > 0 in a box, and P(k) takes both signs for a positive proportion of P when k is small. S_{E_z} is a sum over |c| ≤ (d+1)𝓜^d H, but Corollary 3.3 only bounds sums over r ∈ ℕ ∩ [1,y]. Under the usual extension Λ(n) = 0 for n ≤ 0, the natural (divisibility-defined, hence even) Λ_z gives E_z(−c) = −Λ_z(c). At α = 0 the negative half is then −Σ_{c≤B}Λ_z(c) = −B + o(B), for example when z = H^{1/2}, since Σ_{d≤z}μ(d)log d/d → −1. So ‖S_{E_z}‖_∞ ≫ B and (3.3) fails. Theorem 3.1 is then false. Numerical check (my own): for d = 1, k = 1, m = 2, H = 2000, G/(2H²) = 0.997 with Λ even but 0.749 with Λ = 0 on n ≤ 0. For d = 2, k = 1, m = 3, H = 160 the ratio to the stated main term is 0.969 versus 0.687. No non-even convention rescues the section: Lemma 3.10 (p. 696) counts c with k1 | P_c(k), which is blind to sign, so it computes the even Λ_z-sum. If Λ_z is also set to 0 on n ≤ 0, Proposition 3.8's proof goes through but Lemma 3.10's main term is wrong. Defence: the paper's Λ_z definition already makes sense and is even on Z, and the repair is routine. But the paper never states the convention, and its proofs write log t for t ≤ 0 and omit the c = 0 term. Revision: the printed quotation is made verbatim (the old one spliced two sentences), the proof steps that need the convention are pinpointed, and numerical evidence and the Lemma 3.10 consistency argument are added. Kind and reach are unchanged. §4 then counts |P(m)| prime for negative values, which θ_P does not; that is handled outside this range (items 40/101, E1/E10).",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -85916,14 +85919,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: Quotation checked on the page images (p. 690, p. 691, and p. 694 at 300 dpi). All four quoted passages are verbatim. The (3.3) quotation stops before the second bound '≪_{δ1} H(log H)^{1+dδ2−C}'. An ellipsis there would be cleaner, but nothing is misquoted. Substance: the paper defines Λ, Λ_z and E_z only for r ∈ ℕ ('Recall that for r ∈ ℕ …'; Corollary 3.3 sums over r ∈ ℕ ∩ [1,y]). But (3.1) evaluates Λ at P(k), which is negative on a positive proportion of the box. S_F is defined for F : ℤ → ℝ over |c| ≤ (d+1)𝓜^d H, so (3.3) needs E_z on all of ℤ. (i) Under the standard extension Λ(n) = 0 for n ≤ 0, Theorem 3.1 is false. For d = 1 and k = 1 < m, the region where P(1), P(m) > 0 is c0 > −c1, which has area 3/2 out of 2, so G_{1,m} ~ (3/4)·(stated main term). My own C computation (independent of the first reading's scripts) gives the ratio G/main as even Λ vs zero-extended Λ: d=1, (k,m)=(1,2), H=2000: 0.9974 vs 0.7491 (the first reading's figures reproduced); H=10^4: 0.9994 vs 0.7498; (1,3), H=10^4 (singular series 2): 0.9985 vs 0.7494; (2,5), H=5000: 0.9984 vs 0.8744. d=2, (1,3), H=160: 0.9694 vs 0.6874 (the first reading's figures reproduced); H=300: 0.9796 vs 0.6909. d=3, (1,2), H=60: 0.9929 vs 0.6677. In each case the zero-extended ratio tracks the box fraction with P(k), P(m) > 0 (0.75, 0.875, 0.70, 0.66). (ii) Step (3.3) fails under that convention. Λ_z, defined by divisibility, is even, so E_z(−c) = −Λ_z(c), and at α = 0 the negative half contributes −Σ_{c≤B} Λ_z(c) = B·Σ_{d≤z} μ(d)log d/d + O(z log z) → −B. Computed: B = 4·10^6, z = 1000 gives S_{E_z}(0)/B = −0.940 zero-extended vs +0.060 even. B = 4·10^7, z = 20000 gives −0.972 vs +0.028. (iii) No other convention rescues §3. If Λ_z is also zero-extended, (3.3) and Proposition 3.8 hold, but Lemma 3.10 is then false. Its proof, (3.4) and p. 697, counts c ∈ [−H,H]^{d+1} with k1 | P_c(k), which does not see the sign. Computed for d=1: (k,m,H,z) = (1,2,2·10^4,10) and (1,3,2·10^4,12) give an even Λ_z-sum / Lemma 3.10 main term of 1.0000 but a zero-extended ratio of 0.7500. (iv) Under the even convention the repair works. For t ≠ 0, E_z(t) = −Σ_{d|t,d>z} μ(d)log d, and both |E_z(t)| and |Λ_z(t)| are ≤ τ(|t|)log|t|. Also |Λ_z(0)| = |E_z(0)| ≤ z log z ≤ H log H, so S_{|f|}(0) keeps its bound. S_{E_z}(α) = E_z(0) + T(α) + T(−α), with T the one-sided sum of Corollary 3.3. Also E_z(0) = Σ_{d≤z} μ(d)log d ≪_C z(log z)^{−C} by partial summation from Lemma 3.2 at α = 0. So (3.3) holds, and Lemma 3.9 uses the same (3.3). Defence considered: the main term 2^d H^{d+1}∏ p/(p−1) counts the whole box, and Lemma 3.10 is sign-blind, so the even reading is recoverable. But the paper never states it. The p. 691 wording restricts Λ to ℕ, the proofs write log t for t ≤ 0, and the c = 0 term is dropped. The same sign blindness gives a genuinely false statement in Lemma 3.14 (E1). So this is a gap, not a misprint. It reaches the stated Theorem 3.1, whose statement must gain the convention. The kind, the reach and the revised text are right."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E5",
@@ -85941,14 +85945,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "For negative k the truncation |c| ≤ (d+1)𝓜^d H does not contain the values P(k), so Lemma 3.4 fails. Example: d = 1, H = 2, k = −3, m = 1, f = g = 1. The left side is 10 (c1 ∈ {1,2}, |c0| ≤ 2), but B = 4 and only 5 polynomials have |P(−3)| ≤ 4, so the right side is 5. It also fails for k = m = 0 (𝓜 = 0, B = 0). If 𝓜 < 0, Lemma 3.5's right side is negative. Every use (Proposition 3.8, Lemma 3.9, §4) has k, m ∈ ℕ, and §3 opens with 'For any d, k, m ∈ ℕ', so the intended meaning is clear: a misprint."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E6",
@@ -85966,14 +85971,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "By Lemma 3.4 with d = 1 the integrand is conj(S_f S_g)·D_H(α1+α2)·D_H^+(kα1+mα2), and H^{d−1} = 1, so no factor is bounded trivially. The display replaces D_H^+ by D_H, which is not a pointwise bound: for H = 1 and t = 2π/3, D_1(t) = 1 + 2cos t = 0 while |D_1^+(t)| = 1. Lebesgue's result (3.2) is stated only for D_H. The needed L¹ bound for D_H^+ is standard but not in the paper. The case d = 1 is needed (Theorem 3.1 for all d ∈ ℕ; Theorem 1.2 with some d_i = 1). Lemma 3.5 remains true."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E7",
@@ -85991,14 +85997,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The first display is identical to the second: it depends on the free variable α1, uses the r_j before they are defined in the next sentence, and cannot equal the scalar left-hand side. The next estimate (∫|…|dα1 with the (3.3) factor) shows that the Fourier identity with conj(S_{E_z}) was intended. The meaning is clear and the argument is right once corrected. E4 still applies to the (3.3) bound used here."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E8",
@@ -86016,14 +86023,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Verified on a 300-dpi crop: the inner term is (cl₀)²/φ(cl₀)² and the bracket is squared again. Lemma 3.11 with T = z, q = cl₀ ≤ z^{1/2} gives −q/φ(q) + O_A((log z)^{−A}) for the inner t-sum; squaring gives q²/φ(q)². The printed form would give q⁴/φ(q)⁴, contradicting the main term actually used two displays later. The cross term 2(cl₀/φ(cl₀))·O((log z)^{−A}) is absorbed because Σ 1/(cl₀φ(cl₀)) converges, so the error display ≪ |k−m|(log z)^{−A} stands."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E9",
@@ -86041,22 +86049,23 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Verified on a 300-dpi crop. x²/(log x)^{−1} = x² log x, from which R ≤ √V gives only x√(log x), not the x/√(log x) of Theorem 1.9. The intended bound x²/log x is what (4.5), Lemmas 4.7 and 4.9 give in §4.4."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E10",
    "kind": "gap",
-   "locator": "Published Lemma 4.1 proof pp. 703–704",
-   "printed": "The proof bounds the diagonal after replacing the prime-weighted square by a von Mangoldt sum.",
-   "correction": "State Lemma 4.1 as an upper bound for θ, or as an identity for θ^Λ (item 40). The dispersion (4.1) needs only the upper bound for Σ θ_P², so Theorem 1.9 is unaffected.",
-   "reason": "The proof uses 1_primes (j) log j ≤ Λ(j), which gives only ≤, while the lemma asserts an asymptotic equality; the reverse inequality would need the negative values and higher prime powers to be removed.",
+   "locator": "Lemma 4.1 statement and proof p. 704; inherited by Lemma 4.4 (p. 707) and (4.5) (p. 709)",
+   "printed": "Lemma 4.1: Σ_P θ_P(x)² = 2 Σ_{1⩽m<k⩽x, k≡m≡n₀ (mod M)} ∏_{i=1}^n 𝒢_{k,m}(H; d_i) + O(xH^{d+n}(log H)^n). Proof: 'First, note that for all j ∈ ℕ we have 1_primes(j) log j ⩽ Λ(j), where Λ is the von Mangoldt function. Therefore, the sum over the P_i in our lemma is at most [Σ_P(Σ_{m⩽x, m≡n₀ (mod M)} Λ(P₁(m))⋯Λ(P_n(m)))²] = Σ_{1⩽k,m⩽x, k≡m≡n₀ (mod M)} ∏_{i=1}^n 𝒢_{k,m}(H; d_i).'",
+   "correction": "As proposed: state Lemma 4.1, Lemma 4.4 and (4.5) as upper bounds for Σ_P θ_P(x)², which is all (4.1) needs because Σθ² enters it with a plus sign, or as equalities for θ^Λ_P = Σ_{m⩽x, m≡n₀ (M)} ∏_i Λ(P_i(m)) with Λ even (items 40, 88). To keep the equalities for θ, add the lower bound as sketched. For 1 ⩽ m < k, P_i(m) ⩽ 0 or P_i(k) ⩽ 0 forces c_{i,d_i} ⩽ d_iH/m. A two-dimensional upper-bound sieve in (c_{i0}, c_{i1}) (local factor ∏_{p|k−m} p/(p−1)), together with Theorem 3.1 for the other P_j, bounds the defect of the pair (k, m) by ≪ m^{−1}H^{d+n}∏_{p|k−m}(p/(p−1))^n. Summing with Lemma 4.3 gives ≪ xH^{d+n} log x, and proper prime powers are negligible. Locator: Lemma 4.1 statement and proof pp. 704–705; inherited by Lemma 4.4 (p. 707) and (4.5) (p. 709).",
+   "reason": "Confirmed on p. 704: the proof establishes only '⩽' (the diagonal k = m is then bounded by Lemma 3.14), yet the lemma asserts an asymptotic equality. The ledger's 'printed' field was a paraphrase; it is replaced by the quotation. Lemma 4.4 ('Taking sufficiently large A in Theorem 3.1 and using Lemma 4.1 yields Σθ_P(x)² = 2^{d+1}H^{d+n}T₀(x) + …', p. 707) and (4.5) (p. 709) rest on the same one-sided argument, so they share the gap. The reverse inequality is not a formality: under the even convention that Theorem 3.1 needs, 𝒢_{k,m} also counts negative values, and for m = 1 these are a positive proportion of the box. They stay within the error term only because the sum over m is weighted by 1/m (sketch in correction). (4.1) needs only the upper bound, so Theorem 1.9 is unaffected.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -86066,22 +86075,23 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: Revision accepted; checked on the page images. Lemma 4.1 (p. 704) asserts the equality Σ_P θ_P(x)² = 2Σ_{1⩽m<k⩽x, k≡m≡n₀ (mod M)} ∏_i 𝒢_{k,m}(H; d_i) + O(xH^{d+n}(log H)^n). By (1.4) (Definition 1.8, p. 679), θ_P counts only the m for which every P_i(m) is prime, with weight ∏ log P_i(m), so the primes are positive. The proof (pp. 704–705) starts from '1_primes(j) log j ⩽ Λ(j) … the sum over the P_i in our lemma is at most' Σ_P(Σ_m ∏Λ(P_i(m)))² = Σ_{k,m} ∏𝒢_{k,m}. It then bounds the diagonal k = m by (log H)^n Σ_m ∏_i Σ_{P_i} Λ(P_i(m)) ≪ xH^{d+n}(log H)^n (Lemma 3.14 with Ω = 1) and ends 'which is sufficient for the proof' (p. 705). No lower bound is ever given, so only '⩽' is proved. The quotation in the revision matches the page; the ledger's old 'printed' was a paraphrase. Lemma 4.4 (p. 707: 'Taking sufficiently large A in Theorem 3.1 and using Lemma 4.1 yields Σθ_P(x)² = 2^{d+1}H^{d+n}T₀(x) + …') and (4.5) (p. 709: 'Combining Lemma 4.5 with Lemma 4.4 gives') are equalities that rest only on Lemma 4.1, so the extended locator is right. The lower bound is not a formality. 𝒢_{k,m} (3.1, p. 690) satisfies Theorem 3.1 only with Λ even (E4), so it also counts P(k) or P(m) equal to −ℓ^α. For m = 1 these are a positive proportion of the box (for d = 1, c₀ + c₁ < 0 on 1/4 of it). The crude bound (defect ⩽ ∏𝒢 for each pair) gives only O(x²H^{d+n}), which is not inside O(xH^{d+n}(log H)^n) once x > (log H)^n, and §4.4 works in exactly that range. I re-derived the sketch in the correction. For 1 ⩽ m < k, P(m) ⩽ 0 forces c_d m^d ⩽ HΣ_{j<d} m^j ⩽ dHm^{d−1}, i.e. c_d ⩽ dH/m, and P(k) ⩽ 0 forces c_d ⩽ dH/k < dH/m. Since P(k) ≡ P(m) (mod p) for p | k − m, the two-form sieve in (c₀, c₁) has local factor ∏_{p|k−m} p/(p−1). With 0 ⩽ ∏G⁺ ⩽ ∏𝒢 and ∏𝒢 − ∏G⁺ ⩽ Σ_i(𝒢_i − G⁺_i)∏_{j≠i}𝒢_j, each pair then contributes ≪ m^{−1}H^{d+n}∏_{p|k−m}(p/(p−1))^n. By Lemma 4.3 the sum over m < k ⩽ x is ≪ x log x ≪ xH^{d+n}(log H)^n (the H^{d+n} factor comes along, and log x ≪ log log H). Proper prime powers give H^{d+n−1/2+o(1)} per pair. So the equalities are very likely true, and the right label is 'gap' affecting only the proof. In (4.1) (p. 703) Σθ² enters with a plus sign, and §4.4 (p. 714) uses (4.5) only to bound the right side of (4.1) from above, so the proved upper bound is all that is needed and Theorem 1.9 is unaffected (E1 is a separate issue). For θ^Λ the printed argument is an identity plus the diagonal bound, so restating the lemmas for θ^Λ (items 40 and 88) is also correct. Minor: the proof of Lemma 4.1 ends on p. 705, so the locator could read pp. 704–705."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E11",
    "kind": "gap",
-   "locator": "Published Corollary 1.10 pp. 680–681",
-   "printed": "for all x with (log|P|)^A₁ < x ≤ (log|P|)^A₂",
-   "correction": "Supply a maximal/discretization argument giving one exceptional set for all x in the |P|-dependent range, with the printed exception exponent; otherwise state the pointwise-in-x result of item 15.",
-   "reason": "Markov from the mean estimate provides an exceptional set for each fixed x. It does not by itself bound the union over x, nor replace H by |P|. This is a missing derivation, not a demonstrated false corollary. A union bound over a discretization of the x-range loses a factor that grows with H.",
+   "locator": "Corollary 1.10, pp. 680–681, and the sentence before it ('From Theorem 1.9 and Markov's inequality one immediately deduces…'), p. 680",
+   "printed": "Then for all irreducible P ∈ ℤ[t], P > 0, with deg(P) = d and all x with (log|P|)^{A₁} < x ≤ (log|P|)^{A₂} we have [Σ_{m∈ℕ∩[1,x], P(m) prime} log P(m) = (∏_{ℓ≤log x}(1−ℓ^{−1}Z_P(ℓ))/(1−ℓ^{−1}))x + O(x/(log x)^c)], with the exception of at most O(H^{d+1}(log log H)^{c−1/2}) of polynomials P such that |P| ≤ H.",
+   "correction": "Either state Corollary 1.10 pointwise in x or supply a maximal inequality in x. Pointwise version: for every H ≥ 3 and every x, #{P ∈ ℤ[t]: P > 0, deg P = d, |P| ≤ H, (log|P|)^{A₁} < x ≤ (log|P|)^{A₂}, |θ_P(x) − 𝔖_P(x)x| > x/(log x)^c} ≪ H^{d+1}(loglog H)^{c−1/2}. Irreducibility is not needed. This follows from Theorem 1.9 (n = M = n₀ = 1) and Markov on the dyadic ranges H/2^k ≥ H^{1/2} with some A₁' ∈ (1, A₁). The printed form, one exceptional set for all x, needs a bound for the average over P of sup_x |θ_P(x) − 𝔖_P(x)x|, which the paper does not prove.",
+   "reason": "Markov applied to Theorem 1.9 gives, for each fixed x, at most #Poly(H)·R(x,H)·(log x)^c/x ≪ H^{d+1}(loglog H)^{c−1/2} exceptions. The natural reading of the corollary, however, puts 'for all x' inside a single exceptional set of P. Moving from the H-range to the |P|-range is routine (dyadic argument above). The existing reason lists it as a second obstruction; it is not one. The real gap is uniformity in x, and the obvious repairs fail. θ_P is increasing and 𝔖_P(x)≪loglog x, so a P-independent grid for x with ratio 1+δ, δ≍(log x)^{−c}/loglog x, controls the intervals between grid points. That grid needs ≍(loglog H)^{1+c}·logloglog H points on [(log H)^{A_1},(log H)^{A_2}]. A union bound with Markov then gives H^{d+1}(loglog H)^{2c+1/2+o(1)}. Even with Chebyshev and the stronger V(x,H)≪x²/log x of §4 it gives H^{d+1}(loglog H)^{3c+o(1)}. Both exceed the trivial H^{d+1}. The paper nowhere proves a sup-in-x statement; Lemma 4.10 and §4.5 also work at fixed x. This remains a missing argument, not a proven falsity. For the defence: the lead-in sentence ('immediately deduces') suggests the authors meant the pointwise statement, which is correct.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -86091,14 +86101,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: The quotation matches pp. 680–681. Theorem 1.9 with n = M = n₀ = 1 gives R(x,H) ≪ x/√(log x) for (log H)^{A₁} < x ≤ (log H)^{A₂} and A₁ > 1. Markov at a fixed x then gives at most #Poly(H)·R(x,H)(log x)^c/x ≪ H^{d+1}(log x)^{c−1/2} ≪ H^{d+1}(loglog H)^{c−1/2} exceptions. Passing from the H-range to the |P|-range is routine, as the revision says. Split |P| dyadically into H_k = H/2^k ≥ H^{1/2} and use Theorem 1.9 with some A₁' ∈ (1, A₁); since x ≥ (log|P|)^{A₁} ≥ (log H_k)^{A₁'}, each piece contributes ≪ H_k^{d+1}(loglog H)^{c−1/2}. Polynomials with |P| < H^{1/2} number O(H^{(d+1)/2}). Irreducibility is never needed. So the old ledger reason's second obstruction ('nor replace H by |P|') is not one, and the revision is right to drop it. The real gap is uniformity in x. The sentence puts 'for all x' before a single exceptional set of P, and the lead-in ('a form of the Bateman–Horn conjecture valid for almost all polynomials') confirms that this stronger reading is meant. The obvious repair fails. θ_P is increasing and 𝔖_P(x) ≤ ∏_{ℓ≤log x}(1−1/ℓ)^{−1} ≪ loglog x, so a grid with ratio 1+δ, δ ≍ (log x)^{−c}/loglog x (plus the O(loglog H) jump points e^ℓ of 𝔖_P), controls the gaps. That grid has ≍ (loglog H)^{1+c}·logloglog H points. The union bound then gives H^{d+1}(loglog H)^{2c+1/2+o(1)} with Markov. It gives H^{d+1}(loglog H)^{3c+o(1)} with Chebyshev and the intended §4 bound V(x,H) ≪ x²/log x (p. 703, printed there as x²/(log x)^{−1}). Both exceed the trivial count H^{d+1}. The paper contains no maximal inequality in x: Theorem 1.9, §4 and Lemma 4.10 are all at fixed x. So the uniform statement is unproven, not shown false. The pointwise statement is correct and immediate. The revised issue is accurate: kind gap, affects a stated result."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E12",
@@ -86116,14 +86127,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the page images. Mertens gives ∏_{ℓ≤log x}(1 − 1/ℓ)^{d−n} ≍ (log log x)^{n−d}. The statement of Lemma 4.11 (p. 715), the displays on p. 716, (4.10) and the sentence just before the chain on p. 717 all carry the correct exponent. Since every d_i ≥ 1 we have d ≥ n. When d > n the printed middle term (β_0/2)x(log log x)^{d−n} exceeds the proven lower bound (β_0/2)x(log log x)^{n−d}, so the printed step '≤ θ_P(x)' is unjustified as written. With d−n in both denominators every step holds. The margin (log H)^{A/2}/(log log log H)^{d−n} against (log H)^{A/3} also absorbs the implied constants needed to reach #S ≥ (log|P|)^{A/3} with no constant. The arXiv v3 source (submitted.tex, 4 Sep 2022) has the same text (−n+d; (n−d) in both denominators)."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E13",
@@ -86141,14 +86153,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Verified on a 250-dpi crop. With M = 1 the pairs k = m + 1 (x − 1 + O(1) of them, weight ∏_{p|1} = 1) are omitted, so the first '=' is off by O(x). After multiplying by 2^{d+1}H^{d+n} this is O(xH^{d+n}), inside the error O(xH^{d+n}(log H)^n) of Lemma 4.4. The paper's next display (after defining f, p. 707) already sums over all t ⩽ x/M, so the slip does not propagate. The endpoint m < x − tM versus m ⩽ x − tM changes at most one term, which the O(1) absorbs."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E14",
@@ -86166,14 +86179,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Openness of the two coordinate maps separately does not imply openness of the joint map (g,h). For example, u ↦ (u,u) from ℚ_p to ℚ_p² has open coordinate maps, but its image has empty interior. So the 'Thus' does not follow from what precedes it. The lemma is true, and the missing input (f smooth) is stated in the same sentence, so the fix is immediate. The p. 733 sentence repeats the same insufficient justification. No correction appears in the published version, and no erratum is known."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E15",
@@ -86191,14 +86205,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "'A subset ℳ′ ⊂ ℳ of density 1' is the standard phrase for relative density 1 in ℳ. 'When 𝒫 is ordered by height' fixes the ordering, which ℳ inherits, not the denominator. The next sentence names the ambient set explicitly ('positive density in ℤ^{d+1}') when the ambient is meant. Example 5.6 on the next page shows the authors know that ℳ misses a positive proportion of 𝒫, so the reading 'density 1 in 𝒫' is excluded by the paper itself. The proof gives exactly relative density 1 in each ℳ_i. This is a harmless convention, not a slip. Independent check: The quotation checks out on p. 719, and Theorems 5.8 (p. 722) and 6.1 (p. 725) use the same wording. It is not a mistake. 'A subset ℳ′ ⊂ ℳ of density 1' has its standard meaning, relative density 1 in ℳ. This matches the paper's '100% of' usage in Theorems 1.1–1.2, which is always relative to the named family. 'When 𝒫 is ordered by height' fixes the ordering, which ℳ ⊂ 𝒫 inherits. It does not fix a denominator. Measuring the density in 𝒫 would make no sense: ℳ′ ⊂ ℳ, and Example 5.6 (p. 720) shows that ℳ can miss a positive proportion of 𝒫, so that reading would make the theorem false in a way the authors plainly know about. When the ambient set is meant, the next sentence names it ('positive density in ℤ^{d+1}'). The proof gives exactly the relative statement: 100% of each of finitely many ℳ_i, hence of ℳ = ∪ℳ_i, since #ℳ_i(H) ≤ #ℳ(H). This is a harmless convention, so E15 should be rejected."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E16",
@@ -86216,23 +86231,24 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "For odd t ∈ ℤ_2 and m ≥ 2, t^s ≡ 1 (mod 2^{m+1}), because (ℤ/2^{m+1})^* has exponent 2^{m−1} = s. So P(t) = 2^m(1 + 2a(2^m−3) + 4Q(t)) with an odd cofactor, and v_2(P(t)) = m exactly. For even t there is no solution. So every 2-adic solution has valuation m, which is never divisible by 2^m (2^m > m): the printed sentence is false for every m, but the intended claim (2^m | P(t), so P(t) is not a unit and U_m(ℤ_2) = ∅) is clear and correct. The example's conclusion is unaffected."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E17",
    "kind": "gap",
    "locator": "Published Remark 5.9(2) p. 722",
-   "printed": "Since each P_i ... is a Bouniakowsky polynomial, ... we can find a t_p ... Taking the product",
-   "correction": "Use the JOINT Schinzel hypothesis to choose one residue t_p for which every P_i(t_p) is a unit.",
-   "reason": "Individual admissibility may give different residues; (t,t+1) modulo 2 has individually nonzero values but no common nonvanishing residue. The theorem does assume the stronger joint hypothesis, so the intended conclusion is repairable.",
-   "affects": "the proof",
+   "printed": "'(2) Since each P_i(t, m_i) is a Bouniakowsky polynomial, for each p ∉ S we can find a t_p ∈ ℤ_p such that P_i(t_p, m_i) ∈ ℤ_p^* and hence inv_p(χ, P_i(t_p, m_i)) = 0. Taking the product over i = 1, …, n we see that U_m has a ℤ_p-point over t_p.'",
+   "correction": "Since (P_1(t,m_1),…,P_n(t,m_n)) is a Schinzel n-tuple, P_1⋯P_n mod p is not divisible by t^p − t. Hence there is one t_p ∈ ℤ_p with P_i(t_p,m_i) ∈ ℤ_p^* for every i. Then inv_p(χ,P_i(t_p,m_i)) = 0 for all i, and by Lemma 5.1 U_m has a ℤ_p-point over t_p.",
+   "reason": "The product step needs one t_p for all i. Bouniakowsky for each P_i separately does not give it: t and t+1 are each non-vanishing somewhere on 𝔽_2, but t(t+1) vanishes on all of 𝔽_2. The hypothesis m ∈ 𝒫 (Schinzel) gives the common t_p, so the remark's claim is true and only the stated reason is inadequate. Revision: 'affects' should be 'nothing', not 'the proof'. Remark 5.9(2) is motivation (local solubility and absence of a Brauer–Manin obstruction). It is not used in the proof of Theorem 5.8, which handles primes p ∉ S ∪ {q_i} directly on p. 724 via q_i ∈ ℤ_p^*, nor anywhere later (Remark 6.2 cites only (5.2)).",
+   "affects": "nothing",
    "known": "new",
    "searched": [
     "Publisher article and Inventiones 231(2) issue listing checked 2026-09-22: https://link.springer.com/article/10.1007/s00222-022-01153-6 ; no linked correction located.",
@@ -86241,14 +86257,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: The quotation checks out on p. 722, and the revision is right. The product step needs one t_p that works for every i at once. The reason the remark gives (each P_i(t,m_i) is Bouniakowsky) does not supply it. Counterexample: P_1 = t and P_2 = t+1 are each Bouniakowsky, but t(t+1) vanishes on all of 𝔽_2, and 2 ∉ S for many cyclic K (e.g. ℚ(ζ_7)^+). In the setting of Theorem 5.8, m ∈ 𝒫 is a Schinzel n-tuple. By the definition on p. 675, P_1⋯P_n mod p is not divisible by t^p − t, so a common t_p with every P_i(t_p,m_i) ∈ ℤ_p^* exists. Lemma 5.1 then gives the ℤ_p-point and inv_p(χ,P_i(t_p,m_i)) = 0 for all i. So the remark's conclusions are true, and only the stated reason is inadequate. Nothing depends on the remark. The proof of Theorem 5.8 (p. 724) treats p ∉ S ∪ {q_i} directly, since q_i is a unit and p is unramified. Remark 5.9 is cited nowhere else (a text search finds only its own occurrence), and Remark 6.2 cites only (5.2). So 'affects: nothing' is correct, not 'the proof'."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E18",
@@ -86265,22 +86282,23 @@
     "Author publication pages checked: https://www.ma.imperial.ac.uk/~anskor/publ.htm and https://sites.google.com/view/efsofos/publications ; no SS23 erratum linked.",
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the page image at 300 dpi. The display is equation (1.6) of p. 682 without its tag, and it has nothing to do with the surrounding argument, which needs the S_i=[n_i] term of the preceding expansion. I checked arXiv:2005.02998v3 (PDF of 6 Sep 2022, p. 38): it has exactly (−a₂a₃π₂π₃/π₁)(−a₁a₃π₁π₃/π₂)(−a₁a₂π₁π₂/π₃) at this point, so this is a typesetting regression in the published version. With the correct display the proof is right: the term equals ∏_{i,j}(−a_{i′}a_{i″}π_{i′}π_{i″}/p_ij)=(−1)^r, and r is even by Hilbert reciprocity."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E19",
    "kind": "error",
-   "locator": "Published Eq 6.7 p. 731",
-   "printed": "θ_P(x)−tilde θ_P(x) ≪ (log(Hx))^n",
-   "correction": "Require the polynomials P_i to be pairwise distinct for this pointwise estimate. Remove the repeated-polynomial coefficient diagonals, whose density tends to 0, in the average argument.",
-   "reason": "For P₁=P₂=t+1,tilde θ=0 and θ=Σ_{m≤x,m+1prime}(log(m+1))²~x log x, not O((log(Hx))²), e.g. x=(log H)^A,A>2. For distinct P_i the nonzero difference has only finitely many roots. The same unqualified equation is reused in 2212.14778v2p3. (6.7) is a step in the proof of Proposition 6.7; tuples with a repeated polynomial have density 0, so the proposition stands.",
+   "locator": "Published (6.7), proof of Proposition 6.7 p. 731",
+   "printed": "'The bound P_ij(m) = O_{d_ij}(Hx^{d_ij}) yields log P_ij(m) = O_{d_ij}(log(Hx)), hence 0 ⩽ θ_P(x) − θ̃_P(x) ≪_{n,d_ij} (log(Hx))^n. (6.7)'",
+   "correction": "State (6.7) for P with pairwise distinct P_ij. Its proof: each P_ij−P_rs is a non-zero polynomial of degree ≤ max(d_ij,d_rs), so θ_P−θ̃_P ≤ n²·max d_ij·(C log(Hx))^n. In the average on p. 732, treat the tuples with a repeated polynomial separately. They make up a proportion ≪H^{−2} of Poly(H), and for them |C_P−2^{1−n}θ_P| ≤ θ_P ≪ x(log H)^n. So the bound (1/♯Poly(H))Σ|C_P−2^{1−n}θ_P| ≪ x^{3/4}+(log H)^n still holds.",
+   "reason": "Confirmed; only the counterexample in the reason needs sharpening. θ_P (Definition 1.8) carries the condition m≡n₀ (mod M), so for P₁=P₂=t+1, θ_P(x)∼x log x/φ(M) (not x log x). A fully admissible instance of Proposition 6.7: a=(1,1,−1), n₁=n₂=1, n₃=0, M=8, n₀=0, Q₁₁=Q₂₁=t+1. Every P≡Q (mod 8) and m≡0 (mod 8) give P₁₁(m)≡1 (mod 8), a 2-adic square, so the conic P₁₁(m)x²+P₂₁(m)y²−z²=0 has the ℚ₂-point (1,0,√P₁₁(m)), and the hypothesis holds. P=(t+1,t+1) lies in Poly(H) for every H and is Schinzel. θ̃_P≡0, while θ_P(x)=Σ_{m≤x, 8|m, m+1 prime} log²(m+1)∼(x log x)/4. For x∈((log H)^4,(log H)^6], this exceeds (log(Hx))²≍(log H)²≤x^{1/2}. So the printed justification, which invokes only the size of log P_ij(m) and never the number of coincidences, is wrong for such P. The same text is in arXiv v3 (p. 39). Proposition 6.7 is unaffected. I did not check the claimed reuse in arXiv:2212.14778.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -86290,14 +86308,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: The quotation is on p. 731 (checked on the image), and the arXiv v3 TeX has the same text. θ̃_P has the extra condition P_ij(m)≠P_rs(m) for (i,j)≠(r,s), so θ_P−θ̃_P is the sum of ∏log P_ij(m) over those m for which two of the primes P_ij(m) coincide. The printed argument bounds each term by (C log(Hx))^n, but it never bounds how many such m there are. If the tuple has two equal polynomials, every m counts, and θ̃_P=0. The proposed instance satisfies every hypothesis of Proposition 6.7. With a=(1,1,−1), a₁a₂a₃=−1 is square-free and the signs are not all equal. M=8 is a multiple of 8a₁a₂a₃, n₀=0, and Q₁₁=Q₂₁=t+1 has Q(0)=1, which is coprime to 8. Suppose P≡Q (mod 8) and m≡0 (mod 8). Then P₁₁(m)≡P₂₁(m)≡1 (mod 8), so P₁₁(m) is a non-zero square in ℚ₂, and (1,0,√P₁₁(m)) is a ℚ₂-point of P₁₁(m)x²+P₂₁(m)y²−z²=0. The tuple P=(t+1,t+1) is Schinzel: (t+1)² mod ℓ has one root, and mod 2 it is t²+1, which t does not divide. P lies in Poly(H) for every H≥1. Also θ̃_P=0, while θ_P(x)=Σ_{m≤x, 8|m, m+1 prime} log²(m+1) ∼ (x log x)/4. For x=(log H)^5, which lies in the range of (6.8), the ratio θ_P/(log(Hx))² tends to infinity. So (6.7) is false for admissible P in exactly the range where it is used. The remedy holds. For pairwise distinct P_ij, each pair agrees at no more than max(d_ij,d_rs) values of m, which gives (6.7) with constant ≤ n²·max d_ij·C^n. The tuples with a repeated polynomial need d_ij=d_rs, Q_ij≡Q_rs (mod M) and d_ij+1 ≥ 2 coincident coefficients, so they make up a proportion ≪H^{−2} of Poly(H). For them, C_P=θ̃_P=0 and θ_P ≪ x(log(Hx))^n ≪ x(log H)^n, since x ≤ (log H)^{3n}. Their contribution to the average on p. 732 is therefore ≪ H^{−2}x(log H)^n = o(1), and Proposition 6.7 is unaffected. The only use of (6.7) is that average."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E20",
@@ -86315,14 +86334,15 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "m ranges over ℤ^{d+n}: n blocks of d_ij+1 coefficients (p. 725; (6.9) uses m∈(ℤ_p)^{d+n}). The sentence is copied from the proof of Theorem 5.3 (p. 719), where m₀∈ℤ^{d+1} is correct for a single polynomial. The same text is in arXiv v3 (p. 41)."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E21",
@@ -86340,22 +86360,23 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the image. The same text is in arXiv v3 (p. 41). The meaning is clear from ♯P_d(H)∼2^dH^{d+1} on p. 736."
   },
   {
    "id": "PAPER-SKOROBOGATOV-SOFOS-23/E22",
    "kind": "error",
-   "locator": "Published Discussion following Definition 1.8 p. 680",
-   "printed": "For a fixed P the product S_P(x) converges as x→∞.",
-   "correction": "Do not assert this for arbitrary tuples allowed by Definition 1.8. State the classical convergence result with its distinct irreducible polynomial hypotheses and handle fixed-divisor/content cases separately; for this paper's averages retain the finite product only.",
-   "reason": "For n=2,M=1,P₁=P₂=t+1, one has Z_{P₁P₂}(p)=1, hence S=∏_{p≤log x}(1−1/p)^{-1}, which diverges. This tuple is even Schinzel under the paper's definition. No infinite-product claim is needed for Theorem 1.9. The remark is not used: the paper works with the truncated product throughout.",
+   "locator": "Remark after Definition 1.8, top of p. 680",
+   "printed": "A standard argument based on the prime number theorem for number fields shows that for a fixed P the product 𝔖_P(x) converges as x → ∞. However, the convergence is absolute only when each P_i is linear.",
+   "correction": "Add the Bateman–Horn hypotheses: 'for a fixed P with P_1,…,P_n irreducible and pairwise distinct'. With them both sentences are correct. For general P allowed by Definition 1.8 neither holds: take (t+1, t+1), where the product diverges to ∞; (t+1)(t+3), where it tends to 0; or t², where it converges absolutely although P is not linear.",
+   "reason": "I confirm the existing counterexample: n=2, M=1, P_1=P_2=t+1 is a Schinzel pair, Z_{P_1P_2}(ℓ)=1, each factor is (1−1/ℓ)^{−1}, and 𝔖_P(x)~e^γ loglog x→∞. Such tuples lie in Poly(H) whenever d_i=d_j and Q_i≡Q_j. The second sentence also fails literally: n=1, P=t² (Schinzel, since Z(ℓ)=1≠ℓ) has every factor equal to 1, so the product converges absolutely although P is not linear. Under the Bateman–Horn hypotheses both claims are right. Convergence follows from the prime ideal theorem for ℚ[t]/(P_i) and partial summation. Absolute convergence forces linearity: Σ_i(π_i−1), a sum of permutation characters of the Galois group of P_1⋯P_n minus trivial characters, vanishes identically only if every π_i is trivial. Defence: the preceding sentence ties 𝔖_P to 'the Hardy–Littlewood singular series associated to Schinzel's Hypothesis' ([6]), and the PNT for number fields presupposes irreducible factors, so the intended scope is recoverable. If the reviewer weights this context heavily, 'misprint' (a missing hypothesis whose meaning is clear) is also defensible. The remark is never used; the paper works with the truncated product throughout.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -86365,14 +86386,395 @@
     "Web searches for exact title with erratum/correction and authors with Lemma 3.14/negative values; no correction found. Absence of a search result is not proof of novelty.",
     "Later 2212.14778v2 pp. 1–4 and 2212.10373v2 pp. 2–3 inspected. The former reuses Eq 6.7; the latter explicitly extends Λ evenly to ℤ. Neither inspected passage identifies a correction to Lemma 3.14.",
     "arXiv 2005.02998v3 Te X source (4 September 2022; SHA-256 53903219…), compared at the locator: same text",
-    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-022-01153-6, 23 September 2026: no update-to, updated-by or relation entries",
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
    ],
    "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
    "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
    "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Revised on re-reading; independent check: The quotation matches the top of p. 680 (image). The claim is made 'for a fixed P', where P is as in Definition 1.8 (p. 679): any tuple with P_i > 0, n₀ ∈ ℤ and M ∈ ℕ. Counterexample to the first sentence: n = 2, M = 1, P₁ = P₂ = t+1. This is a Schinzel pair (Z_{P₁P₂}(ℓ) = 1 ≠ ℓ) and lies in Poly(H) whenever d₁ = d₂ and Q₁ ≡ Q₂. The prefactor is 1 and each factor is (1−1/ℓ)/(1−1/ℓ)² = (1−1/ℓ)^{−1}, so 𝔖_P(x) ~ e^γ loglog x → ∞. Irreducibility is also needed for n = 1: P = (t+1)(t+3) is Schinzel (Z(2) = 1, Z(3) = 2), and its product ≍ 1/loglog x → 0. The second sentence also fails literally: P = t² (n = 1, Schinzel) has every factor equal to 1, so the product converges absolutely although P is not linear. Under the Bateman–Horn hypotheses (P_i irreducible and pairwise distinct) both sentences are true. For such tuples Z_{∏P_i}(ℓ) = Σ Z_{P_i}(ℓ) for all but finitely many ℓ. The prime ideal theorem with partial summation gives conditional convergence. Absolute convergence holds iff Σ_i(π_i − 1) = 0, where π_i are the permutation characters of the Galois group. Each π_i − 1 is a genuine character, so this sum vanishes only if every P_i is linear; otherwise Chebotarev gives a positive density of ℓ with Z ≠ n. The defence: the preceding sentence ties 𝔖_P to the Hardy–Littlewood singular series for Schinzel's Hypothesis ([6]), and the PNT for number fields presupposes irreducible factors, so the intended scope can be recovered. But the missing hypothesis is stated nowhere, and the paper's own averages range over tuples where the remark fails. I keep 'error'; 'misprint' is a defensible alternative. The remark is never used, since the paper works only with the truncated product, so the issue affects nothing. The revision is accurate."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E23",
+   "kind": "misprint",
+   "locator": "Published Theorem 1.5 p. 677, Eq. (1.3) ('for all H ⩾ 3'); cf. its proof p. 717 ('when H ≫_{d,n,A} 1')",
+   "printed": "Fix A > 0. In the assumptions of Theorem 1.2 for all H ⩾ 3 we have ♯{P ∈ Poly(H): P is Schinzel, ♯S_{n+A}(P) ⩾ (log|P|)^{A/3}} / ♯{P ∈ Poly(H): P is Schinzel} = 1 + O((log log log H)^{d−n}/√(log log H))",
+   "correction": "State (1.3) for H ≥ H_0(d, n, A, M) as the proof gives, or replace log log log H by max(1, log log log H). With the latter, bounded H is absorbed into the implied constant.",
+   "reason": "For d > n the error term is 0 at H = e^e ≈ 15.15, very small near it, and negative for odd d−n below e^e. The ratio is < 1 there. Take n = 1, d_1 = 2, M = 1, A = 3, Q = 0 and P = 2t² + t + 1. P is Schinzel (P(0) = 1) with |P| = 2, but S_4(P) = {m ∈ ℕ: m ≤ (log 2)^4} = ∅ while (log|P|)^{A/3} = log 2 > 0, so P is excluded. For all H ∈ [15, 16) the family and the ratio (< 1) are the same, while the error term → 0 as H → e^e. So no implied constant works for 'all H ≥ 3'. For large H the theorem is unaffected. Noticed while checking the proof on p. 717; the statement is on p. 677.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on p. 677: (1.3) is asserted 'for all H ⩾ 3' with error O((log log log H)^{d−n}/√(log log H)), and Poly(H) is defined for real H ≥ 1. The Notation paragraph (p. 683) only assumes that iterated logarithms are well defined, and log log log H is well defined, and negative, on [3, e^e). So the convention does not rescue the statement. The proof on p. 717 explicitly works 'when H ≫_{d,n,A} 1'. For d > n the error term vanishes at H = e^e ≈ 15.154. Example: n = 1, d_1 = 2, M = 1, A = 3, Q = 0. P = 2t² + t + 1 is Schinzel, since it is positive and P(0) = 1 is a non-root mod every ℓ, and |P| = 2. Its set S_4(P) = {m ∈ ℕ : m ≤ (log 2)^4 ≈ 0.23} is empty, while (log 2)^{A/3} = 0.69 > 0, so P lies in the denominator but not the numerator for every H ≥ 2. By exhaustive count the ratio is 8794/10299 ≈ 0.854 for every H ∈ [15, 16), while (log log log H)/√(log log H) = −0.0038 at H = 15, 0 at e^e and +0.0082 at H = 15.5. So 1 − ratio = 0.146 cannot be ≤ C·|error| as H → e^e, for any C. If H were restricted to integers, a constant ≥ 39 (forced at H = 15) would cover this, but the paper treats H as real. Only the range is wrong. The asymptotic content is untouched and the fix is routine, so misprint/nothing is the fair classification rather than an error in a stated result."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E24",
+   "kind": "error",
+   "locator": "Corollary 1.7, p. 678; proof p. 679",
+   "printed": "the equation x² − ay² = P(t)z² has a solution (x, y, z, t) ∈ ℕ⁴ with max{x, y, z, t} ≤ |a|^{1/2}|P|^{1/2}(log |P|)^{d/2+ε}. … Then (x₁, y₁, z₁) = (bx₀, y₀, bz₀) is a non-zero solution of x² − ay² = pz²",
+   "correction": "Either add 'a not a square' (the proof is then complete once x₀y₀z₀ ≠ 0 is noted, as above), or state the conclusion as the proof gives it: t ∈ ℕ and (x,y,z) ∈ ℤ_{⩾0}³ ∖ {(0,0,0)}, which for square a is trivial via (b,1,0). For square a with x,y,z ⩾ 1 the statement appears true but needs a different argument. The prime-value argument cannot work, since then x > P(t)/2.",
+   "reason": "In this paper ℕ={1,2,…}. Corollary 1.6 and Theorem 3.1 fix d∈ℕ. Definition 1.8 and Proposition 2.8 take M∈ℕ and use φ(M). Theorem 1.4 with all d_ij=0 would be false. So (x,y,z,t)∈ℕ⁴ requires x,y,z≥1, but the proof only produces a 'non-zero solution'. For a=b² (a₀=1) it provably cannot do better. Holzer's bounds for (−1,1,p) are |x₀|,|y₀|≤√p and |z₀|≤1. The value z₀=±1 would need x₀²−y₀²=p, so x₀=(p+1)/2>√p. Hence every Holzer-bounded solution has z₀=0, i.e. (x₁,y₁,z₁)=(b,1,0) up to sign. More strongly, every solution of x²−b²y²=pz² with z≠0 has x≥p/2 (one factor of (x−by)(x+by)=pz² is divisible by p), far above (|a|p)^{1/2}. A brute-force check confirms this: for a=1,4,9 and the first primes p≡1 (mod 8a), the least x with y,z≥1 is (p+1)/2. So for square a the printed statement is not established by the argument. Defence: if ℕ is read as containing 0 and 'solution' as nontrivial, which the proof's 'non-zero solution' suggests, the corollary is correct as proved; for square a the conic has the obvious point (b:1:0). But with 0∈ℕ the printed statement is trivial via x=y=z=0, so on either reading the formulation needs a fix. The reviewer may prefer 'misprint' on the nontrivial-solution reading. The case of non-square a, the one of interest, is fully proved once x₀y₀z₀≠0 is noted.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Both quotations match pp. 678–679 (images). ℕ = {1,2,…} in this paper: p. 684 says 'd_1,…,d_n ∈ ℕ', used on p. 685 as 'Since d_i ⩾ 1', and ℤ_{⩾0} is written when 0 is wanted (p. 685). So '(x,y,z,t) ∈ ℕ⁴' requires x,y,z,t ⩾ 1, but the proof only produces a 'non-zero solution' (x₁,y₁,z₁) ∈ ℤ³. Non-square a: the missing step is easy. If y₀ = 0 then x₀² = pz₀². If x₀ = 0 then −a₀y₀² = pz₀², and p ∤ a₀. If z₀ = 0 then x₀² = a₀y₀² with a₀ ≠ 1 squarefree. In each case valuation parity forces (x₀,y₀,z₀) = 0. So after taking absolute values the solution lies in ℕ⁴ and the corollary holds. Square a = b² (a₀ = 1): the step fails. Holzer's bounds for (f₁,f₂,f₃) = (−1,1,p) are |x₀|,|y₀| ≤ √p and |z₀| ≤ 1. z₀ = ±1 would need x₀² − y₀² = p, i.e. |x₀| = (p+1)/2 > √p. So every Holzer-bounded solution is (k,±k,0) with 1 ≤ |k| ≤ √p, and (x₁,y₁,z₁) = (bk,±k,0) has z = 0 ∉ ℕ. Even the paper's weaker combined bound max ≤ (|a₀|p)^{1/2} forces z₀ = 0. Worse, the prime route cannot be repaired. Any solution of x² − b²y² = pz² with x,y,z ⩾ 1 has x > p/2, because p divides x−by or x+by. But p/2 > b√p since p ≡ 1 (mod 8a). Brute force confirms this. For a = 1, 4, 9 and the first 8 primes p ≡ 1 (mod 8a), every nonzero Holzer-bounded solution has z = 0 (e.g. p = 17: 16 solutions, all z = 0). The least x with x,y,z ⩾ 1 is exactly (p+1)/2 (e.g. (9,8,1) for p = 17, a = 1). The printed statement is not shown false, however. An exhaustive search over all t, z (not only prime values P(t)) found solutions in ℕ⁴ within |a|^{1/2}|P|^{1/2}(log|P|)^{d/2+0.01} for most random P of height ≤ H. Rates: a=1, d=1: 193/200 (H=10⁴), 198/200 (10⁶), 100/100 (10⁹). a=1, d=2: 199/200 (10⁶), 100/100 (10⁹). a=4, d=1,2 (H=10⁶): 199/200, 200/200. a=9, d=3 (H=10⁶): 100/100. These solutions come from values P(t) with a divisor near √P(t), mostly with z = 1 or 2. A heuristic count (≈ log|P| values of t, each succeeding with probability ≈ (log|P|)^{−0.086}, by Ford's results on divisors in intervals) suggests the statement holds for 100% of P. So for square a the corollary is plausibly true but unproven: the step 'non-zero solution ⇒ solution in ℕ⁴' is invalid there, and no quick repair is available. Hence error, affecting a stated result. Defence: if the intended object is a rational point of the conic bundle x² − ay² = P(t)z² in ℙ² × 𝔸¹, then for square a the points (b:1:0; t) are trivial. On that reading the corollary is trivially true and only its formulation ('ℕ⁴') is at fault. With 0 ∈ ℕ and no non-triviality condition, x = y = z = 0 would make the statement vacuous. So on every reading the formulation needs a fix. The reviewer may prefer 'misprint' on the non-trivial-projective-point reading."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E25",
+   "kind": "misprint",
+   "locator": "Corollary 1.6, p. 678, as applied in the proof of Corollary 1.7, p. 678",
+   "printed": "Corollary 1.6 Let ε > 0 and fix d, n₀, M ∈ ℕ. … we use Corollary 1.6 with n₀ = 0 and M = 8a",
+   "correction": "In Corollary 1.6 write 'fix d, M ∈ ℕ and n₀ ∈ ℤ' (as in Theorem 1.2 and Definition 1.8). In the proof of Corollary 1.7 take M = 8|a| (or n₀ = 8|a|).",
+   "reason": "With ℕ={1,2,…} (see the previous issue), n₀=0 is outside Corollary 1.6's hypotheses, and M=8a is not in ℕ when a<0. The alternative reading 0∈ℕ would admit d=0 and M=0, for which Corollary 1.6 is false or undefined. Nothing is lost: Corollary 1.6 is derived from Theorem 1.5, which allows any n₀∈ℤ, and congruences mod 8a and mod 8|a| coincide.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Both quotations match p. 678 (image): Corollary 1.6 'fix d, n₀, M ∈ ℕ', and the proof of Corollary 1.7 'we use Corollary 1.6 with n₀ = 0 and M = 8a', where Corollary 1.7 allows any a ∈ ℤ ∖ {0}. With the paper's ℕ = {1,2,…} (pp. 684–685), n₀ = 0 is outside the stated hypotheses, and so is M = 8a when a < 0. Reading 0 ∈ ℕ does not rescue Corollary 1.6: M = 0 would then be admitted, and the statement is false for it. gcd(P(n₀),0) = 1 forces P(n₀) = ±1, and m ≡ n₀ (mod 0) forces m = n₀, so P(m) = ±1 is not prime. Nothing is lost. Corollary 1.6 is deduced from Theorem 1.5, whose hypotheses (those of Theorem 1.2) allow any integer n₀. Congruences mod 8a and mod 8|a| coincide. One could equally take n₀ = 8|a|. So this is a slip whose meaning is clear."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E26",
+   "kind": "misprint",
+   "locator": "Published Lemma 3.9, p. 695, last line of the statement",
+   "printed": "\"where the implied constant does not depend on k, m, H, R, Ω and z.\"",
+   "correction": "\"… does not depend on k, H, R, Ω and z.\" Lemma 3.9 has no m.",
+   "reason": "Lemma 3.9 involves one evaluation point k, a modulus Ω, a residue polynomial R and z. The letter m does not occur in its hypotheses or conclusion; it is carried over from the uniformity clause of Proposition 3.8 on p. 694. The meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked at 300 dpi on p. 695: 'where the implied constant does not depend on k, m, H, R, Ω and z.' Lemma 3.9 fixes d, δ1, δ2 and quantifies over z, H, A, k, Ω and R, with k ≤ (log H)^{δ2}, H^{δ1} ≤ z ≤ H and Ω ≤ H. It evaluates only P(k). The letter m occurs nowhere in the hypotheses, the conclusion or the proof. The clause is copied from Proposition 3.8, p. 694 ('does not depend on k, m, H and z'). A reference to a variable that does not exist is a slip whose meaning is clear: the intended uniformity is in k, H, R, Ω and z. It is vacuous rather than false and has no mathematical consequence."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E27",
+   "kind": "gap",
+   "locator": "(3.6) in the proof of Lemma 3.11 p. 699; applied in the proofs of Lemma 3.11 (p. 699) and Lemma 3.14 (p. 703)",
+   "printed": "Σ_{t⩽T, gcd(t,q)=1} μ(t) log t/t = −q/φ(q) + O_A((log T)^{−A}) and Σ_{t⩽T, gcd(t,q)=1} μ(t)/t = O_A((log T)^{−A}), (3.6) which are consequences of the prime number theorem, see [51, Ex. 17, p. 185].",
+   "correction": "State (3.6) for 1 ⩽ q ⩽ T^C (C fixed; implied constants depending on A and C). Proof: μ·1_{(·,q)=1} = μ∗1_{q^∞}. For a ⩽ √T use Σ_{b⩽y}μ(b)/b ≪_A (log y)^{−A} and Σ_{b⩽y}μ(b)log b/b = −1 + O_A((log y)^{−A}), which gives −Σ_{a|q^∞, a⩽√T}1/a + O((log T)^{−A}(q/φ(q))(1 + Σ_{p|q}log p/(p−1))). For a > √T use the uniform boundedness of both partial sums and Rankin's trick: Σ_{a|q^∞, a>√T}(1+log a)/a ≪ T^{−1/4}exp(O((log q)^{0.6})) ≪ T^{−1/5}. Finally Σ_{a|q^∞}1/a = q/φ(q). In Lemma 3.11 this is applied with T/q ⩾ q in place of T. In Lemma 3.14 the factor Ω^{−d−1} makes the range Ω > (log H)^{A+2} trivial.",
+   "reason": "No range of q is printed for (3.6). Lemma 3.11 (q ⩽ T^{1/2}) is deduced from (3.6) with T/q in place of T, which needs q ⩽ T/q, i.e. uniformity for q up to T. The proof of Lemma 3.14 uses (3.6) with T = z = H^{1/4} and q = Ω ⩽ H = T⁴. Both uses need uniformity in q well beyond the range q ⩽ T^{1/2} stated for Lemma 3.11. The estimates do hold in these ranges (argument in the correction), so no result is affected. I could not check the wording of the cited exercise; if it states uniformity in q, only the range is left unstated.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotation of (3.6) is confirmed on p. 699. No range of q is given, and the subscript O_A suggests uniformity in q, but some restriction is needed. For q = ∏_{p⩽T} p the only admissible t ⩽ T is t = 1, so the first sum is 0 instead of −q/φ(q) ~ −e^γ log T, and the second is 1 instead of O((log T)^{−A}). The printed proof of Lemma 3.11 does rely on uniformity. The lemma is stated for all q ⩽ T^{1/2} with constants depending only on A, and it follows from (3.6) with T' = T/q in place of T, using log(qt) = log q + log t. Here q ⩽ T^{1/2} ⩽ T', so (3.6) is needed uniformly for q ⩽ T' (the log q·O((log T')^{−A}) term is absorbed by changing A). Assuming (3.6) only for q ⩽ T'^{1/2} would cover only q ⩽ T^{1/3}. The uniform statement is true: I checked the argument in the correction. The identity μ·1_{(·,q)=1} = μ∗1_{q^∞} holds because the Dirichlet series is ζ(s)^{−1}∏_{p|q}(1−p^{−s})^{−1}. Then use |Σ_{b⩽y}μ(b)/b| ⩽ 1 and the boundedness of Σμ(b)log b/b for a > √T, and Rankin with σ = 1/2 (∏_{p|q}(1−p^{−1/2+ε})^{−1} = T^{o(1)} for q ⩽ T^C). Also q/φ(q), Σ_{p|q}log p/(p−1) ≪ log log T. One point of the first reading's reason is overstated. Lemma 3.14 (p. 703) does apply (3.6) with T = z = H^{1/4} and q = Ω up to H = T⁴, but there the error is multiplied by 2^dH^{d+1}/Ω^{d+1}. For Ω > (log H)^{A+2} the trivial bound |Σ_{k₁⩽z}μ(k₁)log k₁/k₁| + Ω/φ(Ω) ≪ (log H)² already suffices, so that use needs uniformity only for q ⩽ (log T)^{O(A)}. The step that needs uniformity beyond q ⩽ T^{1/2} is the deduction of Lemma 3.11. The paper states no uniformity and gives no argument for it, and the step is true, so the label 'gap' affecting nothing is right. Caveat: I could not access Montgomery–Vaughan [51, Ex. 17, p. 185]. If that exercise states the estimate uniformly for q up to T (or with explicit dependence on q), the issue reduces to an omitted range, which is a misprint."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E28",
+   "kind": "misprint",
+   "locator": "Lemma 3.14 statement pp. 701–702",
+   "printed": "Then for all H ⩾ 1, A > 0, all natural numbers k, Ω, and all R ∈ (ℤ/Ω)[t] such that k ⩽ (log H)^δ and Ω ⩽ H we have",
+   "correction": "… and all R ∈ (ℤ/Ω)[t] of degree at most d such that k ⩽ (log H)^δ and Ω ⩽ H … (as in Lemma 3.9).",
+   "reason": "If R has a nonzero coefficient of t^j with j > d, no P of degree d satisfies P ≡ R (mod Ω), so the left side is 0 while the right side need not be: e.g. d = 1, Ω = 2, R = t² + 1, k = 2 gives R(2) = 5 coprime to 2 and main term H². The proof invokes Lemma 3.9, which assumes deg R ⩽ d, and both applications satisfy it (Ω = 1 in Lemma 4.1; R_i of degree ⩽ d_i in Lemma 4.9). So the omission is a slip whose meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotation is confirmed on pp. 701–702. Lemma 3.14 ranges over 'all R ∈ (ℤ/Ω)[t]' with no degree bound, whereas Lemma 3.9 (p. 695), which its proof invokes, says 'all R ∈ (ℤ/Ω)[t] of degree at most d'. The paper reads P ≡ R (mod Ω) coefficientwise: the proof of Lemma 3.9 writes R(t) ≡ Σ_{j⩽d} r_j t^j (mod Ω), and Lemma 4.9 takes R_i to be the reduction of P_i in (ℤ/W)[t] (p. 713). The counterexample is valid. Take d = 1, Ω = 2, R = t² + 1, k = 2; then Ω ⩽ H, and k ⩽ (log H)^δ once H is large. No P of degree 1 is congruent to R mod 2, so the left side is 0. But gcd(R(2), 2) = gcd(5, 2) = 1, so the right side is 2H²/(2·φ(2)) + O_A(H²(log H)^{−A}) = H² + o(H²). Both uses satisfy the missing hypothesis: Lemma 4.1 takes Ω = 1, and Lemma 4.9 applies the lemma to R_i ∈ (ℤ/W)[t] with deg R_i ⩽ d_i (p. 713). The intended hypothesis is clear from Lemma 3.9, so this is a misprint that affects nothing. It is independent of E1 (the sign of P(k))."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E29",
+   "kind": "misprint",
+   "locator": "Published proof of Lemma 4.7, last display p. 711",
+   "printed": "φ(M)^n/M^n · 2^dH^{d+n}/W^{d+n} (1 + O(H^{−1/2})) Σ_{R∈(ℤ/W)[t]^n} ∏_{prime ℓ∤M, ℓ≤log x} ((1 − ℓ^{−1}Z_{P_1…P_n}(ℓ))/(1 − ℓ^{−1})^n)²",
+   "correction": "Write Z_{R_1…R_n}(ℓ), so that the summand is B_R(x)² as in (4.7) and the preceding displays.",
+   "reason": "The sum runs over the residue tuples R, and P no longer appears. The two preceding displays have B_R(x)², and Lemma 4.6, applied in the next line, needs Z_{R_1⋯R_n}. Same text in the arXiv v3 source.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the image of p. 711 (last display): the summand is ((1 − ℓ^{−1}Z_{P_1…P_n}(ℓ))/(1 − ℓ^{−1})^n)² inside Σ_{R∈(ℤ/W)[t]^n, deg R_i≤d_i}, where P is no longer a bound variable. The two preceding displays on pp. 710–711 carry B_R(x)², and the next step (p. 712) applies Lemma 4.6 with m = W, whose summand is (1 − ℓ^{−1}Z_{R_1…R_n}(ℓ))²/(1 − ℓ^{−1})^{2n}. The defence that Z_P(ℓ) = Z_R(ℓ) when P reduces to R (p. 710) explains the slip but does not bind P. With Z_R the chain φ(M)^nM^{−n}·2^dH^{d+n}W^{−d−n}·W^{n+d}∏γ_n·M^{2n−2}φ(M)^{−2n} = 2^dH^{d+n}M^{n−2}φ(M)^{−n}∏γ_n gives Lemma 4.7 exactly. The meaning is clear and nothing downstream changes. I did not re-check the arXiv source."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E30",
+   "kind": "error",
+   "locator": "Published Lemma 4.9 p. 712 (statement); proof p. 713 (application of Lemma 3.14); used in §4.4 p. 714",
+   "printed": "Σ_{P∈(ℤ[t])^n, |P|≤H, deg(P_i)=d_i, P_i>0} S_P(x)θ_P(x) = x2^dH^{d+n} M^{n−2}/φ(M)^n ∏_{prime ℓ∤M, ℓ≤log x} γ_n(ℓ) + O(H^{d+n}).",
+   "correction": "State Lemma 4.9 for θ^Λ_P(x) = Σ_{1≤m≤x, m≡n_0 (M)} ∏_iΛ(|P_i(m)|), for which the printed right side holds by the printed proof with Lemma 3.14 in its corrected both-signs form. For θ_P keep only the one-sided statements Σ_P S_Pθ_P ≤ main + O(H^{d+n}) and Σ_P S_Pθ_P ≥ main − O(H^{d+n}(log log x)^n(log H)^n log x). The lower bound is all §4.4 needs, and the loss is ≪ x²H^{d+n}/log x after multiplication by 2x because A_1 > n. Already for n = d = M = 1 the true deficit is (∏γ_1/2 + o(1))H² log x.",
+   "reason": "This is downstream of E1: the proof feeds the positive-prime sum ∑* into the printed Lemma 3.14, whose main term is really that of the both-signs sum. The statement itself is false for θ_P, not merely unproved. Take n = d_1 = M = 1 and P = at + b with 1 ≤ a ≤ H, |b| ≤ H. Suppose P(m) = −p with p > log x prime. If a prime ℓ ≤ log x divided both a and b it would divide p, so none does. Hence S_P(x) = ∏_{ℓ|a, ℓ≤log x}(1 − 1/ℓ)^{−1} ≥ 1. For m ≤ x and a < H/m, as b runs over [−H, −am−1] the value P(m) runs bijectively over [−(H−am), −1]. So Σ_P S_P(θ^Λ_P − θ_P) ≥ Σ_{m≤x} Σ_{a<H/m} (ϑ(H−am) − ϑ(log x)) = (1/2 + o(1))H² log x by the PNT, since Σ_{a<H/m}(H − am) = H²/(2m) + O(H). With item 46 this gives Σ_P S_Pθ_P ≤ main − (1/2 + o(1))H² log x + O(H²), which is not main + O(H²) once log x → ∞ (e.g. x = (log H)^{A_2}). E1's reason says only that Lemma 4.9 'inherits the error'. This entry records that the printed Lemma 4.9 is false by a factor log x in its error term, and that §4.4 as printed relies on it; the reviewer may merge it into E1. Same text in the arXiv v3 source.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Statement confirmed on p. 712. θ_P (1.4, p. 679) counts only positive prime values, with weight log P_i(m). Independent argument with n = d_1 = M = 1, so P = at + b, 1 ≤ a ≤ H, |b| ≤ H. Then S_P(x) = ∏_{ℓ≤log x}(1 − Z_P(ℓ)/ℓ)/(1 − 1/ℓ) is 0 if some ℓ ≤ log x divides gcd(a,b), and otherwise equals ∏_{ℓ|a, ℓ≤log x}(1 − 1/ℓ)^{−1} ≥ 1. For fixed m and a, as b runs over [−H, H] the value am + b runs over the window [am − H, am + H]. When am < H the window contains the negative primes −p with p ≤ H − am. θ^Λ counts these and θ does not. For p > log x the gcd condition is automatic, so S_P ≥ 1 on them. Summing, Σ_P S_P(θ^Λ_P − θ_P) ≥ Σ_{m≤x}Σ_{a<H/m}(ϑ(H − am) − ϑ(log x)) = (1/2 + o(1))H² log x. The PNT is uniform here because H/m ≥ H/(log H)^{A_2} → ∞. The same windowing also gives Σ_P S_Pθ^Λ_P = 2xH²∏γ_1 + O(H²), because Σ_{a≤H}S(a) = H∏γ_1 + O(W log log x) with W ≤ x² (S(a) is W-periodic). Hence Σ_P S_Pθ_P = main − (∏γ_1/2 + o(1))H² log x + O(H²). At x = (log H)^{A_2} the deficit is ≍ A_2 H² log log H, which is not O(H^{d+n}) = O(H²). So Lemma 4.9 is false as printed, not merely unproved.\n\nExact numerics (C code; the fast window formula was checked against brute force over all (a, b, m) for H = 60) show the ratio to H² is stable in H and grows like log x. For H = 10^5: (ΣS_Pθ_P − main)/H² = −0.93, −2.24, −3.60, −4.74, −6.16, −7.62 at x = 3, 10, 30, 100, 300, 1000; here x = 1000 = (log H)^{2.83}. Over the same x, (ΣS_Pθ^Λ_P − main)/H² lies in [−0.03, 0]. The negative-prime part is 0.91, 2.19, 3.48, 4.51, 5.74, 6.82, against (∏γ_1/2)(log x + γ_E) = 0.84, 2.16, 3.48, 4.53, 5.77, 6.88. The rest of the θ-deficit comes from prime powers, O(xH^{3/2}). For H = 10^6 and x = 3, 10, 30, 100 the θ values are −0.92, −2.21, −3.53, −4.60 and the θ^Λ values are ≤ 0.001 in size.\n\nThe cause is E1: the proof applies Lemma 3.14, whose main term is really that of the both-signs sum Σ Λ(|P(k)|). With θ^Λ in place of θ the printed proof goes through, including the gcd-removal step (|P(m)| is then a power of a prime dividing M, cost O(H^{d_i} log H)). The correction is sound. θ_P ≤ θ^Λ_P and S_P ≥ 0 keep the upper bound Σ S_Pθ_P ≤ main + O(H^{d+n}). For the lower bound, the mean of θ^Λ_P − θ_P over the box is ≪ (log H)^n Σ_{m≤x}(Σ_i d_i/m + x^{d/2}H^{−1/2}) ≪ (log H)^n log x: the proportion with P_i(m) < 0 is ≤ d_i/m, and prime-power values are rare. With S_P ≪ (log log x)^n, 2x times the loss is ≪ x^{1+n/A_1}(log x)(log log x)^n H^{d+n} ≪ x²H^{d+n}/log x, since x > (log H)^{A_1} and A_1 > n. So §4.4 and Theorem 1.9 stand. Kind error: Lemma 4.9 is a numbered statement that is false. The entry overlaps E1, whose reason only says Lemma 4.9 'inherits the error'. It can be merged into E1 if the reason there is sharpened to say that Lemma 4.9 is false for θ_P with a deficit ≍ H^{d+n} log x."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E31",
+   "kind": "misprint",
+   "locator": "Published proof of Lemma 4.9, main-term display p. 713",
+   "printed": "The main term is 2^dH^{d+n}/(W^{d+n}φ(W)^n) · M^{n−1}/φ(M)^n Σ_{1≤m≤x, m≡n_0 (mod M)} Σ_{R∈(ℤ/W)[t]^n, deg(R_i)≤d_i, gcd(R_i(m),W)=1} B_R(x).",
+   "correction": "Replace W^{d+n}φ(W)^n by W^dφ(W)^n in the main-term display on p. 713.",
+   "reason": "The main term comes from the product over i of the Lemma 3.14 main terms displayed just above, 2^{d_i}H^{d_i+1}/(W^{d_i}φ(W)). With d = Σd_i this product is 2^dH^{d+n}/(W^dφ(W)^n). Lemma 2.7 and the CRT give Σ_{R, gcd(R_i(m),W)=1} B_R(x) = W^dφ(W)^n∏_{ℓ|W}γ_n(ℓ). With W^d the next display (p. 714), 2^dH^{d+n}M^{n−1}φ(M)^{−n}(x/M + O(1))∏γ_n(ℓ), follows exactly. With the printed W^{d+n} an extra factor W^{−n} would remain. The final result is printed correctly, and the arXiv v3 source (line 2589) has the same slip.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the image of p. 713: the main term is printed as 2^dH^{d+n}/(W^{d+n}φ(W)^n)·M^{n−1}/φ(M)^n Σ_m Σ_{R, gcd(R_i(m),W)=1} B_R(x). The i-th factor in (4.8) has the Lemma 3.14 main term 2^{d_i}H^{d_i+1}/(W^{d_i}φ(W))·1(gcd(R_i(m),W)=1) (displayed just above, with Ω = W), and the product over i is 2^dH^{d+n}/(W^dφ(W)^n) with d = Σd_i (p. 703). Lemma 2.7 (p. 687) gives Σ_{R mod ℓ, R_i(m)≠0}(1 − Z_R(ℓ)/ℓ)/(1 − 1/ℓ)^n = ℓ^dφ(ℓ)^nγ_n(ℓ), and by CRT Σ_{R mod W, gcd(R_i(m),W)=1} B_R(x) = W^dφ(W)^n∏_{ℓ|W}γ_n(ℓ). I checked this identity exactly for (W, d) = (6, (1,1)), (6, (1,2)), (10, (1)), (15, (1,1)); all agree. With W^d the printed next display on p. 714, 2^dH^{d+n}M^{n−1}φ(M)^{−n}(x/M + O(1))∏γ_n, follows exactly. With the printed W^{d+n} a factor W^{−n} would remain. So the slip is confined to this display. The error-term display on the same page correctly uses W^{d+n} as the number of R."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E32",
+   "kind": "gap",
+   "locator": "Published proof of Theorem 5.3 pp. 719–720 and proof of Theorem 5.8 p. 723",
+   "printed": "p. 719: 'Our new set ℳ consists of all m ∈ 𝒫 such that m ≡ m_0 (mod M).' p. 720: 'We have ℳ = ∪_{i=1}^n ℳ_i, where each ℳ_i consists of all Bouniakowsky polynomials P(t) of degree d satisfying P(t) ≡ Q(t) (mod M) with (Q(n_0), M) = 1.' p. 723: 'we represent ℳ as a finite union of subsets ℳ_j, each of which consists of all Schinzel n-tuples satisfying a congruence condition of the form m ≡ m_0 (mod M)'",
+   "correction": "Add an integral form of Lemma 5.2. If N ∈ U(ℤ_p), there is M ≥ 1 such that U_{ν,m}(ℤ_p) ≠ ∅ whenever ν ∈ ℤ_p, m ∈ ℤ_p^{d+1} (resp. ℤ_p^{d+n}) and max(|ν−g(N)|_p, |m−h(N)|_p) ≤ p^{−M}. Proof: U(ℤ_p) is an open neighbourhood of N in U(ℚ_p), and the smooth map f is open on ℚ_p-points [21, p. 80]. For K Galois it also follows from Lemma 5.2 as stated: K⊗ℚ_p ≅ L^g with isomorphic factors, so a unit that is a norm from (K⊗ℚ_p)^* equals N_{L/ℚ_p}(y) with y ∈ 𝒪_L^*, and z = (y,1,…,1) ∈ 𝒪_K⊗ℤ_p. Use this form when choosing M_p. In Theorem 5.8, take t_p = n_p, which satisfies (5.2) by (5.4) and (5.6). Then ℳ ∩ {m ≡ m_0 (mod M)} = 𝒫 ∩ {m ≡ m_0 (mod M)}, as both proofs assert.",
+   "reason": "By construction, ℳ_i = ℳ ∩ ∏_p𝓑_{N_p} = ℳ ∩ {m ≡ m_0 (mod M)}, which is contained in 𝒫 ∩ {m ≡ m_0 (mod M)}. Equality needs every m ∈ 𝒫 in the class to have U_m(ℤ_p) ≠ ∅ for p ∈ S (and, for Theorem 5.8, a ℤ_p-point satisfying (5.2)). Lemma 5.2 as stated gives only U_{ν,m}(ℚ_p) ≠ ∅. U is not proper over V, and a ℚ_p-point with unit norm need not be integral: for p odd and K⊗ℚ_p ≅ ℚ_p(√p) × ℚ_p(√(εp)) with ε a non-square unit, ε is a norm from (K⊗ℚ_p)^*, but norms from (𝒪_K⊗ℤ_p)^* are only (ℤ_p^*)². Both conclusions of the theorems use the equality. Corollary 2.9 and Proposition 2.8 count full congruence classes, which gives positive density of ℳ. Theorem 1.2 gives 100% of the full class, and passing to ℳ_i requires ℳ_i to be a positive proportion of that class. In §6.3 (p. 733) the authors state the integral version explicitly, where it follows from properness; §5 lacks it. The results stand, because K is cyclic and the fix is short.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "All three quotations check out on pp. 719, 720 and 723. By CRT, ∏_{p∈S}𝓑_{N_p} ∩ ℤ^{d+1} = {m ≡ m_0 (mod M)}, so ℳ_i = ℳ ∩ {m ≡ m_0} = {m ∈ 𝒫 : m ≡ m_0, U_m(ℤ_p) ≠ ∅ ∀p ∈ S}. The proofs then treat ℳ_i as the whole set 𝒫 ∩ {m ≡ m_0}: 'our new set ℳ consists of all m ∈ 𝒫 such that…', and on p. 720 'each ℳ_i consists of all Bouniakowsky polynomials … ≡ Q (mod M)'; p. 723 is the same for Schinzel tuples. That equality needs U_m(ℤ_p) ≠ ∅ for every such m, together with (5.2) in Theorem 5.8. Lemma 5.2 (p. 718) and (5.5) (p. 723) give only U_{ν,m}(ℚ_p) ≠ ∅. U → V is not proper, and Lemma 5.2 is stated for arbitrary K. For non-Galois K, a unit that is a local norm need not be the norm of an integral element. The first reading's example works: for p odd and K⊗ℚ_p ≅ ℚ_p(√p) × ℚ_p(√(εp)), ε = N(1/√p, √(εp)). But an integral z with unit norm has both components units, whose norms lie in (ℤ_p^*)², and ε is not a square. The equality is used twice as written. First, positive density: Corollary 2.9 and Proposition 2.8 count whole congruence classes. Second, passing from 100% of 𝒫 ∩ class (Theorem 1.2) to 100% of ℳ_i. The local-norm step at p ∈ S only needs ℚ_p-points, so it is fine. In §6.3 (p. 733) the authors do state the integral version, deducing it from properness (f(U(ℤ_p)) = f(U(ℚ_p)) ∩ V(ℤ_p)). That argument is not available in §5, and §5 has no substitute. The step is true and the fix is short, so the stated theorems stand; this is a gap in the proof. It is distinct from E14, which is about separate versus joint openness in the proof of Lemma 5.2. E14's correction mentions an integral version only in passing and does not record that the §5 proofs need it."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E33",
+   "kind": "misprint",
+   "locator": "Published §5.1 p. 721 (the paragraph after the proof of Theorem 5.7)",
+   "printed": "'For example, this holds for K = ℚ(√−1, √2), which is one of 47 biquadratic extensions of ℚ with class number 1, see [9].'",
+   "correction": "'…which is one of the 47 imaginary bicyclic biquadratic fields with class number 1, see [9].'",
+   "reason": "Reference [9] is Brown–Parry, 'The imaginary bicyclic biquadratic fields with class-number 1'. Real biquadratic fields of class number 1 are not among the 47: e.g. ℚ(√2,√3) = ℚ(ζ_24)^+ has class number 1, since h(ℚ(ζ_24)) = 1 and h^+ | h for CM fields. The surrounding sentence is about totally imaginary K, so the intended meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotation checks out on p. 721. Reference [9] (p. 737) is Brown–Parry, 'The imaginary bicyclic biquadratic fields with class-number 1', which lists the 47 imaginary ones. As printed, the count is false. The real field ℚ(√2,√3) has class number 1: by Kuroda's formula for real V4-fields, h = Q·h(ℚ(√2))h(ℚ(√3))h(ℚ(√6))/4 = Q/4 with Q ∈ {1,2,4}, which forces h = 1. Equivalently, ℚ(√2,√3) = ℚ(ζ_24)^+ and h^+ divides h(ℚ(ζ_24)) = 1. If 'biquadratic' is read as 'quartic', cyclic fields such as ℚ(ζ_5) (h = 1) are extra counterexamples. The sentence is about totally imaginary K, and the citation makes the intended meaning clear. The example ℚ(√−1,√2) = ℚ(ζ_8) itself is correct."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E34",
+   "kind": "misprint",
+   "locator": "Published proof of Theorem 5.8 p. 724",
+   "printed": "'Thus ∏_{i=1}^n P(ν, m_i) = q_1 … q_n is a global norm for the extension K/ℚ'",
+   "correction": "∏_{i=1}^n P_i(ν, m_i) = q_1 ⋯ q_n",
+   "reason": "The index i is missing on P: q_i = P_i(ν,m_i) as defined two paragraphs earlier. The meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotation checks out on p. 724: 'Thus ∏_{i=1}^n P(ν, m_i) = q_1 … q_n is a global norm'. The same page defines q_i = P_i(ν,m_i) and writes P_i(ν,m_i) in (5.9). In §5.2 there is no unindexed P. The P(t,x) of §5.1 takes x of length d+1, and d has been redefined as d_1+…+d_n. So the subscript i has been dropped. Because P_i(t,x_i) is the same generic polynomial Σ_j x_{i,j}t^j, the meaning is unambiguous."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E35",
+   "kind": "misprint",
+   "locator": "Published proof of Proposition 6.5 p. 728, (6.3)",
+   "printed": "'Ξ ≪ Poly(H) x^{1+n/A₁}. (6.3)'",
+   "correction": "Ξ ≪ ♯Poly(H) x^{1+n/A₁}. (6.3)",
+   "reason": "Poly(H) is a set. The cardinality sign is used everywhere else, including in (6.2) and in the final line 'Ξ ≪ H^{d+n−1/2+3ε} ≪ ♯Poly(H)H^{−1/2+3ε}'. The same text is in arXiv v3 (p. 37).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "On a zoom of the p. 728 image, the display reads 'Ξ ≪ Poly(H) x^{1+n/A₁}. (6.3)' with no ♯. Poly(H) is a set (p. 677). The same quantity carries ♯ in (6.2) and in the last line of the proof on p. 729 ('Ξ ≪ H^{d+n−1/2+3ε} ≪ ♯Poly(H)H^{−1/2+3ε}'), which is what (6.3) needs. The arXiv v3 TeX has the same slip ('\\texttt{Poly}(H)')."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E36",
+   "kind": "misprint",
+   "locator": "Published proof of Proposition 6.7 p. 732, last lines",
+   "printed": "'If S₂^c or S₃^c are both empty, then S₁^c ≠ ∅ and S₂ ≠ ∅.'",
+   "correction": "If S₂^c and S₃^c are both empty, then S₁^c ≠ ∅ and S₂ ≠ ∅.",
+   "reason": "This is the complementary case to the previous sentence ('If S₂^c or S₃^c is non-empty'). The conclusion uses S₂=[n₂]≠∅ (n₂>0) and S≠([n₁],[n₂],[n₃]), which force S₁^c≠∅. The same text is in arXiv v3 (p. 40).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The sentence is on p. 732 (checked on a zoomed image). The previous case is 'If S₂^c or S₃^c is non-empty', so this sentence has to be its complement: S₂^c=∅ and S₃^c=∅, i.e. S₂=[n₂] and S₃=[n₃]. Then S₂≠∅ because n₂>0. Also S₁^c≠∅, since otherwise S=([n₁],[n₂],[n₃]), which Σ* excludes. With 'or', the sentence is not a case split. The arXiv v3 TeX has the same wording."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E37",
+   "kind": "gap",
+   "locator": "Published proof of Proposition 6.7 pp. 732–733",
+   "printed": "'To verify (6.8) we check that T_{S,P}(x) is a particular case of the sum introduced in Definition 6.4.' … 'Let 𝓕₁ be the product of all the terms involving h but not k, let 𝓕₂ be the product of all the terms involving k but not h, and let 𝒢 be the product of all the terms that depend neither on k nor on h.'",
+   "correction": "Add: 'The condition P_ij(m)≠P_rs(m) in (6.6) is the product of the indicators 1[P_a(m)≠P_b(m)]. Those for pairs other than {h,k} are absorbed into 𝓕₁, 𝓕₂ or 𝒢. The one for {h,k} is redundant, because (P_h(m)/P_k(m))=0 when P_h(m)=P_k(m). Hence T_{S,P}(x)=η_P(x;h,k) for these 𝓕₁, 𝓕₂, 𝒢.'",
+   "reason": "As written, 'the product of all the terms' covers the symbols, signs and logs but not the distinctness indicator. The one pairwise condition that involves both h and k cannot be put into 𝓕₁, 𝓕₂ or 𝒢. It is automatically enforced by the Jacobi symbol, but the paper does not say so. The claim is true, and the proof needs this one-paragraph observation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotations are on pp. 732–733 (checked on the images). T_{S,P} in (6.6) sums over m with all P_ij(m) prime and pairwise distinct. η_P (Definition 6.4) has no distinctness condition, and 𝓕₁, 𝓕₂, 𝒢 are defined as 'the product of all the terms' of the rewritten summand, i.e. the Jacobi symbols and the reciprocity signs. So T_{S,P} is not literally a case of η_P, and the paper does not say how the distinctness indicator is absorbed. The fix works. The indicator is ∏ 1[P_a(m)≠P_b(m)] over pairs. A pair containing h but not k goes into 𝓕₁, a pair containing k but not h into 𝓕₂, and a pair containing neither into 𝒢. The pair {h,k} needs no factor, because the separated symbol (P_h(m)/P_k(m)) vanishes when these two primes are equal. The reciprocity rewrite is only needed where all the primes are distinct and odd (they are prime to M, and 2|M). The signs involve only primes indexed by S₁∪S₂∪S₃, and h lies in a complement, so each sign factor goes into 𝓕₂ (if it involves k) or 𝒢. All factors have modulus ≤1 and depend only on the values, as Definition 6.4 requires. The step is true but not justified as written."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E38",
+   "kind": "misprint",
+   "locator": "Published §6.3 p. 733",
+   "printed": "'Hence ℳ = ∪_{i=1}^n ℳ_i, where ℳ_i = ℳ ∩ ∏_{p∈S} 𝓑_{N_p} for one of these finitely many choices of (N_p) ∈ ∏_{p∈S} U(ℤ_p).'",
+   "correction": "By compactness there are finitely many points (N_p^{(r)}) ∈ ∏_{p∈S}U(ℤ_p), r=1,…,R, whose balls cover ∏_{p∈S}h(U(ℤ_p)). Hence ℳ=∪_{r=1}^{R}ℳ_r, where ℳ_r=ℳ∩∏_{p∈S}𝓑_{N_p^{(r)}}.",
+   "reason": "In §6, n=n₁+n₂+n₃ and i∈{1,2,3} are already taken. The number of balls in the finite cover has nothing to do with n. The formula is copied from the proof of Theorem 5.3 (p. 719), where n was introduced as the number of points N_p^{(i)}. Here no such definition is made. The meaning is clear. The same text is in arXiv v3 (p. 40).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The text is on p. 733 (checked on a zoomed image). In §6, n=n₁+n₂+n₃ and i∈{1,2,3} is the block index. Both are used again a few lines later, in 'Q_ij(t)=P_ij(t,m₀) for all i and j'. In §6.3 the number of balls in the finite subcover is never named. The formula was copied from the proof of Theorem 5.3 (p. 719), where the points N_p^{(i)}, i=1,…,n, are introduced explicitly. Here the text also drops the superscript (i) and writes 'for one of these finitely many choices'. The meaning is clear. The arXiv v3 TeX has the same text."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E39",
+   "kind": "misprint",
+   "locator": "Published §7 p. 734; reference [38] p. 738",
+   "printed": "'V.A. Iskovskikh [38] gave a first counter-example to the Hasse principle with d = 4' — '38. Iskovskikh, V.A.: Minimal models of rational surfaces over arbitrary fields. Izv. Akad. Nauk SSSR Ser. Mat. 43, 19–43 (1979)'",
+   "correction": "Cite V.A. Iskovskikh, 'A counterexample to the Hasse principle for a system of two quadratic forms in five variables', Mat. Zametki 10:3 (1971), 253–257; English transl. Math. Notes 10 (1971), 575–577.",
+   "reason": "[38] is the correct reference for the Enriques–Manin–Iskovskikh classification ([38, Thm. 1], p. 725). It is not the source of the Hasse-principle counterexample for Châtelet surfaces, which is the 1971 note. The arXiv v3 bibliography has the same single Iskovskikh entry, so this is a citation slip by the authors.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The text on p. 734 and entry [38] on p. 738 match the quotation (checked on the images). [38] is Iskovskikh's 1979 paper on the classification of minimal rational surfaces, which §6 (p. 725) rightly cites for the Enriques–Manin–Iskovskikh classification. The first counterexample to the Hasse principle for a Châtelet surface x²+y²=f(t) with deg f=4, namely x²+y²=(t²−2)(3−t²), is in Iskovskikh's 1971 note in Mat. Zametki 10:3, 253–257 (Math. Notes 10, 575–577; mathnet.ru mz9711). The arXiv v3 bibliography has only the 1979 entry (\\cite{isk}). This is a citation slip, and the intended result is clear."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E40",
+   "kind": "gap",
+   "locator": "Published §6.3 p. 734",
+   "printed": "'Write M = ∏_{p∈S} p^{M_p}. … We now apply Proposition 6.7 to our n₀ and M, with Q_ij(t) = P_ij(t, m₀) for all i and j. This is legitimate because P_ij(n₀, m₀) is coprime to M and for any integer ν ≡ n₀ (mod M) and any m ≡ m₀ (mod M) we have U_{ν,m}(ℤ_p) ≠ ∅ whenever p ∈ S.'",
+   "correction": "When choosing the M_p in (6.9), also require M_2 ≥ 3+v₂(a₁a₂a₃); the ball condition (6.9) survives any increase of M_p. Then 8a₁a₂a₃ | M=∏_{p∈S}p^{M_p}, and Proposition 6.7 applies. (Alternatively, note that the proof of Proposition 6.7 only uses rad(2a₁a₂a₃) | M.)",
+   "reason": "Proposition 6.7 assumes 'M be a multiple of 8a₁a₂a₃'. The M_p come from (6.9) and are only said to be positive integers, and the 'legitimate because' list omits this hypothesis. In the defence: the fix is immediate, and the proof of Proposition 6.7 uses only 2a₁a₂a₃|M (for p_ij∤2a₁a₂a₃). The reciprocity signs need no condition mod 8, because they are absorbed into F₂. So nothing beyond one sentence is missing.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The quotations are on p. 734 (checked on the image). Proposition 6.7 (p. 730) assumes that M is a multiple of 8a₁a₂a₃. In §6.3, M=∏_{p∈S}p^{M_p}, where the M_p are only the positive integers given by the analogue of Lemma 5.2 in (6.9). Because a₁a₂a₃ is square-free, 8a₁a₂a₃ | M comes down to M_2 ≥ 3+v₂(a₁a₂a₃), and nothing guarantees this. The 'legitimate because' sentence checks coprimality and local solubility, but it never checks this hypothesis. Defence: the fix is immediate, because (6.9) still holds when M_p is increased. Also, the proof of Proposition 6.7 only uses that every prime factor of 2a₁a₂a₃ divides M. That makes the p_ij=P_ij(m) prime to 2a₁a₂a₃ and puts the local solubility at p|2a₁a₂a₃ that Lemma 6.6 needs into the hypothesis. The quadratic-reciprocity signs are functions of the primes and go into 𝓕₂ or 𝒢, so they need no fixed residue mod 8. The step is incomplete as written, but a single sentence fixes it."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E41",
+   "kind": "gap",
+   "locator": "Published §6.3 p. 734 (last statement of Theorem 6.1, p. 725)",
+   "printed": "'The last statement of Theorem 6.1 is proved in the same way as in Theorems 5.3 and 5.8.'",
+   "correction": "Add: ∏_{p∈S}U(ℤ_p)≠∅. For each p∈S, take constant polynomials (plus a point of the conic) with P₁₁=U₁, P₂₁=U₂ and all other P_ij=1. Here (U₁,U₂)=(a₂,−a₁) with the point (1:1:0) if p∤a₁a₂; (1,−a₂a₃) with (0:1:a₂) if p|a₁; and (−a₁a₃,1) with (1:0:a₁) if p|a₂. So the finite cover contains at least one ball. The corresponding ℳ_r equals the set of Schinzel tuples m≡m₀ (mod M) with ∏P_ij(n₀,m₀) prime to M, which has positive density by Proposition 2.8. Hence ℳ, and with it ℳ′, has positive density.",
+   "reason": "The §5 argument ('ℳ=∪ℳ_i, each ℳ_i has positive density by Corollary 2.9') presupposes that the cover is non-empty, i.e. U(ℤ_p)≠∅ for every p∈S. If some U(ℤ_p) were empty, ℳ=∅ and 'ℳ′ has positive density in ℤ^{d+n}' would be false. In §5 non-emptiness is trivial (P ≡ 1). Here it needs the short local construction above, which the paper does not give. The statement is true, and Theorem 1.4 depends on it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "The sentence is on p. 734. The model argument in §5 (end of the proof of Theorem 5.3 on p. 720, and p. 724 for Theorem 5.8) writes ℳ=∪ℳ_i with each ℳ_i a congruence class of Schinzel tuples, and gets positive density from Corollary 2.9 or Proposition 2.8. This needs the finite cover to be non-empty, i.e. ∏_{p∈S}U(ℤ_p)≠∅. If it were empty, ℳ=∅ and the last claim of Theorem 6.1 would fail. In §5 non-emptiness is trivial: the constant polynomial 1 is the norm of 1, so the invariants vanish. That does not carry over to §6. With every P_ij≡1, the conic a₁x²+a₂y²+a₃z²=0 can have no ℚ_p-point (e.g. x²+y²−3z² at p=3). Neither §6.3 nor §6.4 checks this, and Theorem 1.4 ('positive proportion') depends on it. The statement is still true. For p∈S, let U_i be the product of the values of the block-i polynomials, which can be any p-adic units since n₁,n₂>0, and take U₃=1. If p∤a₁a₂, take U₁=a₂, U₂=−a₁, with the point (1:1:0). If p|a₁, then p∤a₂a₃; take U₂=−a₂a₃, with the point (0:1:a₂). If p|a₂, take U₁=−a₁a₃, with the point (1:0:a₁). Using constant polynomials with these values gives N_p∈U(ℤ_p)."
+  },
+  {
+   "id": "PAPER-SKOROBOGATOV-SOFOS-23/E42",
+   "kind": "misprint",
+   "locator": "Published references [17] p. 737, [19] p. 738, [53] p. 739",
+   "printed": "'17. Colliot-Thélène et, J.-L., Sansuc, J.-J.: …'; '19. Colliot-Thélène, J.-L., Harari et, D. Skorobogatov, A.N.: …'; '53. Schinzel et, A., Sierpiński, W.: …'",
+   "correction": "17. Colliot-Thélène, J.-L., Sansuc, J.-J.: …; 19. Colliot-Thélène, J.-L., Harari, D., Skorobogatov, A.N.: …; 53. Schinzel, A., Sierpiński, W.: …",
+   "reason": "The French conjunction 'et' of the arXiv bibliography (e.g. arXiv v3 [18] 'J.-L. Colliot-Thélène et J.-J. Sansuc', [20] 'D. Harari et A.N. Skorobogatov') was parsed as part of a surname during the conversion to Springer style.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.1007/s00222-022-01153-6, checked 2026-09-23: no update, correction or erratum relation"
+   ],
+   "owner": "PAPER-SKOROBOGATOV-SOFOS-23",
+   "file": "research/blueprint/papers/PAPER-SKOROBOGATOV-SOFOS-23.result.json",
+   "citation": "Skorobogatov–Sofos, \"Schinzel Hypothesis on average and rational points\", Inventiones Mathematicae (2023)",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-SKOROBOGATOV-SOFOS-23",
+   "reviewReason": "Checked on the images of pp. 737–739: [17] reads 'Colliot-Thélène et, J.-L., Sansuc, J.-J.:', [19] reads 'Colliot-Thélène, J.-L., Harari et, D. Skorobogatov, A.N.:' (with no comma after 'D.'), and [53] reads 'Schinzel et, A., Sierpiński, W.:'. The arXiv v3 TeX has 'J.-L. Colliot-Thélène et J.-J. Sansuc', 'D. Harari et A.N. Skorobogatov' and 'A. Schinzel et W. Sierpiński'. The French 'et' was read as part of a surname when the references were converted to the publisher's style. The slip is in the published version only, and the authors are recognisable."
   },
   {
    "id": "PAPER-TREUMANN-VENKATESH-16/E1",
