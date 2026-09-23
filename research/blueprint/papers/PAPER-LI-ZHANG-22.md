@@ -1,98 +1,72 @@
-# PAPER-LI-ZHANG-22: On the arithmetic Siegel–Weil formula for GSpin Shimura varieties
+# PAPER-LI-ZHANG-22: GSpin arithmetic Siegel–Weil
 
-Chao Li and Wei Zhang, *On the arithmetic Siegel–Weil formula for GSpin Shimura varieties*, [Invent. Math. 228 (2022), no. 3, 1353–1460](https://doi.org/10.1007/s00222-022-01106-z); arXiv [2106.15038](https://arxiv.org/abs/2106.15038).
+Chao Li and Wei Zhang, *On the arithmetic Siegel–Weil formula for GSpin Shimura varieties*, [Invent. Math.228 (2022), 1353–1460](https://doi.org/10.1007/s00222-022-01106-z).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1278). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-LI-ZHANG-22.result.json](PAPER-LI-ZHANG-22.result.json): 45 items (3 planned, 42 missing), 5 routes, 15 prerequisite entries and 7 recorded source issues.
+Original extraction: Claude Code, cc-fb70e5, issue#1278 / PR#1950.
+Independent correction: Codex, codex-a71f92, REV-PAPER-LI-ZHANG-22 / issue#1279, 2026-09-23.
+The review is complete with verdict **revise**; the extraction is **partial**.
 
-**Source.** The Springer PDF blocks scripted downloads, so two versions were read on 2026-09-22.
-- **The authors' final version**, [KRO.pdf](https://www.math.columbia.edu/~chaoli/KRO.pdf) on Chao Li's homepage: dated 2 March 2022, 80 pages, SHA-256 `c02a94d47eee2634fda148a162b54bb9aa90855eb140fb809959ab195cabfbdd`. It was read in full, and locators are its pages.
-- **arXiv v1** (29 June 2021, the only arXiv version), compared word by word with it. Apart from renumbered equations and wording, the differences are the corrections listed in E7.
+The [result](PAPER-LI-ZHANG-22.result.json) now contains 64 items: 9 library, 10 planned, 45 missing; five routes; 15 prerequisite entries; 12 individually reviewed source issues. Every missing item occurs in exactly one route. The [review report](../reviews/REV-PAPER-LI-ZHANG-22.md) gives the evidence, changes and remaining obligations.
 
-## What the paper proves
+## Sources and reading scope
 
-**Setting.** F = Q_p with p odd, m = n + 1 ≥ 3 and ε = ±1. N = N^ε_n is a connected GSpin Rapoport–Zink space (Howard–Pappas, Kim), V = V^ε_m is its space of special quasi-endomorphisms (Hasse invariant −1), and Z(L) ⊆ N are the special cycles.
+The independent review read the entire **published** article, 108 PDF pages, from the [NSF public copy](https://par.nsf.gov/servlets/purl/10338689). SHA-256:
+`e340b6e1213b365b47e5839f9297ff9f5116c40cf261d08b89115f7dde6c0ee7`.
+Journal pages run1353–1460.
 
-**Theorem 1.2.1 = 4.15.1 (local arithmetic Siegel–Weil formula).** For every O_F-lattice L ⊆ V of rank n, Int^ε(L) = ∂Den^ε(L).
-- Int^ε(L) is the Euler characteristic of O_{Z(x_1)} ⊗^L ⋯ ⊗^L O_{Z(x_n)}.
-- ∂Den^ε(L) is the derivative at X = 1 of the normalized local Siegel series Den^ε(X, L), normalized against H^ε_{m+2k}; the functional equation Den^ε(X, L) = −X^{val(L)}Den^ε(1/X, L) makes the derivative the right invariant.
-- This is the orthogonal analogue of the Kudla–Rapoport conjecture proved by the same authors in the unitary case (PAPER-LI-ZHANG-22-B). For m = 4 it was known: Gross–Keating/Wedhorn for ε = +1, Terstiege for ε = −1.
+Retained original item locators usually refer to the 80-page [author manuscript](https://www.math.columbia.edu/~chaoli/KRO.pdf), dated 2 March2022, hash
+`c02a94d47eee2634fda148a162b54bb9aa90855eb140fb809959ab195cabfbdd`.
+The reviewer compared selected error passages, not every word, with [arXiv v1](https://arxiv.org/pdf/2106.15038v1), hash
+`e7bcfc430c8be5a416ab7bf340b582c8b4fd7f04e72f07486b035d5abfc0fb5c`.
+The published PDF is not identical to the author-final: its p.1434 still has a dual-basis typo corrected in the manuscript.
 
-**Theorem 1.3.1 = 12.9.1 (semi-global identity).** For F = Q, p > 2 with hyperspecial K_p, and p-admissible ϕ_K, Int_{T,p}(ϕ_K)q^T = c_K ∂Eis_{T,p}(z, ϕ_K) for all T ∈ Sym_n(Q)_{>0}. The proof is p-adic uniformization of Kisin's model plus Theorem 4.15.1, with the prime-to-p places supplying Whittaker factors.
+The reviewer also read the [unitary companion](https://www.math.columbia.edu/~chaoli/KRProof.pdf) §§5.2–5.3 and the relevant [Howard–Pappas](https://arxiv.org/pdf/1509.03914) spinor/component passages. Other prerequisite papers were not freshly read in full. Version hashes and exact scope are in `source.readSections`.
 
-**Proof of the local theorem.** As in the unitary case, fix L^♭ of rank n − 1 and compare x ↦ Int_{L^♭}(x) with x ↦ ∂Den_{L^♭}(x) on Ω(L^♭) = L^♭_F × W^an, where W = (L^♭_F)^⊥ is now **2-dimensional** — the source of the new difficulties, since W can be isotropic.
-- **Horizontal part (§5).** Z(L^♭)_H is the union of the primitive quasi-canonical/Gross–Keating cycles Z(M^♭)° over the horizontal lattices M^♭ ⊇ L^♭ (Theorem 5.3.1), proved with Kim's étale Tate tensors, Tate's theorem and Breuil's theorem. Their degrees (Lemma 5.7.1) give deg Z(L^♭)_H = Den^♭(1, L^♭) (Corollary 5.8.1), and the horizontal identity Int_{L^♭,H} = ∂Den_{L^♭,H} reduces to Gross–Keating (Theorem 7.2.2).
-- **Vertical part, geometry (§§6–7).** Z(L^♭)_V is supported on N^red, because the isometry group of the 2-plane W is a **torus**, on which Rapoport–Richartz specialization is trivial (Proposition 6.1.1) — a cleaner argument than the unitary one. The Tate conjecture for the Deligne–Lusztig varieties Y_d (Theorem 6.3.2, via Lusztig's Coxeter eigenvalues) reduces the vertical part to Deligne–Lusztig curves V(Λ) ≅ P¹, and Int_{V(Λ)} = (1 − q, 1, 0) is computed through Drinfeld's space and the self-intersection −2q (Theorem 7.4.1, Lemma 7.4.2). Its Fourier transform is γ_V = −1 times itself (Lemma 7.5.1), and §7.6 upgrades this to all vertex types ("higher local modularity").
-- **Vertical part, analysis (§8).** New explicit formulas for orthogonal local densities in both parities of corank (§§3.4–3.6) plus weighted counting identities for full-type lattices (Propositions 8.2.5, 8.2.7) give recurrences for the partial Fourier transform ∂Den^⊥_{L^♭,V} (Proposition 8.1.2).
-- **Conclusion (§9).** O(W)(F)-invariant distributions on an isotropic plane with support conditions form a space of dimension 2k (Proposition 9.1.3, via the Weil representation of SL₂, Kudla's S(W)_{O(W)} ≅ I(1) and SL₂ newforms). This forces the matching geometric recurrences (Proposition 9.2.3), and an induction on val(L^♭) finishes (Theorem 9.3.2).
+## Main targets and proof structure
 
-## What the atlas already has
+For F=Q_p, p odd, m=n+1≥3, the paper states
+`Int^ε(L)=∂Den^ε(L)` for rank-n nondegenerate lattices in its special quasi-endomorphism space. Here `∂Den=−D′(1)`, with the minus sign. It then states, over Q at a hyperspecial odd prime and for p-admissible test functions,
+`Int_{T,p}(ϕ_K) exp(πi tr(Tz)) = c_K ∂Eis_{T,p}(z,ϕ_K)`,
+for positive definite T, with `c_K=(−1)^n/vol(K)` under the paper's measure convention.
 
-- **Library.** Nothing: no quadratic lattices over local fields with Jordan/fundamental invariants, no local densities or Siegel series, no Rapoport–Zink spaces, Deligne–Lusztig varieties, K-groups with supports or metaplectic Eisenstein series.
-- **Planned** (3 items):
-  - GeometryOfNumbersAndQuadraticArithmetic GN.2: local quadratic invariants and the classification of quadratic spaces (§2.1).
-  - AutomorphicLFunctionsAndLocalFactors AL.0: Fourier transforms and self-dual measures (§2.2).
-  - MetaplecticAutomorphicForms MP.4: the adelic metaplectic group and the global Weil representation (§11.3).
-- **Not in the atlas.** Everything else, including the two Part II candidates reused below.
+The local proof splits along a rank n−1 lattice. Horizontal cycles reduce to quasi-canonical/Gross–Keating calculations. Vertical intersection functions are compared with Deligne–Lusztig curves through **Tate cycle classes**. This does not make those curves equal in Chow or K-theory. The specialization argument uses **SO(W)**, a torus for a nondegenerate plane, not the disconnected full O(W). The analytic and geometric recurrences then use the plane's isotropic/anisotropic cases. Proposition 9.1.3 has dimension2k only for k≥1; at k=0 its distribution space is one-dimensional.
+
+The review records false auxiliary statements and unresolved proof steps; it does **not** claim either main identity is false.
+
+## Existing providers
+
+The blanket statement “Library: nothing” has been removed. Items 46–54 cite declarations read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`: Clifford algebra, discriminants, Witt extension, spinor norm and its kernel theorem, the general Fourier integral, derived category, algebraic cycles, and abelian varieties over fields.
+
+None alone supplies the RZ spaces, formal-scheme support K-theory, p-adic Fourier inversion, integral GSpin group scheme or Kuga–Satake family. Items 55–58 explicitly import the scheme K/Chow/cycle-map and generic canonical-model layers. Items 63–64 import the existing Tau Ceti local/global quadratic-classification roadmaps; they must not be re-planned in GN or GSpin heights. Item 5 is now planned in GN.3, whose contract explicitly includes local densities.
 
 ## Routes
 
-1. **Part II of GrossZagierAndArithmeticHeights: `GSpinSpecialDivisorHeights`** (22 items), the candidate proposed by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 (with its title). It takes:
-   - special cycles Z(L), flatness of Z(x), minuscule cycles and the Bruhat–Tits stratification;
-   - derived cycles, Int(L), properness, horizontal/vertical parts and the cancellation law;
-   - quasi-canonical and Gross–Keating cycles, Theorem 5.3.1 and the degrees;
-   - Proposition 6.1.1, Theorem 6.3.2 and the whole Fourier analysis of §7 (including the −2q self-intersection and local modularity);
-   - Propositions 8.1.2 and 9.2.3, Theorem 9.3.2 and Theorem 4.15.1;
-   - the global side: incoherent Eisenstein series, Int_{T,p} and Theorem 12.9.1.
+| Route | Decision | Scope |
+|---|---|---|
+|1: GSpinSpecialDivisorHeights |reject |26 residual item references; separate generic suppliers and repair the proof/statement issues before design |
+|2: OrthogonalIntegralModelsAndKugaSatake |reject |8 bundles; exact moduli/tensor statements and the shared stratum/cycle boundary remain unresolved |
+|3: GeometryOfNumbersAndQuadraticArithmetic GN.3 |accept, bounded source |10 references including planned item 5; corrected density/counting statements and explicit E10 repair tasks |
+|4: MetaplecticAutomorphicForms MP.3 |accept, bounded source |the orthogonal–SL₂ coinvariant/distribution specialization, with MP.2/AL.0 imports and its actual newform input |
+|5: FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 |accept, bounded source |Tate full-faithfulness, distinct from Raynaud's finite-flat theorem and ramification bound |
 
-   This is the orthogonal counterpart of `UnitaryKudlaRapoportCycles`; the brief says to build the two in parallel rather than duplicate them.
-2. **Part II of ShimuraVarieties: `OrthogonalIntegralModelsAndKugaSatake`** (8 items), the candidate proposed by PAPER-CHARLES-16 and extended by PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 (whose title is reused):
-   - GSpin Rapoport–Zink spaces, the crystal V_crys with its projector, Grothendieck–Messing, the exceptional isomorphisms for m ≤ 5;
-   - étale Tate tensors and special endomorphisms over O_K;
-   - the GSpin Shimura datum, Kisin's models with the Kuga–Satake abelian scheme, the special cycles on them, and p-adic uniformization.
-3. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.3** (10 items): the entire local-density package — Definition 3.1.1, the finite-field counts of §3.2, Cho–Yamauchi and the induction formula, the odd and even corank Siegel series with Ikeda's functional equations, horizontal lattices, the §8.2 counting identities and Lemma 9.3.1.
-4. **Source of MetaplecticAutomorphicForms MP.3** (1 item): Proposition 9.1.3, the classification of O(W)-invariant distributions on an isotropic plane, which is local theta material for the pair (SL₂, O(W)).
-5. **Source of FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1** (1 item): Tate's full-faithfulness theorem for p-divisible groups over O_K, routed there exactly as PAPER-LI-ZHANG-22-B routes it.
+The two Part II identifiers are shared candidates, not already proved suppliers. No new roadmap is promoted by this review. Route acceptance is not a proof certificate.
 
-## Source issues (`sourceIssues` E1–E7)
+## Source corrections
 
-- **E1** (error, affects nothing). The simplified form of Lemma 3.2.1 and the closed formula of Lemma 3.2.2 are stated for all U, resp. all b, but hold only for n + t > 0, resp. b ≥ 1: at U = 0 with m even they give 1 − q^{−m} and q^m − 1 instead of 1. The simplification cancels a factor (1 − x²) that is absent in that case. Brute force over F₃ (m ≤ 4) and F₅ (m ≤ 3) confirms the formula in 160 of 166 configurations, the six exceptions being exactly U = 0 with m even. The edge case is used in the proof of Lemma 7.6.7(ii) at d = 2, where the printed evaluation substitutes q⁴ − 1 for S₀ = 1; with the correct value the identity holds (checked symbolically for 2 ≤ d ≤ 7), so the lemma is unaffected.
-- **E2** (misprint). The proof of Theorem 3.5.4 writes Den(H^ε_{n+1+2k}, L) for Den(H^ε_{n+2k}, L).
-- **E3** (gap, affects the proof; new).
-  - **The problem.** Remark 4.11.5 lifts an isometry g ∈ SO(V)(F) to g̃ ∈ J(F) "such that η(g) = 1". A lift has η(g̃) = spinor norm of g in F^×/(F^×)², so η(g̃) = 1 forces the spinor norm to be trivial. What is needed is only val η(g̃) = 0, since g̃ carries RZ^{(ℓ)} to RZ^{(ℓ + val η(g̃))} and N = RZ^{(0)}; that requires an isometry whose spinor norm has even valuation.
-  - **Why it is not automatic.** For m even, ε = −1 one has V^−_m ≅ ϖ·H^−_{m,F}; write H^−_m = M ⊥ ⟨w⟩ with M self-dual of rank n and let L be M with the scaled form (all fundamental invariants 1). Every element of SO(V)(F) stabilizing L is a product of an even number of reflections in vectors of L or L^⊥_F, each of spinor norm of valuation 1, so the stabilizer has even-valuation spinor norms; since V is isotropic the spinor norm is surjective, so taking L′ = hL with val sn(h) odd gives isometric lattices no isometry of which lifts to an automorphism of N.
-  - **Reach.** Remark 4.11.5 supplies the O(W)(F)-invariance in Lemma 9.2.2(i), hence Proposition 9.2.3 and Theorem 9.3.2.
-  - **Repair.** The conclusion is presumably true (Theorem 4.15.1 asserts it, and for m = 4, ε = −1 Terstiege's explicit formulas give it), and an automorphism of RZ_G outside J(F) that shifts the components would supply it; no such argument is given, and this extraction did not settle it.
-- **E4** (misprints, cross-references). "Lemma 6.1.1" for Proposition 6.1.1 (proof of Lemma 4.13.1); "[LZ, Theorem 5.2.2]" and "[LZ, Lemma 5.2.1]" for [LZ, Theorem 5.3.2] and [LZ, Lemma 5.3.1] (proof of Theorem 6.3.2 — Corollary 7.3.2 of the same paper uses the correct numbering); "Lemmas 7.4.5" for Corollary 7.4.5 (§7.6); and Corollary 7.6.8 citing itself, "Lemmas 7.6.8 and 7.5.1", for Lemma 7.6.7.
-- **E5** (misprints). "T ∈ Herm_n(F)" for Sym_n(F) in the introduction (this is the orthogonal case; (11.4.0.2) has Sym_n); "Z(M^♭) ⊆ Z(M_{n−2})" for Z(M_{n−3}) in the type-2 case of §5.3; and "val(x) ≤ 0" for val(x) < 0 in case (iii) of the proof of Corollary 7.4.5 (val(x) = 0 is case (ii)).
-- **E6** (misprint). In the base case (2) of the proof of Proposition 8.2.7, µ_−(L) = q^t − q should be q^{t−1} − q — the two preceding counts are q^{t−1} and q, and the displayed identity only holds with q^{t−1} − q. The inductive display also flips the sign of s relative to the statement, which is harmless since the identity is claimed for both signs.
-- **E7** (misprints in arXiv v1, corrected in the final version). q^T = ψ_∞(tr Tz) for ψ_∞(½ tr Tz); [L : M] for [M : L] in Definition 8.2.2; ⟨…, e_t⟩ for ⟨…, ϖ^{−2}e_t⟩ in the base cases of Propositions 8.2.5 and 8.2.7; |det(m(a))| for |det(a)| in §11.4; and the sentence "E(z, s, Φ) does not depend on the choice of χ", which the final version replaces by the opposite statement in §11.1.
+All original E1–E7 were checked, with reach/version qualifications. E1 affects a stated counting result, not “nothing”; E3 remains a proof gap; E7's final-manuscript correction does not remove the surviving journal typo.
 
-**Also checked and correct:**
-- **Example 4.15.3** recomputed from Theorem 3.4.5 and Corollary 3.4.7: Den^ε(X, L) = 1 + εqX + qX² + εX³, so ∂Den^−(L) = 3 − q, matching Terstiege.
-- **Lemma 3.2.1** by brute-force enumeration of isometric embeddings over F₃ and F₅ (166 configurations; see E1 for the six edge cases).
-- **Lemmas 7.6.5, 7.6.6 and 7.6.7** symbolically for d ≤ 7, and the counts of isotropic vectors they use.
-- **Corollary 7.4.5** (q² + 1 vertex lattices of type 2 over Λ, giving −q(1 + q) + q² + 1 = 1 − q) and the Fourier values (q − 1, −1, 0, 0) of Lemma 7.5.1.
-- **The base cases of Propositions 8.2.5 and 8.2.7**, including the corrected µ_− of E6, and the weight factors in the proof of Proposition 8.1.2 against Definition 3.4.4.
-- **Lemma 6.3.1**'s Poincaré-duality step (eigenvalue q^{2j} on H^{2j}(Y°_d)(j)) and the dimension count 2k of Proposition 9.1.3 against the double cosets B(F)\SL₂(F)/K₀(ϖ^k).
+New findings E8–E12 are:
 
-Crossref (checked 2026-09-22) records no correction notice or update relation for the Inventiones article.
+- E8: Corollary 3.6.2 omits a derivative term when εχ(L^♭)=1. The explicit Q_3 example gives−4 where the printed formula gives 0. Its use in Corollary 3.8.3 stays within the unaffected cases.
+- E9: an extension to arbitrary distributions is not unique: add a delta mass at0. Specify and justify the intended regular extension.
+- E10: same-type index-q overlattices in Lemmas8.2.4/8.2.6 need extra hypotheses; even excluding minimal determinant valuations is insufficient.
+- E11: the Cartier-divisor complex has class[O]−[O(−Z)], reversing the printed Chern-character sign and introducing(−1)^d in two numerical formulas.
+- E12: the annulus indicator has the opposite sign; co-isotropic recurrence references need parts(ii); positive definiteness in rank m means signature(m, 0).
 
-## Prerequisites not yet covered
+The JSON contains locators, exact calculations, searched correction sources and individual verdicts. Bounded author/arXiv/Crossref searches found no external correction for the new findings; that is not a claim of exhaustive novelty.
 
-- Howard–Pappas 2017 and Kim 2018a/2018b (GSpin Rapoport–Zink spaces, Tate tensors, uniformization).
-- Kisin 2010, Madapusi Pera 2016, Kim–Madapusi Pera 2016, Lovering 2017, Xu 2020 (integral canonical models).
-- Li–Zhu 2018 and Li–Zhang (JAMS 2022), the unitary companion whose proofs are reused throughout.
-- Cho–Yamauchi 2020, Ikeda 2017, Katsurada 1999 (Siegel series); Gross 1986 and Gross–Keating 1993; Terstiege 2008, 2011, 2013a/b.
-- Howard–Pappas 2014 and He–Li–Zhu 2019 (the varieties Y_W); Lusztig 1976; Rapoport–Richartz 1996; Rapoport–Zink 1996; Soylu 2017.
-- Kudla 1997a/1997b, Lansky–Raghuram 2007, Bruinier–Yang 2021, Zhang 2021.
+## Remaining work and checks
 
-Links and reasons are in the JSON; the DOIs were confirmed on Crossref (five of them had to be corrected during the check).
+Split the original bundled definitions and multipart results; close the formal K-theory, crystalline/tensor, deformation, DL-cohomology and analytic-continuation inputs. Give each residual construction a unique owner and exact hypothesis/API boundary. Supply the source-specific repairs E3/E9/E10/E11 before treating the proof chain as executable.
 
-## Checks
-
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-LI-ZHANG-22.result.json`: ok.
-- `python3 research/blueprint/intake.py check-files …`: ok.
-- Every missing item appears in exactly one route, and no route takes a planned item.
-- The cited stages GN.2, GN.3, AL.0, MP.3, MP.4 and R07.1 and the two parents were checked against `data/atlas.json`, every accepted restructure in `data/restructure/` and `data/roadmap-retirements.json`: none is restructured or retired. Library verdicts come from `data/library-coverage.json`.
-- Both Part II ids are those proposed by the merged PAPER-SHANKAR-SHANKAR-TANG-ETAL-22 (and, for the orthogonal models, PAPER-CHARLES-16), with their titles.
-- The numerical checks used scripts in the worker's scratch directory; no Lean was written, as none is a deliverable of this job.
+The paper checker, five-file intake check and55 relevant unit tests passed. Exact finite diagnostics for E1/E6/E8/E10 passed; they are reproduced or explained in the review. No Lean file was requested, written or compiled. No mathematics is claimed formalized.

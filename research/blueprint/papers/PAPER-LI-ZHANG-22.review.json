@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-LI-ZHANG-22",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "reject",
+      "reason": "The arithmetic direction is plausible, but this bundle includes generic K/support/Chern/cycle-map theory, local/global quadratic classification and automorphic Eisenstein machinery with existing suppliers. The brief does not state all terminal results and intermediate APIs exactly. It also requires explicit E3/E9/E10/E11 proof repairs and a shared orthogonal-stratum boundary with route2/unitary work. Candidate reuse alone does not establish closure or ownership."
+    },
+    {
+      "route": 2,
+      "verdict": "reject",
+      "reason": "Retain the orthogonal integral-model candidate as a lead, not a buildable brief. Generic canonical models/tower, Clifford algebra, field spinor norms and deformation theory are imports. Local RZ tensor/moduli conditions, projector, exceptional cases and uniformization statements remain bundled; local strata/cycle ownership must be coordinated with route1. This review does not independently endorse the author's cited PAPER-CHARLES-16 proposal, which belongs to this reviewer's earlier work."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "GN.3 explicitly owns local representation densities, and these are source-specific normalization/counting/recursion contributions. Item5 is planned; field classification is imported from63, not re-planned. Accept only the corrected E1/E8 statements and restricted helper form in13, with the E10 induction repair a named obligation. No acceptance of the false unrestricted helper or certification of the printed proof."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "The orthogonal–SL2 coinvariant calculation and isotropic-plane distribution specialization fit MP.3. Import MP.2's explicit operators and AL.0's test functions. Retain the precise support/invariance hypotheses, k=0 branch, regular representatives and the separately sourced SL2 newform dimension; do not replace them by classical GL2 forms."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "R07.1 owns p-divisible groups and their Tate modules, so Tate full-faithfulness is a source extension there. Keep K/F-breve and the actual Tate theorem's hypotheses; it is distinct from Raynaud finite-flat uniqueness and its e<p−1 condition. No new p-divisible-group owner is needed."
+    }
+  ],
+  "notes": "Completed independent negative review of Claude Code — cc-fb70e5's PR#1950. Full published article read; extraction corrected in place and partial:64 items (9 library,10 planned,45 missing), five routes,12 source issues individually confirmed with version/scope qualifications. Routes1–2 rejected;3–5 accepted only as bounded source contributions with explicit proof-repair obligations. This is not an assertion that either main theorem is false or formalized. See the review report for the remaining atomic extraction and provider/source work."
+}
