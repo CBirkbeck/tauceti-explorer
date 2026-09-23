@@ -15290,13 +15290,15 @@
       "status": "missing",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
       "proofSteps": [
         "Use flatness and Noetherianity of completion. A maximal ideal of the completion contains I and has the same residue field as its contraction. The resulting local map has the same maximal-ideal completion as P at that contraction.",
-        "That local completion map is regular by the G-ring hypothesis. Descend regularity along the faithfully flat map from the localized I-adic completion to the common maximal-ideal completion. The regular-map criterion and this faithful-flat descent are explicit remaining supplier obligations, not baseline results."
+        "That local completion map is regular by the G-ring hypothesis. Descend regularity along the faithfully flat map from the localized I-adic completion to the common maximal-ideal completion. The regular-map notion is Z76 and the faithful-flat descent of regularity is Z78; both are now named source obligations with their Stacks statements, not baseline results."
       ]
     },
     {
@@ -15306,12 +15308,14 @@
       "statement": "If O is a complete DVR and P a finite-type O-algebra, P is a Noetherian G-ring. No perfection assumption on the residue field is made.",
       "locator": "Stacks 07PX, 15.51.12(2),(5), and finite-type stability 15.51.10 in 07GG",
       "status": "missing",
-      "prerequisites": [],
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79"
+      ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
       "proofSteps": [
-        "O itself is a G-ring: its localizations are O and its fraction field, whose maximal-ideal completion maps are identities. Apply finite-type stability of G-rings.",
-        "The cited finite-type stability proof reduces through quotients/localizations to polynomial extensions and geometrically regular formal fibers. Its characteristic-p formal-fiber lemmas and Cohen structure inputs remain an explicitly recorded source/declaration audit gap; this item does not claim their closure."
+        "O itself is a G-ring: its localizations are O and its fraction field, whose maximal-ideal completion maps are identities. Apply the finite-type stability of G-rings, which is Z79.",
+        "The cited finite-type stability proof reduces through quotients/localizations to polynomial extensions and geometrically regular formal fibers. Its characteristic-p formal-fibre lemmas and Cohen structure inputs remain an explicitly recorded source/declaration audit gap, now carried by Z79's second step; this item does not claim their closure."
       ]
     },
     {
@@ -15322,13 +15326,15 @@
       "locator": "Stacks 031E (10.112.8), proof read; compare 033A",
       "status": "missing",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L18",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z77"
       ],
       "implementationStatus": "unchecked",
       "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
       "proofSteps": [
         "The flat local dimension formula gives dim S=dim R+dim(S/m_R S). Lift a minimal generating set of the fiber maximal ideal and adjoin generators of m_R. Their union generates m_S and has exactly dim S elements.",
-        "Localize a regular map at a target prime and its contraction to apply the local result. The flat local dimension formula and maximal-ideal generator comparison need their exact supplier audit; L19 alone is only the regularity criterion."
+        "Localize a regular map at a target prime and its contraction to apply the local result. The dimension formula is Z77 and the maximal-ideal generator comparison is L18; L19 alone is only the regularity criterion."
       ]
     },
     {
@@ -19223,6 +19229,68 @@
       "prerequisites": [],
       "implementationStatus": "unchecked",
       "note": "Statement and ambient hypotheses read at the pinned commit; no new Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
+      "kind": "theorem",
+      "name": "Regular ring maps and their base change",
+      "statement": "A ring map R→Λ is regular if it is flat and for every prime p of R the fibre ring Λ⊗_R κ(p) is Noetherian and geometrically regular over κ(p), that is L⊗_{κ(p)}Λ⊗_Rκ(p) is regular for every finite extension L/κ(p). Two consequences are used here: a regular map is flat, so it satisfies going down; and for any finite type R→R′ the base change R′→Λ⊗_R R′ is again regular. Geometric regularity is strictly stronger than regularity of the fibres when κ(p) is imperfect, which is why the characteristic-p case cannot be treated by fibrewise regularity alone.",
+      "locator": "Stacks 07BZ (Definition 15.42.1) and 07C1 (Lemma 15.42.3, regular maps and base change), read 23 September 2026",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The definition is the flatness of R→Λ together with, for each prime p, Noetherianity and geometric regularity of Λ⊗_Rκ(p) over κ(p). Unfold geometric regularity as regularity of L⊗_{κ(p)}(Λ⊗_Rκ(p)) for every finite extension L/κ(p); over a perfect residue field this reduces to regularity of the fibre, and over an imperfect one it does not, which is the whole point of the notion.",
+        "Flatness gives going down, which is what Z77 consumes. Base change along a finite type map preserves both halves: flatness is stable under base change, and the fibre of R′→Λ⊗_RR′ over a prime q lying over p is a localisation of a finite type algebra over the fibre of R→Λ, whose geometric regularity is preserved by Stacks 07C1. This item asserts only the definition and that lemma; it does not assert that a regular map has regular source or target."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z77",
+      "kind": "theorem",
+      "name": "Dimension formula along a going-down map",
+      "statement": "Let R→S be a homomorphism of Noetherian rings, q a prime of S lying over p, and suppose going down holds for R→S — for instance because R→S is flat. Then dim(S_q)=dim(R_p)+dim(S_q/pS_q). The hypothesis is going down, not flatness, and the formula is an equality of Krull dimensions of local rings, not of the rings themselves.",
+      "locator": "Stacks 00ON (Lemma 10.112.7), with the flat case of going down at Stacks 00HS (Lemma 10.39.19), read 23 September 2026",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The inequality dim(S_q) ≥ dim(R_p)+dim(S_q/pS_q) is the one that uses going down: lift a chain of primes below p to a chain below q ending at the contraction, and concatenate it with a chain in the fibre. Going down is exactly what makes the lift possible; without it only the other inequality survives.",
+        "The reverse inequality holds for any Noetherian ring map and is the standard dimension count on a saturated chain in S_q, split at the prime where it meets the fibre. Neither half needs the fibre to be regular, and neither is available in Mathlib or Tau Ceti at the pins, which is why this is recorded as a source obligation rather than a library citation."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78",
+      "kind": "theorem",
+      "name": "Faithfully flat descent of regularity and of Noetherianity",
+      "statement": "Let R→S be a faithfully flat ring map. If S is Noetherian then R is Noetherian, and if S is a regular ring then R is a regular ring. The direction is descent: the hypothesis is on the target and the conclusion on the source. This does not say that regularity ascends, which is the separate statement Z59 proves under a fibre hypothesis.",
+      "locator": "Stacks 07NG (Lemma 10.164.4, regularity) and 033E (Lemma 10.164.1, Noetherianity), read 23 September 2026",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "Noetherianity descends because a faithfully flat map reflects strict inclusions of ideals: I↦IS is injective on ideals of R, so an ascending chain in R that does not stabilise gives one in S that does not either.",
+        "Regularity descends locally. For a prime p of R choose a prime q of S lying over it, which exists by faithful flatness; R_p→S_q is faithfully flat local, so a finite free resolution of the residue field over S_q descends to a bounded resolution over R_p by flat base change and faithfulness. Serre's criterion then makes R_p regular. This is the statement Z57 needs to move regularity from the maximal-ideal completion back to the localised I-adic completion, and it is the only descent step in that argument."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79",
+      "kind": "theorem",
+      "name": "G-rings and their stability under essentially finite type maps",
+      "statement": "A ring R is a G-ring if it is Noetherian and for every prime p the map R_p→(R_p)^∧ to the completion at the maximal ideal is regular in the sense of Z76. If R is a G-ring and R→S is essentially of finite type, then S is a G-ring. Being a G-ring is a property of the local rings, so it can be checked and used prime by prime.",
+      "locator": "Stacks 07GH (Definition 15.51.1) and 07PV (Proposition 15.51.10), read 23 September 2026",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76"
+      ],
+      "implementationStatus": "unchecked",
+      "proofSteps": [
+        "The definition is local: R is a G-ring exactly when every R_p is, because the condition quantifies over primes and localisation of a G-ring at a prime is again one. That is what lets the finite type statement be proved one prime of S at a time.",
+        "For stability, write S_q as a localisation of a quotient of a polynomial ring over R and reduce, by the quotient and localisation cases, to R[x_1,…,x_n]. The remaining content is that the formal fibres of a polynomial ring over a G-ring stay geometrically regular. The characteristic-p half of that reduction, which goes through Cohen structure theory and the geometric regularity of Z76 rather than plain fibre regularity, is the part this extraction has not read in full; the finding is recorded at Z58 and stays there."
+      ],
+      "note": "Local algebra source obligation for SchemeAndStackFoundations:SF.4, named by Claude Code — cc-7b31c4, 23 September 2026, to close the supplier obligations Z57–Z59 recorded explicitly in their own proof steps. Stacks statements read at the tags cited; no Lean implementation."
     }
   ],
   "prerequisites": [
@@ -19581,7 +19649,11 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z71",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z72",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z73",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z77",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z78",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z79"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results.",
       "stages": [
