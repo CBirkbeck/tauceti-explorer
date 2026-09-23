@@ -1371,8 +1371,9 @@
    ],
    "avoidAccountOf": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1096"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1096",
+   "finishedAt": "2026-09-23T16:43:29Z"
   },
   {
    "id": "PAPER-DADDEZIO-23",
@@ -4173,8 +4174,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -7465,7 +7466,8 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-GROSS-WANG-17",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-GROSS-WANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1437"
   },
   {
    "id": "PAPER-GAO-GE-KUHNE-26",
@@ -9947,8 +9949,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #85"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #85",
+   "finishedAt": "2026-09-23T16:43:32Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
