@@ -23,7 +23,8 @@
    "§7 Symbols",
    "Appendix A Alternative proof of Corollary 6.25",
    "References"
-  ]
+  ],
+  "arxiv": "1801.06686"
  },
  "summary": "The paper computes the p-adic étale and pro-étale cohomology of the Drinfeld symmetric space H^d_K = P^d_K minus its K-rational hyperplanes, and proves the comparison theorem for p-adic Stein spaces that the computation rests on. The answers (Theorem 1.3): H^r_ét(H^d_C,Q_p(r)) ≅ Sp^cont_r(Q_p)^*, the same dual of a Steinberg representation as in the ℓ-adic computation of Schneider–Stuhler, while H^r_proét(H^d_C,Q_p(r)) is a non-trivial extension of Sp_r(Q_p)^* by the huge Fréchet space Ω^{r−1}(H^d_C)/ker d; and étale cohomology is exactly the space of G-bounded vectors of pro-étale cohomology. The comparison theorem (Theorem 1.8) says that for a semistable Stein weak formal scheme X over O_K the pro-étale cohomology H^r_proét(X_C,Q_p(r)) is the pullback of (H^r_HK(X_k) ⊗̂_F B^+_st)^{N=0,φ=p^r} → H^r_dR(X_C) ← Ω^r(X_C)^{d=0}: a one-way comparison, built from Grosse-Klönne's overconvergent Hyodo–Kato cohomology and a piece of the de Rham complex, in contrast with the proper case, where the huge term disappears and an extra de Rham term appears. The route is syntomic: the Fontaine–Messing period map identifies syntomic with (pro-)étale cohomology after truncation; a Bloch–Kato style syntomic cohomology built from overconvergent differential forms is compared with it by Künneth maps that use the interpretation of period rings as crystalline cohomology of base rings, a rigidity of Frobenius eigenspaces and a change of topology available because a Stein space has proper smooth irreducible components in its special fibre. For the half-space the Hyodo–Kato term is computed by symbols, generalising Iovita–Spiess, and the étale side is computed integrally: the standard semistable model is pro-ordinary, its sheaves of differentials are acyclic with vanishing differential on global sections (Grosse-Klönne), so the syntomic cohomology reduces to the logarithmic de Rham–Witt cohomology H^0_ét(Ȳ,WΩ^r_log), which the mod p irreducibility of the Steinberg representation identifies with Sp^cont_r(Z_p)^*. All of this is carried out in the quasi-abelian category of locally convex Q_p-vector spaces and in pro-discrete O_K-modules, so that every isomorphism is topological and every sequence strictly exact.",
  "conventions": "Locators are the statement numbers of the authors' final version (7 September 2019, 68 pages) together with its page numbers; the published pagination (Invent. Math. 219, 873–985) was not accessible. Numbering is by section with a single counter shared with the displayed equations, so gaps in the statement numbers (1.5, 2.4, 2.10–2.25, 3.3, 3.11, 3.14–3.15, …) are equations, not missing statements. K is a complete discretely valued field of characteristic 0 with perfect residue field k of characteristic p, O_K its ring of integers, ϖ a fixed uniformiser, e the ramification index of K over F, O_F = W(k), F = Frac O_F, C the p-adic completion of an algebraic closure K̄, and G_K = Gal(K̄/K); O_K, O^×_K, O^0_K are Spec or Spf of O_K with the trivial, canonical and (1 ↦ 0) log structures, and k^0 is the standard log point. G = GL_{d+1}(K) acts on the Drinfeld half-space H^d_K, whose standard semistable weak formal model is written H̃^d_K, with special fibre Y and Ȳ = Y_{k̄}. Square brackets [·] denote derived eigenspaces and round brackets the non-derived ones, and [C → C′] is the mapping fibre holim(C → C′ ← 0). H̃^i denotes cohomology in the left heart of the quasi-abelian category of convex spaces and H^i the algebraic cohomology with the subquotient topology; the two agree exactly when the cohomology is called classical. Sp_J, Sp^cont_J and Sp^an_J are the smooth, continuous and locally analytic generalized Steinberg representations, with Sp_r := Sp_{{1,…,d−r}}, and M^* is the weak topological dual. Unless stated otherwise formal schemes are p-adic, locally of finite type and equidimensional, and 'semistable' includes the log structure of the special fibre (self-intersections are allowed for weak formal schemes in §3.1 but excluded for formal schemes in §3.3).",
@@ -1524,7 +1525,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1541,7 +1542,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1558,7 +1559,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1575,7 +1576,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1592,7 +1593,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1609,7 +1610,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1626,7 +1627,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1643,7 +1644,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1660,7 +1661,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1677,7 +1678,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1694,7 +1695,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1711,7 +1712,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1728,7 +1729,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1745,7 +1746,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1762,7 +1763,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1779,7 +1780,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1796,7 +1797,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1813,7 +1814,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1830,7 +1831,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1847,7 +1848,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1864,7 +1865,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1881,7 +1882,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1898,7 +1899,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
@@ -1915,7 +1916,7 @@
    "searched": [
     "the Springer page for 10.1007/s00222-019-00923-z on 2026-09-23: paywalled preview only, no corrigendum or erratum listed",
     "Crossref for 10.1007/s00222-019-00923-z on 2026-09-23: empty relation set, no update-to or updated-by, no correction record",
-    "arXiv: the paper is not there (a title and author search of the arXiv API returns nothing), so there is no later version to compare with",
+    "arXiv:1801.06686 (v1 2018-01-20, v2 2019-01-18), the preprint of this paper: version v2 was downloaded and compared with the authors' PDF. It is an earlier text with different pagination - only 15 of its 67 pages match the accepted version page for page - but the passage quoted in this finding is present in it, so v2 does not correct it and no later version exists. (An earlier reading of this extraction wrongly recorded the paper as absent from arXiv; the mistake was found and corrected on 2026-09-23. Locators throughout remain those of the authors' accepted PDF, not of v2.)",
     "the authors' page webusers.imj-prg.fr/~wieslawa.niziol, which offers only this PDF (cdn16.pdf, dated 7 September 2019)",
     "the authors' later papers on the same geometry (J. AMS 33 (2020) 311–362, Forum Math. Pi 11 (2023) e16) for a correction notice"
    ]
