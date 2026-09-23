@@ -1133,14 +1133,18 @@
     "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
     "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed at published p.621 and v2 p.14. For tame x→x²→x⁶ in characteristic 5, the different exponents are 1,2,5. Pullback multiplies the lower exponent by 2, giving 1+2·2=5. The printed unweighted sum fails. The étale-quotient consequence survives. L11 supplies the ideal tower identity; the geometric valuation comparison remains an adapter."
   },
   {
    "id": "PAPER-ABE-25/E2",
@@ -1157,14 +1161,18 @@
     "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
     "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed as a misprint with no change to the intended comparison. Published p.621 and v2 p.14 define C without a shift. Laumon 2.4.2.2 places the local transform in degree one, so its K0 class is negative. For the trivial Galois group, Swan is zero and Laumon 2.4.3(i)(b) gives rank one: the unshifted class is −1, not +1. Abe Proposition 2.5 already uses this negative sign. The full Katz-model comparison remains a supplier obligation."
   },
   {
    "id": "PAPER-ABE-25/E3",
@@ -1181,14 +1189,18 @@
     "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
     "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed as a failed proof step, not a counterexample to the theorem. The published p.613 image and v2 p.8 have the closed-fibre identification. In characteristic 2, the involution z↦z+t² preserves z²+t²z−t; the fixed algebra is k[z]/z⁴ whereas the closed fibre is k[z]/z². Exact polynomial reduction independently verifies lengths 4 and 2. Ind-étale base change with closed fibre k preserves the full composition-series length, as corrected in A21."
   },
   {
    "id": "PAPER-ABE-25/E4",
@@ -1205,14 +1217,18 @@
     "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
     "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed as a citation-scope gap affecting the stated coefficient scope. Published p.609 and v2 p.4 allow torsion Λ without Noetherianity. Lu–Zheng v4 p.17 Theorem 2.16 assumes Noetherian commutative Λ; its proof invokes Proposition 2.5, Lemma 2.14 and Gabber’s theorem under that setup. No counterexample to a broader theorem is asserted. The finite rings actually used in Abe’s main argument satisfy the restriction."
   },
   {
    "id": "PAPER-ABE-25/E5",
@@ -1229,14 +1245,18 @@
     "Exact-title searches with erratum and correction; no paper-specific repair found. This is not proof of novelty.",
     "Author homepage https://member.ipmu.jp/tomoyuki.abe/ was attempted but unavailable; author-page correction search remains incomplete.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed at published p.621 and v2 p.14: the introductory phrase should read “In fact”. No mathematical effect."
   },
   {
    "id": "PAPER-ABE-25/E6",
@@ -1253,14 +1273,18 @@
     "Abe homepage https://member.ipmu.jp/tomoyuki.abe/ returned only an empty HTML body; there is no searchable publication/correction list. Novelty remains qualified.",
     "Saito author publication page links a 2019 correction (both pages read; repairs Proposition7.4 and its proof on pp.670–671) and CCcor2.pdf (read, Chern-class corrections on pp.676–677). No claim is made to have collated all Saito versions.",
     "arXiv 2405.19601v2 (13 June 2025; SHA-256 56d897a7…), compared at the locator on 23 September 2026: same text",
-    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries"
+    "Crossref metadata for doi 10.1007/s00222-025-01345-w, 23 September 2026: no update-to, updated-by or relation entries",
+    "Independent review 2026-09-23: publisher article and official PDF; no attached paper-specific correction located.",
+    "Independent review 2026-09-23: arXiv history lists v2 (13 June 2025) as latest; compared v2 pp.4,8,14 at all six findings.",
+    "Independent review 2026-09-23: exact-title correction/erratum search found no paper-specific repair; this is bounded negative evidence, not proof of novelty.",
+    "Independent review 2026-09-23: https://member.ipmu.jp/tomoyuki.abe/ remained inaccessible to the browser tool; author-page correction search is incomplete."
    ],
    "owner": "PAPER-ABE-25",
    "file": "research/blueprint/papers/PAPER-ABE-25.result.json",
    "citation": "Abe, \"On the Serre conjecture for Artin characters in the geometric case\", Inventiones Mathematicae (2025)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-ABE-25",
+   "reviewReason": "Confirmed at published p.621 (image inspected) and v2 p.14. Saito v4 Theorem 4.9, equation (4.15), gives −dimtot RΦ=(CCΛ,df), and p.46/Lemma 4.11(1) gives CCΛ=(−1)^n[zero-section]. Together with Abe Proposition 2.5, the identity Fourier trace is (−1)^nμ. For f=uv on a smooth surface in odd characteristic and the sign involution, μ=1 and the trace is +1. Both published Saito correction pages and the author’s second correction were read; neither changes this constant-sheaf sign. The nonidentity theorem and curve consequence are unaffected."
   },
   {
    "id": "PAPER-ALLEN-ETAL-23/E1",
@@ -55846,9 +55870,9 @@
    "owner": "PAPER-GAN-ICHINO-18",
    "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
    "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "I read Gan–Savin (Compos. Math. 148 (2012), PDF from Cambridge Core). Prop. 7.3 (p. 1674) gives the J_r with GL(Y_{k−r}) acting by |det_{Y_{k−r}}|^{(k−r)/2}. The whole proof of Lemma 7.4 (p. 1675) reads: 'the center of GL(Y_{k−r}) acts by the character |det|^{−s+t_1} … whereas on S(Isom(Y′_r, X_r)) ⊗ Ω_{V_{n−k},W_{n−r}}, GL(Y_{k−r}) acts by |det|^{(k−r)/2} … Since −s + t_1 ⩽ 0 and k − r > 0, we deduce that the above Hom space must be 0.' Only the inequality −s + t_1 ≠ (k − r)/2 is used, and it holds as soon as s > −1/2. Gan–Ichino need exactly this range. After arranging π = Ind_P̃(τ̃_ψ ⊗ π_0) as a standard module, τ has blocks δ_i|det|^{s_i} with δ_i unitary square-integrable and 0 < s_i < 1/2. The embedding σ = Ind_Q(τ ⊗ σ_0) therefore puts Gan–Savin's s at −s_i ∈ (−1/2, 0), block by block, as in the proof of Gan–Savin Th. 8.1(iii). The remark 'which continues to hold for s > −1/2' is a correct and immediate observation, not a step without adequate proof. Even as a gap it would affect nothing: the paper proves the p-adic case of Lemma 5.2 by citing Atobe (Math. Ann. 371, Th. 3.13) and gives this argument only 'for the convenience of the reader'. The extraction's kind (gap) and affects (the proof) should therefore be withdrawn, along with the matching sentence in the lemma-5-2 note."
   },
   {
    "id": "PAPER-GAN-ICHINO-18/E2",
@@ -55868,9 +55892,9 @@
    "owner": "PAPER-GAN-ICHINO-18",
    "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
    "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "Checked on the page image of p. 992 and against the sources. (1) F = R: Adams–Barbasch, Compos. Math. 113, §8 (read in the authors' preprint, whose Theorem 8.4 is 'Induction Principle I') works with 'an orthogonal space of signature (p, q) and W a symplectic space of dimension 2n, with no further restrictions' and arbitrary Levi decompositions. For any σ ⊗ σ′ that is a quotient of the Levi Weil representation ω_M it gives a nonzero Õ(V) × Mp(W)-map ω → Ind(σξ) ⊗ Ind(σ′ξ′). This literally covers the real stable-range pair (Mp_2n(R), O(r + 1, r)); the extraction's 'for the real metaplectic group' reading (equal rank only) is wrong. (2) F = C: Adams–Barbasch, J. Funct. Anal. 132, Cor. 3.21 (complex dual pairs; Mp_2n(C) is split). (3) F p-adic: Kudla's paper (read at GDZ) treats every dual pair (O(V_m), Mp(W_n)) of type (O, Sp), with its Jacquet-module filtration (Th. 2.8) and the cuspidal-support theorem (Th. 2.5), but it does not state the 'nonzero map to Ind ⊗ Ind' form. Adams–Barbasch say their proof 'is essentially the same as the proofs of ([Kudla], Theorem 2.5) and ([AB complex], Corollary 3.21)', and it carries over verbatim: a Levi-equivariant surjection ω ↠ ω_M ν from a mixed model (their Lemmas 8.5–8.6), a nonzero GL_k × GL_k-map S(M_k) → τ ⊗ τ^∨ (a Godement–Jacquet zeta integral), the quotient π_{η_0} ⊗ σ̃_{η′_0} of the smaller Weil representation, and Frobenius reciprocity. None of these steps uses the stable range, temperedness or A-packets. The passage from O(V) to SO(V) is (2.1). Consistency check: the matching τ̃_ψ = τ ⊗ χ_ψ against τ agrees with Kudla's Th. 2.5 ([π′] = [χ_V θ(σ_1), …], θ(σ) ≅ σ) and with the unramified correspondence (3.2). So 'easily extends' is accurate. What remains is at most an imprecise citation for p-adic F, which does not meet the protocol's definition of a gap (a step asserted without an adequate proof)."
   },
   {
    "id": "PAPER-GAN-ICHINO-18/E3",
@@ -55890,9 +55914,9 @@
    "owner": "PAPER-GAN-ICHINO-18",
    "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
    "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "The quotation is exact. I read Ichino–Lapid–Mao (arXiv:1404.2909v2; the Duke version GI cite is behind a subscription). Their Appendix A states the analogue explicitly on p. 27: 'We now treat the metaplectic group G̃ = Mp_n ... The above analysis works with obvious modifications. (See [BJ13] for the Langlands quotient theorem in this context.) In particular, the analogue of Lemma A.2 holds for G̃. (The half-integrality of R(δ) for generic square-integrable representations follows from the results of [GS12] and the corresponding statement for SO(2n+1).)' ILM's Cor. A.8 for Mp_n uses it. So GI cite a stated result, and the extraction's 'invoked without an argument' does not hold. The argument transfers. The proof of ILM Lemma A.2 uses Tadić's results on characters and the topology of the unitary dual (valid for finite central covers), the Langlands classification (Ban–Jantzen for covers), and half-integrality of cuspidal exponents of generic discrete series; this last holds for Mp, since the reducibility points for ψ-generic cuspidal data lie in {0, 1/2, 1, 3/2} (Bakić–Hanzer, arXiv:1902.07357, Prop. 3.5). With λ_m ∈ [−c, c]^k and c < 1/2 this forces λ_m → 0. Isolation of a square-integrable π_S is the case L = G of Lemma A.2, and the product over v ∈ S is immediate. So the recorded kind ('gap'), affects ('the proof') and correction are not right: there is no gap here. The same sentence's other input, {Π_{i,S}} ⊂ Irr_{≤c} via the cuspidality of Θ^aut_ψ(Π_i), does fail in the generality printed; that is recorded as the new issue."
   },
   {
    "id": "PAPER-GAN-ICHINO-18/E4",
@@ -55914,9 +55938,72 @@
    "owner": "PAPER-GAN-ICHINO-18",
    "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
    "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "Checked on the page images: p. 979 cites '[44, p. 205]', and the p. 1012 entry [44] is the Märchen (Part 2, pp. 205–246, with MR 0546619 and Zbl 0447.12009). arXiv v3's [44] is 'On the notion of an automorphic representation … Part 1, 203–207', and the published list has no entry for that note (text search). I also read the note itself (IAS copy, which gives 'Proc. Sympos. Pure Math. 33 (1979), part 1, pp. 203–207'). Its argument in the middle of the note, at the printed p. 205 of 203–207, is the one Gan–Ichino need: choose the parabolic minimal for the generating form, take its constant term, project onto an irreducible component H of the cuspidal L², and so realize π as a quotient of V′ ⊂ Ind δ^{−1}σ. For an irreducible realization V, the nonzero map V → V′ is an embedding, which gives the 'subrepresentation' of the proof. The Märchen, by contrast, starts on p. 205 and does not contain this argument. The extraction's kind, affects and correction are all right."
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E5",
+   "kind": "gap",
+   "locator": "§3.2, proof of Proposition 3.1, p. 978 (arXiv v3 p. 11; same text)",
+   "printed": "“Since L^S_ψ(s, π) is holomorphic for Re s > n+1 (see, e.g., [93, Th. 9.1]), it follows from (3.3) that L^S(s, θ^abs_ψ(π)) is holomorphic for Re s > r − n + 1/2 but has a pole at s = r − n + 1/2.”",
+   "correction": "Add that L^S_ψ(r − n + 1/2, π) ≠ 0. One route is absolute convergence of the Euler product L^S_ψ(s, π) = ∏_{v∉S} L(s, ϕ_v) for Re s > c + 1, where |Re s_{i,v}| ≤ c bounds the Satake exponents of the unitary unramified π_v uniformly in v; the bound c = n gives the printed range r > 2n + 1. A bound that avoids spherical-function theory on the cover: θ_{ψ_v}(π_v) to SO_{2r_0+1}, with r_0 = 2n + 2, is unitary (Li, Invent. Math. 97) and unramified with exponents {s_{i,v}} ∪ {r_0 − n − 1/2, …}. The unitarity bound for spherical representations of split groups then gives |Re s_{i,v}| ≤ r_0 − 1/2, and it is enough to run the proof with r > 3n + 2, which is allowed because the proof only needs some large r. If [93, Th. 9.1] in fact states absolute convergence, the fix is only to say so.",
+   "reason": "In (3.3), the factor ζ^S(s + r − n + 1/2 − j) with j = 2r − 2n has a simple pole at s = r − n + 1/2. The other ζ^S factors are evaluated there at 2, 3, …, 2r − 2n, so they are finite and nonzero. So L^S(s, θ^abs_ψ(π)) has a pole at r − n + 1/2 exactly when L^S_ψ(r − n + 1/2, π) ≠ 0. Holomorphy of L^S_ψ on Re s > n + 1, which is all the text invokes, does not exclude a zero at r − n + 1/2 > n + 1. The pole is essential: it is what shows that φ′ contains S_{2t} with t ≥ r − n. The rest of the argument is complete (see the status_comment on prop-3-1 for the dimension count behind the 'largest t' step), and Proposition 3.1 and Theorem 1.1 stand once the nonvanishing is supplied. [93] (Yamana, Invent. Math. 196) could not be consulted; the paper cites it for holomorphy only.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2018.188.3.5 (Ann. of Math. 188 (2018), 965–1016), 23 September 2026: no update-to or relation entries, and a bibliographic search finds no erratum or corrigendum",
+    "the Annals article page (annals.math.princeton.edu/2018/188-3/p05), 23 September 2026: no erratum linked",
+    "arXiv 1705.10106: v3 (3 August 2018) is the latest version; the passage is the same there"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E6",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 6.8, p. 997 (arXiv v3 p. 25; the same in both versions)",
+   "printed": "“Also, it follows form the local theta correspondence for unramiﬁed representations that Σ is an irreducible summand of L²_Φ(SO(V)).”",
+   "correction": "“follows from the local theta correspondence”",
+   "reason": "A spelling slip ('form' for 'from'), seen on the page image of p. 997 and present in arXiv v3. The meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2018.188.3.5 (Ann. of Math. 188 (2018), 965–1016), 23 September 2026: no update-to or relation entries, and a bibliographic search finds no erratum or corrigendum",
+    "the Annals article page (annals.math.princeton.edu/2018/188-3/p05), 23 September 2026: no erratum linked",
+    "arXiv 1705.10106: v3 (3 August 2018) is the latest version; the passage is the same there"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "found and checked on the page image by the review"
+  },
+  {
+   "id": "PAPER-GAN-ICHINO-18/E7",
+   "kind": "gap",
+   "locator": "Proposition A.2 (statement p. 1001; proof p. 1005) with the proof of Proposition A.1 (p. 1002), published version; arXiv v3 pp. 29 and 32. All three passages checked on page images.",
+   "printed": "p. 1001: “Assume that π_{v0} is supercuspidal and that if n = 1, then π_{v0} is not the odd Weil representation relative to ψ_{v0}.” p. 1002: “Since θ_{ψ_{v0}}(π_{v0}) is supercuspidal by [41, Th. 2.2], Σ is cuspidal.” p. 1005: “As shown in the proof of Proposition A.1, the global theta lift Θ^aut_ψ(Π_i) to SO_{2n+1}(A) is cuspidal. Hence, by [36, Prop. A.7], we have {Π_{i,S}} ⊂ Irr_{unit,ψ_S-gen,≤c} G_S for some 0 ≤ c < 1/2”",
+   "correction": "In Proposition A.2, replace 'if n = 1, then π_{v0} is not the odd Weil representation relative to ψ_{v0}' by 'θ_{ψ_{v0}}(π_{v0}) is supercuspidal'. Equivalently, the L-parameter of π_{v0} relative to ψ_{v0} does not contain S_2; for n = 1 this is exactly the printed condition. With this hypothesis the proof works as written. π_{v0} has zero lift to SO_{2n−1}(F_{v0}) (Kudla), so each Θ^aut_ψ(Π_i) is cuspidal (Rallis's tower property) and nonzero (Furusawa), and ILM Prop. A.7 applies. In the proof of Proposition A.1, justify supercuspidality of θ_{ψ_{v0}}(π_{v0}) for the descent of a supercuspidal τ_{v0} by one of two arguments. Either its L-parameter is irreducible (ILM Th. 3.1), so Bakić–Hanzer Prop. 3.5(1) or Atobe–Gan Th. 4.1 with Kudla applies; or apply Jiang–Soudry Th. 2.2(1) to the generic supercuspidal σ with lift τ_{v0}. Proposition A.1 and everything downstream are unaffected, because A.1 applies A.2 only to such descents: Propositions 6.5 and 6.6, Corollary 6.7, Lemmas 6.8–6.12 and Theorems 1.1 and 1.4.",
+   "reason": "The step fails for n ≥ 2. Jiang–Soudry Th. 2.2(2) (Ann. of Math. 157 (2003), p. 767, read) asserts that for n ≥ 2 every ψ-generic supercuspidal π of Mp_2n has a supercuspidal lift to SO_{2n+1}. This is false. Take n ≥ 2 and σ′ a generic supercuspidal representation of SO_{2n−1}(F_{v0}). By JS Th. 2.2(1), one extension σ′^ε to O_{2n−1} first occurs at Mp_{2n−2}. By the conservation relation n(σ) + n(σ ⊗ det) = 2 dim V (Sun–Zhu, J. Amer. Math. Soc. 28 (2015); checked on O_1 and O_3), the other extension σ′^{−ε} first occurs at Mp_2n. By Kudla, π := θ(σ′^{−ε}) is irreducible and supercuspidal. π is ψ-generic. The open-orbit computation behind JS Cor. 2.2(3) has stabilizer inside SO_{2n−1}, so both extensions of a generic σ′ give Whittaker functionals. Equivalently, θ_ψ(π) is the generic square-integrable subrepresentation of ν^{1/2} ⋊ σ′ (Gan–Savin). That subrepresentation is not supercuspidal. This agrees with Bakić–Hanzer (arXiv:1902.07357, Prop. 3.5(2)): for ψ-generic cuspidal σ whose parameter contains 1 ⊗ S_2, Θ_ψ(σ) is square-integrable and embeds in ν^{1/2} ⋊ (a generic cuspidal representation of the smaller group). It also agrees with the Atobe–Gan first-occurrence theorem. JS's proof of (2) applies the tower principle, a statement about O_{2n−1}-representations, to an SO_{2n−1}-representation. The lifts to Mp_{2n−2} and Mp_2n come from different extensions σ′^{±}, which is exactly the mechanism of the n = 1 exception they note ('supercuspidal Weil representations of SL̃_2(k) do lift to SO_1(k)'). GI's hypothesis mirrors JS's (and ILM Cor. A.8's) exclusion of the odd Weil representation only. For such a π_{v0}, Proposition A.1's argument does not show that Θ^aut_ψ(Π_i) is cuspidal. It can fail: theta lifts to Mp_2n of globally generic cusp forms on SO_{2n−1} with local component σ′^{−ε} at v0 are globally ψ-generic and cuspidal, and have Π_{v0} ≅ π_{v0}, but their lift to SO_{2n+1} is not cuspidal. Their unramified components have exponent 1/2, so ILM Prop. A.7 does not apply and {Π_{i,S}} ⊄ Irr_{≤c}. The isolation argument then breaks. Proposition A.2 is therefore unproved as printed for n ≥ 2 (not shown false), and its application is sound. Existing corrections searched: no erratum found for GI, ILM (Duke 166) or JS (Annals 157). Haan (arXiv:2212.05234, Th. 3.3) restates JS Th. 2.2 with only the n = 1 exception. Bakić–Hanzer describe the phenomenon without mentioning JS or GI. So as far as found, this is new. (Coordinator: recorded as a gap in a stated result, not an error. The false step is the cited Jiang–Soudry Th. 2.2(2), and Proposition A.2 is unproved for such π_{v0}, not shown false.)",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Crossref for doi:10.4007/annals.2018.188.3.5 (Ann. of Math. 188 (2018), 965–1016), 23 September 2026: no update-to or relation entries, and a bibliographic search finds no erratum or corrigendum",
+    "the Annals article page (annals.math.princeton.edu/2018/188-3/p05), 23 September 2026: no erratum linked",
+    "arXiv 1705.10106: v3 (3 August 2018) is the latest version; the passage is the same there"
+   ],
+   "owner": "PAPER-GAN-ICHINO-18",
+   "file": "research/blueprint/papers/PAPER-GAN-ICHINO-18.result.json",
+   "citation": "Gan–Ichino, \"The Shimura–Waldspurger correspondence for Mp_2n\", Annals of Mathematics 188 (2018), no. 3",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-GAN-ICHINO-18",
+   "reviewReason": "found and checked on the page image by the review"
   },
   {
    "id": "PAPER-GAN-SAVIN-23-B/E1",
