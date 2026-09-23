@@ -7356,6 +7356,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap. Theorem 1.2 on published p. 379 prints a single `$\\lim_{q\\to\\infty,(q,|G'|)=1}$' whose third branch is an inequality, `$\\geq w_G n^{N_{G'}-1}$ otherwise', and the proof of Theorem 4.8 on p. 409 establishes exactly a lower bound for each $q$: it restricts the sum over multidegrees to the set $\\mathcal{C}$ on which Theorem 4.5(3) applies and the number of Frobenius-fixed components is $|H_2(G',c)[q-1]|$, discards the remaining components as nonnegative, and concludes `$\\geq v_{G'}n^{\\#c/G'-1}|H_2(G',c)[q-1]|q^{2n-1}+O_n(q^{2n-3/2})$', then divides and lets $q\\to\\infty$. That is a bound on the liminf; nothing in the argument controls the discarded components uniformly in $q$, so the existence of the limit is not shown. The good cases, where the limit is computed exactly, are untouched, and the recorded correction changes only the non-good branch.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7383,6 +7388,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The published text (p. 393) reads `Let $\\Pi$ be the tame quotient of $G_{\\overline{\\mathbb{F}}_p(t)}$ corresponding to extensions only ramified at $S$. Then $\\Pi$ is free pro-prime-to-$p$, on generators $\\pi_1,\\dots,\\pi_k$ \\dots (This is possible by Grothendieck's comparison of \\'etale and topological $\\pi_1$\\dots)'. The tame fundamental group of $\\mathbb{P}^1\\setminus S$ in characteristic $p$ is not pro-prime-to-$p$; SGA 1 XIII 2.12 identifies the prime-to-$p$ *quotient* of it with the prime-to-$p$ completion of the topological group, which is what the free-generation statement is about. The finding's witness is good: for $p\\geq5$ the tame fundamental group of $\\mathbb{P}^1\\setminus\\{0,1728,\\infty\\}$ surjects onto $\\mathrm{PSL}_2(\\mathbb{F}_\\ell)$ for $\\ell\\neq p$ through the modular cover $X(\\ell)\\to X(1)$, with tame ramification indices $2,3,\\ell$, and $p$ divides $|\\mathrm{PSL}_2(\\mathbb{F}_\\ell)|$ for suitable $\\ell$. Only prime-to-$p$ targets are used, so `affects: nothing' is right.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7410,6 +7420,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Proposition 4.4 on published p. 402 reads `Let $G$ be a finite group, and let $G'$ be a subgroup of $G\\wr S_2$', with no admissibility hypothesis, while Theorem 1.2 and §7 apply it only to admissible $G'$. The counterexample works: with $G=C_3$, $G'=\\langle(1,\\sigma)\\rangle\\cong C_2$ and $c=\\{(1,\\sigma)\\}$ over $\\mathbb{Q}$, the right-hand set contains the marked $(G',c)$-extension $\\mathbb{Q}(\\sqrt{-3})$ with ramified infinity type, while the left-hand set is empty, since being of type $G'$ forces $\\mathrm{Gal}(\\tilde L/\\mathbb{Q})\\cong G'$ of order 2 whereas $L/K$ is a $C_3$-extension — the projection of $G'\\cap(G\\times G)=1$ is not onto $G$. The recorded correction adds exactly the hypothesis the argument needs.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7437,6 +7452,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim on published p. 407: the displayed limit in the proof of Theorem 1.2 reads $\\sum \\tilde E^\\pm_{\\mathbb{F}_q(t),q^{n}}(G,G')=d$, while Theorem 4.8 sums over $IQ_{=q^{2n}}$ and $RQ_{=q^{2n}}$ and Theorem 1.2 itself is stated at $q^{2n}$.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7464,6 +7484,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on published p. 409, in all three of its parts, and the paper corrects itself one display later. The step prints $\\sum_{\\sum n_i=2n-1}\\#\\mathrm{CHur}^{c,(1,1,\\sigma)}_{G,n}(\\mathbb{F}_q)\\geq\\sum_{n\\in\\mathcal C}|H_2(G,c)[q-1]|(q^n+O_n(q^{n-1/2}))$ — subscript $G$ where the Hurwitz scheme and the second homology are those of $G'$, and the point count $q^n+O_n(q^{n-1/2})$ where Theorem 4.7 gives $q^{2n-1}+O_n(q^{2n-3/2})$ for a component of dimension $\\sum n_i=2n-1$. The very next line of the same display writes $q^{2n-1}$ and $O_n(q^{2n-3/2})$.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7491,6 +7516,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim on published p. 409: `these extensions have $\\mathrm{Nm}\\,\\mathrm{Disc}(M)=q^{(\\sum_in_i+1)|G'|/2}$ and, thus, associated quadratic extension with discriminant norm $q^{\\sum_in_i+1}$', in the real quadratic case, where the infinity type is trivial and the place at infinity is unramified, so it contributes nothing. The paper's own convention before Theorem 4.8 is $\\sum n_i=2n-\\varepsilon$ with $\\varepsilon=0$ when $K$ is unramified at infinity, and the count that follows is over $RQ_{=q^{2n}}$. The sentence is the imaginary case's, where the $+1$ is right, carried over.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7520,7 +7550,12 @@
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum.",
         "notation": "The journal additionally prints the roots-of-unity cardinality as a third H₂ argument. The preprint brace typo and this journal notation both mean the torsion subgroup; the arbitrary-u quantifier is unchanged."
       },
-      "previousAffects": "a stated result"
+      "previousAffects": "a stated result",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. Conjecture 5.1 on published p. 411 reads `Let $h\\in H_2(G',c)[|\\mu_Q|]$. Let $u\\in\\mu_{Q(\\mu_{4|\\tilde G'_c|})}$', with no requirement that $u$ generate, and Lemma 3.11 on p. 393 reads `$I_{F,\\phi,K}(\\rho,u^\\alpha)=I_{F,\\phi,K}(\\rho,u)^\\alpha$', so $u\\mapsto I(\\rho,u)$ is a homomorphism and $I(\\rho,1)=1$ for every $\\rho$. Taking $u=1$ and $h\\neq1$ makes the numerator empty for every $X$, so the printed limit is $0$ and not $1$ whenever $H_2(G',c)[|\\mu_Q|]\\neq1$ — and the paper's own §8.2 table supplies such pairs over $\\mathbb{Q}$. Requiring $u$ to be a generator, as the correction does, repairs it. One grading remark rather than a change: this makes Conjecture 5.1 false as printed, so `affects: nothing' is generous; I read the field as saying that no theorem of the paper depends on it, which is true, and leave it as recorded.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E8",
@@ -7547,6 +7582,11 @@
         "date": "2026-09-23",
         "sourceSha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
         "result": "The substantive problematic passage is also present in the journal. This is an extraction finding awaiting independent review, not an accepted erratum."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed verbatim, and it is printed twice on published p. 421: `the trivial action gives $\\mathrm{Gal}(L/K)\\simeq C_3\\times C_3\\times C_2$. However, $\\mathrm{Gal}(L/K)\\simeq C_3\\times C_3\\times C_2$ implies, by class field theory, that $L/\\mathbb{Q}$ is Galois.' The group under discussion is $(C_2\\times C_2)\\rtimes C_3$ with trivial action, of order 12; $C_3\\times C_3\\times C_2$ has order 18. The argument is unaffected.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
       }
     },
     {
@@ -7563,7 +7603,12 @@
         "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read.",
         "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
       ],
-      "previousAffects": "the proof"
+      "previousAffects": "the proof",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in substance, with one limit on my check. I read Wood's `An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland' from the author's page (people.math.harvard.edu/~mmwood/Publications/lifting.pdf, 13 pages, sha256 9628210e…). The proof of Theorem 2.5 on p. 4 sets $\\phi(\\hat x,e_x)=[x]k_x$ and then defines $\\psi:\\hat G\\to K$ by $(\\hat x,e_x)\\mapsto k_x$, and asserts that the combination of the two `is a homomorphism $\\hat G\\to U(G,c)$ taking $(\\hat x,e_x)\\mapsto[x]$'. Only $\\phi\\cdot\\psi^{-1}$ does that: $\\phi\\cdot\\psi$ sends the generator to $[x]k_x^2$. So the recorded correction is right about what the map has to be. What I cannot settle from the PDF's text layer is the glyph itself — the two symbols and any inverse do not survive extraction — so for the presence of the misprint, as against the mathematics, I am relying on the recorded reading, which says it was checked on the rendered page.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
+      }
     },
     {
       "id": "PAPER-WOOD-19/E10",
@@ -7578,7 +7623,12 @@
         "22 September 2026: author publication page and linked lifting.pdf; no separate lifting-invariant erratum located.",
         "22 September 2026: title plus correction/erratum search and publisher-domain search; no correction located. No claim that every published version was read.",
         "Rechecked by cc-442dc5 on 23 September 2026: the published Duke article from NSF PAR re-fetched (SHA-256 154e700c…, matching)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed. The displayed conjugation in the proof of Lemma 2.1 on p. 2 extracts as $[g_1]^{a_1}\\cdots[g_k]^{a_k}[x][g_k]^{-a_k}\\cdots[g_k]^{a_k}=[g_1^{a_1}\\cdots g_k^{a_k}xg_k^{-a_k}\\cdots g_1^{a_1}]$, and neither trailing factor is the last letter of the reversed inverse of the conjugator: they should be $[g_1]^{-a_1}$ and $g_1^{-a_1}$. As printed the word is not $\\tilde y[x]\\tilde y^{-1}$ and the identity it is meant to establish, $\\tilde y[x]\\tilde y^{-1}=[yxy^{-1}]$, does not follow.",
+        "by": "Claude Code, session cc-7b31c4, issue #1331"
+      }
     }
   ],
   "continuationAudit": {

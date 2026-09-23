@@ -1,0 +1,57 @@
+{
+  "paper": "PAPER-WOOD-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticStatistics ST.0, 16 items: arithmetic families, local conditions, discriminant orderings and the rigid/unrigid weights the paper counts with. ST.0 owns exactly that and the stage id exists."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticStatistics ST.3, by far the largest route at 154 items — the Cohen–Lenstra moments themselves, field counts and class-group moments by discriminant and signature with fixed groups and automorphism weights. Putting the bulk of the paper at the stage that already owns moments, rather than opening a new roadmap, is the right call, and it is consistent with what PAPER-LEMKEOLIVER-WANG-WOOD-25 and PAPER-LIU-WOOD-ZUREICKBROWN-24 do."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "Source of ST.5, 20 items, for the function-field side: higher moments, error bounds and the convergence modes. Keeping these apart from ST.3 is right, and it is where the review's E1 belongs — the difference between a limit and a liminf is exactly a convergence-mode statement."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "Source of InverseGaloisAndArithmeticFundamentalGroups IG.1 for tame quotients, the arithmetic exact sequence and specialization with prime-to-p restrictions, 5 items. This is also the stage that has to carry the distinction E2 is about: the tame quotient against its maximal prime-to-p quotient."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Source of IG.3 for branch-cycle tuples, braid actions and descent, 7 items, plus the stable π₀ classification and the comparison with the topological lifting invariant. IG.3 owns the braid side already."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Source of IG.4 for embedding problems and the central tame lift, 21 items. The lifting invariant of §3 is an embedding-problem construction, and IG.4 owns weak and proper solutions with local constraints."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "Source of IG.5 for Hurwitz moduli, Nielsen and braid components and tame reduction, 18 items, with the centerless marked schemes added. The Hurwitz-scheme point counts that Theorem 4.8's proof runs on live here."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction, 73 items, area grouptheory (a galaxy id), brief 686 words. The title reproduces the parent's atlas title exactly. The parent's Layer 7 owns ordinary Schur covers and factor sets; reduced Schur covers, the commuting-pair quotient H_2(G,c) and marked extensions are genuinely new, and they are what the whole lifting-invariant apparatus is built from."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "Source of ArithmeticGaloisDuality for one item: the positive-characteristic prime-to-p input to the global finite-module duality the local-obstruction argument of §3 uses. One item at an existing owner rather than a new layer is proportionate."
+    },
+    {
+      "route": 10,
+      "verdict": "accept",
+      "reason": "Part II of tauceti:TauCetiRoadmap/ArithmeticDirichletSeries, 3 items, area analytic (a galaxy id), brief 190 words. The title reproduces the parent's atlas title exactly, and the reason is checkable: the parent's Layer 9 specifies a simple pole and shifted-abscissa variants, while the paper's Delange input is a higher-pole Tauberian statement. Three items is the right size."
+    }
+  ],
+  "notes": "Accept, no corrections needed. Source: the recorded hash of the NSF PAR copy of the published Duke article reproduces byte for byte (154e700c…), 52 pages with the last blank, and printed page numbers run 378–428 over PDF pages 1–51. I re-extracted the whole file and read every page the findings touch. Wood's companion note, `An algebraic lifting invariant of Ellenberg, Venkatesh, and Westerland', which E9 and E10 are about, I fetched independently from the author's page (people.math.harvard.edu/~mmwood/Publications/lifting.pdf, 13 pages, sha256 9628210e…) and read at both locators. Structure: 344 items (318 missing, 13 planned, 13 library), 10 routes (8 source, 2 Part II). Every missing item is routed exactly once, all eight source stage ids exist, all 13 planned ids resolve, both Part II parents exist and both proposed titles reproduce their parents' atlas titles exactly, both areas are galaxy ids (grouptheory, analytic), and check_paper.py passes. All 31 declarations behind the 13 library items resolve — among them Mathlib's RegularWreathProduct with rightHom and inl, groupHomology.H2 with H2π and H2Iso, Subgroup.goursat and its two companions, Subgroup.exists_right_complement'_of_coprime, NumberField.finite_of_discr_bdd and the Abelianization API, and Tau Ceti's FactorSet.cohomologyClassEquiv and the four-declaration ElementaryTwoQuotient block. Two provenance points, neither a correction. First, this extraction records no `libraryPins`, so there is no commit against which those 31 declarations were checked; I verified them against the Mathlib and Tau Ceti index this lane uses and they are all there, but I have not invented a pin the extraction did not use. (PAPER-BHATT-MATHEW-23 has the same gap, reported in its review today.) Second, the item locators are in arXiv v2 pagination by design — the source's `version` says so, and 103 items carry an additional `publishedLocator` — while all ten findings carry both paginations. That is a deliberate convention and I checked the findings in the journal pagination it gives. Locators: of 39 name-and-page checks against the published text, 33 land exactly and the six others are right as well — Definition 3.12 is unnumbered in the running text of p. 393 and is only named when Theorem 3.13 cites it, and Theorem 4.8's proof spans pp. 408–410 while its statement is on pp. 406–407, which is where E5 and E6 point. No locator error. Findings: all ten confirmed, none downgraded. Six are confirmed verbatim in the published text — the `q^n` slice on p. 407 (E4), the three-part slip in the imaginary non-good display on p. 409 which the very next line of the same display corrects (E5), the real-case `+1` on p. 409 (E6), the `u∈μ` without `generator' in Conjecture 5.1 on p. 411 against Lemma 3.11's homomorphism property on p. 393 (E7), and `C_3×C_3×C_2` printed twice on p. 421 for a group of order 12 (E8). E1's gap is visible in the proof itself: p. 409 restricts to the multidegree set C, discards the rest as nonnegative, and concludes with `≥', which bounds the liminf and not the limit that Theorem 1.2 asserts. E2's `tame quotient … is free pro-prime-to-p' on p. 393 is the classical confusion with the maximal prime-to-p quotient that SGA 1 XIII 2.12 actually describes, and the modular-cover witness the finding gives is good. E3's Proposition 4.4 on p. 402 does say `a subgroup of G≀S_2' with no admissibility, and the C_3 counterexample works. E10 is confirmed from the companion note's own display. One limit on my check, stated in the verdict: for E9 the two symbols φ and ψ and any inverse do not survive text extraction from the companion note, so for the presence of the misprint — as against the mathematics, which I did verify, since only φ·ψ⁻¹ sends the generator to [x] — I rely on the recorded reading, which says the rendered page was checked. One grading remark rather than a change: E7 makes Conjecture 5.1 false as printed (with u = 1 and h ≠ 1 the limit is 0, not 1), so `affects: nothing' is generous. I read the field as saying that no theorem of the paper depends on the conjecture, which is true, and left it as recorded. One observation about the record's form, for the errata worker rather than for this review. Several `printed` fields are pointers rather than printed text — `a subgroup', `tame quotient', `q^n', `φ·ψ' — which makes the entry impossible to check without going back to the page, and PROTOCOL §18 asks for the printed text. The locators are precise enough that I could find every one, so nothing is wrong; but filling those fields out would make the register self-contained. No roadmap change, no library claim and no Lean work is proposed by this review."
+}
