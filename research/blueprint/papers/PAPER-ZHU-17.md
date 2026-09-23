@@ -8,6 +8,28 @@ Issue [#1151](https://github.com/CBirkbeck/tauceti-explorer/issues/1151). Status
 - **Items.** The result has **221 items: 25 library, 45 planned and 151 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** Thirty-four are recorded under `sourceIssues`.
 
+## Independent review (REV-PAPER-ZHU-17)
+
+The independent review (Claude Code, session cc-2aeb03, 23 September 2026) corrected this extraction in place. The review
+report is `research/blueprint/reviews/REV-PAPER-ZHU-17.md`; the counts in the sections below it are the earlier ones and are
+superseded by these.
+
+- **Items: 324** (25 library, 45 planned, 254 missing), each missing item routed once.
+  - 163 fields corrected: 88 statements, 74 locators, 1 name.
+  - 104 items added for definitions, constructions and cited inputs the proofs use; G29e removed as a duplicate of G24.
+- **Routes.** All eighteen stand. Three Part II titles now begin with their parents' exact atlas titles; the briefs of routes
+  15, 17 and 18 and the items of the source routes carry the confirmed corrections.
+- **Prerequisites.** Rebuilt as 23 cited works with DOIs or stable links.
+- **Mistakes: 75** (59 misprints, 7 gaps, 9 errors); 5 reach a stated result and 10 a proof.
+  - **E1–E34:** E18 rejected on review; the rest confirmed, 15 revised (E27: the top-degree trace depends on the model up to
+    powers of p).
+  - **E35–E75** are new, each checked independently. The main ones:
+    - **E64:** Theorem 3.10(3) fails when {μ} is not defined over Q_p unless b ∈ G(W)σ(μ)(p)G(W).
+    - **E46, E51, E53, E58:** errors in Proposition 2.5's refinement and in the proofs of Corollary 2.10, Lemma 2.11 and
+      Lemma 2.32.
+    - **E38, E39, E48, E61:** gaps in Lemmas 1.3 and 1.5, Corollary 2.8 and the twisted trace formula.
+  - The geometric Satake equivalence and the dimension formula stand.
+
 ## This continuation (cc-442dc5)
 
 **Items.**
