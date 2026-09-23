@@ -15,7 +15,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
         "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.1 of arXiv v2 (SHA-256 99b3855a…35a9, fetched 23 September 2026). The property \"for every ε > 0 only finitely many totally positive α have tr(α) < (λ − ε) deg(α)\" is inherited by every smaller λ, so the set of such λ has no least element. Its supremum has the property (given ε, pick λ in the set within ε/2 of the supremum), so \"greatest\" is right, as the correction says. Theorem 1.1 and Example 5.9 use this reading.",
+        "by": "REV-ERRATA-PAPER-SMITH-24"
+      }
     },
     {
       "id": "PAPER-SMITH-24/E2",
@@ -30,7 +35,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
         "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.11. With U^{μ_n}(x) = −(1/n)Σ log|x − α_i|, −nU^{μ_n}(x) = log|P_{n,μ}(x)|, so exp(−nU^{μ_n}) = |P_{n,μ}|. (2.8), which the sentence proves, is stated for |P_{n,μ}(x)|, so nothing else changes.",
+        "by": "REV-ERRATA-PAPER-SMITH-24"
+      }
     },
     {
       "id": "PAPER-SMITH-24/E3",
@@ -45,7 +55,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
         "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p.14. K is centrally symmetric, so λK = |λ|K and every sufficiently negative λ has the property; the minimum defining λ_i must be over λ ≥ 0 (the successive minima of K). The Minkowski bound used in the proof is for these minima.",
+        "by": "REV-ERRATA-PAPER-SMITH-24"
+      }
     },
     {
       "id": "PAPER-SMITH-24/E4",
@@ -60,7 +75,12 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
         "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.32–33. U^{μ∗ν_ε}(z) = ∫U^{ν_ε}(z − x)dμ(x), and Lemma 5.2(2) bounds U^{ν_ε}(w) by log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) − log|w|, so integrating multiplies the constant by μ(Σ). The constant is the logarithm of (1 + 2√ε + ε)/(1 − ε) > 1, so the printed bound holds for μ(Σ) ≤ 1. The uses are μ in Proposition 5.7 and μ_± in the proof of Proposition 2.5 (p.36), all of mass at most 1, so the reach \"nothing\" is right.",
+        "by": "REV-ERRATA-PAPER-SMITH-24"
+      }
     },
     {
       "id": "PAPER-SMITH-24/E5",
@@ -75,7 +95,54 @@
         "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
         "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
         "web search for an erratum or correction, 22 September 2026: none found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on pp.39–40. The separation argument gives a_i ≥ 0, not a_i > 0 as the definition of λ_Smyth requires. At a root x of Q_i with a_i = 0 the term is not −∞, and δ_x ∉ M_N, so the printed justification fails there. The repair works: discard the Q_i with a_i = 0; at a non-isolated point of Σ both sides are continuous away from the finitely many roots of the kept Q_j, so the inequality passes to the limit; at an isolated point, add η log|Q_i| for a vanishing Q_i with η > 0 small, which costs at most η·max_{Σ₀} log|Q_i| on compact parts and is absorbed by the growth (5.11) of F elsewhere. The conclusion λ(Σ, F) = λ_Smyth(Σ, F) stands; \"the proof\" is the right reach.",
+        "by": "REV-ERRATA-PAPER-SMITH-24"
+      }
+    },
+    {
+      "id": "PAPER-SMITH-24/E6",
+      "kind": "error",
+      "locator": "Proof of Proposition 2.5, first paragraph, p.36, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+      "printed": "\"We may write Σ as the union of its set of isolated points with a set of the form ∪_{k≥1} Σ_k, where each Σ_k is a compact finite union of intervals and Σ_k ⊆ Σ_{k+1} for all k ≥ 1.\"",
+      "correction": "\"… as the union of its set of one-point components with a set of the form ∪_{k≥1} Σ_k …\". The one-point components form a countable set, which is all the next sentence uses.",
+      "reason": "A one-point component need not be isolated. Σ = {0} ∪ ⋃_{n≥1}[1/(2n+1), 1/(2n)] ∪ [1, 6] is compact, has countably many components and capacity greater than 1 (it contains [1, 6], of capacity 5/4). Its component {0} is not isolated, and 0 lies in no compact finite union of intervals inside Σ, because every neighbourhood of 0 meets gaps of Σ. So the printed decomposition fails. With one-point components in place of isolated points the decomposition holds (the other components are countably many closed intervals, and Σ_k is the union of the first k of them), and the argument that μ gives this countable set measure 0 is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+        "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Unpaywall record of DOI 10.4007/annals.2024.200.1.2, 23 September 2026: closed, no open copy besides arXiv (checked by the review)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-SMITH-24",
+        "reason": "Found by the review. The example was checked directly. The extraction had flagged this point, and the errata job set it aside as depending on the standing hypotheses; the example satisfies them."
+      }
+    },
+    {
+      "id": "PAPER-SMITH-24/E7",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 2.5, first paragraph, p.36, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+      "printed": "\"By Proposition 5.7, we know that I(μ) is nonpositive. A countable collection of points has zero capacity; since I(μ) > −∞, we must have that μ(∪_{k≥1} Σ_k) = 1.\"",
+      "correction": "\"… since I(μ) < ∞ …\".",
+      "reason": "With the paper's sign convention (Definition 2.1, I(μ) = ∫∫ −log|z − w| dμ dμ), a measure of finite energy I(μ) < ∞ gives no mass to sets of capacity zero, and that is what I(μ) ≤ 0 (Proposition 5.7) supplies. The printed condition I(μ) > −∞ holds for every compactly supported probability measure, since −log|z − w| is bounded below on a compact set. It is the condition of Ransford's convention (energy ∫∫ log|z − w|), which the paper cites in Definition 2.1 but does not use.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+        "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+        "web search for an erratum or correction, 22 September 2026: none found",
+        "Unpaywall record of DOI 10.4007/annals.2024.200.1.2, 23 September 2026: closed, no open copy besides arXiv (checked by the review)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-ERRATA-PAPER-SMITH-24",
+        "reason": "Found by the review and checked against Definition 2.1 and Proposition 5.7."
+      }
     }
   ]
 }
