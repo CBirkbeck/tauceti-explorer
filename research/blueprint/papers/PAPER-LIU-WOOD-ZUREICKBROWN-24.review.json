@@ -1,0 +1,42 @@
+{
+  "paper": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "IG.4 owns arithmetic embedding problems with local constraints. Definition 2.1, Proposition 2.2 and Theorem 2.5 with Lemmas 2.6–2.7 are Galois-side inputs of exactly that kind, and PAPER-WOOD-19 routes the analogous facts there. The review added a note on the profinite step of Lemma 2.7 (E27)."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "IG.5 owns Hurwitz moduli, Nielsen components and tame reduction. The Hurwitz stacks, analytic comparison, Lemmas 10.2, 10.3 and 11.8, lifting invariant, components and Theorem 10.4 belong there, consistent with WOOD-19 and EVW16. Items 32, 40 and 41 are corrected: c excludes the identity, n ≥ 1 in Proposition 12.7, and π, d, π_Γ are defined."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "IG.3 owns braid actions on Nielsen tuples; Theorem 12.5 is Wood 2021, Theorem 3.1, which WOOD-19 already routes there."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "ST.5 owns function-field moment theorems. Theorem 1.4 and Corollary 1.5 are now stated in the lim sup/lim inf form the proof gives (E6), and Lemma 9.3 carries the corrected normalization of E_Γ (E7)."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "GN.4 supplies generic Davenport lattice-point counts (RS-07). Lemma 12.8 is restated with positive weights (E8)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Reuses WOOD-19's reduced-Schur candidate with the same id, parent, title and area; Lemma 12.10 and the §12 notation belong with the reduced multiplier. The review notes that Lemma 12.10 needs only coprimality."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "A new Part II is warranted: nothing in ST.0–ST.5 or ProfiniteProPGroups plans random profinite Γ-groups. The brief is amended: (5.13) and Theorem 5.15 need Property E (E5), Lemma 5.10 needs its positivity hypothesis (E10), Corollary 3.8 is for pro-|Γ|′ groups (E12), Schur–Zassenhaus consumers go back to Lemma 3.4, and a test for E5 is added."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-39fac3 (issue #1224).\n\nSources read:\n- the whole of arXiv v2 from the TeX source and the PDF, with the same SHA-256 as the extraction. The published article (Invent. Math. 237) is paywalled, and Unpaywall lists no open copy, so it was not collated.\n\nMethod: three read-only helper agents of this session split the paper (§§1–4; §§5–7; §§8–12). Each recomputed the formulas on small cases: exhaustive and Monte Carlo enumeration of random quotients, Cohen–Lenstra checks, braid-orbit counts, lattice-point counts and PARI. The reviewer checked every new finding and every change at the page image or in the text.\n\nMain finding (E5): the explicit limit formula (4.14) = (5.13) = Theorem 5.15 is false for H without Property E at level 𝒞. For such H, (4.17) fails at trivial modules and the true measure is 0. Two helpers found it independently with different examples, and it contradicts the paper's own Theorem 7.4. Items 2, 20 and 25 and the Part II brief now carry the Property E hypothesis.\n\nOther substantive findings: the inner limit in q of Theorem 1.4 and Corollary 1.5 is not shown to exist, so they are read with lim sup and lim inf (E6); Lemma 9.3 is off by [Γ : Z(Γ)] with E_Γ as isomorphism classes (E7); Lemma 12.8 needs positive weights (E8). None changes the value of any moment or of the main theorems.\n\nSource issues: E1–E4 confirmed, E4 with refinements made in place. E5–E29 added: 4 errors in stated results, 5 proof gaps or failed proof steps, and 16 misprints.\n\nItems corrected in place: 1–6, 9–20, 22–29, 32–36, 38–43, 45. Item 45 stays library, with the Haar probability measure named correctly (haarMeasure ⊤) and Tannery and Portmanteau added. Two prerequisites were added (Fried–Völklein 1991, Ellenberg–Venkatesh 2005).\n\nStatuses: item 45's Mathlib names were checked in the pinned Mathlib. Items 43 and 44 have planned stage ids that exist. Every missing item is routed exactly once (42).\n\ncheck_paper.py reports ok."
+}
