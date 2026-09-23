@@ -3372,8 +3372,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ABE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1214"
+   "state": "pending",
+   "note": "released on GitHub issue #1214"
   },
   {
    "id": "REV-PAPER-ABE-25",
@@ -3447,8 +3447,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YANG-ZHAO-25.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1218"
+   "state": "external",
+   "note": "claimed on GitHub issue #1218"
   },
   {
    "id": "REV-PAPER-YANG-ZHAO-25",
@@ -6459,7 +6459,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HANSEN-KALETHA-WEINSTEIN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1391"
   },
   {
    "id": "REV-PAPER-HANSEN-KALETHA-WEINSTEIN-22",
