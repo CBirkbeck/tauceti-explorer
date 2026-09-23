@@ -3327,8 +3327,9 @@
    ],
    "avoidAccountOf": "PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1204"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1204",
+   "finishedAt": "2026-09-23T18:19:23Z"
   },
   {
    "id": "PAPER-GLEASON-LIM-XU-26",
@@ -4068,7 +4069,8 @@
    ],
    "avoidAccountOf": "PAPER-LI-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1246"
   },
   {
    "id": "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23",
@@ -6715,7 +6717,8 @@
    ],
    "avoidAccountOf": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-SHANKAR-SHANKAR-TANG-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1394"
   },
   {
    "id": "PAPER-ATOBE-KONDO-YASUDA-22",
@@ -7131,8 +7134,9 @@
    ],
    "avoidAccountOf": "PAPER-LI-ZHANG-22-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-ZHANG-22-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1417"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1417",
+   "finishedAt": "2026-09-23T18:19:26Z"
   },
   {
    "id": "PAPER-CLAUSEN-MATHEW-MORROW-21",
@@ -7360,8 +7364,9 @@
    ],
    "avoidAccountOf": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1429"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1429",
+   "finishedAt": "2026-09-23T18:19:29Z"
   },
   {
    "id": "PAPER-ABE-18",
@@ -7706,7 +7711,8 @@
    ],
    "avoidAccountOf": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
    "prompt": "research/blueprint/prompts/REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1447"
   },
   {
    "id": "PAPER-NEWTON-THORNE-21",
