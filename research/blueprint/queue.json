@@ -1407,8 +1407,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WITASZEK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1101"
+   "state": "pending",
+   "note": "released on GitHub issue #1101"
   },
   {
    "id": "REV-PAPER-WITASZEK-22",
@@ -5432,8 +5432,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-WOOD-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1330"
+   "state": "external",
+   "note": "claimed on GitHub issue #1330"
   },
   {
    "id": "REV-PAPER-WOOD-19",
@@ -5468,8 +5468,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIPNOWSKI-TSIMERMAN-18.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1332"
+   "state": "external",
+   "note": "claimed on GitHub issue #1332"
   },
   {
    "id": "REV-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -6748,8 +6748,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1406"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1406",
+   "finishedAt": "2026-09-23T04:13:21Z"
   },
   {
    "id": "REV-PAPER-HE-18",
