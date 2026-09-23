@@ -3853,8 +3853,9 @@
    ],
    "avoidAccountOf": "PAPER-BRESCIANI-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-BRESCIANI-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1234"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1234",
+   "finishedAt": "2026-09-23T18:57:20Z"
   },
   {
    "id": "PAPER-CARO-PASTEN-23",
@@ -4202,8 +4203,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
