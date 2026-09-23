@@ -5282,8 +5282,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-COLMEZ-DOSPINESCU-NIZIOL-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1322"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1322",
+   "finishedAt": "2026-09-23T03:32:20Z"
   },
   {
    "id": "REV-PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
@@ -5716,7 +5717,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-CALEGARI-GEE-ETAL-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1346"
   },
   {
    "id": "REV-PAPER-BOXER-CALEGARI-GEE-ETAL-25",
@@ -6597,8 +6599,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-HE-21.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1397"
+   "state": "external",
+   "note": "claimed on GitHub issue #1397"
   },
   {
    "id": "REV-PAPER-HE-21",
@@ -7545,8 +7547,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NEWTON-THORNE-21-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1450"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1450",
+   "finishedAt": "2026-09-23T03:32:21Z"
   },
   {
    "id": "REV-PAPER-NEWTON-THORNE-21-B",
