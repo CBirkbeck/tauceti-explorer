@@ -376,3 +376,25 @@ E2 corrects the finite subideal condition in GR5.4.13 from (t^h\in H) to (t^h\in
 **Register integration caveat:** `scripts/errata.py` currently does not coalesce matching IDs across the extraction and dedicated errata file. Copying E1 as required by issue5a therefore produces two occurrences of the same finding in the register. `sourceIssuesRegister` identifies the canonical record. Only the three authorized deliverables were edited; the separate errata file and collector require a later authorized integration change.
 
 Validation: `check_paper.py` and the three-file intake check pass. The supplemental audit passed **2,551 structural assertions**, including all **331 dependency edges**, reverse uses, unchanged inherited statuses, exact routes, test kinds and acyclicity. Exact arithmetic passed **6,383 assertions**, covering 1,296 Newton examples over localizations of the integers, 1,200 multivariate Taylor examples, the strict-boundary counterexample, conormal characteristic2 behavior and stabilization rank counts. These finite diagnostics do not prove the general theorems or execute the 126 Lean planning tests.
+
+## Review (REV-PAPER-CESNAVICIUS-19, 23 September 2026)
+
+An independent review by Claude Code, session cc-d67081, for issue
+[#1329](https://github.com/CBirkbeck/tauceti-explorer/issues/1329). **Verdict: accept.**
+
+- **Items, statuses and routes:** unchanged. All 15 library citations were read at the
+  pinned commits and all say what the citing item claims; 13 planned items name layers that
+  exist; 150 missing items are routed exactly once; all 17 source routes accepted. Four
+  citations look unresolved against `declarations.tsv` but all four exist — two known index
+  defects, and the review isolated the trigger for one of them (a `namespace` whose name is
+  on the next line, `FiniteLocallyFree.lean:157`).
+- **Mistakes:** all four confirmed, each now carrying a `review` verdict, and a fifth
+  (E5) found by the review in the same Gabber–Ramero proof. E2 was checked against the
+  extraction's counterexample; E3, E4 and E5 were confirmed on page images, E4 because
+  `∈` versus `∉` is a single glyph and the extraction had inherited it without re-reading.
+- **Corrections:** run-together numbering (`Theorem4.10`, `Lemma3.1`) repaired in 593
+  places, leaving bibliography keys and section marks untouched; the author's copy recorded
+  with its hash and a full collation against arXiv v4, which shows no mathematical
+  difference and confirms it predates v4.
+
+Full report: `research/blueprint/reviews/REV-PAPER-CESNAVICIUS-19.md`.
