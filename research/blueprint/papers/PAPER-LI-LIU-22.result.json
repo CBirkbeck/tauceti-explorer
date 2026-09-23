@@ -11,7 +11,9 @@
     "url": "https://doi.org/10.1017/fmp.2022.2",
     "readSections": [
       "The entire published article (Forum Math. Pi 10 (2022), e5; 71 pages; §§1–4 and references), read 2026-09-22 from the Cambridge Core open-access PDF, SHA-256 0661582ac905525b5d3c73f9b4de798b5eb43fafb4b5f51c3879071d859b1fc0. Locators are journal pages."
-    ]
+    ],
+    "sha256Note": "The sha256 recorded for the published Cambridge PDF is NOT reproducible. Cambridge stamps each download with the date and time on every page. Review REV-PAPER-LI-LIU-22 downloaded the article twice on 23 September 2026 and obtained a61062152412a35b2b188b2a7e880ba4aeb68e096bf881794265b563a4c564be and 041c8bb940f08c861177445dad8810bb60d390fb6242e0c982c340353be5a896, neither matching the recorded 0661582a…1fc0, and differing from each other only in that stamp. Use publishedTextSha256 below as the verifiable anchor.",
+    "publishedTextSha256": "223a9e92de9b0189273ae69d7ad3ae554e485748200735275f45f38e87e052a8 — SHA-256 of `pdftotext -layout` output with the per-download Cambridge stamp lines removed; obtained identically from two separate downloads by review REV-PAPER-LI-LIU-22, so it is reproducible where the raw PDF hash is not. The page map was confirmed against the running heads: printed page = PDF page."
   },
   "summary": "Improves Li–Liu's 2021 theorems on Chow groups and L-derivatives for unitary groups in two directions.\n- Ramified places of E/F are allowed, with K_{r,v}-spherical representations there. This needs a Kudla–Rapoport-type formula Int(𝐋) = ∂Den(𝐋) on exotic smooth relative Rapoport–Zink spaces (Theorem 2.7).\n- Arbitrary components at split places are allowed. This needs a vanishing theorem H^{2r}(X_m, Q_ℓ(r))_𝔪 = 0 for integral models with Drinfeld level, proved through Newton strata and the Caraiani–Scholze trace formula (Theorem 4.21).\n\nThe outcomes:\n- Theorem 1.4: if L′(½, π) ≠ 0, the π-localized Chow group of the unitary Shimura variety is nonzero.\n- Theorem 1.5: under the modularity of Kudla's generating functions, the arithmetic inner product formula relates the Beilinson–Bloch height of arithmetic theta lifts to L′(½, π) and local doubling zeta integrals.\n- Corollary 1.7: an explicit formula for new vectors.\n- Example 1.10: symmetric powers of elliptic curves now qualify.\n\nThe proof of Theorem 2.7 follows Li–Zhang, with four new ingredients:\n- a parity-constrained lattice induction;\n- a direct proof of the analytic vanishing (Proposition 2.22);\n- a reduction to n = 4 computed by Howard's linear invariance;\n- a display-theoretic comparison of relative and absolute Rapoport–Zink spaces when F/Q_p is unramified.\n\nThe libraries have none of this; the atlas plans the hermitian lattice classification (GN.2), the Igusa trace formula (IG.5) and Weil II purity (R34.5).\n\nRoutes:\n- exotic Rapoport–Zink spaces and integral models go to UnitaryRapoportZinkSpacesAndRSZModels;\n- the ramified Kudla–Rapoport theory goes to UnitaryKudlaRapoportCycles (both candidates from PAPER-LI-ZHANG-22-B);\n- the doubling method and the arithmetic inner product formula go to a new Part II of GrossZagierAndArithmeticHeights;\n- ramified local densities go to GN.3, the Weil representation to MP.2/MP.3, and the vanishing theorem to IG.5/IG.7, all as sources.\n\nThree groups of misprints are recorded (E1–E3). E4 is a gap inherited from Li–Liu 2021: Proposition 4.27(2) depends on a Li–Zhang theorem that is conditional on their Conjecture 10.4.1 (PAPER-LI-LIU-21/E3). E5 is the authors' own erratum, published in Disegni–Liu (2024) §4.10: the elements chosen in S^R_{Q^ac} must avoid m^R_{π^∨}, not m^R_π.",
   "items": [
@@ -1033,7 +1035,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
         "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed decisively, and by the paper printing the same formula six times with the letter differing exactly where the finding says. On published p. 27 the expression 1 + q + … + q^j + (b_2 − j)q^j appears four times correctly — in the ∂Den(𝑳) display, in the sentence 'the number of L ∈ 𝔏 with j(L) = j … equals …', in the |𝔏| display and in the Int(𝑳) = ∂Den(𝑳) display. Then (2.17) on the same page prints 'length_{O_Ĕ} W_{x_1E,j} ∩ N(x_2) = 2(1 + q + ⋯ + q^j + (b_2 − l)q^j)' and the following display, on p. 28, prints 'Int(𝑳) = length_{O_Ĕ} N(x_1) ∩ N(x_2) = Σ 2(1 + q + ⋯ + q^j + (b_2 − l)q^j)'. Four j against two l, in one formula, with the two l exactly at the two places the finding identifies. The summation index is j throughout, so l is the slip. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-LI-LIU-22"
+      }
     },
     {
       "id": "PAPER-LI-LIU-22/E2",
@@ -1047,7 +1054,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
         "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves, and the second decisively by the line it sits on. Published p. 33 prints 'Let θ the unique element in U(𝑽)(F) satisfying θ(x_i) = 1 for 1 ⩽ i ⩽ n − 1 and θ(x_n) = −x_n': θ is an element of the unitary group, so it acts on the basis vectors and θ(x_i) = x_i is meant, not the scalar 1. Published p. 35 prints '◦ If (x,x)_𝑽 ∈ u^{e_i−1}O_F, then (b_1, b_2) = (a_i − 1, a_i − 1)' and '◦ If (x,x)_𝑽 ∉ u^{e_i−1}O_F, then b_1 ⩽ a_i − 2' — the condition is written with e_i while the conclusion on the very same line is in terms of a_i, so u^{a_i−1} is meant in both conditions. (The same sentence on p. 33 also drops a 'be' after 'Let θ', which the extraction does not record and which this review does not add.) Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-LI-LIU-22"
+      }
     },
     {
       "id": "PAPER-LI-LIU-22/E3",
@@ -1061,7 +1073,12 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
         "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed, both halves, and both decisively. Lemma 2.15 on published p. 12 prints its summation range as 'L ⊆ L′ ⊆ L′𝑣𝑒𝑒' — the literal characters v, e, e set in math italic where the dual ∨ belongs, exactly as the finding describes; this is visible in the text layer and is not an extraction artefact, since every other superscript on the line renders normally. And published p. 60 prints 'For 0 ⩽ h ⩽ g − 1, we denote by σ(i) the sequence starting …', where the quantifier introduces h and no i is in scope, so σ(h) is meant. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-LI-LIU-22"
+      }
     },
     {
       "id": "PAPER-LI-LIU-22/E4",
@@ -1078,7 +1095,12 @@
         "Li–Zhang, arXiv 1908.01701v3 §§10.4–10.5 and the authors' final version (Chao Li's homepage, KRProof.pdf) §§10.4–10.5",
         "Li–Rapoport–Zhang, arXiv:2404.02214v2, Theorem 14.6.2",
         "PAPER-LI-LIU-21/E3 (Li–Liu 2021, Proposition 9.1)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as printed at published p. 64: 'Proof. Part (1) is proved in the same way as [LL21, Proposition 8.1]. Part (2) is proved in the same way as [LL21, Proposition 9.1].' The substance of the finding — that Proposition 4.27(2), and with it Theorems 1.4 and 1.5 and Corollary 1.7 whenever S_π ≠ ∅, should carry Li–Zhang Conjecture 10.4.1 as a hypothesis, because the cited [LL21, Proposition 9.1] does — rests on the extraction's reading of that cited proposition, which this review did not fetch. I confirm that the proof is a bare appeal to it with no hypothesis carried across, which is what makes the finding a gap rather than a misprint, and that 'affects a stated result' is the right classification. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-LI-LIU-22"
+      }
     },
     {
       "id": "PAPER-LI-LIU-22/E5",
@@ -1092,7 +1114,23 @@
       "searched": [
         "Forum Math. Pi 10 (2022), e5, DOI 10.1017/fmp.2022.2: Crossref (checked 2026-09-22) records no update or correction relation",
         "arXiv 2101.09485: v2 of 10 April 2021 (\"revised in accordance with [LL]\") predates the published version (accepted 12 January 2022, revised 15 December 2021); the published version was read"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as printed, at all three locators, and the locator is exactly right — I checked it carefully because the three passages differ. Published p. 55 has the admissibility bullet 'for i = 1, 2, s_i is a product of two elements in (S^R_{Q^ac})_{L_ℓ^R}', and the set-minus form the finding quotes appears in the two proofs: published p. 57, 'there exist elements s_{u1}, s_{u2} ∈ S^R_{Q^ac} \\ 𝔪^R_π such that …', and published p. 64, the same phrase. The correction — that the elements should be taken in S^R_{Q^ac} \\ 𝔪^R_{π^∨} and that [LL21, Proposition 6.10(1)] should be quoted with χ^R_{π^∨}(s), because it is the dual representation whose Hecke character acts — rests on the extraction's analysis of that argument, which this review did not re-derive. Verified against the published open-access text, Forum of Mathematics Pi 10 (2022), e5, 71 pp., re-fetched by this review on 23 September 2026; printed page = PDF page, confirmed against the running heads. No later version or erratum corrects it: Crossref's record of doi:10.1017/fmp.2022.2 carries no update-to, updated-by or relation entry (checked 23 September 2026).",
+        "by": "REV-PAPER-LI-LIU-22"
+      }
     }
-  ]
+  ],
+  "verification": {
+    "agent": "Claude Code",
+    "session": "cc-d67081",
+    "issue": 1385,
+    "job": "REV-PAPER-LI-LIU-22",
+    "date": "2026-09-23",
+    "verdict": "accept",
+    "read": "The published open-access text, Forum Math. Pi 10 (2022), e5, 71 pp., re-fetched on 23 September 2026; printed page = PDF page, confirmed against the running heads. All 5 recorded mistakes checked at their locators.",
+    "changes": "No change to any item, status, route or locator. All 5 recorded mistakes carry review verdicts and all are confirmed, three of them decisively. Two records were added to the source block: the published PDF's sha256 is not reproducible because Cambridge stamps each download, and a reproducible stamp-stripped text hash was recorded in its place.",
+    "lean": "none"
+  }
 }
