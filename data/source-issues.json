@@ -65430,9 +65430,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at §4.1, pp. 64–65. The correction — that the second correspondence should be b = (b_2, b_3) with v : b_{3,!}(b_2^*(F_2)) → F_3, and the composition condition p_1∘a_1 = p_2∘a_2 = p_3∘b_3 — follows the extraction's reading of the composition of cohomological correspondences being set up there; I verified the quotation but did not re-derive the indexing, so that part rests on the extraction. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E2",
@@ -65451,9 +65451,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at §8.6, p. 116, and the surrounding text is as the finding describes: the page reads 'champ constant Bun_{G,N}(F_q) sur η^∅ = Spec(F_q)' and displays (8.4). The finding turns on the superscript (I) of Cht^{(I)}, which the text layer flattens and which my page-image crops did not capture cleanly; the claim that it reads ({0}) where it should read (∅) therefore rests on the extraction's reading rather than on a check of mine. The correction is consistent with the surrounding I = ∅ discussion. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E3",
@@ -65472,9 +65472,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Confirmed decisively at p. 86, in the proof of Lemme 6.11. The page prints '(de façon encore plus canonique pr_1^*(F^{(I)}) et pr_1^*(F^{(I)}) sont tous les deux image inverse de S_{I,W,E})' — pr_1^* twice — while the sentence immediately above introduces both projections: 'Comme les projections pr_1 et pr_2 de …'. The second must be pr_2^*. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E4",
@@ -65493,9 +65493,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located in the proof of (7.2) on p. 103 and in the definition of C_n(U) on p. 104. The two corrections — C_{{1,…,i}}(T, κ_i) on p. 103, and the earlier notation being C_{{1,…,n}}(T,U) with the subscript the set J of the definition C_J(T,U) — rest on the extraction's collation of the definition with its two uses, which I did not repeat. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E5",
@@ -65514,9 +65514,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at Lemme 11.10, p. 145. The corrections — that the unique element should be g ∈ H(Q̄_ℓ) and that it lies in D(g_1,…,g_n) — follow the extraction's reading of the uniqueness argument in §11, which I did not re-derive. Worth noting that this lemma is one of the four items the extraction routes to LanglandsParameterStacks, so the statement matters beyond this paper. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E6",
@@ -65535,9 +65535,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Confirmed decisively at §12.2.3, p. 154, which prints 'On rappelle que dans (12.1) la somme est indexée par ker^1(F,G)'. But (12.1), on p. 150, is the inclusion G(F)\\G(A)/K_N ⊂ Bun_{G,N}(F_q) — there is no sum in it at all. The decomposition indexed by ker^1(F,G) is (12.2) on the same page, Bun_{G,N}(F_q) = ⊔_α G_α(F)\\G_α(A)/K_N, and p. 150 itself refers twice to 'le membre de droite de (12.2)'. The reference should be (12.2). Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E7",
@@ -65556,9 +65556,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located in the proof of Lemme 12.19 c), p. 160. The correction, that the pair should be (^Lβ^{ad}, ^Lβ^{ab}) : ^LG^{ad} × ^LG^{ab} → ^LG, follows the extraction's reading of the map being composed with; I verified the quotation but not the derivation. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E8",
@@ -65577,9 +65577,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Confirmed at Remarque 12.4, p. 152, which prints lim_N C_c^{cusp}(Bun_{G,N}(F_q)/Ξ, Q̄_ℓ) = ⊕_{α∈ker^1(F,G)} C_c^{cusp}(G_α(F)\\G_α(A)/Ξ, E) — Q̄_ℓ on the left and E on the right of one displayed equality. The ambient coefficient field in this remark is Q̄_ℓ, as the next display confirms with Hom_{G(A)}(π, lim_N C_c^{cusp}(…, Q̄_ℓ)), so the E on the right is the slip. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E9",
@@ -65598,9 +65598,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at Théorème 13.2 and Remarque 13.3, p. 169. The extraction records that it verified this one on a rendered page image, which is the right standard here, since the correction is the superscript F̄_ℓ on 𝔥_σ and superscripts are exactly what the text layer flattens. I did not repeat that rendering, so this verdict rests on the extraction's image reading. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E10",
@@ -65619,9 +65619,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at §14, p. 171. Again the extraction records verification on a rendered page image, and again rightly: the correction is a tilde, (^LG̃)^I for (^LG)^I, and tildes are flattened by the text layer. This verdict rests on that reading. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E11",
@@ -65640,9 +65640,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Located at §14, p. 172. The correction — H̃^{0,≤µ,E}_{N,I,W} for the printed H̃^{0,≤µ,Q̄_ℓ}_{N,I,V} — is consistent with the notation used elsewhere in the paper: I read the display on p. 116 as a page image in the course of checking E2, and it prints H^{0,≤µ,E}_{N,I,W}, with coefficient E and representation W. That corroborates both halves of the correction, though I did not render p. 172 itself. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAFFORGUE-18/E12",
@@ -65661,9 +65661,9 @@
    "owner": "PAPER-LAFFORGUE-18",
    "file": "research/blueprint/papers/PAPER-LAFFORGUE-18.result.json",
    "citation": "Vincent Lafforgue, \"Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale\", Journal of the American Mathematical Society (2018)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-LAFFORGUE-18",
+   "reviewReason": "Confirmed for the two elements that a text search settles decisively: 'éventuellemement' occurs exactly once in the paper, at p. 170, and 'mais mais' occurs exactly once, at p. 55 — both plainly typographical. The remaining elements of this bundle (the misspellings in §4.4, §8 and the bibliography) rest on the extraction's reading; they are of the same kind and there is no reason to doubt them, but I did not check each one. Verified against arXiv 1209.5352v10, re-fetched by this review and hashing to b37715f9…4295, matching the record; 184 pages. This review independently confirmed that the published JAMS text cannot be retrieved: Unpaywall reports doi:10.1090/jams/897 as bronze open access with a publisher PDF at ams.org, but that URL returns a bot interstitial (an HTML page, not a PDF) to a browser user-agent and HTTP 403 to curl, and the r.jina.ai proxy returns the JAMS issue listing rather than the article. So the extraction's statement that the published version could not be consulted is correct, and every verdict here is against v10. Crossref records no correction notice for the DOI (checked 23 September 2026)."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/E1",
