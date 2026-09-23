@@ -9,12 +9,14 @@
     "doi": "10.1007/s00222-025-01357-6",
     "arxiv": "2303.03863",
     "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01357-6.pdf",
-    "versionRead": "Published journal article, accepted 28 July 2025, published 25 August 2025; complete 31-page PDF read.",
+    "versionRead": "Published journal article, complete 31 pages freshly read for this continuation; same SHA-256 as the preceding checkpoint.",
     "sha256": "0691a57a2aae841419ee97b8fac68aa8f3d499ed884933422a388106febab576",
-    "accessed": "2026-09-22",
+    "accessed": "2026-09-23",
     "readSections": [
       "All journal §§1–3, pp305–333, footnotes and bibliography pp333–335.",
-      "PDF images pp327,329,331 checked against extracted text for torus modules, norm valuations and cyclic-density argument."
+      "PDF images pp327,329,331 checked against extracted text for torus modules, norm valuations and cyclic-density argument.",
+      "2026-09-23 continuation: fresh complete journal reading pp305–335; special-point construction, Eq.(6)–(7), Assumption2.7 and Theorem3.10 rechecked while writing repairs. Supplementary reading ranges above are inherited from codex-a71f92, not freshly repeated.",
+      "Continuation PDF images pp326,328,329 checked against the extraction for the cocycle, Eq.(6)–(7), and root-pairing conventions."
     ],
     "license": "CC BY 4.0, https://creativecommons.org/licenses/by/4.0/. This extraction paraphrases the mathematics, attributes short findings excerpts and records proposed corrections; it is not an author-approved revision.",
     "supplementary": [
@@ -42,18 +44,22 @@
           "AppendixA.5 pp482–483 in full, LemmasA.5.1–2; not the whole book. Author-linked July2026 errata, all three pages, checked at https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf. Published 2024 appendix not fully collated."
         ]
       }
-    ]
+    ],
+    "continuationWorker": "Codex — codex-c83e7a; preserves codex-a71f92 extraction in PR1996."
   },
-  "summary": "Full-journal-read checkpoint separating abstract superrigid uniform extension, higher-rank arithmetic lattice rigidity, special-torus symmetry breaking and uniform adjoint compatibility. 137 items with use-derived APIs/tests, unique ownership routes, and ten unconfirmed source findings. Proposed E2/E4 proof repairs and original reference leaves remain explicit gaps; no proof closure or Lean formalization is claimed.",
+  "summary": "Second full-journal-read checkpoint, preserving all 137 earlier items and adding 13 atomic supplier/repair items. Written proofs now explain the ramified torus-norm valuation and its Frobenius application, rational descent of the torus conjugation isomorphism, split–anisotropic nonisogeny and the multiplicity-free density argument. All ten routes and source-finding/gap IDs remain; original reference leaves and independent verification remain open. Partial, with no Lean formalization claim.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
-    "atlasCommit": "78bd3844cc90f585c75950c2b48795b9632659dc",
-    "reviewedAudit": "data/library-coverage.json: AUDIT01 SF.2, AUDIT09 IG.0–2, AUDIT10 ShimuraData D0–5, AUDIT11 ShimuraVarieties V0–8, AUDIT13 ALS0–6, AUDIT20 GS0–7, AUDIT31 ArithmeticGaloisRepresentations R01.1/.2/.5. Abstract Galois categories, Hodge fibres and torus lattices exist; scheme π₁, canonical towers, higher-rank rigidity, general companions and recognition are not thereby built. No merged ReductiveGroupsPartII coverage entry found; absence is not an audited negative verdict.",
+    "atlasCommit": "f4627ae2ad33e157779697585f7018a5e9bbe1c0",
+    "reviewedAudit": "data/library-coverage.json: AUDIT01 SF.2, AUDIT09 IG.0–2, AUDIT10 ShimuraData D0–5, AUDIT11 ShimuraVarieties V0–8, AUDIT13 ALS0–6, AUDIT20 GS0–7, AUDIT31 ArithmeticGaloisRepresentations R01.1/.2/.5. Abstract Galois categories, Hodge fibres and torus lattices exist; scheme π₁, canonical towers, higher-rank rigidity, general companions and recognition are not thereby built. No merged ReductiveGroupsPartII coverage entry found; absence is not an audited negative verdict. Continuation freshly reads AUDIT-04 LocalFieldsRamification Layer0 in full: normalized valuation and absolute-value uniqueness exist; the finite-extension local-field and intrinsic e/f interfaces remain incomplete.",
     "searches": [
       "Pinned Mathlib and Tau Ceti full-tree searches: superrigidity, companions, Mumford–Tate, Serre group, hyperspecial, tame specialization, algebraic automorphism/torus and character/cocharacter pairing. Opened the actual declarations cited on library items.",
       "Atlas stage descriptions, proposed roadmaps, packets, accepted decompositions, reserved IDs, existing paper routes and reviewed library coverage were checked. Reused HodgeStructuresPartII and ReductiveGroupsArithmeticPartII candidates; distinguished canonical tower, Honda–Tate reduction, cohomological geometric monodromy and rigid p-to-ℓ companions.",
-      "Upstream ReductiveGroups and HodgeStructures roadmaps read as complete granularity/API models."
+      "Upstream ReductiveGroups and HodgeStructures roadmaps read as complete granularity/API models.",
+      "2026-09-23 focused pin reads: Norm/Transitivity:268; SpectralNorm:691–693,770; Compactness/Compact:511–518; Maschke:136–184; ValuedField:123–138; TauCeti Torus/Cocharacter/Basic:45–105 and LocalField/NormalizedValuation:89–120,295–305. Full upstream ReductiveGroups stage descriptions and LocalFieldsRamification Layer0, plus RG2.0/RG2.0a/RG2.3 read. Existing KMPS22/Kisin–Zhou25 candidate briefs reused.",
+      "Publication refresh: 556 inputs verified at 10981ece7d21f6f9671eb164bb8ee7343c95571b. Screened Binda–Kato–Vezzani25 and Liu–Zhu17 completion/source-finding metadata (no item changes), Yang–Zhao25 localized-Chern additions, Yuan26 height/gap-principle additions, Yuan–Zhang18 PEL/level/height comparisons, and new Caraiani–Scholze17 Igusa/torsion-concentration routes. None replaces the local-field or arithmetic-torus repair suppliers; no route identity changes.",
+      "Final guard refresh: 557 inputs at f4627ae2ad33e157779697585f7018a5e9bbe1c0. AGHMP18 added/refined special-endomorphism, CM-level, Lubin–Tate and height leaves under its existing LT/orthogonal/CM owners. Its local semilinear-endomorphism and CM-height assertions do not supply or duplicate the generic arithmetic-torus norm/descent repairs here. Original three deliverable blobs remain unchanged."
     ],
     "declarations": [
       {
@@ -110,9 +116,33 @@
         "ref": "tauceti:TauCeti.adjointSemisimpleCommHopfAlgProperty.isCentralPoint_eq_one",
         "checked": "For an adjoint semisimple Hopf-coordinate group, every universally central point over any commutative value algebra equals one. A point centralizing a Zariski-dense subset still needs the separate density-to-universal-centrality bridge.",
         "locator": "Lemma2.1 p312; pinned Adjoint/Basic.lean:78"
+      },
+      {
+        "ref": "mathlib:Algebra.norm_eq_prod_embeddings",
+        "checked": "For a finite separable extension L/K and an algebraically closed extension E/K, algebraMap K E (Algebra.norm K z) equals the product of σ(z) over all K-algebra embeddings σ:L→E. No normality or unramifiedness assumption.",
+        "locator": "Mathlib/RingTheory/Norm/Transitivity.lean:268; normalization check for journal Eq.(7)"
+      },
+      {
+        "ref": "mathlib:spectralNorm_unique_field_norm_ext",
+        "checked": "Let K be complete, nontrivially normed and nonarchimedean, and L/K algebraic. Every real-valued absolute value on L restricting to the given norm of K equals spectralNorm K L pointwise. This is absolute-value uniqueness; the normalized additive finite-extension adapter remains item142.",
+        "locator": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean:770, with variables at 691–693"
+      },
+      {
+        "ref": "mathlib:isCompact_iff_finite",
+        "checked": "In a topological space X with DiscreteTopology, IsCompact s if and only if the subset s is finite.",
+        "locator": "Mathlib/Topology/Compactness/Compact.lean:511–518"
+      },
+      {
+        "ref": "mathlib:IsCompact.finite_of_discrete",
+        "checked": "In a topological space X with DiscreteTopology, IsCompact s if and only if the subset s is finite.",
+        "locator": "Mathlib/Topology/Compactness/Compact.lean:511–518"
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.Submodule.exists_isCompl",
+        "checked": "For a finite group H and a field k in which Nat.card H is nonzero, every k[H]-submodule of a k[H]-module has an H-equivariant complement. In particular this applies to rational finite-image Galois representations.",
+        "locator": "Mathlib/RepresentationTheory/Maschke.lean:136–168"
       }
-    ],
-    "publicationBase": "adc5940c810644c0b4f028fadcb6c56da73c7b4d"
+    ]
   },
   "items": [
     {
@@ -167,17 +197,57 @@
         {
           "name": "AdjointCompatibility.fiber.test1",
           "statement": "For C=finite sets and F=id, F preserves the empty coproduct and terminal singleton.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.fiber.test2",
           "statement": "The fibre of a disconnected finite cover is still a finite set, not a chosen connected component.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.fiber.test3",
           "statement": "A functor failing to preserve a two-object coproduct cannot supply the fibre-functor structure.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.fiber.map",
+          "role": "data",
+          "statement": "Expose F on finite covers and maps."
+        },
+        {
+          "name": "AdjointCompatibility.fiber.conserve",
+          "role": "data",
+          "statement": "Reflect isomorphisms of covers."
+        },
+        {
+          "name": "AdjointCompatibility.fiber.autAction",
+          "role": "data",
+          "statement": "Let a natural automorphism act on every fibre."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.fiber.test1",
+          "statement": "For C=finite sets and F=id, F preserves the empty coproduct and terminal singleton.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.fiber.test2",
+          "statement": "The fibre of a disconnected finite cover is still a finite set, not a chosen connected component.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.fiber.test3",
+          "statement": "A functor failing to preserve a two-object coproduct cannot supply the fibre-functor structure.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -239,17 +309,57 @@
         {
           "name": "AdjointCompatibility.finiteactions.test1",
           "statement": "A terminal object gives the singleton trivial action.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.finiteactions.test2",
           "statement": "A disconnected object gives the disjoint union of its component actions.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.finiteactions.test3",
           "statement": "A non-continuous action of an infinite profinite group on a finite set is outside ContAction.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.finiteactions.action",
+          "role": "data",
+          "statement": "Construct the continuous finite Aut(F)-action."
+        },
+        {
+          "name": "AdjointCompatibility.finiteactions.map",
+          "role": "data",
+          "statement": "Send a cover morphism to an equivariant map."
+        },
+        {
+          "name": "AdjointCompatibility.finiteactions.inverse",
+          "role": "data",
+          "statement": "Recover an object from its finite continuous action up to isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.finiteactions.test1",
+          "statement": "A terminal object gives the singleton trivial action.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.finiteactions.test2",
+          "statement": "A disconnected object gives the disjoint union of its component actions.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.finiteactions.test3",
+          "statement": "A non-continuous action of an infinite profinite group on a finite set is outside ContAction.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -313,17 +423,57 @@
         {
           "name": "AdjointCompatibility.torus.test1",
           "statement": "G_m is a rank-one split torus.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.torus.test2",
           "statement": "The trivial group is the rank-zero torus.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.torus.test3",
           "statement": "The additive group in characteristic zero does not satisfy the torus splitting predicate.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.torus.baseChange",
+          "role": "data",
+          "statement": "Transport the torus predicate along field extension."
+        },
+        {
+          "name": "AdjointCompatibility.torus.rank",
+          "role": "data",
+          "statement": "Recover character-lattice rank."
+        },
+        {
+          "name": "AdjointCompatibility.torus.hom",
+          "role": "data",
+          "statement": "Use Hopf-algebra morphisms contravariantly to define torus morphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.torus.test1",
+          "statement": "G_m is a rank-one split torus.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.torus.test2",
+          "statement": "The trivial group is the rank-zero torus.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.torus.test3",
+          "statement": "The additive group in characteristic zero does not satisfy the torus splitting predicate.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -464,17 +614,57 @@
         {
           "name": "AdjointCompatibility.red.test1",
           "statement": "GL_n supplies a reductive example with nontrivial centre.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.red.test2",
           "statement": "An upper triangular Borel in GL₂ is not reductive.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.red.test3",
-          "statement": "The predicate alone does not choose an integral model or a quotient map to G^ad.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The same generic split torus uDu^-1 in GL₂/Q₃ is reductive for u=[[1,1/3],[0,1]], while u diag(2,1)u^-1 does not lie in the fixed model GL₂(Z₃).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.red.coordinate",
+          "role": "data",
+          "statement": "Compare the group-scheme and Hopf-algebra reductive predicates."
+        },
+        {
+          "name": "AdjointCompatibility.red.baseChange",
+          "role": "data",
+          "statement": "Transport reductivity to a field extension."
+        },
+        {
+          "name": "AdjointCompatibility.red.points",
+          "role": "data",
+          "statement": "Evaluate the underlying affine group on a field algebra."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.red.test1",
+          "statement": "GL_n supplies a reductive example with nontrivial centre.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.red.test2",
+          "statement": "An upper triangular Borel in GL₂ is not reductive.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.red.test3",
+          "statement": "The same generic split torus uDu^-1 in GL₂/Q₃ is reductive for u=[[1,1/3],[0,1]], while u diag(2,1)u^-1 does not lie in the fixed model GL₂(Z₃).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -537,22 +727,62 @@
       "unitTests": [
         {
           "name": "AdjointCompatibility.pi.test1",
-          "statement": "For Spec(F), recover the absolute Galois group.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For the arithmetic étale fundamental group of Spec(F) at a separable closure, π₁ is Γ_F; after base change to Fbar the geometric group is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.pi.test2",
           "statement": "The trivial finite cover corresponds to the singleton action.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.pi.test3",
           "statement": "Changing an étale path conjugates the homomorphism, not its Frobenius quotient class.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G9"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.pi.fiber",
+          "role": "data",
+          "statement": "Construct the finite-étale geometric fibre functor."
+        },
+        {
+          "name": "AdjointCompatibility.pi.pullback",
+          "role": "data",
+          "statement": "Give π₁(Y)→π₁(X) from a pointed map Y→X."
+        },
+        {
+          "name": "AdjointCompatibility.pi.path",
+          "role": "data",
+          "statement": "Compare basepoints up to inner conjugation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.pi.test1",
+          "statement": "For the arithmetic étale fundamental group of Spec(F) at a separable closure, π₁ is Γ_F; after base change to Fbar the geometric group is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.pi.test2",
+          "statement": "The trivial finite cover corresponds to the singleton action.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.pi.test3",
+          "statement": "Changing an étale path conjugates the homomorphism, not its Frobenius quotient class.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
       ]
     },
     {
@@ -620,17 +850,57 @@
         {
           "name": "AdjointCompatibility.frobenius.test1",
           "statement": "On F_(q^n), geometric Frobenius is the inverse of z↦z^q.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.frobenius.test2",
           "statement": "A degree-d closed point uses q^d, not q.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.frobenius.test3",
           "statement": "For a diagonal representation, inverse Frobenius inverts every eigenvalue.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.frobenius.inverse",
+          "role": "data",
+          "statement": "Relate geometric and arithmetic Frobenius by inversion."
+        },
+        {
+          "name": "AdjointCompatibility.frobenius.extend",
+          "role": "data",
+          "statement": "Under residue-degree d extension replace Frobenius by its d-th power."
+        },
+        {
+          "name": "AdjointCompatibility.frobenius.class",
+          "role": "data",
+          "statement": "Make the semisimple quotient class independent of its representative."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.frobenius.test1",
+          "statement": "On F_(q^n), geometric Frobenius is the inverse of z↦z^q.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.frobenius.test2",
+          "statement": "A degree-d closed point uses q^d, not q.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.frobenius.test3",
+          "statement": "For a diagonal representation, inverse Frobenius inverts every eigenvalue.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -682,17 +952,57 @@
         {
           "name": "AdjointCompatibility.snc.test1",
           "statement": "A² with boundary xy=0 is a relative SNC pair over a field.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.snc.test2",
           "statement": "The origin alone in A² is not a Cartier boundary divisor.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.snc.test3",
           "statement": "An empty boundary recovers the smooth proper case.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.snc.chart",
+          "role": "data",
+          "statement": "Exhibit local equation t₁⋯t_r=0 with smooth strata."
+        },
+        {
+          "name": "AdjointCompatibility.snc.strata",
+          "role": "data",
+          "statement": "Form intersections of distinct boundary components."
+        },
+        {
+          "name": "AdjointCompatibility.snc.baseChange",
+          "role": "data",
+          "statement": "Transport a good pair under the allowed regular base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.snc.test1",
+          "statement": "A² with boundary xy=0 is a relative SNC pair over a field.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.snc.test2",
+          "statement": "The origin alone in A² is not a Cartier boundary divisor.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.snc.test3",
+          "statement": "An empty boundary recovers the smooth proper case.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         }
       ]
     },
@@ -762,17 +1072,57 @@
         {
           "name": "AdjointCompatibility.spread.test1",
           "statement": "An already smooth projective constant family may have empty boundary.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.spread.test2",
-          "statement": "A point with a denominator p requires p to enter the excluded set.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The Q-point 1/p of A¹ extends to Z[1/N] exactly when p divides N (p prime, N>0).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.spread.test3",
-          "statement": "Spreading one basepoint does not by itself prove all special points are uniformly integral.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "On A¹/Q the point 0 extends over Z, but the point 1/p does not extend over Z for any prime p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.spread.localize",
+          "role": "data",
+          "statement": "Enlarge the finite excluded set without changing the generic fibre."
+        },
+        {
+          "name": "AdjointCompatibility.spread.point",
+          "role": "data",
+          "statement": "Spread an algebraic basepoint after a finite number-field extension."
+        },
+        {
+          "name": "AdjointCompatibility.spread.pair",
+          "role": "data",
+          "statement": "Retain smoothness, projectivity and all SNC strata."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.spread.test1",
+          "statement": "An already smooth projective constant family may have empty boundary.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.spread.test2",
+          "statement": "The Q-point 1/p of A¹ extends to Z[1/N] exactly when p divides N (p prime, N>0).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.spread.test3",
+          "statement": "On A¹/Q the point 0 extends over Z, but the point 1/p does not extend over Z for any prime p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -828,17 +1178,57 @@
         {
           "name": "AdjointCompatibility.tamecover.test1",
           "statement": "For G_m in characteristic p, z↦z^n is tame when p∤n.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.tamecover.test2",
-          "statement": "An Artin–Schreier cover with a pole at the boundary can be wildly ramified there.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "Over a field of characteristic p, y^p-y=t defines a finite étale cover of A¹ with wild ramification of index p at infinity.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.tamecover.test3",
-          "statement": "Characteristic-zero horizontal boundary tameness does not imply a special fibre has no wild covers.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "Over F_p the cover y^p-y=t of A¹ has nontrivial wild inertia at infinity, whereas every finite ramification index of a boundary valuation with residue characteristic zero is prime to that residue characteristic.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.tamecover.valuation",
+          "role": "data",
+          "statement": "Test each generic boundary valuation."
+        },
+        {
+          "name": "AdjointCompatibility.tamecover.pullback",
+          "role": "data",
+          "statement": "Pull back tameness under the regular good-pair theorem."
+        },
+        {
+          "name": "AdjointCompatibility.tamecover.compose",
+          "role": "data",
+          "statement": "Track tameness under composition of finite covers."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.tamecover.test1",
+          "statement": "For G_m in characteristic p, z↦z^n is tame when p∤n.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.tamecover.test2",
+          "statement": "Over a field of characteristic p, y^p-y=t defines a finite étale cover of A¹ with wild ramification of index p at infinity.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.tamecover.test3",
+          "statement": "Over F_p the cover y^p-y=t of A¹ has nontrivial wild inertia at infinity, whereas every finite ramification index of a boundary valuation with residue characteristic zero is prime to that residue characteristic.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -882,17 +1272,57 @@
         {
           "name": "AdjointCompatibility.tamepi.test1",
           "statement": "A finite tame cover factors through π₁ᵗ.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.tamepi.test2",
           "statement": "A wild Artin–Schreier cover must not factor through the tame quotient.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.tamepi.test3",
           "statement": "With empty boundary π₁ᵗ equals π₁ for this relative notion.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.tamepi.quotient",
+          "role": "data",
+          "statement": "Construct π₁↠π₁ᵗ."
+        },
+        {
+          "name": "AdjointCompatibility.tamepi.covers",
+          "role": "data",
+          "statement": "Classify finite continuous tame-quotient actions."
+        },
+        {
+          "name": "AdjointCompatibility.tamepi.inertia",
+          "role": "data",
+          "statement": "Identify which boundary inertia is killed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.tamepi.test1",
+          "statement": "A finite tame cover factors through π₁ᵗ.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.tamepi.test2",
+          "statement": "A wild Artin–Schreier cover must not factor through the tame quotient.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.tamepi.test3",
+          "statement": "With empty boundary π₁ᵗ equals π₁ for this relative notion.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         }
       ]
     },
@@ -974,17 +1404,57 @@
         {
           "name": "AdjointCompatibility.trait.test1",
           "statement": "The strict henselization of O_F,(v) is the intended input.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.trait.test2",
-          "statement": "Replacing A by its fraction field loses the specialization map.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For a strictly henselian DVR A with uniformizer π, Spec(Frac A) has empty fiber over Spec(A/(π)).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.trait.test3",
-          "statement": "A complete trait theorem cannot be applied to A without the approximation bridge.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The strict henselization of Z_(p) has separably closed residue field Fpbar and is not assumed complete in the specialization datum; its completion induces the same residue field Fpbar.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.trait.localization",
+          "role": "data",
+          "statement": "Name A before passing to Ahat."
+        },
+        {
+          "name": "AdjointCompatibility.trait.points",
+          "role": "data",
+          "statement": "Retain geometric generic/special points and a path."
+        },
+        {
+          "name": "AdjointCompatibility.trait.complete",
+          "role": "data",
+          "statement": "Use completion only through the proved cover comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.trait.test1",
+          "statement": "The strict henselization of O_F,(v) is the intended input.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.trait.test2",
+          "statement": "For a strictly henselian DVR A with uniformizer π, Spec(Frac A) has empty fiber over Spec(A/(π)).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.trait.test3",
+          "statement": "The strict henselization of Z_(p) has separably closed residue field Fpbar and is not assumed complete in the specialization datum; its completion induces the same residue field Fpbar.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -1082,21 +1552,61 @@
         {
           "name": "AdjointCompatibility.sp.test1",
           "statement": "A trivial tame cover remains trivial after specialization.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.sp.test2",
-          "statement": "The map's direction is from generic to special fundamental group.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.sp.test3",
           "statement": "A wild special-fibre cover is not covered by the tame specialization theorem.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G2"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.sp.surjective",
+          "role": "data",
+          "statement": "Export surjectivity with the chosen path."
+        },
+        {
+          "name": "AdjointCompatibility.sp.covers",
+          "role": "data",
+          "statement": "Identify pullback of a tame special-fibre cover."
+        },
+        {
+          "name": "AdjointCompatibility.sp.equivariant",
+          "role": "data",
+          "statement": "Compare inertia actions along an integral section."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.sp.test1",
+          "statement": "A trivial tame cover remains trivial after specialization.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.sp.test2",
+          "statement": "A contravariant equivalence sending tame covers of the special fiber to covers of the geometric generic fiber induces a homomorphism π₁ᵗ(generic)→π₁ᵗ(special).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.sp.test3",
+          "statement": "A wild special-fibre cover is not covered by the tame specialization theorem.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
       ]
     },
     {
@@ -1205,17 +1715,57 @@
         {
           "name": "AdjointCompatibility.superrigid.test1",
           "statement": "If ρ₂=τ∘ρ₁, an outer τ is allowed by the definition.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.superrigid.test2",
           "statement": "A nondense representation pair is outside its quantified condition.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.superrigid.test3",
-          "statement": "The definition cannot directly discharge the stronger claim that every comparison is inner.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For a dense representation into H×H, swapping the two factors is an allowed algebraic comparison in G-superrigidity and represents a nontrivial outer automorphism when H is nontrivial adjoint simple.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.superrigid.compare",
+          "role": "data",
+          "statement": "Produce an algebraic comparison automorphism for two dense maps."
+        },
+        {
+          "name": "AdjointCompatibility.superrigid.transport",
+          "role": "data",
+          "statement": "Transfer the property along a group isomorphism."
+        },
+        {
+          "name": "AdjointCompatibility.superrigid.outerClass",
+          "role": "data",
+          "statement": "Record the residual comparison class modulo inner automorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.superrigid.test1",
+          "statement": "If ρ₂=τ∘ρ₁, an outer τ is allowed by the definition.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.superrigid.test2",
+          "statement": "A nondense representation pair is outside its quantified condition.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.superrigid.test3",
+          "statement": "For a dense representation into H×H, swapping the two factors is an allowed algebraic comparison in G-superrigidity and represents a nontrivial outer automorphism when H is nontrivial adjoint simple.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1259,17 +1809,57 @@
         {
           "name": "AdjointCompatibility.outer.test1",
           "statement": "For a dense class, an inner automorphism acts trivially.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.outer.test2",
           "statement": "A permutation of two equal simple factors may give nontrivial outer ambiguity.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.outer.test3",
-          "statement": "Finiteness of Out(G) does not imply a chosen class is Galois-fixed over F.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The two-point Γ_R-set with complex conjugation swapping the points is finite and has no Γ_R-fixed point.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.outer.action",
+          "role": "data",
+          "statement": "Let Out(G) act on dense conjugacy classes."
+        },
+        {
+          "name": "AdjointCompatibility.outer.free",
+          "role": "data",
+          "statement": "Prove trivial stabilizer from density."
+        },
+        {
+          "name": "AdjointCompatibility.outer.galois",
+          "role": "data",
+          "statement": "Construct the finite outer Galois action on these classes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.outer.test1",
+          "statement": "For a dense class, an inner automorphism acts trivially.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.outer.test2",
+          "statement": "A permutation of two equal simple factors may give nontrivial outer ambiguity.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.outer.test3",
+          "statement": "The two-point Γ_R-set with complex conjugation swapping the points is finite and has no Γ_R-fixed point.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1312,17 +1902,57 @@
         {
           "name": "AdjointCompatibility.integral.test1",
           "statement": "The trivial representation admits an integral structure.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.integral.test2",
-          "statement": "A single Q_ℓ-lattice does not specify one O_L-model for all places.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For Γ=Z and ρ(n)=2^n in Q₃×, the standard Z₃ lattice is stable, but ρ(1)=2 is not in Z×.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.integral.test3",
           "statement": "Changing a basis changes the chosen integral structure but not existence up to conjugacy.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.integral.model",
+          "role": "data",
+          "statement": "Record the number field, integral group model and conjugator."
+        },
+        {
+          "name": "AdjointCompatibility.integral.place",
+          "role": "data",
+          "statement": "Evaluate at each coefficient-place completion."
+        },
+        {
+          "name": "AdjointCompatibility.integral.enlarge",
+          "role": "data",
+          "statement": "Transport the integral structure under permitted field/model changes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.integral.test1",
+          "statement": "The trivial representation admits an integral structure.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.integral.test2",
+          "statement": "For Γ=Z and ρ(n)=2^n in Q₃×, the standard Z₃ lattice is stable, but ρ(1)=2 is not in Z×.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.integral.test3",
+          "statement": "Changing a basis changes the chosen integral structure but not existence up to conjugacy.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -1384,17 +2014,57 @@
         {
           "name": "AdjointCompatibility.completion.test1",
           "statement": "Two continuous extensions agreeing on the dense subgroup are equal.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.completion.test2",
           "statement": "Reduction modulo a finite power factors through a finite quotient.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.completion.test3",
           "statement": "An arbitrary abstract homomorphism to G(Qbar_ℓ) is not automatically continuous.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.completion.extend",
+          "role": "data",
+          "statement": "Extend from the dense topological group to its profinite completion."
+        },
+        {
+          "name": "AdjointCompatibility.completion.restrict",
+          "role": "data",
+          "statement": "Recover the original representation on topological π₁."
+        },
+        {
+          "name": "AdjointCompatibility.completion.continuous",
+          "role": "data",
+          "statement": "Prove continuity for the coefficient-place topology."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.completion.test1",
+          "statement": "Two continuous extensions agreeing on the dense subgroup are equal.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.completion.test2",
+          "statement": "Reduction modulo a finite power factors through a finite quotient.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.completion.test3",
+          "statement": "An arbitrary abstract homomorphism to G(Qbar_ℓ) is not automatically continuous.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1444,17 +2114,57 @@
         {
           "name": "AdjointCompatibility.descentfield.test1",
           "statement": "A Γ_F-fixed class has F(λ)=F.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.descentfield.test2",
           "statement": "Conjugating the representative does not change its stabilizer field.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.descentfield.test3",
-          "statement": "Different λ may have different stabilizers; no equality is built into the object.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For a Γ_R-set containing a fixed point and a free two-point orbit, the stabilizer fields of a fixed point and of a point of the free orbit are respectively R and C.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.descentfield.stabilizer",
+          "role": "data",
+          "statement": "Construct the open subgroup fixing the representation class."
+        },
+        {
+          "name": "AdjointCompatibility.descentfield.fixedField",
+          "role": "data",
+          "statement": "Take its finite fixed extension of F."
+        },
+        {
+          "name": "AdjointCompatibility.descentfield.extend",
+          "role": "data",
+          "statement": "Apply unique adjoint extension over that field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.descentfield.test1",
+          "statement": "A Γ_F-fixed class has F(λ)=F.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.descentfield.test2",
+          "statement": "Conjugating the representative does not change its stabilizer field.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.descentfield.test3",
+          "statement": "For a Γ_R-set containing a fixed point and a free two-point orbit, the stabilizer fields of a fixed point and of a point of the free orbit are respectively R and C.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         }
       ]
     },
@@ -1513,17 +2223,57 @@
         {
           "name": "AdjointCompatibility.uniformfield.test1",
           "statement": "A family already defined over F supplies the predicate.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.uniformfield.test2",
-          "statement": "Individual finite descent fields without a common bound do not.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The finite extensions Q(ζ_p)/Q indexed by primes p cannot all embed in a single number field, since their degrees p-1 are unbounded.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.uniformfield.test3",
-          "statement": "A conjectural common field in Remark2.4 is not a witness.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "A family of stabilizers all equal to Γ_F satisfies the common-field hypothesis with field F.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.uniformfield.at",
+          "role": "data",
+          "statement": "Supply equality F(λ)=F at each coefficient place."
+        },
+        {
+          "name": "AdjointCompatibility.uniformfield.canonical",
+          "role": "data",
+          "statement": "Discharge it from one arithmetic canonical-model tower."
+        },
+        {
+          "name": "AdjointCompatibility.uniformfield.baseChange",
+          "role": "data",
+          "statement": "Track it under a common finite extension when proved."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.uniformfield.test1",
+          "statement": "A family already defined over F supplies the predicate.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.uniformfield.test2",
+          "statement": "The finite extensions Q(ζ_p)/Q indexed by primes p cannot all embed in a single number field, since their degrees p-1 are unbounded.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.uniformfield.test3",
+          "statement": "A family of stabilizers all equal to Γ_F satisfies the common-field hypothesis with field F.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         }
       ]
     },
@@ -1572,17 +2322,57 @@
         {
           "name": "AdjointCompatibility.companions.test1",
           "statement": "Taking residue degree d raises a common class to its d-th power.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.companions.test2",
           "statement": "A unipotent Jordan block and identity can have the same semisimple class.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.companions.test3",
           "statement": "Equality after unrelated outer automorphisms is not untwisted companionship.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.companions.classAt",
+          "role": "data",
+          "statement": "Compare semisimple Frobenius quotient points."
+        },
+        {
+          "name": "AdjointCompatibility.companions.pullback",
+          "role": "data",
+          "statement": "Retain comparison under a finite residue-field extension."
+        },
+        {
+          "name": "AdjointCompatibility.companions.automorphism",
+          "role": "data",
+          "statement": "Transport companionship under a common algebraic automorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.companions.test1",
+          "statement": "Taking residue degree d raises a common class to its d-th power.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.companions.test2",
+          "statement": "A unipotent Jordan block and identity can have the same semisimple class.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.companions.test3",
+          "statement": "Equality after unrelated outer automorphisms is not untwisted companionship.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1637,17 +2427,57 @@
         {
           "name": "AdjointCompatibility.git.test1",
           "statement": "In GL₂, diag(a,b) and diag(b,a) have equal quotient points.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.git.test2",
           "statement": "The identity and a nontrivial unipotent have equal semisimple quotient classes.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.git.test3",
-          "statement": "A rational quotient point is not defined to be a rational conjugacy class.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "In SL₂(R), [[0,-1],[1,0]] and its negative have the same characteristic polynomial and geometric semisimple class but are not SL₂(R)-conjugate.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.git.project",
+          "role": "data",
+          "statement": "Map a group point to its invariant-theoretic quotient."
+        },
+        {
+          "name": "AdjointCompatibility.git.baseChange",
+          "role": "data",
+          "statement": "Compare quotient points after characteristic-zero scalar extension."
+        },
+        {
+          "name": "AdjointCompatibility.git.semisimple",
+          "role": "data",
+          "statement": "Identify equal geometric quotient points with equal semisimple classes."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.git.test1",
+          "statement": "In GL₂, diag(a,b) and diag(b,a) have equal quotient points.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.git.test2",
+          "statement": "The identity and a nontrivial unipotent have equal semisimple quotient classes.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.git.test3",
+          "statement": "In SL₂(R), [[0,-1],[1,0]] and its negative have the same characteristic polynomial and geometric semisimple class but are not SL₂(R)-conjugate.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1721,17 +2551,57 @@
         {
           "name": "AdjointCompatibility.gcd.test1",
           "statement": "gcd(30,42)=6, so p=5 has the witness 42.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.gcd.test2",
           "statement": "If all N_λ are divisible by N, so is N'.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.gcd.test3",
-          "statement": "Using the union of the exceptional prime sets would not remove λ-dependent bad primes.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For exceptional integers 30 and 42, the gcd excludes {2,3}, while their prime-set union excludes {2,3,5,7}.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.gcd.divides",
+          "role": "data",
+          "statement": "Show N' divides every N_λ."
+        },
+        {
+          "name": "AdjointCompatibility.gcd.witness",
+          "role": "data",
+          "statement": "For p∤N', choose λ' with p∤N_λ'."
+        },
+        {
+          "name": "AdjointCompatibility.gcd.finite",
+          "role": "data",
+          "statement": "Reduce the prime-divisor intersection to finitely many integer witnesses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.gcd.test1",
+          "statement": "gcd(30,42)=6, so p=5 has the witness 42.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.gcd.test2",
+          "statement": "If all N_λ are divisible by N, so is N'.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.gcd.test3",
+          "statement": "For exceptional integers 30 and 42, the gcd excludes {2,3}, while their prime-set union excludes {2,3,5,7}.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1936,18 +2806,58 @@
       "unitTests": [
         {
           "name": "AdjointCompatibility.specialcriterion.test1",
-          "statement": "A regular semisimple element is not assumed automatically to have trivial outer stabilizer.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "In PGL₃ over an algebraically closed field of characteristic zero, diag(2,1,1/2) is regular semisimple and is fixed by transpose-inverse composed with reversal of the basis; this automorphism is outer.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.specialcriterion.test2",
-          "statement": "A section only over the fraction field does not supply the integral-fibre comparison.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The point 1/p∈A¹(Q) has no extension to A¹(Z_(p)), so it is not an integral section at p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.specialcriterion.test3",
           "statement": "A residue-degree extension compares the corresponding powered Frobenius on both sides.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.specialcriterion.section",
+          "role": "data",
+          "statement": "Return the integral horizontal section and its field."
+        },
+        {
+          "name": "AdjointCompatibility.specialcriterion.commonClass",
+          "role": "data",
+          "statement": "Identify specialized semisimple Frobenius classes at w|v."
+        },
+        {
+          "name": "AdjointCompatibility.specialcriterion.outerStabilizer",
+          "role": "data",
+          "statement": "Prove any automorphism fixing the selected representative is inner."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.specialcriterion.test1",
+          "statement": "In PGL₃ over an algebraically closed field of characteristic zero, diag(2,1,1/2) is regular semisimple and is fixed by transpose-inverse composed with reversal of the basis; this automorphism is outer.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.specialcriterion.test2",
+          "statement": "The point 1/p∈A¹(Q) has no extension to A¹(Z_(p)), so it is not an integral section at p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.specialcriterion.test3",
+          "statement": "A residue-degree extension compares the corresponding powered Frobenius on both sides.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -2008,17 +2918,57 @@
         {
           "name": "AdjointCompatibility.deligne.test1",
           "statement": "The two coordinate cocharacters are exchanged by complex conjugation.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.deligne.test2",
           "statement": "For the norm representation, z↦(z,1) has exponent one.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.deligne.test3",
-          "statement": "Replacing μ by its inverse changes the reflex reciprocity convention.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For the norm Res_C/R G_m→G_m, evaluating on z↦(z,1) gives z, while evaluating on its inverse gives z^-1.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.deligne.split",
+          "role": "data",
+          "statement": "Identify S_C with G_m×G_m and exchange conjugation."
+        },
+        {
+          "name": "AdjointCompatibility.deligne.mu",
+          "role": "data",
+          "statement": "Restrict h_C along z↦(z,1)."
+        },
+        {
+          "name": "AdjointCompatibility.deligne.norm",
+          "role": "data",
+          "statement": "Construct the norm and diagonal weight maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.deligne.test1",
+          "statement": "The two coordinate cocharacters are exchanged by complex conjugation.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.deligne.test2",
+          "statement": "For the norm representation, z↦(z,1) has exponent one.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.deligne.test3",
+          "statement": "For the norm Res_C/R G_m→G_m, evaluating on z↦(z,1) gives z, while evaluating on its inverse gives z^-1.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         }
       ]
     },
@@ -2069,17 +3019,57 @@
         {
           "name": "AdjointCompatibility.datum.test1",
           "statement": "The GL₂ datum is a Shimura datum but lies outside this higher-rank theorem.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.datum.test2",
           "statement": "A product with a rank-one Q-simple factor fails the paper's condition even if the total rank is large.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.datum.test3",
           "statement": "Compact real factors inside a permitted Q-simple restriction of scalars are not excluded.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.datum.adjoint",
+          "role": "data",
+          "statement": "Project h and the domain to the adjoint datum."
+        },
+        {
+          "name": "AdjointCompatibility.datum.factor",
+          "role": "data",
+          "statement": "Expose Q-simple factors and their total real ranks."
+        },
+        {
+          "name": "AdjointCompatibility.datum.product",
+          "role": "data",
+          "statement": "Form product data retaining all component information."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.datum.test1",
+          "statement": "The GL₂ datum is a Shimura datum but lies outside this higher-rank theorem.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.datum.test2",
+          "statement": "A product with a rank-one Q-simple factor fails the paper's condition even if the total rank is large.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.datum.test3",
+          "statement": "Compact real factors inside a permitted Q-simple restriction of scalars are not excluded.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -2134,17 +3124,57 @@
         {
           "name": "AdjointCompatibility.specialpair.test1",
           "statement": "A torus Shimura datum is its own special subdatum.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.specialpair.test2",
-          "statement": "A containing torus need not be the Mumford–Tate group by definition.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The embedding of the trivial Hodge morphism into the torus G_m gives Mumford–Tate group {1} strictly contained in the chosen torus.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.specialpair.test3",
           "statement": "Conjugating the pair by a rational group element transports its special-point data.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.specialpair.factorization",
+          "role": "data",
+          "statement": "Record h_x factoring through the Q-torus."
+        },
+        {
+          "name": "AdjointCompatibility.specialpair.mumfordTate",
+          "role": "data",
+          "statement": "Construct the smallest Q-subgroup containing h_x."
+        },
+        {
+          "name": "AdjointCompatibility.specialpair.cocharacter",
+          "role": "data",
+          "statement": "Produce μ_x and its field of definition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.specialpair.test1",
+          "statement": "A torus Shimura datum is its own special subdatum.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.specialpair.test2",
+          "statement": "The embedding of the trivial Hodge morphism into the torus G_m gives Mumford–Tate group {1} strictly contained in the chosen torus.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.specialpair.test3",
+          "statement": "Conjugating the pair by a rational group element transports its special-point data.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -2199,17 +3229,57 @@
         {
           "name": "AdjointCompatibility.reflex.test1",
           "statement": "For a trivial cocharacter the reflex norm is trivial.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.reflex.test2",
           "statement": "A tower E''/E'/E(x) gives the same composite norm by transitivity.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.reflex.test3",
-          "statement": "A field fixing only a conjugacy class is not automatically a field defining its representative.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For an anisotropic real norm-one torus T⊂SL₂, the two opposite geometric cocharacters are SL₂(C)-conjugate, while neither nonzero cocharacter is R-defined.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.reflex.norm",
+          "role": "data",
+          "statement": "Construct Norm∘Res(μ_x) on algebraic tori."
+        },
+        {
+          "name": "AdjointCompatibility.reflex.adeles",
+          "role": "data",
+          "statement": "Evaluate the same morphism on finite ideles."
+        },
+        {
+          "name": "AdjointCompatibility.reflex.extension",
+          "role": "data",
+          "statement": "Compare with the norm from E'/E(x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.reflex.test1",
+          "statement": "For a trivial cocharacter the reflex norm is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.reflex.test2",
+          "statement": "A tower E''/E'/E(x) gives the same composite norm by transitivity.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.reflex.test3",
+          "statement": "For an anisotropic real norm-one torus T⊂SL₂, the two opposite geometric cocharacters are SL₂(C)-conjugate, while neither nonzero cocharacter is R-defined.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -2313,17 +3383,57 @@
         {
           "name": "AdjointCompatibility.neat.test1",
           "statement": "A nontrivial finite-order rational stabilizer is excluded at neat level.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.neat.test2",
-          "statement": "Neatness without rational-centre discreteness does not establish the paper's full tower torsor.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For G=G_m, the subgroup 1+3Z₃ in Q₃× contains 4, an infinite-order element; neatness excludes torsion but does not imply that such a compact-open intersection with rational points is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.neat.test3",
           "statement": "Conjugating K₀ gives the corresponding neat level and arithmetic groups.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.neat.sublevel",
+          "role": "data",
+          "statement": "Pass neatness to smaller levels."
+        },
+        {
+          "name": "AdjointCompatibility.neat.effective",
+          "role": "data",
+          "statement": "Remove central stabilizers using the discrete-centre hypothesis."
+        },
+        {
+          "name": "AdjointCompatibility.neat.quotient",
+          "role": "data",
+          "statement": "Compute the finite deck action for a normal sublevel."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.neat.test1",
+          "statement": "A nontrivial finite-order rational stabilizer is excluded at neat level.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.neat.test2",
+          "statement": "For G=G_m, the subgroup 1+3Z₃ in Q₃× contains 4, an infinite-order element; neatness excludes torsion but does not imply that such a compact-open intersection with rational points is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.neat.test3",
+          "statement": "Conjugating K₀ gives the corresponding neat level and arithmetic groups.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -2378,17 +3488,57 @@
         {
           "name": "AdjointCompatibility.connected.test1",
           "statement": "A rational point over F forces its component field into F.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.connected.test2",
-          "statement": "The component field need not equal the reflex field.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The Q-scheme Spec(Q(i)) is connected and has component field Q(i), strictly larger than Q.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.connected.test3",
-          "statement": "A component of the tower over a smaller field need not be geometrically connected there.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "Spec(Q(i)) becomes a disjoint union of two points after base change to Qbar.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.connected.field",
+          "role": "data",
+          "statement": "Return the canonical component field E_K,s."
+        },
+        {
+          "name": "AdjointCompatibility.connected.level",
+          "role": "data",
+          "statement": "Compare components under finite-level maps."
+        },
+        {
+          "name": "AdjointCompatibility.connected.point",
+          "role": "data",
+          "statement": "Locate the component containing a specified geometric point."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.connected.test1",
+          "statement": "A rational point over F forces its component field into F.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.connected.test2",
+          "statement": "The Q-scheme Spec(Q(i)) is connected and has component field Q(i), strictly larger than Q.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.connected.test3",
+          "statement": "Spec(Q(i)) becomes a disjoint union of two points after base change to Qbar.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -2451,21 +3601,61 @@
         {
           "name": "AdjointCompatibility.canonicalrho.test1",
           "statement": "The projection at two nested normal levels commutes with quotient maps.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.canonicalrho.test2",
-          "statement": "The right action introduces the opposite deck group exactly once.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For a right action of deck transformations, composing the induced fiber permutations identifies the deck group with the opposite group under the stated tower convention.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.canonicalrho.test3",
-          "statement": "The image is not assumed equal to all K₀.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The trivial monodromy homomorphism π₁(X)→K₀ is not surjective when K₀ is nontrivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G7"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.canonicalrho.finiteLevel",
+          "role": "data",
+          "statement": "Recover the quotient map into K₀/K."
+        },
+        {
+          "name": "AdjointCompatibility.canonicalrho.ell",
+          "role": "data",
+          "statement": "Project to the ℓ-component."
+        },
+        {
+          "name": "AdjointCompatibility.canonicalrho.basepoint",
+          "role": "data",
+          "statement": "Compare under basepoint change by inner conjugacy."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.canonicalrho.test1",
+          "statement": "The projection at two nested normal levels commutes with quotient maps.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.canonicalrho.test2",
+          "statement": "For a right action of deck transformations, composing the induced fiber permutations identifies the deck group with the opposite group under the stated tower convention.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.canonicalrho.test3",
+          "statement": "The trivial monodromy homomorphism π₁(X)→K₀ is not surjective when K₀ is nontrivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
       ]
     },
     {
@@ -2550,17 +3740,57 @@
         {
           "name": "AdjointCompatibility.restrictscalars.test1",
           "statement": "For F=Q the restriction of scalars is the original group.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.restrictscalars.test2",
           "statement": "The degree [F:Q] counts absolute factors after algebraic closure.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.restrictscalars.test3",
           "statement": "Q-simplicity does not imply absolute simplicity.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.restrictscalars.absoluteFactors",
+          "role": "data",
+          "statement": "Decompose over field embeddings after algebraic closure."
+        },
+        {
+          "name": "AdjointCompatibility.restrictscalars.characters",
+          "role": "data",
+          "statement": "Identify character modules as induced sums."
+        },
+        {
+          "name": "AdjointCompatibility.restrictscalars.realRank",
+          "role": "data",
+          "statement": "Add ranks over real embeddings in the totally real Shimura case."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.restrictscalars.test1",
+          "statement": "For F=Q the restriction of scalars is the original group.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.restrictscalars.test2",
+          "statement": "The degree [F:Q] counts absolute factors after algebraic closure.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.restrictscalars.test3",
+          "statement": "Q-simplicity does not imply absolute simplicity.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -2772,21 +4002,61 @@
         {
           "name": "AdjointCompatibility.componentmodel.test1",
           "statement": "Enlarging N preserves the generic component.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.componentmodel.test2",
-          "statement": "Passing to E_K₀,s is part of the construction, not an implicit base-field equality.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "Base change of a connected component from its field E_K to a field F containing E_K keeps generic fiber X×_(E_K)F; it does not change the equality [E_K:Q] to [E:Q].",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.componentmodel.test3",
-          "statement": "Smoothness alone is not the extension property of an integral canonical model.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "The smooth model G_m/Z does not extend the Q-point p to a Z_(p)-point for any prime p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G7"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.componentmodel.generic",
+          "role": "data",
+          "statement": "Recover S_K₀,s as the generic fibre."
+        },
+        {
+          "name": "AdjointCompatibility.componentmodel.smooth",
+          "role": "data",
+          "statement": "Choose one localization where the closure is smooth."
+        },
+        {
+          "name": "AdjointCompatibility.componentmodel.specialPoint",
+          "role": "data",
+          "statement": "Retain the chosen integral special section."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.componentmodel.test1",
+          "statement": "Enlarging N preserves the generic component.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.componentmodel.test2",
+          "statement": "Base change of a connected component from its field E_K to a field F containing E_K keeps generic fiber X×_(E_K)F; it does not change the equality [E_K:Q] to [E:Q].",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.componentmodel.test3",
+          "statement": "The smooth model G_m/Z does not extend the Q-point p to a Z_(p)-point for any prime p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
       ]
     },
     {
@@ -2878,17 +4148,57 @@
         {
           "name": "AdjointCompatibility.irreducibletorus.test1",
           "statement": "A rank-one torus is irreducible.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.irreducibletorus.test2",
           "statement": "A product of two positive-rank Q-tori is not irreducible.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.irreducibletorus.test3",
           "statement": "Two nonisomorphic integral lattices can still have the same rational irreducible representation.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.irreducibletorus.characterCriterion",
+          "role": "data",
+          "statement": "Compare subtori with rational invariant character subspaces."
+        },
+        {
+          "name": "AdjointCompatibility.irreducibletorus.nonzero",
+          "role": "data",
+          "statement": "Require positive rank."
+        },
+        {
+          "name": "AdjointCompatibility.irreducibletorus.isogeny",
+          "role": "data",
+          "statement": "Transfer irreducibility through an isogeny."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.irreducibletorus.test1",
+          "statement": "A rank-one torus is irreducible.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.irreducibletorus.test2",
+          "statement": "A product of two positive-rank Q-tori is not irreducible.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.irreducibletorus.test3",
+          "statement": "Two nonisomorphic integral lattices can still have the same rational irreducible representation.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -2939,17 +4249,57 @@
         {
           "name": "AdjointCompatibility.isogenyseparated.test1",
           "statement": "The diagonal in T×T shows why repeated factors fail the criterion.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.isogenyseparated.test2",
           "statement": "Different dimensions of irreducible rational representations force inequivalence.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.isogenyseparated.test3",
           "statement": "Nonisomorphic A₂ root and weight lattices become isomorphic over Q, so integral nonisomorphism is insufficient.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.isogenyseparated.homZero",
+          "role": "data",
+          "statement": "Expose vanishing of cross-factor rational Galois Hom."
+        },
+        {
+          "name": "AdjointCompatibility.isogenyseparated.subdirect",
+          "role": "data",
+          "statement": "Exclude proper connected subdirect-product subtori."
+        },
+        {
+          "name": "AdjointCompatibility.isogenyseparated.localWitness",
+          "role": "data",
+          "statement": "Deduce separation from split versus anisotropic localization."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.isogenyseparated.test1",
+          "statement": "The diagonal in T×T shows why repeated factors fail the criterion.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.isogenyseparated.test2",
+          "statement": "Different dimensions of irreducible rational representations force inequivalence.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.isogenyseparated.test3",
+          "statement": "Nonisomorphic A₂ root and weight lattices become isomorphic over Q, so integral nonisomorphism is insufficient.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -2997,21 +4347,61 @@
         {
           "name": "AdjointCompatibility.torivariety.test1",
           "statement": "For a torus H itself, its maximal-torus parameter space is a point.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.torivariety.test2",
           "statement": "Conjugate maximal tori represent the expected homogeneous-space points.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.torivariety.test3",
-          "statement": "Weak approximation on Tori_H must not be transferred to arbitrary rational points of an individual torus.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For T=G_m, the maximal-torus parameter space of T is Spec(Q), whereas T(Q) is Q×; the parameter space and the torus have different dimensions.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G4"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.torivariety.generic",
+          "role": "data",
+          "statement": "Construct the tautological torus over the function field."
+        },
+        {
+          "name": "AdjointCompatibility.torivariety.rational",
+          "role": "data",
+          "statement": "Supply the rational parameterization."
+        },
+        {
+          "name": "AdjointCompatibility.torivariety.localOrbit",
+          "role": "data",
+          "statement": "Map local conjugacy classes to open subsets."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.torivariety.test1",
+          "statement": "For a torus H itself, its maximal-torus parameter space is a point.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.torivariety.test2",
+          "statement": "Conjugate maximal tori represent the expected homogeneous-space points.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.torivariety.test3",
+          "statement": "For T=G_m, the maximal-torus parameter space of T is Spec(Q), whereas T(Q) is Q×; the parameter space and the torus have different dimensions.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
       ]
     },
     {
@@ -3153,17 +4543,57 @@
         {
           "name": "AdjointCompatibility.unramified.test1",
           "statement": "GL₂/Z_p gives the standard hyperspecial GL₂(Z_p).",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.unramified.test2",
           "statement": "A conjugated split torus is still unramified even if badly positioned relative to GL₂(Z_p).",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.unramified.test3",
           "statement": "Integral matrices with determinant divisible by p are not elements of GL₂(Z_p).",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.unramified.model",
+          "role": "data",
+          "statement": "Record the chosen smooth reductive model."
+        },
+        {
+          "name": "AdjointCompatibility.unramified.hyperspecial",
+          "role": "data",
+          "statement": "Construct its compact open integral-point subgroup."
+        },
+        {
+          "name": "AdjointCompatibility.unramified.borelTorus",
+          "role": "data",
+          "statement": "Choose an integral Borel and maximal torus when applying Getz–Hahn."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.unramified.test1",
+          "statement": "GL₂/Z_p gives the standard hyperspecial GL₂(Z_p).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.unramified.test2",
+          "statement": "A conjugated split torus is still unramified even if badly positioned relative to GL₂(Z_p).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.unramified.test3",
+          "statement": "Integral matrices with determinant divisible by p are not elements of GL₂(Z_p).",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -3231,17 +4661,57 @@
         {
           "name": "AdjointCompatibility.dominantmu.test1",
           "statement": "In type A₂ the diagonal cocharacter (2,-1,-1) has simple-root pairings 3 and 0.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.dominantmu.test2",
           "statement": "A central cocharacter pairs to zero with every root.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.dominantmu.test3",
           "statement": "A sum of dominant cocharacters with one noncentral summand has a positive root pairing.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.dominantmu.pairings",
+          "role": "data",
+          "statement": "Return nonnegative simple-root pairings."
+        },
+        {
+          "name": "AdjointCompatibility.dominantmu.galois",
+          "role": "data",
+          "statement": "Preserve dominance for the action fixing the rational Borel."
+        },
+        {
+          "name": "AdjointCompatibility.dominantmu.noncentral",
+          "role": "data",
+          "statement": "Find a positive-root pairing for a noncentral dominant projection."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.dominantmu.test1",
+          "statement": "In type A₂ the diagonal cocharacter (2,-1,-1) has simple-root pairings 3 and 0.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.dominantmu.test2",
+          "statement": "A central cocharacter pairs to zero with every root.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.dominantmu.test3",
+          "statement": "A sum of dominant cocharacters with one noncentral summand has a positive root pairing.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         }
       ]
     },
@@ -3250,12 +4720,13 @@
       "key": "pairwiselocal",
       "kind": "construction",
       "name": "Auxiliary split–anisotropic separation",
-      "statement": "For every pair of distinct Q-simple factors, choose a distinct auxiliary split prime p_i,j≠p, taking a split maximal torus in one factor and an anisotropic maximal torus in the other. This stronger permissible choice separates their rational character representations and hence their isogeny classes.",
+      "statement": "For each unordered pair of distinct Q-simple adjoint factors choose a distinct auxiliary prime p_i,j where both groups split, outside p and any prescribed finite forbidden set. Choose a split maximal torus in one and an anisotropic maximal torus in the other, plus arbitrary maximal tori in remaining factors. Apply item090 to realize these local conjugacy classes together with the real and p-adic prescriptions. Choose the exceptional H¹ prime p₀ outside these primes. This strengthens the paper’s nonisomorphism condition to nonisogeny.",
       "locator": "Proposition3.7 p325; strengthened repair for E2",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/067",
-        "PAPER-KLEVDAL-PATRIKIS-25/083"
+        "PAPER-KLEVDAL-PATRIKIS-25/083",
+        "PAPER-KLEVDAL-PATRIKIS-25/149"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "uses": [
@@ -3271,39 +4742,68 @@
       "planningAPI": [
         {
           "name": "AdjointCompatibility.pairwiselocal.primes",
-          "role": "data",
-          "statement": "Choose pairwise distinct auxiliary split primes outside the forbidden set."
+          "statement": "For a finite set S of forbidden primes and finitely many factors, the chosen p_i,j are pairwise distinct, outside S, and split both participating groups."
         },
         {
-          "name": "AdjointCompatibility.pairwiselocal.split",
-          "role": "data",
-          "statement": "Choose the split torus in one factor."
+          "name": "AdjointCompatibility.pairwiselocal.witness",
+          "statement": "At p_i,j the first chosen torus has nonzero trivial character representation and the second has zero invariant character subspace."
         },
         {
-          "name": "AdjointCompatibility.pairwiselocal.anisotropic",
-          "role": "data",
-          "statement": "Choose an anisotropic torus in the other and compare invariants."
+          "name": "AdjointCompatibility.pairwiselocal.separation",
+          "statement": "After item090 gives irreducible global tori in these local classes, Hom_ΓQ(V_i,V_j)=0 for i≠j."
         }
       ],
       "unitTests": [
         {
-          "name": "AdjointCompatibility.pairwiselocal.test1",
-          "statement": "For two factors only one separation prime is needed.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.pairwiselocal.two",
+          "kind": "computation",
+          "statement": "For an index set of size 2 there is exactly one unordered separation pair."
         },
         {
-          "name": "AdjointCompatibility.pairwiselocal.test2",
-          "statement": "For one factor the pairwise conditions are vacuous.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.pairwiselocal.one",
+          "kind": "degenerate",
+          "statement": "For an index set of size 1 the set of required separation pairs is empty."
         },
         {
-          "name": "AdjointCompatibility.pairwiselocal.test3",
-          "statement": "A split positive-rank torus and an anisotropic torus cannot have isomorphic rational character representations locally.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.pairwiselocal.rankone",
+          "kind": "non-example",
+          "statement": "For the trivial and sign representations of Gal(C/R), the invariant dimensions are 1 and 0, so they are nonisomorphic over Q."
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G5"
+      ],
+      "proofOutline": "A common finite splitting field and Chebotarev give arbitrarily many split primes outside a finite set. At each prime choose the split torus and a positive-dimensional anisotropic maximal torus, using the local existence input cited on p325 ([40, Theorem6.21]); its original statement remains G4. Different pairs use different primes, avoiding incompatible prescriptions. Lemma3.6/item090 realizes all finitely many open local conjugacy conditions and global irreducibility. Item149 then proves pairwise separation. The subsequent torus-valued twist preserves it by item148. No assertion of local anisotropic existence has been inferred merely from the word split.",
+      "api": [
+        {
+          "name": "AdjointCompatibility.pairwiselocal.primes",
+          "statement": "For a finite set S of forbidden primes and finitely many factors, the chosen p_i,j are pairwise distinct, outside S, and split both participating groups."
+        },
+        {
+          "name": "AdjointCompatibility.pairwiselocal.witness",
+          "statement": "At p_i,j the first chosen torus has nonzero trivial character representation and the second has zero invariant character subspace."
+        },
+        {
+          "name": "AdjointCompatibility.pairwiselocal.separation",
+          "statement": "After item090 gives irreducible global tori in these local classes, Hom_ΓQ(V_i,V_j)=0 for i≠j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.pairwiselocal.two",
+          "kind": "computation",
+          "statement": "For an index set of size 2 there is exactly one unordered separation pair."
+        },
+        {
+          "name": "AdjointCompatibility.pairwiselocal.one",
+          "kind": "degenerate",
+          "statement": "For an index set of size 1 the set of required separation pairs is empty."
+        },
+        {
+          "name": "AdjointCompatibility.pairwiselocal.rankone",
+          "kind": "non-example",
+          "statement": "For the trivial and sign representations of Gal(C/R), the invariant dimensions are 1 and 0, so they are nonisomorphic over Q."
+        }
       ]
     },
     {
@@ -3350,18 +4850,58 @@
       "unitTests": [
         {
           "name": "AdjointCompatibility.initialtorus.test1",
-          "statement": "The real conjugator must lie in the component preserving X⁺.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For the GL₂ Shimura datum, an element of GL₂(R) with negative determinant exchanges the upper and lower half-plane components.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.initialtorus.test2",
-          "statement": "The auxiliary separation primes are disjoint from p.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "If the prescribed finite forbidden set contains p, then every chosen auxiliary separation prime is different from p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.initialtorus.test3",
           "statement": "A p-adic rational conjugator need not be integral for the chosen hyperspecial model.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.initialtorus.real",
+          "role": "data",
+          "statement": "Retain a real conjugator in G(R)⁺."
+        },
+        {
+          "name": "AdjointCompatibility.initialtorus.local",
+          "role": "data",
+          "statement": "Retain prescribed conjugacy at p and all auxiliary primes."
+        },
+        {
+          "name": "AdjointCompatibility.initialtorus.cocharacter",
+          "role": "data",
+          "statement": "Descend the conjugated local Hodge cocharacter to Qbar."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.initialtorus.test1",
+          "statement": "For the GL₂ Shimura datum, an element of GL₂(R) with negative determinant exchanges the upper and lower half-plane components.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.initialtorus.test2",
+          "statement": "If the prescribed finite forbidden set contains p, then every chosen auxiliary separation prime is different from p.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.initialtorus.test3",
+          "statement": "A p-adic rational conjugator need not be integral for the chosen hyperspecial model.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -3409,17 +4949,57 @@
         {
           "name": "AdjointCompatibility.normalizercocycle.test1",
           "statement": "If n is real, the cocycle is trivial.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.normalizercocycle.test2",
           "statement": "For any n, (n nbar⁻¹)·conj(n nbar⁻¹)=1.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.normalizercocycle.test3",
-          "statement": "The cocycle class is not the normalizer element n itself.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For n=-1∈G_m(R), the conjugation cocycle n nbar^-1 is 1 although n is not 1.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.normalizercocycle.value",
+          "role": "data",
+          "statement": "Send complex conjugation to n nbar⁻¹."
+        },
+        {
+          "name": "AdjointCompatibility.normalizercocycle.cocycle",
+          "role": "data",
+          "statement": "Check c-value times its conjugate equals one."
+        },
+        {
+          "name": "AdjointCompatibility.normalizercocycle.torus",
+          "role": "data",
+          "statement": "Use anisotropy to show the value belongs to Tsc."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.normalizercocycle.test1",
+          "statement": "If n is real, the cocycle is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.normalizercocycle.test2",
+          "statement": "For any n, (n nbar⁻¹)·conj(n nbar⁻¹)=1.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.normalizercocycle.test3",
+          "statement": "For n=-1∈G_m(R), the conjugation cocycle n nbar^-1 is 1 although n is not 1.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         }
       ]
     },
@@ -3482,7 +5062,8 @@
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/099",
-        "PAPER-KLEVDAL-PATRIKIS-25/095"
+        "PAPER-KLEVDAL-PATRIKIS-25/095",
+        "PAPER-KLEVDAL-PATRIKIS-25/148"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "uses": [
@@ -3498,35 +5079,64 @@
       "planningAPI": [
         {
           "name": "AdjointCompatibility.twistedtorus.descend",
-          "role": "data",
-          "statement": "Descend inn(g)⁻¹T to Q using the torus-valued cocycle."
+          "statement": "For cσ=gσ(g)^-1∈T, the conjugation isomorphism T_Fbar→g^-1Tg descends to F."
         },
         {
           "name": "AdjointCompatibility.twistedtorus.cocharacter",
-          "role": "data",
-          "statement": "Transport μ_T by inn(g)⁻¹."
+          "statement": "For φ=inn(g^-1)|T, the transported cocharacter is μ′=φ∘μ_T."
         },
         {
           "name": "AdjointCompatibility.twistedtorus.realPoint",
-          "role": "data",
-          "statement": "Use the real trivialization to remain in X⁺."
+          "statement": "With the paper’s real trivialization g^-1tn∈Gsc(R), its action carries the chosen Hodge point into the same connected component X+."
         }
       ],
       "unitTests": [
         {
-          "name": "AdjointCompatibility.twistedtorus.test1",
-          "statement": "The trivial cocycle allows T'=T.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.twistedtorus.trivial",
+          "kind": "degenerate",
+          "statement": "For g=1 the descended torus and map are T and id_T."
         },
         {
-          "name": "AdjointCompatibility.twistedtorus.test2",
-          "statement": "At a locally trivial place the new torus is locally conjugate to the old one.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.twistedtorus.characters",
+          "kind": "compatibility",
+          "statement": "Pullback by the descended isomorphism is an isomorphism of integral Γ_F-character lattices, and tensoring with Q gives the rational-module comparison."
         },
         {
-          "name": "AdjointCompatibility.twistedtorus.test3",
-          "statement": "Global local-triviality of the Gsc class is not asserted for arbitrary torus H¹.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "name": "AdjointCompatibility.twistedtorus.equivariance",
+          "kind": "characterisation",
+          "statement": "For each σ, the identity σ(g^-1tg)=g^-1σ(t)g holds as an identity of maps on geometric T-points."
+        }
+      ],
+      "proofOutline": "Use the g supplied by item099 and apply item148 to the image of its Tsc-valued cocycle. This descends both T′ and its rational isomorphism with T. The real trivialization in the printed proof supplies g^-1tn∈Gsc(R), transporting μ_T to a Hodge point in X+. Abstract rational isomorphism of the tori does not replace this real-component argument.",
+      "api": [
+        {
+          "name": "AdjointCompatibility.twistedtorus.descend",
+          "statement": "For cσ=gσ(g)^-1∈T, the conjugation isomorphism T_Fbar→g^-1Tg descends to F."
+        },
+        {
+          "name": "AdjointCompatibility.twistedtorus.cocharacter",
+          "statement": "For φ=inn(g^-1)|T, the transported cocharacter is μ′=φ∘μ_T."
+        },
+        {
+          "name": "AdjointCompatibility.twistedtorus.realPoint",
+          "statement": "With the paper’s real trivialization g^-1tn∈Gsc(R), its action carries the chosen Hodge point into the same connected component X+."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.twistedtorus.trivial",
+          "kind": "degenerate",
+          "statement": "For g=1 the descended torus and map are T and id_T."
+        },
+        {
+          "name": "AdjointCompatibility.twistedtorus.characters",
+          "kind": "compatibility",
+          "statement": "Pullback by the descended isomorphism is an isomorphism of integral Γ_F-character lattices, and tensoring with Q gives the rational-module comparison."
+        },
+        {
+          "name": "AdjointCompatibility.twistedtorus.equivariance",
+          "kind": "characterisation",
+          "statement": "For each σ, the identity σ(g^-1tg)=g^-1σ(t)g holds as an identity of maps on geometric T-points."
         }
       ]
     },
@@ -3568,16 +5178,16 @@
       "key": "preserveirred",
       "kind": "theorem",
       "name": "Irreducibility survives the cohomological torus twist",
-      "statement": "The finite-image rational character representations of T_i and T'_i agree locally away from p₀, so the rational recognition theorem identifies them. Each T'_i remains irreducible, and pairwise isogeny separation is preserved.",
+      "statement": "For the torus-valued cocycle used in Proposition3.7, each T_i and T′_i are Q-isomorphic by item148. Their integral character modules, rational irreducibility and pairwise nonisogeny are therefore preserved. The paper’s local comparison plus Chebotarev/Brauer–Nesbitt remains an alternative proof; it is not needed for this particular twist.",
       "locator": "Proposition3.7 final paragraph p326; E2 strengthening",
       "status": "missing",
       "dependencies": [
-        "PAPER-KLEVDAL-PATRIKIS-25/101",
-        "PAPER-KLEVDAL-PATRIKIS-25/102",
+        "PAPER-KLEVDAL-PATRIKIS-25/100",
+        "PAPER-KLEVDAL-PATRIKIS-25/148",
         "PAPER-KLEVDAL-PATRIKIS-25/088"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "Compare local tori away from the auxiliary place. Chebotarev and Brauer–Nesbitt identify rational character modules with the chosen irreducible one. Keep the separately strengthened pairwise-separation test."
+      "proofOutline": "Apply the factorwise rational isomorphism of item148 to the initial torus. Pullback identifies its character lattice, not merely its semisimplification. Irreducibility and the zero cross-Hom criterion are invariant under these isomorphisms. Keep item101 for local embedding positions and item102 as the separately imported rational recognition theorem used by the printed alternative."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/104",
@@ -3618,12 +5228,15 @@
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/094",
         "PAPER-KLEVDAL-PATRIKIS-25/103",
-        "PAPER-KLEVDAL-PATRIKIS-25/105"
+        "PAPER-KLEVDAL-PATRIKIS-25/105",
+        "PAPER-KLEVDAL-PATRIKIS-25/148",
+        "PAPER-KLEVDAL-PATRIKIS-25/149"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G5"
-      ]
+      ],
+      "proofOutline": "For every pair, the initial tori have the split/anisotropic witness of item094. Global irreducibility and item149 give zero cross-Hom. Item148 transports each factor through a Q-isomorphism, preserving zero cross-Hom. Alternatively the local conjugators away from p₀ preserve the chosen witnesses. This establishes the stronger E2 contract for the constructed special point, conditional on the remaining approximation and local-existence suppliers."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/107",
@@ -3677,10 +5290,11 @@
       "locator": "Lemma3.9 first paragraph p327",
       "status": "missing",
       "dependencies": [
-        "PAPER-KLEVDAL-PATRIKIS-25/083"
+        "PAPER-KLEVDAL-PATRIKIS-25/083",
+        "PAPER-KLEVDAL-PATRIKIS-25/141"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "Restriction of characters to a subtorus with nontrivial projection to each irreducible factor is nonzero on each irreducible rational character module. Pairwise inequivalence makes their direct sum injective, so the subtorus is the full product. Application to Mumford–Tate requires nonzero factor Hodge projections.",
+      "proofOutline": "For H⊂∏T_i a connected subtorus surjecting to every factor, restriction gives a surjective Γ_Q-map r:⊕V_i→X*(H)_Q, injective on each simple V_i. All representations factor through one finite Galois group. By item141 ker(r) is semisimple; if nonzero it has a simple constituent isomorphic to some V_i. Vanishing of Hom(V_i,V_j) for i≠j forces its inclusion into the direct sum to land in that V_i alone, contradicting injectivity of r there. Thus ker(r)=0. Equality of dimensions makes H=∏T_i. For the Mumford–Tate application, H is its adjoint torus image; each factor projection is nontrivial by the Shimura axiom, hence surjective by irreducibility.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G5"
       ]
@@ -3741,10 +5355,12 @@
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/113",
-        "PAPER-KLEVDAL-PATRIKIS-25/057"
+        "PAPER-KLEVDAL-PATRIKIS-25/057",
+        "PAPER-KLEVDAL-PATRIKIS-25/145",
+        "PAPER-KLEVDAL-PATRIKIS-25/144"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "Take the p-component of the reciprocity identity. The factor a_p k₀,p a_p⁻¹ is compact, so every geometric character has valuation zero on it. Preserve the ramification index of the actual local field.",
+      "note": "Written repair supplied in the 2026-09-23 continuation. Mathematical proof outline only; imported source foundations and independent verification remain open.",
+      "proofOutline": "The p-component of canonical reciprocity gives q^-1 N μ(π_w)=a_p k_p(Frob_w) a_p^-1. This point lies in T(Q_p), while a_p K_p a_p^-1 is compact. Their intersection is a compact subgroup by item143, so item145 makes every geometric-character valuation of the right-hand side zero. Therefore v_p χ(q)=v_p χ(N μ(π_w)). Equality with the entire maximal bounded subgroup is not used.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G6"
       ]
@@ -3754,15 +5370,17 @@
       "key": "generalnormvaluation",
       "kind": "theorem",
       "name": "Ramified-uniformizer valuation repair",
-      "statement": "Let L/Q_p finite, π_L a uniformizer and μ a cocharacter defined over L. With v_p(p)=1, for any geometric character χ, v_p(χ(N_L/Qp μ(π_L)))=(1/e(L/Q_p))∑_σ〈χ,σμ〉. If μ and its conjugates are dominant for a rational Borel and μ is noncentral on a factor, some positive root gives a positive value. This avoids assuming π_L=p; E4 repair still needs the full application checked.",
+      "statement": "Under the hypotheses of item146 and a Q_p-rational Borel as in item147, v_p(χ(N μ(π_L)))=e^-1∑σ<χ,σμ>. For each adjoint semisimple factor on which μ is nonzero, one simple root gives a positive value. This is a written general-uniformizer repair of the inference on journal pp328–329, conditional on the explicitly imported foundations; it does not prove the paper’s intermediate unramified-field assertion.",
       "locator": "Lemma3.9 pp328–329, proposed replacement for the unramified-field step",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/093",
-        "PAPER-KLEVDAL-PATRIKIS-25/007"
+        "PAPER-KLEVDAL-PATRIKIS-25/007",
+        "PAPER-KLEVDAL-PATRIKIS-25/146",
+        "PAPER-KLEVDAL-PATRIKIS-25/147"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "Expand the norm as the product over embeddings σ:L→Qpbar. The normalized p-valuation of each σ(π_L) is 1/e, giving the pairing sum divided by e. Establish Galois preservation of the chosen dominant chamber and identify the nonzero factor sum before applying it; repair gate G6 remains.",
+      "note": "Written repair supplied in the 2026-09-23 continuation. Mathematical proof outline only; imported source foundations and independent verification remain open.",
+      "proofOutline": "Combine item146 with item147. The ramification index e is positive, so division by e preserves strict positivity. The cocharacter may lie on the boundary of the dominant chamber. A2 with (2,-1,-1), whose simple-root pairings are (3,0), is an allowed test. If μ were central on a factor the needed conclusion would fail; adjoint nontriviality rules that out.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G6"
       ]
@@ -3772,16 +5390,18 @@
       "key": "infiniteorder",
       "kind": "theorem",
       "name": "Infinite-order Frobenius in every adjoint factor",
-      "statement": "Under Lemma3.9's special-point, good-model, prime and dominance assumptions, with the isogeny-separation contract made explicit, every G_i(Q_ℓ)-projection of ρ_ℓ,s(Frob_w), ℓ≠p, has infinite order: choose a positive root detecting the local norm valuation and compare Eq.(6). Use the general-uniformizer repair or prove integral position first.",
+      "statement": "Under Lemma3.9’s special-point integrality, reciprocity and rational-Borel dominance assumptions, using pairwise nonisogeny in its Mumford–Tate argument, every adjoint Q-simple projection of ρ_{ℓ,s}(Frob_w) has infinite order for ℓ≠p. No unramifiedness of E(s)_w/Q_p is needed for this conclusion. The original stronger hypotheses may be retained; item092 is not an input to this repaired implication.",
       "locator": "Lemma3.9 pp327–329; E2,E4",
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/115",
         "PAPER-KLEVDAL-PATRIKIS-25/114",
-        "PAPER-KLEVDAL-PATRIKIS-25/108"
+        "PAPER-KLEVDAL-PATRIKIS-25/108",
+        "PAPER-KLEVDAL-PATRIKIS-25/150",
+        "PAPER-KLEVDAL-PATRIKIS-25/112"
       ],
-      "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "Equation(7) identifies valuations of q with the dominant orbit norm. In each Q-simple adjoint factor some root pairs positively with the nonzero dominant sum, so q's projection cannot have finite order. Do not substitute π_w=p without proving the local field unramified.",
+      "note": "Written repair supplied in the 2026-09-23 continuation. Mathematical proof outline only; imported source foundations and independent verification remain open.",
+      "proofOutline": "The reflex cocharacter is defined over E(x)⊂E(s), hence over L=E(s)_w after the chosen embedding. Integral extension of s from item112 and the soft-model theorem implies its ℓ-adic representation is unramified for w∤Nℓ, independently of ramification of L/Q_p. For each adjoint factor choose α from item147. Items114–115 give v_p α(q_i)>0, so q_i is not torsion: a torsion field unit has valuation zero. Item150 transfers this order assertion from Q to Q_ℓ and preserves it under inversion and conjugation. Equation(6) identifies the resulting element with the projected Frobenius. Assumption2.7 asks for integral sections and their unramified representations, not an unramified extension Cy/F, so the replacement suffices for Proposition2.8 and Theorem3.10.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G6"
       ]
@@ -3825,17 +5445,57 @@
         {
           "name": "AdjointCompatibility.cyclicclosure.test1",
           "statement": "For t of finite order the closure is finite.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.cyclicclosure.test2",
           "statement": "For t=2 in G_m/Q the closure is G_m.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
         },
         {
           "name": "AdjointCompatibility.cyclicclosure.test3",
           "statement": "For (2,2) in G_m² the closure is the diagonal despite both projections having infinite order.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.cyclicclosure.subgroup",
+          "role": "data",
+          "statement": "Give the algebraic subgroup closure of all integral powers."
+        },
+        {
+          "name": "AdjointCompatibility.cyclicclosure.baseChange",
+          "role": "data",
+          "statement": "Compare with the closure over Qbar_ℓ."
+        },
+        {
+          "name": "AdjointCompatibility.cyclicclosure.automorphism",
+          "role": "data",
+          "statement": "An automorphism fixing t fixes its entire closure pointwise."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.cyclicclosure.test1",
+          "statement": "For t of finite order the closure is finite.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.cyclicclosure.test2",
+          "statement": "For t=2 in G_m/Q the closure is G_m.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "computation"
+        },
+        {
+          "name": "AdjointCompatibility.cyclicclosure.test3",
+          "statement": "For (2,2) in G_m² the closure is the diagonal despite both projections having infinite order.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -3849,10 +5509,11 @@
       "status": "missing",
       "dependencies": [
         "PAPER-KLEVDAL-PATRIKIS-25/117",
-        "PAPER-KLEVDAL-PATRIKIS-25/083"
+        "PAPER-KLEVDAL-PATRIKIS-25/083",
+        "PAPER-KLEVDAL-PATRIKIS-25/110"
       ],
       "note": "Source-bound extraction target, not a formalization claim; consult gaps and sourceIssues before using the statement as a closed input.",
-      "proofOutline": "The identity component of rational cyclic closure projects nontrivially to each irreducible factor when all projections have infinite order. Pairwise inequivalent rational characters force the connected closure to be the product; algebraic closure commutes with coefficient extension.",
+      "proofOutline": "Let C be the Q-Zariski closure of the cyclic subgroup generated by q and H=C°; item117 supplies its Q-definition and scalar-extension comparison. In characteristic zero C is an algebraic subgroup of a torus and C/H is finite. If H had trivial image in T_i, the image of C there would be finite, making q_i torsion. Thus infinite order of every q_i implies that H has positive-dimensional projection to each irreducible T_i, hence surjects. Apply item110 to obtain H=∏T_i, so C is the full torus. The example (2,2)∈G_m² shows why pairwise nonisogeny cannot be omitted.",
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G5"
       ]
@@ -3937,17 +5598,57 @@
         {
           "name": "AdjointCompatibility.uniformN.test1",
           "statement": "Every prime excluded by any of the four inputs divides Ntilde.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
         },
         {
           "name": "AdjointCompatibility.uniformN.test2",
           "statement": "The resulting integer does not depend on ℓ or ℓ'.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.uniformN.test3",
-          "statement": "Changing finite component representatives may enlarge the excluded set but not the generic theorem.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "If Ntilde divides Mtilde, every prime not dividing Mtilde also does not divide Ntilde, so restricting the integral model retains each asserted good-fiber conclusion.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.uniformN.modelPrimes",
+          "role": "data",
+          "statement": "Record N and N₀."
+        },
+        {
+          "name": "AdjointCompatibility.uniformN.representatives",
+          "role": "data",
+          "statement": "Take the finite union of denominator primes of the component representatives."
+        },
+        {
+          "name": "AdjointCompatibility.uniformN.levelPrimes",
+          "role": "data",
+          "statement": "Take the finite exceptional set where hyperspecial containment fails."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.uniformN.test1",
+          "statement": "Every prime excluded by any of the four inputs divides Ntilde.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "characterisation"
+        },
+        {
+          "name": "AdjointCompatibility.uniformN.test2",
+          "statement": "The resulting integer does not depend on ℓ or ℓ'.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.uniformN.test3",
+          "statement": "If Ntilde divides Mtilde, every prime not dividing Mtilde also does not divide Ntilde, so restricting the integral model retains each asserted good-fiber conclusion.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         }
       ]
     },
@@ -4085,22 +5786,62 @@
       "unitTests": [
         {
           "name": "AdjointCompatibility.serregroup.test1",
-          "statement": "Enlarging the modulus requires its transition morphism.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For moduli m|n|r, the Serre-group transition morphism S_r→S_m equals the composite S_r→S_n→S_m with the fixed coefficient field.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
         },
         {
           "name": "AdjointCompatibility.serregroup.test2",
           "statement": "A constant weight-zero character is a permitted test realization.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.serregroup.test3",
-          "statement": "A Q-rational Frobenius table alone does not define an algebraic map without local algebraicity and continuity.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "For the profinite group product_(n≥1) Z/2, a nonprincipal-ultrafilter homomorphism to {±1} has finite image but is discontinuous; hence finite-image abstract homomorphisms alone do not supply continuous Serre realizations.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ],
       "openGates": [
         "PAPER-KLEVDAL-PATRIKIS-25/G8"
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.serregroup.modulus",
+          "role": "data",
+          "statement": "Record the defining field and modulus."
+        },
+        {
+          "name": "AdjointCompatibility.serregroup.epsilon",
+          "role": "data",
+          "statement": "Construct canonical continuous ε_ℓ."
+        },
+        {
+          "name": "AdjointCompatibility.serregroup.character",
+          "role": "data",
+          "statement": "Use locally algebraic characters to build algebraic maps."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.serregroup.test1",
+          "statement": "For moduli m|n|r, the Serre-group transition morphism S_r→S_m equals the composite S_r→S_n→S_m with the fixed coefficient field.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "compatibility"
+        },
+        {
+          "name": "AdjointCompatibility.serregroup.test2",
+          "statement": "A constant weight-zero character is a permitted test realization.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.serregroup.test3",
+          "statement": "For the profinite group product_(n≥1) Z/2, a nonprincipal-ultrafilter homomorphism to {±1} has finite image but is discontinuous; hence finite-image abstract homomorphisms alone do not supply continuous Serre realizations.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
       ]
     },
     {
@@ -4211,17 +5952,57 @@
         {
           "name": "AdjointCompatibility.centraltwists.test1",
           "statement": "For G=G_m, two different arithmetic characters can restrict trivially to geometric π₁.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.centraltwists.test2",
           "statement": "For adjoint G the central twisting group is trivial.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.centraltwists.test3",
           "statement": "Agreement on geometric π₁ does not force arithmetic agreement in GL_n.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.centraltwists.twist",
+          "role": "data",
+          "statement": "Multiply a G-valued descent by a central character."
+        },
+        {
+          "name": "AdjointCompatibility.centraltwists.geometric",
+          "role": "data",
+          "statement": "Show characters factoring through Γ_F do not change geometric restriction."
+        },
+        {
+          "name": "AdjointCompatibility.centraltwists.ramification",
+          "role": "data",
+          "statement": "Track the new inertia character at each place."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.centraltwists.test1",
+          "statement": "For G=G_m, two different arithmetic characters can restrict trivially to geometric π₁.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.centraltwists.test2",
+          "statement": "For adjoint G the central twisting group is trivial.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.centraltwists.test3",
+          "statement": "Agreement on geometric π₁ does not force arithmetic agreement in GL_n.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -4298,17 +6079,57 @@
         {
           "name": "AdjointCompatibility.adjoint.test1",
           "statement": "The identity group is an allowed degenerate semisimple adjoint object.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
         },
         {
           "name": "AdjointCompatibility.adjoint.test2",
           "statement": "A nontrivial scalar centre prevents GL_n from being adjoint semisimple.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         },
         {
           "name": "AdjointCompatibility.adjoint.test3",
-          "statement": "Commuting with a subset is not definitionally universal centrality over all value algebras.",
-          "verification": "Mathematical planning test; no Lean elaboration asserted."
+          "statement": "Every element of PGL₂ centralizes the singleton {1}, although a nonidentity element need not be universally central.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.adjoint.center",
+          "role": "data",
+          "statement": "Recover equality of centre and identity defining ideals."
+        },
+        {
+          "name": "AdjointCompatibility.adjoint.points",
+          "role": "data",
+          "statement": "Apply the universal central-point characterization."
+        },
+        {
+          "name": "AdjointCompatibility.adjoint.baseChange",
+          "role": "data",
+          "statement": "Use the supplied adjoint base-change interface rather than a new predicate."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.adjoint.test1",
+          "statement": "The identity group is an allowed degenerate semisimple adjoint object.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "AdjointCompatibility.adjoint.test2",
+          "statement": "A nontrivial scalar centre prevents GL_n from being adjoint semisimple.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "AdjointCompatibility.adjoint.test3",
+          "statement": "Every element of PGL₂ centralizes the singleton {1}, although a nonidentity element need not be universally central.",
+          "verification": "Mathematical planning test; no Lean elaboration asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -4327,6 +6148,283 @@
         "tauceti:TauCeti.adjointSemisimpleCommHopfAlgProperty.isCentralPoint_eq_one"
       ],
       "note": "Only the stated abstract carrier/lemma is present at the pinned commit; its geometric instantiation is a separate item."
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/138",
+      "key": "fieldnormembeddings",
+      "kind": "theorem",
+      "name": "Field norm as a product of embeddings",
+      "statement": "For a finite separable extension L/K and an algebraically closed extension E/K, algebraMap K E (Algebra.norm K z) equals the product of σ(z) over all K-algebra embeddings σ:L→E. No normality or unramifiedness assumption.",
+      "locator": "Mathlib/RingTheory/Norm/Transitivity.lean:268; normalization check for journal Eq.(7)",
+      "status": "library",
+      "dependencies": [],
+      "library": [
+        "mathlib:Algebra.norm_eq_prod_embeddings"
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/139",
+      "key": "spectralunique",
+      "kind": "theorem",
+      "name": "Uniqueness of the extended absolute value",
+      "statement": "Let K be complete, nontrivially normed and nonarchimedean, and L/K algebraic. Every real-valued absolute value on L restricting to the given norm of K equals spectralNorm K L pointwise. This is absolute-value uniqueness; the normalized additive finite-extension adapter remains item142.",
+      "locator": "Mathlib/Analysis/Normed/Unbundled/SpectralNorm.lean:770, with variables at 691–693",
+      "status": "library",
+      "dependencies": [],
+      "library": [
+        "mathlib:spectralNorm_unique_field_norm_ext"
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/140",
+      "key": "compactdiscrete",
+      "kind": "theorem",
+      "name": "Compact subsets of a discrete space are finite",
+      "statement": "In a topological space X with DiscreteTopology, IsCompact s if and only if the subset s is finite.",
+      "locator": "Mathlib/Topology/Compactness/Compact.lean:511–518",
+      "status": "library",
+      "dependencies": [],
+      "library": [
+        "mathlib:isCompact_iff_finite",
+        "mathlib:IsCompact.finite_of_discrete"
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/141",
+      "key": "maschke",
+      "kind": "theorem",
+      "name": "Equivariant complements for finite groups",
+      "statement": "For a finite group H and a field k in which Nat.card H is nonzero, every k[H]-submodule of a k[H]-module has an H-equivariant complement. In particular this applies to rational finite-image Galois representations.",
+      "locator": "Mathlib/RepresentationTheory/Maschke.lean:136–168",
+      "status": "library",
+      "dependencies": [],
+      "library": [
+        "mathlib:MonoidAlgebra.Submodule.exists_isCompl"
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/142",
+      "key": "normalizedextension",
+      "kind": "theorem",
+      "name": "Normalized valuations in finite extensions",
+      "statement": "For finite L/K of nonarchimedean local fields, the extension valuation is unique up to normalization; v_L|K=e(L/K)v_K with e>0, and e f=[L:K]. For K=Q_p, the extension of v_p(p)=1 to an algebraic closure therefore satisfies v_p(σπ_L)=1/e for every K-embedding σ and every uniformizer π_L. Import the finite-extension construction, valuation-topology comparison and normalization from their existing owner.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "planned",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/139"
+      ],
+      "planned": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions"
+      ],
+      "note": "AUDIT-04 records the normalized valuation and spectral uniqueness as built but the finite-extension local-field package and e/f adapters as partial/absent. Do not turn this planned theorem into a library claim."
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/143",
+      "key": "rationalpointtopology",
+      "kind": "theorem",
+      "name": "Continuity of character evaluation on local points",
+      "statement": "For a finite extension E/F of nonarchimedean local fields and a separated affine finite-type F-group T, the map T(F)→T(E) is continuous. Every E-algebraic character T_E→G_m induces a continuous homomorphism T(F)→E×. Closed subgroup inclusions are topological closed embeddings; hence T(F)∩C is compact for a compact subgroup C of an ambient affine group.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "planned",
+      "dependencies": [],
+      "planned": [
+        "ReductiveGroupsPartII:RG2.0"
+      ],
+      "note": "Read the complete RG2.0 layer: topology, functoriality, products, closed immersions and Hausdorffness. Its finite-extension scalar map is an instance of the chart construction; exact packet adapter remains G9."
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/144",
+      "key": "torusnormpoint",
+      "kind": "construction",
+      "name": "Torus norm on points over a finite separable extension",
+      "statement": "For a torus T/F and finite separable L/F inside Fbar, define N^T_L/F:T(L)→T(F) by N(t)=∏σ σ(t) over F-embeddings L→Fbar. The action on the L-rational point is independent of the extension of σ to Fbar. Commutativity makes the product Galois-fixed and hence F-rational. This is the point evaluation of the existing Weil-restriction norm, not a second carrier for tori or restriction of scalars.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/004",
+        "PAPER-KLEVDAL-PATRIKIS-25/007",
+        "PAPER-KLEVDAL-PATRIKIS-25/138"
+      ],
+      "note": "Import affine Weil restriction and its splitting product from ReductiveGroupsPartII:RG2.0a; its general pointwise norm adapter is missing. The scalar field norm is item138, not the full torus norm.",
+      "proofOutline": "Choose a finite Galois splitting field M/F containing L and all coefficients of t. Form the product over Hom_F(L,M); extensions differing by Gal(M/L) agree on t. Galois acts by permutation of factors, so the product is fixed. Faithful affine Galois descent identifies the fixed point with a unique T(F)-point. Character evaluation is multiplicative, and the splitting-product description of Weil restriction identifies the construction with its norm morphism. Refining M changes no factors or their values.",
+      "uses": [
+        {
+          "where": "PAPER-KLEVDAL-PATRIKIS-25/146",
+          "how": "Expand the torus norm over embeddings before evaluating the character and valuation."
+        },
+        {
+          "where": "PAPER-KLEVDAL-PATRIKIS-25/114",
+          "how": "Identify the local reflex-norm point in the p-component of reciprocity."
+        }
+      ],
+      "api": [
+        {
+          "name": "AdjointCompatibility.torusnormpoint.product",
+          "statement": "After extension to Fbar, N^T_L/F(t)=∏σ σ(t)."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.map",
+          "statement": "For an F-homomorphism f:T→U, f(N^T_L/F(t))=N^U_L/F(f(t))."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.tower",
+          "statement": "For finite separable M/L/F and t∈T(M), N^T_M/F(t)=N^T_L/F(N^(T_L)_M/L(t))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AdjointCompatibility.torusnormpoint.gm",
+          "kind": "compatibility",
+          "statement": "For T=G_m and t∈L×, N^T_L/F(t) is Algebra.norm F t, regarded as a unit."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.identity",
+          "kind": "degenerate",
+          "statement": "For L=F, N^T_F/F is the identity homomorphism on T(F)."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.ramifiedQuadratic",
+          "kind": "computation",
+          "statement": "For L=Q_3(π) with π²=3 and T=G_m, N^T_L/Q_3(π)=-3, whereas evaluating the sum of the two identity cocharacters at 3 gives 9."
+        }
+      ],
+      "planningAPI": [
+        {
+          "name": "AdjointCompatibility.torusnormpoint.product",
+          "statement": "After extension to Fbar, N^T_L/F(t)=∏σ σ(t)."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.map",
+          "statement": "For an F-homomorphism f:T→U, f(N^T_L/F(t))=N^U_L/F(f(t))."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.tower",
+          "statement": "For finite separable M/L/F and t∈T(M), N^T_M/F(t)=N^T_L/F(N^(T_L)_M/L(t))."
+        }
+      ],
+      "unitTests": [
+        {
+          "name": "AdjointCompatibility.torusnormpoint.gm",
+          "kind": "compatibility",
+          "statement": "For T=G_m and t∈L×, N^T_L/F(t) is Algebra.norm F t, regarded as a unit."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.identity",
+          "kind": "degenerate",
+          "statement": "For L=F, N^T_F/F is the identity homomorphism on T(F)."
+        },
+        {
+          "name": "AdjointCompatibility.torusnormpoint.ramifiedQuadratic",
+          "kind": "computation",
+          "statement": "For L=Q_3(π) with π²=3 and T=G_m, N^T_L/Q_3(π)=-3, whereas evaluating the sum of the two identity cocharacters at 3 gives 9."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/145",
+      "key": "compactcharzero",
+      "kind": "theorem",
+      "name": "Geometric characters have zero valuation on compact subgroups",
+      "statement": "Let F be a nonarchimedean local field, T/F a torus, C⊂T(F) a compact subgroup, and χ a geometric character defined over a finite splitting extension E/F. Then v_E(χ(c))=0 for every c∈C. Consequently any positive rescaling of v_E, including the extension of v_p, also vanishes on χ(C). No integral model of T or maximality of C is assumed.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/140",
+        "PAPER-KLEVDAL-PATRIKIS-25/142",
+        "PAPER-KLEVDAL-PATRIKIS-25/143"
+      ],
+      "proofOutline": "The composite C→T(E)→E×→Z is a continuous group homomorphism; on E× the normalized additive valuation is locally constant with discrete target. Its compact image is finite by item140. A finite subgroup of the torsion-free additive group Z is zero (a nonzero n has infinitely many distinct multiples). This proves the claim for all geometric characters after choosing a finite field of definition. For Eq.(7), C=T(Q_p)∩a_p K_p a_p^-1 is a closed subgroup of a compact group by item143.",
+      "acceptance": [
+        "For C=Z_p×⊂G_m(Q_p) and χ(z)=z^m, v_p(χ(c))=0 for every integer m and c∈C."
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/146",
+      "key": "normvaluationpairing",
+      "kind": "theorem",
+      "name": "Pairing formula for a ramified torus norm",
+      "statement": "Let L/Q_p be finite, π_L a uniformizer, T/Q_p a torus and μ∈X_*(T_L). For any χ∈X*(T_Qpbar), normalized by v_p(p)=1, v_p(χ(N^T_L/Qp(μ(π_L))))=e(L/Q_p)^-1∑σ:L→Qpbar <χ,σμ>. The sum counts embeddings with multiplicity, even when several induce the same cocharacter. There is no claim that the norm point equals (∑σ σμ)(p).",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/007",
+        "PAPER-KLEVDAL-PATRIKIS-25/142",
+        "PAPER-KLEVDAL-PATRIKIS-25/144"
+      ],
+      "proofOutline": "For an extension of each embedding σ to Qpbar, σ(μ(π_L))=(σμ)(σπ_L). The norm product is independent of these choices because μ and π_L are L-defined. Evaluate χ: χ((σμ)(σπ_L))=(σπ_L)^<χ,σμ>. Apply the additive valuation to the finite product. Negative exponents are allowed since all factors are units of the field. Uniqueness and normalization of the extended valuation give v_p(σπ_L)=1/e for every embedding, proving the formula. The identity is a valuation identity; unit factors in the norm point are not discarded as group elements.",
+      "acceptance": [
+        "For L=Q_p(π) with π^e=p, μ(z)=z^m and χ=id, the norm has valuation m, while omitting the factor 1/e gives e m."
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/147",
+      "key": "dominantorbitsum",
+      "kind": "theorem",
+      "name": "A Galois orbit of dominant cocharacters has a positive root pairing",
+      "statement": "Let H/F be a connected adjoint semisimple group over a characteristic-zero field, T⊂B⊂H an F-rational maximal torus and Borel, and μ a geometric cocharacter defined over finite L/F. If μ is B-dominant and its projection to an F-defined semisimple factor H_i is nonzero, then some B_i-simple root α has ∑σ:L→Fbar <α,σμ_i>>0. All terms of this particular sum are nonnegative. Strict positivity for every simple root is unnecessary.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/007",
+        "PAPER-KLEVDAL-PATRIKIS-25/093"
+      ],
+      "proofOutline": "Since T and B are F-rational, Galois permutes their simple roots and preserves the closed dominant chamber. Thus every σμ is dominant. Roots span X*(T_i)⊗Q for an adjoint semisimple factor, so a nonzero μ_i cannot pair to zero with all simple roots. Choose a simple root α with <α,μ_i>>0. One embedding is the fixed inclusion L⊂Fbar and contributes this positive value; every other term is nonnegative. The finite sum is positive. For a Q-simple factor base changed to Q_p, use the whole resulting semisimple factor, which may have several absolute components.",
+      "acceptance": [
+        "In type A2, the nonregular dominant cocharacter (2,-1,-1) has simple-root pairings (3,0); it satisfies the some-positive-root conclusion."
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/148",
+      "key": "toruscocycledescent",
+      "kind": "theorem",
+      "name": "A torus-valued conjugation cocycle gives a rational torus isomorphism",
+      "statement": "Let F have characteristic zero, G/F be an affine algebraic group, T⊂G an F-torus and g∈G(Fbar). If cσ=gσ(g)^-1∈T(Fbar) for every σ∈Γ_F, then T′=g^-1Tg and φ:T→T′, t↦g^-1tg, descend to F, and φ is an F-isomorphism. If G has F-defined normal factors, φ respects their projected tori. Thus integral as well as rational character Galois modules are isomorphic.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/004",
+        "PAPER-KLEVDAL-PATRIKIS-25/006"
+      ],
+      "note": "This is a worker-derived strengthening of the descent calculation printed on p326, not a separate author-stated theorem. Apply after mapping g and its Tsc-valued cocycle from Gsc to G.",
+      "proofOutline": "The identity σg=cσ^-1g gives σ(g^-1tg)=g^-1 cσ σ(t)cσ^-1g=g^-1σ(t)g because cσ centralizes T. Hence the conjugation map restricted to T is Galois-equivariant, not merely its image subgroup. Choose a finite Galois extension containing its matrix coefficients; the defining Hopf ideal of T′ and coordinate maps have invariant descent data. Affine Galois descent produces T′ and φ over F. Apply the same computation to the inverse map to obtain an isomorphism. Inner conjugation preserves each normal factor, so the isomorphism restricts factorwise. This does not say that g can be chosen in G(F) or that the embeddings T,T′ are globally G(F)-conjugate.",
+      "acceptance": [
+        "For g=diag(z,w)h over Q(i), z,w≠0 and h∈GL2(Q), the cocycle is diagonal and g^-1Dg=h^-1Dh with a Q-defined restricted conjugation map."
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/149",
+      "key": "splitanisoseparation",
+      "kind": "theorem",
+      "name": "Split and anisotropic local tori separate rational isogeny classes",
+      "statement": "Let T_i,T_j be positive-dimensional Q-tori with irreducible rational character modules. If at some finite place v one is split and the other anisotropic, their rational Γ_Q-character modules are nonisomorphic and Hom_ΓQ(X*(T_i)_Q,X*(T_j)_Q)=0. It follows that the global tori are not isogenous.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-KLEVDAL-PATRIKIS-25/007",
+        "PAPER-KLEVDAL-PATRIKIS-25/082",
+        "PAPER-KLEVDAL-PATRIKIS-25/141"
+      ],
+      "proofOutline": "For the split torus the local character representation is trivial and nonzero. Anisotropy says that the invariant cocharacter space of the other torus is zero. The character and cocharacter spaces are dual. Their action factors through a finite group, and Maschke (item141) gives equal multiplicities of the trivial representation in a module and its dual; hence its character invariant space is zero too. The two local character representations cannot be isomorphic. A global isomorphism would restrict to a local one. A nonzero intertwiner between irreducible global modules has zero kernel and full image and would be an isomorphism; therefore every such intertwiner is zero.",
+      "acceptance": [
+        "The trivial and sign rational representations of C2 have invariant dimensions 1 and 0 and no nonzero intertwiner."
+      ]
+    },
+    {
+      "id": "PAPER-KLEVDAL-PATRIKIS-25/150",
+      "key": "torsionbasechange",
+      "kind": "theorem",
+      "name": "Order is reflected by extension of fields",
+      "statement": "For an affine group scheme H/F and an extension K/F, H(F)→H(K) is injective. For h∈H(F) and integer n>0, h^n=1 if and only if its image has nth power 1. Thus finite or infinite order is preserved by field extension, inversion and conjugation.",
+      "locator": "Continuation: explicit repair of Proposition 3.7 and Lemma 3.9, journal pp325–329",
+      "status": "planned",
+      "dependencies": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary"
+      ],
+      "proofOutline": "Write points as F-algebra maps O(H)→F. Composition with the injective field inclusion is injective, and commutes with powers. Inversion and conjugation are group automorphisms for the order calculation.",
+      "acceptance": [
+        "The rational point 2∈G_m(Q) has infinite order after every field extension of Q."
+      ]
     }
   ],
   "prerequisites": [
@@ -4505,7 +6603,7 @@
       "title": "Reductive algebraic groups, Part II: arithmetic conjugacy and torus transfer",
       "area": "algebra",
       "reason": "Reuse the candidate already proposed by PAPER-KISIN-MADAPUSIPERA-SHIN-22 and PAPER-KISIN-ZHOU-25. It owns global tori, H¹ transfer and Conj; this paper adds irreducible, isogeny-separated torus approximation and outer-stabilizer interfaces, not a second torus roadmap.",
-      "brief": "Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean.",
+      "brief": "Extend the existing candidate ReductiveGroupsArithmeticPartII from Reductive algebraic groups (tauceti:TauCetiRoadmap/ReductiveGroups). Import the pinned torus/character/cocharacter and adjoint carriers, the upstream maximal-torus/root-data/isomorphism theory, local models from ReductiveGroupsPartII, and Chebotarev and class field theory from their upstream owners. Retain the KMPS22/Kisin–Zhou25 ownership of H¹ transfer and Conj_G. Supply generic maximal-torus rationality, full W⋊A₀ specialization, local orbit openness and the exact Lemma3.6 approximation theorem, correcting the product-open-subgroup step. Strengthen the local separation choices to pairwise nonisogeny before using rational character modules. Build the real normalizer cocycle, one-exceptional-prime H¹ lift, local simply-connected vanishing, Hasse principle, rational torus twist and rational Brauer–Nesbitt comparison needed for Proposition3.7. Export generic subdirect-product and cyclic-closure lemmas, scalar-extension compatibility of rational cyclic closure, the dominant-orbit norm valuation with a general uniformizer, finite outer-automorphism/root-datum descent, and Chebotarev descent of conjugation-quotient points. Include Serre groups with modulus and the locally algebraic torus realization of Remark3.11, without using the later Shimura theorem as an input. The final generic interfaces imply a dense cyclic torus element has no outer stabilizer; the Shimura application belongs to ShimuraVarietiesCompatibleSystemsPartII. Correct E2–E4 and resolve original group-theory sources before marking this closed. Suggested file TauCeti/AlgebraicGeometry/Reductive/ArithmeticTori.lean. Continuation: items144–149 decompose the pointwise torus norm, compact-character vanishing, ramified embedding-pairing formula, dominant-orbit positivity, rational isomorphism from a torus-valued cocycle, and split–anisotropic rational separation. Reuse local-field Layer0 for item142 and RG2.0 for item143. Apply the explicit torus isomorphism to preserve character modules, keeping local conjugacy for real/p-adic embedding positions. The general-uniformizer proof bypasses the unproved special-point-field unramifiedness claim; it does not repair that separate claim. Use Maschke only for the finite-image rational Galois modules, never for all reductive-group representations in positive characteristic.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/026",
         "PAPER-KLEVDAL-PATRIKIS-25/038",
@@ -4539,7 +6637,13 @@
         "PAPER-KLEVDAL-PATRIKIS-25/118",
         "PAPER-KLEVDAL-PATRIKIS-25/124",
         "PAPER-KLEVDAL-PATRIKIS-25/128",
-        "PAPER-KLEVDAL-PATRIKIS-25/129"
+        "PAPER-KLEVDAL-PATRIKIS-25/129",
+        "PAPER-KLEVDAL-PATRIKIS-25/144",
+        "PAPER-KLEVDAL-PATRIKIS-25/145",
+        "PAPER-KLEVDAL-PATRIKIS-25/146",
+        "PAPER-KLEVDAL-PATRIKIS-25/147",
+        "PAPER-KLEVDAL-PATRIKIS-25/148",
+        "PAPER-KLEVDAL-PATRIKIS-25/149"
       ]
     },
     {
@@ -4647,7 +6751,7 @@
       "title": "Complex Shimura varieties and canonical models, Part II: compatible adjoint local systems",
       "area": "modular",
       "reason": "The generic canonical tower stays in V4/V8 and is shared with T6:comparison. The new layers are the soft integral model, symmetry-breaking sections and uniform adjoint ℓ-independence. The Honda–Tate sibling owns reduction/isogeny theory, not this higher-rank non-abelian-type proof.",
-      "brief": "Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean.",
+      "brief": "Extend Complex Shimura varieties and canonical models (ShimuraVarieties), importing V4/V7/V8.general's canonical tower, reciprocity and Betti–étale local system with its right-action convention. Share this carrier with HodgeTateAndCanonicalSubgroups:T6:comparison without requiring the logarithmic comparison theorem here. Import higher-rank lattice rigidity from ArithmeticLocallySymmetricSpacesSuperrigidity, the abstract uniform ramification and symmetry-breaking criterion from ArithmeticGaloisRepresentationsSuperrigidSystems, and irreducible/isogeny-separated tori and norm valuations from ReductiveGroupsArithmeticPartII. Construct the soft SNC-complement integral model with uniform special-point integrality using PSTEG Theorem4.1. Prove the five parts of Proposition3.7 separately, including the strengthened pairwise nonisogeny needed by E2. Compute special Frobenius via q and Eq.(6)–(7), resolving the fixed-hyperspecial-position gap E4 with a proved general-uniformizer or stronger integral-position argument. Establish cyclic density and trivial outer stabilizer, then uniform fibrewise compatibility and Q-rationality of the quotient point. Final Theorem3.10 assumes neat K₀, discrete rational centre and real rank at least two for every Q-simple adjoint factor; it yields one Ntilde for every good fibre and all ℓ,ℓ'. Corollary3.12 gives pointwise systems with N(y). Separate Serre-group realization and the fixed-ℓ open-image remark from all-prime density claims. Do not import BST Theorem9.7, Patrikis's full-G follow-up or crystalline companions back into their own prerequisite. Suggested file TauCeti/Geometry/Shimura/AdjointCompatibility.lean. The continuation writes the Eq.(7) compact-character and ramified-uniformizer calculation and connects it through Eq.(6) to Assumption2.7. It requires no unramifiedness of the section field. The special-point construction uses pairwise nonisogeny justified by items094/148/149. These are worker-supplied proof repairs with foundational and independent-review gates still open.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/077",
         "PAPER-KLEVDAL-PATRIKIS-25/078",
@@ -4711,7 +6815,7 @@
       "stages": [
         "ReductiveGroupsPartII:RG2.3"
       ],
-      "reason": "The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it.",
+      "reason": "The hyperspecial/parahoric owner supplies the integral-model maximal-torus bounded-subgroup theorem, with the integral-position hypothesis from Getz–Hahn. Generic unramified tori must not silently satisfy it. Item092 remains a separate source target. The repaired infinite-order application no longer depends on its claimed applicability to the chosen torus.",
       "items": [
         "PAPER-KLEVDAL-PATRIKIS-25/092"
       ]
@@ -4747,8 +6851,10 @@
         "Publisher article and linked material, https://link.springer.com/article/10.1007/s00222-025-01357-6, checked 2026-09-22; no linked correction located.",
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
-        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim."
-      ]
+        "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
+        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read."
+      ],
+      "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E3",
@@ -4780,8 +6886,10 @@
         "arXiv 2303.03863 version history and v2 (6 October 2024), https://arxiv.org/abs/2303.03863; relevant v2 passages compared, and v1 §2 read for the deleted specialization section.",
         "Stefan Patrikis papers page, https://people.math.osu.edu/patrikis.1/papers.html, and Christian Klevdal page, https://sites.google.com/view/christianklevdal/home, checked 2026-09-22; no correction to these passages located.",
         "Exact title/arXiv/DOI searches with correction, erratum, torus and isogenous, 2026-09-22. 'new' means no correction found in this search, not a priority claim.",
-        "Getz–Hahn author draft https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf AppendixA.5 pp482–483, and the author-linked 2026-07 errata https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf (all3pages): no correction pertinent to this application located."
-      ]
+        "Getz–Hahn author draft https://sites.duke.edu/jgetz/files/2022/04/Graduate_Text.pdf AppendixA.5 pp482–483, and the author-linked 2026-07 errata https://sites.duke.edu/jgetz/files/2026/07/Errata.pdf (all3pages): no correction pertinent to this application located.",
+        "2026-09-23: freshly downloaded and read complete journal PDF (same SHA-256); rechecked arXiv version history (latest v2 2024-10-06), Patrikis papers page and title/DOI correction searches. No relevant correction located in these checks; supplementary draft/book reading remains inherited, not a new full read."
+      ],
+      "repairStatus": "Written continuation proof supplied on 2026-09-23; independent verification remains outstanding. See report and items094/103/106/110/114–116/118/142–150. No verdict assigned."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/E5",
@@ -4944,7 +7052,7 @@
         "PAPER-KLEVDAL-PATRIKIS-25/118",
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "E2: write and independently verify the strengthened split-versus-anisotropic local choice, survival under the twist, and rational-character direct-sum argument. Do not use mere nonisomorphism of integral tori as nonisogeny."
+      "detail": "The strengthened separation, factorwise torus-cocycle isomorphism and multiplicity-free subdirect-product proofs are now written in items094/103/106/110/118/148/149. Still obtain the original local anisotropic maximal-torus existence theorem, generic approximation and H¹ suppliers in G4 and independently verify the repair in G10. No unqualified closure or implementation claim."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G6",
@@ -4957,7 +7065,7 @@
         "PAPER-KLEVDAL-PATRIKIS-25/120",
         "PAPER-KLEVDAL-PATRIKIS-25/125"
       ],
-      "detail": "E4: either prove the chosen torus has the integral-position hypothesis or supply the full ramified-uniformizer norm valuation argument. The rational-matrix counterexample is checked; it does not itself prove the proposed repair. Collate the corresponding published Getz–Hahn appendix against the read author draft."
+      "detail": "The full general-uniformizer proof and application are written in items114–116/142–147/150: compact character values vanish, the norm valuation is e^-1 times the embedding-pairing sum, and positivity gives infinite-order Frobenius. This bypasses the intermediate unramified-field claim. Still close the imported finite-extension/topology/reflex-reciprocity leaves and independently verify the repair. Collation of the published Getz–Hahn appendix remains required for the separate item092/source finding E4; that collation is not claimed completed."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G7",
@@ -4996,7 +7104,7 @@
         "PAPER-KLEVDAL-PATRIKIS-25/102",
         "PAPER-KLEVDAL-PATRIKIS-25/119"
       ],
-      "detail": "Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate."
+      "detail": "Reviewed audits and actual layer descriptions are recorded, but these coarse planned stage references do not close proofs. Resolve exact accepted packet/reserved supplier nodes and request statements in future design jobs. Complete per-leaf pinned searches during blueprint expansion; no claim that all 137 targets elaborate. Continuation identifies LocalFieldsRamification Layer0, ReductiveGroupsPartII RG2.0/RG2.0a and ReductiveGroups Layer0 as owners of the new adapters. Resolve their exact supplier signatures and affine descent before claiming formal closure. The 46 API/test lists are planning specifications; inherited source-wide contracts beyond the focused repair still require per-node blueprint expansion."
     },
     {
       "id": "PAPER-KLEVDAL-PATRIKIS-25/G10",
@@ -5009,12 +7117,11 @@
   ],
   "validation": {
     "lean": "Not run: this issue permits JSON/report/handoff only. API and unit-test entries are planning specifications, not compiled declarations.",
-    "closure": "Partial. DAG and coverage checks test structure, not mathematical correctness or source closure.",
+    "closure": "Partial: written mathematical repairs reduce G5/G6 but do not close original-source suppliers, exact formal interfaces or independent verification.",
     "checks": [
-      "python3 scripts/check_paper.py research/blueprint/papers/PAPER-KLEVDAL-PATRIKIS-25.result.json: pass",
-      "python3 -m unittest discover -s tests -p test_check_paper.py: 9 passed",
-      "python3 -m unittest discover -s tests -p test_source_issues.py: 7 passed",
-      "Independent structural and exact rational-arithmetic checks: pass; 137 IDs, both DAGs, 110 missing items routed exactly once, 45 API/test triples, four small examples."
+      "Paper checker and exact three-deliverable intake check: pass (commands and final snapshot in handoff).",
+      "Focused structural audit: 1134 assertions, 150 IDs, 271 acyclic dependency edges, all 137 inherited IDs/statuses retained, 116 missing items routed exactly once, 46 canonical API/test triples, unchanged ten route/source-issue/gap identities.",
+      "Exact rational/integer arithmetic: 11567 assertions passed for Eisenstein norm determinants (including wild ramification), dominant simple-root coordinates, A2 lattice intertwiners, finite-character projectors, Gaussian-rational cocycle descent and the compact-position/repeated-factor counterexamples. These finite diagnostics are not proofs of the general theorems."
     ]
   }
 }
