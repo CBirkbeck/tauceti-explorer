@@ -80299,6 +80299,69 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-TSIMERMAN-18/E6",
+   "kind": "misprint",
+   "locator": "Published §6.2, p. 387, definition of Y; this display is absent from arXiv v5 §6.2 p. 8.",
+   "printed": "pi(y)",
+   "correction": "Use pi(y′) in the membership condition.",
+   "reason": "The printed condition is independent of the bound variable y′ and is true for the chosen lift y of x, so it selects the entire fundamental-set closure. The next sentence bounds the height of every y′ in Y using its image in the finite Galois orbit; that assertion requires the corrected preimage set.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+    "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+    "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSIMERMAN-18",
+   "reviewReason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+  },
+  {
+   "id": "PAPER-TSIMERMAN-18/E7",
+   "kind": "error",
+   "locator": "Published §6.4, p. 388; same special/weakly-special slip in arXiv v5 §6.4 p. 8.",
+   "printed": "special subvariety S",
+   "correction": "The cited Ax-Lindemann theorem first gives a weakly special S. To conclude special, choose W containing a lift of a CM conjugate supplied by counting, and use the CM-point promotion criterion.",
+   "reason": "Pila-Tsimerman 2014 Theorem 6.1, p. 670 explicitly concludes weakly special. Its §2 definitions and criterion on p. 663 show the distinction. A fixed nonspecial elliptic parameter times a variable elliptic factor gives a positive-dimensional weakly special locus in A_2 that is not special; a semialgebraic lift alone is insufficient. The CM-point argument is supplied in the detailed 2014 proof, p. 676.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+    "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+    "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSIMERMAN-18",
+   "reviewReason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+  },
+  {
+   "id": "PAPER-TSIMERMAN-18/E8",
+   "kind": "misprint",
+   "locator": "Published §6.5, p. 388, description of V0; this product-family description is absent from arXiv v5 §6.5.",
+   "printed": "no special subvarieties",
+   "correction": "The intended exclusion concerns positive-dimensional special parameter loci (or, in the detailed proof, restrict to isolated special parameters when selecting maximal fibres); special points must still be allowed.",
+   "reason": "The same sentence requires {x} to be a special point of V0. A special point is itself a zero-dimensional special subvariety, so the literal exclusion contradicts the proposed fibres. Pila-Tsimerman 2014 p. 677 instead uses induction and the finite set of isolated special parameters to describe maximal fibres. Preserve that argument, rather than promoting the sketch to a stronger product theorem.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "23 September 2026: checked https://annals.math.princeton.edu/2018/187-2/p02 and its published PDF; no linked erratum located.",
+    "23 September 2026: checked https://arxiv.org/abs/1506.01466 (latest v5, 1 December 2015) and read v5 §§1-6. The withdrawal notice concerns the distinct general-Shimura claim of v2.",
+    "23 September 2026: checked the publication listing https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches. No applicable separate correction located; this is a bounded search, not proof none exists."
+   ],
+   "owner": "PAPER-TSIMERMAN-18",
+   "file": "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json",
+   "citation": "Jacob Tsimerman, \"The André-Oort conjecture for A_g\", Annals of Mathematics 187 (2018), no. 2",
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-TSIMERMAN-18",
+   "reviewReason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
+  },
+  {
    "id": "PAPER-TSUZUKI-23/E1",
    "kind": "misprint",
    "locator": "arXiv:1910.03871v3, §1.1 p.1; journal version not collated",
