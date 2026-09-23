@@ -1,0 +1,32 @@
+{
+  "paper": "PAPER-XU-ZHU-22",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "PadicDifferentialEquationsAndRigidCohomology (source, 4 items) — Accept. RD.1, RD.2, RD.4 and RD.6 all exist in the atlas, and this is a heavily shared owner — seven other papers route to it, including PAPER-TSUZUKI-23 (90 items) and PAPER-FRESAN-SABBAH-YU-22 (5). The four items are the rigid-cohomology and overconvergent-isocrystal foundations the paper uses rather than proves."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "PadicDifferentialEquationsPartIIArithmeticDModules (part-ii, 18 items) — Accept, and it is a joined proposal: PAPER-ABE-18 routes 34 items to the same id. That is the right pairing — Abe's work on arithmetic D-modules and companions is exactly the theory this paper's §2 reviews and extends, so the two papers are building one Part II rather than two."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "KloostermanSheavesAndBesselIsocrystals (new, 40 items) — Accept, and the `new` claim is carefully argued rather than asserted. The extraction records its own atlas search: 'Kloosterman' occurs only in a partition-asymptotics layer (QSeriesPartitionsAndMockModularForms QM.2) and in the pending KloostermanMomentsAndPotentialAutomorphy; 'Heinloth', 'Frenkel-Gross' and 'oper' occur nowhere; 'Bessel' only as Bessel functions in analysis layers and Bessel models in the Gan-Gross-Prasad proposals. I reproduced that search and agree. The 40 items are the paper's own subject: the Frenkel-Gross connection, Heinloth-Ngo-Yun level structures, Kloosterman F-isocrystals as Hecke eigenvalues, and the comparison of Kl^dR with Kl^rig. It is also already joined — PAPER-GAN-HARRIS-SAWIN-ETAL-24 routes an item here."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "KloostermanMomentsAndPotentialAutomorphy (new, 3 items) — Accept, and this is the route that shows the identity discipline working. Rather than plan Deligne's Kloosterman sheaf, Kloosterman sums and Katz's monodromy groups inside its own new roadmap, the extraction sends exactly those three classical statements to the id PAPER-FRESAN-SABBAH-YU-22 proposed, 'rather than planning them twice', keeping that candidate's id, title and area. I verified the other side of this in the review of PAPER-FRESAN-SABBAH-YU-22 (issue #1317): FSY is the originator with 46 items, and its brief covers GL_2 Kloosterman sheaves and symmetric-power moments, which is a different subject from this paper's group-valued sheaves. The split between the two Kloosterman roadmaps is real, and both sides describe it the same way."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "PadicDifferentialEquationsPartIIMinimalSlope (part-ii, 1 item) — Accept. A one-item route looks thin until one checks whose id it is: PAPER-TSUZUKI-23 proposes the same Part II with 66 items, and the reason recorded here says so explicitly — Tsuzuki's theorem is 'the curve target of the pending PadicDifferentialEquationsPartIIMinimalSlope proposed by PAPER-TSUZUKI-23 (its Corollary 6.5)', and the route 'keeps that candidate's id, title and area'. This is reuse of an existing proposal for the single statement this paper needs, not a roadmap split in two."
+    }
+  ],
+  "notes": "Independent review of issue #1284's extraction (cc-39fac3); cc-fb70e5 appears nowhere in its files. All five routes accepted and **all thirty findings confirmed verbatim**, each located in the arXiv v2 source and its reasoning independently checked; nothing corrected in place and nothing added. Both recorded hashes match byte for byte: the e-print 0eab4611... (a bare gzipped Bessel_arXiv2.tex, 4727 lines, not a tar archive) and the PDF b8d153ef.... The numbering needed two devices before anything could be checked: `secnumber` is an empty-titled theorem environment sharing the theorem counter, which is how the paper prints its 114 numbered paragraphs in the same sequence as its 79 statements, and \\numberwithin{equation}{theorem} makes equation numbers four-level. Simulating both gives 420 numbered objects = 193 theorem-counter objects + 227 equations, and reproduces the number and the kind of every statement the findings cite, paragraph-versus-statement included, plus all eleven four-level equation numbers. Coverage: all 69 items carry a statement- or paragraph-level locator, 76 of the 79 statements are cited (the exceptions are Remarks 1.2.5 and 2.8.4 and Proposition 3.6.4), and 85 of the 114 numbered paragraphs. Note for later readers that the appendix numbers two-level (A.1, A.3, A.5), so a three-component locator regex silently drops all seven appendix statements. Reference audit clean once the paper's idiom is found — it writes bare \\ref or a lowercase word, so a capitalised-word regex sees only 2 citations where there are 80: no word/environment mismatch, none of the 80 resolves to a numbered paragraph (checked because `secnumber` invites exactly that), no duplicate labels, no undefined references. 62 \\eqref targets are statement labels rather than displays, which at that frequency is deliberate house style and not a defect. The extraction records no library items and no baseline declarations, which is defensible for a paper whose prerequisites are arithmetic D-modules and rigid cohomology, none of it in the pinned libraries."
+}

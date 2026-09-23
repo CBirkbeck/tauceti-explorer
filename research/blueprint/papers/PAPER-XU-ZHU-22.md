@@ -155,3 +155,50 @@ Each entry says what the paper takes from it.
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-XU-ZHU-22.result.json` reports no errors.
 - The numerical checks are in the scratch directory: exhaustive sums over F_q in Python, and exact rational arithmetic for the 2-adic congruences.
+
+## Independent review (cc-fb70e5, 23 September 2026)
+
+**Accept.** All five routes accepted, coverage effectively complete, **all thirty findings confirmed
+verbatim**, nothing corrected in place and nothing added. The full review is in
+[`reviews/REV-PAPER-XU-ZHU-22.md`](../reviews/REV-PAPER-XU-ZHU-22.md).
+
+Both recorded hashes match byte for byte. A practical note: this e-print is a **bare gzipped single file**,
+not a tar archive — `tar xzf` fails, `gunzip -c` gives `Bessel_arXiv2.tex` (4727 lines).
+
+Nothing about this paper's numbering can be checked until two devices are handled. `secnumber` is an
+**empty-titled theorem environment sharing the theorem counter** — that is how the paper prints its 114
+numbered paragraphs in the same sequence as its 79 statements, which is why "§2.1.5(i)" and "Theorem 2.10.2"
+are comparable locators. And `\numberwithin{equation}{theorem}` makes equation numbers four-level, hence
+(1.2.9.1) and (5.3.5.2). Simulating both gives 420 numbered objects = 193 theorem-counter objects + 227
+equations, and reproduces the number *and* kind of every statement the findings cite, paragraph-versus-
+statement included, plus all eleven four-level equation numbers.
+
+Coverage: **all 69 items carry a statement- or paragraph-level locator**, 76 of 79 statements are cited
+(exceptions: Remarks 1.2.5 and 2.8.4, Proposition 3.6.4), and 85 of 114 numbered paragraphs. Counting trap
+for later readers: the appendix numbers two-level (A.1, A.3, A.5…), so a three-component locator regex drops
+all seven appendix statements. The reference audit is clean once the paper's idiom is found — it writes bare
+`\ref` or a *lowercase* word, so a capitalised-word regex sees 2 citations where there are 80: no
+word/environment mismatch, none resolving to a numbered paragraph (checked, since `secnumber` invites it),
+no duplicate labels, no undefined references.
+
+The routes are the strongest part. Two Kloosterman routes in one extraction looks like a roadmap
+duplicating the one it imports from, and it is not: FSY's `KloostermanMomentsAndPotentialAutomorphy` plans
+**GL₂** Kloosterman sheaves and symmetric-power moments, while this paper's new
+`KloostermanSheavesAndBesselIsocrystals` is about **group-valued** sheaves — and the extraction routes
+exactly the three classical statements (Kloosterman sums, Deligne's sheaf, Katz's monodromy groups) to FSY's
+id "rather than planning them twice". Reviewing PAPER-FRESAN-SABBAH-YU-22 the same day (issue #1317) showed
+the other side: FSY is the originator and its own reason names this adoption. **Both sides describe the
+split identically.** The one-item Minimal Slope route is the same discipline applied to Tsuzuki-23's proposal.
+
+All thirty findings are confirmed. **E14** is the most consequential: the paper's Braden setup requires its
+scheme to be normal (line 1743), and §3.4 then asserts normality of `Gr_{G,≤μ}` unconditionally for every
+split reductive G over any finite field — but that, and reducedness of the special fibre, are theorems
+needing p ∤ |π₁(G_der)| (Faltings, Pappas–Rapoport, Zhu), failing for instance for PGL₂ in characteristic 2.
+**E4** is settled by arithmetic: the printed `(q−1)q^{n−2}` equals the correct `q^{n−1}−q` exactly when
+n = 3, so it is right only in the statement's first case. As printed, type **A₂ satisfies both bullets** of
+Theorem 4.5.2(i) (E5); one dimension formula is given for both `S_λ` and `T_λ` where Mirković–Vilonen give
+two (E12); and a map into **Z/2Z** is defined by `(−1)^{2ρ(μ)}`, which lands in {±1} (E17). Three entries
+are corroborated by the paper contradicting itself nearby — the strongest evidence a misprint can have:
+E29 (`(2d_S)[2d_S]` five lines after a correct `(d_S)[2d_S]`), E19 (the shift outside `j_{μ,!+}` at line
+2567, inside at 1857), and E10, whose appendix display carries both a summation limit missing its −1 and
+`m2^{s−i}` for `m2^{s−t}`, with the next two stages of the same computation using the corrected forms.
