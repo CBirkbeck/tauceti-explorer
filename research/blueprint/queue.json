@@ -3158,7 +3158,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BOXER-PILLONI-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1199"
   },
   {
    "id": "REV-PAPER-BOXER-PILLONI-26",
@@ -5404,8 +5405,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-PILLONI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1326"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1326",
+   "finishedAt": "2026-09-23T08:08:10Z"
   },
   {
    "id": "REV-PAPER-PILLONI-20",
