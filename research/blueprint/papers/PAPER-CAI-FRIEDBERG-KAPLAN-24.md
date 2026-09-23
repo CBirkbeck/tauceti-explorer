@@ -81,3 +81,21 @@ All thirteen items are missing. They form one Part II of AutomorphicLFunctionsAn
 - **Not yet items.** The remaining lemmas, propositions and corollaries of §3 and §4 (listed in the handoff).
 - **Findings.** No `sourceIssues` are asserted, because the proofs have not been read.
 - **Library evidence.** Not checked.
+
+## Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24, 23 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its Part II route after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-CAI-FRIEDBERG-KAPLAN-24.md`. The review read arXiv v5 and its TeX again; the Annals version is paywalled.
+
+- **Statements:** 30 corrected, mostly missing hypotheses. gl-RS-divides was reversed: Proposition A.10 says L^RS/𝔏 is entire.
+- **New items:** 30. Two are planned (the global Speh representation, ET.7a; global Rankin–Selberg poles, AL.3); 28 are missing and routed to the Part II.
+- **Brief:**
+  - It records that PAPER-EISCHEN-HARRIS-LI-ETAL-20 uses the same Part II id under another title.
+  - It adds imports.
+  - It lists the corrections the layers must respect.
+- **Source issues:** E1 is confirmed, and E2–E18 are new, among them:
+  - a swapped argument in the proof of Lemma 4.3, whose statement needs Theorem 4.1's non-self-duality hypothesis;
+  - an unchecked central character in the proof of Theorem 4.10;
+  - a quotient-versus-subquotient step in Corollary 4.11;
+  - a_d > r in (3.16).
+
+  None affects the main theorems.

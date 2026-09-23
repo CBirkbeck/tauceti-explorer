@@ -1,0 +1,12 @@
+{
+  "paper": "PAPER-CAI-FRIEDBERG-KAPLAN-24",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "The generalized doubling integrals, their local factors, the doubling Eisenstein series and the converse-theorem transfer extend AutomorphicLFunctionsAndLocalFactors in its own direction: Part I stops at GL_n and GL_n × GL_m factors and disclaims continuation and functional equations for general groups. The title has the parent prefix and the brief states the final theorems (Theorem 0.1, Theorem 4.10, Corollary 4.11). The review found that PAPER-EISCHEN-HARRIS-LI-ETAL-20 routes to the same Part II id under a different title, and recorded that the design job should adopt one title covering both; it also added imports (ET.7a for the global Speh representation, AL.3 for global Rankin–Selberg poles), named what is built here, and appended the corrections the layers must respect. 28 new missing items were added to the route."
+    }
+  ],
+  "notes": "Independent review by Claude Code, session cc-39fac3, 23 September 2026, of the extraction by cc-442dc5. The published version (Ann. of Math. 200 (2024), 893–966) is paywalled, so the review read arXiv v5 (the version to be published, which the extraction read) and its TeX in full again, with two checkers splitting §§0–3 and §4 plus Appendix A, and the coordinator verifying the proof of Lemma 4.3 and Proposition A.10 in the TeX. Statements: 30 corrected, mostly missing hypotheses (field, groups, unitarity, genericity, Re(s) ranges); gl-RS-divides was reversed (Proposition A.10 says L^RS/𝔏 is entire) and gl-poles dropped '(but may have a pole)'. 30 new items (2 planned: ET.7a, AL.3; 28 missing), two duplicate proposals merged. E1 confirmed (the gap is real, the twist repair correct, the only use is Theorem 3.12 with χ_π unitary; its quotation of Corollary 3.21 was corrected). 17 new source issues: a swapped argument in the proof of Lemma 4.3 (holomorphy of M_2 needs the non-self-duality hypothesis of Theorem 4.1), unchecked central characters in the proof of Theorem 4.10, a quotient-versus-subquotient step in Corollary 4.11, the condition a_d > r in (3.16), and misprints; none affects the main theorems."
+}

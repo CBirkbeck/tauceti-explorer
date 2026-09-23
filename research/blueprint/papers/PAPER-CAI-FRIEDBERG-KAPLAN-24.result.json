@@ -11,20 +11,23 @@
     "url": "https://arxiv.org/pdf/1802.02637v5",
     "sha256": "dd49d944ca050d518fcb28dae9392b2b02d67710a4dff961800b47815f0c16ef",
     "accessed": "2026-09-23",
-    "version": "arXiv v5, 20 May 2024, 60 pages, the version to be published in the Annals (arXiv comment); the Annals site gives pp. 893–966 but its PDF was not fetched. Numbering from v5; Unpaywall lists only v5 (also mirrored by Hokkaido University)."
+    "version": "arXiv v5, 20 May 2024, 60 pages, the version to be published in the Annals (arXiv comment); the Annals site gives pp. 893–966 but its PDF was not fetched. Numbering from v5; Unpaywall lists only v5 (also mirrored by Hokkaido University).",
+    "readSections": [
+      "Review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (Claude Code, cc-39fac3, 23 September 2026): arXiv v5 (the same PDF, SHA-256 dd49d944…) and its TeX source read in full again, every item checked against it. The published version is paywalled and was not available to the review either."
+    ]
   },
-  "summary": "Cai, Friedberg and Kaplan prove that every irreducible cuspidal automorphic representation of a split symplectic, special orthogonal or general spin group over a number field has a weak functorial transfer to GL_N (Theorem 0.1), without genericity and independently of the trace formula. They apply the converse theorem, controlling the twisted L-functions with the generalized doubling method: local poles in Re(s) ≥ 1/2 are attained by the doubling integrals through Kaplan's GL_c × GL_k integrals (Theorem 3.12, Appendix A), the doubling Eisenstein series is holomorphic away from twisted self-duality (Theorem 4.1), and so the twisted L-functions are entire (Theorem 4.8). They deduce that weak transfers are coarse transfers at every place and that local coarse transfers exist. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and one finding is recorded (a unitarity hypothesis in §3.6, repaired by a twist). Not formalised.",
+  "summary": "Cai, Friedberg and Kaplan prove that every irreducible cuspidal automorphic representation of a split symplectic, special orthogonal or general spin group over a number field has a weak functorial transfer to GL_N (Theorem 0.1), without genericity and independently of the trace formula. They apply the converse theorem, controlling the twisted L-functions with the generalized doubling method: local poles in Re(s) ≥ 1/2 are attained by the doubling integrals through Kaplan's GL_c × GL_k integrals (Theorem 3.12, Appendix A), the doubling Eisenstein series is holomorphic away from twisted self-duality (Theorem 4.1), and so the twisted L-functions are entire (Theorem 4.8). They deduce that weak transfers are coarse transfers at every place and that local coarse transfers exist. Complete (cc-442dc5): every numbered statement is an item, every missing item is routed exactly once, and one finding is recorded (a unitarity hypothesis in §3.6, repaired by a twist). Not formalised. After the review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24), of the 76 items 4 are planned and 72 are missing, all routed to the Part II; 18 source issues are recorded, the substantive ones being E1 and a swapped argument in the proof of Lemma 4.3.",
   "items": [
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/groups",
       "kind": "construction",
       "name": "The split groups G_l and the embedding r_G",
-      "statement": "G_l is Sp_l (l even), SO_l or GSpin_l split over F; GSpin_l is the split group with the based root datum of §1. Standard Levi subgroups M ≅ M_β × G_{l−2r} are fixed by i_M, Υ_l is the character of GSpin_l with kernel Spin_l, and r_G: Ĝ → GL_N(C) is the natural embedding (Ĝ = SO_{2n+1}, SO_{2n}, Sp_{2n}, GSO_{2n}, GSp_{2n}).",
+      "statement": "Let F be a field of characteristic 0. G_l is one of Sp_l (l even), SO_l or GSpin_l, split over F. For Sp_l and SO_l, G_l = {g ∈ SL_l : ᵗg J g = J}, with J_{Sp_l} = J_l diag(−I_{l/2}, I_{l/2}) and J_{SO_l} = J_l (J_l the antidiagonal permutation matrix). T and B are the diagonal and upper-triangular elements, and Sp_0, SO_0 and SO_1 are trivial. For GSpin_l with l > 2, put n = ⌊l/2⌋, X = ⊕_{i=0}^n Z e_i and X^∨ = ⊕_{i=0}^n Z e_i^∨ with the standard pairing. GSpin_l is the unique F-split group with based root datum (X, Δ, X^∨, Δ^∨). For l even, Δ = {e_1 − e_2, …, e_{n−1} − e_n, e_{n−1} + e_n} and Δ^∨ = {e_1^∨ − e_2^∨, …, e_{n−1}^∨ − e_n^∨, e_{n−1}^∨ + e_n^∨ − e_0^∨}. For l odd, Δ = {e_1 − e_2, …, e_{n−1} − e_n, e_n} and Δ^∨ = {e_1^∨ − e_2^∨, …, e_{n−1}^∨ − e_n^∨, 2e_n^∨ − e_0^∨}. For l ≤ 2, Δ = Δ^∨ = ∅, so GSpin_0 = GSpin_1 = GL_1 and GSpin_2 = GL_1 × GL_1. C°_{G_l} = e_0^∨(GL_1). It is the kernel of GSpin_l → SO_l, and for l > 2 it is the identity component of the centre; it is taken trivial for Sp_l and SO_l. Each standard Levi subgroup M has a fixed isomorphism i_M: M → M_β × G_{l−2r}, where β = (β_1, …, β_d) is a composition of r and 2r ≤ l. For Sp and SO, i_M(diag(a_1, …, a_d, g, a_d^*, …, a_1^*)) = (a_1, …, a_d, g). For GSpin, i_M comes from the splitting of the root datum, with the lattices of G_{l−2r} identified with span{e_0, e_{r+1}, …, e_n} and span{e_0^∨, e_{r+1}^∨, …, e_n^∨}. Υ_l is the character of GSpin_l with ⟨Υ_l, e_0^∨⟩ = 2; its kernel is Spin_l, and Υ_l is trivial for Sp and SO. Moreover Υ_l ∘ i_M^{−1}(a_1, …, a_d, g) = Υ_{l−2r}(g) ∏_{i=1}^d det(a_i). The dual groups of Sp_{2n}, SO_{2n}, SO_{2n+1}, GSpin_{2n} and GSpin_{2n+1} are SO_{2n+1}(C), SO_{2n}(C), Sp_{2n}(C), GSO_{2n}(C) and GSp_{2n}(C), and for GSpin, e_0 is the similitude character of Ĝ. For SO_{2l} and GSpin_{2l}, j is the outer involution exchanging the last two simple roots. Finally G = G_c with c > 1, and r_G: Ĝ → GL_N(C) is the natural embedding, with N = c + 1 if G = Sp_c and N = 2⌊c/2⌋ otherwise.",
       "locator": "arXiv:1802.02637v5, §1",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Too loose to be exact. It omits: F of characteristic 0; the explicit root datum of GSpin_l; C°_{G_l} = e_0^∨(GL_1), on which χ_π and the integral over C°_G\\G depend; the normalisation ⟨Υ_l, e_0^∨⟩ = 2 ('kernel Spin_l' fixes Υ_l only up to inversion, and the normalisation enters (3.8) and the essentially tempered L-factors); the Levi formula for Υ_l, which the paper misprints as Υ_{l−2k} (see issues); and which Ĝ goes with which G."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rs-factors",
@@ -35,7 +38,7 @@
       "status": "planned",
       "prerequisites": [],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c).",
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review note on status: AutomorphicLFunctionsAndLocalFactors:AL.3 plans the GL_n × GL_m zeta integrals and gcd-normalised factors of generic representations. Its description does not include the extension to all irreducible admissible representations through Langlands data ([JPSS83, §9.4]). This paper needs that extension for arbitrary Π_ν ∈ Irr(GL_N) (§2, Theorem 3.10 with Remark 3.11, and (3.18)). Request it in AL.3; otherwise 'planned' holds only for generic pairs.",
       "planned": [
         "AutomorphicLFunctionsAndLocalFactors:AL.3"
       ]
@@ -66,37 +69,37 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/satake"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review note on status: AutomorphicLFunctionsAndLocalFactors:AL.4 plans only the unramified factor L(s, π, r) built from the Satake class. Nothing plans the transfer T(π) ∈ Irr(GL_N) itself or the archimedean transfer through [Lan89] (see the new coverage item on the archimedean parametrization). 'missing' is right."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/weak-transfer",
       "kind": "definition",
       "name": "Weak functorial transfer",
-      "statement": "Π on GL_N(A) is a weak functorial transfer of an irreducible automorphic π of G(A) if at almost all finite places where π_ν is unramified, Π_ν is the local unramified transfer of π_ν via r_G, and at the infinite places the infinitesimal character of Π_ν is determined via r_G by that of π_ν.",
+      "statement": "Let F be a number field, π an irreducible automorphic representation of G(A) and Π an irreducible automorphic representation of GL_N(A). Π is a weak functorial transfer of π if two conditions hold. First, for almost all finite places ν at which π_ν is unramified, Π_ν is the local functorial transfer T(π_ν) of π_ν dictated by r_G. Second, at every infinite place ν, the infinitesimal character of Π_ν is determined, via r_G, by that of π_ν (the infinitesimal character is encoded in the L-parameter, [NP21, Lemma 1]).",
       "locator": "arXiv:1802.02637v5, Definition 2.2",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/local-transfer"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: 'Π on GL_N(A)' drops the hypothesis that Π is an irreducible automorphic representation of GL_N(A); the definition is not about arbitrary admissible Π. The item also omits that F is a number field and that π is irreducible automorphic."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/speh",
       "kind": "construction",
       "name": "Generalized Speh representations and (k, c) models",
-      "statement": "For unitary τ ∈ Irr_gen(GL_k), ρ_c(τ) is the unique irreducible quotient of the representation of GL_kc induced from (τ ⊗ … ⊗ τ)δ^{1/(2k)}; in general it is defined through the Langlands data of τ. (k^c) is the unique maximal orbit of its wave-front set, dim Hom_{U_(c^k)}(ρ_c(τ), ψ_k) = 1, and W_ψ(ρ_c(τ)) is its unique (k, c) model.",
+      "statement": "Let F be local, k, c ≥ 1, ψ a nontrivial character of F, and ψ_k(u) = ψ(Σ_{i=1}^{k−1} tr(u_{i,i+1})) the generic character of U_(c^k) (blocks u_{i,j} ∈ Mat_c). Let τ ∈ Irr_gen(GL_k). If τ is unitary, ρ_c(τ) is the unique irreducible quotient of Ind_{R_(k^c)}^{GL_kc}((τ ⊗ ⋯ ⊗ τ) δ_{R_(k^c)}^{1/(2k)}), the generalized Speh representation. In general, write τ = ×_{i=1}^d |det|^{a_i} τ_i with τ_i tempered and a_1 > ⋯ > a_d, and put ρ_c(τ) = ×_{i=1}^d |det|^{a_i} ρ_c(τ_i). Then (k^c) is the unique maximal orbit in the wave-front set of ρ_c(τ), and dim Hom_{U_(c^k)}(ρ_c(τ), ψ_k) = 1 ([CFGK23, Theorem 4], [GK23, §1.4]). A finite-length admissible representation of GL_kc with these two properties is called a (k, c) representation. Fix a nonzero (k, c) functional λ. The (k, c) model W_ψ(ρ_c(τ)) is the space of functions W(g) = λ(ρ_c(τ)(g)ξ), with ξ in the space of ρ_c(τ). Under right translation it is a quotient of ρ_c(τ), and for c = 1 it is the ψ_k-Whittaker model of τ.",
       "locator": "arXiv:1802.02637v5, §3.1, citing [CFGK23, Theorem 4], [GK23, §1.4]",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The general definition is only alluded to ('through the Langlands data of τ'), and neither the parabolic R_(k^c) nor the character ψ_k of U_(c^k) is specified."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-local",
       "kind": "construction",
       "name": "The local generalized doubling integral",
-      "statement": "With H = G_2kc, the Siegel parabolic P, the unipotent U with character ψ_U generic for ((2k−1)^c 1^c), the embedding e: G × G → St(ψ_U), δ = δ_0δ_1 and the involution ι of §3.3, and an entire section f of Ind_P^H(|·|^{s−1/2}χ_π W_ψ(ρ_c(τ)) ⊗ χ_π), the integral is Z(s, ω, f) = ∫_{C°_G\\G} ∫_{U_0} ω(g) f(s, δu_0 e_2(ιg)) ψ_U(u_0) du_0 dg for a matrix coefficient ω of π^∨.",
+      "statement": "Let F be local, c > 1, k ≥ 1, G = G_c, H = G_{2kc}, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k). Let Q = M_Q ⋉ U < H be the standard parabolic subgroup with M_Q ≅ GL_c^{k−1} × G_{2c}. For k > 1, ψ_U is a character of U that is generic for the unipotent orbit ((2k−1)^c 1^c); for k = 1, U is trivial and ψ_U = 1. The map e: G × G → St_{M_Q}(ψ_U) (into M_Q if k = 1) is injective unless G = GSpin_c, where its kernel is the diagonal copy of C°_G. Put e_1(g) = e(g, e_G) and e_2(g) = e(e_G, g). P is a standard Siegel parabolic subgroup of H and P′ = ^{j^{kc}}P. δ_0 represents the Weyl element with ^{δ_0}U_{P′} = U_P^−, δ_1 ∈ i_{M_Q}^{−1}(I_c, …, I_c, G_{2c}) ∩ U_{P′} has rank 2⌊c/2⌋, δ = δ_0δ_1, and U_0 = U ∩ U_{P′}. For k > 1 the choices satisfy ψ_U(^{δ^{−1}}u) = ψ_k^{−1}(u) for u ∈ U_(c^k). ι is an involution of G with ^δ{e(g, ^ιg)} < M_P. Explicit choices are in [CFK22, GK23], and Example 3.1 gives them for Sp_c. V(s, τ, c) is the space of Ind_P^H((|det|^{s−1/2} χ_π W_ψ(ρ_c(τ)) ⊗ χ_π) ∘ i_{M_P}), realised for all s on the space of Ind_{K_H∩P}^{K_H}((χ_π W_ψ(ρ_c(τ)) ⊗ χ_π) ∘ i_{M_P}). V(τ, c) is the space of entire sections f(s, h). For a matrix coefficient ω of π^∨ and f ∈ V(τ, c), Z(s, ω, f) = ∫_{C°_G\\G} ∫_{U_0} ω(g) f(s, δ u_0 e_2(^ιg)) ψ_U(u_0) du_0 dg.",
       "locator": "arXiv:1802.02637v5, §3.3",
       "status": "missing",
       "prerequisites": [
@@ -104,20 +107,20 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/speh"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Calls e: G × G → St_{M_Q}(ψ_U) an embedding, but for G = GSpin_c its kernel is the diagonal copy of C°_G (which is why the integral is over C°_G\\G). It also omits: the hypotheses π ∈ Irr(G), τ ∈ Irr_gen(GL_k) and ω a matrix coefficient of π^∨; the normalisation ψ_U(^{δ^{−1}}u) = ψ_k^{−1}(u) on U_(c^k); P′ = ^{j^{kc}}P; U_0 = U ∩ U_{P′}; and the space V(τ, c) of entire sections."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral",
       "kind": "theorem",
       "name": "Basic properties of the local doubling integral",
-      "statement": "Z(s, ω, f) converges absolutely in Re(s) ≫ 0 independently of the data, continues meromorphically as a continuous trilinear form on V(s, τ, c) × π × (π^ι)^∨, and for each s some ω and K_H-finite f make it finite and nonzero near s. For unramified normalized data it equals L(s, π × τ)/b(s, c, τ ⊗ χ_π) with b as in (3.3).",
+      "statement": "Let F be local, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k). (1) Z(s, ω, f) converges absolutely in Re(s) ≫ 0, independently of the data [CFK22, Proposition 2.5]. (2) It extends to a meromorphic function of s, which is continuous as a trilinear map on V(s, τ, c) × π × (π^ι)^∨ [CFK22, §4, §6.10]. (3) For each s there are a matrix coefficient ω and a K_H-finite f for which the integral is finite and nonzero in a neighbourhood of s [CFK22, Proposition 2.6, Corollary 6.9]. (4) Suppose F is non-archimedean, all data are normalised and unramified, K_G = G(O), K_H = H(O), du_0(U_0 ∩ K_H) = 1 and dg(K_G) = 1. Then Z(s, ω, f) = L(s, π × τ)/b(s, c, τ ⊗ χ_π) (3.2) [CFK22, §6.4]. Here (3.3) b(s, c, τ ⊗ χ_π) = [L(s + c/2, τ)] ∏_{j=1}^{c/2} L(2s + 2j − 2, τ, ∨² ⊗ χ_π) L(2s + 2j − 1, τ, ∧² ⊗ χ_π) for c even, and b(s, c, τ ⊗ χ_π) = ∏_{j=1}^{⌊c/2⌋} L(2s + 2j − 1, τ, ∨² ⊗ χ_π) ∏_{j=1}^{⌈c/2⌉} L(2s + 2j − 2, τ, ∧² ⊗ χ_π) for c odd. The factor L(s + c/2, τ) occurs only for G = Sp_c.",
       "locator": "arXiv:1802.02637v5, Theorem 3.2 and (3.2)–(3.3)",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-local"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [CFK22]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "Cited from [CFK22]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Omits the hypotheses (F local, π ∈ Irr(G), τ ∈ Irr_gen(GL_k)). It also omits the conditions of (3.2): F non-archimedean, normalised unramified data, K_G = G(O), K_H = H(O), and measures with du_0(U_0 ∩ K_H) = dg(K_G) = 1. The normalising factor b(s, c, τ ⊗ χ_π) of (3.3) is not written out."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/inner-invariance",
@@ -136,7 +139,7 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/local-factors",
       "kind": "definition",
       "name": "Doubling γ-, L- and ε-factors",
-      "statement": "γ(s, π × τ, ψ) is defined by the functional equation (3.6) with the normalized intertwining operator M* and the factor ϑ of (3.7). L and ε are defined from γ for tempered data (P(q^{−s})^{−1} from the zeros of γ; archimedean via T(π)), by twisting for essentially tempered data, and through the Langlands quotient σ ⋊ π′ by (3.17): L(s, π × τ) = L(s, σ × τ)L(s, σ^∨ × χ_π τ)∏_j L(s, π′ × τ_j).",
+      "statement": "Let F be local, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k). (a) γ(s, π × τ, ψ) is the meromorphic function such that, for all ω and f, γ(s, π × τ, ψ) Z(s, ω, f) = π(i_G)^k [γ(s, τ, ψ)] ϑ(s, c, τ ⊗ χ_π, ψ) Z(1 − s, ω, M*(s, c, τ ⊗ χ_π, ψ) f) (3.6). Here M* is the normalised intertwining operator. i_G = (−1)^{c+1} e_G, except for G = GSpin_c with c even, where i_G = i_M^{−1}(−I_{c/2}, −1) ∈ C_G for a standard Siegel Levi subgroup M. The factor γ(s, τ, ψ) occurs only for G = Sp_c. ϑ(s, c, τ ⊗ χ_π, ψ) = χ_π(2)^{−kn} τ(−I_k)^n τ(2I_k)^{−2n} |2|^{−2kn(s−1/2)} with n = ⌊c/2⌋ (3.7); it depends on the choices made in the construction, up to an entire nowhere-vanishing factor (Remark 3.4). Conventions: γ(s, π′ × τ, ψ) = γ(s, τ, ψ) for π′ ∈ Irr(Sp_0), and γ(s, π′ × τ, ψ) = 1 for π′ ∈ Irr(GSpin_c) with c ≤ 1 and for the trivial groups SO_0 and SO_1. (b) Let π and τ be tempered. If F is non-archimedean, L(s, π × τ) = P(q^{−s})^{−1}, where P ∈ C[X] has P(0) = 1 and the zeros of P(q^{−s}) are those of γ(s, π × τ, ψ); then ε(s, π × τ, ψ) = γ(s, π × τ, ψ) L(s, π × τ)/L(1 − s, π^∨ × τ^∨) (3.15), which lies in C[q^{−s}, q^s]^*. If F is archimedean, L(s, π × τ) = L(s, T(π) × τ) and ε(s, π × τ, ψ) = ε(s, T(π) × τ, ψ). (c) Let π = |Υ_c|^{r_0} π_0 and τ = |det|^{r_1} τ_0, with r_0, r_1 ∈ R, π_0 and τ_0 tempered, and r_0 = 0 unless G = GSpin_c. Then L(s, π × τ) = L(s + r_0 + r_1, π_0 × τ_0) and ε(s, π × τ, ψ) = ε(s + r_0 + r_1, π_0 × τ_0, ψ). (d) In general, write π as the Langlands quotient of σ ⋊ π′ (3.16). Here σ ∈ Irr(GL_l) is the unique irreducible quotient of ×_{i=1}^d |·|^{a_i} σ_{i,0} with σ_{i,0} tempered; π′ ∈ Irr(G_{c−2l}) has |Υ_{c−2l}|^{−r} π′ tempered, with r = 0 unless G = GSpin_c; and a_1 > ⋯ > a_d > r, with l > 0 (or l = 0 and π = π′ essentially tempered). Write τ = ×_j τ_j with each τ_j essentially tempered. Then (3.17) L(s, π × τ) = L(s, σ × τ) L(s, σ^∨ × χ_π τ) ∏_j L(s, π′ × τ_j) and ε(s, π × τ, ψ) = ε(s, σ × τ, ψ) ε(s, σ^∨ × χ_π τ, ψ) ∏_j ε(s, π′ × τ_j, ψ), with Rankin–Selberg factors for the GL pairs. (3.15) then holds in general.",
       "locator": "arXiv:1802.02637v5, §3.4, (3.6)–(3.7), (3.15)–(3.17)",
       "status": "missing",
       "prerequisites": [
@@ -145,20 +148,20 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/local-transfer"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The normalisation of γ is incomplete. (3.6) also carries the central value π(i_G)^k and, for Sp_c only, γ(s, τ, ψ); ϑ is not written out; the conventions for groups of rank ≤ 0 are missing (the paper itself omits SO_0 and SO_1, see issues); and ε is not defined. The Langlands-quotient clause needs the conditions of (3.16). Read correctly these are a_d > r (the printed a_d > r/2 is a misprint), with l = 0 allowed for essentially tempered π (see issues)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor",
       "kind": "theorem",
       "name": "Characterization of the doubling γ-factor",
-      "statement": "For π ∈ Irr(G) and τ ∈ Irr_gen(GL_k), γ(s, π × τ, ψ) satisfies and is characterized by unramified twisting (3.8), multiplicativity (3.9)–(3.10), the unramified formula L(1 − s, π^∨ × τ^∨)/L(s, π × τ), duality, the functional equation (3.11), the dependence on ψ (3.12), the archimedean property (3.13) and the crude global functional equation (3.14).",
+      "statement": "Let F be local, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k). The factor γ(s, π × τ, ψ) of (3.6) satisfies the following properties and is characterised by them [CFK22, Theorem 4.2], in the GSpin conventions of Remark 3.6. (i) Unramified twisting (3.8): for G ≠ GSpin_c, γ(s, π × |det|^{s_1} τ, ψ) = γ(s + s_1, π × τ, ψ); for G = GSpin_c, γ(s, |Υ_c|^{s_0} π × |det|^{s_1} τ, ψ) = γ(s + s_0 + s_1, π × τ, ψ), for all s_0, s_1 ∈ C. (ii) Multiplicativity. If π is a quotient of (σ_1 × ⋯ × σ_d) ⋊ π′ with the σ_i and π′ irreducible admissible, then γ(s, π × τ, ψ) = γ(s, π′ × τ, ψ) ∏_{i=1}^d γ(s, σ_i × τ, ψ) γ(s, σ_i^∨ × χ_π τ, ψ) (3.9), with Rankin–Selberg factors for the GL pairs. If τ is a quotient of ×_{i=1}^{d′} τ_i with each τ_i irreducible and generic, then γ(s, π × τ, ψ) = ∏_i γ(s, π × τ_i, ψ) (3.10). (iii) If all data are unramified, γ(s, π × τ, ψ) = L(1 − s, π^∨ × τ^∨)/L(s, π × τ). (iv) Duality: γ(s, π^∨ × τ, ψ) = γ(s, π × χ_π^{−1} τ, ψ). (v) Functional equation: γ(s, π × τ, ψ) γ(1 − s, π^∨ × τ^∨, ψ^{−1}) = 1 (3.11). (vi) For b ∈ F^* and ψ_b(x) = ψ(bx), γ(s, π × τ, ψ_b) = χ_π^{k⌊c/2⌋}(b) τ(bI_k)^N |b|^{kN(s−1/2)} γ(s, π × τ, ψ) (3.12). (vii) If F is archimedean, γ(s, π × τ, ψ) = ε(s, T(π) × τ, ψ) L(1 − s, T(π)^∨ × τ^∨)/L(s, T(π) × τ) (3.13). (viii) Crude functional equation. Let F_0 be a number field, ψ = ⊗ψ_ν a nontrivial character of A/F_0, π = ⊗π_ν and τ = ⊗τ_ν irreducible cuspidal automorphic representations of G(A) and GL_k(A), and S a finite set of places outside which all data are unramified. Then L^S(s, π × τ) = ∏_{ν∈S} γ(s, π_ν × τ_ν, ψ_ν) L^S(1 − s, π^∨ × τ^∨) (3.14).",
       "locator": "arXiv:1802.02637v5, Theorem 3.5",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/local-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [CFK22, Theorem 4.2]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "Cited from [CFK22, Theorem 4.2]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The properties are cited only by equation number, so the GSpin-specific normalisations are never stated. These are: twisting by |Υ_c|^{s_0}; the factor γ(s, σ_i^∨ × χ_π τ) in multiplicativity (which differs from [CFK22], Remark 3.6); duality with χ_π^{−1}; and the ψ-dependence χ_π^{k⌊c/2⌋}(b) τ(bI_k)^N |b|^{kN(s−1/2)}."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/unramified-compat",
@@ -190,14 +193,14 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/langlands-quotient-poles",
       "kind": "theorem",
       "name": "Poles of L(s, π × τ) in Re(s) ≥ 1/2 for a Langlands quotient",
-      "statement": "If τ and χ_π are unitary, π is unramified when F is non-archimedean, and π is the Langlands quotient of σ ⋊ π′ as in (3.16) with l > 0, then L(s, π × τ)/L(s, σ^∨ × χ_π τ) is holomorphic and nonzero in Re(s) ≥ 1/2.",
+      "statement": "Let F be local, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k), with τ and χ_π unitary, and π unramified if F is non-archimedean. Write π as the Langlands quotient of σ ⋊ π′ as in (3.16), with l > 0. Then L(s, π × τ)/L(s, σ^∨ × χ_π τ) is holomorphic and nowhere zero in Re(s) ≥ 1/2.",
       "locator": "arXiv:1802.02637v5, Corollary 3.9",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/holomorphy"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Omits that τ is generic (τ ∈ Irr_gen(GL_k)) and that π ∈ Irr(G), F local."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/stability",
@@ -217,7 +220,7 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-transfer",
       "kind": "definition",
       "name": "Coarse transfer",
-      "statement": "Π ∈ Irr(GL_N) is a coarse transfer of π ∈ Irr(G) if γ(s, π × τ, ψ) = γ(s, Π × τ, ψ) for every k ≥ 1 and every τ ∈ Irr(GL_k) (3.18); by multiplicativity it suffices to check supercuspidal τ.",
+      "statement": "Let F be a local field and π ∈ Irr(G). Π ∈ Irr(GL_N) is a coarse transfer of π if γ(s, π × τ, ψ) = γ(s, Π × τ, ψ) (Rankin–Selberg on the right) for every k ≥ 1 and every τ ∈ Irr_gen(GL_k) (3.18). By (3.10) and the multiplicativity of Rankin–Selberg γ-factors, it suffices to check supercuspidal τ. If π is unramified or F is archimedean, T(π) is a coarse transfer of π (Theorem 3.7).",
       "locator": "arXiv:1802.02637v5, §3.5, (3.18)",
       "status": "missing",
       "prerequisites": [
@@ -225,7 +228,7 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/rs-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The doubling γ-factor γ(s, π × τ, ψ) is defined, by (3.6), only for generic τ. The item follows the paper's misprint (see issues) and quantifies over all τ ∈ Irr(GL_k). It also omits that F is local."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/kc-bound",
@@ -257,20 +260,20 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/functional-T",
       "kind": "theorem",
       "name": "The functional T and descent from (k, c) to (k, l) models",
-      "statement": "For unitary τ ∈ Irr_gen(GL_k), T(W, µ) = ∫_{U_R} W(r_z)µ(z) dz converges absolutely and defines a continuous functional on W_ψ(ρ_c(τ)) ⊗ S^lin(U_R); a ↦ T(m_a·W ⊗ µ) maps onto the functions a ↦ W_l(m′_a) with W_l in |·|^{(kc−kl−c+l)/2}W_ψ(ρ_l(τ)).",
+      "statement": "Let F be local and k > 1. Let R < G be the standard maximal parabolic subgroup of (3.16), with M_R ≅ GL_l × G_{c−2l}, 0 < l ≤ n = ⌊c/2⌋. Identify U_R with Mat_{l×(n−l)} × Mat_{l×(c−n−l)} × C_{U_R}, and put S^lin(U_R) = S(Mat_{l×(n−l)}) ⊗ S(Mat_{l×(c−n−l)}) ⊗ S(C_{U_R}). For z ∈ U_R, let r_z ∈ diag(U_(l,c−2l,l) ∩ U_(l,c−n−l,n), I_{(k−1)c}) be defined by (3.23). For a ∈ GL_l, put m_a = diag(a, I_{kc−l}) and m′_a = diag(a, I_{(k−1)l}). Assume τ ∈ Irr_gen,u(GL_k). For W ∈ W_ψ(ρ_c(τ)) and μ ∈ S^lin(U_R), the integral T(W, μ) = ∫_{U_R} W(r_z) μ(z) dz (3.25) converges absolutely and defines a continuous functional on W_ψ(ρ_c(τ)) ⊗ S^lin(U_R). Moreover, the map a ↦ T(m_a·W ⊗ μ) on GL_l is a surjection onto the space of functions a ↦ W_l(m′_a), where W_l ranges over |det|^{(kc−kl−c+l)/2} W_ψ(ρ_l(τ)).",
       "locator": "arXiv:1802.02637v5, Lemma 3.16",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/speh"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Faithful to Lemma 3.16, but the standing notation it depends on is not stated: k > 1; the parabolic R of (3.16); S^lin(U_R); r_z (3.23); m_a and m′_a. It also leaves out that, by the twist of E1, the lemma extends to τ = χτ_0 with χ a quasi-character and τ_0 unitary."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/Z2",
       "kind": "theorem",
       "name": "The GL_l × GL_k reduction integral Z^2",
-      "statement": "For σ ∈ Irr(GL_l) (unramified if F is non-archimedean) and unitary τ ∈ Irr_gen(GL_k), the integral (3.32) converges in Re(s) ≫ 0, continues meromorphically and continuously, and for each s some data with compactly supported φ and µ make Z^2/L(s, σ^∨ × χ_π τ) nonzero at s.",
+      "statement": "Let F be local, k > 1, σ ∈ Irr(GL_l) (unramified if F is non-archimedean), τ ∈ Irr_gen,u(GL_k), and χ a quasi-character of F^* (in the application χ = χ_π). For a matrix coefficient ω_l of σ^∨, W ∈ χ W_ψ(ρ_c(τ)) = W_ψ(ρ_c(χτ)), φ ∈ S(Mat_l) and μ ∈ S^lin(U_R), put Z^2(s, ω_l, W, φ, μ) = ∫_{GL_l} ∫_{U_R} ω_l(a) W(r_z m_a) μ(z) φ(a) |det a|^{s − (kc − c − l + 1)/2} dz da (3.32). This integral converges absolutely in Re(s) ≫ 0, independently of the data. It continues meromorphically to a form that is continuous on V_σ × V_σ^∨ × χ W_ψ(ρ_c(τ)) × S(Mat_l) × S^lin(U_R). For each s there are data with φ ∈ S_c(Mat_l) and μ ∈ S_c^lin(U_R) such that Z^2(s, ω_l, W, φ, μ)/L(s, σ^∨ × χτ) is nonzero at s. The paper's proof covers unitary χ. For χ = |·|^r χ_0 with χ_0 unitary, the case χ at s is the case χ_0 at s + r (E1).",
       "locator": "arXiv:1802.02637v5, Proposition 3.17, (3.32)",
       "status": "missing",
       "prerequisites": [
@@ -279,7 +282,7 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-poles"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The integral (3.32) is cited only by number, and the standing assumption k > 1 is missing. χ_π is not quantified: Proposition 3.17 is stated before π is fixed, and it is later applied with the χ_π of an arbitrary π ∈ Irr_rel(G). The proof as printed covers only unitary χ_π (E1, confirmed); the statement for any quasi-character needs the twist repair."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/Z1-open-cell",
@@ -299,7 +302,7 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/Z1-nonvanishing",
       "kind": "theorem",
       "name": "Nonvanishing of Z^1 modulo L(s, σ^∨ × χ_π τ)",
-      "statement": "For π ∈ Irr_rel(G) written as in (3.16) and unitary τ ∈ Irr_gen(GL_k), for every s_0 there are data with Z^1 absolutely convergent in Re(s) ≫ 0, meromorphic, and Z^1/L(s, σ^∨ × χ_π τ) nonzero at s_0.",
+      "statement": "Let F be local, k > 1, π ∈ Irr_rel(G) written as the Langlands quotient of σ ⋊ π′ as in (3.16), and τ ∈ Irr_gen,u(GL_k). For every s_0 ∈ C there are φ, φ^∨ and f ∈ V(τ, c) with the following properties: Z^1(s, ω^{e_G}_{φ,φ^∨}, f) of (3.40) converges absolutely in Re(s) ≫ 0, continues meromorphically, and Z^1(s, ω^{e_G}_{φ,φ^∨}, f)/L(s, σ^∨ × χ_π τ) is nonzero at s_0. For non-unitary χ_π this uses the twisted form of Proposition 3.17 (E1).",
       "locator": "arXiv:1802.02637v5, Proposition 3.19",
       "status": "missing",
       "prerequisites": [
@@ -307,7 +310,7 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/Z2"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). See finding E1 on the unitarity of χ_π."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). See finding E1 on the unitarity of χ_π. Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Omits the standing assumption k > 1: the proof passes through Proposition 3.17 and Appendix A, which need k > 1. For π ∈ Irr_rel(G) with non-unitary χ_π (possible only for GSpin_c), the statement holds only with the twist repair of Proposition 3.17 (E1, confirmed)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/arch-convergence",
@@ -327,7 +330,7 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/Z-over-sigma",
       "kind": "theorem",
       "name": "Nonvanishing of Z modulo L(s, σ^∨ × χ_π τ)",
-      "statement": "For π ∈ Irr_rel(G) as in (3.16) and unitary τ ∈ Irr_gen(GL_k), for every s there are ω and f with Z(s, ω, f)/L(s, σ^∨ × χ_π τ) nonzero at s.",
+      "statement": "Let F be local, k > 1, π ∈ Irr_rel(G) written as in (3.16), and τ ∈ Irr_gen,u(GL_k). For every s ∈ C there are a matrix coefficient ω of π^∨ and f ∈ V(τ, c) such that Z(s, ω, f)/L(s, σ^∨ × χ_π τ) is nonzero at s. For non-unitary χ_π this uses the twisted form of Proposition 3.17 (E1).",
       "locator": "arXiv:1802.02637v5, Corollary 3.21",
       "status": "missing",
       "prerequisites": [
@@ -335,24 +338,24 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/arch-convergence"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). See finding E1 on the unitarity of χ_π."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). See finding E1 on the unitarity of χ_π. Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Omits the standing assumption k > 1 (the proof goes through Proposition 3.19). For non-unitary χ_π, the statement relies on the twist repair of E1 (confirmed)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/intertwining-convergence",
       "kind": "theorem",
       "name": "Convergence of intertwining integrals against smooth vectors",
-      "statement": "For tempered σ ∈ Irr(M_R) and ν in the positive chamber, ∫_{U_R^−} |⟨ϕ(u), w⟩_σ| du < ∞ for all ϕ ∈ V_R^G(ν, σ) and all (smooth) w, and the pairing is continuous.",
+      "statement": "Let F be R or C, and let 𝒢 be a split connected reductive group as in §1, with maximal compact subgroup K_𝒢 orthogonal to T_𝒢 for the Killing form. Let R < 𝒢 be a standard parabolic subgroup, A_R the identity component of C_{M_R}, a* = X(A_R) ⊗ R, and V_R^𝒢(ν, σ) the space of Ind_R^𝒢(σ ⊗ e^{⟨ν, H_{M_R}(·)⟩}) for ν ∈ a*_C. Let σ ∈ Irr(M_R) be tempered, with invariant inner product ⟨,⟩_σ on its space V_σ, and let Re(ν) lie in the positive Weyl chamber of a* with respect to R. Then ∫_{U_R^−} |⟨φ(u), w⟩_σ| du < ∞ for every φ ∈ V_R^𝒢(ν, σ) and every smooth w ∈ V_σ, and (φ, w) ↦ ∫_{U_R^−} ⟨φ(u), w⟩_σ du is continuous.",
       "locator": "arXiv:1802.02637v5, Lemma 3.22",
       "status": "missing",
       "prerequisites": [],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Lemma 3.22 is archimedean only (𝒢 defined over R or C, with K_𝒢 orthogonal to T_𝒢 for the Killing form). The item omits this and writes 'ν in the positive chamber' where the lemma assumes Re(ν) in the positive Weyl chamber, ν ∈ a*_C. Review note on status: AutomorphicFormsOnReductiveGroups:AF.1 builds the smooth Fréchet globalisations this lemma works in, but it does not plan Sun's bound or Wallach's convergence estimate (see the new coverage item). 'missing' is right."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/poles-local",
       "kind": "theorem",
       "name": "Local poles are attained by the doubling integral",
-      "statement": "Let π ∈ Irr(G) be unramified (or F archimedean) with χ_π unitary, and τ ∈ Irr_gen(GL_k) unitary. For each s with Re(s) ≥ 1/2 there are ω and a K_H-finite f such that Z(s, ω, f)/L(s, π × τ) is nonzero at s.",
+      "statement": "Let F be a local field, π ∈ Irr_rel,a.u.(G) and τ ∈ Irr_gen,u(GL_k), k ≥ 1. Here π is unramified if F is non-archimedean, arbitrary if F is archimedean, and in both cases χ_π is unitary. For each s with Re(s) ≥ 1/2 there are a matrix coefficient ω of π^∨ and a K_H-finite f ∈ V(τ, c) such that the meromorphic function Z(s, ω, f)/L(s, π × τ) is nonzero at s; it may have a pole there. The case k > 1 is proved in §3.6; the case k = 1 is quoted from [Yam14, Theorem 7.1].",
       "locator": "arXiv:1802.02637v5, Theorem 3.12",
       "status": "missing",
       "prerequisites": [
@@ -361,7 +364,7 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Should say that the quotient may have a pole at s. The paper adds '(but may have a pole)': 'nonzero at s' means the Laurent expansion at s has a nonzero leading term. The item also lists prerequisites that cover only k > 1. For k = 1 the paper refers to [Yam14, Theorem 7.1] 'with minor adjustments' (Yamana treats O_c, not SO_c or GSpin_c); that input needs its own item (see coverage). Review note on status: Add the k = 1 input (the new coverage item 'Theorem 3.12 for k = 1') as a prerequisite; the listed prerequisites (via Z-over-sigma) cover only k > 1."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/converse",
@@ -374,46 +377,46 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/rs-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [CKPSS01, §2]; A(S, η) is the set of η-twists of unitary cuspidal τ′ of GL_k(A), 1 ≤ k < N, unramified at the nonempty finite set S of finite places."
+      "note": "Cited from [CKPSS01, §2]; A(S, η) is the set of η-twists of unitary cuspidal τ′ of GL_k(A), 1 ≤ k < N, unramified at the nonempty finite set S of finite places. Review note on status: GL2AutomorphicRepresentationsAndTransfer:R16.5 plans only the GL_2 converse theorem. The GL_N theorem of [CKPSS01, §2], with η-twists, S nonempty and 1 ≤ k ≤ N − 1, is planned nowhere, so 'missing' is right. missing is correct. The atlas plans only the GL_2 converse theorem (GL2AutomorphicRepresentationsAndTransfer:R16.5). The GL_N theorem of [CPS94, CPS99], in the eta-twisted form of [CKPSS01, §2], is planned nowhere. The facts from [CPS94, Lemmas 2.1-2.2] that the statement needs are a proposed new item (coverage)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein-series",
       "kind": "construction",
       "name": "The Eisenstein series E_{τ,θ,c}",
-      "statement": "For a cuspidal τ of GL_k(A), H = G_2kc, its Siegel parabolic P and an entire K_H-finite section f of Ind_{P(A)}^{H(A)}((|·|^s ρ_c(τ) ⊗ θ) ∘ i_{M_P}), E_{τ,θ,c}(h; s, f) = Σ_{γ ∈ P(F)\\H(F)} f(s, γh), convergent in Re(s) ≫ 0 with meromorphic continuation.",
+      "statement": "Let F be a number field, c >= 1, k >= 1, H = G_2kc (Sp, SO or GSpin, split, of the same type as G), and P a standard Siegel parabolic of H, M_P ≅ GL_kc × G_0 via i_{M_P}. Let τ be a cuspidal representation of GL_k(A), and ρ_c(τ) the generalized Speh representation of GL_kc(A) attached to τ ([Jac84, §2.4]). Let θ be a unitary Hecke character of A^* when H = GSpin_2kc, and θ = 1 otherwise. Let K_H = ∏_ν K_{H_ν} be maximal compact in good position ([MW95, I.1.1, I.1.4]). For an entire K_H-finite section f of Ind_{P(A)}^{H(A)}((|det|^s ρ_c(τ) ⊗ θ)∘i_{M_P}), set E_{τ,θ,c}(h; s, f) = Σ_{γ ∈ P(F)\\H(F)} f(s, γh), h ∈ H(A). The series converges absolutely for Re(s) >> 0 and continues meromorphically to C ([Lan76, MW95]).",
       "locator": "arXiv:1802.02637v5, §4.2, (4.1)",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/speh"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: θ is used but not introduced. It is a unitary Hecke character of A^*, present only when H = GSpin_2kc, and θ = 1 otherwise; Theorem 4.1 and Lemma 4.4 use its unitarity. The construction is for every c >= 1, since c = 1 starts the induction in Theorem 4.1 and c' = c - 1 recurs. ρ_c(τ) here is the global generalized Speh representation of [Jac84, §2.4], not the local one of item speh; no item covers it (see coverage). Review note on status: missing is correct. AutomorphicSpectralTheory:AS.1-AS.2 plan Eisenstein series of cuspidal data; this series is induced from the residual Speh representation, which only ET.7a (the GL_m residual spectrum) touches."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/M1M2",
       "kind": "theorem",
       "name": "Holomorphy of the intertwining operators M_1 and M_2",
-      "statement": "M_1(s) is holomorphic in Re(s) > −c′/2 and M_2(s) is holomorphic in Re(s) ≥ 1/2.",
+      "statement": "Let τ be a unitary cuspidal representation of GL_k(A) and θ a unitary Hecke character (θ = 1 unless H = GSpin_2kc), with |det|^{it}τ ≇ θτ^∨ for all t ∈ R. Let c >= 2 and c' = c - 1. Let M_0(s): |det|^s τ ⋊ θ → |det|^{-s}θτ^∨ ⋊ θ be the standard intertwining operator for the Siegel parabolic of G_2k(A); for H = SO_2kc or GSpin_2kc with k odd, the target is induced from ^ȷP, (4.8). Put M_1(s) = M_0(s + c'/2): |det|^{s+c'/2}τ ⋊ θ → |det|^{-s-c'/2}θτ^∨ ⋊ θ. Let M_2(s): |det|^{s-1/2}ρ_{c'}(τ) × |det|^{-s-c'/2}θτ^∨ → |det|^{-s-c'/2}θτ^∨ × |det|^{s-1/2}ρ_{c'}(τ) be the standard intertwining operator on GL_kc(A). Then M_1(s) is holomorphic in Re(s) > -c'/2, and M_2(s) is holomorphic in Re(s) >= 1/2.",
       "locator": "arXiv:1802.02637v5, Lemma 4.3",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein-series"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The item defines neither operator and states no hypothesis. Lemma 4.3 lies inside the proof of Theorem 4.1 and uses its hypotheses. The M_1 part rests on [MW95, Rem. IV.3.12], which needs |det|^{it}τ ≇ θτ^∨. The M_2 part needs the same hypothesis on the line Re(s) = 1/2, although the printed proof does not say so and argues the step backwards (see the new issue on the proof of Lemma 4.3)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/exponents",
       "kind": "theorem",
       "name": "Shape of the cuspidal exponents",
-      "statement": "Every real part e of a cuspidal exponent of the leading Laurent coefficient E_{s,c} along P_(k^c) has the form Re(s)(a_1, …, a_c) + (b_1, …, b_c) with a_j = ±1 and Σ_{i≤j} b_i ≤ 0 for all j.",
+      "statement": "Let τ be a unitary cuspidal representation of GL_k(A), θ a unitary Hecke character (θ = 1 unless H = GSpin_2kc), and c >= 1. For s ∈ C, let E_{s,c} be the leading coefficient of the Laurent expansion of E_{τ,θ,c}(·; s', f) about s' = s. Let e(s,c) be the set of real parts of the cuspidal exponents of E_{s,c} along P_{(k^c)} ([MW95, I.3.3, I.3.5]). Write them in the standard basis of the character lattice of M_{P_{(k^c)}} ≅ GL_k^c (× GL_1 when H = GSpin_2kc, whose coordinate is 0 because θ is unitary), so e(s,c) ⊂ R^c. Then every e ∈ e(s,c) has the form e = Re(s)(a_1, ..., a_c) + (b_1, ..., b_c), with a_j = ±1 and Σ_{i<=j} b_i <= 0 for all 1 <= j <= c.",
       "locator": "arXiv:1802.02637v5, Lemma 4.4",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein-series"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Hypotheses and definitions are missing. τ must be unitary cuspidal and θ unitary: the real parts are read off using this, and the extra GSpin coordinate vanishes because θ is unitary. c >= 1. e(s,c) is defined for every s through the leading Laurent coefficient."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/eisenstein",
@@ -433,7 +436,7 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/global-integral",
       "kind": "construction",
       "name": "The global doubling integral and its Eulerian form",
-      "statement": "For cusp forms ϕ_1 of π and ϕ_2 of π^∨ and an entire K_H-finite section f, Z(s, ϕ_1, ϕ_2, f) integrates ϕ_1(g_1) ιϕ_2(g_2) E^{U,ψ_U}(e(g_1, g_2); s − 1/2, f) over (C°_G(A)G(F) × C°_G(A)G(F))\\G(A) × G(A); for decomposable data and a large finite S, b^S(s, c, τ ⊗ χ_π) Z(s, ϕ_1, ϕ_2, f) = L^S(s, π × τ) ∏_{ν∈S} Z(s, ω_ν, f_ν) (4.10).",
+      "statement": "Let c > 1, k >= 1, G = G_c, H = G_2kc. Let P, Q, U = U_Q be as in §3.3, ψ_U the character of U(F)\\U(A) generic for the orbit ((2k-1)^c 1^c), and e: G(A) × G(A) → St_{M_Q(A)}(ψ_U), whose kernel is the diagonal C°_G(A). Take K_H with e_ν(K_{G_ν}, K_{G_ν}) < K_{H_ν} for all ν. Let π and τ be cuspidal representations of G(A) and GL_k(A), and E(h; s, f) = E_{χ_πτ, χ_π, c}(h; s, f) (θ = χ_π) for an entire K_H-finite section f of Ind_{P(A)}^{H(A)}((|det|^s χ_π ρ_c(τ) ⊗ χ_π)∘i_{M_P}). Put E^{U,ψ_U}(h; s, f) = ∫_{U(F)\\U(A)} E(uh; s, f)ψ_U(u) du. For cusp forms ϕ_1 of π and ϕ_2 of π^∨, set Z(s, ϕ_1, ϕ_2, f) = ∫_{(C°_G(A)G(F) × C°_G(A)G(F))\\G(A)×G(A)} ϕ_1(g_1) ^ιϕ_2(g_2) E^{U,ψ_U}(e(g_1, g_2); s - 1/2, f) dg_1 dg_2, where ^ιϕ_2(g) = ϕ_2(ιgι^{-1}). The integral converges absolutely wherever E(·; s - 1/2, f) is holomorphic, so it is meromorphic on C and holomorphic away from the poles of E(·; s - 1/2, f). For decomposable data and Re(s) >> 0, Z(s, ϕ_1, ϕ_2, f) = ∏_ν Z(s, ω_ν, f_ν), with ω_ν a matrix coefficient of π_ν^∨ and f_ν ∈ V(τ_ν, c) ([GK23, §3.2]). Hence, for a sufficiently large finite set S of places and as meromorphic functions, b^S(s, c, τ ⊗ χ_π) Z(s, ϕ_1, ϕ_2, f) = L^S(s, π × τ) ∏_{ν∈S} Z(s, ω_ν, f_ν) (4.10), where b^S = ∏_{ν∉S} b(s, c, τ_ν ⊗ χ_{π_ν}) with b as in (3.3).",
       "locator": "arXiv:1802.02637v5, §4.3, (4.10)",
       "status": "missing",
       "prerequisites": [
@@ -441,26 +444,26 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/doubling-integral"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The item omits three things. First, which Eisenstein series enters: E = E_{χ_πτ, χ_π, c} (θ = χ_π) on Ind((|det|^s χ_π ρ_c(τ) ⊗ χ_π)∘i_{M_P}), evaluated at s - 1/2; this is what lets Theorem 4.1 apply to χ_πτ in Theorem 4.8. Second, the absolute convergence of Z wherever the Eisenstein series is holomorphic, which gives holomorphy away from its poles and is used in Theorem 4.8. Third, the unfolding Z = ∏_ν Z(s, ω_ν, f_ν) ([GK23, §3.2]), which produces (4.10)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/completed-L",
       "kind": "definition",
       "name": "The completed L-function L(s, π × τ)",
-      "statement": "L(s, π × τ) = ∏_ν L(s, π_ν × τ_ν) and ε(s, π × τ) = ∏_ν ε(s, π_ν × τ_ν, ψ_ν), with the local factors of §3.4.",
+      "statement": "Let π and τ be cuspidal representations of G(A) and GL_k(A), and ψ = ⊗'ψ_ν a nontrivial character of F\\A. Then L(s, π × τ) = ∏_ν L(s, π_ν × τ_ν), over all places of F, is a meromorphic function, and ε(s, π × τ) = ∏_ν ε(s, π_ν × τ_ν, ψ_ν), with the local factors of §3.4 ((3.15)-(3.17)).",
       "locator": "arXiv:1802.02637v5, §4.3",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/local-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Hypotheses missing. π and τ are cuspidal representations of G(A) and GL_k(A), ψ is a fixed nontrivial character of F\\A, and the products run over all places, archimedean ones included. The paper records that the product is a meromorphic function."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/global-fe",
       "kind": "theorem",
       "name": "Global functional equation",
-      "statement": "L(s, π × τ) = ε(s, π × τ)L(1 − s, π^∨ × τ^∨).",
+      "statement": "Let c > 1, k >= 1, and let π and τ be cuspidal representations of G(A) and GL_k(A). Then L(s, π × τ) = ε(s, π × τ) L(1 - s, π^∨ × τ^∨) as meromorphic functions, with the completed L and ε of §4.3.",
       "locator": "arXiv:1802.02637v5, Theorem 4.6",
       "status": "missing",
       "prerequisites": [
@@ -468,20 +471,20 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gamma-factor"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [CFK22, Theorem 8.3]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "Cited from [CFK22, Theorem 8.3]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: No hypotheses are stated. [CFK22, Theorem 8.3], as quoted in §4.3, is for cuspidal π of G(A) and τ of GL_k(A), not necessarily unitary, as an identity of meromorphic functions."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/bounded",
       "kind": "theorem",
       "name": "Boundedness in vertical strips",
-      "statement": "If L(s, π × τ) and L(1 − s, π^∨ × τ^∨) are entire, they are bounded in vertical strips of finite width.",
+      "statement": "Let π and τ be cuspidal representations of G(A) and GL_k(A). If L(s, π × τ) and L(1 - s, π^∨ × τ^∨) are entire, they are bounded in vertical strips of finite width.",
       "locator": "arXiv:1802.02637v5, Theorem 4.7",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/completed-L"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [CFK22, Corollary 8.5]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "Cited from [CFK22, Corollary 8.5]; the paper uses it as an input. G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: No hypotheses are stated. Theorem 4.7 is for cuspidal π of G(A) and τ of GL_k(A)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/entire",
@@ -535,20 +538,20 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-local",
       "kind": "theorem",
       "name": "Existence of local coarse transfers",
-      "statement": "Over a local field f, every π′ ∈ Irr(G(f)) has a coarse transfer to GL_N(f).",
+      "statement": "Let f be a local field of characteristic 0. Every π' ∈ Irr(G(f)) has a coarse transfer Π ∈ Irr(GL_N(f)) in the sense of (3.18).",
       "locator": "arXiv:1802.02637v5, Corollary 4.11",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/coarse-global"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The field must have characteristic 0: this is the paper's standing convention (§1), and the proof globalizes through a number field."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-integral",
       "kind": "construction",
       "name": "The GL_c × GL_k integrals of Appendix A",
-      "statement": "For π ∈ Irr(GL_c), τ ∈ Irr_gen(GL_k) (k > 1), a matrix coefficient ω of π and W ∈ W_ψ(ρ_c(τ)), Z(s, ω, W) = ∫_{GL_c} W(diag(g, I_(k−1)c)) ω(g) |det g|^{s−(kc−2c+1)/2} dg, with the dual integral Z*(s, ω, W); the γ-factor is defined by γ(s, π × τ, ψ)Z(s, ω, W) = π(−1)^{k−1}Z*(s, ω, W) (A.3).",
+      "statement": "Let F be a local field of characteristic 0, c >= 1, k > 1, π ∈ Irr(GL_c), τ ∈ Irr_gen(GL_k), W_ψ(ρ_c(τ)) the (k,c) model, and e_1(g) = diag(g, I_{(k-1)c}). For a matrix coefficient ω of π and W ∈ W_ψ(ρ_c(τ)), set Z(s, ω, W) = ∫_{GL_c} W(e_1(g)) ω(g) |det g|^{s-(kc-2c+1)/2} dg. The Schwartz function of the general integral Z(s, ω, W, φ) can be dropped because k > 1. Set Z*(s, ω, W) = ∫_{GL_c} ∫_{U^-_{((k-2)c,c)}} W(diag(I_{(k-1)c}, g) diag(I_c, z) w_{((k-1)c,c)}) ω(g) |det g|^{s-1+(kc-2c+1)/2} dz dg, where w_{(a,b)} = [[0, I_a], [I_b, 0]]. Z converges absolutely in a right half-plane and Z* in a left half-plane, independently of the data; both lie in the space of Theorem A.1. Hence, given meromorphic continuation, there is a meromorphic, not identically zero γ(s, π × τ, ψ) with γ(s, π × τ, ψ) Z(s, ω, W) = π(-1)^{k-1} Z*(s, ω, W) for all ω and W (A.3). When c = 1, γ(s, π × τ, ψ) = γ^RS(s, π × τ, ψ).",
       "locator": "arXiv:1802.02637v5, Appendix A, (A.3)",
       "status": "missing",
       "prerequisites": [
@@ -556,26 +559,26 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-uniqueness"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42). Also: Z* is not written out. Z converges in a right half-plane and Z* in a left half-plane. γ exists only given the meromorphic continuation, which the appendix proves for π unramified or F archimedean (τ unitary), and over non-archimedean F for all π and generic τ by Bernstein's principle. For c = 1, γ = γ^RS ([Sou93, (11.7.1)])."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-uniqueness",
       "kind": "theorem",
       "name": "Uniqueness of the trilinear forms",
-      "statement": "Outside finitely many values of q^{−s} (non-archimedean) or a discrete set of s (archimedean), the space of continuous trilinear forms on π × π^∨ × ρ_c(τ) with the equivariance (A.2) has dimension at most one.",
+      "statement": "Let F be a local field of characteristic 0, c >= 1, k > 1, π ∈ Irr(GL_c), τ ∈ Irr_gen(GL_k). Let U^⊘_{(c^k)} = {u ∈ U_{(c^k)} : u_{1,2} = 0} and ψ^⊘ = ψ_k|U^⊘_{(c^k)}, e_1(g) = diag(g, I_{(k-1)c}), e_2(g) = diag(I_c, g, ..., g). Except for finitely many values of q^{-s} (F non-archimedean), or a discrete set of s (F archimedean), the space of continuous trilinear forms B on π × π^∨ × ρ_c(τ) with B(π(g)ϕ, τ^∨(det g')π^∨(g')ϕ^∨, ρ_c(τ)(u e_1(g) e_2(g'))ξ) = ψ^⊘(u) |det g g'^{-1}|^{-s+(kc-2c+1)/2} B(ϕ, ϕ^∨, ξ) for all g, g' ∈ GL_c and u ∈ U^⊘_{(c^k)} has dimension at most one ([Kap23, Theorem 25]).",
       "locator": "arXiv:1802.02637v5, Theorem A.1",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/speh"
       ],
       "implementationStatus": "unchecked",
-      "note": "Cited from [Kap23, Theorem 25]."
+      "note": "Cited from [Kap23, Theorem 25]. Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Hypotheses missing: F local of characteristic 0, π ∈ Irr(GL_c), τ ∈ Irr_gen(GL_k), and k > 1 (the appendix fixes k > 1 just before Theorem A.1). The equivariance (A.2) is cited only by number."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-multiplicativity",
       "kind": "theorem",
       "name": "Multiplicativity of the appendix γ-factor",
-      "statement": "If π ⊂ Ind_R^G(π_1 ⊗ π_2) for R = R_(l,c−l), then γ(s, π × τ, ψ) = γ(s, π_1 × τ, ψ)γ(s, π_2 × τ, ψ); hence for π unramified or F archimedean it equals the Rankin–Selberg γ-factor.",
+      "statement": "Let F be a local field of characteristic 0, k > 1, τ ∈ Irr_gen(GL_k) unitary, c >= 2, 0 < l < c, R = R_{(l,c-l)} < GL_c, and σ = π_1 ⊗ π_2 ∈ Irr(M_R), with π_1 ∈ Irr(GL_l) and π_2 ∈ Irr(GL_{c-l}). If π ∈ Irr(GL_c) and π ⊂ Ind_R^{GL_c}(σ), then γ(s, π × τ, ψ) = γ(s, π_1 × τ, ψ) γ(s, π_2 × τ, ψ). Hence, if π is unramified (F non-archimedean) or F is archimedean, γ(s, π × τ, ψ) = γ^RS(s, π × τ, ψ).",
       "locator": "arXiv:1802.02637v5, Theorem A.2",
       "status": "missing",
       "prerequisites": [
@@ -583,26 +586,26 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/rs-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42). Also missing: τ unitary and k > 1. From p. 44 on the appendix assumes 'Henceforth also assume τ is unitary', because the proof uses the realization (A.4)-(A.5) of [CFGK23, §3.2]."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-L-factor",
       "kind": "theorem",
       "name": "The appendix L-factor",
-      "statement": "For π unramified (or F archimedean) and τ unitary generic, there is a nowhere vanishing L(s, π × τ) with L^{−1}Z(s, ω, W) entire for all data and nonzero for suitable data at each s; it can be defined by Z*(1 − s, …), is multiplicative up to entire factors, independent of ψ, and compatible with unramified twists.",
+      "statement": "Standing assumptions (p. 50): F is local of characteristic 0; c >= 1, k > 1; π ∈ Irr(GL_c), unramified if F is non-archimedean (any π if F is archimedean); τ ∈ Irr_gen(GL_k) unitary. Let F be the ring of entire functions (C[q^{-s}, q^s] if F is non-archimedean), M its fraction field, and F^* its units. There is a nowhere vanishing fraktur-L(s, π × τ) ∈ M such that fraktur-L(s, π × τ)^{-1} Z(s, ω, W) ∈ F for all ω and W, and for each s some data make this quotient nonzero at s. If F is non-archimedean, fraktur-L = P(q^{-s})^{-1} with P ∈ C[X], P(0) = 1. If F is archimedean, fraktur-L is unique up to F^*. Moreover: (1) fraktur-L(s, π × τ) is equally the gcd of the integrals Z*(1 - s, ω', W'), for ω' a matrix coefficient of π^∨ and W' ∈ W_ψ(ρ_c(τ^∨)). (2) In the setting of Theorem A.2, fraktur-L(s, π × τ) = A(s) fraktur-L(s, π_1 × τ) fraktur-L(s, π_2 × τ) with A ∈ F. (3) fraktur-L is independent of ψ. (4) fraktur-L(s, |det|^{s_0}π × τ) = fraktur-L(s, π × |det|^{s_0}τ) = fraktur-L(s + s_0, π × τ).",
       "locator": "arXiv:1802.02637v5, Theorem A.6",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-multiplicativity"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42). The appendix writes this factor as fraktur L, not L, and keeps L(s, π × τ) for the Rankin–Selberg factor (p. 54). The item's plain 'L' clashes with that convention, and the clash inverted the gl-RS-divides item. 'Multiplicative up to entire factors' needs a direction: fraktur-L(π) = A · fraktur-L(π_1) fraktur-L(π_2) with A entire. Also omitted: the normalisation P(0) = 1, uniqueness up to F^* over archimedean fields, and k > 1."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-langlands",
       "kind": "theorem",
       "name": "L-factors of Langlands quotients",
-      "statement": "If π is the Langlands quotient of Ind(σ_1 ⊗ … ⊗ σ_d) and π′ that of Ind(σ_2 ⊗ … ⊗ σ_d), then L(s, π′ × τ) = P(s)L(s, π × τ) for an entire P(s) (appendix L-factors).",
+      "statement": "Under the standing assumptions of Theorem A.6, let π be the unique irreducible quotient of Ind_{R_β}^{GL_c}(σ_1 ⊗ ... ⊗ σ_d), where β = (β_1, ..., β_d), d >= 2, σ_i = |det|^{a_i}σ_{i,0} with σ_{i,0} ∈ Irr(GL_{β_i}) tempered and a_1 > ... > a_d. Let π' be the unique irreducible quotient of Ind_{R_{β'}}^{GL_{c-β_1}}(σ_2 ⊗ ... ⊗ σ_d). Then fraktur-L(s, π' × τ) = P(s) fraktur-L(s, π × τ) with P ∈ F. So every pole of fraktur-L(s, π' × τ), with multiplicity, is a pole of fraktur-L(s, π × τ).",
       "locator": "arXiv:1802.02637v5, Lemma A.8",
       "status": "missing",
       "prerequisites": [
@@ -610,13 +613,13 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/intertwining-convergence"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42). Missing: the standing assumptions (π unramified or F archimedean, τ unitary generic, k > 1), the Langlands data (σ_{i,0} tempered, a_1 > ... > a_d, d >= 2), and the fact that the factors are the appendix gcds fraktur-L."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-RS-divides",
       "kind": "theorem",
       "name": "The Rankin–Selberg factor divides the appendix L-factor",
-      "statement": "L^{RS}(s, π × τ)^{−1} L(s, π × τ) is entire, where L^{RS} is the Rankin–Selberg factor.",
+      "statement": "Under the standing assumptions of Theorem A.6 (F local of characteristic 0; π ∈ Irr(GL_c), unramified if F is non-archimedean; τ ∈ Irr_gen(GL_k) unitary; k > 1), let L(s, π × τ) be the Rankin–Selberg factor of [JPSS83, JS90], defined through the Langlands data of π when π is not generic. Then fraktur-L(s, π × τ)^{-1} L(s, π × τ) ∈ F. That is, L(s, π × τ)/fraktur-L(s, π × τ) is entire, and every pole of the Rankin–Selberg factor, with multiplicity, is a pole of the gcd fraktur-L(s, π × τ).",
       "locator": "arXiv:1802.02637v5, Proposition A.10",
       "status": "missing",
       "prerequisites": [
@@ -624,20 +627,296 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/rs-factors"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: Inverted. Proposition A.10 (p. 54) reads 'fraktur-L(s, π × τ)^{-1} L(s, π × τ) ∈ F', where fraktur-L is the gcd of Theorem A.6 and L is the Rankin–Selberg factor. So L^RS / fraktur-L is entire: every Rankin–Selberg pole is a pole of the gcd. The item says L^RS^{-1} · (appendix factor) is entire, which the paper neither proves nor uses. The proof gives only fraktur-L = A · L^RS with A nowhere vanishing but possibly with poles, which is why Theorem A.11 allows Z/L^RS a pole. The standing hypotheses are also missing. The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42)."
     },
     {
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-poles",
       "kind": "theorem",
       "name": "Rankin–Selberg poles are attained by the GL_c × GL_k integrals",
-      "statement": "For π ∈ Irr(GL_c) (unramified if F is non-archimedean) and unitary τ ∈ Irr_gen(GL_k), k > 1, for each s there are ω and W with Z(s, ω, W)/L^{RS}(s, π × τ) nonzero at s; over archimedean fields ω and W can be taken finite.",
+      "statement": "Let F be a local field of characteristic 0, c >= 1, k > 1, π ∈ Irr(GL_c) (unramified if F is non-archimedean), and τ ∈ Irr_gen(GL_k) unitary. For each s ∈ C there are a matrix coefficient ω of π and W ∈ W_ψ(ρ_c(τ)) such that Z(s, ω, W)/L(s, π × τ) is nonzero at s, possibly with a pole there; L is the Rankin–Selberg factor. If F is archimedean, ω can be taken K_{GL_c}-finite and W K_{GL_kc}-finite.",
       "locator": "arXiv:1802.02637v5, Theorem A.11",
       "status": "missing",
       "prerequisites": [
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-RS-divides"
       ],
       "implementationStatus": "unchecked",
-      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c)."
+      "note": "G = G_c is Sp_c, SO_c or GSpin_c, split over F (c > 1), r_G: Ĝ → GL_N(C) its standard representation (N = c + 1 for Sp_c, otherwise 2⌊c/2⌋), and χ_π the restriction of the central character to C°_G (trivial unless G = GSpin_c). Review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24): statement corrected against the paper: The item says the quotient is 'nonzero at s'. Theorem A.11 says 'nonzero (but may have a pole)': Z/fraktur-L is entire, but fraktur-L/L^RS may have poles. 'Finite' should read: ω K_{GL_c}-finite and W K_{GL_kc}-finite. The shared note ('G = G_c is Sp_c, SO_c or GSpin_c ... c > 1') is wrong for Appendix A, where G = GL_c with c >= 1 ('except here G is a general linear group', p. 42)."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-quasi-character-chi-pi",
+      "kind": "definition",
+      "name": "The quasi-character χ_π",
+      "statement": "Let F be local. For an admissible representation π of GSpin_l with a central character, χ_π is the quasi-character x ↦ π(e_0^∨(x)) of F^*; this is essentially π restricted to C°_{GSpin_l} = e_0^∨(GL_1). For G_l ≠ GSpin_l, χ_π^d is trivial for every d ∈ ½Z. If (σ ⊗ π) ∘ i_{M_R} ∈ Irr(M_R), then χ_{σ⋊π} = χ_π. Globally, for an irreducible automorphic representation π of GSpin_c(A), χ_π is the Hecke character of A^* obtained by the same pullback; for G ≠ GSpin_c, χ_π = 1. Since ⟨Υ_c, e_0^∨⟩ = 2, χ_{|Υ_c|^{s_0} π} = |·|^{2s_0} χ_π.",
+      "locator": "arXiv:1802.02637v5, §3.1, p. 11; §4.1, pp. 32–33",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): χ_π enters V(s, τ, c), the γ-factor, the L-factor (3.17), Corollary 3.9, all of §3.6 and E1, but no item defines it; it appears only in the shared notes. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-multiplicity-one-for-the-generalized-doubling",
+      "kind": "theorem",
+      "name": "Multiplicity one for the generalized doubling integrals",
+      "statement": "Let F be local, π ∈ Irr(G) and τ ∈ Irr_gen(GL_k). By [CFK22, Proposition 2.2] and Theorem 3.2(2), Z(s, ω, f) defines an element of Hom_{U ⋊ e(G,G)}(V(s, τ, c), ψ_U^{−1} ⊗ π^∨ ⊗ π^ι) (3.4). This space has dimension at most 1, except for finitely many values of q^{−s} if F is non-archimedean and a discrete set of s if F is archimedean [GK23, Theorem 2.1].",
+      "locator": "arXiv:1802.02637v5, §3.4, p. 14, (3.4), citing [GK23, Theorem 2.1] and [CFK22, Proposition 2.2]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): This theorem is what makes (3.6) define γ(s, π × τ, ψ). It is quoted from [GK23, Theorem 2.1] with [CFK22, Proposition 2.2], and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-normalised-intertwining-operator-m-star",
+      "kind": "construction",
+      "name": "The normalised intertwining operator M*(s, c, τ ⊗ χ_π, ψ)",
+      "statement": "Let w_P ∈ H represent 𝔴_H 𝔴_{M_P}. The standard intertwining operator M(s, c, τ ⊗ χ_π, w_P) maps V(s, τ, c) to V(1 − s, χ_π^{−1} τ^∨, c); the (k, c) models on both sides are taken with respect to ψ, and for kc odd the target is induced from ^jP and (|det|^{1/2−s} W_ψ(ρ_c(τ^∨)) ⊗ χ_π) ∘ i_{^jM_P}. V(s, τ, c) has a unique degenerate Whittaker model [CFK22, Theorem 3.2], with functional λ(s, c, τ ⊗ χ_π, ψ) depending on δ_0 and δ_1 [CFK22, (3.3)]. There is a meromorphic C(s, c, τ ⊗ χ_π, ψ) such that λ(s, c, τ ⊗ χ_π, ψ) f = C(s, c, τ ⊗ χ_π, ψ) λ(1 − s, c, χ_π^{−1} τ^∨ ⊗ χ_π, ψ) M(s, c, τ ⊗ χ_π, w_P) f for all f ∈ V(τ, c) (3.5), modified for kc odd as in [CFK22, §3]. Then M*(s, c, τ ⊗ χ_π, ψ) = C(s, c, τ ⊗ χ_π, ψ) M(s, c, τ ⊗ χ_π, w_P), and Z(1 − s, ω, M* f) converges absolutely in a left half plane.",
+      "locator": "arXiv:1802.02637v5, §3.4, pp. 14–15, (3.5), citing [CFK22, §3, Theorem 3.2]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): local-factors uses M* by name only. M*, the degenerate Whittaker functional and its uniqueness [CFK22, Theorem 3.2], and the factor C of (3.5) form a construction of their own. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-langlands-classification-for-g-c-and",
+      "kind": "theorem",
+      "name": "Langlands classification for G_c and the realisation by intertwining integrals",
+      "statement": "Let F be local. Every π ∈ Irr(G) is either essentially tempered (π = |Υ_c|^{r_0} π_0 with π_0 tempered) or the unique irreducible quotient of σ ⋊ π′ = Ind_R^G((σ ⊗ π′) ∘ i_{M_R}) for a standard maximal parabolic subgroup R with M_R ≅ GL_l × G_{c−2l}, l > 0. Here σ is the unique irreducible quotient of ×_{i=1}^d |·|^{a_i} σ_{i,0} with σ_{i,0} tempered, π′ ∈ Irr(G_{c−2l}) with |Υ_{c−2l}|^{−r} π′ tempered, and a_1 > ⋯ > a_d > r (r = 0 unless G = GSpin_c). Put ε = σ ⊗ π′. Then π is isomorphic to the image of I: Ind_R^G(ε ∘ i_{M_R}) → Ind_{R^−}^G(ε ∘ i_{M_R}), I(φ)(g) = ∫_{U_R^−} φ(yg) dy. This integral converges absolutely: over non-archimedean F against K-finite vectors [Wal03, §IV.1], [Wal88, §5], and over archimedean F against all smooth vectors (Lemma 3.22). π^∨ is the Langlands quotient of Ind_{R^−}^G(ε^∨ ∘ i_{M_R}), is contained in Ind_R^G(ε^∨ ∘ i_{M_R}), and is the image of I^∨(φ^∨)(g) = ∫_{U_R} φ^∨(zg) dz (3.34). For GL_k, every τ ∈ Irr_gen(GL_k) is the full induced representation ×_i |det|^{a_i} τ_i with τ_i tempered and a_1 > ⋯ > a_d.",
+      "locator": "arXiv:1802.02637v5, §3.4, p. 17, (3.16); §3.6, p. 25, (3.34)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): (3.16)–(3.17), Corollary 3.9 and all of §3.6 write π as a Langlands quotient, and §3.6 uses π ≅ Im(I) and π^∨ ≅ Im(I^∨). SmoothRepresentationsOfLocalGroups SR.2–SR.3 and AutomorphicFormsOnReductiveGroups AF.1 plan induction, admissibility and globalisation, but not the classification for G_c. ET.6 plans segment and Langlands-quotient theory only for p-adic GL_m. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-archimedean-langlands-parametrisation-with-central-and",
+      "kind": "theorem",
+      "name": "Archimedean Langlands parametrisation, with central and infinitesimal characters",
+      "statement": "Let F be archimedean. Every π ∈ Irr(G) is parametrised by an admissible homomorphism φ_π: W_F → Ĝ, and Irr(GL_N) is in bijection with the admissible homomorphisms W_F → GL_N(C) [Lan89]. The representation T(π) with parameter r_G ∘ φ_π has central character χ_π^{N/2} ([Lan89]; [AS06, pp. 178–179] for GSpin_c). The infinitesimal character of π is determined by φ_π [NP21, Lemma 1].",
+      "locator": "arXiv:1802.02637v5, §3.2, p. 12, citing [Lan89] and [AS06, pp. 178–179]; §2, p. 9, footnote to Definition 2.2, citing [NP21, Lemma 1]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The archimedean transfer T(π), the archimedean L- and ε-factors of §3.4 and (3.13) are all defined through [Lan89], and its compatibility with central and infinitesimal characters is used for (3.1) and Definition 2.2. No item covers it, and no stage plans it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-theorem-3-12-for-k-1",
+      "kind": "theorem",
+      "name": "Theorem 3.12 for k = 1 (classical doubling)",
+      "statement": "Let F be local, π ∈ Irr_rel,a.u.(G), and τ a unitary quasi-character of F^* (k = 1). For each s with Re(s) ≥ 1/2 there are a matrix coefficient ω of π^∨ and a K_H-finite f ∈ V(τ, c) such that Z(s, ω, f)/L(s, π × τ) is nonzero at s (possibly with a pole).",
+      "locator": "arXiv:1802.02637v5, §3.6, p. 19, citing [Yam14, Theorem 7.1]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Theorem 3.12 for k = 1 is not proved in the paper. It 'already follows from the proof of [Yam14, Theorem 7.1], with minor adjustments for the groups (in ibid. the full orthogonal groups O_c were considered, and GSpin_c was not considered)'. The converse theorem needs k = 1 (twists by Hecke characters), and every §3.6 item assumes k > 1, so this input is missing. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-inductive-realisation-of-the-kc-functional",
+      "kind": "theorem",
+      "name": "Inductive realisation of the (k, c) functional",
+      "statement": "Let τ ∈ Irr_gen(GL_k) be unitary, k > 1, and 0 < l < c. Then ρ_c(τ) is a subrepresentation of Ind_{R_(kl,k(c−l))}^{GL_kc}((W_ψ(ρ_l(τ)) ⊗ W_ψ(ρ_{c−l}(τ))) δ_{R_(kl,k(c−l))}^{−1/(2k)}). Let κ_{l,c−l} be the permutation matrix of Appendix A and V_l < U_(c^k) the abelian group generated by the blocks V^3_{i,j} (i < j). The integral ξ ↦ ∫_{V_l} ξ(κ_{l,c−l} v) dv converges absolutely and is a (k, c) functional on ρ_c(τ) [CFGK23, §3.2, Lemma 9]. Applied twice, with κ = diag(I_{kl}, κ_{c−2l,l}) κ_{l,c−l}, it realises the functional for the composition (l, c − 2l, l) used in Lemma 3.16.",
+      "locator": "arXiv:1802.02637v5, §3.6, pp. 21–22, proof of Lemma 3.16; Appendix A, p. 44, citing [CFGK23, §3.2, Lemma 9]; arXiv:1802.02637v5, Appendix A, p. 44, (A.4)-(A.5), citing [CFGK23, §3.2, Lemma 9]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Lemma 3.16 and Appendix A both rest on [CFGK23, §3.2, Lemma 9], and they use it only for unitary τ, which is the root of E1. No item covers it. (Both checkers proposed this; merged with 'Realization of the (k,c) functional of ρ_c(τ) through a composition of c'.) Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-matrix-coefficients-via-intertwining-integrals-and",
+      "kind": "theorem",
+      "name": "Matrix coefficients via intertwining integrals and the unfolding of Z along R",
+      "statement": "Let π be the Langlands quotient of σ ⋊ π′ as in (3.16), ε = σ ⊗ π′, φ ∈ Ind_R^G(ε ∘ i_{M_R}) and φ^∨ ∈ Ind_{R^−}^G(ε^∨ ∘ i_{M_R}). Then ω_{φ,φ^∨}(g) = ∫_{M_R\\G} ⟨φ(g_0), φ^∨(g_0 g)⟩ dg_0 = ∫_{R^−\\G} ∫_{U_R^−} ⟨φ(yo), φ^∨(og)⟩ dy do converges absolutely and is a matrix coefficient of π^∨ (3.35). Substituting it into Z(s, ω_{φ,φ^∨}, f) and applying Lemma 3.3 twice gives the iterated integral (3.39), in Re(s) ≫ 0 and where absolutely convergent (justified by Lemma 3.20 for archimedean F and by the proof of Corollary 3.21 for non-archimedean F). Its inner integral is Z^1(s, ω^{e_G}_{φ,φ^∨}, f) = ∫_{U_R} ∫_{C°_G\\M_R} ∫_{U_R^−} ∫_{U_0} δ_{R^−}^{−1/2}(m) ω^{e_G}_{φ,φ^∨}(m) f(s, δ u_0 e_2(^ι(zym))) ψ_U(u_0) du_0 dy dm dz (3.40), where ω^{e_G}_{φ,φ^∨}(m) = ⟨φ(e_G), ε^∨(m) φ^∨(e_G)⟩.",
+      "locator": "arXiv:1802.02637v5, §3.6, pp. 25–26, (3.35)–(3.40)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): This is the first step of the proof of Theorem 3.12. The formula for ω_{φ,φ^∨}, the identity Z = (3.39) and the definition of Z^1 are used by Propositions 3.18–3.19, Lemma 3.20 and Corollary 3.21. Z1-open-cell only names Z^1. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-bounds-for-smooth-matrix-coefficients-of",
+      "kind": "theorem",
+      "name": "Bounds for smooth matrix coefficients of tempered representations",
+      "statement": "Let F be archimedean, M a real reductive group (here M_R) and σ an irreducible tempered representation of M, with invariant inner product on its smooth space V_σ. There is a continuous seminorm β on V_σ with |⟨σ(m)v, w⟩| ≤ β(v) β(w) Ξ(m) for all v, w ∈ V_σ and m ∈ M, where Ξ is Harish-Chandra's basic spherical function [Sun09, Theorem 1.2]. If Re(ν) lies in the positive chamber for R, then ∫_{U_R^−} e^{⟨Re(ν) + ρ_R, H_{M_R}(m_u)⟩} Ξ(m_u) du < ∞, where u = r_u m_u k_u is the Iwasawa decomposition ([Wal88], proof of Lemma 5.3.1).",
+      "locator": "arXiv:1802.02637v5, §3.6, pp. 32–33, proof of Lemma 3.22, citing [Sun09, Theorem 1.2] and [Wal88, Lemma 5.3.1]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): These are the two inputs of Lemma 3.22, which is needed because §3.6 requires convergence of I against smooth, not only K-finite, vectors. No stage plans them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-coarse-transfers-and-supercuspidal-support",
+      "kind": "theorem",
+      "name": "Coarse transfers and supercuspidal support",
+      "statement": "Let F be non-archimedean and π ∈ Irr(G). If Π ∈ Irr(GL_N) is a coarse transfer of π, then so is every Π′ ∈ Irr(GL_N) with the same supercuspidal support as Π [JPSS83, Theorem 3.1]. Conversely, the supercuspidal support of a coarse transfer, if one exists, depends only on π [Hen02, Proposition 1.9].",
+      "locator": "arXiv:1802.02637v5, §3.5, p. 18, citing [JPSS83, Theorem 3.1] and [Hen02, Proposition 1.9]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): These are stated results of §3.5, cited in the introduction (p. 2) as consequences of Theorem 4.10: for any weak transfer Π, the supercuspidal support of Π_ν is determined by π_ν. No item covers them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-weak-transfer-of-all-irreducible-automorphic",
+      "kind": "theorem",
+      "name": "Weak transfer of all irreducible automorphic representations",
+      "statement": "Let F be a number field. Every irreducible automorphic representation π of G(A) has a weak functorial transfer to GL_N(A). By [Lan79b], π is a constituent of a representation parabolically induced from an irreducible cuspidal automorphic representation of a Levi subgroup GL_{β_1} × ⋯ × GL_{β_d} × G_{c−2l}. Theorem 0.1 applies to the G_{c−2l} factor, and the transfer is the corresponding isobaric sum.",
+      "locator": "arXiv:1802.02637v5, Introduction, p. 2, citing [Lan79b]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Stated as a consequence ('immediately extends'), with a one-line argument via [Lan79b]. It is a stated result of the paper that no item covers. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-twisted-euler-products-for-the-converse",
+      "kind": "theorem",
+      "name": "Twisted Euler products for the converse theorem: convergence and independence of ψ",
+      "statement": "Let F be a number field, ψ a nontrivial character of F\\A, Π = ⊗'Π_ν an irreducible admissible representation of GL_N(A), and τ a cuspidal representation of GL_k(A). Put L(s, Π × τ) = ∏_ν L(s, Π_ν × τ_ν) and ε(s, Π × τ, ψ) = ∏_ν ε(s, Π_ν × τ_ν, ψ_ν), with the Rankin–Selberg factors of [JPSS83, JS90] (for non-generic Π_ν, [JPSS83, §9.4]). (i) If ∏_ν L(s, Π_ν) converges absolutely in some right half-plane, so does L(s, Π × τ) ([CPS94, Lemma 2.2]). (ii) If the central character of Π is trivial on F^*, then ε(s, Π × τ, ψ), a finite product, is independent of ψ and is written ε(s, Π × τ) ([CPS94, Lemma 2.1]).",
+      "locator": "arXiv:1802.02637v5, §2, p. 9, citing [CPS94, Lemmas 2.1-2.2]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Theorem 2.1 uses ε(s, Π × τ) without ψ, and §4.4 checks the absolute convergence of L(s, Π) only. Both steps rest on these two lemmas, and no item states them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-holomorphy-of-the-rank-one-siegel",
+      "kind": "theorem",
+      "name": "Holomorphy of the rank-one Siegel Eisenstein series away from twisted self-duality",
+      "statement": "Let k >= 1, H_1 = G_2k (of the type of H), P its standard Siegel parabolic, τ a unitary cuspidal representation of GL_k(A), and θ a unitary Hecke character (θ = 1 unless H_1 = GSpin_2k). The constant term of E_{τ,θ,1}(h; s, f) along P is f(s, h) + M_0(s)f(s, h) (4.2), with M_0(s): |det|^s τ ⋊ θ → |det|^{-s}θτ^∨ ⋊ θ the standard intertwining operator. When H_1 = SO_2k or GSpin_2k with k odd, the constant terms along P and ^ȷP are f and M_0 f, and M_0 maps into the representation induced from ^ȷP, (4.8). If |det|^{it}τ ≇ θτ^∨ for all t ∈ R, then M_0(s), and hence E_{τ,θ,1}(h; s, f), is holomorphic in Re(s) >= 0 ([MW95, Remark IV.3.12]).",
+      "locator": "arXiv:1802.02637v5, §4.2, pp. 34-35 and 37, (4.2) and (4.8), citing [MW95, Remark IV.3.12]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): This is the base case of the induction in Theorem 4.1, and it is also used for M_1 in Lemma 4.3 and for the holomorphy of b^S in Theorem 4.8. It is cited from [MW95] and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-constant-term-of-the-eisenstein-series",
+      "kind": "theorem",
+      "name": "Constant term of E_{τ,θ,c} along the parabolic with Levi GL_k × G_{2k(c-1)}",
+      "statement": "Let c >= 2, c' = c - 1, H' = G_{2kc'}, and let R, R' be the standard maximal parabolics of H = G_2kc with M_R ≅ GL_k × H' and M_{R'} ≅ GL_{kc'} × G_2k. For an entire section f as in (4.1), the constant term f_{P_{(k,kc')}} lies in |det|^{s-c'/2}τ ⋊ (|det|^{s+1/2}ρ_{c'}(τ) ⋊ θ), and f_{P_{(kc',k)}} lies in |det|^{s-1/2}ρ_{c'}(τ) ⋊ (|det|^{s+c'/2}τ ⋊ θ) (4.3). Let M_1, M_2 be as in Lemma 4.3 and M_1^□, M_2^□ the induced operators, so that M_2^□(s)M_1^□(s) maps into |det|^{-s-c'/2}θτ^∨ ⋊ (|det|^{s-1/2}ρ_{c'}(τ) ⋊ θ) (4.4). Then (E_{τ,θ,c})_R(s, f) = E_{τ,θ,c'}(s + 1/2, f_{P_{(k,kc')}}) + E_{τ,θ,c'}(s - 1/2, M_2^□(s)M_1^□(s) f_{P_{(kc',k)}}) (4.5) ([JLZ13, Proposition 2.3]). For H = SO_2kc or GSpin_2kc with k odd and k > 1, the second term is E^ȷ_{τ,θ,c'}(s - 1/2, ^ȷM_2^□M_1^□ f_{P_{(kc',k)}}), with M_0 as in (4.8) and E^ȷ the series for ^ȷP (4.9); a similar formula holds for E^ȷ_{τ,θ,c}.",
+      "locator": "arXiv:1802.02637v5, §4.2, pp. 35 and 37-38, (4.3)-(4.5), (4.8)-(4.9), citing [JLZ13, Proposition 2.3]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The inductive constant-term formula drives both Lemma 4.4 and the proof of Theorem 4.1. It is cited from [JLZ13] and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-eisenstein-series-regularity-on-the-unitary",
+      "kind": "theorem",
+      "name": "Eisenstein series: regularity on the unitary axis and detection of poles by cuspidal constant terms",
+      "statement": "Let τ be unitary cuspidal on GL_k(A), θ unitary, and E = E_{τ,θ,c} as in (4.1). (i) E(h; s, f) is holomorphic on Re(s) = 0 ([MW95, Theorem VI.2.1(i)]). (ii) M_{P_{(k^c)}} is the only standard Levi subgroup of H contributing to the cuspidal support of E; so is ^ȷM_{P_{(k^c)}} when H = SO_2kc or GSpin_2kc with k odd and k > 1. Hence a pole s_0 of E is a pole of its constant term along P_{(k^c)} (or ^ȷP_{(k^c)}), and so of its constant term along R ([MW95, Lemma I.4.10]).",
+      "locator": "arXiv:1802.02637v5, §4.2, proof of Theorem 4.1, pp. 36-37, citing [MW95, Theorem VI.2.1(i), Lemma I.4.10]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The proof of Theorem 4.1 opens with these two cited facts, and no item covers them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-square-integrability-criterion-and-hermitian-symmetry",
+      "kind": "theorem",
+      "name": "Square-integrability criterion and Hermitian symmetry of residual cuspidal data",
+      "statement": "Let H = G_2kc and M = M_{P_{(k^c)}}. (i) ([MW95, §I.4.11]) Let an automorphic form on H(A) have cuspidal support along P_{(k^c)} (and ^ȷP_{(k^c)} when it also contributes). Suppose the real parts of all its cuspidal exponents lie in the open negative cone; with M ≅ GL_k^c this reads Σ_{i<=j} Re(e_i) < 0 for 1 <= j <= c. Then the form is square-integrable. (ii) ([MW95, Theorem V.3.13(iii), V.3.14, Corollary V.3.16, Remark V.3.6(b)]) Let a nonzero square-integrable automorphic form on H(A) have cuspidal support in the W(M)-orbit 𝔆 of a cuspidal datum Ξ. Then it lies in L²(H(F)\\H(A))_𝔆 ≠ 0, and the Hermitian dual Ξ* (the complex conjugate of the contragredient) lies in 𝔆, i.e. Ξ* = wΞ for some w ∈ W(M).",
+      "locator": "arXiv:1802.02637v5, §4.2, proof of Theorem 4.1, p. 37, citing [MW95, §I.4.11, V.3.6(b), V.3.13(iii), V.3.14, V.3.16]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The key contradiction in Theorem 4.1 comes from these facts: the leading coefficient is square-integrable, so its cuspidal datum is Hermitian-self-dual up to W. No item covers them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-normalization-of-the-intertwining-operator-between",
+      "kind": "theorem",
+      "name": "Normalization of the intertwining operator between a Speh and a cuspidal representation of GL",
+      "statement": "Let τ be unitary cuspidal on GL_k(A), θ a unitary Hecke character, and c' >= 1. The standard intertwining operator M_2(s): |det|^{s-1/2}ρ_{c'}(τ) × |det|^{-s-c'/2}θτ^∨ → |det|^{-s-c'/2}θτ^∨ × |det|^{s-1/2}ρ_{c'}(τ) on GL_kc(A) satisfies the following: [L(2s + c', τ × θ^{-1}τ)/L(2s, τ × θ^{-1}τ)] M_2(s) is holomorphic in Re(s - 1/2) > Re(-s - c'/2), i.e. in Re(s) > (1 - c')/4 ([MW89, §I.10]). Equivalently, M_2(s) = [L(2s, τ × θ^{-1}τ)/L(2s + c', τ × θ^{-1}τ)] N_2(s) with N_2 holomorphic there.",
+      "locator": "arXiv:1802.02637v5, §4.2, proof of Lemma 4.3, p. 36, citing [MW89, §I.10]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The holomorphy of M_2 rests on this normalization, and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-poles-and-non-vanishing-of-global",
+      "kind": "theorem",
+      "name": "Poles and non-vanishing of global Rankin–Selberg L-functions",
+      "statement": "Let τ and τ' be unitary cuspidal representations of GL_k(A) and GL_{k'}(A), and S a finite set of places. L^S(s, τ × τ') and L(s, τ × τ') converge absolutely, and are holomorphic and nonvanishing, in Re(s) > 1. They are nonvanishing on Re(s) = 1, and holomorphic there except for a simple pole at s = 1 - iy when τ' ≅ τ^∨|det|^{iy} ([JS81a, JS81b, Sha81]). In particular, if θ is unitary and |det|^{it}τ ≇ θτ^∨ for all t ∈ R, then L(s, τ × θ^{-1}τ) is holomorphic in Re(s) >= 1. For c >= 2, L^S(s + c/2, τ) is holomorphic in Re(s) >= 1/2 ([JS81b]).",
+      "locator": "arXiv:1802.02637v5, §4.2, proof of Lemma 4.3, p. 36, and §4.3, proof of Theorem 4.8, p. 39",
+      "status": "planned",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Lemma 4.3 and Theorem 4.8 use these global facts about GL Rankin–Selberg L-functions, and no item states them. Status: AL.3 plans the global unfolding for cuspidal data and 'analytic nonvanishing results only in their proved regions'."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-global-generalized-speh-representation-rho-c",
+      "kind": "definition",
+      "name": "Global generalized Speh representation ρ_c(τ)",
+      "statement": "Let τ be a unitary cuspidal representation of GL_k(A) and c >= 1. The generalized Speh representation ρ_c(τ) of GL_kc(A) ([Jac84, §2.4]; [MW89]) is the irreducible automorphic representation spanned by the iterated residues, at λ = ((c-1)/2, (c-3)/2, ..., (1-c)/2), of the Eisenstein series induced from |det|^{λ_1}τ ⊗ ... ⊗ |det|^{λ_c}τ on R_{(k^c)}. It lies in the discrete spectrum, and ρ_c(τ) ≅ ⊗'_ν ρ_c(τ_ν) with the local ρ_c(τ_ν) of §3.1. The unfolding of [GK23, §3.2] behind (4.10) uses its Fourier coefficient along (U_{(c^k)}, ψ_k), which factors through the local (k,c) models W_ψ(ρ_c(τ_ν)) (as used in §4.3). For a Hecke character χ, ρ_c(χτ) = χ(det)ρ_c(τ); §4.3 uses this with χ = χ_π.",
+      "locator": "arXiv:1802.02637v5, §4.2, p. 34, citing [Jac84, §2.4]; used in §4.3, p. 38",
+      "status": "planned",
+      "planned": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.7a"
+      ],
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The definition behind (4.1), and hence behind every item in §4, is this global residual representation. Item speh covers only the local ρ_c(τ_ν). Status: ET.7a plans 'the required GL_m residual-spectrum/Speh classification … from the Arthur–Clozel and Moeglin–Waldspurger proofs', of which the residual representation ρ_c(τ) of GL_kc is part."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-holomorphy-of-the-normalizing-factor-b",
+      "kind": "theorem",
+      "name": "Holomorphy of the normalizing factor b^S(s, c, τ ⊗ χ_π)",
+      "statement": "Let c >= 2, and let π and τ be unitary cuspidal representations of G(A) and GL_k(A) with |det|^{it}χ_πτ ≇ τ^∨ for all t ∈ R. Let S be a finite set of places containing S_∞, outside which π, τ and ψ are unramified. Then L^S(s, τ, ∧² ⊗ χ_π) and L^S(s, τ, ∨² ⊗ χ_π) are holomorphic in Re(s) >= 0 ([MW95, Remark IV.3.12] and a standard argument, see [Kim00, (1.3)]). L^S(s + c/2, τ), a factor of b^S only when G = Sp_c, is holomorphic in Re(s) >= 1/2 ([JS81b]). Hence b^S(s, c, τ ⊗ χ_π) of (3.3) is holomorphic in Re(s) >= 1/2. Under the same hypothesis b^S is even entire ([KS02, Proposition 2.1]).",
+      "locator": "arXiv:1802.02637v5, §4.3, proof of Theorem 4.8, p. 39 and footnote 3",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The left side of (4.11) is holomorphic in Re(s) >= 1/2 only if b^S is. The paper proves this inside the proof of Theorem 4.8, and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-highly-ramified-twists-are-not-twisted",
+      "kind": "theorem",
+      "name": "Highly ramified twists are not twisted-self-dual",
+      "statement": "Let π be a unitary cuspidal representation of G(A), S a nonempty finite set of finite places, and η a unitary Hecke character of A^* with η_{ν_0}² χ_{π_{ν_0}} nontrivial on O^*_{ν_0} for some ν_0 ∈ S. Then for every τ ∈ A(S, η) (§2) and every t ∈ R, |det|^{it}χ_πτ ≇ τ^∨ (see the proof of [CKPSS01, Lemma 3.2]). The proof of Theorem 0.1 also uses that such η exist and can be taken arbitrarily highly ramified at every ν ∈ S.",
+      "locator": "arXiv:1802.02637v5, §4.4, proof of Theorem 0.1, pp. 40-41, citing the proof of [CKPSS01, Lemma 3.2]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): This is how the proof of Theorem 0.1 verifies hypothesis (1) of Theorem 4.8 for every τ ∈ A(S_π, η). No item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-globalization-of-supercuspidal-representations",
+      "kind": "theorem",
+      "name": "Globalization of supercuspidal representations",
+      "statement": "(i) Let F be a number field, ν_0 a finite place, and σ' a supercuspidal representation of GL_l(F_{ν_0}). There is a cuspidal representation σ of GL_l(A) with σ_{ν_0} ≅ σ' and σ_ν unramified at every finite ν ≠ ν_0 ([Hen84, Appendice 1]). (ii) Let f be a non-archimedean local field of characteristic 0, G = G_c split, and π' a supercuspidal representation of G(f). There are a number field F with a place ν such that F_ν ≅ f, and a cuspidal representation π of G(A) with π_ν ≅ π'. The paper cites this as 'see e.g., [Hen84, Appendice 1]', whose Poincaré-series argument is written for GL_n.",
+      "locator": "arXiv:1802.02637v5, §4.4, proof of Theorem 4.10, p. 41, and of Corollary 4.11, p. 42, citing [Hen84, Appendice 1]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Theorem 4.10 and Corollary 4.11 both globalize a supercuspidal representation, and no item covers it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-jacquet-shalika-classification-automorphic-representations-of",
+      "kind": "theorem",
+      "name": "Jacquet–Shalika classification: automorphic representations of GL_N agreeing almost everywhere",
+      "statement": "Every irreducible automorphic representation Π of GL_N(A) is a constituent of Ind(σ_1 ⊗ ... ⊗ σ_r) for cuspidal, not necessarily unitary, σ_i of GL_{n_i}(A) with Σ n_i = N ([Lan79b]). If Π and Π' are irreducible automorphic representations of GL_N(A) with Π_ν ≅ Π'_ν for almost all ν, their cuspidal data {σ_i} coincide up to permutation ([JS81a, Theorem 4.4]). So at every place ν, Π_ν and Π'_ν are constituents of the same induced representation, and γ^RS(s, Π_ν × τ, ψ_ν) = γ^RS(s, Π'_ν × τ, ψ_ν) for every τ ∈ Irr(GL_k(F_ν)) (multiplicativity, [JPSS83, JS90]).",
+      "locator": "arXiv:1802.02637v5, §4.4, proof of Theorem 4.10, p. 41, citing [JS81a, §4]; also Introduction, p. 2",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Theorem 4.10 reduces to a single weak transfer through this classification, and no item states it for GL_N. The atlas has only GL_2 strong multiplicity one (R16.4). Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-crude-functional-equation-for-partial-rankin",
+      "kind": "theorem",
+      "name": "Crude functional equation for partial Rankin–Selberg L-functions",
+      "statement": "Let Π be an irreducible automorphic representation of GL_N(A), σ a cuspidal representation of GL_l(A), and ψ a nontrivial character of F\\A. Let S be a finite set of places containing S_∞, outside which Π, σ and ψ are unramified. Then L^S(s, Π × σ) = ∏_{ν∈S} γ^RS(s, Π_ν × σ_ν, ψ_ν) L^S(1 - s, Π^∨ × σ^∨) as meromorphic functions ([Cog04, CPS04]).",
+      "locator": "arXiv:1802.02637v5, §4.4, proof of Theorem 4.10, p. 41, citing [Cog04, CPS04]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The last step of Theorem 4.10 compares (3.14) with this identity for GL_N, and no item states it for a possibly non-cuspidal automorphic Π. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-equivariance-of-kc-functions-under-the",
+      "kind": "theorem",
+      "name": "Equivariance of (k,c) functions under the diagonal GL_c",
+      "statement": "Let F be local of characteristic 0, c, k >= 1, and τ ∈ Irr_gen(GL_k). For every W ∈ W_ψ(ρ_c(τ)) and g ∈ GL_c, W(e_1(g)e_2(g)) = W(diag(g, ..., g)) = τ(det g) W(I_kc), with g repeated k times and τ(a) the central character of τ at aI_k ([CFGK23, Lemma 12]).",
+      "locator": "arXiv:1802.02637v5, Appendix A, p. 43, (A.1), citing [CFGK23, Lemma 12]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Lemma A.8 uses this equivariance of (k,c) functions twice, and no item states it. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-analytic-properties-of-the-gl-c",
+      "kind": "theorem",
+      "name": "Analytic properties of the GL_c × GL_k integrals",
+      "statement": "Let F be local of characteristic 0, c >= 1, k > 1, π ∈ Irr(GL_c), and τ ∈ Irr_gen(GL_k). Z(s, ω, W, φ), and Z for k > 1, converges absolutely in Re(s) >> 0 independently of the data (Lemma 3.13 and a bound on matrix coefficients). For each s it can be made holomorphic and nonzero near s; over a non-archimedean field it can be made identically 1. Z* has the same properties in a left half-plane. Its dz-integration contributes no poles: it can be removed by [DM78] and conjugation. Over a non-archimedean field, Z and Z* are rational in q^{-s} for all π and generic τ, by Theorem A.1, the constant choice, and Bernstein's continuation principle ([Ban98]). If moreover τ is unitary and π is unramified or F is archimedean, Z and Z* continue meromorphically to C, continuously in (ω, W) over archimedean fields. The proof reduces through (A.7), (A.8), (A.14) and (A.17) to Rankin–Selberg integrals for GL_1 × GL_k ([JPSS83, JS90, Jac09]; [Sou95, §5, Lemmas 1-2]).",
+      "locator": "arXiv:1802.02637v5, Appendix A, pp. 42-44 (around Theorem A.1 and (A.3)) and p. 50 (before Theorem A.6)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Theorems A.1-A.11 assume these analytic properties. The appendix proves them in the paragraph before Theorem A.6, and no item states them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-gl-epsilon-factor-and-functional-equation",
+      "kind": "definition",
+      "name": "ε-factor and functional equation of the GL_c × GL_k integrals",
+      "statement": "Under the standing assumptions of Theorem A.6, there is ε(s, π × τ, ψ) ∈ F^* such that for all ω and W, ε(s, π × τ, ψ) Z(s, ω, W)/fraktur-L(s, π × τ) = π(-1)^{k-1} Z*(s, ω, W)/fraktur-L(1 - s, π^∨ × τ^∨) (A.18). Together with (A.3) this gives γ(s, π × τ, ψ) = ε(s, π × τ, ψ) fraktur-L(1 - s, π^∨ × τ^∨)/fraktur-L(s, π × τ) (A.19).",
+      "locator": "arXiv:1802.02637v5, Appendix A, p. 51, (A.18)-(A.19)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The ε-factor and the gcd form of the functional equation are defined here and used in Proposition A.10. No item covers them. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-exponents-of-unitary-generic-representations-of",
+      "kind": "theorem",
+      "name": "Exponents of unitary generic representations of GL_k",
+      "statement": "Let F be local of characteristic 0. Every unitary τ ∈ Irr_gen(GL_k(F)) is irreducibly induced as τ ≅ |det|^{α_1}δ_1 × ... × |det|^{α_r}δ_r, with δ_i square-integrable and α_i real, |α_i| < 1/2. Consequently, for tempered σ_0 ∈ Irr(GL_l(F)), L^RS(s, σ_0 × τ) is holomorphic in Re(s) >= 1/2. So for a ∈ R the poles of L(s + a, σ_0 × τ) lie in Re(s) + a < 1/2, and those of L(1 - s - a, σ_0^∨ × τ^∨) lie in Re(s) + a > 1/2.",
+      "locator": "arXiv:1802.02637v5, Appendix A, proof of Proposition A.10, p. 54 (uncited in the paper)",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): The no-cancellation step of Proposition A.10 uses this bound without citation, and no item covers it. The same input underlies Theorem 3.8(2). Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-dixmier-malliavin-factorization",
+      "kind": "theorem",
+      "name": "Dixmier–Malliavin factorization",
+      "statement": "Let V be a smooth Fréchet representation of moderate growth of a real Lie group Γ, for instance a unipotent group Mat_{a×b}(R) or Mat_{a×b}(C) acting on ρ_c(τ) or on W_ψ(ρ_c(τ)). Every v ∈ V is a finite sum Σ_i π(φ_i)v_i with φ_i ∈ C_c^∞(Γ) and v_i ∈ V ([DM78]). Over non-archimedean fields the analogue is immediate: v = vol(K)^{-1}π(1_K)v for any open compact K fixing v.",
+      "locator": "arXiv:1802.02637v5, Appendix A, pp. 44-53 (e.g. proof of Theorem A.2, p. 46), and §3.6, citing [DM78]; arXiv:1802.02637v5, §3.6, p. 20 (proof of Lemma 3.14), p. 24 (proof of Lemma 3.16), p. 32 (proof of Corollary 3.21), citing [DM78]",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Every unipotent-integration step in the appendix and in §3.6 relies on this factorization, and nothing in the atlas plans it. (Both checkers proposed this; merged with 'Dixmier–Malliavin factorisation'.) Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-langlands-classification-for-gl-c",
+      "kind": "theorem",
+      "name": "Langlands classification for GL_c",
+      "statement": "Let F be local of characteristic 0. Every π ∈ Irr(GL_c(F)) is the unique irreducible quotient of a standard module Ind_{R_β}^{GL_c}(|det|^{a_1}σ_{1,0} ⊗ ... ⊗ |det|^{a_d}σ_{d,0}), with σ_{i,0} ∈ Irr(GL_{β_i}) tempered and real a_1 > ... > a_d; the data are unique up to isomorphism. π is the image of the absolutely convergent intertwining operator Ind_R^{GL_c}(σ_1 ⊗ π') → Ind_{R^-}^{GL_c}(σ_1 ⊗ π'), where R = R_{(β_1,c-β_1)} and π' is the Langlands quotient of the remaining data. π^∨ is the unique irreducible quotient of the standard module with data (|det|^{-a_d}σ_{d,0}^∨, ..., |det|^{-a_1}σ_{1,0}^∨). If F is non-archimedean and π is unramified, every σ_{i,0} is unramified.",
+      "locator": "arXiv:1802.02637v5, Appendix A, Lemma A.8 and Proposition A.10, pp. 51-54",
+      "status": "missing",
+      "note": "Added by the review REV-PAPER-CAI-FRIEDBERG-KAPLAN-24 (coverage of the paper): Lemma A.8 and Proposition A.10 are stated and proved through Langlands data. Nothing in the atlas plans the Langlands classification; the route brief assumes SmoothRepresentationsOfLocalGroups has it, but SR.0-SR.6 do not. Route: AutomorphicLFunctionsAndLocalFactorsPartIIDoubling."
     }
   ],
   "routes": [
@@ -691,9 +970,37 @@
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-L-factor",
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-langlands",
         "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-RS-divides",
-        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-poles"
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/gl-poles",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-quasi-character-chi-pi",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-multiplicity-one-for-the-generalized-doubling",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-normalised-intertwining-operator-m-star",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-langlands-classification-for-g-c-and",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-archimedean-langlands-parametrisation-with-central-and",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-theorem-3-12-for-k-1",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-inductive-realisation-of-the-kc-functional",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-matrix-coefficients-via-intertwining-integrals-and",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-bounds-for-smooth-matrix-coefficients-of",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-coarse-transfers-and-supercuspidal-support",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-weak-transfer-of-all-irreducible-automorphic",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-twisted-euler-products-for-the-converse",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-holomorphy-of-the-rank-one-siegel",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-constant-term-of-the-eisenstein-series",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-eisenstein-series-regularity-on-the-unitary",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-square-integrability-criterion-and-hermitian-symmetry",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-normalization-of-the-intertwining-operator-between",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-holomorphy-of-the-normalizing-factor-b",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-highly-ramified-twists-are-not-twisted",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-globalization-of-supercuspidal-representations",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-jacquet-shalika-classification-automorphic-representations-of",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-crude-functional-equation-for-partial-rankin",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-equivariance-of-kc-functions-under-the",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-analytic-properties-of-the-gl-c",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-gl-epsilon-factor-and-functional-equation",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-exponents-of-unitary-generic-representations-of",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-dixmier-malliavin-factorization",
+        "PAPER-CAI-FRIEDBERG-KAPLAN-24/rev-langlands-classification-for-gl-c"
       ],
-      "brief": "Automorphic L-functions and local factors, extended to the generalized doubling method of Cai, Friedberg, Ginzburg, Gourevitch and Kaplan for split symplectic, special orthogonal and general spin groups twisted by GL_k. Cover generalized Speh representations and their (k, c) models; the local doubling integrals with their γ-, L- and ε-factors (characterization, compatibility with the unramified and archimedean transfer, stability, holomorphy for tempered data) and the attainment of the poles in Re(s) ≥ 1/2 through the GL_c × GL_k integrals of Kaplan's appendix; the doubling Eisenstein series and its holomorphy away from twisted self-duality; the global integral, functional equation and entireness of twisted L-functions; and the Cogdell–Kim–Piatetski-Shapiro–Shahidi converse theorem. Final theorems: every cuspidal representation of such a group has a weak functorial transfer to GL_N (Theorem 0.1), weak transfers are coarse transfers at every place (Theorem 4.10), and local coarse transfers exist (Corollary 4.11). Import Rankin–Selberg factors from layer AL.3, the Satake isomorphism from SmoothRepresentationsOfLocalGroups (SR.4), and parabolic induction and Langlands quotients from SmoothRepresentationsOfLocalGroups.",
+      "brief": "Automorphic L-functions and local factors, extended to the generalized doubling method of Cai, Friedberg, Ginzburg, Gourevitch and Kaplan for split symplectic, special orthogonal and general spin groups twisted by GL_k. Cover generalized Speh representations and their (k, c) models; the local doubling integrals with their γ-, L- and ε-factors (characterization, compatibility with the unramified and archimedean transfer, stability, holomorphy for tempered data) and the attainment of the poles in Re(s) ≥ 1/2 through the GL_c × GL_k integrals of Kaplan's appendix; the doubling Eisenstein series and its holomorphy away from twisted self-duality; the global integral, functional equation and entireness of twisted L-functions; and the Cogdell–Kim–Piatetski-Shapiro–Shahidi converse theorem. Final theorems: every cuspidal representation of such a group has a weak functorial transfer to GL_N (Theorem 0.1), weak transfers are coarse transfers at every place (Theorem 4.10), and local coarse transfers exist (Corollary 4.11). Import Rankin–Selberg factors from layer AL.3, the Satake isomorphism from SmoothRepresentationsOfLocalGroups (SR.4), and parabolic induction and Langlands quotients from SmoothRepresentationsOfLocalGroups.\n\nThis is the same Part II id as route 1 of PAPER-EISCHEN-HARRIS-LI-ETAL-20, which proposes it under the title 'Part II: the doubling method for classical and unitary groups' and adds the classical doubling method for unitary groups; the design job should adopt one title covering both briefs. PAPER-ATOBE-KONDO-YASUDA-22 proposes a separate Part II, AutomorphicLFunctionsPartIISpehIntegrals, for Speh-model integrals on GL_n; the (k, c) models here should be designed compatibly with it.\n\nAlso import: the GL_m residual spectrum and Speh classification from EndoscopicTransferAndUnitaryTraceComparison ET.7a (for the global ρ_c(τ)), and global Rankin–Selberg poles and non-vanishing from AL.3. The GL_N converse theorem of Cogdell–Piatetski-Shapiro (with the η-twists of CKPSS), the Langlands classification for G_c and GL_c, Dixmier–Malliavin, the Mœglin–Waldspurger Eisenstein-series inputs and the Jacquet–Shalika classification are planned nowhere and are built here.\n\nCorrections from the review (REV-PAPER-CAI-FRIEDBERG-KAPLAN-24):\n- Propositions 3.17 and 3.19 and Corollary 3.21 must be stated for unitary χ_π, or reduced to that case by the twist χ_π = |·|^r χ_0 (E1). Theorem 3.12 needs only the unitary case.\n- In (3.16) the Langlands data satisfy a_d > r, not r/2.\n- The coarse-transfer definition (3.18) should quantify over generic τ, the only ones for which the doubling γ-factor is defined.\n- Lemma 4.3's holomorphy of M_2(s) in Re(s) ≥ 1/2 needs L(2s, τ × θ^{−1}τ) holomorphic and L(2s + c′, τ × θ^{−1}τ) non-vanishing there; the printed proof swaps the two. The first uses the non-self-duality hypothesis of Theorem 4.1, so state Lemma 4.3 under it.\n- In the proof of Theorem 4.10, check that the central character of Π_ν is χ_{π_ν}^{N/2} before applying Theorem 3.10.\n- Proposition A.10 says that L^RS(s, π × τ)/𝔏(s, π × τ) is entire, where 𝔏 is the gcd of Theorem A.6. The extraction had this reversed.",
       "reason": "The doubling integrals, their local factors, the Eisenstein-series analysis and the converse-theorem transfer extend the atlas's automorphic L-function roadmap; its Rankin–Selberg layer AL.3 and the Satake layer SR.4 are imported rather than re-planned."
     }
   ],
@@ -702,14 +1009,376 @@
       "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E1",
       "kind": "gap",
       "locator": "arXiv:1802.02637v5, Propositions 3.17 and 3.19 and Corollary 3.21 (§3.6), pp.24–31",
-      "printed": "Proposition 3.17: 'Let σ ∈ Irr(GL_l), τ ∈ Irr_gen,u(GL_k) …'; Proposition 3.19 and Corollary 3.21: 'Suppose that π ∈ Irr_rel(G) and τ ∈ Irr_gen,u(GL_k)'. The proof of Proposition 3.17 applies Lemma 3.16 'for the (k, c) model χ_π W_ψ(ρ_c(τ)) = W_ψ(ρ_c(χ_π τ))' and Theorems A.6 and A.11 to χ_π τ.",
+      "printed": "Proposition 3.17: 'Let σ ∈ Irr(GL_l), τ ∈ Irr_gen,u(GL_k) …'; Proposition 3.19: 'Suppose that π ∈ Irr_rel(G) and τ ∈ Irr_gen,u(GL_k)'; Corollary 3.21: 'Assume that π ∈ Irr_rel(G) and τ ∈ Irr_gen,u(GL_k) and keep the notation (3.16)'. The proof of Proposition 3.17 applies Lemma 3.16 'for the (k, c) model χ_π W_ψ(ρ_c(τ)) = W_ψ(ρ_c(χ_π τ))' and Theorems A.6 and A.11 to χ_π τ.",
       "correction": "Either assume χ_π unitary (π ∈ Irr_rel,a.u.(G), as in Theorem 3.12), or reduce to that case: write χ_π = |·|^r χ_0 with r real and χ_0 unitary. Then W_ψ(ρ_c(χ_π τ)) = |det|^r W_ψ(ρ_c(χ_0 τ)), the factor |det a|^r pulls out of Z^2 because r_z is unipotent, and L(s, σ^∨ × χ_π τ) = L(s + r, σ^∨ × χ_0 τ).",
       "reason": "Lemma 3.16 (through [CFGK23, §3.2]) and Theorem A.11 are stated for unitary τ, but in Propositions 3.17, 3.19 and Corollary 3.21 the relevant representation is χ_π τ, and χ_π need not be unitary for π ∈ Irr_rel(G) when G = GSpin_c (for Sp_c and SO_c, χ_π = 1). The twist above repairs the argument, and the only use, Theorem 3.12, assumes χ_π unitary, so the main results are unaffected.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "arXiv v5 (SHA-256 dd49d944…), the latest version, read in full by cc-442dc5 on 23 September 2026; Crossref lists no correction or update for 10.4007/annals.2024.200.3.2."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "(1) Is the gap real? Yes. Irr_rel(G) imposes nothing on χ_π, and for G = GSpin_c, χ_π can be non-unitary: since ⟨Υ_c, e_0^∨⟩ = 2, π = |Υ_c|^t π_0 has χ_π = |·|^{2t} χ_{π_0}. (For Sp_c and SO_c, χ_π = 1 by convention, p. 11.) The proof of Proposition 3.17 needs χ_π τ ∈ Irr_gen,u(GL_k) in three places, all outside their stated hypotheses when χ_π is not unitary. First, Lemma 3.16 assumes τ ∈ Irr_gen,u(GL_k), and its proof uses the realisation of [CFGK23, §3.2] 'which is applicable when τ ∈ Irr_gen,u(GL_k)' (p. 21). Second, Theorem A.11 assumes 'τ ∈ Irr_gen(GL_k) be unitary' (p. 55). Third, Theorem A.6 lies under the standing assumptions 'Henceforth also assume τ is unitary' (p. 44) and 'Recall that … τ is also unitary and k > 1 … until the end of the appendix' (p. 50); Proposition A.10 also uses unitarity to separate the poles of L(s + a_1, σ_{1,0} × τ) from those of L(1 − s − a_1, …) (p. 54). Propositions 3.19 and 3.21 apply Proposition 3.17 with the χ_π of an arbitrary π ∈ Irr_rel(G), so the written proofs do not cover non-unitary χ_π. (2) Is the twist correct? Yes; I checked each step. ρ_c(χτ) = χρ_c(τ) follows from the definition through Langlands data (§3.1). The (k, c) functionals are unchanged by the twist, since det is trivial on U_(c^k). det r_z = 1, since r_z ∈ diag(U_(l,c−2l,l) ∩ U_(l,c−n−l,n), I) (p. 21). The exponents match: with c replaced by l, (3.32) reduces to the appendix exponent s − (kl − 2l + 1)/2. The Rankin–Selberg L-factor satisfies L(s, σ^∨ × |·|^r τ′) = L(s + r, σ^∨ × τ′). The appendix itself records this twist (Theorem A.6(4)). Lemma 3.16 likewise extends to χτ_0, since T(|det|^r W_0 ⊗ μ) = T(W_0 ⊗ μ) and a ↦ |det a|^r W_{0,l}(m′_a) lies in |det|^{(kc−kl−c+l)/2} W_ψ(ρ_l(χτ_0)). The remaining steps of Proposition 3.19 and Corollary 3.21 are Proposition 3.18 (π ∈ Irr(G)), Lemma 3.20 (π ∈ Irr(G); its bound already carries |χ_π(det a)^i χ_π(det t)^j|, p. 30), Lemma 3.13 (any generic τ) and the Fubini arguments. None needs χ_π unitary. They do need the Langlands data in the form a_d > r; the printed a_d > r/2 is a separate misprint, recorded below. (3) Is Theorem 3.12, with χ_π unitary, the only downstream use? Yes. Proposition 3.17 is used only in the proof of Proposition 3.19 (p. 28), and Proposition 3.19 only in the proof of Corollary 3.21 (p. 31). Corollary 3.21 is used in the proof of Theorem 3.12 (p. 31), which assumes π ∈ Irr_rel,a.u.(G). The other references are the Fubini justification on p. 26 and 'as in the proof of Corollary 3.21' in Appendix A (p. 52), which reuses a technique for GL. Theorem 3.12 is applied in Theorem 4.8 (p. 39) to local components of a unitary cuspidal π, whose χ_{π_ν} are unitary. So Theorems 0.1, 4.8, 4.10 and Corollary 4.11 are unaffected. One small inaccuracy in E1's printed field: Corollary 3.21 begins 'Assume that…', not 'Suppose that…'. The locator pp. 24–31 is right.",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E2",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Introduction, p. 3",
+      "printed": "We note that Theorem 0.1 for general spin groups already implies the same result for special orthogonal groups, because representations of special orthogonal groups are simply representations of general spin groups with a trivial central character.",
+      "correction": "'… are simply the representations of general spin groups that are trivial on C°_G = e_0^∨(GL_1) (the kernel of GSpin_c → SO_c), i.e. those with χ_π = 1.'",
+      "reason": "SO_c = GSpin_c/C°_G (§1, p. 6). For c odd the centre of GSpin_c is C°_G and the two readings agree. For c = 2n even the centre of GSpin_{2n} is disconnected ('C°_G is in fact the identity component of C_G', p. 6) and maps onto the centre {±I} of SO_{2n}, so a representation of SO_{2n} with π(−I) = −1 inflates to a representation of GSpin_{2n} with nontrivial central character. The reduction itself is sound: r_{GSpin_c} restricted to Ĝ(SO_c) (Sp_{2n}(C) < GSp_{2n}(C), SO_{2n}(C) < GSO_{2n}(C)) is r_{SO_c}. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E3",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §1, p. 7",
+      "printed": "Υ_l ∘ i_M^{−1}(a_1, …, a_d, g) = Υ_{l−2k}(g) ∏_{i=1}^d det(a_i).",
+      "correction": "Υ_l ∘ i_M^{−1}(a_1, …, a_d, g) = Υ_{l−2r}(g) ∏_{i=1}^d det(a_i).",
+      "reason": "Here M ≅ M_β × G_{l−2r} with β a composition of r (p. 6), so g ∈ G_{l−2r}. The letter k is not defined in §1; it is the GL_k index from §3 on. Check with l = 3, r = 1: GSpin_3 ≅ GL_2 via e_0 = ε_2 and e_1 = ε_1 − ε_2, so e_0^∨ = ε_1^∨ + ε_2^∨, Υ_3 = det, Υ_1(g) = g² and i_M^{−1}(a, g) = diag(ag, g). Then Υ_3(diag(ag, g)) = ag² = Υ_1(g)·a, with Υ_{3−2r} = Υ_1. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E4",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.4, p. 15 (after (3.7)) and p. 17 (after (3.17))",
+      "printed": "'In addition, if π′ ∈ Irr(Sp_0) we formally set γ(s, π′ × τ, ψ) = γ(s, τ, ψ), and for π′ ∈ Irr(GSpin_c) with c ≤ 1, γ(s, π′ × τ, ψ) = 1.' and 'Note that if π′ ∈ Irr(Sp_0), … L(s, π′ × τ_j) = L(s, τ_j), while if π′ ∈ Irr(GSpin_c) with c ≤ 1, … L(s, π′ × τ_j) = 1.'",
+      "correction": "Add the missing convention: for π′ the trivial representation of the trivial groups SO_0 and SO_1, γ(s, π′ × τ, ψ) = 1, hence L(s, π′ × τ_j) = ε(s, π′ × τ_j, ψ) = 1.",
+      "reason": "Multiplicativity (3.9) and the definition (3.17) use γ(s, π′ × τ, ψ) and L(s, π′ × τ_j) for π′ ∈ Irr(G_{c−2l}). For G = SO_c and l = ⌊c/2⌋, that group is SO_1 (c odd) or SO_0 (c even), both trivial (§1, p. 6). The integral (3.6) needs c > 1, and the stated conventions cover only Sp_0 and GSpin_c with c ≤ 1. The value 1 is forced: N = 2n for SO_{2n+1} and SO_{2n}, and with l = n, (3.17) must give L(s, σ × τ) L(s, σ^∨ × τ), the factor of T(σ ⋊ 1) = σ ⊞ σ^∨. Checked on the page images.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E5",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.4, p. 17, (3.16)",
+      "printed": "where σ ∈ Irr(GL_l), l > 0, σ is the unique irreducible quotient of ×_{i=1}^d σ_i, with σ_i = |·|^{a_i} σ_{i,0} for a tempered representation σ_{i,0}, π′ ∈ Irr(G_{c−2l}) is essentially tempered, and a_1 > … > a_d > r/2 where r is such that |Υ_{c−2l}|^{−r} π′ is tempered (r = 0 if G ≠ GSpin_c).",
+      "correction": "a_1 > … > a_d > r.",
+      "reason": "With the paper's normalisation ⟨Υ_l, e_0^∨⟩ = 2 (p. 7), Υ_{c−2l} = 2e_0 + e_{l+1} + ⋯ + e_n. Pairing the real exponent ν = a_d·det(last block) + r·Υ_{c−2l} with the coroot of the simple root that separates GL_l from G_{c−2l} gives a_d − r (for e_l^∨ − e_{l+1}^∨ when l < n; 2a_d − 2r for 2e_n^∨ − e_0^∨ in GSpin_{2n+1}). So Langlands data need a_d > r. A counterexample to the printed condition: take GSpin_3 ≅ GL_2 (Υ_3 = det, Υ_1(g) = g², i_M^{−1}(a, g) = diag(ag, g)), σ = |·|^{3/2} and π′ = |Υ_1|^2, so r = 2 and a_1 = 3/2 > r/2. Then σ ⋊ π′ = Ind(|·|^{3/2} ⊗ |·|^{5/2}), whose unique irreducible quotient is π = |det|^2 St, with χ_π = |·|^4. For a character τ, (3.17) gives L(s, π × τ) = L(s + 3/2, τ) L(s + 5/2, τ), while the essentially tempered clause (π = |Υ_3|^2 St) gives L(s + 5/2, τ), the correct factor. So the printed condition makes the definition inconsistent. With a_d > r the data are the standard ones, and the operator I of §3.6 (p. 25) converges, which Proposition 3.19 and Corollary 3.21 need when χ_π is not unitary. Every use on the path to the main theorems has χ_π unitary, so r = 0 and the two conditions agree. The r/2 is probably left over from [CFK22]'s normalisation of Υ, which Remark 3.6 says differs. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E6",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.4, pp. 16–17, definition of the L- and ε-factors ('Tempered case', 'Essentially tempered', 'Langlands quotient', (3.16)–(3.17))",
+      "printed": "'Tempered case: When π and τ are tempered, …' 'Essentially tempered: When π = |Υ_c|^{r_0} π_0 and τ = |det|^{r_1} τ_0 …' 'Langlands quotient: In general write π as the Langlands quotient of σ ⋊ π′, where σ ∈ Irr(GL_l), l > 0, …'",
+      "correction": "Allow l = 0 in the last clause (σ absent, π′ = π essentially tempered): for essentially tempered π and τ = ×_j τ_j with each τ_j essentially tempered, L(s, π × τ) = ∏_j L(s, π × τ_j) and ε(s, π × τ, ψ) = ∏_j ε(s, π × τ_j, ψ).",
+      "reason": "A tempered π paired with a generic τ that is not essentially tempered falls under none of the three clauses. An example is a unitary complementary series τ = |·|^b χ × |·|^{−b} χ of GL_2 with 0 < b < 1/2. Yet L(s, π × τ) is used for exactly such pairs: in Theorem 3.8(2) (tempered π, unitary τ); in the proof of Theorem 3.12 (the reduction to non-tempered π); and in the completed L-function of §4.3, whose local components τ_ν of a unitary cuspidal τ may be non-tempered. The formula with l = 0 is the one forced by (3.10) and (3.15), and it gives Theorem 3.8(2): for |b_j| < 1/2 the factors L(s + b_j, π × τ_{j,0}) are holomorphic in Re(s) ≥ 1/2. Corollary 3.9 keeps l > 0, as it says. Checked on the page images.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E7",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.5, p. 18, (3.18)",
+      "printed": "Let π ∈ Irr(G). We call Π ∈ Irr(GL_N) a 'coarse transfer' of π if for every k ≥ 1 and every τ ∈ Irr(GL_k), (3.18) γ(s, π × τ, ψ) = γ(s, Π × τ, ψ).",
+      "correction": "'… and every τ ∈ Irr_gen(GL_k)' (equivalently, by (3.10) and Rankin–Selberg multiplicativity, every supercuspidal τ). Alternatively, define γ(s, π × τ, ψ) for non-generic τ as γ(s, π × τ′, ψ), where τ′ is the generic representation with the same supercuspidal support.",
+      "reason": "The doubling γ-factor is defined by (3.6) through ρ_c(τ), which the paper defines only for τ ∈ Irr_gen(GL_k) (§3.1, §3.3), and Theorem 3.5 is stated for τ ∈ Irr_gen(GL_k). No definition is given for non-generic τ; the Rankin–Selberg side has one, [JPSS83, §9.4]. The next sentence reduces (3.18) to supercuspidal τ, and the proof of Theorem 4.10 checks only supercuspidal σ′, so nothing depends on non-generic τ. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E8",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.6, p. 28, proof of Proposition 3.19",
+      "printed": "By Proposition 3.18 we can choose, for any φ_0 ∈ S_c(U_0 × U_P^− × C°_G\\U_{R′}R′^−), φ ∈ S_c(Mat_l) and µ ∈ S_c^lin(U_R), a function Φ ∈ S_c(U_{P′}) such that Φ(U(u_0, z, a, y, g′)) = φ_0(u_0, y, g′) φ(a) µ(z).",
+      "correction": "φ_0 ∈ S_c(U_0 × U_R^− × C°_G\\U_{R′}R′^−).",
+      "reason": "In Proposition 3.18 the variable y of U(u_0, z, a, y, g′) runs over U_R^− (U is defined on U_0 × U_R × GL_l × U_R^− × C°_G\\U_{R′}R′^−), and φ_0 is evaluated at (u_0, y, g′). Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E9",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.6, p. 30, proof of Lemma 3.20",
+      "printed": "Thus there are constants M_1, M_2, M_3 ∈ Z which depend on the groups (through modulus characters), on χ_π and on i and j, such that I(i, j) is bounded by …",
+      "correction": "M_1, M_2, M_3 ∈ R.",
+      "reason": "The exponents collect −1/2 − d_0, where d_0 > 0 is the arbitrary real constant of Lemma 3.14, together with half-integral modulus exponents and, for GSpin, the real exponent of |χ_π|. They are real, not integers. Only their real values are used (convergence in Re(s) ≫ 0). Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E10",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, §3.6, p. 31, proof of Corollary 3.21",
+      "printed": "By Proposition 3.19 there are data f ∈ V(τ, c), φ(e_G) and φ^∨(e_G) such that the integral Z^1(s, ω^{e_G}_{φ,φ^∨}, f) is absolutely convergent in Re(s) ≫ 0 and (its meromorphic continuation) is nonzero at s_0 when divided by L(s, σ^∨ × χ_π τ).",
+      "correction": "'… is nonzero at s when divided by L(s, σ^∨ × χ_π τ)', i.e. apply Proposition 3.19 with s_0 equal to the point s fixed in Corollary 3.21.",
+      "reason": "Corollary 3.21 fixes an arbitrary s ∈ C ('Then for any s ∈ C, there exist data …'). The name s_0 comes from Proposition 3.19 and is undefined here. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E11",
+      "kind": "error",
+      "locator": "Lemma 4.3, proof, p. 36, in arXiv v5 (the published version was not available)",
+      "printed": "'the operator L(2s+c′,τ×θ^{−1}τ)/L(2s,τ×θ^{−1}τ) M_2(s) is holomorphic when Re(s−1/2) > Re(−s−c′/2) ... By [JS81a, JS81b, Sha81], L(2s+c′,τ×θ^{−1}τ) is holomorphic when Re(2s+c′) > 1, hence in Re(s) > 0, and L(2s,τ×θ^{−1}τ) is nonvanishing when Re(2s) ≥ 1, i.e., in Re(s) ≥ 1/2. Therefore M_2(s) is holomorphic in Re(s) ≥ 1/2.'",
+      "correction": "Since [L(2s+c′)/L(2s)]·M_2(s) = N_2(s) is holomorphic, M_2(s) = [L(2s, τ×θ^{−1}τ)/L(2s+c′, τ×θ^{−1}τ)]·N_2(s). Holomorphy in Re(s) ≥ 1/2 therefore needs two facts. First, L(2s+c′, τ×θ^{−1}τ) is nonvanishing there, which holds because Re(2s+c′) ≥ 1+c′ ≥ 2. Second, L(2s, τ×θ^{−1}τ) is holomorphic there. It converges absolutely for Re(2s) > 1. On Re(2s) = 1 it could only have a pole at 2s = 1 − it with θ^{−1}τ ≅ τ^∨|det|^{it}, i.e. |det|^{−it}τ ≅ θτ^∨ ([JS81a, JS81b]), which the hypothesis of Theorem 4.1 excludes. So Lemma 4.3 remains true, but the M_2 part uses the hypothesis |det|^{it}τ ≇ θτ^∨ as well.",
+      "reason": "The printed argument gives holomorphy to the wrong L-function and nonvanishing to the wrong one. Poles of M_2 can come only from poles of L(2s) or zeros of L(2s+c′), so holomorphy of L(2s+c′) and nonvanishing of L(2s) say nothing about M_2. The displayed normalization is itself right: the Gindikin–Karpelevich factors L(x_j − y)/L(1 + x_j − y), with x_j − y = 2s + c′ − 1 − j for j = 0, ..., c′−1, telescope to L(2s)/L(2s+c′). Check with k = c′ = 1 and τ = χ: M_2(s) acts on the spherical vector by L(2s, χ²)/L(2s+1, χ²). This is holomorphic in Re(s) ≥ 1/2 exactly when L(2s, χ²) has no pole on Re(2s) = 1, i.e. when χ² ≠ |·|^{it}, which is the hypothesis.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E12",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Theorem 4.10, proof, p. 41 (line before (4.13))",
+      "printed": "'Fix ν_0 ∈ S_π. We need to show that for any l ≥ 1 and any supercuspidal σ′ ∈ Irr(GL_l(F_ν)),'",
+      "correction": "σ′ ∈ Irr(GL_l(F_{ν_0})).",
+      "reason": "ν is unbound at this point, and (4.13) and the globalization σ_{ν_0} = σ′ that follows are at ν_0.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E13",
+      "kind": "gap",
+      "locator": "arXiv:1802.02637v5, Theorem 4.10, proof, p. 41 (the sentence after (4.14))",
+      "printed": "'This is clear for ν ∉ S_π by Theorem 3.7, and for ν ∈ S follows from Theorem 3.10.'",
+      "correction": "Theorem 3.10 assumes that the central character of Π_ν is χ_{π_ν}^{N/2}, and this is never checked for ν ∈ S. It holds because the central character of Π and χ_π^{N/2} are Hecke characters of A^* that agree at almost all places (central character of the unramified transfer, §3.2), hence are equal.",
+      "reason": "Π is an arbitrary weak transfer. After the reduction via Remark 4.9 it is the Π′ given by the converse theorem, which agrees with the constructed representation only outside S_π. Its components at ν ∈ S ⊂ S_π are unknown, so the central-character hypothesis of Theorem 3.10 needs the one-line global argument above.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E14",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Corollary 4.11, proof, p. 42",
+      "printed": "'any irreducible subquotient of ×_{i=1}^d σ_i × Π_0 ×_{i=1}^d χ_π σ_i^∨ is a coarse transfer of π′'",
+      "correction": "χ_{π′} σ_i^∨. Here χ_{π′} = χ_{π_0}, the character attached to the local representation π′.",
+      "reason": "In this paragraph π′ is the local representation; π denotes the global representation from the supercuspidal case. Multiplicativity (3.9) for π′ involves γ(s, σ_i^∨ × χ_{π′}τ) = γ(s, χ_{π′}σ_i^∨ × τ).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E15",
+      "kind": "gap",
+      "locator": "arXiv:1802.02637v5, Corollary 4.11, proof, p. 42",
+      "printed": "'In general write π′ as a constituent of (σ_1 × ... × σ_d) ⋊ π_0 ... This follows immediately from (3.9) and the multiplicativity of the Rankin–Selberg γ-factors'",
+      "correction": "(3.9) is stated for π a quotient of (σ_1 × ... × σ_d) ⋊ π′ (Theorem 3.5, p. 16). Add: an irreducible subquotient of a representation induced from supercuspidal data is a quotient of (σ′_1 × ... × σ′_d) ⋊ π_0 for some Weyl conjugate, with σ′_i a permutation of the σ_j or their χ_{π_0}σ_j^∨. Apply the Jacquet module and the geometric lemma to π′^∨, then take contragredients. The right side of (3.9) is invariant under σ_j ↦ χ_{π_0}σ_j^∨ and under permutations.",
+      "reason": "As printed, the cited identity does not apply to a subquotient, and the missing step is standard but unstated. The coarse transfer and the conclusion are unchanged.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E16",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Appendix A, proof of Lemma A.8, p. 52 (after (A.21))",
+      "printed": "'Here we set s_{k,c} = s + (kc − 2c + 1)/2 for brevity'",
+      "correction": "s_{k,c} = s − (kc − 2c + 1)/2.",
+      "reason": "(A.21) comes from substituting (A.20) into (A.6), whose exponent is |det g_1 g_2^{−1}|^{s−(kc−2c+1)/2}. The unipotent variables y and b do not change |det|. The later reduction of (A.24) to Z(s, ω′, W′) 'as in the proof of Theorem A.2' starts from the exponent s − (kc−2c+1)/2 of (A.9)-(A.13). This was checked against the TeX source and the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E17",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Appendix A, proof of Lemma A.8, p. 52, (A.22)",
+      "printed": "'⟨ε(m)ϱ, ϱ^∨⟩' in (A.22)",
+      "correction": "⟨(σ_1 ⊗ π′)(m)ϱ, ϱ^∨⟩. ε is not defined in the appendix; it is carried over from §3.6, where ε = σ ⊗ π′.",
+      "reason": "The next displays (A.23) and Z^1 write it out as σ_1(m_1) ⊗ π′(I_{c−l}) and σ_1(I_l) ⊗ π′(m′).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
+    },
+    {
+      "id": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E18",
+      "kind": "misprint",
+      "locator": "arXiv:1802.02637v5, Appendix A, proof of Proposition A.10, p. 55, first lines",
+      "printed": "'By the similar argument applied to 𝔏(1−s,(π^∨)′×τ) we deduce that B(1−s)L(1−s,σ_d^∨×τ^∨) ∈ M is nowhere vanishing.'",
+      "correction": "𝔏(1−s, (π^∨)′ × τ^∨).",
+      "reason": "The mirror argument applies Lemma A.8 and the induction hypothesis to the pair (π^∨, τ^∨). Its gcd 𝔏(1−s, π^∨ × τ^∨) = B(1−s)∏L(1−s, σ_i^∨ × τ^∨) is the one being analysed, and τ^∨ is again unitary generic.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "the arXiv listing of 1802.02637, 23 September 2026: v5 (20 May 2024) is the latest version, 'to be published in the Annals'",
+        "Crossref for doi:10.4007/annals.2024.200.3.2 (Ann. of Math. 200 (2024), 893–966), 23 September 2026: no update-to or relation entries, and no work declaring an update of it",
+        "the Annals article page (annals.math.princeton.edu/2024/200-3/p02), 23 September 2026: no erratum linked",
+        "the published version is behind the journal's paywall and could not be read, so whether print differs from arXiv v5 here is not established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "found and checked on the page image or in the TeX source by the review",
+        "by": "REV-PAPER-CAI-FRIEDBERG-KAPLAN-24"
+      }
     }
   ],
   "completion": {
