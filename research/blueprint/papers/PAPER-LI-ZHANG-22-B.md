@@ -139,3 +139,22 @@ Links and reasons are in the JSON.
 - Stage ids were checked against `data/atlas.json`, the accepted restructures and `data/roadmap-retirements.json`: none of the cited stages is restructured or retired.
 - The reviewed library audit (`data/library-coverage.json`) marks GN.3 local densities absent.
 - No Lean was written or compiled; none is a deliverable of this job.
+
+## Review (REV-PAPER-LI-ZHANG-22-B, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1417), **accepted** this
+extraction and all five routes, and needed no correction. The full record is
+[REV-PAPER-LI-ZHANG-22-B.md](../reviews/REV-PAPER-LI-ZHANG-22-B.md).
+
+The recorded hash of arXiv v3 reproduces. 116 items, all 109 missing routed exactly once; all five
+stage ids and all planned layer ids exist; both Part II titles reproduce their parents' atlas titles
+exactly, and both ids are already proposed by eight sibling extractions of the same programme. Of the
+155 numbered environments, all but six — remarks and one definition — are carried into items, and
+118 of 122 locator checks land exactly, the rest being statements on the page before the cited one.
+
+All five findings are **confirmed**. E2's sign is decidable from the resolution
+`0 → O(−Z) → O → O_Z → 0`: the class of the two-term complex is `[O] − [O(−Z(x))]`, so the printed
+Chern character on p.38 is the negative of the right one, and the `d = 1` case confirms it, since
+`Int_{V(Λ)}(x) = 1` forces `deg O(−Z(x))|_{V(Λ)} = −1`. E1 is a real gap: only the difference
+`Int − ∂Den` transfers to the smaller lattice, not the two terms separately. E3, E4 and E5 are
+printed as quoted, including the proof of Corollary 6.4.8 citing itself.
