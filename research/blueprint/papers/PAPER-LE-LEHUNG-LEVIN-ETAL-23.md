@@ -1,3 +1,183 @@
+# Local models for Galois deformation rings: affinoid product suppliers
+
+Codex — codex-7e92bd, issue #1254, 23 September 2026. This continuation of merged #2259 has **456 items: 60 library, 8 planned, 388 missing, with 15 unchanged route identities and 35 unchanged, unreviewed source findings**. It adds eleven pinned imports L50–L60 and eighteen source/planning items Z45–Z62. All 427 inherited IDs remain; Z08, Z10, Z13 and Z14 have more precise statements, and Z09 has explicit supplier edges. The definition/construction census is now 150 (84 definitions, 66 constructions). Z08 and the new construction Z52 have itemwise APIs and typed tests; this does not close the other API deficits.
+
+The extraction is **partial**. The main paper's full reading was already completed by this session. This continuation reads the bounded analytic suppliers needed in the final paragraph of Theorem 3.7.1, published PDF79–80; it does not claim that the remaining representation-theory sources, regularity suppliers or all paper-wide interfaces are finished. No Lean file was required or compiled, no adapter is claimed implemented, and no independent review of E1–E35 is supplied.
+
+## Exact scope and sources
+
+The analytic convention is now explicit: a complete **nontrivially valued** nonarchimedean field and **strict** affinoid algebras, presented as quotients of unit-radius Tate algebras. This includes the fraction field of every complete DVR used here, including imperfect equal-characteristic fields. Neither arbitrary Berkovich radii nor trivially valued analytic categories are silently included. Finite field extensions may be inseparable.
+
+The source proofs inspected were:
+
+- [Bosch, *Lectures on Formal and Rigid Geometry*, Münster notes](https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf), PDF12–17 and24, printed10–15 and22: §1.2 Lemma7, Theorem8, Corollaries9–11 and §1.4 Proposition2. SHA-256 `7cb79d83e0d78e8919aa4b7c29fbd6f88d3041344f62a1c38a3088ab113cb1e4`.
+- [Conrad, *Several approaches to non-archimedean geometry*](https://math.stanford.edu/~conrad/papers/aws.pdf), PDF1,4–6,13,20,30–32: field conventions, Theorems1.1.5/1.2.6, Exercise2.2.3 and Example2.4.5, Exercises3.3.1/3.3.8 and the formal generic-fiber comparison. These exercises specify constructions; the concrete proofs used here are written below. SHA-256 `5add29094b74385746c4d977290b2308d02cbe8aa6f085e6a99724f6939e309b`.
+- [BLGGT, *Potential automorphy and change of weight*](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf), LemmaA.1.1, PDF96/printed596, reread after the earlier AppendixA.1 reading. SHA-256 `c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b`.
+- Stacks [04KV](https://stacks.math.columbia.edu/tag/04KV) and the preceding descent proof in [0361](https://stacks.math.columbia.edu/tag/0361), [0AH2](https://stacks.math.columbia.edu/tag/0AH2), [07PX](https://stacks.math.columbia.edu/tag/07PX) and the finite-type stability reduction in [07GG](https://stacks.math.columbia.edu/tag/07GG), [031E](https://stacks.math.columbia.edu/tag/031E), and [00NP](https://stacks.math.columbia.edu/tag/00NP). The outer arguments were read; their deeper regularity suppliers remain named gaps.
+
+The reviewed AUDIT-01 SF.0/SF.4 rows and AUDIT-17 R03.1 row were read, together with AdicSpacesPartII R0/F0/R1/R2 and the upstream AdicSpaces Layer0 description. There is no direct AdicSpacesPartII R0/F0 row in the current library-coverage map; the reviewed overlap rows therefore guide ownership, followed by fresh declaration reads. The R03.1 audit's historical negative claim about Noetherian completion is not itself treated as a theorem. The prior continuation's completion audit remains in force.
+
+AdicSpacesPartII R0/F0 owns the analytic tensor, finite scalar/fiber comparisons and formal generic model. SchemeAndStackFoundations SF.0 owns the algebraic pointed-connectedness argument; SF.4 supplies the completion/regularity facts. Upstream AdicSpaces Layer0.5 already plans Weierstrass division, imported as planned Z49. Its restricted-series carrier is reused throughout. No new roadmap or second tensor/series carrier is proposed. The separate complete-local coefficient-category tensor Z24 remains with R03.1, and the previous ModularCurves §4D ownership is unchanged.
+
+## Pinned suppliers
+
+The following declarations were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Thirteen inspected source files were byte-compared with the corresponding full-pin raw GitHub files; hashes, URLs and searches are recorded in `libraryAudit.analyticContinuation`.
+
+| Item | Pinned declaration | Exact contribution |
+| --- | --- | --- |
+| L50 | `TauCeti.GaloisDescent.range_eq_invariants_of_liftBaseChange_surjective` | Invariant vectors equal the image of an invariant map whose scalar extension is surjective; no dimension bound on the representation. |
+| L51 | `IsPurelyInseparable.pow_mem` | A power with exponent a power of the exponential characteristic is scalar. |
+| L52 | `separableClosure.isPurelyInseparable` | An algebraic extension is purely inseparable above its relative separable closure. |
+| L53 | `TauCeti.connectedSpace_primeSpectrum_of_injective` | Connectedness descends along an injective ring map. |
+| L54 | `TauCeti.Huber.restrictedMvPowerSeriesBaseChangeEquiv` | Restricted series commute with finite-module base change over a complete Noetherian Tate ring, with the specified module topology. |
+| L55 | `Module.Flat.instTensorProduct` | Tensor products of flat modules are flat. |
+| L56 | `Module.Flat.trans` | Flatness in a compatible tower is transitive. |
+| L57 | `Module.Flat.isSMulRegular_of_isRegular` | A regular scalar acts injectively on a flat module. |
+| L58 | `TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk` | Connected locally Noetherian schemes with domain stalks are irreducible. |
+| L59 | `TauCeti.Huber.iterateRingEquiv`, `continuous_iterateRingEquiv`, `continuous_iterateRingEquiv_symm` | Iteration of completed restricted series, including both continuous directions. |
+| L60 | `Algebra.Smooth.baseChange` | Smoothness of ordinary algebraic base change. |
+
+The current geometric-connectedness file supplies the scheme predicate and its stability, but not the pointed-connectedness theorem used here. The Tate strong-Noetherian predicate and some quotient/iteration results are present; its field case is not a license to call the whole strict-affinoid Nullstellensatz or product package implemented. L54 is a linear equivalence for finite modules: the algebra, quotient and topology identifications in Z53 still need an adapter. L58 does not prove that regular local rings are domains; that is the separate Z62 source input.
+
+## Rational points and connectedness
+
+The old Z10 statement was correct but stronger than necessary in its hypotheses. Normality is unnecessary. Z45–Z47 give a proof for every connected commutative K-algebra A with a retraction ε:A→K, before any analytic structure is considered.
+
+For a finite Galois L/K, write D=L⊗_K A and let G act on L. L50 applied to a↦1⊗a identifies D^G with A: its scalar extension is the identity on L⊗A. If e²=e, the extended retraction sends e to 0 or 1. Replace e by 1−e to arrange ε_L(e)=1. Then
+
+```text
+N(e) = ∏_(σ∈G) σ(e)
+```
+
+is an invariant idempotent and has value 1 under the retraction. Connectedness of A forces N(e)=1. The identity automorphism is a factor, so eN(e)=N(e), whence e=1. This works even when the characteristic divides |G|; there is no averaging by that integer. Nontriviality comes from the retraction.
+
+For a purely inseparable L/K, an idempotent in A⊗L uses finitely many coefficients of L. Choose one common exponent q^n taking them all into K. Frobenius and idempotence show e=e^(q^n) lies in the image of A. Scalar extension is injective and reflects idempotence, so it introduces no new idempotents. This argument even allows an infinite purely inseparable extension; the consumer needs only finite ones.
+
+For arbitrary finite L/K, take its relative separable subfield E, use a finite Galois closure of E/K and L53 to descend connectedness to A⊗E, then apply the purely inseparable step to L/E. Z10 combines this algebraic result with the finite ordinary/completed comparison Z53.
+
+The API tests now include a nonnormal positive example K[ε]/ε², the disconnected K×K, and a nontrivial finite separable field extension without a K-retraction. A point only over an extension field does not satisfy the theorem's rational-point hypothesis.
+
+## Nullstellensatz and the two rational fibers
+
+Z48 makes a nonzero restricted series distinguished by a triangular coordinate change. After dividing by a maximal-norm coefficient, its reduction is a polynomial. A sufficiently large base-t encoding separates all monomial exponents; the largest becomes the unique top power of the final variable. The substitutions with plus and minus signs are inverse contractions and hence isometries.
+
+Z49 imports the existing Weierstrass division target. Normalize the distinguished coefficient, divide by the degree-s polynomial truncation, and iterate errors bounded by a fixed θ<1. One can take θ strictly positive even when the higher-degree tail is zero; approximate the input series to the corresponding precision. The quotient and remainder corrections converge. Reduction gives uniqueness and the norm identity. Thus T_n/(g) is finite free over T_(n−1), with the expected monomial basis. Induction on the kernel gives Z50, a finite injection T_d→A; it need not use the original coordinates.
+
+Apply this to A/m. Since it is a field integral over T_d, T_d is a field, forcing d=0. This proves Z51 without using a dimension formula. A nonempty clopen is an idempotent factor and has a maximal ideal. Finitely many such residue fields embed in one finite compositum, including in the inseparable case, so their points can be made rational simultaneously.
+
+Z52 is the already-planned completed tensor, presented as
+
+```text
+(K⟨X⟩/I) ⊗̂_K (K⟨Y⟩/J) = K⟨X,Y⟩/(I,J).
+```
+
+It has nine API entries and five typed tests in the JSON. Quotients use closed ideals with the Banach quotient topology. A finite K-basis of L identifies L-valued restricted coefficient families with finitely many K-valued ones. Passing to the affinoid quotients gives Z53 and the product comparison after finite extension. No claim about infinite analytic extension is needed.
+
+For a K-rational maximal ideal m⊂A, quotienting Z52 gives Z54:
+
+```text
+(A ⊗̂_K B)/m = B,       (A ⊗̂_K B)/(m,n) = K
+```
+
+when n also comes from a rational point of B. The ideals displayed mean their extensions into the product. Their closedness is why these are actual quotient kernels.
+
+To prove Z14, first make any proposed disconnected finite scalar extension a product over that extension by Z53. Choose a rational point in each clopen after a further common finite extension by Z51. Project the **first** point to A and the **second** to B. The first fiber is connected Spec B, contains the first point and lies in its clopen. The second fiber is connected Spec A and lies in the other clopen. Their simultaneous fiber is Spec K, contradicting disjointness. Keeping the two selected projections distinct is essential to this argument.
+
+An ordinary tensor cannot replace the completed tensor: Σ_(n≥0) p^n x^n y^n lies in Q_p⟨x,y⟩. Its coefficient matrix has arbitrarily large nonzero diagonal minors, while a finite sum of separated tensors has finite matrix rank. The new API records this as a non-example.
+
+## Integral completion and the regularity boundary
+
+Use the actual finite-type chart models B_i over the complete DVR O and set P=⊗_O B_i. For finite polynomial presentations, exactness of completion identifies the π-adic completions with restricted-series quotients. Applying the presentations to all variables at once gives Z55. A restricted K-series has coefficients bounded below in valuation, so one common power of π clears their denominators. This identifies the localized restricted-series presentation with the affinoid one. It does **not** assert that localization commutes with arbitrary inverse limits.
+
+If the B_i are flat, P is flat and Noetherian. Its π-adic completion C is P-flat by inherited L11, hence O-flat by L56. Multiplication by π is injective by L57, giving C↪C[1/π]. This is Z56. It avoids assuming that an ordinary tensor of completed rings is Noetherian.
+
+The regularity of C[1/π] is a separate proof. The source's algebraic chart generic fibers are smooth by U23, so their algebraic product P[1/π] is smooth and regular. Z58 supplies the G-ring property of finite-type algebras over O; Z57 makes the completion map regular, and Z59 transfers regularity after inverting π. Together with Z55 this proves the required regularity of the analytic product, as recorded in Z60.
+
+The **outer argument is now explicit**, but the entire supplier tree is not closed. Remaining exact audits include finite-type stability of G-rings and its characteristic-p formal fibers, faithful-flat descent for regular maps, completion Noetherianity in that proof, the flat local dimension formula, smooth-over-field regularity and the regular-local associated-graded polynomial theorem. The source proofs of 0AH2, 031E and 00NP were read; their deeper cited inputs must not be described as already audited. Z57 also does not assert that the completion of an arbitrary G-ring is a G-ring.
+
+Z62 derives the domain property of a regular local ring by multiplying initial forms in its polynomial associated graded ring, using Krull separation to give every nonzero element finite order. It does not posit a ring embedding into the associated graded. Z61 then uses the pinned domain-stalk irreducibility theorem and reducedness to obtain the connected regular ring's domain property. Hence Z13 follows from connectedness (Z10/Z14), comparison (Z55), regularity (Z60/Z61) and integral injectivity (Z56).
+
+Both qualifications matter. K×K is regular but disconnected. Dual numbers are connected but nonreduced. If K is an imperfect complete field of characteristic p and a∉K^p, L=K(u), u^p=a, is a regular field but L⊗_K L=L[δ]/δ^p is not regular. This is why regularity of arbitrary factors does not replace the actual smooth generic chart input.
+
+## Validation and resume point
+
+The fresh finite diagnostics enumerate 1,364 elements of F₄[ε]/ε^n for 1≤n≤5, recognize 62 invariant vectors under coefficientwise Galois conjugation and check the idempotent norm argument on all ten idempotents. The separable field F₄⊗_(F₂)F₄ has four idempotents, and F₄[δ]/δ² models the nilpotent algebra shape occurring after a purely inseparable self-tensor. Twelve exact diagonal determinant witnesses check the ordinary-tensor boundary; 6,561 finite polynomial evaluations check the two rational-fiber evaluations commute. These finite algebra examples do not certify analytic convergence, comparison theorems, G-ring results or Lean proofs. The code below uses only the Python standard library.
+
+Fresh repository checks: `scripts/check_paper.py` on the extraction; `research/blueprint/intake.py check-files` on the three authorized deliverables; `git diff --check`; the paper/source-issue/intake/queue unit tests; and structural preservation, unique routing, typed-test and acyclic-dependency checks. Older Newton, smooth-locus and AppendixB experiments are inherited, not claimed rerun.
+
+Resume with the named analytic regularity/topology suppliers above, then Z24's coefficient-category presentation/topology adapters and the exact remaining Jantzen/Herzig/Deligne–Lusztig, inertial K-type, Kisin monodromy and CHT/Thorne inputs. Finish the multipart census, monodromy/AppendixA hypotheses, itemwise APIs and at least three typed tests for every definition/construction, and integral AppendixB certificates. Keep status partial until these obligations are actually settled. E1–E35 still require independent completed review.
+
+```python
+"""Finite algebra diagnostics; these do not prove analytic comparison theorems."""
+from itertools import product
+import json
+
+def fm(a,b):
+    r=0
+    while b:
+        if b&1: r^=a
+        b>>=1; a<<=1
+        if a&4: a^=7  # F4=F2[t]/(t²+t+1)
+    return r
+def mul(a,b):
+    c=[0]*len(a)
+    for i,x in enumerate(a):
+        for j,y in enumerate(b[:len(a)-i]): c[i+j]^=fm(x,y)
+    return tuple(c)
+def sigma(a): return tuple(fm(x,x) for x in a)
+count=fixed=idem=0
+for n in range(1,6):
+    z=(0,)*n; one=(1,)+(0,)*(n-1)
+    for a in product(range(4),repeat=n):
+        count+=1
+        invariant=sigma(a)==a
+        assert invariant==all(x in (0,1) for x in a)
+        fixed+=invariant
+        if mul(a,a)!=a: continue
+        idem+=1
+        assert a in (z,one)
+        e=a if a[0]==1 else tuple(x^y for x,y in zip(one,a))
+        norm=mul(e,sigma(e))
+        assert norm==one and mul(e,norm)==norm and e==one
+
+# A connected finite separable field without a K-point splits.
+# F4 ⊗ F2 F4 = F4[t]/(t²+t+1); an element is (a,b).
+def extmul(x,y):
+    a,b=x; c,d=y; bd=fm(b,d)
+    return (fm(a,c)^bd, fm(a,d)^fm(b,c)^bd)
+split_idem=[x for x in product(range(4),repeat=2) if extmul(x,x)==x]
+assert len(split_idem)==4
+assert [x for x in range(2) if (fm(x,x)^x^1)==0]==[]
+
+# The inseparable tensor F4[δ]/δ² has nilpotents but no new idempotents.
+dual_idem=[x for x in product(range(4),repeat=2) if mul(x,x)==x]
+assert dual_idem==[(0,0),(1,0)] and mul((0,1),(0,1))==(0,0)
+
+# Finite diagonal blocks of Σ 3^n x^n y^n have full rank, witnessed by determinant.
+for n in range(1,13):
+    diagonal=[3**i for i in range(n)]
+    determinant=1
+    for x in diagonal: determinant*=x
+    assert determinant==3**(n*(n-1)//2) and determinant!=0
+
+# Rational-fiber quotient kernel in a polynomial model, exact finite coefficient test.
+# For every polynomial with 6 coefficients in F3, evaluating x=a then y=b equals
+# evaluation at (a,b); this is the algebraic compatibility underlying the analytic API.
+evaluations=0
+for coeff in product(range(3),repeat=6):
+    for a,b in product(range(3),repeat=2):
+        direct=sum(coeff[i*3+j]*a**i*b**j for i in range(2) for j in range(3))%3
+        first=[sum(coeff[i*3+j]*a**i for i in range(2))%3 for j in range(3)]
+        assert direct==sum(first[j]*b**j for j in range(3))%3
+        evaluations+=1
+print(json.dumps(dict(galois_elements=count,invariant_vectors=fixed,idempotents=idem,
+    split_field_idempotents=len(split_idem),inseparable_shape_idempotents=len(dual_idem),
+    diagonal_rank_witnesses=12,rational_fiber_evaluations=evaluations,
+    limitation='Finite algebra examples only; no analytic topology, G-ring theorem or formal proof certified.'),indent=2))
+```
+
+## Earlier checkpoint report (historical, preserved)
+
 # Local models for Galois deformation rings: the uniform Jacobian power witness
 
 Codex — codex-a71f92, issue #1254, 23 September 2026. Partial continuation of merged #2248: **427 items (49 library, 6 planned, 372 missing), 15 routes, 149 definitions/constructions (84 plus 65), and 35 unchanged, unreviewed source findings.** All 406 inherited statements are preserved. This checkpoint adds sixteen pinned imports L34–L49 and five proof adapters Z40–Z44; it refines only the inherited Z03/Z07 item objects. No Lean deliverable or compilation, formalization, or independent review is claimed.

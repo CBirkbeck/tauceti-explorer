@@ -105,7 +105,7 @@
       ]
     }
   },
-  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial.",
+  "summary": "Full published-paper reading and a section-by-section mathematical inventory, with explicit genericity/convention boundaries and source corrections. The routing closes the inventory but does not yet certify proof-input closure, split every bundled conclusion or finish each definition API; the extraction remains partial for the listed gaps. Continuation codex-hjdg0j adds 14 items separating Elkik precision, complete-local domains and affinoid connectedness, including two exact library atoms; adds the analytic product source route and one adjacent-source cross-reference correction. A further codex-7e92bd continuation adds Z15–Z24 and five exact library atoms, exposes the general-DVR saturated-jet proof, and removes its apparent dependency on the narrower arithmetic theorem. Analytic and remaining regular-structure atom closure stay explicit. Continuation codex-a71f92 audits the precise completion/regular-coordinate suppliers: imports sixteen pinned library theorem atoms, exposes five elementary adapters, and coalesces local regularity/dimension under completion with existing ModularCurves §4D. The overall extraction and implementation remain partial. Newton continuation: Z30–Z39 separate Taylor error, differentiated conductor identities, weighted adjugates, cancellation, witness stability, quantitative congruence limits and base-change inclusion; L24–L33 are exact pinned imports. Z03 has six typed tests. Smooth-locus supplier closure and the other recorded gaps remain; status stays partial. Second codex-a71f92 continuation adds L34–L49 and Z40–Z44: fixed-presentation conductor witnesses, both directions of the smooth-locus criterion and a universal radical-power identity, with exact pinned suppliers. The Noetherian convention in Elkik is distinguished from the separately proved finite-presentation extension; Z07 retains its strict m>r evaluation threshold. The overall extraction is still partial. Analytic continuation by codex-7e92bd adds L50–L60/Z45–Z62: pointed connectedness without normality, strict-affinoid normalization/Nullstellensatz and rational fibers, finite scalar comparison, and finite-type integral completion flatness. The regularity argument is decomposed with exact remaining G-ring and regular-local supplier gaps. Status remains partial.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -3445,7 +3445,7 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
       "kind": "definition",
       "name": "Geometric connectedness in the affinoid finite-extension sense",
-      "statement": "For a nonzero affinoid algebra A over a complete nonarchimedean field K, call A geometrically connected in the sense used by BLGGT if Spec(A⊗_K L) is connected for every finite field extension L/K. Finite extension tensors agree with their completed tensors. Comparison with the scheme predicate testing arbitrary field extensions is a separate interface.",
+      "statement": "For a nonzero strict affinoid algebra A over a complete nontrivially valued nonarchimedean field K, call A geometrically connected in the finite-extension sense if Spec(A⊗_K L) is connected for every finite field extension L/K. Z53 identifies each such tensor with the completed tensor. Comparison with the scheme predicate testing arbitrary extensions is a separate interface.",
       "locator": "BLGGT AppendixA.1, printed pp. 595–596/PDF95–96",
       "status": "missing",
       "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
@@ -3495,6 +3495,28 @@
           "role": "compatibility",
           "statement": "The completed tensor product preserves this condition once the affinoid fiber comparison is established."
         }
+      ],
+      "tests": [
+        {
+          "name": "AffinoidGeometricallyConnected.field",
+          "kind": "example",
+          "statement": "K satisfies the predicate since K⊗_K L=L for every finite field extension."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.separableField",
+          "kind": "non-example",
+          "statement": "A nontrivial finite separable L/K becomes a nontrivial product after a splitting field and fails the predicate."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.nilpotent",
+          "kind": "degenerate",
+          "statement": "K[ε]/ε² satisfies the predicate because every finite scalar extension is L[ε]/ε², which has no idempotents beyond 0,1."
+        },
+        {
+          "name": "AffinoidGeometricallyConnected.baseChange",
+          "kind": "compatibility",
+          "statement": "For finite E/K and A satisfying the predicate, test (A⊗_K E)⊗_E L=A⊗_K L for each finite L/E."
+        }
       ]
     },
     {
@@ -3506,7 +3528,10 @@
       "status": "missing",
       "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z54"
       ],
       "proofSteps": [
         "Assume a disconnected finite scalar extension; each open-and-closed part has a maximal ideal. Make both residue fields rational over a common finite extension.",
@@ -3518,18 +3543,19 @@
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
       "kind": "theorem",
-      "name": "A normal connected affinoid with a rational point is geometrically connected",
-      "statement": "For a complete nonarchimedean field K, a nonzero connected normal affinoid K-algebra A admitting a K-algebra retraction A→K is geometrically connected in the finite-extension sense; in particular this applies to a regular affinoid domain with a K-point.",
+      "name": "A connected affinoid with a rational point is geometrically connected",
+      "statement": "For a complete nontrivially valued nonarchimedean field K, a connected strict affinoid K-algebra A admitting a K-algebra retraction A→K is geometrically connected in the finite-extension sense. Normality and regularity are unnecessary for this conclusion.",
       "locator": "Implicit input before BLGGT LemmaA.1.1 is applied in LLHLM23 Theorem3.7.1, PDF79–80",
       "status": "missing",
-      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "note": "AdicSpacesPartII:R0 affinoid adapter of the general algebraic result Z47. This strengthens the earlier correct normal-connected statement; it is not a new source erratum.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53"
       ],
       "proofSteps": [
-        "For a finite Galois extension L/K, finite étale base change preserves normality. Its finitely many connected components are disjoint open normal components; the Galois action is transitive, since a union of orbits would descend a nontrivial idempotent to A.",
-        "The K-point base changes to an L-point fixed by the semilinear Galois action. Normality makes its component unique, so this component is fixed. Transitivity forces a single component.",
-        "Descend from Galois closures for separable extensions; purely inseparable finite extensions induce universal homeomorphisms. The finite étale normality, Galois descent of idempotents and inseparable topology are named supplier obligations, not a new assertion of full formal closure."
+        "Apply Z47 to the underlying K-algebra, then Z53 to identify each finite scalar extension with its completed extension.",
+        "The former normality/component proof is replaced by the explicit invariant-idempotent product and inseparable Frobenius proof. No finite étale normality theorem is needed."
       ],
       "implementationStatus": "unchecked",
       "unitTests": [
@@ -3542,6 +3568,28 @@
           "name": "Z10.test_2",
           "statement": "The theorem needs a rational point over K, not just a point over a finite extension.",
           "status": "mathematical acceptance test; no Lean compilation"
+        }
+      ],
+      "tests": [
+        {
+          "name": "PointedAffinoid.dualNumbers",
+          "kind": "example",
+          "statement": "K[ε]/ε² with ε↦0 is connected and geometrically connected despite not being normal or reduced."
+        },
+        {
+          "name": "PointedAffinoid.disconnected",
+          "kind": "non-example",
+          "statement": "K×K has a K-point but is disconnected and fails the hypothesis."
+        },
+        {
+          "name": "PointedAffinoid.noRationalPoint",
+          "kind": "non-example",
+          "statement": "For a nontrivial finite separable L/K, A=L is a regular connected affinoid with a point over L but no K-retraction; it splits after a finite Galois closure."
+        },
+        {
+          "name": "PointedAffinoid.wildGalois",
+          "kind": "compatibility",
+          "statement": "The Z45 argument works over a field of characteristic p with a degree-p Galois extension: it never divides by the group order."
         }
       ]
     },
@@ -3604,20 +3652,22 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
       "kind": "theorem",
       "name": "The chart's completed affinoid product is a domain",
-      "statement": "For the charts in Theorem3.7.1 after the specified DVR extension R′, let C_j be their flat, topologically finite-type π-adically completed coordinate rings. If each C_j is π-torsionfree, C_j[1/π] is a regular affinoid domain with a K-point (K=Frac R′), and the completed generic product is regular as supplied by the smooth generic chart construction, then the completed integral product is a domain.",
+      "statement": "Let O be the complete DVR R′ used in Theorem3.7.1, π its uniformizer, K its fraction field, and B_j the finite-type flat chart O-algebras. Assume each C_j=π-adic completion of B_j has regular domain generic fiber with a K-point, and each B_j[1/π] is smooth over K as supplied by the generic chart construction. Then C=π-adic completion of ⊗_O B_j is an integral domain.",
       "locator": "LLHLM23 Theorem3.7.1 final paragraph, PDF79–80",
       "status": "missing",
-      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "note": "AdicSpacesPartII:R0/F0. The finite-type presentation is essential for the flat completion proof. Z57–Z59/Z62 record the remaining regularity-source obligations explicitly.",
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61"
       ],
       "proofSteps": [
-        "Z10 gives geometric connectedness of each generic factor; Z14 gives connectedness of the completed product.",
-        "Combine connectedness with the independently established regularity: a Noetherian regular ring is a finite product of domains, so only one factor remains.",
-        "The integral completed product injects into its generic fiber by π-torsionfreeness. Verify this torsionfreeness and the identification of the generic completed tensor for these flat finite-type formal models.",
-        "Over an imperfect K, regularity of arbitrary factors alone is not used as a proof of regularity of their product. The stronger smooth-generic-chart source and completion comparison must be retained."
+        "Z10 and Z14 make the completed generic product connected. Z55 identifies it with C[1/π].",
+        "Z60 supplies its regularity from the actual smooth algebraic charts, so Z61 makes C[1/π] a domain.",
+        "Z56 embeds C into this domain. For nontriviality, the factor K-points give a K-point of the completed generic product by its universal property; alternatively retain the chart O-points and extend them continuously to C. The empty product is O."
       ],
       "implementationStatus": "unchecked"
     },
@@ -3625,16 +3675,21 @@
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
       "kind": "theorem",
       "name": "Affinoid product connectedness over complete nonarchimedean fields",
-      "statement": "For any complete nonarchimedean field K and geometrically connected affinoid K-algebras A_1,A_2 in the finite-extension sense, the completed tensor product is geometrically connected. The proof requires the affinoid Nullstellensatz and completed fiber comparisons over this field, whose exact supplier statements remain open.",
+      "statement": "For a complete nontrivially valued nonarchimedean field K and geometrically connected strict K-affinoid algebras A,B in the finite-extension sense, A⊗̂_K B is geometrically connected. No perfection or characteristic-zero assumption on K is imposed.",
       "locator": "General-field adaptation of BLGGT LemmaA.1.1 used in LLHLM23 Theorem3.7.1, PDF79–80",
       "status": "missing",
-      "note": "Continuation by Codex — codex-hjdg0j. Owner: AdicSpacesPartII. Planning only.",
+      "note": "Existing AdicSpacesPartII:R0 owner. The stated generality now explicitly matches the nontrivial absolute-value and strict-affinoid conventions of the sources. Generalized radii or trivially valued analytic categories are not inferred from this proof.",
       "prerequisites": [
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z08",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z54"
       ],
       "proofSteps": [
-        "The two-fiber contradiction of Z09 uses no arithmetic property of a finite extension of Q_l.",
-        "Its actual prerequisites are: maximal residue fields of affinoids are finite, completed tensors and finite base change commute, and quotienting the completed product by a rational maximal ideal in one factor gives the other factor. Record these exact analytic supplier statements before closing the general-field adapter."
+        "After any finite scalar extension use Z53 to retain a product of geometrically connected factors. Suppose it has a decomposition into two nonempty clopens. By Z51 choose a point in each and extend scalars again to make both rational; they stay in their respective clopens.",
+        "Use the first selected point only for its projection a to A, and the second only for its projection b to B. By Z54 the fiber over a is the connected Spec B and lies in the first clopen; the fiber over b is the connected Spec A and lies in the second.",
+        "Their simultaneous fiber is Spec K by Z54 and is nonempty, a contradiction. This proves connectedness after every initial finite extension. The argument is the BLGGT proof with its precise strict-affinoid suppliers exposed."
       ],
       "implementationStatus": "unchecked"
     },
@@ -5390,6 +5445,578 @@
           "match": "The full conductor-weighted Jacobian ideal cuts out the nonsmooth locus. The arbitrary-base finite-presentation adapter below supplies its own proof; it is not attributed verbatim to Elkik's Noetherian statement."
         }
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L50",
+      "kind": "theorem",
+      "name": "Invariant vectors recognized by scalar extension",
+      "statement": "For a finite Galois extension L/K, a semilinear Galois representation V over L and a K-linear invariant map f:W→V, if L⊗_K W→V induced by f is surjective then image(f)=V^Gal(L/K). Neither W nor V need be finite-dimensional.",
+      "locator": "TauCeti/RepresentationTheory/GaloisDescent/Range.lean:40",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.GaloisDescent.range_eq_invariants_of_liftBaseChange_surjective"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L51",
+      "kind": "theorem",
+      "name": "Purely inseparable elements have scalar powers",
+      "statement": "For a purely inseparable field extension E/F of exponential characteristic q and x∈E, some x^(q^n) belongs to the image of F. In characteristic zero q=1.",
+      "locator": "Mathlib/FieldTheory/PurelyInseparable/Basic.lean:224",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:IsPurelyInseparable.pow_mem"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L52",
+      "kind": "theorem",
+      "name": "Algebraic extensions above their separable closure are purely inseparable",
+      "statement": "If E/F is algebraic, E is purely inseparable over the relative separable closure of F in E.",
+      "locator": "Mathlib/FieldTheory/PurelyInseparable/Basic.lean:481",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:separableClosure.isPurelyInseparable"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L53",
+      "kind": "theorem",
+      "name": "Connectedness of spectra descends along injections",
+      "statement": "For an injective homomorphism of commutative rings R→S, connectedness of Spec S implies connectedness of Spec R. Nontriviality of R follows from that of S.",
+      "locator": "TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean:76",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.connectedSpace_primeSpectrum_of_injective"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L54",
+      "kind": "theorem",
+      "name": "Finite-module restricted-series base change",
+      "statement": "Let A be a complete separated nonarchimedean Noetherian Tate ring with countably generated uniformity, and M a finite A-module with its module topology and continuous addition. For k finite variables, the coefficientwise map M⊗_A A⟨X₁,…,X_k⟩→M⟨X₁,…,X_k⟩ is a linear equivalence. This is not yet an affinoid quotient algebra or completed-tensor comparison.",
+      "locator": "TauCeti/RingTheory/Huber/Restricted/BaseChange.lean:500–546",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.Huber.restrictedMvPowerSeriesBaseChangeEquiv"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L55",
+      "kind": "theorem",
+      "name": "Tensor products of flat modules are flat",
+      "statement": "For a commutative ring R and flat R-modules M,N, M⊗_R N is R-flat; the pinned instance also allows the first module to be flat over an R-algebra S and returns S-flatness.",
+      "locator": "Mathlib/RingTheory/Flat/Basic.lean:233–243",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.Flat.instTensorProduct"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L56",
+      "kind": "theorem",
+      "name": "Flatness is transitive",
+      "statement": "For compatible scalar actions R→S on M, if S is R-flat and M is S-flat then M is R-flat.",
+      "locator": "Mathlib/RingTheory/Flat/Stability.lean:62",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.Flat.trans"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L57",
+      "kind": "theorem",
+      "name": "Flat modules preserve regular scalar multiplication",
+      "statement": "If r is a non-zero-divisor of a commutative ring R and M is R-flat, multiplication by r on M is injective.",
+      "locator": "Mathlib/RingTheory/Flat/TorsionFree.lean:50,78",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Module.Flat.isSMulRegular_of_isRegular"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L58",
+      "kind": "theorem",
+      "name": "Connected locally Noetherian schemes with domain stalks are irreducible",
+      "statement": "A connected locally Noetherian scheme whose every local ring is a domain is irreducible. Its reducedness and the affine domain conclusion are separate consequences.",
+      "locator": "TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean:395",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L59",
+      "kind": "theorem",
+      "name": "Iteration of completed restricted series",
+      "statement": "For a topological commutative Huber ring A and natural k,m, A⟨X₁,…,X_(k+m)⟩ and A⟨X₁,…,X_k⟩⟨Y₁,…,Y_m⟩ are canonically ring-isomorphic by mutually continuous maps preserving coefficients and the two blocks of variables. Here the series rings are Tau Ceti’s separated completed restricted series.",
+      "locator": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Iterate.lean:82,321,362–367",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "tauceti:TauCeti.Huber.iterateRingEquiv",
+        "tauceti:TauCeti.Huber.continuous_iterateRingEquiv",
+        "tauceti:TauCeti.Huber.continuous_iterateRingEquiv_symm"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L60",
+      "kind": "theorem",
+      "name": "Smooth algebras remain smooth under base change",
+      "statement": "For commutative R-algebras A,B, if A is smooth over R then B⊗_R A is smooth over B.",
+      "locator": "Mathlib/RingTheory/Smooth/Basic.lean:573",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "library": [
+        "mathlib:Algebra.Smooth.baseChange"
+      ],
+      "note": "Pinned declaration statements read; no new Lean implementation. "
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z45",
+      "kind": "theorem",
+      "name": "Galois norm of an idempotent in a pointed connected algebra",
+      "statement": "Let A be a connected commutative K-algebra with a K-algebra retraction ε:A→K and L/K a finite Galois extension. Every idempotent of L⊗_K A is 0 or 1; thus its spectrum is connected. No normality, reducedness or finite-type hypothesis on A is required.",
+      "locator": "Stacks 33.7.12–14 (0361,04KV), affine finite-Galois specialization; explicit multiplicative-idempotent proof in this report",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L50"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.0.",
+      "proofSteps": [
+        "Let G act on L⊗A through L. Apply L50 to f(a)=1⊗a; its scalar-extension map is the identity under the tensor identification, so invariants are exactly 1⊗A. This uses trace-one descent, never division by |G|.",
+        "For an idempotent e, ε_L(e) is 0 or 1 in L. Replace e by 1−e if necessary to make ε_L(e)=1. Set N(e)=∏_{σ∈G}σ(e). It is invariant, idempotent and evaluates to 1, so N(e)=1 by connectedness of A.",
+        "The identity element occurs in the product, and eN(e)=N(e) by e²=e. Thus e=1. Undo the complement. The retraction also proves nontriviality after extension."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z46",
+      "kind": "theorem",
+      "name": "Purely inseparable base change preserves idempotents",
+      "statement": "For any commutative K-algebra A and purely inseparable field extension L/K, the injection A→A⊗_K L induces a bijection on idempotents. In particular connectedness is preserved, including for finite extensions over an imperfect field.",
+      "locator": "Stacks purely inseparable power criterion 09HE; direct finite-support Frobenius argument below",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L01",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L51"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.0.",
+      "proofSteps": [
+        "Write an idempotent e as a finite sum of pure tensors. Choose a common exponent q^n that sends every occurring coefficient of L into K, using L51. The Frobenius map distributes over the finite sum.",
+        "Because e^(q^n)=e, e is in the image of A. Faithfulness of scalar extension gives injectivity and reflects idempotence. No inverse-limit or reducedness assumption is involved."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z47",
+      "kind": "theorem",
+      "name": "Finite-extension connectedness of an augmented connected algebra",
+      "statement": "If Spec A is connected for a commutative K-algebra A admitting a K-algebra retraction to K, then Spec(A⊗_K L) is connected for every finite field extension L/K.",
+      "locator": "Stacks 04KV; finite-extension proof assembled from Z45–Z46",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L53"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.0.",
+      "proofSteps": [
+        "Let E be the separable closure of K in L. Embed the finite separable E/K in a finite Galois closure F/K. Z45 applies to F; the injection A⊗E→A⊗F and L53 give connectedness over E.",
+        "Apply L52 and Z46 to the purely inseparable L/E. The original retraction base changes throughout. Characteristic zero simply omits this last step."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z48",
+      "kind": "theorem",
+      "name": "Distinguished coordinates for a nonzero restricted series",
+      "statement": "Over a complete nontrivially valued nonarchimedean field K, any finite family of nonzero elements of K⟨X₁,…,X_n⟩ (n>0) can simultaneously be made X_n-distinguished by an isometric triangular coordinate change X_i↦X_i+X_n^(t^(n−i)), i<n, X_n↦X_n, for sufficiently large integer t. Distinguished means the leading coefficient is a unit of maximal norm and all higher coefficients have strictly smaller norm.",
+      "locator": "Bosch, Lectures on Formal and Rigid Geometry, Münster notes, §1.2 Lemma7, printed11–12/PDF13–14",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
+      "proofSteps": [
+        "Normalize each Gauss norm to one. Its reduction has finite support. Choose t above all exponents in these supports; their base-t weighted degrees are distinct. The unique largest degree gives a nonzero scalar leading coefficient after substitution.",
+        "The inverse substitution subtracts the same powers. Both maps are contractive, hence isometric. Units are exactly the order-zero case. Use the existing upstream restricted-series evaluation API, not a new series carrier."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z49",
+      "kind": "theorem",
+      "name": "Weierstrass division for Tate algebras",
+      "statement": "For g∈K⟨X₁,…,X_n⟩ distinguished of degree s in X_n and f in the same algebra, there are unique q in that algebra and r∈K⟨X₁,…,X_(n−1)⟩[X_n] with degree r<s such that f=qg+r. The Gauss norms satisfy |f|=max(|q||g|,|r|). K is complete and nontrivially nonarchimedean.",
+      "locator": "Bosch Münster notes §1.2 Theorem8, printed12–13/PDF14–15; existing AdicSpaces Layer0.5(3)",
+      "status": "planned",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+      ],
+      "note": "Source-level proof plan; no Lean implementation. ",
+      "proofSteps": [
+        "After norm normalization truncate g at its distinguished degree. Divide polynomials by this unit-leading polynomial. Choose 0<θ<1 at least the norm of the discarded tail, including when that tail is zero.",
+        "Approximate each current series by a polynomial to relative accuracy θ, iterate division and sum q_i,r_i; the errors contract by θ. Completeness gives existence and reduction proves the norm identity and uniqueness. The source proof was read; this existing upstream target is imported, not re-planned."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z50",
+      "kind": "theorem",
+      "name": "Affinoid Noether normalization from distinguished division",
+      "statement": "For a proper ideal I of the strict Tate algebra T_n(K), there exists d≤n and a finite injective K-algebra homomorphism T_d(K)→T_n(K)/I. The map need not be the original coordinate inclusion.",
+      "locator": "Bosch Münster notes §1.2 Corollary10, printed14/PDF16",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z49"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
+      "proofSteps": [
+        "Induct on n. For I=0 use the identity. Otherwise choose 0≠g∈I and apply Z48. Z49 identifies T_n/(g) as finite free over T_(n−1) with basis 1,X_n,…,X_n^(s−1). Properness excludes s=0.",
+        "Apply induction to the kernel of T_(n−1)→T_n/I, then compose finite maps. At n=0 properness forces I=0. The dimension equality in Bosch is not needed for the maximal-residue-field consumer."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z51",
+      "kind": "theorem",
+      "name": "Finite maximal residue fields of strict affinoids",
+      "statement": "Every maximal ideal m of a strict K-affinoid algebra A has residue field finite over K. Consequently every nonempty clopen of Spec A contains a closed point that becomes K′-rational after a finite extension K′/K; finitely many chosen points can be rationalized in one finite extension.",
+      "locator": "Bosch Münster notes §1.2 Corollary11 and §1.4 Proposition2, PDF16,24; BLGGT LemmaA.1.1 PDF96",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z50"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
+      "proofSteps": [
+        "Apply Z50 to the field quotient A/m. An integral subring of a field over which that field is integral must itself be a field; T_d is a field only when d=0 (X₁ is a nonzero nonunit if d>0). Thus A/m is finite over K.",
+        "A nonempty clopen is the spectrum of a nonzero idempotent factor, which has a maximal ideal. Embed finitely many finite residue fields in one algebraic closure and take their finite compositum, allowing inseparability. Tensor each residue map with this field and multiply to obtain rational points."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+      "kind": "construction",
+      "name": "Strict affinoid completed tensor and quotient presentation",
+      "statement": "For strict K-affinoids A=K⟨X⟩/I and B=K⟨Y⟩/J over a complete nontrivially valued nonarchimedean field, their completed tensor is K⟨X,Y⟩/(I,J), with its quotient Banach topology. It represents pairs of continuous K-algebra maps to a commutative Banach K-algebra. Use the existing AdicSpacesPartII:R0 carrier and prove presentation independence.",
+      "locator": "Conrad AWS Exercise2.2.3(1)–(2), PDF13; Example2.4.5, PDF20",
+      "status": "planned",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L59"
+      ],
+      "implementationStatus": "unchecked",
+      "planned": [
+        "AdicSpacesPartII:R0"
+      ],
+      "note": "Source-level proof plan; no Lean implementation. ",
+      "proofSteps": [
+        "Combine the variables using restricted-series iteration, quotient by the two extended ideals, and use the evaluation universal property. Affinoid ideals are closed, so this is a Banach quotient.",
+        "Construct the inverse maps between two presentations by the same universal property and prove they agree on both factors. This supplies a strict affinoid specialization of the owner’s admissible completed tensor, not a second general Huber tensor."
+      ],
+      "uses": [
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+          "how": "Commute finite scalar extension with affinoid products."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z54",
+          "how": "Compute fibers over rational points."
+        },
+        {
+          "where": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+          "how": "Identify the generic fiber of an integral completion."
+        }
+      ],
+      "api": [
+        {
+          "name": "AffinoidCompletedTensor.factorMaps",
+          "role": "constructor",
+          "statement": "Provide continuous factor maps A→A⊗̂_K B and B→A⊗̂_K B agreeing on K."
+        },
+        {
+          "name": "AffinoidCompletedTensor.homEquiv",
+          "role": "universal-property",
+          "statement": "Continuous maps A⊗̂_K B→D correspond to pairs of continuous K-algebra maps A→D,B→D; prove both factor evaluations and uniqueness."
+        },
+        {
+          "name": "AffinoidCompletedTensor.presentation",
+          "role": "characterisation",
+          "statement": "Identify the tensor with K⟨X,Y⟩/(I,J) respecting coefficients, variables and quotient topologies."
+        },
+        {
+          "name": "AffinoidCompletedTensor.ext",
+          "role": "extensionality",
+          "statement": "Two continuous maps are equal if they agree on both factors."
+        },
+        {
+          "name": "AffinoidCompletedTensor.map",
+          "role": "functoriality",
+          "statement": "Pairs of continuous maps induce tensor maps; prove identity, composition and evaluation on pure tensors."
+        },
+        {
+          "name": "AffinoidCompletedTensor.commAssoc",
+          "role": "equivalence",
+          "statement": "Swap or regroup factors by mutually continuous equivalences; K is the unit."
+        },
+        {
+          "name": "AffinoidCompletedTensor.quotient",
+          "role": "compatibility",
+          "statement": "For ideals I′⊂A,J′⊂B identify (A/I′)⊗̂(B/J′) with (A⊗̂B)/(I′,J′), using closedness."
+        },
+        {
+          "name": "AffinoidCompletedTensor.finiteScalar",
+          "role": "compatibility",
+          "statement": "The finite extension specialization and its relation to the ordinary tensor are supplied by Z53."
+        },
+        {
+          "name": "AffinoidCompletedTensor.rationalFiber",
+          "role": "compatibility",
+          "statement": "For a K-rational point on A, quotienting by its extended kernel gives B as in Z54."
+        }
+      ],
+      "tests": [
+        {
+          "name": "AffinoidCompletedTensor.unit",
+          "kind": "degenerate",
+          "statement": "K⊗̂_K K=K and K⊗̂_K B=B, with the named factor maps."
+        },
+        {
+          "name": "AffinoidCompletedTensor.polydisc",
+          "kind": "computation",
+          "statement": "K⟨x⟩⊗̂_K K⟨y⟩=K⟨x,y⟩ and the factor coordinates map to x,y."
+        },
+        {
+          "name": "AffinoidCompletedTensor.rationalFiber",
+          "kind": "compatibility",
+          "statement": "For |a|≤1, quotient K⟨x,y⟩ by x−a gives K⟨y⟩; then y−b gives K for |b|≤1."
+        },
+        {
+          "name": "AffinoidCompletedTensor.nilpotents",
+          "kind": "non-example",
+          "statement": "K[ε]/ε²⊗̂_K K[δ]/δ²=K[ε,δ]/(ε²,δ²), so the construction does not assert reducedness."
+        },
+        {
+          "name": "AffinoidCompletedTensor.ordinaryTensor",
+          "kind": "non-example",
+          "statement": "For K=Q_p, Σ_n p^n x^n y^n belongs to K⟨x,y⟩ but not to K⟨x⟩⊗_K K⟨y⟩: its coefficient matrix has infinite rank whereas a finite sum of separated tensors has finite rank."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+      "kind": "theorem",
+      "name": "Finite scalar extension of strict affinoids and their products",
+      "statement": "For finite L/K, A⊗_K L is already complete with its finite-module Banach topology and identifies with A⊗̂_K L. If A=K⟨X⟩/I it is L⟨X⟩/I_L, and (A⊗̂_K B)⊗_K L≅(A⊗_K L)⊗̂_L(B⊗_K L), compatibly with all factor maps.",
+      "locator": "Conrad Exercise2.2.3(3), PDF13; BLGGT AppendixA.1 conventions PDF95; finite-basis proof below",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
+      "proofSteps": [
+        "Choose a K-basis of L. Equivalence of finite-dimensional norms makes a restricted L-coefficient family exactly a tuple of restricted K-coefficient families, hence L⊗T_n(K)≅T_n(L). L54 is the module-level baseline comparison; the multiplicative and topological compatibility remains this adapter.",
+        "Flatness over K identifies the quotient kernel with the extended ideal, and closedness of affinoid ideals makes the quotient complete. Apply the two-variable presentation of Z52 on both sides to get the product comparison. No separability or infinite scalar extension is required."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z54",
+      "kind": "theorem",
+      "name": "Fibers of a completed tensor at rational points",
+      "statement": "For strict K-affinoids A,B and a continuous K-algebra retraction ε:A→K with m=ker ε, (A⊗̂_K B)/m(A⊗̂_K B)≅B. For also η:B→K with n=ker η, the quotient by (m,n) is K. The isomorphisms respect both factor maps and Banach quotient topologies.",
+      "locator": "BLGGT LemmaA.1.1 proof PDF96; Conrad Exercise2.2.3, PDF13",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:R0.",
+      "proofSteps": [
+        "Use the affinoid quotient presentation to commute quotient with the tensor, then K⊗̂_K B=B. The kernel is the extended ideal itself since it is closed in the Noetherian affinoid, not merely an unspecified dense ideal.",
+        "Repeat with B/n. If B is connected, the first fiber is connected and contains the point that supplied ε; this locates that entire fiber in the same clopen part. The second fiber gives the common point used in Z14."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+      "kind": "theorem",
+      "name": "Finite-type integral models identify generic completed products",
+      "statement": "Let O be a complete DVR with uniformizer π, K=Frac O, and B_i a finite family of finite-type O-algebras. Set C_i=π-adic completion of B_i and P=⊗_O B_i. Then C=π-adic completion of P identifies with the π-adic completed tensor of the C_i, and C[1/π]≅⊗̂_K(C_i[1/π]). These identifications preserve coefficients and factor maps.",
+      "locator": "Conrad Exercise3.3.1 and 3.3.8, PDF30,32; LLHLM23 Theorem3.7.1 final paragraph PDF79–80",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L06",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
+      "proofSteps": [
+        "Write B_i=O[X_i]/I_i with finitely generated I_i. Exactness of completion over O[X_i] gives C_i=O⟨X_i⟩/(I_i). The tensor presentation uses all variables and all relations; the finite-quotient inverse systems also give the canonical integral completed tensor comparison.",
+        "A restricted K-series has coefficients bounded below in valuation, hence one common power of π clears them. Therefore O⟨X⟩[1/π]=K⟨X⟩; localization commutes with this quotient. Compare Z52 presentations. This is a bounded-denominator series argument, not a claim that localization commutes with arbitrary inverse limits."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z56",
+      "kind": "theorem",
+      "name": "Flatness of the finite-type integral product completion",
+      "statement": "In Z55, if each B_i is O-flat then C is O-flat, multiplication by π on C is injective, and C→C[1/π] is injective. The empty family gives C=O.",
+      "locator": "LLHLM23 Theorem3.7.1 final deduction; Mathlib flatness of Noetherian completion and flat tensor/transitivity atoms",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
+      "proofSteps": [
+        "The ordinary finite tensor P is O-flat by L55 and finite type over Noetherian O, hence Noetherian. Apply L11 to P and (π): C is P-flat. L56 gives O-flatness, and L57 gives injectivity of π.",
+        "Every power of π acts injectively, so the localization kernel is zero. Do not apply Noetherian completion flatness to an arbitrary ordinary tensor of already completed rings: the finite-type P is the presentation ring that justifies it."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
+      "kind": "theorem",
+      "name": "Completion of a G-ring is a regular morphism",
+      "statement": "If P is a Noetherian G-ring and I an ideal, then P→P̂_I is flat with geometrically regular fibers. In particular it remains a regular map after inverting any element. This does not say the completion is a G-ring.",
+      "locator": "Stacks 0AH2 (15.51.14), proof read; 07GG Remark15.51.11 distinguishes G-ringness of the target",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L11",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
+      "proofSteps": [
+        "Use flatness and Noetherianity of completion. A maximal ideal of the completion contains I and has the same residue field as its contraction. The resulting local map has the same maximal-ideal completion as P at that contraction.",
+        "That local completion map is regular by the G-ring hypothesis. Descend regularity along the faithfully flat map from the localized I-adic completion to the common maximal-ideal completion. The regular-map criterion and this faithful-flat descent are explicit remaining supplier obligations, not baseline results."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
+      "kind": "theorem",
+      "name": "Finite-type algebras over a complete DVR are G-rings",
+      "statement": "If O is a complete DVR and P a finite-type O-algebra, P is a Noetherian G-ring. No perfection assumption on the residue field is made.",
+      "locator": "Stacks 07PX, 15.51.12(2),(5), and finite-type stability 15.51.10 in 07GG",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
+      "proofSteps": [
+        "O itself is a G-ring: its localizations are O and its fraction field, whose maximal-ideal completion maps are identities. Apply finite-type stability of G-rings.",
+        "The cited finite-type stability proof reduces through quotients/localizations to polynomial extensions and geometrically regular formal fibers. Its characteristic-p formal-fiber lemmas and Cohen structure inputs remain an explicitly recorded source/declaration audit gap; this item does not claim their closure."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
+      "kind": "theorem",
+      "name": "Regularity ascends along a flat map with regular fibers",
+      "statement": "For a flat local homomorphism R→S of Noetherian local rings, if R and S/m_R S are regular then S is regular. Consequently a regular map from a regular Noetherian ring has regular Noetherian target.",
+      "locator": "Stacks 031E (10.112.8), proof read; compare 033A",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
+      "proofSteps": [
+        "The flat local dimension formula gives dim S=dim R+dim(S/m_R S). Lift a minimal generating set of the fiber maximal ideal and adjoin generators of m_R. Their union generates m_S and has exactly dim S elements.",
+        "Localize a regular map at a target prime and its contraction to apply the local result. The flat local dimension formula and maximal-ideal generator comparison need their exact supplier audit; L19 alone is only the regularity criterion."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
+      "kind": "theorem",
+      "name": "Regular generic fiber of a completed smooth product",
+      "statement": "In Z55 suppose each B_i[1/π] is smooth over K. Then C[1/π] is a regular Noetherian ring, also when K is imperfect. Flatness over O is not needed for this particular regularity conclusion.",
+      "locator": "LLHLM23 Theorem3.7.1 PDF79–80; Stacks 07PX,0AH2,031E",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U23",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L49",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: AdicSpacesPartII:F0.",
+      "proofSteps": [
+        "The algebraic product P[1/π]=⊗_K B_i[1/π] is smooth by base change and composition, hence regular. Retain this actual smoothness input from U23 for the LLHLM charts.",
+        "Z58 and Z57 show P→C is regular; localize at π and use Z59 to obtain regularity of C[1/π]. Z55 identifies this ring with the affinoid completed product. This avoids silently treating the completed tensor as an ordinary tensor or asserting that regular factors have regular product over every field."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
+      "kind": "theorem",
+      "name": "Connected regular Noetherian rings are domains",
+      "statement": "A nonzero connected Noetherian ring B whose localizations at every prime are regular local rings is an integral domain.",
+      "locator": "LLHLM23 Theorem3.7.1 final paragraph; Tau Ceti connected-domain-stalk theorem and Stacks 00NP",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
+      "proofSteps": [
+        "Z62 supplies domain stalks for Spec B. L58 gives irreducibility. The same domain stalks imply reducedness, as an element vanishing in all prime localizations is zero.",
+        "A nonempty reduced affine scheme with irreducible spectrum has a domain coordinate ring. In particular connectedness alone cannot replace regularity: dual numbers are connected and nonreduced; regularity alone cannot replace connectedness: K×K is regular."
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62",
+      "kind": "theorem",
+      "name": "Regular local rings have no zero divisors",
+      "statement": "Every Noetherian regular local ring R is an integral domain.",
+      "locator": "Stacks 00NP (10.106.2), proof read; associated-graded supplier 00NO",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L03",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L19"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Source-level proof plan; no Lean implementation. Owner: SchemeAndStackFoundations:SF.4.",
+      "proofSteps": [
+        "The associated graded ring for m is the polynomial ring over the residue field on a minimal set of generators. If f,g are nonzero, Krull separation gives finite m-adic orders a,b.",
+        "Their nonzero initial forms multiply nontrivially in that polynomial ring; hence fg has order a+b and is nonzero. There is no additive ring embedding R→gr_m R being asserted. The associated-graded polynomial theorem still needs its exact atlas/pinned declaration supplier audit."
+      ]
     }
   ],
   "prerequisites": [
@@ -5694,9 +6321,17 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z41",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z42",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z43",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z44"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z44",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z45",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z46",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z47",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
       ],
-      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs.",
+      "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained.",
       "stages": [
         "SchemeAndStackFoundations:SF.0",
         "SchemeAndStackFoundations:SF.1",
@@ -5994,9 +6629,18 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z09",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z10",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z14",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z48",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z50",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z51",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z54",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z56",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52"
       ],
-      "reason": "The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They are distinct from complete local coefficient tensors in R03.1. These precise additional statements import the upstream AdicSpaces carrier."
+      "reason": "The affinoid completed-tensor, rational-fiber and regular-product interfaces belong to the existing analytic product owner. They are distinct from complete local coefficient tensors in R03.1. These precise additional statements import the upstream AdicSpaces carrier. The analytic continuation imports upstream AdicSpaces Layer0.5 Weierstrass division (Z49), pinned restricted-series comparison/iteration, and SchemeAndStackFoundations:SF.0/SF.4 algebraic descent/regularity. Z48/Z50–Z56/Z60 refine the existing R0/F0 product and model targets; Z52 reuses their carrier."
     }
   ],
   "sourceIssues": [
@@ -6571,7 +7215,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A17",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/A18"
       ],
-      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem."
+      "detail": "Elkik §0.2/Lemma1 and BLGGT A.1.1/KWII 2.2 have now been read and extracted as Z03–Z14. Chevalley and complete-local tensor comparisons are now explicitly decomposed in Z15–Z24; finish the regular-completion dimension/cotangent atom audit and the remaining affinoid/general-field interfaces; do not restore them as wholly unread sources. Remaining original-input queue: exact finite-group/Jantzen and inertial K-types, Kisin monodromy and CHT/Thorne auxiliary-level inputs. The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Bosch Münster notes §1.2 Lemma7, Theorem8 and Corollaries10–11 and Conrad AWS strict-affinoid/model comparisons have now been read for Z48–Z56; do not list this bounded input as wholly unread. G-ring and regular-local supplier boundaries are named in analytic-regularity-suppliers."
     },
     {
       "id": "split-and-hypotheses",
@@ -7091,9 +7735,29 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z25",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z29",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
       ],
-      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. The smooth-locus/radical power-witness interface is now decomposed into Z40–Z44 with L34–L49: finite denominator clearing, a split conormal module selecting original equations and columns, the inverse-coordinate standard-smooth chart, the full ideal criterion, and the universal power identity. Z07 distinguishes this choice from complete-ring evaluation. These are proof plans, not implementations; no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation."
+      "detail": "The specific Noetherian/dimension/regular-coordinate supplier audit is now decomposed into L08–L23 and Z25–Z29: locality, residue field, embedding dimension, flatness, going-down height, power-series Noetherianity/completeness, Nakayama and dimension drop are pinned imports; Z25/Z26/Z27/Z29 remain explicit proof adapters. Z23/Z28 reuse existing ModularCurves §4D, not new R03.1 targets. Formal elaboration and the topology/ideal-identification adapters still need implementation. Z24's coefficient-category presentation/universal property remains planned; do not call it a library theorem. Z06 now has the explicit Z30–Z39/L24–L33 finite algebra and congruence-limit proof decomposition, including witness persistence and a strict-threshold counterexample. The smooth-locus/radical power-witness interface is now decomposed into Z40–Z44 with L34–L49: finite denominator clearing, a split conormal module selecting original equations and columns, the inverse-coordinate standard-smooth chart, the full ideal criterion, and the universal power identity. Z07 distinguishes this choice from complete-ring evaluation. These are proof plans, not implementations; no new theorem is implemented. Z10/Z13/Z14 analytic Galois descent, Nullstellensatz, rational fibers, flat formal models and smooth generic product regularity remain open. Do not infer arbitrary localization–inverse-limit commutation. Analytic continuation: Z45–Z56 now decompose the pointed connectedness, inseparable reduction, strict-affinoid Nullstellensatz, finite scalar comparison, rational fibers and finite-type integral-product flatness. Z57–Z62 expose the regularity route. The former normality requirement of Z10 is unnecessary. Remaining analytic supplier audit: finite-type G-ring stability/formal fibers, regular-map faithful-flat descent, flat local dimension formula and regular-local associated graded polynomial theorem, plus closed-ideal/presentation/topological equivalence adapters. None is a formal implementation."
+    },
+    {
+      "id": "analytic-regularity-suppliers",
+      "neededBy": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z13",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z52",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z53",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z55",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z57",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z58",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z62"
+      ],
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and the regular-local associated-graded polynomial theorem. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope."
     }
   ],
   "sourceData": {
@@ -7810,6 +8474,401 @@
         "No anonymous instance name is invented: standard-smooth→smooth is cited by its file and line."
       ],
       "submissionInputCommit": "ad8246d0f68ee398b069a2a3a2aad96f66cc6533"
+    },
+    "analyticContinuation": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-23",
+      "files": [
+        {
+          "file": "Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/Geometrically/Connected.lean",
+          "sha256": "955dcc9e14669be01d65b3a160fccf16fbdf742d4d1ae7186274f24087d85a9d"
+        },
+        {
+          "file": "Mathlib/FieldTheory/PurelyInseparable/Basic.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/PurelyInseparable/Basic.lean",
+          "sha256": "596e6b5957acd291253e6ea11d5a040b2d9a7f77de429dc2e4a349d2db31bf0a"
+        },
+        {
+          "file": "Mathlib/FieldTheory/Galois/Basic.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/FieldTheory/Galois/Basic.lean",
+          "sha256": "59d802b6f4f3b7f44c18035fa37991962c37e28aef73d6e2859135db0b107ba5"
+        },
+        {
+          "file": "Mathlib/RingTheory/Flat/Basic.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean",
+          "sha256": "2cfbe7b77c608d1a8f3ccd5c49d7a5ca3c9528b3cf1415a67994a06fc228c9de"
+        },
+        {
+          "file": "Mathlib/RingTheory/Flat/Stability.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Stability.lean",
+          "sha256": "1dad8e5f4025254a465316240166d171a64e552c68074faaa810532d38b865ba"
+        },
+        {
+          "file": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/TorsionFree.lean",
+          "sha256": "03049d80fb81284518b7905ccdd8fa3459b0cb55d909ffe5f4465bf1cc8ed43a"
+        },
+        {
+          "file": "Mathlib/RingTheory/Smooth/Basic.lean",
+          "url": "https://raw.githubusercontent.com/leanprover-community/mathlib4/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Smooth/Basic.lean",
+          "sha256": "c24a960d8de6ffd373a74750748f8d43d7c49ab5c4f7b67c08e89de38521e608"
+        },
+        {
+          "file": "TauCeti/RepresentationTheory/GaloisDescent/Range.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/GaloisDescent/Range.lean",
+          "sha256": "245768956e1f7f26f1fbd789a2a0ee35320b0c94a18e5e3e88fbc28ec9015207"
+        },
+        {
+          "file": "TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Idempotents/Connected/Spectrum.lean",
+          "sha256": "75510f4ddca240e41c36c137a2021dc247fb2049042529fd08ab3ae3a4d5eb66"
+        },
+        {
+          "file": "TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/Restricted/BaseChange.lean",
+          "sha256": "b159f4e7382f7257c2c877e39cdb65fae9d9b47745a27f855fff94fa855c66c3"
+        },
+        {
+          "file": "TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Iterate.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/WeightedRestrictedSeries/Iterate.lean",
+          "sha256": "192af7c63bb91834f0c6372dfad4fe2dc51b338f9d8cae347021466d462a9475"
+        },
+        {
+          "file": "TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean",
+          "sha256": "b4c9a4ce54fedeb5d22ff6ee3dd5503ff445fa565b1c74abf0a70fd7952f5252"
+        },
+        {
+          "file": "TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+          "url": "https://raw.githubusercontent.com/TauCetiProject/TauCeti/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RingTheory/Huber/StronglyNoetherian.lean",
+          "sha256": "3e3e5b8b1a40b893f7fbe686562c66aa30099360d78edb8266e3bc082fad5953"
+        }
+      ],
+      "searches": [
+        {
+          "tree": "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "query": "geometricallyConnected_of|connectedSpace.*(rational|section)|GaloisDescent",
+          "exitCode": 1,
+          "files": []
+        },
+        {
+          "tree": "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "query": "G.?[Rr]ing|[Ee]xcellent|00NP|031E",
+          "exitCode": 0,
+          "files": [
+            "Mathlib/Algebra/Lie/InvariantForm.lean",
+            "Mathlib/LinearAlgebra/TensorProduct/Graded/External.lean",
+            "Mathlib/Algebra/DirectSum/Internal.lean",
+            "Mathlib/Algebra/DirectSum/Ring.lean"
+          ]
+        },
+        {
+          "tree": "mathlib4-082e2d37e8b0463410cdb532e111cd43d5a66174",
+          "query": "Nullstellensatz|Noether.normalization|[Ww]eierstrass",
+          "exitCode": 0,
+          "files": [
+            "Mathlib/Geometry/Manifold/Complex.lean",
+            "Mathlib/Algebra/Polynomial/SumIteratedDerivative.lean",
+            "Mathlib/Topology/Sequences.lean",
+            "Mathlib/Topology/MetricSpace/Sequences.lean",
+            "Mathlib/Topology/Compactness/CountablyCompact.lean",
+            "Mathlib/Topology/ContinuousMap/StoneWeierstrass.lean",
+            "Mathlib/Topology/ContinuousMap/Algebra.lean",
+            "Mathlib/Topology/ContinuousMap/Weierstrass.lean",
+            "Mathlib/Analysis/Fourier/AddCircle.lean",
+            "Mathlib/Combinatorics/Nullstellensatz.lean",
+            "Mathlib/Analysis/CStarAlgebra/GelfandDuality.lean",
+            "Mathlib/Analysis/SpecialFunctions/MulExpNegMulSqIntegral.lean",
+            "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Unital.lean",
+            "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Unique.lean",
+            "Mathlib/ModelTheory/Algebra/Ring/Definability.lean",
+            "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/NonUnital.lean",
+            "Mathlib/RingTheory/Nullstellensatz.lean",
+            "Mathlib/Analysis/CStarAlgebra/ContinuousFunctionalCalculus/Basic.lean",
+            "Mathlib/Analysis/SpecialFunctions/ContinuousFunctionalCalculus/PosPart/Basic.lean",
+            "Mathlib/Analysis/Complex/LocallyUniformLimit.lean",
+            "Mathlib/Analysis/SpecialFunctions/Bernstein.lean",
+            "Mathlib/Analysis/SpecialFunctions/Elliptic/Weierstrass.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/ModelsWithJ.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/AddSubMap.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Basic.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Formula.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/IsomOfJ.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Point.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Basic.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Jacobian/Formula.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Point.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Basic.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Projective/Formula.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Degree.lean",
+            "Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+            "Mathlib/RingTheory/NoetherNormalization.lean",
+            "Mathlib/RingTheory/Jacobson/Ring.lean",
+            "Mathlib/Order/OrderIsoNat.lean",
+            "Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean",
+            "Mathlib/NumberTheory/Height/EllipticCurve.lean",
+            "Mathlib/NumberTheory/Transcendental/Lindemann/AnalyticalPart.lean"
+          ]
+        },
+        {
+          "tree": "TauCeti-f790474821cf4256814db967cb154e7af3d0c369",
+          "query": "geometricallyConnected_of|connectedSpace.*(rational|section)|GaloisDescent",
+          "exitCode": 0,
+          "files": [
+            "TauCeti/AlgebraicGeometry/AffineGroupScheme/Torus.lean",
+            "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
+            "TauCeti/AlgebraicGeometry/AffineGroupScheme/Semisimple/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Torus.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Invariants.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Hopf.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Tensor.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/FiniteType.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Descent.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Character.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/Splitting.lean",
+            "TauCeti/Algebra/AlgebraicGroup/GroupAlgebra/Galois/BaseChange.lean",
+            "TauCeti/Algebra/AlgebraicGroup/SpecialOrthogonal/Reductive.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Reductive/LinearlyReductive.lean",
+            "TauCeti/RepresentationTheory/GaloisDescent/Injective.lean",
+            "TauCeti/RepresentationTheory/GaloisDescent/Range.lean",
+            "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
+            "TauCeti/FieldTheory/Galois/Basic.lean"
+          ]
+        },
+        {
+          "tree": "TauCeti-f790474821cf4256814db967cb154e7af3d0c369",
+          "query": "G.?[Rr]ing|[Ee]xcellent|00NP|031E",
+          "exitCode": 0,
+          "files": [
+            "TauCeti/RingTheory/IntegralClosure/NormalizationFinite.lean",
+            "TauCeti/Algebra/Lie/UniversalEnveloping/PBW/AssociatedGraded.lean",
+            "TauCeti/Algebra/AlgebraicGroup/AdditiveGroup/Basic.lean",
+            "TauCeti/Algebra/WordFiltration/AssociatedGraded.lean"
+          ]
+        },
+        {
+          "tree": "TauCeti-f790474821cf4256814db967cb154e7af3d0c369",
+          "query": "Nullstellensatz|Noether.normalization|[Ww]eierstrass",
+          "exitCode": 0,
+          "files": [
+            "TauCeti/Probability/Moments/CompactDeterminacy.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/ShortWeierstrass.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/SingularPointCount.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/IntegralModel.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/XSubT.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/TwoTorsion.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroupA.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/BadPrimes.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SemilocalComparison.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/WeakMordellWeil.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/LocalCondition.lean",
+            "TauCeti/FieldTheory/Galois/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/PointCount.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/NormalForms.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/NodePolynomial.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Integrality.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Denominator.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Eval.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/AddSubMap.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/NagellLutz.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Eval.lean",
+            "TauCeti/Algebra/Group/PowMonoidHom.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/XYIdealMaximal.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/RatFuncDegree.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/Integral.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/IsAlgClosed.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Universal.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Invariant.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/AlgClosed.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/ValuationIntegrality.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/NormEDS.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Discriminant.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Descent.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Integral.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Torsion/Discriminant.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Universal.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Cusp.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Formula/Derivation.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/CubicDiscriminant.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Formula/VariableChange.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Omega.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Expand.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Coprimality.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FinitePoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ShortNagellLutz.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/BaseChange.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRingMap.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/RelativeFrobenius.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Derivative.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/VariableChange.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/LocalRing.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Singular.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/WExpansion.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PowerTower.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Eval.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisionPolynomialTower.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/AdicPoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Inverse.lean",
+            "TauCeti/FieldTheory/FunctionField/Consequences/WeierstrassGaps.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Finrank.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Chord.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/FunctionField.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/GenericPoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/ThirdPoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/GenericPoint.lean",
+            "TauCeti/FieldTheory/FunctionField/Consequences/HighDegree.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/AdicCompletion.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Separable.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Fin2.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Add.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Hom.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/TorsionDivisor.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Inverse.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Differential.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Norm.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Add.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Series.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Hom/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/AdjoinTower.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Assoc.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Separating.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Kernel.lean",
+            "TauCeti/NumberTheory/EllipticDivisibilitySequence/ReducedInvariant.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Point/Range.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/Unit.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MapsInfinity.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Add/PairSubst.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/PairEval.lean",
+            "TauCeti/NumberTheory/EllipticDivisibilitySequence/Six.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/InfinityPlace/Unique.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Neg.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/InfinityPlace/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Degree.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Differential.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/PointPlace.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Separable.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Kernel.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/IntegrallyClosed.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/TautologicalPoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/InfinityPlace.lean",
+            "TauCeti/NumberTheory/EllipticDivisibilitySequence/Invariant/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Finite.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/FixedField.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/OneSubFrobenius/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Translation/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Dedekind.lean",
+            "TauCeti/NumberTheory/EllipticDivisibilitySequence/Universal.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/PullbackAdd.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/BaseChange.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/DivisorClass.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Rank.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/RelativeFrobenius.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/Map.lean",
+            "TauCeti/FieldTheory/FunctionField/Divisor/Eval.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Translation.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Separability.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/GeneratedByY.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/IntermediateRing/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Differential.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/CoordinateRingIntegral.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/TautologicalPoint.lean",
+            "TauCeti/NumberTheory/NumberField/IntegralClosure.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Frobenius/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/KernelCard.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Factorisation.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/FunctionField/FrobeniusTower.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/MinimalModel.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/CoordinateRing.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/GenericPoint.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Hom.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Derivation.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Kernel.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/InfinityPlace.lean",
+            "TauCeti/FieldTheory/Finite/FrobeniusFixed.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/MapAlong.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/VariableChange.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/MapsInfinity.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Basic.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/ToClass.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Separability.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/PolePoints.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Units.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Comp.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/Place.lean",
+            "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/Point/FrobeniusFixed.lean",
+            "TauCeti/RepresentationTheory/Compact/RepresentativeDensity.lean",
+            "TauCeti/Algebra/AlgebraicGroup/CommHopfAlgCat/FaithfullyFlatPoints.lean",
+            "TauCeti/RepresentationTheory/SU2/Exhaustion.lean",
+            "TauCeti/RepresentationTheory/SU2/Completeness.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Connected/ComponentGroup/Basic.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Connected/Normal.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Connected/Comultiplication.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Solvable/Reduced.lean",
+            "TauCeti/Algebra/AlgebraicGroup/Solvable/Radical/BaseChange.lean",
+            "TauCeti/Analysis/Complex/Conformal/ExtremalFamily.lean",
+            "TauCeti/RingTheory/Valuation/Polynomial.lean",
+            "TauCeti/RingTheory/Valuation/RootMonic.lean",
+            "TauCeti/RingTheory/AdjoinRoot/Factors.lean",
+            "TauCeti/RingTheory/AdjoinRoot/Basic.lean",
+            "TauCeti/RingTheory/KrullDimension/Integral.lean",
+            "TauCeti/RingTheory/KrullDimension/FiniteType.lean",
+            "TauCeti/RingTheory/PowerSeries/GaussNorm.lean",
+            "TauCeti/RingTheory/MvPolynomial/Expand.lean",
+            "TauCeti/RingTheory/FiniteType/Tensor/Product.lean",
+            "TauCeti/RingTheory/FiniteType/PointSeparation.lean",
+            "TauCeti/RingTheory/FiniteType/FaithfullyFlatPoints.lean",
+            "TauCeti/Analysis/CompletelyMonotone/Laplace/Measurability.lean",
+            "TauCeti/RingTheory/Polynomial/IsIntegral.lean",
+            "TauCeti/RingTheory/MvPowerSeries/Evaluation.lean",
+            "TauCeti/RingTheory/MvPowerSeries/Inverse.lean",
+            "TauCeti/RingTheory/Polynomial/Factors.lean",
+            "TauCeti/RingTheory/MvPowerSeries/Equiv.lean",
+            "TauCeti/RingTheory/Huber/LocalizationTopology/Restriction.lean"
+          ]
+        }
+      ],
+      "reviewedRows": [
+        "AUDIT-01 SchemeAndStackFoundations:SF.0",
+        "AUDIT-01 SchemeAndStackFoundations:SF.4",
+        "AUDIT-17 DeformationAndDerivedPatchingAlgebra:R03.1"
+      ],
+      "ownerReads": [
+        "AdicSpacesPartII:R0",
+        "AdicSpacesPartII:F0",
+        "AdicSpacesPartII:R1",
+        "AdicSpacesPartII:R2",
+        "tauceti:TauCetiRoadmap/AdicSpaces Layer0"
+      ],
+      "limit": "No direct AdicSpacesPartII:R0/F0 row in the current coverage map. Review overlap rows and actual pinned declarations used. Negative searches are conservative, not a proof that every atom is absent."
     }
   },
   "validation": {
@@ -7928,6 +8987,95 @@
       "meaning": "Source-level proof planning and finite diagnostics only. No Lean deliverable, compilation, formal proof or independent source-issue review.",
       "inherited": "All earlier diagnostics, including SymPy computations, remain attributed historical evidence and were not rerun.",
       "validators": "Paper validator and three-file intake pass; all 48 repository tests pass (9 paper, 3 queue, 7 source-issue, 29 intake). Structural checks preserve all 406 inherited statements, all 35 findings and 15 route identities; every missing item has one route; the 125-edge internal graph is acyclic. Z03 has nine typed tests. Fifteen source files byte-verified at the full Mathlib pin; all fresh standard-library diagnostics pass."
+    },
+    "analyticContinuation": {
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-09-23",
+      "newItems": [
+        "L50",
+        "L51",
+        "L52",
+        "L53",
+        "L54",
+        "L55",
+        "L56",
+        "L57",
+        "L58",
+        "L59",
+        "L60",
+        "Z45",
+        "Z46",
+        "Z47",
+        "Z48",
+        "Z49",
+        "Z50",
+        "Z51",
+        "Z52",
+        "Z53",
+        "Z54",
+        "Z55",
+        "Z56",
+        "Z57",
+        "Z58",
+        "Z59",
+        "Z60",
+        "Z61",
+        "Z62"
+      ],
+      "lean": "No Lean deliverable required or compiled; all added adapters are proof plans.",
+      "preserved": "All 427 prior item IDs, 35 source issues and 15 route identities retained. Existing Z08/Z10/Z13/Z14 statements refined. No independent review of E1–E35.",
+      "sources": [
+        {
+          "title": "Bosch, Lectures on Formal and Rigid Geometry, Münster notes",
+          "url": "https://www.uni-muenster.de/IVV5WS/WebHop/user/weckerm/heft378.pdf",
+          "sha256": "7cb79d83e0d78e8919aa4b7c29fbd6f88d3041344f62a1c38a3088ab113cb1e4",
+          "read": "PDF12–17 and24: distinguished coordinates, Weierstrass division/preparation, normalization and finite residue fields"
+        },
+        {
+          "title": "Conrad, Several approaches to non-archimedean geometry, AWS notes",
+          "url": "https://math.stanford.edu/~conrad/papers/aws.pdf",
+          "sha256": "5add29094b74385746c4d977290b2308d02cbe8aa6f085e6a99724f6939e309b",
+          "read": "PDF1,4–6,13,20,30–32: conventions, affinoid algebra, completed tensor, formal models and generic fiber"
+        },
+        {
+          "title": "BLGGT, Potential automorphy and change of weight",
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf",
+          "sha256": "c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b",
+          "read": "PDF96 reread; PDF95–98 had already been read in the earlier continuation"
+        }
+      ],
+      "diagnostics": {
+        "galois_elements": 1364,
+        "invariant_vectors": 62,
+        "idempotents": 10,
+        "split_field_idempotents": 4,
+        "inseparable_shape_idempotents": 2,
+        "diagonal_rank_witnesses": 12,
+        "rational_fiber_evaluations": 6561,
+        "limitation": "Finite algebra examples only; no analytic topology, G-ring theorem or formal proof certified."
+      },
+      "structuralChecks": {
+        "items": 456,
+        "statuses": {
+          "missing": 388,
+          "planned": 8,
+          "library": 60
+        },
+        "routes": 15,
+        "sourceIssues": 35,
+        "definitions": 84,
+        "constructions": 66,
+        "localDependencyEdges": 173,
+        "priorIdsPreserved": true,
+        "sourceIssuesPreserved": true,
+        "appendixDataPreserved": true,
+        "missingItemsRoutedOnce": true,
+        "acyclic": true,
+        "updatedDefinitionConstructionTests": [
+          "Z08:4",
+          "Z52:5"
+        ]
+      }
     }
   },
   "definitionApiGroups": [
