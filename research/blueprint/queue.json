@@ -1856,8 +1856,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1125"
+   "state": "pending",
+   "note": "released on GitHub issue #1125"
   },
   {
    "id": "REV-PAPER-BROWNING-SAWIN-20",
