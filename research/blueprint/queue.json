@@ -1087,8 +1087,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-FU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1083"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1083",
+   "finishedAt": "2026-09-23T06:28:32Z"
   },
   {
    "id": "REV-PAPER-FU-24",
@@ -6595,8 +6596,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1395"
+   "state": "external",
+   "note": "claimed on GitHub issue #1395"
   },
   {
    "id": "REV-PAPER-ATOBE-KONDO-YASUDA-22",
