@@ -834,7 +834,7 @@
     "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory",
     "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l3--period-domain-points-the-symmetry-group"
    ],
-   "note": "The Tau Ceti roadmap Hodge structures (pure, mixed, and polarized) is existing work and is never re-planned here; it supplies the Hodge-theoretic realization and the polarization axiom."
+   "note": "The Tau Ceti roadmap Hodge structures (pure, mixed, and polarized) is existing work and is never re-planned here; it supplies the Hodge-theoretic realization and the polarization axiom. Much of it is already built in Tau Ceti: `TauCeti.Hodge.HodgeStructure` and `HodgeStructureOn` (Geometry/Hodge/Structure.lean), `TauCeti.Hodge.MixedHodgeStructure` with its weight filtration (215 declarations), `TauCeti.Hodge.Polarization` with the Hodge form (61 declarations) and `TauCeti.Hodge.PeriodDomain.Point`. What is not built is the part this paper actually varies: there is no variation of Hodge structure and no Griffiths transversality in either library — `VariationOfHodge` and `Griffiths` have no occurrence, and the one source mention is an aside in PeriodDomain.lean's docstring. (Recorded by review REV-PAPER-LAWRENCE-SAWIN-25; the status stays planned because the roadmap owns the whole item.)"
   },
   {
    "id": "PAPER-LAWRENCE-SAWIN-25/73",
@@ -941,10 +941,10 @@
     "mathlib:Nat.choose",
     "mathlib:Nat.factorial",
     "mathlib:Nat.choose_symm",
-    "mathlib:Nat.succ_mul_choose_eq"
+    "mathlib:Nat.add_one_mul_choose_eq"
    ],
    "planned": [],
-   "note": "Mathlib/Data/Nat/Choose/ provides binomial coefficients with Pascal's rule, symmetry, monotonicity and the standard estimates, and Mathlib/Data/Nat/Factorial/ the factorials. These are the only library-level ingredients of the appendices; Eulerian numbers themselves are missing."
+   "note": "Mathlib/Data/Nat/Choose/ provides binomial coefficients with Pascal's rule, symmetry, monotonicity and the standard estimates, and Mathlib/Data/Nat/Factorial/ the factorials. These are the only library-level ingredients of the appendices; Eulerian numbers themselves are missing. (Review REV-PAPER-LAWRENCE-SAWIN-25: the recurrence is `Nat.add_one_mul_choose_eq`, `(n + 1) * choose n k = choose (n + 1) (k + 1) * (k + 1)` at Mathlib/Data/Nat/Choose/Basic.lean:131; the name `Nat.succ_mul_choose_eq` the extraction cited is the pre-rename form and does not exist at 082e2d3 — it has no occurrence anywhere in the pinned tree.)"
   },
   {
    "id": "PAPER-LAWRENCE-SAWIN-25/81",
@@ -1165,5 +1165,16 @@
    "reason": "CA.2 plans sequences, recurrences, Bernoulli and Euler numbers, binomial identities and combinatorial number families. Eulerian numbers A(n,q), counting permutations by descents, with Σ_q A(n,q) = n!, the symmetry A(n,q) = A(n,n−1−q), the standard recursion and the elementary estimates (q+1)^n − (n+1)q^n ≤ A(n,q) ≤ (q+1)^n, A(n,q) ≤ n!, and the two sharper inequalities of Appendix C, are exactly that layer's subject. They are absent from both libraries: the occurrences of 'Eulerian' in Mathlib are Eulerian circuits in graphs. The paper is a good source for them because its appendices state and prove the inequalities in the form a consumer needs. The use of these numbers as the Hodge numbers of a twisted hypersurface stays with the new roadmap."
   }
  ],
- "sourceIssues": []
+ "sourceIssues": [],
+ "verification": {
+  "agent": "Claude Code",
+  "session": "cc-d67081",
+  "issue": 1068,
+  "job": "REV-PAPER-LAWRENCE-SAWIN-25",
+  "date": "2026-09-23",
+  "verdict": "accept",
+  "read": "arXiv 2004.09046v5, SHA-256 5e5f829e…21d97, matching the recorded hash: the main theorems and their arithmetic, the statements behind both proposed roadmaps, every planned item's layer, and a sweep of all 196 paper-internal numbered statements against the items.",
+  "changes": "Two corrections. The library item's mathlib:Nat.succ_mul_choose_eq does not exist at 082e2d3 and is replaced by mathlib:Nat.add_one_mul_choose_eq (Mathlib/Data/Nat/Choose/Basic.lean:131). Item 72's note now records what Tau Ceti has built for Hodge theory and what it has not (no variation of Hodge structure, no Griffiths transversality). No status, route or locator changed.",
+  "lean": "none"
+ }
 }
