@@ -7053,8 +7053,9 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-CALEGARI-GEE-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-CALEGARI-GEE-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1413",
+   "finishedAt": "2026-09-23T18:09:44Z"
   },
   {
    "id": "PAPER-CALEGARI-DIMITROV-TANG-25",
@@ -7358,7 +7359,8 @@
    ],
    "avoidAccountOf": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
    "prompt": "research/blueprint/prompts/REV-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1429"
   },
   {
    "id": "PAPER-ABE-18",
@@ -7664,8 +7666,9 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-ETAL-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1445"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1445",
+   "finishedAt": "2026-09-23T18:09:47Z"
   },
   {
    "id": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
@@ -31176,8 +31179,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1798"
+   "state": "external",
+   "note": "claimed on GitHub issue #1798"
   },
   {
    "id": "ERRATA-PAPER-CESNAVICIUS-19",
