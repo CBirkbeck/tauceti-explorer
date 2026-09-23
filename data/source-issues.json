@@ -69276,7 +69276,7 @@
    "id": "PAPER-KALETHA-16/E01",
    "kind": "gap",
    "locator": "Proposition3.6,printed574–575;published74-page version",
-   "printed": "a",
+   "printed": "“Proposition 3.6. Let [Z → G] ∈ 𝒜. Put Ḡ = G/Z. Then we have the commutative diagram with exact rows and columns …”, whose proof establishes the surjectivity of the map a for G abelian or connected while the statement allows arbitrary affine algebraic groups (printed pp. 574–575).",
    "correction": "Replace the connected/abelian-only surjectivity argument by the author’s direct cocycle lift for arbitrary affine G.",
    "reason": "Lift a quotient cocycle to ztilde, let alpha(sigma,tau)=ztilde(sigma) sigma(ztilde(tau)) ztilde(sigma tau)^-1 in Z, choose phi with alpha=phi(xi) after a central cochain adjustment, and set z(x,sigma)=phi(x)ztilde(sigma). This proves the statement also for disconnected affine G.",
    "affects": "the proof",
@@ -69291,15 +69291,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. Proposition 3.6 is stated for [Z → G] ∈ 𝒜 with no restriction on G, while its proof of the surjectivity of a assumes G abelian or connected. The errata’s first entry for this paper is headed ‘Proposition 3.6’ and supplies ‘a direct argument in the generality of the statement’, constructing φ ∈ Hom(u, Z)^Γ with α = φ∘ξ after modifying the lift. The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E02",
    "kind": "error",
    "locator": "§4.4 beforeLemma4.4,printed582;published74-page version",
-   "printed": "ζ_k",
+   "printed": "“For each k, choose an arbitrary (set-theoretic) section ζ_k for the natural projection … For each k, choose inductively a section s_{k+1} : Γ_{E_{k+1}/F} → W_{E_{k+1}/F} of p_{k+1} with the properties s_{k+1}(yζ_k(x)) = s_{k+1}(y)s_{k+1}(ζ_k(x)) and s_k(x) = π^W_k(s_{k+1}(ζ_k(x)))” (printed p. 582).",
    "correction": "Choose lifts of the already chosen Weil section first; define zeta_k as their projections, and then extend the next section using the coset product.",
    "reason": "A prescribed zeta_k(x) need not be the Galois image of any lift of the chosen Weil element s_k(x). The author’s errata credits Taibi and supplies the compatible order of choices.",
    "affects": "the proof",
@@ -69314,15 +69314,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. The published text does say ‘choose an arbitrary (set-theoretic) section ζ_k’ and then asks for s_{k+1} satisfying both displayed properties. The errata’s entry ‘Section 4.4’ records that Olivier Taïbi pointed out that for some choices of s_k and ζ_k no suitable s_{k+1} exists, since s_{k+1}(ζ_k(x)) must lift s_k(x), and gives two ways to fix the order of the choices. The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E03",
    "kind": "gap",
    "locator": "Formula(4.8),printed584;published74-page version",
-   "printed": "p",
+   "printed": "“Recall the map p : u_{k+1} → u_k defined by (3.2). Define (4.8) α_k = (l_k c_k ⊔_{E_k/F} δ_e)^{−1}·p(l_{k+1}c_{k+1} ⊔_{E_{k+1}/F} δ_e) ∈ C¹(Γ, S_{E_k/F})” (printed p. 584).",
    "correction": "Extend p and delta_e to the quotient tori Res Gm/Gm before evaluating the displayed non-torsion cochains.",
    "reason": "The finite maps u_(k+1)->u_k and mu_n->u_k alone do not have the domains of the two root-extracted cochains. The same norm/power and distinguished-coordinate formulas give the needed extensions.",
    "affects": "the proof",
@@ -69337,15 +69337,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. (4.8) is displayed as an element of C¹(Γ, S_{E_k/F}) while the map recalled immediately above it is p : u_{k+1} → u_k, whose domain is too small. The errata’s entry ‘Formula (4.8)’ says in terms that p must be extended to p : S_{E_{k+1}/F} → S_{E_k/F} and δ_e reinterpreted in Z^{-1}_Tate(Γ_{E_k/F}, Hom(S_{E_k/F}, S)), which is what the recorded correction says. The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E04",
    "kind": "gap",
    "locator": "ProofLemma4.7,printed586;published74-page version",
-   "printed": "ϕ_(λ̄,k)",
+   "printed": "The second-to-last displayed formula of the proof, ϕ_{λ̄,k}(p(x)α_k(x))·(l_k c_k ⊔_{E_k/F} δ_e)(σ), and the last display, in which ϕ_{λ̄,k} ∈ Hom(u_k, Z)^Γ is used as an element of Hom(S_{E_k}, S)^Γ (printed p. 586).",
    "correction": "Extend phi_(lambdabar,k) from u_k to Res_(E_k/F)Gm/Gm with target S by the product of the conjugate n_k*lambdabar cocharacters.",
    "reason": "The last comparison evaluates phi on an element of the quotient torus, not necessarily on u_k. Norm-zero ensures that the product kills the diagonal Gm. The separate delta_e-to-n_k*lambdabar symbol correction in the errata is ALREADY present in the published penultimate display and is not reported as an outstanding published misprint.",
    "affects": "the proof",
@@ -69360,15 +69360,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. The errata’s entry ‘Proof of Lemma 4.7’ gives both halves: the second-to-last display should end ⊔_{E_k/F} n_kλ̄ rather than ⊔_{E_k/F} δ_e, and ϕ_{λ̄,k} has to be reinterpreted in Hom(S_{E_k}, S)^Γ, with the explicit formula ϕ_{λ̄,k}(γ) = ∏_a (n_k aλ̄)(γ(a)). The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E05",
    "kind": "error",
    "locator": "Corollary5.4,printed598;published74-page version",
-   "printed": "H¹(u→W,Z→G)",
+   "printed": "“Corollary 5.4. There is a pairing H¹(u → W, Z → G) ⊗ π₀(Z(Ĝ̄)⁺) → Q/Z, which is functorial in [Z → G] ∈ ℛ. Its left kernel is trivial.” (printed p. 598).",
    "correction": "Use H1_ab for the left factor when claiming trivial left kernel; pull back to full H1 only as a pairing constant on K-groups.",
    "reason": "Theorem4.11 identifies the lattice group with H1_ab. Over R different full rigid classes can have the same abelianized image, as the compact SL2 pair in E07 demonstrates. The author explicitly corrects this; the p-adic and torus cases are unaffected.",
    "affects": "a stated result",
@@ -69383,15 +69383,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. Corollary 5.4 is printed with H¹(u → W, Z → G) and the claim that the left kernel of the pairing is trivial; the errata’s entry ‘Corollary 5.4’ says the term should read H¹_ab(u → W, Z → G) for that claim to hold, and notes that this makes no difference in the p-adic case but does when F = R — which is exactly the case E07 is about, so the two findings are consistent with each other. The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E06",
    "kind": "misprint",
    "locator": "§5.6 before(5.13),printed615;also embedding discussion printed594",
-   "printed": "g⁻¹z(w)w(g)",
+   "printed": "“… and set inv(π̇_w, π̇) = inv(η_w, η_π̇) to be the class of w ↦ g⁻¹z(w)w(g) in …”, a few lines above (5.13) (printed p. 615).",
    "correction": "Apply eta_w^-1 to this cocycle when defining the invariant in H1rig of the abstract parameter torus S; use the analogous eta^-1 in the general embedding construction.",
    "reason": "The displayed expression lies in eta_w(S), while the pairing and Tate–Nakayama map use S. The author errata makes this transport explicit.",
    "affects": "the proof",
@@ -69406,15 +69406,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and already corrected by the author. The published text defines inv(π̇_w, π̇) = inv(η_w, η_π̇) as the class of w ↦ g⁻¹z(w)w(g); the errata’s entry ‘Section 5.6’ corrects it to w ↦ η_w⁻¹(g⁻¹z(w)w(g)), crediting Hirotaka Kakuhama. The author’s errata (math.uni-bonn.de/people/kaletha/errata.pdf, SHA-256 31e5f2d4…c31b5, §3 on PDF pp. 6–7) was re-fetched and read by this review; it carries a heading for exactly this point, so the `known` field is right and the register will list this as already corrected in print."
   },
   {
    "id": "PAPER-KALETHA-16/E07",
    "kind": "error",
    "locator": "§3.4,printed577;arXivv5 andauthor ri4 PDF16",
-   "printed": "H¹(Γ,G_sc)=1",
+   "printed": "“… we say that the images of z₁ and z₂ in H¹(u → W, Z → G) are equivalent if z₂·z₁⁻¹ belongs to the image of Z¹(Γ, G¹_sc) … we obtain a functor H¹_ab(u → W) : ℛ → Sets and a surjective map H¹(u → W) → H¹_ab(u → W), which is an isomorphism whenever H¹(Γ, G_sc) = 1. This condition holds when F is p-adic by Kneser’s theorem [Kne65], as well as when G is a torus because then G_sc = 1.” (printed p. 577).",
    "correction": "Require H1(F,Gprime_sc)=1 for every inner twist occurring in the equivalence fibers. The claimed conclusion remains valid for p-adic F and for tori.",
    "reason": "Take G=SL2 over R, Z=mu2. Ordinary H1(R,SL2)=1 by Hilbert90 and determinant surjectivity. Let J=(0,1;-1,0). The strong real forms ±J sigma have square -I and define distinct rigid classes over the same compact inner form. An isomorphism would require gJ=-J conjugate(g). Solving gives g=(a,b;conjugate(b),-conjugate(a)), whose determinant is -|a|²-|b|², never1. Their relative cocycle -I lifts to the simply connected compact twist itself, so D07 identifies them. Hence H1rig->H1ab is not injective despite vanishing for the untwisted Gsc. Corollary3.8 already describes the three rigid classes over two inner forms. (cc-442dc5) Rechecked: the equivalence relation of §3.4 divides by Z^1(Γ, G1_sc) for the twist G1, and H^1(R, SU(2)) ≠ 1 although H^1(R, SL2) = 1. The two cases the paper names (p-adic F by Kneser, and tori) satisfy the corrected hypothesis, so the uses in §4 are unaffected.",
    "affects": "a stated result",
@@ -69429,15 +69429,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed, and this is the one finding that reaches a stated result. The criterion is printed as quoted, and the equivalence relation defined four lines above it divides by the image of Z¹(Γ, G¹_sc) — the simply connected cover of the TWIST G₁, not of G — so injectivity needs the vanishing for every inner twist that occurs, and not merely for G_sc. Over F = R with G = SL₂ the hypothesis holds, H¹(R, SL₂) = 1, while the relevant twist is the compact form: by Serre, Galois Cohomology III.4.5, H¹(R, K) for compact connected K is the set of conjugacy classes of elements of order dividing 2, so |H¹(R, SU(2))| = 2, the classes of ±I. The criterion as stated therefore does not give injectivity in the real case. The two cases the paper names are unaffected — Kneser’s theorem gives the vanishing for every simply connected group over a p-adic field, and for a torus every twist has trivial G_sc — so nothing in §4 or the applications moves, which is what the recorded correction says. It is also consistent with the author’s own errata for Corollary 5.4, which observes that the H¹ versus H¹_ab distinction ‘makes no difference in the p-adic case, but it does make a difference when F = R’. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E08",
    "kind": "misprint",
    "locator": "ProofLemma4.5,printed584 final display;rendered publishedPDF26",
-   "printed": "C²(Γ,S_E/F); =p(ξ_(k+1))",
+   "printed": "“Indeed, in C²(Γ, S_{E_k/F}) one computes that [(σ, τ) ↦ ∏_v l_k c_{k+1}(σ, τv)] ⊔_{E_k/F} δ_e = p(l_{k+1}c_{k+1} ⊔_{E_{k+1}/F} δ_e) = p(ξ_{k+1})”, the final display of the proof of Lemma 4.5, two lines after α_k = η_k ⊔_{E_k/F} δ_e ∈ C¹(Γ, u_k) (printed p. 584).",
    "correction": "The calculation is in C1, and its last equality to p(xi_(k+1)) must be removed. After differentiating, the xi term occurs in the next coboundary calculation.",
    "reason": "Both preceding terms are unbalanced products of degrees2 and-1, hence degree1. The xi term has degree2. The correct degree-one equality is what identifies alpha with eta_k cup delta_e. The same degree mismatch appears in the targeted author version. (cc-442dc5) Reclassified to affect nothing: the displayed computation is of degree-one cochains and the ξ-term belongs to the next coboundary; with those two corrections the identification of α with η_k ⊔ δ_e is as stated.",
    "affects": "nothing",
@@ -69452,15 +69452,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed. The display is printed in C²(Γ, S_{E_k/F}) and ends ‘= p(ξ_{k+1})’, but the object being computed is α_k = η_k ⊔_{E_k/F} δ_e, stated two lines above to lie in C¹(Γ, u_k): the ⊔-product of a 2-cochain with the degree-(−1) Tate cochain δ_e has degree 1, while p(ξ_{k+1}) is a 2-cochain, so the last equality is a degree mismatch. The ξ-term belongs to the coboundary computation that follows, and with that removed the identification of α_k with η_k ⊔ δ_e is as stated — which is why the continuation’s reclassification to ‘affects nothing’ is right. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E09",
    "kind": "misprint",
    "locator": "ProofTheorem4.11 diagram,printed590;rendered publishedPDF32",
-   "printed": "H¹_sc",
+   "printed": "The diagram in the proof of Theorem 4.11, whose lower row is labelled H¹_sc, where §3.4 and the statement of the theorem use H¹_ab (printed p. 590).",
    "correction": "Use H1_ab in the published diagram.",
    "reason": "The published§3.4 and Theorem4.11 use H1_ab for the quotient functor. The older arXiv version consistently called it H1_sc, so this is a leftover notation in the published version, not an error in the older naming.",
    "affects": "nothing",
@@ -69475,15 +69475,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed as a notational leftover. The published §3.4 defines the quotient functor as H¹_ab and Theorem 4.11 is stated with it, while the diagram in the proof is labelled H¹_sc, which is the name the earlier arXiv version used throughout. So this is a leftover in the published version rather than an error in either naming. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E10",
    "kind": "error",
    "locator": "§5.1,printed592;arXivv5 andauthor ri4 PDF29",
-   "printed": "an infinite set",
+   "printed": "“After taking the limit over all Z, this is no longer true, and we obtain an infinite set of isomorphism classes of rigid inner twists mapping to a given (ordinary) inner twist.” (printed p. 592).",
    "correction": "Say that the all-Z fibers may become infinite, not that they always do.",
    "reason": "For G=SL2 the center mu2 is finite and is already the largest finite central subgroup, so the colimit stabilizes at the finite H1rig set. For a split torus Proposition3.5 gives a singleton for every finite Z, hence a singleton colimit even though infinitely many Z are available. (cc-442dc5) Reclassified to affect nothing: the sentence is an expository remark in §5.1 that no argument uses. The intended claim is that the limit over Z may be infinite.",
    "affects": "nothing",
@@ -69498,15 +69498,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed as printed, and the reclassification to ‘affects nothing’ is right. The sentence asserts flatly that the colimit over Z is infinite, and it need not be: for G = SL₂ the centre μ₂ is already the largest finite central subgroup, so the system stabilises, and for a split torus Proposition 3.5 gives a singleton for every Z. It is an expository remark in §5.1 that no later argument uses. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E11",
    "kind": "error",
    "locator": "§5.3,printed600;arXivv5 andauthor ri4 PDF36",
-   "printed": "unit circle",
+   "printed": "“In contrast to the case of Δ[e, z], a function Δ[e, z]_abs as above is not unique. The condition imposed on it specifies it only up to multiplication by a complex scalar in the unit circle.” (printed p. 600).",
    "correction": "The stated ratio condition determines an absolute factor up to C units. Restrict the ambiguity to the unit circle only after imposing a modulus normalization.",
    "reason": "If Delta satisfies every displayed relative-ratio condition, then 2*Delta satisfies the same conditions. The scalar2 is not of unit modulus. This concerns the sufficiency of the written defining condition, not the standard separately normalized transfer factor. (cc-442dc5) Reclassified to affect nothing: the ratio condition determines Δ[e,z]_abs up to C^×, as the finding says, but the paper immediately normalizes it by a splitting or a Whittaker datum, and nothing uses the unit-circle claim.",
    "affects": "nothing",
@@ -69521,15 +69521,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed as printed, and the reclassification is right. The displayed ratio condition is invariant under scaling Δ[e, z]_abs by any complex scalar — multiplying by 2 preserves every ratio — so it pins the function down only up to C^×, not up to the unit circle. The paper does not rest on the stronger claim: the very next sentence supplies the normalisation, ‘A normalization of Δ[e, z]_abs can be specified by either choosing a splitting for G … or by choosing a Whittaker datum’. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E12",
    "kind": "misprint",
    "locator": "§5.6 Cayley calculation,printed616;rendered publishedPDF58;author/arXivPDF49",
-   "printed": "s_α Ad(φ(j))(s_α)=s_α²",
+   "printed": "“… sets s_{α∨} = exp((iπ/4)(X_{α∨} + X_{−α∨})) ∈ G. Then s_{α∨}·[Ad(φ(σ))s_{α∨}] = s²_{α∨} = w_{α∨}, where w_{α∨} is the reflection with respect to α∨.” (printed p. 616).",
    "correction": "Use s_alpha Ad(phi(j))(s_alpha)^-1=s_alpha². Its IMAGE in the Weyl group is the reflection; the representative itself may have order4.",
    "reason": "The source says the root spaces have eigenvalue-1, so theta(s_alpha)=s_alpha^-1. Thus the printed left side is1. In the rank-one projective model theta=Ad diag(i,-i), s=(I+iK)/sqrt2 gives s²=iK, a nontrivial Weyl representative. The exact Gaussian-matrix diagnostic verifies this. Shelstad1982 printed423 uses twisted conjugation s_alpha phi(j) s_alpha^-1. (cc-442dc5) Reclassified to affect nothing: §5.6 recalls Shelstad's construction, where Ad(φ(σ)) acts by −1 on the root vectors, so the intended identity is s_α·Ad(φ(σ))(s_α)^{-1} = s_α², as in [She82, p. 423].",
    "affects": "nothing",
@@ -69544,15 +69544,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed as printed. Since Ad(φ(σ)) acts by −1 on the root vectors, θ(s_{α∨}) = s_{α∨}⁻¹ and the printed left-hand side s_{α∨}·[Ad(φ(σ))s_{α∨}] is 1, not s²_{α∨}; the intended identity is the twisted one, s_{α∨}·[Ad(φ(σ))s_{α∨}]⁻¹ = s²_{α∨}, as in Shelstad’s construction that §5.6 is recalling. The continuation’s reclassification to ‘affects nothing’ is right, since the construction it feeds is Shelstad’s and is used only through the image in the Weyl group. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E13",
    "kind": "misprint",
    "locator": "§5.6 Cayley product,printed616;rendered publishedPDF58;author/arXivPDF49",
-   "printed": "∏_(α∈Δ_φ^∨) s_α",
+   "printed": "“Since any two nonproportional roots α∨, β∨ ∈ Δ∨_φ are strongly orthogonal, the elements s_α and s_β commute. Set s = ∏_{α∨∈Δ∨_φ} s_{α∨} and w = s².” (printed p. 616).",
    "correction": "Take a product over a positive subsystem, equivalently one root from each opposite pair, as in Shelstad1982 printed423.",
    "reason": "Delta_phi^vee is described as a root system A1^r, hence contains both signs. The compatible root-vector formula gives the same rank-one factor for alpha and -alpha, so multiplying the full pair squares the reflection. For the tempered PGL2 parameter with trivial C-unit restriction and phi(j)=class diag(i,-i), this makes the Weyl action trivial and fails to enlarge the torus Levi; the single positive-root factor gives the required rank-one enlargement. Original Shelstad scans415–423 were inspected, with an explicit positive-root product at423. (cc-442dc5) Reclassified to affect nothing: the text itself says the product is over pairwise nonproportional, strongly orthogonal roots, that is, one root from each ± pair, which is Shelstad's positive-root product [She82, p. 423].",
    "affects": "nothing",
@@ -69567,15 +69567,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed as a notational point, with the continuation’s reclassification. Δ∨_φ is a root system of type A₁ʳ and so contains both signs, and the rank-one factors for α∨ and −α∨ coincide, so a product literally over all of Δ∨_φ would square each reflection; Shelstad takes one root from each pair. The published sentence immediately before the product does say ‘any two nonproportional roots α∨, β∨ ∈ Δ∨_φ are strongly orthogonal’, which fixes the intended reading, so this reaches nothing. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E14",
    "kind": "misprint",
    "locator": "ProofProposition5.6,printed605,relative cochain formula;published text",
-   "printed": "σ(g)",
+   "printed": "“… = ((g₁⁻¹u(σ)σ(g))⁻¹, (g₂⁻¹u(σ)σ(g))) … The image in V of this 1-cochain equals ((g₁⁻¹z(s(σ))σ(g))⁻¹, (g₂⁻¹z(s(σ))σ(g)))”, in the proof of Proposition 5.6 (printed p. 605).",
    "correction": "Use sigma(g_i) in each cochain indexed by i.",
    "reason": "The formula starts with g_i^-1 z(sigma) and its target is the corresponding centralizer S_i. The unindexed g is not the chosen conjugator for that pair. This is a local index repair, not a failure of the relative-transfer comparison.",
    "affects": "nothing",
@@ -69590,15 +69590,15 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "Confirmed. The displayed cochain is printed as ((g₁⁻¹u(σ)σ(g))⁻¹, (g₂⁻¹u(σ)σ(g))), with the conjugators indexed on the left of each component and an unindexed σ(g) on the right; the components target the two centralizers S₁ and S₂, so the index belongs on both, and the same pattern recurs in the following line. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KALETHA-16/E15",
    "kind": "misprint",
    "locator": "§5.7,printed626,local refined datum;rendered publishedPDF68;author ri4 PDF57",
-   "printed": "Z(Ĝ_sc)",
+   "printed": "“The cohomology class [z_v] ∈ H¹(u_v → W_v, Z(G_sc) → G_sc) corresponds via Corollary 5.4 to a character of Z(Ĝ_sc), and the image of [z_v] in H¹(u_v → W_v, Z(G_sc) → G) corresponds to the character of (Z(Ĝ_sc) × Z(Ĝ))⁺_v that is the pull-back of the character of Z(Ĝ_sc) via the projection Z(Ĝ_sc) × Z(Ĝ) → Z(Ĝ_sc) onto the first factor.” (printed p. 626).",
    "correction": "Use Z(Gsc), the physical finite central subgroup used by the local rigidifications.",
    "reason": "The local z_v are explicitly cocycles for Z(Gsc)->Gsc->G, and refined data are defined relative to a finite central subgroup of G over F. The printed dual center is a complex algebraic group in a different carrier. The surrounding dual cover calculation is consistent with the corrected physical subgroup.",
    "affects": "nothing",
@@ -69613,9 +69613,9 @@
    "owner": "PAPER-KALETHA-16",
    "file": "research/blueprint/papers/PAPER-KALETHA-16.result.json",
    "citation": "Tasho Kaletha, \"Rigid inner forms of real and p-adic groups\", Annals of Mathematics 184 (2016), no. 2",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PAPER-KALETHA-16",
+   "reviewReason": "REJECTED. The printed Z(Ĝ_sc) is correct, and so is the Z(G_sc) that appears in the same sentence; the finding has read the two carriers as one. What the sentence says is that a class in H¹(u_v → W_v, Z(G_sc) → G_sc) — whose coefficient group is the physical centre, exactly as the finding wants — corresponds VIA COROLLARY 5.4 to a character of Z(Ĝ_sc). Corollary 5.4, on printed p. 598, pairs H¹(u → W, Z → G) with π₀(Z(Ĝ̄)⁺), i.e. with the dual side, and the remark immediately after it computes that group in exactly this case: ‘if G is split, this implies π₀(Z(Ĝ̄)⁺) = Z([Ĝ]_sc)’. So a character of Z(Ĝ_sc) is precisely what the pairing produces, and it is the standard object indexing refined data in this theory. Replacing it by the physical Z(G_sc), as the finding proposes, would make the sentence false. Nothing else in the finding survives that correction, so it should not enter the register. Re-checked in the published Annals PDF, which this review fetched at annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p06-p.pdf (SHA-256 55fc2ed2fe20c5f02abc23205af1daed54b1df9e8dbb7b5efaea9d6859027c2b, 74 pages, printed page = PDF page + 558), and the quotation above was taken from it."
   },
   {
    "id": "PAPER-KHAYUTIN-19/E1",
