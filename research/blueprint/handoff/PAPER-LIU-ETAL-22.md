@@ -1,40 +1,21 @@
 # Handoff: PAPER-LIU-ETAL-22
 
-Issue #1280. Claude Code, session `cc-d67081`, 23 September 2026. Status: **partial** (first extraction).
+Codex — codex-c83e7a — 23 September 2026. **Partial checkpoint.**
 
-## Done
+The published 269-page paper and 35-page survey are fully read; targeted original potential-map §2 and rigid-deformation §§3.5–3.6 have also been read in full as recorded in the result. Preserve the source hashes and per-version reading ledger. Do not report the entire original prerequisite papers as read.
 
-- `research/blueprint/papers/PAPER-LIU-ETAL-22.result.json`: 42 items (10 planned, 32 missing), four routes, 11 prerequisites.
-- `research/blueprint/papers/PAPER-LIU-ETAL-22.md`: the report.
+The result contains 192 items, 5 library/20 planned/167 missing, 76 definitions/constructions, 228 API entries, 152 unit-test specifications, 324 internal edges and 21 routes. Every missing item is routed once. Fifteen source findings need independent review. The report contains the full standalone exact-check program (1,806 assertions, 20 families) and proof skeletons for the Gaussian/Hermitian identities, plus the normal-closure repair to the tensor-irreducibility argument.
 
-**What was read.** arXiv v3 (179 pp.): §1 in full, the section structure of §§2–8 and the appendices, and the statements — not the proofs — of the results listed in `source.readSections`. The published version is behind the Springer paywall. The paper has **363 numbered statements**; 42 are items.
+Resume first at E1/E2 and the main arithmetic proof. E1 uses a j=2 Kummer example and does not refute the main j=1 GI(T²−1) application; prove the required joint lifting compatibility there. E2 invalidates the stated inference from an abundant matrix to a diagonal basis; repair with controlled finite-index shrink and preserve the distinguished first class and uniform exponents. Do not silently weaken the main theorem or claim it disproved.
 
-**One bibliographic point worth keeping.** The companion [LTXZZ] that supplies the R=T theorem *is* arXiv:2108.06998, which was the original Appendix E of this paper and was separated out in v3 at a referee's suggestion; it has since appeared as Acta Math. Sinica 40 (2024), 1599–1644. So the appendices here are A–D, and the R=T theorem is deliberately outside this article.
+Then address E8’s connecting map, E13’s integral level comparison, and X03’s nonproper potential-map extension. Establish the actual Fp² descent for the Fermat fibres and the reduced H0 convention at rank two. U1’s global trivial-P1-bundle claim remains an investigation; the report deliberately uses only the canonical projective bundle. U2 needs diagram-image collation.
 
-## Judgement calls for the reviewer
+Complete the extraction census and split bundled entries. Start with S03/S06/S08/S12/S16/S17/S22, A11, G06–G07/G22/G39–G43/G46/G52, R07/R09/R11, X02/X04/X08, D04, B10/B12 and C04. The source-specific hypotheses in broad entries are provisional; replace them with standalone exact signatures and every required proof leaf before marking complete.
 
-**Four routes, three of which join ids other extractions already propose.** PROTOCOL §15 says build on, never duplicate, and this paper sits in the middle of a cluster that is already extracted:
+Preserve ownership: unitary models coalesce with UnitaryRapoportZinkSpacesAndRSZModels; definite GGP periods coalesce with GanGrossPrasadConjecturesForClassicalGroups and import JacquetRallisRelativeTraceComparison. Shared Gaussian polynomials go to QM.0, simultaneous Chebotarev/error bounds to ES.1/ES.4, torsion concentration to IG.5/IG.7, general cycle realization to MotivesAndAlgebraicCycles:MC.2, and the weight sequence to LPV.7. Rigid integral R=T is not supplied by a generic support theorem.
 
-1. `UnitaryRapoportZinkSpacesAndRSZModels` (part-ii of `PELModuli`) takes §§3–5. **PAPER-LI-LIU-21, PAPER-LI-LIU-22 and PAPER-DISEGNI-LIU-24 already cite exactly those sections as `[LTXZZ]`, mark the items missing, and route them there.** This extraction supplies them from the source, so a reviewer should check that the items here match what those three expect.
-2. `GanGrossPrasadConjecturesForClassicalGroups` (new, proposed by PAPER-JIANG-ZHANG-20 and three others) takes Lemma 8.2.1, the diagonal cycle and Conjecture 8.3.1.
-3. `ArithmeticLevelRaisingAndBipartiteEulerSystems` (new) takes the method and the main theorems. This is the only genuinely unhoused piece.
-4. `PolarizedAutomorphyLifting` (part-ii of `PotentialAutomorphyInfrastructure`, proposed by PAPER-BOXER-CALEGARI-GEE-25 and the Newton–Thorne extractions) takes the companion's R=T theorem as an interface item.
+Acquire and read the original external proof inputs listed in coverage G5. The whole main bibliography was read, but that does not close the referenced proofs. Keep Hypothesis 3.2.10, survey Conjecture 10.8 and the Chow/Abel–Jacobi conjectural bridge visible. Recheck library and concurrent roadmap changes at the next input snapshot.
 
-A reviewer might prefer to fold route 3 into a Part II of `SelmerIwasawaCohomology`, which already has two proposed Part IIs. I kept it separate because a Selmer Part II would take the Selmer half and leave level raising, the reciprocity laws and the Shimura-set periods unplaced.
+Checks: paper validator passes; structural DAG/API/test/routing assertions pass; exact-check program passes. The intake three-file check also passes. No configured Lean toolchain was available, so no Lean compilation is claimed. Only the result, report and this handoff are authorized deliverables.
 
-**Section-level items.** Six items summarise sections rather than quoting numbered statements — `moduli-smooth` (§4, 50 statements), `moduli-special` (§5, 90), `nearby-cycles`, `unitary-hecke`, `unitary-shimura-sets`, `appendix-inputs` — and their notes say so. They are placeholders for the extraction that route 1 needs.
-
-**No `sourceIssues` field**, because the proofs were not read: a missing list, not an empty one.
-
-## Resume here
-
-1. **Extract §§4–5 statement by statement.** This is the highest-value remaining work, because three completed extractions already depend on it. §4 (pp. 36–60) builds the smooth moduli schemes and Construction 4.6.1; §5 (pp. 60–110) is the strictly semistable case — Theorems 5.2.5, 5.3.4, 5.4.4 and 5.5.3 are its structure theorems for the special fibre, and the Tate-cycle computation is the technical heart of the article. Compare each item against the `[LTXZZ, …]` citations in PAPER-LI-LIU-21, PAPER-LI-LIU-22 and PAPER-DISEGNI-LIU-24 so that the two sides agree.
-2. **Then §§2, 6 and 7.** §2 has 39 numbered statements; Propositions 2.4.6, 2.6.6 and 2.6.7 are recorded here by their role and need exact statements. §6 has 24 and §7 has 15; the assumptions 6.1.4, 6.1.6, 7.2.2–7.2.4 and 7.3.2 should each become items, since they are what an admissible prime is designed to guarantee.
-3. **Then §§3 and 8 in detail**, and the appendices A–D. Appendix D is the Caraiani–Scholze modification; Propositions D.1.3 and Corollary D.1.4 are named in the main text and deserve items.
-4. **Render page images before transcribing.** This paper's notation (V^◦_{n_0}, K^◦_{n_0}, Sh(V^◦_n), ∇^1_m, E^{0,2r}_{2,m}, H^1_sing(Q_{p²}, …)) survives `pdftotext` only roughly; every statement recorded here was read in the layout text and the ones with subscript-heavy displays were checked twice, but §§5–7 will need images.
-5. **Read the proofs for `sourceIssues`.** Nothing was checked beyond the consistency of the introduction's theorems with their body forms, which agree.
-6. **Consider extracting the companion** (arXiv:2108.06998) as its own job: it carries the R=T theorem and is cited by this paper as [LTXZZ]. It is not in the queue under that name.
-
-## Checks
-
-`python3 scripts/check_paper.py` reports ok; `python3 research/blueprint/intake.py check-files` reports 3 files, 0 problems. Every missing item is routed exactly once across the four routes. Prerequisite DOIs were resolved on Crossref except the Gan–Gross–Prasad Astérisque volume, which links to MathSciNet. The library survey ran against the pinned declaration index. Lean: none.
+Integration note: PR #2181 was detected and reconciled after confirmed reclaim 5792894022. Preserve all 42 legacy references through the continuation mapping (41 stable item IDs and one appendix-placeholder supersession alias), the prior completion provenance and inherited bibliography. Draft short IDs in this handoff resolve through draftAlias. Keep the four original proposal IDs; the arithmetic proposal is now a Selmer Part II and the rigid R=T extension coalesces with PolarizedAutomorphyLifting.
