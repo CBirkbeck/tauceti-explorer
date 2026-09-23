@@ -834,8 +834,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-ZHOU-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1069"
+   "state": "pending",
+   "note": "released on GitHub issue #1069"
   },
   {
    "id": "REV-PAPER-KISIN-ZHOU-25",
@@ -1237,8 +1237,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-YU-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1091"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1091",
+   "finishedAt": "2026-09-23T08:37:15Z"
   },
   {
    "id": "REV-PAPER-YU-23",
@@ -1865,8 +1866,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BROWNING-SAWIN-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1125"
+   "state": "external",
+   "note": "claimed on GitHub issue #1125"
   },
   {
    "id": "REV-PAPER-BROWNING-SAWIN-20",
@@ -5186,8 +5187,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-KISIN-MADAPUSIPERA-SHIN-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1314"
+   "state": "external",
+   "note": "claimed on GitHub issue #1314"
   },
   {
    "id": "REV-PAPER-KISIN-MADAPUSIPERA-SHIN-22",
