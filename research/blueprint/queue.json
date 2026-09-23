@@ -2435,8 +2435,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CADORET-HUI-TAMAGAWA-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1157"
+   "state": "pending",
+   "note": "released on GitHub issue #1157"
   },
   {
    "id": "REV-PAPER-CADORET-HUI-TAMAGAWA-17",
@@ -7460,7 +7460,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1446"
   },
   {
    "id": "REV-PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
