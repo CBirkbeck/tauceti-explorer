@@ -785,7 +785,8 @@
    ],
    "avoidAccountOf": "PAPER-KINGS-SPRANG-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-KINGS-SPRANG-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1066"
   },
   {
    "id": "PAPER-LAWRENCE-SAWIN-25",
@@ -861,8 +862,9 @@
    ],
    "avoidAccountOf": "PAPER-KISIN-ZHOU-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-KISIN-ZHOU-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1070"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1070",
+   "finishedAt": "2026-09-23T15:53:16Z"
   },
   {
    "id": "PAPER-CESNAVICIUS-SCHOLZE-24",
@@ -4147,8 +4149,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -10641,7 +10643,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #105"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_AlgebraicTopology",
@@ -11349,7 +11352,8 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #125"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_CompactGroups",
@@ -11600,8 +11604,9 @@
    ],
    "avoidAccountOf": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
    "prompt": "research/blueprint/prompts/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #132"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #132",
+   "finishedAt": "2026-09-23T15:53:19Z"
   },
   {
    "id": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
