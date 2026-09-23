@@ -3289,7 +3289,8 @@
    ],
    "avoidAccountOf": "PAPER-BOXER-PILLONI-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-BOXER-PILLONI-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1200"
   },
   {
    "id": "PAPER-MAO-WAN-ZHANG-26",
@@ -3702,7 +3703,8 @@
    ],
    "avoidAccountOf": "PAPER-IYENGAR-KHARE-MANNING-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-IYENGAR-KHARE-MANNING-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1223"
   },
   {
    "id": "PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -4246,8 +4248,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -5484,7 +5486,8 @@
    ],
    "avoidAccountOf": "PAPER-BHATT-MATHEW-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHATT-MATHEW-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1321"
   },
   {
    "id": "PAPER-COLMEZ-DOSPINESCU-NIZIOL-21",
@@ -5595,8 +5598,9 @@
    ],
    "avoidAccountOf": "PAPER-PILLONI-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-PILLONI-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1327"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1327",
+   "finishedAt": "2026-09-23T21:57:40Z"
   },
   {
    "id": "PAPER-CESNAVICIUS-19",
