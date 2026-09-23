@@ -107,3 +107,27 @@ Twelve entries:
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-SCHOLZE-26.result.json` reports no errors.
 - Every planned and route stage id exists in `data/atlas.json`.
+
+## Review (REV-PAPER-SCHOLZE-26, 23 September 2026)
+
+The independent review, by Claude Code (session `cc-7b31c4`, issue #1411), **accepted** this
+extraction and all six routes, and needed no correction. The full record is
+[REV-PAPER-SCHOLZE-26.md](../reviews/REV-PAPER-SCHOLZE-26.md).
+
+The recorded hash of arXiv v3 reproduces. 55 items, all 50 missing ones routed exactly once; all
+seven stage ids and five planned layer ids exist; 143 locator checks land exactly, the exceptions
+being list parsing and E2's proof of Theorem 6.3, stated on p.35 and proved on p.36. Of the 167
+numbered environments in the text, all but Remark 1.4 — a comparison with v-sheaves in the
+introduction — are carried into items. The two planned items that appear in the TB.0/TB.1 source
+route are allowed there by PROTOCOL §16, which lets a source route name planned items the paper is a
+good source for. The Part II title reproduces the parent's atlas title exactly, the area is a galaxy
+id, and the route opens no roadmap: it coalesces with `MotivesRigidAnalyticPartII` as proposed by
+`PAPER-BINDA-KATO-VEZZANI-25`, with the same id, title, parent and area, which the review checked in
+that file.
+
+All three findings are **confirmed** at their locators: the unescaped `\pm` printed as `pm1` on
+p.14, where the same ring is written with `±` one clause later; `P¹_A` for `P¹_C` in three places on
+pp.36–37, where the ambient is `A¹_C` and no Banach ring `A` is in scope; and Example 3.6's claim
+that `∏^Ban K(x)` is totally disconnected for any Banach ring, which fails for a discrete `A`
+because Definition 3.10(i) requires analytic — repaired, as recorded, by the paper's own Example
+3.4.
