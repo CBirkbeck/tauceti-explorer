@@ -4571,8 +4571,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LIU-ETAL-22.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1280"
+   "state": "external",
+   "note": "claimed on GitHub issue #1280"
   },
   {
    "id": "REV-PAPER-LIU-ETAL-22",
@@ -6753,8 +6753,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-20.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1402"
+   "state": "external",
+   "note": "claimed on GitHub issue #1402"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-20",
@@ -8410,8 +8410,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-NELSON-VENKATESH-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2190"
+   "state": "pending",
+   "note": "released on GitHub issue #2190"
   },
   {
    "id": "REV-PAPER-NELSON-VENKATESH-21",
