@@ -25483,6 +25483,174 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-ICHINO-PRASANNA-23/E1",
+   "kind": "gap",
+   "locator": "Section 2.1.1, p. 14",
+   "printed": "Let L be a number field given with a fixed embedding in ℂ. An L-Hodge structure pure of weight n will be an L-vector space V equipped with a descending filtration F^·V_ℂ on V_ℂ = V ⊗_L ℂ such that for p + q = n + 1, we have V_ℂ = F^pV_ℂ ⊕ \\overline{F^qV_ℂ}.",
+   "correction": "Require L ⊂ ℝ (so that complex conjugation acts on V ⊗_L ℂ), or define an L-Hodge structure as a ℚ-Hodge structure with an action of L by endomorphisms.",
+   "reason": "For L ⊄ ℝ the map 1 ⊗ (complex conjugation) is not well defined on V ⊗_L ℂ, so \\overline{F^qV_ℂ} has no meaning. Every field the definition is applied to — ℚ, ℚ(k) and the field of rationality ℚ(π) of a self-dual Hilbert newform — is totally real, so nothing in the paper is affected; the non-self-dual sketch of §1.3.2 avoids Hodge structures with coefficients ℚ(χ).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E2",
+   "kind": "misprint",
+   "locator": "Section 3.2, p. 19",
+   "printed": "for K small enough. This is concentrated in degree 2d and is independent of the choice of K.",
+   "correction": "This is concentrated in degree d.",
+   "reason": "Sh_B has complex dimension d = |Σ|, and the π_B-isotypic part of its cohomology lies in the middle degree d, as §1.1 states ('concentrated entirely in the middle degree d') and as Theorems 1, 3.2 and 12.4 use (H^d(X_i)_{π_i}).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E3",
+   "kind": "misprint",
+   "locator": "Section 4.1, rotated diagram, p. 22",
+   "printed": "G(U_B(V^♯) × U_E(V^♯_0))^0/F^×   and   G(U_B(V^♯) × U_E(V^♯_0))^0",
+   "correction": "G(U_B(V^♯) × U_B(V^♯_0))^0/F^× and G(U_B(V^♯) × U_B(V^♯_0))^0",
+   "reason": "V^♯_0 is a one-dimensional skew-hermitian B-space; the text defines 𝒢_B = G(U_B(V^♯) × U_B(V^♯_0))^0/F^× and 𝒢̃_B = G(U_B(V^♯) × U_B(V^♯_0))^0 on p. 21 and uses U_B(V^♯_0) in Propositions 5.10–5.11.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E4",
+   "kind": "error",
+   "locator": "Section 4.3, p. 24",
+   "printed": "The set of components of Sh_{𝒢̃_B} is in bijection with the Shimura variety attached to (T_1, h_1)",
+   "correction": "The morphism of Shimura data 𝒢̃_B → T_1 induces a map from the set of components of Sh_{𝒢̃_B} to Sh(T_1, h_1); it need not be a bijection.",
+   "reason": "The derived group (B_1^{(1)} × B_2^{(1)})/{±1} is not simply connected, so the components are governed by 𝒢̃_B/ρ(𝒢̃_B^{sc}) rather than by T_1 (Deligne, Corvallis 1979, 2.1.3); the extra square-class part G^der(𝔸_f)/ρ(G^{sc}(𝔸_f)), the restricted product of the groups F_v^×/F_v^{×2} over the finite places, is not absorbed by the rational points in general, just as the components of Sh_K(PGL_2) are not a point. Only the map is used, to pull back the classes c_η.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E5",
+   "kind": "misprint",
+   "locator": "Section 4.3, p. 24",
+   "printed": "we fix a finite order character η of E^{(1)}\\𝔸_E^{(1)} and define a character of T_1 by η([t_1, t_2], α) = η((t_1t_2)^{-1}α). The pull back of this character to Z(G_1) is given by η(t, α) = η(t^{-1}α).",
+   "correction": "Take η a finite-order character of 𝔸_E^×/E^× trivial on 𝔸_F^×, as in §10.4 and Lemma 10.5; then η([t_1, t_2], α) = η((t_1t_2)^{-1}α) = η(α) is a character of T_1 and its pullback to Z(G_1) is η(t^{-1}α) = η(α).",
+   "reason": "On T_1, t_1t_2 = N(α), so (t_1t_2)^{-1}α has norm N(α)^{-1} and does not lie in 𝔸_E^{(1)}; a character of E^{(1)}\\𝔸_E^{(1)} cannot be evaluated on it. Read through Hilbert 90 (α ↦ α/α^ρ), the two formulas differ by a square on Z(G_1). With η on 𝔸_E^×/E^×𝔸_F^×, the reading §§1.2 and 10.4 use, both are consistent.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E6",
+   "kind": "misprint",
+   "locator": "Proposition A.1(i), p. 101",
+   "printed": "z_{𝕐_v}(g_1, g_2) = s_v(g_1g_2) / (s_v(g_1) s(g_2))",
+   "correction": "z_{𝕐_v}(g_1, g_2) = s_v(g_1g_2) / (s_v(g_1) s_v(g_2))",
+   "reason": "s_v is the local map being constructed; s without subscript is the global notation of §A.6 onwards and is not yet defined at this point.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E7",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 11.6, case (p, q) = (1, 1), p. 88",
+   "printed": "(1, 1) + (k_v − 1 − 1, 2k_v − 4 + 1 − (k_v − 1) = (k_v − 1, k_v − 1).",
+   "correction": "(1, 1) + (k_v − 1 − 1, 2k_v − 4 + 1 − (k_v − 1)) = (k_v − 1, k_v − 1).",
+   "reason": "A closing parenthesis is missing; the computation itself is right (k − p = k_v − 2, m + p − k = k_v − 2).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-ICHINO-PRASANNA-23/E8",
+   "kind": "gap",
+   "locator": "Proof of Theorem 12.4, p. 99",
+   "printed": "(We note that since the action of Gal(ℚ̄/F_Σ) on the components of Sh_{𝒢̃_B} is trivial, the class c is Gal(ℚ̄/F_Σ)-invariant.)",
+   "correction": "Choose c in the ℚ-subspace of Gal(ℚ̄/F_Σ)-invariant combinations of fundamental classes of components. It is defined over ℚ because Galois permutes the components, and it contains c_η after extension of scalars to ℚ(η): Galois acts on Sh(T_1, h_1) through the reciprocity law of (T_1, μ_1), i.e. by translation by the central elements ([s, s], s), s ∈ 𝔸_{ℚ,f}^×, and η([s, s], s) = η(s^{-1}) = 1 because η is trivial on 𝔸_F^×. The determinant argument then yields a Galois-invariant ℚ-rational c with Res(Ξ_τ(d)) an isomorphism.",
+   "reason": "Galois does not act trivially on the components of Sh_{𝒢̃_B,K} in general: through the map to Sh(T_1, h_1) it acts by translation by ([s, s], s), and the closure of T_1(ℚ) meets the compact open subgroup in the closure of a finitely generated unit group, which cannot contain the image of an open subgroup of Ẑ^×; so for small K some components are not defined over F_Σ. The Galois-invariance of ξ_0 in Theorem 12.4(ii), and hence Theorems 1(ii) and 3.2(ii), rests on this step; the correction restores it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Forum of Mathematics, Pi article page for doi:10.1017/fmp.2023.20 (published 2023, open access; no correction or erratum linked)",
+    "arXiv 1806.10563, abstract page and versions v1 (27 June 2018) and v2 (10 July 2023, 'revised version following referee reports')",
+    "Crossref metadata for 10.1017/fmp.2023.20 (no update or correction relation)"
+   ],
+   "owner": "PAPER-ICHINO-PRASANNA-23",
+   "file": "research/blueprint/papers/PAPER-ICHINO-PRASANNA-23.result.json",
+   "citation": "Ichino–Prasanna, \"Hodge classes and the Jacquet–Langlands correspondence\", Forum of Mathematics, Pi (2023)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-IM-KIM-LE-ETAL-24/E1",
    "kind": "misprint",
    "locator": "Section 0.2.2, the definition of the alternating multiple zeta values (published: Section 1.2.2); present in arXiv v2 and in the published version",
