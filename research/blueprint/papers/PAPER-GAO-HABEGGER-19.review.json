@@ -1,0 +1,52 @@
+{
+  "paper": "PAPER-GAO-HABEGGER-19",
+  "verdict": "accept",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "RP.0, RP.1 and RP.5 own heights, Lang–Néron and the trace, and subvarieties of abelian varieties with torsion; the function-field Néron–Tate height (item 6, now with the correct kernel), the trace (item 3) and the Manin–Mumford inputs go there."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "AbelianSchemesAndArithmeticModuli A2/A6 own the projective presentation of abelian schemes and Poincaré reducibility; the review adds Koizumi's projective normality (item 76), which the admissible immersion (A2)–(A3) uses."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "SF.0/SF.5 own Bertini, flatness, fibre dimension and Bézout, which §6 uses."
+    },
+    {
+      "route": 4,
+      "verdict": "accept",
+      "reason": "LD.6 plans o-minimality and definable counting; the semi-rational Pila–Wilkie version (item 30, now stated as the paper uses it) and Ax's theorem are sources for it."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "IG.0 is the home of the finiteness of étale covers of bounded degree (Lemma B.2, now stated as the paper states it)."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "The Betti map, degeneracy and Theorem 5.1 go to AbelianSchemesBettiMapsPartII, shared with DIMITROV-GAO-HABEGGER-21 and GAO-GE-KUHNE-26. The Betti-map construction must follow the repaired argument (sourceIssues E19)."
+    },
+    {
+      "route": 7,
+      "verdict": "accept",
+      "reason": "The weight-one variation inputs (local period maps, Deligne's semisimplicity and fixed part, Zarhin) go to DegeneratingHodgeStructures, proposed under the same id by BAKKER-KLINGLER-TSIMERMAN-20 and BENOIST-19, as a Part II of Tau Ceti HodgeStructures."
+    },
+    {
+      "route": 8,
+      "verdict": "accept",
+      "reason": "Moriwaki heights are a special case of the Yuan–Zhang adelic theory in YUAN-26's ArakelovGeometryAndAbelianHeightsPartII."
+    },
+    {
+      "route": 9,
+      "verdict": "accept",
+      "reason": "The height inequality (§§6–10), the Geometric Bogomolov Conjecture and the Appendix A/C results go to the uniformity Part II shared with YUAN-26, DIMITROV-GAO-HABEGGER-21 and GAO-GE-KUHNE-26."
+    }
+  ],
+  "notes": "Independent review by Claude Code (session cc-442dc5) of the extraction by cc-fb70e5 (issue #1135).\n\nSources read:\n- the whole of arXiv v3, with the same SHA-256 as the extraction;\n- the published Annals version, collated: the same numbering and mathematics.\n\nMethod: three read-only helper agents of this session split the paper (§§1–4 and Appendix B; §§5–6; §§7–11 and Appendices A and C). Every new finding was checked by the reviewer at the page image.\n\nStatus change: item 9 (absolute Weil height) moves from library to planned by RP.0; Mathlib's Projectivization.logHeight is relative to a field with admissible absolute values. The other planned layers were checked against data/atlas.json: RP.0, RP.5, R11.1, R11.5, LD.6, A5, A6, GN.1.\n\nItems corrected in place: 3, 6, 22, 23, 25, 30, 31, 41, 44, 45, 57, 59, 63, 71, 74. New item 76: projective normality (Koizumi), missing and routed to A2/A6.\n\nSource issues: E1–E17 are confirmed and present in the published version. E11 is half-corrected there. E2's correction is refined to S̄′ ∖ Z, and E8 is extended by a false sentence on p.28.\n\nTen new issues:\n- E18 the Néron–Tate kernel (p.2);\n- E19 the proof of Proposition 4.1(ii)–(iii);\n- E20 torsion P in §3.1;\n- E21 A over K in Appendix B;\n- E22 the sum equals 𝒜 (p.29);\n- E23 the n = 1 case of Proposition 6.1(ii);\n- E24 the statement of Theorem A.3;\n- E25 the base change in Proposition 9.1;\n- E26 S for S′ in §8.3;\n- E27 wrong heading numbers in the published version only.\n\nNone affects a stated theorem.\n\ncheck_paper.py reports ok; every missing item is routed exactly once (66)."
+}
