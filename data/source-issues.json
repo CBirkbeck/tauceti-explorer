@@ -38438,6 +38438,101 @@
    "reviewReason": null
   },
   {
+   "id": "PAPER-KISIN-17/E1",
+   "kind": "error",
+   "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (1.5.2)–(1.5.4)",
+   "printed": "The source presents (1.5.2) without requiring Lie H to be stable under h ↦ φ∘h∘φ^{-1}, gives (1.5.3), and uses Lie U°_G as the coefficient space of ∇_{R_G}.",
+   "correction": "Add to (1.5.2) the hypothesis that Lie H is stable under Frobenius conjugation; delete (1.5.3); in (1.5.4) the connection ∇_{R_G} has coefficients in Lie G.",
+   "reason": "Substituting the formula for β into itself involves conjugation by φ, so the coefficients stay in Lie H only if Lie H is Frobenius-stable. Only (1.5.8) and Corollary (1.5.11) of §1.5 are used later, and (1.5.8) remains true (E2).",
+   "affects": "a stated result",
+   "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.1.",
+   "searched": [
+    "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+   ],
+   "owner": "PAPER-KISIN-17",
+   "file": "research/blueprint/papers/PAPER-KISIN-17.result.json",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-17/E2",
+   "kind": "error",
+   "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), proof of (1.5.8), fourth and fifth paragraphs",
+   "printed": "The source gives the argument in proof (1.5.8), paragraphs four and five.",
+   "correction": "Replace them by the argument of Errata E.2–E.4: the parallel transports σ_α of the s_α cut out Spf A_G (Lemma E.3), and the Frobenius-invariant s̃_α are parallel, so the map factors through A_G.",
+   "reason": "The printed argument relied on the incorrect (1.5.3). The statement of (1.5.8) is unaffected.",
+   "affects": "the proof",
+   "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.2–E.4.",
+   "searched": [
+    "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+   ],
+   "owner": "PAPER-KISIN-17",
+   "file": "research/blueprint/papers/PAPER-KISIN-17.result.json",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-17/E3",
+   "kind": "error",
+   "locator": "Kisin, Integral models for Shimura varieties of abelian type, J. Amer. Math. Soc. 23 (2010) ([Ki 2]), (3.3.9), used in (3.4.11)",
+   "printed": "The source asserts finiteness of ker(A(G_{Z(p)})° → A(G_{2,Z(p)})).",
+   "correction": "The kernel need not be finite. Lemma E.6 shows that the central part has finite index in it, and E.7 rebuilds the quotient S_{K_{2,p}}(G_2, X_2) = [A(G_{2,Z(p)}) × S_{K_p}(G, X)^+]/A(G_{Z(p)})° and its extension property without the finiteness.",
+   "reason": "The finiteness was used only to show that the quotient in (3.4.11) is well defined and has the extension property; E.5–E.7 give both.",
+   "affects": "a stated result",
+   "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.5–E.7.",
+   "searched": [
+    "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+   ],
+   "owner": "PAPER-KISIN-17",
+   "file": "research/blueprint/papers/PAPER-KISIN-17.result.json",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-17/E4",
+   "kind": "error",
+   "locator": "Moonen, Models of Shimura varieties in mixed characteristics (1998), 3.21.1, cited as [Mo, 3.21.1] in Errata E.5",
+   "printed": "It again claims that ker(A(G_{Z(p)})° → A(G_{2,Z(p)})) is finite.",
+   "correction": "As in E3: replace the finiteness by the finite-index statement of Lemma E.6.",
+   "reason": "Errata E.5 notes that the incorrect assertion 'also appears in [Mo, 3.21.1]'. The context (Deligne's construction for abelian type) identifies [Mo] as Moonen's article; see E5.",
+   "affects": "a stated result",
+   "known": "Corrected in print in this paper: Kisin, Mod p points on Shimura varieties of abelian type, J. Amer. Math. Soc. 30 (2017), 'Errata for [Ki 2]' E.5 (noting it).",
+   "searched": [
+    "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+   ],
+   "owner": "PAPER-KISIN-17",
+   "file": "research/blueprint/papers/PAPER-KISIN-17.result.json",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PAPER-KISIN-17/E5",
+   "kind": "misprint",
+   "locator": "Kisin 2017, bibliography (author version p.98)",
+   "printed": "The bibliography uses [Mo] for two entries: B. Moonen’s work on models in mixed characteristics for Shimura varieties, and Y. Morita’s work on Ihara’s conjectures and the moduli of abelian varieties.",
+   "correction": "Give the two references distinct labels.",
+   "reason": "The label [Mo] is used for two different works, so citations such as [Mo, 3.21.1] in Errata E.5 are ambiguous from the bibliography alone.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Kisin 2017 author version (SHA-256 d3c19cdd…, matching the checkpoint), 'Errata for [Ki 2]', pp.96–97, read in full by cc-442dc5 on 23 September 2026. The AMS copy of the published version returned HTML to this environment."
+   ],
+   "owner": "PAPER-KISIN-17",
+   "file": "research/blueprint/papers/PAPER-KISIN-17.result.json",
+   "citation": "Kisin, \"Mod p points on Shimura varieties of abelian type\", Journal of the American Mathematical Society (2017)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PAPER-KISIN-PAPPAS-18/E1",
    "kind": "error",
    "locator": "Lemma 3.1.9 and its proof, printed p. 166",
@@ -56107,7 +56202,6 @@
  "older": [],
  "unchecked": [
   "MordellLawrenceVenkatesh",
-  "PAPER-KISIN-17",
   "PAPER-KISIN-PAPPAS-ZHOU-26",
   "PAPER-MERKURJEV-SCAVIA-26"
  ]
